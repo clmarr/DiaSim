@@ -18,6 +18,7 @@ public class ShiftPhoneByPhone extends ShiftByPhone {
 	
 	private void initializeWithFeats(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations)
 	{
+		targets = new ArrayList<List<SequentialPhonic>>(targs); 
 		destinations = new ArrayList<List<SequentialPhonic>>(); 
 		for (List<SequentialPhonic> targ: targs)
 		{

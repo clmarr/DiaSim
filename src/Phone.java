@@ -1,16 +1,21 @@
 import java.util.HashMap; 
 import java.util.List;
 import java.util.Set;
-import java.util.Arrays; 
+import java.util.ArrayList;
 
 
-public class Phone extends SequentialPhonic {
+// as of May 25, this class is now implementing the RestrictPhone interface, so that Phones can be used along with 
+// FeatMatrixes in otherwise feature-specified structures-- in practice the only place it seems to make sense
+// to use this capability seems for context specification. 
+
+public class Phone extends SequentialPhonic implements RestrictPhone {
 
 	private String featString; // string of 0s, 1s and 2s -- 0 is negative, 2 positive, 1 unspecified
+			// TODO note however in practice we are currently using - negative, + positive, 0 unspecified 
 	private HashMap<String, Integer> featIndices; 
 	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa value. 
 	private String symb; 
-	
+		
 	/**
 	 * Constructor
 	 * @precondition : featvals.size() = featInds.size()
@@ -45,6 +50,7 @@ public class Phone extends SequentialPhonic {
 		featString = dolly.getFeatString();
 		featIndices = dolly.getFeatIndices();
 		mapToSymb = dolly.getFeatSymbMap(); 
+		regenerateSymb(); 
 	}
 	
 	/**
@@ -57,9 +63,10 @@ public class Phone extends SequentialPhonic {
 		featString = dolly.getFeatString();
 		featIndices = dolly.getFeatIndices();
 		mapToSymb = dolly.getFeatSymbMap(); 
+		regenerateSymb(); 
 	}
 	
-	public void regenerateSymb()
+	private void regenerateSymb()
 	{
 		if(mapToSymb.containsKey(featString))	symb = mapToSymb.get(featString);
 		else	symb = "?";
@@ -74,6 +81,7 @@ public class Phone extends SequentialPhonic {
 	
 	/**
 	 * @precondition featExists(featName)
+	 * @return 1 if +, -1 if -, else 0 if unspecified 
 	 * */
 	public int get(String featName)
 	{	
@@ -106,9 +114,32 @@ public class Phone extends SequentialPhonic {
 	@Override
 	public boolean equals(Object other) {
 		if(other instanceof Phone)
-			return this.toString() == other.toString(); 
+			return this.toString().equals(other.toString()); 
 		else	return false; 
 	} 
+	
+	@Override
+	public boolean compare(SequentialPhonic other) 
+	{	return this.equals(other); }
+	
+	@Override
+	public boolean compare(List<SequentialPhonic> phonSeg, int ind)
+	{	return this.equals(phonSeg.get(ind)); }
+	
+	@Override
+	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind)
+	{	System.out.println("forceTruth in Phone called");
+		
+		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>();
+		if(ind > 0)	output.addAll(patientSeq.subList(0, ind)); 
+		output.add(new Phone(this)); 
+		if (ind < patientSeq.size() - 1)	output.addAll(patientSeq.subList(ind, patientSeq.size()));
+		
+		/**List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(patientSeq); 
+		output.set(ind, new Phone(this));*/
+		
+		return output;
+	}
 	
 	public boolean featExists(String ftName)
 	{

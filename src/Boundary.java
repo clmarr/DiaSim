@@ -7,16 +7,24 @@ public class Boundary extends PseudoPhone {
 	
 	public String print() 
 	{
-		if (type == "word bound")	return "#"; 
-		if (type == "morph bound")	return "+";
+		if (type.equals("non word bound"))	return "@";
+		if (type.equals("word bound"))	return "#"; 
+		if (type.equals("morph bound"))	return "+";
 		return "%DEFAULTBOUND%"; // default -- should never be seen. 
 	}
 	
 	public boolean compare(List<SequentialPhonic> phonSeq, int ind)
-	{	return phonSeq.get(ind).getType().equals(type); 	}
+	{	
+		if(type.equals("non word bound"))
+			return phonSeq.get(ind).getType().equals("word bound") == false; 
+		return phonSeq.get(ind).getType().equals(type); 	
+	}
 
 	public boolean compare(SequentialPhonic cand) 
-	{	return cand.getType().equals(type);	}
+	{	if(type.equals("non word phone"))
+			return cand.getType().equals("word bound") == false; 
+		return cand.getType().equals(type);	
+	}
 	
 	//if the unit at the specified index ind is the same as this, do nothing
 	// otherwise, throw an error -- the method forceTruth should not be used to insert

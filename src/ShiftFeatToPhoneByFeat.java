@@ -4,19 +4,23 @@ import java.util.HashMap;
 
 // to invoke null target (i.e. insertion), use empty targSegList
 
+
+//does not support any usage of phones within list of RestrictPhones (i.e. handles FeatMatrixs and PseudoPhones only,
+//except for the context where limited usage of Phones among non-Phones is supported
+
 public class ShiftFeatToPhoneByFeat extends ShiftByFeat {
 	//TODO note that, if pseudosMatter is not set to true
 	//... morpheme boundaries may end up deleted by this class 
 	//for an insertion shift using this class, enter an empty list as the target
 	
-	private List<RestrictPhone> target; 
+	private List<FeatMatrix> target; 
 	private List<SequentialPhonic> destination; 
 	
 	private void initialize(HashMap<String, Integer> ftInds, List<String> targSpecList, List<SequentialPhonic> dest)
 	{
-		target = new ArrayList<RestrictPhone>(); 
+		target = new ArrayList<FeatMatrix>(); 
 		for(String targSpecs : targSpecList)
-			target.add(new CandRestrictPhone(targSpecs, ftInds)); 
+			target.add(new FeatMatrix(targSpecs, ftInds)); 
 		minTargSize = target.size(); 
 		destination = dest;
 	}

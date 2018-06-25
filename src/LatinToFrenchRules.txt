@@ -1,0 +1,85 @@
+$To Vulgar Latin
++hi,+front,+syl,+round > -round	$front unrounding. TODO find attribution
+-cont,+sg > -sg $deaspiration. Jozsef Herman, Vulgar Latin, Page 38. 
++syl > +nas / __ [+nas] [+cont,-son] $first vowel nasalization. TODO find attribution. 
+ɡ > +nas,+son / __ [+nas,+cor] $nasalization of g pre n. TODO possibly delete as may have been bled in Celtic areas by g > gamma. Allen 1978, pages 23-25
+n > ŋ / __ [+back,-cont] $velarization of n before k,g,gw. TODO find attribution 
+{ɪ;ɛ;ʊ;ɔ} > {i;e;u;o} / __ [+syl] $pre vowel closing. TODO find attribution. 
+{a e̯;'a e̯;`a e̯;o e̯;'o e̯;`o e̯} > {ɛː;'ɛː;`ɛː;eː;'eː;`eː} $monophthongization. TODO find attribution 
+h > ∅  $loss of h. TODO find attribution 
+
+$To Gallian Popular Latin 
+$TODO add developments for kw intervocalic, as per Pope section 187, pp 327-330
+ɸ > f $happened everywhere except Spanish, Gascon and Aragonese
+[+lng] > [-lng] $loss of length distinction everywhere. TODO attribute
+{a w} > a / __ [-syl] $au > a when unstressed and intertonic (ex bagautai > baghadai) 
+[+syl,+nas] > [-nas] / __ f $bleeding of nasal consonant loss before f. TODO attribute
+[-syl,+nas] > ∅  / [+syl,+nas] __ $loss of nasal consonants after nasal vowels (i.e. mensis > mois, etc) 
+∅ > m / [+prim,+syl,+nas] __ # $Resinsertion of m in monosyllabic words ending in (stressed) nasal. TODO attribute
+∅ > s / # __ s [-syl] $i-prosthesis -- i inserted before s+cons when at beginning of word. TODO attribute
+[+syl,+nas] > [-nas] $nasal syllables denasalized for awhile. Nasalization not productive again for a long time.
+[+hi,-tense] > [-hi, +tense] $vowel shifts  ɪ > e and ʊ > o 
+{ɛ r;'ɛ r;`ɛ r;ɔ r;'ɔ r;`ɔ r} > {r ɛ;r 'ɛ;r `ɛ;r ɔ;r 'ɔ;r `ɔ} / __ # $West Latin r-metathesis
+{i;e;u;o} > {j;j;w;w} / __ [+syl] $West Latin unstressed e,i,u,o in hiatus to glides. TODO attribute 
+[+syl,-stres,-lo] > ∅ / @ [-cont,-delrel,-round,-nas] __ [-strid,-nas] @ $West Latin intertonic (i.e. unstressed and in an interior syllable) vowel loss : in some cases bleeds palatalization. SOURCE: Pope page 115, section 262.
+	$targets intertonics followed by t,d,l
+$Pope page 115? For those followed by n, r
+p > k / [+syl] __ [+cor,-son,-nas] $"parapsidi">"paraxsidi" shift  
+k > x / [+syl] __ [+cor,-son] $k>x / V __ s,t,n -- but may be not before n -- this one is uncertain
+t > k / __ [-syl,+lat] $tl>kl . TODO it's in Pope, find it
+[+back,+hi,-son] > [+round,+lab] $labiovelarization of velar occlusives before /w/ as per Pope p91 s186-187
+w > ∅ / [+syl] __ [+syl,+round] $ as per Pope p91 s187i
+w > ∅ / __ j $as per Pope p91 s187iii
+w > ʋ $labiodentaliation of w $Pope p91 s186 
+ʋ > w / [+syl] __ [-syl] $formerly intervocalic w that becomes preconsonantal due to WLVowelLoss becomes short u and ultimately diphthongizes prior vowel -- Pope p91 sect 187? See also Pope section 254. Here we just shift it to /w/ and we'll deal with it later .
+ʋ > w / [+syl,+lo] __ [+syl,+lo] $not in Pope but evidenced by baua, graua etc: w is retained between two A-s. 
+ʋ > l / l __ $ lw > ll as per Pope page 150 section 374ii
+ʋ > v / [+nas] __ $ nw > nv as per Pope page 150 section 374ii, tho evidence only shown for nw, not all nasals 
+[-syl,-round] > [+hi,+back,+round] / __ ʋ $as per Pope page 150 section 374
+ʋ > ∅ / [+hi,+back,+round] __ $to complete shift of Pope p150 s374
+w > ∅ / [+back,+round,+lab,+hi] __ $completion of velar+w merger. Also note Pope p91 s187ii
+ʋ > β $betacism. Completion of Pope p91 s186 
+[+syl,+stres] > [+long] $all stressed vowels become long. TODO find attribution for this
+[+back,+hi,-cont] > [+front] $ __ [+front] $Pope p124 s283-284; also p125 s290. First palatalization.
+$although this above did affect a few labiovelars (ex quinque > cinq) there doesn't seem to be a pattern so I'm leaving them out for now
+[+cons,-hi,-cont,+cor] j > [+front,+hi] $ merge t,d with following yod. Pope p129 s303-304. Make sure this format of shift works -- otherwise we will have to employ the equivalent of absorbYod! Note also that absorbYod might be necessary for /cj/ sequence clusters. 
+kʲ > k kʲ / [-cons] __ $TODO attribute to smth besides Wiki. Eject k before kj if succeeding a non-liquid sonorant. TODO test if liquids might also trigger this
+[+cons,-hi] j > [+front,+hi] $As per Pope p129 s303-305 and Opperstein for the labials. Operstein overrules Pope p129 s305. 
+{pʲ;mʲ;bʲ;βʲ} > {p pʲ; m bʲ;b bʲ;b βʲ} / @ _ @ $necessary to prevent lenition from bleeding Operstein's rule on labial palatalization later. TODO check if the contexts here are right 
+o > ɔ / __ [+lab] $Pope p185 s488. TODO make sure the context is formulated correctly
+{kʲ;k kʲ;ɡʲ;tʲ;dʲ} > {c;c c;ɟ;c;ɟ} $ Palatal merger. Pope p125 s290
+{ŋ;l;ɫ;s} > {ɲ;ʎ;ʎ;sʲ} / [+hi,+front,-cont] __ [+syl,-stres] [-syl] $Pope p126 s293
+[+syl,-stres] > ∅ / [+hi,+front,-cont] __ [+son,+cons,-lat,+cor] $deletion of unstressed vowels between palatal stops and rhotics as per Pope p126 s293
+c > k / [+cor,+nas] __ [+son,+cons,-lat,+cor] $inferred from the trajectory of vincere > vaincre
+{c;ɟ} > {t;d} / __ [+son,+cons,-lat,+cor] $redentalization of palatal stops pre-r as per Pope page 126 s293
+d > s / __ s $Pope page 147 section 367
+
+$To Gallo Romance 
+{l l;n n} > {l;n} / __ j $to deal with geminate ll and nn in prep for Pope p131 sections 311-312
+{l j;lː j;nʲ;n j;nː j;n ɟ} > {ʎ;ʎ;ɲ;ɲ;ɲ;ɲ} $Pope p131 sections 311-312
+β > v / __ [+syl] $Pope p139 s343; Pope p91 s187
+$Pope p150 s374 : rounded/labialized consonants (non-velar ones) lose their rounded/labial cluster after another consonant
+[+strid] > [-round,-back,-hi] $Pope p150 s374, delabialization of sw (and zw, we assume) everywhere
+c > t / __ c $TODO attribute, this is part of cc>ttsj
+{c;ɟ} > {t͡sʲ;j} $TODO attribute, loss of palatal stops
+[+syl,-stres] > ∅ / j __ [+cor,+ant,-cont,-delrel] $vowel apocope between j and a dental stop
+[-cont,-delrel,+round] > [+cont] / [+syl] __ [+syl] $"Zeroeth Celtic lenition", rounded (typically labiovelarized) stops open intervocalically. Pope pp134-5 ss327-330
+[-cont,+voice] > [+cont,-delrel] / [+syl] __ [+son,-lat] $ First lenition drag shift part 1. TODO attribute
+[+cont,-voice] > [+voice] / [+syl] __ [+son,-lat] $First lenition drag shift part 2. TODO attribute. 
+[-cont,-voice] > [+voice] / [+syl] __ [+son,-lat] $First lenition drag shift part 3. TODO attribute
+{p,ɡ,k} > {b,ɣ,ɡ} / [+syl] __ [+lat] $additional effects on p,g,k before lateral & after vowel. TODO attribute
+n > [-cont,-delrel] / [-prim] __ [-stres] $n-flapping part 1. TODO attribute. Responsible for animalia>armaille, Londones>Londres, etc. 
+[-cont,+son] > [-nas,+cont] $n-flapping part 2, the denasalization of the new flap and its retrilling
+$Northern dialects: b lenits before l after a vowel. Hence taule:table doublet and others. Pope p145 s372
+β > ∅ / [-cons,+back,-lo,+tense,+round] __ $beta deleted after u,o,w. Pope p139 s343 
+β > ∅ / __ [+hi,+back,-cons,+round] $beta deleted before u. Pope s139 p343
+ɣ > ∅ / [+syl] __ [+back,+round,+tense,+prim] $gamma deleted when after vowel and before primary stressed u or o. Pope s139 s342
+ɣ > ∅ / u __ [+lo,+syl] $ gamma deleted between u and low vowels
+ɣʷ > w w / [+stres,-prim] __ $Pope p135 s329
+ɣʷ > j w / [+stres,-back] __ $Pope p134 s327
+[+round,+cont,+voice,+cons] > w $Pope p134 s327 
+
+$TODO fix according to Pope p134-5 ish 
+
+
+ 

@@ -55,6 +55,7 @@ public abstract class ShiftByPhone extends Shift {
 		return false;
 	}
 	
+	// priorCtxtInd is index in list of possible prior contexts
 	private boolean isPriorMatch(List<SequentialPhonic> input, int frstTargInd, int priorCtxtInd)
 	{
 		List<SequentialPhonic> candPrior = priorContexts.get(priorCtxtInd);
@@ -192,7 +193,6 @@ public abstract class ShiftByPhone extends Shift {
 				output+="} ";
 			}
 		}
-		
 		return output;
 	}
 }

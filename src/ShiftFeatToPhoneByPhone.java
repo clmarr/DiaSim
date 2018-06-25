@@ -4,6 +4,9 @@ import java.util.HashMap;
 
 // to invoke null target (i.e. insertion), use empty targSegList
 
+
+//does not support any usage of phones within list of RestrictPhones (i.e. handles FeatMatrixs and PseudoPhones only,
+
 public class ShiftFeatToPhoneByPhone extends ShiftByPhone 
 {
 	//TODO note that, if pseudosMatter is not set to true
@@ -16,7 +19,7 @@ public class ShiftFeatToPhoneByPhone extends ShiftByPhone
 	{
 		target = new ArrayList<RestrictPhone>(); 
 		for (String targSpecs : targSpecList)
-			target.add(new CandRestrictPhone(targSpecs, ftInds)); 
+			target.add(new FeatMatrix(targSpecs, ftInds)); 
 		minTargSize = target.size(); //in effect may be larger bc of pseudophones if pseudosMatter==false
 		destination = dest; 
 	}

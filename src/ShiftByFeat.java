@@ -93,9 +93,9 @@ public abstract class ShiftByFeat extends Shift{
 			for(int specPlace = 0; specPlace < minPriorSize; specPlace++)
 			{	
 				RestrictPhone currSpecs = priorContext.get(specPlace); 
-				if(currSpecs.print().equals(" @%@ ")) //i.e. it's a CandRestrictPhone
+				if(currSpecs.print().equals(" @%@ ")) //i.e. it's a FeatMatrix
 					output+=currSpecs.toString(); 
-				else //pseudoPhone
+				else //pseudoPhone or proper phone
 					output+=currSpecs.print();
 			}
 			output += " "; 
@@ -108,9 +108,9 @@ public abstract class ShiftByFeat extends Shift{
 			for(int specPlace = 0; specPlace < minPostSize; specPlace++ )
 			{
 				RestrictPhone currSpecs = priorContext.get(specPlace); 
-				if(currSpecs.print().equals(" @%@ ")) //i.e. it's a CandRestrictPhone
+				if(currSpecs.print().equals(" @%@ ")) //i.e. it's a FeatMatrix
 					output+=currSpecs.toString(); 
-				else //pseudoPhone
+				else //pseudoPhone or proper phone 
 					output+=currSpecs.print();
 			}
 		}

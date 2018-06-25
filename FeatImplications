@@ -1,4 +1,9 @@
 distr:+cor
+-cor:.distr
 delrel:-cont
+-cont:.delrel
 stres:+syl
 prim:+syl
+-syl:.stres,.prim
++nas:+cont
++lat:+cont

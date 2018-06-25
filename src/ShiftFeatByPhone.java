@@ -2,6 +2,9 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+
+//does not support any usage of phones within list of RestrictPhones (i.e. handles FeatMatrixs and PseudoPhones only,
+
 public class ShiftFeatByPhone extends ShiftByPhone{
 	private RestrictPhone target;
 	private RestrictPhone destination;
@@ -10,7 +13,7 @@ public class ShiftFeatByPhone extends ShiftByPhone{
 	{
 		if(!targSpecs.equals(""))
 		{
-			target = new CandRestrictPhone(targSpecs, ftInds);
+			target = new FeatMatrix(targSpecs, ftInds);
 			minTargSize = 1; 
 		}
 		else
@@ -18,7 +21,7 @@ public class ShiftFeatByPhone extends ShiftByPhone{
 			target = new NullPhone(); 
 			minTargSize = 0;
 		}
-		if(!destSpecs.equals(""))	destination = new CandRestrictPhone(destSpecs, ftInds);
+		if(!destSpecs.equals(""))	destination = new FeatMatrix(destSpecs, ftInds);
 		else	destination = new NullPhone(); 
 	}
 
@@ -105,7 +108,7 @@ public class ShiftFeatByPhone extends ShiftByPhone{
 	{
 		String output=""; 
 		if (minTargSize == 0)	output += "∅";
-		else //in this case we know target is a CandRestrictPhone
+		else //in this case we know target is a FeatMatrix
 			output+=target.toString(); 
 		
 		output += " > ";
