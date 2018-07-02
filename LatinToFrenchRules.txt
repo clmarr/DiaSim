@@ -12,7 +12,7 @@ $To Gallian Popular Latin
 $TODO add developments for kw intervocalic, as per Pope section 187, pp 327-330
 ɸ > f $happened everywhere except Spanish, Gascon and Aragonese
 [+lng] > [-lng] $loss of length distinction everywhere. TODO attribute
-{a w} > a / __ [-syl] $au > a when unstressed and intertonic (ex bagautai > baghadai) 
+a w > a / __ [-syl] $au > a when unstressed and intertonic (ex bagautai > baghadai) 
 [+syl,+nas] > [-nas] / __ f $bleeding of nasal consonant loss before f. TODO attribute
 [-syl,+nas] > ∅  / [+syl,+nas] __ $loss of nasal consonants after nasal vowels (i.e. mensis > mois, etc) 
 ∅ > m / [+prim,+syl,+nas] __ # $Resinsertion of m in monosyllabic words ending in (stressed) nasal. TODO attribute
@@ -45,7 +45,7 @@ $although this above did affect a few labiovelars (ex quinque > cinq) there does
 [+cons,-hi,-cont,+cor] j > [+front,+hi] $ merge t,d with following yod. Pope p129 s303-304. Make sure this format of shift works -- otherwise we will have to employ the equivalent of absorbYod! Note also that absorbYod might be necessary for /cj/ sequence clusters. 
 kʲ > k kʲ / [-cons] __ $TODO attribute to smth besides Wiki. Eject k before kj if succeeding a non-liquid sonorant. TODO test if liquids might also trigger this
 [+cons,-hi] j > [+front,+hi] $As per Pope p129 s303-305 and Opperstein for the labials. Operstein overrules Pope p129 s305. 
-{pʲ;mʲ;bʲ;βʲ} > {p pʲ; m bʲ;b bʲ;b βʲ} / @ _ @ $necessary to prevent lenition from bleeding Operstein's rule on labial palatalization later. TODO check if the contexts here are right 
+{pʲ;mʲ;bʲ;βʲ} > {p pʲ; m bʲ;b bʲ;b βʲ} / @ __ @ $necessary to prevent lenition from bleeding Operstein's rule on labial palatalization later. TODO check if the contexts here are right 
 o > ɔ / __ [+lab] $Pope p185 s488. TODO make sure the context is formulated correctly
 {kʲ;k kʲ;ɡʲ;tʲ;dʲ} > {c;c c;ɟ;c;ɟ} $ Palatal merger. Pope p125 s290
 {ŋ;l;ɫ;s} > {ɲ;ʎ;ʎ;sʲ} / [+hi,+front,-cont] __ [+syl,-stres] [-syl] $Pope p126 s293
@@ -64,10 +64,10 @@ c > t / __ c $TODO attribute, this is part of cc>ttsj
 {c;ɟ} > {t͡sʲ;j} $TODO attribute, loss of palatal stops
 [+syl,-stres] > ∅ / j __ [+cor,+ant,-cont,-delrel] $vowel apocope between j and a dental stop
 [-cont,-delrel,+round] > [+cont] / [+syl] __ [+syl] $"Zeroeth Celtic lenition", rounded (typically labiovelarized) stops open intervocalically. Pope pp134-5 ss327-330
-[-cont,+voice] > [+cont,-delrel] / [+syl] __ [+son,-lat] $ First lenition drag shift part 1. TODO attribute
-[+cont,-voice] > [+voice] / [+syl] __ [+son,-lat] $First lenition drag shift part 2. TODO attribute. 
-[-cont,-voice] > [+voice] / [+syl] __ [+son,-lat] $First lenition drag shift part 3. TODO attribute
-{p,ɡ,k} > {b,ɣ,ɡ} / [+syl] __ [+lat] $additional effects on p,g,k before lateral & after vowel. TODO attribute
+[-cont,+voi] > [+cont,-delrel] / [+syl] __ [+son,-lat] $ First lenition drag shift part 1. TODO attribute
+[+cont,-voi] > [+voi] / [+syl] __ [+son,-lat] $First lenition drag shift part 2. TODO attribute. 
+[-cont,-voi] > [+voi] / [+syl] __ [+son,-lat] $First lenition drag shift part 3. TODO attribute
+{p;ɡ;k} > {b;ɣ;ɡ} / [+syl] __ [+lat] $additional effects on p,g,k before lateral & after vowel. TODO attribute
 n > [-cont,-delrel] / [-prim] __ [-stres] $n-flapping part 1. TODO attribute. Responsible for animalia>armaille, Londones>Londres, etc. 
 [-cont,+son] > [-nas,+cont] $n-flapping part 2, the denasalization of the new flap and its retrilling
 $Northern dialects: b lenits before l after a vowel. Hence taule:table doublet and others. Pope p145 s372
@@ -77,17 +77,17 @@ $Northern dialects: b lenits before l after a vowel. Hence taule:table doublet a
 ɣ > ∅ / u __ [+lo,+syl] $ gamma deleted between u and low vowels
 ɣʷ > w w / [+stres,-prim] __ $Pope p135 s329
 ɣʷ > j w / [+stres,-back] __ $Pope p134 s327
-[+round,+cont,+voice,+cons] > w $Pope p134 s327 
+[+round,+cont,+voi,+cons] > w $Pope p134 s327 
 x > ʝ $this actually happens at different times for different places, but the result is always the same for /x/. See Pope Chapter 6 for details esp around p122-134
 ɣ > ʝ / [+syl,-back,-round] __ [+syl,-back,-round] $Pope page 124 section 286
 ʝ > j $ complete shift. Move as necessary
 [-stres] > [-long] $TODO attribute. Nonstressed vowels now must be short. 
-{ɛː;ɔː} > {jɛ,wɔ} / __ {[-syl] [+son,-lat]; [+syl]; #} $Grandgent & Moll 1999; Posner "Romance languages" 159 
-{ɛː;ɔː} > {jɛ,wɔ} / __ [-syl,+front,+hi] $above also occurs before palatal consonants. 
+{ɛː;ɔː} > {j ɛ;w ɔ} / __ {[-syl] [+son,-lat]; [+syl]; #} $Grandgent & Moll 1999; Posner "Romance languages" 159 
+{ɛː;ɔː} > {j ɛ;w ɔ} / __ [-syl,+front,+hi] $above also occurs before palatal consonants. 
 [+back,-cont] > [+hi,+front] / __ [+syl,+front] $Second palatlization. TODO attribute
 [+syl] > [-long] / __ [-syl] {#;[-syl,-son];[-syl,+lat];[-syl,-cons]} $loss of vowel length in closed positions part one. TODO attribute 
 [+lo] > [+front] $A-fronting. Attribute; should be in both Pope 1934 and Buckley 2003. May have occurred later, in that case adjust. 
-[+lo,prim] > [-tense] / __ {[+syl];#;[-syl][+syl];[-syl][-syl,+son,-lat,+cons]} $As per Buckley, a>ash in open stressed syllables.  
+[+lo,prim] > [-tense] / __ {[+syl];#;[-syl] [+syl];[-syl] [-syl,+son,-lat,+cons]} $As per Buckley, a>ash in open stressed syllables.  
 {j n;ŋ j;n j;j l;ɡ l}>{ɲ;ɲ;ɲ;ʎ;ʎ} / [+son] __ [+syl] 
 [+syl,-stres] > ∅ / __ [-syl] @ $first atonic vowel apocope. Fix this if it does not behave properly. TODO attribute. 
 ∅ > e / # __ [+strid,-syl] [+cons] $reinsertion of e at beginning of word. Unsure if this is necessary. TODO remove if not. TODO attribute.
@@ -97,12 +97,12 @@ x > ʝ $this actually happens at different times for different places, but the r
 β > w / __ [-syl,+cont] [-syl] $fabrica > faurge. As per Pope p145 s359
 [+lo,-syl] > [+round,+back,-tense,-lo] / __ [+back,+hi,+round,-cons] $baua > boue shift. As per Pope p183-184 s480-483. TODO figure out how to do this one! 
 β > v $TODO attribute
-[-son] > [-voice] / [-voice] __ $ Progressive devoicing. TODO attribute
-[-son] > [-voice] / __ [-voice] $ Regressive devoicing. TODO attribute
+[-son] > [-voi] / [-voi] __ $ Progressive devoicing. TODO attribute
+[-son] > [-voi] / __ [-voi] $ Regressive devoicing. TODO attribute
 [+syl,+hi,+back,+round,+tense] > [-back] $Beginning of u-fronting. TODO attribute. It should be in both Pope and Posner
 {s t s;t s;d z;k s t} > {t͡s;t͡s;d͡z;s,t} $ Pope p147 s356; see also the rest of the discussion on pages 145-150 for this and following shifts. 
 [-cont,-delrel] > ∅ / [-syl] __ [-son] $Pope p146 s363-5. May have also activated when posterior context was /j/. TODO check for this and modify appropriately if so. 
-[+lab,-voice] > ∅ / [-syl] __ [-son] $part of above
+[+lab,-voi] > ∅ / [-syl] __ [-son] $part of above
 [+back,+hi,-cont] > ∅ / [+cor,+ant,+cont,-distr] __ [+lat] $rgl>rl and skl>sl(>zl). Pope p146 s365
 {m;n} > {m b;n d} / __ [+cor,+son,+cons] $ml,mr,nr>mbl,mbr,ndr. Pope p148 s369
 {p t;p s;b t;b d;b s} > {t t;s s;t t;d d;s s} $Pope p149-150 s373

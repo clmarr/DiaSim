@@ -85,7 +85,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
 			
 			//TODO debugging
-			System.out.println("Feat : "+feat); 
+			System.out.println("Feat : "+feat+", index "+featInds.get(feat));
 			
 			int spInd=featInds.get(feat); 
 			featVect = featVect.substring(0,spInd)+ (tr ? 2 : 0) +featVect.substring(spInd+1); 

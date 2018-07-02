@@ -24,9 +24,10 @@ public class ShiftFactory {
 	private final char phDelim = ' '; // delimits phones that are in a sequence 
 	private final char segDelim = ';'; // delimits segments that are in disjunction 
 	private final char contextFlag = '/'; //signals the beginning of context specification. May use pipe("|") instead. 
-	private final char restrDelim = ','; //delimits restrictions between features inside a CandRestrict Phone
+	private final char restrDelim = ','; //delimits restrictions between features inside a feature matrix
 		// i.e. if " ", then [+A -B +C] where A, B and C are feature restrictions. 
-	private final char featDelim = ','; //delimiter between features in a feature string or in a feature matrix 
+	private final char featDelim = ','; //delimiter between features in a feature string
+		// such as those used in symbolDefs.csv -- usually a comma . 
 	private final String selfInContextMarker = "__"; //marks place of source target relative to context 
 	
 	//Constructor 
@@ -46,9 +47,11 @@ public class ShiftFactory {
 		}
 	}
 	
-	//returns list of Shift instances of appropriate subclass based on input String in phonological rule notation
-	//in most cases this will only have one Shift in it
-	// however in some cases of disjunction in the targets or contexts, it is better to make multiple Shift instances
+	//returns list of Shift instances of appropriate subclass based on input String 
+		//in phonological rule notation
+	//in most cases this list will only have one Shift in it
+	// however in some cases of disjunction in the targets or contexts,
+		//it is better to input these as discreet sound changes
 	// as of May 25, one CAN mix phones into a feature-specificied list, but not the reverse 
 	// -- in practice, pragmatically, the only place it seems sensible to do this for is the context. 
 	public List<SChange> generateShifts(String input)
@@ -419,7 +422,7 @@ public class ShiftFactory {
 	public List<RestrictPhone> parseRestrs (String inp)
 	{
 		List<RestrictPhone> output = new ArrayList<RestrictPhone>(); 
-		String[] unitPlaces = inp.split(phDelim); 
+		String[] unitPlaces = inp.split(""+phDelim); 
 		int len = unitPlaces.length; 
 		for (int upi = 0; upi < len ; upi++)
 		{

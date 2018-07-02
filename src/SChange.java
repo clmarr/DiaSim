@@ -75,4 +75,5 @@ public abstract class SChange {
 		if(minPostSize == 0)	return true;
 		else	return postContext.isPosteriorMatch(input, lastTargInd); 
 	}
+	
 }

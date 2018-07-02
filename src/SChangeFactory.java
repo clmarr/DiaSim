@@ -1,4 +1,10 @@
-import java.util.List; 
+import java.util.List;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap; 
@@ -56,6 +62,7 @@ public class SChangeFactory {
 		featIndices = new HashMap<String, Integer>(featInds); 
 		featNames = featInds.keySet();
 		featImplications = new HashMap<String, String[]>(featImpls); 
+		featsWithImplications = featImplications.keySet(); 
 		
 		featVectsToSymb = new HashMap<String, String>(); 
 		Set<String> stfKeys = stf.keySet(); 
@@ -68,6 +75,56 @@ public class SChangeFactory {
 		}
 	}
 	
+	/**
+	 * collects a list, in order, of all the sound changes instances implied by the rules indicated
+	 * 		in the text of the rules file at @param ruleFileLoc
+	 * @precondition : @param ruleFileLoc is a valid and correct location of the rules file. 
+	 * @return list of SChange instances for all rules, in order
+	 */
+	public List<SChange> collectAllChangesFromRulesFile(String ruleFileLoc)
+	{
+		List<SChange> output = new ArrayList<SChange>(); 
+		List<String> ruleLines = new ArrayList<String>(); 
+		String nextLine; 
+		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(ruleFileLoc), "UTF-8")); 
+			while((nextLine = in.readLine()) != null)	
+			{
+				String lineWoComments = ""+nextLine;
+				if(lineWoComments.contains(""+cmtFlag))
+					lineWoComments = lineWoComments.substring(0, lineWoComments.indexOf(""+cmtFlag));
+				if(!lineWoComments.trim().equals(""))	ruleLines.add(lineWoComments); 
+			}
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		for(String ruleLine : ruleLines)
+		{	//TODO debugging
+			System.out.println("Generating sound change for: "+ruleLine);
+			List<SChange> schangesForThisRule = generateSoundChanges(ruleLine); 
+			output.addAll(schangesForThisRule);
+			//TODO debugging
+			System.out.println("Generated these sound changes: ");
+			for (SChange shift : schangesForThisRule)
+				System.out.println(""+shift);
+			
+		}
+		return output; 
+	}
+	
+	
 	/** generateSChanges
 	 * returns a list of Shift instances of the appropriate subclass based on input String,
 	 * 		which should be a single change written in phonological rule notation
@@ -75,7 +132,7 @@ public class SChangeFactory {
 	 * however, in some cases of disjunction in the source or the contexts, it is better 
 	 * 		to make multiple SChange instances. 
 	 */
-	public List<SChange> generateShifts(String inp)
+	public List<SChange> generateSoundChanges(String inp)
 	{
 		String input = (inp.indexOf(""+cmtFlag) == -1) ? inp.trim() : inp.substring(0,inp.indexOf(""+cmtFlag)).trim(); 
 		
@@ -97,11 +154,13 @@ public class SChangeFactory {
 			inputParse = inputSplit[1].trim();
 			inputSplit = inputParse.split(LOCUS); 
 		
-			inputPrior = inputSplit[0].trim(); 
-			inputPostr = inputSplit[1].trim(); 
+			postrSpecified = (inputSplit.length == 2 );
+			inputPostr = "";
+			if(postrSpecified)	inputPostr = inputSplit[1].trim(); 
+			if(inputPostr.equals(""))	postrSpecified = false; 
 			
-			priorSpecified = inputSplit[0].trim().equals("") == false; 
-			postrSpecified = inputSplit[1].trim().equals("") == false; 
+			inputPrior = inputSplit[0].trim(); 
+			priorSpecified = inputPrior.equals("") == false; 
 			
 			assert priorSpecified || postrSpecified : 
 				"Error : Context flag and locus marker seen, but no specification of either prior or posterior"
@@ -133,7 +192,7 @@ public class SChangeFactory {
 				String[] disjuncts = inputPrior.split(""+segDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateShifts(inputSource+ARROW+contextFlag+
+					output.addAll(generateSoundChanges(inputSource+ARROW+contextFlag+
 							inputPrior.substring(0, openerInd) + phDelim + disjuncts[di] + phDelim + 
 							inputPrior.substring(closerInd+1) + LOCUS + inputPostr));
 				}
@@ -153,19 +212,21 @@ public class SChangeFactory {
 
 				assert closerInd < inputPostr.length() : "Error: reached end of inputPrior without finding"
 						+ "the corresponding closer of the disjunction which was opened." ; 
+				
 				while(! (inputPostr.charAt(closerInd) == '}' && braceDepth == 1))
 				{
 					if(inputPostr.charAt(closerInd) == '{')	braceDepth++; 
 					else if(inputPostr.charAt(closerInd) == '}')	braceDepth--;
 					closerInd++;
+					
 					assert closerInd < inputPostr.length() : "Error: reached end of inputPrior without finding"
-							+ "the corresponding closer of the disjunction which was opened." ; 
+							+ "the corresponding closer of the disjunction which was opened." ;
 				}
 				
-				String[] disjuncts = inputPostr.split(""+segDelim); 
+				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+segDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateShifts(inputSource+ARROW+contextFlag+
+					output.addAll(generateSoundChanges(inputSource+ARROW+inputDest+contextFlag+
 							inputPrior + LOCUS + inputPostr.substring(0, openerInd) +
 							disjuncts[di] + inputPostr.substring(closerInd+1))); 
 				}
@@ -408,7 +469,9 @@ public class SChangeFactory {
 				if(symbToFeatVects.containsKey(curtp)) //it's a Phone instance
 					thePlaceRestrs.add(new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects)); 
 				else if("+#".contains(curtp))
-					thePlaceRestrs.add(new Boundary("#".equals(curtp) ? "word " : "morph " + "bound")); 
+					thePlaceRestrs.add(new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"));
+				else if("@".equals(curtp))
+					thePlaceRestrs.add(new Boundary("non word bound"));
 				else
 				{
 					assert (curtp.charAt(0) == '[') == (curtp.charAt(curtp.length() - 1) == ']'): 
@@ -476,31 +539,31 @@ public class SChangeFactory {
 	public FeatMatrix getFeatMatrix(String featSpecs)
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
-		String featsWithImplications = applyImplications(featSpecs); 
+		String featsIncludingImplications = applyImplications(featSpecs); 
 		
-		if(featsWithImplications.contains(".") == false)
-			return new FeatMatrix(featsWithImplications, featIndices); 
+		if(featsIncludingImplications.contains(".") == false)
+			return new FeatMatrix(featsIncludingImplications, featIndices); 
 		
 		List<String> despecs = new ArrayList<String>(); 
 		
 		//TODO we should make sure someone doesn't insert periods into their feature names 
-		while(featsWithImplications.contains("."))
+		while(featsIncludingImplications.contains("."))
 		{
 			//TODO note: as per who implications are added AFTER the features that implied them in the method 
 			// applyImplications(), all periods should come after commae -- otherwise we suspect 
 			// there is some feature name with a period in it, which would be illegitimate
-			int pdIndex = featsWithImplications.indexOf("."); 
-			assert (featsWithImplications.charAt(pdIndex - 1)==restrDelim): 
+			int pdIndex = featsIncludingImplications.indexOf("."); 
+			assert (featsIncludingImplications.charAt(pdIndex - 1)==restrDelim): 
 				"Error: Unspecification marker, '.', found at an illegitimate place, likely was used in the middle of a feature"
 				+ "	as a part of a feature name"; //TODO set up earlier assertion error to troubleshoot this
-			String fWIAfterPd = featsWithImplications.substring(pdIndex+1); 
-			featsWithImplications = featsWithImplications.substring(0, pdIndex - 1); 
+			String fWIAfterPd = featsIncludingImplications.substring(pdIndex+1); 
+			featsIncludingImplications = featsIncludingImplications.substring(0, pdIndex - 1); 
 			if(fWIAfterPd.contains(""+restrDelim))
-			{	featsWithImplications += fWIAfterPd.substring(fWIAfterPd.indexOf(""+restrDelim));
+			{	featsIncludingImplications += fWIAfterPd.substring(fWIAfterPd.indexOf(""+restrDelim));
 				despecs.add(fWIAfterPd.substring(0, fWIAfterPd.indexOf(""+restrDelim))); 	}
 			else	despecs.add(fWIAfterPd); //i.e. this is when it was the last element in the string .
 		}
-		return new FeatMatrix(featsWithImplications, featIndices, despecs); 
+		return new FeatMatrix(featsIncludingImplications, featIndices, despecs); 
 	}
 	
 	/**	applyImplications
@@ -518,6 +581,7 @@ public class SChangeFactory {
 		{
 			String currSpec = theFeatSpecs[fsi]; 
 			output += currSpec + restrDelim ; 
+			
 			if(featsWithImplications.contains(currSpec)) 
 			{
 				String[] implications = featImplications.get(currSpec); 

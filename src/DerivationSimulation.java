@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -39,6 +40,11 @@ public class DerivationSimulation {
 	{
 		Scanner input = new Scanner(System.in); 
 		
+		featIndices = new HashMap<String, Integer>() ; 
+		phoneSymbToFeatsMap = new HashMap<String, String>(); 
+		phoneFeatsToSymbMap = new HashMap<String, String>(); 
+		featImplications = new HashMap<String, String[]>(); 
+		
 		System.out.println("Would you like to use the standard symbol definitions file? Please enter 'yes' or 'no'.");
 		String resp = input.nextLine(); 
 		
@@ -49,7 +55,7 @@ public class DerivationSimulation {
 			resp = input.nextLine(); 
 		}
 		
-		String symbDefsLoc = (resp == "yes") ? "symbolDefs.csv" : ""; 
+		String symbDefsLoc = (resp.equals("yes")) ? "symbolDefs.csv" : ""; 
 		if(resp == "no")
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
@@ -58,14 +64,22 @@ public class DerivationSimulation {
 		
 		//collect task information from symbol definitions file. 
 		
+		//TODO debugging
+		System.out.println("Symbol defs location: "+symbDefsLoc);
+		System.out.println("Collecting symbol definitions...");
+		
 		List<String> symbDefsLines = new ArrayList<String>();
 		String nextLine; 
 		
 		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(symbDefsLoc), "UTF-8")); 
+		{	File inFile = new File(symbDefsLoc); 
+			BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
+			{	
+				System.out.println("Adding line : " + nextLine); 
 				symbDefsLines.add(nextLine); 		
+			}
 			in.close(); 
 		}
 		catch (UnsupportedEncodingException e) {
@@ -79,11 +93,16 @@ public class DerivationSimulation {
 			e.printStackTrace();
 		}
 		
-		//extract the feature list and then the features for each symbol.
+		//TODO debugging
+		System.out.println("Symbol definitions extracted!");
+		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
+		
+		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 		
+		//from the rest-- extract the symbol def each represents
 		int li = 1; 
 		while (li < symbDefsLines.size()) 
 		{
@@ -98,7 +117,7 @@ public class DerivationSimulation {
 				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
 				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
 				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
-				else	throw new Error("Error: unrecognized feature value ");
+				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
 			}
 			
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
@@ -117,13 +136,15 @@ public class DerivationSimulation {
 			resp = input.nextLine(); 
 		}
 		
-		String featImplsLoc = (resp == "yes") ? "FeatImplications.txt" : ""; 
+		String featImplsLoc = (resp.equals("yes")) ? "FeatImplications" : ""; 
 		if(resp == "no")
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			featImplsLoc = input.nextLine(); 
 		}
 		
+		//TODO debugging
+		System.out.println("Now extracting info from feature implications file...");
 		
 		List<String> featImplLines = new ArrayList<String>(); 
 		
@@ -150,18 +171,39 @@ public class DerivationSimulation {
 			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
 		}
 		
-		//TODO input info from FeatImplications and FeatTranslations files or user specified variants if deemed necessary
-			// to not abrogate...
+		//TODO debugging
+		System.out.println("Done extracting feature implications!");
+		System.out.println("Creating SChangeFactory...");
+		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		
+		System.out.println("Use current default rules file location? Enter 'yes' or 'no'."); 
+		resp = input.nextLine(); 
+		
+		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		{
+			System.out.println("Invalid response.");
+			System.out.println("Use current default rules file location? Please enter 'yes' or 'no'. ");
+			resp = input.nextLine(); 
+		}
+		
+		String ruleFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinToFrenchRules.txt" : ""; 
+		if (resp.equalsIgnoreCase("no"))	
+		{
+			System.out.println("Please enter the location of your alternative rules file: ");
+			ruleFileLoc = input.nextLine(); 
+		}
+		
+		System.out.println("Now extracting diachronic sound change rules from rules file...");
+		List<SChange> diachronicRuleList = theFactory.collectAllChangesFromRulesFile(ruleFileLoc); 
+	
+		//TODO text here to be massively changed
+		// replace with inputting a file of a list of words
+		// and having it ultimately write a file containing what happens to each word
+		
+		
+		
 	}
 	
-	
-
-	/**
-	 * for when we actually deal with parsing the shifts: 
-	 * 	
-				if(nextLine.trim().charAt(0) != '$') //i.e. if it is not true that the whole line is a cmt
-					
-	 */
 	
 }
 
