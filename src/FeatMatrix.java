@@ -21,6 +21,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	public FeatMatrix(List<FeatSpec> specs, HashMap<String,Integer> ftInds)
 	{
+		type = "feat matrix"; 
 		featInds=new HashMap<String,Integer>(ftInds); 
 		featSpecs=""; 
 		char[] chArr = new char[ftInds.size()];
@@ -38,9 +39,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		hasDespecs = false; 
 	}
 	
-	
 	public FeatMatrix(List<FeatSpec> specs, HashMap<String,Integer> ftInds, List<String> despecs)
 	{
+		type = "feat matrix"; 
 		featInds=new HashMap<String,Integer>(ftInds); 
 		featSpecs=""; 
 		char[] chArr = new char[ftInds.size()];
@@ -67,6 +68,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 
+		type = "feat matrix";
 		featInds = new HashMap<String,Integer>(ftInds); 
 		
 		char[] chArr = new char[ftInds.size()];
@@ -83,9 +85,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			boolean tr= (indic.equals("+")); 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			
-			//TODO debugging
-			System.out.println("Feat : "+feat+", index "+featInds.get(feat));
 			
 			int spInd=featInds.get(feat); 
 			featVect = featVect.substring(0,spInd)+ (tr ? 2 : 0) +featVect.substring(spInd+1); 
@@ -99,6 +98,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 
+		type = "feat matrix"; 
 		featInds = new HashMap<String,Integer>(ftInds); 
 		
 		char[] chArr = new char[ftInds.size()];
@@ -115,9 +115,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			boolean tr= (indic.equals("+")); 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			
-			//TODO debugging
-			System.out.println("Feat : "+feat); 
 			
 			int spInd=featInds.get(feat); 
 			featVect = featVect.substring(0,spInd)+ (tr ? 2 : 0) +featVect.substring(spInd+1); 
@@ -185,7 +182,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		String[] specArr = featSpecs.split(""+FEAT_DELIM); 
 		for (int spi = 0 ; spi < specArr.length; spi++)
 		{
-			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 0; 
+			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 
+				( (specArr[spi].substring(0, 1).equals(".")) ? 1 : 0);
 			String feat = specArr[spi].substring(1);
 			
 			if(output.get(feat) != targVal)// if it is not already the acceptable value: 
@@ -215,7 +213,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		String[] specArr = featSpecs.split(""+FEAT_DELIM);
 		for(int spi = 0; spi<specArr.length; spi++)
 		{
-			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 0; 
+			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 
+				( (specArr[spi].substring(0, 1).equals(".")) ? 1 : 0);
 			String feat = specArr[spi].substring(1); 
 			
 			if(output.get(feat) != targVal)	output.set(feat, targVal);

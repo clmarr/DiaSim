@@ -60,7 +60,7 @@ public abstract class SChange {
 		
 		String output = "/ "; 
 		if(priorSpecd)	output += priorContext.toString() + " "; 
-		output += " __ "; 
+		output = output.trim() + " __ "; 
 		if(postSpecd)	output += postContext.toString(); 
 		return output; 
 	}

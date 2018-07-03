@@ -76,10 +76,7 @@ public class DerivationSimulation {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
-			{	
-				System.out.println("Adding line : " + nextLine); 
 				symbDefsLines.add(nextLine); 		
-			}
 			in.close(); 
 		}
 		catch (UnsupportedEncodingException e) {

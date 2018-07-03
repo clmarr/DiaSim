@@ -215,15 +215,13 @@ public class SChangePhone extends SChange {
 		if (numTargets == 0)	output += "∅"; 
 		else
 		{
-			if (numTargets > 1)	output += "{"; 
-
 			output += printSegment(targSources.get(0)); 
 			
 			if( numTargets > 1)
-				for(int ti = 1; ti < numTargets; ti++)
-					output += ", "+ printSegment(targSources.get(ti));
-			
-			output += "}";
+			{	for(int ti = 1; ti < numTargets; ti++)
+					output += ";"+ printSegment(targSources.get(ti));
+				output = "{"+output+"}";
+			}
 		}
 		
 		output += " > "; 
@@ -236,24 +234,21 @@ public class SChangePhone extends SChange {
 			output += printSegment(destinations.get(0));
 			if (numDests > 1)
 				for (int ti = 1; ti < numDests; ti++)
-					output += ", "+printSegment(destinations.get(ti)); 
-			output += "}";
+					output += ";"+printSegment(destinations.get(ti)); 
+			if (numDests > 1)	output += "}";
 		}
 		
-		return output + super.toString();
+		return output + " "+ super.toString();
+		
 	}
 	
 	//auxiliary method for toString 
 	private String printSegment(List<SequentialPhonic> seg)
 	{
+		if (seg.size() == 0)	return "∅"; 
 		String output = ""; 
-		if (seg.size() == 0)	output += "∅"; 
-		else 
-		{	output += "/"; 
-			for (SequentialPhonic curPh : seg)	output += curPh.print(); 
-			output += "/";
-		}
-		return output;
+		for (SequentialPhonic curPh : seg)	output += curPh.print()+" "; 
+		return output.trim();
 	}
 
 	

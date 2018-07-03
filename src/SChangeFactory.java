@@ -56,7 +56,7 @@ public class SChangeFactory {
 	
 	public SChangeFactory(HashMap<String, String> stf, HashMap<String,Integer> featInds, HashMap<String, String[]> featImpls)
 	{
-		boundsMatter = false; //TODO ffigure out how the user can specify if boundsMatter should be true
+		boundsMatter = false; //TODO figure out how the user can specify if boundsMatter should be true
 		
 		symbToFeatVects = new HashMap<String, String>(stf);
 		featIndices = new HashMap<String, Integer>(featInds); 
@@ -69,8 +69,8 @@ public class SChangeFactory {
 		for (String key : stfKeys)
 		{
 			String featdef = stf.get(key); 
-			assert featVectsToSymb.containsKey(featdef) == false : 
-				"ERROR: duplicate phone definition in symbMap!";
+			assert featVectsToSymb.containsKey(featdef) == false :  
+				"ERROR: duplicate phone definition in symbMap! Duplicate key : " +featdef+", redundant hit for "+key+" with original as "+featVectsToSymb.get(featdef);
 			featVectsToSymb.put(featdef, key); 
 		}
 	}
@@ -110,16 +110,19 @@ public class SChangeFactory {
 			e.printStackTrace();
 		}
 		
+		//TODO debugging
+		int ri = 0; 
+		
 		for(String ruleLine : ruleLines)
 		{	//TODO debugging
-			System.out.println("Generating sound change for: "+ruleLine);
+			System.out.println("RULE " + ri +": Generating sound change for "+ruleLine);
 			List<SChange> schangesForThisRule = generateSoundChanges(ruleLine); 
 			output.addAll(schangesForThisRule);
 			//TODO debugging
 			System.out.println("Generated these sound changes: ");
 			for (SChange shift : schangesForThisRule)
-				System.out.println(""+shift);
-			
+				System.out.println(""+shift+", instance of "+shift.getClass());
+			ri++; //TODO debugging
 		}
 		return output; 
 	}
@@ -141,7 +144,7 @@ public class SChangeFactory {
 		String[] inputSplit = input.split(""+ARROW);
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
 		
-		String inputDest = inputParse, inputPrior = "", inputPostr = ""; 
+		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
 		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
 		boolean priorSpecified = false, postrSpecified = false; 
@@ -153,7 +156,7 @@ public class SChangeFactory {
 			inputDest = inputSplit[0].trim(); 
 			inputParse = inputSplit[1].trim();
 			inputSplit = inputParse.split(LOCUS); 
-		
+			
 			postrSpecified = (inputSplit.length == 2 );
 			inputPostr = "";
 			if(postrSpecified)	inputPostr = inputSplit[1].trim(); 
@@ -246,8 +249,12 @@ public class SChangeFactory {
 		boolean srcHasFeatMatrices = inputSource.contains("["); 
 		assert srcHasFeatMatrices == inputSource.contains("]"): 
 			"Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
-		if(hasValidFeatSpecList(inputSource)) //i.e. source should be characterized by RestrictPhone instances
-		{
+		boolean srcHasValidSpecList = hasValidFeatSpecList(inputSource); 
+		assert srcHasFeatMatrices == srcHasValidSpecList :
+			"Error: usage of brackets without valid feature spec list : "+inputSource; 
+		
+		if(srcHasValidSpecList) //i.e. source should be characterized by RestrictPhone instances
+		{	
 			assert !inputSource.contains("{") && !inputSource.contains("}") : 
 				"Error : preempted disjunction applied to source of shift with feature-defined source -- these "
 				+ "are not permitted in the current version of this application" ; 
@@ -259,6 +266,7 @@ public class SChangeFactory {
 			//TODO parse the correct either SChangeFeat or SChangeFeatToPhone, and return 
 			if(inputDest.charAt(0) == '[') // then we are dealing with a SChangeFeat
 			{
+				
 				assert inputDest.charAt(inputDest.length() - 1) == ']' : 
 					"Error: Expected single FeatMatrix as destination for a new SChangeFeat to be constructed,"
 					+ "and found first char '[' but ']' was not the last character"; //TODO reword this
@@ -270,15 +278,22 @@ public class SChangeFactory {
 					+ "source and one for the destination, we know the source has brackets, but they are in "
 					+ "the wrong places in the source -- they should be at the beginning and end if they are present.";
 				SChangeFeat newShift = new SChangeFeat(getFeatMatrix(inputSource.substring(1, inputSource.length() - 1)),
-						getFeatMatrix(inputDest.substring(1, inputDest.length() - 1)), boundsMatter); 
+						getFeatMatrix(applyImplications(inputDest.substring(1, inputDest.length() - 1)), true), boundsMatter); 
+				if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
+				if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(newShift); 
 				return output; 
 			}
 			assert !inputDest.contains("[") && !inputDest.contains("]"): "Invalid bracket found in "
 					+ "destination; brackets should only be used to surround feat specs for a FeatMatrix"; 
+			// we eliminated the possiblity that the first char was '[' with the if clause above this
 			if(isValidFeatSpecList(inputDest)) // i.e. single FeatMatrix specified without brackets
 			{
-				output.add(new SChangeFeat(getFeatMatrix(inputSource), getFeatMatrix(inputDest), boundsMatter)); 
+				SChangeFeat newShift = new SChangeFeat(getFeatMatrix(inputSource), 
+						getFeatMatrix(applyImplications(inputDest), true), boundsMatter); 
+				if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
+				if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+				output.add(newShift); 
 				return output;
 			}
 			else	//it's a SChangeFeatToPhone instance. 
@@ -313,8 +328,11 @@ public class SChangeFactory {
 				for (int dpsi = 0 ; dpsi < destPlaceSpecs.length ; dpsi ++ )
 				{
 					String currSymb = destPlaceSpecs[dpsi].trim(); 
-					assert symbToFeatVects.containsKey(currSymb) : "ERROR: destination contains a non-valid phone symbol"; 
-					destSeg.add(new Phone(symbToFeatVects.get(currSymb), featIndices, symbToFeatVects));
+					if (!currSymb.equals("∅"))
+					{	
+						assert symbToFeatVects.containsKey(currSymb) : "ERROR: destination contains a non-valid phone symbol : "+currSymb; 
+						destSeg.add(new Phone(symbToFeatVects.get(currSymb), featIndices, symbToFeatVects));
+					}
 				}
 				
 				SChangeFeatToPhone newShift = new SChangeFeatToPhone(featIndices, sourcePlaces, destSeg, boundsMatter);
@@ -324,39 +342,35 @@ public class SChangeFactory {
 				return output;  
 			}
 		}
-		if(isValidFeatSpecList(inputDest.trim())) // if we have a SChangeFeat with a phone input and feat matrix output
+		assert !inputSource.contains("[") && !inputSource.contains("]") : 
+			"Error: found brackets in input source that is without a valid feat spec list.\nInvalid input source is : "+inputSource;
+		
+		//TODO debugging
+		System.out.println("input dest : "+inputDest);
+		System.out.println("Valid feat spec list? "+isValidFeatSpecList(inputDest));
+		
+		if(inputDest.charAt(0) == '[')
+		{
+			assert inputDest.trim().charAt(inputDest.length()-1) == ']': 
+				"Error: mismatch in bracket usage for destination of feature specified ";
+		}
+		if(isValidFeatSpecList(inputDest.trim())) // if we have a SChangePhone with a phone input and feat matrix output
 		{
 			assert !inputDest.contains("{") && !inputDest.contains("}") : 
 				"Error : preempted disjnction applied to destination of shift which is a single FeatMatrix--"
 				+ " these are not permitted. " ;
-			FeatMatrix theDestSpec = getFeatMatrix(inputDest); 
-			
-			if(inputSource.contains("{"))	//disjunctive. Make various SChangeFeat instances in the list
-			{
-				assert inputSource.charAt(0) == '{' && inputSource.charAt(inputSource.length() - 1) == '}' 
-						&& inputSource.contains(""+segDelim): 
-					"Error: illegitimate usage of disjunction braces"; 
-				String[] srcPhones = inputSource.substring(1,inputSource.length() - 1).trim().split(""+segDelim); 
-				for(int spi = 0; spi<srcPhones.length; spi++)
-				{	
-					String curPh = srcPhones[spi].trim(); 
-					assert symbToFeatVects.containsKey(curPh) : "Error: tried to add illegitimate phone for source disjunct";
-					SChangeFeat curShift = new SChangeFeat( new Phone(symbToFeatVects.get(curPh), featIndices, symbToFeatVects),
-							theDestSpec, boundsMatter); 
-					if(priorSpecified)	curShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-					if(postrSpecified)	curShift.setPostContext(parseNewContext(inputPostr, boundsMatter)); 
-					output.add(curShift); 
-				}
-				return output; 
-			}
-			assert symbToFeatVects.containsKey(inputSource) : "Error: tried to use invalid phone as source target"; 
-			SChangeFeat theShift = new SChangeFeat ( new Phone(symbToFeatVects.get(inputSource), featIndices, symbToFeatVects),
-					theDestSpec, boundsMatter); 
-			if(priorSpecified)	theShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-			if(postrSpecified)	theShift.setPostContext(parseNewContext(inputPostr, boundsMatter)); 
-			output.add(theShift); 
+			ArrayList<RestrictPhone> mutats = new ArrayList<RestrictPhone>(); 
+			mutats.add(getFeatMatrix(applyImplications(inputDest), true)); 
+
+			SChangePhone thisShift = new SChangePhone(parseSeqPhDisjunctSegs(inputSource), mutats, boundsMatter); 
+			if(priorSpecified)	thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
+			if(postrSpecified)	thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter)); 
+			output.add(thisShift); 
 			return output; 
 		}
+		assert !inputDest.contains("[") && !inputDest.contains("]") : 
+			"Error: found brackets in input dest that is without a valid feat spec list: " +inputDest ; 
+		
 		//if we reach this point, we know we are making an SChangePHone
 		List<List<SequentialPhonic>> sourceSegs = parseSeqPhDisjunctSegs(inputSource),
 				destSegs = parseSeqPhDisjunctSegs(inputDest); 
@@ -400,7 +414,9 @@ public class SChangeFactory {
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(); 
 		String[] phsInSeg = inp.trim().split(""+phDelim); 
 		for (int pisi = 0; pisi < phsInSeg.length; pisi++)
-			output.add(parseSeqPh(phsInSeg[pisi].trim()));
+		{	if(!phsInSeg[pisi].equals("∅"))
+				output.add(parseSeqPh(phsInSeg[pisi].trim()));
+		}
 		return output;
 	}
 	
@@ -408,7 +424,7 @@ public class SChangeFactory {
 	{
 		if("+#".contains(curtp))
 			return new Boundary("#".equals(curtp) ? "word " : "morph " + "bound"); 
-		assert symbToFeatVects.containsKey(curtp) : "Error: tried to parse invalid symbol!";
+		assert symbToFeatVects.containsKey(curtp) : "Error: tried to parse invalid symbol! Symbol : "+curtp; 
 		return new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects); 
 	}
 	/** parseNewContext 
@@ -510,8 +526,9 @@ public class SChangeFactory {
 	private boolean isValidFeatSpecList(String input)
 	{
 		String[] specs = input.split(""+restrDelim); 
+		
 		for(int si = 0; si < specs.length; si++)
-		{
+		{	
 			if("+-.".contains(specs[si].substring(0,1)))
 			{	if(!featNames.contains(specs[si].substring(1)))	return false;	}
 			else if(!featNames.contains(specs[si]))	return false; 
@@ -528,42 +545,47 @@ public class SChangeFactory {
 		for(int ppi = 0; ppi < protophones.length; ppi++)
 		{
 			String curpp = ""+protophones[ppi].trim();
-			while(curpp.contains("("))	curpp = curpp.substring(curpp.indexOf('(')+1);
-			while(curpp.contains(")"))	curpp = curpp.substring(0, curpp.indexOf(')'));
+			while(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
+			while(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
 			if(isValidFeatSpecList(curpp))	return true; 
 		}
 		return false; 
 	}
 
-	//derives FeatMatrix object instance from String of featSpec instances
 	public FeatMatrix getFeatMatrix(String featSpecs)
+	{	return getFeatMatrix(featSpecs, false);	}
+	
+	//derives FeatMatrix object instance from String of featSpec instances
+	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
-		String featsIncludingImplications = applyImplications(featSpecs); 
 		
-		if(featsIncludingImplications.contains(".") == false)
-			return new FeatMatrix(featsIncludingImplications, featIndices); 
+		String theFeatSpecs = featSpecs;
+		
+		if(theFeatSpecs.contains(".") == false)
+			return new FeatMatrix(theFeatSpecs, featIndices); 
 		
 		List<String> despecs = new ArrayList<String>(); 
+
 		
-		//TODO we should make sure someone doesn't insert periods into their feature names 
-		while(featsIncludingImplications.contains("."))
+		//TODO we should make sure someone doesn't insert use "unspecification" -- i.e. period '.' as a SPECIFICATION
+		while(theFeatSpecs.contains(".") && !isInputDest)
 		{
 			//TODO note: as per who implications are added AFTER the features that implied them in the method 
 			// applyImplications(), all periods should come after commae -- otherwise we suspect 
 			// there is some feature name with a period in it, which would be illegitimate
-			int pdIndex = featsIncludingImplications.indexOf("."); 
-			assert (featsIncludingImplications.charAt(pdIndex - 1)==restrDelim): 
+			int pdIndex = theFeatSpecs.indexOf("."); 
+			assert (theFeatSpecs.charAt(pdIndex - 1)==restrDelim): 
 				"Error: Unspecification marker, '.', found at an illegitimate place, likely was used in the middle of a feature"
 				+ "	as a part of a feature name"; //TODO set up earlier assertion error to troubleshoot this
-			String fWIAfterPd = featsIncludingImplications.substring(pdIndex+1); 
-			featsIncludingImplications = featsIncludingImplications.substring(0, pdIndex - 1); 
+			String fWIAfterPd = theFeatSpecs.substring(pdIndex+1); 
+			theFeatSpecs = theFeatSpecs.substring(0, pdIndex - 1); 
 			if(fWIAfterPd.contains(""+restrDelim))
-			{	featsIncludingImplications += fWIAfterPd.substring(fWIAfterPd.indexOf(""+restrDelim));
+			{	theFeatSpecs += fWIAfterPd.substring(fWIAfterPd.indexOf(""+restrDelim));
 				despecs.add(fWIAfterPd.substring(0, fWIAfterPd.indexOf(""+restrDelim))); 	}
 			else	despecs.add(fWIAfterPd); //i.e. this is when it was the last element in the string .
 		}
-		return new FeatMatrix(featsIncludingImplications, featIndices, despecs); 
+		return new FeatMatrix(theFeatSpecs, featIndices, despecs); 
 	}
 	
 	/**	applyImplications
@@ -575,34 +597,40 @@ public class SChangeFactory {
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to apply implications to an invalid list of feature specifications" ; 
 		String[] theFeatSpecs = featSpecs.trim().split(""+restrDelim); 
-		String output = ""; 
+		String output = ""+featSpecs; 
 		
 		for(int fsi = 0 ; fsi < theFeatSpecs.length; fsi++)
 		{
 			String currSpec = theFeatSpecs[fsi]; 
-			output += currSpec + restrDelim ; 
 			
 			if(featsWithImplications.contains(currSpec)) 
 			{
 				String[] implications = featImplications.get(currSpec); 
 				for (int ii = 0; ii < implications.length; ii++)
-					if ((featSpecs.contains(implications[ii]) == false)
-						&& output.contains(implications[ii]) == false)
-						output += implications[ii] + restrDelim; 		
+				{	if (output.contains(implications[ii].substring(1)) == false)
+					{	
+						output += restrDelim + implications[ii];
+						theFeatSpecs = output.trim().split(""+restrDelim); 
+					}
+				}
 			}
-			if("+-".contains(currSpec.substring(0,1)))
+			if("+-.".contains(currSpec.substring(0,1)))
 			{
 				if(featsWithImplications.contains(currSpec.substring(1)))
 				{
 					String[] implications = featImplications.get(currSpec.substring(1)); 
 					for (int ii=0; ii < implications.length; ii++)
-						if((featSpecs.contains(implications[ii]) == false ) && 
-								output.contains(implications[ii]) == false)
-							output += implications[ii] + restrDelim; 
+					{	if(output.contains(implications[ii]) == false)
+						{
+							output += restrDelim + implications[ii]; 
+							theFeatSpecs = output.trim().split(""+restrDelim); 
+						}
+					}
 				}
 			}
 		}
-		return output.substring(0, output.length() - 1 ); 
+		
+		return output; 
 	}
 	
 	/** parseBoundaryType -- given @param inp, boundary symbol in phonological rule notation 

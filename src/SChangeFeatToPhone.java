@@ -101,4 +101,18 @@ public class SChangeFeatToPhone extends SChange{
 			return (posteriorMatch(input, checkInd) ? checkInd : -1);
 		else	return -1; 	
 	}
+	
+	public String toString()
+	{
+		String output = "";
+		for (RestrictPhone targRPh : targSource)
+			output += (targRPh.getClass().toString().contains("FeatMatrix")) ? targRPh+" " : targRPh.print() + " ";
+		output += "> "; 
+		
+		if(destination.isEmpty())	output += "∅"; 
+		else
+			for (Phone destPh : destination)
+				output += destPh.print() + " "; 
+		return output.trim() + super.toString();
+	}
 }
