@@ -89,7 +89,7 @@ x > ʝ $this actually happens at different times for different places, but the r
 [+back,-cont] > [+hi,+front] / __ [+syl,+front] $Second palatlization. TODO attribute
 [+syl] > [-long] / __ [-syl] {#;[-syl,-son];[-syl,+lat];[-syl,-cons]} $loss of vowel length in closed positions part one. TODO attribute 
 [+lo] > [+front] $A-fronting. Attribute; should be in both Pope 1934 and Buckley 2003. May have occurred later, in that case adjust. 
-[+lo,prim] > [-tense] / __ {[+syl];#;[-syl] [+syl];[-syl] [-syl,+son,-lat,+cons]} $As per Buckley, a>ash in open stressed syllables.  
+[+lo,-prim] > [-tense] / __ {[+syl];#;[-syl] [+syl];[-syl] [-syl,+son,-lat,+cons]} $As per Buckley, a>ash in open stressed syllables.  
 {j n;ŋ j;n j;j l;ɡ l}>{ɲ;ɲ;ɲ;ʎ;ʎ} / [+son] __ [+syl] 
 [+syl,-stres] > ∅ / __ [-syl] @ $first atonic vowel apocope. Fix this if it does not behave properly. TODO attribute. 
 ∅ > e / # __ [+strid,-syl] [+cons] $reinsertion of e at beginning of word. Unsure if this is necessary. TODO remove if not. TODO attribute.
@@ -102,7 +102,7 @@ x > ʝ $this actually happens at different times for different places, but the r
 [-son] > [-voi] / [-voi] __ $ Progressive devoicing. TODO attribute
 [-son] > [-voi] / __ [-voi] $ Regressive devoicing. TODO attribute
 [+syl,+hi,+back,+round,+tense] > [-back] $Beginning of u-fronting. TODO attribute. It should be in both Pope and Posner
-{s t s;t s;d z;k s t} > {t͡s;t͡s;d͡z;s,t} $ Pope p147 s356; see also the rest of the discussion on pages 145-150 for this and following shifts. 
+{s t s;t s;d z;k s t} > {t͡s;t͡s;d͡z;s t} $ Pope p147 s356; see also the rest of the discussion on pages 145-150 for this and following shifts. 
 [-cont,-delrel] > ∅ / [-syl] __ [-son] $Pope p146 s363-5. May have also activated when posterior context was /j/. TODO check for this and modify appropriately if so. 
 [+lab,-voi] > ∅ / [-syl] __ [-son] $part of above
 [+back,+hi,-cont] > ∅ / [+cor,+ant,+cont,-distr] __ [+lat] $rgl>rl and skl>sl(>zl). Pope p146 s365
@@ -114,5 +114,5 @@ x > ʝ $this actually happens at different times for different places, but the r
 n > m / __ [+lab,+ant] $Continuation of above. 
 m > n / __ [+cor] $Continuation of above.
 [-cont,+lab,+front] > [-lab,+back] $bj,pj> gj,kj, as per Operstein and Pope. TODO attest specifically. 
-
+[-cont,+hi,+front][+front,-cons] > k j  $ For solely debugging purposes.
 $To Early Old French

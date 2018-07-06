@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList; 
 
+
 /**TODO update here when decisions have been made
  * 
  * main class for diachronic derivation system
@@ -27,7 +28,10 @@ public class DerivationSimulation {
 	
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ','; 
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	private final static char IMPLICATION_DELIM=':';
+	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
+	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
+	private final static char STAGENAME_FLAG = '~'; 
+
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -35,7 +39,14 @@ public class DerivationSimulation {
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; //TODO currently abrogated
 	private HashMap featTranslations; //TODO currently abrogated 
-	
+	private static List<String> rulesByTimeInstant; 
+	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
+	private static String[] customStageNames; 
+	private static Lexicon[] customStageLexica; //indexes match with those of customStageNames 
+		//so that each stage has a unique index where its lexicon and its name are stored at 
+			// in their respective lists.
+	private static int[] customStageTimeInstants; // i.e. the index of 
+
 	public static void main(String args[])
 	{
 		Scanner input = new Scanner(System.in); 
@@ -55,8 +66,8 @@ public class DerivationSimulation {
 			resp = input.nextLine(); 
 		}
 		
-		String symbDefsLoc = (resp.equals("yes")) ? "symbolDefs.csv" : ""; 
-		if(resp == "no")
+		String symbDefsLoc = (resp.equalsIgnoreCase("yes")) ? "symbolDefs.csv" : ""; 
+		if(resp.equalsIgnoreCase("no"))
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			symbDefsLoc = input.nextLine(); 
@@ -191,14 +202,203 @@ public class DerivationSimulation {
 		}
 		
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
-		List<SChange> diachronicRuleList = theFactory.collectAllChangesFromRulesFile(ruleFileLoc); 
+		
+		rulesByTimeInstant = new ArrayList<String>(); 
+
+		String nextRuleLine;
+		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
+				new FileInputStream(ruleFileLoc), "UTF-8")); 
+			
+			while((nextRuleLine = in.readLine()) != null)
+			{
+				String lineWithoutComments = ""+nextRuleLine; 
+				if (lineWithoutComments.contains(""+CMT_FLAG))
+						lineWithoutComments = lineWithoutComments.substring(0,
+								lineWithoutComments.indexOf(""+CMT_FLAG));
+				if(!lineWithoutComments.trim().equals(""))	rulesByTimeInstant.add(lineWithoutComments); 
+			}
+			in.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		//now filter out the stage name declaration lines.
+		
+		List<String> provisionalStageNameAndLocList = new ArrayList<String>(); //to be collected 
+		//until the end of collection, at which point the appropriate arrays for the custom
+		// stages will be created using this List. 
+		
+		int rli = 0; 
+		
+		while (rli < rulesByTimeInstant.size())
+		{
+			String currRule = rulesByTimeInstant.get(rli); 
+			if( currRule.charAt(0) == STAGENAME_FLAG )
+			{
+				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
+				
+				currRule = currRule.substring(1); 
+				assert !currRule.contains(""+STAGENAME_FLAG): 
+					"Error: stage name flag "+STAGENAME_FLAG+" occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+				assert !currRule.contains("|"):
+					"Error: illegal character found in name for custom stage -- '|'"; 
+				provisionalStageNameAndLocList.add(""+currRule+"|"+rli);
+				rulesByTimeInstant.remove(rli);  
+			}
+			else	rli++;
+		}
+		
+		int numStages = provisionalStageNameAndLocList.size(); 
+		
+		customStageLexica = new Lexicon[numStages];
+		customStageNames = new String[numStages];
+		customStageTimeInstants = new int[numStages]; 
+		
+		for(int csi = 0; csi < numStages; csi++)
+		{
+			String[] stageNameAndLoc = provisionalStageNameAndLocList.get(csi).split("|");
+			customStageNames[csi] = stageNameAndLoc[0]; 
+			customStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
+		}
+		
+		// parse the rules
+		List<SChange> theShiftsInOrder = new ArrayList<SChange>();
+		
+		int cri = 0; 
+		
+		for(String currRule : rulesByTimeInstant)
+		{
+			//TODO debugging
+			System.out.println("Generating rules for rule number "+cri+" : "+currRule);
+			
+			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
+			for(SChange newShift : newShifts)
+				System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
+			
+			theShiftsInOrder.addAll(theFactory.generateSoundChangesFromRule(currRule));
+			cri++; 
+		}
+		
+		//now input lexicon 
+		//detect whether we have the gold or just the initial stage lexicon by whether the input file is a .csv
+		//collect init lexicon ( and gold if so specified) 
+		//copy init lexicon to "evolving lexicon" 
+		//each time a custom stage time step loc (int in the array customStageTimeInstantLocs) is hit, save the 
+		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
+		// finally when we reach the end of the rule list, save it as testResultLexicon
 	
-		//TODO text here to be massively changed
-		// replace with inputting a file of a list of words
-		// and having it ultimately write a file containing what happens to each word
+		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'yes' or 'no'"); 
+		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		{
+			System.out.println("Invalid response.");
+			System.out.println("Do you wish to use the default location for the lexicon input file? Please enter 'yes' or 'no'. ");
+			resp = input.nextLine(); 
+		}
+		String lexFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinLexFileForMKPopeTester.csv" : "";
+		if(resp.equalsIgnoreCase("no")) 
+		{
+			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
+			lexFileLoc = input.nextLine(); 
+		}
 		
+		List<String> lexFileLines = new ArrayList<String>(); 
 		
+		try 
+		{	File inFile = new File(lexFileLoc); 
+			BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(inFile), "UTF8")); 
+			while((nextLine = in.readLine()) != null)	
+				if (!nextLine.trim().equals("")) 	lexFileLines.add(nextLine); 		
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
 		
+		//TODO fix -- at this point implement a branching of the simulation -- one branch with a gold, the other without? 
+		
+		int lexiconSize = lexFileLines.size(); 
+		LexPhon[] initWords = new LexPhon[lexiconSize];
+		LexPhon[] goldWords = new LexPhon[lexiconSize];
+		boolean goldIsInput = (lexFileLoc.substring(lexFileLoc.length()-5, lexFileLoc.length()).equals(".csv"));
+		
+		int lfli = 0; 
+		while (lfli < lexiconSize)
+		{
+			String theLine = lexFileLines.get(lfli);
+			initWords[lfli] = goldIsInput ? parseLexPhon(theLine) : parseLexPhon(theLine.split(",")[0]);
+			if (goldIsInput) 
+				goldWords[lfli] = parseLexPhon(theLine.split(",")[1]);
+			
+			lfli++;
+		}
+		
+		initLexicon = new Lexicon(initWords); 
+		testResultLexicon = new Lexicon(initWords); // this one will "evolve" with "time" 
+		goldResultLexicon = goldIsInput ? new Lexicon(goldWords) : null;
+		
+		//TODO evolve the words 
+		int nextStageIndex = 0; //index IN THE ARRAYS that the next stage to look for will be at .
+		int si = 0, numShifts = theShiftsInOrder.size(); //for iteration.
+		
+		while (si < numShifts)
+		{
+			if (si == customStageTimeInstants[nextStageIndex])
+			{
+				customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList()); 
+				nextStageIndex++;
+			}
+			
+			testResultLexicon.applyRuleToLexicon(theShiftsInOrder.get(si));
+			si++; 
+		}
+		
+		//TODO make the calculations and output the files! 
+
+	
+	
+	}	
+	
+	/**
+	 * given String @param toLex
+	 * @return its representation as a LexPhon containing a sequence of Phone instances
+	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
+	 */
+	private static LexPhon parseLexPhon(String toLex)
+	{
+		String[] toPhones = toLex.split(""+PH_DELIM);
+		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
+			// for better ease of mutation
+		for (String toPhone : toPhones)
+		{
+			if (toPhone.equals("#") || toPhone.equals("+"))
+				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
+			else
+			{
+				assert phoneSymbToFeatsMap.containsKey(toPhone): 
+					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol!"; 
+				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
+			}
+		}
+		
+		return new LexPhon(phones);
 	}
 	
 	

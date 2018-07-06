@@ -13,14 +13,14 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	private String featString; // string of 0s, 1s and 2s -- 0 is negative, 2 positive, 1 unspecified
 			// TODO note however in practice we are currently using - negative, + positive, 0 unspecified 
 	private HashMap<String, Integer> featIndices; 
-	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa value. 
+	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa symbol. 
 	private String symb; 
 		
 	/**
 	 * Constructor
 	 * @precondition : featvals.size() = featInds.size()
 	 * @precondition : each value, the string of feat values, for symbMap is unique
-	 * @note that symbMap is INVERTED before it is stored
+	 * @note that symbMap is INVERTED before it is stored -- i.e. keys are ipa symbols while values are feature strings
 	 */
 	public Phone(String featVals, HashMap<String, Integer> featInds, HashMap<String, String> symbMap)
 	{

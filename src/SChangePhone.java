@@ -21,10 +21,11 @@ public class SChangePhone extends SChange {
 	{
 		targSources = new ArrayList<List<SequentialPhonic>>(targs); 
 		destinations = new ArrayList<List<SequentialPhonic>>(); 
+		int numPlacesMutated = mutations.size(); 
 		for (List<SequentialPhonic> targ: targs)
 		{
 			int targSize = targ.size();
-			assert targSize == mutations.size() : "Error: size mismatch when making dests from mutations on targets"; 
+			assert targSize == numPlacesMutated : "Error: size mismatch when making dests from mutations on targets"; 
 			List<SequentialPhonic> newDest = new ArrayList<SequentialPhonic>();
 			
 			for(int mi = 0; mi < targSize; mi++)	

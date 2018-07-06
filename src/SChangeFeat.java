@@ -13,7 +13,7 @@ public class SChangeFeat extends SChange {
 			targSource = new FeatMatrix(targSpecs, ftInds); 
 			minTargSize = 1; 
 		}
-		else
+		else //i.e. we know source-targ is null if this is reached. 
 		{	assert (!destSpecs.equals("") && !destSpecs.equals("∅")):"Error: both target and destination are null!";
 			targSource = new NullPhone(); 
 			minTargSize = 0;
@@ -145,7 +145,8 @@ public class SChangeFeat extends SChange {
 		
 		if(destination.toString().equals("null phone"))
 			output += "∅";
-		else	output += destination.toString(); 
+		else	output += destination.print().equals(" @%@ ") ?  destination.toString() : destination.print(); 
+			//TODO above line will need to be changed if the standard print of the FeatMatrix class is ever changed
 		
 		return output + super.toString(); 
 	}
