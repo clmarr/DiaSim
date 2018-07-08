@@ -181,7 +181,7 @@ public class ShiftContext {
 			}
 			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound")
-					&& placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))
+					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))
 				currPlaceInCand--;
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	return false; 
 			else	{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
