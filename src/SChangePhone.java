@@ -89,30 +89,38 @@ public class SChangePhone extends SChange {
 				int matchInd = whichMatch(res, p);
 				if (matchInd != -1)
 				{
-					int indAfter = foundTargetLastIndex(res, targSources.get(matchInd), p); 
+					int indAfter = foundTargetIndAfter(res, targSources.get(matchInd), p); 
 					
-					//begin mutation
-					List<SequentialPhonic> fjale = new ArrayList<SequentialPhonic>(res.subList(0, p));
-					if(boundsMatter)	fjale.addAll(destinations.get(matchInd)); 
-					else
-					{	//TODO admittedly may need to fix this somewhat clumsy way of preserving the Pseudos sometime
-						List<SequentialPhonic> toAdd = new ArrayList<SequentialPhonic>(destinations.get(matchInd));
-						int lenPrePseudos = toAdd.size();
-						//(clumsily) add the pseudophones to this. 
-						for( int cwInd = p; cwInd < indAfter; cwInd++)
-						{
-							SequentialPhonic currUnit = res.get(cwInd); 
-							if(!currUnit.getType().equals("phone"))
+					if (indAfter > 0)
+					{	//begin mutation
+						List<SequentialPhonic> fjale = new ArrayList<SequentialPhonic>(res.subList(0, p));
+						if(boundsMatter)	fjale.addAll(destinations.get(matchInd)); 
+						else
+						{	//TODO admittedly may need to fix this somewhat clumsy way of preserving the Pseudos sometime
+							List<SequentialPhonic> toAdd = new ArrayList<SequentialPhonic>(destinations.get(matchInd));
+							int lenPrePseudos = toAdd.size();
+							//(clumsily) add the pseudophones to this. 
+							for( int cwInd = p; cwInd < indAfter; cwInd++)
 							{
-								if (cwInd - p < lenPrePseudos) toAdd.add(cwInd - p, currUnit); 
-								else	toAdd.add(currUnit);
-							}
+								SequentialPhonic currUnit = res.get(cwInd); 
+								if(!currUnit.getType().equals("phone"))
+								{
+									if (cwInd - p < lenPrePseudos) toAdd.add(cwInd - p, currUnit); 
+									else	toAdd.add(currUnit);
+								}
+							}	
+							fjale.addAll(toAdd); 
 						}
-						fjale.addAll(toAdd); 
+					
+						p = fjale.size(); //to increment p
+					
+						//TODO debugging
+						System.out.println("indAfter is "+indAfter);
+					
+						fjale.addAll(res.subList(indAfter, res.size()));
+						res = new ArrayList<SequentialPhonic>(fjale); 
 					}
-					p = fjale.size(); //to increment p
-					fjale.addAll(res.subList(indAfter, res.size()));
-					res = new ArrayList<SequentialPhonic>(fjale); 
+					else p++; 
 				}
 				else	p++; 
 			}
@@ -155,10 +163,13 @@ public class SChangePhone extends SChange {
 		
 		//also we return false if hte target is not found in the specified place
 		// and while we're at it, we fix indAfter to incorporate any pseudophones using hte auxiliary method foundTargetLastIndex 
-		int indAfter = foundTargetLastIndex (input, targSeg, ind) ;
+		int indAfter = foundTargetIndAfter (input, targSeg, ind) ;
+		
+		//TODO debugging
+		System.out.println("indAfter is "+indAfter);
 		
 		// if indAfter is 0, now it means it was originally -1 -- hence it was not found
-		if (indAfter == 0)	return false; 
+		if (indAfter < 1)	return false; 
 		
 		//now we know the prior context and target requirements are both met
 		// we now check for the posterior 
@@ -176,7 +187,7 @@ public class SChangePhone extends SChange {
 	 * if it is true then pseudoPhones will be compared just like normal phones to phones at the same index in the target
 	 * if false then they will be passed over while the counter continues to increment for returning the last index
 	 */
-	public int foundTargetLastIndex( List<SequentialPhonic> input, List<SequentialPhonic> targSeg, int firstInd)
+	public int foundTargetIndAfter( List<SequentialPhonic> input, List<SequentialPhonic> targSeg, int firstInd)
 	{	
 		int targSize = targSeg.size(); 
 		

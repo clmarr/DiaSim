@@ -45,7 +45,9 @@ public class DerivationSimulation {
 	private static Lexicon[] customStageLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
-	private static int[] customStageTimeInstants; // i.e. the index of 
+	private static int[] customStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
+	private static boolean customStagesSet; 
+	private static String[] wordTrajectories; //stores trajectory, with stages delimited by line breaks, of each word 
 
 	public static void main(String args[])
 	{
@@ -237,7 +239,9 @@ public class DerivationSimulation {
 		List<String> provisionalStageNameAndLocList = new ArrayList<String>(); //to be collected 
 		//until the end of collection, at which point the appropriate arrays for the custom
 		// stages will be created using this List. 
-		
+
+		customStagesSet = false; 
+				
 		int rli = 0; 
 		
 		while (rli < rulesByTimeInstant.size())
@@ -245,6 +249,7 @@ public class DerivationSimulation {
 			String currRule = rulesByTimeInstant.get(rli); 
 			if( currRule.charAt(0) == STAGENAME_FLAG )
 			{
+				customStagesSet = true; 
 				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 				
 				currRule = currRule.substring(1); 
@@ -259,6 +264,8 @@ public class DerivationSimulation {
 		}
 		
 		int numStages = provisionalStageNameAndLocList.size(); 
+		
+		System.out.println("Using "+numStages+" custom stages."); 
 		
 		customStageLexica = new Lexicon[numStages];
 		customStageNames = new String[numStages];
@@ -289,6 +296,8 @@ public class DerivationSimulation {
 			cri++; 
 		}
 		
+		System.out.println("Diachronic rules extracted. "); 
+		
 		//now input lexicon 
 		//detect whether we have the gold or just the initial stage lexicon by whether the input file is a .csv
 		//collect init lexicon ( and gold if so specified) 
@@ -298,18 +307,21 @@ public class DerivationSimulation {
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 	
 		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'yes' or 'no'"); 
+		resp = input.nextLine();
 		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
 		{
 			System.out.println("Invalid response.");
 			System.out.println("Do you wish to use the default location for the lexicon input file? Please enter 'yes' or 'no'. ");
 			resp = input.nextLine(); 
 		}
-		String lexFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinLexFileForMKPopeTester.csv" : "";
+		String lexFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinLexFileForMKPopeTester.txt" : "";
 		if(resp.equalsIgnoreCase("no")) 
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			lexFileLoc = input.nextLine(); 
 		}
+		
+		System.out.println("Now extracting lexicon...");
 		
 		List<String> lexFileLines = new ArrayList<String>(); 
 		
@@ -335,15 +347,19 @@ public class DerivationSimulation {
 		//TODO fix -- at this point implement a branching of the simulation -- one branch with a gold, the other without? 
 		
 		int lexiconSize = lexFileLines.size(); 
+		wordTrajectories = new String[lexiconSize]; 
+		
 		LexPhon[] initWords = new LexPhon[lexiconSize];
 		LexPhon[] goldWords = new LexPhon[lexiconSize];
 		boolean goldIsInput = (lexFileLoc.substring(lexFileLoc.length()-5, lexFileLoc.length()).equals(".csv"));
+		
 		
 		int lfli = 0; 
 		while (lfli < lexiconSize)
 		{
 			String theLine = lexFileLines.get(lfli);
-			initWords[lfli] = goldIsInput ? parseLexPhon(theLine) : parseLexPhon(theLine.split(",")[0]);
+			wordTrajectories[lfli] = goldIsInput ? theLine : theLine.split(",")[0]; 
+			initWords[lfli] = parseLexPhon(wordTrajectories[lfli]); 
 			if (goldIsInput) 
 				goldWords[lfli] = parseLexPhon(theLine.split(",")[1]);
 			
@@ -354,27 +370,67 @@ public class DerivationSimulation {
 		testResultLexicon = new Lexicon(initWords); // this one will "evolve" with "time" 
 		goldResultLexicon = goldIsInput ? new Lexicon(goldWords) : null;
 		
+		//TODO debugging
+		LexPhon[] testResultWords = testResultLexicon.getWordList();
+		for (LexPhon tRWord : testResultWords)
+		{	System.out.println(tRWord); }
+		
+		System.out.println("Lexicon extracted :");
+
+		//TODO debugging
+		for (LexPhon tRWord : testResultWords)
+		{	System.out.print(tRWord+"|"); }
+		System.out.println("\nNow evolving the words.");
+		
 		//TODO evolve the words 
 		int nextStageIndex = 0; //index IN THE ARRAYS that the next stage to look for will be at .
 		int si = 0, numShifts = theShiftsInOrder.size(); //for iteration.
 		
 		while (si < numShifts)
 		{
-			if (si == customStageTimeInstants[nextStageIndex])
+			//TODO debugging
+			System.out.println("Applying rule "+si+" : "+theShiftsInOrder.get(si));
+			
+			SChange thisShift = theShiftsInOrder.get(si);
+			if (customStagesSet)
 			{
-				customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList()); 
-				nextStageIndex++;
+				if (si == customStageTimeInstants[nextStageIndex])
+				{
+					customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList()); 
+					nextStageIndex++;
+				}
 			}
 			
-			testResultLexicon.applyRuleToLexicon(theShiftsInOrder.get(si));
+			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
+			
+			for (int wci = 0; wci < wordsChanged.length; wci++)
+			{
+				if(wordsChanged[wci])
+				{
+					System.out.println("Word changed!"); //TODO debugging
+					wordTrajectories[wci] += "\n"+testResultLexicon.getByID(wci)+" | Shift "+si+" : "+thisShift;
+				}
+			}
+			
 			si++; 
 		}
+	
+		
+		if(goldIsInput)
+		{
+			boolean[] derivationCorrectness = new boolean[lexiconSize]; 
+				//at each index, true if the testResult there matches the gold 
+			
+			//TODO fill this 
+		}
+		
+		//TODO debugging
+		System.out.println(wordTrajectories[0]);
 		
 		//TODO make the calculations and output the files! 
-
+	}
 	
 	
-	}	
 	
 	/**
 	 * given String @param toLex
@@ -386,6 +442,8 @@ public class DerivationSimulation {
 		String[] toPhones = toLex.split(""+PH_DELIM);
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
+
+		
 		for (String toPhone : toPhones)
 		{
 			if (toPhone.equals("#") || toPhone.equals("+"))
@@ -393,7 +451,7 @@ public class DerivationSimulation {
 			else
 			{
 				assert phoneSymbToFeatsMap.containsKey(toPhone): 
-					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol!"; 
+					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol : "+toPhone; 
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}

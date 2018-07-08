@@ -149,7 +149,7 @@ public class ShiftContext {
 		
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim; 
 
-		while(currRestrPlace >= 0 && !(currPlaceInCand < 0 && currPlaceInMap < 0))
+		while(currRestrPlace >= 0 && currPlaceInCand >= 0 && currPlaceInMap >= 0)
 		{
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
@@ -180,15 +180,17 @@ public class ShiftContext {
 				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
 			}
 			
-			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound"))	{	currPlaceInCand--;	}
+			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound")
+					&& placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))
+				currPlaceInCand--;
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	return false; 
 			else	{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
 		} 
-		if(crp < 0)		return true;
+		if(currRestrPlace < 0)		return true;
 		else	return false; 
 	}
 
-	//auxiliary method for recursive calls that exclude the parenthesis ending at hte current spot in parenMap
+	//auxiliary method for recursive calls that exclude the parenthesis ending at the current spot in parenMap
 	private boolean isPriorMatchHelperExcludeParen (List<SequentialPhonic> phonSeq, int cpic,
 			int crp, int cpim)
 	{
@@ -205,16 +207,30 @@ public class ShiftContext {
 		return isPriorMatchHelper(phonSeq, cpic, mapSpotPreOpener, placeBeforeOpener); 
 	}
 
-	public boolean isPosteriorMatch(List<SequentialPhonic> phonSeq, int lastInd)
+	public boolean isPosteriorMatch(List<SequentialPhonic> phonSeq, int indAfter)
 	{
-		if (minSize == 0)	return true; 
-		if (minSize > phonSeq.size() - lastInd)	return false; 
-		int currPlaceInCand = lastInd + 1, currRestrPlace = 0, currPlaceInMap = 0; 
+		System.out.println("ind after is "+indAfter);
+		
+		if (indAfter < phonSeq.size())
+			System.out.println("isPosteriorMatch called with lastInd "+indAfter+", where"
+				+ " we have "+phonSeq.get(indAfter)); 
+		
+		if (minSize == 0)	
+		{
+			System.out.println("minSize = 0");
+			return true; 
+		}
+		if (minSize > phonSeq.size() - indAfter)
+		{
+			System.out.println("minSize > phonSeq.size() - lastInd");
+			return false; 
+		}
+		int currPlaceInCand = indAfter, currRestrPlace = 0, currPlaceInMap = 0; 
 		return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 	}
 	
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
-	{
+	{		
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		if(crp == placeRestrs.size())	return true;
@@ -225,6 +241,12 @@ public class ShiftContext {
 		while( currPlaceInCand < lenPhonSeq && 
 				!(currRestrPlace >= numRestrPlaces && currPlaceInMap >= mapSize))
 		{
+			//TODO debugging
+			System.out.println("cpic "+currPlaceInCand+", crp "+currRestrPlace+","
+					+ " currPlaceInMap "+cpim);
+			System.out.println("lenPhonSeq "+lenPhonSeq+" numRestrPlaces "
+					+ numRestrPlaces + " mapSize "+mapSize); 
+			
 			if(parenMap[currPlaceInMap].contains("("))
 			{
 				//if we could not possibly include the contents of this paren structure because there are too many 
@@ -252,12 +274,27 @@ public class ShiftContext {
 				}
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
-			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound"))	{	currPlaceInCand++;	}
-			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	return false; 
-			else	{	currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
+			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
+					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))	{	currPlaceInCand++;	}
+			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	
+			{
+				System.out.println("Failure to meet place restriction!" ); //TODO debugging 
+				return false; 
+			}
+			else	{	
+				//TODO debugging
+				System.out.println("placeRestrs.get(currRestrPlace) : "+placeRestrs.get(currRestrPlace));
+				System.out.println("phonSeq.get(currPlaceInCand) : "+phonSeq.get(currPlaceInCand));
+				System.out.println("compare : "
+					+placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)));
+				System.out.println("proceed"); //TODO debugging
+				currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
 			
 		}
-		if(crp == placeRestrs.size())	return true;
+		System.out.println("currPlaceInCand "+currPlaceInCand+" currRestrPlace "+currRestrPlace+" currPlaceInMap "+currPlaceInMap);
+		System.out.println("numRestrPlaces "+placeRestrs.size());
+		if(currRestrPlace == numRestrPlaces)	return true;
+		System.out.println("false");
 		return false; 
 	}
 	

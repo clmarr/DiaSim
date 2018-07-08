@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.HashMap;
+import java.util.ArrayList; 
 
 /**
  * class for representing the set of words (LexPhon instances) being simulated
@@ -28,23 +29,25 @@ public class Lexicon {
 	{	return theWordList[ind]; 	}
 	
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
-		//occurs in the lexicon
-	// TODO consult David -- is this better to do by presence at all (regardless of # of times) in words 
-		// or just raw occurence? 
+		//occurs at least once in a word in the  lexicon
 	public HashMap<String, Integer> getPhoneFrequencies()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
 		for (LexPhon lex : theWordList) //TODO make sure this way of iterating is legit through an array
 		{
 			List<SequentialPhonic> lexPhonRep = lex.getPhonologicalRepresentation();
+			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 
 			for (SequentialPhonic ph : lexPhonRep)
 			{
 				if(ph.getType().equals("phone"))
 				{
-					String theFeatVect = ph.getFeatString(); 
-					if (output.containsKey(theFeatVect))
-						output.put(theFeatVect, output.get(theFeatVect)+1); 	
-					else	output.put(theFeatVect, 1); 
+					if(!phonesAlreadySeen.contains(ph))
+					{	String theFeatVect = ph.getFeatString(); 
+						if (output.containsKey(theFeatVect))
+							output.put(theFeatVect, output.get(theFeatVect)+1); 	
+						else	output.put(theFeatVect, 1); 
+						phonesAlreadySeen.add(ph);
+					}
 				}
 			}
 		}
@@ -54,8 +57,17 @@ public class Lexicon {
 	public LexPhon[] getWordList()
 	{	return theWordList;	}
 	
-	public void applyRuleToLexicon(SChange rule)
+	public boolean[] applyRuleAndGetChangedWords(SChange rule)
 	{
-		for (LexPhon verbum : theWordList)	verbum.applyRule(rule); 
+		int wlLen = theWordList.length ;
+		boolean[] wordsChanged = new boolean[wlLen]; 
+		
+		for( int wli = 0; wli < wlLen; wli++)
+		{
+			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
+			else	wordsChanged[wli] = false; 
+		}
+		return wordsChanged; 
 	}
+	
 }

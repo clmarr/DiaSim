@@ -17,7 +17,7 @@ public class LexPhon {
 		if (!phonRep.get(0).equals(new Boundary("word bound")))
 			phonRep.add(0, new Boundary("word bound")); 
 		if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
-			phonRep.add(0, new Boundary("word bound")); 
+			phonRep.add(new Boundary("word bound")); 
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
@@ -31,9 +31,25 @@ public class LexPhon {
 		return -1; 
 	}
 	
-	public void applyRule(SChange theRule)
+	//returns true if at least one phone is changed
+	// false otherwise 
+	public boolean applyRule(SChange theRule)
 	{
-		phonRep = theRule.realize(phonRep); 
+		List<SequentialPhonic> newPhonRep = theRule.realize(phonRep); 
+		boolean changed = false; 
+		if (newPhonRep.size() != phonRep.size() )	changed = true; 
+		else 
+		{
+			int prSize = phonRep.size(), i = 0;
+			while (i < prSize && !changed)
+			{
+				changed = !phonRep.get(i).equals(newPhonRep.get(i));
+				i++; 
+			}
+		}
+		
+		phonRep = new ArrayList<SequentialPhonic>(newPhonRep); 
+		return changed; 
 	}
 	
 	

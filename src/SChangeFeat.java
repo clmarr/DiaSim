@@ -68,9 +68,9 @@ public class SChangeFeat extends SChange {
 	@Override
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
 	{
-		int inpSize = input.size(); 
+		int seqSize = input.size(); 
 		//abort if too small
-		if (inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if (seqSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		
 		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input); 
 		int p = minPriorSize; 
@@ -80,14 +80,15 @@ public class SChangeFeat extends SChange {
 		 * We acknowledge the decision to iterate this way (progressive) is arbitrary, and that it may not be technically correct as some changes happen regressively. 
 		 * However it is most convenient for the time being.
 		 */
-		while(p < inpSize - minPostSize + 1 - minTargSize)
+		while(p < seqSize - minPostSize + 1 - minTargSize)
 		{
 			if(priorMatch(input, p))
 			{
 				if(isMatch(input, p))	//test if both target and posterior specs are met
 				{
 					//mutate 
-					res = destination.forceTruth(res, p); 
+					res = destination.forceTruth(res, p);
+					if (destination.print().equals("∅"))	{	seqSize--;	}
 					p++; //even when destination is null, we increase p by one so that we 
 						// don't get an error whereby hte prior context affects a phone
 						// acting as a prior context to a shift again
@@ -98,8 +99,16 @@ public class SChangeFeat extends SChange {
 						// ever occurs at all
 					if(!boundsMatter)
 					{
-						while(!res.get(p).getType().equals("phone") &&
-							p < inpSize - minPostSize + 1 - minTargSize)	p++;
+						boolean stopIncrement = (p >= seqSize); 
+						System.out.println(seqSize+" inpSize"); //TODO debugging
+						while(!stopIncrement)
+						{
+							if(p >= seqSize)	stopIncrement = true; 
+							else if(!res.get(p).getType().equals("phone") && 
+									p < seqSize - minPostSize + 1 - minTargSize)
+								p++; 
+							else	stopIncrement = true; 
+						}
 					}
 				}
 				else p++;
