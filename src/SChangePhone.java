@@ -44,10 +44,10 @@ public class SChangePhone extends SChange {
 	{	super(boundsMatter); initialize(targs, dests); 	}
 	
 	//default constructor with context
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, ShiftContext priors, ShiftContext postrs)
+	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs)
 	{	super(priors,postrs); initialize(targs,dests);	}
 	
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, ShiftContext priors, ShiftContext postrs, boolean attendToPseudos)
+	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs, boolean attendToPseudos)
 	{	super(priors,postrs,attendToPseudos); initialize(targs,dests);	}
 	
 	//constructor for Phone > Feat by Phone, translated to standard format with only Phones (SequentialPhonic) for storage
@@ -60,10 +60,10 @@ public class SChangePhone extends SChange {
 	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, boolean attendToPseudos)
 	{	super(attendToPseudos); initializeWithFeats(targs, mutations); }
 	
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, ShiftContext prior, ShiftContext postrs)
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postrs)
 	{	super(prior,postrs); initializeWithFeats(targs, mutations); }
 		
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations,  ShiftContext priors, ShiftContext postrs, boolean bm)
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations,  SChangeContext priors, SChangeContext postrs, boolean bm)
 	{	super(priors,postrs,bm); initializeWithFeats(targs, mutations); 	}
 		
 	

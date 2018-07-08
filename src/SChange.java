@@ -18,7 +18,7 @@ import java.util.List;
 
 public abstract class SChange {
 
-	protected ShiftContext priorContext, postContext; 
+	protected SChangeContext priorContext, postContext; 
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minTargSize; 
 	
@@ -33,23 +33,23 @@ public abstract class SChange {
 		priorSpecd = false; postSpecd = false; 
 
 	}
-	public SChange(ShiftContext prior, ShiftContext post)
+	public SChange(SChangeContext prior, SChangeContext post)
 	{
 		priorContext = prior; postContext = post; boundsMatter = false; 
 		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; 
 	}
-	public SChange(ShiftContext prior, ShiftContext post, boolean bm)
+	public SChange(SChangeContext prior, SChangeContext post, boolean bm)
 	{
 		priorContext = prior; postContext = post; boundsMatter = bm;
 		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; 
 	}
 	
-	public void setPriorContext(ShiftContext p)
+	public void setPriorContext(SChangeContext p)
 	{	priorContext = p; minPriorSize = priorContext.getMinSize(); priorSpecd = true; }
 	
-	public void setPostContext(ShiftContext p)
+	public void setPostContext(SChangeContext p)
 	{	postContext = p; minPostSize = postContext.getMinSize(); postSpecd = true; }
 	
 	public abstract List<SequentialPhonic> realize(List<SequentialPhonic> phonologicalSeq);

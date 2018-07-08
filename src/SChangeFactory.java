@@ -422,7 +422,7 @@ public class SChangeFactory {
 	 * @precondition : all elements separated phDelim 
 	 * @return
 	 */
-	private ShiftContext parseNewContext(String inp, boolean boundsMatter)
+	private SChangeContext parseNewContext(String inp, boolean boundsMatter)
 	{
 		String[] toPhones = inp.trim().split(""+phDelim); 
 		List<String> parenMapInProgress = new ArrayList<String>();
@@ -490,7 +490,7 @@ public class SChangeFactory {
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
-		return new ShiftContext(thePlaceRestrs, theParenMap, boundsMatter) ;
+		return new SChangeContext(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 
 	/** isValidFeatSpecList

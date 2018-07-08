@@ -24,11 +24,11 @@ public class SChangeFeatToPhone extends SChange{
 	}
 
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			ShiftContext prior, ShiftContext postr)
+			SChangeContext prior, SChangeContext postr)
 	{	super(prior,postr); initialize(ftInds, targSpecs, dest); }
 	
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			boolean bm, ShiftContext prior, ShiftContext postr)
+			boolean bm, SChangeContext prior, SChangeContext postr)
 	{	super(prior, postr, bm); initialize(ftInds, targSpecs, dest);	}
 	
 	//Realization

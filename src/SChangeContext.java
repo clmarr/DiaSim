@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * in order to handle phenomena like ()* and ()+, etc.
  */
 
-public class ShiftContext {
+public class SChangeContext {
 	
 	private int minSize;
 	private boolean boundsMatter; //determines if we will pass over boundary markers (morpheme, word) in the input. 
@@ -30,7 +30,7 @@ public class ShiftContext {
 	 * 
 	*/
 	
-	public ShiftContext (List<RestrictPhone> prs, String[] pm)
+	public SChangeContext (List<RestrictPhone> prs, String[] pm)
 	{
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		parenMap = pm; boundsMatter = false;
@@ -38,7 +38,7 @@ public class ShiftContext {
 		markParenMapForMinPlacesInEachWindow();
 	}
 	
-	public ShiftContext (List<RestrictPhone> prs, String[] pm, boolean bm)
+	public SChangeContext (List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		parenMap = pm; boundsMatter = bm; 

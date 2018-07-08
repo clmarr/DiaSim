@@ -45,11 +45,11 @@ public class SChangeFeat extends SChange {
 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			ShiftContext priors, ShiftContext postrs)
+			SChangeContext priors, SChangeContext postrs)
 	{	super(priors,postrs); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, ShiftContext priorContxt, ShiftContext postContxt)
+			boolean bm, SChangeContext priorContxt, SChangeContext postContxt)
 	{	super(priorContxt,postContxt,bm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest)
@@ -58,10 +58,10 @@ public class SChangeFeat extends SChange {
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, boolean bm)
 	{	super(bm); initializeWRestrPhones(source,dest); 	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, ShiftContext priorContxt, ShiftContext postContxt)
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt)
 	{	super(priorContxt, postContxt); initializeWRestrPhones(source, dest);	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, ShiftContext priorContxt, ShiftContext postContxt, boolean bm)
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, boolean bm)
 	{	super(priorContxt, postContxt, bm); initializeWRestrPhones(source, dest);	}
 	
 	//Realization
