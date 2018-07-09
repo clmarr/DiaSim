@@ -1,7 +1,9 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -31,7 +33,6 @@ public class DerivationSimulation {
 	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	private final static char STAGENAME_FLAG = '~'; 
-
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -41,6 +42,7 @@ public class DerivationSimulation {
 	private HashMap featTranslations; //TODO currently abrogated 
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
+	private static int LEXICON_SIZE; 
 	private static String[] customStageNames; 
 	private static Lexicon[] customStageLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
@@ -48,7 +50,13 @@ public class DerivationSimulation {
 	private static int[] customStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean customStagesSet; 
 	private static String[] wordTrajectories; //stores trajectory, with stages delimited by line breaks, of each word 
-
+	
+	private static int[] LDByWord; //if gold is input: Levenshtein distance between gold and testResutlt for each word.
+	private static boolean[] wordMissLocs; //each index true if the word for this index
+		// resulted in a missmatch between the gold and the test result
+	
+	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
+	
 	public static void main(String args[])
 	{
 		Scanner input = new Scanner(System.in); 
@@ -346,16 +354,16 @@ public class DerivationSimulation {
 		
 		//TODO fix -- at this point implement a branching of the simulation -- one branch with a gold, the other without? 
 		
-		int lexiconSize = lexFileLines.size(); 
-		wordTrajectories = new String[lexiconSize]; 
+		LEXICON_SIZE = lexFileLines.size(); 
+		wordTrajectories = new String[LEXICON_SIZE]; 
 		
-		LexPhon[] initWords = new LexPhon[lexiconSize];
-		LexPhon[] goldWords = new LexPhon[lexiconSize];
+		LexPhon[] initWords = new LexPhon[LEXICON_SIZE];
+		LexPhon[] goldWords = new LexPhon[LEXICON_SIZE];
 		boolean goldIsInput = (lexFileLoc.substring(lexFileLoc.length()-5, lexFileLoc.length()).equals(".csv"));
 		
 		
 		int lfli = 0; 
-		while (lfli < lexiconSize)
+		while (lfli < LEXICON_SIZE)
 		{
 			String theLine = lexFileLines.get(lfli);
 			wordTrajectories[lfli] = goldIsInput ? theLine : theLine.split(",")[0]; 
@@ -415,13 +423,33 @@ public class DerivationSimulation {
 			si++; 
 		}
 	
-		
 		if(goldIsInput)
-		{
-			boolean[] derivationCorrectness = new boolean[lexiconSize]; 
-				//at each index, true if the testResult there matches the gold 
+		{	
+			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
+			wordMissLocs = new boolean[LEXICON_SIZE]; 
+			for(int i = 0; i < LEXICON_SIZE; i++)
+			{
+				LDByWord[i] = levenshteinDistance(testResultLexicon.getByID(i), 
+						goldResultLexicon.getByID(i)); 
+				wordMissLocs[i] = (LDByWord[i] != 0);
+				wordTrajectories[i] = wordTrajectories[i].substring(0, wordTrajectories[i].indexOf("\n")) +
+					(wordMissLocs[i] ? " MISS, edit distance: "+LDByWord[i]:" HIT") +
+					wordTrajectories[i].substring(wordTrajectories[i].indexOf("\n"));	
+			}
 			
-			//TODO fill this 
+			System.out.println("Writing analysis files...");//TODO maybe need more print statements here. 
+			
+			makeAnalysisFile("initialFormInfluenceAnalysis.txt", "Initial", initLexicon); 
+			makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon); 
+			makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon); 
+			
+			if(customStagesSet)
+				for(int csi = 0; csi < customStageNames.length ; csi++)
+					makeAnalysisFile(customStageNames[csi].replaceAll(" ", ""),
+							customStageNames[csi], customStageLexica[csi]);
+				
+			System.out.println("Analysis files written!");
+			
 		}
 		
 		//TODO debugging
@@ -429,9 +457,156 @@ public class DerivationSimulation {
 		
 		//TODO make the calculations and output the files! 
 	}
+
+	private static void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
+	{
+		String output = "Analysis for "+lexicName+"/n";
+		output += "Overall performance in average derivational distance : "+PERFORMANCE+"\n"; //TODO come up with better name for this 
+		output += "Performance associated with each phone in "+lexicName+"\n"; 
+		output += "Phone in "+lexicName+"\tAssociation with miss in final result\tAverage associated Lev. Distance\n";
+		
+		HashMap<Phone, Double> missLikelihoods = likelihoodsOfMissGivenPhoneInWord(lexic);
+		HashMap<Phone, Double> avgAssocdLDs = avgLDForWordsWithPhone(lexic); 
+		Phone[] phonInv = lexic.getPhonemicInventory(); 
+		for(Phone ph : phonInv)
+			output += ph.print()+"\t|\t"+missLikelihoods.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
+		
+		try 
+		{	FileWriter outFile = new FileWriter(fileName); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(output);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+	}
 	
+	//on the word level, it is divided by the number of phones in the INITIAL lexicon's version of the word! 
+	private static double getLDErrorAvgdOverWordLengthInPhones()
+	{
+		double totLexQuotients = 0.0; 
+		for(int i = 0; i < LEXICON_SIZE; i++)
+		{
+			int numPhonesInInitWord = 0; 
+			List<SequentialPhonic> initWordPhSeq  = initLexicon.getByID(i).getPhonologicalRepresentation(); 
+			for(SequentialPhonic ph : initWordPhSeq)
+				if(ph.getType().equals("phone"))	numPhonesInInitWord++; 
+			
+			totLexQuotients = (double)levenshteinDistance(testResultLexicon.getByID(i), goldResultLexicon.getByID(i))
+					/	(double)numPhonesInInitWord; 
+		}
+		return totLexQuotients / (double)LEXICON_SIZE; 
+				
+	}
 	
+	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
+	// outputs the scores for each phone in the wordin the lexicon 
+	private static HashMap<Phone,Double> likelihoodsOfMissGivenPhoneInWord (Lexicon lexic)
+	{
+		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		int lexSize = lexList.length; 
+		assert LEXICON_SIZE == wordMissLocs.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
+		
+		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
+		int inventorySize = phonemicInventory.length; 
+		
+		HashMap<String,Integer> phonemeIndices = new HashMap<String,Integer>();
+			//maps print symbols of phoneme onto its index in phonemicInventory array
+		for(int phii = 0 ; phii < phonemicInventory.length; phii++)
+			phonemeIndices.put( phonemicInventory[phii].print(), phii); 
+			
+		int[] phoneFreqForMisses = new int[inventorySize]; 
+			//indices correspond to those in phonemicInventory 
+		
+		for(int li = 0 ; li < lexSize; li++)
+		{
+			if(wordMissLocs[li])
+			{
+				String phonesSeenInWord = ""; 
+				List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation(); 
+				
+				for(SequentialPhonic ph : phs)
+				{
+					if(ph.getType().equals("phone"))
+					{
+						if(!phonesSeenInWord.contains(ph.print()))
+						{
+							phonesSeenInWord += ph.print() + ","; 
+							phoneFreqForMisses[phonemeIndices.get(ph.print())] += 1; 
+						}
+					}
+				}
+			}
+		}
+		
+		HashMap<String,Integer> phoneFreqsByWordInLex = lexic.getPhoneFrequenciesByWord(); 
+		//note that the keys for this are the feature vects, not the toString() or print() statements
+		
+		HashMap<Phone,Double> output = new HashMap<Phone,Double>(); 
+		for (int pi = 0; pi < inventorySize ; pi++)
+			output.put(phonemicInventory[pi], 
+				(double)phoneFreqForMisses[pi] /
+				(double)phoneFreqsByWordInLex.get(phonemicInventory[pi].getFeatString()));
+		
+		return output; 
+	}
 	
+	// outputs hashmap where the value for each key Phone instance
+	// is the average Levenshtein distance for words containing that phone 
+	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
+	{
+		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		int lexSize = lexList.length; 
+
+		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
+		int inventorySize = phonemicInventory.length; 
+		HashMap<String,Integer> phonemeIndices = new HashMap<String,Integer>();
+			//maps print symbols of phoneme onto its index in phonemicInventory array
+		for(int phii = 0 ; phii < phonemicInventory.length; phii++)
+			phonemeIndices.put( phonemicInventory[phii].print(), phii); 
+		
+		int[] totalLevenshtein = new int[inventorySize]; //total levenshtein edit distance 
+			// of words with this phone
+		
+		for(int li = 0; li < lexSize; li++)
+		{
+			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation(); 
+			String phonesSeenInWord = ""; 
+			for (SequentialPhonic ph : phs)
+			{
+				if(ph.getType().equals("phone"))
+				{
+					if(!phonesSeenInWord.contains(ph.print()))
+					{
+						phonesSeenInWord += ph.print() + ","; 
+						totalLevenshtein[phonemeIndices.get(ph.print())] += 
+								levenshteinDistance(testResultLexicon.getByID(li),
+										goldResultLexicon.getByID(li));
+					}
+				}
+			}
+		}
+		
+		HashMap<String,Integer> phoneFreqsByWordInLex = lexic.getPhoneFrequenciesByWord(); 
+
+		HashMap<Phone,Double> output = new HashMap<Phone,Double>(); 
+		for(int phi = 0; phi < inventorySize; phi++)
+		{
+			output.put(phonemicInventory[phi], 
+					(double)totalLevenshtein[phi] / 
+					(double)phoneFreqsByWordInLex.get(phonemicInventory[phi].getFeatString()));
+		}
+		return output;
+	}
 	/**
 	 * given String @param toLex
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
@@ -443,7 +618,6 @@ public class DerivationSimulation {
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
 
-		
 		for (String toPhone : toPhones)
 		{
 			if (toPhone.equals("#") || toPhone.equals("+"))
@@ -455,10 +629,47 @@ public class DerivationSimulation {
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
-		
 		return new LexPhon(phones);
 	}
 	
+	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
+	//under this definition of Levenshtein Edit Distance,
+	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
+	private static int levenshteinDistance(LexPhon s, LexPhon t)
+	{
+		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 
+				tPhons = t.getPhonologicalRepresentation(); 
+		int n = sPhons.size(), m = tPhons.size(); 
+		
+		String[] sPhonStrs = new String[n], tPhonStrs = new String[m];
+	
+		for(int i = 0; i < n; i++)	sPhonStrs[i] = sPhons.get(i).print(); 
+		for(int i = 0; i < m; i++)	tPhonStrs[i] = tPhons.get(i).print(); 
+		
+		int[][] distMatrix = new int[n][m], costMatrix = new int[n][m]; 
+	
+		//first we fill it with the base costs
+		for(int i = 0; i < n; i++)
+		{
+			for(int j = 0; j < m; j++)
+			{
+				if( sPhonStrs[i].equals(tPhonStrs[j]) )	costMatrix[i][j] = 0; 
+				else	costMatrix[i][j] = 1; 
+			}
+		}
+		
+		//then accumulate the Levenshtein Distance across the graph toward the bottom right
+		//arbitrarily, do this top-right then down row by row (could also be done up-dwon then right)
+		for(int i=0; i < n; i++)
+		{
+			for(int j = 0; j < m; j++)
+			{
+				distMatrix[i][j] = Math.min(distMatrix[i-1][j-1]+costMatrix[i-1][j-1],
+						Math.min(distMatrix[i-1][j], distMatrix[i][j-1]) + 1); 
+			}
+		}
+		
+		return distMatrix[n-1][m-1]; 
+	}
 	
 }
-

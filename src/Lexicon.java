@@ -30,7 +30,7 @@ public class Lexicon {
 	
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
 		//occurs at least once in a word in the  lexicon
-	public HashMap<String, Integer> getPhoneFrequencies()
+	public HashMap<String, Integer> getPhoneFrequenciesByWord()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
 		for (LexPhon lex : theWordList) //TODO make sure this way of iterating is legit through an array
@@ -57,6 +57,8 @@ public class Lexicon {
 	public LexPhon[] getWordList()
 	{	return theWordList;	}
 	
+	// "Get changed" -- i.e. we get them by hvaing their indexes be true.
+	// used for writing the trajectory files as the lexicon moves forward through time.
 	public boolean[] applyRuleAndGetChangedWords(SChange rule)
 	{
 		int wlLen = theWordList.length ;
@@ -68,6 +70,31 @@ public class Lexicon {
 			else	wordsChanged[wli] = false; 
 		}
 		return wordsChanged; 
+	}
+	
+	//return list of all phones present in words of the lexicon
+	public Phone[] getPhonemicInventory()
+	{
+		String hitPhonesListStr = "";
+		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
+		for (LexPhon theWord : theWordList)
+		{	List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
+			for (SequentialPhonic curPh : thePhones)
+			{
+				if(curPh.getType().equals("phone"))
+				{
+					if(!hitPhonesListStr.contains(curPh.print()))
+					{
+						hitPhonesListStr = hitPhonesListStr + curPh.print() + ","; 
+						phList.add(curPh);
+					}
+				}
+			}
+		}
+		int numPhones = phList.size(); 
+		Phone[] output = new Phone[numPhones]; 
+		for (int phi = 0; phi < numPhones; phi++)	output[phi] = new Phone(phList.get(phi)); 
+		return output; 
 	}
 	
 }

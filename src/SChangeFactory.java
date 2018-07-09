@@ -608,6 +608,7 @@ public class SChangeFactory {
 		return output; 
 	}
 	
+	//TODO abrogate this -- it doesn't seem necessary 
 	/** parseBoundaryType -- given @param inp, boundary symbol in phonological rule notation 
 	 * @return	output the operation type name within this package's paradigm
 	 */
