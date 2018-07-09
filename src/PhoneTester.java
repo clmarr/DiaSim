@@ -214,7 +214,7 @@ public class PhoneTester {
 		testPhones.add(testPhone); 
 		testPhones.add(testPhone); 
 		
-		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+cons,", featureIndices); 
+		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+cons,.delrel", featureIndices); 
 	
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));

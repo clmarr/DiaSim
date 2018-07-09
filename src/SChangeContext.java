@@ -73,7 +73,7 @@ public class SChangeContext {
 	
 	//auxiliary method to determine the minimum possible input size that can satisfy these context restrictions
 	//must be called BEFORE markParenMapForMinPlacesInEachWindow is called. 
-	private int generateMinSize()
+	public int generateMinSize()
 	{
 		int prSize = placeRestrs.size(), count = 0;
 			//optParenDepth is the number of optional { ()*, ()} paren structures we are currently in
@@ -130,7 +130,7 @@ public class SChangeContext {
 	 *					, and if not test the branch where it is included. 
 	 *			3b2) If it is a plussed paren, iterate as normal -- i.e. simply move the marker from the closing paren to the 
 	 *					last element and follow the while loop described in the next case
-	 * 4) We have a disjunctive parenthetical statement starting here
+	 * 4) We have a disjunctive -- i.e. + or * --  parenthetical statement starting here
 	 * 		4a) If it is starred or plussed, branch: first check if we have a match if we just iterate as normal with moving cpim back one
 	 * 				and otherwise check if we can get a true value by returning to the end of the paren structure
 	 * 		4b) Else i.e. if it's a normal paren -- precede as normal, just cpim back one more space
@@ -373,4 +373,7 @@ public class SChangeContext {
 		}
 		return output.substring(0, output.length() - 1); 
 	}
+	
+	//strictly for debugging purposes. 
+	public String[] getParenMap()	{	return parenMap;	}
 }
