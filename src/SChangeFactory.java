@@ -50,6 +50,9 @@ public class SChangeFactory {
 		// or a Phone class' feature Vector
 		//TODO currently abrogated
 	
+	private final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~"};
+	
+	
 	private boolean boundsMatter; 
 	
 	//Constructor
@@ -59,6 +62,8 @@ public class SChangeFactory {
 		boundsMatter = false; //TODO figure out how the user can specify if boundsMatter should be true
 		
 		symbToFeatVects = new HashMap<String, String>(stf);
+		checkForIllegalPhoneSymbols(); 
+		
 		featIndices = new HashMap<String, Integer>(featInds); 
 		featNames = featInds.keySet();
 		featImplications = new HashMap<String, String[]>(featImpls); 
@@ -72,6 +77,16 @@ public class SChangeFactory {
 			assert featVectsToSymb.containsKey(featdef) == false :  
 				"ERROR: duplicate phone definition in symbMap! Duplicate key : " +featdef+", redundant hit for "+key+" with original as "+featVectsToSymb.get(featdef);
 			featVectsToSymb.put(featdef, key); 
+		}
+	}
+	
+	public void checkForIllegalPhoneSymbols()
+	{
+		Set<String> phSymbols = symbToFeatVects.keySet(); 
+		for(String phSymb : phSymbols)
+		{
+			for(String illegal : illegalForPhSymbs)
+				assert !phSymb.contains(illegal) : "Error, the phone symbol "+phSymb+" contains an illegal part, "+illegal; 
 		}
 	}
 	
@@ -401,10 +416,11 @@ public class SChangeFactory {
 		assert symbToFeatVects.containsKey(curtp) : "Error: tried to parse invalid symbol! Symbol : "+curtp; 
 		return new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects); 
 	}
+	
 	/** parseNewContext 
 	 * constructs a new ShiftContext instance
 	 * with variables currRestrList and currParenMap to match the parse of this new contxt
-	 * currRestrList -- all the RestrictPhones i.e. specifications on each context phone
+	 * currRestrList -- all the RestrictPhones i.e. specifications on each context phone -- i.e. FeatMatrix or Boundary instances
 	 * while parenMap is a String[] that is a "map" of where parenthetical structures apply
 	 * ... structured as illustrated by this example (the top row is the indices in PARENMAP)
 	 * 
@@ -422,45 +438,41 @@ public class SChangeFactory {
 	 * @precondition : all elements separated phDelim 
 	 * @return
 	 */
-	private SChangeContext parseNewContext(String inp, boolean boundsMatter)
+	//TODO finish fixing this  
+	private SChangeContext parseNewContext(String input, boolean boundsMatter)
 	{
-		String[] toPhones = inp.trim().split(""+phDelim); 
+		String inp = forceParenSpaceConsistency(input); //force consistently on spaces inside parens
+			// in order to preempt errors
+		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
+			// this should force parenthesis statements to be separate "phones" from the actual phones
 		List<String> parenMapInProgress = new ArrayList<String>();
 		List<RestrictPhone> thePlaceRestrs = new ArrayList<RestrictPhone>(); 
 		
-		for(int i = 0; i < toPhones.length; i++)
+		for (int i = 0 ; i < toPhones.length; i++)
 		{
 			String curtp = toPhones[i].trim(); 
-			if(curtp.charAt(0) == '(') 
-			{	//if it starts with '(' remove this and add to parenMap 
-				curtp = curtp.substring(1).trim(); 
-				parenMapInProgress.add("(");
-			}
-			String parenClose = "";
-			if(curtp.contains(")"))
-			{	//same as above for ending with ) (or ")*", ")+" ) 
-				int lencurtp = curtp.length(); 
-				if(curtp.indexOf(")") == lencurtp - 1 )	parenClose = ")"; 
-				else
-				{	//if ) is not the last character, ensure that either + or * is 
-						// -- meaning 1 or more or 0 or more respectively 
-					assert curtp.indexOf(")") == lencurtp - 2 && 
-							"+*".contains(curtp.substring(lencurtp - 1)) : 
-						"Error: invalid usage of closing parenthesis in new context to parse"; 
-					parenClose = curtp.substring(lencurtp-2); 		
-				}
-				// remove from curtp
-				curtp = curtp.substring(0, curtp.indexOf(")")).trim();
-			}
-			
-			if (curtp.length() > 0) // if there is anyhting left after trimming and paren deletion
+			if(curtp.equals("("))
+				parenMapInProgress.add(curtp); 
+			else if(curtp.contains(")"))
 			{
-				parenMapInProgress.add("i"+thePlaceRestrs.size()); 
-				if(symbToFeatVects.containsKey(curtp)) //it's a Phone instance
-					thePlaceRestrs.add(new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects)); 
-				else if("+#".contains(curtp))
+				boolean rec = false; 
+				if(!curtp.equals(")"))
+				{	rec =true ;	assert curtp.equals(")*") || curtp.equals(")+"): 
+						"Error: illegitimate use of closing bracket : "+curtp; }
+				int corrOpenIndex = parenMapInProgress.lastIndexOf("(");
+					//index of corresponding opening paren. 
+				parenMapInProgress.set(corrOpenIndex, 
+						(rec ? "" : +curtp.charAt(1)+"")+"(:"+parenMapInProgress.size());
+				parenMapInProgress.add(curtp+":"+corrOpenIndex); 
+			}
+			else
+			{
+				parenMapInProgress.add("i"+thePlaceRestrs.size()) ;
+				if(symbToFeatVects.containsKey(curtp))
+					thePlaceRestrs.add(new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects));
+				else if ("#+".contains(curtp))
 					thePlaceRestrs.add(new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"));
-				else if("@".equals(curtp))
+				else if ("@".equals(curtp))
 					thePlaceRestrs.add(new Boundary("non word bound"));
 				else
 				{
@@ -475,18 +487,9 @@ public class SChangeFactory {
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
-			if(!parenClose.isEmpty()) //i.e. we are adding closing parentheses 
-			{
-				int corrOpenIndex = parenMapInProgress.lastIndexOf("("); 
-					// corresponding index for the opening paren 
-				if(parenClose.length() == 2) // the closing paren is either starred or plussed
-					parenMapInProgress.set(corrOpenIndex,  parenClose.charAt(1)+"("); 
-				parenMapInProgress.set(corrOpenIndex, parenMapInProgress.get(corrOpenIndex) +
-						":" + parenMapInProgress.size()); 
-				parenMapInProgress.add(parenClose + ":" + corrOpenIndex); 
-			}
 		}
 		
+
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
@@ -619,6 +622,46 @@ public class SChangeFactory {
 		if(inp.equals("#"))	return "word bound"; 
 		if(inp.equals("+"))	return "morph bound";
 		else /*inp.equals("@"))*/  return "non word bound"; 
+	}
+	
+	private String forceParenSpaceConsistency(String input)
+	{
+		String output = input; 
+		int i = 0; 
+		while ( i < output.length() - 1)
+		{
+			if(output.charAt(i) == '(')
+			{
+				if(i > 0)
+					if (output.charAt(i-1) != ' ')
+					{	output = output.substring(0, i) + " " + output.substring(i); i++;	}
+				if(output.charAt(i+1) != ' ')
+				{	output = output.substring(0, i+1) + " "+ output.substring(i+1); i++;	}
+			}
+			i++; 
+			if(output.charAt(i) == ')')
+			{
+				if(output.charAt(i-1) != ' ')
+				{	output = output.substring(0,i) + " " + output.substring(i); i++;	}
+				if( i < output.length() - 1)
+				{	
+					if("*+".contains(output.charAt(i+1)+""))
+					{	if( i < output.length() - 2)
+						{	if(output.charAt(i+2) != ' ')
+							{
+								output = output.substring(0, i+2) + " " + output.substring(i+2); 
+								i += 3;
+							}}}
+					else 
+					{
+						if(output.charAt(i+1) != ' ')
+						{	output = output.substring(0, i+1) + " " + output.substring(i+1); 
+							i += 2;	}
+					}
+				}
+			}
+		}
+		return output;
 	}
 	
 	

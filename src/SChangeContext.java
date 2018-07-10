@@ -34,16 +34,16 @@ public class SChangeContext {
 	{
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		parenMap = pm; boundsMatter = false;
-		minSize = generateMinSize(); 
 		markParenMapForMinPlacesInEachWindow();
+		minSize = generateMinSize(); 
 	}
 	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		parenMap = pm; boundsMatter = bm; 
-		minSize = generateMinSize(); 
 		markParenMapForMinPlacesInEachWindow(); 
+		minSize = generateMinSize(); 
 	}
 	
 	//auxiliary for initialization : mark all parenthetical cells in parenMap
@@ -59,7 +59,8 @@ public class SChangeContext {
 				int openerIndex = Integer.parseInt(parenMap[currIndex].split(":")[1]); 
 				int minPlaces = minPlacesInParenWindow(openerIndex, currIndex); 
 				parenMap[currIndex] = parenMap[currIndex] + "," + minPlaces;
-				parenMap[openerIndex] = parenMap[currIndex] + "," + minPlaces; 
+				parenMap[openerIndex] = parenMap[openerIndex] + "," + minPlaces; 
+				currIndex--; 
 			}
 			else
 			{	
@@ -72,7 +73,7 @@ public class SChangeContext {
 	}
 	
 	//auxiliary method to determine the minimum possible input size that can satisfy these context restrictions
-	//must be called BEFORE markParenMapForMinPlacesInEachWindow is called. 
+	//must be called AFTER markParenMapForMinPlacesInEachWindow is called. 
 	public int generateMinSize()
 	{
 		int prSize = placeRestrs.size(), count = 0;
@@ -81,8 +82,16 @@ public class SChangeContext {
 		for(int i = 0; i < prSize; i++)
 		{
 			String currMapCell = parenMap[i];
+			
+			//TODO debugging
+			System.out.println("currMapCell : "+currMapCell);
+			
 			if(currMapCell.contains("(")) // then hop. 
-			{	if(currMapCell.contains("+"))	i = Integer.parseInt(currMapCell.split(":")[1]);	} 
+			{	
+				if(currMapCell.contains("+"))	
+					count += Integer.parseInt(currMapCell.split(":")[1].split(",")[1]);
+				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
+			} 
 			else
 			{
 				assert !currMapCell.contains(")"): "Error: unopened ')' found"; 
@@ -322,7 +331,7 @@ public class SChangeContext {
 		// --they should both be parentheses
 	private int minPlacesInParenWindow (int first, int last)
 	{
-		assert first + 1 < last && first > 0 && last < parenMap.length : 
+		assert first + 1 < last && first >= 0 && last < parenMap.length : 
 			"Error: Invalid bounds of window entered for minPlacesInParenWindow()"; 
 		
 		assert parenMap[first].contains("(") && parenMap[last].contains(")") : 

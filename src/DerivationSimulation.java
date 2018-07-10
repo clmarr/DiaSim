@@ -38,7 +38,7 @@ public class DerivationSimulation {
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
-	private static HashMap<String, String[]> featImplications; //TODO currently abrogated
+	private static HashMap<String, String[]> featImplications; 
 	private HashMap featTranslations; //TODO currently abrogated 
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
