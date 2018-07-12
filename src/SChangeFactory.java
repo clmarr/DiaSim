@@ -575,7 +575,7 @@ public class SChangeFactory {
 				despecs.add(fWIAfterPd.substring(0, fWIAfterPd.indexOf(""+restrDelim))); 	}
 			else	despecs.add(fWIAfterPd); //i.e. this is when it was the last element in the string .
 		}
-		return new FeatMatrix(theFeatSpecs, featIndices, despecs); 
+		return new FeatMatrix(theFeatSpecs, featIndices); 
 	}
 	
 	/**	applyImplications
