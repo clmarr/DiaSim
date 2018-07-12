@@ -25,12 +25,12 @@ import java.util.Set;
 //TODO fix this so it can handle FeatureImplications 
 	
 public class SChangeFactory {
-	private HashMap<String, String> symbToFeatVects; 
+	private static HashMap<String, String> symbToFeatVects; 
 	private HashMap<String, String> featVectsToSymb; 
-	private HashMap<String, Integer> featIndices;
-	private HashMap<String, String[]> featImplications; 
-	private Set<String> featsWithImplications; 
-	private Set<String> featNames; 
+	private static HashMap<String, Integer> featIndices;
+	private static HashMap<String, String[]> featImplications; 
+	private static Set<String> featsWithImplications; 
+	private static Set<String> featNames; 
 	
 	private final char ARROW = '>'; //separates source target from destination 
 	private final char contextFlag = '/'; //signals the beginning of context specification
@@ -41,9 +41,9 @@ public class SChangeFactory {
 	
 	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	
-	private final char phDelim = ' '; // delimits phones that are in the same sequence
+	private static final char phDelim = ' '; // delimits phones that are in the same sequence
 	private final char segDelim = ';'; // delimits segments that are in disjunctio
-	private final char restrDelim = ','; // delimits restrictiosn between features inside the specification
+	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]
 	//private final char featVectDelim = ','; //delimiter between features in a FeatMatrix's internal feature vector
@@ -291,12 +291,12 @@ public class SChangeFactory {
 		return output;
 	}
 	
-	public List<RestrictPhone> parseRestrictPhoneSequence(String input)
+	public static List<RestrictPhone> parseRestrictPhoneSequence(String input)
 	{
 		return parseRestrictPhoneSequence(input, false); 
 	}
 	
-	public List<RestrictPhone> parseRestrictPhoneSequence(String input, boolean forDestination)
+	public static List<RestrictPhone> parseRestrictPhoneSequence(String input, boolean forDestination)
 	{
 		List<RestrictPhone> output = new ArrayList<RestrictPhone>(); 
 		String inputLeft = ""+input; 
@@ -398,7 +398,7 @@ public class SChangeFactory {
 		return output; 
 	}
 	
-	private List<SequentialPhonic> parseSeqPhSeg (String inp)
+	public List<SequentialPhonic> parseSeqPhSeg (String inp)
 	{
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(); 
 		String[] phsInSeg = inp.trim().split(""+phDelim); 
@@ -439,7 +439,7 @@ public class SChangeFactory {
 	 * @return
 	 */
 	//TODO finish fixing this  
-	private SChangeContext parseNewContext(String input, boolean boundsMatter)
+	public SChangeContext parseNewContext(String input, boolean boundsMatter)
 	{
 		String inp = forceParenSpaceConsistency(input); //force consistently on spaces inside parens
 			// in order to preempt errors
@@ -461,12 +461,22 @@ public class SChangeFactory {
 						"Error: illegitimate use of closing bracket : "+curtp; }
 				int corrOpenIndex = parenMapInProgress.lastIndexOf("(");
 					//index of corresponding opening paren. 
+				
 				parenMapInProgress.set(corrOpenIndex, 
-						(rec ? "" : +curtp.charAt(1)+"")+"(:"+parenMapInProgress.size());
+						(rec ? curtp.charAt(1)+"" : "")+"(:"+parenMapInProgress.size());
 				parenMapInProgress.add(curtp+":"+corrOpenIndex); 
 			}
 			else
 			{
+				if(curtp.charAt(0) == '[')
+				{
+					assert curtp.charAt(curtp.length() - 1) == ']' || curtp.length() > 3 : 
+						"Error : illegitimate use of FeatMatrix brackets : "+curtp;
+					curtp = curtp.substring(1, curtp.length() - 1);
+				}
+				assert !curtp.contains("[") || !curtp.contains("]") : 
+					"Error : illegitimate usage of brackets " + curtp; 
+				
 				parenMapInProgress.add("i"+thePlaceRestrs.size()) ;
 				if(symbToFeatVects.containsKey(curtp))
 					thePlaceRestrs.add(new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects));
@@ -484,6 +494,7 @@ public class SChangeFactory {
 					assert isValidFeatSpecList(curtp): 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
 						+ "with an invalid entrace for the list of feature specifications.";
+					
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
@@ -500,7 +511,7 @@ public class SChangeFactory {
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
 	 */
-	private boolean isValidFeatSpecList(String input)
+	public static boolean isValidFeatSpecList(String input)
 	{
 		String[] specs = input.split(""+restrDelim); 
 		
@@ -531,11 +542,12 @@ public class SChangeFactory {
 		return false; 
 	}
 
-	public FeatMatrix getFeatMatrix(String featSpecs)
+	public static FeatMatrix getFeatMatrix(String featSpecs)
 	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
-	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
+	//TODO fix to remove despecs 
+	public static FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
 		
@@ -571,7 +583,7 @@ public class SChangeFactory {
 	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
 	 * @param featSpecs, feature specifications before application of the stored implications
 	 */
-	public String applyImplications (String featSpecs) 
+	public static String applyImplications (String featSpecs) 
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to apply implications to an invalid list of feature specifications" ; 
 		String[] theFeatSpecs = featSpecs.trim().split(""+restrDelim); 
@@ -624,19 +636,28 @@ public class SChangeFactory {
 		else /*inp.equals("@"))*/  return "non word bound"; 
 	}
 	
-	private String forceParenSpaceConsistency(String input)
+	public String forceParenSpaceConsistency(String input)
 	{
 		String output = input; 
 		int i = 0; 
 		while ( i < output.length() - 1)
 		{
-			if(output.charAt(i) == '(')
+			if(i < output.length() - 2)
 			{
-				if(i > 0)
-					if (output.charAt(i-1) != ' ')
-					{	output = output.substring(0, i) + " " + output.substring(i); i++;	}
-				if(output.charAt(i+1) != ' ')
-				{	output = output.substring(0, i+1) + " "+ output.substring(i+1); i++;	}
+				if(output.charAt(i) == ' ' && output.charAt(i+1) == ' ')
+				{
+					output = output.substring(0,i+1) + output.substring(i+2); i+=2; 
+				}
+			}
+			if(i < output.length() - 2)
+			{	if(output.charAt(i) == '(')
+				{
+					if(i > 0)
+						if (output.charAt(i-1) != ' ')
+						{	output = output.substring(0, i) + " " + output.substring(i); i++;	}
+					if(output.charAt(i+1) != ' ')
+					{	output = output.substring(0, i+1) + " "+ output.substring(i+1); i++;	}
+				}
 			}
 			i++; 
 			if(output.charAt(i) == ')')
@@ -661,7 +682,7 @@ public class SChangeFactory {
 				}
 			}
 		}
-		return output;
+		return output.trim();
 	}
 	
 	

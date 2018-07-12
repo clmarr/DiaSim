@@ -151,29 +151,6 @@ public class PhoneTester {
 		System.out.println("The following should be true");
 		System.out.println(testPhone.compare(proxy5));
 		
-		Phone oldTestPhone = new Phone(testPhone); 
-		
-		boolean firstTrue = (testPhone.get(firstFeat) == 2); 
-		System.out.println("-------------------\nInitiating test of class FeatSpec");
-		FeatSpec speccie = new FeatSpec((firstTrue ? "-" : "+")+firstFeat); 
-		System.out.println("The following should be '"+firstFeat+"'");
-		System.out.println(speccie.getFeat());
-		
-		System.out.println("The following should be '"+ (firstTrue ? "false" : "true") + "'"); 
-		System.out.println(speccie.getTruth());
-		
-		System.out.println("The following should be 'false'"); 
-		System.out.println(speccie.check(testPhone)); 
-		
-		speccie.forceTruth(testPhone); 
-		
-		System.out.println("The following should be 'true'");
-		System.out.println(speccie.check(testPhone));
-		
-		System.out.println("speccie.toString : "+speccie.toString());
-		
-		testPhone= new Phone(oldTestPhone); 
-		
 		System.out.println("----------------------");
 		
 		System.out.println("Testing class FeatMatrix"); 

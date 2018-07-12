@@ -83,9 +83,6 @@ public class SChangeContext {
 		{
 			String currMapCell = parenMap[i];
 			
-			//TODO debugging
-			System.out.println("currMapCell : "+currMapCell);
-			
 			if(currMapCell.contains("(")) // then hop. 
 			{	
 				if(currMapCell.contains("+"))	
@@ -250,12 +247,6 @@ public class SChangeContext {
 		while( currPlaceInCand < lenPhonSeq && 
 				!(currRestrPlace >= numRestrPlaces && currPlaceInMap >= mapSize))
 		{
-			//TODO debugging
-			System.out.println("cpic "+currPlaceInCand+", crp "+currRestrPlace+","
-					+ " currPlaceInMap "+cpim);
-			System.out.println("lenPhonSeq "+lenPhonSeq+" numRestrPlaces "
-					+ numRestrPlaces + " mapSize "+mapSize); 
-			
 			if(parenMap[currPlaceInMap].contains("("))
 			{
 				//if we could not possibly include the contents of this paren structure because there are too many 
@@ -385,4 +376,6 @@ public class SChangeContext {
 	
 	//strictly for debugging purposes. 
 	public String[] getParenMap()	{	return parenMap;	}
+	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
+	
 }

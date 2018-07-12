@@ -133,7 +133,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>();
 		if(ind > 0)	output.addAll(patientSeq.subList(0, ind)); 
 		output.add(new Phone(this)); 
-		if (ind < patientSeq.size() - 1)	output.addAll(patientSeq.subList(ind, patientSeq.size()));
+		if (ind < patientSeq.size() - 1)	output.addAll(patientSeq.subList(ind+1, patientSeq.size()));
 		
 		/**List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(patientSeq); 
 		output.set(ind, new Phone(this));*/

@@ -42,7 +42,7 @@ public class DerivationSimulation {
 	private HashMap featTranslations; //TODO currently abrogated 
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
-	private static int LEXICON_SIZE; 
+	private static int NUM_ETYMA; 
 	private static String[] customStageNames; 
 	private static Lexicon[] customStageLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
@@ -354,16 +354,16 @@ public class DerivationSimulation {
 		
 		//TODO fix -- at this point implement a branching of the simulation -- one branch with a gold, the other without? 
 		
-		LEXICON_SIZE = lexFileLines.size(); 
-		wordTrajectories = new String[LEXICON_SIZE]; 
+		NUM_ETYMA = lexFileLines.size(); 
+		wordTrajectories = new String[NUM_ETYMA]; 
 		
-		LexPhon[] initWords = new LexPhon[LEXICON_SIZE];
-		LexPhon[] goldWords = new LexPhon[LEXICON_SIZE];
+		LexPhon[] initWords = new LexPhon[NUM_ETYMA];
+		LexPhon[] goldWords = new LexPhon[NUM_ETYMA];
 		boolean goldIsInput = (lexFileLoc.substring(lexFileLoc.length()-5, lexFileLoc.length()).equals(".csv"));
 		
 		
 		int lfli = 0; 
-		while (lfli < LEXICON_SIZE)
+		while (lfli < NUM_ETYMA)
 		{
 			String theLine = lexFileLines.get(lfli);
 			wordTrajectories[lfli] = goldIsInput ? theLine : theLine.split(",")[0]; 
@@ -426,8 +426,8 @@ public class DerivationSimulation {
 		if(goldIsInput)
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
-			wordMissLocs = new boolean[LEXICON_SIZE]; 
-			for(int i = 0; i < LEXICON_SIZE; i++)
+			wordMissLocs = new boolean[NUM_ETYMA]; 
+			for(int i = 0; i < NUM_ETYMA; i++)
 			{
 				LDByWord[i] = levenshteinDistance(testResultLexicon.getByID(i), 
 						goldResultLexicon.getByID(i)); 
@@ -463,13 +463,13 @@ public class DerivationSimulation {
 		String output = "Analysis for "+lexicName+"/n";
 		output += "Overall performance in average derivational distance : "+PERFORMANCE+"\n"; //TODO come up with better name for this 
 		output += "Performance associated with each phone in "+lexicName+"\n"; 
-		output += "Phone in "+lexicName+"\tAssociation with miss in final result\tAverage associated Lev. Distance\n";
+		output += "Phone in "+lexicName+"\tAssociated lakation\tMean Associated Normalized Lev.Dist.\n";
 		
-		HashMap<Phone, Double> missLikelihoods = likelihoodsOfMissGivenPhoneInWord(lexic);
+		HashMap<Phone, Double> lakationByPhone = lakationPerPhone(lexic);
 		HashMap<Phone, Double> avgAssocdLDs = avgLDForWordsWithPhone(lexic); 
 		Phone[] phonInv = lexic.getPhonemicInventory(); 
 		for(Phone ph : phonInv)
-			output += ph.print()+"\t|\t"+missLikelihoods.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
+			output += ph.print()+"\t|\t"+lakationByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
 		
 		try 
 		{	FileWriter outFile = new FileWriter(fileName); 
@@ -494,7 +494,7 @@ public class DerivationSimulation {
 	private static double getLDErrorAvgdOverWordLengthInPhones()
 	{
 		double totLexQuotients = 0.0; 
-		for(int i = 0; i < LEXICON_SIZE; i++)
+		for(int i = 0; i < NUM_ETYMA; i++)
 		{
 			int numPhonesInInitWord = 0; 
 			List<SequentialPhonic> initWordPhSeq  = initLexicon.getByID(i).getPhonologicalRepresentation(); 
@@ -504,17 +504,17 @@ public class DerivationSimulation {
 			totLexQuotients = (double)levenshteinDistance(testResultLexicon.getByID(i), goldResultLexicon.getByID(i))
 					/	(double)numPhonesInInitWord; 
 		}
-		return totLexQuotients / (double)LEXICON_SIZE; 
+		return totLexQuotients / (double)NUM_ETYMA; 
 				
 	}
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
 	// outputs the scores for each phone in the wordin the lexicon 
-	private static HashMap<Phone,Double> likelihoodsOfMissGivenPhoneInWord (Lexicon lexic)
+	private static HashMap<Phone,Double> lakationPerPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
-		assert LEXICON_SIZE == wordMissLocs.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
+		assert NUM_ETYMA == wordMissLocs.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
 		
 		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
 		int inventorySize = phonemicInventory.length; 

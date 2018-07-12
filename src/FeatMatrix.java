@@ -7,59 +7,19 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
-	private String featSpecs; //"+cor,-dist" etc... 
-	private HashMap<String,Integer> featInds; 
+		// despecification -- i.e. arising only because of feature implications,
+			// the change of a feature from +/- to . in unspecified in a phone operated upon. 
+		// DESPECIFICATION of phones as part of the FeatMatrix is represented as a 9 in FeatSpecs	
 	private final char FEAT_DELIM = ','; 
-	private List<String> despecifications; 
-	private boolean hasDespecs; // proxy for if the List<String> despecifications is initialized 
-	
+	private String featSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
+	private HashMap<String,Integer> featInds; 
+
 	// DESPECIFICATION -- 
 		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
 		// example: if a vowel goes from -cont to +cont, the feature delrel should be despecified
 		// this case is the only time we will ever make use of the List<String> despecifications
 		// which is what is stored in the featVect for this case. 
-	
-	public FeatMatrix(List<FeatSpec> specs, HashMap<String,Integer> ftInds)
-	{
-		type = "feat matrix"; 
-		featInds=new HashMap<String,Integer>(ftInds); 
-		featSpecs=""; 
-		char[] chArr = new char[ftInds.size()];
-		Arrays.fill(chArr, '1' );
-		featVect=new String(chArr); 
-		for (FeatSpec spec : specs)
-		{
-			String ft = spec.getFeat();
-			assert featInds.containsKey(ft): 	"ERROR: tried to add invalid feature";  
-			featSpecs+= specs.toString() + FEAT_DELIM; 
-			int spInd = featInds.get(ft); //ind for this feature 
-			featVect = featVect.substring(0,spInd) + (spec.getTruth() ? 2 : 0) + featVect.substring(spInd+1); 
-		}
-		featSpecs = featSpecs.substring(0, featSpecs.length()-1); //chop of last comma
-		hasDespecs = false; 
-	}
-	
-	public FeatMatrix(List<FeatSpec> specs, HashMap<String,Integer> ftInds, List<String> despecs)
-	{
-		type = "feat matrix"; 
-		featInds=new HashMap<String,Integer>(ftInds); 
-		featSpecs=""; 
-		char[] chArr = new char[ftInds.size()];
-		Arrays.fill(chArr, '1' );
-		featVect=new String(chArr); 
-		for (FeatSpec spec : specs)
-		{
-			String ft = spec.getFeat();
-			assert featInds.containsKey(ft): 	"ERROR: tried to add invalid feature";  
-			featSpecs+= specs.toString() + FEAT_DELIM; 
-			int spInd = featInds.get(ft); //ind for this feature 
-			featVect = featVect.substring(0,spInd) + (spec.getTruth() ? 2 : 0) + featVect.substring(spInd+1); 
-		}
-		featSpecs = featSpecs.substring(0, featSpecs.length()-1); //chop of last comma
-		hasDespecs = true;
-		despecifications = new ArrayList<String>(despecs); 
-	}
-	
+		// 
 	/**
 	 * version of constructor with featSpecs passed directly
 	 * should be passed with , delimiters and +/- indicators 
@@ -69,36 +29,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 
 		type = "feat matrix";
-		featInds = new HashMap<String,Integer>(ftInds); 
-		
-		char[] chArr = new char[ftInds.size()];
-		Arrays.fill(chArr, '1');
-		featVect = new String(chArr); 
-		
-		String[] spArr = specs.split(""+FEAT_DELIM); 
-		
-		for (int i = 0; i < spArr.length; i++)
-		{
-			String sp = spArr[i]; 
-			String indic = sp.substring(0, 1); 
-			assert "-+.".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
-			boolean tr= (indic.equals("+")); 
-			String feat = sp.substring(1); 
-			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			
-			int spInd=featInds.get(feat); 
-			featVect = featVect.substring(0,spInd)+ (tr ? 2 : 0) +featVect.substring(spInd+1); 
-		}
-		
-		featSpecs=specs; 
-		hasDespecs = false;
-	}
-	
-	public FeatMatrix(String specs, HashMap<String,Integer> ftInds, List<String> despecs)
-	{
-		assert specs.length() > 1 : "Invalid string entered for specs"; 
+		featSpecs=specs+""; 
 
-		type = "feat matrix"; 
 		featInds = new HashMap<String,Integer>(ftInds); 
 		
 		char[] chArr = new char[ftInds.size()];
@@ -112,19 +44,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			String sp = spArr[i]; 
 			String indic = sp.substring(0, 1); 
 			assert "-+.".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
-			boolean tr= (indic.equals("+")); 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			
 			int spInd=featInds.get(feat); 
-			featVect = featVect.substring(0,spInd)+ (tr ? 2 : 0) +featVect.substring(spInd+1); 
+			featVect = featVect.substring(0,spInd)+ 
+					("+".equals(indic) ? 2 : (".".equals(indic) ? 9 : 0) ) +
+					featVect.substring(spInd+1); 
 		}
-		
-		featSpecs=specs; 
-		hasDespecs = true;
-		despecifications = new ArrayList<String>(despecs); 
 	}
-	
+		
 	/**
 	 * checks if candidate phone adheres to the restrictiosn
 	 */
@@ -140,6 +68,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			String restr = featVect.substring(i,i+1); 
 			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
 					return false;
+			if ("9".contains(restr) && !"1".equals(restr))	return false; 
 		}
 		return true;
 	}
@@ -151,21 +80,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * @return
 	 */
 	public boolean compare(List<SequentialPhonic> candPhonSeq, int index)
-	{	
-		SequentialPhonic cand = candPhonSeq.get(index); 
-		if (!cand.getType().equals("phone"))	return false; 
-		
-		String candFeats = cand.toString().split(": ")[1]; 
-		assert candFeats.length() == featVect.length(): 
-			"ERROR: comparing with feature vects of unequal length"; 
-		for (int i = 0 ; i < candFeats.length(); i++)
-		{
-			String restr = featVect.substring(i,i+1); 
-			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
-					return false;
-		}
-		return true;
-	}
+	{	return compare(candPhonSeq.get(index));		}
 	
 	/**
 	 *  makes all the restrictions specified in this FeatMatrix true for @param patient
@@ -188,11 +103,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			
 			if(output.get(feat) != targVal)// if it is not already the acceptable value: 
 				output.set(feat, targVal);
-		}
-		
-		if(hasDespecs)
-			for(String despec : despecifications)	output.set(despec, 1);
-		
+		}	
 		return output; 
 	}
 	
@@ -205,26 +116,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{
 		SequentialPhonic patient = patientSeq.get(ind); 
-		
 		assert patient.getType().equals("phone"): "ERROR: trying to force cand restrictions on non-phone!";
-		
-		Phone output = new Phone(patient); 
-		
-		String[] specArr = featSpecs.split(""+FEAT_DELIM);
-		for(int spi = 0; spi<specArr.length; spi++)
-		{
-			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 
-				( (specArr[spi].substring(0, 1).equals(".")) ? 1 : 0);
-			String feat = specArr[spi].substring(1); 
-			
-			if(output.get(feat) != targVal)	output.set(feat, targVal);
-		}
-		
-		if(hasDespecs)
-			for(String despec : despecifications)	output.set(despec, 1);
-		
 		List<SequentialPhonic> outSeq = new ArrayList<SequentialPhonic>(patientSeq); 
-		outSeq.set(ind, output);
+		outSeq.set(ind, forceTruth(new Phone(patient)));
 		return outSeq;
 	}
 	
@@ -248,17 +142,18 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if(other instanceof FeatMatrix)	
 		{	String othersString = other.toString(); 
 			if(othersString.length() < 4)	return false; //no chance
-			String[] kushtiITij = othersString.split(""+FEAT_DELIM); 
-			String vektorITij = ""; 
-			for(int ti = 0; ti < this.featVect.length() ; ti++)	vektorITij+="1"; 
-			for(int ki = 0; ki < kushtiITij.length; ki++)
+			String[] othersSpecs = othersString.split(""+FEAT_DELIM); 
+			String othersVect = ""; 
+			for(int ti = 0; ti < this.featVect.length() ; ti++)	othersVect+="1"; //fill with default 1s  
+			for(int ki = 0; ki < othersSpecs.length; ki++)
 			{
-				int indeksTipari = featInds.get(kushtiITij[ki].substring(1));
-				boolean ndershmeri = kushtiITij[ki].charAt(0) == '+'; 
-				vektorITij = vektorITij.substring(0, indeksTipari) + 
-						(ndershmeri ? 2 : 0 ) + vektorITij.substring(indeksTipari + 1); 
+				int othFtInd = featInds.get(othersSpecs[ki].substring(1));
+				char othFtSpecVal = othersSpecs[ki].charAt(0); 
+				othersVect = othersVect.substring(0, othFtInd) + 
+						(othFtSpecVal == '.' ? 9 : (othFtSpecVal == '+' ? 2 : 0)) 
+						+ othersVect.substring(othFtInd + 1); 
 			}
-			return this.getFeatVect().equals(vektorITij);
+			return this.getFeatVect().equals(othersVect);
 		}
 		else	return false; 
 	}
