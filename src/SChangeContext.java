@@ -41,7 +41,7 @@ public class SChangeContext {
 		System.out.println("Before markup to translate out '()+', i.e. parenthetical structures indicating 1 or more of the contents");
 		System.out.println(printParenMap(this));
 		
-		parenMap = translateOutPlusFromParenMap(pm); 
+		//parenMap = translateOutPlusFromParenMap(pm); 
 		markParenMapForMinPlacesInEachWindow();		
 		
 		minSize = generateMinSize(); System.out.println("final min size : " + minSize); //TODO debugging 
@@ -384,27 +384,8 @@ public class SChangeContext {
 	//strictly for debugging purposes. 
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
-
 	
-	//given preMap, a prior form of the parenMap before this occurs, 
-	// it will return a version all "1 or more parenthetical statements" -- i.e. plussed parens, (A B C .. )+ --
-	 	// are replaced wiht a combination of a simple string and a starred paren as follows 
-	// ( A B ) + --> A B ( A B )*
-	public String[] plussesToStars(String[] preMap)
-	{
-		
-	}
-	
-	//expands one (...)+ statement to ... (...)*
-	// int ind is the index of the opening parenthesis of 
-		//the ()+ statement were are expanding. 
-	public String[] plussesToStarsHelper(String[] currMap, int ind)
-	{
-		assert currMap[ind].charAt(0) == '+' : 
-			"Error : plussesToStarsHelper called with ind value that is not a ()+ statement opener!";
-	}
-	
-	//TODO abrogated 
+	//TODO abrogated -- function is now handled much earlier, in SChangeFactory
 	public String[] translateOutPlusFromParenMap(String[] preMap) 
 	{
 		List<String> parenMapAsList = new ArrayList<String>(Arrays.asList(preMap));

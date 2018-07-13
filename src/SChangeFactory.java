@@ -1,10 +1,4 @@
 import java.util.List;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap; 
@@ -446,6 +440,8 @@ public class SChangeFactory {
 	{
 		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
+		inp = expandOutAllPlusses(inp);
+		
 		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
 			// this should force parenthesis statements to be separate "phones" from the actual phones
 		
@@ -512,62 +508,6 @@ public class SChangeFactory {
 		
 		return new SChangeContext(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
-
-	//given preMap, a prior form of the parenMap before this occurs, 
-	// it will return a version all "1 or more parenthetical statements" -- i.e. plussed parens, (A B C .. )+ --
-	 	// are replaced wiht a combination of a simple string and a starred paren as follows 
-	// ( A B ) + --> A B ( A B )*
-	// when entered into this method, paren cells should be marked for their corresponding opener or closer,
-		// but not yet for their minimum number of contents --- i.e. (:6 ... ):3 etc.. 
-	public String[] plussesToStars(List<String> preMap)
-	{
-		
-	}
-	
-	//expands one (...)+ statement to ... (...)*
-	// int ind is the index of the opening parenthesis of 
-		//the ()+ statement were are expanding. 
-	//return new version of hte map with that specific paren expanded... 
-	public List<String> plussesToStarsHelper(List<String> currMap, int ind)
-	{
-		assert currMap.get(ind).charAt(0) == '+' : 
-			"Error : plussesToStarsHelper called with ind value that is not a ()+ statement opener!";
-		
-		int closingLoc = Integer.parseInt(currMap.get(ind).split(":")[1]);
-		assert closingLoc > ind + 1 : "Error : closing loc is either less than ind of opening +( paren or is too close!"; 
-		assert currMap.get(closingLoc).charAt(1) == '+' : 
-			"Error: stored closing location of current )+ being expanded does not have a + ";
-		
-		List<String> simpleParenContents = new ArrayList<String>(currMap.subList(ind + 1, closingLoc)); 
-		
-		List<String> newStarParenStruct = new ArrayList<String>(simpleParenContents); 
-		
-		int numRestrPlacesDuplicated = 0; 
-		int mapSizeIncrease = closingLoc - ind - 1; 
-		
-		//-1 for all parens counterpart pointers in simpleParen contents, as we "lost" one index -- the +( index -- from teh beginning
-		for(int ci = 0 ; ci < simpleParenContents.size(); ci++)
-		{
-			String currCell = simpleParenContents.get(ci);
-			if(currCell.contains(":")) //i.e. it's a paren statement 
-			{
-				int prevCorrInd = Integer.parseInt( currCell.split(":")[1]); 
-				simpleParenContents.set(ci, currCell.substring(0, currCell.indexOf(":")+1) + (prevCorrInd + 1) ) ;
-			}
-			else 
-			{
-				assert currCell.charAt(0) == 'i' : "Error: illegal cell that seems to be neither a paren nor a phonic restriction";
-				numRestrPlacesDuplicated++; 
-			}
-		}
-		
-		//TODO finish this
-
-		
-		
-		
-	}
-	
 	
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
