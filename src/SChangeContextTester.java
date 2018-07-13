@@ -28,6 +28,8 @@ public class SChangeContextTester {
 	private static Phone dummiePhone; 
 	public static void main(String args[])
 	{
+		boolean boundsMatter = false; 
+		
 		featIndices = new HashMap<String, Integer>(); 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		phoneFeatsToSymbMap = new HashMap<String, String>(); 
@@ -163,21 +165,195 @@ public class SChangeContextTester {
 		
 		//TODO: A is ++, B +-, C -+ and D --
 		List<SequentialPhonic> dummyTestList = new ArrayList<SequentialPhonic>(); 
-		Phone A = new Phone(dummiePhone), B = new Phone(dummiePhone), C = new Phone(dummiePhone), D = new Phone(dummiePhone); 
+		Phone Aph = new Phone(dummiePhone), Bph = new Phone(dummiePhone), Cph = new Phone(dummiePhone), Dph = new Phone(dummiePhone); 
 		String ft1 = featsByIndex[0], ft2 = featsByIndex[1];
-		A.set(ft1,2); B.set(ft1, 2); C.set(ft1, 0); D.set(ft1, 0);
-		A.set(ft2, 2); B.set(ft2, 0); C.set(ft2,2); D.set(ft2,0);
+		Aph.set(ft1,2); Bph.set(ft1, 2); Cph.set(ft1, 0); Dph.set(ft1, 0);
+		Aph.set(ft2, 2); Bph.set(ft2, 0); Cph.set(ft2,2); Dph.set(ft2,0);
+		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featIndices),
+				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featIndices),
+				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featIndices), 
+				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featIndices); 
 		
-		SChangeContext testContext = testFactory.parseNewContext("A", false);
-		dummyTestList.add(A); dummyTestList.add(C); 
+		SChangeContext testContext = testFactory.parseNewContext(Afm+"", boundsMatter);
+		dummyTestList.add(Aph); dummyTestList.add(Cph); 
 		
-		System.out.println("Testing A __ as prior context");
+		System.out.println("\nTesting A __ as prior context");
+		System.out.println("Min size should be 1 : "+testContext.generateMinSize()); 
+		System.out.println("Paren map should be i0 : "+printParenMap(testContext));
 		System.out.println("A __ should be TRUE: " + testContext.isPriorMatch(dummyTestList,1));
-		dummyTestList.set(0, B);
+		dummyTestList.set(0, Bph);
 		System.out.println("B __ should be FALSE: " + testContext.isPriorMatch(dummyTestList, 1)); 
-		dummyTestList = new ArrayList<SequentialPhonic>(); dummyTestList.add(C); dummyTestList.add(A); 
-		System.out.println("Testing __ B as prior context");
+		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Aph); 
+		System.out.println("\nTesting __ A as posterior context");
 		System.out.println(" __ A should be TRUE : "+ testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.set(1, Bph); 
+		System.out.println(" __ B should be FALSE : " + testContext.isPosteriorMatch(dummyTestList, 1)); 
+		
+		System.out.println("\nTesting A B __ and __ A B");
+		testContext = testFactory.parseNewContext(Afm+" "+Bfm, boundsMatter);
+		System.out.println("Min size should be 2 : "+testContext.generateMinSize());
+		System.out.println("Paren map should be i0 i1 : "+printParenMap(testContext));
+		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Bph); dummyTestList.add(Cph); 
+		System.out.println("A B __ should be TRUE for A B __ : "
+				+ testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Aph); dummyTestList.add(Bph);
+		System.out.println("__ A B should be TRUE for __ A B : "
+				+ testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.set(1,Bph); dummyTestList.set(2, Cph);
+		System.out.println("C B __ should be FALSE for A B __ : "+ testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.set(1,Cph); dummyTestList.set(2, Bph);
+		System.out.println(" __ C B should be FALSE for __ A B : "+ testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Cph); dummyTestList.add(Cph);
+		System.out.println("A C __ should be FALSE for A B __ : "+ testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.set(1, Aph);
+		System.out.println("__ A C should be FALSE for __ A B : "+ testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.set(0, Bph); dummyTestList.set(1, Aph); 
+		System.out.println("B A __ should be FALSE for A B __ : "+ testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.set(1, Bph); dummyTestList.set(2,Aph); 
+		System.out.println("__ B A should be FALSE for __ A B : "+ testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.clear(); dummyTestList.add(Aph); 
+		dummyTestList.add(new Boundary("word bound")); dummyTestList.add(Bph); dummyTestList.add(Cph);
+		System.out.println("A # B __ should be "+(""+!boundsMatter).toUpperCase()+" for A B __, in accordance with the value of"
+				+ " boundsMatter being "+boundsMatter+": " + testContext.isPriorMatch(dummyTestList, 3));
+		dummyTestList.remove(3); dummyTestList.add(0, Cph);
+		System.out.println("__ A # B should be "+(""+!boundsMatter).toUpperCase()+" for __ A B, in accordance with the value of "+
+				"boundsMatter being "+boundsMatter+": " + testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		testContext = testFactory.parseNewContext(""+Afm+PH_DELIM+"("+Bfm+")", boundsMatter);
+		dummyTestList.remove(2); dummyTestList.remove(0); dummyTestList.add(Cph); 
+		System.out.println("\nTesting A (B) __");
+		System.out.println("Min size should be 1 "+testContext.generateMinSize());
+		System.out.println("Paren map should be i0 (:3,1 i1 ):1,1 --- "+printParenMap(testContext)); 
+		System.out.println("A B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.remove(1); 
+		System.out.println("A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 1)); 
+		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Bph); dummyTestList.add(Cph); 
+		System.out.println("C B __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 2));
+		
+		testContext = testFactory.parseNewContext("("+Afm+")"+PH_DELIM+Bfm, boundsMatter);
+		dummyTestList.set(1, Aph); dummyTestList.set(2, Bph);
+		System.out.println("\nTesting __ (A) B");
+		System.out.println("Min size should be 1 : "+testContext.generateMinSize());
+		System.out.println("ParenMap should be (:2,1 i0 ):0,1 i1 : "+printParenMap(testContext));
+		System.out.println("__ A B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.remove(1);
+		System.out.println(" __ B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Bph); dummyTestList.add(Cph); 
+		System.out.println(" __ C B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		System.out.println("\nTesting # A __  and __ # A");
+		testContext = testFactory.parseNewContext("#"+PH_DELIM+Aph, boundsMatter);
+		dummyTestList.clear(); dummyTestList.add(new Boundary("word bound"));
+		dummyTestList.add(Aph); dummyTestList.add(Cph); 
+		System.out.println(" # A __ should be TRUE (prior) : "+testContext.isPriorMatch(dummyTestList, 3)); 
+		dummyTestList.remove(2); 
+		dummyTestList.add(0, Cph); 
+		System.out.println(" __ # A should be TRUE (posterior) : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.remove(0); dummyTestList.add(new Boundary("morph bound")); 
+		System.out.println("# + A __ should be "+(!boundsMatter+"").toUpperCase()+" according to boundsMatter "
+				+ ": "+testContext.isPriorMatch(dummyTestList, 3)); 
+		dummyTestList.remove(3); dummyTestList.add(0, Cph); 
+		System.out.println("__ # + A should be "+(!boundsMatter+"").toUpperCase()+" according to boundsMatter "
+				+ ": "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.clear(); dummyTestList.add(Bph); dummyTestList.add(Aph); dummyTestList.add(Cph);  
+		System.out.println("B A __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.add(0, dummyTestList.remove(2)); 
+		dummyTestList.add(dummyTestList.remove(1)); 
+		System.out.println("__ A B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList,1));
+		dummyTestList.clear(); dummyTestList.add(Bph); dummyTestList.add(new Boundary("morph bound")); 
+		dummyTestList.add(Aph); dummyTestList.add(Cph); 
+		System.out.println("B + A __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 3));
+		dummyTestList.add(0, dummyTestList.remove(3));
+		System.out.println("__ B + A should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		testContext = testFactory.parseNewContext("@"+PH_DELIM+Aph, boundsMatter); 
+		System.out.println("\nTesting @ A __ and __ @ A ");
+		dummyTestList.clear(); dummyTestList.add(Bph); dummyTestList.add(Aph); dummyTestList.add(Cph); 
+		System.out.println("B A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.add(0, dummyTestList.remove(2));
+		System.out.println("__ B A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.add(2, new Boundary("morph bound")); 
+		System.out.println("B + A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 3)); 
+		dummyTestList.add(0, dummyTestList.remove(3));
+		System.out.println("__ B + A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.remove(1); dummyTestList.add(dummyTestList.remove(0)); dummyTestList.set(0, new Boundary("word bound")); 
+		System.out.println("# A __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 2)); 
+		dummyTestList.add(0, dummyTestList.remove(2)); 
+		System.out.println("__ # A should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.add(0, Bph);
+		System.out.println("B # A __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 3));
+		dummyTestList.add(0, dummyTestList.remove(3)); 
+		System.out.println("__ B # A should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		testContext = testFactory.parseNewContext("("+Aph+")+"+PH_DELIM+Bph, boundsMatter);
+		System.out.println("\nTesting (A)+ B __ and __ (A)+ B"); 
+		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Bph); dummyTestList.add(Cph);
+		System.out.println("A B __ should be TRUE : " +testContext.isPriorMatch(dummyTestList, 2));
+		dummyTestList.add(0, dummyTestList.remove(2));
+		System.out.println("__ A B should be TRUE : " + testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.add(1, Aph); dummyTestList.add(1,Aph);
+		System.out.println("A A A B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 4)); 
+		dummyTestList.add(0, dummyTestList.remove(4));
+		System.out.println("__ A A A B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList,1));
+		dummyTestList.clear(); dummyTestList.add(Bph); dummyTestList.add(Cph);
+		System.out.println("B __  should be FALSE : "+testContext.isPriorMatch(dummyTestList, 1));
+		dummyTestList.add(0, dummyTestList.remove(1));
+		System.out.println("__ B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		testContext = testFactory.parseNewContext(""+Aph+PH_DELIM+"("+Bph+")*", boundsMatter);
+		dummyTestList.set(0, Aph); 
+		System.out.println("\nTesting A (B)* __ and __ A (B)* ");
+		System.out.println("A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0));
+		System.out.println("__ A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.add(1, Bph);
+		dummyTestList.add(1, Bph); dummyTestList.add(1, Bph); 
+		System.out.println("A B B B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 5)); 
+		dummyTestList.add(0, dummyTestList.remove(5));
+		System.out.println("__ A B B B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList,2));
+		dummyTestList.add(1,Aph); 
+		System.out.println("__ A A B B B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 2));
+		
+		testContext = testFactory.parseNewContext("#"+PH_DELIM+"("+Cph+PH_DELIM+Bph+")+", boundsMatter); 
+		System.out.println("\nTesting # (C B)+ __"); 
+		dummyTestList.clear(); dummyTestList.add(new Boundary("word bound"));
+		dummyTestList.add(Cph); dummyTestList.add(Bph); dummyTestList.add(Cph); dummyTestList.add(Bph);
+		System.out.println("# C B C B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 6));
+		dummyTestList.remove(0); 
+		System.out.println("C B C B __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 5));
+		dummyTestList.add(0, new Boundary("word bound")); 
+		dummyTestList.remove(4); dummyTestList.remove(1); 
+		System.out.println("# B C __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 4));
+		
+		testContext = testFactory.parseNewContext("("+Cph+PH_DELIM+Bph+")+"+PH_DELIM+"#", boundsMatter);
+		System.out.println("\nTesting __ (C B)+ #");
+		dummyTestList.clear();
+		dummyTestList.add(Dph); dummyTestList.add(Cph); dummyTestList.add(Bph); dummyTestList.add(Cph);
+		dummyTestList.add(Bph); dummyTestList.add(new Boundary("word bound")); 
+		System.out.println("__ C B C B # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.remove(4); dummyTestList.remove(1); 
+		System.out.println("__ B C # should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.set(3, Bph); 
+		System.out.println("__ B C B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		
+		System.out.println("\nTesting (A (C D)* )+ __ and __ (A ( C D )* )+");
+		testContext = testFactory.parseNewContext("("+Aph+PH_DELIM+"("+Cph+PH_DELIM+Dph+")*"+PH_DELIM+")+", boundsMatter);
+		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Bph);
+		System.out.println("A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 1));
+		dummyTestList.add(0,dummyTestList.remove(1)); 
+		System.out.println("__ A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.add(0,Aph); dummyTestList.add(0,Aph); 
+		System.out.println("A A A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 3));
+		dummyTestList.add(0, dummyTestList.remove(1)); 
+		System.out.println("__ A A A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.set(1, Cph); dummyTestList.add(2, Dph); 
+		System.out.println("A C D A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 4)); 
+		dummyTestList.add(0, dummyTestList.remove(4)); 
+		System.out.println("__ A C D A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(dummyTestList.remove(0)); dummyTestList.remove(0); 
+		System.out.println("C D A __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 3));
+		dummyTestList.add(0, dummyTestList.remove(3));
+		System.out.println("__ C D A should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
 		
 		
 		//TODO below is abrogated
@@ -214,6 +390,14 @@ public class SChangeContextTester {
 		System.out.println("The following should be 1\n"+testCXCX7i7t.generateMinSize()); 
 		 **/
 	}
-		
+	
+	//TODO for debugging purposes
+	private static String printParenMap(SChangeContext testCont)
+	{
+		String output = ""; 
+		String[] pm = testCont.getParenMap();
+		for(String p : pm)	output += p + " "; 
+		return output.trim();
+	}
 	
 }

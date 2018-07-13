@@ -1,5 +1,6 @@
 import java.util.List; 
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Arrays; 
 
 /**
  * @date 1 June 2018
@@ -30,20 +31,35 @@ public class SChangeContext {
 	 * 
 	*/
 	
+	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
+	{
+		parenMap = pm ; 
+		placeRestrs = new ArrayList<RestrictPhone>(prs); 
+		boundsMatter = false;
+		minSize = generateMinSize(); System.out.println("first min size : " + minSize); //TODO debugging, sizes should be the same 
+		
+		System.out.println("Before markup to translate out '()+', i.e. parenthetical structures indicating 1 or more of the contents");
+		System.out.println(printParenMap(this));
+		
+		parenMap = translateOutPlusFromParenMap(pm); 
+		markParenMapForMinPlacesInEachWindow();		
+		
+		minSize = generateMinSize(); System.out.println("final min size : " + minSize); //TODO debugging 
+		System.out.println("min size : "+minSize);
+		System.out.println("Paren map : "+printParenMap(this));
+		
+		throw new Error( "stopped"); //TODO debugging 
+
+	}
+	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm)
 	{
-		placeRestrs = new ArrayList<RestrictPhone>(prs); 
-		parenMap = pm; boundsMatter = false;
-		markParenMapForMinPlacesInEachWindow();
-		minSize = generateMinSize(); 
+		initialize(prs, pm, false); 
 	}
 	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
-		placeRestrs = new ArrayList<RestrictPhone>(prs); 
-		parenMap = pm; boundsMatter = bm; 
-		markParenMapForMinPlacesInEachWindow(); 
-		minSize = generateMinSize(); 
+		initialize(prs, pm, bm); 
 	}
 	
 	//auxiliary for initialization : mark all parenthetical cells in parenMap
@@ -56,7 +72,7 @@ public class SChangeContext {
 		{
 			if(parenMap[currIndex].contains(")"))
 			{
-				int openerIndex = Integer.parseInt(parenMap[currIndex].split(":")[1]); 
+				int openerIndex = Integer.parseInt(parenMap[currIndex].split(":")[1].split(",")[0]); 
 				int minPlaces = minPlacesInParenWindow(openerIndex, currIndex); 
 				parenMap[currIndex] = parenMap[currIndex] + "," + minPlaces;
 				parenMap[openerIndex] = parenMap[openerIndex] + "," + minPlaces; 
@@ -76,10 +92,12 @@ public class SChangeContext {
 	//must be called AFTER markParenMapForMinPlacesInEachWindow is called. 
 	public int generateMinSize()
 	{
-		int prSize = placeRestrs.size(), count = 0;
+		int pmSize = parenMap.length, count = 0;
+		
 			//optParenDepth is the number of optional { ()*, ()} paren structures we are currently in
 		
-		for(int i = 0; i < prSize; i++)
+		int i = 0; 
+		while (i < pmSize) 
 		{
 			String currMapCell = parenMap[i];
 			
@@ -89,11 +107,13 @@ public class SChangeContext {
 					count += Integer.parseInt(currMapCell.split(":")[1].split(",")[1]);
 				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
 			} 
-			else
+			else	
 			{
 				assert !currMapCell.contains(")"): "Error: unopened ')' found"; 
-				count++; 
+				count++;
+				i++;
 			}
+				
 		}
 		return count; 
 	}
@@ -189,7 +209,8 @@ public class SChangeContext {
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound")
 					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))
 				currPlaceInCand--;
-			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	return false; 
+			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))
+				return false; 
 			else	{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
 		} 
 		if(currRestrPlace < 0)		return true;
@@ -215,28 +236,16 @@ public class SChangeContext {
 
 	public boolean isPosteriorMatch(List<SequentialPhonic> phonSeq, int indAfter)
 	{
-		System.out.println("ind after is "+indAfter);
-		
-		if (indAfter < phonSeq.size())
-			System.out.println("isPosteriorMatch called with lastInd "+indAfter+", where"
-				+ " we have "+phonSeq.get(indAfter)); 
-		
 		if (minSize == 0)	
-		{
-			System.out.println("minSize = 0");
 			return true; 
-		}
 		if (minSize > phonSeq.size() - indAfter)
-		{
-			System.out.println("minSize > phonSeq.size() - lastInd");
 			return false; 
-		}
 		int currPlaceInCand = indAfter, currRestrPlace = 0, currPlaceInMap = 0; 
 		return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 	}
 	
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
-	{		
+	{			
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		if(crp == placeRestrs.size())	return true;
@@ -244,24 +253,28 @@ public class SChangeContext {
 		
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim,
 				lenPhonSeq = phonSeq.size(), numRestrPlaces = placeRestrs.size(), mapSize = parenMap.length; 
-		while( currPlaceInCand < lenPhonSeq && 
-				!(currRestrPlace >= numRestrPlaces && currPlaceInMap >= mapSize))
+		while( currPlaceInCand < lenPhonSeq && currRestrPlace <= numRestrPlaces && currPlaceInMap < mapSize)
 		{
 			if(parenMap[currPlaceInMap].contains("("))
 			{
+				System.out.println("paren found");
+				
+				int minPhonesInParen = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
+				System.out.println("min phones in paren "+minPhonesInParen+"; lenPhonSeq "+lenPhonSeq+" currPlaceInCand"+currPlaceInCand);
 				//if we could not possibly include the contents of this paren structure because there are too many 
 				// for the space we have left in the input... 
-				if(Integer.parseInt(parenMap[currPlaceInMap].split(";")[1].split(",")[1]) > lenPhonSeq - currPlaceInCand)
+				if(minPhonesInParen > lenPhonSeq - currPlaceInCand)
 				{	if(parenMap[currPlaceInMap].contains("+"))	return false; 
 					else	return isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 				}
 				// if it is a paren structure taht must occur at least once...
-				if(parenMap[currPlaceInMap].charAt(1) == '+') 
+				if(parenMap[currPlaceInMap].charAt(0) == '+') 
 				{
 					if(isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
 					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 				}
 				assert parenMap[currPlaceInMap].contains("+"): "Error: '+' likely at wrong spot in parenMap[cpim] String";
+				if(isPosteriorMatchHelperExcludeParen(phonSeq,currPlaceInCand, currRestrPlace, currPlaceInMap));
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
@@ -277,41 +290,35 @@ public class SChangeContext {
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
 					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))	{	currPlaceInCand++;	}
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	
-			{
-				System.out.println("Failure to meet place restriction!" ); //TODO debugging 
 				return false; 
-			}
 			else	{	
-				//TODO debugging
-				System.out.println("placeRestrs.get(currRestrPlace) : "+placeRestrs.get(currRestrPlace));
-				System.out.println("phonSeq.get(currPlaceInCand) : "+phonSeq.get(currPlaceInCand));
-				System.out.println("compare : "
-					+placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)));
-				System.out.println("proceed"); //TODO debugging
 				currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
 			
 		}
-		System.out.println("currPlaceInCand "+currPlaceInCand+" currRestrPlace "+currRestrPlace+" currPlaceInMap "+currPlaceInMap);
-		System.out.println("numRestrPlaces "+placeRestrs.size());
 		if(currRestrPlace == numRestrPlaces)	return true;
-		System.out.println("false");
 		return false; 
 	}
 	
 	private boolean isPosteriorMatchHelperExcludeParen(List<SequentialPhonic> phonSeq, int cpic,
 			int crp, int cpim)
 	{
-		int mapSpotPostCloser = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) + 1 ;
-		if (mapSpotPostCloser >= parenMap.length)	return false; 
+		System.out.println("parenMap[cpim] : "+parenMap[cpim]); //TODO debug
 		
-		int placeAfterCloser = placeRestrs.size(), proxyMapSpot = mapSpotPostCloser; 
-		while (placeAfterCloser == placeRestrs.size() && proxyMapSpot < placeRestrs.size() - 1)
+		int mapSpotPostCloser = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) + 1 ;
+		assert mapSpotPostCloser <= parenMap.length : "Error: illegitimate closing index recorded!"; 
+		if (mapSpotPostCloser == parenMap.length)	return true; 
+		
+		// search for first non paren using proxyMapSpot and use its i# statement in parenMap to find the 
+			// place after the closing parenthesis in parenMap. 
+		int placeAfterCloser = placeRestrs.size(); //this spot is never checked -- and should not be.
+		int proxyMapSpot = mapSpotPostCloser; 
+		while (placeAfterCloser == placeRestrs.size() && proxyMapSpot < parenMap.length )
 		{
 			if(parenMap[proxyMapSpot].charAt(0) == 'i')
 				placeAfterCloser = Integer.parseInt(parenMap[proxyMapSpot].substring(1));
 			else	proxyMapSpot++; 
-		}
-		return isPriorMatchHelper(phonSeq, cpic, mapSpotPostCloser, placeAfterCloser); 
+		}		
+		return isPosteriorMatchHelper(phonSeq, cpic, placeAfterCloser, mapSpotPostCloser); 
 	}
 	
 	
@@ -377,5 +384,64 @@ public class SChangeContext {
 	//strictly for debugging purposes. 
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
+
 	
+	//given preMap, a prior form of the parenMap before this occurs, 
+	// it will return a version all "1 or more parenthetical statements" -- i.e. plussed parens, (A B C .. )+ --
+	 	// are replaced wiht a combination of a simple string and a starred paren as follows 
+	// ( A B ) + --> A B ( A B )*
+	public String[] plussesToStars(String[] preMap)
+	{
+		
+	}
+	
+	//expands one (...)+ statement to ... (...)*
+	// int ind is the index of the opening parenthesis of 
+		//the ()+ statement were are expanding. 
+	public String[] plussesToStarsHelper(String[] currMap, int ind)
+	{
+		assert currMap[ind].charAt(0) == '+' : 
+			"Error : plussesToStarsHelper called with ind value that is not a ()+ statement opener!";
+	}
+	
+	//TODO abrogated 
+	public String[] translateOutPlusFromParenMap(String[] preMap) 
+	{
+		List<String> parenMapAsList = new ArrayList<String>(Arrays.asList(preMap));
+		for(int pmi = 0 ; pmi < parenMapAsList.size() ; pmi++)
+		{	
+			String cur = parenMapAsList.get(pmi);
+			System.out.println("cur is "+cur);
+			
+			if(cur.charAt(0) == '+')
+			{
+				assert pmi < parenMapAsList.size() - 3: "Error : illegitimate place for paren opener";
+				int closerLoc = Integer.parseInt(parenMapAsList.get(pmi).split(":")[1].split(",")[0]); 
+				System.out.println("closerLoc is "+closerLoc);
+				
+				List<String> insideParen = parenMapAsList.subList(pmi+1, closerLoc); 
+				System.out.print("insideParen : ");
+				for(String ipg : insideParen)	System.out.print(ipg); 
+				System.out.print("\n");
+				
+				parenMapAsList.set(pmi, "*"+cur.substring(1));
+				parenMapAsList.set(closerLoc, ")*"+parenMapAsList.get(closerLoc).substring(2));
+				parenMapAsList.addAll(pmi, insideParen);
+			}
+			else
+				assert !cur.contains("+") : "Error : illegal plus found. Should have been filtered out by this point if it is in closer";
+		}
+		String[] output = new String[parenMapAsList.size()];
+		output = parenMapAsList.toArray(output); 
+		return output; 
+	}
+
+	//TODO for debugging purposes
+	private static String printParenMap(SChangeContext testCont)
+	{
+		String output = ""; 
+		String[] pm = testCont.getParenMap();
+		for(String p : pm)	output += p + " "; 
+		return output.trim();
+	}
 }

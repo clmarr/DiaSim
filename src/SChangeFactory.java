@@ -64,8 +64,11 @@ public class SChangeFactory {
 		symbToFeatVects = new HashMap<String, String>(stf);
 		checkForIllegalPhoneSymbols(); 
 		
-		featIndices = new HashMap<String, Integer>(featInds); 
 		featNames = featInds.keySet();
+		featIndices = new HashMap<String, Integer>();
+		for(String feat : featNames)
+			featIndices.put(feat, featInds.get(feat)); 
+		
 		featImplications = new HashMap<String, String[]>(featImpls); 
 		featsWithImplications = featImplications.keySet(); 
 		
@@ -441,13 +444,16 @@ public class SChangeFactory {
 	//TODO finish fixing this  
 	public SChangeContext parseNewContext(String input, boolean boundsMatter)
 	{
-		String inp = forceParenSpaceConsistency(input); //force consistently on spaces inside parens
-			// in order to preempt errors
+		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
+			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
 		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
 			// this should force parenthesis statements to be separate "phones" from the actual phones
+		
+		// iteratively built throughout process 
 		List<String> parenMapInProgress = new ArrayList<String>();
 		List<RestrictPhone> thePlaceRestrs = new ArrayList<RestrictPhone>(); 
 		
+		//as we build, associate opening and closing parens -- ):# ; (:# 
 		for (int i = 0 ; i < toPhones.length; i++)
 		{
 			String curtp = toPhones[i].trim(); 
@@ -507,6 +513,62 @@ public class SChangeFactory {
 		return new SChangeContext(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 
+	//given preMap, a prior form of the parenMap before this occurs, 
+	// it will return a version all "1 or more parenthetical statements" -- i.e. plussed parens, (A B C .. )+ --
+	 	// are replaced wiht a combination of a simple string and a starred paren as follows 
+	// ( A B ) + --> A B ( A B )*
+	// when entered into this method, paren cells should be marked for their corresponding opener or closer,
+		// but not yet for their minimum number of contents --- i.e. (:6 ... ):3 etc.. 
+	public String[] plussesToStars(List<String> preMap)
+	{
+		
+	}
+	
+	//expands one (...)+ statement to ... (...)*
+	// int ind is the index of the opening parenthesis of 
+		//the ()+ statement were are expanding. 
+	//return new version of hte map with that specific paren expanded... 
+	public List<String> plussesToStarsHelper(List<String> currMap, int ind)
+	{
+		assert currMap.get(ind).charAt(0) == '+' : 
+			"Error : plussesToStarsHelper called with ind value that is not a ()+ statement opener!";
+		
+		int closingLoc = Integer.parseInt(currMap.get(ind).split(":")[1]);
+		assert closingLoc > ind + 1 : "Error : closing loc is either less than ind of opening +( paren or is too close!"; 
+		assert currMap.get(closingLoc).charAt(1) == '+' : 
+			"Error: stored closing location of current )+ being expanded does not have a + ";
+		
+		List<String> simpleParenContents = new ArrayList<String>(currMap.subList(ind + 1, closingLoc)); 
+		
+		List<String> newStarParenStruct = new ArrayList<String>(simpleParenContents); 
+		
+		int numRestrPlacesDuplicated = 0; 
+		int mapSizeIncrease = closingLoc - ind - 1; 
+		
+		//-1 for all parens counterpart pointers in simpleParen contents, as we "lost" one index -- the +( index -- from teh beginning
+		for(int ci = 0 ; ci < simpleParenContents.size(); ci++)
+		{
+			String currCell = simpleParenContents.get(ci);
+			if(currCell.contains(":")) //i.e. it's a paren statement 
+			{
+				int prevCorrInd = Integer.parseInt( currCell.split(":")[1]); 
+				simpleParenContents.set(ci, currCell.substring(0, currCell.indexOf(":")+1) + (prevCorrInd + 1) ) ;
+			}
+			else 
+			{
+				assert currCell.charAt(0) == 'i' : "Error: illegal cell that seems to be neither a paren nor a phonic restriction";
+				numRestrPlacesDuplicated++; 
+			}
+		}
+		
+		//TODO finish this
+
+		
+		
+		
+	}
+	
+	
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
@@ -551,30 +613,14 @@ public class SChangeFactory {
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
 		
-		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs;
+		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains(".") == false)
 			return new FeatMatrix(theFeatSpecs, featIndices); 
-		
-		List<String> despecs = new ArrayList<String>(); 
-		
+				
 		//TODO we should make sure someone doesn't insert use "unspecification" -- i.e. period '.' as a SPECIFICATION
-		while(theFeatSpecs.contains(".") && !isInputDest)
-		{
-			//TODO note: as per who implications are added AFTER the features that implied them in the method 
-			// applyImplications(), all periods should come after commae -- otherwise we suspect 
-			// there is some feature name with a period in it, which would be illegitimate
-			int pdIndex = theFeatSpecs.indexOf("."); 
-			assert (theFeatSpecs.charAt(pdIndex - 1)==restrDelim): 
-				"Error: Unspecification marker, '.', found at an illegitimate place, likely was used in the middle of a feature"
-				+ "	as a part of a feature name"; //TODO set up earlier assertion error to troubleshoot this
-			String fWIAfterPd = theFeatSpecs.substring(pdIndex+1); 
-			theFeatSpecs = theFeatSpecs.substring(0, pdIndex - 1); 
-			if(fWIAfterPd.contains(""+restrDelim))
-			{	theFeatSpecs += fWIAfterPd.substring(fWIAfterPd.indexOf(""+restrDelim));
-				despecs.add(fWIAfterPd.substring(0, fWIAfterPd.indexOf(""+restrDelim))); 	}
-			else	despecs.add(fWIAfterPd); //i.e. this is when it was the last element in the string .
-		}
+		assert(!theFeatSpecs.contains(".") || isInputDest): 
+			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
 		return new FeatMatrix(theFeatSpecs, featIndices); 
 	}
 	
@@ -685,5 +731,107 @@ public class SChangeFactory {
 		return output.trim();
 	}
 	
+	/**
+	 * given @param s, a String of place specifications with at least one paren statement -- i.e. A B ( C D)  etc...
+	 * and @param openInd, the index of a particular opening paren (
+	 * @return ihdex of the corresponding closing paren )  
+	 */
+	public int findClosingInd (String s, int openInd)
+	{
+		assert openInd < s.length() - 2 : "Error : findClosingInd called with openInd set to value too high";
+		assert s.charAt(openInd) == '(' : "Error : findClosingInd called with openInd set to an index where a '(' does not lie!";
+		assert s.charAt(openInd + 1) != ')' : "Error: closing paren found immediately after opening paren-- this is useless to write";
+		int checkInd = openInd + 2;  
+		int parenDepth = 1; 
+		
+		while (checkInd < s.length())
+		{
+			if(s.charAt(checkInd) == ')' )
+			{
+				if(parenDepth == 1)	return checkInd;
+				else parenDepth--; 
+			}
+			else if (s.charAt(checkInd) == '(')	parenDepth ++; 
+		}
+		throw new Error ("Error : Reached end of string in findClosingInd and corresponding closing paren was nowhere to be found");
+	}
+	
+	
+	/**
+	 * given @param s, a String of place specifications with at least one paren statement -- i.e. A B ( C D)  etc...
+	 * and @param closInd, the index of a particular closing paren )
+	 * @return ihdex of the corresponding opening paren (
+	 */
+	public int findOpenInd(String s, int closInd)
+	{
+		assert closInd > 1 : "Error: closing ind too low"; 
+		assert s.charAt(closInd) == ')' : "Error : closing paren ) does not lie at closing ind";
+		assert s.charAt(closInd - 1) != '(' : "Error : opening paren immediately before closer () -- this is useless to write"; 
+		
+		int checkInd = closInd - 2 ; 
+		int parenDepth = 1 ; 
+		while (checkInd >= 0)
+		{
+			if(s.charAt(checkInd) == '(')
+			{
+				if (parenDepth == 1)	return checkInd;
+				parenDepth--;
+			}
+			else if (s.charAt(checkInd) == ')')	parenDepth++;
+		}
+		throw new Error("Error : no opening ind found");
+	}
+	
+	/** 
+	 * @param s, a string of place specifications with at least one ( ... )+ clause -- i.e. indicated contents must occur once or more --
+	 * and @param ind, index of a ( closed by a )+, 
+	 * @return version of string s modified such taht ( A B C )+ becomes A B C ( A B C )*
+	 */
+	public String expandOutPlus (String s, int ind)
+	{
+		assert s.charAt(ind) == '(' : "error: expandOutPlus called with ind that doesn't have a '(' ";
+		int corrClosInd = findClosingInd(s, ind); 
+		assert corrClosInd < s.length() - 1 : "Error: expandOutPlus called for '(' that isn't a + paren ";
+		assert s.charAt(corrClosInd + 1) == '+': "Error: expandOutPlus called for paren that isn't a + paren"; 
+	
+		int start = s.charAt(ind + 1) == ' ' ? ind + 2 : ind + 1; 
+		int end = s.charAt(corrClosInd - 1) == ' ' ? corrClosInd - 1 : corrClosInd; 
+		String insidePlusParen = s.substring(start, end); 
+		
+		String output = s.substring(0, ind) + insidePlusParen + " ( "+insidePlusParen+" )*";
+	
+		if(corrClosInd + 2 < s.length())
+		{
+			int startAfter = s.charAt(corrClosInd + 2) == ' ' ? corrClosInd + 3 : corrClosInd + 2;
+			output += " "+ s.substring(startAfter);
+		}
+		
+		return output;
+	}
+	
+	/** expandOutAllPlusses
+	 * given @param s, a String with at least one ( ... )+ "one or more of " clause
+	 * convert it to ... (...)* -- the first as plain text and the second an "any number of repeats" clause
+	 * 		for purposes of computational convenience 
+	 */
+	public String expandOutAllPlusses(String s)
+	{
+		String output = s+""; 
+		int checkInd = 0; 
+		while ( checkInd < output.length() - 2)	{
+			if( output.charAt(checkInd) == '(')
+			{
+				int checkClose = findClosingInd(output, checkInd); 
+				if(checkClose < output.length() - 1)
+				{
+					if(output.charAt(checkClose + 1 ) == '+')
+						output = expandOutPlus(output, checkInd); 
+					else	checkInd++; 
+				}
+				else	checkInd++; 
+			}
+		}
+		return output; 
+	}
 	
 }

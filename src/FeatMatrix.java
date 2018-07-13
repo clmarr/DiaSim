@@ -27,7 +27,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public FeatMatrix(String specs, HashMap<String,Integer> ftInds)
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
-
+		
 		type = "feat matrix";
 		featSpecs=specs+""; 
 
@@ -42,11 +42,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int i = 0; i < spArr.length; i++)
 		{
 			String sp = spArr[i]; 
+			
 			String indic = sp.substring(0, 1); 
 			assert "-+.".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			int spInd=featInds.get(feat); 
+			
+			int spInd= Integer.parseInt(""+featInds.get(feat)); 
 			featVect = featVect.substring(0,spInd)+ 
 					("+".equals(indic) ? 2 : (".".equals(indic) ? 9 : 0) ) +
 					featVect.substring(spInd+1); 
