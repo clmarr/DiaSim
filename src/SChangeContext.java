@@ -7,6 +7,7 @@ import java.util.Arrays;
  * @author Clayton Marr
  * Class to represent the context of a shift
  * in order to handle phenomena like ()* and ()+, etc.
+ * TODO note as of July 12 2018, (...)+ structures are now illegal 
  */
 
 public class SChangeContext {
@@ -18,14 +19,14 @@ public class SChangeContext {
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
 	 * 		0	|	1	|	2	|	3	|	4 	|	5	|	6	|	7
-	 * 		i0 	|  +(:4	| 	i1 	| 	i2 	|  )+:1 | 	(:7	| 	i3	|	):5 
+	 * 		i0 	|  *(:4	| 	i1 	| 	i2 	|  )*:1 | 	(:7	| 	i3	|	):5 
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
 	 * 		in placeRestrs
-	 * cells with paren markers { +(, )+, (, ), *(, )*, } indicate where parens open and close
+	 * cells with paren markers { (, ), *(, )*, } indicate where parens open and close
 	 * 		relative to those indices in parenMap
 	 * 		the number on the inside of hte paren indicates which index IN PARENMAP 
 	 * 			is where the corresponding opening or closing paren lies. 
-	 * 
+	 * TODO Note as of July 12
 	 * when this is entered, in order to save time, the min number of places within each paren window
 	 * 		are calculated using the auxiliary method 
 	 * 
@@ -38,10 +39,6 @@ public class SChangeContext {
 		boundsMatter = false;
 		minSize = generateMinSize(); System.out.println("first min size : " + minSize); //TODO debugging, sizes should be the same 
 		
-		System.out.println("Before markup to translate out '()+', i.e. parenthetical structures indicating 1 or more of the contents");
-		System.out.println(printParenMap(this));
-		
-		//parenMap = translateOutPlusFromParenMap(pm); 
 		markParenMapForMinPlacesInEachWindow();		
 		
 		minSize = generateMinSize(); System.out.println("final min size : " + minSize); //TODO debugging 
@@ -49,7 +46,6 @@ public class SChangeContext {
 		System.out.println("Paren map : "+printParenMap(this));
 		
 		throw new Error( "stopped"); //TODO debugging 
-
 	}
 	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm)
@@ -64,7 +60,7 @@ public class SChangeContext {
 	
 	//auxiliary for initialization : mark all parenthetical cells in parenMap
 		// with the minimum number of places inside
-	// we assume they come in in the form +(:4 and )+:7 etc ... 
+	// we assume they come in in the form *(:4 and )*:7 etc ... 
 	public void markParenMapForMinPlacesInEachWindow()
 	{
 		int currIndex = parenMap.length - 1;
