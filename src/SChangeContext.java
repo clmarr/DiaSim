@@ -1,6 +1,5 @@
 import java.util.List; 
 import java.util.ArrayList;
-import java.util.Arrays; 
 
 /**
  * @date 1 June 2018
@@ -98,11 +97,7 @@ public class SChangeContext {
 			String currMapCell = parenMap[i];
 			
 			if(currMapCell.contains("(")) // then hop. 
-			{	
-				if(currMapCell.contains("+"))	
-					count += Integer.parseInt(currMapCell.split(":")[1].split(",")[1]);
 				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
-			} 
 			else	
 			{
 				assert !currMapCell.contains(")"): "Error: unopened ')' found"; 
@@ -145,15 +140,14 @@ public class SChangeContext {
 	 * 3) We have a disjunctive parenthetical statement ending here -- see subcases
 	 * 		3a) If the min number of places in the paren is more than the remaining possible length
 	 * 			3a1) If we are dealing with a plussed paren -- immediately return false
-	 *			3a2) Else return whehter we can reach a true value if we hop to before beginning of this paren structure
+	 *			PLUSSED PARENS NO LONGER SUPPORTED  --- 3a2) Else return whehter we can reach a true value if we hop to before beginning of this paren structure
 	 *		3b) else 
 	 *			3b1) If the paren is a normal paren or a starred paren,
 	 *					 first check if we can get a true value by excluding it (i.e. hop to be before the opening
 	 *					, and if not test the branch where it is included. 
-	 *			3b2) If it is a plussed paren, iterate as normal -- i.e. simply move the marker from the closing paren to the 
-	 *					last element and follow the while loop described in the next case
-	 * 4) We have a disjunctive -- i.e. + or * --  parenthetical statement starting here
-	 * 		4a) If it is starred or plussed, branch: first check if we have a match if we just iterate as normal with moving cpim back one
+	 *			PLUSSED PARENS NO LONGER SUPPORTED --- 3b2) If it is a plussed paren, iterate as normal -- i.e. simply move the marker from the closing paren to the last element and follow the while loop described in the next case
+	 * 4) We have a disjunctive parenthetical statement starting here
+	 * 		4a) If it is starred branch: first check if we have a match if we just iterate as normal with moving cpim back one
 	 * 				and otherwise check if we can get a true value by returning to the end of the paren structure
 	 * 		4b) Else i.e. if it's a normal paren -- precede as normal, just cpim back one more space
 	 * 5) if none of the first three are initially met.. while conditions (1) and (2) are not met do the following
@@ -179,21 +173,17 @@ public class SChangeContext {
 					// for the space we have left in the input... 
 				if(Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]) < currPlaceInCand ) 
 				{
-					if(parenMap[currPlaceInMap].contains("+"))	return false; 
-					else	return isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap);
+					return isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap);
 				}
-				// if it is a paren structure taht must occur at least once...
-				if(parenMap[currPlaceInMap].charAt(1) != '+') 
-				{
-					if(isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
-					return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
-				}
-				assert parenMap[currPlaceInMap].contains("+"): "Error: '+' likely at wrong spot in parenMap[cpim] String";
+				
+				if(isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
+				
 				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
+				
 			}
 			if (parenMap[currPlaceInMap].contains("("))
 			{
-				if("+*".contains(parenMap[currPlaceInMap].substring(0, 1)))
+				if("*".equals(parenMap[currPlaceInMap].substring(0, 1)))
 				{
 					if(isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap -1 ))	return true; 
 					return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, 
@@ -260,22 +250,17 @@ public class SChangeContext {
 				//if we could not possibly include the contents of this paren structure because there are too many 
 				// for the space we have left in the input... 
 				if(minPhonesInParen > lenPhonSeq - currPlaceInCand)
-				{	if(parenMap[currPlaceInMap].contains("+"))	return false; 
-					else	return isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+				{	
+					return isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 				}
-				// if it is a paren structure taht must occur at least once...
-				if(parenMap[currPlaceInMap].charAt(0) == '+') 
-				{
-					if(isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
-					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
-				}
-				assert parenMap[currPlaceInMap].contains("+"): "Error: '+' likely at wrong spot in parenMap[cpim] String";
+				
 				if(isPosteriorMatchHelperExcludeParen(phonSeq,currPlaceInCand, currRestrPlace, currPlaceInMap));
+				
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
-				if("+*".contains(parenMap[currPlaceInMap].substring(0, 1)))
+				if("*".equals(parenMap[currPlaceInMap].substring(0, 1)))
 				{
 					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))	return true; 
 					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, 
@@ -337,10 +322,10 @@ public class SChangeContext {
 		{
 			String curr = parenMap[mapSpot]; 
 			if (curr.contains("("))
-			{	if (!curr.contains("+"))	optParenDepth++; 	}
+				optParenDepth++; 	
 			else if (curr.contains(")"))
 			{	
-				if (!curr.contains("+"))	optParenDepth--;
+				optParenDepth--;
 				assert optParenDepth >= 0: 
 					"An error must of occurred: negative optParenDepth in minPlacesInParenWindow"; 
 			}
@@ -381,38 +366,6 @@ public class SChangeContext {
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
 	
-	//TODO abrogated -- function is now handled much earlier, in SChangeFactory
-	public String[] translateOutPlusFromParenMap(String[] preMap) 
-	{
-		List<String> parenMapAsList = new ArrayList<String>(Arrays.asList(preMap));
-		for(int pmi = 0 ; pmi < parenMapAsList.size() ; pmi++)
-		{	
-			String cur = parenMapAsList.get(pmi);
-			System.out.println("cur is "+cur);
-			
-			if(cur.charAt(0) == '+')
-			{
-				assert pmi < parenMapAsList.size() - 3: "Error : illegitimate place for paren opener";
-				int closerLoc = Integer.parseInt(parenMapAsList.get(pmi).split(":")[1].split(",")[0]); 
-				System.out.println("closerLoc is "+closerLoc);
-				
-				List<String> insideParen = parenMapAsList.subList(pmi+1, closerLoc); 
-				System.out.print("insideParen : ");
-				for(String ipg : insideParen)	System.out.print(ipg); 
-				System.out.print("\n");
-				
-				parenMapAsList.set(pmi, "*"+cur.substring(1));
-				parenMapAsList.set(closerLoc, ")*"+parenMapAsList.get(closerLoc).substring(2));
-				parenMapAsList.addAll(pmi, insideParen);
-			}
-			else
-				assert !cur.contains("+") : "Error : illegal plus found. Should have been filtered out by this point if it is in closer";
-		}
-		String[] output = new String[parenMapAsList.size()];
-		output = parenMapAsList.toArray(output); 
-		return output; 
-	}
-
 	//TODO for debugging purposes
 	private static String printParenMap(SChangeContext testCont)
 	{
