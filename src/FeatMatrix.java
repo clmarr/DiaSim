@@ -41,18 +41,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		for (int i = 0; i < spArr.length; i++)
 		{	
-			//TODO debugging
-			System.out.println("spArr["+i+"] = "+spArr[i]);
-			
 			String sp = spArr[i]; 
 			
 			String indic = sp.substring(0, 1); 
 			assert "-+.".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
-			
-			//TODO debugging
-			System.out.println("feat : "+feat);
 			
 			int spInd= Integer.parseInt(""+featInds.get(feat)); 
 			featVect = featVect.substring(0,spInd)+ 

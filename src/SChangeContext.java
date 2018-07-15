@@ -180,40 +180,74 @@ public class SChangeContext {
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim; 
 
 		while(currRestrPlace >= 0 && currPlaceInCand >= 0 && currPlaceInMap >= 0)
-		{
+		{			
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
+				int minContents = Integer.parseInt(parenMap[currPlaceInMap].split(",")[1]); 
 				//if we could not possibly include the contents of this paren structure because there are too many 
 					// for the space we have left in the input... 
-				if(Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]) < currPlaceInCand ) 
+				if(minContents > currPlaceInCand || minContents > currRestrPlace)
 				{
 					return isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap);
 				}
-				
+								
 				if(isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
-				
+								
 				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
 				
 			}
 			if (parenMap[currPlaceInMap].contains("("))
 			{
-				if("*".equals(parenMap[currPlaceInMap].substring(0, 1)))
+				if('*' == parenMap[currPlaceInMap].charAt(0))
 				{
 					if(isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap -1 ))	return true; 
-					return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, 
-							Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1])); 
+					
+					//find correct currRestrPlace to return to if we are going back to beginning of paren. 
+					int formerPlace = currPlaceInMap; 
+					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); 
+					
+					int proxyPlace = currPlaceInMap - 1; 
+					while(parenMap[proxyPlace].charAt(0) != 'i')	
+					{
+						proxyPlace--; 
+						if(proxyPlace <= formerPlace)
+							throw new Error("Something wrong: paren structure seems to have no actual phone restrictions inside");
+					}
+					currRestrPlace = Integer.parseInt(parenMap[proxyPlace].substring(1)); 
+					return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 				}
 				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
 			}
 			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound")
-					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))
-				currPlaceInCand--;
+					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+"")
+					&& !placeRestrs.get(currRestrPlace).print().equals("@"))
+			{	currPlaceInCand--;	}
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))
 				return false; 
 			else	{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
 		} 
 		if(currRestrPlace < 0)		return true;
+		if(currPlaceInCand < 0)	
+		{
+			//check if all that's left in parenMap is optional 
+			if( currPlaceInMap < 0)
+			{	
+				throw new Error("Something is wrong, true should have been returned. Likely mismatch between placeRestrictions and parenMap.");
+			}
+			if(parenMap[currPlaceInMap].contains(")"))
+			{
+				int proxypim = currPlaceInMap; 
+				while(parenMap[proxypim].contains(")"))
+				{	
+					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) - 1; 
+					if(proxypim == -1)	return true; 
+				}
+				return false; 
+			}
+			return false; 
+		}
+		
 		else	return false; 
 	}
 
@@ -222,16 +256,17 @@ public class SChangeContext {
 			int crp, int cpim)
 	{
 		int mapSpotPreOpener = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) - 1 ;
-		if (mapSpotPreOpener < 0)	return false; 
+		if (mapSpotPreOpener < 0)	return true; 
 		
-		int placeBeforeOpener = 0, proxyMapSpot = mapSpotPreOpener; 
-		while (placeBeforeOpener == 0 && proxyMapSpot > 0)
+		int placeBeforeOpener = -1, proxyMapSpot = mapSpotPreOpener; 
+		while (placeBeforeOpener == -1 && proxyMapSpot >= 0)
 		{
 			if(parenMap[proxyMapSpot].charAt(0) == 'i')
 				placeBeforeOpener = Integer.parseInt(parenMap[proxyMapSpot].substring(1));
 			else	proxyMapSpot--; 
 		}
-		return isPriorMatchHelper(phonSeq, cpic, mapSpotPreOpener, placeBeforeOpener); 
+		
+		return isPriorMatchHelper(phonSeq, cpic, placeBeforeOpener, mapSpotPreOpener); 
 	}
 
 	public boolean isPosteriorMatch(List<SequentialPhonic> phonSeq, int indAfter)
@@ -290,25 +325,54 @@ public class SChangeContext {
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
-				if("*".equals(parenMap[currPlaceInMap].substring(0, 1)))
+				if('*' == parenMap[currPlaceInMap].charAt(1))
 				{
-					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))	return true; 
-					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, 
-							Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1])); 
+					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))		return true; 
+					int formerPlace = currPlaceInMap;
+					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); 
+					int proxyPlace = currPlaceInMap + 1; 
+					while(parenMap[proxyPlace].charAt(0) != 'i') 
+					{
+						proxyPlace--; 
+						if(proxyPlace >= formerPlace)	throw new Error("Error: no actual place restriction inside paren structure");
+					}
+					currRestrPlace = Integer.parseInt(parenMap[proxyPlace].substring(1));
+					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 				}
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
-					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))	{	currPlaceInCand++;	}
+					&& !placeRestrs.get(currRestrPlace).print().equals(phonSeq.get(currPlaceInCand)+"")
+					&& !placeRestrs.get(currRestrPlace).print().equals("@"))	
+			{	currPlaceInCand++;	}
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	
 				return false; 
 			else	{		
 				currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
 			
 		}
-		
 		if(currRestrPlace == numRestrPlaces)	{	return true;	}
+		if(currPlaceInCand == lenPhonSeq)
+		{	
+			//NOTE: if plussed parens ()+ -- i.e. "one or more" clauses -- are ever added back in
+				// this statement will need to be modified so it doesn't apply to them. 
+			if(currPlaceInMap >= parenMap.length)
+				throw new Error("Likely mismatch between placeRestrs and parenMap!");
+			if(parenMap[currPlaceInMap].contains("("))
+			{
+				//check if all that's left is optional
+				int proxypim = currPlaceInMap;
+				while(parenMap[proxypim].contains("("))
+				{
+					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) + 1; 
+					if(proxypim == parenMap.length)	return true; 
+				}
+				return false; 
+			}
+			return false; 
+		}
+		
 		return false; 
 	}
 	
