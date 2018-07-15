@@ -346,6 +346,45 @@ public class SChangeContextTester {
 		dummyTestList.set(3, Bph); 
 		System.out.println("__ B C B should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
 		
+		testContext = testFactory.parseNewContext("#"+PH_DELIM+"("+Cfm+PH_DELIM+Bfm+"("+Dfm+"))*", boundsMatter);
+		System.out.println("\nTesting # ( C B (D) )* __" );
+		dummyTestList.clear(); dummyTestList.add(new Boundary("word bound")); 
+		System.out.println("# __ should be TRUE : "+testContext.isPriorMatch(dummyTestList,1)); 
+		dummyTestList.add(Cph); dummyTestList.add(Bph);
+		System.out.println("# C B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList,3));
+		dummyTestList.add(3,Dph); 
+		System.out.println("# C B D __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 4));
+		dummyTestList.add(1,Dph); 
+		System.out.println("# D C B D __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 5));
+		dummyTestList.add(1,Bph); dummyTestList.add(1, Cph);
+		System.out.println("# C B D C B D __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 7));
+		dummyTestList.add(3, Dph);
+		System.out.println("# C B D D C B D __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 8)); 
+		dummyTestList.remove(3); dummyTestList.remove(2); 
+		System.out.println("# C D C B D __ should be FALSE : "+testContext.isPriorMatch(dummyTestList, 6));
+		dummyTestList.set(2, Bph); 
+		System.out.println("# C B C B D __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 6));
+		
+		
+		testContext = testFactory.parseNewContext("("+Cfm+PH_DELIM+Bfm+PH_DELIM+"("+Dfm+"))*"+PH_DELIM+"#", boundsMatter); 
+		System.out.println("\nTesting __ (C B (D) )* # :") ;
+		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(new Boundary("word bound"));
+		System.out.println("__ # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.add(1, Bph); dummyTestList.add(1, Cph); 
+		System.out.println("__ C B # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
+		dummyTestList.add(3, Dph); 
+		System.out.println("__ C B D # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(1, Dph); 
+		System.out.println("__ D C B D # should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(1, Bph); dummyTestList.add(1, Cph); 
+		System.out.println("__ C B D C B D # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.remove(6); 
+		System.out.println("__ C B D C B # should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.add(1,Dph); 
+		System.out.println("__ D C B D C B # should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
+		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Bph); dummyTestList.add(Dph); dummyTestList.add(Dph);
+		dummyTestList.add(new Boundary("word bound")); 
+		System.out.println("__ C B D D # should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
 		
 		//TODO below is abrogated
 		//TODO finish this 
