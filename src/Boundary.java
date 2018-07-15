@@ -21,7 +21,7 @@ public class Boundary extends PseudoPhone {
 	}
 
 	public boolean compare(SequentialPhonic cand) 
-	{	if(type.equals("non word phone"))
+	{	if(type.equals("non word bound"))
 			return cand.getType().equals("word bound") == false; 
 		return cand.getType().equals(type);	
 	}

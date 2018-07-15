@@ -15,8 +15,6 @@ import java.util.Set;
 	*	this class will appropriately react to optionality (..), disjunction {..;..;...},
 	*	and recursive optional windows such as (..)* and (..)+
 */
-
-//TODO fix this so it can handle FeatureImplications 
 	
 public class SChangeFactory {
 	private static HashMap<String, String> symbToFeatVects; 
@@ -453,6 +451,7 @@ public class SChangeFactory {
 		for (int i = 0 ; i < toPhones.length; i++)
 		{
 			String curtp = toPhones[i].trim(); 
+			
 			if(curtp.equals("("))
 				parenMapInProgress.add(curtp); 
 			else if(curtp.contains(")"))
@@ -548,7 +547,6 @@ public class SChangeFactory {
 	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
-	//TODO fix to remove despecs 
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
@@ -692,6 +690,8 @@ public class SChangeFactory {
 				else parenDepth--; 
 			}
 			else if (s.charAt(checkInd) == '(')	parenDepth ++; 
+			
+			checkInd++; 
 		}
 		throw new Error ("Error : Reached end of string in findClosingInd and corresponding closing paren was nowhere to be found");
 	}
@@ -755,13 +755,14 @@ public class SChangeFactory {
 	 * 		for purposes of computational convenience 
 	 */
 	public String expandOutAllPlusses(String s)
-	{
+	{	
 		String output = s+""; 
 		int checkInd = 0; 
 		while ( checkInd < output.length() - 2)	{
 			if( output.charAt(checkInd) == '(')
 			{
 				int checkClose = findClosingInd(output, checkInd); 
+				
 				if(checkClose < output.length() - 1)
 				{
 					if(output.charAt(checkClose + 1 ) == '+')
@@ -770,6 +771,7 @@ public class SChangeFactory {
 				}
 				else	checkInd++; 
 			}
+			else	checkInd++;
 		}
 		return output; 
 	}

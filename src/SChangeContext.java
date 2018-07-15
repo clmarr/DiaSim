@@ -36,15 +36,11 @@ public class SChangeContext {
 		parenMap = pm ; 
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		boundsMatter = false;
-		minSize = generateMinSize(); System.out.println("first min size : " + minSize); //TODO debugging, sizes should be the same 
+		minSize = generateMinSize(); 
 		
 		markParenMapForMinPlacesInEachWindow();		
 		
-		minSize = generateMinSize(); System.out.println("final min size : " + minSize); //TODO debugging 
-		System.out.println("min size : "+minSize);
-		System.out.println("Paren map : "+printParenMap(this));
-		
-		throw new Error( "stopped"); //TODO debugging 
+		minSize = generateMinSize(); 
 	}
 	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm)
@@ -161,7 +157,25 @@ public class SChangeContext {
 	private boolean isPriorMatchHelper (List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim) 
 	{
 		if(crp < 0)	return true;
-		if(cpic < 0)	return false; 
+		if(cpic < 0)	
+		{
+			//check if all that's left in parenMap is optional 
+			if( cpim >= 0 )
+			{	
+				throw new Error("Something is wrong, true should have been returned. Likely mismatch between placeRestrictions and parenMap.");
+			}
+			if(parenMap[cpim].contains(")"))
+			{
+				int proxypim = cpim; 
+				while(parenMap[proxypim].contains(")"))
+				{	
+					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) - 1; 
+					if(proxypim == -1)	return true; 
+				}
+				return false; 
+			}
+			return false; 
+		}
 		
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim; 
 
@@ -231,22 +245,38 @@ public class SChangeContext {
 	}
 	
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
-	{			
+	{	
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		if(crp == placeRestrs.size())	return true;
-		if(cpic == phonSeq.size())	return false; 
+		if(cpic == phonSeq.size())	
+		{	
+			//NOTE: if plussed parens ()+ -- i.e. "one or more" clauses -- are ever added back in
+				// this statement will need to be modified so it doesn't apply to them. 
+			if(cpim >= parenMap.length)
+				throw new Error("Likely mismatch between placeRestrs and parenMap!");
+			if(parenMap[cpim].contains("("))
+			{
+				//check if all that's left is optional
+				int proxypim = cpim;
+				while(parenMap[proxypim].contains("("))
+				{
+					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) + 1; 
+					if(proxypim == parenMap.length)	return true; 
+				}
+				return false; 
+			}
+			return false; 
+		}
 		
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim,
 				lenPhonSeq = phonSeq.size(), numRestrPlaces = placeRestrs.size(), mapSize = parenMap.length; 
-		while( currPlaceInCand < lenPhonSeq && currRestrPlace <= numRestrPlaces && currPlaceInMap < mapSize)
+		while( currPlaceInCand < lenPhonSeq && currRestrPlace < numRestrPlaces && currPlaceInMap < mapSize)
 		{
 			if(parenMap[currPlaceInMap].contains("("))
 			{
-				System.out.println("paren found");
-				
 				int minPhonesInParen = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
-				System.out.println("min phones in paren "+minPhonesInParen+"; lenPhonSeq "+lenPhonSeq+" currPlaceInCand"+currPlaceInCand);
+
 				//if we could not possibly include the contents of this paren structure because there are too many 
 				// for the space we have left in the input... 
 				if(minPhonesInParen > lenPhonSeq - currPlaceInCand)
@@ -254,8 +284,8 @@ public class SChangeContext {
 					return isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 				}
 				
-				if(isPosteriorMatchHelperExcludeParen(phonSeq,currPlaceInCand, currRestrPlace, currPlaceInMap));
-				
+				if(isPosteriorMatchHelperExcludeParen(phonSeq,currPlaceInCand, currRestrPlace, currPlaceInMap))
+					return true; 
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
@@ -268,26 +298,28 @@ public class SChangeContext {
 				}
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
+
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
 					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+""))	{	currPlaceInCand++;	}
 			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))	
 				return false; 
-			else	{	
+			else	{		
 				currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
 			
 		}
-		if(currRestrPlace == numRestrPlaces)	return true;
+		
+		if(currRestrPlace == numRestrPlaces)	{	return true;	}
 		return false; 
 	}
 	
 	private boolean isPosteriorMatchHelperExcludeParen(List<SequentialPhonic> phonSeq, int cpic,
 			int crp, int cpim)
 	{
-		System.out.println("parenMap[cpim] : "+parenMap[cpim]); //TODO debug
-		
 		int mapSpotPostCloser = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) + 1 ;
+		
 		assert mapSpotPostCloser <= parenMap.length : "Error: illegitimate closing index recorded!"; 
-		if (mapSpotPostCloser == parenMap.length)	return true; 
+		if (mapSpotPostCloser == parenMap.length)	
+			return true; 	
 		
 		// search for first non paren using proxyMapSpot and use its i# statement in parenMap to find the 
 			// place after the closing parenthesis in parenMap. 
@@ -299,6 +331,7 @@ public class SChangeContext {
 				placeAfterCloser = Integer.parseInt(parenMap[proxyMapSpot].substring(1));
 			else	proxyMapSpot++; 
 		}		
+		
 		return isPosteriorMatchHelper(phonSeq, cpic, placeAfterCloser, mapSpotPostCloser); 
 	}
 	
@@ -366,7 +399,7 @@ public class SChangeContext {
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
 	
-	//TODO for debugging purposes
+	//TODO keep around for debugging purposes
 	private static String printParenMap(SChangeContext testCont)
 	{
 		String output = ""; 
