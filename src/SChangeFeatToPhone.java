@@ -34,7 +34,8 @@ public class SChangeFeatToPhone extends SChange{
 		//abort if too small
 		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		
-		int p = minPriorSize , maxPlace = inpSize - minPostSize - minTargSize; 
+		int p = minPriorSize , 
+				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		

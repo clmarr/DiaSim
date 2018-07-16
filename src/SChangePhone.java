@@ -1,6 +1,11 @@
 import java.util.List;
 import java.util.ArrayList; 
 
+//note that currently this class treats boundaries as if they always "matter" 
+//i.e. if a boundary is detected at a place where it isn't specified for the source
+//then the shift cannot operate
+//this means that this class is unable to operate across boundaries! 
+
 public class SChangePhone extends SChange {
 	private List<List<SequentialPhonic>> targSources, destinations; 
 	private int minTargSize; 
@@ -37,96 +42,77 @@ public class SChangePhone extends SChange {
 
 	//default contextless constructor
 	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests)
-	{	super();	initialize(targs, dests);	}
-	
-	//contextless constructor with boundsMatter specified
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, boolean boundsMatter)
-	{	super(boundsMatter); initialize(targs, dests); 	}
+	{	super(true);	initialize(targs, dests);	}
 	
 	//default constructor with context
 	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs)
-	{	super(priors,postrs); initialize(targs,dests);	}
-	
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs, boolean attendToPseudos)
-	{	super(priors,postrs,attendToPseudos); initialize(targs,dests);	}
+	{	super(priors,postrs,true); initialize(targs,dests);	}
 	
 	//constructor for Phone > Feat by Phone, translated to standard format with only Phones (SequentialPhonic) for storage
 	//we assume that since target input is SequentialPhonic, only reasonable uses for this class are 1-to-1, 
 	//... with the latter 1 possibly including a null phone
 	// i.e. that's really the only reasonable way to use this constructor
 	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations)
-	{	super(); initializeWithFeats(targs,mutations); 	}
-	
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, boolean attendToPseudos)
-	{	super(attendToPseudos); initializeWithFeats(targs, mutations); }
+	{	super(true); initializeWithFeats(targs,mutations); 	}
 	
 	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postrs)
-	{	super(prior,postrs); initializeWithFeats(targs, mutations); }
-		
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations,  SChangeContext priors, SChangeContext postrs, boolean bm)
-	{	super(priors,postrs,bm); initializeWithFeats(targs, mutations); 	}
+	{	super(prior,postrs, true); initializeWithFeats(targs, mutations); }
 		
 	
 	//Realization
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
 	{
-		int inpSize = input.size(); 
+		int inpSize = input.size(), 
+				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1);
+		
 		//abort if too small
 		if (inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
-		
-		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input); 
 		int p = minPriorSize; 
+		
+		List<SequentialPhonic> res = (p==0) ? new ArrayList<SequentialPhonic>() :
+			new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
 		/** check if target with correct context occurs at each index. 
 		 * We iterate from the beginning to the end of the word. 
-		 * We acknowledge the decision to iterate this way (progressive) is arbitrary, and that it may not be technically correct as some changes happen regressively. 
+		 * We acknowledge the decision to iterate this way (progressive) is arbitrary, 
+		 * and that it may not be technically correct as some changes happen regressively. 
 		 * However it is most convenient for the time being.
 		 */ 
-		while(p< inpSize - minPostSize + 1 -minTargSize)
+		while(p<=maxPlace)
 		{
-			if(priorMatch(res, p ))
+			SequentialPhonic currInpPh = input.get(p);
+
+			if(currInpPh.toString().contains("bound"))	
+			{	res.add(currInpPh);	p++;	}
+			else if(priorMatch(input, p ))
 			{ 
-				int matchInd = whichMatch(res, p);
+				int matchInd = whichMatch(input, p);
 				if (matchInd != -1)
 				{
-					int indAfter = foundTargetIndAfter(res, targSources.get(matchInd), p); 
+					int indAfter = foundTargetIndAfter(input, targSources.get(matchInd), p); 
 					
 					if (indAfter > 0)
 					{	//begin mutation
-						List<SequentialPhonic> fjale = new ArrayList<SequentialPhonic>(res.subList(0, p));
-						if(boundsMatter)	fjale.addAll(destinations.get(matchInd)); 
-						else
-						{	//TODO admittedly may need to fix this somewhat clumsy way of preserving the Pseudos sometime
-							List<SequentialPhonic> toAdd = new ArrayList<SequentialPhonic>(destinations.get(matchInd));
-							int lenPrePseudos = toAdd.size();
-							//(clumsily) add the pseudophones to this. 
-							for( int cwInd = p; cwInd < indAfter; cwInd++)
-							{
-								SequentialPhonic currUnit = res.get(cwInd); 
-								if(!currUnit.getType().equals("phone"))
-								{
-									if (cwInd - p < lenPrePseudos) toAdd.add(cwInd - p, currUnit); 
-									else	toAdd.add(currUnit);
-								}
-							}	
-							fjale.addAll(toAdd); 
+						res.addAll(destinations.get(matchInd)); 
+						if(p == indAfter)
+						{
+							res.add(input.get(p));
+							p = p + 1;
 						}
-					
-						p = fjale.size(); //to increment p
-					
-						//TODO debugging
-						System.out.println("indAfter is "+indAfter);
-					
-						fjale.addAll(res.subList(indAfter, res.size()));
-						res = new ArrayList<SequentialPhonic>(fjale); 
+						else	p =  indAfter; 
 					}
-					else p++; 
+					else
+					{	res.add(currInpPh); p++; 	}
 				}
-				else	p++; 
+				else	{	res.add(currInpPh); p++;	}
 			}
-			else	p++; 
+			else	{	res.add(currInpPh); p++;	}
 		}
-		return res;
+		
+		if (p < inpSize)
+			res.addAll(input.subList(p, inpSize));
+		
+		return res; 
 	}
 	
 
@@ -159,14 +145,12 @@ public class SChangePhone extends SChange {
 	{
 		int inpSize = input.size(), targSize=targSeg.size();
 		//return false in case of invalid index
-		if (ind + targSize + minPostSize >= inpSize || ind < 0)	return false;
+		if (ind + targSize + minPostSize - 1 >= inpSize || ind < 0 || ind >= inpSize)
+			return false;
 		
 		//also we return false if hte target is not found in the specified place
 		// and while we're at it, we fix indAfter to incorporate any pseudophones using hte auxiliary method foundTargetLastIndex 
 		int indAfter = foundTargetIndAfter (input, targSeg, ind) ;
-		
-		//TODO debugging
-		System.out.println("indAfter is "+indAfter);
 		
 		// if indAfter is 0, now it means it was originally -1 -- hence it was not found
 		if (indAfter < 1)	return false; 

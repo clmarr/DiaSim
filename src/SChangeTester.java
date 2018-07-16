@@ -231,6 +231,78 @@ public class SChangeTester {
 		
 		System.out.println("Done testing SChangeFeatToPhone. Now testing SChangePhone"); 
 		
+		SChangePhone scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("h"), testFactory.parseSeqPhDisjunctSegs(""));
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be a m e a m e a : "+
+				printWord(scpTest.realize(testFactory.parseSeqPhSeg("h a m e h a m e h a h"))));
+		
+		
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("a j ; eː ; iː"),
+				testFactory.parseSeqPhDisjunctSegs("e j ; iː ; a j")); 
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be : l iː w e j : \t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("l eː w a j"))));
+		System.out.println("Output should be tʰ iː tʰ a j m : \t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("tʰ eː tʰ iː m"))));
+		
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("l j"), testFactory.parseSeqPhDisjunctSegs("ʎ")); 
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be ʎ u ʎ : \t "
+				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("l j u l j"))));
+		
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs(""), testFactory.parseSeqPhDisjunctSegs("i"),
+				testFactory.parseNewContext("#", true), testFactory.parseNewContext("s [+cons]", true));
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be # i s p a t a # :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s p a t a #"))));
+		System.out.println("Output should be s p a t a # :\t "
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("s p a t a #"))));
+		System.out.println("Output should be # s j a t a # : \t "
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s j a t a #"))));
+		
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("{p;b;k;ɡ}"),
+				new ArrayList<RestrictPhone>(testFactory.parseRestrictPhoneSequence("+front,+hi,-back")));
+		scpTest.setPostContext(testFactory.parseNewContext("#", true));
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be # s a c # :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s a k #"))));
+		System.out.println("Output should be s a k :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("s a k"))));
+		System.out.println("Output should be # s u pʲ # :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s u p #"))));
+						
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("t u"),
+				testFactory.parseSeqPhDisjunctSegs("n ə"),
+				testFactory.parseNewContext("[+nas] ([-cont,-delrel]) #", true),
+				testFactory.parseNewContext("#", true));
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("Output should be # ɡ o w ɪ ŋ # n ə #:\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # t u #"))));
+		System.out.println("Output should be # t u # w ɑ̃ t # n ə # :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # t u #"))));
+		System.out.println("Output should be # n o w ɪ ŋ # t u v ə n #:\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #"))));
+		
+		scpTest = new SChangePhone(
+				testFactory.parseSeqPhDisjunctSegs("{b;ɡ}"),
+				new ArrayList<RestrictPhone>( 
+						testFactory.parseRestrictPhoneSequence("[+cont]", true)));
+		scpTest.setPriorContext(testFactory.parseNewContext("[+syl] (#)", true));
+		System.out.println("Now testing : "+scpTest);
+		System.out.println("output should be # a ɣ a r a # :\t"
+				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("# a ɡ a r a #"))));
+		System.out.println("output should be # a # β i t u # :\t"
+				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("# a # b i t u #"))));
+		System.out.println("output should be # b i t u # :\t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# b i t u #"))));
+		System.out.println("output should be # k o m # b i t u # : \t"
+				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# k o m b i t u #"))));
 	}
 	
 	private static String printWord(List<SequentialPhonic> word)

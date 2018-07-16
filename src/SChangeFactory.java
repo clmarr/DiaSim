@@ -261,7 +261,7 @@ public class SChangeFactory {
 			{
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(inputDest, true)) ; 
-				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, boundsMatter);
+				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations);
 				if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(newShift); 
@@ -272,7 +272,7 @@ public class SChangeFactory {
 				"Error: cannot have disjunction braces in the destination for a SChangePhone with feature specified destination -- "
 				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"; 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
-			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, boundsMatter);
+			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations);
 			if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 			output.add(newShift); 
@@ -282,7 +282,7 @@ public class SChangeFactory {
 		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
 		assert sourceSegs.size() == destSegs.size() : 
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!";
-		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, boundsMatter); 
+		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs); 
 		if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 		output.add(newShift); 
@@ -294,10 +294,16 @@ public class SChangeFactory {
 		return parseRestrictPhoneSequence(input, false); 
 	}
 	
-	public static List<RestrictPhone> parseRestrictPhoneSequence(String input, boolean forDestination)
+	public List<RestrictPhone> parseRestrictPhoneSequence(String input, boolean forDestination)
 	{
 		List<RestrictPhone> output = new ArrayList<RestrictPhone>(); 
-		String inputLeft = ""+input; 
+		String inputLeft = ""+input.trim(); 
+		
+		if(isValidFeatSpecList(inputLeft))
+		{
+			output.add(getFeatMatrix(inputLeft, forDestination));
+			return output;
+		}
 		
 		while(!inputLeft.equals(""))
 		{
@@ -383,18 +389,27 @@ public class SChangeFactory {
 	 * @param input -- either the source or the dest
 	 * @return list of disjunctions (if not disjunctive, contains only one) of segments of SequentialPhonic instances
 	 */
-	private List<List<SequentialPhonic>> parseSeqPhDisjunctSegs (String input)
-	{
+	public List<List<SequentialPhonic>> parseSeqPhDisjunctSegs (String input)
+	{	
 		List<List<SequentialPhonic>> output = new ArrayList<List<SequentialPhonic>>(); 
 		String inp = input.trim(); 
+		
+		if(inp.length() == 0)
+		{
+			output.add(new ArrayList<SequentialPhonic>()); 
+			return output;
+		}
+		
 		assert (inp.charAt(0) == '{') == (inp.charAt(inp.length() - 1) == '}') : 
 			"Mismatch between presence of disjunction opener and closer for parsing "
 			+ "the sequentional phonic segs to make a SChangehPhone"; 
 		if(inp.charAt(0) == '{')
-		{
-			String[] inpSegStrs = inp.substring(1, inp.length() - 1).split(""+segDelim); 
+			inp = input.substring(1, inp.length() - 1).trim(); 
+		if(inp.contains(segDelim+""))
+		{	
+			String[] inpSegStrs = inp.split(""+segDelim); 
 			for (int issi = 0 ; issi < inpSegStrs.length; issi++)
-				output.add(parseSeqPhSeg(inpSegStrs[issi])); 
+				output.add(parseSeqPhSeg(inpSegStrs[issi].trim())); 
 			return output; 
 		}
 		//if reached this point, it's not disjunctive
@@ -407,9 +422,12 @@ public class SChangeFactory {
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(); 
 		String[] phsInSeg = inp.trim().split(""+phDelim); 
 		for (int pisi = 0; pisi < phsInSeg.length; pisi++)
-		{	if(!phsInSeg[pisi].equals("∅"))
+		{	
+			if(!phsInSeg[pisi].equals("∅"))
 				output.add(parseSeqPh(phsInSeg[pisi].trim()));
+			
 		}
+		
 		return output;
 	}
 	
@@ -521,7 +539,7 @@ public class SChangeFactory {
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
 	 */
-	public static boolean isValidFeatSpecList(String input)
+	public boolean isValidFeatSpecList(String input)
 	{
 		String[] specs = input.split(""+restrDelim); 
 		
@@ -552,11 +570,11 @@ public class SChangeFactory {
 		return false; 
 	}
 
-	public static FeatMatrix getFeatMatrix(String featSpecs)
+	public FeatMatrix getFeatMatrix(String featSpecs)
 	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
-	public static FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
+	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
 		
@@ -576,7 +594,7 @@ public class SChangeFactory {
 	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
 	 * @param featSpecs, feature specifications before application of the stored implications
 	 */
-	public static String applyImplications (String featSpecs) 
+	public String applyImplications (String featSpecs) 
 	{
 		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to apply implications to an invalid list of feature specifications" ; 
 		String[] theFeatSpecs = featSpecs.trim().split(""+restrDelim); 
