@@ -228,7 +228,7 @@ public class SChangeFactory {
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
 			targSource.add(getFeatMatrix(inputSource)); 
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, targSource, 
-					parsePhoneSequenceForDest(inputDest), boundsMatter); 
+					parsePhoneSequenceForDest(inputDest)); 
 				//errors will be caught by assertions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
@@ -241,7 +241,7 @@ public class SChangeFactory {
 		if(srcHasValidSpecList) // it's an SChangeFeatToPhone
 		{
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, 
-					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), boundsMatter); 
+					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest)); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 			output.add(thisShift); 
@@ -289,7 +289,7 @@ public class SChangeFactory {
 		return output;
 	}
 	
-	public static List<RestrictPhone> parseRestrictPhoneSequence(String input)
+	public List<RestrictPhone> parseRestrictPhoneSequence(String input)
 	{
 		return parseRestrictPhoneSequence(input, false); 
 	}
@@ -306,6 +306,11 @@ public class SChangeFactory {
 				int brackEnd = inputLeft.indexOf(']'); 
 				output.add(getFeatMatrix(inputLeft.substring(1, brackEnd), forDestination));
 				inputLeft = inputLeft.substring(brackEnd + 1).trim(); 
+			}
+			else if ("#+".contains(inputLeft.charAt(0)+"" ))
+			{
+				output.add(new Boundary(("#".equals(inputLeft.substring(0,1)) ? "word ":"morph ")+"bound"));
+				inputLeft = inputLeft.substring(1).trim();
 			}
 			else if(inputLeft.charAt(0) == '∅')
 			{
@@ -342,6 +347,7 @@ public class SChangeFactory {
 	
 	/**parseSinglePhonicDest
 	 * return RestrictPhone containing correct parse of the input destination 
+	 * IMPORTANT: not to be used for word bounds! 
 	 * if it is not a valid string referring to a single Phonic, then return a word bound. s
 	 */
 	public RestrictPhone parseSinglePhonicDest(String inp)
@@ -410,7 +416,7 @@ public class SChangeFactory {
 	private SequentialPhonic parseSeqPh (String curtp)
 	{
 		if("+#".contains(curtp))
-			return new Boundary("#".equals(curtp) ? "word " : "morph " + "bound"); 
+			return new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"); 
 		assert symbToFeatVects.containsKey(curtp) : "Error: tried to parse invalid symbol! Symbol : "+curtp; 
 		return new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects); 
 	}

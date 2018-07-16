@@ -150,13 +150,86 @@ public class SChangeTester {
 		System.out.println("Now testing : "+scfTest);
 		testWord = scfTest.realize(testFactory.parseSeqPhSeg("n a b a n a")); 
 		System.out.println("Result should be n ã b a n ã : "+printWord(testWord));
-		
+
 		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", featIndices), new NullPhone());
 		scfTest.setPriorContext(testFactory.parseNewContext("+son", false));
 		System.out.println("Now testing : "+scfTest); 
 		testWord = scfTest.realize(testFactory.parseSeqPhSeg("r e a l e a"));
 		System.out.println("Result should be r a l a : "+printWord(testWord)); 
 		
+		scfTest = new SChangeFeat(new FeatMatrix("+syl", featIndices), new NullPhone()); 
+		scfTest.setPriorContext(testFactory.parseNewContext("+syl", boundsMatter));
+		System.out.println("Now testing : "+scfTest);
+		testWord = scfTest.realize(testFactory.parseSeqPhSeg("r e a l e a"));
+		System.out.println("Result should be r e l e   :    "+printWord(testWord));
+		
+		scfTest = new SChangeFeat(featIndices, "-cont,-nas,-lat,-delrel","-voi"); 
+		System.out.println("Now testing : "+scfTest);
+		testWord = scfTest.realize(testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r")); 
+		System.out.println("Output should be t i t e ð l a t t o n u r : "+printWord(testWord));
+		
+		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", featIndices),
+				new Phone(phoneSymbToFeatsMap.get("q"), featIndices, phoneSymbToFeatsMap));
+		System.out.println("Now testing : "+scfTest);
+		testWord = scfTest.realize(testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r")); 
+		System.out.println("Output should be q i q e ð l a q q o n u r : "+printWord(testWord));
+		
+		scfTest = new SChangeFeat(featIndices, "-cont", "+nas,+son,.delrel,+cont",
+				testFactory.parseNewContext("+nas,-syl", false), testFactory.parseNewContext("+syl", false));
+		System.out.println("Now testing : "+scfTest);
+		testWord = scfTest.realize(testFactory.parseSeqPhSeg("b i m b d e n d o")); 
+		System.out.println("Output should be b i m b d e n n o : "+printWord(testWord));
+		
+		System.out.println("Done testing SChangeFeat. Note that testing context processing should be "
+				+ "done in SChangeContextTester, \n...while this class also doesn't handle the effect of an entered "
+				+ "feature implications file.");
+		
+		System.out.println("Now testing SChangeFeatToPhone");
+		
+		SChangeFeatToPhone scftpTest = new SChangeFeatToPhone(featIndices,
+				testFactory.parseRestrictPhoneSequence("l"+PH_DELIM+"[+hi,+front]"),
+				testFactory.parsePhoneSequenceForDest("ʎ"));  
+		System.out.println("Now testing : "+scftpTest);
+		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a l j a"));
+		System.out.println("Output should be a ʎ a :  "+printWord(testWord));
+		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a l i e l j")); 
+		System.out.println("Output should be a ʎ e ʎ : "+printWord(testWord));
+		
+		scftpTest = new SChangeFeatToPhone(featIndices, 
+				testFactory.parseRestrictPhoneSequence("[+hi,+front,-syl]"), 
+				testFactory.parsePhoneSequenceForDest("j ɟ ʝ")); 
+		System.out.println("Now testing : " + scftpTest);
+		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a c i a j o")); 
+		System.out.println("Output should be :  a j ɟ ʝ i a j ɟ ʝ o : "+ printWord(testWord));
+		
+		scftpTest = new SChangeFeatToPhone(featIndices, 
+				testFactory.parseRestrictPhoneSequence("[-cons,+front,+hi] [+syl,+back] [-cont,+hi]"),
+				testFactory.parsePhoneSequenceForDest("ʝ o w j")); 
+		scftpTest.setPostContext(testFactory.parseNewContext("+syl", false));
+		System.out.println("Now testing : "+scftpTest);
+		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("j o c o k a"));
+		System.out.println("Output should be ʝ o w j o k a : "+printWord(testWord));
+
+		scftpTest = new SChangeFeatToPhone(featIndices,
+				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
+				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə")); 
+		System.out.println("Now testing : "+scftpTest);
+		scftpTest.setPostContext(testFactory.parseNewContext("#", true));
+		System.out.println("Output should be # ɡ `ɑ t͡ʃ j ə # : " 
+				+printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# ɡ `ɑ t # j 'u"))));
+		System.out.println("Output should be # kʰ `ɛ t͡ʃ j ə # : "
+				+printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ # j 'u #"))));
+		System.out.println("Output should be # ɡ `ɑ t # j `æ̃ː m z # : "
+				+ printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #"))));
+		
+		scftpTest = new SChangeFeatToPhone(featIndices,
+				testFactory.parseRestrictPhoneSequence("[-cont,+cor] # [+syl,-prim]"),
+				testFactory.parsePhoneSequenceForDest("ɾ ə"));
+		System.out.println("Now testing : "+scftpTest);
+		System.out.println("Output should be 'forgetaboutit', #f ə ɡ `ɛ ɾ ə b 'a w ɾ ə t# : \n"
+				+ printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# f ə ɡ `ɛ t # ə b 'a w t # ɪ t #"))));
+		
+		System.out.println("Done testing SChangeFeatToPhone. Now testing SChangePhone"); 
 		
 	}
 	

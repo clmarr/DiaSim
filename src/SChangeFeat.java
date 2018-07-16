@@ -66,54 +66,59 @@ public class SChangeFeat extends SChange {
 	@Override
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
 	{
-		int seqSize = input.size(); 
 		//abort if too small
-		if (seqSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if (input.size() < minPriorSize + minTargSize + minPostSize)	return input; 
 		
-		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input); 
+		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input.subList(0, minPriorSize)); 
 		int p = minPriorSize; 
-		
+		int maxPlace = input.size() - minPostSize - minTargSize; 
 		/** check if target with correct context occurs at each index
 		 * We iterate from the beginning to the end of the word. 
 		 * We acknowledge the decision to iterate this way (progressive) is arbitrary, and that it may not be technically correct as some changes happen regressively. 
 		 * However it is most convenient for the time being.
 		 */
-		while(p < seqSize - minPostSize + 1 - minTargSize)
+		while(p <= maxPlace)
 		{
 			if(!boundsMatter)
 			{
-				boolean stopIncrement = (p >= seqSize); 
-				System.out.println(seqSize+" inpSize"); //TODO debugging
+				boolean stopIncrement = (p >= input.size()); 
 				while(!stopIncrement)
 				{
-					if(p >= seqSize)	stopIncrement = true; 
-					else if(res.get(p).getType().equals("bound") && 
-							p < seqSize - minPostSize + 1 - minTargSize)
+					if(p >= input.size())	stopIncrement = true; 
+					else if(input.get(p).getType().equals("bound") && p <= maxPlace)
 						p++; 
 					else	stopIncrement = true; 
 				}
 			}
-			if(priorMatch(res, p))
+			if(priorMatch(input, p))
 			{
-				if(isMatch(res, p))	//test if both target and posterior specs are met
+				if(isMatch(input, p))	//test if both target and posterior specs are met
 				{
-					//mutate 
-					res = destination.forceTruth(res, p);
-					if (destination.print().equals("∅"))	{	seqSize--;	}
-					p++; //even when destination is null, we increase p by one so that we 
-						// don't get an error whereby hte prior context affects a phone
-						// acting as a prior context to a shift again
-						// when it was not originally in contact with that phone.
-						// note that this method will itself cause much rarer errors
-						// namely that if hte deleted segment ITSELF was a valid prior context for the shift
-						// then this info will be lost-- however we assume that this situation is extremely rare if it 
-						// ever occurs at all
-					
+					// when destination is null, we add nothing,
+					// and increment p TWICE
+					// this is done to block a segment that is deleted itself causing the deletion of the following unit
+					// note that this will itself cause rare erros if the that averted situation was actually the intention
+					// however it is assumed that this would be incredibly rare. if ever occuring at all. 
+					if (destination.print().equals("∅"))	
+					{	
+						if(p < input.size() - 1)
+							res.add(input.get(p+1)); 
+						p+=2;
+					}
+					else
+					{
+						res.add(destination.forceTruth(input, p).get(p));
+						p++; 
+					}
 				}
-				else p++;
+				else	{	res.add(input.get(p)) ; p++;	}
 			}
-			else p++;
+			else	{	res.add(input.get(p)); p++;	}
 		}
+		
+		if(p < input.size())
+			res.addAll(input.subList(p, input.size()));
+		
 		return res; 
 	}
 

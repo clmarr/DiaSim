@@ -2,6 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap; 
 
+//TODO Note: is assumed when using this class, that bounds matter
+// this is necessary for pragmatic purposes. 
 public class SChangeFeatToPhone extends SChange{
 	
 	private List<RestrictPhone> targSource; 
@@ -10,8 +12,8 @@ public class SChangeFeatToPhone extends SChange{
 	private void initialize(HashMap<String, Integer> ftInds, List<RestrictPhone> sourcePlaces, List<Phone> dest)
 	{
 		for(RestrictPhone sourcePlace : sourcePlaces)	
-			if (sourcePlace.print().equals("∅") || sourcePlace.toString().contains("bound"))
-				throw new Error("Error: cannot enter boundaries or null phones (∅) into a SChangeFeatToPhone!");
+			if ("∅@".contains(sourcePlace.print()))
+				throw new Error("Error: cannot enter non-word-boundaries (@) or null phones (∅) into a SChangeFeatToPhone!");
 		
 		targSource = new ArrayList<RestrictPhone>(sourcePlaces); 
 		minTargSize = targSource.size(); 
@@ -19,59 +21,54 @@ public class SChangeFeatToPhone extends SChange{
 	}
 	
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest)
-	{	super(); initialize(ftInds, targSpecs, dest); }
-	
-	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest, 
-			boolean bm)
-	{
-		super(bm); initialize(ftInds, targSpecs, dest); 
-	}
+	{	super(true); initialize(ftInds, targSpecs, dest); 	}
 
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
 			SChangeContext prior, SChangeContext postr)
-	{	super(prior,postr); initialize(ftInds, targSpecs, dest); }
-	
-	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			boolean bm, SChangeContext prior, SChangeContext postr)
-	{	super(prior, postr, bm); initialize(ftInds, targSpecs, dest);	}
+	{	super(prior,postr, true); initialize(ftInds, targSpecs, dest); }
 	
 	//Realization
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
-		int inpSize = input.size(), destSize = destination.size(); //destination size is constant in this class, unlike the others
-		//abort function if too small
-		if (inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		int inpSize = input.size(); 
+		//abort if too small
+		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		
-		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input); 
-		int p = minPriorSize; 
+		int p = minPriorSize , maxPlace = inpSize - minPostSize - minTargSize; 
+		List<SequentialPhonic> res = (p == 0) ? 
+				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
+		
+
 		/** check if target with correct context occurs at each index 
 		 * We iterate from the beginning to the end of the word
 		 * We acknowledge the decision to iterate this way (progressively) is arbitrary,
 		 * and that it might not be technically correct for a restricted set of cases (some changes may occur "regressively" within the word)
 		 * change if it becomes necessary
 		 */
-		
-		while (p < inpSize - minPostSize + 1 - minTargSize)
+		while (p <= maxPlace)
 		{
-			if(priorMatch(input, p))
+			if (priorMatch(input, p))
 			{
-				//foundMatchLastIndex also determines whether the posterior context is true
-				int possNextInd = firstIndAfterMatchedWindow(input, p); //gets the index after the last matched index in the target window 
-				if (possNextInd != -1)
-				{
-					//begin mutation 
-					List<SequentialPhonic> fjale = new ArrayList<SequentialPhonic>(res.subList(0,p)); 
-					fjale.addAll(destination);
-					fjale.addAll(res.subList(possNextInd, inpSize)); 
-					inpSize = fjale.size(); 
-					p += destSize; 
+				//note that firstIndAfterMatchedWindow 
+				//determines both if we have a window match and a posterior match
+				// if it is not a match, retruns -1
+				int candIndAfter = firstIndAfterMatchedWindow(input, p);
+				if(candIndAfter != -1)
+				{	res.addAll(destination); 
+					p = candIndAfter; 
 				}
-				else p++; 
+				else
+				{
+					res.add(input.get(p)); p++; 
+				}
 			}
-			else p++;
+			else	{	res.add(input.get(p)); p++; }
 		}
-		return res; 
+		if (p < inpSize)
+			res.addAll(input.subList(p, inpSize)); 
+		return res;
 	}
+	
 	
 	/** firstIndAfterMatchedWindow
 	 * @param input -- word being tested 
@@ -96,11 +93,7 @@ public class SChangeFeatToPhone extends SChange{
 		while (targInd < minTargSize && checkInd < inpSize ) 
 		{
 			SequentialPhonic currObs = input.get(checkInd); 
-			//if it's a boundary and bounds don't matter, simply ignore it 
-			if(!currObs.getType().equals("phone") && !boundsMatter)
-				checkInd++; 
-			else if(!targSource.get(targInd).compare(currObs)) 
-				return -1; 
+			if(!targSource.get(targInd).compare(currObs)) 	return -1; 
 			else
 			{	checkInd++; targInd++; 	}
 		}
@@ -122,4 +115,5 @@ public class SChangeFeatToPhone extends SChange{
 				output += destPh.print() + " "; 
 		return output.trim() + super.toString();
 	}
+	
 }
