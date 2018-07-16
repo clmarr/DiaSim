@@ -14,10 +14,7 @@ public class SChangeFeat extends SChange {
 			minTargSize = 1; 
 		}
 		else //i.e. we know source-targ is null if this is reachedpint. 
-		{	assert (!destSpecs.equals("") && !destSpecs.equals("∅")):"Error: both target and destination are null!";
-			targSource = new NullPhone(); 
-			minTargSize = 0;
-		}
+			throw new Error("Insertion is not allowed for SChangeFeats -- please use an SChangePhone instead."); 
 		if(!destSpecs.equals("") && !destSpecs.equals("∅"))
 		{	
 			destination = new FeatMatrix(destSpecs, ftInds);
@@ -25,11 +22,12 @@ public class SChangeFeat extends SChange {
 		else	destination = new NullPhone(); 
 	}
 	
-	public void initializeWRestrPhones(RestrictPhone source, RestrictPhone dest) 
+	public void initialize(RestrictPhone source, RestrictPhone dest) 
 	{
 		if(source.getClass().toString().contains("NullPhone"))	minTargSize = 0; 
 		else	minTargSize = 1; 
 		targSource = source; 
+		
 		if(dest.getClass().toString().contains("NullPhone"))	
 			assert minTargSize > 0 : "Error: both target and destination are null!";  
 		destination = dest; 
@@ -53,16 +51,16 @@ public class SChangeFeat extends SChange {
 	{	super(priorContxt,postContxt,bm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest)
-	{	super(); initializeWRestrPhones(source,dest); 	}
+	{	super(); initialize(source,dest); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, boolean bm)
-	{	super(bm); initializeWRestrPhones(source,dest); 	}
+	{	super(bm); initialize(source,dest); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt)
-	{	super(priorContxt, postContxt); initializeWRestrPhones(source, dest);	}
+	{	super(priorContxt, postContxt); initialize(source, dest);	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, boolean bm)
-	{	super(priorContxt, postContxt, bm); initializeWRestrPhones(source, dest);	}
+	{	super(priorContxt, postContxt, bm); initialize(source, dest);	}
 	
 	//Realization
 	@Override
@@ -82,9 +80,22 @@ public class SChangeFeat extends SChange {
 		 */
 		while(p < seqSize - minPostSize + 1 - minTargSize)
 		{
-			if(priorMatch(input, p))
+			if(!boundsMatter)
 			{
-				if(isMatch(input, p))	//test if both target and posterior specs are met
+				boolean stopIncrement = (p >= seqSize); 
+				System.out.println(seqSize+" inpSize"); //TODO debugging
+				while(!stopIncrement)
+				{
+					if(p >= seqSize)	stopIncrement = true; 
+					else if(res.get(p).getType().equals("bound") && 
+							p < seqSize - minPostSize + 1 - minTargSize)
+						p++; 
+					else	stopIncrement = true; 
+				}
+			}
+			if(priorMatch(res, p))
+			{
+				if(isMatch(res, p))	//test if both target and posterior specs are met
 				{
 					//mutate 
 					res = destination.forceTruth(res, p);
@@ -97,19 +108,7 @@ public class SChangeFeat extends SChange {
 						// namely that if hte deleted segment ITSELF was a valid prior context for the shift
 						// then this info will be lost-- however we assume that this situation is extremely rare if it 
 						// ever occurs at all
-					if(!boundsMatter)
-					{
-						boolean stopIncrement = (p >= seqSize); 
-						System.out.println(seqSize+" inpSize"); //TODO debugging
-						while(!stopIncrement)
-						{
-							if(p >= seqSize)	stopIncrement = true; 
-							else if(!res.get(p).getType().equals("phone") && 
-									p < seqSize - minPostSize + 1 - minTargSize)
-								p++; 
-							else	stopIncrement = true; 
-						}
-					}
+					
 				}
 				else p++;
 			}
@@ -135,8 +134,7 @@ public class SChangeFeat extends SChange {
 		
 		//return false if phone at specified place does not match restrictions on target
 		if(!targSource.compare(input, ind))	return false;
-		
-
+	
 		//now we know the prior context and target requirements are both met
 		// we now check for the posterior context
 		if(minPostSize == 0)	return true; 

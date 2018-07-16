@@ -128,8 +128,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	
 	@Override
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind)
-	{	System.out.println("forceTruth in Phone called");
-		
+	{	
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>();
 		if(ind > 0)	output.addAll(patientSeq.subList(0, ind)); 
 		output.add(new Phone(this)); 

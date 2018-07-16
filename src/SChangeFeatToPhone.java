@@ -9,6 +9,10 @@ public class SChangeFeatToPhone extends SChange{
 	
 	private void initialize(HashMap<String, Integer> ftInds, List<RestrictPhone> sourcePlaces, List<Phone> dest)
 	{
+		for(RestrictPhone sourcePlace : sourcePlaces)	
+			if (sourcePlace.print().equals("∅") || sourcePlace.toString().contains("bound"))
+				throw new Error("Error: cannot enter boundaries or null phones (∅) into a SChangeFeatToPhone!");
+		
 		targSource = new ArrayList<RestrictPhone>(sourcePlaces); 
 		minTargSize = targSource.size(); 
 		destination = dest; 
@@ -85,6 +89,9 @@ public class SChangeFeatToPhone extends SChange{
 		// ... the constant targ size. 
 		int inpSize = input.size();
 		//abort if the starting index is obviously invalid: 
+		if(firstInd >= inpSize)
+			throw new Error("Error: tried to match with firstInd after word ends!");
+		
 		int checkInd = firstInd, targInd = 0; 
 		while (targInd < minTargSize && checkInd < inpSize ) 
 		{

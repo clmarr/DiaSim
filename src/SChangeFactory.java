@@ -81,7 +81,8 @@ public class SChangeFactory {
 		for(String phSymb : phSymbols)
 		{
 			for(String illegal : illegalForPhSymbs)
-				assert !phSymb.contains(illegal) : "Error, the phone symbol "+phSymb+" contains an illegal part, "+illegal; 
+				if(phSymb.contains(illegal))
+					throw new Error("Error, the phone symbol "+phSymb+" contains an illegal part, "+illegal); 
 		}
 	}
 	
@@ -213,6 +214,8 @@ public class SChangeFactory {
 		{
 			
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
+			// note that parseSinglePhonicDest returns a word bound "#"
+			// if the input is not a valid string referring to a single phonic.
 			if(theDest.print().equals("#") == false)
 			{
 				SChangeFeat thisShift = new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter); 
@@ -339,7 +342,7 @@ public class SChangeFactory {
 	
 	/**parseSinglePhonicDest
 	 * return RestrictPhone containing correct parse of the input destination 
-	 * if it is not a valid string referring to a single PHonic, then return a word bound. s
+	 * if it is not a valid string referring to a single Phonic, then return a word bound. s
 	 */
 	public RestrictPhone parseSinglePhonicDest(String inp)
 	{

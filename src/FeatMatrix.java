@@ -60,7 +60,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 */
 	public boolean compare(SequentialPhonic cand)
 	{
-		assert cand.getType().equals("phone"):	"ERROR: comparing to Phonic that is not a Phone"; 
+		if (!cand.getType().equals("phone"))
+			return false; 
 		
 		String candFeats = cand.toString().split(": ")[1]; 
 		assert candFeats.length() == featVect.length(): 
