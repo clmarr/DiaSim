@@ -136,51 +136,43 @@ public class SChangeTester {
 		
 		SChangeFeat scfTest = new SChangeFeat(featIndices, "-voi", "+voi"); 
 		scfTest.setPostContext(testFactory.parseNewContext("[+voi]", false));
-		System.out.println("Now testing : "+scfTest);
-		List<SequentialPhonic> testWord = new ArrayList<SequentialPhonic>(
-				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"t"+PH_DELIM+"a"));
-		testWord = scfTest.realize(testWord); 
-		System.out.println("result should be a s d a  : "+ printWord(testWord));
-		testWord = testFactory.parseSeqPhSeg("k a s l o");
-		testWord = scfTest.realize(testWord); 
-		System.out.println("result should be g a z l o : " +printWord(testWord));
+		
+		int numCorrect = 0 ; 
+		
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"t"+PH_DELIM+"a"), 
+				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"d"+PH_DELIM+"a")) ? 1 : 0; 
 		
 		scfTest = new SChangeFeat(featIndices, "-nas", "+nas");
 		scfTest.setPriorContext(testFactory.parseNewContext("+nas", false)); 
-		System.out.println("Now testing : "+scfTest);
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("n a b a n a")); 
-		System.out.println("Result should be n ã b a n ã : "+printWord(testWord));
-
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("n a b a n a"),
+				testFactory.parseSeqPhSeg("n ã b a n ã")) ? 1 : 0;
+		
 		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", featIndices), new NullPhone());
 		scfTest.setPriorContext(testFactory.parseNewContext("+son", false));
-		System.out.println("Now testing : "+scfTest); 
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("r e a l e a"));
-		System.out.println("Result should be r a l a : "+printWord(testWord)); 
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
+				testFactory.parseSeqPhSeg("r a l a")) ? 1 : 0; 
 		
 		scfTest = new SChangeFeat(new FeatMatrix("+syl", featIndices), new NullPhone()); 
 		scfTest.setPriorContext(testFactory.parseNewContext("+syl", boundsMatter));
-		System.out.println("Now testing : "+scfTest);
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("r e a l e a"));
-		System.out.println("Result should be r e l e   :    "+printWord(testWord));
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
+				testFactory.parseSeqPhSeg("r e l e")) ? 1 : 0;
 		
 		scfTest = new SChangeFeat(featIndices, "-cont,-nas,-lat,-delrel","-voi"); 
-		System.out.println("Now testing : "+scfTest);
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r")); 
-		System.out.println("Output should be t i t e ð l a t t o n u r : "+printWord(testWord));
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
+				testFactory.parseSeqPhSeg("t i t e ð l a t t o n u r")) ? 1 : 0; 
 		
 		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", featIndices),
 				new Phone(phoneSymbToFeatsMap.get("q"), featIndices, phoneSymbToFeatsMap));
-		System.out.println("Now testing : "+scfTest);
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r")); 
-		System.out.println("Output should be q i q e ð l a q q o n u r : "+printWord(testWord));
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
+				testFactory.parseSeqPhSeg("q i q e ð l a q q o n u r")) ? 1 : 0 ;
 		
 		scfTest = new SChangeFeat(featIndices, "-cont", "+nas,+son,.delrel,+cont",
 				testFactory.parseNewContext("+nas,-syl", false), testFactory.parseNewContext("+syl", false));
-		System.out.println("Now testing : "+scfTest);
-		testWord = scfTest.realize(testFactory.parseSeqPhSeg("b i m b d e n d o")); 
-		System.out.println("Output should be b i m b d e n n o : "+printWord(testWord));
+		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("b i m b d e n n o"),
+				testFactory.parseSeqPhSeg("b i m b d e n n o")) ? 1 : 0; 
 		
-		System.out.println("Done testing SChangeFeat. Note that testing context processing should be "
+		System.out.println("Done testing SChangeFeat. Got "+numCorrect+" tests correct out of 7.\n"
+				+ "Note that testing context processing should be "
 				+ "done in SChangeContextTester, \n...while this class also doesn't handle the effect of an entered "
 				+ "feature implications file.");
 		
@@ -189,127 +181,122 @@ public class SChangeTester {
 		SChangeFeatToPhone scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("l"+PH_DELIM+"[+hi,+front]"),
 				testFactory.parsePhoneSequenceForDest("ʎ"));  
-		System.out.println("Now testing : "+scftpTest);
-		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a l j a"));
-		System.out.println("Output should be a ʎ a :  "+printWord(testWord));
-		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a l i e l j")); 
-		System.out.println("Output should be a ʎ e ʎ : "+printWord(testWord));
+		numCorrect = runTest(scftpTest, testFactory.parseSeqPhSeg("a l j a"), testFactory.parseSeqPhSeg("a ʎ a")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("a l i e l j"), testFactory.parseSeqPhSeg(" a ʎ e ʎ")) ? 1 : 0; 
 		
 		scftpTest = new SChangeFeatToPhone(featIndices, 
 				testFactory.parseRestrictPhoneSequence("[+hi,+front,-syl]"), 
 				testFactory.parsePhoneSequenceForDest("j ɟ ʝ")); 
-		System.out.println("Now testing : " + scftpTest);
-		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("a c i a j o")); 
-		System.out.println("Output should be :  a j ɟ ʝ i a j ɟ ʝ o : "+ printWord(testWord));
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("a c i a j o"), testFactory.parseSeqPhSeg("a j ɟ ʝ i a j ɟ ʝ o")) ? 1 : 0 ;
 		
 		scftpTest = new SChangeFeatToPhone(featIndices, 
 				testFactory.parseRestrictPhoneSequence("[-cons,+front,+hi] [+syl,+back] [-cont,+hi]"),
 				testFactory.parsePhoneSequenceForDest("ʝ o w j")); 
-		scftpTest.setPostContext(testFactory.parseNewContext("+syl", false));
-		System.out.println("Now testing : "+scftpTest);
-		testWord = scftpTest.realize(testFactory.parseSeqPhSeg("j o c o k a"));
-		System.out.println("Output should be ʝ o w j o k a : "+printWord(testWord));
-
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("j o c o k a"), testFactory.parseSeqPhSeg("ʝ o w j o k a ")) ? 1 : 0 ;
+		
 		scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
 				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə")); 
-		System.out.println("Now testing : "+scftpTest);
-		scftpTest.setPostContext(testFactory.parseNewContext("#", true));
-		System.out.println("Output should be # ɡ `ɑ t͡ʃ j ə # : " 
-				+printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# ɡ `ɑ t # j 'u"))));
-		System.out.println("Output should be # kʰ `ɛ t͡ʃ j ə # : "
-				+printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ # j 'u #"))));
-		System.out.println("Output should be # ɡ `ɑ t # j `æ̃ː m z # : "
-				+ printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #"))));
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j 'u #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t͡ʃ j ə #")) ? 1 : 0 ; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ # j 'u #"), testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ j ə #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #")) ? 1 : 0; 
 		
 		scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor] # [+syl,-prim]"),
 				testFactory.parsePhoneSequenceForDest("ɾ ə"));
-		System.out.println("Now testing : "+scftpTest);
-		System.out.println("Output should be 'forgetaboutit', #f ə ɡ `ɛ ɾ ə b 'a w ɾ ə t# : \n"
-				+ printWord(scftpTest.realize(testFactory.parseSeqPhSeg("# f ə ɡ `ɛ t # ə b 'a w t # ɪ t #"))));
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ `ɛ t # ə b 'a w t # ɪ t #"),
+				testFactory.parseSeqPhSeg("# f ə ɡ `ɛ ɾ ə b 'a w ɾ ə t #")) ? 1 : 0; 
 		
-		System.out.println("Done testing SChangeFeatToPhone. Now testing SChangePhone"); 
+		System.out.println("Done testing SChangeFeatToPhone. Got "+numCorrect+" out of 8 tests correct. Now testing SChangePhone"); 
+		numCorrect = 0; 
 		
 		SChangePhone scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("h"), testFactory.parseSeqPhDisjunctSegs(""));
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be a m e a m e a : "+
-				printWord(scpTest.realize(testFactory.parseSeqPhSeg("h a m e h a m e h a h"))));
-		
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("h a m e h a m e h a h"), 
+				testFactory.parseSeqPhSeg("a m e a m e a")) ? 1 : 0 ;
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("a j ; eː ; iː"),
-				testFactory.parseSeqPhDisjunctSegs("e j ; iː ; a j")); 
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be : l iː w e j : \t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("l eː w a j"))));
-		System.out.println("Output should be tʰ iː tʰ a j m : \t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("tʰ eː tʰ iː m"))));
+				testFactory.parseSeqPhDisjunctSegs("e j ; iː ; a j"));
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("l eː w a j"),
+				testFactory.parseSeqPhSeg("l iː w e j")) ? 1 : 0; 
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("tʰ eː tʰ iː m"),
+				testFactory.parseSeqPhSeg("tʰ iː tʰ a j m")) ? 1 : 0; 
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("l j"), testFactory.parseSeqPhDisjunctSegs("ʎ")); 
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be ʎ u ʎ : \t "
-				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("l j u l j"))));
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("l j u l j"), 
+				testFactory.parseSeqPhSeg("ʎ u ʎ")) ? 1 : 0 ; 
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs(""), testFactory.parseSeqPhDisjunctSegs("i"),
 				testFactory.parseNewContext("#", true), testFactory.parseNewContext("s [+cons]", true));
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be # i s p a t a # :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s p a t a #"))));
-		System.out.println("Output should be s p a t a # :\t "
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("s p a t a #"))));
-		System.out.println("Output should be # s j a t a # : \t "
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s j a t a #"))));
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s p a t a #"), testFactory.parseSeqPhSeg("# i s p a t a #")) ? 1 : 0;
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("s p a t a #"), testFactory.parseSeqPhSeg("s p a t a #")) ? 1 : 0;
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s j a t a #"), testFactory.parseSeqPhSeg("# s j a t a #")) ? 1 : 0;
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("{p;b;k;ɡ}"),
 				new ArrayList<RestrictPhone>(testFactory.parseRestrictPhoneSequence("+front,+hi,-back")));
 		scpTest.setPostContext(testFactory.parseNewContext("#", true));
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be # s a c # :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s a k #"))));
-		System.out.println("Output should be s a k :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("s a k"))));
-		System.out.println("Output should be # s u pʲ # :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# s u p #"))));
-						
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s a k #"), testFactory.parseSeqPhSeg("# s a c #")) ? 1 : 0 ;
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("s a k"), testFactory.parseSeqPhSeg("s a k")) ? 1 : 0 ;
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s u p #"), testFactory.parseSeqPhSeg("# s u pʲ #")) ? 1 : 0 ;
+
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("t u"),
 				testFactory.parseSeqPhDisjunctSegs("n ə"),
 				testFactory.parseNewContext("[+nas] ([-cont,-delrel]) #", true),
 				testFactory.parseNewContext("#", true));
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("Output should be # ɡ o w ɪ ŋ # n ə #:\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # t u #"))));
-		System.out.println("Output should be # t u # w ɑ̃ t # n ə # :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # t u #"))));
-		System.out.println("Output should be # n o w ɪ ŋ # t u v ə n #:\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #"))));
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # t u #"), testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # n ə #")) ? 1 : 0; 
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # t u #"), testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # n ə #")) ? 1 : 0; 
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #"), testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #")) ? 1 : 0;
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("{b;ɡ}"),
 				new ArrayList<RestrictPhone>( 
 						testFactory.parseRestrictPhoneSequence("[+cont]", true)));
 		scpTest.setPriorContext(testFactory.parseNewContext("[+syl] (#)", true));
-		System.out.println("Now testing : "+scpTest);
-		System.out.println("output should be # a ɣ a r a # :\t"
-				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("# a ɡ a r a #"))));
-		System.out.println("output should be # a # β i t u # :\t"
-				+printWord(scpTest.realize(testFactory.parseSeqPhSeg("# a # b i t u #"))));
-		System.out.println("output should be # b i t u # :\t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# b i t u #"))));
-		System.out.println("output should be # k o m # b i t u # : \t"
-				+ printWord(scpTest.realize(testFactory.parseSeqPhSeg("# k o m b i t u #"))));
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# a ɡ a r a #"), testFactory.parseSeqPhSeg("# a ɣ a r a #")) ? 1 : 0 ; 
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# a # b i t u #"), testFactory.parseSeqPhSeg("# a # β i t u #")) ? 1 : 0; 
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# b i t u #"), testFactory.parseSeqPhSeg("# b i t u #")) ? 1 : 0;
+		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# k o m # b i t u #"), testFactory.parseSeqPhSeg("# k o m # b i t u #")) ? 1 : 0 ;
+		
+		System.out.println("Done testing SChangePhone. Got "+numCorrect+" correct out of 17.");
+		
 	}
 	
 	private static String printWord(List<SequentialPhonic> word)
 	{
 		String output = ""; 
 		for (SequentialPhonic ph : word)
-			output+=ph.print()+PH_DELIM; 
-		return output.substring(0, output.lastIndexOf(PH_DELIM));
+			output+=ph.print(); 
+		return output;
 	}
+	
+	private static boolean phonSeqsEqual (List<SequentialPhonic> sp1, List<SequentialPhonic> sp2)
+	{
+		if (sp1.size() != sp2.size())	return false; 
+		int spn = sp1.size();
+		for(int spi = 0 ; spi < spn; spi++)
+			if	(!sp1.get(spi).equals(sp2.get(spi)))	return false;
+		return true; 
+	}
+
+	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input, 
+			List<SequentialPhonic> expected, List<SequentialPhonic> observed)
+	{
+		return "Error in realization of this rule:\t\t"+sc+
+				"\n\tInput was:\t"+printWord(input)+"\n\tExpected result: "+printWord(expected)+
+				"\n\tObserved result:\t\t"+printWord(observed)+"\n";
+	}
+	
+	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp)
+	{
+		List<SequentialPhonic> obs = sc.realize(inp); 
+		if(phonSeqsEqual(exp,obs))	return true; 
+		System.out.print(generateErrorMessage(sc, inp, exp, obs));
+		return false;
+	}
+	
 }
