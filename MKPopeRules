@@ -4,28 +4,38 @@ $However, she explains in her elaboration chapters some places where clearly the
 $ ... so we implement those instead
 $ ---------------------------------------------------------------------------
 
-~Late Latin
-$First rule for Pope is the "accent change" -- not sure how to realize this -- it is section 153 on page 72 and elaborated on on pages 99-102 
-
 $Characteristics of Classical Latin as per Pope page 75
 [+nas,+cor] > [+hi,+back,-cor] / __ [+hi,+back,-cont]
 [-cont,+hi,+back,+voi] > [+nas] / __ [+nas]
 l l > lʲ $REALLY unsure about this one... 
-l > [+hi,+front] / __ [+hi,+front]
+l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable" -- might make sense to remove
 l > [+back] / @ __
+[+lo,+syl] > [-front,+back]
+ɑ > a / __ e̯
 
 $This one moved up simply because it is known to be characteristic of Classical Latin
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
-$Classical Latin length disctintion becomes a quality ("tense" for us) distinction
+$Classical Latin length distintion becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
+
+$ TODO find the attribution for this ! 
+[-tense] > [+tense] / __ [+syl] 
+
+~Late Latin
+$As per Pope's paradigm, it is considered Late Latin if it occurred before the end of the firth century 
 
 $p73 s155i ~ p91 s185 -- Pope explains that this happened word-internally first "very early", word initially later 
 h > ∅ / @ __
 
-$p73 s155iib and p91 s187 -- we know develarization of w came very early (Reign of "Nerβa") and that it was preceeded by 
-$ the gliding phenomenon
+$p100 s214i -- the one case of stress movement, occurred in third and fourth centuries . 
+$ Must come before yod formation as per s214i 
+[+syl,-lo,-hi,-stres] > [+prim] / [+prim,-lo,+front,-long] __ 
+[+prim] > [-stres] /  __ [+prim]
 
-$p102 s220 (also p73 s156i)  -- gliding of unstressed short non-low vowels before other vowels
+$p73 s155iib and p91 s187 -- we know develarization of w came very early, 1st/2nd century (Reign of "Nerβa") and that it was preceeded by 
+$ the gliding phenomenon below
+
+$p102 s220 (also p73 s156i)  -- yod and w formation -- gliding of unstressed short non-low vowels before other vowels
 $ -- called upon to be this early by p91 s187
 [+syl,-long,-stres,-lo] > [+hi,-syl] / __ [+syl]
 
@@ -44,34 +54,69 @@ w > β
 
 $as per p91 s187i -- reverse when became preconsonantal due to "slurring" 
 
-$p73 s155iia and pp136-137 ss332-336 : b > β intervocalically or between vowel and r
-$According to s336 this occurred very early, 2nd century AD 
+$p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r
+$According to s336 this occurred very early at least for the bilabial, 2nd century AD 
+$Later authors group all voiced stops together for this shift, but Pope is unclear
+$She states (s336) that it is attested earlier for b than the others but is unclear
+$However she indicates a shift order in s307i that necessitates velar stop palatalization preceding intervocalic lenition
+$So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
+$Right after the beginning of palatalization. 
 b > β / [+syl] __ [+son,-lat,-nas]
 
-$Page 72-73, section 154i ~ elaborated p 89 s 179 
+$Page 72-73, section 154i ~ elaborated p 89 s 179 , s222
 $Classical Latin length disctintion becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
 [+syl,-lo,+long] > [-long,+tense]
 [+syl,+long] > [-long]
 
+$p73 s154iii ~ p190 s504 -- seems to have first occurred in the first and second centuries s504
+$giving her the benefit of hte doubt, we place this after the length > tense shift, as otherwise oe would become ɛ
+$ 	given that she doesn't specify it as long and writes it like a short vowel 
+{a e̯;'a e̯;`a e̯} > {ɛ;'ɛ;`ɛ}
+{o e̯;'o e̯;`o e̯} > {e;'e;`e}
+
+$Palatalization begins in the fourth century as per Pope p129 s304
+$t and d preceding yod become palatalized affricates
+$p130 s308
+t > [+hi,+front,+delrel] / __ [+hi,+front,-syl,-cont] 
+d > ɟ / __ [+hi,+front,-syl,-cont] 
+
+$p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for before yod
+[+hi,+back,-cont] > [+front] / __ [-cons,-lo,+front]
+[+back,+front] > [-back] 
+j > ∅ / [-cont,+hi,+front] __
+
+$p131 s311, assigned to Late Latin in p73 s155-5iv
+n [+hi,+front,-syl,+voi] > ɲ
+
+$p131 s312, assigned to Late Latin p73 s155-5iv ~ also note s293
+[+lat] [+hi,+front,-syl] > ʎ
+
+$p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
+$According to s336 this occurred very early at least for the bilabial, 2nd century AD 
+$Later authors group all voiced stops together for this shift, but Pope is unclear
+$She states (s336) that it is attested earlier for b than the others but is unclear
+$However she indicates a shift order in s307i that necessitates velar stop palatalization preceding intervocalic lenition
+$So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
+$Right after the beginning of palatalization. This should be roughly 4th century
+[-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
+
 $p73 s155i ~ p91 s185 -- as Pope explained, happened word-internally first. 
 $It was apparently still being resisted among the educated classes in the time of St. Augustine, 4th century and early 5th century 
 h > ∅ 
 
-$p73 s154i ~ elaborated p89 s180
-$ɪ > e and ʊ > o 
+$p73 s154i ~ elaborated p89 s180 : ɪ > e and ʊ > o 
 [+hi,-tense] > [-hi,+tense] 
 
-$p73 s154iii ~ p190 s504
-{a e̯;'a e̯;`a e̯} > {ɛ;'ɛ;`ɛ}
-{o e̯;'o e̯;`o e̯} > {e;'e;`e}
-
-$ stress changes... 
-
-$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition
-
-
-
+$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
+$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
+# followed by cons + vowel, or followed by plosive + l/r
+$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+[+prim] > [+long] / __ #
+[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+cons] [-cons] 
+[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $p73 s154ii ~ elaborated somewhat in the chapter covering prosody
 $DO THIS 
