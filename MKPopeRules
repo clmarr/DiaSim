@@ -6,12 +6,23 @@ $ ---------------------------------------------------------------------------
 
 $Characteristics of Classical Latin as per Pope page 75
 [+nas,+cor] > [+hi,+back,-cor] / __ [+hi,+back,-cont]
-[-cont,+hi,+back,+voi] > [+nas] / __ [+nas]
+ɡ > [+nas] / __ n
 l l > lʲ $REALLY unsure about this one... 
 l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable" -- might make sense to remove
 l > [+back] / @ __
 [+lo,+syl] > [-front,+back]
 ɑ > a / __ e̯
+
+$p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
+$Pope says "very early" s359
+$Of course later authors would very likely consider this to be part of a nasalization phenomenon.
+[+syl] > [+long] / __ n s
+n > ∅ / __ s
+
+$p144 s359 ~ p73 s156iii --- rs > s or ss, conditioned on whether preceeding vowel is long -- must have occurred before nature of length changed
+[+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
+[+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
+[+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
 
 $This one moved up simply because it is known to be characteristic of Classical Latin
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
@@ -27,8 +38,12 @@ $As per Pope's paradigm, it is considered Late Latin if it occurred before the e
 $p73 s155i ~ p91 s185 -- Pope explains that this happened word-internally first "very early", word initially later 
 h > ∅ / @ __
 
+$p145 s361- i-epentheiss -- happens in Western Romance very early, attested second century
+∅ > ɪ / # __ s [+cons] 
+
 $p100 s214i -- the one case of stress movement, occurred in third and fourth centuries . 
-$ Must come before yod formation as per s214i 
+$ Must come before yod formation as per s214i -- but this is a contradiction as yod formation was supposed to have happened earlier than that...
+$ given that it bled w > beta, which happened in the first and second centuries? 
 [+syl,-lo,-hi,-stres] > [+prim] / [+prim,-lo,+front,-long] __ 
 [+prim] > [-stres] /  __ [+prim]
 
@@ -47,12 +62,40 @@ w > ∅ / __ j
 $p91 s187ii
 w > ∅ / [+syl] __ [+syl,+round,+back]
 
-$ the slurring ... of "proparoxytones" ... 
+$ p100 s214ii : in trisyllables with stress initially on the first, it moves forward ("ordinarily") 
+$ if hte second consists of short vowel + plosive + r
+[-stres] > [+prim] / # ([-syl])* [+prim] ([-syl])* __ [-cont] [+cor,+son,-nas,-lat]
+[+prim,+stres] > [-prim] / # ([-syl])* __ ([-syl])* [+prim]
+
+$ p115 s261-264 ~ s221 ~ s156i
+$ *** Note as per s156i, for Pope this is a "tendency" 
+$ the slurring ... of "proparoxytones" ... i.e. where the tonic syllable was followed by two unstressed sylls before hte word coda
+$ ... typically concerning those which are common suffixes here.
+$ Pope attests this with the Appendix Probi, which was written in the third or fourth centuries 
+$ but does not say that is when it specifically occurred. 
+$ Because of words like "table", we know it probably occurred before lenition of intervocalic b (early second century) but Pope does not confirm
+$ this either. 
+$ By placing it here before the beginning of betacism, we are giving Pope the benefit of the doubt. 
+$ This is also inline with what she states about the -itus,-itum etc group -- she is holding that this phenomenon occurred before hte beginnings
+$ 	of palatalization for words like plakitum (s296)
+$ Further note : s262b -- Pope notes that sometimes the older forms were restored by preservative analogy via "clerkly influence" 
+$ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those where preceding cons is k,g,t,p or b. There don't seem to be
+	$ any words of this type ending in -dulus,-dulum, or -dula. 
+ʊ > ∅ / [+prim] ([-syl])* [-cont,-syl] __ [+lat] [+syl] ([-syl]) #
+$ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
+	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
+	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
+	$ note also the frigidus contradiction: s297 & s316 vs. s262ii & s296i
+ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+syl] ([-syl]) #
+$ p115 s262c -- effects on intertonic vowels standing between n/l and r 
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n __ [+cor,+son,-lat]
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat,-syl] __ [+cor,+son,-lat]
 
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
 w > β
 
 $as per p91 s187i -- reverse when became preconsonantal due to "slurring" 
+
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
@@ -63,17 +106,71 @@ $So we give her the benefit of the doubt and place the lenition of the rest of t
 $Right after the beginning of palatalization. 
 b > β / [+syl] __ [+son,-lat,-nas]
 
+$ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted
+	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
+[+syl,-stres] [+hi,+voi,-syl] > ∅ / [+prim] ([-syl])* [-syl] __ [+syl] ([-syl])* #
+
+$p144 s359 ~ p73 s156iii : simplification in ŋks, ŋkt clusters
+k > ∅
+
+$p144 s359 ~ p73 s156iii : kst > st rule 
+k > ∅ / __ s [+cons]
+
+$p144 s359 ~ p134 s324-325 ~ p73 s156iii ~ p64 s130 ~ p6 s9
+$ frication of k before t,s ; attributed to Gaulish substratum p6 s9 (RECTUM > REXTUM -- see also discussion of attestations like paraxsidi in other sources.) 
+$ Pope doesn't discuss the specific ordering of this vis-a-vis the kst>st rule, but this one would bleed that one and she never discusses an xst>st rule,
+$ so we assume this one comes second.
+k > x / __ [+cor,-voi] 
+
+$p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
+$"opened and vocalized"-- Pope is explicit that it passes through a fricatie stage p65 s135b
+ɡ > [+cont] / __ m 
+ɣ > w / __ m 
+
+$p73 s154i ~ elaborated p89 s180 : ɪ > e and ʊ > o 
+[+hi,-tense] > [-hi,+tense] 
+
+$p73 s154iii ~ p190 s504 -- seems to have first occurred in the first and second centuries s504
+$giving her the benefit of hte doubt, we place this after the length > tense shift, as otherwise oe would become ɛ
+$ 	given that she doesn't specify it as long and writes it like a short vowel 
+{a e̯;'a e̯;`a e̯} > {ɛː;'ɛː;`ɛː}
+{o e̯;'o e̯;`o e̯} > {eː;'eː;`eː}
+
 $Page 72-73, section 154i ~ elaborated p 89 s 179 , s222
 $Classical Latin length disctintion becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
 [+syl,-lo,+long] > [-long,+tense]
 [+syl,+long] > [-long]
 
-$p73 s154iii ~ p190 s504 -- seems to have first occurred in the first and second centuries s504
-$giving her the benefit of hte doubt, we place this after the length > tense shift, as otherwise oe would become ɛ
-$ 	given that she doesn't specify it as long and writes it like a short vowel 
-{a e̯;'a e̯;`a e̯} > {ɛ;'ɛ;`ɛ}
-{o e̯;'o e̯;`o e̯} > {e;'e;`e}
+$p73 s156vi ~ p191 s505 ~ p64 s131: au > a under influence of tonic u in next syllable (irregardless of tense or length)
+$ ... NOTE: Pope is not clear about when exactly this occurred, but we place it before ʊ > o for convenience
+ɑ [-syl,-cons,-lo,+round,+back] > ɑ / __ ([-syl])* [+prim,+hi,+round,+back]
+
+$p328 s854 ~ p64 s131 : dissimilation of tonic vowel juxtaposed to final flexional vowel. 
+$ *** this is a "tendency" as per Pope s854
+$ Other authors have other explanations for this, like tensing of vowels before other vowels or even much earlier lengthening of them 
+`o > `ɔ / __ [+hi,+syl,+back]
+`ɛ > `e / __ [+lo,+syl]
+`e > `i / __ e
+
+$ p73 s156v ~ s262 ~ s360 
+$ tl > kl -- attested first in the Appendix Probi as per Pope p145 s360
+$ as noted by Pope s262, sometimes reversed under "clerkly influence" by preservative analogy
+t > k / __ [+lat]
+
+$ p97-98 s205i ~ p73 s156ii : final m deletion  -- 
+$ ... unlike some later authors Pope does not recognize a nasalization in Late Latin, instead holding that simple nasal consonant deletion occurred
+$ Pope doesn't explicitly date this but considers it first attested in teh 3rd/4th century Appendix Probi
+$ Pope notes it did not occur in monosyllabic words 
+$ NOTE: as per p97-98 s205i -- unlike Italy and also South Gaul, North Gaul did not see effacement of s and t word-finally,
+$ ... because "prnounciation was influenced by the teaching in schools" in North Gaul
+m > ∅ / [+syl] ([-syl])* [+syl] __ #
+
+$ p185 s488 : o > ɔ before labial consonants 
+$ *** NOTE : This is called a "TENDENCY" by Pope
+$ she does not give a date to it other than saying it Late Latin
+$ --- we give her the benefit and place it after final m deletion 
+o > ɔ / __ [+lab,-son] 
 
 $Palatalization begins in the fourth century as per Pope p129 s304
 $t and d preceding yod become palatalized affricates
@@ -84,13 +181,20 @@ d > ɟ / __ [+hi,+front,-syl,-cont]
 $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for before yod
 [+hi,+back,-cont] > [+front] / __ [-cons,-lo,+front]
 [+back,+front] > [-back] 
+
+$p127 s296ii : palatalization of k blocked if coming after secondarily stressed a 
+c > k / [+lo,+syl,+stres,-prim] __ [+hi,+syl]
+
+$s306-7
 j > ∅ / [-cont,+hi,+front] __
 
 $p131 s311, assigned to Late Latin in p73 s155-5iv
 n [+hi,+front,-syl,+voi] > ɲ
 
+
 $p131 s312, assigned to Late Latin p73 s155-5iv ~ also note s293
 [+lat] [+hi,+front,-syl] > ʎ
+
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
@@ -99,14 +203,22 @@ $She states (s336) that it is attested earlier for b than the others but is uncl
 $However she indicates a shift order in s307i that necessitates velar stop palatalization preceding intervocalic lenition
 $So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
 $Right after the beginning of palatalization. This should be roughly 4th century
+$ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
 [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
 
 $p73 s155i ~ p91 s185 -- as Pope explained, happened word-internally first. 
 $It was apparently still being resisted among the educated classes in the time of St. Augustine, 4th century and early 5th century 
 h > ∅ 
 
-$p73 s154i ~ elaborated p89 s180 : ɪ > e and ʊ > o 
-[+hi,-tense] > [-hi,+tense] 
+$p73 s156vi -- influence of tonic vowels on countertonic vowels
+$***NOTE Pope calls these "TENDENCIES"
+$ she does not seem to give a date to these
+'i > 'e / __ ([-syl])* `i
+{'e;'ɛ} > {'ɑ;'ɑ} / __ ([-syl])* `ɑ
+
+$p127 s297 : developments of ʝ : effacement intervocalically except between countertonic a and tonic e 
+ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
+ʝ > ∅ / [-cons] __ [-cons]
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -118,6 +230,11 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
-$p73 s154ii ~ elaborated somewhat in the chapter covering prosody
-$DO THIS 
+
+~ Gallo-Roman 
+
+$p133 s322 intervocalic kl,gl > lambda -- 
+	$ *** NOTE: p132-133 s319 she says this comes AFTER the frication of k before r and t  
+[+hi,+back,-cont] [+lat] > ʎ / [+syl] __ [+syl] 
+
 

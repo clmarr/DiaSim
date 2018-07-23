@@ -33,6 +33,7 @@ public class DerivationSimulation {
 	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	private final static char STAGENAME_FLAG = '~'; 
+	private final static char STAGENAME_LOC_DELIM = ':'; 
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -263,8 +264,8 @@ public class DerivationSimulation {
 				currRule = currRule.substring(1); 
 				assert !currRule.contains(""+STAGENAME_FLAG): 
 					"Error: stage name flag "+STAGENAME_FLAG+" occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-				assert !currRule.contains("|"):
-					"Error: illegal character found in name for custom stage -- '|'"; 
+				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
+					"Error: illegal character found in name for custom stage -- "+STAGENAME_LOC_DELIM;  
 				provisionalStageNameAndLocList.add(""+currRule+"|"+rli);
 				rulesByTimeInstant.remove(rli);  
 			}
@@ -281,8 +282,15 @@ public class DerivationSimulation {
 		
 		for(int csi = 0; csi < numStages; csi++)
 		{
+			//TODO debugging
+			System.out.println("Stage name and loc : "+provisionalStageNameAndLocList.get(csi));
+			
 			String[] stageNameAndLoc = provisionalStageNameAndLocList.get(csi).split("|");
 			customStageNames[csi] = stageNameAndLoc[0]; 
+			
+			//TODO debuggging
+			System.out.println("stage : "+customStageNames[csi]);
+			
 			customStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
 		}
 		
