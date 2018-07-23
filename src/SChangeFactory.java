@@ -369,9 +369,10 @@ public class SChangeFactory {
 		return new Boundary("word bound");
 	}
 	
-	//used specifically for constructing the destination of a ShiftFeatToPhone instane 
+	//used specifically for constructing the destination of a ShiftFeatToPhone instance 
 	public List<Phone> parsePhoneSequenceForDest (String inp)
 	{
+		if (inp.trim().equals("∅"))	return new  ArrayList<Phone>(); 
 		String[] toPhones = inp.split(""+phDelim); 
 		List<Phone> output = new ArrayList<Phone>(); 
 		for(String toPhone : toPhones)

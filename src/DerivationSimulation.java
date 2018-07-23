@@ -266,7 +266,7 @@ public class DerivationSimulation {
 					"Error: stage name flag "+STAGENAME_FLAG+" occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
 				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
 					"Error: illegal character found in name for custom stage -- "+STAGENAME_LOC_DELIM;  
-				provisionalStageNameAndLocList.add(""+currRule+"|"+rli);
+				provisionalStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
 				rulesByTimeInstant.remove(rli);  
 			}
 			else	rli++;
@@ -285,7 +285,7 @@ public class DerivationSimulation {
 			//TODO debugging
 			System.out.println("Stage name and loc : "+provisionalStageNameAndLocList.get(csi));
 			
-			String[] stageNameAndLoc = provisionalStageNameAndLocList.get(csi).split("|");
+			String[] stageNameAndLoc = provisionalStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
 			customStageNames[csi] = stageNameAndLoc[0]; 
 			
 			//TODO debuggging
