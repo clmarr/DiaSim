@@ -346,7 +346,10 @@ public class DerivationSimulation {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
-				if (!nextLine.trim().equals("")) 	lexFileLines.add(nextLine); 		
+			{	if (nextLine.contains(CMT_FLAG+""))
+					nextLine = nextLine.substring(0,nextLine.indexOf(CMT_FLAG)).trim(); 
+				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
+			}
 			in.close(); 
 		}
 		catch (UnsupportedEncodingException e) {
@@ -423,7 +426,7 @@ public class DerivationSimulation {
 			{
 				if(wordsChanged[wci])
 				{
-					System.out.println("Word changed!"); //TODO debugging
+					System.out.println("Word changed! "+testResultLexicon.getByID(wci)); //TODO debugging
 					wordTrajectories[wci] += "\n"+testResultLexicon.getByID(wci)+" | Shift "+si+" : "+thisShift;
 				}
 			}
@@ -633,7 +636,7 @@ public class DerivationSimulation {
 			else
 			{
 				assert phoneSymbToFeatsMap.containsKey(toPhone): 
-					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol : "+toPhone; 
+					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol.\nSymbol is : "+toPhone; 
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
