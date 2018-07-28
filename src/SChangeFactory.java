@@ -102,6 +102,7 @@ public class SChangeFactory {
 		
 		String[] inputSplit = input.split(""+ARROW); 
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
+		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
 		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
@@ -208,11 +209,10 @@ public class SChangeFactory {
 		if(srcHasFeatMatrices) 
 			assert srcHasValidSpecList : "Error: usage of brackets without valid feature spec list : "+inputSource; 
 		
-		if(inputSource.indexOf("]") == inputSource.length() - 1)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
+		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
 		if(isValidFeatSpecList(inputSource)) //we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
-			
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
 			// note that parseSinglePhonicDest returns a word bound "#"
 			// if the input is not a valid string referring to a single phonic.

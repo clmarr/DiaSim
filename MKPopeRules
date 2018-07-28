@@ -6,12 +6,12 @@ $ ---------------------------------------------------------------------------
 
 $Characteristics of Classical Latin as per Pope page 75
 [+nas,+cor] > [+hi,+back,-cor,-ant] / __ [+hi,+back,-cont]
-ɡ > [+nas,+cont] / __ n
+ɡ > [+nas,+cont] / __ [+nas,+cor]
 l l > lʲ $REALLY unsure about this one... 
 l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable" -- might make sense to remove
 l > [+back] / @ __
 [+lo,+syl] > [-front,+back]
-ɑ > a / __ e̯
+[+lo,+syl] > [+front,-back] / __ e̯
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s105c ; for w, p56 s109
 
@@ -19,7 +19,7 @@ $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowe
 $Pope says "very early" s359
 $Of course later authors would very likely consider this to be part of a nasalization phenomenon.
 [+syl] > [+long] / __ n s
-n > ∅ / __ s
+n̪ > ∅ / __ s
 
 $p144 s359 ~ p73 s156iii --- rs > s or ss, conditioned on whether preceeding vowel is long -- must have occurred before nature of length changed
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
@@ -40,18 +40,24 @@ h > ∅ / @ __
 $p145 s361- i-epenthesis -- happens in Western Romance very early, attested second century
 ∅ > ɪ / # __ s [+cons] 
 
-$p100 s214i -- the one case of stress movement, occurred in third and fourth centuries . 
+$p100 s214i -- one case of regular stress movement, occurred in third and fourth centuries . 
 $ Must come before yod formation as per s214i -- but this is a contradiction as yod formation was supposed to have happened earlier than that...
 $ given that it bled w > beta, which happened in the first and second centuries? 
 [+syl,-lo,-hi,-stres] > [+prim] / [+prim,-lo,+front,-long] __ 
+[+prim] > [-prim] / # ([-syl])* __ [+prim]
 [+prim] > [-stres] /  __ [+prim]
+
+$p100 s214ii -- the (only?) other case of regular stress movement-- occurred around the same time but not for the educated classes
+[+syl,-stres] > [+prim] / [+prim] ([-syl])* __ [-cont] r ([-syl])* [+syl] ([-syl])* #
+[+prim] > [-prim] / # ([-syl])* __ ([-syl])* [+prim]
+[+prim] > [-stres] / __ ([-syl])* [+prim]
 
 $p73 s155iib and p91 s187 -- we know develarization of w came very early, 1st/2nd century (Reign of "Nerβa") and that it was preceeded by 
 $ the gliding phenomenon below
 
 $p102 s220 (also p73 s156i)  -- yod and w formation -- gliding of unstressed short non-low vowels before other vowels
 $ -- called upon to be this early by p91 s187
-[+syl,-long,-stres,-lo] > [+hi,-syl] / __ [+syl]
+[+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl]
 
 {w;j} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s105c ; for w, p56 s109
@@ -117,7 +123,7 @@ b > β / [+syl] __ [+son,-lat,-nas]
 
 $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
-[+syl,-stres] [+hi,+voi,-syl] > ∅ / [+prim] ([-syl])* [-syl] __ [+syl] ([-syl])* #
+[+syl,-stres] [+hi,+back,+voi,-syl] > ∅ / [+prim] ([-syl])* __ [+syl] ([-syl])* #
 
 $p144 s359 ~ p73 s156iii : simplification in ŋks, ŋkt clusters
 k > ∅ / [+nas] __ [+cor,-voi]
@@ -165,7 +171,7 @@ $ Other authors have other explanations for this, like tensing of vowels before 
 $ p73 s156v ~ s262 ~ s360 
 $ tl > kl -- attested first in the Appendix Probi as per Pope p145 s360
 $ as noted by Pope s262, sometimes reversed under "clerkly influence" by preservative analogy
-t > k / __ [+lat]
+t̪ > k / __ [+lat]
 
 $ p97-98 s205i ~ p73 s156ii : final m deletion  -- 
 $ ... unlike some later authors Pope does not recognize a nasalization in Late Latin, instead holding that simple nasal consonant deletion occurred
@@ -184,8 +190,8 @@ o > ɔ / __ [+lab,-son]
 $Palatalization begins in the fourth century as per Pope p129 s304
 $t and d preceding yod become palatalized affricates
 $p130 s308
-t > [+hi,+front,+delrel,+strid] / __ [+hi,+front,-syl,+cont] 
-d > ɟ / __ [+hi,+front,-syl,-cont] 
+t̪ > [+hi,+front,+delrel,+strid,-distr] / __ [+hi,+front,-syl,+cont] 
+d̪ > ɟ / __ [+hi,+front,-syl,-cont] 
 
 $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for before yod
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
@@ -200,7 +206,7 @@ $s306-7
 $p131 s311, assigned to Late Latin in p73 s155-5iv
 $ as per s293 however this did not YET affect n + pal-stop -- i.e. not words like plangere
 $ trigger again in Gallo-Roman stage.
-n [+hi,+front,-syl,+voi,+cont] > ɲ
+[+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 
 $p131 s312, assigned to Late Latin p73 s155-5iv 
 $ as per s293 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
@@ -257,7 +263,7 @@ $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
 $ Eugene Buckley at U-PENN disagrees -- note
 $ Attributed (s163) to sixth and seventh centuries
-[+lo,+syl] > [+front]
+[+lo,+syl] > [+front,-back]
 
 $ Pope p77 s163-3 "effacement of penultimate ɛ before r and l"
 $ Attributed (s163) to sixth and seventh centuries
@@ -266,7 +272,6 @@ $ Attributed (s163) to sixth and seventh centuries
 $ Pope p77 s163-4 ~ p92-93 s191 : first assibiliation of palatals
 $ Attributed (s163) to sixth and seventh centuries
 {c;ɟ} > {t͡s;d͡ʒ}
-
 
 $PLACE 
 $ assimilation of w (beta?) to l s374 s1011

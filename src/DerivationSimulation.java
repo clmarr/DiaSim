@@ -403,17 +403,17 @@ public class DerivationSimulation {
 		
 		//TODO evolve the words 
 		int nextStageIndex = 0; //index IN THE ARRAYS that the next stage to look for will be at .
-		int si = 0, numShifts = theShiftsInOrder.size(); //for iteration.
+		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
-		while (si < numShifts)
+		while (ri < numRules)
 		{
 			//TODO debugging
-			System.out.println("Applying rule "+si+" : "+theShiftsInOrder.get(si));
+			System.out.println("Applying rule "+ri+" : "+theShiftsInOrder.get(ri));
 			
-			SChange thisShift = theShiftsInOrder.get(si);
-			if (customStagesSet)
+			SChange thisShift = theShiftsInOrder.get(ri);
+			if (customStagesSet && nextStageIndex < numStages)
 			{
-				if (si == customStageTimeInstants[nextStageIndex])
+				if (ri == customStageTimeInstants[nextStageIndex])
 				{
 					customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList()); 
 					nextStageIndex++;
@@ -426,12 +426,12 @@ public class DerivationSimulation {
 			{
 				if(wordsChanged[wci])
 				{
-					System.out.println("Word changed! "+testResultLexicon.getByID(wci)); //TODO debugging
-					wordTrajectories[wci] += "\n"+testResultLexicon.getByID(wci)+" | Shift "+si+" : "+thisShift;
+					System.out.println("Word "+wci+" changed! "+testResultLexicon.getByID(wci)); //TODO debugging
+					wordTrajectories[wci] += "\n"+testResultLexicon.getByID(wci)+" | Shift "+ri+" : "+thisShift;
 				}
 			}
 			
-			si++; 
+			ri++; 
 		}
 	
 		if(goldIsInput)
