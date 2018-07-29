@@ -14,6 +14,10 @@ l > [+back] / @ __
 [+lo,+syl] > [+front,-back] / __ e̯
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s105c ; for w, p56 s109
+$ Note that the sequence u: + w does not seem to occur in Latin 
+$ If it did there would be some logical issues with Pope's rules -- i.e. s343 she states "beta from b" is effaced after u: 
+	$ where of course w (by which she means gamma^w) had already shifted to beta s186 much earlier 
+	$ -- of course sound change has no memory! However this issue is moot because u:+w doesn't occur in Latin it seems
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
@@ -67,7 +71,7 @@ $effacement of w before jod.
 $NOTE however that in many nouns this was reversed by analogy (see p92 s188)
 ɣʷ > ∅ / __ ʝ
 
-$p91 s187ii
+$p91 s187iia
 ɣʷ > ∅ / [+syl] __ [+syl,+round,+back]
 
 $ p100 s214ii : in trisyllables with stress initially on the first, it moves forward ("ordinarily") 
@@ -89,7 +93,7 @@ $ 	of palatalization for words like plakitum (s296)
 $ Further note : s262b -- Pope notes that sometimes the older forms were restored by preservative analogy via "clerkly influence" 
 $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those where preceding cons is k,g,t,p or b. There don't seem to be
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
-ʊ > ∅ / [+prim] ([-syl])* [-cont,-syl] __ [+lat] [+syl] ([-syl]) #
+ʊ > ∅ / [+prim] ([-syl])* [-cont] __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
@@ -102,7 +106,7 @@ $ p115 s262c -- effects on intertonic vowels standing between n/l and r
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring" 
 ɣʷ > w / __ [+cons]
 
-$ as per s186, ɣʷ retained after k -- for sanity's sake we shift it back to w here. 
+$ as per s186, ɣʷ retained after k -- for sanity's sake we shift it back to w here so that it doens't go to beta
 ɣʷ > w / k __ 
 
 $ as per s186iib -- w effaced between k and a rounded vowel
@@ -112,7 +116,7 @@ w > ∅ / k __ [+syl,+round]
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
 ɣʷ > β
 
-$p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r
+$p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r (s372)
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
 $Later authors group all voiced stops together for this shift, but Pope is unclear
 $She states (s336) that it is attested earlier for b than the others but is unclear
@@ -120,6 +124,10 @@ $However she indicates a shift order in s307i that necessitates velar stop palat
 $So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
 $Right after the beginning of palatalization. 
 b > β / [+syl] __ [+son,-lat,-nas]
+
+$Pope p226 s629
+$In the second century, all aspiration on Greek loanwords was lost. 
+[+sg,-cont] > [-sg]
 
 $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
@@ -193,18 +201,21 @@ $p130 s308
 t̪ > [+hi,+front,+delrel,+strid,-distr] / __ [+hi,+front,-syl,+cont] 
 d̪ > ɟ / __ [+hi,+front,-syl,-cont] 
 
+$ as per s306ii : k+yod > c c intervocalically only 
+k [+hi,+front,-syl] > c c / [+syl] __ [+syl]
+
 $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for before yod
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
-$p127 s296ii : palatalization of k blocked if coming after secondarily stressed a and before t,r,l in a "proparoxyton
+$p127 s296ii : "fakere" case -- palatalization of k blocked if coming after secondarily stressed a and before t,r,l in a "proparoxyton
 c > k / [+lo,+syl,+stres,-prim] __ [+hi,+syl]
 
 $s306-7
 ʝ > ∅ / [-cont,+hi,+front] __
 
 $p131 s311, assigned to Late Latin in p73 s155-5iv
-$ as per s293 however this did not YET affect n + pal-stop -- i.e. not words like plangere
+$ as per s293 however this did not YET affect ng + pal-stop -- i.
 $ trigger again in Gallo-Roman stage.
 [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 
@@ -214,7 +225,7 @@ $trigger again in Gallo-Roman stage
 [+lat] [+hi,+front,-syl,+voi,+cont] > ʎ
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
-$ before r included -- s 
+$ before r included -- s372
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
 $Later authors group all voiced stops together for this shift, but Pope is unclear
 $She states (s336) that it is attested earlier for b than the others but is unclear
@@ -244,12 +255,27 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
-~ Gallo-Roman 
+~ Early Gallo-Roman 
+$ Sixth and seventh centuries, as per Pope s163
+
+$ Pope p138-139 s341 loss of early Gallo-Roman ɣ:
+$ Pope places this in the Gallo-Roman stage which she says starts at the end of the fifth century
+$ However it is attested in mid-fifth century as per Greg of Tours (p138-139 s341) 
+$ and was attested in Gaulish in the fourth century or even earlier (Pope s9)
+$ Precedes (s341) loss of unstressed final o,u 
+$ According to symbols used, this should precede ɑ > a (s341)
+ɣ > ∅ / __ [+tense,+round,+syl]
+ɣ > ∅ / [+hi,+round,+back,+syl] __ [+lo,+syl]
+ɣ > β / [+round,-hi,+back,+syl] __ [+lo,+syl]
+
+$also, as per s323 ɣr > r pretonic after e
+ɣ > ∅ / [+tense,+front,-hi,-lo,+syl] __ r [+prim]
 
 $ Pope p137 s335-336, also p77 s163-5
 $ Began in fifth century, "became general" in the sixth century as per s336
+$ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same slightly later shift for t(>d) (s350)
+$ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
 k > ɡ / [-cons] __ [-cons]
-
 
 $ Pope p77 s163-1 ~ p164-165 s419 : Influence of final /i/ on preceding tonic /e/ and /o/. 
 $ Dated to 6th or 7th centuries (s163) 
@@ -258,6 +284,12 @@ $ e > i and o > y
 $ Based on the way she has ordered the rules on page 77, 
 $ it would appear she is asserting that this is the first appearance of /y/ in French. 
 [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i # 
+
+$ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
+$ Conveniently all such vowels will be long as per s154ii -- we use this for our purposes
+$ Must come bore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
+	$ (Pope does not specify the voiced one retained any palatal element after assibiliation-- she does for c though as per p )
+`eː > `iː / [+cons,+hi,+front] __
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
@@ -269,12 +301,41 @@ $ Pope p77 s163-3 "effacement of penultimate ɛ before r and l"
 $ Attributed (s163) to sixth and seventh centuries
 ɛ > ∅ / __ [+cor,+son,-nas]
 
-$ Pope p77 s163-4 ~ p92-93 s191 : first assibiliation of palatals
+$ s306ii -- assibilation of cc done slightly differently than other contexts (see below) 
+c c > t̪ t͡sʲ
+
+$ Pope p77 s163-4 ~ p92-93 s191 ~ p125-126 s291-296 : first assibiliation of palatals
 $ Attributed (s163) to sixth and seventh centuries
-{c;ɟ} > {t͡s;d͡ʒ}
+$ as per s291 c retains a palatal element in its articulation as t͡sʲ, but ɟ does not 
+$ This stage (but NOT the depalatalizatoin of t͡sʲ explicitly (s296) happens BEFORE unstressed vowel loss
+{c;ɟ} > {t͡sʲ;d͡ʒ}
+
+$ Pope s325ii sk > ks before u,o  -- precedes s325i
+$ Logically, should be placed before breaking of long lax vowels -- otherwise it will be triggered by lax e: > ie 
+s k > k s / __ [+syl,+tense,+round]
+
+$ Pope s325i ks > xs again (s359) for words like kresko (s325ii) , then to > ç (s378,s324) ultimately to j (s325i) 
+k > x / __ s
+
+$ Pope s334-336-- Intervocalic voicing 
+$ Dated to the sixth century as per Pope s336 
+$ s350 -- except for k > g, this happens AFTER intertonic vowel loss.
+
+$ Pope p139 s343 effacement of β 
+$ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
+$ note that this won't collide with what was Latin <v> (gamma^w for Pope) becasue long u: plus v never occurs
+β > ∅ / __ [+tense,+round]
+β > ∅ / `uː __ 
+$TODO FIX THIS 
+
+$...seventh century 
+β > v 
 
 $PLACE 
 $ assimilation of w (beta?) to l s374 s1011
+
+$ PLACE s313-315 palatalization of rj, sj, zj 
+$ as per s314 -- must come after intervocalic voicing 
 
 $ PLACE 
 $p133 s322 intervocalic kl,gl > lambda -- 
@@ -286,3 +347,92 @@ $p127 s297 : developments of ʝ : effacement intervocalically except between cou
 $ however this happens after ʝ can palatalize succeeding dental consonants in Gallo-Roman s316, which itself came after unstressed vowel effacement. 
 ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
 ʝ > ∅ / [-cons] __ [-cons]
+
+$ PLACE 
+$ s327
+$ kw > xw intervocalically 
+$ BUT -- s329 -- "when kw was preceded by a secondary stressed vowel, the velar element was voiced and assimilated to w"
+	$ -- which then caused some vowel assimilations.. 
+$ then (still s327) x palatalizes before w after tonic front vowels 
+$ must be after low vowel fronting as akw > axw (>ajw) 
+$ elsewhere it assimilates to the labiovelar element (disappears?) -- s327 
+
+$ PLACE s320 : ng > enya before s or t 
+$ gradually to jn+(s/t)
+
+$ PLACE ng + n > enya s321
+$ note that -kn- never occurs in Latin 
+$ gradualy resovled into jn except when intervocalic (it was never word initial) 
+
+$ PLACE s322 
+$ k, g before l open then palatlaize 
+$ ... resulting in elya
+
+$ PLACE s323
+$ k, g before r open, then palatalize 
+$ they then palatalize the following r 
+$ this must come BEFORE breaking of e < a after r : flagrare > flairier
+
+$PLACE
+$ as per s324-325 -- x > ç perhpas should happen also to word final x for convenience, so be placed after word final opening 
+x > ç
+
+$PLACE
+$ s324-325 -- perhaps place at same point as ʝ > j 
+ç > j 
+
+$PLACE 
+$ s316 palatalization of d and t following palatal cons. 
+$ must come AFTER assibilation
+$ BEFORE depalatalization of tsj 
+$ but AFTER intertonic vowel loss
+
+$ PLACE 
+$ s317
+$ palatalization of n and r after palatal consonants 
+$ happens AFTER first intertonic vowel loss
+
+$PLACE 
+$s293 and other cluster modifications
+$ attributed at least in part to the 5th and 6th centuries as per Pope p78 s163
+$ must come BEFORE assibilation (as per symbols used)
+$ and AFTER intertonic vowel loss
+$ also AFTER palatalization of n,l,s before palatals 
+$ but BEFOFE any palatalization of r before palatals
+
+$PLACE 
+$s291 -- t͡sʲ eventually depalatalizes  
+$ This would seem to be AFTER the influence exercised by palatals on preceding vowels such as e (s418) in this period 
+$ as the results of the first palatalization DO exercise this influence 
+
+$PLACE -- placed in "Gallo-Roman group 1" i.e. 6th/7th centuries as per Pope s316-8ii
+$s316 -- dentals palatalized by preceding palatals 
+$judging by Pope's trajectory for amicitatem, this came AFTER assibilation 
+$ though BEFORE t͡sʲ depalatalizes
+$ and BEFORE following a is influenced by a palatal 
+
+$PLACE -- first completed in Gallo Roman period I i.e. 6th-7th century as per s163-10
+$ RECURRENT throughout period as per s162
+$ `ɛː and `ɔː tonic free diphthongized 
+$ in practice to make this recur we probably have to make them long whenever they become free 
+
+$ PLACE -- 6th-7th century as per s163-12
+$ breaking of ɛ and ɔ by following palatal consonants s410-411. 
+
+$ PLACE -- 6th-7th century as per s163-11 
+$ raising of a free to ɛ by preceding velar and palatal consonants 
+
+$PlACE -- 6th-7th centuries as per s163-9
+$ assimilation of plosive labials by following dentals.
+$ then they are effaced -- causing some preceding vowels to become now "free" 
+$ -- i.e. diphthongization for `ɛː and `ɔː can recur! 
+
+~ Later Gallo-Roman
+$ Seventh century as per Pope s164
+
+$ PLACE -- attributed to "Gallo-Roman group II" i.e. 7th century as per s206-4
+$ s318
+$ Palatal + s final -- s palatalizes and ultimately becomes ts 
+$ Happens AFTER first intertonic vowel loss 
+$ and BEFORE enya and elya become jn and jl everywhere but intertonically 
+
