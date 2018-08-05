@@ -130,17 +130,20 @@ public class SChangeFactory {
 			// in case of disjunction {..,..,..} in the context, use recursion to get all the possibilities
 			if(inputPrior.contains("{"))
 			{
+				//TODO debugging
+				System.out.println("inputPrior: "+inputPrior);
+				
 				assert inputPrior.contains("}") :
 					"Error: disjunction opener found but disjunction closer not found";
 				assert inputPrior.contains(""+segDelim) :
 					"Error: disjunction opener found but disjunction delimiter not found"; 
 				int openerInd = inputPrior.indexOf("{"); 
 				int braceDepth = 1; 
-				int closerInd = openerInd + 8; //7 is the minimum number of characters a disjunction of 
-					// FeatMatrices could have in it : +hi;+lo
+				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
+					// FeatMatrices could have in it : +hi;+lo -- but 3 is the minimum for two phones a;b
 
 				assert closerInd < inputPrior.length() : "Error: reached end of inputPrior without finding"
-						+ "the corresponding closer of the disjunction which was opened." ; 
+						+ " the corresponding closer of the disjunction which was opened." ; 
 				while(! (inputPrior.charAt(closerInd) == '}' && braceDepth == 1))
 				{
 					if(inputPrior.charAt(closerInd) == '{')	braceDepth++; 
@@ -150,11 +153,11 @@ public class SChangeFactory {
 							+ "the corresponding closer of the disjunction which was opened." ; 
 				}
 				
-				String[] disjuncts = inputPrior.split(""+segDelim); 
+				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+segDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateSoundChangesFromRule(inputSource+ARROW+contextFlag+
-							inputPrior.substring(0, openerInd) + phDelim + disjuncts[di] + phDelim + 
+					output.addAll(generateSoundChangesFromRule(inputSource+ARROW+inputDest+contextFlag+
+							(openerInd == 0 ? "" : inputPrior.substring(0, openerInd) + phDelim) + disjuncts[di] + phDelim + 
 							inputPrior.substring(closerInd+1) + LOCUS + inputPostr));
 				}
 				
@@ -168,8 +171,8 @@ public class SChangeFactory {
 					"Error: disjunction opener found but disjunction delimiter not found"; 
 				int openerInd = inputPostr.indexOf("{"); 
 				int braceDepth = 1; 
-				int closerInd = openerInd + 8; //7 is the minimum number of characters a disjunction of 
-					// FeatMatrices could have in it : +hi;+lo
+				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
+					// FeatMatrices could have in it : +hi;+lo-- but with phones it is 3
 
 				assert closerInd < inputPostr.length() : "Error: reached end of inputPrior without finding"
 						+ "the corresponding closer of the disjunction which was opened." ; 
