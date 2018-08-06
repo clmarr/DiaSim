@@ -73,8 +73,8 @@ $p102 s220 (also p73 s156i)  -- yod and w formation -- gliding of unstressed sho
 $ -- called upon to be this early by p91 s187
 [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl]
 
-{w;j} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
-	$ for j, p55 s105c ; for w, p56 s109
+j > ʝ / __ [+syl] $as per Pope s105c, 106
+$ w, newly from u,o in hiatus is clearly NOT effected by this as per treatment in s374
 
 $p91 s187iic -- explicitly must come after p102 s220 
 $effacement of w before jod. 
@@ -267,22 +267,26 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 ~ Early Gallo-Roman 
 $ Sixth and seventh centuries, as per Pope s163 
 
+$ Pope s325ii intervocalic sk > ks before u,o  -- precedes s325i
+$ Logically, should be placed before breaking of long lax vowels -- otherwise it will be triggered by lax o: > uo  
+s k > k s / [+syl] __ [+syl,+tense,+round]
+
+$ Pope s325i ks > xs again (s359) for words like kresko (s325ii) , then to > ç (s378,s324) ultimately to j (s325i) 
+$ for convenience we are also placing here k>x before t (s325, again after the first time in Late Latin: plakitum as per s296i)   
+	$ and the opening of k and ɡ to x and ɣ before l,r -- conveniently due to sound distributions
+$ we can just refer to these as the coronals (since k and ɡ don't occur before n, d, z and we place the assibilation of palatals after this for convenience)
+[+hi,+back,-cont] > [+cont] / __ [+cor,+cons]
+
 $ intervocalic -qu- 
-$ k > x before Pope's fricative w as per s355
+$ k > x before Pope's fricative w as per s327-330
 $ note that Pope is fairly inconsistent as to the identity of the <u> in qu 
 $ she seems to label it as a semivowel (u with glid mark) in s327-330
 $ but marks it as her "fricative" w in s186-188
 $ to reflect this we don't question it and just use w to reflect her usage, without questioning it...
 k > x / [+syl] __ w [+syl]
 
-$ Pope s325ii intervocalic sk > ks before u,o  -- precedes s325i
-$ Logically, should be placed before breaking of long lax vowels -- otherwise it will be triggered by lax o: > uo  
-s k > k s / [+syl] __ [+syl,+tense,+round]
-
-$ Pope s325i ks > xs again (s359) for words like kresko (s325ii) , then to > ç (s378,s324) ultimately to j (s325i) 
-$ for convenience we are also placing here the voicing of k and ɡ to x and ɣ before l,r -- conveniently due to sound distributions
-$ we can just refer to these as the coronals (since k and ɡ don't occur before n, d, z and we place the assibilation of palatals after this for convenience)
-[+hi,+back,-cont] > [+cont] / __ [+cor,+cons]
+$ s374ii : intervocalic -lw- > ll and -sw- > ss 
+{[+lat] w;s w} > {l l;s s} / [-cons] __ [-cons]
 
 $ Pope p138-139 s341 loss of early Gallo-Roman ɣ:
 $ Pope places this in the Gallo-Roman stage which she says starts at the end of the fifth century
@@ -298,27 +302,14 @@ $also, as per s323 ɣr > r pretonic after e
 ɣ > ∅ / [+tense,+front,-hi,-lo,+syl] __ r [+prim]
 
 $ Pope s374ii first round of β > w before another w -- will recur
+$ as per comparing s484 and s481, clearly βw had a different fate from ðw or ɣw (including < -qu-) -- so this one happened first
 β > w / __ w 
 
-$ Pope ~ p78 s163-7 p139 s343 first effacement of β 
+$ Pope ~ p78 s163:7 p139 s343 first effacement of β 
 $ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
-$ note that this won't collide with what was Latin <v> (gamma^w for Pope) becasue long u: plus v never occurs
-β > ∅ / __ [+tense,+round]
-β > ∅ / `uː __ 
-
-$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
-$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
-$ followed by cons + vowel, or followed by plosive + l/r
-$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-$ recurrent
-[+long] > [-long] / __ [+cons] # 
-[+long] > [-long] / __ [+cons] [+cons,-son]
-[+long] > [-long] / __ [+cons] [+cons,+nas]
-[+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
-[+prim] > [+long] / __ [+cons] [-cons] 
-[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
-[+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ note that this won't collide with what was Latin <v> (gamma^w for Pope) because long u: plus <v> never occurs
+β > ∅ / __ [+tense,+round,+syl]
+β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u
 
 $ Pope p137 s335-336, also p77 s163-5
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -326,21 +317,22 @@ $ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same s
 $ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
 	$ See also Buckley, Arteaga on this for corrections to Pope later?
 	$ potentially RECURRENT as per Pope s162 
-k > ɡ / [-cons] __ [-cons]
+$ this incorporates ɡw > ɣw as per Pope s329 
+k > ɡ / [-cons] __ [+syl]
 
-$ Pope s329 : Latin qu, when preceded by a secondary stresssed vowel, velar element voices...
-k > ɡ / [+stres,-prim] __ ɣʷ
-ɡ > ɣ / __ ɣʷ
+$ Recurrence of Pope s333i
+ɡ > ɣ / [-cons] __ [-cons] 
 
 $Pope s334ii voicing of breathed fricatives 
 $ must happen before first palatalization of s and z 
 $ not specified in Pope's chronology -- but "recurrent" as per s162
-$ and happened before first formation of palatal sibilant fricatives... 
+$ and happened before first formation of palatal sibilant fricatives...
+$ w from u,o hiatus or in xw is non-consonantal for Pope so it occurs for this too -- i.e. after this point xw is ɣw 
 [+cont,-son] > [+voi] / [-cons] __ [-cons]
 [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons] $technically Pope forgot to mention this because she doesn't consider yod a consonant -- but this is forgiveable. 
+	$ it is... not really an interesting mistake. 
 
-
-$ Pope p77 s163-1 ~ p164-165 s419 : Influence of final /i/ on preceding tonic /e/ and /o/. 
+$ Pope p77 s163-1 ~ p164-165 s419 : Influence of final (atonic) /i/ on preceding tonic /e/ and /o/. 
 $ Dated to 6th or 7th centuries (s163-1) 
 $ Pope states this happened before the "weakening" of final atonic vowels. 
 $ e > i and o > y 
@@ -369,11 +361,25 @@ $ t inserted between s and pal. s + r
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
-$ as per Pope p126 s293
+$ as per Pope p126 s293: depalatalization of palatal stops that come into contact with non palatal consonants
 $ explicitly BEFORE assibiliation (bleeds it)
 [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]
 
+$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
+$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
+$ followed by cons + vowel, or followed by plosive + l/r
+$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+[+syl] > [-long] / __ [+cons] # 
+[+syl] > [-long] / __ [+cons] [+cons,-son]
+[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[+prim] > [+long] / __ #
+[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+cons] [-cons] 
+[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / # ([-syl])* __ [+cons] #
+
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
+$ when preceded by a palatal 
 $ Sixth/Seventh centuries as per Pope s163-11
 $ Conveniently all such vowels will be long as per s154ii -- we use this for our purposes
 $ Must come bore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
@@ -388,16 +394,13 @@ $ which only occur in that context as per our previous rule.
 $ in practice to make this recur we probably have to make them long whenever they become free 
 {`ɛː;`ɔː} > {`i e;`u o}
 
-$ Recurrence of intervocalic voicing of ɡ (s335) as per Pope s162
-ɡ > ɣ / [-cons] __ [-cons] 
-
-$ Opening of final k 
+$s357 Opening of final k 
 k > x / [+syl] __ # 
 
 $ s311 and s312 cont'd : (can bleed assibilation) 
 $ n palatalizes again before voiced palatals 
 $ potentially RECURRENT as per Pope s162 
-[+nas,+cor] > ɲ / __ [+cons,+hi,+front,+voi] 
+[+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi] 
 $ l palatalizes again before all palatals, period
 [+lat] > ʎ / __ [+cons,+hi,+front]
 $ and they combine with the following palatal 
@@ -405,10 +408,12 @@ $ and they combine with the following palatal
 
 $ s313-315 : r,s,z don't lose their primary place of articulation but DO palatalize under influence of succeeding palatals
 $ potential RECURRENT as per Pope s162
+$ s absorbs following: sc, stsj incldued
 r ʝ > rʲ
 z ʝ > zʲ
-s [+hi,+front,+cons] > sʲ
-s [+hi,+front,+cons] > sʲ $ RECURRENCE in the form of s sʲ > sʲ 
+s [+hi,+front,+cons] > sʲ sʲ
+s [+hi,+front,+cons] > sʲ sʲ  $ RECURRENCE in the form of s sʲ > sʲ 
+sʲ > ∅ / __ sʲ sʲ $for sanity : prevents s s j from becoming triple sʲsʲsʲ
 
 $ s306ii -- assibilation of cc done slightly differently than other contexts (see below) 
 c c > t̪ t͡sʲ
@@ -424,12 +429,15 @@ $ should come BEFORE any raising of a
 $ this clearly BLEEDS the second palatalization where ɣ is concerned
 $ as per s481 this seems to come BEFORE low vowel fronting 
 ɣ > ∅ / __ [+tense,+round,+prim]
-ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round]
+ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
 ɣ > ∅ / [+round,-cons] __ [+lo,+syl] $ o|u|au __ a
 
 $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
 {ɑ;'ɑ;`ɑ;`ɑː;ɑ w;'ɑ w;`ɑ w;`ɑː w} > {ɔ;'ɔ;`ɔ;`ɔ;ɔ;'ɔ;`ɔ;`ɔ} / __ [-cons,+round,+tense]
 [+tense,+round,+back,-cons] > w / [+syl,-tense,+round,-hi] __	
+
+$ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
+∅ > j / 'e __ [+lo,+syl]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
@@ -444,10 +452,21 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-round,+cons] > s / __ s
 
-$ more from s329 and s484
-ɣ ɣʷ > w w 
-$ as per s484 this sequence is preserved until EARLY OLD FRENCH 
-$ in which it resolves after influencing prior vowels. 
+$s371 nasal cluster assimilation 
+{m n̪;n̪ m;m b} > {m m;m m;m m}
+
+$s374ii : (n)nw > nβ intervocalically 
+w > β / [+syl] (n̪) n̪ __ [+syl]  
+
+$removal of geminates resulting from assimilations in 3+ consonant clusters
+$Pope never explicitly says this but her trajectories for words make this clear
+{n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / __ [+cons] 
+{n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
+
+$s374i : w from hiatus u,o effaced if coming after two consonants 
+$she doesn't say so but we exclude the postvelar case for sanity
+$TODO remove this for demonstration  
+w > ∅ / [+cons] [+cons,-back] __
 
 $ s322-326, palatalization of velar frics pre-coronal
 [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -463,7 +482,7 @@ $ s321, absorption of following nasal by ɲ
 $ s322 
 [+lat] > ʎ / [+hi,+front,+cons] __ 
 
-$PLACE placed in "Gallo-Roman group 1" i.e. 6th/7th centuries as per Pope s316-8ii
+$ placed in "Gallo-Roman group 1" i.e. 6th/7th centuries as per Pope s316-8ii
 $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position  
 $ z and s do not need to be filtered out as they will already be palatalized, edh has not emerged yet. 
@@ -475,9 +494,29 @@ $ and active BEFORE influence on a by preceding palatal
 $ and active AFTER palatalization of velar fricatives
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 
+$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
+$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
+$ followed by cons + vowel, or followed by plosive + l/r
+$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+[+syl] > [-long] / __ [+cons] # 
+[+syl] > [-long] / __ [+cons] [+cons,-son]
+[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[-prim] > [-long]
+[+prim] > [+long] / __ #
+[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+cons] [-cons] 
+[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / # ([-syl])* __ [+cons] #
+
+$ s414 recurrence of diphthongization
+{`ɛː;`ɔː} > {`i e̯;`u o̯}
+
 $ s410, s414-415
 $ Breaking of mid lax vowels by following palatal 
 {ɛ;'ɛ;`ɛ;`ɛː;ɔ;'ɔ;`ɔ;`ɔː} > {i e̯;'i e̯;`i e̯;`i e̯;u o̯;'u o̯;`u o̯;`u o̯} / __ [+cons,+hi,+front]
+
+$ as per s410 niece, tuertre cases 
+{ɛ;'ɛ;`ɛ;`ɛː;ɔ;'ɔ;`ɔ;`ɔː} > {i e̯;'i e̯;`i e̯;`i e̯;u o̯;'u o̯;`u o̯;`u o̯} / __ [+cons,+cor] [+cons,+hi,+front]
 
 $ s298-302, s413-415 -- Beginning of second palatalization 
 $ Note: although Pope lists the second palatalization for the next period, her notes make it clear that she holds it to have preceded the a-raising therefore e/o-breaking phenomena
@@ -488,21 +527,7 @@ $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ 
 
-$ RECURRENCE p73 s154ii : +long for stressed vowels only, conditioned the open/closed context condition:
-$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
-$ followed by cons + vowel, or followed by plosive + l/r
-$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-$ recurrent
-[+long] > [-long] / __ [+cons] # 
-[+long] > [-long] / __ [+cons] [+cons,-son]
-[+long] > [-long] / __ [+cons] [+cons,+nas]
-[+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
-[+prim] > [+long] / __ [+cons] [-cons] 
-[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
-[+prim] > [+long] / # ([-syl])* __ [+cons] #
-
-$ s414 first recurrence of diphthongization
+$ s414 recurrence of diphthongization
 $ hits former tonic a 
 {`ɛː;`ɔː} > {`i e̯;`u o̯}
 
@@ -512,7 +537,6 @@ $ Seventh century as per Pope s164
 $Absorption of prior velar (now palatal) frics by lambda, resolving s322
 $also by rj -- resolving s323
 [+hi,+front,-syl] > ∅ / __ {ʎ;rʲ}
-
 
 $ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
 [-stres,-lo,+syl] > ə
@@ -554,8 +578,6 @@ j > ∅ / j __ [-syl]
 
 $ s164-2 : palatal stops become postalveolar affricates for the second time.
 [+hi,+front,-cont] > [+delrel,+cor,-hi,+strid,+distr]
-
-$ handle neptia > niece as per Pope 
 
 $ s164-12 : closing of tense nad lax o to u by following nasal consonants ~s426
 $ according to Pope (s426), attested in the Glossary of Reichenau (?)
@@ -649,11 +671,6 @@ $ s343ii second effacement of beta
 β > ∅ / w __ [+tense,+round,-stres]
 
 
-$ PLACE 
-$p133 s322 intervocalic kl,gl > lambda -- 
-	$ *** NOTE: p132-133 s319 she says this comes AFTER the frication of k before r and t  
-	$ for logic should be AFTER palatalizatoin of x 
-[+hi,+back,-cont] [+lat] > ʎ / [+syl] __ [+syl] 
 
 
 
