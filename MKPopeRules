@@ -261,7 +261,7 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [-cons] 
 [+prim] > [+long] / __ [+cons] [-cons] 
-[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 ~ Early Gallo-Roman 
@@ -353,13 +353,16 @@ $ but BEFORE regressive palatalization of r !
 ɛ > ∅ / __ [+cor,+son,-nas]
 
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
-$ Denasalization -- s369: 
+$ Denasalization -- s369, and glide development s370
 $ b inserted between m + r or l 
 $ d inserted between n,l,dark l,z,elya + r 
 $ t inserted between s and pal. s + r 
 ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
+
+$ s189 : nβl > mbl 
+n β > m b / __ [+lat] 
 
 $ as per Pope p126 s293: depalatalization of palatal stops that come into contact with non palatal consonants
 $ explicitly BEFORE assibiliation (bleeds it)
@@ -374,8 +377,8 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+syl] > [-long] / __ [+cons] [+cons,+nas]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [-cons] 
-[+prim] > [+long] / __ [+cons] [-cons] 
-[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
@@ -494,6 +497,11 @@ $ and active BEFORE influence on a by preceding palatal
 $ and active AFTER palatalization of velar fricatives
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 
+$p127 s297 : developments of ʝ < ɟ : effacement intervocalically except between countertonic a and tonic e 
+$ however this happens after ʝ can palatalize succeeding dental consonants in Gallo-Roman s316, which itself came after unstressed vowel effacement. 
+ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
+ʝ > ∅ / [-cons] __ [-cons]
+
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -504,8 +512,8 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [-cons] 
-[+prim] > [+long] / __ [+cons] [-cons] 
-[+prim] > [+long] / __ [-cont,+cons] [+son,-nas] 
+[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $ s414 recurrence of diphthongization
@@ -525,11 +533,19 @@ $ so caused.
 
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ 
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
 
 $ s414 recurrence of diphthongization
 $ hits former tonic a 
 {`ɛː;`ɔː} > {`i e̯;`u o̯}
+
+$ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
+$ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
+$ s9 -- due to Gaulish (also happened in Welsh,Breton,Cornish)
+[+hi,+tense,+round,+syl] > [-front,-back]
 
 ~ Middle Gallo-Roman
 $ Seventh century as per Pope s164
@@ -541,121 +557,100 @@ $also by rj -- resolving s323
 $ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
 [-stres,-lo,+syl] > ə
 
-$ ~164-1 Second palatalization resolves s298-302, s413-415
-[+back,+front] > [-back]
+$ 164-1 Second palatalization resolves s298-302
+[+back,+front] > [-back] 
 
 $ s164-4 ~ s333 -- opening of d intervocalic
 $ as per s372 -- also happens before r,l,m,n (we can assume j,w and their "fricative" forms too I assume -- so all sonorants) 
 $ RECURRENT as per s162
 $ since g and b have already opened and htey recur-- and ɟ doesn't occur in the right context -- we can include them too. 
 $ however b explicitly doesn't not open before l or nasals as per s372
-[-delrel] > [+cont] / [-cons] __ [+son,-lat,-nas]
-[-delrel,-lab] > [+cont] / [-cons] __ [+lat] 
+[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 
 $ s355-356 first opening of final t,d
-$ will recur after final vowel loss...
-$ MIGHT NEED TO MOVE THIS...
-{t;d} > {θ;θ} / __ #
+$does not however occur after slurred vowel ə
+$ would seem to happen BEFORE the palatal fricatives are lost as it doesn't happen it words like lit, nuit (<lectum, noctem)
+{t̪;d̪} > [+cont] / [+syl] __ #
+{θ;ð} > [-cont,-delrel] / ə __ # $reverse
 
-$ resolution of the -kw- clusters as per s327
-$ velar element opens after tonic front vowels 
-x > ç / [+front,+prim] __ w
-$ elsewhere x assimilates to the labial element if not preceded by a front vowel
-x w > ɣʷ 
-$ tonic ɛ breaks to ie before ç
-[+front,-tense,-hi,-lo] > `i e̯ / __ ç
-$ as per s329: combination of tonic a with ç
-[+lo,+front,+prim] ç > `a j / __ w 
-
-$ PLACE s164-10 ~s250 complete effacement of unstressed penultimate
+$s164-10 ~s250 complete effacement of unstressed penultimate
 [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* # 
 
-$ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
-$ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
-$ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
-j > ∅ / j __ [-syl]
+$ s261 ~ s350 : as per word trajectories seen in s350, under justification of s261
+$ non-penultimate unstressed vowels except for a are effaced "early" when next syll's stressed vowel is a
+$ this happens before the voicing of t
+[+syl,-stres,-lo] > ∅ / __ ([-syl])* [+syl,+lo]  
 
-$ s164-2 : palatal stops become postalveolar affricates for the second time.
-[+hi,+front,-cont] > [+delrel,+cor,-hi,+strid,+distr]
+$ s350 -- ... and t immediately devoices if it comes into contact (by the previous rule) 
+$ with a PRECEDING b, β or ʝ
+t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
+t̪ > d̪ / ʝ __ 
 
-$ s164-12 : closing of tense nad lax o to u by following nasal consonants ~s426
-$ according to Pope (s426), attested in the Glossary of Reichenau (?)
-$ s426 -- this explicitly comes BEFORE and BLEEDS the diphthongization of o > ou 
-[+syl,-hi,-lo,+round] > [+hi,+tense] / __ [+nas,+cons]
+$ s316 palatalization of d and t following palatal cons.
+$ occurs also for n and r when in position , z and s why not
+$ RECURRENT as per s162
+[+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 
+$ s373 assimilation of labials b,p,β (and v) to following dental positions 
+$ RECURRENT as per s162
+$ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
+[+lab,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+[+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
+[+lab,-round,+cons] > s / __ s
 
-$ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
-$  also tonic free a to ae "?" (s233)
-$ and also s164-14 : "second bout of diphthongization of lax e tonic free
-{`aː;`eː;`oː;`ɛː} > {`a e̯;`e j;`o w;`i e̯}
+$s371 nasal cluster assimilation 
+{m n̪;n̪ m;m b} > {m m;m m;m m}
 
+$removal of geminates resulting from assimilations in 3+ consonant clusters
+$Pope never explicitly says this but her trajectories for words make this clear
+$ recurrent since the triggers are! 
+{s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / __ [+cons] 
+{s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __  
 
-$ s164-15 : raising of lax countertonic e,o to tense e,o 
-{'ɛ;'ɔ} > {'e;'o}
+$ action resulting on clusters formed form vowel losses 
+$ Denasalization -- s369, and glide development s370
+$ b inserted between m + r or l 
+$ d inserted between n,l,dark l,z,elya + r 
+$ t inserted between s and pal. s + r 
+∅ > b / m __ [+cor,-nas,+son,-syl]
+∅ > d̪ / [+lat] __ r
+{z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
-$ PLACE cluster reduction after s162-10 resolves -- or maybe save that for the Later Gallo-Roman stage. 
-$ that is where Pope places it as per s165-7
+$ s189 : nβl > mbl 
+n β > m b / __ [+lat] 
 
-$PLACE 
-$ s305-- yod in initial position closes, as does Pope's w 
-$ also -- s203 (for yod > gj) and s636 (for w to gw) 
-[+hi,-syl,+cont] > [-cont,-son] / [-cons] __ [+syl]
-[+hi,-syl,+cont] > [-cont,-son] / # __ [+syl]
+$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
+$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
+$ followed by cons + vowel, or followed by plosive + l/r
+$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+[+syl] > [-long] / __ [+cons] # 
+[+syl] > [-long] / __ [+cons] [+cons,-son]
+[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[-prim] > [-long]
+[+prim] > [+long] / __ #
+[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
+[+prim] > [+long] / # ([-syl])* __ [+cons] #
 
+$ s413-4 -- recurrence as per medietatem, adiutare 
+$ Raising of free a to ɛ if preceded by palatal consonants
+$ recurses as per cases of adiutare and medietatem (s414) 
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
+[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
 
-$ s305 -- closed yod and gw devoice if after a voiceless element (sapia > sache) 
-[+hi,-cont] > [-voi] / [-voi] __ 
+$ s414 recurrence of diphthongization
+$ hits former tonic a 
+{`ɛː;`ɔː} > {`i e̯;`u o̯}
 
-~ Later Gallo-Roman 
-$ 8th and 9th centuries as per Pope s165
-
-$ s165-1 ~ s256 : schwa deleted
-ə > ∅
-
-$ s165-2 ~ s251 : reduction of unstressed a to ə final and intertonic
-a > ə / [+syl] ([-syl])* __
-
-$ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1
-$ she says "all consonants but doesn't list the sonorants -- so we say non-sonorants
-[-son] > [-voi] / __ #
-
-$ s165-4 palatalization of final s by enya and elya preceding 
-s > t͡sʲ / {ɲ;ʎ} __ # 
-
-$ s165-5,6 leveling of au and ae to o and e 
-$ TODO implement this.
-
-$ resolution of prae-consontal enya to jn 
-
-$s356 -- final th reverts to t if brought into contact with a consonant again 
-{θ;x} > [-cont,-delrel] / [+cons] __
-
-$s357 -- final effacement of x 
-$ opens again if newly word final -- place earlier
-k > x / [+syl] __ # 
-$ effaced if preceding vowel is unstressed (i.e. it is "unstressed word" in sentence since non otherwise the vowel would not exist -- usually a function word)
-x > ∅ / [+syl,-prim] __ #
-$ close again to k if after a velar vowel
-x > k / [+back,+syl] __ #
-$ palatalize after palatal vowel
-x > [-back,+front] / [+front,+syl] __ #
-
-$ TODO find the rule
-$ ç and ʝ to glides
-{ç;ʝ} > {j;j}
-
-
-~ Currently unsorted 
-
-
-$ PLACE -- EPOCH UNKNOWN 
-
-$PLACE -- EPOCH UNKNOWN 
-$ assimilation of w (beta?) to l s374 s1011
+$ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
+[+hi,+tense,+round,+syl] > [-front,-back]
 
 $ s164-5 ~ ss334
-$ HOWEVER NOTE AS PER S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
+$ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
 $ voicing of p, t, ts intervocalically ss334-335
 $ RECURRENT as per s162
 $ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
@@ -667,62 +662,164 @@ $ as per s372 p, t also voice before l,r and t voices before n
 t̪ > d̪ / __ [+nas]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
 
-$ s343ii second effacement of beta
+$ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
+$ before l,r included as per s372 (but not b before l as per 372iii)
+[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
+$ s372 d > ð before nasals , and then ð > z before n "sometimes 
+d̪ > ð / [+syl] __ [+nas] 
+$ s372 l velarizes after ð
+l > ɫ / ð __
+
+$p93 s192i kw > k before e and i 
+$ must come after second palatalization resolves
+w > ∅ / k __ [+front,-lo]
+
+$ s164-12 : closing of tense and lax o to u by following nasal consonants ~s426
+$ according to Pope (s426), attested in the Glossary of Reichenau (?)
+$ s426 -- this explicitly comes BEFORE and BLEEDS the diphthongization of o > ou 
+$ Pope does NOT specify that it becomes nasal at this point -- actually she says the "first nasal vowels in Frnech were a and ai in the tenth century" (s434)
+$ but in all fairness it probably SHOULD be to prevent it from getting swept up in u>ʉ>y, the first stages of which are still active at this point
+[+syl,-hi,-lo,+round] > [+hi,+tense] / __ [+nas,+cons]
+
+$ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
+{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
+$ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
+$ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
+j > ∅ / j __ [-syl]
+
+$ s305-- yod in initial position closes, as does Pope's w 
+$ also -- s203 (for yod > gj) and s636 (for w to gw) 
+{j,w} > {ʝ;ɣʷ} / # __ [+syl]
+j > ʝ / [+cons] __ [+syl]
+[+hi,-syl,+cont] > [-cont,-son] / [-cons] __ [+syl]
+[+hi,-syl,+cont] > [-cont,-son] / # __ [+syl]
+
+$ s305 -- closed yod devoices if after a voiceless element (sapia > sache) 
+[+hi,-cont] > [-voi] / [-voi] __ 
+
+$ s164-2 : palatal stops c,ɟ become postalveolar affricates 
+[+hi,+front,-cont] > [+delrel,+cor,-hi,+strid,+distr]
+
+$ s373 : labials efface before (coronal) affricates 
+[+lab,-son] > ∅ / __ [+delrel] 
+
+$ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
+{β;ɣʷ} > {w;w} / __ [+cons]
+
+$p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
+$ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
+$ followed by cons + vowel, or followed by plosive + l/r
+$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+[+syl] > [-long] / __ [+cons] # 
+[+syl] > [-long] / __ [+cons] [+cons,-son]
+[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[-prim] > [-long]
+[+prim] > [+long] / __ #
+[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
+[+prim] > [+long] / # ([-syl])* __ [+cons] #
+
+$ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
+$  also tonic free a to ae "?" (s233)
+$ and also s164-14 : "second bout of diphthongization of lax e tonic free
+{`aː;`eː;`oː;`ɛː} > {`a e̯;`e j;`o w;`i e̯}
+
+$ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 
+$ as per Pope's example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization
 β > ∅ / w __ [+tense,+round,-stres]
 
+$ s164-15 : raising of lax countertonic e,o to tense e,o 
+{'ɛ;'ɔ} > {'e;'o}
 
-
-
-
-$ s327
-$ kw > xw intervocalically 
-$ BUT -- s329 -- "when kw was preceded by a secondary stressed vowel, the velar element was voiced and assimilated to w"
-	$ -- which then caused some vowel assimilations.. 
-$ then (still s327) x palatalizes before w after tonic front vowels 
-$ must be AFTER low vowel fronting as akw > axw (>ajw) 
-$ must be BEFORE global palatalization of x 
-$ elsewhere it assimilates to the labiovelar element (disappears?) -- s327 
-
-
-
-$PLACE 
-$ s327 palatalization of x after tonic front vowels 
-$ relevant where latin -qu- is concerned 
-$ and where final k > x is concerned s357
-$ so this should be AFTER the opening of final k..
-x > ç / [+front,+prim] __ 
-
-
-
-
-$ PLACE -- seventh century as per Pope's chronology 
+$ s164.6 ~ s 189 
 β > v 
 
-$ PLACE -- after intertonic vowel loss -- resolution of s328 -- ghw to v or vocalic w 
+~ Later Gallo-Roman 
+$ 8th and 9th centuries as per Pope s165
+
+$ s427 tonic free a ... i.e. ae̯  ... becomes aj before n, m 
+a e̯ > a j / __ [+nas,+cons,-hi] 
+
+$ s165-1 ~ s256 : schwa deleted
+ə > ∅
+
+$s355-357 open word finals again if unsupported 
+[-cont,-delrel] > [+cont] / [+syl] __ # 
+$ close if became supported
+[+cont,-son] > [-cont,-delrel] / [+cons] __ #
+
+$ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
+{β;ɣʷ} > {w;w} / __ [+cons]
+
+$s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
+k > ∅ / __ s #
+
+$ s165-2 ~ s251 : reduction of unstressed a to ə final and intertonic
+a > ə / [+syl] ([-syl])* __
+
+$ s165-4 palatalization of final s by enya and elya preceding 
+s > t͡sʲ / {ɲ;ʎ} __ # 
+
+$ s165.8 ~ s279iv resolution of prae-consontal enya to jn when praeconsonantal
+ɲ > j n̪ / __ [+cons]
+
+$ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1
+$ she says "all consonants but doesn't list the sonorants -- so we say non-sonorants
+[-son] > [-voi] / __ #
+
+$ s327 resolution of ɣw clusters
+$ s327 : ɣ (<x) palatalizes after tonic front vowels 
+ɣ > ʝ / [+prim,+front] __ w
+
+$ s327 ɣ assimilates to following w intervocalically 
+ɣ > w / [+syl] __ w [+syl]
+$ as per s374 : so do beta and delta
+$ but delta only after w > v if a follows
+ð w > w v / ð __ [+lo]
+[+cont,-son,-hi] > w / __ w 
+
+ 
+$ s328 limited recurrence of breaking of ɛ before the palatal
+{ɛ;'ɛ;`ɛ;`ɛː} > {i e̯;'i e̯;`i e̯;`i e̯} / __ ʝ w
+ 
+$ s329 and etc 
+w > ɣʷ / ʝ __ r
+w > ɣʷ / ʝ __ [+syl] 
+ɣʷ > v / @ __ 
+ɣʷ > ɡ / # __ 
+
+$ s357 -- loss of final x after unstressed sylls 
+x > ∅ / [-prim] __ # 
+
+$ s357 x palatalizes after tonic a, i. However, neither is raised. 
+x > ç / [+lo,+front,+prim] __ #
+x > ç / [+hi,+front,+prim] __ #
+
+$ s357, elsewhere, x closes back to k 
+x > k / __ #
+
+$ s357, s359, s324, s325: ç merges into ʝ
+ç > ʝ
+
+$ should be after resolution of palatal consonants. 
+$ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
+ʝ > j / [+syl] __ 
+j > ∅ / [+hi,+front,+tense] __
+
+$ s165.7 : another round of cluster modifications ... 
+
+$ s165.5 leveling of au to o (s505) 
+{a w;'a w;`a w} > {ɔː;'ɔː;`ɔː} 
+
+$ s233 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals... 
+$ {a e̯;'a e̯;`a e̯} > { ... ? 
+
+$ TODO CLUSTER REDUCTIONS pp 145-150 ish... 
 
 
-$ PLACE -- attributed to "Gallo-Roman group II" i.e. 7th century as per s206-4
-$ s318
-$ Palatal + s final -- s palatalizes and ultimately becomes ts 
-$ Happens AFTER first intertonic vowel loss 
-$ and BEFORE enya and elya become jn and jl everywhere but intertonically 
 
-$PLACE -- chronology unclear 
-$ Pope p129 : initial jod becomes palatal stop after labials (/c/ after p) 
-$ this ultimately has same results as second palatalization 
-$ while labial element eventually assimilates to this and disappears (s373) 
-$ must come BEFORE result of second palatalization becomes assibilated 
-$ Pope places closing of jod initial in the seventh century (s164-8i, s203) so this should be AT THE SAME TIME.
-
-$PLACE
-$ s324-325 -- perhaps place at same point as ʝ > j 
-ç > j 
-
-$ PLACE -- EPOCH UNKNOWN
-$p127 s297 : developments of ʝ : effacement intervocalically except between countertonic a and tonic e 
-$ however this happens after ʝ can palatalize succeeding dental consonants in Gallo-Roman s316, which itself came after unstressed vowel effacement. 
-ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
-ʝ > ∅ / [-cons] __ [-cons]
 
 $PLACE INTO EARLY OLD FRENCH 
 $more from s329 and s484
