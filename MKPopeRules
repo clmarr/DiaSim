@@ -309,7 +309,7 @@ $ Pope ~ p78 s163:7 p139 s343 first effacement of β
 $ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
 $ note that this won't collide with what was Latin <v> (gamma^w for Pope) because long u: plus <v> never occurs
 β > ∅ / __ [+tense,+round,+syl]
-β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u
+β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
 $ Pope p137 s335-336, also p77 s163-5
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -554,14 +554,11 @@ $Absorption of prior velar (now palatal) frics by lambda, resolving s322
 $also by rj -- resolving s323
 [+hi,+front,-syl] > ∅ / __ {ʎ;rʲ}
 
-$ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
-[-stres,-lo,+syl] > ə
-
 $ 164-1 Second palatalization resolves s298-302
 [+back,+front] > [-back] 
 
 $ s164-4 ~ s333 -- opening of d intervocalic
-$ as per s372 -- also happens before r,l,m,n (we can assume j,w and their "fricative" forms too I assume -- so all sonorants) 
+$ as per s372 -- also happens before r,l,m,n 
 $ RECURRENT as per s162
 $ since g and b have already opened and htey recur-- and ɟ doesn't occur in the right context -- we can include them too. 
 $ however b explicitly doesn't not open before l or nasals as per s372
@@ -572,7 +569,6 @@ $ s355-356 first opening of final t,d
 $does not however occur after slurred vowel ə
 $ would seem to happen BEFORE the palatal fricatives are lost as it doesn't happen it words like lit, nuit (<lectum, noctem)
 {t̪;d̪} > [+cont] / [+syl] __ #
-{θ;ð} > [-cont,-delrel] / ə __ # $reverse
 
 $s164-10 ~s250 complete effacement of unstressed penultimate
 [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* # 
@@ -668,6 +664,7 @@ $ before l,r included as per s372 (but not b before l as per 372iii)
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 $ s372 d > ð before nasals , and then ð > z before n "sometimes 
 d̪ > ð / [+syl] __ [+nas] 
+ð > z / __ n̪ $ this one is "sometimes", maybe delete
 $ s372 l velarizes after ð
 l > ɫ / ð __
 
@@ -704,9 +701,6 @@ $ s164-2 : palatal stops c,ɟ become postalveolar affricates
 $ s373 : labials efface before (coronal) affricates 
 [+lab,-son] > ∅ / __ [+delrel] 
 
-$ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
-{β;ɣʷ} > {w;w} / __ [+cons]
-
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -730,8 +724,17 @@ $ s343ii second effacement of beta between diphthongs ending in w and unstressed
 $ as per Pope's example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization
 β > ∅ / w __ [+tense,+round,-stres]
 
+$ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
+[-stres,-lo,+syl] > ə
+
+$ s355 -- final spirantization reversed due to slurring .
+{θ;ð} > [-cont,-delrel] / ə __ # $reverse
+
 $ s164-15 : raising of lax countertonic e,o to tense e,o 
 {'ɛ;'ɔ} > {'e;'o}
+
+$ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
+{β;ɣʷ} > {w;w} / __ (ə) [+cons]
 
 $ s164.6 ~ s 189 
 β > v 
@@ -750,9 +753,6 @@ $s355-357 open word finals again if unsupported
 $ close if became supported
 [+cont,-son] > [-cont,-delrel] / [+cons] __ #
 
-$ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
-{β;ɣʷ} > {w;w} / __ [+cons]
-
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
 k > ∅ / __ s #
 
@@ -765,7 +765,7 @@ s > t͡sʲ / {ɲ;ʎ} __ #
 $ s165.8 ~ s279iv resolution of prae-consontal enya to jn when praeconsonantal
 ɲ > j n̪ / __ [+cons]
 
-$ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1
+$ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1.
 $ she says "all consonants but doesn't list the sonorants -- so we say non-sonorants
 [-son] > [-voi] / __ #
 
@@ -818,19 +818,102 @@ $ {a e̯;'a e̯;`a e̯} > { ... ?
 
 $ TODO CLUSTER REDUCTIONS pp 145-150 ish... 
 
+$ 365ii early denasalization nns, rns 
+n̪ s > t̪ s / [-cons] [+cor,-lat,+son] __ s [-cons]
 
+$ s365ii s t s > ts 
+s t̪ s > t̪ s / [-cons] __ [-cons]
 
+$ s367 d,t + s becomes the affricate 
+[+cor,-cont,-delrel] s > t͡sʲ
 
-$PLACE INTO EARLY OLD FRENCH 
-$more from s329 and s484
-$ w w resolves with effects on prior vowels. 
-$ this can come from either original -bw- clusters or -kw- clusters. 
+$ s365 : effacement of middle consonant in groups that don't end in l or r 
+[+cons] > ∅ / [+cons] __ [-son]
+[+cons] > ∅ / [+cons] __ [+nas,+cons]
+
+$ s374 fricative + w > w w 
+[+cont,+cons,+voi] > w / __ w 
+
+$ s377 s > z before voiced consonants
+s > z / __ [+voi,+cons]
+
+$ s372ii t,d become edh before r,l,n,m
+[-cont,-delrel,+cor] > ð / __ [+son,+cor] 
+[-cont,-delrel,+cor] > ð / __ [+nas] 
+
+$ s372iii p,b become beta then v before r, halts ant b before l
+p > b / __ [+son,+cont,-nas]
+b > β / __ r
+β > v
+
+$ s365 : elimination of middle velars in three consonant intervocalic clusters
+{s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
+
+$ s369 denasalization
+$ Denasalization -- s369, and glide development s370
+$ b inserted between m + r or l 
+$ d inserted between n,l,dark l,z,elya + r 
+$ t inserted between s and pal. s + r 
+∅ > b / m __ [+cor,-nas,+son,-syl]
+∅ > d̪ / [+lat] __ r
+{z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
+
+$s371 nasal cluster assimilation 
+{m n̪;n̪ m;m b} > {m m;m m;m m}
+
+$ s373 assimilation of labials b,p,β (and v) to following dental positions 
+$ RECURRENT as per s162
+$ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
+[+lab,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+[+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
+[+lab,-round,+cons] > s / __ s
+[+lab,-son] > ∅ / __ [+delrel] 
+[+cor,-cont,-delrel] > ∅ / __ [+lab,-cont] 
+[+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] 
+[+cor,-cont,-delrel] > ∅ / __ [+delrel] 
+
+$ cluster voicing assimilation -- find the rule for this! 
+[-son] > [-voi] / __ [-voi] 
+
+$ s366 degemination 
+{p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;fm;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}
+
+~ Early Old French 
+
+$TODO initiation of nasalization 
+$ TODO initiation of l-velarization
+$ TODO gradual assimilation and effacement of z 
+$ TODO th-effacement 
+
+$ s330 : leveling of aj before w -- case of aqua 
+`a j > ``ɛː / __ w 
+
+$ s329 and s484 countertonic e becomes o before w and tonic u -- she doesn't seem to mention this being effected by former o,
+	$ so we assume it comes before s166.2 ~ s184 
+'e w > 'o 
+'e > 'o / __ [+hi,+round,+prim] 
+
+$ s166.1 ~ s183 completion of u fronting
+[+hi,+round,-back] > [+front]
+
+$ s166.5 ~ s234-235 reduction of 'e > schwa 
+'e > ə
+
+$ s166.8 ~ s192 : final delabialization of kw,gw
+w > ∅ / [+back,-cont] __ 
+
+$ s166.3 ~ s226-7 : uo > ue; ei > oi, ou > eu 
+o̯ > e̯
+[+round,+back,+tense,-hi] > [-back,+front,-round] / __ w 
+[+front,+tense,-hi,-lo] > [+back,-front,+round] / __ j 
+
+$ s166.2 ~ s184 o > u
+[+round,+tense,+back] > [+hi] 
 
 $PLACE -- EPOCH UNKNOWN
 $s291 -- t͡sʲ eventually depalatalizes  
 $ This would seem to be AFTER the influence exercised by palatals on preceding vowels such as e (s418) in this period 
 $ as the results of the first palatalization DO exercise this influence 
 
-
 $ PLACE -- ELEVENTH CENTURY 
-$ resolution of s330 for case of aqua
+$ resolution of aqua `ɛː + w eaw 
