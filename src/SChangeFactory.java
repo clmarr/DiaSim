@@ -100,7 +100,11 @@ public class SChangeFactory {
 		
 		List<SChange> output = new ArrayList<SChange>(); 
 		
+		if(! input.contains(""+ARROW))
+			throw new Error("Error : input to rule generation that lacks an arrow."); 
+		
 		String[] inputSplit = input.split(""+ARROW); 
+		
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
