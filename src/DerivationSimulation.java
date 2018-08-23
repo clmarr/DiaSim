@@ -415,7 +415,9 @@ public class DerivationSimulation {
 			{
 				if (ri == customStageTimeInstants[nextStageIndex])
 				{
-					customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList()); 
+					customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList());
+					System.out.println("---------------------------------------------------------------------------");
+					System.out.println("STAGE: "+customStageNames[nextStageIndex]+"\n---------------------------------------------------");
 					nextStageIndex++;
 				}
 			}
