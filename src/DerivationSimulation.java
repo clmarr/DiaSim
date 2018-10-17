@@ -316,6 +316,7 @@ public class DerivationSimulation {
 		
 		//now input lexicon 
 		//detect whether we have the gold or just the initial stage lexicon by whether the input file is a .csv
+		//TODO change this above.. 
 		//collect init lexicon ( and gold if so specified) 
 		//copy init lexicon to "evolving lexicon" 
 		//each time a custom stage time step loc (int in the array customStageTimeInstantLocs) is hit, save the 
