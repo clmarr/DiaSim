@@ -45,9 +45,10 @@ public class DerivationSimulation {
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
 	private static int NUM_ETYMA; 
 	private static String[] customStageNames; 
-	private static Lexicon[] customStageLexica; //indexes match with those of customStageNames 
+	private static Lexicon[] customStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
+	private static Lexicon[] customStageResultLexica; 
 	private static int[] customStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean customStagesSet; 
 	private static String[] wordTrajectories; //stores trajectory, with stages delimited by line breaks, of each word 
@@ -276,7 +277,8 @@ public class DerivationSimulation {
 		
 		System.out.println("Using "+numStages+" custom stages."); 
 		
-		customStageLexica = new Lexicon[numStages];
+		customStageGoldLexica = new Lexicon[numStages];
+		customStageResultLexica = new Lexicon[numStages];
 		customStageNames = new String[numStages];
 		customStageTimeInstants = new int[numStages]; 
 		
@@ -369,26 +371,56 @@ public class DerivationSimulation {
 		NUM_ETYMA = lexFileLines.size(); 
 		wordTrajectories = new String[NUM_ETYMA]; 
 		
+		String theLine = lexFileLines.get(0); 
+		int numCommae = commaCount(theLine);
+		boolean justInput = (numCommae == 0); 
+
+		assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line 0 of lexicon file"; 
+		boolean goldInput = (numCommae > numStages); 
+		assert numCommae < numStages + 2 : "ERROR: too many commas in line 0 of lexicon file"; 	
+		
 		LexPhon[] initWords = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldWords = new LexPhon[NUM_ETYMA];
-		boolean goldIsInput = (lexFileLoc.substring(lexFileLoc.length()-5, lexFileLoc.length()).equals(".csv"));
+		List<LexPhon[]> csWords = new ArrayList<LexPhon[]>(); 
+		if(numStages > 0)
+			for (int si = 0 ; si < numStages ; si++)		csWords.add(new LexPhon[NUM_ETYMA]);
+		                                  
+		int lfli = 0 ;
 		
-		
-		int lfli = 0; 
 		while (lfli < NUM_ETYMA)
 		{
-			String theLine = lexFileLines.get(lfli);
-			wordTrajectories[lfli] = goldIsInput ? theLine : theLine.split(",")[0]; 
-			initWords[lfli] = parseLexPhon(wordTrajectories[lfli]); 
-			if (goldIsInput) 
-				goldWords[lfli] = parseLexPhon(theLine.split(",")[1]);
+			wordTrajectories[lfli] = justInput ? theLine : theLine.split(",")[0]; 
 			
-			lfli++;
+			//TODO will later need to implement, here, ability to have word "not yet or no longer in language" at given stage, detectable with "..." 
+			
+			initWords[lfli] = parseLexPhon(wordTrajectories[lfli]); 
+			if (!justInput)
+			{
+				String[] forms =theLine.split(",");
+				if(numStages > 0)
+				{	for(int si = 0 ;  si < numStages ; si++)
+					{
+						csWords.get(si)[lfli] = parseLexPhon(forms[si+1]); 
+					}
+				}
+				if(goldInput)	goldWords[lfli] = parseLexPhon(forms[numStages+1]);
+			}
+			
+			lfli++; 
+			theLine = lexFileLines.get(lfli); 
+			numCommae = commaCount(theLine); 
+			assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line "+lfli+" of lexicon file"; 
+			assert numCommae < numStages + 2 : "ERROR: too many commas in line "+lfli+" of lexicon file"; 	
 		}
-		
+
 		initLexicon = new Lexicon(initWords); 
 		testResultLexicon = new Lexicon(initWords); // this one will "evolve" with "time" 
-		goldResultLexicon = goldIsInput ? new Lexicon(goldWords) : null;
+		goldResultLexicon = goldInput ? new Lexicon(goldWords) : null;
+		
+		if(numStages > 0)
+		{
+			for(int si = 0 ; si < numStages ; si ++)		customStageGoldLexica[si] = new Lexicon(csWords.get(si)); 
+		}
 		
 		//TODO debugging
 		LexPhon[] testResultWords = testResultLexicon.getWordList();
@@ -416,7 +448,7 @@ public class DerivationSimulation {
 			{
 				if (ri == customStageTimeInstants[nextStageIndex])
 				{
-					customStageLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList());
+					customStageResultLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList());
 					System.out.println("---------------------------------------------------------------------------");
 					System.out.println("STAGE: "+customStageNames[nextStageIndex]+"\n---------------------------------------------------");
 					nextStageIndex++;
@@ -437,7 +469,7 @@ public class DerivationSimulation {
 			ri++; 
 		}
 	
-		if(goldIsInput)
+		if(goldInput)
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
 			wordMissLocs = new boolean[NUM_ETYMA]; 
@@ -685,5 +717,21 @@ public class DerivationSimulation {
 		
 		return distMatrix[n-1][m-1]; 
 	}
+
+	//auxiliary method -- get number of commas in string
+	private static int commaCount(String str)
+	{
+		String proxy = str+"";
+		int i = proxy.indexOf(","), c = 0 ;
+		while( i > -1)
+		{
+			c++; 
+			proxy = proxy.substring(i+1);
+			i = proxy.indexOf(","); 
+		}
+		return c; 
+	}
 	
 }
+
+
