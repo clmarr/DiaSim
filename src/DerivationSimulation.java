@@ -402,6 +402,10 @@ public class DerivationSimulation {
 				{	for(int si = 0 ;  si < numStages ; si++)
 						csGoldWords.get(si)[lfli] = parseLexPhon(forms[si+1]); 
 				}
+				
+				//TODO debugging
+				System.out.println("About to parse this for gold : "+forms[numStages+1]+".");
+				
 				if(goldInput)	goldWords[lfli] = parseLexPhon(forms[numStages+1]);
 			}
 			
@@ -660,7 +664,14 @@ public class DerivationSimulation {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
-		String[] toPhones = toLex.split(""+PH_DELIM);
+		//TODO debugging
+		System.out.println("Parsing lexeme: "+toLex);
+		
+		String[] toPhones = toLex.trim().split(""+PH_DELIM);
+		
+		//TODO debugging
+		System.out.println("Number of phones detected: "+toPhones.length);
+		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
 
@@ -671,7 +682,7 @@ public class DerivationSimulation {
 			else
 			{
 				assert phoneSymbToFeatsMap.containsKey(toPhone): 
-					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol.\nSymbol is : "+toPhone; 
+					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol.\nSymbol is : '"+toPhone+"', length = "+toPhone.length(); 
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
