@@ -374,16 +374,17 @@ public class DerivationSimulation {
 		String theLine = lexFileLines.get(0); 
 		int numCommae = commaCount(theLine);
 		boolean justInput = (numCommae == 0); 
-
-		assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line 0 of lexicon file"; 
-		boolean goldInput = (numCommae > numStages); 
-		assert numCommae < numStages + 2 : "ERROR: too many commas in line 0 of lexicon file"; 	
+		boolean goldInput = !justInput, goldStagesInput =(numCommae > 1); 
+		if (!justInput)
+			assert numCommae == numStages + 1 : "ERROR: wrong number of commas given that gold is being input and the number of stages";
+		
+		int correct_num_commae = numCommae; 
 		
 		LexPhon[] initWords = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldWords = new LexPhon[NUM_ETYMA];
-		List<LexPhon[]> csWords = new ArrayList<LexPhon[]>(); 
+		List<LexPhon[]> csGoldWords = new ArrayList<LexPhon[]>(); 
 		if(numStages > 0)
-			for (int si = 0 ; si < numStages ; si++)		csWords.add(new LexPhon[NUM_ETYMA]);
+			for (int si = 0 ; si < numStages ; si++)		csGoldWords.add(new LexPhon[NUM_ETYMA]);
 		                                  
 		int lfli = 0 ;
 		
@@ -399,9 +400,7 @@ public class DerivationSimulation {
 				String[] forms =theLine.split(",");
 				if(numStages > 0)
 				{	for(int si = 0 ;  si < numStages ; si++)
-					{
-						csWords.get(si)[lfli] = parseLexPhon(forms[si+1]); 
-					}
+						csGoldWords.get(si)[lfli] = parseLexPhon(forms[si+1]); 
 				}
 				if(goldInput)	goldWords[lfli] = parseLexPhon(forms[numStages+1]);
 			}
@@ -415,21 +414,21 @@ public class DerivationSimulation {
 
 		initLexicon = new Lexicon(initWords); 
 		testResultLexicon = new Lexicon(initWords); // this one will "evolve" with "time" 
-		goldResultLexicon = goldInput ? new Lexicon(goldWords) : null;
 		
-		if(numStages > 0)
+		if(goldInput)
 		{
-			for(int si = 0 ; si < numStages ; si ++)		customStageGoldLexica[si] = new Lexicon(csWords.get(si)); 
+			goldResultLexicon = new Lexicon(goldWords);
+			if(goldStagesInput)
+			{
+				for(int si = 0; si < numStages; si++)
+					customStageGoldLexica[si] = new Lexicon(csGoldWords.get(si)); 
+			}
 		}
-		
-		//TODO debugging
-		LexPhon[] testResultWords = testResultLexicon.getWordList();
-		for (LexPhon tRWord : testResultWords)
-		{	System.out.println(tRWord); }
 		
 		System.out.println("Lexicon extracted :");
 
 		//TODO debugging
+		LexPhon[] testResultWords = testResultLexicon.getWordList();
 		for (LexPhon tRWord : testResultWords)
 		{	System.out.print(tRWord+"|"); }
 		System.out.println("\nNow evolving the words.");
@@ -490,10 +489,11 @@ public class DerivationSimulation {
 			makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon); 
 			
 			if(customStagesSet)
+			{	
 				for(int csi = 0; csi < customStageNames.length ; csi++)
-					makeAnalysisFile(customStageNames[csi].replaceAll(" ", ""),
-							customStageNames[csi], customStageLexica[csi]);
-				
+					makeAnalysisFile(customStageNames[csi].replaceAll(" ", "")+"ResultAnalysis.txt",
+							customStageNames[csi]+" Result", customStageResultLexica[csi]);
+			}
 			System.out.println("Analysis files written!");
 			
 		}
