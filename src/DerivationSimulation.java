@@ -410,10 +410,13 @@ public class DerivationSimulation {
 			}
 			
 			lfli++; 
-			theLine = lexFileLines.get(lfli); 
-			numCommae = commaCount(theLine); 
-			assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line "+lfli+" of lexicon file"; 
-			assert numCommae < numStages + 2 : "ERROR: too many commas in line "+lfli+" of lexicon file"; 	
+			if(lfli < NUM_ETYMA)
+			{	
+				theLine = lexFileLines.get(lfli); 
+				numCommae = commaCount(theLine); 
+				assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line "+lfli+" of lexicon file"; 
+				assert numCommae < numStages + 2 : "ERROR: too many commas in line "+lfli+" of lexicon file"; 	
+			}
 		}
 
 		initLexicon = new Lexicon(initWords); 
