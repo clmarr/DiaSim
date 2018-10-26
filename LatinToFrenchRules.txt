@@ -1,4 +1,4 @@
-$To Vulgar Latin
+~To Vulgar Latin
 +front,+syl,+round > -round	$front unrounding. TODO find attribution
 -cont,+sg > -sg $deaspiration. $Jozsef Herman, Vulgar Latin, Page 38. 
 +syl > +nas / __ [+nas] {[+cont,-son];#} $first vowel nasalization. TODO find attribution. 
@@ -8,7 +8,7 @@ n > ŋ / __ [+back,-cont] $velarization of n before k,g,gw. TODO find attributio
 {a e̯;'a e̯;`a e̯;o e̯;'o e̯;`o e̯} > {ɛː;'ɛː;`ɛː;eː;'eː;`eː} $monophthongization. TODO find attribution. Pope has it...
 h > ∅  $loss of h. TODO find attribution 
 
-$To Gallian Popular Latin 
+~To Gallian Popular Latin 
 $TODO add developments for kw intervocalic, as per Pope section 187, pp 327-330
 ɸ > f $happened everywhere except Spanish, Gascon and Aragonese
 [+long] > [-long] $loss of length distinction everywhere. TODO attribute
@@ -56,7 +56,7 @@ c > k / [+cor,+nas] __ [+son,+cons,-lat,+cor] $inferred from the trajectory of v
 {c;ɟ} > {t;d} / __ [+son,+cons,-lat,+cor] $redentalization of palatal stops pre-r as per Pope page 126 s293
 d > s / __ s $Pope page 147 section 367
 
-$To Gallo Romance 
+~To Gallo Romance 
 {l l;n n} > {l;n} / __ j $to deal with geminate ll and nn in prep for Pope p131 sections 311-312
 {l j;nʲ;n j;n ɟ} > {ʎ;ɲ;ɲ;ɲ} $Pope p131 sections 311-312
 β > v / __ [+syl] $Pope p139 s343; Pope p91 s187
@@ -115,6 +115,7 @@ n > m / __ [+lab,+ant] $Continuation of above.
 m > n / __ [+cor] $Continuation of above.
 [-cont,+lab,+front] > [-lab,+back] $bj,pj> gj,kj, as per Operstein and Pope. TODO attest specifically. 
 [-cont,+hi,+front][+front,-cons] > k j  $ For solely debugging purposes.
+
 $To Early Old French
 
 

@@ -157,7 +157,7 @@ public class DerivationSimulation {
 		}
 		
 		String featImplsLoc = (resp.equals("yes")) ? "FeatImplications" : ""; 
-		if(resp == "no")
+		if(resp.equals("no"))
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			featImplsLoc = input.nextLine(); 
