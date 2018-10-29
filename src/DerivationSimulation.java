@@ -206,7 +206,7 @@ public class DerivationSimulation {
 			resp = input.nextLine(); 
 		}
 		
-		String ruleFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinToFrenchRules.txt" : ""; 
+		String ruleFileLoc = (resp.equalsIgnoreCase("yes")) ? "MKPopeRules.txt" : ""; 
 		if (resp.equalsIgnoreCase("no"))	
 		{
 			System.out.println("Please enter the location of your alternative rules file: ");
@@ -366,8 +366,45 @@ public class DerivationSimulation {
 			e.printStackTrace();
 		}
 		
-		//TODO fix -- at this point implement a branching of the simulation -- one branch with a gold, the other without? 
+		//TODO process first line and see if stages match up -- throw error if not, and also throw error if format is wrong 
+		String firstline =lexFileLines.remove(0) ; 
+		if (numStages == 0)
+			assert firstline.trim().equals("") || firstline.trim().equals(","): "ERROR: no custom stages were declared in the ruleset, "
+					+ "so the first line needs to be either blank space or just a comma separating two spaces (the latter if we are reporting a gold result set), "
+					+ "but something else was detected"; 
+		else
+		{
+			int firstCommaInd = firstline.indexOf(","), firstPipeInd = firstline.indexOf("|"); 
+			boolean moreCommas = (firstCommaInd != -1), morePipes = (firstPipeInd != -1);
+			assert moreCommas || morePipes : "ERROR: custom stages were declared in the ruleset, but none detected on the first line!"; 
+			int place = 0, currstage = 0;
+			while (moreCommas ||  morePipes && currstage < numStages)
+			{
+				if(!moreCommas)	place = firstPipeInd; 
+				else if (!morePipes) place =firstCommaInd; 
+				else if(firstCommaInd < firstPipeInd)
+				{
+					place = firstCommaInd; 
+					firstCommaInd = firstline.substring(place+1).indexOf(","); 
+				}
+				else //firstPipeInd < firstCommaInd
+				{
+					place = firstPipeInd;
+					firstPipeInd = firstline.substring(place+1).indexOf("|"); 
+				}
+				moreCommas = (firstCommaInd != -1); morePipes = (firstPipeInd != -1);
+				customStageNames[currstage] =firstline.substring(place,place+1) + customStageNames[currstage];
+				int lencurrst = customStageNames[currstage].length();
+				assert firstline.substring(place,place+lencurrst).equals(customStageNames[currstage]):
+						"ERROR: Mismatch between stage name in ruleset ("+customStageNames[currstage].substring(1)+") "
+								+ "and name detected in first line of lexicon file ("+firstline.substring(place+1,place+lencurrst)+")";
+				currstage++; 
+			}
+		}
+		//TODO finish this. 
 		
+		
+		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
 		wordTrajectories = new String[NUM_ETYMA]; 
 		
