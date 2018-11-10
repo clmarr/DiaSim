@@ -124,6 +124,3 @@ French forms:
 	are widely varied, including ʀ, r, ɾ, χ, ɣ and x. It is represented as a voiced fricative, not an approximant or a trill,
 	but one may note that according to some analysis it nevertheless has "sonorant" syllabic properties (i.e. in words
 	like "quatre" /kat̪ʁ/) 
-
-Sources: 
-As of present 
