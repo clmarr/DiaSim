@@ -2,14 +2,26 @@ LEXICON.README:
 
 This file details how to properly construct a lexicon file so that it can be read by DiaSym.
  
-The lexicon file should be a .csv, so we speak of columns as being separated by columns. 
+The lexicon file should be a .tsv, so we speak of columns as being separated by tabs. 
+
+THE ROWS:
+
+Each row should represent the development over the different diachronic stages of an etymon, with each stage being indicated by a column and comments(see below) only placed if anywhere at the end of the last column.
+
+THE COLUMNS:
+
+Each column represents a different diachronic stage. If a column is specified, it must be specified for all etyma/rows, without exception. In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of usage or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this feature is not supported by the current release of DiaSim. 
+
+The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
 
 COMMENTING : 
 
-Any and all comments can only be placed in the final column and must be marked with a "$" flag before hand. Typically they will be used
-	to cite the phonological forms and etymology of a word. For example, from our demonstration: 
+Any and all comments can only be placed in the final column and must be marked with a "$" flag before hand. Typically they will be used to cite the phonological forms and etymology of a word. For example, from our demonstration: 
 	
 s 'ɑ ɡ m `ɑː r i u m , s ɔ m j e $sommier. Pope 674.
+
+
+
 
 THE FIRST LINE : 
 
