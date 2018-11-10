@@ -8,95 +8,32 @@ THE ROWS:
 
 Each row should represent the development over the different diachronic stages of an etymon, with each stage being indicated by a column and comments(see below) only placed if anywhere at the end of the last column.
 
-THE COLUMNS:
-
-Each column represents a different diachronic stage. If a column is specified, it must be specified for all etyma/rows, without exception. In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of usage or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this feature is not supported by the current release of DiaSim. 
-
-The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
 
 COMMENTING : 
 
-Any and all comments can only be placed in the final column and must be marked with a "$" flag before hand. Typically they will be used to cite the phonological forms and etymology of a word. For example, from our demonstration: 
+Any and all comments can only be placed in the final column and must be flagged with a "$". Typically they will be used to cite the phonological forms and etymology of a word. For example, from our demonstration simulation for Classical Latin goin to French: 
 	
-s 'ɑ ɡ m `ɑː r i u m , s ɔ m j e $sommier. Pope 674.
+s 'ɑ ɡ m `ɑː r i u m	s ɔ m j e $sommier. Pope s674.
 
+THE COLUMNS:
 
+Each column represents a different diachronic stage. 
+If a column is specified, it must be specified for all etyma/rows, without exception. 
+In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of usage or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this feature is not supported by the current release of DiaSim. 
 
+The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
+Specifically, in the case of our French demonstration set, this is the Classical Latin form input. 
+When and if other columns are specified, they will contain the phonological forms each etymon has at the stage that column corresponds to.
+The forms entered in these columns will be the gold standard phonological forms that the forms obtained by the diachronic simulation at those respective stages will be compared to. 
+In order for simulation results at any point to be compared to a gold set, that set must be associated with a stage in the rules file and a column in the lexicon file, with its gold forms for each etymon in the lexicon file. 
+Without exception, each column specified must correspond to a diachronic stage that is declared in the rules file (see rules.README.txt-- a stage should be on a line declared immediately after the last rule that applied to its forms).
+DiaSim will automatically associate stages in the rules file in the order they are declared to columns other than the input column, from left to right. 
+If there is exactly one more column in use after all declared stages are associated to columns to its left, then the system will assume that this is the specification of the final output.
+If there are still columns to the right of this final column, then DiaSim will throw an error. 
+Likewise, if there are two few columns so that not every stage declared in the rules file is associated to a column, then DiaSim will also throw an error. 
 
-THE FIRST LINE : 
+Here is a sample row, showing the diachronic trajectory of Classical Latin sagmarium into French sommier, via Popular Latin, Old French, Later Old French, Middle French and Modern French. 
 
-The first line is very important, as it declares the names of "custom stages", at each of which the form of each etymon will be recorded
-for future reference and statistic computation once the simulation ends. 
-
-
-The first "column" must invariably be the input. Specifically, in the case of our French demonstration set, this is the Classical Latin
-	form input. 
-	
-Whether one has other columns depends on... 
-
--- (a) if one will ultimately be comparing with a "gold" set for the end result of the simulation for each etymon. For our French 
-	demonstration set, for example, this will be the modern French forms. 
--- (b) if one will be reporting the forms for any custom stages -- see below for explanation. 
-
-"Custom stages" can be divided into two types: 
-
--- "Checkpoint" stages, for which a gold form is provided by the user in the lexicon file. 
--- "Milestone" stages, for which a gold form is not provided, but the forms the etyma have reached at that timestep will still be 
-	saved to be reported with statistic at the end for association with final correct forms as well. Note that these statistics, described
-	at length in the OUTPUTS.README file, will be reported also for checkpoint stages.
-	
-The marking of checkpoint stages and milestone stages in the first line, the stage declaration line, the two types are marked differently:
-
--- Checkpoint stages are preceded by a comma "," , making them a different column as the lexicon file is a .csv
--- Milestone stages are preceded by a pipe "|", meaning they effectively reside in the previous column of the .csv . As described in the
-	next section, no gold for them will be described for the etyma. Thus, each non-initial column will have 
-
-In the case of our French demonstration, we are making use of both. 
-
-On the first line, the names of stages should be specified. However, the names of both the final result and the initial forms do not
-	require specification. Instead, there presence should be marked by the delimitation between them and other stages using a comma or | 
-	as appropriate, but the only need a space rather than a name. 
-
-The one thing that is not optional is the initial input column, and this column must not have a name. If a name (non-blank space area) 
-	is detected before the first pipe or comma, then the system will throw an error.
-
-If there is a name (anything other than blank space) after the last comma or pipe, then this will imply to the system that there is no
-	gold to compare the final results to. 
-
-Thus, in the most complicated form, the first line should be as follows: 
-
- | Milestone 1 name , Checkpoint 1 name | Milestone 2 name | Milestone 3 name , Checkpoint 2 name , ...(et cetera)... , 
-
-On the otherhand, in the most basic case, where one is not inputting any gold for either the final results or any checkpoint stages, 
-	the first line will consist only of a space. If one is not using any checkpoint stages for only using milestone stages, there will
-	only be a single column, so there is no use of any comma delimiter:
-	
- | Milestone 1 name | Milestone 2 name | ... | Last milestone name
-
-Finally, if the one will be comparing to a gold set only for the result, then one will simply have a space or a comma for the first line: 
-
- , 
-
-THE REST (ETYMON LINES): 
-
-Each line of the lexicon should represent a single etymon. 
-
-The first column will invariably be the initial input's phonological form for that etymon. Thus, to use the example of sommier from above,
-	in this case each etymon line will have the following form: 
-	
-s 'ɑ ɡ m `ɑː r i u m $sommier. Pope 674.
-
-If one will not be comparing against a gold set for either the ultimate results or the generated results at any of the custom "checkpoint" 
-	stages (see above), then this will be the only column. Otherwise, there will be a column for any gold that will be compared to.
-	
-Milestone stages, on the other hand, will not correspond to any notation for the etymon lines, as they do not involve comparing the
-	system's results against a gold. 
-
-If we are comparing to a gold only for the final result, etymon lines should have the following form, again using our case of sommier: 
-
-s 'ɑ ɡ m `ɑː r i u m , s ɔ m j e $sommier. Pope 674.
-
-If we have checkpoint stages, instead, it will have this form: 
-s 'ɑ ɡ m `ɑː r i u m , s 'ɑ w m `ɑ r ʝ o , s 'o m `i ɛ̯ r , s 'ũ m j `e r , s 'ũ m j `e , s ɔ m j e $sommier. Pope 674. 	
+s 'ɑ ɡ m `ɑː r i u m	s 'ɑ w m `ɑ r ʝ o	s 'o m `i ɛ̯ r	s 'ũ m j `e r	s 'ũ m j `e	s ɔ m j e $sommier. Pope 674. 	
 
 Any questions or requests for clarification on how to use this system can be emailed to: cmarr@andrew.cmu.edu.
