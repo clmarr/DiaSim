@@ -811,21 +811,20 @@ $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by prece
 ʝ > j / [+syl] __ 
 j > ∅ / [+hi,+front,+tense] __
 
-$ s165.7 : another round of cluster modifications ... TODO?
-
 $ s165.5 leveling of au to o (s505) 
 {a w;'a w;`a w} > {ɔː;'ɔː;`ɔː} 
 
 $ s233 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals... TODO
 $ {a e̯;'a e̯;`a e̯} > { ... ? 
 
-$ TODO CLUSTER REDUCTIONS pp 145-150 ish... 
+$ s165.7 : another round of cluster modifications follows
+$ CLUSTER REDUCTIONS pp 145-150 ish... 
 
-$ 365ii early denasalization nns, rns 
+$ 365ii early denasalization nns, rns . Utlimately becomes the alveolar affricate, see two rules down. 
 n̪ > t̪  / [-cons] [+cor,-lat,+son] __ s [-cons]
 
 $ s365ii s t s > ts TODO check this. 
-s t̪ s > t͡s / [-cons] __ [-cons]
+s t̪ s > t͡sʲ / [-cons] __ [-cons]
 
 $ s367 d,t + s becomes the affricate 
 [+cor,-cont,-delrel] s > t͡sʲ
@@ -834,8 +833,11 @@ $ s365 : effacement of middle consonant in groups that don't end in l or r
 [+cons] > ∅ / [+cons] __ [-son]
 [+cons] > ∅ / [+cons] __ [+nas,+cons]
 
-$ s374 fricative + w > w w 
+$ s374ii: fricative + w > w w 
 [+cont,+cons,+voi] > w / __ w 
+
+$ recurrence of s374i 
+w > ∅ / [-cont] [-cont] __
 
 $ s377 s > z before voiced consonants
 s > z / __ [+voi,+cons]
@@ -852,8 +854,7 @@ b > β / __ r
 $ s365 : elimination of middle velars in three consonant intervocalic clusters
 {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
 
-$ s369 denasalization
-$ Denasalization -- s369, and glide development s370
+$ s368-370 denasalization and glide development
 $ b inserted between m + r or l 
 $ d inserted between n,l,dark l,z,elya + r 
 $ t inserted between s and pal. s + r 
@@ -907,8 +908,13 @@ $ s166.5 ~ s234-235 reduction of 'e > schwa
 $ s166.8 ~ s192 : final delabialization of kw,gw
 w > ∅ / [+back,-cont] __ 
 
-$ s166.3 ~ s226-7 : uo > ue; ei > oi, ou > eu 
-o̯ > e̯
+$ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. As per s226, this happened "before the end of the [EOF] period". The mutations of ei and ou seem to have occurred later.
+o̯ > e̯ 
+
+$~Later Old French
+$AKA Old French II. As per Pope s16, from end of eleventh century to beginning of the 14th. 
+
+$ s166.4 ~ s226-7 :  ei > oi, ou > eu 
 [+round,+back,+tense,-hi] > [-back,+front,-round] / __ w 
 [+front,+tense,-hi,-lo] > [+back,-front,+round] / __ j 
 
