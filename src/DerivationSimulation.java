@@ -498,6 +498,7 @@ public class DerivationSimulation {
 		dir.mkdir(); 
 		
 		//make trajectories file.
+		makeTrajectoryFile(); 
 		
 		
 		if(goldInput)

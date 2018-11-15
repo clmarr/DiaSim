@@ -888,12 +888,9 @@ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 $~ Early Old French 
 $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "Formative period of the French language.”
 
-$ s330 : leveling of aj before w -- case of aqua 
-`a j > `ɛː / __ w 
-
 $ s329 and s484 countertonic e becomes o before w and tonic u -- she doesn't seem to mention this being effected by former o,
 	$ so we assume it comes before s166.2 ~ s184 
-'e w > 'o 
+'e w > 'o $TODO shouldn't this one lead to an error? 
 'e > 'o / __ [+hi,+round,+prim] 
 
 $ s166.1 ~ s183 ~ s9 ~ s36 ~ s42 completion of u fronting. "Spread slowly from the South" (s183, s36), continuing in the tenth century (s42), with some Eastern and Northern (esp Walloon, Picard) dialects remaining unaffected.
@@ -923,14 +920,27 @@ o̯ > e̯
 $s166.6~s439 ; beginning of lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
 
+$ s330 : early leveling of aj before w -- case of aqua -- 11th century. TODO check this.  
+`a j > `ɛː / __ w 
+
 $s291-s292 -- t͡sʲ eventually depalatalizes  
 $ This would seem to be AFTER the influence exercised by palatals on preceding vowels such as e (s418) in this period 
 $ as the results of the first palatalization DO exercise this influence 
 $ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old Frenchs
+t͡sʲ >t͡s
 
 $s166.9 ~ s383-391 -- "beginnings" of l-vocalization praeconsonantal. 
 $As per Pope s167, "unclear" how much and if the vocalization aspect was present during this period.
 [+lat] > [+back] / __ [+cons]
+
+$s489 : ou >eu bled in Early Old French by ou >u before labials 
+[+tense,+syl,+round,-hi,-lo] >[+hi] / __ w [+lab,-syl]
+
+$s490: countertonic o > ə if followed by labial cons (or tʃ or dʒ) and then tonic o>u or y; or if followed by tonic y (mo`u >məy)   
+$ note, called a "tendency" by Pope.
+ˌo >ˌə / __ [+prim,+hi,+round,-back]
+ˌo >ˌə / __ [-syl,+lab] [+tense,+prim,+round]
+ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
 $~Later Old French
 $AKA Old French II. As per Pope s16, from end of eleventh century to beginning of the 14th. 
