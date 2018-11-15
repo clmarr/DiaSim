@@ -52,16 +52,18 @@ public class DerivationSimulation {
 	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
 	private static int[] goldStageTimeInstants, blackStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
-	private static String[] wordTrajectories; //stores trajectory, with stages delimited by line breaks, of each word 
+	private static String[] wordTrajectories; //stores trajectory(form at every time step), with stages delimited by line breaks, of each word 
 	
 	private static int[] LDByWord; //if gold is input: Levenshtein distance between gold and testResutlt for each word.
 	private static boolean[] wordMissLocs; //each index true if the word for this index
 		// resulted in a missmatch between the gold and the test result
 	
-	private static boolean goldOutputEntered; 
+	private static boolean goldOutput; 
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
 	
+	private static String runPrefix;
+
 	public static void main(String args[])
 	{
 		Scanner input = new Scanner(System.in); 
@@ -70,6 +72,9 @@ public class DerivationSimulation {
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		phoneFeatsToSymbMap = new HashMap<String, String>(); 
 		featImplications = new HashMap<String, String[]>(); 
+		
+		System.out.println("What would you like the file output prefix for this run to be?");
+		runPrefix = input.nextLine(); 
 		
 		System.out.println("Would you like to use the standard symbol definitions file? Please enter 'yes' or 'no'.");
 		String resp = input.nextLine(); 
@@ -411,112 +416,90 @@ public class DerivationSimulation {
 		{	numCols++; 
 			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1);
 		}
-		goldOutputEntered =false; 
+		goldOutput =false; 
 		if(numCols == numGoldStages + 2)
-			goldOutputEntered = true; 
+			goldOutput = true; 
 		else
 			assert numCols == numGoldStages + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)";
 		
 		boolean justInput = (numCols == 0); 
 		
 		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldResults = new LexPhon[NUM_ETYMA]; 
-		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>();
-		List<LexPhon[]> blackForms = new ArrayList<LexPhon[]>();
+		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  //TODO may be unnecessary, if so delete. 
+		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>(); //TODO may be unnecessary, if so delete.
 		if (numGoldStages >0)
 			for (int gsi = 0 ; gsi<numGoldStages; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
-		if (numBlackStages >0)
-			for (int bsi = 0 ; bsi<numBlackStages; bsi++)	blackForms.add(new LexPhon[NUM_ETYMA]); 
 		
 		int lfli = 0 ;
 		
-		while (lfli < NUM_ETYMA)
+		while(lfli < NUM_ETYMA)
 		{
-			wordTrajectories[lfli] = justInput ? theLine : theLine.split(",")[0]; 
-			
-			//TODO will later need to implement, here, ability to have word "not yet or no longer in language" at given stage, detectable with "..." 
-			
-			initWords[lfli] = parseLexPhon(wordTrajectories[lfli]); 
+			wordTrajectories[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
+			inputs[lfli] = parseLexPhon(wordTrajectories[lfli]);
 			if (!justInput)
 			{
-				String[] forms =theLine.split(",");
-				if(numStages > 0)
-				{	for(int si = 0 ;  si < numStages ; si++)
-						csGoldWords.get(si)[lfli] = parseLexPhon(forms[si+1]); 
-				}
-				
-				//TODO debugging
-				System.out.println("About to parse this for gold : "+forms[numStages+1]+".");
-				
-				if(goldInput)	goldWords[lfli] = parseLexPhon(forms[numStages+1]);
+				String[] forms = theLine.split(""+LEX_DELIM); 
+				if(numGoldStages > 0)
+					for (int gsi = 0 ; gsi < numGoldStages ; gsi++)
+						goldForms.get(gsi)[lfli] = parseLexPhon(forms[gsi+1]);
+				if (goldOutput)
+					goldResults[lfli] = parseLexPhon(forms[numGoldStages+1]);
 			}
-			
-			lfli++; 
-			if(lfli < NUM_ETYMA)
-			{	
-				theLine = lexFileLines.get(lfli); 
-				numCommae = commaCount(theLine); 
-				assert numCommae >= numStages : "ERROR: not enough commas for the number of stages in line "+lfli+" of lexicon file"; 
-				assert numCommae < numStages + 2 : "ERROR: too many commas in line "+lfli+" of lexicon file"; 	
-			}
+			lfli++;
+			if(lfli <NUM_ETYMA)
+				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
 		}
-
-		initLexicon = new Lexicon(initWords); 
-		testResultLexicon = new Lexicon(initWords); // this one will "evolve" with "time" 
 		
-		if(goldInput)
-		{
-			goldResultLexicon = new Lexicon(goldWords);
-			if(goldStagesInput)
-			{
-				for(int si = 0; si < numStages; si++)
-					customStageGoldLexica[si] = new Lexicon(csGoldWords.get(si)); 
-			}
-		}
+		initLexicon = new Lexicon(inputs); 
+		testResultLexicon = new Lexicon(inputs); // this one will "evolve" with "time" 
+		
+		if(numGoldStages > 0)
+			for (int gsi = 0 ; gsi < numGoldStages; gsi++)
+				goldStageGoldLexica[gsi] = new Lexicon(goldForms.get(gsi)); 
+		
+		if(goldOutput)	
+			goldResultLexicon = new Lexicon(goldResults); 
 		
 		System.out.println("Lexicon extracted :");
 
-		//TODO debugging
-		LexPhon[] testResultWords = testResultLexicon.getWordList();
-		for (LexPhon tRWord : testResultWords)
-		{	System.out.print(tRWord+"|"); }
-		System.out.println("\nNow evolving the words.");
-		
 		//TODO evolve the words 
-		int nextStageIndex = 0; //index IN THE ARRAYS that the next stage to look for will be at .
+		int goldStageInd = 0, blackStageInd=0;
+			//index IN THE ARRAYS that the next stage to look for will be at .
 		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
 		while (ri < numRules)
 		{
-			//TODO debugging
-			System.out.println("Applying rule "+ri+" : "+theShiftsInOrder.get(ri));
-			
 			SChange thisShift = theShiftsInOrder.get(ri);
-			if (customStagesSet && nextStageIndex < numStages)
+			if(goldStageInd < numGoldStages)
 			{
-				if (ri == customStageTimeInstants[nextStageIndex])
+				if ( ri == goldStageTimeInstants[goldStageInd])
 				{
-					customStageResultLexica[nextStageIndex] = new Lexicon(testResultLexicon.getWordList());
-					System.out.println("---------------------------------------------------------------------------");
-					System.out.println("STAGE: "+customStageNames[nextStageIndex]+"\n---------------------------------------------------");
-					nextStageIndex++;
+					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
+					goldStageResultLexica[goldStageInd] = new Lexicon(testResultLexicon.getWordList());
+					goldStageInd++;
 				}
 			}
-			
+			if(blackStageInd<numBlackStages)
+			{
+				if(ri == blackStageTimeInstants[blackStageInd])
+				{
+					blackStageResultLexica[blackStageInd] = new Lexicon(testResultLexicon.getWordList());
+					blackStageInd++; 
+				}
+			}
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
-			
-			for (int wci = 0; wci < wordsChanged.length; wci++)
-			{
-				if(wordsChanged[wci])
-				{
-					System.out.println("Word "+wci+" changed! "+testResultLexicon.getByID(wci)); //TODO debugging
-					wordTrajectories[wci] += "\n"+testResultLexicon.getByID(wci)+" | Shift "+ri+" : "+thisShift;
-				}
-			}
+			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
+				wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
 			
 			ri++; 
 		}
-	
+			
+		File dir = new File(""+runPrefix+"Results"); 
+		dir.mkdir(); 
+		
+		//make trajectories file.
+		
+		
 		if(goldInput)
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
@@ -553,6 +536,30 @@ public class DerivationSimulation {
 		//TODO make the calculations and output the files! 
 	}
 
+	private static void makeTrajectoryFile()
+	{
+		String filename = runPrefix+"/trajectories.txt"; 
+		String output = "Trajectory file for "+runPrefix+"\n\n";
+		for (int wi = 0 ; wi < NUM_ETYMA ; wi++)
+			output += ""+initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)+":\n"+wordTrajectories[wi]+"\n"; 
+		try 
+		{	FileWriter outFile = new FileWriter(filename); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(output);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+	}
+	
 	private static void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
 	{
 		String output = "Analysis for "+lexicName+"/n";

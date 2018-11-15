@@ -8,8 +8,11 @@ import java.util.ArrayList;
  * @author Clayton Marr
  *
  */
+
+
 public class Lexicon {
 	private LexPhon[] theWordList; 
+	protected final String ABS_PR ="[ABSENT]"; 
 	
 	public Lexicon(List<LexPhon> theWords)
 	{
@@ -97,4 +100,20 @@ public class Lexicon {
 		return output; 
 	}
 	
+	//update which phones are absent (not yet in language or fell out of use) 
+		//based on whether they are absent or not in the latest gold stage 
+	public void updateAbsence(LexPhon[] stageGold)
+	{
+		int theLen = stageGold.length;
+		assert theLen == theWordList.length : "ERROR: mismatch on vocab size of new gold stage and lexicon!";
+		for (int wi = 0 ; wi < theLen ; wi++)
+		{	
+			if(theWordList[wi].print().equals(ABS_PR))
+				if(!stageGold[wi].print().equals(ABS_PR))
+					theWordList[wi] = new LexPhon(stageGold[wi].getPhonologicalRepresentation());
+			if(stageGold[wi].print().equals(ABS_PR))
+				if(!theWordList[wi].print().equals(ABS_PR))
+					theWordList[wi] = new AbsentLexPhon(); 
+		}
+	}
 }
