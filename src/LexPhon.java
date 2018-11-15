@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Class for representing the phonology of one word in the vocabulary
  * This class currently forces the edges of the word to have word bounds
  * 	although this actually might not be appropriate for languages with weak boundaries
- *  such as French with its liaison phenomenon 
+ *  	such as French with its liaison phenomenon -- nevertheless this phenomenon is outside the purview of this project. 
  * @author Clayton Marr
  */
 public class LexPhon {

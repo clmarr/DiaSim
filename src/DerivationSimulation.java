@@ -32,8 +32,9 @@ public class DerivationSimulation {
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
-	private final static char STAGENAME_FLAG = '~'; 
+	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
+	private final static char LEX_DELIM ='\t'; 
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -44,18 +45,20 @@ public class DerivationSimulation {
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
 	private static int NUM_ETYMA; 
-	private static String[] customStageNames; 
-	private static Lexicon[] customStageGoldLexica; //indexes match with those of customStageNames 
+	private static String[] goldStageNames, blackStageNames; 
+	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
-	private static Lexicon[] customStageResultLexica; 
-	private static int[] customStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
-	private static boolean customStagesSet; 
+	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
+	private static int[] goldStageTimeInstants, blackStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
+	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores trajectory, with stages delimited by line breaks, of each word 
 	
 	private static int[] LDByWord; //if gold is input: Levenshtein distance between gold and testResutlt for each word.
 	private static boolean[] wordMissLocs; //each index true if the word for this index
 		// resulted in a missmatch between the gold and the test result
+	
+	private static boolean goldOutputEntered; 
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
 	
@@ -144,7 +147,6 @@ public class DerivationSimulation {
 			phoneFeatsToSymbMap.put(intFeatVals, symb);
 			li++; 
 		}
-		
 
 		System.out.println("Would you like to use the standard feature implications file location? Please enter 'yes' or 'no'.");
 		resp = input.nextLine(); 
@@ -246,54 +248,87 @@ public class DerivationSimulation {
 		
 		//now filter out the stage name declaration lines.
 		
-		List<String> provisionalStageNameAndLocList = new ArrayList<String>(); //to be collected 
+		List<String> goldStageNameAndLocList = new ArrayList<String>(); //to be collected 
 		//until the end of collection, at which point the appropriate arrays for the custom
-		// stages will be created using this List. 
-
-		customStagesSet = false; 
+		// stages will be created using this List. These ones will be compared to gold.
+		List<String>blackStageNameAndLocList = new ArrayList<String>();
+			// same as above, but will not be compared to gold. 
+		
+		goldStagesSet = false; blackStagesSet=false;  
 				
 		int rli = 0; 
 		
 		while (rli < rulesByTimeInstant.size())
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
-			if( currRule.charAt(0) == STAGENAME_FLAG )
+			if( currRule.charAt(0) == GOLD_STAGENAME_FLAG )
 			{
-				customStagesSet = true; 
-				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
+				goldStagesSet = true; 
+				//assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 				
 				currRule = currRule.substring(1); 
-				assert !currRule.contains(""+STAGENAME_FLAG): 
-					"Error: stage name flag "+STAGENAME_FLAG+" occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+				//assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
+				//	"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
 				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-					"Error: illegal character found in name for custom stage -- "+STAGENAME_LOC_DELIM;  
-				provisionalStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
+				goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
 				rulesByTimeInstant.remove(rli);  
+			}
+			else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG)
+			{
+				blackStagesSet =true;
+				currRule = currRule.substring(1); 
+				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
+					"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
+				blackStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+				rulesByTimeInstant.remove(rli); 
 			}
 			else	rli++;
 		}
 		
-		int numStages = provisionalStageNameAndLocList.size(); 
+		int numGoldStages = goldStageNameAndLocList.size(), numBlackStages =blackStageNameAndLocList.size();
 		
-		System.out.println("Using "+numStages+" custom stages."); 
+		System.out.println("Using "+numGoldStages+" custom stages."); 
 		
-		customStageGoldLexica = new Lexicon[numStages];
-		customStageResultLexica = new Lexicon[numStages];
-		customStageNames = new String[numStages];
-		customStageTimeInstants = new int[numStages]; 
+		goldStageGoldLexica = new Lexicon[numGoldStages];
+		goldStageResultLexica = new Lexicon[numGoldStages];
+		blackStageResultLexica =new Lexicon[numBlackStages];
+		goldStageNames = new String[numGoldStages];
+		blackStageNames = new String[numBlackStages];
+		goldStageTimeInstants = new int[numGoldStages]; 
+		blackStageTimeInstants = new int[numBlackStages]; 
 		
-		for(int csi = 0; csi < numStages; csi++)
+		if(goldStagesSet)
 		{
-			//TODO debugging
-			System.out.println("Stage name and loc : "+provisionalStageNameAndLocList.get(csi));
-			
-			String[] stageNameAndLoc = provisionalStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
-			customStageNames[csi] = stageNameAndLoc[0]; 
-			
-			//TODO debuggging
-			System.out.println("stage : "+customStageNames[csi]);
-			
-			customStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
+			for(int csi = 0; csi < numGoldStages; csi++)
+			{
+				//TODO debugging
+				System.out.println("Stage name and loc : "+goldStageNameAndLocList.get(csi));
+				
+				String[] stageNameAndLoc = goldStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
+				goldStageNames[csi] = stageNameAndLoc[0]; 
+				
+				//TODO debuggging
+				System.out.println("gold stage : "+goldStageNames[csi]);
+				
+				goldStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
+			}
+		}
+		if(blackStagesSet)
+		{
+			for(int csi = 0; csi < numBlackStages; csi++)
+			{
+				//TODO debugging
+				System.out.println("Stage name and loc : "+blackStageNameAndLocList.get(csi));
+				
+				String[] stageNameAndLoc = blackStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
+				blackStageNames[csi] = stageNameAndLoc[0]; 
+				
+				//TODO debuggging
+				System.out.println("black stage : "+blackStageNames[csi]);
+				
+				blackStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
+			}
 		}
 		
 		// parse the rules
@@ -316,12 +351,11 @@ public class DerivationSimulation {
 		
 		System.out.println("Diachronic rules extracted. "); 
 		
+		//detect whether the right number of gold stages are there, and if we will be comparing to gold output at the end.
 		//now input lexicon 
-		//detect whether we have the gold or just the initial stage lexicon by whether the input file is a .csv
-		//TODO change this above.. 
-		//collect init lexicon ( and gold if so specified) 
+		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
-		//each time a custom stage time step loc (int in the array customStageTimeInstantLocs) is hit, save the 
+		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
 		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 	
@@ -366,63 +400,34 @@ public class DerivationSimulation {
 			e.printStackTrace();
 		}
 		
-		//TODO process first line and see if stages match up -- throw error if not, and also throw error if format is wrong 
-		String firstline =lexFileLines.remove(0) ; 
-		if (numStages == 0)
-			assert firstline.trim().equals("") || firstline.trim().equals(","): "ERROR: no custom stages were declared in the ruleset, "
-					+ "so the first line needs to be either blank space or just a comma separating two spaces (the latter if we are reporting a gold result set), "
-					+ "but something else was detected"; 
-		else
-		{
-			int firstCommaInd = firstline.indexOf(","), firstPipeInd = firstline.indexOf("|"); 
-			boolean moreCommas = (firstCommaInd != -1), morePipes = (firstPipeInd != -1);
-			assert moreCommas || morePipes : "ERROR: custom stages were declared in the ruleset, but none detected on the first line!"; 
-			int place = 0, currstage = 0;
-			while (moreCommas ||  morePipes && currstage < numStages)
-			{
-				if(!moreCommas)	place = firstPipeInd; 
-				else if (!morePipes) place =firstCommaInd; 
-				else if(firstCommaInd < firstPipeInd)
-				{
-					place = firstCommaInd; 
-					firstCommaInd = firstline.substring(place+1).indexOf(","); 
-				}
-				else //firstPipeInd < firstCommaInd
-				{
-					place = firstPipeInd;
-					firstPipeInd = firstline.substring(place+1).indexOf("|"); 
-				}
-				moreCommas = (firstCommaInd != -1); morePipes = (firstPipeInd != -1);
-				customStageNames[currstage] =firstline.substring(place,place+1) + customStageNames[currstage];
-				int lencurrst = customStageNames[currstage].length();
-				assert firstline.substring(place,place+lencurrst).equals(customStageNames[currstage]):
-						"ERROR: Mismatch between stage name in ruleset ("+customStageNames[currstage].substring(1)+") "
-								+ "and name detected in first line of lexicon file ("+firstline.substring(place+1,place+lencurrst)+")";
-				currstage++; 
-			}
-		}
-		//TODO finish this. 
-		
-		
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
 		wordTrajectories = new String[NUM_ETYMA]; 
+				
+		String theLine =lexFileLines.get(0); 
+		String firstlineproxy = ""+theLine; 
+		int numCols = 1; 
+		while (firstlineproxy.contains(""+LEX_DELIM))
+		{	numCols++; 
+			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1);
+		}
+		goldOutputEntered =false; 
+		if(numCols == numGoldStages + 2)
+			goldOutputEntered = true; 
+		else
+			assert numCols == numGoldStages + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)";
 		
-		String theLine = lexFileLines.get(0); 
-		int numCommae = commaCount(theLine);
-		boolean justInput = (numCommae == 0); 
-		boolean goldInput = !justInput, goldStagesInput =(numCommae > 1); 
-		if (!justInput)
-			assert numCommae == numStages + 1 : "ERROR: wrong number of commas given that gold is being input and the number of stages";
+		boolean justInput = (numCols == 0); 
 		
-		int correct_num_commae = numCommae; 
+		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
+		LexPhon[] goldResults = new LexPhon[NUM_ETYMA]; 
+		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>();
+		List<LexPhon[]> blackForms = new ArrayList<LexPhon[]>();
+		if (numGoldStages >0)
+			for (int gsi = 0 ; gsi<numGoldStages; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
+		if (numBlackStages >0)
+			for (int bsi = 0 ; bsi<numBlackStages; bsi++)	blackForms.add(new LexPhon[NUM_ETYMA]); 
 		
-		LexPhon[] initWords = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldWords = new LexPhon[NUM_ETYMA];
-		List<LexPhon[]> csGoldWords = new ArrayList<LexPhon[]>(); 
-		if(numStages > 0)
-			for (int si = 0 ; si < numStages ; si++)		csGoldWords.add(new LexPhon[NUM_ETYMA]);
-		                                  
 		int lfli = 0 ;
 		
 		while (lfli < NUM_ETYMA)
@@ -599,7 +604,7 @@ public class DerivationSimulation {
 	}
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
-	// outputs the scores for each phone in the wordin the lexicon 
+	// outputs the scores for each phone in the word in the lexicon 
 	private static HashMap<Phone,Double> lakationPerPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
@@ -769,11 +774,11 @@ public class DerivationSimulation {
 		return distMatrix[n-1][m-1]; 
 	}
 
-	//auxiliary method -- get number of commas in string
-	private static int commaCount(String str)
+	//auxiliary method -- get number of columns in lexicon file. 
+	private static int colCount(String str)
 	{
 		String proxy = str+"";
-		int i = proxy.indexOf(","), c = 0 ;
+		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{
 			c++; 
