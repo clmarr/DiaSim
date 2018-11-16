@@ -668,11 +668,9 @@ $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162
 $ before l,r included as per s372 (but not b before l as per 372iii)
 [-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
-$ s372 d > ð before nasals , and then ð > z before n "sometimes 
+$ s372 d > ð before nasals , and then ð > z before n "sometimes" 
+	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
 d̪ > ð / [+syl] __ [+nas] 
-ð > z / __ n̪ $ this one is "sometimes", maybe delete
-$ s372 l velarizes after ð
-l > ɫ / ð __
 
 $p93 s192i kw > k before e and i 
 $ must come after second palatalization resolves
@@ -970,7 +968,20 @@ $s171.3 : voicing of intervocalic stridents, recurrence of s343
 $Pope only passingly mentions this shift, so some inference is used.
 $Pope does not explicitly state the date on this one but it is safe to say it doesn't interfere with others. 
 $She says it occurs for s and f both, but s is excluded here as that is obviously not the case
+$TODO use this one as example of how machine can improve Pope in paper. 
+$s > z / [-cons] __ [-cos]
 f > v / [-cons] __ [-cons]
+
+$Pope s372 : ð >ɫ / __ l
+ð > ɫ / __ [+lat]
+
+$ Pope s372 : ð occasionally assimilated to r but when it did and didn't was
+	$undetermined at the time of writing (assimilated: butina >borne but Rodanum >Rhone, etc...)
+	$shift here is hypothetical
+	$TODO exclude for paper demonstration and include for demonstration of how system
+	$helps show how Pope can be improved upon using DiaSym.
+ð > ∅ / r [+syl] __ n̪
+ð > r / __ n̪
 
 $s385~s390 vocalization of dark l variants -- attested in rhymes by middle of 12th century: 
 [+lat,+back] > w
@@ -979,10 +990,10 @@ $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
 ∅ >a̯ / [-hi,-lo,+syl,-tense] __ w
 [-hi,-lo,+syl,-tense] >[-long] / __ a̯ w
 
-$ TODO th-effacement  – finalized in middle of twelth century (began dialectally in North and East in 9th century). Add also later effects on adjacent vowels.
-
-
-
+$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
+	$began dialectally in North and East in 9th century. 
+	$Add also later effects on adjacent vowels.
+{θ;ð} > {∅;∅}
 
 $ s166.8 ~ s192 : final delabialization of kw,gw. As per s192, late 12th century. 
 w > ∅ / [+back,-cont] __ 
@@ -990,6 +1001,22 @@ w > ∅ / [+back,-cont] __
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [-delrel] > [+cont]
 
+$s247: first round of ə effacement, here between spirant fricatives and l,r
+$TODO remove for Pope-only demo; Pope does not explicate the exact form of the shift used here.
+$Pope s247 : ə effaced if after fricative or plosive and before r/l.
+$Pope does not give an exact date here...
+ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
+
 $ PLACE INTO LATER OLD FRENCH  -- Pope s500 -- ir > ier when stressed and before consonants. 
 
 $ PLACE INTO VULGAR LATIN BEFORE FIRST PALATALIZATION -- kwinkwe > kinkwe dissimilation Pope s823 iii. Currently tentative-- may be irregular.
+
+~Middle French
+$Pope s247 : ə effaced if after fricative or plosive and before r/l.
+$Accepted in 16th century. 
+$TODO Pope doesn't state this , but this failed to effect sibilants.
+$She also doesn't note that it only occurred right before the prime vowel, i.e. pˌelerˈɛ̃ -- not effected.  
+$ Fix this so it "doesn't work" for demo. 
+ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
+ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim] 
+
