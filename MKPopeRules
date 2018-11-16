@@ -909,17 +909,19 @@ $"Spread slowly from the South" (s183, s36), continuing in the tenth century (s4
 $ precedes u>o (s166.2~s184) as per s183. 
 [+hi,+round,-back] > [+front] 
 
-$ s166.6 ~ s434 : first nasalization, effects a and aj, in the 10th century
+$ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10th century
 j > [+nas] / [+lo, +syl] __ [+nas, -syl]
 [+lo,+syl] > [+nas] / __ [+nas,-syl]
 
-$ s166.6 ~ s434, s439 : second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
+$ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
+$ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
 j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
 [+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
 
 $ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
 $ Complete before the Norman Conquest of England (1066) as per s377
 [+syl] > [+long] / __ z [+cons]
+z > ∅ / __ [+cons]
 
 $ s166.5 ~ s234-235 reduction of 'e > schwa. Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
@@ -930,7 +932,7 @@ $As per s226, this happened "before the end of the [EOF] period".
 $The mutations of ei and ou seem to have occurred later.
 o̯ > e̯ 
 
-$s166.6~s439 ; beginning of lowering of nasalized e-varieties -- late eleventh century.
+$s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
 
 $ s330 : early leveling of aj before w -- case of aqua -- 11th century. 
@@ -973,30 +975,69 @@ $s > z / [-cons] __ [-cos]
 f > v / [-cons] __ [-cons]
 
 $Pope s372 : ð >ɫ / __ l
+$date unclear, but should be before ɫ goes to w. 
 ð > ɫ / __ [+lat]
+
+$ Pope s500 -- ir > ie̯r when stressed and before consonants. 
+$ feeds ie̯ >je shift in 12th century, must precede it.
+∅ > e̯ / ˈi __ r [+cons]
 
 $ Pope s372 : ð occasionally assimilated to r but when it did and didn't was
 	$undetermined at the time of writing (assimilated: butina >borne but Rodanum >Rhone, etc...)
 	$shift here is hypothetical
 	$TODO exclude for paper demonstration and include for demonstration of how system
 	$helps show how Pope can be improved upon using DiaSym.
+	$note the z >ð >r shift may have actually been a Picard characteristic (s378i)
 ð > ∅ / r [+syl] __ n̪
 ð > r / __ n̪
 
-$s385~s390 vocalization of dark l variants -- attested in rhymes by middle of 12th century: 
+$s385~s390 vocalization of dark l variants 
+$ per Pope s390: attested in rhymes by middle of 12th century: 
 [+lat,+back] > w
 
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
-∅ >a̯ / [-hi,-lo,+syl,-tense] __ w
+$ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -- a case of secondary stressed ɛ for this)
+∅ > a̯ / [-hi,-lo,+syl,-tense] __ w
 [-hi,-lo,+syl,-tense] >[-long] / __ a̯ w
+
+$s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)
+$ note this can only come from primarily stressed a (>ˈeː) 
+'eː > ˈe e̯ / __ w
+
+$ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
+ˈe > ˈi / __ e̯ w
+
+$ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
+$per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
+	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
+$ per s470 -- predates a second nasalization of e, in the 13th century. 
+	$This second nasalization then saw ẽ >ɛ̃ lowering, but it wasn't accepted till the 17th century
+$ Fed by s388. Feeds e>ø / __ w shift. 
+$ Seems to only occur for stressed ˈi. TODO may have to correct this if wrong.
+$ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and 
+	$per s538 "Later 12th century"
+	$Pope doesn't give relative dating for the closure (ɛ>e) and stress shift so we group
+		$them together. 
+	$Pope notes -- s508 ~ s472-- the leveling of diphthongs started in the south and west. 
+	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
+{ˈi e̯;'ɛ a̯;ˌɛ a̯} > {j ˈe;e̯ ˈa;e̯ ˌa} 
 
 $ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
-	$Add also later effects on adjacent vowels.
+	$TODO Add also later effects on adjacent vowels?
 {θ;ð} > {∅;∅}
 
 $ s166.8 ~ s192 : final delabialization of kw,gw. As per s192, late 12th century. 
 w > ∅ / [+back,-cont] __ 
+
+$ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
+$ Note: other accounts likely have s > x before ALL consonants...
+$ This bleeds normal s-effacement as per Pope -- debatable. 
+s > x / [+syl] __ [+ant,+cor,+cons]
+
+$ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
+$ ...engendering lengthening of previous vowel.  
+[+syl] s >[+long] x / __ [+cons]
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [-delrel] > [+cont]
@@ -1007,11 +1048,16 @@ $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
 
-$ PLACE INTO LATER OLD FRENCH  -- Pope s500 -- ir > ier when stressed and before consonants. 
 
 $ PLACE INTO VULGAR LATIN BEFORE FIRST PALATALIZATION -- kwinkwe > kinkwe dissimilation Pope s823 iii. Currently tentative-- may be irregular.
 
 ~Middle French
+$Middle French covers the 14th to 16th cenuries as per Pope
+
+$ x effaced -- some time after the 14th century, when Orthographica Gallica was written
+$ prior vowel lengthened.
+[+syl] x > [+long] ∅ / __ [+cons] 
+
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
 $TODO Pope doesn't state this , but this failed to effect sibilants.
