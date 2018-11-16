@@ -949,7 +949,7 @@ $ note, called a "tendency" by Pope.
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
 $s435: dentalization of final m after vowels. 
-$s435 -- accepted in late 11th century 
+$s435 -- accepted by late 11th century 
 m > n̪ / [-cons] __ #
 
 $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle of the twelfth century".
@@ -958,7 +958,31 @@ $ Any e before yod effected.
 [+round,+back,+tense,-hi] > [-back,+front,-round] / __ w 
 [+front,+tense,-hi,-lo] > [+back,-front,+round] / __ j 
 
+$ s411: ue̯j >"yi̯j" > yj 
+$ see also s410~s514-5
+[+hi,+back,+round] e̯ > [-back,+front] j / __ j 
+j > ∅ / [+hi,+round,+front] __ j 
+
+$ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
+j > ɛ̯ / [+syl,+back,+round] __ r 
+
+$ s519-521 : oj(>uj), ɔj > oɛ̯(uɛ̯),ɔɛ̯ everywhere 
+	$ except (s521) when before another yod or countertonic in hiatus with the tonic vowel. 
+$ TODO/NOTE: A bit of a contradiction is present here
+	$ s519 Pope attributes this shift to the "late 12th and 13th centuries"
+	$ but she describes the first stage, lowering of j to ɛ̯ as follows: 
+		$ "the less stressed high element of both diphthongs, under the influence of the lower first element, was lowered to ɛ..."
+		$ however, if this is after o > u, which occurs in the 11th-12th centuries as per Pope s184, then it that logic does not obtain
+		$ because u is not lower than i. 
+	$We give Pope the benefit of the doubt and assume this first stage of the shift is assumed to be earlier. 
+	$ TODO might want to instead give her the benefit of the doubt by assuming she meant uj>uɛ̯ by analogy, and so place in the date she mentioned in LOF.
+j > ɛ̯ / [+syl,+back,+round] __ 
+$s521: reverse for now when in the conditions specified.
+ɛ̯ > j / [+syl,+back,+round] __ j
+ɛ̯ > j / [+syl,+back,+round] __ [+prim]
+
 $ s166.2 ~ s184 o > u. As per s184, occurs in the eleventh and twelth centuries.
+$ s518: this also means oi > ui
 $ except for early shift before labial consonants (see s489), this is bled by 166.4. 
 $Pope places it in EOF so we place it there too-- but clearly at the end of the period.
 [+round,+tense,+back] > [+hi] 
@@ -1007,6 +1031,11 @@ $ note this can only come from primarily stressed a (>ˈeː)
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
 ˈe > ˈi / __ e̯ w
 
+$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
+	$began dialectally in North and East in 9th century. 
+	$TODO Add also later effects on adjacent vowels?
+{θ;ð} > {∅;∅}
+
 $ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
 $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
 	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
@@ -1022,13 +1051,25 @@ $ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and
 	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
 {ˈi e̯;'ɛ a̯;ˌɛ a̯} > {j ˈe;e̯ ˈa;e̯ ˌa} 
 
-$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
-	$began dialectally in North and East in 9th century. 
-	$TODO Add also later effects on adjacent vowels?
-{θ;ð} > {∅;∅}
+$Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
+[-hi,-lo,+tense,+syl] > [+round] / __ w
 
-$ s166.8 ~ s192 : final delabialization of kw,gw. As per s192, late 12th century. 
-w > ∅ / [+back,-cont] __ 
+$Pope s541~545: øw >ø in later 12th century. 
+w > ∅ / [+round,+front,-hi,+syl] __ 
+
+$ s166.8 ~ s192 : deletion of w in kw,gw. 
+$ ɥ also deleted after k,g at this time (s516) As per s192, late 12th century.
+$ yj >ɥi early before k,g to feed this (s503 ~ s514 ~ s516) 
+{y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __
+[-syl,+round,-cons] > ∅ / [+back,-cont] __ 
+
+$ s518-521 : uɛ̯,ɔɛ̯ > wɛ 
+$ s519: late 12th and 13th centuries. 
+{u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ̯;w ˌɛ;w ˈɛ;w ɛ̯;w ˌɛ;w ˈɛ} 
+
+ $s514-517: yj >ɥi everywhere not already mutated.
+ $s514: 13th century
+ {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi}
 
 $ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
 $ Note: other accounts likely have s > x before ALL consonants...
