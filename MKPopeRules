@@ -883,6 +883,14 @@ $ s366 degemination
 $s378 z > ð before voiced dentals 
 z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 
+$s234 ~ s223 ~ s121 ɛ and ɔ countertonic closed except when followed by r or l and then another cons. 
+$ ɔ also closed before r + cons (s234)
+{ˌɛ;ˌɔ} > {ˌe;ˌo} / __ ([+lat]) [+syl]
+ˌɔ > ˌo / __ [-lat] 
+ˌɛ > ˌe / __ r [+syl]
+ˌɛ > ˌe / __ r [+nas]
+ˌɛ > ˌe / __ r [+cor,-son]
+
 $~ Early Old French 
 $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "Formative period of the French language.”
 
@@ -907,7 +915,7 @@ $First attested in 9th century -- s390.
 $ s166.1 ~ s183 ~ s9 ~ s36 ~ s42 completion of u fronting. 
 $"Spread slowly from the South" (s183, s36), continuing in the tenth century (s42), with some Eastern and Northern (esp Walloon, Picard) dialects remaining unaffected.
 $ precedes u>o (s166.2~s184) as per s183. 
-[+hi,+round,-back] > [+front] 
+[+hi,+round,-back] > [+hi,+round] __ #
 
 $ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10th century
 j > [+nas] / [+lo, +syl] __ [+nas, -syl]
@@ -923,17 +931,15 @@ $ Complete before the Norman Conquest of England (1066) as per s377
 [+syl] > [+long] / __ z [+cons]
 z > ∅ / __ [+cons]
 
-$ s166.5 ~ s234-235 reduction of 'e > schwa. Due to increasing weight of stressed syllables. 
+$ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
+$ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
-'e > ə
+ˌe > ˌə / __ ([+cons]) [-cons] 
 
 $ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
 $As per s226, this happened "before the end of the [EOF] period". 
 $The mutations of ei and ou seem to have occurred later.
 o̯ > e̯ 
-
-$s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
-[+front,-hi,-lo,+syl,+nas] > [-tense]
 
 $ s330 : early leveling of aj before w -- case of aqua -- 11th century. 
 `a j > `ɛː / __ w 
@@ -966,26 +972,26 @@ j > ∅ / [+hi,+round,+front] __ j
 $ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
 j > ɛ̯ / [+syl,+back,+round] __ r 
 
-$ s519-521 : oj(>uj), ɔj > oɛ̯(uɛ̯),ɔɛ̯ everywhere 
-	$ except (s521) when before another yod or countertonic in hiatus with the tonic vowel. 
-$ TODO/NOTE: A bit of a contradiction is present here
-	$ s519 Pope attributes this shift to the "late 12th and 13th centuries"
-	$ but she describes the first stage, lowering of j to ɛ̯ as follows: 
-		$ "the less stressed high element of both diphthongs, under the influence of the lower first element, was lowered to ɛ..."
-		$ however, if this is after o > u, which occurs in the 11th-12th centuries as per Pope s184, then it that logic does not obtain
-		$ because u is not lower than i. 
-	$We give Pope the benefit of the doubt and assume this first stage of the shift is assumed to be earlier. 
-	$ TODO might want to instead give her the benefit of the doubt by assuming she meant uj>uɛ̯ by analogy, and so place in the date she mentioned in LOF.
-j > ɛ̯ / [+syl,+back,+round] __ 
-$s521: reverse for now when in the conditions specified.
-ɛ̯ > j / [+syl,+back,+round] __ j
-ɛ̯ > j / [+syl,+back,+round] __ [+prim]
-
 $ s166.2 ~ s184 o > u. As per s184, occurs in the eleventh and twelth centuries.
 $ s518: this also means oi > ui
 $ except for early shift before labial consonants (see s489), this is bled by 166.4. 
 $Pope places it in EOF so we place it there too-- but clearly at the end of the period.
 [+round,+tense,+back] > [+hi] 
+
+$s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
+$ Must be after o>u, but called "Early Old French" by Pope (s406)-- TODO may need to handle length. 
+∅ > j / [+hi,+round,+syl] __ ɲ #
+∅ > j̃  / [+lo,+syl] __ ɲ #
+∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
+
+$s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic-- TODO may need to handle length.  
+∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ {ɲ;ʎ} [+syl]
+
+$s407ii : same for y countertonic or tonic -- TODO may need to handle length. 
+∅ > j / [+hi,+round,+stres] __ {ɲ;ʎ} [+syl]
+
+$s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
+[+front,-hi,-lo,+syl,+nas] > [-tense]
 
 $~Later Old French
 $AKA Old French II. As per Pope s16, from end of eleventh century to beginning of the 14th. 
@@ -1007,6 +1013,9 @@ f > v / [-cons] __ [-cons]
 $Pope s372 : ð >ɫ / __ l
 $date unclear, but should be before ɫ goes to w. 
 ð > ɫ / __ [+lat]
+
+$Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
+[+nas,-hi,+syl] > [+lo]
 
 $ Pope s500 -- ir > ie̯r when stressed and before consonants. 
 $ feeds ie̯ >je shift in 12th century, must precede it.
@@ -1042,6 +1051,16 @@ $ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth centur
 	$TODO Add also later effects on adjacent vowels?
 {θ;ð} > {∅;∅}
 
+$ s422 e (include ə too for good measure...) "intertonic" (i.e. stress-less) moves up to i before palatal consonants (ɲ,ʎ)
+{e;ə} > {i;i} / __ [+hi,+front,+cons]
+
+$ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
+$ happens after the loss of the interdental frics. 
+ˌa > ˌe / __ ˈy|
+
+$ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
+ˌe > ˌə / __ ([+cons]) [-cons] 
+
 $ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
 $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
 	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
@@ -1068,6 +1087,9 @@ $Pope does not give a specific date. Makes sense to be here, given spellings 'ai
 $Pope s528-529 : aj > ɛj word finally
 [+lo,+syl] > [-lo,-tense] / __ j #
 
+$ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
+[+lo,+nas] > [-lo,-tense] / __ j̃
+
 $Pope s541~545: øw >ø in later 12th century. 
 w > ∅ / [+round,+front,-hi,+syl] __ 
 
@@ -1077,17 +1099,58 @@ $ yj >ɥi early before k,g to feed this (s503 ~ s514 ~ s516)
 {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __
 [-syl,+round,-cons] > ∅ / [+back,-cont] __ 
 
+$THIRD NASALIZATION : late 12th and early 13th 
+$ all old targets effected, in addition to: 
+$ je : s434 ~ s441.5 ~ s470
+$ u : s434 ~ s441.7 ~ s459 ~s464  (s464: started early 12th century)
+$ ø : because we know it comes before i and y, convenient to incldue here [s434 ~ 441.11 ~ 477]
+[-cons,-front] > [+nas] / __ [+nas]
+[-cons,-hi] > [+nas] / __ [+nas]
+
 $ s556: ɥø > jø is bled after labials and velars
 ɥ > ∅ / [+lab,+cons] __
 ɥ > ∅ / [+back,+hi,+cons] __ 
+
+$ s547-548 : ɔw > u in the thirteenth century. 
+$ s548: late 12th and 13th centuries. 
+[-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+
+$ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted 
+	$when before a nasal 
+	$Pope does not state this explicitly except that her trajectory in s670 suggests it
+	$some inference done to make this work (and efficiently so)
+	$... giving her the benefit of the doubt
+{u j;ˌu j;ˈu j;ɔ j;ˌɔ j;ˈɔ j} > {w i;w ˌi;w ˈi;w i;w ˌi;w ˈi} / __ [+nas]
+
+
+$ s409i ~ s239 : oi (soon to wɛ) emits j between itself and other tonic palatal vowels
+$ for reasons of organization we realize this as having uj,ɔj go to wɛj before tonic palatals
+{ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
+
+$ s519-521 : oj(>uj), ɔj > oɛ̯(uɛ̯),ɔɛ̯ everywhere 
+	$ except (s521) when before another yod or countertonic in hiatus with the tonic vowel. 
+$ TODO/NOTE: A bit of a contradiction is present here
+	$ s519 Pope attributes this shift to the "late 12th and 13th centuries"
+	$ but she describes the first stage, lowering of j to ɛ̯ as follows: 
+		$ "the less stressed high element of both diphthongs, under the influence of the lower first element, was lowered to ɛ..."
+		$ however, if this is after o > u, which occurs in the 11th-12th centuries as per Pope s184, then it that logic does not obtain
+		$ because u is not lower than i. 
+	$We give Pope the benefit of the doubt and assume she meant uj>uɛ̯ by analogy
+		$ and so place it in the date she mentioned in LOF.
+	$TODO fix this. 
+j > ɛ̯ / [+syl,+back,+round] __ 
+$s521: reverse for now when in the conditions specified.
+ɛ̯ > j / [+syl,+back,+round] __ j
+ɛ̯ > j / [+syl,+back,+round] __ [+prim]
+
 
 $ s518-521 : uɛ̯,ɔɛ̯ > wɛ 
 $ s519: late 12th and 13th centuries. 
 {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ̯;w ˌɛ;w ˈɛ;w ɛ̯;w ˌɛ;w ˈɛ} 
 
-$ s547-548 : ɔw > u in the thirteenth century. 
-$ s548: late 12th and 13th centuries. 
-[-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+$s409ii ~ s239 : y emits j before non-high unrounded palatal vowels with at least some stress (stress part inferred from s239, which is cited by Pope)
+∅ > j / [+hi,+front,+round,+syl] __ [+stres,+front,-hi,-round]
+
 
  $s514-517: yj >ɥi everywhere not already mutated.
  $s514: 13th century
@@ -1099,8 +1162,18 @@ $ s555-556 ɥø > jø
 $ s556 jø > ø after dʒ 
 j > ∅ / d͡ʒ __ [+front,+round,-hi]
 
+$ FOURTH NASALIZATION: finally effects all vowels, extended to i and y
+$ 13th century
+$ s434 ~ s439~s441.6-441.10~s451-457
+[+syl] > [+nas] / __ [+nas,+cons]
+$handling of unstressed ə̃ as per s434
+ə̃ > ə 
+ə > ə̃ / __ n̪ t̪ #
+
 $ Pope s528-529 : ɛj > ɛ praeconsonantally. 
 j > ∅ / [-lo,-hi,-tense,+front,+syl] __ [+cons] 
+
+
 
 $ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
 $ Note: other accounts likely have s > x before ALL consonants...
@@ -1115,8 +1188,11 @@ $ ...engendering lengthening of previous vowel.
 
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii
-ˈɔː > ˈoː / __ (x) ([-syl]) [+syl]
-ˈɔː > ˈoː / __ (x) ([-syl]) #
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ (x) ([-syl]) [+syl]
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ (x) ([-syl]) #
+
+$ s435 : final ɲ > n̪ : likely in 13th century
+ɲ > n̪ / __ #
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [-delrel] > [+cont]
