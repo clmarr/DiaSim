@@ -1221,8 +1221,10 @@ $ Fix this so it "doesn't work" for demo.
 ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
 
-$s173.1b ~s575-576 : e: > ɛ:
-ˈeː > ˈɛː  
+$s173.1b ~s575 : e > ɛ
+$ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
+$ we give precedence to the indepth section. 
+ˈe > ˈɛ
 
 $ s451 : ĩ > ɛ̃ -- 15th- 16th centuries
 [+nas,+front,-round,-lo,+syl] > [-hi,-tense] 
@@ -1230,11 +1232,16 @@ $ s451 : ĩ > ɛ̃ -- 15th- 16th centuries
 $ s496 : ɛ > a / __ r in 15th and 16th centuries (later reversed for many words)
 {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
 
+$ s538 : 
+
 $ s510 je > e after ʎ,ɲ,ʃ,ʒ . Late 15th - 16th centuries
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
 
 $ s534-538 ~ s560 : aw > o: -- 15th-16th centuries
 {ˌa w; ˈa w} > {ˌoː;ˈoː}
+
+$ s535~s538-539 : e̯oː >ə̯oː
+e̯ > ə̯ / __ [+round,+back,-hi]
 
 $ s494: e > ɛ before l, ʎ in 16th century
 [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
@@ -1243,15 +1250,67 @@ $ s495 : e >ɛ when r CLOSES the syllable in 16th century (will repeat again whe
 [-hi,-lo,+syl,+front,-round] >[-tense] / __ r [+cons]
 [-hi,-lo,+syl,+front,-round] >[-tense] / __ r #
 
+$ s392 : final -l effacement after e:, i, y, u
+$ regular by Later Middle French
+$ restoration for many cases for e:, y and u -- but this is not a phonologically mediated process (rather lexically and socially driven)
+[+lat] > ∅ / [+hi,+syl] __ #
+[+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
 
+$ s243-245 ə effaced before other vowels, causing lengthening in the case of a (s244)
+$ s244 : lengthening of following a is preceded by assimilation of ə > a : actual formation of lengthened vowel by "contraction" handled by another rule, s242a
+$ Sixteenth century
+$ Note s245 -- some exceptions regarding əy > y, some cases it instead went to ø
+[+syl,-front,-back]  > [+lo,+tense,+front] / __ [+lo,+stres] 
+[+syl,-front,-back] > ∅ / __ [+syl]
 
-$173.1c ~ s586 : long a becomes back ɑ (still long)0 -- late 16th century 
+$s247: second round of countertonic ə effacement, here between spirant fricatives and l,r
+$Pope s247 : ə effaced if after fricative or plosive and before r/l.
+$Sixteenth century. 
+ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
+
+$ s242a merging of adjacent and similar vowels into long vowels.
+$ Accepted in the sixteenth century (but started in the thirteenth) 
+[+lo,+syl] [+lo,+syl] > ∅ [+long]
+[-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
+[+hi,+back,+round] [+hi,+back,+round] > ∅ [+long]
+
+$ s242b specifications on coalescence of countertonic a
+$ TODO implement later developments for a + i forms. 
+ˌa ˈũ > ˈã
+ˌa ˈi > ˈa j
+ˌa ˈĩ > 'ã j̃
+ˌa > ∅ / __ [+prim]
+
+$s241 : consonantalization of countertonic high vowels before lower vowels
+$ 16th century, "Later Middle French" 
+[+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+$ also formation of wi and ɥi 
+[+hi,+syl,+stres,-prim,+round] > [-syl] / __ [+hi,+front,-round,+syl]
+
+$173.1c ~ s586 : long a becomes back ɑ (still long) -- late 16th century 
 [+lo,+long,+syl] > [+back,-front]
+
+$ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
+∅ > j / w ˌɛ __ [+prim]
+
+s525 wɛ > wa -- late 16th century
+[-lo,-hi,-tense,+front,-round] > [+lo,+tense] / w __ 
 
 $ ỹ >ø̃ in 16th-17th centuries
 [+nas,+syl,+front,+round] > [-hi]
 
+$ s576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
+'e: > 'ɛ: / __ [+cons] ə
+'e: > 'ɛ: / __ [+cons] #
+
+
 ~Early Modern French
-$s196 Second h-deletion. Starts much earlier but accepted in late 17th century 0
+$s511 establishment of je>ie "diaeresis" in cases of C + l/r + je
+j > i / [+cons] [+ant,+son] __ [+front,-hi,-lo,+tense,-round,+syl]
+
+$ s539 əo: > o: finally accepted in the 17th century
+ə̯ > ∅
+
+$s196 Second h-deletion. Starts much earlier but accepted in late 17th century
 h > ∅ 
 
