@@ -1309,21 +1309,18 @@ $ TODO implement later developments for a + i forms.
 ˌa > ∅ / __ [+prim]
 
 $ s570 i : a lengthens before ʎ in final ending aʎə
-$ TODO (but isn't this already covered by s562 and s273?)
 [+lo,+syl] > [+long] / __ ʎ ə #
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (s < ss)
-$ TODO (isn't this already covered by s562 and s273 though?)
+$TODO need to correct Pope -- this effect is only true when s came from ss (basse, lasse, nasse, grasse)... 
+	$but not when it came from ts (fasse, glace, menace, place...)
+	$ meaning the divergence must have occurred in Old French!
 [+front,-round,+syl] > [+long] / s ə #
 
-$TODO note -- Pope also notes lengthening by intervocalic z and the aʒə ending... 
-$ but these do not result in ɑ in Modern French -- diachronically unimportant?
-$ TODO or maybe include and correct these? 
+$s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
+[+prim] > [+long] / __ (j) ə #
 
-$s562 : currently penultimate tonic vowels get stressed when final vowel is ə, in preparation for the various ways final ə is deleted
-[+prim] > [+long] / __ ([-syl])* ə #
-
-$ s271 ə final deleted in hiatus with tonic vowel.
+$ s271 ə final deleted in hiatus with tonic vowel, even if j comes between
 $ as per s271 began in Old French with analogy in verb forms, became widespread in late 15th and 16th centuries,
 	$ ... and accepted by writer in the 16th century, even though grammarians in the 17th continued to insist that final ə was syllabic...
 ə > ∅ / [+prim] (j) __ 
@@ -1332,15 +1329,10 @@ $ s530 : final ajə become ɛː right after final ə is effaced next to it...
 $ that it is long ɛː not short ɛ is inferred because of s562...
 ˈaː j > ˈɛː / __ #
 
-$ not explicated by Pope, but implied in the transformations she shows in s272
-$ and necessary for it to work
-$ TODO use this one as an example? 
+$ s366: late degemination of r, with lengthening of any prior vowels
+[+syl] > [+long] / __ r r 
 r r > r / __ ə
 r r > r / ə __ 
-
-$ as per s5622 : lengthening of stressed vowels in syllables about to be effected by intervocalic intertonic ə deletion as per s272
-[+stres] > [+long] / __ {r;l;n} ə [+cons]
-[+stres] > [+long] / __ [+cons] ə {r;l}
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ but there do not seem to be any examples of where it occurred with n coming after ə
@@ -1349,13 +1341,23 @@ $ as per giving Pope the benefit of the doubt, we assume this is distinct from s
 ə > ∅ / {n;r;l} __ [+cons]
 ə > ∅ / [+cons] __ {r;l}
 
+$ s366: reassert degemination of r and other l given that new geminates could have just been formed by ə deltion
+$with lengthening of any prior vowels
+[+syl] > [+long] / __ r r 
+r r > r 
+l l > l
+
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
 $TODO Pope doesn't state this , but this failed to occur after sibilants.
 $TODO She also doesn't note that it only occurred right before the prime vowel, i.e. pˌəlerˈɛ̃ -- not effected.  
-$ Fix this so it "doesn't work" for demo. 
+$ TODO Fix this so it "doesn't work" for demo. 
 ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
+
+$173.1c ~ s586 : long a becomes back ɑ (still long) -- 
+$ "toward the end of the period" --  late 16th century 
+[+lo,+long,+syl] > [+back,-front]
 
 $ s436-437 ~ s563 : effacement of nasal consonant praeconsonantal after nasal vowels
 $ s437 : middle of 16th century
@@ -1369,8 +1371,13 @@ $ 16th century, "Later Middle French"
 $ also formation of wi and ɥi 
 [+hi,+syl,+stres,-prim,+round] > [-syl] / __ [+hi,+front,-round,+syl]
 
-$173.1c ~ s586 : long a becomes back ɑ (still long) -- late 16th century 
-[+lo,+long,+syl] > [+back,-front]
+$s569: Pope citing Beze, intervocalic z engenders lengthening of prior consonants
+$giving Pope benefit of the doubt, we place this after long a velarization, because of examples like masure /mazyʁ/
+[+syl] > [+long] / __ z [+syl]
+
+$s570iii ending aʒə sees lengthening of a 
+$ giving Pope benefit of the doubt, we place this after long a velarization, because of examples like voyage /vwajaʒ/
+[+lo] > [+long] / __ ʒ ə #
 
 $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 ∅ > j / w ˌɛ __ [+prim]
@@ -1390,6 +1397,23 @@ $ s273 final ə postconsonantal becomes an "off-glide" before it disappears fore
 ə > ə̯
 
 ~Early Modern French
+
+$ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
+$ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 
+$ s618-619 : counteraction led to preservation quasiregularly where it was f or k in a monosyllable. 
+$ various other factors that aren't really important diachronically
+
+$for preserving f and k as per s618-169
+$ TODO Pope misses that f seems to retain itself almost always when not supported
+$ TODO she also misses the specific conditions that meant that "the word would have lost its identity" (s619)
+$ these are implemented here -- TODO delete for purposes of demo? 
+∅ > ə̯ / # [+syl] [-syl] k __ #
+∅ > ə̯ / # [-syl] [+syl] k __ #
+∅ > ə̯ / [+syl] f __ #
+
+$ə̯ will be deleted by rule after this one ... 
+$now implement final cons loss as per s611-620: 
+[-son] > ∅ / __ #
 
 $ s273 : final "off-glide" ə is deleted.
 $ for convenience we group this with:
@@ -1425,9 +1449,6 @@ r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
 h > ∅ 
 
-$ s586 : Pope is a bit cryptic here but she seems to be saying that a: > ɑ: around the 17th century
-[+lo,+long] > [+back]
-
 $ s394 ~ s598 : r becomes uvular 
 $ seventeenth century. 
 r > ʀ
@@ -1444,11 +1465,11 @@ $ for convenience œ̃ also handled in here.
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
 
 ~Modern French
-$TODO loss of any sort of stress or length whatsoever
+$TODO loss of any sort of length whatsoever
 
 $ s525 wɛ > wa -- first attested late 16th century
 $ as per s525, not really accepted except before r "until the Revolution destroyed the old tradition"
-[-lo,-hi,-tense,+front,-round] > [+lo,+tense] / w __ 
+ɛ > a / w __ 
 
 $s441.1~s443 ã > ɑ̃ in Modern French
 $Pope does not give an exact date for this; she merely says "in the modern period"
@@ -1459,3 +1480,13 @@ $ Not found in Pope explicitly, but implied in sound tables: uvular ʀ trill bec
 
 $ Pope s381 ~ s687 : ʎ > j "in the course of Modern French" 
 ʎ > j
+
+$ Pope s177.2: ə effaced anywhere it does not bring three consonants into a cluster. 
+ə > ∅ / __ #
+ə > ∅ / __ [+syl]
+ə > ∅ / [+syl] __
+ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
+
+
+
+
