@@ -203,7 +203,11 @@ $ she does not give a date to it other than saying it Late Latin
 $ --- we give her the benefit and place it after final m deletion 
 o > ɔ / __ [+lab,-son] 
 
-$Palatalization begins in the fourth century as per Pope p129 s304
+$ -- kwinkwe > kinkwe dissimilation
+$ Pope s823 iii. Currently tentative-- may be irregular.
+w > ∅ / k __ [+syl] ([-syl]) k w [+syl]
+
+$FIRST PALATALIZATION: Palatalization begins in the fourth century as per Pope p129 s304
 $t and d preceding yod become palatalized affricates
 $p130 s308-9
 {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont] 
@@ -1208,9 +1212,6 @@ $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 
-$ TODO PLACE INTO VULGAR LATIN BEFORE FIRST PALATALIZATION -- kwinkwe > kinkwe dissimilation Pope s823 iii. Currently tentative-- may be irregular.
-$ TODO LOCATE SOURCE FOR IAKOBOS >JACQUES kəb >kkw 
-
 ~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
@@ -1479,6 +1480,7 @@ $Pope does not give an exact date for this; she merely says "in the modern perio
 ã > ɑ̃
 
 $ Not found in Pope explicitly, but implied in sound tables: uvular ʀ trill becomes  a fricative 
+$ TODO remove for demo version 
 ʀ > ʁ 
 
 $ Pope s381 ~ s687 : ʎ > j "in the course of Modern French" 

@@ -1,4 +1,4 @@
-# LEXICON.README:
+# README.lexicon:
 
 This file details how to properly construct a lexicon file so that it can be read by DiaSym.
  
