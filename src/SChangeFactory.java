@@ -524,7 +524,7 @@ public class SChangeFactory {
 				{
 					assert (curtp.charAt(0) == '[') == (curtp.charAt(curtp.length() - 1) == ']'): 
 						"Error : mismatch between presenced of opening bracket and presence "
-						+ "of closing bracket"; 
+						+ "of closing bracket --- curtp is "+curtp; 
 					if(curtp.charAt(0) == '[')
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
 					assert isValidFeatSpecList(curtp): 

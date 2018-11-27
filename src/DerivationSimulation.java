@@ -430,7 +430,7 @@ public class DerivationSimulation {
 		if (numGoldStages >0)
 			for (int gsi = 0 ; gsi<numGoldStages; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
 		
-		int lfli = 0 ;
+		int lfli = 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
 		{
@@ -501,7 +501,7 @@ public class DerivationSimulation {
 		makeTrajectoryFile(); 
 		
 		
-		if(goldInput)
+		if(goldOutput)
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
 			wordMissLocs = new boolean[NUM_ETYMA]; 
@@ -521,12 +521,19 @@ public class DerivationSimulation {
 			makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon); 
 			makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon); 
 			
-			if(customStagesSet)
+			if(goldStagesSet)
 			{	
-				for(int csi = 0; csi < customStageNames.length ; csi++)
-					makeAnalysisFile(customStageNames[csi].replaceAll(" ", "")+"ResultAnalysis.txt",
-							customStageNames[csi]+" Result", customStageResultLexica[csi]);
+				for(int gsi = 0; gsi < numGoldStages ; gsi++)
+					makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
+							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
 			}
+			if (blackStagesSet)
+			{	
+				for(int bsi = 0; bsi < numBlackStages ; bsi++)
+					makeAnalysisFile(blackStageNames[bsi].replaceAll(" ", "")+"ResultAnalysis.txt",
+							blackStageNames[bsi]+" Result", blackStageResultLexica[bsi]);
+			}
+				
 			System.out.println("Analysis files written!");
 			
 		}
@@ -604,7 +611,7 @@ public class DerivationSimulation {
 			for(SequentialPhonic ph : initWordPhSeq)
 				if(ph.getType().equals("phone"))	numPhonesInInitWord++; 
 			
-			totLexQuotients = (double)levenshteinDistance(testResultLexicon.getByID(i), goldResultLexicon.getByID(i))
+			totLexQuotients += (double)levenshteinDistance(testResultLexicon.getByID(i), goldResultLexicon.getByID(i))
 					/	(double)numPhonesInInitWord; 
 		}
 		return totLexQuotients / (double)NUM_ETYMA; 
@@ -663,8 +670,11 @@ public class DerivationSimulation {
 		return output; 
 	}
 	
+	// for the lexicon of any given stage, passed as parameter, 
 	// outputs hashmap where the value for each key Phone instance
 	// is the average Levenshtein distance for words containing that phone 
+	// normalized for length of the word
+	// counted for the number of times the phone actually occurs in that word out of total phones in the word, each time. 
 	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
@@ -682,19 +692,14 @@ public class DerivationSimulation {
 		
 		for(int li = 0; li < lexSize; li++)
 		{
-			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation(); 
-			String phonesSeenInWord = ""; 
+			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation();
 			for (SequentialPhonic ph : phs)
 			{
 				if(ph.getType().equals("phone"))
-				{
-					if(!phonesSeenInWord.contains(ph.print()))
-					{
-						phonesSeenInWord += ph.print() + ","; 
-						totalLevenshtein[phonemeIndices.get(ph.print())] += 
-								levenshteinDistance(testResultLexicon.getByID(li),
-										goldResultLexicon.getByID(li));
-					}
+				{					
+					totalLevenshtein[phonemeIndices.get(ph.print())] += 
+							normalizedLevenshtein(testResultLexicon.getByID(li),
+									goldResultLexicon.getByID(li));
 				}
 			}
 		}
@@ -782,6 +787,12 @@ public class DerivationSimulation {
 		return distMatrix[n-1][m-1]; 
 	}
 
+	private static double normalizedLevenshtein(LexPhon s, LexPhon t)
+	{
+		int nphons = getNumPhones(t.getPhonologicalRepresentation()); 
+		return ((double)levenshteinDistance(s,t)) / (double)nphons; 
+	}
+	
 	//auxiliary method -- get number of columns in lexicon file. 
 	private static int colCount(String str)
 	{
@@ -795,7 +806,20 @@ public class DerivationSimulation {
 		}
 		return c; 
 	}
-	
+
+	//count number of actual Phones in list of SequentialPhonic objects 
+	private static int getNumPhones(List<SequentialPhonic> splist)
+	{
+		int count = 0 ;
+		for (SequentialPhonic sp :  splist)
+		{
+			if(sp.getType().equals("phone"))
+			{
+				count++; 
+			}
+		}
+		return count; 
+	}
 }
 
 
