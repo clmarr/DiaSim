@@ -1117,7 +1117,7 @@ $ s556: ɥø > jø is bled after labials and velars
 
 $ s547-548 : ɔw > u in the thirteenth century. 
 $ s548: late 12th and 13th centuries. 
-[-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+{ˌɔ w;ˈɔ w;ˈɔː w} > {ˌu;ˈu;ˈuː}
 
 $ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted 
 	$when before a nasal 
@@ -1126,7 +1126,7 @@ $ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted
 	$... giving her the benefit of the doubt
 {u j;ˌu j;ˈu j;ɔ j;ˌɔ j;ˈɔ j} > {w i;w ˌi;w ˈi;w i;w ˌi;w ˈi} / __ [+nas]
 
-$ s409i ~ s239 : oi (soon to wɛ) emits j between itself and other tonic palatal vowels
+$ s409i ~ s239 : oi (> wɛ) emits j between itself and other tonic palatal vowels
 $ for reasons of organization we realize this as having uj,ɔj go to wɛj before tonic palatals
 {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
 
@@ -1179,16 +1179,20 @@ $ Pope s528-529 : ɛj > ɛ praeconsonantally.
 $ Long as per s560
 {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j}> {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
 
+$ Pope s172d ~ s375-379 ~ s564 ~ s567 : as part of praeconsonantal s effacement, 
+	$ vowels before those praeconsonantal /s/ instances become long
+[+syl] > [+long] / __ s [+ant,+cor,+cons]
+
 $ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
 $ Note: other accounts likely have s > x before ALL consonants...
 $ This bleeds normal s-effacement as per Pope -- debatable. 
-[+syl] s > [+long] x / [+syl] __ [+ant,+cor,+cons]
+s > x / [+syl] __ [+ant,+cor,+cons]
 
 $ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
 $ s377 : had not yet happened in mid 13th century -- late 13th century...? 
 $ however it must be before ts > s
 $ ...engendering lengthening of previous vowel.  
-[+syl] s >[+long] ∅ / __ [+cons]
+s >∅ / [+syl] __ [+cons]
 
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii
@@ -1209,7 +1213,7 @@ $Pope does not give an exact date here...
 
 $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
-[-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
+{ɛ j;ˌɛ j;ˈɛ j;ˈɛː j} > {e;ˌe;ˈe;ˈeː} / __ #
 
 ~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
@@ -1219,8 +1223,8 @@ $ s464 : continuation of nasalizing tendency into Middle French -- stil producti
 [+syl,-front] > [+nas] / __ [+nas,+cons]
 
 $ x effaced -- some time after the 14th century, when Orthographica Gallica was written
-$ prior vowel lengthened.
-[+syl] x > [+long] ∅ / __ [+cons] 
+$ NOTE: prior vowel should have already been lengthened as per our organization here.
+x > ∅ / [+long,+syl] __ [+cons] 
 
 $s173.1b ~s575 : e > ɛ
 $ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
@@ -1230,8 +1234,8 @@ $ we give precedence to the indepth section.
 $ denasalization of ĩ before it is lowered as per s452
 $ as per s440 - ỹ can be handled at the same time. 
 $ as per 441.10 :  so can ɥ̃ĩ 
-[-syl,-cons,+round,+front] [+nas,+front,+hi,+syl]
 [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
+[-syl,-cons,+round,+front] > ɥ / __ [-nas]
 
 $ s451 : ĩ > ẽ  -- 15th century (>ɛ̃ not until later sixteenth century as per s452)
 [+nas,+front,-round,-lo,+syl] > [-hi,-tense] 
@@ -1279,19 +1283,19 @@ $ Sixteenth century
 $ Note s245 -- some exceptions regarding əy > y, some cases it instead went to ø
 $ s562 : lengthens following vowel if it is tonic additionally
 ˌə > ˌa / __ [+lo,+stres] 
-ˌə [+prim] > ∅ [+long]
+[+prim] > [+long] / ˌə __ 
 ˌə > ∅ / __ [+syl]
 
 $ s268~s269 : ə effaced when followed by another vowel
 $ s269 began in the 13th century, but not accepted until the 16th!
 $ s562 : lengthens that vowel if it bears stress. 
-ə [+stres] > ∅ [+long]
+[+stres] > [+long] / ə __ 
 ə > ∅ / __ [+syl] 
 
 $ s270 ə coming after another vowel is effaced 
 $ s562 : neighboring vowel lengthens if it bears stress
 $ s270 : began in the 14th century but not accepted until the 16th.
-[+stres] ə > [+long] ∅
+[+stres] > [+long] / __ ə
 ə > ∅ / [+syl] __ 
 
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
