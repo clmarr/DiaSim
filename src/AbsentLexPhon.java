@@ -4,6 +4,7 @@ import java.util.ArrayList;
 /**
  * Class for representing a word that has either not entered the vocabulary yet, or has fallen out of usage.
  * @author Clayton Marr
+ * TODO implement this to model words that enter the vocabulary late or leave it early in next project.
  */
 public class AbsentLexPhon extends LexPhon {
 	
