@@ -27,7 +27,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		assert featVals.length() == featInds.size() :
 			"ERROR: violated precondition, featVals' size is not the same as featInds hashmap";
 		type = "phone";
-		featString = featVals; 
+		featString = ""+featVals; 
 		featIndices = new HashMap<String, Integer>(featInds);
 		mapToSymb = new HashMap<String, String>(); 
 		Set<String> sMKeys = symbMap.keySet(); 

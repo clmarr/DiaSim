@@ -134,9 +134,6 @@ public class SChangeFactory {
 			// in case of disjunction {..,..,..} in the context, use recursion to get all the possibilities
 			if(inputPrior.contains("{"))
 			{
-				//TODO debugging
-				System.out.println("inputPrior: "+inputPrior);
-				
 				assert inputPrior.contains("}") :
 					"Error: disjunction opener found but disjunction closer not found";
 				assert inputPrior.contains(""+segDelim) :

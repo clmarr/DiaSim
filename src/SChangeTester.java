@@ -15,18 +15,17 @@ import java.util.Set;
 public class SChangeTester {
 
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ',';
-	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
+	private final static char IMPLICATION_DELIM = ':', PH_DELIM = ' ';
 	private final static char restrDelim = ',';
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	private static String[] featsByIndex; 
+	private static String[] featsByIndex;
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String> phoneFeatsToSymbMap; 
-	private static HashMap<String, String[]> featImplications; 
-	private static Set<String> featNames; 
-	private static String featImplsLoc = "FeatImplications"; 
+	private static HashMap<String, String> phoneFeatsToSymbMap;
+	private static HashMap<String, String[]> featImplications;
+	private static Set<String> featNames;
+	private static String featImplsLoc = "FeatImplications";
 
-	
 	public static void main(String args[])
 	{
 		System.out.println("Beginning test of SChange subclasses. Note that "
@@ -265,39 +264,73 @@ public class SChangeTester {
 		
 		System.out.println("Done testing SChangePhone. Got "+numCorrect+" correct out of 17.");
 		
-	}
-	
-	private static String printWord(List<SequentialPhonic> word)
-	{
-		String output = ""; 
-		for (SequentialPhonic ph : word)
-			output+=ph.print(); 
-		return output;
-	}
-	
-	private static boolean phonSeqsEqual (List<SequentialPhonic> sp1, List<SequentialPhonic> sp2)
-	{
-		if (sp1.size() != sp2.size())	return false; 
-		int spn = sp1.size();
-		for(int spi = 0 ; spi < spn; spi++)
-			if	(!sp1.get(spi).equals(sp2.get(spi)))	return false;
-		return true; 
+		System.out.println("Now testing SChangeSeqToSeq");
+		numCorrect = 0;
+		SChangeSeqToSeq scsqTest = new SChangeSeqToSeq(featIndices, phoneSymbToFeatsMap, 
+				testFactory.parseRestrictPhoneSequence("[+hi,+tense,+long] ∅"), testFactory.parseRestrictPhoneSequence("[-hi,+lo,-long] j",true));
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t ˈiː m #"), testFactory.parseSeqPhSeg("# t ˈa j m #")) ? 1 : 0;
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t iː m #"), testFactory.parseSeqPhSeg("# t a j m #")) ? 1 : 0 ;
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t ˌiː iː #" ), testFactory.parseSeqPhSeg("# t ˌa j a j #")) ? 1 : 0 ;
+		
+		scsqTest = new SChangeSeqToSeq ( featIndices, phoneSymbToFeatsMap,
+				testFactory.parseRestrictPhoneSequence("[-lo] [+round]"), testFactory.parseRestrictPhoneSequence("[+round,+long,+lab] ∅", true)); 
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("l ˌe w u"), testFactory.parseSeqPhSeg("l ˌøː u")) ? 1 : 0;
+		
+		scsqTest = new SChangeSeqToSeq ( featIndices, phoneSymbToFeatsMap, 
+				testFactory.parseRestrictPhoneSequence("∅ [+front]"), testFactory.parseRestrictPhoneSequence("e̯ [+hi,+tense]", true)); 
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("eː n r a"), testFactory.parseSeqPhSeg("e̯ iː n r a")) ? 1 : 0 ;
+		
+		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
+				testFactory.parseRestrictPhoneSequence("[+hi,+son] [+lab]"), testFactory.parseRestrictPhoneSequence("[-tense] [+cont]", true));
+		scsqTest.setPostContext(testFactory.parseNewContext("[+cons]",false));
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("h u p p u p i p k"), testFactory.parseSeqPhSeg("h ʊ ɸ p u p ɪ ɸ k")) ? 1 : 0 ; 
+		
+		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
+				testFactory.parseRestrictPhoneSequence("[+lab] [+lab] [+hi,+front,-syl]"),
+				testFactory.parseRestrictPhoneSequence("∅ [-lab,-ant,+hi,+front] ∅", true));
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("a w β j p j o w p c y"), 
+				testFactory.parseSeqPhSeg("a ʝ p j o c y")) ? 1 : 0 ;
+				
+		scsqTest = new SChangeSeqToSeq(featIndices, phoneSymbToFeatsMap, 
+				testFactory.parseRestrictPhoneSequence("[+back] [+back]"), testFactory.parseRestrictPhoneSequence("∅ [+long]", true)); 
+		scsqTest.setPriorContext(testFactory.parseNewContext("#", true));
+		
+		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# ɣ ɑ kʷ ɔ x #"), testFactory.parseSeqPhSeg("# ɑː kʷ ɔ x #")) ? 1 : 0 ; 
+		
+		System.out.println("Done testing SChangeSeqToSeq. Got "+numCorrect+" correct out of 8.");
+		
 	}
 
-	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input, 
-			List<SequentialPhonic> expected, List<SequentialPhonic> observed)
-	{
-		return "Error in realization of this rule:\t\t"+sc+
-				"\n\tInput was:\t"+printWord(input)+"\n\tExpected result: "+printWord(expected)+
-				"\n\tObserved result:\t\t"+printWord(observed)+"\n";
+	private static String printWord(List<SequentialPhonic> word) {
+		String output = "";
+		for (SequentialPhonic ph : word)
+			output += ph.print();
+		return output;
 	}
-	
-	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp)
-	{
-		List<SequentialPhonic> obs = sc.realize(inp); 
-		if(phonSeqsEqual(exp,obs))	return true; 
+
+	private static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
+		if (sp1.size() != sp2.size())
+			return false;
+		int spn = sp1.size();
+		for (int spi = 0; spi < spn; spi++)
+			if (!sp1.get(spi).equals(sp2.get(spi)))
+				return false;
+		return true;
+	}
+
+	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
+			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
+		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + printWord(input)
+				+ "\n\tExpected result: " + printWord(expected) + "\n\tObserved result:\t\t" + printWord(observed)
+				+ "\n";
+	}
+
+	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp) {
+		List<SequentialPhonic> obs = sc.realize(inp);
+		if (phonSeqsEqual(exp, obs))
+			return true;
 		System.out.print(generateErrorMessage(sc, inp, exp, obs));
 		return false;
 	}
-	
+
 }

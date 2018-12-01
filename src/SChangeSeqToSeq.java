@@ -50,7 +50,7 @@ public class SChangeSeqToSeq  extends SChange
 		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
+				maxPlace = inpSize - Math.min(minPostSize + minTargSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
@@ -64,11 +64,11 @@ public class SChangeSeqToSeq  extends SChange
 		{
 			if (priorMatch(input, p))
 			{
-				int candIndAfter = firstIndAfterMatchedWindow(input, inpSize, p); 
-				if(candIndAfter != 1)
+				int candIndAfter = firstIndAfterMatchedWindow(input, inpSize, p);
+				if(candIndAfter != -1)
 				{
 					res.addAll(generateResult(input,p));
-					p += minDestSize; 
+					p = candIndAfter;
 				}
 				else
 				{	res.add(input.get(p)); p++;	}
@@ -94,19 +94,21 @@ public class SChangeSeqToSeq  extends SChange
 	{
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>();
 		int checkInd = firstInd, targInd = 0 ;
-		while ( targInd < minTargSize )
+		while ( targInd < targSeqSize )
 		{
 			if(targSource.get(targInd).print().equals("∅")) // a null phone -- must correspond to a proper Phone
 			{
 				String theSpecs = symbMap.get(destSpecs.get(targInd).print());
 				output.add(new Phone(theSpecs, featInds, symbMap));
-				targInd++; 
 			}
 			else
 			{
-				output.add( destSpecs.get(targInd).forceTruth(input, checkInd).get(checkInd));
-				targInd++; checkInd++; 
+				RestrictPhone thisDest = destSpecs.get(targInd); 
+				if(!thisDest.compare(new NullPhone()))
+						output.add( destSpecs.get(targInd).forceTruth(input, checkInd).get(checkInd));
+				checkInd++; 
 			}
+			targInd++; 
 		}
 		return output;
 	}
@@ -134,4 +136,19 @@ public class SChangeSeqToSeq  extends SChange
 			return posteriorMatch(input, checkInd) ? checkInd : -1; 
 		else return -1;
 	}
+
+	//@Override
+	public String toString()
+	{
+		String output = "";
+		for (RestrictPhone targRPh : targSource)
+			output += (targRPh.getClass().toString().contains("FeatMatrix")) ? targRPh+" " : targRPh.print() + " ";
+		output += "> "; 
+		
+		for (RestrictPhone destRPh : destSpecs)
+			output += (destRPh.getClass().toString().contains("FeatMatrix")) ? destRPh +" " : destRPh.print() + " ";
+		
+		return output.trim() + super.toString();
+	}
+	
 }
