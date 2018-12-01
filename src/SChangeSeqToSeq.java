@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class SChangeSeqToSeq  extends SChange
 {
 	private List<RestrictPhone> targSource, destSpecs;
-	private int minDestSize, targSeqSize; 
+	private int targSeqSize; 
 	private HashMap<String,Integer> featInds; 
 	private HashMap<String,String> symbMap; 
 	
@@ -27,7 +27,6 @@ public class SChangeSeqToSeq  extends SChange
 		targSeqSize = targSource.size();
 		minTargSize = generateTrueSize(targSource); 
 		destSpecs = new ArrayList<RestrictPhone>(dstspcs);
-		minDestSize =generateTrueSize(destSpecs); 
 		symbMap = new HashMap<String,String>(symb_map);
 		featInds = new HashMap<String,Integer>(ftInds); 
 		

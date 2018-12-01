@@ -1117,7 +1117,7 @@ $ s556: ɥø > jø is bled after labials and velars
 
 $ s547-548 : ɔw > u in the thirteenth century. 
 $ s548: late 12th and 13th centuries. 
-{ˌɔ w;ˈɔ w;ˈɔː w} > {ˌu;ˈu;ˈuː}
+[-hi,-lo,+back,+round] w > [+hi,+tense] ∅ 
 
 $ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted 
 	$when before a nasal 
@@ -1179,20 +1179,16 @@ $ Pope s528-529 : ɛj > ɛ praeconsonantally.
 $ Long as per s560
 {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j}> {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
 
-$ Pope s172d ~ s375-379 ~ s564 ~ s567 : as part of praeconsonantal s effacement, 
-	$ vowels before those praeconsonantal /s/ instances become long
-[+syl] > [+long] / __ s [+ant,+cor,+cons]
-
 $ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
 $ Note: other accounts likely have s > x before ALL consonants...
 $ This bleeds normal s-effacement as per Pope -- debatable. 
-s > x / [+syl] __ [+ant,+cor,+cons]
+[+syl] s > [+long] x / [+syl] __ [+ant,+cor,+cons]
 
 $ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
 $ s377 : had not yet happened in mid 13th century -- late 13th century...? 
 $ however it must be before ts > s
 $ ...engendering lengthening of previous vowel.  
-s >∅ / [+syl] __ [+cons]
+[+syl] s > [+long] ∅ / [+syl] __ [+cons]
 
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii
@@ -1213,7 +1209,7 @@ $Pope does not give an exact date here...
 
 $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
-{ɛ j;ˌɛ j;ˈɛ j;ˈɛː j} > {e;ˌe;ˈe;ˈeː} / __ #
+[-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 
 ~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
@@ -1223,8 +1219,7 @@ $ s464 : continuation of nasalizing tendency into Middle French -- stil producti
 [+syl,-front] > [+nas] / __ [+nas,+cons]
 
 $ x effaced -- some time after the 14th century, when Orthographica Gallica was written
-$ NOTE: prior vowel should have already been lengthened as per our organization here.
-x > ∅ / [+long,+syl] __ [+cons] 
+[+syl] x > [+long] ∅ /  __ [+cons] 
 
 $s173.1b ~s575 : e > ɛ
 $ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"

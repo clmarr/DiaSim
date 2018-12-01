@@ -209,9 +209,8 @@ public class SChangeFactory {
 		boolean srcHasFeatMatrices = inputSource.contains("["); 
 		assert srcHasFeatMatrices == inputSource.contains("]"): 
 			"Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
-		boolean srcHasValidSpecList = hasValidFeatSpecList(inputSource); 
-		if(srcHasFeatMatrices) 
-			assert srcHasValidSpecList : "Error: usage of brackets without valid feature spec list : "+inputSource; 
+		if(srcHasFeatMatrices)
+			assert hasValidFeatSpecList(inputSource): "Error: usage of brackets without valid feature spec list : "+inputSource; 
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
@@ -242,8 +241,20 @@ public class SChangeFactory {
 		// if we reach this point, we know the source is not a single FeatMatrix 
 		// and the SChange must be an SChangeFeatToPhone or SChangePhone
 		
-		if(srcHasValidSpecList) // it's an SChangeFeatToPhone
+		if(srcHasFeatMatrices) // it's an SChangeFeatToPhone or SChangeSeqToSeq
 		{
+			if(inputDest.contains("[")) // SChangeSeqToSeq
+			{
+				assert inputDest.contains("]"):  "Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
+				SChangeSeqToSeq thisShift = new SChangeSeqToSeq(featIndices, symbToFeatVects, 
+						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest)); 
+				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
+				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+				output.add(thisShift); 
+				return output;  
+			}
+			
+			//else, i.e. its a SChangeFeatToPhone 
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, 
 					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest)); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
