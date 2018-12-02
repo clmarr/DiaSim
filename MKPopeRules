@@ -27,7 +27,7 @@ $Pope p226-7 s632
 $ Greek y unrounded to i 
 [+hi,+front] > [-round]
 
-~Late Latin
+$~Late Latin
 $As per Popeˌs paradigm, it is considered Late Latin if it occurred before the end of the firth century 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
@@ -1211,7 +1211,7 @@ $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 
-~Middle French
+$~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
 $ s464 : continuation of nasalizing tendency into Middle French -- stil productive except for i and y (i.e. promener, fromage...) 
@@ -1310,11 +1310,11 @@ $ TODO implement later developments for a + i forms.
 $ s570 i : a lengthens before ʎ in final ending aʎə
 [+lo,+syl] > [+long] / __ ʎ ə #
 
-$ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (s < ss)
+$ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
 $TODO need to correct Pope -- this effect is only true when s came from ss (basse, lasse, nasse, grasse)... 
 	$but not when it came from ts (fasse, glace, menace, place...)
 	$ meaning the divergence must have occurred in Old French!
-[+front,-round,+syl] > [+long] / s ə #
+[+front,-round,+syl] > [+long] / __ s ə #
 
 $s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
 [+prim] > [+long] / __ (j) ə #
@@ -1384,18 +1384,18 @@ $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 $ s451-452 ẽ > ɛ̃ in later sixteenth century
 $ However this does not occur in the clusters of jẽ and wẽ until the early 17th century, in Early Modern, rather than Middle, French 
 	$ -- see s473-474, 669-670 for wẽ; s470-471 for jẽ; 476 for ɥɛ̃
-[+front,-lo,+nas,+syl] > # __ 
-[+front,-lo,+nas,+syl] > [+cons] __ 
-[+front,-lo,+nas,+syl] > [+syl] __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / # __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+cons] __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+syl] __ 
 
 $ s576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
-ˌe: > ˌɛ: / __ [+cons] ə
-ˌe: > ˌɛ: / __ [+cons] #
+ˈeː >ˈɛː / __ [+cons] ə
+ˈeː > ˈɛː / __ [+cons] #
 
 $ s273 final ə postconsonantal becomes an "off-glide" before it disappears forever... 
 ə > ə̯
 
-~Early Modern French
+$~Early Modern French
 
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 
@@ -1463,7 +1463,7 @@ $ s463: first attested late 17th century, not accepted until 18th.
 $ for convenience œ̃ also handled in here. 
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
 
-~Modern French
+$~Modern French
 $TODO loss of any sort of length whatsoever
 
 $ Not explicated in Pope -- TODO remove for demo version

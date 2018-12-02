@@ -34,7 +34,7 @@ public class DerivationSimulation {
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
-	private final static char LEX_DELIM ='\t'; 
+	private final static char LEX_DELIM =','; 
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -61,6 +61,7 @@ public class DerivationSimulation {
 	private static boolean goldOutput; 
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
+	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	private static String runPrefix;
 
@@ -420,7 +421,8 @@ public class DerivationSimulation {
 		if(numCols == numGoldStages + 2)
 			goldOutput = true; 
 		else
-			assert numCols == numGoldStages + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)";
+			assert numCols == numGoldStages + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
+					+ "# stages in rules file : "+numGoldStages+"; # cols : "+numCols;
 		
 		boolean justInput = (numCols == 0); 
 		
@@ -434,6 +436,8 @@ public class DerivationSimulation {
 		
 		while(lfli < NUM_ETYMA)
 		{
+			theLine = lexFileLines.get(lfli);
+			
 			wordTrajectories[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
 			inputs[lfli] = parseLexPhon(wordTrajectories[lfli]);
 			if (!justInput)
@@ -460,15 +464,17 @@ public class DerivationSimulation {
 		if(goldOutput)	
 			goldResultLexicon = new Lexicon(goldResults); 
 		
-		System.out.println("Lexicon extracted :");
+		System.out.println("Lexicon extracted.");
+		System.out.println("Now running simulation...");
 
-		//TODO evolve the words 
 		int goldStageInd = 0, blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
 		while (ri < numRules)
 		{
+			if(ri % 50 == 0)	System.out.println("On rule number "+ri);
+				
 			SChange thisShift = theShiftsInOrder.get(ri);
 			if(goldStageInd < numGoldStages)
 			{
@@ -489,13 +495,18 @@ public class DerivationSimulation {
 			}
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
-				wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
+				if (wordsChanged[wi])
+					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
 			
 			ri++; 
 		}
+		
+		System.out.println("Simulation complete.");
 			
-		File dir = new File(""+runPrefix+"Results"); 
+		File dir = new File(""+runPrefix); 
 		dir.mkdir(); 
+		
+		System.out.println("making trajectories file in "+dir);
 		
 		//make trajectories file.
 		makeTrajectoryFile(); 
@@ -504,12 +515,16 @@ public class DerivationSimulation {
 		if(goldOutput)
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
+			System.out.println("PERFORMANCE ON GOLD RESULT SET = "+PERFORMANCE);
+			numCorrectEtyma = 0;
+			
 			wordMissLocs = new boolean[NUM_ETYMA]; 
 			for(int i = 0; i < NUM_ETYMA; i++)
 			{
 				LDByWord[i] = levenshteinDistance(testResultLexicon.getByID(i), 
 						goldResultLexicon.getByID(i)); 
 				wordMissLocs[i] = (LDByWord[i] != 0);
+				numCorrectEtyma += (LDByWord[i] == 0) ? 0 : 1;
 				wordTrajectories[i] = wordTrajectories[i].substring(0, wordTrajectories[i].indexOf("\n")) +
 					(wordMissLocs[i] ? " MISS, edit distance: "+LDByWord[i]:" HIT") +
 					wordTrajectories[i].substring(wordTrajectories[i].indexOf("\n"));	
@@ -546,7 +561,7 @@ public class DerivationSimulation {
 
 	private static void makeTrajectoryFile()
 	{
-		String filename = runPrefix+"/trajectories.txt"; 
+		String filename = runPrefix+"\\trajectories.txt"; 
 		String output = "Trajectory file for "+runPrefix+"\n\n";
 		for (int wi = 0 ; wi < NUM_ETYMA ; wi++)
 			output += ""+initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)+":\n"+wordTrajectories[wi]+"\n"; 
@@ -722,13 +737,7 @@ public class DerivationSimulation {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
-		//TODO debugging
-		System.out.println("Parsing lexeme: "+toLex);
-		
 		String[] toPhones = toLex.trim().split(""+PH_DELIM);
-		
-		//TODO debugging
-		System.out.println("Number of phones detected: "+toPhones.length);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
@@ -775,12 +784,16 @@ public class DerivationSimulation {
 		
 		//then accumulate the Levenshtein Distance across the graph toward the bottom right
 		//arbitrarily, do this top-right then down row by row (could also be done up-dwon then right)
-		for(int i=0; i < n; i++)
+		
+		for(int i = 0 ;  i < n ; i++)	distMatrix[i][0] = i ;
+		for(int j = 0 ; j < m ; j++)	distMatrix[0][j] = j;
+		
+		for(int i=1; i < n; i++)
 		{
-			for(int j = 0; j < m; j++)
+			for(int j = 1; j < m; j++)
 			{
 				distMatrix[i][j] = Math.min(distMatrix[i-1][j-1]+costMatrix[i-1][j-1],
-						Math.min(distMatrix[i-1][j], distMatrix[i][j-1]) + 1); 
+						1 + Math.min(distMatrix[i-1][j], distMatrix[i][j-1])); 
 			}
 		}
 		
