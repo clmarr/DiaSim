@@ -21,26 +21,31 @@ public abstract class SChange {
 	protected SChangeContext priorContext, postContext; 
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minTargSize; 
+	protected String orig; // for debugging purposes only -- for ensuring shift was parsed correctly.
 	
-	public SChange()
+	public SChange(String origForm)
 	{
+		orig = ""+origForm; 
 		boundsMatter = false; minPriorSize = 0; minPostSize = 0;
 		priorSpecd = false; postSpecd = false; 
 	}
-	public SChange(boolean bm)
+	public SChange(boolean bm, String origForm)
 	{
+		orig = ""+origForm; 
 		boundsMatter = bm; minPriorSize = 0; minPostSize = 0; 
 		priorSpecd = false; postSpecd = false; 
 
 	}
-	public SChange(SChangeContext prior, SChangeContext post)
+	public SChange(SChangeContext prior, SChangeContext post, String origForm)
 	{
+		orig = ""+origForm;
 		priorContext = prior; postContext = post; boundsMatter = false; 
 		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; 
 	}
-	public SChange(SChangeContext prior, SChangeContext post, boolean bm)
+	public SChange(SChangeContext prior, SChangeContext post, boolean bm, String origForm)
 	{
+		orig = ""+origForm;
 		priorContext = prior; postContext = post; boundsMatter = bm;
 		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; 
@@ -75,5 +80,8 @@ public abstract class SChange {
 		if(minPostSize == 0)	return true;
 		else	return postContext.isPosteriorMatch(input, lastTargInd); 
 	}
+	
+	public String getOrig()
+	{	return orig;	}
 	
 }

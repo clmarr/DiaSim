@@ -20,12 +20,12 @@ public class SChangeFeatToPhone extends SChange{
 		destination = dest; 
 	}
 	
-	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest)
-	{	super(true); initialize(ftInds, targSpecs, dest); 	}
+	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest, String origForm)
+	{	super(true, origForm); initialize(ftInds, targSpecs, dest); 	}
 
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			SChangeContext prior, SChangeContext postr)
-	{	super(prior,postr, true); initialize(ftInds, targSpecs, dest); }
+			SChangeContext prior, SChangeContext postr, String origForm)
+	{	super(prior,postr, true, origForm); initialize(ftInds, targSpecs, dest); }
 	
 	//Realization
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)

@@ -32,14 +32,14 @@ public class SChangeSeqToSeq  extends SChange
 		
 	}
 	
-	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs)
+	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
 	{
-		super(true); initialize(ftInds, symb_map, trgsrc, dstSpcs); 
+		super(true, origForm); initialize(ftInds, symb_map, trgsrc, dstSpcs); 
 	}
 	
 	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map,  List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
-			SChangeContext prior, SChangeContext postr)
-	{	super(prior,postr, true); initialize(ftInds, symb_map, trgsrc, dstSpcs); }
+			SChangeContext prior, SChangeContext postr, String origForm)
+	{	super(prior,postr, true, origForm); initialize(ftInds, symb_map, trgsrc, dstSpcs); }
 	
 	//Realization
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)

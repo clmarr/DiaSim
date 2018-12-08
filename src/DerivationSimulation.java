@@ -64,7 +64,8 @@ public class DerivationSimulation {
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	private static String runPrefix;
-
+	private static boolean DEBUG = true; 
+	
 	public static void main(String args[])
 	{
 		Scanner input = new Scanner(System.in); 
@@ -496,7 +497,9 @@ public class DerivationSimulation {
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
-					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
+				{	wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
+					if (DEBUG)		wordTrajectories[wi] += " (ORIG: "+thisShift.getOrig()+" )";
+				}
 			
 			ri++; 
 		}

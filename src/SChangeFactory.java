@@ -221,7 +221,7 @@ public class SChangeFactory {
 			// if the input is not a valid string referring to a single phonic.
 			if(theDest.print().equals("#") == false)
 			{
-				SChangeFeat thisShift = new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter); 
+				SChangeFeat thisShift = new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter, inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(thisShift); 
@@ -231,7 +231,7 @@ public class SChangeFactory {
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
 			targSource.add(getFeatMatrix(inputSource)); 
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, targSource, 
-					parsePhoneSequenceForDest(inputDest)); 
+					parsePhoneSequenceForDest(inputDest), inp); 
 				//errors will be caught by assertions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
@@ -247,7 +247,7 @@ public class SChangeFactory {
 			{
 				assert inputDest.contains("]"):  "Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
 				SChangeSeqToSeq thisShift = new SChangeSeqToSeq(featIndices, symbToFeatVects, 
-						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest)); 
+						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest), inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(thisShift); 
@@ -256,7 +256,7 @@ public class SChangeFactory {
 			
 			//else, i.e. its a SChangeFeatToPhone 
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, 
-					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest)); 
+					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), inp); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 			output.add(thisShift); 
@@ -276,7 +276,7 @@ public class SChangeFactory {
 			{
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(inputDest, true)) ; 
-				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations);
+				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
 				if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(newShift); 
@@ -287,7 +287,7 @@ public class SChangeFactory {
 				"Error: cannot have disjunction braces in the destination for a SChangePhone with feature specified destination -- "
 				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"; 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
-			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations);
+			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 			output.add(newShift); 
@@ -297,7 +297,7 @@ public class SChangeFactory {
 		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
 		assert sourceSegs.size() == destSegs.size() : 
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!";
-		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs); 
+		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 		output.add(newShift); 

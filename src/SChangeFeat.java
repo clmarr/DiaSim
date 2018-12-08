@@ -34,33 +34,33 @@ public class SChangeFeat extends SChange {
 	}
 	
 	//constructors follow
-	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs)
-	{	super(); initialize(ftInds, targSpecs, destSpecs); 	}
+	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm)
+	{	super(origForm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
-	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm)
+	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm)
 	{
-		super(bm); initialize(ftInds, targSpecs, destSpecs); 
+		super(bm, origForm); initialize(ftInds, targSpecs, destSpecs); 
 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			SChangeContext priors, SChangeContext postrs)
-	{	super(priors,postrs); initialize(ftInds, targSpecs, destSpecs); 	}
+			SChangeContext priors, SChangeContext postrs, String origForm)
+	{	super(priors,postrs, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, SChangeContext priorContxt, SChangeContext postContxt)
-	{	super(priorContxt,postContxt,bm); initialize(ftInds, targSpecs, destSpecs); 	}
+			boolean bm, SChangeContext priorContxt, SChangeContext postContxt, String origForm)
+	{	super(priorContxt,postContxt,bm, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest)
-	{	super(); initialize(source,dest); 	}
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, String origForm)
+	{	super(origForm); initialize(source,dest); 	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, boolean bm)
-	{	super(bm); initialize(source,dest); 	}
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, boolean bm, String origForm)
+	{	super(bm, origForm); initialize(source,dest); 	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt)
-	{	super(priorContxt, postContxt); initialize(source, dest);	}
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, String origForm)
+	{	super(priorContxt, postContxt, origForm); initialize(source, dest);	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, boolean bm)
-	{	super(priorContxt, postContxt, bm); initialize(source, dest);	}
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, boolean bm, String origForm)
+	{	super(priorContxt, postContxt, bm, origForm); initialize(source, dest);	}
 	
 	//Realization
 	@Override

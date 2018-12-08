@@ -41,22 +41,22 @@ public class SChangePhone extends SChange {
 	}
 
 	//default contextless constructor
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests)
-	{	super(true);	initialize(targs, dests);	}
+	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, String origForm)
+	{	super(true, origForm);	initialize(targs, dests);	}
 	
 	//default constructor with context
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs)
-	{	super(priors,postrs,true); initialize(targs,dests);	}
+	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs, String origForm)
+	{	super(priors,postrs,true, origForm); initialize(targs,dests);	}
 	
 	//constructor for Phone > Feat by Phone, translated to standard format with only Phones (SequentialPhonic) for storage
 	//we assume that since target input is SequentialPhonic, only reasonable uses for this class are 1-to-1, 
 	//... with the latter 1 possibly including a null phone
 	// i.e. that's really the only reasonable way to use this constructor
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations)
-	{	super(true); initializeWithFeats(targs,mutations); 	}
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, String origForm)
+	{	super(true, origForm); initializeWithFeats(targs,mutations); 	}
 	
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postrs)
-	{	super(prior,postrs, true); initializeWithFeats(targs, mutations); }
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postrs, String origForm)
+	{	super(prior,postrs, true, origForm); initializeWithFeats(targs, mutations); }
 		
 	
 	//Realization
