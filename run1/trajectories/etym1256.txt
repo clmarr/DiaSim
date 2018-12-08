@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :1256:
-#t̪rˌopˈɑːre# >>> #ʁuvae̯# ( Correct : #t̪ʁuve#) :
+#t̪rˌopˈɑːre# >>> #ʁuvɛːʁ# ( Correct : #t̪ʁuve#) :
 t̪ r ˌo p ˈɑː r e 
-#t̪rˌɔpˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#t̪rˌɔpˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #t̪rˌɔpˈɑrɛ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #t̪rˌɔpˈɑːrɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #t̪rˌɔpˈaːrɛ# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
@@ -12,10 +12,11 @@ t̪ r ˌo p ˈɑː r e
 #t̪rˌoβˈae̯rə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #t̪rˌovˈae̯rə# | Rule 233 : β > v  (ORIG: β > v  )
 #t̪rˌovˈae̯r# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ðrˌovˈae̯r# | Rule 269 : [-cont,-delrel,+cor] > ð / __ [+son,+cor] (ORIG: [-cont,-delrel,+cor] > ð / __ [+son,+cor]  )
-#ðrˌuvˈae̯r# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#rˌuvˈae̯r# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#rˌuvˈae̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
-#ʀˌuvˈae̯# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#ʀuvae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#ʁuvae̯# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#t̪rˌovˈeːr# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#ðrˌovˈeːr# | Rule 270 : [-cont,-delrel,+cor] > ð / __ [+son,+cor] (ORIG: [-cont,-delrel,+cor] > ð / __ [+son,+cor]  )
+#ðrˌuvˈeːr# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#rˌuvˈeːr# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#rˌuvˈɛːr# | Rule 394 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r # (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ r # )
+#ʀˌuvˈɛːʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#ʀuvɛːʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ʁuvɛːʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

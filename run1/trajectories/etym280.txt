@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :280:
 #fˌormˈɑːt̪ikum# >>> #fuʁmat̪# ( Correct : #fʁomaʒ#) :
 f ˌo r m ˈɑː t̪ i k u m 
-#fˌɔrmˈɑːt̪ɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#fˌɔrmˈɑːt̪ɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #fˌɔrmˈɑt̪ɪkʊm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#fˌɔrmˈɑt̪ekom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#fˌɔrmˈɑt̪ekom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #fˌɔrmˈɑt̪eko# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #fˌɔrmˈɑːt̪eko# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #fˌɔrmˈɑːt̪eɡo# | Rule 88 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
@@ -14,10 +14,10 @@ f ˌo r m ˈɑː t̪ i k u m
 #fˌɔrmˈat̪ɣə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #fˌormˈat̪ɣə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #fˌormˈat̪ɣ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#fˌormˈat̪ɡ# | Rule 237 : [+cont,-son] > [-cont,-delrel,-son] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
+#fˌormˈat̪ɡ# | Rule 237 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
 #fˌormˈat̪k# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#fˌurmˈat̪k# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#fˌurmˈat̪# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#fˌuʀmˈat̪# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#fuʀmat̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#fuʁmat̪# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#fˌurmˈat̪k# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#fˌurmˈat̪# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#fˌuʀmˈat̪# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#fuʀmat̪# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#fuʁmat̪# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :201:
 #d̪uˈoːs# >>> #d̪wœ# ( Correct : #d̪ø#) :
 d̪ u ˈoː s 
-#d̪ʊˈoːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#d̪wˈoːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
-#d̪wˈos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#d̪ʊˈoːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#d̪wˈoːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#d̪wˈos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
 #d̪wˈoːs# | Rule 75 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
 #d̪wˈos# | Rule 100 : [+syl] > [-long,-splng] / __ [+cons] # (ORIG: [+syl] > [-long] / __ [+cons] #  )
 #d̪wˈoːs# | Rule 107 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
@@ -14,9 +14,9 @@ d̪ u ˈoː s
 #d̪wˈos# | Rule 218 : [+syl] > [-long,-splng] / __ [+cons] # (ORIG: [+syl] > [-long] / __ [+cons] #  )
 #d̪wˈoːs# | Rule 226 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
 #d̪wˈows# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
-#d̪wˈews# | Rule 313 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
-#d̪wˈøws# | Rule 344 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w (ORIG: [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w )
-#d̪wˈøs# | Rule 348 : w > ∅ / [+round,+front,-hi,+syl] __  (ORIG: w > ∅ / [+round,+front,-hi,+syl] __  )
-#d̪wˈø# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#d̪wø# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#d̪wœ# | Rule 462 : ø > œ / __ ( [+cons] )* # (ORIG: ø > œ / __ ([+cons])* # )
+#d̪wˈews# | Rule 314 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
+#d̪wˈøws# | Rule 345 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w (ORIG: [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w )
+#d̪wˈøs# | Rule 349 : w > ∅ / [+round,+front,-hi,+syl] __  (ORIG: w > ∅ / [+round,+front,-hi,+syl] __  )
+#d̪wˈø# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#d̪wø# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#d̪wœ# | Rule 463 : ø > œ / __ ( [+cons] )* # (ORIG: ø > œ / __ ([+cons])* # )

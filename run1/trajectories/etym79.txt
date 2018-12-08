@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :79:
-#ɑt̪ˈɑwiɑm# >>> #ɑːe̯# ( Correct : #t̪ɛ#) :
+#ɑt̪ˈɑwiɑm# >>> #aeː# ( Correct : #t̪ɛ#) :
 ɑ t̪ ˈɑ w i ɑ m 
 #ɑt̪ˈɑɣʷiɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl] (ORIG: {j;w} > [+cons,-son] / __ [+syl]  )
-#ɑt̪ˈɑɣʷɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ɑt̪ˈɑɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#ɑt̪ˈɑɣʷɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ɑt̪ˈɑɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
 #ɑt̪ˈɑɣʷʝɑm# | Rule 25 : j > ʝ / __ [+syl] (ORIG: j > ʝ / __ [+syl]  )
 #ɑt̪ˈɑʝɑm# | Rule 26 : ɣʷ > ∅ / __ ʝ (ORIG: ɣʷ > ∅ / __ ʝ )
 #ɑt̪ˈɑʝɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
@@ -14,9 +14,7 @@ Trajectory file for run 'run1'; etymon number :79:
 #aðˈaːa# | Rule 204 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas] (ORIG: [-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas] )
 #aðˈae̯a# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
 #aðˈae̯ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
-#aˈae̯ə# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#ˈaːe̯ə# | Rule 406 : [+lo,+syl] [+lo,+syl] > ∅ [+long] (ORIG: [+lo,+syl] [+lo,+syl] > ∅ [+long] )
-#ˈɑːe̯ə# | Rule 431 : [+lo,+long,+syl] > [+back,-front]  (ORIG: [+lo,+long,+syl] > [+back,-front] )
-#ˈɑːe̯ə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
-#ˈɑːe̯# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
-#ɑːe̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#aðˈeːə# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#aˈeːə# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#aˈeː# | Rule 406 : ə > ∅ / [+syl] __  (ORIG: ə > ∅ / [+syl] __  )
+#aeː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

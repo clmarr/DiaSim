@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :1287:
-#wˈɑllem# >>> #vae̯lʲ# ( Correct : #val#) :
+#wˈɑllem# >>> #vɛːlʲ# ( Correct : #val#) :
 w ˈɑ l l e m 
 #wˈɑlʲem# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
 #ɣʷˈɑlʲem# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl] (ORIG: {j;w} > [+cons,-son] / __ [+syl]  )
-#ɣʷˈɑlʲɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ɣʷˈɑlʲɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #βˈɑlʲɛm# | Rule 36 : ɣʷ > β  (ORIG: ɣʷ > β )
 #βˈɑlʲɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #βˈɑːlʲɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
@@ -12,4 +12,6 @@ w ˈɑ l l e m
 #βˈae̯lʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #vˈae̯lʲə# | Rule 233 : β > v  (ORIG: β > v  )
 #vˈae̯lʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#vae̯lʲ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#vˈeːlʲ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#vˈɛːlʲ# | Rule 392 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat] (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat] )
+#vɛːlʲ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

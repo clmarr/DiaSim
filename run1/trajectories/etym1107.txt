@@ -2,8 +2,8 @@ Trajectory file for run 'run1'; etymon number :1107:
 #sˌiɡˈellum# >>> #siːe̯lʲ# ( Correct : #so#) :
 s ˌi ɡ ˈe l l u m 
 #sˌiɡˈelʲum# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
-#sˌɪɡˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#sˌeɡˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#sˌɪɡˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#sˌeɡˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #sˌeɡˈɛlʲo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #sˌeɡʲˈɛlʲo# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] (ORIG: [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] )
 #sˌeɟˈɛlʲo# | Rule 61 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
@@ -14,6 +14,6 @@ s ˌi ɡ ˈe l l u m
 #sˌeˈiːe̯lʲo# | Rule 151 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
 #sˌeˈiːe̯lʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #sˌeˈiːe̯lʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#sˌəˈiːe̯lʲ# | Rule 305 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
-#sˈiːe̯lʲ# | Rule 401 : ˌə > ∅ / __ [+syl] (ORIG: ˌə > ∅ / __ [+syl] )
-#siːe̯lʲ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#sˌəˈiːe̯lʲ# | Rule 306 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
+#sˈiːe̯lʲ# | Rule 402 : ˌə > ∅ / __ [+syl] (ORIG: ˌə > ∅ / __ [+syl] )
+#siːe̯lʲ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

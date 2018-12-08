@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :612:
-#lˌokˈɑːre# >>> #luae̯# ( Correct : #lwe#) :
+#lˌokˈɑːre# >>> #luɛːʁ# ( Correct : #lwe#) :
 l ˌo k ˈɑː r e 
-#lˌɔkˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#lˌɔkˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #lˌɔkˈɑrɛ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #lˌɔkˈɑːrɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #lˌɔɡˈɑːrɛ# | Rule 88 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
@@ -12,7 +12,10 @@ l ˌo k ˈɑː r e
 #lˌɔˈae̯rə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #lˌoˈae̯rə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #lˌoˈae̯r# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#lˌuˈae̯r# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#l?ˈae̯r# | Rule 434 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres] (ORIG: [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres] )
-#l?ˈae̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
-#luae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#lˌoˈeːr# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#lˌuˈeːr# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#lˌuˈɛːr# | Rule 394 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r # (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ r # )
+#l?ˈɛːr# | Rule 435 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres] (ORIG: [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres] )
+#l?ˈɛːʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#luɛːʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#luɛːʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

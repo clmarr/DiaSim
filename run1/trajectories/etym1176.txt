@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :1176:
 #t̪ˌɑbˈoːn̪em# >>> #t̪ə̃ɔ̯̃n̪# ( Correct : #t̪ɑ̃#) :
 t̪ ˌɑ b ˈoː n̪ e m 
-#t̪ˌɑbˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#t̪ˌɑbˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #t̪ˌɑβˈoːn̪ɛm# | Rule 37 : b > β / [+syl] __ [+son,-lat,-nas] (ORIG: b > β / [+syl] __ [+son,-lat,-nas] )
-#t̪ˌɑβˈon̪ɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#t̪ˌɑβˈon̪ɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
 #t̪ˌɑβˈon̪ɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #t̪ˌɑβˈoːn̪ɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #t̪ˌɑˈoːn̪ɛ# | Rule 86 : β > ∅ / __ [+tense,+round,+syl] (ORIG: β > ∅ / __ [+tense,+round,+syl] )
@@ -12,9 +12,9 @@ t̪ ˌɑ b ˈoː n̪ e m
 #t̪ˌɔwn̪ə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #t̪ˌown̪ə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #t̪ˌown̪# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#t̪ˌewn̪# | Rule 313 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
-#t̪ˌəwn̪# | Rule 342 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
-#t̪ˌə?n̪# | Rule 351 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-front] > [+nas] / __ [+nas] )
-#t̪ˌə̃?n̪# | Rule 352 : [-cons,-hi] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-hi] > [+nas] / __ [+nas] )
-#t̪ə̃?n̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#t̪ə̃ɔ̯̃n̪# | Rule 460 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat]  (ORIG: [+back,-lo,+nas] > [-hi,-tense] )
+#t̪ˌewn̪# | Rule 314 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
+#t̪ˌəwn̪# | Rule 343 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
+#t̪ˌə?n̪# | Rule 352 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-front] > [+nas] / __ [+nas] )
+#t̪ˌə̃?n̪# | Rule 353 : [-cons,-hi] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-hi] > [+nas] / __ [+nas] )
+#t̪ə̃?n̪# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#t̪ə̃ɔ̯̃n̪# | Rule 461 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+back,-lo,+nas] > [-hi,-tense] )

@@ -747,6 +747,10 @@ public class DerivationSimulation {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
+		
+		//TODO debugging
+		System.out.println("toLex: "+toLex);
+		
 		String[] toPhones = toLex.trim().split(""+PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,

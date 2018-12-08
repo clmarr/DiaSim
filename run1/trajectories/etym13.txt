@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :13:
-#ˈɑːeːrem# >>> #ae̯# ( Correct : #ɛʁ#) :
+#ˈɑːeːrem# >>> #ɛːʁ# ( Correct : #ɛʁ#) :
 ˈɑː eː r e m 
-#ˈɑːeːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˈɑːerɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#ˈɑːeːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˈɑːerɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
 #ˈɑerɛm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #ˈɑerɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #ˈɑːerɛ# | Rule 72 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
@@ -11,5 +11,8 @@ Trajectory file for run 'run1'; etymon number :13:
 #ˈae̯rɛ# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
 #ˈae̯rə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˈae̯r# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ˈae̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
-#ae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˈeːr# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#ˈɛːr# | Rule 394 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r # (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ r # )
+#ˈɛːʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#ɛːʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ɛːʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

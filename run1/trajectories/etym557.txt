@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :557:
-#lˈɑːikum# >>> #lae̯# ( Correct : #lɛ#) :
+#lˈɑːikum# >>> #lɛːk# ( Correct : #lɛ#) :
 l ˈɑː i k u m 
-#lˈɑːɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#lˈɑːɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #lˈɑɪkʊm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#lˈɑekom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#lˈɑekom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #lˈɑeko# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #lˈɑːeko# | Rule 72 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
 #lˈɑːeɡo# | Rule 88 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
@@ -15,5 +15,8 @@ l ˈɑː i k u m
 #lˈae̯ɣ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #lˈae̯x# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
 #lˈae̯k# | Rule 256 : x > k / __ # (ORIG: x > k / __ # )
-#lˈae̯# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#lae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#lˈeːk# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#lˈɛːk# | Rule 444 : ˈeː > ˈɛː / __ [+cons] # (ORIG: ˈeː > ˈɛː / __ [+cons] # )
+#lˈɛːkə̯# | Rule 447 : ∅ > ə̯ / # [-syl] [+syl] k __ # (ORIG: ∅ > ə̯ / # [-syl] [+syl] k __ # )
+#lˈɛːk# | Rule 450 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#lɛːk# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

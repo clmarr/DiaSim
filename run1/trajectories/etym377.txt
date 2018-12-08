@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :377:
 #iˈuɡum# >>> #ʝ?w# ( Correct : #ʒu#) :
 i ˈu ɡ u m 
-#ɪˈʊɡʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#jˈʊɡʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#ɪˈʊɡʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#jˈʊɡʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
 #ʝˈʊɡʊm# | Rule 25 : j > ʝ / __ [+syl] (ORIG: j > ʝ / __ [+syl]  )
-#ʝˈoɡom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#ʝˈoɡom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #ʝˈoɡo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #ʝˈoɣo# | Rule 66 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas] (ORIG: [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas] )
 #ʝˈoːɣo# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
@@ -12,5 +12,5 @@ i ˈu ɡ u m
 #ʝˈoːu# | Rule 124 : o > u / [+syl,+prim] __ # (ORIG: o > u / [+syl,+prim] __ #  )
 #ʝˈoːw# | Rule 125 : [+hi,+syl,-stres] > [-syl,.stres,.prim] / [+prim] __ # (ORIG: [+hi,+syl,-stres] > [-syl] / [+prim] __ #  )
 #ʝˈoww# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
-#ʝˈuww# | Rule 308 : [+tense,+syl,+round,-hi,-lo] > [+hi] / __ w [+lab,-syl] (ORIG: [+tense,+syl,+round,-hi,-lo] >[+hi] / __ w [+lab,-syl] )
-#ʝ?w# | Rule 408 : [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] (ORIG: [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] )
+#ʝˈuww# | Rule 309 : [+tense,+syl,+round,-hi,-lo] > [+hi] / __ w [+lab,-syl] (ORIG: [+tense,+syl,+round,-hi,-lo] >[+hi] / __ w [+lab,-syl] )
+#ʝ?w# | Rule 409 : [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] (ORIG: [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] )

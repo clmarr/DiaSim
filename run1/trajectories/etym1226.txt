@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :1226:
-#t̪ˌorn̪ˈɑːre# >>> #t̪uʁn̪ae̯# ( Correct : #t̪uʁn̪e#) :
+#t̪ˌorn̪ˈɑːre# >>> #t̪uʁn̪ɛːʁ# ( Correct : #t̪uʁn̪e#) :
 t̪ ˌo r n̪ ˈɑː r e 
-#t̪ˌɔrn̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#t̪ˌɔrn̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #t̪ˌɔrn̪ˈɑrɛ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #t̪ˌɔrn̪ˈɑːrɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #t̪ˌɔrn̪ˈaːrɛ# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
@@ -9,8 +9,9 @@ t̪ ˌo r n̪ ˈɑː r e
 #t̪ˌɔrn̪ˈae̯rə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #t̪ˌorn̪ˈae̯rə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #t̪ˌorn̪ˈae̯r# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#t̪ˌurn̪ˈae̯r# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#t̪ˌurn̪ˈae̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
-#t̪ˌuʀn̪ˈae̯# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#t̪uʀn̪ae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#t̪uʁn̪ae̯# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#t̪ˌorn̪ˈeːr# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#t̪ˌurn̪ˈeːr# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#t̪ˌurn̪ˈɛːr# | Rule 394 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r # (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ r # )
+#t̪ˌuʀn̪ˈɛːʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#t̪uʀn̪ɛːʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#t̪uʁn̪ɛːʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

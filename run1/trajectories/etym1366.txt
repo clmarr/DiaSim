@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :1366:
-#wˌolˈon̪t̪ˈɑːt̪em# >>> #v?t̪ae̯# ( Correct : #volɔ̃t̪e#) :
+#wˌolˈon̪t̪ˈɑːt̪em# >>> #v?t̪eː# ( Correct : #volɔ̃t̪e#) :
 w ˌo l ˈo n̪ t̪ ˈɑː t̪ e m 
 #wˌoɫˈon̪t̪ˈɑːt̪em# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __ )
 #ɣʷˌoɫˈon̪t̪ˈɑːt̪em# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl] (ORIG: {j;w} > [+cons,-son] / __ [+syl]  )
-#ɣʷˌɔɫˈɔn̪t̪ˈɑːt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ɣʷˌɔɫˈɔn̪t̪ˈɑːt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #ɣʷˌɔɫɔn̪t̪ˈɑːt̪ɛm# | Rule 23 : [+prim] > [-stres,-prim,+syl,+son,.delrel] / __ ( [-syl] )* [+prim] (ORIG: [+prim] > [-stres] / __ ([-syl])* [+prim] )
 #βˌɔɫɔn̪t̪ˈɑːt̪ɛm# | Rule 36 : ɣʷ > β  (ORIG: ɣʷ > β )
 #βˌɔɫɔn̪t̪ˈɑt̪ɛm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
@@ -19,9 +19,10 @@ w ˌo l ˈo n̪ t̪ ˈɑː t̪ e m
 #vˌoɫn̪t̪ˈae̯ðə# | Rule 233 : β > v  (ORIG: β > v  )
 #vˌoɫn̪t̪ˈae̯ð# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #vˌoɫn̪t̪ˈae̯θ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#vˌoɫt̪ˈae̯θ# | Rule 264 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#vˌuɫt̪ˈae̯θ# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#vˌuwt̪ˈae̯θ# | Rule 334 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#vˌuwt̪ˈae̯# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#v?t̪ˈae̯# | Rule 408 : [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] (ORIG: [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] )
-#v?t̪ae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#vˌoɫn̪t̪ˈeːθ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#vˌoɫt̪ˈeːθ# | Rule 265 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
+#vˌuɫt̪ˈeːθ# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#vˌuwt̪ˈeːθ# | Rule 335 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
+#vˌuwt̪ˈeː# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#v?t̪ˈeː# | Rule 409 : [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] (ORIG: [+hi,+back,+round] [+hi,+back,+round] > ∅ [+long] )
+#v?t̪eː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

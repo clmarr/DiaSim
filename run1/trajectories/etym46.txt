@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :46:
 #ˌɑmˈiːkum# >>> #amiː# ( Correct : #ami#) :
 ˌɑ m ˈiː k u m 
-#ˌɑmˈiːkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˌɑmˈikʊm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#ˌɑmˈikom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#ˌɑmˈiːkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˌɑmˈikʊm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#ˌɑmˈikom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #ˌɑmˈiko# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #ˌɑmˈiːko# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #ˌɑmˈiːɡo# | Rule 88 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
@@ -16,6 +16,6 @@ Trajectory file for run 'run1'; etymon number :46:
 #ˌamˈiːʝ# | Rule 257 : ç > ʝ  (ORIG: ç > ʝ )
 #ˌamˈiːj# | Rule 258 : ʝ > j / [+syl] __  (ORIG: ʝ > j / [+syl] __  )
 #ˌamˈiː# | Rule 259 : j > ∅ / [+hi,+front,+tense] __  (ORIG: j > ∅ / [+hi,+front,+tense] __ )
-#ˌãmˈiː# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
-#ˌamˈiː# | Rule 452 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
-#amiː# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˌãmˈiː# | Rule 301 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
+#ˌamˈiː# | Rule 453 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
+#amiː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

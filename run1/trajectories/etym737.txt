@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :737:
-#n̪ˈɑːn̪ɑm# >>> #n̪aẽ̯n̪# ( Correct : #n̪ɛn̪#) :
+#n̪ˈɑːn̪ɑm# >>> #n̪ɐ̃ːn̪# ( Correct : #n̪ɛn̪#) :
 n̪ ˈɑː n̪ ɑ m 
 #n̪ˈɑn̪ɑm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #n̪ˈɑn̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
@@ -7,7 +7,11 @@ n̪ ˈɑː n̪ ɑ m
 #n̪ˈaːn̪a# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
 #n̪ˈae̯n̪a# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
 #n̪ˈae̯n̪ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
-#n̪ˈaẽ̯n̪ə# | Rule 352 : [-cons,-hi] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-hi] > [+nas] / __ [+nas] )
-#n̪ˈaẽ̯n̪ə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
-#n̪ˈaẽ̯n̪# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
-#n̪aẽ̯n̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#n̪ˈeːn̪ə# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#n̪ˈẽːn̪ə# | Rule 303 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+front,-hi,+syl] > [+nas] / __ [+nas,-syl] )
+#n̪ˈɛ̃ːn̪ə# | Rule 326 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+front,-hi,-lo,+syl,+nas] > [-tense] )
+#n̪ˈæ̃ːn̪ə# | Rule 331 : [+nas,-hi,+syl] > [+lo]  (ORIG: [+nas,-hi,+syl] > [+lo] )
+#n̪ˈɐ̃ːn̪ə# | Rule 432 : [+lo,+long,+syl] > [+back,-front]  (ORIG: [+lo,+long,+syl] > [+back,-front] )
+#n̪ˈɐ̃ːn̪ə̯# | Rule 445 : ə > ə̯  (ORIG: ə > ə̯ )
+#n̪ˈɐ̃ːn̪# | Rule 450 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#n̪ɐ̃ːn̪# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

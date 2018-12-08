@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :155:
-#d̪ˈɑːmum# >>> #d̪aẽ̯# ( Correct : #d̪ɛ̃#) :
+#d̪ˈɑːmum# >>> #d̪ɐ̃ː# ( Correct : #d̪ɛ̃#) :
 d̪ ˈɑː m u m 
-#d̪ˈɑːmʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#d̪ˈɑːmʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #d̪ˈɑmʊm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#d̪ˈɑmom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#d̪ˈɑmom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #d̪ˈɑmo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #d̪ˈɑːmo# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #d̪ˈaːmo# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
@@ -11,6 +11,10 @@ d̪ ˈɑː m u m
 #d̪ˈae̯mə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #d̪ˈae̯m# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #d̪ˈae̯m̥# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#d̪ˈaẽ̯m̥# | Rule 352 : [-cons,-hi] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-hi] > [+nas] / __ [+nas] )
-#d̪ˈaẽ̯# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#d̪aẽ̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#d̪ˈeːm̥# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#d̪ˈẽːm̥# | Rule 303 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+front,-hi,+syl] > [+nas] / __ [+nas,-syl] )
+#d̪ˈɛ̃ːm̥# | Rule 326 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+front,-hi,-lo,+syl,+nas] > [-tense] )
+#d̪ˈæ̃ːm̥# | Rule 331 : [+nas,-hi,+syl] > [+lo]  (ORIG: [+nas,-hi,+syl] > [+lo] )
+#d̪ˈɐ̃ːm̥# | Rule 432 : [+lo,+long,+syl] > [+back,-front]  (ORIG: [+lo,+long,+syl] > [+back,-front] )
+#d̪ˈɐ̃ː# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#d̪ɐ̃ː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :741:
-#n̪ˌɑːt̪ˈɑːlem# >>> #n̪ɑːe̯w# ( Correct : #n̪ɔɛl#) :
+#n̪ˌɑːt̪ˈɑːlem# >>> #n̪øː# ( Correct : #n̪ɔɛl#) :
 n̪ ˌɑː t̪ ˈɑː l e m 
 #n̪ˌɑːt̪ˈɑːɫem# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __ )
-#n̪ˌɑːt̪ˈɑːɫɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#n̪ˌɑːt̪ˈɑːɫɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #n̪ˌɑt̪ˈɑɫɛm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #n̪ˌɑt̪ˈɑɫɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #n̪ˌɑt̪ˈɑːɫɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
@@ -12,8 +12,10 @@ n̪ ˌɑː t̪ ˈɑː l e m
 #n̪ˌaðˈae̯ɫɛ# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
 #n̪ˌaðˈae̯ɫə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #n̪ˌaðˈae̯ɫ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#n̪ˌaðˈae̯w# | Rule 334 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#n̪ˌaˈae̯w# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#n̪ˈaːe̯w# | Rule 406 : [+lo,+syl] [+lo,+syl] > ∅ [+long] (ORIG: [+lo,+syl] [+lo,+syl] > ∅ [+long] )
-#n̪ˈɑːe̯w# | Rule 431 : [+lo,+long,+syl] > [+back,-front]  (ORIG: [+lo,+long,+syl] > [+back,-front] )
-#n̪ɑːe̯w# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#n̪ˌaðˈeːɫ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#n̪ˌaðˈeːw# | Rule 335 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
+#n̪ˌaˈeːw# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#n̪ˌaˈøːw# | Rule 345 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w (ORIG: [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w )
+#n̪ˌaˈøː# | Rule 349 : w > ∅ / [+round,+front,-hi,+syl] __  (ORIG: w > ∅ / [+round,+front,-hi,+syl] __  )
+#n̪ˈøː# | Rule 413 : ˌa > ∅ / __ [+prim] (ORIG: ˌa > ∅ / __ [+prim] )
+#n̪øː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

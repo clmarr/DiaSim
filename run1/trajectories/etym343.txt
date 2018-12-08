@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :343:
 #hˈord̪eum# >>> #ɔʁ# ( Correct : #ɔʁʒ#) :
 h ˈo r d̪ e u m 
-#hˈɔrd̪ɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#hˈɔrd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#hˈɔrd̪ɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#hˈɔrd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
 #hˈɔrd̪ʝʊm# | Rule 25 : j > ʝ / __ [+syl] (ORIG: j > ʝ / __ [+syl]  )
-#hˈɔrd̪ʝom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#hˈɔrd̪ʝom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #hˈɔrd̪ʝo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #hˈɔrɟʝo# | Rule 58 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont] (ORIG: {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]  )
 #hˈɔrɟo# | Rule 63 : ʝ > ∅ / [-cont,+hi,+front] __  (ORIG: ʝ > ∅ / [-cont,+hi,+front] __ )
@@ -13,8 +13,8 @@ h ˈo r d̪ e u m
 #ˈɔrd͡ʒə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˈɔrd͡ʒ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #ˈɔrt͡ʃ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#ˈɔrʃ# | Rule 376 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
-#ˈɔr# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#ˈɔʀ# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#ɔʀ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#ɔʁ# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#ˈɔrʃ# | Rule 377 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
+#ˈɔr# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#ˈɔʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#ɔʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ɔʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

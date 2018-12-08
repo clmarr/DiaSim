@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :380:
 #iˈuːs# >>> #ʝyː# ( Correct : #ʒy#) :
 i ˈuː s 
-#ɪˈuːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#jˈuːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#ɪˈuːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#jˈuːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
 #ʝˈuːs# | Rule 25 : j > ʝ / __ [+syl] (ORIG: j > ʝ / __ [+syl]  )
-#ʝˈus# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#ʝˈus# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
 #ʝˈuːs# | Rule 75 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
 #ʝˈus# | Rule 100 : [+syl] > [-long,-splng] / __ [+cons] # (ORIG: [+syl] > [-long] / __ [+cons] #  )
 #ʝˈuːs# | Rule 107 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
@@ -15,6 +15,6 @@ i ˈuː s
 #ʝ?s# | Rule 194 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
 #ʝˈʉs# | Rule 218 : [+syl] > [-long,-splng] / __ [+cons] # (ORIG: [+syl] > [-long] / __ [+cons] #  )
 #ʝ?s# | Rule 226 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
-#ʝˈyːs# | Rule 298 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
-#ʝˈyː# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#ʝyː# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ʝˈyːs# | Rule 299 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
+#ʝˈyː# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#ʝyː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

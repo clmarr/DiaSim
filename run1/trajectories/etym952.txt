@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :952:
-#prˈɑːt̪um# >>> #vʁae̯# ( Correct : #pʁɛ#) :
+#prˈɑːt̪um# >>> #vʁeː# ( Correct : #pʁɛ#) :
 p r ˈɑː t̪ u m 
-#prˈɑːt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#prˈɑːt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #prˈɑt̪ʊm# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#prˈɑt̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#prˈɑt̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #prˈɑt̪o# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #prˈɑːt̪o# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #prˈaːt̪o# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
@@ -13,10 +13,11 @@ p r ˈɑː t̪ u m
 #prˈae̯ðə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #prˈae̯ð# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #prˈae̯θ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#brˈae̯θ# | Rule 271 : p > b / __ [+son,+cont,-nas] (ORIG: p > b / __ [+son,+cont,-nas] )
-#βrˈae̯θ# | Rule 272 : b > β / __ r (ORIG: b > β / __ r )
-#vrˈae̯θ# | Rule 273 : β > v  (ORIG: β > v )
-#vrˈae̯# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#vʀˈae̯# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#vʀae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#vʁae̯# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#prˈeːθ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#brˈeːθ# | Rule 272 : p > b / __ [+son,+cont,-nas] (ORIG: p > b / __ [+son,+cont,-nas] )
+#βrˈeːθ# | Rule 273 : b > β / __ r (ORIG: b > β / __ r )
+#vrˈeːθ# | Rule 274 : β > v  (ORIG: β > v )
+#vrˈeː# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#vʀˈeː# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#vʀeː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#vʁeː# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

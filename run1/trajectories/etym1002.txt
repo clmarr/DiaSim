@@ -2,8 +2,8 @@ Trajectory file for run 'run1'; etymon number :1002:
 #rˌɑst̪ˈellum# >>> #ʁast̪iːe̯lʲ# ( Correct : #ʁɑt̪o#) :
 r ˌɑ s t̪ ˈe l l u m 
 #rˌɑst̪ˈelʲum# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
-#rˌɑst̪ˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#rˌɑst̪ˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#rˌɑst̪ˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#rˌɑst̪ˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #rˌɑst̪ˈɛlʲo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #rˌɑst̪ˈɛːlʲo# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #rˌɑst̪ˈie̯lʲo# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}  (ORIG: {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} )
@@ -11,6 +11,6 @@ r ˌɑ s t̪ ˈe l l u m
 #rˌast̪ˈiːe̯lʲo# | Rule 151 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
 #rˌast̪ˈiːe̯lʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #rˌast̪ˈiːe̯lʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ʀˌast̪ˈiːe̯lʲ# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#ʀast̪iːe̯lʲ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#ʁast̪iːe̯lʲ# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#ʀˌast̪ˈiːe̯lʲ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#ʀast̪iːe̯lʲ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ʁast̪iːe̯lʲ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

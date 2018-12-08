@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :92:
-#ˌɑwsˈɑːre# >>> #əwzae̯# ( Correct : #oze#) :
+#ˌɑwsˈɑːre# >>> #əwzɛːʁ# ( Correct : #oze#) :
 ˌɑ w s ˈɑː r e 
-#ˌɑwsˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˌɑwsˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #ˌɑwsˈɑrɛ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #ˌɑwsˈɑːrɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #ˌɑwzˈɑːrɛ# | Rule 90 : [+cont,-son] > [+voi] / [-cons] __ [-cons] (ORIG: [+cont,-son] > [+voi] / [-cons] __ [-cons] )
@@ -11,7 +11,10 @@ Trajectory file for run 'run1'; etymon number :92:
 #ˌɔwzˈae̯rə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˌowzˈae̯rə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #ˌowzˈae̯r# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ˌewzˈae̯r# | Rule 313 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
-#ˌəwzˈae̯r# | Rule 342 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
-#ˌəwzˈae̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
-#əwzae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˌowzˈeːr# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#ˌewzˈeːr# | Rule 314 : [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w (ORIG: [+round,+back,+tense,-hi] > [-back,+front,-round,-lab] / __ w  )
+#ˌəwzˈeːr# | Rule 343 : ˌe > ˌə / __ ( [+cons] ) [-cons] (ORIG: ˌe > ˌə / __ ([+cons]) [-cons]  )
+#ˌəwzˈɛːr# | Rule 394 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r # (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ r # )
+#ˌəwzˈɛːʀ# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#əwzɛːʀ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#əwzɛːʁ# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

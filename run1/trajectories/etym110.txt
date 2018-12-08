@@ -1,19 +1,21 @@
 Trajectory file for run 'run1'; etymon number :110:
-#bˌɑt̪t̪uˈɑːliɑ# >>> #bat̪ae̯j# ( Correct : #bat̪aj#) :
+#bˌɑt̪t̪uˈɑːliɑ# >>> #bat̪ɛːj# ( Correct : #bat̪aj#) :
 b ˌɑ t̪ t̪ u ˈɑː l i ɑ 
 #bˌɑt̪t̪uˈɑːlʲiɑ# | Rule 3 : l > lʲ / __ [+hi,+front] (ORIG: l > [+hi,+front] / __ [+hi,+front]  )
-#bˌɑt̪t̪ʊˈɑːlʲɪɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#bˌɑt̪t̪wˈɑːlʲjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
+#bˌɑt̪t̪ʊˈɑːlʲɪɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#bˌɑt̪t̪wˈɑːlʲjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl] (ORIG: [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl] )
 #bˌɑt̪t̪wˈɑːlʲʝɑ# | Rule 25 : j > ʝ / __ [+syl] (ORIG: j > ʝ / __ [+syl]  )
 #bˌɑt̪t̪wˈɑlʲʝɑ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #bˌɑt̪t̪wˈɑʎɑ# | Rule 65 : [+lat] [+hi,+front,-syl,+voi,+cont] > ʎ (ORIG: [+lat] [+hi,+front,-syl,+voi,+cont] > ʎ )
 #bˌɑt̪t̪wˈɑːʎɑ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #bˌat̪t̪wˈaːʎa# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
 #bˌat̪t̪ˈaːʎa# | Rule 137 : w > ∅ / [+cons] [+cons,-back] __  (ORIG: w > ∅ / [+cons] [+cons,-back] __ )
-#bˌat̪t̪ˈaːʎɛ# | Rule 159 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
+#bˌat̪t̪ˈaːʎɛ# | Rule 159 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
 #bˌat̪t̪ˈae̯ʎɛ# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
 #bˌat̪t̪ˈae̯ʎə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #bˌat̪t̪ˈae̯ʎ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#bˌat̪ˈae̯ʎ# | Rule 284 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] (ORIG: [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]  )
-#bat̪ae̯ʎ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#bat̪ae̯j# | Rule 466 : ʎ > j  (ORIG: ʎ > j )
+#bˌat̪t̪ˈeːʎ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#bˌat̪ˈeːʎ# | Rule 285 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] (ORIG: [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]  )
+#bˌat̪ˈɛːʎ# | Rule 392 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat] (ORIG: [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat] )
+#bat̪ɛːʎ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#bat̪ɛːj# | Rule 467 : ʎ > j  (ORIG: ʎ > j )

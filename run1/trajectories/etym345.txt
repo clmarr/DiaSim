@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :345:
-#hˌospit̪ˈɑːle# >>> #ust̪ae̯w# ( Correct : #ɔt̪ɛl#) :
+#hˌospit̪ˈɑːle# >>> #ust̪øː# ( Correct : #ɔt̪ɛl#) :
 h ˌo s p i t̪ ˈɑː l e  
 #hˌospit̪ˈɑːɫe# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __ )
-#hˌɔspɪt̪ˈɑːɫɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#hˌɔspɪt̪ˈɑːɫɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #hˌɔspɪt̪ˈɑɫɛ# | Rule 48 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#hˌɔspet̪ˈɑɫɛ# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#hˌɔspet̪ˈɑɫɛ# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #ˌɔspet̪ˈɑɫɛ# | Rule 67 : h > ∅  (ORIG: h > ∅  )
 #ˌɔspet̪ˈɑːɫɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #ˌɔspet̪ˈaːɫɛ# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
@@ -15,6 +15,9 @@ h ˌo s p i t̪ ˈɑː l e
 #ˌɔst̪ˈae̯ɫə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˌost̪ˈae̯ɫə# | Rule 231 : {ˌɛ;ˌɔ} > {ˌe;ˌo}  (ORIG: {ˌɛ;ˌɔ} > {ˌe;ˌo} )
 #ˌost̪ˈae̯ɫ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ˌust̪ˈae̯ɫ# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#ˌust̪ˈae̯w# | Rule 334 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#ust̪ae̯w# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˌost̪ˈeːɫ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#ˌust̪ˈeːɫ# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#ˌust̪ˈeːw# | Rule 335 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
+#ˌust̪ˈøːw# | Rule 345 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w (ORIG: [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w )
+#ˌust̪ˈøː# | Rule 349 : w > ∅ / [+round,+front,-hi,+syl] __  (ORIG: w > ∅ / [+round,+front,-hi,+syl] __  )
+#ust̪øː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

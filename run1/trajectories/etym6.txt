@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :6:
-#ˈɑd̪jɑkem# >>> #ae̯# ( Correct : #ɛz#) :
+#ˈɑd̪jɑkem# >>> #ɛː# ( Correct : #ɛz#) :
 ˈɑ d̪ j ɑ k e m 
 #ˈɑd̪ʝɑkem# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl] (ORIG: {j;w} > [+cons,-son] / __ [+syl]  )
-#ˈɑd̪ʝɑkɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˈɑd̪ʝɑkɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #ˈɑd̪ʝɑkɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #ˈɑɟʝɑkɛ# | Rule 58 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont] (ORIG: {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]  )
 #ˈɑɟʝɑkʲɛ# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] (ORIG: [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] )
@@ -19,7 +19,9 @@ Trajectory file for run 'run1'; etymon number :6:
 #ˈae̯d͡zʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˈae̯d͡zʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #ˈae̯t͡sʲ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#ˈae̯t͡s# | Rule 294 : t͡sʲ > t͡s  (ORIG: t͡sʲ >t͡s )
-#ˈae̯s# | Rule 376 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
-#ˈae̯# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#ae̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˈeːt͡sʲ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#ˈeːt͡s# | Rule 295 : t͡sʲ > t͡s  (ORIG: t͡sʲ >t͡s )
+#ˈeːs# | Rule 377 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
+#ˈɛːs# | Rule 444 : ˈeː > ˈɛː / __ [+cons] # (ORIG: ˈeː > ˈɛː / __ [+cons] # )
+#ˈɛː# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#ɛː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

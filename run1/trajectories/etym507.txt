@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :507:
 #krˈɑssoːs# >>> #jʁas# ( Correct : #ɡʁɑ#) :
 k r ˈɑ s s oː s 
-#krˈɑssos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#krˈɑssos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
 #xrˈɑssos# | Rule 77 : [+hi,+back,-cont] > [+cont,.delrel] / __ [+cor,+cons] (ORIG: [+hi,+back,-cont] > [+cont] / __ [+cor,+cons] )
 #xrˈassos# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
 #çrˈassos# | Rule 138 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor] (ORIG: [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor] )
@@ -10,9 +10,9 @@ k r ˈɑ s s oː s
 #jrˈassos# | Rule 209 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}  (ORIG: {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} )
 #jrˈassəs# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #jrˈasss# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#jrˈass?# | Rule 237 : [+cont,-son] > [-cont,-delrel,-son] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#jrˈas?# | Rule 264 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#jrˈas# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#jʀˈas# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
-#jʀas# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#jʁas# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#jrˈass?# | Rule 237 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
+#jrˈas?# | Rule 265 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
+#jrˈas# | Rule 449 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#jʀˈas# | Rule 459 : r > ʀ  (ORIG: r > ʀ )
+#jʀas# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#jʁas# | Rule 466 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

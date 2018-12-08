@@ -2,8 +2,8 @@ Trajectory file for run 'run1'; etymon number :51:
 #ˌɑn̪ˈellum# >>> #an̪iːe̯lʲ# ( Correct : #an̪o#) :
 ˌɑ n̪ ˈe l l u m 
 #ˌɑn̪ˈelʲum# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
-#ˌɑn̪ˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˌɑn̪ˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#ˌɑn̪ˈɛlʲʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˌɑn̪ˈɛlʲom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #ˌɑn̪ˈɛlʲo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #ˌɑn̪ˈɛːlʲo# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
 #ˌɑn̪ˈie̯lʲo# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}  (ORIG: {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} )
@@ -11,6 +11,6 @@ Trajectory file for run 'run1'; etymon number :51:
 #ˌan̪ˈiːe̯lʲo# | Rule 151 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
 #ˌan̪ˈiːe̯lʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
 #ˌan̪ˈiːe̯lʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ˌãn̪ˈiːe̯lʲ# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
-#ˌan̪ˈiːe̯lʲ# | Rule 452 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
-#an̪iːe̯lʲ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˌãn̪ˈiːe̯lʲ# | Rule 301 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
+#ˌan̪ˈiːe̯lʲ# | Rule 453 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
+#an̪iːe̯lʲ# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

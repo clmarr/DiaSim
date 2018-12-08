@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :1299:
-#wˈɑssellˌit̪um# >>> #voːjsjse# ( Correct : #vale#) :
+#wˈɑssellˌit̪um# >>> #vwasjse# ( Correct : #vale#) :
 w ˈɑ s s e l l ˌi t̪ u m 
 #wˈɑsselʲˌit̪um# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
 #ɣʷˈɑsselʲˌit̪um# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl] (ORIG: {j;w} > [+cons,-son] / __ [+syl]  )
-#ɣʷˈɑssɛlʲˌɪt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ɣʷˈɑssɛlʲˌɪt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
 #βˈɑssɛlʲˌɪt̪ʊm# | Rule 36 : ɣʷ > β  (ORIG: ɣʷ > β )
-#βˈɑssɛlʲˌet̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#βˈɑssɛlʲˌet̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
 #βˈɑssɛlʲˌet̪o# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
 #βˈɑsslʲˌet̪o# | Rule 94 : ɛ > ∅ / __ [+cor,+son,-nas] (ORIG: ɛ > ∅ / __ [+cor,+son,-nas] )
 #βˈɑssʲsʲˌet̪o# | Rule 116 : s [+hi,+front,+cons] > sʲ sʲ (ORIG: s [+hi,+front,+cons] > sʲ sʲ )
@@ -21,8 +21,11 @@ w ˈɑ s s e l l ˌi t̪ u m
 #vˈae̯jsjsˌeðə# | Rule 233 : β > v  (ORIG: β > v  )
 #vˈae̯jsjsˌeð# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
 #vˈae̯jsjsˌeθ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#vˈao̯jsjsˌeθ# | Rule 314 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j (ORIG: [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j  )
-#vˈawjsjsˌeθ# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#vˈawjsjsˌe# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#vˈoːjsjsˌe# | Rule 389 : {ˌa w;ˈa w} > {ˌoː;ˈoː}  (ORIG: {ˌa w; ˈa w} > {ˌoː;ˈoː} )
-#voːjsjse# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#vˈeːjsjsˌeθ# | Rule 261 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}  (ORIG: {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} )
+#vˈoːjsjsˌeθ# | Rule 315 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j (ORIG: [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j  )
+#vˈuːjsjsˌeθ# | Rule 318 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#vˈuːjsjsˌe# | Rule 340 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#vˈuːɛ̯sjsˌe# | Rule 359 : j > ɛ̯ / [+syl,+back,+round] __  (ORIG: j > ɛ̯ / [+syl,+back,+round] __  )
+#vwˈɛsjsˌe# | Rule 398 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ (ORIG: [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ )
+#vwɛsjse# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#vwasjse# | Rule 464 : ɛ > a / w __  (ORIG: ɛ > a / w __  )
