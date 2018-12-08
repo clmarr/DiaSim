@@ -22,7 +22,9 @@ public class Lexicon {
 	
 	public Lexicon(LexPhon[] theWords)
 	{
-		theWordList = theWords.clone(); //TODO make sure this is a deep clone!
+		theWordList = new LexPhon[theWords.length];
+		for (int wi = 0; wi < theWords.length; wi++)
+			theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
 	}
 	
 	//retrieve a particular lexical phonology by its "ID" -- i.e. its index in theWordList

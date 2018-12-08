@@ -508,11 +508,11 @@ public class DerivationSimulation {
 		
 		System.out.println("making trajectories file in "+dir);
 		
-		//make trajectories file.
-		makeTrajectoryFile(); 
+		//make trajectories files.
+		makeTrajectoryFiles(); 
 		
 		
-		if(goldOutput)
+		if(goldOutput &&  false) //TODO implement this.
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
 			System.out.println("PERFORMANCE ON GOLD RESULT SET = "+PERFORMANCE);
@@ -559,27 +559,34 @@ public class DerivationSimulation {
 		//TODO make the calculations and output the files! 
 	}
 
-	private static void makeTrajectoryFile()
+	private static void makeTrajectoryFiles()
 	{
-		String filename = runPrefix+"\\trajectories.txt"; 
-		String output = "Trajectory file for "+runPrefix+"\n\n";
-		for (int wi = 0 ; wi < NUM_ETYMA ; wi++)
-			output += ""+initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)+":\n"+wordTrajectories[wi]+"\n"; 
-		try 
-		{	FileWriter outFile = new FileWriter(filename); 
-			BufferedWriter out = new BufferedWriter(outFile); 
-			out.write(output);
-			out.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
+		File trajdir = new File(""+runPrefix+"\\trajectories"); 
+		trajdir.mkdir(); 
+	
+		for( int wi =0; wi < NUM_ETYMA; wi ++) 
+		{
+			String filename = runPrefix + "\\trajectories\\etym"+wi+".txt"; 
+			String output = "Trajectory file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
+				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
+				+ (goldOutput ? " ( Correct : "+goldResultLexicon.getByID(wi)+") :\n"  : ":\n")
+					+wordTrajectories[wi]+"\n";
+			try 
+			{	FileWriter outFile = new FileWriter(filename); 
+				BufferedWriter out = new BufferedWriter(outFile); 
+				out.write(output);
+				out.close();
+			}
+			catch (UnsupportedEncodingException e) {
+				System.out.println("Encoding unsupported!");
+				e.printStackTrace();
+			} catch (FileNotFoundException e) {
+				System.out.println("File not found!");
+				e.printStackTrace();
+			} catch (IOException e) {
+				System.out.println("IO Exception!");
+				e.printStackTrace();
+			}
 		}
 	}
 	
