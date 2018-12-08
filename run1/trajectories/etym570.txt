@@ -1,15 +1,16 @@
 Trajectory file for run 'run1'; etymon number :570:
-#lˌɑn̪t̪ˈern̪ɑm# >>> #lãːt̪aʁn̪# ( Correct : #lɑ̃t̪ɛʁn̪#) :
+#lˌɑn̪t̪ˈern̪ɑm# >>> #lɑ̃ːt̪aʁn̪# ( Correct : #lɑ̃t̪ɛʁn̪#) :
 l ˌɑ n̪ t̪ ˈe r n̪ ɑ m 
-#lˌɑn̪t̪ˈɛrn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#lˌɑn̪t̪ˈɛrn̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˌan̪t̪ˈɛrn̪a# | Rule 129 : [+lo,+syl] > [+front,-back] 
-#lˌan̪t̪ˈɛrn̪ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __ 
-#lˌãn̪t̪ˈɛrn̪ə# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˌãn̪t̪ˈarn̪ə# | Rule 387 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#lˌãːt̪ˈarn̪ə# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˌãːt̪ˈarn̪ə̯# | Rule 444 : ə > ə̯ 
-#lˌãːt̪ˈarn̪# | Rule 449 : ə̯ > ∅ 
-#lˌãːt̪ˈaʀn̪# | Rule 458 : r > ʀ 
-#lãːt̪aʀn̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lãːt̪aʁn̪# | Rule 465 : ʀ > ʁ 
+#lˌɑn̪t̪ˈɛrn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#lˌɑn̪t̪ˈɛrn̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#lˌan̪t̪ˈɛrn̪a# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#lˌan̪t̪ˈɛrn̪ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
+#lˌãn̪t̪ˈɛrn̪ə# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
+#lˌãn̪t̪ˈarn̪ə# | Rule 387 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r (ORIG: {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r )
+#lˌãːt̪ˈarn̪ə# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons] (ORIG: [+nas,+syl] [+nas,+cons] > [+long] ∅ / __ [+cons] )
+#lˌãːt̪ˈarn̪ə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
+#lˌãːt̪ˈarn̪# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#lˌãːt̪ˈaʀn̪# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
+#lãːt̪aʀn̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#lɑ̃ːt̪aʀn̪# | Rule 464 : {ã;ãː} > {ɑ̃;ɑ̃ː}  (ORIG: {ã;ãː} >[-front,+back] )
+#lɑ̃ːt̪aʁn̪# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

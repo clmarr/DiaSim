@@ -1,21 +1,19 @@
 Trajectory file for run 'run1'; etymon number :449:
-#kˈerɑm# >>> #?iːʁ# ( Correct : #siʁ#) :
+#kˈerɑm# >>> #siːe̯# ( Correct : #siʁ#) :
 k ˈe r ɑ m 
-#kˈɛrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#kˈɛrɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kʲˈɛrɑ# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#cˈɛrɑ# | Rule 61 : [+back,+front] > [-back] 
-#cˈɛːrɑ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons]
-#cˈierɑ# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e;ˈu o} 
-#t͡sʲˈierɑ# | Rule 120 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#t͡sʲˈiera# | Rule 129 : [+lo,+syl] > [+front,-back] 
-#t͡sʲˈiːera# | Rule 151 : [+prim] > [+long] / __ [-cons]
-#t͡sʲˈiːra# | Rule 171 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#?ˈiːra# | Rule 216 : [+hi,+front,-cont] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#?ˈiːrə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __ 
-#?ˈiːrə# | Rule 376 : [+delrel] > [+cont,.delrel] 
-#?ˈiːrə̯# | Rule 444 : ə > ə̯ 
-#?ˈiːr# | Rule 449 : ə̯ > ∅ 
-#?ˈiːʀ# | Rule 458 : r > ʀ 
-#?iːʀ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#?iːʁ# | Rule 465 : ʀ > ʁ 
+#kˈɛrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#kˈɛrɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#kʲˈɛrɑ# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] (ORIG: [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] )
+#cˈɛrɑ# | Rule 61 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
+#cˈɛːrɑ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
+#cˈie̯rɑ# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}  (ORIG: {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} )
+#t͡sʲˈie̯rɑ# | Rule 120 : {c;ɟ} > {t͡sʲ;d͡ʒ}  (ORIG: {c;ɟ} > {t͡sʲ;d͡ʒ} )
+#t͡sʲˈie̯ra# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#t͡sʲˈiːe̯ra# | Rule 151 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
+#t͡sʲˈiːe̯rə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
+#t͡sˈiːe̯rə# | Rule 294 : t͡sʲ > t͡s  (ORIG: t͡sʲ >t͡s )
+#sˈiːe̯rə# | Rule 376 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
+#sˈiːe̯rə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
+#sˈiːe̯r# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#sˈiːe̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
+#siːe̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

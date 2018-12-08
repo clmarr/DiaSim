@@ -1,19 +1,19 @@
 Trajectory file for run 'run1'; etymon number :253:
 #fˈid̪em# >>> #fwa# ( Correct : #fwa#) :
 f ˈi d̪ e m 
-#fˈɪd̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#fˈed̪ɛm# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat] 
-#fˈed̪ɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#fˈeðɛ# | Rule 66 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#fˈeːðɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons]
-#fˈejðɛ# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˈejðə# | Rule 229 : [-stres,-lo,+syl] > ə 
-#fˈejð# | Rule 235 : ə > ∅ 
-#fˈejθ# | Rule 243 : [-son] > [-voi] / __ #
-#f?jθ# | Rule 314 : [+front,+tense,-hi,-lo] > [+back,-front,+round] / __ j
-#f?jθ# | Rule 317 : [+round,+tense,+back] > [+hi] 
-#f?j# | Rule 339 : {θ;ð} > {∅;∅} 
-#f?ɛ̯# | Rule 358 : j > ɛ̯ / [+syl,+back,+round] __ 
-#fwˈɛ# | Rule 397 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-#fwɛ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fwa# | Rule 463 : ɛ > a / w __ 
+#fˈɪd̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#fˈed̪ɛm# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#fˈed̪ɛ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#fˈeðɛ# | Rule 66 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas] (ORIG: [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas] )
+#fˈeːðɛ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
+#fˈejðɛ# | Rule 227 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}  (ORIG: {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} )
+#fˈejðə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
+#fˈejð# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
+#fˈejθ# | Rule 243 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
+#fˈojθ# | Rule 314 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j (ORIG: [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j  )
+#fˈujθ# | Rule 317 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
+#fˈuj# | Rule 339 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
+#fˈuɛ̯# | Rule 358 : j > ɛ̯ / [+syl,+back,+round] __  (ORIG: j > ɛ̯ / [+syl,+back,+round] __  )
+#fwˈɛ# | Rule 361 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ}  (ORIG: {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ}  )
+#fwɛ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#fwa# | Rule 463 : ɛ > a / w __  (ORIG: ɛ > a / w __  )

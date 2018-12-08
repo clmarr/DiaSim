@@ -1,17 +1,17 @@
 Trajectory file for run 'run1'; etymon number :184:
 #d̪ˌomin̪ɑm# >>> #d̪ɔ̃m# ( Correct : #d̪am#) :
 d̪ ˌo m i n̪ ɑ m 
-#d̪ˌɔmɪn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#d̪ˌɔmen̪ɑm# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat] 
-#d̪ˌɔmen̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#d̪ˌɔmen̪a# | Rule 129 : [+lo,+syl] > [+front,-back] 
-#d̪ˌɔmn̪a# | Rule 171 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#d̪ˌɔmma# | Rule 179 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#d̪ˌumma# | Rule 208 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat] / __ [+nas,+cons]
-#d̪ˌummə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˌumə# | Rule 287 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#d̪ˌũmə# | Rule 351 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas]
-#d̪ˌũmə̯# | Rule 444 : ə > ə̯ 
-#d̪ˌũm# | Rule 449 : ə̯ > ∅ 
-#d̪ũm# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪ɔ̃m# | Rule 460 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat] 
+#d̪ˌɔmɪn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#d̪ˌɔmen̪ɑm# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#d̪ˌɔmen̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#d̪ˌɔmen̪a# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#d̪ˌɔmn̪a# | Rule 171 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
+#d̪ˌɔmma# | Rule 179 : {m n̪;n̪ m;m b} > {m m;m m;m m}  (ORIG: {m n̪;n̪ m;m b} > {m m;m m;m m} )
+#d̪ˌumma# | Rule 208 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat] / __ [+nas,+cons] (ORIG: [+syl,-hi,-lo,+round] > [+hi,+tense] / __ [+nas,+cons] )
+#d̪ˌummə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
+#d̪ˌumə# | Rule 287 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}  (ORIG: {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} )
+#d̪ˌũmə# | Rule 351 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-front] > [+nas] / __ [+nas] )
+#d̪ˌũmə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
+#d̪ˌũm# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#d̪ũm# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#d̪ɔ̃m# | Rule 460 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat]  (ORIG: [+back,-lo,+nas] > [-hi,-tense] )

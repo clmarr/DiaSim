@@ -1,16 +1,14 @@
 Trajectory file for run 'run1'; etymon number :495:
-#kˈor# >>> #kyːʁ# ( Correct : #kœʁ#) :
+#kˈor# >>> #kyːe̯# ( Correct : #kœʁ#) :
 k ˈo r 
-#kˈɔr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#kˈɔːr# | Rule 75 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#kˈɔr# | Rule 100 : [+syl] > [-long,-splng] / __ [+cons] #
-#kˈɔːr# | Rule 107 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#kˈuor# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e;ˈu o} 
-#kˈuːor# | Rule 151 : [+prim] > [+long] / __ [-cons]
-#k?or# | Rule 164 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#k?ər# | Rule 229 : [-stres,-lo,+syl] > ə 
-#k?r# | Rule 235 : ə > ∅ 
-#kˈyːr# | Rule 298 : [+hi,+round,-back] > [+front] 
-#kˈyːʀ# | Rule 458 : r > ʀ 
-#kyːʀ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kyːʁ# | Rule 465 : ʀ > ʁ 
+#kˈɔr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#kˈɔːr# | Rule 75 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
+#kˈɔr# | Rule 100 : [+syl] > [-long,-splng] / __ [+cons] # (ORIG: [+syl] > [-long] / __ [+cons] #  )
+#kˈɔːr# | Rule 107 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] # (ORIG: [+prim] > [+long] / # ([-syl])* __ [+cons] # )
+#kˈuo̯r# | Rule 109 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}  (ORIG: {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} )
+#kˈuːo̯r# | Rule 151 : [+prim] > [+long] / __ [-cons] (ORIG: [+prim] > [+long] / __ [-cons]  )
+#k?o̯r# | Rule 164 : [+hi,+tense,+round,+syl] > [-front,-back]  (ORIG: [+hi,+tense,+round,+syl] > [-front,-back] )
+#kˈyːo̯r# | Rule 298 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
+#kˈyːe̯r# | Rule 306 : o̯ > e̯  (ORIG: o̯ > e̯  )
+#kˈyːe̯# | Rule 456 : r > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ # (ORIG: r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ # )
+#kyːe̯# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

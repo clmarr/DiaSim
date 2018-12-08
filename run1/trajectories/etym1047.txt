@@ -1,25 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1047:
-#sˌɑkrɑmˈen̪t̪um# >>> #sɛːʁmãː# ( Correct : #sɛʁmɑ̃#) :
+#sˌɑkrɑmˈen̪t̪um# >>> #sɛːʁmɑ̃ː# ( Correct : #sɛʁmɑ̃#) :
 s ˌɑ k r ɑ m ˈe n̪ t̪ u m 
-#sˌɑkrɑmˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#sˌɑkrɑmˈɛn̪t̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat] 
-#sˌɑkrɑmˈɛn̪t̪o# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌɑxrɑmˈɛn̪t̪o# | Rule 77 : [+hi,+back,-cont] > [+cont,.delrel] / __ [+cor,+cons]
-#sˌaxramˈɛn̪t̪o# | Rule 129 : [+lo,+syl] > [+front,-back] 
-#sˌaçramˈɛn̪t̪o# | Rule 138 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#sˌaçrʲamˈɛn̪t̪o# | Rule 143 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#sˌaçrʲɛmˈɛn̪t̪o# | Rule 161 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat] / [+front,+cons] __ [+cons] [-cons]
-#sˌarʲɛmˈɛn̪t̪o# | Rule 166 : [+hi,+front,-syl] > ∅ / __ rʲ
-#sˌajrɛmˈɛn̪t̪o# | Rule 209 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#sˌajrəmˈɛn̪t̪ə# | Rule 229 : [-stres,-lo,+syl] > ə 
-#sˌajrmˈɛn̪t̪# | Rule 235 : ə > ∅ 
-#sˌajrmˈɛ̃n̪t̪# | Rule 302 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌajrmˈæ̃n̪t̪# | Rule 330 : [+nas,-hi,+syl] > [+lo] 
-#sˌɛjrmˈæ̃n̪t̪# | Rule 345 : [+lo,+syl] > [-lo,-tense,-cons,-lat] / __ j [+cons]
-#sˌɛːrmˈæ̃n̪t̪# | Rule 370 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#sˌɛːrmˈæ̃ːt̪# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɛːrmˈæ̃ː# | Rule 448 : [-son] > ∅ / __ #
-#sˌɛːrmˈãː# | Rule 450 : [+nas,+front,+syl] > [-hi,+tense,-cons,-lat] 
-#sˌɛːʀmˈãː# | Rule 458 : r > ʀ 
-#sɛːʀmãː# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛːʁmãː# | Rule 465 : ʀ > ʁ 
+#sˌɑkrɑmˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#sˌɑkrɑmˈɛn̪t̪om# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#sˌɑkrɑmˈɛn̪t̪o# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#sˌɑxrɑmˈɛn̪t̪o# | Rule 77 : [+hi,+back,-cont] > [+cont,.delrel] / __ [+cor,+cons] (ORIG: [+hi,+back,-cont] > [+cont] / __ [+cor,+cons] )
+#sˌaxramˈɛn̪t̪o# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#sˌaçramˈɛn̪t̪o# | Rule 138 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor] (ORIG: [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor] )
+#sˌaçrʲamˈɛn̪t̪o# | Rule 143 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __  (ORIG: [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __  )
+#sˌaçrʲɛmˈɛn̪t̪o# | Rule 161 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat] / [+front,+cons] __ [+cons] [-cons] (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons] )
+#sˌarʲɛmˈɛn̪t̪o# | Rule 166 : [+hi,+front,-syl] > ∅ / __ rʲ (ORIG: [+hi,+front,-syl]>∅/__rʲ )
+#sˌajrɛmˈɛn̪t̪o# | Rule 209 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}  (ORIG: {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} )
+#sˌajrəmˈɛn̪t̪ə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
+#sˌajrmˈɛn̪t̪# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
+#sˌajrmˈɛ̃n̪t̪# | Rule 302 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+front,-hi,+syl] > [+nas] / __ [+nas,-syl] )
+#sˌajrmˈæ̃n̪t̪# | Rule 330 : [+nas,-hi,+syl] > [+lo]  (ORIG: [+nas,-hi,+syl] > [+lo] )
+#sˌɛjrmˈæ̃n̪t̪# | Rule 345 : [+lo,+syl] > [-lo,-tense,-cons,-lat] / __ j [+cons] (ORIG: [+lo,+syl] > [-lo,-tense] / __ j [+cons]  )
+#sˌɛːrmˈæ̃n̪t̪# | Rule 370 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons] (ORIG: {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j}> {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons]  )
+#sˌɛːrmˈæ̃ːt̪# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons] (ORIG: [+nas,+syl] [+nas,+cons] > [+long] ∅ / __ [+cons] )
+#sˌɛːrmˈæ̃ː# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#sˌɛːrmˈãː# | Rule 450 : [+nas,+front,+syl] > [-hi,+tense,-cons,-lat]  (ORIG: [+nas,+front,+syl] > [-hi,+tense] )
+#sˌɛːʀmˈãː# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
+#sɛːʀmãː# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#sɛːʀmɑ̃ː# | Rule 464 : {ã;ãː} > {ɑ̃;ɑ̃ː}  (ORIG: {ã;ãː} >[-front,+back] )
+#sɛːʁmɑ̃ː# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

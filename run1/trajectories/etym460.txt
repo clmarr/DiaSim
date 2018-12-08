@@ -1,18 +1,17 @@
 Trajectory file for run 'run1'; etymon number :460:
-#kˈippum# >>> #ɛː# ( Correct : #sɛp#) :
+#kˈippum# >>> #sɛ# ( Correct : #sɛp#) :
 k ˈi p p u m 
-#kˈɪppʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#kˈeppom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat] 
-#kˈeppo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kʲˈeppo# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#cˈeppo# | Rule 61 : [+back,+front] > [-back] 
-#t͡sʲˈeppo# | Rule 120 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#?ˈeppo# | Rule 216 : [+hi,+front,-cont] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#?ˈeppə# | Rule 229 : [-stres,-lo,+syl] > ə 
-#?ˈepp# | Rule 235 : ə > ∅ 
-#?ˈep# | Rule 287 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#?ˈep# | Rule 376 : [+delrel] > [+cont,.delrel] 
-#?ˈɛp# | Rule 382 : ˈe > ˈɛ 
-#ˈɛːp# | Rule 407 : [-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
-#ˈɛː# | Rule 448 : [-son] > ∅ / __ #
-#ɛː# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈɪppʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#kˈeppom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#kˈeppo# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#kʲˈeppo# | Rule 60 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] (ORIG: [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front] )
+#cˈeppo# | Rule 61 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
+#t͡sʲˈeppo# | Rule 120 : {c;ɟ} > {t͡sʲ;d͡ʒ}  (ORIG: {c;ɟ} > {t͡sʲ;d͡ʒ} )
+#t͡sʲˈeppə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
+#t͡sʲˈepp# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
+#t͡sʲˈep# | Rule 287 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}  (ORIG: {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} )
+#t͡sˈep# | Rule 294 : t͡sʲ > t͡s  (ORIG: t͡sʲ >t͡s )
+#sˈep# | Rule 376 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
+#sˈɛp# | Rule 382 : ˈe > ˈɛ  (ORIG: ˈe > ˈɛ )
+#sˈɛ# | Rule 448 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#sɛ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )

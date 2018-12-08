@@ -1,8 +1,9 @@
 +syl:+son
 -syl:.stres,.prim
--cons:-lat
+-cons:-lat,+cont
 +cons:.tense
 +cont:.delrel
+-cont:+cons
 delrel:-son
 +lat:+cons
 -cor:.distr

@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :682:
-#mˈembrum# >>> #mãːvʁ# ( Correct : #mɑ̃bʁ#) :
+#mˈembrum# >>> #mɑ̃ːvʁ# ( Correct : #mɑ̃bʁ#) :
 m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat] 
-#mˈɛmbrom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat] 
-#mˈɛmbro# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɛmmro# | Rule 133 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#mˈɛmro# | Rule 135 : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / __ [+cons]
-#mˈɛmbro# | Rule 182 : ∅ > b / m __ [+cor,-nas,+son,-syl]
-#mˈɛmbrə# | Rule 229 : [-stres,-lo,+syl] > ə 
-#mˈɛmbr# | Rule 235 : ə > ∅ 
-#mˈɛmβr# | Rule 272 : b > β / __ r
-#mˈɛmvr# | Rule 273 : β > v 
-#mˈɛ̃mvr# | Rule 302 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈæ̃mvr# | Rule 330 : [+nas,-hi,+syl] > [+lo] 
-#mˈæ̃ːvr# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈãːvr# | Rule 450 : [+nas,+front,+syl] > [-hi,+tense,-cons,-lat] 
-#mˈãːvʀ# | Rule 458 : r > ʀ 
-#mãːvʀ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mãːvʁ# | Rule 465 : ʀ > ʁ 
+#mˈɛmbrʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#mˈɛmbrom# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#mˈɛmbro# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#mˈɛmmro# | Rule 133 : {m n̪;n̪ m;m b} > {m m;m m;m m}  (ORIG: {m n̪;n̪ m;m b} > {m m;m m;m m} )
+#mˈɛmro# | Rule 135 : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / __ [+cons] (ORIG: {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / __ [+cons]  )
+#mˈɛmbro# | Rule 182 : ∅ > b / m __ [+cor,-nas,+son,-syl] (ORIG: ∅ > b / m __ [+cor,-nas,+son,-syl] )
+#mˈɛmbrə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
+#mˈɛmbr# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
+#mˈɛmβr# | Rule 272 : b > β / __ r (ORIG: b > β / __ r )
+#mˈɛmvr# | Rule 273 : β > v  (ORIG: β > v )
+#mˈɛ̃mvr# | Rule 302 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+front,-hi,+syl] > [+nas] / __ [+nas,-syl] )
+#mˈæ̃mvr# | Rule 330 : [+nas,-hi,+syl] > [+lo]  (ORIG: [+nas,-hi,+syl] > [+lo] )
+#mˈæ̃ːvr# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons] (ORIG: [+nas,+syl] [+nas,+cons] > [+long] ∅ / __ [+cons] )
+#mˈãːvr# | Rule 450 : [+nas,+front,+syl] > [-hi,+tense,-cons,-lat]  (ORIG: [+nas,+front,+syl] > [-hi,+tense] )
+#mˈãːvʀ# | Rule 458 : r > ʀ  (ORIG: r > ʀ )
+#mãːvʀ# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#mɑ̃ːvʀ# | Rule 464 : {ã;ãː} > {ɑ̃;ɑ̃ː}  (ORIG: {ã;ãː} >[-front,+back] )
+#mɑ̃ːvʁ# | Rule 465 : ʀ > ʁ  (ORIG: ʀ > ʁ  )

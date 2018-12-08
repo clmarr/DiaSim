@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :906:
-#plˈɑn̪t̪ɑm# >>> #bɔ̯̃ãːt̪# ( Correct : #plɑ̃t̪#) :
+#plˈɑn̪t̪ɑm# >>> #bɔ̯̃ɑ̃ːt̪# ( Correct : #plɑ̃t̪#) :
 p l ˈɑ n̪ t̪ ɑ m 
-#pɫˈɑn̪t̪ɑm# | Rule 4 : l > ɫ / @ __ 
-#pɫˈɑn̪t̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pɫˈan̪t̪a# | Rule 129 : [+lo,+syl] > [+front,-back] 
-#pɫˈan̪t̪ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __ 
-#bɫˈan̪t̪ə# | Rule 271 : p > b / __ [+son,+cont,-nas]
-#bɫˈãn̪t̪ə# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#bwˈãn̪t̪ə# | Rule 334 : [+lat,+back] > w 
-#b?ˈãn̪t̪ə# | Rule 351 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas]
-#b?ˈãːt̪ə# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#b?ˈãːt̪ə̯# | Rule 444 : ə > ə̯ 
-#b?ˈãːt̪# | Rule 449 : ə̯ > ∅ 
-#b?ãːt̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bɔ̯̃ãːt̪# | Rule 460 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat] 
+#pɫˈɑn̪t̪ɑm# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __ )
+#pɫˈɑn̪t̪ɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#pɫˈan̪t̪a# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#pɫˈan̪t̪ə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
+#bɫˈan̪t̪ə# | Rule 271 : p > b / __ [+son,+cont,-nas] (ORIG: p > b / __ [+son,+cont,-nas] )
+#bɫˈãn̪t̪ə# | Rule 300 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
+#bwˈãn̪t̪ə# | Rule 334 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
+#b?ˈãn̪t̪ə# | Rule 351 : [-cons,-front] > [+nas,+son,.delrel] / __ [+nas] (ORIG: [-cons,-front] > [+nas] / __ [+nas] )
+#b?ˈãːt̪ə# | Rule 432 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons] (ORIG: [+nas,+syl] [+nas,+cons] > [+long] ∅ / __ [+cons] )
+#b?ˈãːt̪ə̯# | Rule 444 : ə > ə̯  (ORIG: ə > ə̯ )
+#b?ˈãːt̪# | Rule 449 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#b?ãːt̪# | Rule 459 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#bɔ̯̃ãːt̪# | Rule 460 : [+back,-lo,+nas] > [-hi,-tense,-cons,-lat]  (ORIG: [+back,-lo,+nas] > [-hi,-tense] )
+#bɔ̯̃ɑ̃ːt̪# | Rule 464 : {ã;ãː} > {ɑ̃;ɑ̃ː}  (ORIG: {ã;ãː} >[-front,+back] )
