@@ -7,9 +7,9 @@ $ ---------------------------------------------------------------------------
 $Characteristics of Classical Latin as per Pope page 75
 n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
-l l > lʲ $REALLY unsure about this one... 
-l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable" -- might make sense to remove
-l > [+back] / @ __
+l l > lʲ lʲ / __ [+hi,+front]
+l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable"
+l > [+back] / @ __ $per page 75 s158
 [+lo,+syl] > [-front,+back]
 [+lo,+syl] > [+front,-back] / __ e̯
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
@@ -29,6 +29,9 @@ $ Greek y unrounded to i
 
 $~Late Latin
 $As per Popeˌs paradigm, it is considered Late Latin if it occurred before the end of the firth century 
+
+$CORRECTION: Latin dark l lost -- restored later when before consonants. Otherwise words like plenum, tabula would see formation of w in non praeconsonantal contexts
+[+lat] > [-back] 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
@@ -233,7 +236,7 @@ $ trigger again in Gallo-Roman stage.
 $p131 s312, assigned to Late Latin p73 s155-5iv 
 $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
 $trigger again in Gallo-Roman stage
-[+lat] [+hi,+front,-syl,+voi,+cont] > ʎ
+[+lat] [+hi,+front,-syl,+voi,-cons] > ʎ
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included -- s372
@@ -412,7 +415,7 @@ $ potentially RECURRENT as per Pope s162
 $ l palatalizes again before all palatals, period
 [+lat] > ʎ / __ [+cons,+hi,+front]
 $ and they combine with the following palatal 
-[+cons,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
+[-lat,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
 
 $ s313-315 : r,s,z donˌt lose their primary place of articulation but DO palatalize under influence of succeeding palatals
 $ potential RECURRENT as per Pope s162

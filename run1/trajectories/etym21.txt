@@ -1,12 +1,15 @@
 Trajectory file for run 'run1'; etymon number :21:
-#ˈɑlbɑm# >>> #oːb# ( Correct : #ob#) :
+#ˈɑlbɑm# >>> #ob# ( Correct : #ob#) :
 ˈɑ l b ɑ m 
-#ˈɑɫbɑm# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __ )
-#ˈɑɫbɑ# | Rule 55 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#ˈaɫba# | Rule 129 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#ˈaɫbə# | Rule 239 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
-#ˈawbə# | Rule 335 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#ˈoːbə# | Rule 390 : {ˌa w;ˈa w} > {ˌoː;ˈoː}  (ORIG: {ˌa w; ˈa w} > {ˌoː;ˈoː} )
-#ˈoːbə̯# | Rule 445 : ə > ə̯  (ORIG: ə > ə̯ )
-#ˈoːb# | Rule 450 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
-#oːb# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˈɑɫbɑm# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
+#ˈɑlbɑm# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
+#ˈɑlbɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
+#ˈalba# | Rule 130 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
+#ˈalbə# | Rule 240 : a > ə / [+syl] ( [-syl] )* __  (ORIG: a > ə / [+syl] ([-syl])* __ )
+#ˈaɫbə# | Rule 299 : [+lat] > [+back] / __ [+cons] (ORIG: [+lat] > [+back] / __ [+cons] )
+#ˈawbə# | Rule 336 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
+#ˈoːbə# | Rule 391 : {ˌa w;ˈa w} > {ˌoː;ˈoː}  (ORIG: {ˌa w; ˈa w} > {ˌoː;ˈoː} )
+#ˈoːbə̯# | Rule 446 : ə > ə̯  (ORIG: ə > ə̯ )
+#ˈoːb# | Rule 451 : ə̯ > ∅  (ORIG: ə̯ > ∅ )
+#oːb# | Rule 461 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ob# | Rule 462 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )

@@ -1,13 +1,17 @@
 Trajectory file for run 'run1'; etymon number :354:
-#ˈilliː# >>> #iː# ( Correct : #il#) :
+#ˈilliː# >>> #i# ( Correct : #il#) :
 ˈi l l iː 
-#ˈilʲiː# | Rule 2 : l l > lʲ  (ORIG: l l > lʲ  )
-#ˈɪlʲiː# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˈɪlʲi# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#ˈelʲi# | Rule 50 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#ˈeːlʲi# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#ˈiːlʲi# | Rule 92 : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i # (ORIG: [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i #  )
-#ˈiːlʲə# | Rule 229 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#ˈiːlʲ# | Rule 235 : ə > ∅  (ORIG: ə > ∅ )
-#ˈiː# | Rule 395 : [+lat] > ∅ / [+hi,+syl] __ # (ORIG: [+lat] > ∅ / [+hi,+syl] __ # )
-#iː# | Rule 460 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˈilʲlʲiː# | Rule 2 : l l > lʲ lʲ / __ [+hi,+front] (ORIG: l l > lʲ lʲ / __ [+hi,+front] )
+#ˈɪlʲlʲiː# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
+#ˈɪlʲlʲi# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
+#ˈelʲlʲi# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
+#ˈilʲlʲi# | Rule 93 : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i # (ORIG: [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i #  )
+#ˈiʎlʲi# | Rule 113 : [+lat] > ʎ / __ [+cons,+hi,+front] (ORIG: [+lat] > ʎ / __ [+cons,+hi,+front] )
+#ˈiʎʎi# | Rule 143 : [+lat] > ʎ / [+hi,+front,+cons] __  (ORIG: [+lat] > ʎ / [+hi,+front,+cons] __  )
+#ˈiʎi# | Rule 166 : [+hi,+front,-syl] > ∅ / __ ʎ (ORIG: [+hi,+front,-syl]>∅/__ʎ )
+#ˈiːʎi# | Rule 193 : [+prim] > [+long] / __ [+cons] [+syl] (ORIG: [+prim] > [+long] / __ [+cons] [+syl]  )
+#ˈiːʎə# | Rule 230 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
+#ˈiːʎ# | Rule 236 : ə > ∅  (ORIG: ə > ∅ )
+#ˈiː# | Rule 396 : [+lat] > ∅ / [+hi,+syl] __ # (ORIG: [+lat] > ∅ / [+hi,+syl] __ # )
+#iː# | Rule 461 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#i# | Rule 462 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
