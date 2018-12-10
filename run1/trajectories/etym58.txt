@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :58:
-#ˌɑn̪n̪ˈɑːt̪ɑm# >>> #an̪e# ( Correct : #an̪e#) :
+#ˌɑn̪n̪ˈɑːt̪ɑm# >>> #æn̪e# ( Correct : #an̪e#) :
 ˌɑ n̪ n̪ ˈɑː t̪ ɑ m 
 #ˌɑn̪n̪ˈɑt̪ɑm# | Rule 49 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
 #ˌɑn̪n̪ˈɑt̪ɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
@@ -14,6 +14,7 @@ Trajectory file for run 'run1'; etymon number :58:
 #ˌãn̪ˈeːðə# | Rule 333 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl] (ORIG: [+lo,+syl] > [+nas] / __ [+nas,-syl] )
 #ˌãn̪ˈeːə# | Rule 372 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
 #ˌãn̪ˈeː# | Rule 438 : ə > ∅ / [+syl] __  (ORIG: ə > ∅ / [+syl] __  )
-#ˌan̪ˈeː# | Rule 489 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
-#an̪eː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#an̪e# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#ˌæ̃n̪ˈeː# | Rule 487 : [+nas,+front,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+nas,+front,+syl] > [-hi,-tense] )
+#ˌæn̪ˈeː# | Rule 489 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] (ORIG: [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons] )
+#æn̪eː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#æn̪e# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
