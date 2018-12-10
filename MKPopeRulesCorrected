@@ -233,6 +233,10 @@ $ as per s293 and s156 however this did not YET affect ng + pal-stop -- i.
 $ trigger again in Gallo-Roman stage.
 [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 
+$ CORRECTION : l deleted when immediately before ɲ 
+$ she actually has the effects of this in her citation forms for Late Latin (s686) -- but she doesn't explicitly state it. 
+[+lat] > ∅ / __ ɲ
+
 $p131 s312, assigned to Late Latin p73 s155-5iv 
 $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
 $trigger again in Gallo-Roman stage
@@ -270,6 +274,11 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [+cons] [-cons] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+
+$ BUT-- she does not intend for this to be applied in her diphthongs
+[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
+[+syl] > [-long] / __ [-syl,-cons] [-syl]
+[+syl] > [-long] / __ [-syl,-cons] #
 
 $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
@@ -351,7 +360,7 @@ $ it would appear she is asserting that this is the first appearance of /y/ in F
 $ as per Pope p126 s293
 $ palatalization of ng, lg and s before palatal stops
 $ potentially RECURRENT as per s162 
-$ but definitely started before effacemnt of ɛ pre r/l and cluster simplification as per s293
+$ but definitely started before effacement of ɛ pre r/l and cluster simplification as per s293
 {ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front]
 
 $ Pope p77 s163-3 "effacement of penultimate ɛ before r and l"
@@ -388,6 +397,10 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ but she does not intend for this to apply to her diphthongs
+[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
+[+syl] > [-long] / __ [-syl,-cons] [-syl]
+[+syl] > [-long] / __ [-syl,-cons] #
 
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
 $ when preceded by a palatal 
@@ -415,7 +428,7 @@ $ potentially RECURRENT as per Pope s162
 $ l palatalizes again before all palatals, period
 [+lat] > ʎ / __ [+cons,+hi,+front]
 $ and they combine with the following palatal 
-[-lat,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
+[-lat,-nas,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
 
 $ s313-315 : r,s,z donˌt lose their primary place of articulation but DO palatalize under influence of succeeding palatals
 $ potential RECURRENT as per Pope s162
@@ -461,12 +474,12 @@ $ Eugene Buckley at U-PENN disagrees a bit -- note
 $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
-$ s373 assimilation of labials b,p,β (and v) to following dental positions 
+$ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
-[+lab,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-[+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
-[+lab,-round,+cons] > s / __ s
+[+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+[+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
+[+lab,-nas,-round,+cons] > s / __ s
 
 $s371 nasal cluster assimilation 
 {m n̪;n̪ m;m b} > {m m;m m;m m}
@@ -528,6 +541,11 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$She does not intend for this to apply to her diphthongs
+[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
+[+syl] > [-long] / __ [-syl,-cons] [-syl]
+[+syl] > [-long] / __ [-syl,-cons] #
+
 
 $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
@@ -604,9 +622,9 @@ $ RECURRENT as per s162
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
-[+lab,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-[+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
-[+lab,-round,+cons] > s / __ s
+[+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+[+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
+[+lab,-nas,-round,+cons] > s / __ s
 
 $s371 nasal cluster assimilation 
 {m n̪;n̪ m;m b} > {m m;m m;m m}
@@ -642,6 +660,11 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$she does not intend for this to apply to her diphthongs
+[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
+[+syl] > [-long] / __ [-syl,-cons] [-syl]
+[+syl] > [-long] / __ [-syl,-cons] #
+
 
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
@@ -710,7 +733,7 @@ $ s164-2 : palatal stops c,ɟ become postalveolar affricates
 [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
 
 $ s373 : labials efface before (coronal) affricates 
-[+lab,-son] > ∅ / __ [+delrel] 
+[+lab,-nas,-son] > ∅ / __ [+delrel] 
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -725,6 +748,10 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ But she does not intend for this rule to apply to her diphthongs
+[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
+[+syl] > [-long] / __ [-syl,-cons] [-syl]
+[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
@@ -874,13 +901,13 @@ $ t inserted between s and pal. s + r
 $s371 nasal cluster assimilation 
 {m n̪;n̪ m;m b} > {m m;m m;m m}
 
-$ s373 assimilation of labials b,p,β (and v) to following dental positions 
+$ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
-[+lab,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-[+lab,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
-[+lab,-round,+cons] > s / __ s
-[+lab,-son] > ∅ / __ [+delrel] 
+[+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+[+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
+[+lab,-nas,-round,+cons] > s / __ s
+[+lab,-nas,-son] > ∅ / __ [+delrel] 
 [+cor,-cont,-delrel] > ∅ / __ [+lab,-cont] 
 [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] 
 [+cor,-cont,-delrel] > ∅ / __ [+delrel] 
@@ -1109,22 +1136,22 @@ $ yj >ɥi early before k,g to feed this (s503 ~ s514 ~ s516)
 {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __
 [-syl,+round,-cons] > ∅ / [+back,-cont] __ 
 
+$ s547-548 : ɔw > u in the thirteenth century. 
+$ s548: late 12th and 13th centuries. 
+[-hi,-lo,+back,+round] w > [+hi,+tense] ∅ 
+
 $THIRD NASALIZATION : late 12th and early 13th 
 $ must be after the original ɛ̃ > ã
 $ all old targets effected, in addition to: 
 $ je : s434 ~ s441.5 ~ s470
 $ u : s434 ~ s441.7 ~ s459 ~s464  (s464: started early 12th century)
 $ ø : because we know it comes before i and y, convenient to incldue here [s434 ~ 441.11 ~ 477]
-[-cons,-front] > [+nas] / __ [+nas]
-[-cons,-hi] > [+nas] / __ [+nas]
+[+syl,-front] > [+nas] / __ [+nas]
+[+syl,-hi] > [+nas] / __ [+nas]
 
 $ s556: ɥø > jø is bled after labials and velars
 ɥ > ∅ / [+lab,+cons] __
 ɥ > ∅ / [+back,+hi,+cons] __ 
-
-$ s547-548 : ɔw > u in the thirteenth century. 
-$ s548: late 12th and 13th centuries. 
-[-hi,-lo,+back,+round] w > [+hi,+tense] ∅ 
 
 $ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted 
 	$when before a nasal 
@@ -1368,8 +1395,9 @@ $ "toward the end of the period" --  late 16th century
 $ s436-437 ~ s563 : effacement of nasal consonant praeconsonantal after nasal vowels
 $ s437 : middle of 16th century
 $ s563 effacement of praeconsonantal nasals causes lengthening of prev nasal vowels... 
-[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ [+cons]
-[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ [+cons]
+$ s436, 438 : at the same time n̪ word final disappears except when the next word starts with a vowel -- in keeping with our dataset we delete these now as well.
+[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ {[+cons];#}
+[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ {[+cons];#}
 
 $s241 : consonantalization of countertonic high vowels before lower vowels
 $ 16th century, "Later Middle French" 
@@ -1400,9 +1428,12 @@ $ s576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then w
 ˈeː > ˈɛː / __ [+cons] #
 
 $ s273 final ə postconsonantal becomes an "off-glide" before it disappears forever... 
-ə > ə̯
+ə > ə̯ / __ #
 
 $~Early Modern French
+
+$ s395 : r becomes a glide in certain positions... 
+r > ɹ / [-cons] __ {#;+cons}
 
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 
@@ -1450,7 +1481,9 @@ $ s531.ii : aj followed by tonic vowel becomes ɛj, accepted in late 17th centur
 
 $ s400-401 : final r deletion 
 $ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) for all except for er and jer terminations in polysyllabic words.
-r > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
+$ per s395 : began with r "losing its trill" (in the index, Pope explicitly attributes the destination 
+ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
+ɹ > r $reassertion of trill by hypercorrection elsewhere. 
 
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
 h > ∅ 
@@ -1468,7 +1501,7 @@ $ Length is in fact preserved in conservative French dialects including those of
 [+syl,+long] > [-long]
 
 $ s460 : ũ > ɔ̃ in 17th century, but still not complete (s462) in 1696 (!)  
-[+back,-lo,+nas] > ɔ̃
+[+back,-lo,+nas,+syl] > ɔ̃
 
 $ s463: ɔ̃ denasalizes in open syllables when followed by nasal cons. 
 $ s463: first attested late 17th century, not accepted until 18th.
@@ -1499,7 +1532,3 @@ $ Pope s177.2: ə effaced anywhere it does not bring three consonants into a clu
 ə > ∅ / __ [+syl]
 ə > ∅ / [+syl] __
 ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
-
-
-
-
