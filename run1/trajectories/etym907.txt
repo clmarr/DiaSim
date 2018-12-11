@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :907:
-#plˌɑn̪t̪ˈɑːɡin̪em# >>> #blæ̃t̪ɐ̃# ( Correct : #plɑ̃t̪ɛ̃#) :
+#plˌɑn̪t̪ˈɑːɡin̪em# >>> #blɑ̃t̪ɐ̃# ( Correct : #plɑ̃t̪ɛ̃#) :
 p l ˌɑ n̪ t̪ ˈɑː ɡ i n̪ e m 
 #pɫˌɑn̪t̪ˈɑːɡin̪em# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
 #plˌɑn̪t̪ˈɑːɡin̪em# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
@@ -26,6 +26,6 @@ p l ˌɑ n̪ t̪ ˈɑː ɡ i n̪ e m
 #blˌãn̪t̪ˈɐ̃ːn̪# | Rule 464 : [+lo,+long,+syl] > [+back,-front]  (ORIG: [+lo,+long,+syl] > [+back,-front] )
 #blˌãːt̪ˈɐ̃ːn̪# | Rule 465 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons] (ORIG: [+nas,+syl] [+nas,+cons]>[+long] ∅/__[+cons] )
 #blˌãːt̪ˈɐ̃ː# | Rule 466 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ # (ORIG: [+nas,+syl] [+nas,+cons]>[+long] ∅/__# )
-#blˌæ̃ːt̪ˈɐ̃ː# | Rule 487 : [+nas,+front,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+nas,+front,+syl] > [-hi,-tense] )
-#blæ̃ːt̪ɐ̃ː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#blæ̃t̪ɐ̃# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#blãːt̪ɐ̃ː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#blãt̪ɐ̃# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#blɑ̃t̪ɐ̃# | Rule 503 : {ã;ãː} > {ɑ̃;ɑ̃ː}  (ORIG: {ã;ãː} >[-front,+back] )

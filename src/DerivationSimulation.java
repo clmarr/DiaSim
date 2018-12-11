@@ -512,8 +512,7 @@ public class DerivationSimulation {
 		System.out.println("making trajectories file in "+dir);
 		
 		//make trajectories files.
-		makeTrajectoryFiles(); 
-		
+		makeTrajectoryFiles(); 	
 		
 		if(goldOutput &&  false) //TODO implement this.
 		{	
