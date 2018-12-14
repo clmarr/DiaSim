@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.ArrayList; 
 
 
+//TODO implement command line support 
+//TODO metric output regularization...
+
 /**TODO update here when decisions have been made
  * 
  * main class for diachronic derivation system
@@ -109,7 +112,12 @@ public class DerivationSimulation {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
+			{
+				//TODO debugging
+				System.out.println("symb: "+nextLine); 
+				
 				symbDefsLines.add(nextLine); 		
+			}
 			in.close(); 
 		}
 		catch (UnsupportedEncodingException e) {
