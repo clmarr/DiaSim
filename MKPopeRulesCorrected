@@ -152,7 +152,8 @@ $p144 s359 ~ p134 s324-325 ~ p73 s156iii ~ p64 s130 ~ p6 s9
 $ frication of k before t,s ; attributed to Gaulish substratum p6 s9 (RECTUM > REXTUM -- see also discussion of attestations like paraxsidi in other sources.) 
 $ Pope doesnˌt discuss the specific ordering of this vis-a-vis the kst>st rule, but this one would bleed that one and she never discusses an xst>st rule,
 $ so we assume this one comes second.
-k > x / __ [+cor,-voi] 
+$ TODO correction-- Pope fails to explicitly state that this only occurs after nonconsonantals
+k > x / [-cons] __ [+cor,-voi] 
 
 $p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
 $"opened and vocalized"-- Pope is explicit that it passes through a fricative stage p65 s135b
@@ -291,7 +292,8 @@ $ Pope s325i ks > xs again (s359) for words like kresko (s325ii) , then to > ç 
 $ for convenience we are also placing here k>x before t (s325, again after the first time in Late Latin: plakitum as per s296i)   
 	$ and the opening of k and ɡ to x and ɣ before l,r -- conveniently due to sound distributions
 $ we can just refer to these as the coronals (since k and ɡ donˌt occur before n, d, z and we place the assibilation of palatals after this for convenience)
-[+hi,+back,-cont] > [+cont] / __ [+cor,+cons]
+$ CORRECTION: Pope failed to explicitly specify that this occurs after nonconsonantal sounds
+[+hi,+back,-cont] > [+cont] / [-cons] __ [+cor,+cons]
 
 $ intervocalic -qu- 
 $ k > x before Popeˌs fricative w as per s327-330
@@ -463,7 +465,7 @@ o > u / [+syl,+prim] __ #
 
 $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
 {ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-[+tense,+round,+back,-cons] > w / [+syl,-tense,+round,-hi] __	
+[+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
 
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
 ∅ > j / ˌe __ [+lo,+syl]
@@ -583,7 +585,7 @@ $ Seventh century as per Pope s164
 
 $Absorption of prior velar (now palatal) frics by lambda, resolving s322
 $also by rj -- resolving s323
-[+hi,+front,-syl] > ∅ / __ {ʎ;rʲ}
+[+hi,+front,-lat,-syl] > ∅ / __ {ʎ;rʲ}
 
 $ 164-1 Second palatalization resolves s298-302
 [+back,+front] > [-back] 
