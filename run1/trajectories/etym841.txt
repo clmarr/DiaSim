@@ -1,25 +1,31 @@
 Trajectory file for run 'run1'; etymon number :841:
-#pˈeːd̪ikɑ# >>> #pɛ# ( Correct : #pjɛʒ#) :
+#pˈeːd̪ikɑ# >>> #pwawa# ( Correct : #pjɛʒ#) :
 p ˈeː d̪ i k ɑ 
-#pˈeːd̪ɪkɑ# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#pˈed̪ɪkɑ# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#pˈed̪ekɑ# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#pˈeðekɑ# | Rule 68 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas] (ORIG: [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas] )
-#pˈeːðekɑ# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#pˈeːðeɡɑ# | Rule 96 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
-#pˈeːðeɣɑ# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons] (ORIG: ɡ > ɣ / [-cons] __ [-cons]  )
-#pˈeːðeɣa# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#pˈeːðeɣʲa# | Rule 178 : [+hi,+back,+cons] > [+front] / __ [+front,+syl] (ORIG: [+hi,+back,+cons] > [+front] / __ [+front,+syl]  )
-#pˈeːðeɣʲɛ# | Rule 179 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
-#pˈeːðeʝɛ# | Rule 187 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
-#pˈeːðʝɛ# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#pˈeðʝɛ# | Rule 207 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son] (ORIG: [+syl] > [-long] / __ [+cons] [+cons,-son] )
-#pˈeðʝə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#pˈeðʝ# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#pˈeðɟ# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#pˈeðc# | Rule 275 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#pˈeθc# | Rule 319 : [-son] > [-voi] / __ [-voi] (ORIG: [-son] > [-voi] / __ [-voi]  )
-#pˈec# | Rule 372 : {θ;ð} > {∅;∅}  (ORIG: {θ;ð} > {∅;∅} )
-#pˈɛc# | Rule 415 : ˈe > ˈɛ  (ORIG: ˈe > ˈɛ )
-#pˈɛ# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#pɛ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#pˈeːd̪ɪkɑ# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈed̪ɪkɑ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˈed̪ekɑ# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈeðekɑ# | Rule 69 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#pˈeːðekɑ# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːðeɡɑ# | Rule 97 : k > ɡ / [-cons] __ [+syl]
+#pˈeːðeɣɑ# | Rule 98 : ɡ > ɣ / [-cons] __ [-cons]
+#pˈeːðeɣa# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#pˈeːðeɣʲa# | Rule 179 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#pˈeːðeɣʲɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#pˈeːðeʝɛ# | Rule 188 : [+back,+front] > [-back] 
+#pˈeːðəʝɛ# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈeːðəʝə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#pˈeːðə̯ʝə̯# | Rule 199 : ə > ə̯ 
+#pˈeːðəʝə̯# | Rule 202 : ə̯ > ə / __ [+front,+cons]
+#pˈeːðəʝ# | Rule 211 : ə̯ > ∅ 
+#pˈejðəʝ# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejðəç# | Rule 286 : [-son] > [-voi] / __ #
+#pˈejðəʝ# | Rule 300 : ç > ʝ 
+#pˈejðəj# | Rule 301 : ʝ > j / [+syl] __ 
+#pˈejðej# | Rule 341 : ə > e / __ [+front,+son,+hi,-syl]
+#pˈojðoj# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#pˈujðuj# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#pˈujuj# | Rule 387 : {θ;ð} > {∅;∅} 
+#pˈuɛ̯uɛ̯# | Rule 406 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛwɛ# | Rule 409 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwɛwɛ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwawa# | Rule 517 : ɛ > a / w __ 

@@ -106,7 +106,8 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 	$ the most faithful way to render this also in line with Occamˌs Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
 	$ note also the frigidus contradiction: s297 & s316 vs. s262ii & s296i
-ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+syl] ([-syl]) #
+ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
+ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic vowels standing between n/l and r 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ [+cor,+son,-lat]
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat]
@@ -595,13 +596,63 @@ $does not however occur after slurred vowel ə
 $ would seem to happen BEFORE the palatal fricatives are lost as it doesnˌt happen it words like lit, nuit (<lectum, noctem)
 {t̪;d̪} > [+cont] / [+syl] __ #
 
+$ s305-- yod in initial position closes, as does Pope's w 
+$ also -- s203 (for yod > gj) ; yod is closing after consonants 
+$ w ~ ɣʷ closes initially : s636 ~ s192ii
+$ s203 holds this begins in the "early Gallo-Roman" though its later stages occur after the influx of Frankish vocab
+[+hi,-syl,+cont] > [-cont,-son,-delrel] / # __ [+syl]
+[+hi,+front,-syl,+cont] > [-cont,-son,-delrel] / [+cons] __ [+syl]
+
+$ s305 -- closed yod devoices if after a voiceless element (sapia > sache) 
+[+hi,-cont] > [-voi] / [-voi] __ 
+
+$ s164-2 : palatal stops c,ɟ become postalveolar affricates 
+$ Dated to seventh century in summary by Pope (s164)
+$ s299 "must have taken place before the end of the 8th century" 
+[+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
+
 $s164-10 ~s250 complete effacement of unstressed penultimate
-[+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* # 
+$as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
+$the voyelle d'appui is inevitable ə
+$ as per s259 : this resolves after the reduction of non-stressed non-low vowels everywhere, as there is a different outcome for
+$ paroxytones as opposed to proparoxytones. 
+[+syl,-stres] > ə / __ ([-syl])* [+syl] ([-syl])* # 
 
 $ s261 ~ s350 : as per word trajectories seen in s350, under justification of s261
 $ non-penultimate unstressed vowels except for a are effaced "early" when next syllˌs stressed vowel is a
 $ this happens before the voicing of t
-[+syl,-stres,-lo] > ∅ / __ ([-syl])* [+syl,+lo]  
+$ this will resolve after s257-259 does. 
+[+syl,-stres,-lo] > ə / __ ([-syl])* [+syl,+lo,+prim]  
+
+$ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
+$ NOTE: this actually occurred a bit later than the ones above, but diachronically it is convenient to place it here.
+$ ultimate effacement is "before the ninth century".
+[-stres,-lo,+syl] > ə
+
+$ s256 : ə effaced before unstressed a becomes the new ə, but retained in specific places (s256-259):  
+ə > ə̯
+$ s257ia : ə intertonic retained when after cons + r or l but not rr or ll 
+ə̯ > ə / [+stres] ([-syl])* [-son] r __ ([-syl])* [+stres]
+ə̯ > ə / [+stres] ([-syl])* [-lat] l __ ([-syl])* [+stres]
+$ s257ib : ə intertonic retained when before ʎ,ɲ,ts or "any particularly heavy group of consonants"  
+ə̯ > ə / __ [+front,+cons]
+ə̯ > ə / __ [-syl] [+front,-cont]
+ə̯ > ə / __ [-syl] [-syl] [-syl]
+$s258a : ə retained before n̪ t̪ #
+ə̯ > ə / __ n̪ t̪ (ə̯) #
+$s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after ɫn, ɫm 
+$NOTE: this is incorrect as neither ɫ nor the affricates tʃ and dʒ will have developed yet 
+ $ -- for ɫ this is wrong-- it first develops in the 9th century (ɫ: s390) 
+  $ whereas the final and intertonic ə is lost explicitly "before the 9th century" (256) 
+ 	$  corrected in corrected version -- whereas Pope says that ə is disappearing finally and intertonically in the 8th [s260]  
+ə̯ > ə / ɫ [+nas] __ #
+ə̯ > ə / [-ant,+delrel] __ #
+ə̯ > ə / [-lat,-syl] l __ #
+ə̯ > ə / [-son] r __ #
+$s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
+ə̯ > ə / ə̯ ([-syl])* __ # 
+$Delete all the rest which were not specifically retained: 
+ə̯ > ∅ 
 
 $ s350 -- ... and t immediately devoices if it comes into contact (by the previous rule) 
 $ with a PRECEDING b, β or ʝ
@@ -713,19 +764,6 @@ $ for maintenance -- Pope doesnˌt account for the fact that this could end up w
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 j > ∅ / j __ [-syl]
 
-$ s305-- yod in initial position closes, as does Popeˌs w 
-$ also -- s203 (for yod > gj) and s636 (for w to gw) 
-{j;w} > {ʝ;ɣʷ} / # __ [+syl]
-j > ʝ / [+cons] __ [+syl]
-[+hi,-syl,-cons] > [-cont,-son] / [-cons] __ [+syl]
-[+hi,-syl,-cons] > [-cont,-son] / # __ [+syl]
-
-$ s305 -- closed yod devoices if after a voiceless element (sapia > sache) 
-[+hi,-cont] > [-voi] / [-voi] __ 
-
-$ s164-2 : palatal stops c,ɟ become postalveolar affricates 
-[+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
-
 $ s373 : oral labials efface before (coronal) affricates 
 [+lab,-nas,-son] > ∅ / __ [+delrel] 
 
@@ -758,6 +796,7 @@ $ as per Popeˌs example in s343 this includes Latin lupum -- so must come AFTER
 β > ∅ / w __ [+tense,+round,-stres]
 
 $ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
+$ ultimate effacement is "before the ninth century".
 [-stres,-lo,+syl] > ə
 
 $ s355 -- final spirantization reversed due to slurring .
@@ -772,12 +811,18 @@ $ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (e
 $ s164.6 ~ s 189 
 β > v 
 
+$ s258 ə inserted after final CONS + r,l clusters 
+∅ > ə / {[-son];[+front,-syl,+hi]} r __ #
+∅ > ə / [-lat,-syl] l __ #
+
 $ Later Gallo-Roman 
 $ 8th and 9th centuries as per Pope s165
 
 $ s427 tonic free a ... i.e. ae̯  ... becomes aj before n, m 
 $ bleeds Pope s231-233
 a e̯ > a j / __ [+nas,+cons,-hi]
+
+$ s256 : ə effaced before unstressed a becomes the new ə 
 ə > ∅
 
 $s355-357 open word finals again if unsupported 
@@ -927,6 +972,10 @@ $ ɔ also closed before r + cons (s234)
 $~ Early Old French 
 $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "Formative period of the French language.”
 
+$ Pope s257 : unstressed ə > e before yod. She implies this is also happening before ʎ and ɲ in her examples
+$ s252 : this feeds ej > oj phenomena.
+ə > e / __ [+front,+son,+hi,-syl]
+
 $s291-s292 -- t͡sʲ eventually depalatalizes. Pope does not explicate when, but it is clearly before Later Old French.
 $ This would seem to be AFTER the influence exercised by palatals 
            $on preceding vowels such as e (s418)
@@ -979,13 +1028,10 @@ $ s330 : early leveling of aj before w -- case of aqua -- 11th century.
 
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
-[+tense,+syl,+round,-hi,-lo] >[+hi] / __ w [+lab,-syl]
+[+tense,+syl,+round,-hi,-lo] w >[+hi] ∅ / __ [+lab,-syl]
 
-$s490: countertonic o > ə if followed by labial cons (or tʃ or dʒ) and then tonic o>u or y; or if followed by tonic y (moˈu >məy)   
-$ note, called a "tendency" by Pope.
-ˌo >ˌə / __ [+prim,+hi,+round,-back]
-ˌo >ˌə / __ [-syl,+lab] [+tense,+prim,+round]
-ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
+$s490: countertonic "sometimes" o > ə under influence of (following?) tonic u>y or o>u  
+ˌo >ˌə / __ ([-syl]) [+prim,+tense,+round]
 
 $s435: dentalization of final m after vowels. 
 $s435 -- accepted by late 11th century 
@@ -1129,7 +1175,7 @@ $ s166.8 ~ s192 : deletion of w in kw,gw.
 $ ɥ also deleted after k,g at this time (s516) As per s192, late 12th century.
 $ yj >ɥi early before k,g to feed this (s503 ~ s514 ~ s516) 
 {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __
-[-syl,+round,-cons] > ∅ / [+back,-cont] __ 
+[-syl,+round,+cont] > ∅ / [+back,-cont] __ 
 
 $ s547-548 : ɔw > u in the thirteenth century. 
 $ s548: late 12th and 13th centuries. 
@@ -1326,7 +1372,7 @@ $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
 [+lo,+syl] [+lo,+syl] > ∅ [+long]
 [-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
-[+hi,+back,+round] [+hi,+back,+round] > ∅ [+long]
+[+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
 
 $ s242b specifications on coalescence of countertonic a
 $ s561 : length of aũ

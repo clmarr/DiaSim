@@ -1,15 +1,17 @@
 Trajectory file for run 'run1'; etymon number :499:
 #kˈorpus# >>> #kɔʁ# ( Correct : #kɔʁ#) :
 k ˈo r p u s 
-#kˈɔrpʊs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#kˈɔrpos# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#kˈɔrpəs# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#kˈɔrps# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#kˈɔrp?# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#kˈɔr?# | Rule 297 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#kˈɔɹ?# | Rule 481 : r > ɹ / [-cons] __ [+cons] (ORIG: r>ɹ/[-cons]__+cons )
-#kˈɔɹ# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#kˈɔr# | Rule 494 : ɹ > r  (ORIG: ɹ > r  )
-#kˈɔʀ# | Rule 496 : r > ʀ  (ORIG: r > ʀ )
-#kɔʀ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#kɔʁ# | Rule 504 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#kˈɔrpʊs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɔrpos# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɔrpəs# | Rule 198 : [-stres,-lo,+syl] > ə 
+#kˈɔrpə̯s# | Rule 199 : ə > ə̯ 
+#kˈɔrps# | Rule 211 : ə̯ > ∅ 
+#kˈɔrss# | Rule 217 : [+lab,-nas,-round,+cons] > s / __ s
+#kˈɔrs# | Rule 220 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / [+cons] __ 
+#kˈɔr?# | Rule 280 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#kˈɔɹ?# | Rule 496 : r > ɹ / [-cons] __ [+cons]
+#kˈɔɹ# | Rule 500 : [-son] > ∅ / __ #
+#kˈɔr# | Rule 509 : ɹ > r 
+#kˈɔʀ# | Rule 511 : r > ʀ 
+#kɔʀ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kɔʁ# | Rule 519 : ʀ > ʁ 

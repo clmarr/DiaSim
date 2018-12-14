@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :652:
-#mˈɑrmor# >>> #maʁmʁ# ( Correct : #maʁbʁ#) :
+#mˈɑrmor# >>> #maʁbʁ# ( Correct : #maʁbʁ#) :
 m ˈɑ r m o r 
-#mˈɑrmɔr# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#mˈarmɔr# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#mˈarmər# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#mˈarmr# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#mˈarmbr# | Rule 308 : ∅ > b / m __ [+cor,-nas,+son,-syl] (ORIG: ∅ > b / m __ [+cor,-nas,+son,-syl] )
-#mˈarmmr# | Rule 311 : {m n̪;n̪ m;m b} > {m m;m m;m m}  (ORIG: {m n̪;n̪ m;m b} > {m m;m m;m m} )
-#mˈarmr# | Rule 320 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}  (ORIG: {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} )
-#mˈaɹmr# | Rule 481 : r > ɹ / [-cons] __ [+cons] (ORIG: r>ɹ/[-cons]__+cons )
-#mˈarmr# | Rule 494 : ɹ > r  (ORIG: ɹ > r  )
-#mˈaʀmʀ# | Rule 496 : r > ʀ  (ORIG: r > ʀ )
-#maʀmʀ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#maʁmʁ# | Rule 504 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#mˈɑrmɔr# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈarmɔr# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈarmər# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈarmə̯r# | Rule 199 : ə > ə̯ 
+#mˈarmr# | Rule 211 : ə̯ > ∅ 
+#mˈarmbr# | Rule 221 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#mˈarbr# | Rule 308 : [+cons] > ∅ / [+cons] __ [-son]
+#mˈarbrə# | Rule 338 : ∅ > ə / [-son] r __ #
+#mˈarbrə̯# | Rule 494 : ə > ə̯ / __ #
+#mˈaɹbrə̯# | Rule 496 : r > ɹ / [-cons] __ [+cons]
+#mˈaɹbr# | Rule 501 : ə̯ > ∅ 
+#mˈarbr# | Rule 509 : ɹ > r 
+#mˈaʀbʀ# | Rule 511 : r > ʀ 
+#maʀbʀ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#maʁbʁ# | Rule 519 : ʀ > ʁ 

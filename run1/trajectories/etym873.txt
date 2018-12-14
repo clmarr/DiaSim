@@ -1,14 +1,20 @@
 Trajectory file for run 'run1'; etymon number :873:
-#pˈessimum# >>> #pɛs# ( Correct : #pɛm#) :
+#pˈessimum# >>> #pɛ̃m# ( Correct : #pɛm#) :
 p ˈe s s i m u m 
-#pˈɛssɪmʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#pˈɛssemom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#pˈɛssemo# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#pˈɛssmo# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#pˈɛsmo# | Rule 200 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons] (ORIG: {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / __ [+cons]  )
-#pˈɛsmə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#pˈɛsm# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#pˈɛs?# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#pˈɛs?# | Rule 275 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#pˈɛs# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#pɛs# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#pˈɛssɪmʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɛssemom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɛssemo# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈɛssəmo# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈɛssəmə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#pˈɛssə̯mə̯# | Rule 199 : ə > ə̯ 
+#pˈɛssə̯mə# | Rule 210 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#pˈɛssmə# | Rule 211 : ə̯ > ∅ 
+#pˈɛsmə# | Rule 219 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#pˈɛzmə# | Rule 312 : s > z / __ [+voi,+cons]
+#pˈɛːzmə# | Rule 351 : [+syl] > [+long] / __ z [+cons]
+#pˈɛːmə# | Rule 352 : z > ∅ / __ [+cons]
+#pˈɛ̃ːmə# | Rule 401 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#pˈɛ̃ːmə̯# | Rule 494 : ə > ə̯ / __ #
+#pˈɛ̃ːm# | Rule 501 : ə̯ > ∅ 
+#pɛ̃ːm# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɛ̃m# | Rule 513 : [+syl,+long] > [-long,-splng] 

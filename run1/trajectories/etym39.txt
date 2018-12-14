@@ -1,16 +1,19 @@
 Trajectory file for run 'run1'; etymon number :39:
 #ˈɑln̪um# >>> #on̪# ( Correct : #on̪#) :
 ˈɑ l n̪ u m 
-#ˈɑɫn̪um# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#ˈɑln̪um# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#ˈɑln̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˈɑln̪om# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#ˈɑln̪o# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#ˈaln̪o# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#ˈaln̪ə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#ˈaln̪# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#ˈaɫn̪# | Rule 330 : [+lat] > [+back] / __ [+cons] (ORIG: [+lat] > [+back] / __ [+cons] )
-#ˈawn̪# | Rule 367 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#ˈoːn̪# | Rule 422 : {ˌa w;ˈa w} > {ˌoː;ˈoː}  (ORIG: {ˌa w; ˈa w} > {ˌoː;ˈoː} )
-#oːn̪# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#on̪# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#ˈɑɫn̪um# | Rule 4 : l > ɫ / @ __ 
+#ˈɑln̪um# | Rule 10 : [+lat] > [-back] 
+#ˈɑln̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɑln̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɑln̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈaln̪o# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#ˈaln̪ə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#ˈaln̪ə̯# | Rule 199 : ə > ə̯ 
+#ˈaln̪ə# | Rule 206 : ə̯ > ə / [+lat] [+nas] __ #
+#ˈaɫn̪ə# | Rule 345 : [+lat] > [+back] / __ [+cons]
+#ˈawn̪ə# | Rule 382 : [+lat,+back] > w 
+#ˈoːn̪ə# | Rule 437 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ˈoːn̪ə̯# | Rule 494 : ə > ə̯ / __ #
+#ˈoːn̪# | Rule 501 : ə̯ > ∅ 
+#oːn̪# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#on̪# | Rule 513 : [+syl,+long] > [-long,-splng] 

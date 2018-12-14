@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1170:
 #sˈuːrsum# >>> #sy# ( Correct : #sy#) :
 s ˈuː r s u m 
-#sˈuːsum# | Rule 13 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s (ORIG: [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s )
-#sˈuːsʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#sˈusʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#sˈusom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#sˈuso# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#sˈuːso# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#sˈuːzo# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons] (ORIG: [+cont,-son] > [+voi] / [-cons] __ [-cons] )
-#s?zo# | Rule 184 : [+hi,+tense,+round,+syl] > [-front,-back]  (ORIG: [+hi,+tense,+round,+syl] > [-front,-back] )
-#s?zə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#s?z# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#s?s# | Rule 275 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#sˈyːs# | Rule 331 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
-#sˈyː# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#syː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#sy# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#sˈuːsum# | Rule 13 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
+#sˈuːsʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈusʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˈusom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈuso# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈuːso# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈuːzo# | Rule 99 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#s?zo# | Rule 185 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#s?zə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#s?zə̯# | Rule 199 : ə > ə̯ 
+#s?z# | Rule 211 : ə̯ > ∅ 
+#sˈʉz# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#s?z# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#sˈʉz# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#s?z# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#s?s# | Rule 286 : [-son] > [-voi] / __ #
+#sˈyːs# | Rule 346 : [+hi,+round,-back] > [+front] 
+#sˈyː# | Rule 500 : [-son] > ∅ / __ #
+#syː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sy# | Rule 513 : [+syl,+long] > [-long,-splng] 

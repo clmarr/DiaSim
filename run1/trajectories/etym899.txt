@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :899:
-#pˈit̪t̪iːt̪um# >>> #pɛ# ( Correct : #pət̪i#) :
+#pˈit̪t̪iːt̪um# >>> #pɛt̪# ( Correct : #pət̪i#) :
 p ˈi t̪ t̪ iː t̪ u m 
-#pˈɪt̪t̪iːt̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#pˈɪt̪t̪it̪ʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#pˈet̪t̪it̪om# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#pˈet̪t̪it̪o# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#pˈet̪t̪t̪o# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#pˈet̪t̪o# | Rule 200 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons] (ORIG: {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / __ [+cons]  )
-#pˈet̪t̪ə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#pˈet̪t̪# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#pˈet̪# | Rule 317 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] (ORIG: [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]  )
-#pˈɛt̪# | Rule 415 : ˈe > ˈɛ  (ORIG: ˈe > ˈɛ )
-#pˈɛ# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#pɛ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#pˈɪt̪t̪iːt̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɪt̪t̪it̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˈet̪t̪it̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈet̪t̪it̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈet̪t̪ət̪o# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈet̪t̪ət̪ə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#pˈet̪t̪ə̯t̪ə̯# | Rule 199 : ə > ə̯ 
+#pˈet̪t̪ə̯t̪ə# | Rule 210 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#pˈet̪t̪t̪ə# | Rule 211 : ə̯ > ∅ 
+#pˈet̪t̪ə# | Rule 219 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#pˈet̪ə# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#pˈɛt̪ə# | Rule 430 : ˈe > ˈɛ 
+#pˈɛt̪ə̯# | Rule 494 : ə > ə̯ / __ #
+#pˈɛt̪# | Rule 501 : ə̯ > ∅ 
+#pɛt̪# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

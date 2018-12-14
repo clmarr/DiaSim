@@ -1,12 +1,14 @@
 Trajectory file for run 'run1'; etymon number :353:
 #illɑːs# >>> #la# ( Correct : #le#) :
 i l l ɑː s 
-#iɫɫɑːs# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#illɑːs# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#ɪllɑːs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ɪllɑs# | Rule 49 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#ellɑs# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#ellas# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#llas# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#las# | Rule 320 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}  (ORIG: {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} )
-#la# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#iɫɫɑːs# | Rule 4 : l > ɫ / @ __ 
+#illɑːs# | Rule 10 : [+lat] > [-back] 
+#ɪllɑːs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɪllɑs# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#ellɑs# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ellas# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#əllas# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯llas# | Rule 199 : ə > ə̯ 
+#llas# | Rule 211 : ə̯ > ∅ 
+#las# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#la# | Rule 500 : [-son] > ∅ / __ #

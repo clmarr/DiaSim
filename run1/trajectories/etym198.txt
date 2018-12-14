@@ -1,14 +1,21 @@
 Trajectory file for run 'run1'; etymon number :198:
-#d̪ˈubit̪um# >>> #d̪u# ( Correct : #d̪ut̪#) :
+#d̪ˈubit̪um# >>> #d̪ud̪# ( Correct : #d̪ut̪#) :
 d̪ ˈu b i t̪ u m 
-#d̪ˈʊbɪt̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#d̪ˈʊbt̪ʊm# | Rule 31 : ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ [+cor,-son,-cont] [+syl] ( [-syl] ) # (ORIG: ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+syl] ([-syl]) # )
-#d̪ˈobt̪om# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#d̪ˈobt̪o# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#d̪ˈot̪t̪o# | Rule 144 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi] (ORIG: [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi] )
-#d̪ˈot̪t̪ə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#d̪ˈot̪t̪# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#d̪ˈot̪# | Rule 317 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] (ORIG: [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]  )
-#d̪ˈut̪# | Rule 350 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#d̪ˈu# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#d̪u# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#d̪ˈʊbɪt̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈʊβɪt̪ʊm# | Rule 39 : b > β / [+syl] __ [+son,-lat,-nas]
+#d̪ˈoβet̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈoβet̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˈoːβet̪o# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˈoːβət̪o# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#d̪ˈoːβət̪ə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#d̪ˈoːβə̯t̪ə̯# | Rule 199 : ə > ə̯ 
+#d̪ˈoːβə̯t̪ə# | Rule 210 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#d̪ˈoːβt̪ə# | Rule 211 : ə̯ > ∅ 
+#d̪ˈoːβd̪ə# | Rule 212 : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
+#d̪ˈoːd̪d̪ə# | Rule 216 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#d̪ˈod̪d̪ə# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
+#d̪ˈod̪ə# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#d̪ˈud̪ə# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#d̪ˈud̪ə̯# | Rule 494 : ə > ə̯ / __ #
+#d̪ˈud̪# | Rule 501 : ə̯ > ∅ 
+#d̪ud̪# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

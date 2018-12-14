@@ -100,6 +100,9 @@ public class SChangeFactory {
 		
 		List<SChange> output = new ArrayList<SChange>(); 
 		
+		//TODO debugging
+		System.out.println("inp : "+inp);
+		
 		if(! input.contains(""+ARROW))
 			throw new Error("Error : input to rule generation that lacks an arrow."); 
 		
@@ -157,10 +160,10 @@ public class SChangeFactory {
 				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+segDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateSoundChangesFromRule(inputSource+ARROW+inputDest+contextFlag+
-							(openerInd == 0 ? "" : inputPrior.substring(0, openerInd) + phDelim) + disjuncts[di] + phDelim + 
-							inputPrior.substring(closerInd+1) + LOCUS + inputPostr));
-				}
+					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest
+							+phDelim+contextFlag+phDelim + (openerInd== 0 ? "" : inputPrior.substring(0, openerInd) + phDelim) 
+							+ disjuncts[di] + inputPrior.substring(closerInd+1) +phDelim+ LOCUS + phDelim+inputPostr));
+				} 
 				
 				return output; 
 			}
@@ -191,9 +194,9 @@ public class SChangeFactory {
 				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+segDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateSoundChangesFromRule(inputSource+ARROW+inputDest+contextFlag+
-							inputPrior + LOCUS + inputPostr.substring(0, openerInd) +
-							disjuncts[di] + inputPostr.substring(closerInd+1))); 
+					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest+
+							phDelim+contextFlag+phDelim+inputPrior +phDelim+ LOCUS +phDelim+ inputPostr.substring(0, openerInd) +
+							phDelim+disjuncts[di] +(closerInd < inputPostr.length()-1 ? inputPostr.substring(closerInd+1): ""))); 
 				}
 				return output; 				
 			}
@@ -479,6 +482,9 @@ public class SChangeFactory {
 	//TODO finish fixing this  
 	public SChangeContext parseNewContext(String input, boolean boundsMatter)
 	{
+		//TODO debugging
+		System.out.println("parsing new contest : "+input);
+		
 		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
 		inp = expandOutAllPlusses(inp);
@@ -672,39 +678,40 @@ public class SChangeFactory {
 			if(i < output.length() - 2)
 			{
 				if(output.charAt(i) == ' ' && output.charAt(i+1) == ' ')
-				{
-					output = output.substring(0,i+1) + output.substring(i+2); i+=2; 
-				}
+				{	output = output.substring(0,i+1) + output.substring(i+2); 	}
 			}
 			if(i < output.length() - 2)
 			{	if(output.charAt(i) == '(')
 				{
 					if(i > 0)
-						if (output.charAt(i-1) != ' ')
-						{	output = output.substring(0, i) + " " + output.substring(i); i++;	}
+					{	if (output.charAt(i-1) != ' ')
+						{	output = output.substring(0, i) + " " + output.substring(i); i++;	} 	}
 					if(output.charAt(i+1) != ' ')
 					{	output = output.substring(0, i+1) + " "+ output.substring(i+1); i++;	}
 				}
 			}
-			i++; 
-			if(output.charAt(i) == ')')
+			i++;
+			if(i < output.length())
 			{
-				if(output.charAt(i-1) != ' ')
-				{	output = output.substring(0,i) + " " + output.substring(i); i++;	}
-				if( i < output.length() - 1)
-				{	
-					if("*+".contains(output.charAt(i+1)+""))
-					{	if( i < output.length() - 2)
-						{	if(output.charAt(i+2) != ' ')
-							{
-								output = output.substring(0, i+2) + " " + output.substring(i+2); 
-								i += 3;
-							}}}
-					else 
-					{
-						if(output.charAt(i+1) != ' ')
-						{	output = output.substring(0, i+1) + " " + output.substring(i+1); 
-							i += 2;	}
+				if(output.charAt(i) == ')')
+				{
+					if(output.charAt(i-1) != ' ')
+					{	output = output.substring(0,i) + " " + output.substring(i); i++;	}
+					if( i < output.length() - 1)
+					{	
+						if("*+".contains(output.charAt(i+1)+""))
+						{	if( i < output.length() - 2)
+							{	if(output.charAt(i+2) != ' ')
+								{
+									output = output.substring(0, i+2) + " " + output.substring(i+2); 
+									i += 3;
+								}}}
+						else 
+						{
+							if(output.charAt(i+1) != ' ')
+							{	output = output.substring(0, i+1) + " " + output.substring(i+1); 
+								i += 2;	}
+						}
 					}
 				}
 			}

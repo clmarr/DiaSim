@@ -1,16 +1,19 @@
 Trajectory file for run 'run1'; etymon number :9:
 #ˈɑd̪sɑt̪is# >>> #as# ( Correct : #ase#) :
 ˈɑ d̪ s ɑ t̪ i s 
-#ˈɑd̪sɑt̪ɪs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˈɑd̪sɑt̪es# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#ˈad̪sat̪es# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#ˈad̪st̪es# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#ˈad̪st̪əs# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#ˈad̪st̪s# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#ˈad̪st̪?# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#ˈat͡sʲt̪?# | Rule 296 : [+cor,-cont,-delrel] s > t͡sʲ (ORIG: [+cor,-cont,-delrel] s > t͡sʲ )
-#ˈat͡sʲ?# | Rule 297 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#ˈat͡s?# | Rule 327 : t͡sʲ > t͡s  (ORIG: t͡sʲ >t͡s )
-#ˈas?# | Rule 409 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
-#ˈas# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#as# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#ˈɑd̪sɑt̪ɪs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɑd̪sɑt̪es# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈad̪sat̪es# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#ˈad̪sət̪es# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈad̪sət̪əs# | Rule 198 : [-stres,-lo,+syl] > ə 
+#ˈad̪sə̯t̪ə̯s# | Rule 199 : ə > ə̯ 
+#ˈad̪sət̪ə̯s# | Rule 204 : ə̯ > ə / __ [-syl] [-syl] [-syl]
+#ˈad̪sət̪s# | Rule 211 : ə̯ > ∅ 
+#ˈad̪sət̪?# | Rule 280 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#ˈat͡sʲət̪?# | Rule 307 : [+cor,-cont,-delrel] s > t͡sʲ
+#ˈat͡sʲə?# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#ˈat͡sə?# | Rule 342 : t͡sʲ > t͡s 
+#ˈasə?# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#ˈasə# | Rule 500 : [-son] > ∅ / __ #
+#asə# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#as# | Rule 521 : ə > ∅ / __ #

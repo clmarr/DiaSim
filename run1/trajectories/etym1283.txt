@@ -1,25 +1,31 @@
 Trajectory file for run 'run1'; etymon number :1283:
-#ˈurt̪ikɑm# >>> #uʁ# ( Correct : #ɔʁt̪i#) :
+#ˈurt̪ikɑm# >>> #uʁt̪wa# ( Correct : #ɔʁt̪i#) :
 ˈu r t̪ i k ɑ m 
-#ˈʊrt̪ɪkɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ˈort̪ekɑm# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#ˈort̪ekɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#ˈort̪eɡɑ# | Rule 96 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
-#ˈort̪eɣɑ# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons] (ORIG: ɡ > ɣ / [-cons] __ [-cons]  )
-#ˈort̪eɣa# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#ˈort̪eɣʲa# | Rule 178 : [+hi,+back,+cons] > [+front] / __ [+front,+syl] (ORIG: [+hi,+back,+cons] > [+front] / __ [+front,+syl]  )
-#ˈort̪eɣʲɛ# | Rule 179 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
-#ˈort̪eʝɛ# | Rule 187 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
-#ˈort̪ʝɛ# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#ˈort̪ʝə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#ˈort̪ʝ# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#ˈort̪ɟ# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#ˈort̪c# | Rule 275 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#ˈorc# | Rule 297 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#ˈurc# | Rule 350 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#ˈuɹc# | Rule 481 : r > ɹ / [-cons] __ [+cons] (ORIG: r>ɹ/[-cons]__+cons )
-#ˈuɹ# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#ˈur# | Rule 494 : ɹ > r  (ORIG: ɹ > r  )
-#ˈuʀ# | Rule 496 : r > ʀ  (ORIG: r > ʀ )
-#uʀ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#uʁ# | Rule 504 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#ˈʊrt̪ɪkɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈort̪ekɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈort̪ekɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈort̪eɡɑ# | Rule 97 : k > ɡ / [-cons] __ [+syl]
+#ˈort̪eɣɑ# | Rule 98 : ɡ > ɣ / [-cons] __ [-cons]
+#ˈort̪eɣa# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#ˈort̪eɣʲa# | Rule 179 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ˈort̪eɣʲɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#ˈort̪eʝɛ# | Rule 188 : [+back,+front] > [-back] 
+#ˈort̪əʝɛ# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈort̪əʝə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#ˈort̪ə̯ʝə̯# | Rule 199 : ə > ə̯ 
+#ˈort̪əʝə̯# | Rule 202 : ə̯ > ə / __ [+front,+cons]
+#ˈort̪əʝ# | Rule 211 : ə̯ > ∅ 
+#ˈort̪əç# | Rule 286 : [-son] > [-voi] / __ #
+#ˈort̪əʝ# | Rule 300 : ç > ʝ 
+#ˈort̪əj# | Rule 301 : ʝ > j / [+syl] __ 
+#ˈort̪ej# | Rule 341 : ə > e / __ [+front,+son,+hi,-syl]
+#ˈort̪oj# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#ˈurt̪uj# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#ˈurt̪uɛ̯# | Rule 406 : j > ɛ̯ / [+syl,+back,+round] __ 
+#ˈurt̪wɛ# | Rule 409 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ˈuɹt̪wɛ# | Rule 496 : r > ɹ / [-cons] __ [+cons]
+#ˈurt̪wɛ# | Rule 509 : ɹ > r 
+#ˈuʀt̪wɛ# | Rule 511 : r > ʀ 
+#uʀt̪wɛ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#uʀt̪wa# | Rule 517 : ɛ > a / w __ 
+#uʁt̪wa# | Rule 519 : ʀ > ʁ 

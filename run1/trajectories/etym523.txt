@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :523:
 #kˈuːlum# >>> #ky# ( Correct : #ky#) :
 k ˈuː l u m 
-#kˈuːɫum# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#kˈuːlum# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#kˈuːlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#kˈulʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#kˈulom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#kˈulo# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#kˈuːlo# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#k?lo# | Rule 184 : [+hi,+tense,+round,+syl] > [-front,-back]  (ORIG: [+hi,+tense,+round,+syl] > [-front,-back] )
-#k?lə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#k?l# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#kˈyːl# | Rule 331 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
-#kˈyː# | Rule 427 : [+lat] > ∅ / [+hi,+syl] __ # (ORIG: [+lat] > ∅ / [+hi,+syl] __ # )
-#kyː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#ky# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#kˈuːɫum# | Rule 4 : l > ɫ / @ __ 
+#kˈuːlum# | Rule 10 : [+lat] > [-back] 
+#kˈuːlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈulʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈulom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈulo# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈuːlo# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#k?lo# | Rule 185 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#k?lə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#k?lə̯# | Rule 199 : ə > ə̯ 
+#k?l# | Rule 211 : ə̯ > ∅ 
+#kˈʉl# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#k?l# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈʉl# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#k?l# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈyːl# | Rule 346 : [+hi,+round,-back] > [+front] 
+#kˈyː# | Rule 442 : [+lat] > ∅ / [+hi,+syl] __ #
+#kyː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ky# | Rule 513 : [+syl,+long] > [-long,-splng] 

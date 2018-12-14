@@ -1,13 +1,21 @@
 Trajectory file for run 'run1'; etymon number :654:
-#mˈɑskulum# >>> #maskl# ( Correct : #mɑl#) :
+#mˈɑskulum# >>> #mɑl# ( Correct : #mɑl#) :
 m ˈɑ s k u l u m 
-#mˈɑskuɫum# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#mˈɑskulum# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#mˈɑskʊlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#mˈɑsklʊm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) # (ORIG: ʊ > ∅ / [+prim] ([-syl])* [-cont] __ [+lat] [+syl] ([-syl]) # )
-#mˈɑsklom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#mˈɑsklo# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#mˈasklo# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#mˈasklə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#mˈaskl# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#maskl# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#mˈɑskuɫum# | Rule 4 : l > ɫ / @ __ 
+#mˈɑskulum# | Rule 10 : [+lat] > [-back] 
+#mˈɑskʊlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑsklʊm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɑsklom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɑsklo# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈasklo# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈasklə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈasklə̯# | Rule 199 : ə > ə̯ 
+#mˈasklə# | Rule 208 : ə̯ > ə / [-lat,-syl] l __ #
+#mˈazlə# | Rule 318 : {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
+#mˈaːzlə# | Rule 351 : [+syl] > [+long] / __ z [+cons]
+#mˈaːlə# | Rule 352 : z > ∅ / __ [+cons]
+#mˈɑːlə# | Rule 479 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːlə̯# | Rule 494 : ə > ə̯ / __ #
+#mˈɑːl# | Rule 501 : ə̯ > ∅ 
+#mɑːl# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɑl# | Rule 513 : [+syl,+long] > [-long,-splng] 

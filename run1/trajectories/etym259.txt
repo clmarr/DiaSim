@@ -1,15 +1,20 @@
 Trajectory file for run 'run1'; etymon number :259:
 #fˈiːlum# >>> #fi# ( Correct : #fil#) :
 f ˈiː l u m 
-#fˈiːɫum# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#fˈiːlum# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#fˈiːlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#fˈilʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#fˈilom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#fˈilo# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#fˈiːlo# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#fˈiːlə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#fˈiːl# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#fˈiː# | Rule 427 : [+lat] > ∅ / [+hi,+syl] __ # (ORIG: [+lat] > ∅ / [+hi,+syl] __ # )
-#fiː# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#fi# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
+#fˈiːɫum# | Rule 4 : l > ɫ / @ __ 
+#fˈiːlum# | Rule 10 : [+lat] > [-back] 
+#fˈiːlʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈilʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#fˈilom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˈilo# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈiːlo# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈiːlə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#fˈiːlə̯# | Rule 199 : ə > ə̯ 
+#fˈiːl# | Rule 211 : ə̯ > ∅ 
+#fˈil# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#fˈiːl# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#fˈil# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#fˈiːl# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#fˈiː# | Rule 442 : [+lat] > ∅ / [+hi,+syl] __ #
+#fiː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fi# | Rule 513 : [+syl,+long] > [-long,-splng] 

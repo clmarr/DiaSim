@@ -1,16 +1,18 @@
 Trajectory file for run 'run1'; etymon number :356:
-#illoːs# >>> #w# ( Correct : #le#) :
+#illoːs# >>> #əw# ( Correct : #le#) :
 i l l oː s 
-#iɫɫoːs# | Rule 4 : l > ɫ / @ __  (ORIG: l > [+back] / @ __  )
-#illoːs# | Rule 10 : [+lat] > [-back]  (ORIG: [+lat] > [-back]  )
-#ɪlloːs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#ɪllos# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#ellos# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#llos# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#lləs# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#lls# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#ll?# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#l?# | Rule 297 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#ɫ?# | Rule 330 : [+lat] > [+back] / __ [+cons] (ORIG: [+lat] > [+back] / __ [+cons] )
-#w?# | Rule 367 : [+lat,+back] > w  (ORIG: [+lat,+back] > w )
-#w# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
+#iɫɫoːs# | Rule 4 : l > ɫ / @ __ 
+#illoːs# | Rule 10 : [+lat] > [-back] 
+#ɪlloːs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɪllos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ellos# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#əllos# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#əlləs# | Rule 198 : [-stres,-lo,+syl] > ə 
+#ə̯llə̯s# | Rule 199 : ə > ə̯ 
+#əllə̯s# | Rule 204 : ə̯ > ə / __ [-syl] [-syl] [-syl]
+#əlls# | Rule 211 : ə̯ > ∅ 
+#əll?# | Rule 280 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#əl?# | Rule 308 : [+cons] > ∅ / [+cons] __ [-son]
+#əɫ?# | Rule 345 : [+lat] > [+back] / __ [+cons]
+#əw?# | Rule 382 : [+lat,+back] > w 
+#əw# | Rule 500 : [-son] > ∅ / __ #

@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :732:
-#mˈuskɑm# >>> #mus# ( Correct : #muʃ#) :
+#mˈuskɑm# >>> #musʃ# ( Correct : #muʃ#) :
 m ˈu s k ɑ m 
-#mˈʊskɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#mˈoskɑm# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#mˈoskɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#mˈoska# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#mˈoskʲa# | Rule 178 : [+hi,+back,+cons] > [+front] / __ [+front,+syl] (ORIG: [+hi,+back,+cons] > [+front] / __ [+front,+syl]  )
-#mˈoskʲɛ# | Rule 179 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
-#mˈoscɛ# | Rule 187 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
-#mˈost͡ʃɛ# | Rule 242 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son]  (ORIG: [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr] )
-#mˈost͡ʃə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#mˈost͡ʃ# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#mˈust͡ʃ# | Rule 350 : [+round,+tense,+back] > [+hi]  (ORIG: [+round,+tense,+back] > [+hi]  )
-#mˈusʃ# | Rule 409 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
-#mˈus# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#mus# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#mˈʊskɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈoskɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈoskɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈoska# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈoskʲa# | Rule 179 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#mˈoskʲɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#mˈoscɛ# | Rule 188 : [+back,+front] > [-back] 
+#mˈost͡ʃɛ# | Rule 195 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#mˈost͡ʃə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈost͡ʃə̯# | Rule 199 : ə > ə̯ 
+#mˈost͡ʃə# | Rule 207 : ə̯ > ə / [-ant,+delrel] __ #
+#mˈust͡ʃə# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#mˈusʃə# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#mˈusʃə̯# | Rule 494 : ə > ə̯ / __ #
+#mˈusʃ# | Rule 501 : ə̯ > ∅ 
+#musʃ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

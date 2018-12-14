@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :988:
 #pˈuːrum# >>> #pyʁ# ( Correct : #pyʁ#) :
 p ˈuː r u m 
-#pˈuːrʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#pˈurʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#pˈurom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#pˈuro# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#pˈuːro# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons] (ORIG: [+prim] > [+long] / __ [+cons] [-cons]  )
-#p?ro# | Rule 184 : [+hi,+tense,+round,+syl] > [-front,-back]  (ORIG: [+hi,+tense,+round,+syl] > [-front,-back] )
-#p?rə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#p?r# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#pˈyːr# | Rule 331 : [+hi,+round,-back] > [+front]  (ORIG: [+hi,+round,-back] > [+front] )
-#pˈyːɹ# | Rule 480 : r > ɹ / [-cons] __ # (ORIG: r>ɹ/[-cons]__# )
-#pˈyːr# | Rule 494 : ɹ > r  (ORIG: ɹ > r  )
-#pˈyːʀ# | Rule 496 : r > ʀ  (ORIG: r > ʀ )
-#pyːʀ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#pyʀ# | Rule 498 : [+syl,+long] > [-long,-splng]  (ORIG: [+syl,+long] > [-long] )
-#pyʁ# | Rule 504 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#pˈuːrʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈurʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˈurom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈuro# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈuːro# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#p?ro# | Rule 185 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#p?rə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#p?rə̯# | Rule 199 : ə > ə̯ 
+#p?r# | Rule 211 : ə̯ > ∅ 
+#pˈʉr# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#p?r# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈʉr# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#p?r# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈyːr# | Rule 346 : [+hi,+round,-back] > [+front] 
+#pˈyːɹ# | Rule 495 : r > ɹ / [-cons] __ #
+#pˈyːr# | Rule 509 : ɹ > r 
+#pˈyːʀ# | Rule 511 : r > ʀ 
+#pyːʀ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pyʀ# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#pyʁ# | Rule 519 : ʀ > ʁ 

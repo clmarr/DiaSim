@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :168:
-#d̪ˌeːsursum# >>> #d̪es# ( Correct : #d̪əsy#) :
+#d̪ˌeːsursum# >>> #d̪zəs# ( Correct : #d̪əsy#) :
 d̪ ˌeː s u r s u m 
-#d̪ˌeːsussum# | Rule 15 : [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s (ORIG: [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s )
-#d̪ˌeːsʊssʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#d̪ˌesʊssʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,+long] > [-long,+tense] )
-#d̪ˌesossom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#d̪ˌesosso# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#d̪ˌezosso# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons] (ORIG: [+cont,-son] > [+voi] / [-cons] __ [-cons] )
-#d̪ˌezsso# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#d̪ˌezso# | Rule 201 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / [+cons] __  (ORIG: {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __   )
-#d̪ˌezsə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#d̪ˌezs# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#d̪ˌez?# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#d̪ˌes?# | Rule 319 : [-son] > [-voi] / __ [-voi] (ORIG: [-son] > [-voi] / __ [-voi]  )
-#d̪ˌes# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#d̪es# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
+#d̪ˌeːsussum# | Rule 15 : [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
+#d̪ˌeːsʊssʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˌesʊssʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˌesossom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˌesosso# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˌezosso# | Rule 99 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#d̪ˌezəsso# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#d̪ˌezəssə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#d̪ˌezə̯ssə̯# | Rule 199 : ə > ə̯ 
+#d̪ˌezəssə̯# | Rule 204 : ə̯ > ə / __ [-syl] [-syl] [-syl]
+#d̪ˌezəss# | Rule 211 : ə̯ > ∅ 
+#d̪ˌezəs?# | Rule 280 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#d̪ˌəzəs?# | Rule 353 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#d̪?zəs?# | Rule 486 : [+syl] > [+long] / __ z [+syl]
+#d̪?zəs# | Rule 500 : [-son] > ∅ / __ #
+#d̪?zəs# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪əzəs# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#d̪zəs# | Rule 525 : ə > ∅ / # [-syl] __ [-syl] [+syl]

@@ -1,26 +1,35 @@
 Trajectory file for run 'run1'; etymon number :429:
-#kˈɑrrikɑm# >>> #ʃaʁ# ( Correct : #ʃaʁʒ#) :
+#kˈɑrrikɑm# >>> #ʃɑʁwa# ( Correct : #ʃaʁʒ#) :
 k ˈɑ r r i k ɑ m 
-#kˈɑrrɪkɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel]  (ORIG: [+syl,-lo,-long] > [-tense] )
-#kˈɑrrekɑm# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel]  (ORIG: [+hi,-tense] > [-hi,+tense]  )
-#kˈɑrrekɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ # (ORIG: m > ∅ / [+syl] ([-syl])* [+syl] __ # )
-#kˈɑrreɡɑ# | Rule 96 : k > ɡ / [-cons] __ [+syl] (ORIG: k > ɡ / [-cons] __ [+syl] )
-#kˈɑrreɣɑ# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons] (ORIG: ɡ > ɣ / [-cons] __ [-cons]  )
-#kˈarreɣa# | Rule 143 : [+lo,+syl] > [+front,-back]  (ORIG: [+lo,+syl] > [+front,-back] )
-#kʲˈarreɣʲa# | Rule 178 : [+hi,+back,+cons] > [+front] / __ [+front,+syl] (ORIG: [+hi,+back,+cons] > [+front] / __ [+front,+syl]  )
-#kʲˈarreɣʲɛ# | Rule 179 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ # (ORIG: [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ # )
-#cˈarreʝɛ# | Rule 187 : [+back,+front] > [-back]  (ORIG: [+back,+front] > [-back]  )
-#cˈarrʝɛ# | Rule 191 : [+syl,-stres] > ∅ / __ ( [-syl] )* [+syl] ( [-syl] )* # (ORIG: [+syl,-stres] > ∅ / __ ([-syl])* [+syl] ([-syl])* #  )
-#t͡ʃˈarrʝɛ# | Rule 242 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son]  (ORIG: [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr] )
-#t͡ʃˈarrʝə# | Rule 261 : [-stres,-lo,+syl] > ə  (ORIG: [-stres,-lo,+syl] > ə )
-#t͡ʃˈarrʝ# | Rule 267 : ə > ∅  (ORIG: ə > ∅ )
-#t͡ʃˈarrɟ# | Rule 269 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ # (ORIG: [+cont,-son] > [-cont,-delrel] / [+cons] __ # )
-#t͡ʃˈarrc# | Rule 275 : [-son] > [-voi] / __ # (ORIG: [-son] > [-voi] / __ # )
-#t͡ʃˈarc# | Rule 297 : [+cons] > ∅ / [+cons] __ [-son] (ORIG: [+cons] > ∅ / [+cons] __ [-son] )
-#ʃˈarc# | Rule 409 : [+delrel] > [+cont,.delrel]  (ORIG: [+delrel] > [+cont] )
-#ʃˈaɹc# | Rule 481 : r > ɹ / [-cons] __ [+cons] (ORIG: r>ɹ/[-cons]__+cons )
-#ʃˈaɹ# | Rule 485 : [-son] > ∅ / __ # (ORIG: [-son] > ∅ / __ # )
-#ʃˈar# | Rule 494 : ɹ > r  (ORIG: ɹ > r  )
-#ʃˈaʀ# | Rule 496 : r > ʀ  (ORIG: r > ʀ )
-#ʃaʀ# | Rule 497 : [+stres] > [-stres,-prim,+syl,+son,.delrel]  (ORIG: [+stres] > [-stres] )
-#ʃaʁ# | Rule 504 : ʀ > ʁ  (ORIG: ʀ > ʁ  )
+#kˈɑrrɪkɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɑrrekɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑrrekɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈɑrreɡɑ# | Rule 97 : k > ɡ / [-cons] __ [+syl]
+#kˈɑrreɣɑ# | Rule 98 : ɡ > ɣ / [-cons] __ [-cons]
+#kˈarreɣa# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#kʲˈarreɣʲa# | Rule 179 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#kʲˈarreɣʲɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#cˈarreʝɛ# | Rule 188 : [+back,+front] > [-back] 
+#t͡ʃˈarreʝɛ# | Rule 195 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈarrəʝɛ# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#t͡ʃˈarrəʝə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#t͡ʃˈarrə̯ʝə̯# | Rule 199 : ə > ə̯ 
+#t͡ʃˈarrəʝə̯# | Rule 202 : ə̯ > ə / __ [+front,+cons]
+#t͡ʃˈarrəʝ# | Rule 211 : ə̯ > ∅ 
+#t͡ʃˈarrəç# | Rule 286 : [-son] > [-voi] / __ #
+#t͡ʃˈarrəʝ# | Rule 300 : ç > ʝ 
+#t͡ʃˈarrəj# | Rule 301 : ʝ > j / [+syl] __ 
+#t͡ʃˈarrej# | Rule 341 : ə > e / __ [+front,+son,+hi,-syl]
+#t͡ʃˈarroj# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#t͡ʃˈarruj# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#t͡ʃˈarruɛ̯# | Rule 406 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t͡ʃˈarrwɛ# | Rule 409 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ʃˈarrwɛ# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#ʃˈaːrrwɛ# | Rule 466 : [+syl] > [+long] / __ r r
+#ʃˈaːrwɛ# | Rule 475 : r r > r 
+#ʃˈɑːrwɛ# | Rule 479 : [+lo,+long,+syl] > [+back,-front] 
+#ʃˈɑːʀwɛ# | Rule 511 : r > ʀ 
+#ʃɑːʀwɛ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃɑʀwɛ# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#ʃɑʀwa# | Rule 517 : ɛ > a / w __ 
+#ʃɑʁwa# | Rule 519 : ʀ > ʁ 
