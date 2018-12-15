@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :312:
-#ɡˌen̪ˈukuloːs# >>> #ʒæn̪ujj# ( Correct : #ʒən̪u#) :
+#ɡˌen̪ˈukuloːs# >>> #ʒæn̪uw# ( Correct : #ʒən̪u#) :
 ɡ ˌe n̪ ˈu k u l oː s 
 #ɡˌen̪ˈukuɫoːs# | Rule 4 : l > ɫ / @ __ 
 #ɡˌen̪ˈukuloːs# | Rule 10 : [+lat] > [-back] 
@@ -21,13 +21,17 @@ Trajectory file for run 'run1'; etymon number :312:
 #d͡ʒˌɛn̪ˈoːʎsʲ# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #d͡ʒˌɛn̪ˈoʎsʲ# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
 #d͡ʒˌɛn̪ˈoʎjs# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#d͡ʒˌen̪ˈoʎjs# | Rule 275 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#d͡ʒˌẽn̪ˈoʎjs# | Rule 350 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#d͡ʒˌẽn̪ˈuʎjs# | Rule 365 : [+round,+tense,+back] > [+hi] 
-#d͡ʒˌɛ̃n̪ˈuʎjs# | Rule 373 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#d͡ʒˌæ̃n̪ˈuʎjs# | Rule 378 : [+nas,-hi,+syl] > [+lo] 
-#ʒˌæ̃n̪ˈuʎjs# | Rule 424 : [+delrel] > [+cont,.delrel] 
-#ʒˌæ̃n̪ˈuʎj# | Rule 500 : [-son] > ∅ / __ #
-#ʒˌæn̪ˈuʎj# | Rule 504 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ʒæn̪uʎj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʒæn̪ujj# | Rule 520 : ʎ > j 
+#d͡ʒˌɛn̪ˈoʎs# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#d͡ʒˌen̪ˈoʎs# | Rule 275 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#d͡ʒˌen̪ˈoʎt͡sʲ# | Rule 284 : s > t͡sʲ / ʎ __ #
+#d͡ʒˌen̪ˈoʎt͡s# | Rule 342 : t͡sʲ > t͡s 
+#d͡ʒˌen̪ˈo?t͡s# | Rule 345 : [+lat] > [+back] / __ [+cons]
+#d͡ʒˌẽn̪ˈo?t͡s# | Rule 350 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#d͡ʒˌẽn̪ˈu?t͡s# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#d͡ʒˌɛ̃n̪ˈu?t͡s# | Rule 373 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#d͡ʒˌæ̃n̪ˈu?t͡s# | Rule 378 : [+nas,-hi,+syl] > [+lo] 
+#d͡ʒˌæ̃n̪ˈuwt͡s# | Rule 382 : [+lat,+back] > w 
+#ʒˌæ̃n̪ˈuws# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#ʒˌæ̃n̪ˈuw# | Rule 500 : [-son] > ∅ / __ #
+#ʒˌæn̪ˈuw# | Rule 504 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ʒæn̪uw# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

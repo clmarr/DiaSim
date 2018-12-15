@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :99:
-#bˈɑln̪eoːs# >>> #baɲj# ( Correct : #bɛ̃#) :
+#bˈɑln̪eoːs# >>> #bɛ̃# ( Correct : #bɛ̃#) :
 b ˈɑ l n̪ e oː s 
 #bˈɑɫn̪eoːs# | Rule 4 : l > ɫ / @ __ 
 #bˈɑln̪eoːs# | Rule 10 : [+lat] > [-back] 
@@ -17,7 +17,16 @@ b ˈɑ l n̪ e oː s
 #bˈaːɲsʲ# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #bˈaɲsʲ# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
 #bˈaɲjs# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#bˈãɲjs# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#bˈãɲj# | Rule 500 : [-son] > ∅ / __ #
-#bˈaɲj# | Rule 504 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#baɲj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˈaɲs# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#bˈaɲt͡sʲ# | Rule 283 : s > t͡sʲ / ɲ __ #
+#bˈajn̪t͡sʲ# | Rule 285 : ɲ > j n̪ / __ [+cons]
+#bˈajn̪t͡s# | Rule 342 : t͡sʲ > t͡s 
+#bˈaj̃n̪t͡s# | Rule 347 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#bˈãj̃n̪t͡s# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#bˈɛ̃j̃n̪t͡s# | Rule 395 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#bˈɛ̃j̃n̪s# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#bˈɛ̃n̪s# | Rule 434 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#bˈɛ̃ːs# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#bˈɛ̃ː# | Rule 500 : [-son] > ∅ / __ #
+#bɛ̃ː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɛ̃# | Rule 513 : [+syl,+long] > [-long,-splng] 

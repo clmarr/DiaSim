@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :616:
-#lˌon̪ɡit̪ˈɑːn̪um# >>> #lye̯ɲjt̪ɑ̃# ( Correct : #lwɛ̃t̪ɛ̃#) :
+#lˌon̪ɡit̪ˈɑːn̪um# >>> #lywjn̪t̪ɑ̃# ( Correct : #lwɛ̃t̪ɛ̃#) :
 l ˌo n̪ ɡ i t̪ ˈɑː n̪ u m 
 #lˌoŋɡit̪ˈɑːn̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #lˌɔŋɡɪt̪ˈɑːn̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -21,10 +21,14 @@ l ˌo n̪ ɡ i t̪ ˈɑː n̪ u m
 #lˌʉo̯ɲt̪ʲˈaːn̪# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #lˌʉo̯ɲt̪ʲˈan̪# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
 #lˌʉo̯ɲjt̪ˈan̪# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#lˌyo̯ɲjt̪ˈan̪# | Rule 346 : [+hi,+round,-back] > [+front] 
-#lˌyo̯ɲjt̪ˈãn̪# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˌye̯ɲjt̪ˈãn̪# | Rule 354 : o̯ > e̯ 
-#lˌye̯ɲjt̪ˈãː# | Rule 481 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#lye̯ɲjt̪ãː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lye̯ɲjt̪ã# | Rule 513 : [+syl,+long] > [-long,-splng] 
-#lye̯ɲjt̪ɑ̃# | Rule 518 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#lˌʉo̯ɲt̪ˈan̪# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#lˌʉo̯jn̪t̪ˈan̪# | Rule 285 : ɲ > j n̪ / __ [+cons]
+#lˌyo̯jn̪t̪ˈan̪# | Rule 346 : [+hi,+round,-back] > [+front] 
+#lˌyo̯jn̪t̪ˈãn̪# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˌye̯jn̪t̪ˈãn̪# | Rule 354 : o̯ > e̯ 
+#lˌyo̯jn̪t̪ˈãn̪# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#lˌywjn̪t̪ˈãn̪# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#lˌywjn̪t̪ˈãː# | Rule 481 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#lywjn̪t̪ãː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lywjn̪t̪ã# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#lywjn̪t̪ɑ̃# | Rule 518 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

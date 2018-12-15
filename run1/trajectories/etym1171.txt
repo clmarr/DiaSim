@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1171:
-#sˌuspekt̪iˈoːn̪em# >>> #suspəe̯çsɔ̃# ( Correct : #supsɔ̃#) :
+#sˌuspekt̪iˈoːn̪em# >>> #suspəwjsɔ̃# ( Correct : #supsɔ̃#) :
 s ˌu s p e k t̪ i ˈoː n̪ e m 
 #sˌʊspɛkt̪ɪˈoːn̪ɛm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˌʊspɛkt̪jˈoːn̪ɛm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -20,12 +20,13 @@ s ˌu s p e k t̪ i ˈoː n̪ e m
 #sˌospəe̯çt͡sʲˈon̪# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
 #sˌospəe̯çt͡sʲˈun̪# | Rule 253 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
 #sˌospəe̯ʝt͡sʲˈun̪# | Rule 300 : ç > ʝ 
-#sˌospəe̯çt͡sʲˈun̪# | Rule 330 : [-son] > [-voi] / __ [-voi]
-#sˌospəe̯çt͡sˈun̪# | Rule 342 : t͡sʲ > t͡s 
-#sˌuspəe̯çt͡sˈun̪# | Rule 365 : [+round,+tense,+back] > [+hi] 
-#sˌuspəe̯çt͡sˈũn̪# | Rule 400 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#sˌuspəe̯çsˈũn̪# | Rule 424 : [+delrel] > [+cont,.delrel] 
-#sˌuspəe̯çsˈũː# | Rule 481 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#suspəe̯çsũː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#suspəe̯çsũ# | Rule 513 : [+syl,+long] > [-long,-splng] 
-#suspəe̯çsɔ̃# | Rule 514 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#sˌospəe̯jt͡sʲˈun̪# | Rule 302 : ʝ > j / [-cons] __ 
+#sˌospəe̯jt͡sˈun̪# | Rule 342 : t͡sʲ > t͡s 
+#sˌospəo̯jt͡sˈun̪# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#sˌuspəwjt͡sˈun̪# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#sˌuspəwjt͡sˈũn̪# | Rule 400 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#sˌuspəwjsˈũn̪# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#sˌuspəwjsˈũː# | Rule 481 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#suspəwjsũː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#suspəwjsũ# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#suspəwjsɔ̃# | Rule 514 : [+back,-lo,+nas,+syl] > ɔ̃ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1303:
-#wˌekt̪ˈuːrɑm# >>> #vie̯ʝjt̪yʁ# ( Correct : #vwat̪yʁ#) :
+#wˌekt̪ˈuːrɑm# >>> #viwjt̪yʁ# ( Correct : #vwat̪yʁ#) :
 w ˌe k t̪ ˈuː r ɑ m 
 #ɣʷˌekt̪ˈuːrɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɛkt̪ˈuːrɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -14,13 +14,17 @@ w ˌe k t̪ ˈuː r ɑ m
 #βˌie̯çt̪ʲˈuːra# | Rule 177 : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+hi,+front]
 #βˌie̯çt̪ʲ?ra# | Rule 185 : [+hi,+tense,+round,+syl] > [-front,-back] 
 #βˌie̯çjt̪?ra# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#vˌie̯çjt̪?ra# | Rule 277 : β > v 
-#vˌie̯çjt̪?rə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌie̯ʝjt̪?rə# | Rule 300 : ç > ʝ 
-#vˌie̯ʝjt̪ˈyːrə# | Rule 346 : [+hi,+round,-back] > [+front] 
-#vˌie̯ʝjt̪ˈyːrə̯# | Rule 494 : ə > ə̯ / __ #
-#vˌie̯ʝjt̪ˈyːr# | Rule 501 : ə̯ > ∅ 
-#vˌie̯ʝjt̪ˈyːʀ# | Rule 511 : r > ʀ 
-#vie̯ʝjt̪yːʀ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vie̯ʝjt̪yʀ# | Rule 513 : [+syl,+long] > [-long,-splng] 
-#vie̯ʝjt̪yʁ# | Rule 519 : ʀ > ʁ 
+#βˌie̯çt̪?ra# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#vˌie̯çt̪?ra# | Rule 277 : β > v 
+#vˌie̯çt̪?rə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌie̯ʝt̪?rə# | Rule 300 : ç > ʝ 
+#vˌie̯jt̪?rə# | Rule 302 : ʝ > j / [-cons] __ 
+#vˌie̯jt̪ˈyːrə# | Rule 346 : [+hi,+round,-back] > [+front] 
+#vˌio̯jt̪ˈyːrə# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#vˌiwjt̪ˈyːrə# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#vˌiwjt̪ˈyːrə̯# | Rule 494 : ə > ə̯ / __ #
+#vˌiwjt̪ˈyːr# | Rule 501 : ə̯ > ∅ 
+#vˌiwjt̪ˈyːʀ# | Rule 511 : r > ʀ 
+#viwjt̪yːʀ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#viwjt̪yʀ# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#viwjt̪yʁ# | Rule 519 : ʀ > ʁ 

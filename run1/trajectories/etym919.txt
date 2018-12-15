@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :919:
-#plˈikɑt̪# >>> #?i# ( Correct : #plwa#) :
+#plˈikɑt̪# >>> #?ij# ( Correct : #plwa#) :
 p l ˈi k ɑ t̪ 
 #plʲˈikɑt̪# | Rule 3 : l > lʲ / __ [+hi,+front]
 #plʲˈɪkɑt̪# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -16,10 +16,9 @@ p l ˈi k ɑ t̪
 #p?ˈiːʝaθ# | Rule 194 : [+hi,-cont] > [-voi] / [-voi] __ 
 #t̪?ˈiːʝaθ# | Rule 215 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
 #t̪?ˈiːʝəθ# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪?ˈiːjəθ# | Rule 301 : ʝ > j / [+syl] __ 
-#t̪?ˈiːəθ# | Rule 302 : j > ∅ / [+hi,+front,+tense] __ 
-#?ˈiːəθ# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#?ˈiːə# | Rule 387 : {θ;ð} > {∅;∅} 
-#?ˈiː# | Rule 453 : ə > ∅ / [+syl] __ 
-#?iː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#?i# | Rule 513 : [+syl,+long] > [-long,-splng] 
+#t̪?ˈiːjəθ# | Rule 302 : ʝ > j / [-cons] __ 
+#?ˈiːjəθ# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#?ˈiːjə# | Rule 387 : {θ;ð} > {∅;∅} 
+#?ˈiːj# | Rule 464 : ə > ∅ / [+prim] ( j ) __ 
+#?iːj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#?ij# | Rule 513 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1302:
-#wˈekt̪em# >>> #vjɛʝj# ( Correct : #vi#) :
+#wˈekt̪em# >>> #viwj# ( Correct : #vi#) :
 w ˈe k t̪ e m 
 #ɣʷˈekt̪em# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˈɛkt̪ɛm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -15,11 +15,13 @@ w ˈe k t̪ e m
 #βˈiːe̯çt̪ʲ# | Rule 230 : [+prim] > [+long] / __ [-cons]
 #βˈie̯çt̪ʲ# | Rule 234 : [+syl] > [-long,-splng] / __ e̯
 #βˈie̯çjt̪# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#βˈiːe̯çjt̪# | Rule 262 : [+prim] > [+long] / __ [-cons]
-#βˈie̯çjt̪# | Rule 266 : [+syl] > [-long,-splng] / __ e̯
-#vˈie̯çjt̪# | Rule 277 : β > v 
-#vˈie̯ʝjt̪# | Rule 300 : ç > ʝ 
-#vjˈeʝjt̪# | Rule 391 : {ˈi e̯;ˌɛ a̯;ˌɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˈa;e̯ ˌa;ɥ ˈø} 
-#vjˈɛʝjt̪# | Rule 430 : ˈe > ˈɛ 
-#vjˈɛʝj# | Rule 500 : [-son] > ∅ / __ #
-#vjɛʝj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#βˈie̯çt̪# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#βˈiːe̯çt̪# | Rule 262 : [+prim] > [+long] / __ [-cons]
+#βˈie̯çt̪# | Rule 266 : [+syl] > [-long,-splng] / __ e̯
+#vˈie̯çt̪# | Rule 277 : β > v 
+#vˈie̯ʝt̪# | Rule 300 : ç > ʝ 
+#vˈie̯jt̪# | Rule 302 : ʝ > j / [-cons] __ 
+#vˈio̯jt̪# | Rule 362 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#vˈiwjt̪# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#vˈiwj# | Rule 500 : [-son] > ∅ / __ #
+#viwj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

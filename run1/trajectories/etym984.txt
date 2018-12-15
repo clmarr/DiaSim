@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :984:
-#pˈun̪kt̪um# >>> #pɔ̃ɲj# ( Correct : #pwɛ̃#) :
+#pˈun̪kt̪um# >>> #pwɛ̃# ( Correct : #pwɛ̃#) :
 p ˈu n̪ k t̪ u m 
 #pˈuŋkt̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #pˈʊŋkt̪ʊm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -13,7 +13,12 @@ p ˈu n̪ k t̪ u m
 #pˈoɲt̪ʲ# | Rule 211 : ə̯ > ∅ 
 #pˈuɲt̪ʲ# | Rule 253 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
 #pˈuɲjt̪# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#pˈũɲjt̪# | Rule 400 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#pˈũɲj# | Rule 500 : [-son] > ∅ / __ #
-#pũɲj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɔ̃ɲj# | Rule 514 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pˈuɲt̪# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#pˈujn̪t̪# | Rule 285 : ɲ > j n̪ / __ [+cons]
+#pwˈin̪t̪# | Rule 404 : {u j;ˌu j;ˈu j;ɔ j;ˌɔ j;ˈɔ j} > {w i;w ˌi;w ˈi;w i;w ˌi;w ˈi} / __ [+nas]
+#pwˈĩn̪t̪# | Rule 414 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#pwˈɛ̃n̪t̪# | Rule 433 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#pwˈɛ̃ːt̪# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pwˈɛ̃ː# | Rule 500 : [-son] > ∅ / __ #
+#pwɛ̃ː# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛ̃# | Rule 513 : [+syl,+long] > [-long,-splng] 

@@ -762,7 +762,7 @@ $ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
 {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
 $ for maintenance -- Pope doesnˌt account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
-j > ∅ / j __ [-syl]
+j > ∅ / [+hi,+front,-syl] __ [-syl]
 
 $ s373 : oral labials efface before (coronal) affricates 
 [+lab,-nas,-son] > ∅ / __ [+delrel] 
@@ -828,7 +828,7 @@ $ s256 : ə effaced before unstressed a becomes the new ə
 $s355-357 open word finals again if unsupported 
 [-cont,-delrel] > [+cont] / [+syl] __ # 
 $ close if became supported
-[+cont,-son] > [-cont,-delrel] / [+cons] __ #
+[+cont,-son,-strid] > [-cont,-delrel] / [+cons] __ #
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
 k > ∅ / __ s #
@@ -881,8 +881,8 @@ $ s357, s359, s324, s325: ç merges into ʝ
 
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
-ʝ > j / [+syl] __ 
-j > ∅ / [+hi,+front,+tense] __
+j > ∅ / [+hi,+front,+tense,+syl] __
+ʝ > j / [-cons] __ 
 
 $ s165.5 leveling of au to o (s505) 
 {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 

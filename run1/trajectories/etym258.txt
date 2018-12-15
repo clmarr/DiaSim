@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :258:
-#fˈiːlius# >>> #fijj# ( Correct : #fis#) :
+#fˈiːlius# >>> #fiw# ( Correct : #fis#) :
 f ˈiː l i u s 
 #fˈiːlʲius# | Rule 3 : l > lʲ / __ [+hi,+front]
 #fˈiːlʲɪʊs# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -16,6 +16,11 @@ f ˈiː l i u s
 #fˈiːʎsʲ# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #fˈiʎsʲ# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
 #fˈiʎjs# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#fˈiʎj# | Rule 500 : [-son] > ∅ / __ #
-#fiʎj# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fijj# | Rule 520 : ʎ > j 
+#fˈiʎs# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#fˈiʎt͡sʲ# | Rule 284 : s > t͡sʲ / ʎ __ #
+#fˈiʎt͡s# | Rule 342 : t͡sʲ > t͡s 
+#fˈi?t͡s# | Rule 345 : [+lat] > [+back] / __ [+cons]
+#fˈiwt͡s# | Rule 382 : [+lat,+back] > w 
+#fˈiws# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#fˈiw# | Rule 500 : [-son] > ∅ / __ #
+#fiw# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

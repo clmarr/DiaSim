@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :392:
-#kˈɑkkit̪ɑm# >>> #ʃaksjt̪ɛ# ( Correct : #ʃasi#) :
+#kˈɑkkit̪ɑm# >>> #ʃakt̪ɛ# ( Correct : #ʃasi#) :
 k ˈɑ k k i t̪ ɑ m 
 #kˈɑkkɪt̪ɑm# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˈɑkket̪ɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -17,6 +17,7 @@ k ˈɑ k k i t̪ ɑ m
 #t͡ʃˈakt͡sʲt̪ʲa# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #t͡ʃˈakt͡sʲt̪ʲɛ# | Rule 240 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
 #t͡ʃˈakt͡sʲjt̪ɛ# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#t͡ʃˈakt͡sjt̪ɛ# | Rule 342 : t͡sʲ > t͡s 
-#ʃˈaksjt̪ɛ# | Rule 424 : [+delrel] > [+cont,.delrel] 
-#ʃaksjt̪ɛ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡ʃˈakt͡sʲt̪ɛ# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#t͡ʃˈakt̪ɛ# | Rule 308 : [+cons] > ∅ / [+cons] __ [-son]
+#ʃˈakt̪ɛ# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#ʃakt̪ɛ# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

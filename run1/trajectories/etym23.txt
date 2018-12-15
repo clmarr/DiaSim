@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :23:
-#ˈɑlid̪sˌiːk# >>> #alʲjsi# ( Correct : #osi#) :
+#ˈɑlid̪sˌiːk# >>> #osi# ( Correct : #osi#) :
 ˈɑ l i d̪ s ˌiː k 
 #ˈɑlʲid̪sˌiːk# | Rule 3 : l > lʲ / __ [+hi,+front]
 #ˈɑlʲɪd̪sˌiːk# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -14,8 +14,13 @@ Trajectory file for run 'run1'; etymon number :23:
 #ˈaːlʲd̪ʲsˌix# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #ˈalʲd̪ʲsˌix# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
 #ˈalʲjd̪sˌix# | Rule 254 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#ˈalʲjd̪sˌi# | Rule 296 : x > ∅ / [-prim] __ #
-#ˈalʲjt͡sʲˌi# | Rule 307 : [+cor,-cont,-delrel] s > t͡sʲ
-#ˈalʲjt͡sˌi# | Rule 342 : t͡sʲ > t͡s 
-#ˈalʲjsˌi# | Rule 424 : [+delrel] > [+cont,.delrel] 
-#alʲjsi# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈalʲd̪sˌix# | Rule 255 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#ˈalʲd̪sˌi# | Rule 296 : x > ∅ / [-prim] __ #
+#ˈalʲt͡sʲˌi# | Rule 307 : [+cor,-cont,-delrel] s > t͡sʲ
+#ˈalʲt͡sˌi# | Rule 342 : t͡sʲ > t͡s 
+#ˈa?t͡sˌi# | Rule 345 : [+lat] > [+back] / __ [+cons]
+#ˈawt͡sˌi# | Rule 382 : [+lat,+back] > w 
+#ˈawsˌi# | Rule 424 : [+delrel] > [+cont,.delrel] 
+#ˈoːsˌi# | Rule 437 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#oːsi# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#osi# | Rule 513 : [+syl,+long] > [-long,-splng] 

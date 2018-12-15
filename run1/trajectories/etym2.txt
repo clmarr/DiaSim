@@ -9,8 +9,9 @@ Trajectory file for run 'run1'; etymon number :2:
 #ˌabbˈaːt̪ə̯s# | Rule 199 : ə > ə̯ 
 #ˌabbˈaːt̪s# | Rule 211 : ə̯ > ∅ 
 #ˌabbˈat̪s# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#ˌabbˈat̪?# | Rule 280 : [+cont,-son] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
-#ˌabbˈa?# | Rule 328 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#ˌabˈa?# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˌabbˈat͡sʲ# | Rule 307 : [+cor,-cont,-delrel] s > t͡sʲ
+#ˌabˈat͡sʲ# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˌabˈat͡s# | Rule 342 : t͡sʲ > t͡s 
+#ˌabˈas# | Rule 424 : [+delrel] > [+cont,.delrel] 
 #ˌabˈa# | Rule 500 : [-son] > ∅ / __ #
 #aba# | Rule 512 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
