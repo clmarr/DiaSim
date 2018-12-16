@@ -450,6 +450,8 @@ public class DerivationSimulation {
 		{
 			theLine = lexFileLines.get(lfli);
 			
+			System.out.println("Lex "+lfli+" : "+theLine);
+			
 			wordTrajectories[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
 			inputs[lfli] = parseLexPhon(wordTrajectories[lfli]);
 			if (!justInput)
