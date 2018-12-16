@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :495:
-#kˈor# >>> #kʁ# ( Correct : #kœʁ#) :
+#kˈor# >>> #kœʁ# ( Correct : #kœʁ#) :
 k ˈo r 
 #kˈɔr# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˈɔːr# | Rule 78 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
@@ -15,8 +15,10 @@ k ˈo r
 #kˈʉo̯r# | Rule 268 : [+syl] > [-long,-splng] / __ o̯
 #kˈyo̯r# | Rule 346 : [+hi,+round,-back] > [+front] 
 #kˈye̯r# | Rule 354 : o̯ > e̯ 
-#k?r# | Rule 381 : [+hi,+round,+tense,+prim] e̯ > ?
-#kwr# | Rule 384 : [+lat,+back] > w 
-#kr# | Rule 400 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
-#kʀ# | Rule 513 : r > ʀ 
-#kʁ# | Rule 521 : ʀ > ʁ 
+#kˈør# | Rule 381 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#kˈøɹ# | Rule 497 : r > ɹ / [-cons] __ #
+#kˈør# | Rule 511 : ɹ > r 
+#kˈøʀ# | Rule 513 : r > ʀ 
+#køʀ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kœʀ# | Rule 518 : ø > œ / __ ( [+cons] )* #
+#kœʁ# | Rule 521 : ʀ > ʁ 
