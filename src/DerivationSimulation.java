@@ -620,22 +620,7 @@ public class DerivationSimulation {
 		}
 		
 		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
-		try 
-		{	FileWriter outFile = new FileWriter(filename); 
-			BufferedWriter out = new BufferedWriter(outFile); 
-			out.write(toFile);
-			out.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		} 
+		writeToFile(filename, toFile); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
@@ -643,22 +628,7 @@ public class DerivationSimulation {
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
-		try 
-		{	FileWriter outFile = new FileWriter(filename); 
-			BufferedWriter out = new BufferedWriter(outFile); 
-			out.write(output);
-			out.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
+		writeToFile(filename, output); 
 	}
 
 	/**
@@ -700,22 +670,7 @@ public class DerivationSimulation {
 				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
 				+ (goldOutput ? " ( Correct : "+goldResultLexicon.getByID(wi)+") :\n"  : ":\n")
 					+wordTrajectories[wi]+"\n";
-			try 
-			{	FileWriter outFile = new FileWriter(filename); 
-				BufferedWriter out = new BufferedWriter(outFile); 
-				out.write(output);
-				out.close();
-			}
-			catch (UnsupportedEncodingException e) {
-				System.out.println("Encoding unsupported!");
-				e.printStackTrace();
-			} catch (FileNotFoundException e) {
-				System.out.println("File not found!");
-				e.printStackTrace();
-			} catch (IOException e) {
-				System.out.println("IO Exception!");
-				e.printStackTrace();
-			}
+			writeToFile(filename, output); 
 		}
 	}
 	
@@ -733,23 +688,7 @@ public class DerivationSimulation {
 		for(Phone ph : phonInv)
 			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
 		
-		try 
-		{	FileWriter outFile = new FileWriter(fileName); 
-			BufferedWriter out = new BufferedWriter(outFile); 
-			out.write(output);
-			out.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
+		writeToFile(fileName, output); 
 	}
 	
 	//on the word level, it is divided by the number of phones in the INITIAL lexicon's version of the word! 
@@ -985,6 +924,25 @@ public class DerivationSimulation {
 		for (int i = 0 ; i < boolarray.length; i++)
 			count += boolarray[i] ? 0 : 1 ;
 		return count; 
+	}
+	
+	private static void writeToFile(String filename, String output)
+	{	try 
+		{	FileWriter outFile = new FileWriter(filename); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(output);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
 	}
 }
 
