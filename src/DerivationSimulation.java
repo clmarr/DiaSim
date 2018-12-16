@@ -57,7 +57,8 @@ public class DerivationSimulation {
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores trajectory(form at every time step), with stages delimited by line breaks, of each word 
 	
-	private static int[] LDByWord; //if gold is input: Levenshtein distance between gold and testResutlt for each word.
+	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
+	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
 	private static boolean[] wordMissLocs; //each index true if the word for this index
 		// resulted in a missmatch between the gold and the test result
 	
@@ -480,6 +481,8 @@ public class DerivationSimulation {
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
+		makeRulesLog(theShiftsInOrder); 
+		
 		while (ri < numRules)
 		{
 			if(ri % 50 == 0)	System.out.println("On rule number "+ri);
@@ -505,9 +508,7 @@ public class DerivationSimulation {
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
-				{	wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
-					if (DEBUG)		wordTrajectories[wi] += " (ORIG: "+thisShift.getOrig()+" )";
-				}
+					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
 			
 			ri++; 
 		}
@@ -522,6 +523,11 @@ public class DerivationSimulation {
 		//make trajectories files.
 		makeTrajectoryFiles(); 	
 		
+		if(goldOutput)
+		{
+			PERFORMANCE = analyzeLDandLakation(outputLexLD)
+		}
+		
 		if(goldOutput &&  false) //TODO implement this.
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
@@ -531,12 +537,12 @@ public class DerivationSimulation {
 			wordMissLocs = new boolean[NUM_ETYMA]; 
 			for(int i = 0; i < NUM_ETYMA; i++)
 			{
-				LDByWord[i] = levenshteinDistance(testResultLexicon.getByID(i), 
+				finLexLD[i] = levenshteinDistance(testResultLexicon.getByID(i), 
 						goldResultLexicon.getByID(i)); 
-				wordMissLocs[i] = (LDByWord[i] != 0);
-				numCorrectEtyma += (LDByWord[i] == 0) ? 0 : 1;
+				wordMissLocs[i] = (finLexLD[i] != 0);
+				numCorrectEtyma += (finLexLD[i] == 0) ? 0 : 1;
 				wordTrajectories[i] = wordTrajectories[i].substring(0, wordTrajectories[i].indexOf("\n")) +
-					(wordMissLocs[i] ? " MISS, edit distance: "+LDByWord[i]:" HIT") +
+					(wordMissLocs[i] ? " MISS, edit distance: "+ finLexLD[i]:" HIT") +
 					wordTrajectories[i].substring(wordTrajectories[i].indexOf("\n"));	
 			}
 			
@@ -563,12 +569,57 @@ public class DerivationSimulation {
 			
 		}
 		
-		//TODO debugging
-		System.out.println(wordTrajectories[0]);
-		
 		//TODO make the calculations and output the files! 
 	}
 
+	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
+		String filename = runPrefix + "_rules_log.txt"; 
+		String output = "";
+		for (SChange thisShift : theShiftsInOrder)
+			output += ""+thisShift + (DEBUG ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
+		try 
+		{	FileWriter outFile = new FileWriter(filename); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(output);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @precondition: @param outForms and @param goldForms have been filled as part of a completed simulation
+	 * @precondition: lexLD and lexLak are static
+	 * @note : DESTRUCTIVE! Intended to modify static variables
+	 * fills lexLD and lexLak
+	 * Lakation -- level of quasisynchronic distortion that arose diachronically
+	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of initial form for the etymon
+	 * @returns average lexical lakation
+	 */
+	private static double analyzeLDandLakation(int[] lexLD, double[] lexLak, Lexicon outForms, Lexicon goldForms)
+	{
+		lexLD = new int[NUM_ETYMA];
+		lexLak = new double[NUM_ETYMA]; 
+		double totLexQuotients = 0.0;
+		for (int i = 0 ; i < NUM_ETYMA; i++)
+		{
+			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
+			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
+			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
+			lexLak[i] = lakation;
+			totLexQuotients += lakation; 
+		}
+		return totLexQuotients / (double)NUM_ETYMA; 	
+	}
+	
 	private static void makeTrajectoryFiles()
 	{
 		File trajdir = new File(""+runPrefix+"\\trajectories"); 
@@ -600,6 +651,7 @@ public class DerivationSimulation {
 		}
 	}
 	
+	//TODO abrogated! 
 	private static void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
 	{
 		String output = "Analysis for "+lexicName+"/n";
@@ -607,11 +659,11 @@ public class DerivationSimulation {
 		output += "Performance associated with each phone in "+lexicName+"\n"; 
 		output += "Phone in "+lexicName+"\tAssociated lakation\tMean Associated Normalized Lev.Dist.\n";
 		
-		HashMap<Phone, Double> lakationByPhone = lakationPerPhone(lexic);
+		HashMap<Phone, Double> missLikByPhone = missLikelihoodPerPhone(lexic);
 		HashMap<Phone, Double> avgAssocdLDs = avgLDForWordsWithPhone(lexic); 
 		Phone[] phonInv = lexic.getPhonemicInventory(); 
 		for(Phone ph : phonInv)
-			output += ph.print()+"\t|\t"+lakationByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
+			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
 		
 		try 
 		{	FileWriter outFile = new FileWriter(fileName); 
@@ -633,6 +685,7 @@ public class DerivationSimulation {
 	}
 	
 	//on the word level, it is divided by the number of phones in the INITIAL lexicon's version of the word! 
+	//TODO abrogated! 
 	private static double getLDErrorAvgdOverWordLengthInPhones()
 	{
 		double totLexQuotients = 0.0; 
@@ -651,8 +704,9 @@ public class DerivationSimulation {
 	}
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
-	// outputs the scores for each phone in the word in the lexicon 
-	private static HashMap<Phone,Double> lakationPerPhone (Lexicon lexic)
+	// outputs the scores for each phone in the word in the lexicon
+	//TODO abrogated
+	private static HashMap<Phone,Double> missLikelihoodPerPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
@@ -707,6 +761,7 @@ public class DerivationSimulation {
 	// is the average Levenshtein distance for words containing that phone 
 	// normalized for length of the word
 	// counted for the number of times the phone actually occurs in that word out of total phones in the word, each time. 
+	//TODO abrogated!
 	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
@@ -817,6 +872,8 @@ public class DerivationSimulation {
 		return distMatrix[n-1][m-1]; 
 	}
 
+	//normalized by phonetic length of the gold form (t) 
+	//TODO abrogated!
 	private static double normalizedLevenshtein(LexPhon s, LexPhon t)
 	{
 		int nphons = getNumPhones(t.getPhonologicalRepresentation()); 
