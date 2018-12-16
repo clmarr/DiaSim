@@ -59,16 +59,22 @@ public class DerivationSimulation {
 	
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
-	private static boolean[] wordMissLocs; //each index true if the word for this index
+	private static boolean[] finMissInds; //each index true if the word for this index
 		// resulted in a missmatch between the gold and the test result
+	
+	private static List<int[]> stageLexLDs; 
+	private static List<double[]> stageLexLaks;
+	private static List<boolean[]> stageMissInds; 
 	
 	private static boolean goldOutput; 
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
+	//TODO to be set in command line...
 	private static String runPrefix;
 	private static boolean DEBUG = true; 
+	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
 	
 	public static void main(String args[])
 	{
@@ -113,12 +119,8 @@ public class DerivationSimulation {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
-			{
-				//TODO debugging
-				System.out.println("symb: "+nextLine); 
-				
 				symbDefsLines.add(nextLine); 		
-			}
+			
 			in.close(); 
 		}
 		catch (UnsupportedEncodingException e) {
@@ -525,24 +527,35 @@ public class DerivationSimulation {
 		
 		if(goldOutput)
 		{
-			PERFORMANCE = analyzeLDandLakation(outputLexLD)
+			PERFORMANCE = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
+			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
+			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
+			if( numGoldStages > 0 )
+			{
+				for (int i = 0 ; i < numGoldStages; i++)
+				{	System.out.println(goldStageNames[i] +" overall lakation : "
+							+analyzeLDAccAndLakation(stageLexLDs.get(i), stageLexLaks.get(i), stageMissInds.get(i), goldStageResultLexica[i], goldStageGoldLexica[i]));
+					System.out.println(numFalse(stageMissInds.get(i))+" misses out of "+NUM_ETYMA+" etyma.");
+				}
+			}
+			//TODO IMPORTANT, print here or to file, by phone analysis....  
 		}
-		
+		//TODO ABROGATED BELOW
 		if(goldOutput &&  false) //TODO implement this.
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
 			System.out.println("PERFORMANCE ON GOLD RESULT SET = "+PERFORMANCE);
 			numCorrectEtyma = 0;
 			
-			wordMissLocs = new boolean[NUM_ETYMA]; 
+			finMissInds = new boolean[NUM_ETYMA]; 
 			for(int i = 0; i < NUM_ETYMA; i++)
 			{
 				finLexLD[i] = levenshteinDistance(testResultLexicon.getByID(i), 
 						goldResultLexicon.getByID(i)); 
-				wordMissLocs[i] = (finLexLD[i] != 0);
+				finMissInds[i] = (finLexLD[i] != 0);
 				numCorrectEtyma += (finLexLD[i] == 0) ? 0 : 1;
 				wordTrajectories[i] = wordTrajectories[i].substring(0, wordTrajectories[i].indexOf("\n")) +
-					(wordMissLocs[i] ? " MISS, edit distance: "+ finLexLD[i]:" HIT") +
+					(finMissInds[i] ? " MISS, edit distance: "+ finLexLD[i]:" HIT") +
 					wordTrajectories[i].substring(wordTrajectories[i].indexOf("\n"));	
 			}
 			
@@ -599,20 +612,22 @@ public class DerivationSimulation {
 	 * @precondition: @param outForms and @param goldForms have been filled as part of a completed simulation
 	 * @precondition: lexLD and lexLak are static
 	 * @note : DESTRUCTIVE! Intended to modify static variables
-	 * fills lexLD and lexLak
+	 * fills lexLD and lexLak and isHit
 	 * Lakation -- level of quasisynchronic distortion that arose diachronically
 	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of initial form for the etymon
 	 * @returns average lexical lakation
 	 */
-	private static double analyzeLDandLakation(int[] lexLD, double[] lexLak, Lexicon outForms, Lexicon goldForms)
+	private static double analyzeLDAccAndLakation(int[] lexLD, double[] lexLak, boolean[] isHit, Lexicon outForms, Lexicon goldForms)
 	{
 		lexLD = new int[NUM_ETYMA];
 		lexLak = new double[NUM_ETYMA]; 
+		isHit = new boolean[NUM_ETYMA]; 
 		double totLexQuotients = 0.0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
 		{
 			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
 			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
+			isHit[i] = (lexLD[i] == 0);
 			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
 			lexLak[i] = lakation;
 			totLexQuotients += lakation; 
@@ -710,7 +725,7 @@ public class DerivationSimulation {
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
-		assert NUM_ETYMA == wordMissLocs.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
+		assert NUM_ETYMA == finMissInds.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
 		
 		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
 		int inventorySize = phonemicInventory.length; 
@@ -725,7 +740,7 @@ public class DerivationSimulation {
 		
 		for(int li = 0 ; li < lexSize; li++)
 		{
-			if(wordMissLocs[li])
+			if(finMissInds[li])
 			{
 				String phonesSeenInWord = ""; 
 				List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation(); 
@@ -905,6 +920,17 @@ public class DerivationSimulation {
 				count++; 
 			}
 		}
+		return count; 
+	}
+	
+	private static int numFalse (boolean[] boolarray)
+	{
+		//TODO debugging
+		System.out.println("bool array len : " + boolarray);
+		
+		int count = 0; 
+		for (int i = 0 ; i < boolarray.length; i++)
+			count += boolarray[i] ? 0 : 1 ;
 		return count; 
 	}
 }

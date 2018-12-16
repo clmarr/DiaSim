@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :283:
-#fˈort̪iɑ# >>> #fye̯# ( Correct : #fɔʁs#) :
+#fˈort̪iɑ# >>> #fwʁ# ( Correct : #fɔʁs#) :
 f ˈo r t̪ i ɑ 
 #fˈɔrt̪ɪɑ# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #fˈɔrt̪jɑ# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -20,8 +20,11 @@ f ˈo r t̪ i ɑ
 #fˈʉo̯rt͡s# | Rule 342 : t͡sʲ > t͡s 
 #fˈyo̯rt͡s# | Rule 346 : [+hi,+round,-back] > [+front] 
 #fˈye̯rt͡s# | Rule 354 : o̯ > e̯ 
-#fˈye̯rs# | Rule 425 : [+delrel] > [+cont,.delrel] 
-#fˈye̯ɹs# | Rule 497 : r > ɹ / [-cons] __ [+cons]
-#fˈye̯ɹ# | Rule 501 : [-son] > ∅ / __ #
-#fˈye̯# | Rule 509 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#fye̯# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#f?rt͡s# | Rule 381 : [+hi,+round,+tense,+prim] e̯ > ?
+#fwrt͡s# | Rule 384 : [+lat,+back] > w 
+#fwrs# | Rule 426 : [+delrel] > [+cont,.delrel] 
+#fwɹs# | Rule 498 : r > ɹ / [-cons] __ [+cons]
+#fwɹ# | Rule 502 : [-son] > ∅ / __ #
+#fwr# | Rule 511 : ɹ > r 
+#fwʀ# | Rule 513 : r > ʀ 
+#fwʁ# | Rule 521 : ʀ > ʁ 
