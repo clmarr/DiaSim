@@ -38,6 +38,8 @@ public class DerivationSimulation {
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
 	private final static char LEX_DELIM =','; 
+	private final static char STAGE_PRINT_DELIM = ',';  
+	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -48,6 +50,7 @@ public class DerivationSimulation {
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
 	private static int NUM_ETYMA; 
+	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static String[] goldStageNames, blackStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
@@ -304,21 +307,22 @@ public class DerivationSimulation {
 			else	rli++;
 		}
 		
-		int numGoldStages = goldStageNameAndLocList.size(), numBlackStages =blackStageNameAndLocList.size();
+		NUM_GOLD_STAGES = goldStageNameAndLocList.size(); 
+		NUM_BLACK_STAGES =blackStageNameAndLocList.size();
 		
-		System.out.println("Using "+numGoldStages+" custom stages."); 
+		System.out.println("Using "+NUM_GOLD_STAGES+" custom stages."); 
 		
-		goldStageGoldLexica = new Lexicon[numGoldStages];
-		goldStageResultLexica = new Lexicon[numGoldStages];
-		blackStageResultLexica =new Lexicon[numBlackStages];
-		goldStageNames = new String[numGoldStages];
-		blackStageNames = new String[numBlackStages];
-		goldStageTimeInstants = new int[numGoldStages]; 
-		blackStageTimeInstants = new int[numBlackStages]; 
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
+		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES];
+		blackStageResultLexica =new Lexicon[NUM_BLACK_STAGES];
+		goldStageNames = new String[NUM_GOLD_STAGES];
+		blackStageNames = new String[NUM_BLACK_STAGES];
+		goldStageTimeInstants = new int[NUM_GOLD_STAGES]; 
+		blackStageTimeInstants = new int[NUM_BLACK_STAGES]; 
 		
 		if(goldStagesSet)
 		{
-			for(int csi = 0; csi < numGoldStages; csi++)
+			for(int csi = 0; csi < NUM_GOLD_STAGES; csi++)
 			{
 				//TODO debugging
 				System.out.println("Stage name and loc : "+goldStageNameAndLocList.get(csi));
@@ -334,7 +338,7 @@ public class DerivationSimulation {
 		}
 		if(blackStagesSet)
 		{
-			for(int csi = 0; csi < numBlackStages; csi++)
+			for(int csi = 0; csi < NUM_BLACK_STAGES; csi++)
 			{
 				//TODO debugging
 				System.out.println("Stage name and loc : "+blackStageNameAndLocList.get(csi));
@@ -430,19 +434,19 @@ public class DerivationSimulation {
 			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1);
 		}
 		goldOutput =false; 
-		if(numCols == numGoldStages + 2)
+		if(numCols == NUM_GOLD_STAGES + 2)
 			goldOutput = true; 
 		else
-			assert numCols == numGoldStages + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
-					+ "# stages in rules file : "+numGoldStages+"; # cols : "+numCols;
+			assert numCols == NUM_GOLD_STAGES + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
+					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
 		
 		boolean justInput = (numCols == 0); 
 		
 		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  //TODO may be unnecessary, if so delete. 
 		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>(); //TODO may be unnecessary, if so delete.
-		if (numGoldStages >0)
-			for (int gsi = 0 ; gsi<numGoldStages; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
+		if (NUM_GOLD_STAGES >0)
+			for (int gsi = 0 ; gsi<NUM_GOLD_STAGES; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
 		
 		int lfli = 0 ; //"lex file line index"
 		
@@ -457,11 +461,11 @@ public class DerivationSimulation {
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+LEX_DELIM); 
-				if(numGoldStages > 0)
-					for (int gsi = 0 ; gsi < numGoldStages ; gsi++)
+				if(NUM_GOLD_STAGES > 0)
+					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
 						goldForms.get(gsi)[lfli] = parseLexPhon(forms[gsi+1]);
 				if (goldOutput)
-					goldResults[lfli] = parseLexPhon(forms[numGoldStages+1]);
+					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
 			if(lfli <NUM_ETYMA)
@@ -471,8 +475,8 @@ public class DerivationSimulation {
 		initLexicon = new Lexicon(inputs); 
 		testResultLexicon = new Lexicon(inputs); // this one will "evolve" with "time" 
 		
-		if(numGoldStages > 0)
-			for (int gsi = 0 ; gsi < numGoldStages; gsi++)
+		if(NUM_GOLD_STAGES > 0)
+			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 				goldStageGoldLexica[gsi] = new Lexicon(goldForms.get(gsi)); 
 		
 		if(goldOutput)	
@@ -492,7 +496,7 @@ public class DerivationSimulation {
 			if(ri % 50 == 0)	System.out.println("On rule number "+ri);
 				
 			SChange thisShift = theShiftsInOrder.get(ri);
-			if(goldStageInd < numGoldStages)
+			if(goldStageInd < NUM_GOLD_STAGES)
 			{
 				if ( ri == goldStageTimeInstants[goldStageInd])
 				{
@@ -501,7 +505,7 @@ public class DerivationSimulation {
 					goldStageInd++;
 				}
 			}
-			if(blackStageInd<numBlackStages)
+			if(blackStageInd<NUM_BLACK_STAGES)
 			{
 				if(ri == blackStageTimeInstants[blackStageInd])
 				{
@@ -527,14 +531,18 @@ public class DerivationSimulation {
 		//make trajectories files.
 		makeTrajectoryFiles(); 	
 		
+		//make output graphs file
+		System.out.println("making output graph file in "+dir);
+		makeOutGraphFile(); 
+		
 		if(goldOutput)
 		{
 			PERFORMANCE = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
 			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
 			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
-			if( numGoldStages > 0 )
+			if( NUM_GOLD_STAGES > 0 )
 			{
-				for (int i = 0 ; i < numGoldStages; i++)
+				for (int i = 0 ; i < NUM_GOLD_STAGES; i++)
 				{	System.out.println(goldStageNames[i] +" overall lakation : "
 							+analyzeLDAccAndLakation(stageLexLDs.get(i), stageLexLaks.get(i), stageMissInds.get(i), goldStageResultLexica[i], goldStageGoldLexica[i]));
 					System.out.println(numFalse(stageMissInds.get(i))+" misses out of "+NUM_ETYMA+" etyma.");
@@ -569,13 +577,13 @@ public class DerivationSimulation {
 			
 			if(goldStagesSet)
 			{	
-				for(int gsi = 0; gsi < numGoldStages ; gsi++)
+				for(int gsi = 0; gsi < NUM_GOLD_STAGES ; gsi++)
 					makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
 							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
 			}
 			if (blackStagesSet)
 			{	
-				for(int bsi = 0; bsi < numBlackStages ; bsi++)
+				for(int bsi = 0; bsi < NUM_BLACK_STAGES ; bsi++)
 					makeAnalysisFile(blackStageNames[bsi].replaceAll(" ", "")+"ResultAnalysis.txt",
 							blackStageNames[bsi]+" Result", blackStageResultLexica[bsi]);
 			}
@@ -587,6 +595,49 @@ public class DerivationSimulation {
 		//TODO make the calculations and output the files! 
 	}
 
+	private static String printStageOutsForEtymon( int etymID)
+	{
+		String toRet = ""; 
+		for ( int i = 0 ; i < NUM_GOLD_STAGES ; i++)	
+			toRet += ""+goldStageResultLexica[i].getByID(etymID) + STAGE_PRINT_DELIM; 
+		return toRet.substring(0, (""+STAGE_PRINT_DELIM).length() );
+	}
+	
+	private static void makeOutGraphFile()
+	{
+		String toFile = "initial forms" + STAGE_PRINT_DELIM; 
+		if(NUM_GOLD_STAGES > 0 )
+			for (int i = 0 ; i < NUM_GOLD_STAGES ; i++)
+				toFile += goldStageNames[i] + " RES" +  
+						(goldOutput ? (STAGE_PRINT_DELIM+goldStageNames[i] + " GOLD") : "") +  STAGE_PRINT_DELIM; 
+		toFile += "result" + (goldOutput ? STAGE_PRINT_DELIM + " gold" : "") + "\n"; 	
+		
+		for (int i = 0 ; i < NUM_ETYMA ; i++)
+		{
+			toFile += ""+initLexicon.getByID(i) + STAGE_PRINT_DELIM;  
+			if(NUM_GOLD_STAGES > 0 )	toFile += printStageOutsForEtymon(i); 
+			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldResultLexicon.getByID(i) : "" );
+		}
+		
+		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
+		try 
+		{	FileWriter outFile = new FileWriter(filename); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(toFile);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		} 
+	}
+	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
 		String filename = runPrefix + "_rules_log.txt"; 
 		String output = "";
