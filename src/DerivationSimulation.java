@@ -605,19 +605,23 @@ public class DerivationSimulation {
 	
 	private static void makeOutGraphFile()
 	{
-		String toFile = "initial forms" + STAGE_PRINT_DELIM; 
+		String toFile = "etymID" + STAGE_PRINT_DELIM + "initial forms" + STAGE_PRINT_DELIM; 
 		if(NUM_GOLD_STAGES > 0 )
-			for (int i = 0 ; i < NUM_GOLD_STAGES ; i++)
+		{	for (int i = 0 ; i < NUM_GOLD_STAGES ; i++)
 				toFile += goldStageNames[i] + " RES" +  
-						(goldOutput ? (STAGE_PRINT_DELIM+goldStageNames[i] + " GOLD") : "") +  STAGE_PRINT_DELIM; 
-		toFile += "result" + (goldOutput ? STAGE_PRINT_DELIM + " gold" : "") + "\n"; 	
+						(goldOutput ? (STAGE_PRINT_DELIM+goldStageNames[i] + " GOLD") : "") +  STAGE_PRINT_DELIM; }
+		toFile += "result" + (goldOutput ? STAGE_PRINT_DELIM + " gold" : "") ; 	
 		
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
 		{
-			toFile += ""+initLexicon.getByID(i) + STAGE_PRINT_DELIM;  
+			toFile += "\n"+i+STAGE_PRINT_DELIM+initLexicon.getByID(i) ;  
 			if(NUM_GOLD_STAGES > 0 )	toFile += printStageOutsForEtymon(i); 
-			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldResultLexicon.getByID(i) : "" );
+			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldResultLexicon.getByID(i) : "") ;
 		}
+
+		//TODO debugging
+		System.out.println("Out graph...\n"+toFile);
+		
 		
 		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
 		writeToFile(filename, toFile); 
