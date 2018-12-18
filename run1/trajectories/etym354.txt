@@ -1,21 +1,13 @@
 Trajectory file for run 'run1'; etymon number :354:
-#ˈilliː# >>> #iw?# ( Correct : #il#) :
+#ˈilliː# >>> #i# ( Correct : #il#) :
 ˈi l l iː 
-#ˈilʲlʲiː# | Rule 2 : l l > lʲ lʲ / __ [+hi,+front]
-#ˈɪlʲlʲiː# | Rule 16 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɪlʲlʲi# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˈelʲlʲi# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈilʲlʲi# | Rule 101 : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i #
-#ˈiʎlʲi# | Rule 127 : [+lat] > ʎ / __ [+cons,+hi,+front]
-#ˈiʎʎi# | Rule 157 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#ˈiʎ?i# | Rule 193 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
-#ˈiʎ?i# | Rule 195 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#ˈiʎ?ə# | Rule 198 : [-stres,-lo,+syl] > ə 
-#ˈiʎ?ə̯# | Rule 199 : ə > ə̯ 
-#ˈiʎ?ə# | Rule 207 : ə̯ > ə / [-ant,+delrel] __ #
-#ˈi??ə# | Rule 345 : [+lat] > [+back] / __ [+cons]
-#ˈiw?ə# | Rule 384 : [+lat,+back] > w 
-#ˈiw?ə# | Rule 426 : [+delrel] > [+cont,.delrel] 
-#ˈiw?ə̯# | Rule 496 : ə > ə̯ / __ #
-#ˈiw?# | Rule 503 : ə̯ > ∅ 
-#iw?# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈɪlliː# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɪlli# | Rule 45 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈelli# | Rule 48 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈilli# | Rule 97 : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i #
+#ˈillə# | Rule 194 : [-stres,-lo,+syl] > ə 
+#ˈillə̯# | Rule 195 : ə > ə̯ 
+#ˈill# | Rule 207 : ə̯ > ∅ 
+#ˈil# | Rule 327 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˈi# | Rule 440 : [+lat] > ∅ / [+hi,+syl] __ #
+#i# | Rule 510 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

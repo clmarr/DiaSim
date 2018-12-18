@@ -496,6 +496,7 @@ public class DerivationSimulation {
 			if(ri % 50 == 0)	System.out.println("On rule number "+ri);
 				
 			SChange thisShift = theShiftsInOrder.get(ri);
+			
 			if(goldStageInd < NUM_GOLD_STAGES)
 			{
 				if ( ri == goldStageTimeInstants[goldStageInd])
@@ -517,6 +518,13 @@ public class DerivationSimulation {
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
 					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
+			
+			//TODO debugging
+			System.out.println("Words changed for rule "+ri+" "+thisShift); 
+			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
+				if (wordsChanged[wi])
+					System.out.println("etym "+wi+" is now "+testResultLexicon.getByID(wi));
+			
 			
 			ri++; 
 		}

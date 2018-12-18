@@ -100,9 +100,6 @@ public class SChangeFactory {
 		
 		List<SChange> output = new ArrayList<SChange>(); 
 		
-		//TODO debugging
-		System.out.println("inp : "+inp);
-		
 		if(! input.contains(""+ARROW))
 			throw new Error("Error : input to rule generation that lacks an arrow."); 
 		
@@ -479,12 +476,8 @@ public class SChangeFactory {
 	 * @precondition : all elements separated phDelim 
 	 * @return
 	 */
-	//TODO finish fixing this  
 	public SChangeContext parseNewContext(String input, boolean boundsMatter)
 	{
-		//TODO debugging
-		System.out.println("parsing new contest : "+input);
-		
 		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
 		inp = expandOutAllPlusses(inp);
