@@ -32,14 +32,16 @@ $As per Popeˌs paradigm, it is considered Late Latin if it occurred before the 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
-$Of course later authors would very likely consider this to be part of a nasalization phenomenon.
-[+syl] > [+long] / __ n̪ s
-n̪ > ∅ / __ s
+$CORRECTION: now lengthening occurs in the context of non-stressed following syllable, and the n loss is triggered by being between a specifically long vowel and s.
+[+syl] > [+long] / __ n̪ s ([-syl])* [+syl,-stres] 
+n̪ > ∅ / [+syl,+long] __  s
 
-$p144 s359 ~ p73 s156iii --- rs > s or ss, conditioned on whether preceeding vowel is long -- must have occurred before nature of length changed
+$p144 s359 ~ p73 s156iii -- per Pope, rs > s or ss, conditioned on whether preceding vowel is long -- must have occurred before nature of length changed
+$ CORRECTION : we only implement the one occurring after long vowels and two vowel sequences,
+$ Because the rs > ss shift after single short vowels seems to only be correct for two lexemes, persica and dorsum.
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
 [+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
-[+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
+$ [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s -- CORRECTION deleting this. 
 
 $This one moved up simply because it is known to be characteristic of Classical Latin
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
