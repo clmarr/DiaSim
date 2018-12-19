@@ -5,18 +5,22 @@ Trajectory file for run 'run1'; etymon number :25:
 #ˈɑlljoːs# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
 #ˈɑllʝoːs# | Rule 24 : j > ʝ / __ [+syl]
 #ˈɑllʝos# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˈɑlʎʝos# | Rule 127 : [+lat] > ʎ / __ [+cons,+hi,+front]
-#ˈɑlʎos# | Rule 128 : [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ 
-#ˈalʎos# | Rule 144 : [+lo,+syl] > [+front,-back] 
-#ˈal?os# | Rule 193 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
-#ˈal?os# | Rule 195 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#ˈal?əs# | Rule 198 : [-stres,-lo,+syl] > ə 
-#ˈal?ə̯s# | Rule 199 : ə > ə̯ 
-#ˈal?s# | Rule 211 : ə̯ > ∅ 
-#ˈals# | Rule 308 : [+cons] > ∅ / [+cons] __ [-son]
-#ˈaɫs# | Rule 345 : [+lat] > [+back] / __ [+cons]
-#ˈaws# | Rule 384 : [+lat,+back] > w 
-#ˈoːs# | Rule 439 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ˈoː# | Rule 502 : [-son] > ∅ / __ #
-#oː# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#o# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#ˈɑʎos# | Rule 72 : l l ʝ > ʎ 
+#ˈɑːʎos# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈaːʎos# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#ˈaːʎəs# | Rule 203 : [-stres,-lo,+syl] > ə 
+#ˈaːʎə̯s# | Rule 204 : ə > ə̯ 
+#ˈaːʎs# | Rule 216 : ə̯ > ∅ 
+#ˈaːʎsʲ# | Rule 219 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#ˈaʎsʲ# | Rule 231 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
+#ˈaʎjs# | Rule 259 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#ˈaʎs# | Rule 260 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#ˈaʎt͡sʲ# | Rule 289 : s > t͡sʲ / ʎ __ #
+#ˈaʎt͡s# | Rule 347 : t͡sʲ > t͡s 
+#ˈa?t͡s# | Rule 350 : [+lat] > [+back] / __ [+cons]
+#ˈawt͡s# | Rule 389 : [+lat,+back] > w 
+#ˈaws# | Rule 431 : [+delrel] > [+cont,.delrel] 
+#ˈoːs# | Rule 444 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ˈoː# | Rule 507 : [-son] > ∅ / __ #
+#oː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#o# | Rule 520 : [+syl,+long] > [-long,-splng] 

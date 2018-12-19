@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :329:
-#ɡˈummɑ# >>> #ɡɔ̃m# ( Correct : #ɡɔm#) :
-ɡ ˈu m m ɑ 
-#ɡˈʊmmɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈommɑ# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ɡˈomma# | Rule 144 : [+lo,+syl] > [+front,-back] 
-#ɡˈumma# | Rule 253 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#ɡˈummə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#ɡˈumə# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ɡˈũmə# | Rule 402 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#ɡˈũmə̯# | Rule 496 : ə > ə̯ / __ #
-#ɡˈũm# | Rule 503 : ə̯ > ∅ 
-#ɡũm# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɡɔ̃m# | Rule 516 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ɡˈulbiɑm# >>> #ɡuwʒ# ( Correct : #ɡuʒ#) :
+ɡ ˈu l b i ɑ m 
+#ɡˈʊlbɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɡˈʊlbjɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɡˈʊlbʝɑm# | Rule 24 : j > ʝ / __ [+syl]
+#ɡˈolbʝɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɡˈolbʝɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ɡˈolbʝa# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#ɡˈolbʝɛ# | Rule 185 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#ɡˈolbɟɛ# | Rule 198 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#ɡˈolbd͡ʒɛ# | Rule 200 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#ɡˈolbd͡ʒə# | Rule 203 : [-stres,-lo,+syl] > ə 
+#ɡˈolbd͡ʒə̯# | Rule 204 : ə > ə̯ 
+#ɡˈolbd͡ʒə# | Rule 212 : ə̯ > ə / [-ant,+delrel] __ #
+#ɡˈold̪d͡ʒə# | Rule 221 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#ɡˈold͡ʒə# | Rule 313 : [+cons] > ∅ / [+cons] __ [-son]
+#ɡˈoɫd͡ʒə# | Rule 350 : [+lat] > [+back] / __ [+cons]
+#ɡˈuɫd͡ʒə# | Rule 371 : [+round,+tense,+back] > [+hi] 
+#ɡˈuwd͡ʒə# | Rule 389 : [+lat,+back] > w 
+#ɡˈuwʒə# | Rule 431 : [+delrel] > [+cont,.delrel] 
+#ɡˈuwʒə̯# | Rule 501 : ə > ə̯ / __ #
+#ɡˈuwʒ# | Rule 508 : ə̯ > ∅ 
+#ɡuwʒ# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

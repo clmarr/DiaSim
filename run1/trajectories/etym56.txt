@@ -6,19 +6,18 @@ Trajectory file for run 'run1'; etymon number :56:
 #ˌɑn̪ɪmˈɑːlʝɑ# | Rule 24 : j > ʝ / __ [+syl]
 #ˌɑn̪ɪmˈɑlʝɑ# | Rule 43 : [+syl,+long] > [-long,-splng] 
 #ˌɑn̪emˈɑlʝɑ# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌɑn̪emˈɑʎʝɑ# | Rule 127 : [+lat] > ʎ / __ [+cons,+hi,+front]
-#ˌɑn̪emˈɑʎɑ# | Rule 128 : [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ 
-#ˌan̪emˈaʎa# | Rule 144 : [+lo,+syl] > [+front,-back] 
-#ˌan̪emˈaːʎa# | Rule 167 : [+prim] > [+long] / __ [+cons] [+syl]
-#ˌan̪emˈaːʎɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#ˌan̪əmˈaːʎɛ# | Rule 197 : [+syl,-stres,-lo] > ə / __ ( [-syl] )* [+syl,+lo,+prim]
-#ˌan̪əmˈaːʎə# | Rule 198 : [-stres,-lo,+syl] > ə 
-#ˌan̪ə̯mˈaːʎə̯# | Rule 199 : ə > ə̯ 
-#ˌan̪mˈaːʎ# | Rule 211 : ə̯ > ∅ 
-#ˌammˈaːʎ# | Rule 218 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#ˌammˈaʎ# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
-#ˌamˈaʎ# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌãmˈaʎ# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌamˈaʎ# | Rule 506 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amaʎ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#amaj# | Rule 522 : ʎ > j 
+#ˌɑn̪emˈɑʎɑ# | Rule 73 : l ʝ > ʎ 
+#ˌɑn̪emˈɑːʎɑ# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌan̪emˈaːʎa# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#ˌan̪emˈaːʎɛ# | Rule 185 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#ˌan̪əmˈaːʎɛ# | Rule 202 : [+syl,-stres,-lo] > ə / __ ( [-syl] )* [+syl,+lo,+prim]
+#ˌan̪əmˈaːʎə# | Rule 203 : [-stres,-lo,+syl] > ə 
+#ˌan̪ə̯mˈaːʎə̯# | Rule 204 : ə > ə̯ 
+#ˌan̪mˈaːʎ# | Rule 216 : ə̯ > ∅ 
+#ˌammˈaːʎ# | Rule 223 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#ˌammˈaʎ# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
+#ˌamˈaʎ# | Rule 336 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˌãmˈaʎ# | Rule 353 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌamˈaʎ# | Rule 511 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#amaʎ# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#amaj# | Rule 527 : ʎ > j 

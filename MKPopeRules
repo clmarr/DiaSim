@@ -115,7 +115,7 @@ $ p115 s262c -- effects on intertonic vowels standing between n/l and r
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat]
 
 $s127 s296i fakere case
-[+syl,-stres] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
+[+syl,-stres,+front] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
 
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring" 
 ɣʷ > w / __ [+cons]
@@ -222,8 +222,9 @@ $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for be
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
-$p127 s296ii : "plakitare-wokitare" case -- palatalization of k blocked if coming after secondarily stressed a and before t,r,l in a "proparoxyton
-c > k / [+lo,+syl,+stres,-prim] __ [+hi,+syl]
+$p127 s296ii : palatalization of k blocked if coming after stressed (incl. secondarily) velar vowel
+$ ... and before intertonic unstressed e (<ɪ) 
+c > k / [+back,+syl,+stres] __ e ([-syl])* [+prim] 
 
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
@@ -236,7 +237,8 @@ $ trigger again in Gallo-Roman stage.
 $p131 s312, assigned to Late Latin p73 s155-5iv 
 $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
 $trigger again in Gallo-Roman stage
-[+lat] [+hi,+front,-syl,+voi,-cons] > ʎ
+l l ʝ > ʎ
+l ʝ > ʎ
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included -- s372

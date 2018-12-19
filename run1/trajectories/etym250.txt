@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :250:
-#fˈerrum# >>> #fɑʁ# ( Correct : #fɛʁ#) :
-f ˈe r r u m 
-#fˈɛrrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈɛrrom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#fˈɛrro# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#fˈɛrrə# | Rule 198 : [-stres,-lo,+syl] > ə 
-#fˈɛrrə̯# | Rule 199 : ə > ə̯ 
-#fˈɛrr# | Rule 211 : ə̯ > ∅ 
-#fˈarr# | Rule 437 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#fˈaːrr# | Rule 468 : [+syl] > [+long] / __ r r
-#fˈaːr# | Rule 477 : r r > r 
-#fˈɑːr# | Rule 481 : [+lo,+long,+syl] > [+back,-front] 
-#fˈɑːɹ# | Rule 497 : r > ɹ / [-cons] __ #
-#fˈɑːr# | Rule 511 : ɹ > r 
-#fˈɑːʀ# | Rule 513 : r > ʀ 
-#fɑːʀ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fɑʀ# | Rule 515 : [+syl,+long] > [-long,-splng] 
-#fɑʁ# | Rule 521 : ʀ > ʁ 
+#fˈerɑm# >>> #fjaʁ# ( Correct : #fjɛʁ#) :
+f ˈe r ɑ m 
+#fˈɛrɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈɛrɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈɛːrɑ# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈie̯rɑ# | Rule 129 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#fˈie̯ra# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#fˈiːe̯ra# | Rule 171 : [+prim] > [+long] / __ [-cons]
+#fˈie̯ra# | Rule 175 : [+syl] > [-long,-splng] / __ e̯
+#fˈiːe̯ra# | Rule 235 : [+prim] > [+long] / __ [-cons]
+#fˈie̯ra# | Rule 239 : [+syl] > [-long,-splng] / __ e̯
+#fˈiːe̯ra# | Rule 267 : [+prim] > [+long] / __ [-cons]
+#fˈie̯ra# | Rule 271 : [+syl] > [-long,-splng] / __ e̯
+#fˈie̯rə# | Rule 287 : a > ə / [+syl] ( [-syl] )* __ 
+#fjˈerə# | Rule 398 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#fjˈɛrə# | Rule 437 : ˈe > ˈɛ 
+#fjˈarə# | Rule 442 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#fjˈarə̯# | Rule 501 : ə > ə̯ / __ #
+#fjˈar# | Rule 508 : ə̯ > ∅ 
+#fjˈaʀ# | Rule 518 : r > ʀ 
+#fjaʀ# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fjaʁ# | Rule 526 : ʀ > ʁ 

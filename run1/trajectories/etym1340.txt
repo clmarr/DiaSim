@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1340:
-#wˈiːllɑm# >>> #vil# ( Correct : #vil#) :
-w ˈiː l l ɑ m 
-#ɣʷˈiːllɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βˈiːllɑm# | Rule 38 : ɣʷ > β 
-#βˈillɑm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βˈillɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈilla# | Rule 144 : [+lo,+syl] > [+front,-back] 
-#vˈilla# | Rule 277 : β > v 
-#vˈillə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈilə# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#vˈilə̯# | Rule 496 : ə > ə̯ / __ #
-#vˈil# | Rule 503 : ə̯ > ∅ 
-#vil# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌiːllˈɑːn̪um# >>> #vilɑ̃# ( Correct : #vilɛ̃#) :
+w ˌiː l l ˈɑː n̪ u m 
+#ɣʷˌiːllˈɑːn̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌiːllˈɑːn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βˌiːllˈɑːn̪ʊm# | Rule 38 : ɣʷ > β 
+#βˌillˈɑːn̪ʊm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βˌillˈɑn̪ʊm# | Rule 43 : [+syl,+long] > [-long,-splng] 
+#βˌillˈɑn̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βˌillˈɑn̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βˌillˈɑːn̪o# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌillˈaːn̪o# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#βˌillˈaːn̪ə# | Rule 203 : [-stres,-lo,+syl] > ə 
+#βˌillˈaːn̪ə̯# | Rule 204 : ə > ə̯ 
+#βˌillˈaːn̪# | Rule 216 : ə̯ > ∅ 
+#βˌillˈan̪# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
+#vˌillˈan̪# | Rule 282 : β > v 
+#vˌilˈan̪# | Rule 336 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#vˌilˈãn̪# | Rule 353 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˌilˈãː# | Rule 488 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#vilãː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vilã# | Rule 520 : [+syl,+long] > [-long,-splng] 
+#vilɑ̃# | Rule 525 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

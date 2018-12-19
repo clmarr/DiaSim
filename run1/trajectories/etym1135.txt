@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1135:
-#spˈiːn̪ɡulɑm# >>> #espɛ̃ɡl# ( Correct : #epɛ̃ɡl#) :
-s p ˈiː n̪ ɡ u l ɑ m 
-#spˈiːŋɡulɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#spˈiːŋɡʊlɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪspˈiːŋɡʊlɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪspˈiːŋɡlɑm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#ˌɪspˈiŋɡlɑm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˌespˈiŋɡlɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈiŋɡlɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌespˈiŋɡla# | Rule 144 : [+lo,+syl] > [+front,-back] 
-#ˌespˈiŋɡlə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈĩŋɡlə# | Rule 416 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#ˌespˈɛ̃ŋɡlə# | Rule 435 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈɛ̃ːɡlə# | Rule 482 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌespˈɛ̃ːɡlə̯# | Rule 496 : ə > ə̯ / __ #
-#ˌespˈɛ̃ːɡl# | Rule 503 : ə̯ > ∅ 
-#espɛ̃ːɡl# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#espɛ̃ɡl# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#spˈon̪sum# >>> #espu# ( Correct : #epu#) :
+s p ˈo n̪ s u m 
+#spˈoːn̪sum# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#spˈoːsum# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#spˈoːsʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪspˈoːsʊm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈosʊm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈosom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈoso# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌespˈoːso# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈoːzo# | Rule 104 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#ˌespˈoːzə# | Rule 203 : [-stres,-lo,+syl] > ə 
+#ˌespˈoːzə̯# | Rule 204 : ə > ə̯ 
+#ˌespˈoːz# | Rule 216 : ə̯ > ∅ 
+#ˌespˈoz# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
+#ˌespˈos# | Rule 291 : [-son] > [-voi] / __ #
+#ˌespˈus# | Rule 371 : [+round,+tense,+back] > [+hi] 
+#ˌespˈu# | Rule 507 : [-son] > ∅ / __ #
+#espu# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

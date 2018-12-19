@@ -1,13 +1,28 @@
 Trajectory file for run 'run1'; etymon number :113:
-#bˈekkum# >>> #bɛk# ( Correct : #bɛk#) :
-b ˈe k k u m 
-#bˈɛkkʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˈɛkkom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#bˈɛkko# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#bˈɛkkə# | Rule 198 : [-stres,-lo,+syl] > ə 
-#bˈɛkkə̯# | Rule 199 : ə > ə̯ 
-#bˈɛkk# | Rule 211 : ə̯ > ∅ 
-#bˈɛk# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#bˈɛkə̯# | Rule 500 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#bˈɛk# | Rule 503 : ə̯ > ∅ 
-#bɛk# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˈɑwɑm# >>> #bœ# ( Correct : #bu#) :
+b ˈɑ w ɑ m 
+#bˈɑɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#bˈɑwɑm# | Rule 37 : ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
+#bˈɑwɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bˈɑːwɑ# | Rule 80 : [+prim] > [+long] / __ [-cons]
+#bˈɔwɑ# | Rule 146 : {ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#bˈɔwa# | Rule 149 : [+lo,+syl] > [+front,-back] 
+#bˈɔːwa# | Rule 171 : [+prim] > [+long] / __ [-cons]
+#bˈuo̯wa# | Rule 181 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#bˈʉo̯wa# | Rule 190 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#b?o̯wa# | Rule 235 : [+prim] > [+long] / __ [-cons]
+#bˈʉo̯wa# | Rule 241 : [+syl] > [-long,-splng] / __ o̯
+#b?o̯wa# | Rule 267 : [+prim] > [+long] / __ [-cons]
+#bˈʉo̯wa# | Rule 273 : [+syl] > [-long,-splng] / __ o̯
+#bˈʉo̯wə# | Rule 287 : a > ə / [+syl] ( [-syl] )* __ 
+#bˈyo̯wə# | Rule 351 : [+hi,+round,-back] > [+front] 
+#bˈye̯wə# | Rule 359 : o̯ > e̯ 
+#bˈyø̯wə# | Rule 381 : e̯ > ø̯ / [+hi,+round] __ w
+#bɥˈøwə# | Rule 398 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#bɥˈøə# | Rule 403 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#bˈøə# | Rule 409 : ɥ > ∅ / [+lab,+cons] __ 
+#bˈøːə# | Rule 459 : [+stres] > [+long] / __ ə
+#bˈøː# | Rule 460 : ə > ∅ / [+syl] __ 
+#bøː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bø# | Rule 520 : [+syl,+long] > [-long,-splng] 
+#bœ# | Rule 523 : ø > œ / __ ( [+cons] )* #

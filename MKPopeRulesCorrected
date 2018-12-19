@@ -119,7 +119,7 @@ $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those 
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
 ʊ > ∅ / [+prim] ([-syl])* [-cont] __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
-	$ the most faithful way to render this also in line with Occamˌs Razor would seem to be [+cons] 
+	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
 	$ note also the frigidus contradiction: s297 & s316 vs. s262ii & s296i
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
@@ -129,7 +129,8 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat] $TODO note this rule seems to have no words to aply to... 
 
 $s127 s296i fakere case
-[+syl,-stres] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
+$ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
+[+syl,-stres,+front] > ∅ / [+prim,+lo] k __ [+cor,-strid,-nas,-lat] [+syl]
 
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring"  $Note this has no effect as per Pope, even though she talks about slurring here, no slurring from a ɣʷ is anywhere close to be effectivev yet...
 $ɣʷ > w / __ [+cons]
@@ -226,7 +227,8 @@ $ p185 s488 : o > ɔ before labial consonants
 $ *** NOTE : This is called a "TENDENCY" by Pope
 $ she does not give a date to it other than saying it Late Latin
 $ --- we give her the benefit and place it after final m deletion 
-[+round,-hi,+syl] > [-tense] / __ [+lab,-son] 
+$[+round,-hi,+syl] > [-tense] / __ [+lab,-son] 
+$ CORRECTION: we are discarding this rule : it seems to be just wrong, looking at some 40 effected words... 
 
 $ -- kwinkwe > kinkwe dissimilation
 $ Pope s823 iii. Currently tentative-- may be irregular.
@@ -244,8 +246,10 @@ $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for be
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
-$p127 s296ii : "plakitare-wokitare" case -- palatalization of k blocked if coming after secondarily stressed a and before t,r,l in a "proparoxyton
-c > k / [+lo,+syl,+stres,-prim] __ [+hi,+syl]
+$p127 s296ii : palatalization of k blocked if coming after stressed (incl. secondarily) velar vowel
+$ ... and before intertonic unstressed e (<ɪ) 
+$ CORRECTION : we broaden this to all unstressed e,ɛ before t, r or l, to hit words like iacet 
+c > k / [+back,+syl,+stres] __ {e;ɛ} {t̪;r;l}
 
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
@@ -262,7 +266,8 @@ $ she actually has the effects of this in her citation forms for Late Latin (s68
 $p131 s312, assigned to Late Latin p73 s155-5iv 
 $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
 $trigger again in Gallo-Roman stage
-[+lat] [+hi,+front,-syl,+voi,-cons] > ʎ
+l l ʝ > ʎ
+l ʝ > ʎ
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included -- s372
