@@ -1,17 +1,28 @@
 Trajectory file for run 'run1'; etymon number :297:
-#fˈulɡur# >>> #fuwɡʁ# ( Correct : #fud̪ʁ#) :
-f ˈu l ɡ u r 
-#fˈʊlɡʊr# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈolɡor# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#fˈolɡər# | Rule 195 : [-stres,-lo,+syl] > ə 
-#fˈolɡə̯r# | Rule 196 : ə > ə̯ 
-#fˈolɡr# | Rule 208 : ə̯ > ∅ 
-#fˈolɡrə# | Rule 335 : ∅ > ə / [-son] r __ #
-#fˈoɫɡrə# | Rule 342 : [+lat] > [+back] / __ [+cons]
-#fˈuɫɡrə# | Rule 363 : [+round,+tense,+back] > [+hi] 
-#fˈuwɡrə# | Rule 381 : [+lat,+back] > w 
-#fˈuwɡrə̯# | Rule 493 : ə > ə̯ / __ #
-#fˈuwɡr# | Rule 500 : ə̯ > ∅ 
-#fˈuwɡʀ# | Rule 510 : r > ʀ 
-#fuwɡʀ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fuwɡʁ# | Rule 518 : ʀ > ʁ 
+#fˈuɡit̪ɑm# >>> #fœ# ( Correct : #fɥit̪#) :
+f ˈu ɡ i t̪ ɑ m 
+#fˈʊɡɪt̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈoɡet̪ɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˈoɡet̪ɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈoɡʲet̪ɑ# | Rule 62 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#fˈoɟet̪ɑ# | Rule 63 : [+back,+front] > [-back] 
+#fˈoʝet̪ɑ# | Rule 69 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#fˈoːʝet̪ɑ# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈoːʝet̪a# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#fˈoːet̪a# | Rule 160 : ʝ > ∅ / [-cons] __ [-cons]
+#fˈoːət̪a# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#fˈoːə̯t̪a# | Rule 199 : ə > ə̯ 
+#fˈoːt̪a# | Rule 211 : ə̯ > ∅ 
+#fˈoːd̪a# | Rule 246 : [-voi] > [+voi] / [+syl] __ [+syl]
+#fˈoːða# | Rule 249 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
+#fˈowða# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˈowðə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈewðə# | Rule 361 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#fˈewə# | Rule 389 : {θ;ð} > {∅;∅} 
+#fˈøwə# | Rule 394 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#fˈøə# | Rule 398 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#fˈøːə# | Rule 454 : [+stres] > [+long] / __ ə
+#fˈøː# | Rule 455 : ə > ∅ / [+syl] __ 
+#føː# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fø# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#fœ# | Rule 518 : ø > œ / __ ( [+cons] )* #

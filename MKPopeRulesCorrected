@@ -20,6 +20,8 @@ $ If it did there would be some logical issues with Popeˌs rules -- i.e. s343 s
 	$ -- of course sound change has no memory! However this issue is moot because u:+w doesnˌt occur in Latin it seems
 	
 $ CORRECTION : Pope forgets to mention that w is a proper w not ɣʷ after velar consonants hence why we don't end up with tons of kv clusters.
+$ To be sure she does note (s186) that "betacism doesn't occur after k" but she doesn't notice that other affects she attriutes to ɣʷ are not occuring in the presence
+$ of k -- such as the deletion of the rounded "fricative"/approximant before ʝ (indeed after kw, it is the ʝ that is deleted it seems...) 
 ɣʷ > w / [+back,+hi,+cons] __ 
 
 $Pope p226 s629
@@ -83,6 +85,9 @@ j > ∅ / {p;r} __ [+front,-hi,-lo,+syl]
 j > ʝ / __ [+syl] $as per Pope s105c, 106
 $ w, newly from u,o in hiatus is clearly NOT effected by this as per treatment in s374
 
+$ CORRECTION (addition) : ʝ is deleted when coming after velar + w (cases of quie:tum, laqueum, etc...)
+ʝ > ∅ / [+back,-cont] w __  
+
 $p91 s187iic -- explicitly must come after p102 s220 
 $effacement of w before jod. 
 $NOTE however that in many nouns this was reversed by analogy (see p92 s188)
@@ -90,12 +95,15 @@ $NOTE however that in many nouns this was reversed by analogy (see p92 s188)
 
 $p91 s187iia
 $ CORRECTION: This seems to only reliably occur after /ɑ/ and /ɑː/ -- this is a better reason why vivum, ovum and nativum are unaffected than "analogy" .
-ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round,+back]
+ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round]
 
 $ as per s186iib -- w effaced between k and a rounded vowel
 	$ Note most authors interpret this differently, as the delabialization of k
 	$ Note also that Pope seems to have missed that his also happend after g?
 w > ∅ / k __ [+syl,+round] 
+
+$ CORRECTION, ADDITION : unstressed -ɛr, -ɔr endings experience metathesis
+{ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
 
 $ p115 s261-264 ~ s221 ~ s156i
 $ *** Note as per s156i, for Pope this is a "tendency" 
@@ -118,17 +126,24 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and r 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ [+cor,+son,-lat]
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat]
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat] $TODO note this rule seems to have no words to aply to... 
 
 $s127 s296i fakere case
 [+syl,-stres] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
 
-$as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring" 
-ɣʷ > w / __ [+cons]
+$as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring"  $Note this has no effect as per Pope, even though she talks about slurring here, no slurring from a ɣʷ is anywhere close to be effectivev yet...
+$ɣʷ > w / __ [+cons]
 
-$p91 s186: betacism does not occur for w after k
-$ after betacism, Pope speaks of k plus a u-glide--  interpret this to mean she is asserting a kw cluster
-ɣʷ > w / k __ 
+$ CORRECTION: a much more effective and thorough way to describe the apparent contexts of deconsonantalization of ɣʷ here...
+$ actually covering two shifts
+$ it appears that this occurred in all ɑɣʷɪ sequences : navicellam, navicam, avicam, avicellam, Pictavis, etc...
+$ Pope (s187i) says this is due to "slurring" but she nowhere else described the "slurring" phenomenon that would have fed the rule in this way
+$ Doesn't happen when the posterior ɪ is stressed it seems -- see kˌɑwˈɪkulɑm > ʃəvij
+$ Hence this is the most efficient way to represent it...: 
+ɣʷ > w / [+lo,+syl] __ ɪ 
+$ next, to cover the ɑɣʷɑ sequences (most of these being from Gaulish): bauam, flavam, cavannum. 
+$Doesn't seem to happen for -aːre verbs (lava:re) -- this can be represented by only allowing the posterior ɑ to be short
+ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
 
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
 ɣʷ > β

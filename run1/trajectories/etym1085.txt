@@ -1,19 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1085:
-#sˈeks# >>> #sij# ( Correct : #sis#) :
-s ˈe k s 
-#sˈɛks# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɛxs# | Rule 40 : k > x / [-cons] __ [+cor,-voi]
-#sˈɛçs# | Rule 150 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#sˈɛçsʲ# | Rule 155 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#sˈie̯çsʲ# | Rule 174 : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+hi,+front]
-#sˈiːe̯çsʲ# | Rule 227 : [+prim] > [+long] / __ [-cons]
-#sˈie̯çsʲ# | Rule 231 : [+syl] > [-long,-splng] / __ e̯
-#sˈie̯çjs# | Rule 251 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#sˈie̯çs# | Rule 252 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#sˈiːe̯çs# | Rule 259 : [+prim] > [+long] / __ [-cons]
-#sˈie̯çs# | Rule 263 : [+syl] > [-long,-splng] / __ e̯
-#sˈie̯ʝs# | Rule 297 : ç > ʝ 
-#sˈie̯js# | Rule 299 : ʝ > j / [-cons] __ 
-#sˈijs# | Rule 361 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#sˈij# | Rule 499 : [-son] > ∅ / __ #
-#sij# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌeːkˈuːrɑm# >>> #syʁ# ( Correct : #syʁ#) :
+s ˌeː k ˈuː r ɑ m 
+#sˌekˈurɑm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌekˈurɑ# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌekˈuːrɑ# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌeɡˈuːrɑ# | Rule 96 : k > ɡ / [-cons] __ [+syl]
+#sˌeɣˈuːrɑ# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons]
+#sˌeˈuːrɑ# | Rule 135 : ɣ > ∅ / __ [+tense,+round,+prim]
+#sˌeˈuːra# | Rule 143 : [+lo,+syl] > [+front,-back] 
+#sˌe?ra# | Rule 184 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#sˌe?rə# | Rule 281 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌo?rə# | Rule 343 : ˌe > ˌo / __ [+hi,+round,+prim]
+#sˌoˈyːrə# | Rule 345 : [+hi,+round,-back] > [+front] 
+#sˌəˈyːrə# | Rule 356 : ˌo > ˌə / __ [+prim,+hi,+round,-back]
+#sˈyːrə# | Rule 450 : ˌə > ∅ / __ [+syl]
+#sˈyːrə̯# | Rule 495 : ə > ə̯ / __ #
+#sˈyːr# | Rule 502 : ə̯ > ∅ 
+#sˈyːʀ# | Rule 512 : r > ʀ 
+#syːʀ# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#syʀ# | Rule 514 : [+syl,+long] > [-long,-splng] 
+#syʁ# | Rule 520 : ʀ > ʁ 

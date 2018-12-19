@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1141:
-#spˈissum# >>> #espɛ# ( Correct : #epɛ#) :
-s p ˈi s s u m 
-#spˈɪssʊm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪspˈɪssʊm# | Rule 13 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈessom# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈesso# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌespˈessə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#ˌespˈessə̯# | Rule 196 : ə > ə̯ 
-#ˌespˈess# | Rule 208 : ə̯ > ∅ 
-#ˌespˈes# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌespˈɛs# | Rule 429 : ˈe > ˈɛ 
-#ˌespˈɛ# | Rule 499 : [-son] > ∅ / __ #
-#espɛ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#st̪ɑːmen̪# >>> #est̪ə̃# ( Correct : #et̪ɛ̃#) :
+s t̪ ɑː m e n̪ 
+#st̪ɑːmɛn̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪst̪ɑːmɛn̪# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪst̪ɑmɛn̪# | Rule 49 : [+syl,+long] > [-long,-splng] 
+#ˌest̪ɑmɛn̪# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌest̪amɛn̪# | Rule 143 : [+lo,+syl] > [+front,-back] 
+#ˌest̪əmɛn̪# | Rule 195 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˌest̪əmən̪# | Rule 197 : [-stres,-lo,+syl] > ə 
+#ˌest̪ə̯mə̯n̪# | Rule 198 : ə > ə̯ 
+#ˌest̪əmə̯n̪# | Rule 203 : ə̯ > ə / __ [-syl] [-syl] [-syl]
+#ˌest̪əmn̪# | Rule 210 : ə̯ > ∅ 
+#ˌest̪əmm# | Rule 217 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#ˌest̪əm?# | Rule 279 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#ˌest̪əm?# | Rule 285 : [-son] > [-voi] / __ #
+#ˌest̪əm̥?# | Rule 329 : [-son] > [-voi] / __ [-voi]
+#ˌest̪ə̃m̥?# | Rule 401 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#ˌest̪əm̥?# | Rule 416 : ə̃ > ə 
+#ˌest̪ə̃m̥?# | Rule 428 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌest̪??# | Rule 481 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌest̪?# | Rule 482 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#est̪?# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#est̪ə̃# | Rule 514 : [+syl,+long] > [-long,-splng] 

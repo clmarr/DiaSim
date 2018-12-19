@@ -1,24 +1,17 @@
 Trajectory file for run 'run1'; etymon number :645:
-#mˈɑn̪um# >>> #mɐ̃# ( Correct : #mɛ̃#) :
-m ˈɑ n̪ u m 
-#mˈɑn̪ʊm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɑn̪om# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɑn̪o# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɑːn̪o# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈaːn̪o# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#mˈaːn̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈaːn̪ə̯# | Rule 196 : ə > ə̯ 
-#mˈaːn̪# | Rule 208 : ə̯ > ∅ 
-#mˈan̪# | Rule 222 : [+syl] > [-long,-splng] / __ [+cons] #
-#mˈaːn̪# | Rule 230 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#mˈan̪# | Rule 254 : [+syl] > [-long,-splng] / __ [+cons] #
-#mˈaːn̪# | Rule 262 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#mˈae̯n̪# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˈeːn̪# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#mˈẽːn̪# | Rule 347 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈɛ̃ːn̪# | Rule 371 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈæ̃ːn̪# | Rule 376 : [+nas,-hi,+syl] > [+lo] 
-#mˈɐ̃ːn̪# | Rule 478 : [+lo,+long,+syl] > [+back,-front] 
-#mˈɐ̃ː# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#mɐ̃ː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɐ̃# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#mˈɑn̪uːs# >>> #mɑ̃# ( Correct : #mɛ̃#) :
+m ˈɑ n̪ uː s 
+#mˈɑn̪us# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈɑːn̪us# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈaːn̪us# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈaːn̪ʉs# | Rule 185 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#mˈaːn̪əs# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈaːn̪ə̯s# | Rule 199 : ə > ə̯ 
+#mˈaːn̪s# | Rule 211 : ə̯ > ∅ 
+#mˈan̪s# | Rule 226 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
+#mˈãn̪s# | Rule 348 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#mˈãːs# | Rule 482 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#mˈãː# | Rule 502 : [-son] > ∅ / __ #
+#mãː# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mã# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#mɑ̃# | Rule 520 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

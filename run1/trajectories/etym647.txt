@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :647:
-#mˈɑn̪uːs# >>> #mɑ̃# ( Correct : #mɛ̃#) :
-m ˈɑ n̪ uː s 
-#mˈɑn̪us# | Rule 46 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈɑːn̪us# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈaːn̪us# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#mˈaːn̪ʉs# | Rule 182 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#mˈaːn̪əs# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈaːn̪ə̯s# | Rule 196 : ə > ə̯ 
-#mˈaːn̪s# | Rule 208 : ə̯ > ∅ 
-#mˈan̪s# | Rule 223 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#mˈãn̪s# | Rule 345 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈãːs# | Rule 479 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈãː# | Rule 499 : [-son] > ∅ / __ #
-#mãː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mã# | Rule 512 : [+syl,+long] > [-long,-splng] 
-#mɑ̃# | Rule 517 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#mˈɑre# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ r e 
+#mˈɑrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑːrɛ# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈaːrɛ# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈaːrə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈaːrə̯# | Rule 199 : ə > ə̯ 
+#mˈaːr# | Rule 211 : ə̯ > ∅ 
+#mˈar# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#mˈaːr# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#mˈar# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#mˈaːr# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#mˈae̯r# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːr# | Rule 304 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈɛːr# | Rule 443 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#mˈɛːɹ# | Rule 497 : r > ɹ / [-cons] __ #
+#mˈɛːr# | Rule 511 : ɹ > r 
+#mˈɛːʀ# | Rule 513 : r > ʀ 
+#mɛːʀ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛʀ# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#mɛʁ# | Rule 521 : ʀ > ʁ 

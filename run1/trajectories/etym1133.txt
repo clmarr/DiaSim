@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1133:
-#spˈɑt̪ʰɑ# >>> #aspe# ( Correct : #epe#) :
-s p ˈɑ t̪ʰ ɑ 
-#spˈɑt̪ɑ# | Rule 5 : [+sg,-cont] > [-sg] 
-#ˌɪspˈɑt̪ɑ# | Rule 13 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈɑt̪ɑ# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌɑspˈɑt̪ɑ# | Rule 69 : {ˌe;ˌɛ} > {ˌɑ;ˌɑ} / __ ( [-syl] )* [+lo,+prim]
-#ˌɑspˈɑːt̪ɑ# | Rule 73 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌaspˈaːt̪a# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#ˌaspˈaːd̪a# | Rule 243 : [-voi] > [+voi] / [+syl] __ [+syl]
-#ˌaspˈaːða# | Rule 246 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#ˌaspˈae̯ða# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌaspˈae̯ðə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌaspˈeːðə# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌaspˈeːə# | Rule 386 : {θ;ð} > {∅;∅} 
-#ˌaspˈeː# | Rule 452 : ə > ∅ / [+syl] __ 
-#aspeː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aspe# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#spˈiːkum# >>> #espij# ( Correct : #epi#) :
+s p ˈiː k u m 
+#spˈiːkʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪspˈiːkʊm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈikʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈikom# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈiko# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌespˈiːko# | Rule 75 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈiːɡo# | Rule 96 : k > ɡ / [-cons] __ [+syl]
+#ˌespˈiːɣo# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons]
+#ˌespˈiːɣə# | Rule 197 : [-stres,-lo,+syl] > ə 
+#ˌespˈiːɣə̯# | Rule 198 : ə > ə̯ 
+#ˌespˈiːɣ# | Rule 210 : ə̯ > ∅ 
+#ˌespˈiɣ# | Rule 224 : [+syl] > [-long,-splng] / __ [+cons] #
+#ˌespˈix# | Rule 285 : [-son] > [-voi] / __ #
+#ˌespˈiç# | Rule 297 : x > ç / [+hi,+front,+prim] __ #
+#ˌespˈiʝ# | Rule 299 : ç > ʝ 
+#ˌespˈij# | Rule 301 : ʝ > j / [-cons] __ 
+#espij# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

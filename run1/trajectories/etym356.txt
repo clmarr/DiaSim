@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :356:
-#illoːs# >>> #əw# ( Correct : #le#) :
-i l l oː s 
-#ɪlloːs# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɪllos# | Rule 46 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ellos# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#əllos# | Rule 193 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#əlləs# | Rule 195 : [-stres,-lo,+syl] > ə 
-#ə̯llə̯s# | Rule 196 : ə > ə̯ 
-#əllə̯s# | Rule 201 : ə̯ > ə / __ [-syl] [-syl] [-syl]
-#əlls# | Rule 208 : ə̯ > ∅ 
-#əls# | Rule 305 : [+cons] > ∅ / [+cons] __ [-son]
-#əɫs# | Rule 342 : [+lat] > [+back] / __ [+cons]
-#əws# | Rule 381 : [+lat,+back] > w 
-#əw# | Rule 499 : [-son] > ∅ / __ #
+#illˈoːrum# >>> #lœʁ# ( Correct : #lœʁ#) :
+i l l ˈoː r u m 
+#ɪllˈoːrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɪllˈorʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ellˈorom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ellˈoro# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ellˈoːro# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#əllˈoːrə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#ə̯llˈoːrə̯# | Rule 199 : ə > ə̯ 
+#llˈoːr# | Rule 211 : ə̯ > ∅ 
+#llˈor# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#llˈoːr# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈor# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#llˈoːr# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈowr# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#lˈowr# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#lˈewr# | Rule 361 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#lˈøwr# | Rule 394 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#lˈør# | Rule 398 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#lˈøɹ# | Rule 497 : r > ɹ / [-cons] __ #
+#lˈør# | Rule 511 : ɹ > r 
+#lˈøʀ# | Rule 513 : r > ʀ 
+#løʀ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lœʀ# | Rule 518 : ø > œ / __ ( [+cons] )* #
+#lœʁ# | Rule 521 : ʀ > ʁ 

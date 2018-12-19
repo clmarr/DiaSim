@@ -1,13 +1,12 @@
 Trajectory file for run 'run1'; etymon number :1191:
-#t̪ˈɑrd̪ɑm# >>> #t̪aʁd̪# ( Correct : #t̪aʁd̪#) :
-t̪ ˈɑ r d̪ ɑ m 
-#t̪ˈɑrd̪ɑ# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈard̪a# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#t̪ˈard̪ə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈard̪ə̯# | Rule 493 : ə > ə̯ / __ #
-#t̪ˈaɹd̪ə̯# | Rule 495 : r > ɹ / [-cons] __ [+cons]
-#t̪ˈaɹd̪# | Rule 500 : ə̯ > ∅ 
-#t̪ˈard̪# | Rule 508 : ɹ > r 
-#t̪ˈaʀd̪# | Rule 510 : r > ʀ 
-#t̪aʀd̪# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪aʁd̪# | Rule 518 : ʀ > ʁ 
+#t̪ˈeː# >>> #t̪wa# ( Correct : #t̪wa#) :
+t̪ ˈeː 
+#t̪ˈe# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈeː# | Rule 73 : [+prim] > [+long] / __ #
+#t̪ˈej# | Rule 271 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈoj# | Rule 361 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈuj# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯# | Rule 407 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛ# | Rule 410 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wɛ# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wa# | Rule 518 : ɛ > a / w __ 

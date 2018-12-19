@@ -1,17 +1,24 @@
 Trajectory file for run 'run1'; etymon number :950:
-#prˈɑe̯st̪um# >>> #pʁɛs# ( Correct : #pʁɛ#) :
-p r ˈɑ e̯ s t̪ u m 
-#prˈae̯st̪um# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˈae̯st̪ʊm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪ʊm# | Rule 43 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˈest̪ʊm# | Rule 46 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#prˈest̪om# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˈest̪o# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#prˈest̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#prˈest̪ə̯# | Rule 196 : ə > ə̯ 
-#prˈest̪# | Rule 208 : ə̯ > ∅ 
-#prˈɛst̪# | Rule 429 : ˈe > ˈɛ 
-#prˈɛs# | Rule 499 : [-son] > ∅ / __ #
-#pʀˈɛs# | Rule 510 : r > ʀ 
-#pʀɛs# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛs# | Rule 518 : ʀ > ʁ 
+#prˈɑːt̪um# >>> #pʁɛ# ( Correct : #pʁɛ#) :
+p r ˈɑː t̪ u m 
+#prˈɑːt̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˈɑt̪ʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#prˈɑt̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#prˈɑt̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɑːt̪o# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˈaːt̪o# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#prˈaːt̪ə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#prˈaːt̪ə̯# | Rule 199 : ə > ə̯ 
+#prˈaːt̪# | Rule 211 : ə̯ > ∅ 
+#prˈat̪# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#prˈaːt̪# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#prˈat̪# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#prˈaːt̪# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#prˈae̯t̪# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˈeːt̪# | Rule 304 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#prˈɛːt̪# | Rule 495 : ˈeː > ˈɛː / __ [+cons] #
+#prˈɛː# | Rule 502 : [-son] > ∅ / __ #
+#pʀˈɛː# | Rule 513 : r > ʀ 
+#pʀɛː# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀɛ# | Rule 515 : [+syl,+long] > [-long,-splng] 
+#pʁɛ# | Rule 521 : ʀ > ʁ 

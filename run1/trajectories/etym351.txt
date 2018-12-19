@@ -1,13 +1,22 @@
 Trajectory file for run 'run1'; etymon number :351:
-#ˈillɑm# >>> #ɛl# ( Correct : #ɛl#) :
-ˈi l l ɑ m 
-#ˈɪllɑm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈellɑm# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈellɑ# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈella# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#ˈellə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈelə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˈɛlə# | Rule 429 : ˈe > ˈɛ 
-#ˈɛlə̯# | Rule 493 : ə > ə̯ / __ #
-#ˈɛl# | Rule 500 : ə̯ > ∅ 
-#ɛl# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#illˈɑk# >>> #lɛk# ( Correct : #la#) :
+i l l ˈɑ k 
+#ɪllˈɑk# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ellˈɑk# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ellˈɑx# | Rule 125 : k > x / [+syl] __ #
+#ellˈax# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#əllˈax# | Rule 196 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯llˈax# | Rule 199 : ə > ə̯ 
+#llˈax# | Rule 211 : ə̯ > ∅ 
+#llˈaːx# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈax# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#llˈaːx# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈae̯x# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#llˈae̯k# | Rule 299 : x > k / __ #
+#llˈeːk# | Rule 304 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#lˈeːk# | Rule 331 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#lˈɛːk# | Rule 495 : ˈeː > ˈɛː / __ [+cons] #
+#lˈɛːkə̯# | Rule 500 : ∅ > ə̯ / # [-syl] [+syl] k __ #
+#lˈɛːk# | Rule 503 : ə̯ > ∅ 
+#lɛːk# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lɛk# | Rule 515 : [+syl,+long] > [-long,-splng] 

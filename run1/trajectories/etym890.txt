@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :890:
-#pˈin̪n̪ɑm# >>> #pæ̃n̪# ( Correct : #pan̪#) :
-p ˈi n̪ n̪ ɑ m 
-#pˈɪn̪n̪ɑm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈen̪n̪ɑm# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈen̪n̪ɑ# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈen̪n̪a# | Rule 141 : [+lo,+syl] > [+front,-back] 
-#pˈen̪n̪ə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈen̪ə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˈẽn̪ə# | Rule 347 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˈɛ̃n̪ə# | Rule 371 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈæ̃n̪ə# | Rule 376 : [+nas,-hi,+syl] > [+lo] 
-#pˈæ̃n̪ə̯# | Rule 493 : ə > ə̯ / __ #
-#pˈæ̃n̪# | Rule 500 : ə̯ > ∅ 
-#pæ̃n̪# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈiperɑ# >>> #pwawʁ# ( Correct : #pwavʁ#) :
+p ˈi p e r ɑ 
+#pˈɪpɛrɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈepɛrɑ# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈeːpɛrɑ# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːprɑ# | Rule 103 : ɛ > ∅ / __ [+cor,+son,-nas]
+#pˈeːpra# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#pˈeːbra# | Rule 247 : [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
+#pˈeːβra# | Rule 249 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
+#pˈejβra# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejwra# | Rule 276 : {β;ɣʷ} > {w;w} / __ ( ə ) [+cons]
+#pˈejwrə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈojwrə# | Rule 362 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈujwrə# | Rule 366 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯wrə# | Rule 408 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛwrə# | Rule 411 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛwrə̯# | Rule 496 : ə > ə̯ / __ #
+#pwˈɛwr# | Rule 503 : ə̯ > ∅ 
+#pwˈɛwʀ# | Rule 513 : r > ʀ 
+#pwɛwʀ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwawʀ# | Rule 519 : ɛ > a / w __ 
+#pwawʁ# | Rule 521 : ʀ > ʁ 

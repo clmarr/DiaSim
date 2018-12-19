@@ -1,17 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1371:
-#wˈost̪rum# >>> #vɔst̪ʁ# ( Correct : #vɔt̪ʁ#) :
-w ˈo s t̪ r u m 
-#ɣʷˈost̪rum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɔst̪rʊm# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βˈɔst̪rʊm# | Rule 35 : ɣʷ > β 
-#βˈɔst̪rom# | Rule 49 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#βˈɔst̪ro# | Rule 54 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɔst̪rə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#βˈɔst̪rə̯# | Rule 196 : ə > ə̯ 
-#βˈɔst̪rə# | Rule 206 : ə̯ > ə / [-son] r __ #
-#vˈɔst̪rə# | Rule 274 : β > v 
-#vˈɔst̪rə̯# | Rule 493 : ə > ə̯ / __ #
-#vˈɔst̪r# | Rule 500 : ə̯ > ∅ 
-#vˈɔst̪ʀ# | Rule 510 : r > ʀ 
-#vɔst̪ʀ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɔst̪ʁ# | Rule 518 : ʀ > ʁ 
+#wˈoːt̪um# >>> #vœ# ( Correct : #vø#) :
+w ˈoː t̪ u m 
+#ɣʷˈoːt̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈoːt̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βˈoːt̪ʊm# | Rule 38 : ɣʷ > β 
+#βˈot̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βˈot̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βˈot̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βˈoːt̪o# | Rule 76 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈoːt̪ə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#βˈoːt̪ə̯# | Rule 199 : ə > ə̯ 
+#βˈoːt̪# | Rule 211 : ə̯ > ∅ 
+#βˈot̪# | Rule 225 : [+syl] > [-long,-splng] / __ [+cons] #
+#βˈoːt̪# | Rule 233 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#βˈot̪# | Rule 257 : [+syl] > [-long,-splng] / __ [+cons] #
+#βˈoːt̪# | Rule 265 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#βˈowt̪# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈowt̪# | Rule 277 : β > v 
+#vˈewt̪# | Rule 361 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#vˈøwt̪# | Rule 394 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˈøt̪# | Rule 398 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˈø# | Rule 502 : [-son] > ∅ / __ #
+#vø# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vœ# | Rule 518 : ø > œ / __ ( [+cons] )* #

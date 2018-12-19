@@ -1,12 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1193:
-#t̪ˈeː# >>> #t̪wa# ( Correct : #t̪wa#) :
-t̪ ˈeː 
-#t̪ˈe# | Rule 46 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#t̪ˈeː# | Rule 71 : [+prim] > [+long] / __ #
-#t̪ˈej# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪ˈoj# | Rule 359 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t̪ˈuj# | Rule 363 : [+round,+tense,+back] > [+hi] 
-#t̪ˈuɛ̯# | Rule 405 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t̪wˈɛ# | Rule 408 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#t̪wɛ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪wa# | Rule 516 : ɛ > a / w __ 
+#t̪ˈeːkt̪um# >>> #t̪wa# ( Correct : #t̪wa#) :
+t̪ ˈeː k t̪ u m 
+#t̪ˈeːkt̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈeːxt̪ʊm# | Rule 42 : k > x / [-cons] __ [+cor,-voi]
+#t̪ˈext̪ʊm# | Rule 48 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈext̪om# | Rule 51 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈext̪o# | Rule 56 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeçt̪o# | Rule 152 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#t̪ˈeçt̪ʲo# | Rule 157 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#t̪ˈeçt̪ʲə# | Rule 197 : [-stres,-lo,+syl] > ə 
+#t̪ˈeçt̪ʲə̯# | Rule 198 : ə > ə̯ 
+#t̪ˈeçt̪ʲ# | Rule 210 : ə̯ > ∅ 
+#t̪ˈeçjt̪# | Rule 253 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#t̪ˈeçt̪# | Rule 254 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#t̪ˈeʝt̪# | Rule 299 : ç > ʝ 
+#t̪ˈejt̪# | Rule 301 : ʝ > j / [-cons] __ 
+#t̪ˈojt̪# | Rule 361 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujt̪# | Rule 365 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯t̪# | Rule 407 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛt̪# | Rule 410 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛ# | Rule 501 : [-son] > ∅ / __ #
+#t̪wɛ# | Rule 513 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wa# | Rule 518 : ɛ > a / w __ 

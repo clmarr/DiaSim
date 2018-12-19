@@ -1,11 +1,19 @@
 Trajectory file for run 'run1'; etymon number :694:
-#mˈiːlle# >>> #mi# ( Correct : #mil#) :
-m ˈiː l l e 
-#mˈiːllɛ# | Rule 11 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈillɛ# | Rule 46 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈillə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈillə̯# | Rule 196 : ə > ə̯ 
-#mˈill# | Rule 208 : ə̯ > ∅ 
-#mˈil# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#mˈi# | Rule 441 : [+lat] > ∅ / [+hi,+syl] __ #
-#mi# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈikkɑm# >>> #mɛkʃ# ( Correct : #mɛʃ#) :
+m ˈi k k ɑ m 
+#mˈɪkkɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈekkɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈekkɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈekka# | Rule 144 : [+lo,+syl] > [+front,-back] 
+#mˈekkʲa# | Rule 179 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#mˈekkʲɛ# | Rule 180 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#mˈekcɛ# | Rule 188 : [+back,+front] > [-back] 
+#mˈekt͡ʃɛ# | Rule 195 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#mˈekt͡ʃə# | Rule 198 : [-stres,-lo,+syl] > ə 
+#mˈekt͡ʃə̯# | Rule 199 : ə > ə̯ 
+#mˈekt͡ʃə# | Rule 207 : ə̯ > ə / [-ant,+delrel] __ #
+#mˈekʃə# | Rule 426 : [+delrel] > [+cont,.delrel] 
+#mˈɛkʃə# | Rule 432 : ˈe > ˈɛ 
+#mˈɛkʃə̯# | Rule 496 : ə > ə̯ / __ #
+#mˈɛkʃ# | Rule 503 : ə̯ > ∅ 
+#mɛkʃ# | Rule 514 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
