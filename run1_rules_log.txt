@@ -28,7 +28,8 @@ j > ʝ / __ [+syl]| ORIG : j > ʝ / __ [+syl]
 ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round]| ORIG : ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round]
 w > ∅ / k __ [+syl,+round]| ORIG : w > ∅ / k __ [+syl,+round] 
 {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #| ORIG : {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
-ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])* [-cont] __ [+lat] [+syl] ([-syl]) #
+ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])*  [-cont] __ [+lat] [+syl] ([-syl]) #
+ʊ > ∅ / [+prim] ( [-syl] )* m __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])*  m __ [+lat] [+syl] ([-syl]) #
 ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ [+cor,-son,-cont] [+front,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
 ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* n̪ __ [+cor,+son,-lat]| ORIG : [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ [+cor,+son,-lat]
@@ -108,10 +109,12 @@ k > ɡ / [-cons] __ [+syl]| ORIG : k > ɡ / [-cons] __ [+syl]
 l > ɫ / __ [+cons,-lat]| ORIG : l > ɫ / __ [+cons,-lat]
 {ŋ;ɫ;s} > {ɲ;lʲ;sʲ} / __ [-cont,+hi,+front] [-stres,+syl,+front] [+cor,+cons,-lat] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : {ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front] [-stres,+syl,+front] [+cor,+cons,-lat] ([-syl])* [+syl] ([-syl])* #
 ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : ɛ > ∅ / __ [+cor,+son,-nas] ([-syl])* [+syl] ([-syl])* #
+n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat] 
+{β;w} > {∅;∅} / [+cons,-lab] __ r| ORIG : {β;w} > {∅;∅} / [+cons,-lab] __ r
+[+lat] ʝ > ʎ/ __ r| ORIG : [+lat] ʝ > ʎ / __ r 
 ∅ > b / m __ [+cor,-nas,+son,-syl]| ORIG : ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r| ORIG : ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r} | ORIG : {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
-n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat] 
 [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]| ORIG : [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]
 [+syl] > [-long,-splng] / __ [+cons] #| ORIG : [+syl] > [-long] / __ [+cons] # 
 [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]| ORIG : [+syl] > [-long] / __ [+cons] [+cons,-son]

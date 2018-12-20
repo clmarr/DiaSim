@@ -117,7 +117,8 @@ $ 	of palatalization  (s296)
 $ Further note : s262b -- Pope notes that sometimes the older forms were restored by preservative analogy via "clerkly influence" 
 $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those where preceding cons is k,g,t,p or b. There donˌt seem to be
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
-ʊ > ∅ / [+prim] ([-syl])* [-cont] __ [+lat] [+syl] ([-syl]) #
+$ CORRECTION : -mulum endings also effected
+ʊ > ∅ / [+prim] ([-syl])* {[-cont];m} __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
@@ -415,17 +416,23 @@ $ as per symbols used should come AFTER regressive palatalization assimilation o
 $ but BEFORE regressive palatalization of r ! 
 ɛ > ∅ / __ [+cor,+son,-nas] ([-syl])* [+syl] ([-syl])* #
 
+$ s189 : nβl > mbl -- only relevant for inwolare>embler, an obselete word, it seems though. 
+n β > m b / __ [+lat] 
+
+$ correction : β and w are deleted elsewhere when in middle of cluster not following a labial 
+{β;w} > {∅;∅} / [+cons,-lab] __ r
+$ correction : [+lat] ʝ > ʎ before r 
+[+lat] ʝ > ʎ / __ r 
+
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
 $ Denasalization -- s369, and glide development s370
 $ b inserted between m + r or l 
 $ d inserted between n,l,dark l,z,elya + r 
-$ t inserted between s and pal. s + r 
+$ t inserted between s and pal. s + r
+$ should RECUR whenever these consonants are brought into contact.  
 ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
-
-$ s189 : nβl > mbl 
-n β > m b / __ [+lat] 
 
 $ as per Pope p126 s293: depalatalization of palatal stops that come into contact with following non palatal consonants
 $ explicitly BEFORE assibilation (bleeds it)
