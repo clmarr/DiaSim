@@ -1,20 +1,15 @@
 Trajectory file for run 'run1'; etymon number :888:
-#pˈiːn̪um# >>> #pɛ̃# ( Correct : #pɛ̃#) :
-p ˈiː n̪ u m 
-#pˈiːn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈin̪ʊm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˈin̪om# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈin̪o# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈiːn̪o# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈiːn̪ə# | Rule 203 : [-stres,-lo,+syl] > ə 
-#pˈiːn̪ə̯# | Rule 204 : ə > ə̯ 
-#pˈiːn̪# | Rule 216 : ə̯ > ∅ 
-#pˈin̪# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
-#pˈiːn̪# | Rule 238 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#pˈin̪# | Rule 262 : [+syl] > [-long,-splng] / __ [+cons] #
-#pˈiːn̪# | Rule 270 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#pˈĩːn̪# | Rule 421 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#pˈɛ̃ːn̪# | Rule 440 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛ̃ː# | Rule 488 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pɛ̃ː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɛ̃# | Rule 520 : [+syl,+long] > [-long,-splng] 
+#pˈin̪n̪ɑm# >>> #pæ̃n̪# ( Correct : #pan̪#) :
+p ˈi n̪ n̪ ɑ m 
+#pˈɪn̪n̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈen̪n̪ɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈen̪n̪ɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈen̪n̪a# | Rule 150 : [+lo,+syl] > [+front,-back] 
+#pˈen̪n̪ə# | Rule 288 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈen̪ə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˈẽn̪ə# | Rule 356 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#pˈɛ̃n̪ə# | Rule 380 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈæ̃n̪ə# | Rule 385 : [+nas,-hi,+syl] > [+lo] 
+#pˈæ̃n̪ə̯# | Rule 502 : ə > ə̯ / __ #
+#pˈæ̃n̪# | Rule 509 : ə̯ > ∅ 
+#pæ̃n̪# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

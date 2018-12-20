@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1139:
-#st̪ˈeːllɑm# >>> #est̪ɛl# ( Correct : #et̪wal#) :
-s t̪ ˈeː l l ɑ m 
-#ˌɪst̪ˈeːllɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪst̪ˈellɑm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˌest̪ˈellɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌest̪ˈellɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌest̪ˈella# | Rule 149 : [+lo,+syl] > [+front,-back] 
-#ˌest̪ˈellə# | Rule 287 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌest̪ˈelə# | Rule 336 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌest̪ˈɛlə# | Rule 437 : ˈe > ˈɛ 
-#ˌest̪ˈɛlə̯# | Rule 501 : ə > ə̯ / __ #
-#ˌest̪ˈɛl# | Rule 508 : ə̯ > ∅ 
-#est̪ɛl# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#st̪ɑːmen̪# >>> #est̪ə̃# ( Correct : #et̪ɛ̃#) :
+s t̪ ɑː m e n̪ 
+#st̪ɑːmɛn̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪst̪ɑːmɛn̪# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪst̪ɑmɛn̪# | Rule 43 : [+syl,+long] > [-long,-splng] 
+#ˌest̪ɑmɛn̪# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌest̪amɛn̪# | Rule 150 : [+lo,+syl] > [+front,-back] 
+#ˌest̪əmɛn̪# | Rule 202 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˌest̪əmən̪# | Rule 204 : [-stres,-lo,+syl] > ə 
+#ˌest̪ə̯mə̯n̪# | Rule 205 : ə > ə̯ 
+#ˌest̪əmə̯n̪# | Rule 210 : ə̯ > ə / __ [-syl] [-syl] [-syl]
+#ˌest̪əmn̪# | Rule 217 : ə̯ > ∅ 
+#ˌest̪əmm# | Rule 224 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#ˌest̪əm?# | Rule 286 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#ˌest̪əm?# | Rule 292 : [-son] > [-voi] / __ #
+#ˌest̪əm̥?# | Rule 336 : [-son] > [-voi] / __ [-voi]
+#ˌest̪ə̃m̥?# | Rule 408 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#ˌest̪əm̥?# | Rule 423 : ə̃ > ə 
+#ˌest̪ə̃m̥?# | Rule 435 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌest̪??# | Rule 488 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌest̪?# | Rule 489 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#est̪?# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#est̪ə̃# | Rule 521 : [+syl,+long] > [-long,-splng] 

@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :986:
-#pˈurpurɑm# >>> #puʁpʁ# ( Correct : #puʁpʁ#) :
-p ˈu r p u r ɑ m 
-#pˈʊrpʊrɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈorporɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈorporɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈorpora# | Rule 149 : [+lo,+syl] > [+front,-back] 
-#pˈorpəra# | Rule 201 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#pˈorpə̯ra# | Rule 204 : ə > ə̯ 
-#pˈorpra# | Rule 216 : ə̯ > ∅ 
-#pˈorprə# | Rule 287 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈurprə# | Rule 371 : [+round,+tense,+back] > [+hi] 
-#pˈurprə̯# | Rule 501 : ə > ə̯ / __ #
-#pˈuɹprə̯# | Rule 503 : r > ɹ / [-cons] __ [+cons]
-#pˈuɹpr# | Rule 508 : ə̯ > ∅ 
-#pˈurpr# | Rule 516 : ɹ > r 
-#pˈuʀpʀ# | Rule 518 : r > ʀ 
-#puʀpʀ# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#puʁpʁ# | Rule 526 : ʀ > ʁ 
+#pˈuːrum# >>> #pyʁ# ( Correct : #pyʁ#) :
+p ˈuː r u m 
+#pˈuːrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈurʊm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˈurom# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈuro# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈuːro# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#p?ro# | Rule 191 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#p?rə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#p?rə̯# | Rule 205 : ə > ə̯ 
+#p?r# | Rule 217 : ə̯ > ∅ 
+#pˈʉr# | Rule 231 : [+syl] > [-long,-splng] / __ [+cons] #
+#p?r# | Rule 239 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈʉr# | Rule 263 : [+syl] > [-long,-splng] / __ [+cons] #
+#p?r# | Rule 271 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈyːr# | Rule 352 : [+hi,+round,-back] > [+front] 
+#pˈyːɹ# | Rule 503 : r > ɹ / [-cons] __ #
+#pˈyːr# | Rule 517 : ɹ > r 
+#pˈyːʀ# | Rule 519 : r > ʀ 
+#pyːʀ# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pyʀ# | Rule 521 : [+syl,+long] > [-long,-splng] 
+#pyʁ# | Rule 527 : ʀ > ʁ 

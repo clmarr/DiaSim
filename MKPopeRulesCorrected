@@ -400,17 +400,20 @@ $ Based on the way she has ordered the rules on page 77,
 $ it would appear she is asserting that this is the first appearance of /y/ in French. 
 [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i # 
 
+$ CORRECTION : l > ɫ can go here . Will need to be recurrent. 
+l > ɫ / __ [+cons,-lat]
+
 $ as per Pope p126 s293
-$ palatalization of ŋ, l and s before palatal stops
+$ palatalization of ŋ, l and s before palatal stops followed by short unstressed paroxytone e,ɛ before r,t
 $ potentially RECURRENT as per s162 
 $ but definitely started before effacement of ɛ pre r/l and cluster simplification as per s293
-{ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front]
+{ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front] [-stres,+syl,+front] [+cor,+cons,-lat] ([-syl])* [+syl] ([-syl])* #
 
 $ Pope p77 s163-3 "effacement of penultimate ɛ before r and l"
 $ comes before early Gallo-Roman cluster modification s293 
 $ as per symbols used should come AFTER regressive palatalization assimilation of nasals, s and laterals
 $ but BEFORE regressive palatalization of r ! 
-ɛ > ∅ / __ [+cor,+son,-nas]
+ɛ > ∅ / __ [+cor,+son,-nas] ([-syl])* [+syl] ([-syl])* #
 
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
 $ Denasalization -- s369, and glide development s370

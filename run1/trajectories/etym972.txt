@@ -1,24 +1,13 @@
 Trajectory file for run 'run1'; etymon number :972:
-#pˌullˈɑːmen̪# >>> #pulɑ̃# ( Correct : #pulɛ̃#) :
-p ˌu l l ˈɑː m e n̪ 
-#pˌʊllˈɑːmɛn̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌʊllˈɑmɛn̪# | Rule 43 : [+syl,+long] > [-long,-splng] 
-#pˌollˈɑmɛn̪# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˌollˈɑːmɛn̪# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˌollˈaːmɛn̪# | Rule 149 : [+lo,+syl] > [+front,-back] 
-#pˌollˈaːmən̪# | Rule 203 : [-stres,-lo,+syl] > ə 
-#pˌollˈaːmə̯n̪# | Rule 204 : ə > ə̯ 
-#pˌollˈaːmn̪# | Rule 216 : ə̯ > ∅ 
-#pˌollˈaːmm# | Rule 223 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#pˌollˈamm# | Rule 231 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#pˌollˈam?# | Rule 285 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
-#pˌollˈam?# | Rule 291 : [-son] > [-voi] / __ #
-#pˌollˈam̥?# | Rule 335 : [-son] > [-voi] / __ [-voi]
-#pˌolˈam̥?# | Rule 336 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˌolˈãm̥?# | Rule 353 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˌulˈãm̥?# | Rule 371 : [+round,+tense,+back] > [+hi] 
-#pˌulˈãː?# | Rule 487 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˌulˈãː# | Rule 488 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pulãː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pulã# | Rule 520 : [+syl,+long] > [-long,-splng] 
-#pulɑ̃# | Rule 525 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#pˈullɑm# >>> #pul# ( Correct : #pul#) :
+p ˈu l l ɑ m 
+#pˈʊllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈollɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈollɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈolla# | Rule 150 : [+lo,+syl] > [+front,-back] 
+#pˈollə# | Rule 288 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈolə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˈulə# | Rule 372 : [+round,+tense,+back] > [+hi] 
+#pˈulə̯# | Rule 502 : ə > ə̯ / __ #
+#pˈul# | Rule 509 : ə̯ > ∅ 
+#pul# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

@@ -1,20 +1,14 @@
 Trajectory file for run 'run1'; etymon number :946:
-#prˌɑe̯st̪ˈɑːre# >>> #pʁest̪aʁ# ( Correct : #pʁet̪e#) :
-p r ˌɑ e̯ s t̪ ˈɑː r e 
-#prˌae̯st̪ˈɑːre# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌae̯st̪ˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˌae̯st̪ˈɑrɛ# | Rule 43 : [+syl,+long] > [-long,-splng] 
-#prˌɛːst̪ˈɑrɛ# | Rule 44 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛːst̪ˈɑːrɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˌɛst̪ˈɑːrɛ# | Rule 115 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#prˌɛst̪ˈaːrɛ# | Rule 149 : [+lo,+syl] > [+front,-back] 
-#prˌɛst̪ˈaːrə# | Rule 203 : [-stres,-lo,+syl] > ə 
-#prˌɛst̪ˈaːrə̯# | Rule 204 : ə > ə̯ 
-#prˌɛst̪ˈaːr# | Rule 216 : ə̯ > ∅ 
-#prˌɛst̪ˈar# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
-#prˌest̪ˈar# | Rule 280 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#prˌest̪ˈaɹ# | Rule 502 : r > ɹ / [-cons] __ #
-#prˌest̪ˈar# | Rule 516 : ɹ > r 
-#pʀˌest̪ˈaʀ# | Rule 518 : r > ʀ 
-#pʀest̪aʀ# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁest̪aʁ# | Rule 526 : ʀ > ʁ 
+#prˈɑe̯st̪ɑm# >>> #pʁɛst̪# ( Correct : #pʁɛt̪#) :
+p r ˈɑ e̯ s t̪ ɑ m 
+#prˈae̯st̪ɑm# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˈɛːst̪ɑm# | Rule 44 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˈɛːst̪ɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɛst̪ɑ# | Rule 116 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
+#prˈɛst̪a# | Rule 150 : [+lo,+syl] > [+front,-back] 
+#prˈɛst̪ə# | Rule 288 : a > ə / [+syl] ( [-syl] )* __ 
+#prˈɛst̪ə̯# | Rule 502 : ə > ə̯ / __ #
+#prˈɛst̪# | Rule 509 : ə̯ > ∅ 
+#pʀˈɛst̪# | Rule 519 : r > ʀ 
+#pʀɛst̪# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛst̪# | Rule 527 : ʀ > ʁ 

@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :971:
-#pˈullɑm# >>> #pul# ( Correct : #pul#) :
-p ˈu l l ɑ m 
-#pˈʊllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈolla# | Rule 149 : [+lo,+syl] > [+front,-back] 
-#pˈollə# | Rule 287 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈolə# | Rule 336 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˈulə# | Rule 371 : [+round,+tense,+back] > [+hi] 
-#pˈulə̯# | Rule 501 : ə > ə̯ / __ #
-#pˈul# | Rule 508 : ə̯ > ∅ 
-#pul# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌuːlikˈellɑm# >>> #pylizʲɛl# ( Correct : #pysɛl#) :
+p ˌuː l i k ˈe l l ɑ m 
+#pˌuːlɪkˈɛllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌulɪkˈɛllɑm# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˌulekˈɛllɑm# | Rule 52 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌulekˈɛllɑ# | Rule 57 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˌulekʲˈɛllɑ# | Rule 62 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#pˌulecˈɛllɑ# | Rule 63 : [+back,+front] > [-back] 
+#pˌulet͡sʲˈɛllɑ# | Rule 141 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#pˌulet͡sʲˈɛlla# | Rule 150 : [+lo,+syl] > [+front,-back] 
+#pˌʉlet͡sʲˈɛlla# | Rule 191 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#pˌʉlət͡sʲˈɛlla# | Rule 204 : [-stres,-lo,+syl] > ə 
+#pˌʉlə̯t͡sʲˈɛlla# | Rule 205 : ə > ə̯ 
+#pˌʉlət͡sʲˈɛlla# | Rule 208 : ə̯ > ə / __ [+front,+cons]
+#pˌʉləd͡zʲˈɛlla# | Rule 252 : [-voi] > [+voi] / [+syl] __ [+syl]
+#pˌʉləd͡zʲˈɛllə# | Rule 288 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌʉləd͡zʲˈɛlə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˌyləd͡zʲˈɛlə# | Rule 352 : [+hi,+round,-back] > [+front] 
+#pˌylid͡zʲˈɛlə# | Rule 396 : {e;ə} > {i;i} / __ [+hi,+front,+cons]
+#pˌylizʲˈɛlə# | Rule 432 : [+delrel] > [+cont,.delrel] 
+#pˌylizʲˈɛlə̯# | Rule 502 : ə > ə̯ / __ #
+#pˌylizʲˈɛl# | Rule 509 : ə̯ > ∅ 
+#pylizʲɛl# | Rule 520 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
