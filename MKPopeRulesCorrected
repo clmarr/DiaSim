@@ -147,7 +147,9 @@ $Doesn't seem to happen for -aːre verbs (lava:re) -- this can be represented by
 ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
 
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
-ɣʷ > β
+$ CORRECTION : as evidenced by Pope s343 causing errors for 10 words that became β from ɣʷ, we infer that they did not merge this early, and must have merged
+$ AFTER that -- instead we send ɣʷ to βʷ 
+ɣʷ > βʷ
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r (s372)
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
@@ -337,7 +339,7 @@ $ to reflect this we donˌt question it and just use w to reflect her usage, wit
 k > x / [+syl] __ w [+syl]
 
 $ s374ii : intervocalic -lw- > ll and -sw- > ss 
-[+lat] w > l l / [-cons] __ [-cons]
+[+lat] w > l l / [-cons] __ [-cons] $only necessary for verb conjugations really though...
 s w > s s / [-cons] __ [-cons]
 
 $ Pope p138-139 s341 loss of early Gallo-Roman ɣ:
@@ -348,13 +350,15 @@ $ Precedes (s341) loss of unstressed final o,u
 $ According to symbols used, this should precede ɑ > a (s341)
 ɣ > ∅ / __ [+tense,+round,+syl]
 ɣ > ∅ / [+hi,+round,+back,+syl] __ [+lo,+syl]
-ɣ > β / [+round,-hi,+back,+syl] __ [+lo,+syl]
+ɣ > βʷ / [+round,-hi,+back,+syl] __ [+lo,+syl]
 
 $also, as per s323 ɣr > r pretonic after e
-ɣ > ∅ / [+tense,+front,-hi,-lo,+syl] __ r [+prim]
+$ correction: after either e or ɛ, needs to hit peregrinum too. 
+ɣ > ∅ / [+front,-hi,-lo,+syl] __ r [+prim]
 
 $ Pope s374ii first round of β > w before another w -- will recur
 $ as per comparing s484 and s481, clearly βw had a different fate from ðw or ɣw (including < -qu-) -- so this one happened first
+$ note that this one will have no targets unless some verb conjugations are added to the dataset. 
 β > w / __ w 
 
 $ Pope ~ p78 s163:7 p139 s343 first effacement of β 
@@ -362,10 +366,14 @@ $ "when it was derived from classic Latin intervocalic b and stood before the vo
 	$ s163:7 says "before labial vowels", as does 343 (though 343 says u or o too) 
 $ note that this wonˌt collide with what was Latin <v> (gamma^w for Pope) because long u: plus <v> never occurs
 $ CORRECTION : Pope neglects to note that this only happens AFTER other vowels -- i.e. not word-initially. 
+$ CORRECTION : w (>βʷ) now not merged into β yet when this rule applies, so it counterfeeds
 β > ∅ / @ __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
-$ Pope p137 s335-336, also p77 s163-5
+$ CORRECTION: now we can finally merge βʷ to β
+βʷ > β 
+
+$ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
 $ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same slightly later shift for t(>d) (s350)
 $ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
@@ -381,10 +389,8 @@ $Pope s334ii voicing of breathed fricatives
 $ must happen before first palatalization of s and z 
 $ not specified in Popeˌs chronology -- but "recurrent" as per s162
 $ and happened before first formation of palatal sibilant fricatives...
-$ w from u,o hiatus or in xw is non-consonantal for Pope so it occurs for this too -- i.e. after this point xw is ɣw 
-[+cont,-son] > [+voi] / [-cons] __ [-cons]
-[+cont,-son] > [+voi] / [-cons] __ ʝ [-cons] $technically Pope forgot to mention this because she doesn't consider yod a consonant -- but this is forgiveable. 
-	$ it is... not really an interesting mistake. 
+[+cont,-son] > [+voi] / [-cons] __ [+syl] $CORRECTION: fixed to exclude w. We are not hitting xw clusters with this yet. 
+[+cont,-son] > [+voi] / [-cons] __ ʝ [-cons] $CORRECTION: Pope doesn't consider yod at this point a consonant, but lenition clearly occurs across it... 
 
 $ Pope p77 s163-1 ~ p164-165 s419 : Influence of final (atonic) /i/ on preceding tonic /e/ and /o/. 
 $ Dated to 6th or 7th centuries (s163-1) 

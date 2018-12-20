@@ -1,21 +1,19 @@
 Trajectory file for run 'run1'; etymon number :759:
-#n̪ˈoːmen̪# >>> #n̪ɔ̃# ( Correct : #n̪ɔ̃#) :
-n̪ ˈoː m e n̪ 
-#n̪ˈoːmɛn̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈomɛn̪# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#n̪ˈoːmɛn̪# | Rule 79 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˈoːmən̪# | Rule 201 : [-stres,-lo,+syl] > ə 
-#n̪ˈoːmə̯n̪# | Rule 202 : ə > ə̯ 
-#n̪ˈoːmn̪# | Rule 214 : ə̯ > ∅ 
-#n̪ˈoːmm# | Rule 221 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#n̪ˈomm# | Rule 229 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#n̪ˈumm# | Rule 256 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#n̪ˈum?# | Rule 283 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
-#n̪ˈum?# | Rule 289 : [-son] > [-voi] / __ #
-#n̪ˈum̥?# | Rule 333 : [-son] > [-voi] / __ [-voi]
-#n̪ˈũm̥?# | Rule 405 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#n̪ˈũː?# | Rule 485 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#n̪ˈũː# | Rule 486 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#n̪ũː# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ũ# | Rule 518 : [+syl,+long] > [-long,-splng] 
-#n̪ɔ̃# | Rule 519 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#n̪ˈoːn̪# >>> #n̪ɔ̃# ( Correct : #n̪ɔ̃#) :
+n̪ ˈoː n̪ 
+#n̪ˈon̪# | Rule 42 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#n̪ˈoːn̪# | Rule 82 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈon̪# | Rule 114 : [+syl] > [-long,-splng] / __ [+cons] #
+#n̪ˈoːn̪# | Rule 121 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈon̪# | Rule 166 : [+syl] > [-long,-splng] / __ [+cons] #
+#n̪ˈoːn̪# | Rule 174 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈon̪# | Rule 230 : [+syl] > [-long,-splng] / __ [+cons] #
+#n̪ˈoːn̪# | Rule 238 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈuːn̪# | Rule 258 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#n̪ˈun̪# | Rule 262 : [+syl] > [-long,-splng] / __ [+cons] #
+#n̪ˈuːn̪# | Rule 270 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈũːn̪# | Rule 407 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#n̪ˈũː# | Rule 488 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#n̪ũː# | Rule 519 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ũ# | Rule 520 : [+syl,+long] > [-long,-splng] 
+#n̪ɔ̃# | Rule 521 : [+back,-lo,+nas,+syl] > ɔ̃ 
