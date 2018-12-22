@@ -1,15 +1,25 @@
 Trajectory file for run 'run1'; etymon number :503:
-#krˈɑssɑm# >>> #kʁɑs# ( Correct : #ɡʁɑs#) :
-k r ˈɑ s s ɑ m 
-#krˈɑssɑ# | Rule 58 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#krˈassa# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#krˈassə# | Rule 291 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈasə# | Rule 340 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#krˈaːsə# | Rule 473 : [+front,-round,+syl] > [+long] / __ s ə #
-#krˈɑːsə# | Rule 490 : [+lo,+long,+syl] > [+back,-front] 
-#krˈɑːsə̯# | Rule 505 : ə > ə̯ / __ #
-#krˈɑːs# | Rule 512 : ə̯ > ∅ 
-#kʀˈɑːs# | Rule 522 : r > ʀ 
-#kʀɑːs# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀɑs# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#kʁɑs# | Rule 530 : ʀ > ʁ 
+#krˈɑssiɑ# >>> #kʁɛs# ( Correct : #ɡʁɛs#) :
+k r ˈɑ s s i ɑ 
+#krˈɑssɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#krˈɑssjɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#krˈɑssʝɑ# | Rule 24 : j > ʝ / __ [+syl]
+#krˈɑssʲsʲɑ# | Rule 142 : s [+hi,+front,+cons] > sʲ sʲ
+#krˈɑsʲsʲsʲɑ# | Rule 143 : s [+hi,+front,+cons] > sʲ sʲ
+#krˈɑsʲsʲɑ# | Rule 144 : sʲ > ∅ / __ sʲ sʲ
+#krˈasʲsʲa# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#krˈasʲsʲɛ# | Rule 191 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#krˈasʲ?ɛ# | Rule 204 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#krˈasʲ?ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#krˈasʲ?ə̯# | Rule 210 : ə > ə̯ 
+#krˈasʲ?# | Rule 222 : ə̯ > ∅ 
+#krˈajs?# | Rule 265 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#krˈaːjs?# | Rule 273 : [+prim] > [+long] / __ [-cons]
+#krˈajs?# | Rule 281 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#krˈɛjs?# | Rule 406 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#krˈɛːs?# | Rule 431 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#krˈɛːs# | Rule 513 : [-son] > ∅ / __ #
+#kʀˈɛːs# | Rule 524 : r > ʀ 
+#kʀɛːs# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀɛs# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#kʁɛs# | Rule 532 : ʀ > ʁ 

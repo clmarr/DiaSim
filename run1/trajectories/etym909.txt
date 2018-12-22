@@ -1,14 +1,19 @@
 Trajectory file for run 'run1'; etymon number :909:
-#plˈɑt̪t̪oːs# >>> #pla# ( Correct : #pla#) :
-p l ˈɑ t̪ t̪ oː s 
-#plˈɑt̪t̪os# | Rule 43 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˈat̪t̪os# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#plˈat̪t̪əs# | Rule 207 : [-stres,-lo,+syl] > ə 
-#plˈat̪t̪ə̯s# | Rule 208 : ə > ə̯ 
-#plˈat̪t̪s# | Rule 220 : ə̯ > ∅ 
-#plˈat̪s# | Rule 228 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
-#plˈat͡sʲ# | Rule 316 : [+cor,-cont,-delrel] s > t͡sʲ
-#plˈat͡s# | Rule 351 : t͡sʲ > t͡s 
-#plˈas# | Rule 435 : [+delrel] > [+cont,.delrel] 
-#plˈa# | Rule 511 : [-son] > ∅ / __ #
-#pla# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈebium# >>> #pl?# ( Correct : #plɛʒ#) :
+p l ˈe b i u m 
+#plˈɛbɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈɛbjʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˈɛbʝʊm# | Rule 24 : j > ʝ / __ [+syl]
+#plˈɛbʝom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɛbʝo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɛbɟo# | Rule 204 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#plˈɛbd͡ʒo# | Rule 206 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#plˈɛbd͡ʒə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#plˈɛbd͡ʒə̯# | Rule 210 : ə > ə̯ 
+#plˈɛbd͡ʒə# | Rule 218 : ə̯ > ə / [-ant,+delrel] __ #
+#plˈɛd̪d͡ʒə# | Rule 227 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#plˈɛd͡ʒə# | Rule 339 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#plˈɛʒə# | Rule 437 : [+delrel] > [+cont,.delrel] 
+#pl?ə# | Rule 468 : [-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
+#pl?ə̯# | Rule 507 : ə > ə̯ / __ #
+#pl?# | Rule 514 : ə̯ > ∅ 

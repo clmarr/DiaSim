@@ -30,11 +30,12 @@ w > ∅ / k __ [+syl,+round]| ORIG : w > ∅ / k __ [+syl,+round]
 {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #| ORIG : {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
 ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])*  [-cont] __ [+lat] [+syl] ([-syl]) #
 ʊ > ∅ / [+prim] ( [-syl] )* m __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])*  m __ [+lat] [+syl] ([-syl]) #
+ʊ > ∅ / [+prim] ( [-syl] )* r __ [+lat] [+syl] ( [-syl] ) #| ORIG : ʊ > ∅ / [+prim] ([-syl])*  r __ [+lat] [+syl] ([-syl]) #
 ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ [+cor,-son,-cont] [+front,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
 ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* n̪ __ [+cor,+son,-lat]| ORIG : [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ [+cor,+son,-lat]
 [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* [+lat] __ [+cor,+son,-lat]| ORIG : [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat] 
-[+syl,-stres,+front] > ∅ / [+prim,+lo] k __ [+cor,-strid,-nas,-lat] [+syl]| ORIG : [+syl,-stres,+front] > ∅ / [+prim,+lo] k __ [+cor,-strid,-nas,-lat] [+syl]
+[+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]| ORIG : [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
 ɣʷ > w / [+lo,+syl] __ ɪ| ORIG : ɣʷ > w / [+lo,+syl] __ ɪ 
 ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]| ORIG : ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
 ɣʷ > βʷ | ORIG : ɣʷ > βʷ
@@ -74,6 +75,7 @@ c > k / [+back,+syl,+stres] __ ɛ l| ORIG : c > k / [+back,+syl,+stres] __ ɛ  l
 [+lat] > ∅ / __ ɲ| ORIG : [+lat] > ∅ / __ ɲ
 l l ʝ > ʎ | ORIG : l l ʝ > ʎ
 l ʝ > ʎ | ORIG : l ʝ > ʎ
+e > ∅ / __ [+cor,-cont,+ant] [+syl] ( [-syl] ) #| ORIG : e > ∅ / __ [+cor,-cont,+ant] [+syl] ([-syl]) #
 [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]| ORIG : [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
 h > ∅ | ORIG : h > ∅ 
 ˌi > ˌe / __ ( [-syl] )* [+hi,+front,+prim,-round,+tense]| ORIG : ˌi > ˌe / __ ([-syl])* [+hi,+front,+prim,-round,+tense] 

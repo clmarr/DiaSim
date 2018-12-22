@@ -1,20 +1,24 @@
 Trajectory file for run 'run1'; etymon number :947:
-#prˌɑe̯st̪ˈɑːre# >>> #pʁest̪aʁ# ( Correct : #pʁet̪e#) :
-p r ˌɑ e̯ s t̪ ˈɑː r e 
-#prˌae̯st̪ˈɑːre# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌae̯st̪ˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˌae̯st̪ˈɑrɛ# | Rule 44 : [+syl,+long] > [-long,-splng] 
-#prˌɛːst̪ˈɑrɛ# | Rule 45 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛːst̪ˈɑːrɛ# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˌɛst̪ˈɑːrɛ# | Rule 119 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#prˌɛst̪ˈaːrɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#prˌɛst̪ˈaːrə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#prˌɛst̪ˈaːrə̯# | Rule 208 : ə > ə̯ 
-#prˌɛst̪ˈaːr# | Rule 220 : ə̯ > ∅ 
-#prˌɛst̪ˈar# | Rule 234 : [+syl] > [-long,-splng] / __ [+cons] #
-#prˌest̪ˈar# | Rule 284 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#prˌest̪ˈaɹ# | Rule 506 : r > ɹ / [-cons] __ #
-#prˌest̪ˈar# | Rule 520 : ɹ > r 
-#pʀˌest̪ˈaʀ# | Rule 522 : r > ʀ 
-#pʀest̪aʀ# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁest̪aʁ# | Rule 530 : ʀ > ʁ 
+#prˈɑːt̪um# >>> #pʁɛ# ( Correct : #pʁɛ#) :
+p r ˈɑː t̪ u m 
+#prˈɑːt̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˈɑt̪ʊm# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#prˈɑt̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#prˈɑt̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɑːt̪o# | Rule 83 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˈaːt̪o# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#prˈaːt̪ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#prˈaːt̪ə̯# | Rule 210 : ə > ə̯ 
+#prˈaːt̪# | Rule 222 : ə̯ > ∅ 
+#prˈat̪# | Rule 236 : [+syl] > [-long,-splng] / __ [+cons] #
+#prˈaːt̪# | Rule 244 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#prˈat̪# | Rule 268 : [+syl] > [-long,-splng] / __ [+cons] #
+#prˈaːt̪# | Rule 276 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#prˈae̯t̪# | Rule 283 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˈeːt̪# | Rule 315 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#prˈɛːt̪# | Rule 506 : ˈeː > ˈɛː / __ [+cons] #
+#prˈɛː# | Rule 513 : [-son] > ∅ / __ #
+#pʀˈɛː# | Rule 524 : r > ʀ 
+#pʀɛː# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀɛ# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#pʁɛ# | Rule 532 : ʀ > ʁ 

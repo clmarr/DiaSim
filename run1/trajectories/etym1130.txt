@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1130:
-#spˈɑt̪ʰɑ# >>> #espe# ( Correct : #epe#) :
-s p ˈɑ t̪ʰ ɑ 
-#spˈɑt̪ɑ# | Rule 6 : [+sg,-cont] > [-sg] 
-#ˌɪspˈɑt̪ɑ# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈɑt̪ɑ# | Rule 53 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈɑːt̪ɑ# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌespˈaːt̪a# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#ˌespˈaːd̪a# | Rule 255 : [-voi] > [+voi] / [+syl] __ [+syl]
-#ˌespˈaːða# | Rule 258 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#ˌespˈae̯ða# | Rule 281 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌespˈae̯ðə# | Rule 291 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈeːðə# | Rule 313 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌespˈeːə# | Rule 398 : {θ;ð} > {∅;∅} 
-#ˌespˈeː# | Rule 464 : ə > ∅ / [+syl] __ 
-#espeː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#espe# | Rule 524 : [+syl,+long] > [-long,-splng] 
+#spˈiːn̪ɡulɑm# >>> #espɛ̃ɡl# ( Correct : #epɛ̃ɡl#) :
+s p ˈiː n̪ ɡ u l ɑ m 
+#spˈiːŋɡulɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#spˈiːŋɡʊlɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪspˈiːŋɡʊlɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈiːŋɡlɑm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˌɪspˈiŋɡlɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈiŋɡlɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈiŋɡlɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌespˈiŋɡla# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#ˌespˈiŋɡlə# | Rule 293 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌespˈĩŋɡlə# | Rule 427 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌespˈɛ̃ŋɡlə# | Rule 446 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈɛ̃ːɡlə# | Rule 493 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌespˈɛ̃ːɡlə̯# | Rule 507 : ə > ə̯ / __ #
+#ˌespˈɛ̃ːɡl# | Rule 514 : ə̯ > ∅ 
+#espɛ̃ːɡl# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#espɛ̃ɡl# | Rule 526 : [+syl,+long] > [-long,-splng] 

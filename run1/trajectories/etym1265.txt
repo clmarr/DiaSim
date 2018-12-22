@@ -1,13 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1265:
-#t̪ˈussem# >>> #t̪u# ( Correct : #t̪u#) :
-t̪ ˈu s s e m 
-#t̪ˈʊssɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈossɛm# | Rule 53 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈossɛ# | Rule 58 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈossə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#t̪ˈossə̯# | Rule 208 : ə > ə̯ 
-#t̪ˈoss# | Rule 220 : ə̯ > ∅ 
-#t̪ˈos# | Rule 340 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#t̪ˈus# | Rule 375 : [+round,+tense,+back] > [+hi] 
-#t̪ˈu# | Rule 511 : [-son] > ∅ / __ #
-#t̪u# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈumbrɑm# >>> #ɔ̃ʁ# ( Correct : #ɔ̃bʁ#) :
+ˈu m b r ɑ m 
+#ˈʊmbrɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈombrɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈombrɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈombra# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#ˈommra# | Rule 159 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#ˈomra# | Rule 161 : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / __ [+cons]
+#ˈombra# | Rule 232 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#ˈumbra# | Rule 264 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#ˈumbrə# | Rule 293 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈummrə# | Rule 333 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#ˈumrə# | Rule 342 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˈũmrə# | Rule 413 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#ˈũːrə# | Rule 493 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːrə̯# | Rule 507 : ə > ə̯ / __ #
+#ˈũːr# | Rule 514 : ə̯ > ∅ 
+#ˈũːʀ# | Rule 524 : r > ʀ 
+#ũːʀ# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũʀ# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#ɔ̃ʀ# | Rule 527 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ɔ̃ʁ# | Rule 532 : ʀ > ʁ 

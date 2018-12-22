@@ -1,13 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1266:
-#t̪uˌum# >>> #t̪wɔ̃# ( Correct : #t̪ɔ̃#) :
-t̪ u ˌu m 
-#t̪ʊˌʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪wˌʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#t̪wˌom# | Rule 53 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪wˌum# | Rule 262 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#t̪wˌum̥# | Rule 295 : [-son] > [-voi] / __ #
-#t̪wˌũm̥# | Rule 411 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#t̪wˌũː# | Rule 492 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#t̪wũː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪wũ# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#t̪wɔ̃# | Rule 525 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ˈumkwɑm# >>> #ɔ̃k# ( Correct : #ɔ̃k#) :
+ˈu m k w ɑ m 
+#ˈumkɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˈumkwɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#ˈʊmkwɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈomkwɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈomkwɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈomkwa# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#ˈumkwa# | Rule 264 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#ˈumkwə# | Rule 293 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈum̥kwə# | Rule 341 : [-son] > [-voi] / __ [-voi]
+#ˈum̥kə# | Rule 411 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
+#ˈũm̥kə# | Rule 413 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#ˈũːkə# | Rule 493 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːkə̯# | Rule 507 : ə > ə̯ / __ #
+#ˈũːk# | Rule 514 : ə̯ > ∅ 
+#ũːk# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũk# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#ɔ̃k# | Rule 527 : [+back,-lo,+nas,+syl] > ɔ̃ 

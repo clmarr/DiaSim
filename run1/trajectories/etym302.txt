@@ -1,18 +1,26 @@
 Trajectory file for run 'run1'; etymon number :302:
-#fˈun̪d̪us# >>> #fɔ̃# ( Correct : #fɔ̃#) :
-f ˈu n̪ d̪ u s 
-#fˈʊn̪d̪ʊs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈon̪d̪os# | Rule 53 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#fˈon̪d̪əs# | Rule 207 : [-stres,-lo,+syl] > ə 
-#fˈon̪d̪ə̯s# | Rule 208 : ə > ə̯ 
-#fˈon̪d̪s# | Rule 220 : ə̯ > ∅ 
-#fˈun̪d̪s# | Rule 262 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#fˈun̪t͡sʲ# | Rule 316 : [+cor,-cont,-delrel] s > t͡sʲ
-#fˈun̪t͡s# | Rule 351 : t͡sʲ > t͡s 
-#fˈũn̪t͡s# | Rule 411 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#fˈũn̪s# | Rule 435 : [+delrel] > [+cont,.delrel] 
-#fˈũːs# | Rule 491 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#fˈũː# | Rule 511 : [-son] > ∅ / __ #
-#fũː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fũ# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#fɔ̃# | Rule 525 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#frˈɑɡilem# >>> #fʁɛl# ( Correct : #fʁɛl#) :
+f r ˈɑ ɡ i l e m 
+#frˈɑɡɪlɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#frˈɑɡelɛm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#frˈɑɡelɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#frˈɑɡʲelɛ# | Rule 64 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#frˈɑɟelɛ# | Rule 65 : [+back,+front] > [-back] 
+#frˈɑʝelɛ# | Rule 78 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#frˈɑːʝelɛ# | Rule 83 : [+prim] > [+long] / __ [+cons] [-cons]
+#frˈaːʝelɛ# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#frˈaːelɛ# | Rule 171 : ʝ > ∅ / [-cons] __ [-cons]
+#frˈaːəlɛ# | Rule 207 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#frˈaːələ# | Rule 209 : [-stres,-lo,+syl] > ə 
+#frˈaːə̯lə̯# | Rule 210 : ə > ə̯ 
+#frˈaːə̯lə# | Rule 219 : ə̯ > ə / [-lat,-syl] l __ #
+#frˈaːlə# | Rule 222 : ə̯ > ∅ 
+#frˈae̯lə# | Rule 283 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#frˈeːlə# | Rule 315 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#frˈɛːlə# | Rule 452 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat]
+#frˈɛːlə̯# | Rule 507 : ə > ə̯ / __ #
+#frˈɛːl# | Rule 514 : ə̯ > ∅ 
+#fʀˈɛːl# | Rule 524 : r > ʀ 
+#fʀɛːl# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀɛl# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#fʁɛl# | Rule 532 : ʀ > ʁ 

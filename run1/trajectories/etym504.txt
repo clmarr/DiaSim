@@ -1,12 +1,14 @@
 Trajectory file for run 'run1'; etymon number :504:
-#krˈɑssɑːs# >>> #kʁas# ( Correct : #ɡʁɑs#) :
-k r ˈɑ s s ɑː s 
-#krˈɑssɑs# | Rule 44 : [+syl,+long] > [-long,-splng] 
-#krˈassas# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#krˈassəs# | Rule 291 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈasəs# | Rule 340 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#krˈasə# | Rule 511 : [-son] > ∅ / __ #
-#kʀˈasə# | Rule 522 : r > ʀ 
-#kʀasə# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʁasə# | Rule 530 : ʀ > ʁ 
-#kʁas# | Rule 532 : ə > ∅ / __ #
+#krˈɑssoːs# >>> #kʁa# ( Correct : #ɡʁɑ#) :
+k r ˈɑ s s oː s 
+#krˈɑssos# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#krˈassos# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#krˈassəs# | Rule 209 : [-stres,-lo,+syl] > ə 
+#krˈassə̯s# | Rule 210 : ə > ə̯ 
+#krˈasss# | Rule 222 : ə̯ > ∅ 
+#krˈass# | Rule 230 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#krˈas# | Rule 342 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#krˈa# | Rule 513 : [-son] > ∅ / __ #
+#kʀˈa# | Rule 524 : r > ʀ 
+#kʀa# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʁa# | Rule 532 : ʀ > ʁ 

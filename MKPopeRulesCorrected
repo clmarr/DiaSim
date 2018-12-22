@@ -132,7 +132,8 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
-[+syl,-stres,+front] > ∅ / [+prim,+lo] k __ [+cor,-strid,-nas,-lat] [+syl]
+$ CORRECTION: hits after ɡ too -- cases of digitum, fugitam 
+[+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
 
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring"  $Note this has no effect as per Pope, even though she talks about slurring here, no slurring from a ɣʷ is anywhere close to be effectivev yet...
 $ɣʷ > w / __ [+cons]
@@ -275,6 +276,10 @@ $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not 
 $trigger again in Gallo-Roman stage
 l l ʝ > ʎ
 l ʝ > ʎ
+
+$per Pope s353: unstressed penultimate ɪ in -item, itum, idum, ita endings is deleted before any d > ð
+$ we can use /e/ here because if it was e:, it would be stressed. 
+e > ∅ / __ [+cor,-cont,+ant] [+syl] ([-syl]) #
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included -- s372

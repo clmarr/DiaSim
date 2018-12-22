@@ -1,10 +1,13 @@
 Trajectory file for run 'run1'; etymon number :907:
-#plˈɑt̪t̪ɑm# >>> #plat̪# ( Correct : #plat̪#) :
-p l ˈɑ t̪ t̪ ɑ m 
-#plˈɑt̪t̪ɑ# | Rule 58 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#plˈat̪t̪a# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#plˈat̪t̪ə# | Rule 291 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat̪ə# | Rule 337 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat̪ə̯# | Rule 505 : ə > ə̯ / __ #
-#plˈat̪# | Rule 512 : ə̯ > ∅ 
-#plat̪# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈɑt̪t̪um# >>> #pla# ( Correct : #pla#) :
+p l ˈɑ t̪ t̪ u m 
+#plˈɑt̪t̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈɑt̪t̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɑt̪t̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈat̪t̪o# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#plˈat̪t̪ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#plˈat̪t̪ə̯# | Rule 210 : ə > ə̯ 
+#plˈat̪t̪# | Rule 222 : ə̯ > ∅ 
+#plˈat̪# | Rule 339 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#plˈa# | Rule 513 : [-son] > ∅ / __ #
+#pla# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

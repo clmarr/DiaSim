@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :850:
-#pˈelleːs# >>> #po# ( Correct : #po#) :
-p ˈe l l eː s 
-#pˈɛlleːs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛlles# | Rule 43 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˈɛlləs# | Rule 207 : [-stres,-lo,+syl] > ə 
-#pˈɛllə̯s# | Rule 208 : ə > ə̯ 
-#pˈɛlls# | Rule 220 : ə̯ > ∅ 
-#pˈɛls# | Rule 317 : [+cons] > ∅ / [+cons] __ [-son]
-#pˈɛɫs# | Rule 354 : [+lat] > [+back] / __ [+cons]
-#pˈɛws# | Rule 393 : [+lat,+back] > w 
-#pˈɛa̯ws# | Rule 394 : ∅ > a̯ / [-hi,-lo,+syl,-tense] __ w
-#pe̯ˈaws# | Rule 402 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pe̯ˈoːs# | Rule 448 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#pə̯ˈoːs# | Rule 449 : e̯ > ə̯ / __ [+round,+back,-hi]
-#pə̯ˈoː# | Rule 511 : [-son] > ∅ / __ #
-#pˈoː# | Rule 512 : ə̯ > ∅ 
-#poː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#po# | Rule 524 : [+syl,+long] > [-long,-splng] 
+#pˈeːn̪silem# >>> #pwal# ( Correct : #pwal#) :
+p ˈeː n̪ s i l e m 
+#pˈeːsilem# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#pˈeːsɪlɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈesɪlɛm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˈeselɛm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈeselɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈeːselɛ# | Rule 83 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːzelɛ# | Rule 107 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#pˈeːzəlɛ# | Rule 207 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈeːzələ# | Rule 209 : [-stres,-lo,+syl] > ə 
+#pˈeːzə̯lə̯# | Rule 210 : ə > ə̯ 
+#pˈeːzə̯lə# | Rule 219 : ə̯ > ə / [-lat,-syl] l __ #
+#pˈeːzlə# | Rule 222 : ə̯ > ∅ 
+#pˈejzlə# | Rule 283 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejlə# | Rule 363 : z > ∅ / __ [+cons]
+#pˈojlə# | Rule 373 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈujlə# | Rule 377 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯lə# | Rule 419 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛlə# | Rule 422 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛlə̯# | Rule 507 : ə > ə̯ / __ #
+#pwˈɛl# | Rule 514 : ə̯ > ∅ 
+#pwɛl# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwal# | Rule 530 : ɛ > a / w __ 

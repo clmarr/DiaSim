@@ -1,25 +1,19 @@
 Trajectory file for run 'run1'; etymon number :568:
-#lˈɑn̪keɑm# >>> #lɑ̃# ( Correct : #lɑ̃s#) :
-l ˈɑ n̪ k e ɑ m 
-#lˈɑŋkeɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈɑŋkɛɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɑŋkjɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#lˈɑŋkʝɑm# | Rule 24 : j > ʝ / __ [+syl]
-#lˈɑŋkʝɑ# | Rule 58 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˈɑŋkʲʝɑ# | Rule 63 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#lˈɑŋcʝɑ# | Rule 64 : [+back,+front] > [-back] 
-#lˈɑŋcɑ# | Rule 71 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#lˈɑŋt͡sʲɑ# | Rule 144 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#lˈaŋt͡sʲa# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#lˈaŋt͡sʲɛ# | Rule 189 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#lˈaŋt͡sʲə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#lˈaŋt͡sʲə̯# | Rule 208 : ə > ə̯ 
-#lˈaŋt͡sʲ# | Rule 220 : ə̯ > ∅ 
-#lˈaŋt͡s# | Rule 351 : t͡sʲ > t͡s 
-#lˈãŋt͡s# | Rule 357 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈãŋs# | Rule 435 : [+delrel] > [+cont,.delrel] 
-#lˈãːs# | Rule 491 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãː# | Rule 511 : [-son] > ∅ / __ #
-#lãː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lã# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#lɑ̃# | Rule 529 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#lˈɑːrid̪um# >>> #laʁ# ( Correct : #laʁ#) :
+l ˈɑː r i d̪ u m 
+#lˈɑːrɪd̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɑːrd̪ʊm# | Rule 34 : ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #
+#lˈɑrd̪ʊm# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#lˈɑrd̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɑrd̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#lˈard̪o# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#lˈard̪ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#lˈard̪ə̯# | Rule 210 : ə > ə̯ 
+#lˈard̪# | Rule 222 : ə̯ > ∅ 
+#lˈart̪# | Rule 297 : [-son] > [-voi] / __ #
+#lˈaɹt̪# | Rule 509 : r > ɹ / [-cons] __ [+cons]
+#lˈaɹ# | Rule 513 : [-son] > ∅ / __ #
+#lˈar# | Rule 522 : ɹ > r 
+#lˈaʀ# | Rule 524 : r > ʀ 
+#laʀ# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#laʁ# | Rule 532 : ʀ > ʁ 

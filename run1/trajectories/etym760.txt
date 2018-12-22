@@ -1,19 +1,14 @@
 Trajectory file for run 'run1'; etymon number :760:
-#n̪ˈoːn̪# >>> #n̪ɔ̃# ( Correct : #n̪ɔ̃#) :
-n̪ ˈoː n̪ 
-#n̪ˈon̪# | Rule 43 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#n̪ˈoːn̪# | Rule 83 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈon̪# | Rule 118 : [+syl] > [-long,-splng] / __ [+cons] #
-#n̪ˈoːn̪# | Rule 125 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈon̪# | Rule 170 : [+syl] > [-long,-splng] / __ [+cons] #
-#n̪ˈoːn̪# | Rule 178 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈon̪# | Rule 234 : [+syl] > [-long,-splng] / __ [+cons] #
-#n̪ˈoːn̪# | Rule 242 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈuːn̪# | Rule 262 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#n̪ˈun̪# | Rule 266 : [+syl] > [-long,-splng] / __ [+cons] #
-#n̪ˈuːn̪# | Rule 274 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈũːn̪# | Rule 411 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#n̪ˈũː# | Rule 492 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#n̪ũː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ũ# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#n̪ɔ̃# | Rule 525 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#n̪ˈon̪n̪ɑm# >>> #n̪ɔ̃n̪# ( Correct : #n̪ɔn̪#) :
+n̪ ˈo n̪ n̪ ɑ m 
+#n̪ˈɔn̪n̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɔn̪n̪ɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˈɔn̪n̪a# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#n̪ˈun̪n̪a# | Rule 264 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#n̪ˈun̪n̪ə# | Rule 293 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˈun̪ə# | Rule 342 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#n̪ˈũn̪ə# | Rule 413 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#n̪ˈũn̪ə̯# | Rule 507 : ə > ə̯ / __ #
+#n̪ˈũn̪# | Rule 514 : ə̯ > ∅ 
+#n̪ũn̪# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ɔ̃n̪# | Rule 527 : [+back,-lo,+nas,+syl] > ɔ̃ 

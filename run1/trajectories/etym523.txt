@@ -1,15 +1,24 @@
 Trajectory file for run 'run1'; etymon number :523:
-#kˈuːloːs# >>> #kyw# ( Correct : #ky#) :
-k ˈuː l oː s 
-#kˈulos# | Rule 43 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#kˈuːlos# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
-#k?los# | Rule 194 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#k?ləs# | Rule 207 : [-stres,-lo,+syl] > ə 
-#k?lə̯s# | Rule 208 : ə > ə̯ 
-#k?ls# | Rule 220 : ə̯ > ∅ 
-#kˈʉls# | Rule 235 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#kˈʉɫs# | Rule 354 : [+lat] > [+back] / __ [+cons]
-#kˈyɫs# | Rule 355 : [+hi,+round,-back] > [+front] 
-#kˈyws# | Rule 393 : [+lat,+back] > w 
-#kˈyw# | Rule 511 : [-son] > ∅ / __ #
-#kyw# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈumulum# >>> #kɔ̃l# ( Correct : #kɔ̃bl#) :
+k ˈu m u l u m 
+#kˈʊmʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈʊmlʊm# | Rule 31 : ʊ > ∅ / [+prim] ( [-syl] )* m __ [+lat] [+syl] ( [-syl] ) #
+#kˈomlom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈomlo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈomblo# | Rule 116 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#kˈommlo# | Rule 159 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#kˈomlo# | Rule 161 : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / __ [+cons]
+#kˈomlə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#kˈomlə̯# | Rule 210 : ə > ə̯ 
+#kˈomlə# | Rule 219 : ə̯ > ə / [-lat,-syl] l __ #
+#kˈomblə# | Rule 232 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#kˈumblə# | Rule 264 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#kˈummlə# | Rule 333 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#kˈumlə# | Rule 342 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#kˈũmlə# | Rule 413 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#kˈũːlə# | Rule 493 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#kˈũːlə̯# | Rule 507 : ə > ə̯ / __ #
+#kˈũːl# | Rule 514 : ə̯ > ∅ 
+#kũːl# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kũl# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#kɔ̃l# | Rule 527 : [+back,-lo,+nas,+syl] > ɔ̃ 

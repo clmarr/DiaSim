@@ -1,22 +1,26 @@
 Trajectory file for run 'run1'; etymon number :609:
-#lˌokˈɑːre# >>> #luaʁ# ( Correct : #lwe#) :
-l ˌo k ˈɑː r e 
-#lˌɔkˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˌɔkˈɑrɛ# | Rule 44 : [+syl,+long] > [-long,-splng] 
-#lˌɔkˈɑːrɛ# | Rule 81 : [+prim] > [+long] / __ [+cons] [-cons]
-#lˌɔɡˈɑːrɛ# | Rule 103 : k > ɡ / [-cons] __ [+syl]
-#lˌɔɣˈɑːrɛ# | Rule 104 : ɡ > ɣ / [-cons] __ [-cons]
-#lˌɔˈɑːrɛ# | Rule 147 : ɣ > ∅ / [+round,-cons] __ [+lo,+syl]
-#lˌɔˈaːrɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#lˌɔˈaːrə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#lˌɔˈaːrə̯# | Rule 208 : ə > ə̯ 
-#lˌɔˈaːr# | Rule 220 : ə̯ > ∅ 
-#lˌɔˈar# | Rule 234 : [+syl] > [-long,-splng] / __ [+cons] #
-#lˌoˈar# | Rule 284 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#lˌuˈar# | Rule 375 : [+round,+tense,+back] > [+hi] 
-#l?ˈar# | Rule 495 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#l?ˈaɹ# | Rule 506 : r > ɹ / [-cons] __ #
-#l?ˈar# | Rule 520 : ɹ > r 
-#l?ˈaʀ# | Rule 522 : r > ʀ 
-#luaʀ# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#luaʁ# | Rule 530 : ʀ > ʁ 
+#lˈokum# >>> #lœ# ( Correct : #ljø#) :
+l ˈo k u m 
+#lˈɔkʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɔkom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɔko# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#lˈɔːko# | Rule 83 : [+prim] > [+long] / __ [+cons] [-cons]
+#lˈɔːɡo# | Rule 105 : k > ɡ / [-cons] __ [+syl]
+#lˈɔːɣo# | Rule 106 : ɡ > ɣ / [-cons] __ [-cons]
+#lˈuo̯ɣo# | Rule 135 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˈuo̯o# | Rule 148 : ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
+#lˈuːo̯o# | Rule 177 : [+prim] > [+long] / __ [-cons]
+#lˈuo̯o# | Rule 183 : [+syl] > [-long,-splng] / __ o̯
+#lˈʉo̯o# | Rule 196 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#lˈʉo̯ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#lˈʉo̯ə̯# | Rule 210 : ə > ə̯ 
+#lˈʉo̯# | Rule 222 : ə̯ > ∅ 
+#l?o̯# | Rule 241 : [+prim] > [+long] / __ [-cons]
+#lˈʉo̯# | Rule 247 : [+syl] > [-long,-splng] / __ o̯
+#l?o̯# | Rule 273 : [+prim] > [+long] / __ [-cons]
+#lˈʉo̯# | Rule 279 : [+syl] > [-long,-splng] / __ o̯
+#lˈyo̯# | Rule 357 : [+hi,+round,-back] > [+front] 
+#lˈye̯# | Rule 365 : o̯ > e̯ 
+#lˈø# | Rule 392 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#lø# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lœ# | Rule 529 : ø > œ / __ ( [+cons] )* #

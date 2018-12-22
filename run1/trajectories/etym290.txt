@@ -1,18 +1,30 @@
 Trajectory file for run 'run1'; etymon number :290:
-#frˈɑn̪koːs# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
-f r ˈɑ n̪ k oː s 
-#frˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#frˈɑŋkos# | Rule 43 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#frˈaŋkos# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#frˈaŋkəs# | Rule 207 : [-stres,-lo,+syl] > ə 
-#frˈaŋkə̯s# | Rule 208 : ə > ə̯ 
-#frˈaŋks# | Rule 220 : ə̯ > ∅ 
-#frˈaŋs# | Rule 290 : k > ∅ / __ s #
-#frˈãŋs# | Rule 357 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#frˈãːs# | Rule 491 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#frˈãː# | Rule 511 : [-son] > ∅ / __ #
-#fʀˈãː# | Rule 522 : r > ʀ 
-#fʀãː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀã# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#fʀɑ̃# | Rule 529 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#fʁɑ̃# | Rule 530 : ʀ > ʁ 
+#frˈɑksin̪um# >>> #fʁɛ̃n̪ʲ# ( Correct : #fʁɛn̪#) :
+f r ˈɑ k s i n̪ u m 
+#frˈɑksɪn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#frˈɑxsɪn̪ʊm# | Rule 50 : k > x / [-cons] __ [+cor,-voi]
+#frˈɑxsen̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#frˈɑxsen̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#frˈaxsen̪o# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#frˈaçsen̪o# | Rule 164 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#frˈaçsʲen̪o# | Rule 169 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#frˈaç?en̪o# | Rule 204 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#frˈaç?ən̪o# | Rule 207 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#frˈaç?ən̪ə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#frˈaç?ə̯n̪ə̯# | Rule 210 : ə > ə̯ 
+#frˈaç?ə̯n̪ə# | Rule 221 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#frˈaç?n̪ə# | Rule 222 : ə̯ > ∅ 
+#frˈaç?n̪ʲə# | Rule 225 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#frˈaʝ?n̪ʲə# | Rule 311 : ç > ʝ 
+#frˈaj?n̪ʲə# | Rule 313 : ʝ > j / [-cons] __ 
+#frˈajðn̪ʲə# | Rule 324 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
+#frˈajn̪ʲə# | Rule 400 : {θ;ð} > {∅;∅} 
+#frˈɛjn̪ʲə# | Rule 406 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#frˈɛːn̪ʲə# | Rule 431 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#frˈɛ̃ːn̪ʲə# | Rule 440 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#frˈɛ̃ːn̪ʲə̯# | Rule 507 : ə > ə̯ / __ #
+#frˈɛ̃ːn̪ʲ# | Rule 514 : ə̯ > ∅ 
+#fʀˈɛ̃ːn̪ʲ# | Rule 524 : r > ʀ 
+#fʀɛ̃ːn̪ʲ# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀɛ̃n̪ʲ# | Rule 526 : [+syl,+long] > [-long,-splng] 
+#fʁɛ̃n̪ʲ# | Rule 532 : ʀ > ʁ 

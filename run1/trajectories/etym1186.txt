@@ -1,16 +1,12 @@
 Trajectory file for run 'run1'; etymon number :1186:
-#t̪ˈɑn̪t̪um# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃#) :
-t̪ ˈɑ n̪ t̪ u m 
-#t̪ˈɑn̪t̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪t̪om# | Rule 53 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪t̪o# | Rule 58 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈan̪t̪o# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#t̪ˈan̪t̪ə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#t̪ˈan̪t̪ə̯# | Rule 208 : ə > ə̯ 
-#t̪ˈan̪t̪# | Rule 220 : ə̯ > ∅ 
-#t̪ˈãn̪t̪# | Rule 357 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˈãːt̪# | Rule 491 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈãː# | Rule 511 : [-son] > ∅ / __ #
-#t̪ãː# | Rule 523 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ã# | Rule 524 : [+syl,+long] > [-long,-splng] 
-#t̪ɑ̃# | Rule 529 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#t̪ˈeː# >>> #t̪wa# ( Correct : #t̪wa#) :
+t̪ ˈeː 
+#t̪ˈe# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈeː# | Rule 81 : [+prim] > [+long] / __ #
+#t̪ˈej# | Rule 283 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈoj# | Rule 373 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈuj# | Rule 377 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯# | Rule 419 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛ# | Rule 422 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wɛ# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wa# | Rule 530 : ɛ > a / w __ 
