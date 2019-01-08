@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :553:
-#lˈae̯t̪it̪iɑ# >>> #ljɛ# ( Correct : #ljɛs#) :
+#lˈae̯t̪it̪iɑ# >>> #ljɛt̪# ( Correct : #ljɛs#) :
 l ˈa e̯ t̪ i t̪ i ɑ 
 #lˈɑe̯t̪it̪iɑ# | Rule 2 : [+lo,+syl] > [-front,+back] 
 #lˈae̯t̪it̪iɑ# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
@@ -10,22 +10,24 @@ l ˈa e̯ t̪ i t̪ i ɑ
 #lˈɛːt̪et̪ʝɑ# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #lˈɛːt̪et͡sʲʝɑ# | Rule 62 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #lˈɛːt̪et͡sʲɑ# | Rule 72 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#lˈɛːt̪t͡sʲɑ# | Rule 77 : e > ∅ / __ [+cor,-cont,+ant] [+syl] ( [-syl] ) #
-#lˈɛt̪t͡sʲɑ# | Rule 121 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
-#lˈɛt̪t͡sʲa# | Rule 155 : [+lo,+syl] > [+front,-back] 
-#lˈie̯t̪t͡sʲa# | Rule 189 : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]
-#lˈie̯t̪t͡sʲɛ# | Rule 191 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#lˈie̯t̪t͡sʲə# | Rule 209 : [-stres,-lo,+syl] > ə 
-#lˈie̯t̪t͡sʲə̯# | Rule 210 : ə > ə̯ 
-#lˈie̯t̪t͡sʲ# | Rule 222 : ə̯ > ∅ 
-#lˈiːe̯t̪t͡sʲ# | Rule 241 : [+prim] > [+long] / __ [-cons]
-#lˈie̯t̪t͡sʲ# | Rule 245 : [+syl] > [-long,-splng] / __ e̯
-#lˈiːe̯t̪t͡sʲ# | Rule 273 : [+prim] > [+long] / __ [-cons]
-#lˈie̯t̪t͡sʲ# | Rule 277 : [+syl] > [-long,-splng] / __ e̯
-#lˈie̯t͡sʲ# | Rule 339 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#lˈie̯t͡s# | Rule 353 : t͡sʲ > t͡s 
-#ljˈet͡s# | Rule 404 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ljˈes# | Rule 437 : [+delrel] > [+cont,.delrel] 
-#ljˈɛs# | Rule 443 : ˈe > ˈɛ 
-#ljˈɛ# | Rule 513 : [-son] > ∅ / __ #
-#ljɛ# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lˈie̯t̪et͡sʲɑ# | Rule 135 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˈie̯t̪et͡sʲa# | Rule 155 : [+lo,+syl] > [+front,-back] 
+#lˈiːe̯t̪et͡sʲa# | Rule 177 : [+prim] > [+long] / __ [-cons]
+#lˈie̯t̪et͡sʲa# | Rule 181 : [+syl] > [-long,-splng] / __ e̯
+#lˈie̯t̪et͡sʲɛ# | Rule 191 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#lˈie̯t̪ət͡sʲɛ# | Rule 207 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#lˈie̯t̪ət͡sʲə# | Rule 209 : [-stres,-lo,+syl] > ə 
+#lˈie̯t̪ə̯t͡sʲə̯# | Rule 210 : ə > ə̯ 
+#lˈie̯t̪ət͡sʲə̯# | Rule 213 : ə̯ > ə / __ [+front,+cons]
+#lˈie̯t̪ət͡sʲ# | Rule 222 : ə̯ > ∅ 
+#lˈiːe̯t̪ət͡sʲ# | Rule 241 : [+prim] > [+long] / __ [-cons]
+#lˈie̯t̪ət͡sʲ# | Rule 245 : [+syl] > [-long,-splng] / __ e̯
+#lˈiːe̯t̪ət͡sʲ# | Rule 273 : [+prim] > [+long] / __ [-cons]
+#lˈie̯t̪ət͡sʲ# | Rule 277 : [+syl] > [-long,-splng] / __ e̯
+#lˈie̯t̪ət͡s# | Rule 353 : t͡sʲ > t͡s 
+#ljˈet̪ət͡s# | Rule 404 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ljˈet̪əs# | Rule 437 : [+delrel] > [+cont,.delrel] 
+#ljˈɛt̪əs# | Rule 443 : ˈe > ˈɛ 
+#ljˈɛt̪ə# | Rule 513 : [-son] > ∅ / __ #
+#ljɛt̪ə# | Rule 525 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ljɛt̪# | Rule 534 : ə > ∅ / __ #
