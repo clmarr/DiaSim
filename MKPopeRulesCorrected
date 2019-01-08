@@ -132,8 +132,10 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
-$ CORRECTION: hits after ɡ too -- cases of digitum, fugitam 
 [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
+$ CORRECTION: hits after ɡ too -- cases of digitum, fugitam. Any vowel can come before the d.
+$ CORRECTION: hits before n too -- cases of plantaginem, acinum and circinum. Any vowel can come before the n.
+[+syl,-stres,+front] > ∅ / [+syl] [+hi,+back,-cont] __ [+cor,-strid,-lat,+voi] [+syl] 
 
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring"  $Note this has no effect as per Pope, even though she talks about slurring here, no slurring from a ɣʷ is anywhere close to be effectivev yet...
 $ɣʷ > w / __ [+cons]
@@ -349,6 +351,9 @@ k > x / [+syl] __ w [+syl]
 $ s374ii : intervocalic -lw- > ll and -sw- > ss 
 [+lat] w > l l / [-cons] __ [-cons] $only necessary for verb conjugations really though...
 s w > s s / [-cons] __ [-cons]
+
+$ CORRECTION : syncope of unstressed ɛ,e before countertonic ɛ and then r followed by voiceless consonant.
+ɛ > ∅ / ˌɛ r __ [-voi] 
 
 $ Pope p138-139 s341 loss of early Gallo-Roman ɣ:
 $ Pope places this in the Gallo-Roman stage which she says starts at the end of the fifth century
