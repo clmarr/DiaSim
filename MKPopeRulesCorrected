@@ -352,9 +352,6 @@ $ s374ii : intervocalic -lw- > ll and -sw- > ss
 [+lat] w > l l / [-cons] __ [-cons] $only necessary for verb conjugations really though...
 s w > s s / [-cons] __ [-cons]
 
-$ CORRECTION : syncope of unstressed ɛ,e before countertonic ɛ and then r followed by voiceless consonant.
-ɛ > ∅ / ˌɛ r __ [-voi] 
-
 $ Pope p138-139 s341 loss of early Gallo-Roman ɣ:
 $ Pope places this in the Gallo-Roman stage which she says starts at the end of the fifth century
 $ However it is attested in mid-fifth century as per Greg of Tours (p138-139 s341) 
@@ -395,6 +392,9 @@ $ Explicitly occurs BEFORE beginning of second palatalization and before au > o 
 $ this incorporates ɡw > ɣw as per Pope s329 
 k > ɡ / [-cons] __ [+syl]
 
+$ CORRECTION : syncope of unstressed ɛ,e before countertonic ɛ and then r followed by consonant then primary stressed back vowel (verecundiam, caerefolium)
+[+front,+syl,-hi,-lo,-stres] > ∅ / [+front,-hi,-lo,-prim,+stres] r __ [+cons] [+back,+prim]
+ 
 $ Recurrence of Pope s333i
 ɡ > ɣ / [-cons] __ [-cons] 
 
@@ -431,9 +431,10 @@ $ but BEFORE regressive palatalization of r !
 $ s189 : nβl > mbl -- only relevant for inwolare>embler, an obselete word, it seems though. 
 n β > m b / __ [+lat] 
 
-$ correction : β and w are deleted elsewhere when in middle of cluster not following a labial 
+$ CORRECTION : β and w are deleted elsewhere when in middle of cluster not following a labial 
 {β;w} > {∅;∅} / [+cons,-lab] __ r
-$ correction : [+lat] ʝ > ʎ before r 
+
+$ CORRECTION : [+lat] ʝ > ʎ before r 
 [+lat] ʝ > ʎ / __ r 
 
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
@@ -530,6 +531,9 @@ $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o
 {ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
 [+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
 
+$ CORRECTION: deletion of e (<ɪ, eː unstressed) before t then  ɑː 
+e > ∅ / __ t̪ [+lo,+long]
+
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
 ∅ > j / ˌe __ [+lo,+syl]
 
@@ -581,7 +585,7 @@ $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position  
 $ z and s do not need to be filtered out as they will already be palatalized, edh has not emerged yet. 
 $ RECURRENT as per s162
-$ must have been active AFTER assibilation (amicitatem > amistie)
+$ must have been active AFTER assibilation (amicitatem > amitstie)
 $ and active AFTER intertonic vowel loss (amicitatem > amistie, medietatem > moitie . adiutare >aidier etc) 
 $ and active BEFORE depalatalization of tsj (amicitatem > amitstate as per pope > amistie) 
 $ and active BEFORE influence on a by preceding palatal
