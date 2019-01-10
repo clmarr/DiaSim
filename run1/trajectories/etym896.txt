@@ -7,23 +7,17 @@ p l ˈɑː ɡ ɑ m
 #plˈɑːɣɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
 #plˈaːɣa# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #plˈaːɣʲa# | Rule 193 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#plˈaːɣʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#plˈaːʝɛ# | Rule 202 : [+back,+front] > [-back] 
-#plˈaːʝə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#plˈaːʝə̯# | Rule 213 : ə > ə̯ 
-#plˈaːʝ# | Rule 225 : ə̯ > ∅ 
-#plˈaʝ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#plˈaːʝ# | Rule 247 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#plˈaʝ# | Rule 271 : [+syl] > [-long,-splng] / __ [+cons] #
-#plˈaːʝ# | Rule 279 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#plˈae̯ʝ# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#plˈae̯ç# | Rule 300 : [-son] > [-voi] / __ #
-#plˈae̯ʝ# | Rule 314 : ç > ʝ 
-#plˈae̯j# | Rule 316 : ʝ > j / [-cons] __ 
-#plˈeːj# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#plˈoːj# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#plˈuːj# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#plˈuːɛ̯# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
-#plwˈɛ# | Rule 461 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-#plwɛ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈaːʝa# | Rule 202 : [+back,+front] > [-back] 
+#plˈae̯ʝa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈae̯ʝə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈae̯jə# | Rule 316 : ʝ > j / [-cons] __ 
+#plˈeːjə# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#plˈoːjə# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#plˈuːjə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#plˈuːɛ̯ə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#plwˈɛə# | Rule 461 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#plwˈɛːə# | Rule 468 : [+stres] > [+long] / __ ə
+#plwˈɛː# | Rule 469 : ə > ∅ / [+syl] __ 
+#plwɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plwɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 
 #plwa# | Rule 533 : ɛ > a / w __ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :724:
-#mˌuːrˈɑːliɑ# >>> #myʁaj# ( Correct : #myʁɑj#) :
+#mˌuːrˈɑːliɑ# >>> #myʁɛ̃j# ( Correct : #myʁɑj#) :
 m ˌuː r ˈɑː l i ɑ 
 #mˌuːrˈɑːlɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˌuːrˈɑːljɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -9,14 +9,19 @@ m ˌuː r ˈɑː l i ɑ
 #mˌurˈɑʎɑ# | Rule 77 : l ʝ > ʎ 
 #mˌurˈɑːʎɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌurˈaːʎa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#mˌurˈaːʎɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#mˌʉrˈaːʎɛ# | Rule 199 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#mˌʉrˈaːʎə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#mˌʉrˈaːʎə̯# | Rule 213 : ə > ə̯ 
-#mˌʉrˈaːʎ# | Rule 225 : ə̯ > ∅ 
-#mˌʉrˈaʎ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#mˌyrˈaʎ# | Rule 360 : [+hi,+round,-back] > [+front] 
-#mˌyʀˈaʎ# | Rule 527 : r > ʀ 
-#myʀaʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʁaʎ# | Rule 535 : ʀ > ʁ 
-#myʁaj# | Rule 536 : ʎ > j 
+#mˌʉrˈaːʎa# | Rule 199 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#mˌʉrˈae̯ʎa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˌʉrˈae̯ʎə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌʉrˈeːʎə# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˌyrˈeːʎə# | Rule 360 : [+hi,+round,-back] > [+front] 
+#mˌyrˈeːj̃ʎə# | Rule 385 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ʎ [+syl]
+#mˌyrˈẽːj̃ʎə# | Rule 417 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#mˌyrˈɛ̃ːj̃ʎə# | Rule 449 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#mˌyrˈɛ̃ːʎə# | Rule 450 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#mˌyrˈɛ̃ːʎə̯# | Rule 510 : ə > ə̯ / __ #
+#mˌyrˈɛ̃ːʎ# | Rule 517 : ə̯ > ∅ 
+#mˌyʀˈɛ̃ːʎ# | Rule 527 : r > ʀ 
+#myʀɛ̃ːʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#myʀɛ̃ʎ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#myʁɛ̃ʎ# | Rule 535 : ʀ > ʁ 
+#myʁɛ̃j# | Rule 536 : ʎ > j 

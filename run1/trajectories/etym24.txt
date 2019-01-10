@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :24:
-#ˌɑlˈiːsiɑm# >>> #ali# ( Correct : #aliz#) :
+#ˌɑlˈiːsiɑm# >>> #aliz# ( Correct : #aliz#) :
 ˌɑ l ˈiː s i ɑ m 
 #ˌɑlˈiːsɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑlˈiːsjɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -10,15 +10,12 @@ Trajectory file for run 'run1'; etymon number :24:
 #ˌɑlˈizʲɑ# | Rule 143 : z ʝ > zʲ 
 #ˌalˈizʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #ˌalˈiːzʲa# | Rule 181 : [+prim] > [+long] / __ [+cons] [+syl]
-#ˌalˈiːzʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#ˌalˈiːzʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#ˌalˈiːzʲə̯# | Rule 213 : ə > ə̯ 
-#ˌalˈiːzʲ# | Rule 225 : ə̯ > ∅ 
-#ˌalˈizʲ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#ˌalˈijz# | Rule 268 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#ˌalˈiːjz# | Rule 276 : [+prim] > [+long] / __ [-cons]
-#ˌalˈijz# | Rule 284 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
-#ˌalˈijs# | Rule 300 : [-son] > [-voi] / __ #
-#ˌalˈis# | Rule 315 : j > ∅ / [+hi,+front,+tense,+syl] __ 
-#ˌalˈi# | Rule 516 : [-son] > ∅ / __ #
-#ali# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌalˈiːjza# | Rule 268 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#ˌalˈijza# | Rule 284 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#ˌalˈijzə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌalˈizə# | Rule 315 : j > ∅ / [+hi,+front,+tense,+syl] __ 
+#ˌalˈiːzə# | Rule 502 : [+syl] > [+long] / __ z [+syl]
+#ˌalˈiːzə̯# | Rule 510 : ə > ə̯ / __ #
+#ˌalˈiːz# | Rule 517 : ə̯ > ∅ 
+#aliːz# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aliz# | Rule 529 : [+syl,+long] > [-long,-splng] 

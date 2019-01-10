@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :233:
-#fˈɑkiɑ# >>> #fa# ( Correct : #fas#) :
+#fˈɑkiɑ# >>> #fɑs# ( Correct : #fas#) :
 f ˈɑ k i ɑ 
 #fˈɑkɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #fˈɑkjɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -7,12 +7,13 @@ f ˈɑ k i ɑ
 #fˈɑccɑ# | Rule 64 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
 #fˈɑt̪t͡sʲɑ# | Rule 147 : c c > t̪ t͡sʲ 
 #fˈat̪t͡sʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#fˈat̪t͡sʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#fˈat̪t͡sʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#fˈat̪t͡sʲə̯# | Rule 213 : ə > ə̯ 
-#fˈat̪t͡sʲ# | Rule 225 : ə̯ > ∅ 
-#fˈat͡sʲ# | Rule 342 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#fˈat͡s# | Rule 356 : t͡sʲ > t͡s 
-#fˈas# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#fˈa# | Rule 516 : [-son] > ∅ / __ #
-#fa# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fˈat̪t͡sʲə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈat͡sʲə# | Rule 342 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#fˈat͡sə# | Rule 356 : t͡sʲ > t͡s 
+#fˈasə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#fˈaːsə# | Rule 478 : [+front,-round,+syl] > [+long] / __ s ə #
+#fˈɑːsə# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#fˈɑːsə̯# | Rule 510 : ə > ə̯ / __ #
+#fˈɑːs# | Rule 517 : ə̯ > ∅ 
+#fɑːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fɑs# | Rule 529 : [+syl,+long] > [-long,-splng] 

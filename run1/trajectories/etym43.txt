@@ -8,15 +8,11 @@ Trajectory file for run 'run1'; etymon number :43:
 #ˌɑmˈiːɣɑ# | Rule 108 : ɡ > ɣ / [-cons] __ [-cons]
 #ˌamˈiːɣa# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #ˌamˈiːɣʲa# | Rule 193 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#ˌamˈiːɣʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#ˌamˈiːʝɛ# | Rule 202 : [+back,+front] > [-back] 
-#ˌamˈiːʝə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#ˌamˈiːʝə̯# | Rule 213 : ə > ə̯ 
-#ˌamˈiːʝ# | Rule 225 : ə̯ > ∅ 
-#ˌamˈiʝ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#ˌamˈiç# | Rule 300 : [-son] > [-voi] / __ #
-#ˌamˈiʝ# | Rule 314 : ç > ʝ 
-#ˌamˈij# | Rule 316 : ʝ > j / [-cons] __ 
-#ˌãmˈij# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌamˈij# | Rule 520 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amij# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌamˈiːʝa# | Rule 202 : [+back,+front] > [-back] 
+#ˌamˈiːʝə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌamˈiːjə# | Rule 316 : ʝ > j / [-cons] __ 
+#ˌãmˈiːjə# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌãmˈiːj# | Rule 480 : ə > ∅ / [+prim] ( j ) __ 
+#ˌamˈiːj# | Rule 520 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#amiːj# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#amij# | Rule 529 : [+syl,+long] > [-long,-splng] 

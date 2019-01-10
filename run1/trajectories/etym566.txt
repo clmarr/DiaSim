@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :566:
-#lˈɑn̪keɑm# >>> #lɑ̃# ( Correct : #lɑ̃s#) :
+#lˈɑn̪keɑm# >>> #lɑ̃s# ( Correct : #lɑ̃s#) :
 l ˈɑ n̪ k e ɑ m 
 #lˈɑŋkeɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #lˈɑŋkɛɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -11,15 +11,13 @@ l ˈɑ n̪ k e ɑ m
 #lˈɑŋcɑ# | Rule 73 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #lˈɑŋt͡sʲɑ# | Rule 148 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #lˈaŋt͡sʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#lˈaŋt͡sʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#lˈaŋt͡sʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#lˈaŋt͡sʲə̯# | Rule 213 : ə > ə̯ 
-#lˈaŋt͡sʲ# | Rule 225 : ə̯ > ∅ 
-#lˈaŋt͡s# | Rule 356 : t͡sʲ > t͡s 
-#lˈãŋt͡s# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈãŋs# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#lˈãːs# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãː# | Rule 516 : [-son] > ∅ / __ #
-#lãː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lã# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#lɑ̃# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#lˈaŋt͡sʲə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈaŋt͡sə# | Rule 356 : t͡sʲ > t͡s 
+#lˈãŋt͡sə# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˈãŋsə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#lˈãːsə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːsə̯# | Rule 510 : ə > ə̯ / __ #
+#lˈãːs# | Rule 517 : ə̯ > ∅ 
+#lãːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lãs# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#lɑ̃s# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

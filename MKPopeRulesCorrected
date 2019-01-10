@@ -490,7 +490,8 @@ k > x / [+syl] __ #
 $ s311 and s312 contˌd : (can bleed assibilation) 
 $ n palatalizes again before voiced palatals 
 $ potentially RECURRENT as per Pope s162 
-[+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi] 
+$ note earlier cases like li:neam have already been hit by an earlier rule. 
+[+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi,-nas] 
 $ l palatalizes again before all palatals, period
 [+lat] > ʎ / __ [+cons,+hi,+front]
 $ and they combine with the following palatal 
@@ -632,7 +633,8 @@ $ so caused.
 
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+$ CORRECTION: does not happen to unstressed a if word final 
+[+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
@@ -783,7 +785,8 @@ $she does not intend for this to apply to her diphthongs
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+$ CORRECTION: word-final a is unaffected if it isn't stressed.
+[+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
 [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 

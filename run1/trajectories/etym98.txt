@@ -7,23 +7,17 @@ b ˈɑ k ɑ m
 #bˈɑːɣɑ# | Rule 108 : ɡ > ɣ / [-cons] __ [-cons]
 #bˈaːɣa# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #bˈaːɣʲa# | Rule 193 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#bˈaːɣʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#bˈaːʝɛ# | Rule 202 : [+back,+front] > [-back] 
-#bˈaːʝə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#bˈaːʝə̯# | Rule 213 : ə > ə̯ 
-#bˈaːʝ# | Rule 225 : ə̯ > ∅ 
-#bˈaʝ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#bˈaːʝ# | Rule 247 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#bˈaʝ# | Rule 271 : [+syl] > [-long,-splng] / __ [+cons] #
-#bˈaːʝ# | Rule 279 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#bˈae̯ʝ# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#bˈae̯ç# | Rule 300 : [-son] > [-voi] / __ #
-#bˈae̯ʝ# | Rule 314 : ç > ʝ 
-#bˈae̯j# | Rule 316 : ʝ > j / [-cons] __ 
-#bˈeːj# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#bˈoːj# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#bˈuːj# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#bˈuːɛ̯# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
-#bwˈɛ# | Rule 461 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-#bwɛ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˈaːʝa# | Rule 202 : [+back,+front] > [-back] 
+#bˈae̯ʝa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#bˈae̯ʝə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#bˈae̯jə# | Rule 316 : ʝ > j / [-cons] __ 
+#bˈeːjə# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#bˈoːjə# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#bˈuːjə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#bˈuːɛ̯ə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#bwˈɛə# | Rule 461 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#bwˈɛːə# | Rule 468 : [+stres] > [+long] / __ ə
+#bwˈɛː# | Rule 469 : ə > ∅ / [+syl] __ 
+#bwɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bwɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 
 #bwa# | Rule 533 : ɛ > a / w __ 

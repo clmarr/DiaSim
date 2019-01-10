@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :876:
-#pˌiɡrˈit̪iɑm# >>> #pʁɛ# ( Correct : #paʁɛs#) :
+#pˌiɡrˈit̪iɑm# >>> #pəʁwazʲ# ( Correct : #paʁɛs#) :
 p ˌi ɡ r ˈi t̪ i ɑ m 
 #pˌɪɡrˈɪt̪ɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɪɡrˈɪt̪jɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -12,17 +12,18 @@ p ˌi ɡ r ˈi t̪ i ɑ m
 #pˌeɣrˈeːt͡sʲɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˌerˈeːt͡sʲɑ# | Rule 101 : ɣ > ∅ / [+front,-hi,-lo,+syl] __ r [+prim]
 #pˌerˈeːt͡sʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#pˌerˈeːt͡sʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#pˌerˈeːt͡sʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#pˌerˈeːt͡sʲə̯# | Rule 213 : ə > ə̯ 
-#pˌerˈeːt͡sʲ# | Rule 225 : ə̯ > ∅ 
-#pˌerˈet͡sʲ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#pˌerˈet͡s# | Rule 356 : t͡sʲ > t͡s 
-#pˌərˈet͡s# | Rule 367 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#pˌərˈes# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#pˌərˈɛs# | Rule 446 : ˈe > ˈɛ 
-#prˈɛs# | Rule 493 : ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim]
-#prˈɛ# | Rule 516 : [-son] > ∅ / __ #
-#pʀˈɛ# | Rule 527 : r > ʀ 
-#pʀɛ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛ# | Rule 535 : ʀ > ʁ 
+#pˌerˈeːd͡zʲa# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
+#pˌerˈejd͡zʲa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌerˈejd͡zʲə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌərˈejd͡zʲə# | Rule 367 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#pˌərˈojd͡zʲə# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˌərˈujd͡zʲə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#pˌərˈuɛ̯d͡zʲə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pˌərwˈɛd͡zʲə# | Rule 425 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pˌərwˈɛzʲə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#pˌərwˈɛzʲə̯# | Rule 510 : ə > ə̯ / __ #
+#pˌərwˈɛzʲ# | Rule 517 : ə̯ > ∅ 
+#pˌəʀwˈɛzʲ# | Rule 527 : r > ʀ 
+#pəʀwɛzʲ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pəʀwazʲ# | Rule 533 : ɛ > a / w __ 
+#pəʁwazʲ# | Rule 535 : ʀ > ʁ 

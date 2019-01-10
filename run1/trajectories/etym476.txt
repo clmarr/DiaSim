@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :476:
-#kˌolˈukulɑ# >>> #kulu# ( Correct : #kən̪uj#) :
+#kˌolˈukulɑ# >>> #kulœj# ( Correct : #kən̪uj#) :
 k ˌo l ˈu k u l ɑ 
 #kˌɔlˈʊkʊlɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˌɔlˈʊklɑ# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
@@ -9,13 +9,16 @@ k ˌo l ˈu k u l ɑ
 #kˌɔlˈoːxla# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #kˌɔlˈoːçla# | Rule 167 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #kˌɔlˈoːçʎa# | Rule 171 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#kˌɔlˈoːçʎɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#kˌɔlˈoːʎɛ# | Rule 200 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
-#kˌɔlˈoːʎə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#kˌɔlˈoːʎə̯# | Rule 213 : ə > ə̯ 
-#kˌɔlˈoːʎ# | Rule 225 : ə̯ > ∅ 
-#kˌɔlˈoʎ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#kˌolˈoʎ# | Rule 289 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#kˌulˈuʎ# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#kˌulˈu# | Rule 458 : [+lat] > ∅ / [+hi,+syl] __ #
-#kulu# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˌɔlˈoːʎa# | Rule 200 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#kˌɔlˈowʎa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˌolˈowʎa# | Rule 289 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#kˌolˈowʎə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#kˌolˈewʎə# | Rule 375 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#kˌulˈewʎə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#kˌulˈøwʎə# | Rule 408 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#kˌulˈøʎə# | Rule 412 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#kˌulˈøʎə̯# | Rule 510 : ə > ə̯ / __ #
+#kˌulˈøʎ# | Rule 517 : ə̯ > ∅ 
+#kuløʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kulœʎ# | Rule 532 : ø > œ / __ ( [+cons] )* #
+#kulœj# | Rule 536 : ʎ > j 

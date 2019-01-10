@@ -137,7 +137,7 @@ n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat]
 ˈeː > ˈiː / [+cons,+hi,+front] __ | ORIG : ˈeː > ˈiː / [+cons,+hi,+front] __
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} | ORIG : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 k > x / [+syl] __ #| ORIG : k > x / [+syl] __ # 
-[+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi]| ORIG : [+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi] 
+[+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi,-nas]| ORIG : [+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi,-nas] 
 [+lat] > ʎ / __ [+cons,+hi,+front]| ORIG : [+lat] > ʎ / __ [+cons,+hi,+front]
 [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ | ORIG : [-lat,-nas,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
 r ʝ > rʲ | ORIG : r ʝ > rʲ
@@ -192,7 +192,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+hi,+front]| ORIG : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+hi,+front]
 {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]| ORIG : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]
 [+hi,+back,+cons] > [+front] / __ [+front,+syl]| ORIG : [+hi,+back,+cons] > [+front] / __ [+front,+syl] 
-[+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo,+syl,+stres] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #| ORIG : [+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [-cons]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [+cons] [-cons]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [-cont] [+cons,+son,-nas]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
@@ -252,7 +252,7 @@ n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat]
 [+syl] > [-long,-splng] / __ ə̯| ORIG : [+syl] > [-long] /  __  ə̯
 [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]| ORIG : [+syl] > [-long] / __ [-syl,-cons] [-syl]
 [+syl] > [-long,-splng] / __ [-syl,-cons] #| ORIG : [+syl] > [-long] / __ [-syl,-cons] #
-[+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo,+syl,+stres] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #| ORIG : [+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [-cons]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [+cons] [-cons]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
 [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [-cont] [+cons,+son,-nas]| ORIG : [+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 

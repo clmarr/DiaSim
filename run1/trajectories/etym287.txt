@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :287:
-#frˈɑn̪kiɑm# >>> #fʁɑ̃# ( Correct : #fʁɑ̃s#) :
+#frˈɑn̪kiɑm# >>> #fʁɑ̃s# ( Correct : #fʁɑ̃s#) :
 f r ˈɑ n̪ k i ɑ m 
 #frˈɑŋkiɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #frˈɑŋkɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -11,17 +11,15 @@ f r ˈɑ n̪ k i ɑ m
 #frˈɑŋcɑ# | Rule 73 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #frˈɑŋt͡sʲɑ# | Rule 148 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #frˈaŋt͡sʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#frˈaŋt͡sʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#frˈaŋt͡sʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#frˈaŋt͡sʲə̯# | Rule 213 : ə > ə̯ 
-#frˈaŋt͡sʲ# | Rule 225 : ə̯ > ∅ 
-#frˈaŋt͡s# | Rule 356 : t͡sʲ > t͡s 
-#frˈãŋt͡s# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#frˈãŋs# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#frˈãːs# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#frˈãː# | Rule 516 : [-son] > ∅ / __ #
-#fʀˈãː# | Rule 527 : r > ʀ 
-#fʀãː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀã# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#fʀɑ̃# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#fʁɑ̃# | Rule 535 : ʀ > ʁ 
+#frˈaŋt͡sʲə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#frˈaŋt͡sə# | Rule 356 : t͡sʲ > t͡s 
+#frˈãŋt͡sə# | Rule 362 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#frˈãŋsə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#frˈãːsə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#frˈãːsə̯# | Rule 510 : ə > ə̯ / __ #
+#frˈãːs# | Rule 517 : ə̯ > ∅ 
+#fʀˈãːs# | Rule 527 : r > ʀ 
+#fʀãːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀãs# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#fʀɑ̃s# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#fʁɑ̃s# | Rule 535 : ʀ > ʁ 

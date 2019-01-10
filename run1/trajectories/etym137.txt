@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :137:
-#brˈɑkʰiɑm# >>> #bʁa# ( Correct : #bʁas#) :
+#brˈɑkʰiɑm# >>> #bʁɑs# ( Correct : #bʁas#) :
 b r ˈɑ kʰ i ɑ m 
 #brˈɑkiɑm# | Rule 6 : [+sg,-cont] > [-sg] 
 #brˈɑkɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -9,14 +9,15 @@ b r ˈɑ kʰ i ɑ m
 #brˈɑccɑ# | Rule 64 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
 #brˈɑt̪t͡sʲɑ# | Rule 147 : c c > t̪ t͡sʲ 
 #brˈat̪t͡sʲa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#brˈat̪t͡sʲɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#brˈat̪t͡sʲə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#brˈat̪t͡sʲə̯# | Rule 213 : ə > ə̯ 
-#brˈat̪t͡sʲ# | Rule 225 : ə̯ > ∅ 
-#brˈat͡sʲ# | Rule 342 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#brˈat͡s# | Rule 356 : t͡sʲ > t͡s 
-#brˈas# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#brˈa# | Rule 516 : [-son] > ∅ / __ #
-#bʀˈa# | Rule 527 : r > ʀ 
-#bʀa# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʁa# | Rule 535 : ʀ > ʁ 
+#brˈat̪t͡sʲə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#brˈat͡sʲə# | Rule 342 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#brˈat͡sə# | Rule 356 : t͡sʲ > t͡s 
+#brˈasə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#brˈaːsə# | Rule 478 : [+front,-round,+syl] > [+long] / __ s ə #
+#brˈɑːsə# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#brˈɑːsə̯# | Rule 510 : ə > ə̯ / __ #
+#brˈɑːs# | Rule 517 : ə̯ > ∅ 
+#bʀˈɑːs# | Rule 527 : r > ʀ 
+#bʀɑːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀɑs# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#bʁɑs# | Rule 535 : ʀ > ʁ 

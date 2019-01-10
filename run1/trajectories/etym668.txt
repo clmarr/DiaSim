@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :668:
-#mˌed̪iˈɑːliɑ# >>> #mɑj# ( Correct : #maj#) :
+#mˌed̪iˈɑːliɑ# >>> #mɛ̃j# ( Correct : #maj#) :
 m ˌe d̪ i ˈɑː l i ɑ 
 #mˌɛd̪ɪˈɑːlɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˌɛd̪jˈɑːljɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -12,16 +12,18 @@ m ˌe d̪ i ˈɑː l i ɑ
 #mˌɛʝˈɑːʎɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌɛʝˈaːʎa# | Rule 158 : [+lo,+syl] > [+front,-back] 
 #mˌɛˈaːʎa# | Rule 174 : ʝ > ∅ / [-cons] __ [-cons]
-#mˌɛˈaːʎɛ# | Rule 194 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
-#mˌɛˈaːʎə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#mˌɛˈaːʎə̯# | Rule 213 : ə > ə̯ 
-#mˌɛˈaːʎ# | Rule 225 : ə̯ > ∅ 
-#mˌɛˈaʎ# | Rule 239 : [+syl] > [-long,-splng] / __ [+cons] #
-#mˌeˈaʎ# | Rule 289 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#mˌəˈaʎ# | Rule 367 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#mˌaˈaʎ# | Rule 463 : ˌə > ˌa / __ [+lo,+stres]
-#mˈaːʎ# | Rule 470 : [+lo,+syl] [+lo,+syl] > ∅ [+long]
-#mˈɑːʎ# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
-#mɑːʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɑʎ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#mɑj# | Rule 536 : ʎ > j 
+#mˌɛˈae̯ʎa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˌeˈae̯ʎa# | Rule 289 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#mˌeˈae̯ʎə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌeˈeːʎə# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˌəˈeːʎə# | Rule 367 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#mˌəˈeːj̃ʎə# | Rule 385 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ʎ [+syl]
+#mˌəˈẽːj̃ʎə# | Rule 417 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#mˌəˈɛ̃ːj̃ʎə# | Rule 449 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#mˌəˈɛ̃ːʎə# | Rule 450 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#mˈɛ̃ːʎə# | Rule 465 : ˌə > ∅ / __ [+syl]
+#mˈɛ̃ːʎə̯# | Rule 510 : ə > ə̯ / __ #
+#mˈɛ̃ːʎ# | Rule 517 : ə̯ > ∅ 
+#mɛ̃ːʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛ̃ʎ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#mɛ̃j# | Rule 536 : ʎ > j 
