@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1063:
-#sˈɑpɑm# >>> #sɛv# ( Correct : #sɛv#) :
-s ˈɑ p ɑ m 
-#sˈɑpɑ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈɑːpɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈaːpa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#sˈaːba# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˈaːβa# | Rule 263 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#sˈae̯βa# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈae̯va# | Rule 291 : β > v 
-#sˈae̯və# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈeːvə# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#sˈɛːvə# | Rule 508 : ˈeː > ˈɛː / __ [+cons] ə
-#sˈɛːvə̯# | Rule 510 : ə > ə̯ / __ #
-#sˈɛːv# | Rule 517 : ə̯ > ∅ 
-#sɛːv# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛv# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#sˌɑpˈeːre# >>> #savaʁ# ( Correct : #savwaʁ#) :
+s ˌɑ p ˈeː r e 
+#sˌɑpˈeːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈerɛ# | Rule 45 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈeːrɛ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌapˈeːrɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#sˌapˈeːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#sˌapˈeːrə̯# | Rule 218 : ə > ə̯ 
+#sˌapˈeːr# | Rule 230 : ə̯ > ∅ 
+#sˌapˈer# | Rule 244 : [+syl] > [-long,-splng] / __ [+cons] #
+#sˌabˈer# | Rule 265 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˌaβˈer# | Rule 268 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
+#sˌavˈer# | Rule 296 : β > v 
+#sˌavˈɛr# | Rule 451 : ˈe > ˈɛ 
+#sˌavˈar# | Rule 456 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#sˌavˈaɹ# | Rule 516 : r > ɹ / [-cons] __ #
+#sˌavˈar# | Rule 530 : ɹ > r 
+#sˌavˈaʀ# | Rule 532 : r > ʀ 
+#savaʀ# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#savaʁ# | Rule 540 : ʀ > ʁ 

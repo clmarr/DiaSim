@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :969:
-#pˈullɑm# >>> #pul# ( Correct : #pul#) :
-p ˈu l l ɑ m 
-#pˈʊllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑm# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈolla# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#pˈollə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈolə# | Rule 345 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˈulə# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#pˈulə̯# | Rule 510 : ə > ə̯ / __ #
-#pˈul# | Rule 517 : ə̯ > ∅ 
-#pul# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌullˈɑːmen̪# >>> #pulɑ̃# ( Correct : #pulɛ̃#) :
+p ˌu l l ˈɑː m e n̪ 
+#pˌʊllˈɑːmɛn̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌʊllˈɑmɛn̪# | Rule 46 : [+syl,+long] > [-long,-splng] 
+#pˌollˈɑmɛn̪# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌollˈɑːmɛn̪# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌollˈaːmɛn̪# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#pˌollˈaːmən̪# | Rule 217 : [-stres,-lo,+syl] > ə 
+#pˌollˈaːmə̯n̪# | Rule 218 : ə > ə̯ 
+#pˌollˈaːmn̪# | Rule 230 : ə̯ > ∅ 
+#pˌollˈaːmm# | Rule 237 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#pˌollˈamm# | Rule 245 : [+syl] > [-long,-splng] / __ [+cons] [+cons,-son]
+#pˌollˈam?# | Rule 299 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#pˌollˈam?# | Rule 305 : [-son] > [-voi] / __ #
+#pˌollˈam̥?# | Rule 349 : [-son] > [-voi] / __ [-voi]
+#pˌolˈam̥?# | Rule 350 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˌolˈãm̥?# | Rule 367 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#pˌulˈãm̥?# | Rule 385 : [+round,+tense,+back] > [+hi] 
+#pˌulˈãː?# | Rule 501 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pˌulˈãː# | Rule 502 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#pulãː# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pulã# | Rule 534 : [+syl,+long] > [-long,-splng] 
+#pulɑ̃# | Rule 539 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

@@ -1,18 +1,12 @@
 Trajectory file for run 'run1'; etymon number :1074:
-#sˌɑt̪ˈullum# >>> #su# ( Correct : #su#) :
-s ˌɑ t̪ ˈu l l u m 
-#sˌɑt̪ˈʊllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollom# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollo# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌat̪ˈollo# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#sˌat̪ˈollə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#sˌat̪ˈollə̯# | Rule 213 : ə > ə̯ 
-#sˌat̪ˈoll# | Rule 225 : ə̯ > ∅ 
-#sˌad̪ˈoll# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˌaðˈoll# | Rule 263 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#sˌaðˈol# | Rule 345 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˌaðˈul# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#sˌaˈul# | Rule 403 : {θ;ð} > {∅;∅} 
-#sˌaˈu# | Rule 458 : [+lat] > ∅ / [+hi,+syl] __ #
-#sˈu# | Rule 476 : ˌa > ∅ / __ [+prim]
-#su# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈeː# >>> #swa# ( Correct : #swa#) :
+s ˈeː 
+#sˈe# | Rule 45 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˈeː# | Rule 82 : [+prim] > [+long] / __ #
+#sˈej# | Rule 291 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈoj# | Rule 381 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˈuj# | Rule 385 : [+round,+tense,+back] > [+hi] 
+#sˈuɛ̯# | Rule 427 : j > ɛ̯ / [+syl,+back,+round] __ 
+#swˈɛ# | Rule 430 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swɛ# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swa# | Rule 538 : ɛ > a / w __ 

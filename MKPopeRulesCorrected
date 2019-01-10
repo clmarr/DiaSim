@@ -85,13 +85,14 @@ j > ∅ / {p;r} __ [+front,-hi,-lo,+syl]
 j > ʝ / __ [+syl] $as per Pope s105c, 106
 $ w, newly from u,o in hiatus is clearly NOT effected by this as per treatment in s374
 
-$ CORRECTION (addition) : ʝ is deleted when coming after velar + w (cases of quie:tum, laqueum, etc...)
-ʝ > ∅ / [+back,-cont] w __  
+$ CORRECTION (addition) : ʝ is deleted when coming after # + velar + w (cases of quie:tum etc...)
+ʝ > ∅ / # [+back,-cont] w __  
 
 $p91 s187iic -- explicitly must come after p102 s220 
 $effacement of w before jod. 
 $NOTE however that in many nouns this was reversed by analogy (see p92 s188)
-ɣʷ > ∅ / __ ʝ
+$affects w as per laqueum > latz > "lacs"
+{ɣʷ;w} > {∅;∅} / __ ʝ
 
 $p91 s187iia
 $ CORRECTION: This seems to only reliably occur after /ɑ/ and /ɑː/ -- this is a better reason why vivum, ovum and nativum are unaffected than "analogy" .
@@ -497,6 +498,9 @@ $ l palatalizes again before all palatals, period
 $ and they combine with the following palatal 
 [-lat,-nas,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons] __
 
+$ CORRECTION : in the case of r r ʝ , ʝ does not merge into a prior rʲ, but rather closes to ɟ
+ʝ > ɟ / r r __
+
 $ s313-315 : r,s,z donˌt lose their primary place of articulation but DO palatalize under influence of succeeding palatals
 $ potential RECURRENT as per Pope s162
 $ s absorbs following: sc, stsj incldued
@@ -519,9 +523,20 @@ $ Pope p139 s342 : second effacement of ɣ, "Later Gallo-Roman ɣ" -- but it see
 $ should come BEFORE any raising of a 
 $ this clearly BLEEDS the second palatalization where ɣ is concerned
 $ as per s481 this seems to come BEFORE low vowel fronting 
+
+$ s342i : before tonic u or o 
 ɣ > ∅ / __ [+tense,+round,+prim]
-ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
+
+$ s342iii : between o, u, aw and a 
 ɣ > ∅ / [+round,-cons] __ [+lo,+syl] $ o|u|au __ a
+
+$ s342ii : between a velar vowel and atonic u (short u > o , so atonic u or o)
+$CORRECTION: This one does not occur after sequences of [+syl] [+son] [+back,-cons] not followed by w -- i.e. cases of Sabigniacum > Savigny, Albiniacum > Aubigny, and veracum > vrai
+$CORRECTION also includes after uo̯ -- case of locum > lieu 
+ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
+ɣ > ∅ / # [+back,-cons] __ [+tense,-stres,+round,+syl]
+ɣ > ∅ / [-son] [+back,-cons] __ [+tense,-stres,+round,+syl]
+ɣ > ∅ / {[-syl];#} [-syl] [+back,-cons] __ [+tense,-stres,+round,+syl]
 
 $Pope p113 s254.
 $Final unstressed i, o, u become semi-vocalic and combine into diphthong with previous vowel. 
@@ -1192,7 +1207,7 @@ $ per Pope s390: attested in rhymes by middle of 12th century:
 
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
 $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -- a case of secondary stressed ɛ for this)
-∅ > a̯ / [-hi,-lo,+syl,-tense] __ w
+∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
 [-hi,-lo,+syl,-tense] >[-long] / __ a̯ w
 
 $s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)

@@ -1,18 +1,28 @@
 Trajectory file for run 'run1'; etymon number :1329:
-#wˈid̪wum# >>> #vɛt̪# ( Correct : #vœf#) :
-w ˈi d̪ w u m 
-#ɣʷˈid̪ɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪd̪ɣʷʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɪd̪βʷʊm# | Rule 41 : ɣʷ > βʷ 
-#βʷˈed̪βʷom# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#βʷˈed̪βʷo# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈed̪βo# | Rule 105 : βʷ > β 
-#βˈed̪βə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#βˈed̪βə̯# | Rule 213 : ə > ə̯ 
-#βˈed̪β# | Rule 225 : ə̯ > ∅ 
-#vˈed̪v# | Rule 291 : β > v 
-#vˈed̪f# | Rule 300 : [-son] > [-voi] / __ #
-#vˈet̪f# | Rule 344 : [-son] > [-voi] / __ [-voi]
-#vˈɛt̪f# | Rule 446 : ˈe > ˈɛ 
-#vˈɛt̪# | Rule 516 : [-son] > ∅ / __ #
-#vɛt̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌiɡˈiliɑm# >>> #vij# ( Correct : #vɛj#) :
+w ˌi ɡ ˈi l i ɑ m 
+#ɣʷˌiɡˈiliɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɪɡˈɪlɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˌɪɡˈɪljɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɣʷˌɪɡˈɪlʝɑm# | Rule 24 : j > ʝ / __ [+syl]
+#βʷˌɪɡˈɪlʝɑm# | Rule 41 : ɣʷ > βʷ 
+#βʷˌeɡˈelʝɑm# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˌeɡˈelʝɑ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌeɡʲˈelʝɑ# | Rule 65 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#βʷˌeɟˈelʝɑ# | Rule 66 : [+back,+front] > [-back] 
+#βʷˌeɟˈeʎɑ# | Rule 77 : l ʝ > ʎ 
+#βʷˌeʝˈeʎɑ# | Rule 79 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#βʷˌeʝˈeːʎɑ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌeʝˈeːʎɑ# | Rule 105 : βʷ > β 
+#βˌeʝˈiːʎɑ# | Rule 136 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
+#βˌeʝˈiːʎa# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#βˌeˈiːʎa# | Rule 179 : ʝ > ∅ / [-cons] __ [-cons]
+#vˌeˈiːʎa# | Rule 296 : β > v 
+#vˌeˈiːʎə# | Rule 301 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌəˈiːʎə# | Rule 372 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#vˈiːʎə# | Rule 470 : ˌə > ∅ / __ [+syl]
+#vˈiːʎə̯# | Rule 515 : ə > ə̯ / __ #
+#vˈiːʎ# | Rule 522 : ə̯ > ∅ 
+#viːʎ# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#viʎ# | Rule 534 : [+syl,+long] > [-long,-splng] 
+#vij# | Rule 541 : ʎ > j 

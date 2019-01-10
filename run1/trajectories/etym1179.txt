@@ -1,13 +1,27 @@
 Trajectory file for run 'run1'; etymon number :1179:
-#t̪ˈɑlpɑm# >>> #t̪op# ( Correct : #t̪op#) :
-t̪ ˈɑ l p ɑ m 
-#t̪ˈɑlpɑ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈɑɫpɑ# | Rule 112 : l > ɫ / __ [+cons,-lat]
-#t̪ˈaɫpa# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#t̪ˈaɫpə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈawpə# | Rule 398 : [+lat,+back] > w 
-#t̪ˈoːpə# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#t̪ˈoːpə̯# | Rule 510 : ə > ə̯ / __ #
-#t̪ˈoːp# | Rule 517 : ə̯ > ∅ 
-#t̪oːp# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪op# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#t̪ˌɑmˈesium# >>> #t̪amij# ( Correct : #t̪ami#) :
+t̪ ˌɑ m ˈe s i u m 
+#t̪ˌɑmˈɛsɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑmˈɛsjʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#t̪ˌɑmˈɛsʝʊm# | Rule 24 : j > ʝ / __ [+syl]
+#t̪ˌɑmˈɛsʝom# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑmˈɛsʝo# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˌɑmˈɛzʝo# | Rule 110 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#t̪ˌɑmˈɛzʲo# | Rule 144 : z ʝ > zʲ 
+#t̪ˌamˈɛzʲo# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#t̪ˌamˈɛːzʲo# | Rule 186 : [+prim] > [+long] / __ [+cons] [+syl]
+#t̪ˌamˈie̯zʲo# | Rule 195 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t̪ˌamˈie̯zʲə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#t̪ˌamˈie̯zʲə̯# | Rule 218 : ə > ə̯ 
+#t̪ˌamˈie̯zʲ# | Rule 230 : ə̯ > ∅ 
+#t̪ˌamˈiːe̯zʲ# | Rule 249 : [+prim] > [+long] / __ [-cons]
+#t̪ˌamˈie̯zʲ# | Rule 253 : [+syl] > [-long,-splng] / __ e̯
+#t̪ˌamˈie̯jz# | Rule 273 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#t̪ˌamˈiːe̯jz# | Rule 281 : [+prim] > [+long] / __ [-cons]
+#t̪ˌamˈie̯jz# | Rule 285 : [+syl] > [-long,-splng] / __ e̯
+#t̪ˌamˈie̯js# | Rule 305 : [-son] > [-voi] / __ #
+#t̪ˌãmˈie̯js# | Rule 367 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˌãmˈijs# | Rule 383 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#t̪ˌãmˈij# | Rule 521 : [-son] > ∅ / __ #
+#t̪ˌamˈij# | Rule 525 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#t̪amij# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

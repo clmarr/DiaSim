@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :20:
-#ˌɑlˈɑwsɑm# >>> #alɔa̯wz# ( Correct : #aloz#) :
+#ˌɑlˈɑwsɑm# >>> #aluz# ( Correct : #aloz#) :
 ˌɑ l ˈɑ w s ɑ m 
 #ˌɑlˈɑwsɑ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #ˌɑlˈɑːwsɑ# | Rule 83 : [+prim] > [+long] / __ [-cons]
@@ -7,16 +7,18 @@ Trajectory file for run 'run1'; etymon number :20:
 #ˌɑlˈɑwzɑ# | Rule 109 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #ˌɑlˈɑːwzɑ# | Rule 126 : [+prim] > [+long] / __ [-cons]
 #ˌɑlˈɑwzɑ# | Rule 134 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
-#ˌɑlˈɔwzɑ# | Rule 154 : {ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#ˌalˈɔwza# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#ˌalˈɔːwza# | Rule 180 : [+prim] > [+long] / __ [-cons]
-#ˌalˈɔwza# | Rule 188 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
-#ˌalˈɔːwza# | Rule 244 : [+prim] > [+long] / __ [-cons]
-#ˌalˈɔwza# | Rule 252 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
-#ˌalˈɔːwza# | Rule 276 : [+prim] > [+long] / __ [-cons]
-#ˌalˈɔwza# | Rule 284 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
-#ˌalˈɔwzə# | Rule 296 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌalˈɔa̯wzə# | Rule 399 : ∅ > a̯ / [-hi,-lo,+syl,-tense] __ w
-#ˌalˈɔa̯wzə̯# | Rule 510 : ə > ə̯ / __ #
-#ˌalˈɔa̯wz# | Rule 517 : ə̯ > ∅ 
-#alɔa̯wz# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌɑlˈɔwzɑ# | Rule 159 : {ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#ˌalˈɔwza# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#ˌalˈɔːwza# | Rule 185 : [+prim] > [+long] / __ [-cons]
+#ˌalˈɔwza# | Rule 193 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#ˌalˈɔːwza# | Rule 249 : [+prim] > [+long] / __ [-cons]
+#ˌalˈɔwza# | Rule 257 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#ˌalˈɔːwza# | Rule 281 : [+prim] > [+long] / __ [-cons]
+#ˌalˈɔwza# | Rule 289 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#ˌalˈɔwzə# | Rule 301 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌalˈuzə# | Rule 420 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#ˌalˈuːzə# | Rule 507 : [+syl] > [+long] / __ z [+syl]
+#ˌalˈuːzə̯# | Rule 515 : ə > ə̯ / __ #
+#ˌalˈuːz# | Rule 522 : ə̯ > ∅ 
+#aluːz# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aluz# | Rule 534 : [+syl,+long] > [-long,-splng] 

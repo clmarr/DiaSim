@@ -1,14 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1105:
-#sˈikkum# >>> #sɛk# ( Correct : #sɛk#) :
-s ˈi k k u m 
-#sˈɪkkʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈekkom# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈekko# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈekkə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#sˈekkə̯# | Rule 213 : ə > ə̯ 
-#sˈekk# | Rule 225 : ə̯ > ∅ 
-#sˈek# | Rule 345 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˈɛk# | Rule 446 : ˈe > ˈɛ 
-#sˈɛkə̯# | Rule 514 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#sˈɛk# | Rule 517 : ə̯ > ∅ 
-#sɛk# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈiːmium# >>> #sɛ̃ʒ# ( Correct : #sɛ̃ʒ#) :
+s ˈiː m i u m 
+#sˈiːmɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈiːmjʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˈiːmʝʊm# | Rule 24 : j > ʝ / __ [+syl]
+#sˈimʝʊm# | Rule 45 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˈimʝom# | Rule 55 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈimʝo# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈimɟo# | Rule 212 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#sˈimd͡ʒo# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#sˈimd͡ʒə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#sˈimd͡ʒə̯# | Rule 218 : ə > ə̯ 
+#sˈimd͡ʒə# | Rule 226 : ə̯ > ə / [-ant,+delrel] __ #
+#sˈĩmd͡ʒə# | Rule 435 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#sˈĩmʒə# | Rule 445 : [+delrel] > [+cont,.delrel] 
+#sˈɛ̃mʒə# | Rule 454 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#sˈɛ̃ːʒə# | Rule 501 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˈɛ̃ːʒə̯# | Rule 515 : ə > ə̯ / __ #
+#sˈɛ̃ːʒ# | Rule 522 : ə̯ > ∅ 
+#sɛ̃ːʒ# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛ̃ʒ# | Rule 534 : [+syl,+long] > [-long,-splng] 

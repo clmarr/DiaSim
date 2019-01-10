@@ -1,15 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1280:
-#wˈɑllem# >>> #val# ( Correct : #val#) :
-w ˈɑ l l e m 
-#ɣʷˈɑllem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɑllɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɑllɛm# | Rule 41 : ɣʷ > βʷ 
-#βʷˈɑllɛ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑllɛ# | Rule 105 : βʷ > β 
-#βˈallɛ# | Rule 158 : [+lo,+syl] > [+front,-back] 
-#βˈallə# | Rule 212 : [-stres,-lo,+syl] > ə 
-#βˈallə̯# | Rule 213 : ə > ə̯ 
-#βˈall# | Rule 225 : ə̯ > ∅ 
-#vˈall# | Rule 291 : β > v 
-#vˈal# | Rule 345 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#val# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌɑlˈoːrem# >>> #valuʁ# ( Correct : #valœʁ#) :
+w ˌɑ l ˈoː r e m 
+#ɣʷˌɑlˈoːrem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈoːrɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈoːrɛm# | Rule 41 : ɣʷ > βʷ 
+#βʷˌɑlˈorɛm# | Rule 45 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈorɛ# | Rule 60 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌɑlˈoːrɛ# | Rule 84 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈoːrɛ# | Rule 105 : βʷ > β 
+#βˌalˈoːrɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#βˌalˈoːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#βˌalˈoːrə̯# | Rule 218 : ə > ə̯ 
+#βˌalˈoːr# | Rule 230 : ə̯ > ∅ 
+#βˌalˈor# | Rule 244 : [+syl] > [-long,-splng] / __ [+cons] #
+#vˌalˈor# | Rule 296 : β > v 
+#vˌalˈur# | Rule 385 : [+round,+tense,+back] > [+hi] 
+#vˌalˈuɹ# | Rule 516 : r > ɹ / [-cons] __ #
+#vˌalˈur# | Rule 530 : ɹ > r 
+#vˌalˈuʀ# | Rule 532 : r > ʀ 
+#valuʀ# | Rule 533 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valuʁ# | Rule 540 : ʀ > ʁ 
