@@ -72,6 +72,7 @@ public class DerivationSimulation {
 	private static boolean goldOutput; 
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
+	private static double ACCURACY; 
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	//TODO to be set in command line...
@@ -524,8 +525,6 @@ public class DerivationSimulation {
 			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 				if (wordsChanged[wi])
 					System.out.println("etym "+wi+" is now "+testResultLexicon.getByID(wi));
-			
-			
 			ri++; 
 		}
 		
@@ -545,8 +544,13 @@ public class DerivationSimulation {
 		
 		if(goldOutput)
 		{
-			PERFORMANCE = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
+			
+			double[] PERFORMANCE_arr = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
+			PERFORMANCE = PERFORMANCE_arr[0] ; 
+			ACCURACY = PERFORMANCE_arr[1]; 
+			
 			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
+			System.out.println("FINAL OVERALL ACCURACY : "+ACCURACY); 
 			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
 			if( NUM_GOLD_STAGES > 0 )
 			{
@@ -650,24 +654,30 @@ public class DerivationSimulation {
 	 * fills lexLD and lexLak and isHit
 	 * Lakation -- level of quasisynchronic distortion that arose diachronically
 	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of initial form for the etymon
-	 * @returns average lexical lakation
+	 * @returns two-item array of doubles where the first element is the average lexical lakation
+	 * 		and the second is the percent accuracy 0 to 100 
 	 */
-	private static double analyzeLDAccAndLakation(int[] lexLD, double[] lexLak, boolean[] isHit, Lexicon outForms, Lexicon goldForms)
+	private static double[] analyzeLDAccAndLakation(int[] lexLD, double[] lexLak, boolean[] isHit, Lexicon outForms, Lexicon goldForms)
 	{
 		lexLD = new int[NUM_ETYMA];
 		lexLak = new double[NUM_ETYMA]; 
 		isHit = new boolean[NUM_ETYMA]; 
-		double totLexQuotients = 0.0;
+		double totLexQuotients = 0.0, numHits= 0.0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
 		{
 			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
 			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
 			isHit[i] = (lexLD[i] == 0);
+			numHits += (lexLD[i] == 0) ? 1 : 0; 
 			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
 			lexLak[i] = lakation;
 			totLexQuotients += lakation; 
 		}
-		return totLexQuotients / (double)NUM_ETYMA; 	
+		
+		double[] output = new double[2]; 
+		output[0] = totLexQuotients / (double) NUM_ETYMA; 
+		output[1] = numHits / (double)NUM_ETYMA * 100.0; 
+		return output; 
 	}
 	
 	private static void makeTrajectoryFiles()
@@ -691,6 +701,7 @@ public class DerivationSimulation {
 	{
 		String output = "Analysis for "+lexicName+"/n";
 		output += "Overall performance in average derivational distance : "+PERFORMANCE+"\n"; //TODO come up with better name for this 
+		output += "Percent of derivation results that match correct forms : "+ACCURACY+"%\n"; 
 		output += "Performance associated with each phone in "+lexicName+"\n"; 
 		output += "Phone in "+lexicName+"\tAssociated lakation\tMean Associated Normalized Lev.Dist.\n";
 		
