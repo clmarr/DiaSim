@@ -289,6 +289,11 @@ $ we can use /e/ here because if it was e:, it would be stressed.
 $ CORRECTION: include also the syncope of vowels before n̪ 
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
 
+$ s353 : devoicing of labial and dental consonants that are now adjacent to t 
+$ since aidier is excluded we can dodge fixing palatals too. 
+[+ant,+cons] > [-voi] / __ t̪
+r̥ > r $CORRECTION: but not r. 
+
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included -- s372
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
@@ -384,7 +389,11 @@ $ CORRECTION : w (>βʷ) now not merged into β yet when this rule applies, so i
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
 $ CORRECTION: now we can finally merge βʷ to β
-βʷ > β 
+$ CORRECTION: include also ɸʷ
+{βʷ;ɸʷ} > {β;ɸ}
+
+$ CORRECTION: ɸ deleted if in between consonants.
+ɸ > ∅ / [+cons] __ [+cons] 
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -545,8 +554,12 @@ $Final unstressed i, o, u become semi-vocalic and combine into diphthong with pr
 o > u / [+syl,+prim] __ # 
 [+hi,+syl,-stres] > [-syl] / [+prim] __ # 
 
-$ CORRECTION: deletion of e (<ɪ, eː unstressed) before t then  ɑː 
+$ CORRECTION: deletion of e (<ɪ, eː unstressed) before t then  ɑː . 
+$ Pope hints at this in s350 but does not have properly have it as its own rule anywhere
 e > ∅ / __ t̪ [+lo,+long]
+
+$ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
+t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
 
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
 ∅ > j / ˌe __ [+lo,+syl]
@@ -1019,7 +1032,8 @@ $ t inserted between s and pal. s + r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
 $s371 nasal cluster assimilation 
-{m n̪;n̪ m;m b} > {m m;m m;m m}
+$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
+{m n̪;n̪ m} > {m m;m m}
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
