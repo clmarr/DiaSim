@@ -1,14 +1,17 @@
 Trajectory file for run 'run1'; etymon number :355:
-#illoːs# >>> #w# ( Correct : #le#) :
-i l l oː s 
-#ɪlloːs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɪllos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ellos# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#əllos# | Rule 217 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#əlləs# | Rule 219 : [-stres,-lo,+syl] > ə 
-#ə̯llə̯s# | Rule 220 : ə > ə̯ 
-#lls# | Rule 232 : ə̯ > ∅ 
-#ls# | Rule 329 : [+cons] > ∅ / [+cons] __ [-son]
-#ɫs# | Rule 366 : [+lat] > [+back] / __ [+cons]
-#ws# | Rule 405 : [+lat,+back] > w 
-#w# | Rule 523 : [-son] > ∅ / __ #
+#ˈilloːs# >>> #œ# ( Correct : #ø#) :
+ˈi l l oː s 
+#ˈɪlloːs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɪllos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈellos# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈelləs# | Rule 219 : [-stres,-lo,+syl] > ə 
+#ˈellə̯s# | Rule 220 : ə > ə̯ 
+#ˈells# | Rule 232 : ə̯ > ∅ 
+#ˈels# | Rule 329 : [+cons] > ∅ / [+cons] __ [-son]
+#ˈeɫs# | Rule 366 : [+lat] > [+back] / __ [+cons]
+#ˈews# | Rule 405 : [+lat,+back] > w 
+#ˈøws# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˈøs# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ˈø# | Rule 523 : [-son] > ∅ / __ #
+#ø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#œ# | Rule 539 : ø > œ / __ ( [+cons] )* #

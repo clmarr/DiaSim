@@ -1,13 +1,27 @@
 Trajectory file for run 'run1'; etymon number :464:
-#klˈɑssum# >>> #kla# ( Correct : #ɡlɑ#) :
-k l ˈɑ s s u m 
-#klˈɑssʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#klˈɑssom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#klˈɑsso# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#klˈasso# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#klˈassə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#klˈassə̯# | Rule 220 : ə > ə̯ 
-#klˈass# | Rule 232 : ə̯ > ∅ 
-#klˈas# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#klˈa# | Rule 523 : [-son] > ∅ / __ #
-#kla# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#klˈɑːwem# >>> #klɛf# ( Correct : #kle#) :
+k l ˈɑː w e m 
+#klˈɑːɣʷem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#klˈɑːɣʷɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#klˈɑːβʷɛm# | Rule 43 : ɣʷ > βʷ 
+#klˈɑβʷɛm# | Rule 48 : [+syl,+long] > [-long,-splng] 
+#klˈɑβʷɛ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#klˈɑːβʷɛ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
+#klˈɑːβɛ# | Rule 107 : βʷ > β 
+#klˈaːβɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#klˈaːβə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#klˈaːβə̯# | Rule 220 : ə > ə̯ 
+#klˈaːβ# | Rule 232 : ə̯ > ∅ 
+#klˈaβ# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
+#klˈaːβ# | Rule 254 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#klˈaβ# | Rule 278 : [+syl] > [-long,-splng] / __ [+cons] #
+#klˈaːβ# | Rule 286 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#klˈae̯β# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#klˈae̯v# | Rule 298 : β > v 
+#klˈae̯f# | Rule 307 : [-son] > [-voi] / __ #
+#klˈeːf# | Rule 325 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#klˈɛːf# | Rule 516 : ˈeː > ˈɛː / __ [+cons] #
+#klˈɛːfə̯# | Rule 522 : ∅ > ə̯ / [+syl] f __ #
+#klˈɛːf# | Rule 524 : ə̯ > ∅ 
+#klɛːf# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#klɛf# | Rule 536 : [+syl,+long] > [-long,-splng] 

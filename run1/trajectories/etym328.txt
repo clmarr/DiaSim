@@ -1,14 +1,12 @@
 Trajectory file for run 'run1'; etymon number :328:
-#ɡˈummɑ# >>> #ɡɔ̃m# ( Correct : #ɡɔm#) :
-ɡ ˈu m m ɑ 
-#ɡˈʊmmɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈommɑ# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ɡˈomma# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#ɡˈumma# | Rule 274 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#ɡˈummə# | Rule 303 : a > ə / [+syl] ( [-syl] )* __ 
-#ɡˈumə# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ɡˈũmə# | Rule 423 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#ɡˈũmə̯# | Rule 517 : ə > ə̯ / __ #
-#ɡˈũm# | Rule 524 : ə̯ > ∅ 
-#ɡũm# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɡɔ̃m# | Rule 537 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ɡˈust̪um# >>> #ɡus# ( Correct : #ɡu#) :
+ɡ ˈu s t̪ u m 
+#ɡˈʊst̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɡˈost̪om# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɡˈost̪o# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ɡˈost̪ə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#ɡˈost̪ə̯# | Rule 220 : ə > ə̯ 
+#ɡˈost̪# | Rule 232 : ə̯ > ∅ 
+#ɡˈust̪# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#ɡˈus# | Rule 523 : [-son] > ∅ / __ #
+#ɡus# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

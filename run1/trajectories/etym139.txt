@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :139:
-#brˈɑn̪d̪um# >>> #bʁɑ̃# ( Correct : #bʁɑ̃#) :
-b r ˈɑ n̪ d̪ u m 
-#brˈɑn̪d̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#brˈɑn̪d̪om# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#brˈɑn̪d̪o# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#brˈan̪d̪o# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#brˈan̪d̪ə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#brˈan̪d̪ə̯# | Rule 220 : ə > ə̯ 
-#brˈan̪d̪# | Rule 232 : ə̯ > ∅ 
-#brˈan̪t̪# | Rule 307 : [-son] > [-voi] / __ #
-#brˈãn̪t̪# | Rule 369 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#brˈãːt̪# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#brˈãː# | Rule 523 : [-son] > ∅ / __ #
-#bʀˈãː# | Rule 534 : r > ʀ 
-#bʀãː# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀã# | Rule 536 : [+syl,+long] > [-long,-splng] 
-#bʀɑ̃# | Rule 541 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#bʁɑ̃# | Rule 542 : ʀ > ʁ 
+#brˈɑn̪kɑm# >>> #bʁɑ̃ʃ# ( Correct : #bʁɑ̃ʃ#) :
+b r ˈɑ n̪ k ɑ m 
+#brˈɑŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#brˈɑŋkɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#brˈaŋka# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#brˈaŋkʲa# | Rule 200 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#brˈaŋca# | Rule 209 : [+back,+front] > [-back] 
+#brˈaŋt͡ʃa# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#brˈaŋt͡ʃə# | Rule 303 : a > ə / [+syl] ( [-syl] )* __ 
+#brˈãŋt͡ʃə# | Rule 369 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#brˈãŋʃə# | Rule 447 : [+delrel] > [+cont,.delrel] 
+#brˈãːʃə# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#brˈãːʃə̯# | Rule 517 : ə > ə̯ / __ #
+#brˈãːʃ# | Rule 524 : ə̯ > ∅ 
+#bʀˈãːʃ# | Rule 534 : r > ʀ 
+#bʀãːʃ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀãʃ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#bʀɑ̃ʃ# | Rule 541 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#bʁɑ̃ʃ# | Rule 542 : ʀ > ʁ 

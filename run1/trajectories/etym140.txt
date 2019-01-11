@@ -1,20 +1,17 @@
 Trajectory file for run 'run1'; etymon number :140:
-#brˈɑn̪kɑm# >>> #bʁɑ̃ʃ# ( Correct : #bʁɑ̃ʃ#) :
-b r ˈɑ n̪ k ɑ m 
-#brˈɑŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#brˈɑŋkɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#brˈaŋka# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#brˈaŋkʲa# | Rule 200 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#brˈaŋca# | Rule 209 : [+back,+front] > [-back] 
-#brˈaŋt͡ʃa# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#brˈaŋt͡ʃə# | Rule 303 : a > ə / [+syl] ( [-syl] )* __ 
-#brˈãŋt͡ʃə# | Rule 369 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#brˈãŋʃə# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#brˈãːʃə# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#brˈãːʃə̯# | Rule 517 : ə > ə̯ / __ #
-#brˈãːʃ# | Rule 524 : ə̯ > ∅ 
-#bʀˈãːʃ# | Rule 534 : r > ʀ 
-#bʀãːʃ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀãʃ# | Rule 536 : [+syl,+long] > [-long,-splng] 
-#bʀɑ̃ʃ# | Rule 541 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#bʁɑ̃ʃ# | Rule 542 : ʀ > ʁ 
+#brˈɑsɑm# >>> #bʁɛz# ( Correct : #bʁɛz#) :
+b r ˈɑ s ɑ m 
+#brˈɑsɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#brˈɑːsɑ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
+#brˈɑːzɑ# | Rule 111 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#brˈaːza# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#brˈae̯za# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#brˈae̯zə# | Rule 303 : a > ə / [+syl] ( [-syl] )* __ 
+#brˈeːzə# | Rule 325 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#brˈɛːzə# | Rule 515 : ˈeː > ˈɛː / __ [+cons] ə
+#brˈɛːzə̯# | Rule 517 : ə > ə̯ / __ #
+#brˈɛːz# | Rule 524 : ə̯ > ∅ 
+#bʀˈɛːz# | Rule 534 : r > ʀ 
+#bʀɛːz# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀɛz# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#bʁɛz# | Rule 542 : ʀ > ʁ 

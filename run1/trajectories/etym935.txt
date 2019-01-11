@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :935:
-#pˌost̪ˈellum# >>> #pust̪ɛl# ( Correct : #pɔt̪o#) :
-p ˌo s t̪ ˈe l l u m 
-#pˌɔst̪ˈɛllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌɔst̪ˈɛllom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˌɔst̪ˈɛllo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˌɔst̪ˈɛllə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#pˌɔst̪ˈɛllə̯# | Rule 220 : ə > ə̯ 
-#pˌɔst̪ˈɛll# | Rule 232 : ə̯ > ∅ 
-#pˌost̪ˈɛll# | Rule 296 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#pˌost̪ˈɛl# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˌust̪ˈɛl# | Rule 387 : [+round,+tense,+back] > [+hi] 
-#pust̪ɛl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌoːt̪iˈoːn̪em# >>> #puzʲɔ̃# ( Correct : #pwazɔ̃#) :
+p ˌoː t̪ i ˈoː n̪ e m 
+#pˌoːt̪ɪˈoːn̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌoːt̪jˈoːn̪ɛm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#pˌoːt̪ʝˈoːn̪ɛm# | Rule 24 : j > ʝ / __ [+syl]
+#pˌot̪ʝˈon̪ɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˌot̪ʝˈon̪ɛ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˌot͡sʲʝˈon̪ɛ# | Rule 65 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#pˌot͡sʲˈon̪ɛ# | Rule 75 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#pˌot͡sʲˈoːn̪ɛ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌot͡sʲˈoːn̪ə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#pˌot͡sʲˈoːn̪ə̯# | Rule 220 : ə > ə̯ 
+#pˌot͡sʲˈoːn̪# | Rule 232 : ə̯ > ∅ 
+#pˌot͡sʲˈon̪# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
+#pˌod͡zʲˈon̪# | Rule 267 : [-voi] > [+voi] / [+syl] __ [+syl]
+#pˌod͡zʲˈun̪# | Rule 274 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#pˌud͡zʲˈun̪# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#pˌud͡zʲˈũn̪# | Rule 423 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#pˌuzʲˈũn̪# | Rule 447 : [+delrel] > [+cont,.delrel] 
+#pˌuzʲˈũː# | Rule 504 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#puzʲũː# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#puzʲũ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#puzʲɔ̃# | Rule 537 : [+back,-lo,+nas,+syl] > ɔ̃ 

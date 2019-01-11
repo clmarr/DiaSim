@@ -1,22 +1,16 @@
 Trajectory file for run 'run1'; etymon number :201:
-#d̪uˈoːs# >>> #d̪wœ# ( Correct : #d̪ø#) :
-d̪ u ˈoː s 
-#d̪ʊˈoːs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪wˈoːs# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#d̪wˈos# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#d̪wˈoːs# | Rule 88 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈos# | Rule 124 : [+syl] > [-long,-splng] / __ [+cons] #
-#d̪wˈoːs# | Rule 131 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈos# | Rule 182 : [+syl] > [-long,-splng] / __ [+cons] #
-#d̪wˈoːs# | Rule 190 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈos# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
-#d̪wˈoːs# | Rule 254 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈos# | Rule 278 : [+syl] > [-long,-splng] / __ [+cons] #
-#d̪wˈoːs# | Rule 286 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈows# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪wˈews# | Rule 382 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#d̪wˈøws# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#d̪wˈøs# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#d̪wˈø# | Rule 523 : [-son] > ∅ / __ #
-#d̪wø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪wœ# | Rule 539 : ø > œ / __ ( [+cons] )* #
+#d̪ˈuplum# >>> #d̪ubl# ( Correct : #d̪ubl#) :
+d̪ ˈu p l u m 
+#d̪ˈʊplʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈoplom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈoplo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˈoːplo# | Rule 87 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#d̪ˈoːplə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#d̪ˈoːplə̯# | Rule 220 : ə > ə̯ 
+#d̪ˈoːplə# | Rule 229 : ə̯ > ə / [-lat,-syl] l __ #
+#d̪ˈoːblə# | Rule 268 : [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
+#d̪ˈowblə# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#d̪ˈublə# | Rule 377 : [+tense,+syl,+round,-hi,-lo] w > [+hi] ∅/ __ [+lab,-syl]
+#d̪ˈublə̯# | Rule 517 : ə > ə̯ / __ #
+#d̪ˈubl# | Rule 524 : ə̯ > ∅ 
+#d̪ubl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

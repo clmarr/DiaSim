@@ -1,13 +1,26 @@
 Trajectory file for run 'run1'; etymon number :353:
-#ˈilliː# >>> #i# ( Correct : #il#) :
-ˈi l l iː 
-#ˈɪlliː# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɪlli# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˈelli# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈilli# | Rule 113 : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i #
-#ˈillə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#ˈillə̯# | Rule 220 : ə > ə̯ 
-#ˈill# | Rule 232 : ə̯ > ∅ 
-#ˈil# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˈi# | Rule 465 : [+lat] > ∅ / [+hi,+syl] __ #
-#i# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#illˈoːrum# >>> #lœʁ# ( Correct : #lœʁ#) :
+i l l ˈoː r u m 
+#ɪllˈoːrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɪllˈorʊm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ellˈorom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ellˈoro# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ellˈoːro# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
+#əllˈoːrə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#ə̯llˈoːrə̯# | Rule 220 : ə > ə̯ 
+#llˈoːr# | Rule 232 : ə̯ > ∅ 
+#llˈor# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
+#llˈoːr# | Rule 254 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈor# | Rule 278 : [+syl] > [-long,-splng] / __ [+cons] #
+#llˈoːr# | Rule 286 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#llˈowr# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#lˈowr# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#lˈewr# | Rule 382 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#lˈøwr# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#lˈør# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#lˈøɹ# | Rule 518 : r > ɹ / [-cons] __ #
+#lˈør# | Rule 532 : ɹ > r 
+#lˈøʀ# | Rule 534 : r > ʀ 
+#løʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lœʀ# | Rule 539 : ø > œ / __ ( [+cons] )* #
+#lœʁ# | Rule 542 : ʀ > ʁ 

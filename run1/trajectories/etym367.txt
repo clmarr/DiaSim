@@ -1,20 +1,20 @@
 Trajectory file for run 'run1'; etymon number :367:
-#ˌin̪sˌimul# >>> #æ̃sæ̃l# ( Correct : #ɑ̃sɑ̃bl#) :
-ˌi n̪ s ˌi m u l 
-#ˌɪn̪sˌɪmʊl# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪sˌemol# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪sˌeməl# | Rule 219 : [-stres,-lo,+syl] > ə 
-#ˌen̪sˌemə̯l# | Rule 220 : ə > ə̯ 
-#ˌen̪sˌeml# | Rule 232 : ə̯ > ∅ 
-#ˌen̪sˌembl# | Rule 242 : ∅ > b / m __ [+cor,-nas,+son,-syl]
-#ˌen̪sˌemml# | Rule 343 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#ˌen̪sˌeml# | Rule 352 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌen̪sˌemlə# | Rule 361 : ∅ > ə / [-lat,-syl] l __ #
-#ˌẽn̪sˌẽmlə# | Rule 371 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌɛ̃n̪sˌɛ̃mlə# | Rule 395 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌæ̃n̪sˌæ̃mlə# | Rule 400 : [+nas,-hi,+syl] > [+lo] 
-#ˌæ̃ːsˌæ̃ːlə# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌæ̃ːsˌæ̃ːlə̯# | Rule 517 : ə > ə̯ / __ #
-#ˌæ̃ːsˌæ̃ːl# | Rule 524 : ə̯ > ∅ 
-#æ̃ːsæ̃ːl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#æ̃sæ̃l# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#ˈin̪sulɑ# >>> #il# ( Correct : #il#) :
+ˈi n̪ s u l ɑ 
+#ˈiːn̪sulɑ# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#ˈiːsulɑ# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#ˈiːsʊlɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈisʊlɑ# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈisolɑ# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈiːsolɑ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈiːzolɑ# | Rule 111 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˈiːzola# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#ˈiːzəla# | Rule 217 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈiːzə̯la# | Rule 220 : ə > ə̯ 
+#ˈiːzla# | Rule 232 : ə̯ > ∅ 
+#ˈiːzlə# | Rule 303 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːlə# | Rule 373 : z > ∅ / __ [+cons]
+#ˈiːlə̯# | Rule 517 : ə > ə̯ / __ #
+#ˈiːl# | Rule 524 : ə̯ > ∅ 
+#iːl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#il# | Rule 536 : [+syl,+long] > [-long,-splng] 
