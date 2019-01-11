@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :815:
-#pˌɑrˈikulum# >>> #paʁwaj# ( Correct : #paʁej#) :
+#pˌɑrˈikulum# >>> #paʁɛj# ( Correct : #paʁej#) :
 p ˌɑ r ˈi k u l u m 
 #pˌɑrˈɪkʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɑrˈɪklʊm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
@@ -8,19 +8,16 @@ p ˌɑ r ˈi k u l u m
 #pˌɑrˈeːklo# | Rule 90 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 #pˌɑrˈeːxlo# | Rule 93 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
 #pˌarˈeːxlo# | Rule 157 : [+lo,+syl] > [+front,-back] 
-#pˌarˈeːçlo# | Rule 166 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#pˌarˈeːçʎo# | Rule 170 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#pˌarˈeːʎo# | Rule 196 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
-#pˌarˈeːʎə# | Rule 208 : [-stres,-lo,+syl] > ə 
-#pˌarˈeːʎə̯# | Rule 209 : ə > ə̯ 
-#pˌarˈeːʎ# | Rule 221 : ə̯ > ∅ 
-#pˌarˈejʎ# | Rule 273 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌarˈojʎ# | Rule 363 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#pˌarˈujʎ# | Rule 367 : [+round,+tense,+back] > [+hi] 
-#pˌarˈuɛ̯ʎ# | Rule 409 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pˌarwˈɛʎ# | Rule 412 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pˌaʀwˈɛʎ# | Rule 514 : r > ʀ 
-#paʀwɛʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʀwaʎ# | Rule 520 : ɛ > a / w __ 
-#paʁwaʎ# | Rule 522 : ʀ > ʁ 
-#paʁwaj# | Rule 523 : ʎ > j 
+#pˌarˈeːçlo# | Rule 165 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#pˌarˈeːçʎo# | Rule 169 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#pˌarˈeːʎo# | Rule 195 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#pˌarˈeːʎə# | Rule 207 : [-stres,-lo,+syl] > ə 
+#pˌarˈeːʎə̯# | Rule 208 : ə > ə̯ 
+#pˌarˈeːʎ# | Rule 220 : ə̯ > ∅ 
+#pˌarˈejʎ# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌarˈeʎ# | Rule 361 : j > ∅ / [+front,+tense,-hi,-lo] __ ʎ
+#pˌarˈɛʎ# | Rule 433 : ˈe > ˈɛ 
+#pˌaʀˈɛʎ# | Rule 514 : r > ʀ 
+#paʀɛʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#paʁɛʎ# | Rule 522 : ʀ > ʁ 
+#paʁɛj# | Rule 523 : ʎ > j 

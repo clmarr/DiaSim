@@ -159,9 +159,8 @@ t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]| ORIG : t̪ > d̪ / [+lab,+cons,+ant
 [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]| ORIG : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]| ORIG : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s| ORIG : [+lab,-nas,-round,+cons] > s / __ s
-{m n̪;n̪ m;m b} > {m m;m m;m m} | ORIG : {m n̪;n̪ m;m b} > {m m;m m;m m}
+{m n̪;n̪ m} > {m m;m m} | ORIG : {m n̪;n̪ m} > {m m;m m}
 w > β / [+syl] ( n̪ ) n̪ __ [+syl]| ORIG : w > β / [+syl] (n̪) n̪ __ [+syl]  
-{n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / __ [+cons]| ORIG : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / __ [+cons] 
 {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / [+cons] __ | ORIG : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
 w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]| ORIG : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -226,7 +225,7 @@ t̪ > d̪ / ʝ __ | ORIG : t̪ > d̪ / ʝ __
 [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]| ORIG : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]| ORIG : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s| ORIG : [+lab,-nas,-round,+cons] > s / __ s
-{m n̪;n̪ m;m b} > {m m;m m;m m} | ORIG : {m n̪;n̪ m;m b} > {m m;m m;m m}
+{m n̪;n̪ m} > {m m;m m} | ORIG : {m n̪;n̪ m} > {m m;m m}
 {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]| ORIG : {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / __ [+cons] 
 {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / [+cons] __ | ORIG : {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __  
 ∅ > b / m __ [+cor,-nas,+son,-syl]| ORIG : ∅ > b / m __ [+cor,-nas,+son,-syl]
@@ -360,6 +359,7 @@ o̯ > e̯ | ORIG : o̯ > e̯
 ˌo > ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]| ORIG : ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo > ˌə / __ [+delrel,-ant] [+tense,+prim,+round]| ORIG : ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 m > n̪ / [-cons] __ #| ORIG : m > n̪ / [-cons] __ #
+j > ∅ / [+front,+tense,-hi,-lo] __ ʎ| ORIG : j > ∅ / [+front,+tense,-hi,-lo] __ ʎ 
 [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w| ORIG : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w 
 [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j| ORIG : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
 ˈu > ˈy / __ e̯ j| ORIG : ˈu > ˈy / __ e̯ j

@@ -578,14 +578,14 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-nas,-round,+cons] > s / __ s
 
 $s371 nasal cluster assimilation 
-{m n̪;n̪ m;m b} > {m m;m m;m m}
+$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
+{m n̪;n̪ m} > {m m;m m}
 
 $s374ii : (n)nw > nβ intervocalically 
 w > β / [+syl] (n̪) n̪ __ [+syl]  
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
 $Pope never explicitly says this but her trajectories for words make this clear
-{n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / __ [+cons] 
 {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
 
 $s374i : w from hiatus u,o effaced if coming after two consonants 
@@ -775,7 +775,8 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-nas,-round,+cons] > s / __ s
 
 $s371 nasal cluster assimilation 
-{m n̪;n̪ m;m b} > {m m;m m;m m}
+$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
+{m n̪;n̪ m} > {m m;m m}
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
 $Pope never explicitly says this but her trajectories for words make this clear
@@ -1139,6 +1140,9 @@ $ TODO: may need to correct this again.
 $s435: dentalization of final m after vowels. 
 $s435 -- accepted by late 11th century 
 m > n̪ / [-cons] __ #
+
+$ CORRECTION : j absorbed by following ʎ if after e
+j > ∅ / [+front,+tense,-hi,-lo] __ ʎ 
 
 $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle of the twelfth century".
 $ She places it in EOF-- so we place it there too, though clearly at the end. 
