@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1137:
-#st̪ˌurn̪ˈellum# >>> #est̪uʁn̪ɛl# ( Correct : #et̪uʁn̪o#) :
-s t̪ ˌu r n̪ ˈe l l u m 
-#st̪ˌʊrn̪ˈɛllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪst̪ˌʊrn̪ˈɛllʊm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌest̪ˌorn̪ˈɛllom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌest̪ˌorn̪ˈɛllo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌest̪ˌorn̪ˈɛllə# | Rule 207 : [-stres,-lo,+syl] > ə 
-#ˌest̪ˌorn̪ˈɛllə̯# | Rule 208 : ə > ə̯ 
-#ˌest̪ˌorn̪ˈɛll# | Rule 220 : ə̯ > ∅ 
-#ˌest̪ˌorn̪ˈɛl# | Rule 333 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌest̪ˌurn̪ˈɛl# | Rule 369 : [+round,+tense,+back] > [+hi] 
-#ˌest̪ˌuɹn̪ˈɛl# | Rule 501 : r > ɹ / [-cons] __ [+cons]
-#ˌest̪ˌurn̪ˈɛl# | Rule 514 : ɹ > r 
-#ˌest̪ˌuʀn̪ˈɛl# | Rule 516 : r > ʀ 
-#est̪uʀn̪ɛl# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#est̪uʁn̪ɛl# | Rule 524 : ʀ > ʁ 
+#sˈuɑ# >>> #sœ# ( Correct : #sø#) :
+s ˈu ɑ 
+#sˈʊɑ# | Rule 13 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈoɑ# | Rule 58 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈoːɑ# | Rule 88 : [+prim] > [+long] / __ [+syl]
+#sˈoːa# | Rule 158 : [+lo,+syl] > [+front,-back] 
+#sˈoa# | Rule 238 : [+syl] > [-long,-splng] / __ [+syl] #
+#sˈoːa# | Rule 243 : [+prim] > [+long] / __ [+syl]
+#sˈoa# | Rule 265 : [+syl] > [-long,-splng] / __ [+syl] #
+#sˈoːa# | Rule 270 : [+prim] > [+long] / __ [+syl]
+#sˈowa# | Rule 278 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈowə# | Rule 288 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈewə# | Rule 368 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#sˈøwə# | Rule 401 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#sˈøə# | Rule 405 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#sˈøːə# | Rule 461 : [+stres] > [+long] / __ ə
+#sˈøː# | Rule 462 : ə > ∅ / [+syl] __ 
+#søː# | Rule 521 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sø# | Rule 522 : [+syl,+long] > [-long,-splng] 
+#sœ# | Rule 525 : ø > œ / __ ( [+cons] )* #
