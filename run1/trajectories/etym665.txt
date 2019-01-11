@@ -1,14 +1,22 @@
 Trajectory file for run 'run1'; etymon number :665:
-#mˈeum# >>> #mjɛ# ( Correct : #mjɛ̃#) :
-m ˈe u m 
-#mˈɛʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɛo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɛːo# | Rule 85 : [+prim] > [+long] / __ [+syl]
-#mˈie̯o# | Rule 129 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#mˈie̯ə# | Rule 204 : [-stres,-lo,+syl] > ə 
-#mˈie̯ə̯# | Rule 205 : ə > ə̯ 
-#mˈie̯# | Rule 217 : ə̯ > ∅ 
-#mjˈe# | Rule 390 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mjˈɛ# | Rule 429 : ˈe > ˈɛ 
-#mjɛ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#meˈum# >>> #mʒɔ̃# ( Correct : #mɔ̃#) :
+m e ˈu m 
+#mɛˈʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mjˈʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#mʝˈʊm# | Rule 24 : j > ʝ / __ [+syl]
+#mʝˈom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mʝˈoːm# | Rule 89 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#mʝˈom# | Rule 119 : [+syl] > [-long,-splng] / __ [-syl] #
+#mʝˈoːm# | Rule 127 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#mʝˈom# | Rule 170 : [+syl] > [-long,-splng] / __ [-syl] #
+#mʝˈoːm# | Rule 179 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#mɟˈoːm# | Rule 199 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#md͡ʒˈoːm# | Rule 201 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#md͡ʒˈuːm# | Rule 254 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#md͡ʒˈuːm̥# | Rule 283 : [-son] > [-voi] / __ #
+#md͡ʒˈũːm̥# | Rule 399 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#mʒˈũːm̥# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#mʒˈũː# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#mʒũː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mʒũ# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#mʒɔ̃# | Rule 513 : [+back,-lo,+nas,+syl] > ɔ̃ 

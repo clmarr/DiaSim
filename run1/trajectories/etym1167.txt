@@ -1,13 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1167:
-#t̪ˈɑkkɑm# >>> #t̪akʃ# ( Correct : #t̪aʃ#) :
-t̪ ˈɑ k k ɑ m 
-#t̪ˈɑkkɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈakka# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#t̪ˈakkʲa# | Rule 183 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#t̪ˈakca# | Rule 194 : [+back,+front] > [-back] 
-#t̪ˈakt͡ʃa# | Rule 201 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t̪ˈakt͡ʃə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈakʃə# | Rule 423 : [+delrel] > [+cont,.delrel] 
-#t̪ˈakʃə̯# | Rule 493 : ə > ə̯ / __ #
-#t̪ˈakʃ# | Rule 500 : ə̯ > ∅ 
-#t̪akʃ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˌɑkkˈoːn̪em# >>> #t̪akɔ̃# ( Correct : #t̪akɔ̃#) :
+t̪ ˌɑ k k ˈoː n̪ e m 
+#t̪ˌɑkkˈoːn̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑkkˈon̪ɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑkkˈon̪ɛ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˌɑkkˈoːn̪ɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌakkˈoːn̪ɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#t̪ˌakkˈoːn̪ə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#t̪ˌakkˈoːn̪ə̯# | Rule 205 : ə > ə̯ 
+#t̪ˌakkˈoːn̪# | Rule 217 : ə̯ > ∅ 
+#t̪ˌakkˈuːn̪# | Rule 254 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
+#t̪ˌakˈuːn̪# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#t̪ˌakˈũːn̪# | Rule 399 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#t̪ˌakˈũː# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#t̪akũː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪akũ# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#t̪akɔ̃# | Rule 513 : [+back,-lo,+nas,+syl] > ɔ̃ 

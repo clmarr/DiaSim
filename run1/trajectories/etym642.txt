@@ -1,10 +1,18 @@
 Trajectory file for run 'run1'; etymon number :642:
-#mˈɑppɑm# >>> #map# ( Correct : #n̪ap#) :
-m ˈɑ p p ɑ m 
-#mˈɑppɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈappa# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#mˈappə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈapə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#mˈapə̯# | Rule 493 : ə > ə̯ / __ #
-#mˈap# | Rule 500 : ə̯ > ∅ 
-#map# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈɑre# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ r e 
+#mˈɑrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑːrɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈaːrɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#mˈaːrə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#mˈaːrə̯# | Rule 205 : ə > ə̯ 
+#mˈaːr# | Rule 217 : ə̯ > ∅ 
+#mˈae̯r# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːr# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈɛːr# | Rule 440 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#mˈɛːɹ# | Rule 494 : r > ɹ / [-cons] __ #
+#mˈɛːr# | Rule 508 : ɹ > r 
+#mˈɛːʀ# | Rule 510 : r > ʀ 
+#mɛːʀ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛʀ# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#mɛʁ# | Rule 518 : ʀ > ʁ 

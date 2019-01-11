@@ -1,16 +1,24 @@
 Trajectory file for run 'run1'; etymon number :804:
-#pˈɑn̪n̪um# >>> #pɑ̃# ( Correct : #pɑ̃#) :
-p ˈɑ n̪ n̪ u m 
-#pˈɑn̪n̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɑn̪n̪om# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈɑn̪n̪o# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈan̪n̪o# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#pˈan̪n̪ə# | Rule 204 : [-stres,-lo,+syl] > ə 
-#pˈan̪n̪ə̯# | Rule 205 : ə > ə̯ 
-#pˈan̪n̪# | Rule 217 : ə̯ > ∅ 
-#pˈan̪# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˈãn̪# | Rule 345 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˈãː# | Rule 480 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pãː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pã# | Rule 512 : [+syl,+long] > [-long,-splng] 
-#pɑ̃# | Rule 517 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#pˈɑn̪t̪ikem# >>> #pɑ̃t̪# ( Correct : #pɑ̃s#) :
+p ˈɑ n̪ t̪ i k e m 
+#pˈɑn̪t̪ɪkɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɑn̪t̪ekɛm# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɑn̪t̪ekɛ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈɑn̪t̪ekʲɛ# | Rule 67 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#pˈɑn̪t̪ecɛ# | Rule 68 : [+back,+front] > [-back] 
+#pˈɑn̪t̪et͡sʲɛ# | Rule 141 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#pˈan̪t̪et͡sʲɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#pˈan̪t̪ət͡sʲɛ# | Rule 202 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈan̪t̪ət͡sʲə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#pˈan̪t̪ə̯t͡sʲə̯# | Rule 205 : ə > ə̯ 
+#pˈan̪t̪ət͡sʲə̯# | Rule 208 : ə̯ > ə / __ [+front,+cons]
+#pˈan̪t̪ət͡sʲ# | Rule 217 : ə̯ > ∅ 
+#pˈan̪t̪ət͡s# | Rule 339 : t͡sʲ > t͡s 
+#pˈãn̪t̪ət͡s# | Rule 345 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#pˈãn̪t̪əs# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#pˈãːt̪əs# | Rule 479 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pˈãːt̪ə# | Rule 499 : [-son] > ∅ / __ #
+#pãːt̪ə# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pãt̪ə# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#pɑ̃t̪ə# | Rule 517 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#pɑ̃t̪# | Rule 520 : ə > ∅ / __ #

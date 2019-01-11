@@ -1,14 +1,22 @@
 Trajectory file for run 'run1'; etymon number :168:
-#d̪ˈeum# >>> #d̪jɛ# ( Correct : #d̪jø#) :
-d̪ ˈe u m 
-#d̪ˈɛʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈɛom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈɛo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#d̪ˈɛːo# | Rule 85 : [+prim] > [+long] / __ [+syl]
-#d̪ˈie̯o# | Rule 129 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#d̪ˈie̯ə# | Rule 204 : [-stres,-lo,+syl] > ə 
-#d̪ˈie̯ə̯# | Rule 205 : ə > ə̯ 
-#d̪ˈie̯# | Rule 217 : ə̯ > ∅ 
-#d̪jˈe# | Rule 390 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#d̪jˈɛ# | Rule 429 : ˈe > ˈɛ 
-#d̪jɛ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ˌeːsˈuːrsum# >>> #d̪zy# ( Correct : #d̪əsy#) :
+d̪ ˌeː s ˈuː r s u m 
+#d̪ˌeːsˈuːsum# | Rule 10 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
+#d̪ˌeːsˈuːsʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˌesˈusʊm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˌesˈusom# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˌesˈuso# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˌesˈuːso# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˌezˈuːzo# | Rule 106 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#d̪ˌez?zo# | Rule 191 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#d̪ˌez?zə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#d̪ˌez?zə̯# | Rule 205 : ə > ə̯ 
+#d̪ˌez?z# | Rule 217 : ə̯ > ∅ 
+#d̪ˌez?s# | Rule 283 : [-son] > [-voi] / __ #
+#d̪ˌezˈyːs# | Rule 343 : [+hi,+round,-back] > [+front] 
+#d̪ˌəzˈyːs# | Rule 350 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#d̪?zˈyːs# | Rule 485 : [+syl] > [+long] / __ z [+syl]
+#d̪?zˈyː# | Rule 499 : [-son] > ∅ / __ #
+#d̪?zyː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪əzy# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#d̪zy# | Rule 524 : ə > ∅ / # [-syl] __ [-syl] [+syl]

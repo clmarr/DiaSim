@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :759:
-#n̪ˈon̪n̪ɑm# >>> #n̪ɔ̃n̪# ( Correct : #n̪ɔn̪#) :
-n̪ ˈo n̪ n̪ ɑ m 
-#n̪ˈɔn̪n̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈɔn̪n̪ɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɔn̪n̪a# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#n̪ˈun̪n̪a# | Rule 254 : [+syl,-hi,-lo,+round] > [+hi,+tense,-cons,-lat,+cont,.delrel] / __ [+nas,+cons]
-#n̪ˈun̪n̪ə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈun̪ə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#n̪ˈũn̪ə# | Rule 399 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#n̪ˈũn̪ə̯# | Rule 493 : ə > ə̯ / __ #
-#n̪ˈũn̪# | Rule 500 : ə̯ > ∅ 
-#n̪ũn̪# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ɔ̃n̪# | Rule 513 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#n̪ˈopt̪iɑm# >>> #n̪œs# ( Correct : #n̪ɔs#) :
+n̪ ˈo p t̪ i ɑ m 
+#n̪ˈɔpt̪ɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɔpt̪jɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#n̪ˈɔpt̪ʝɑm# | Rule 24 : j > ʝ / __ [+syl]
+#n̪ˈɔpt̪ʝɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˈɔpt͡sʲʝɑ# | Rule 65 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#n̪ˈɔpt͡sʲɑ# | Rule 75 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#n̪ˈɔpt͡sʲa# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#n̪ˈɔt̪t͡sʲa# | Rule 154 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#n̪ˈuo̯t̪t͡sʲa# | Rule 182 : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]
+#n̪ˈʉo̯t̪t͡sʲa# | Rule 191 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#n̪ˈʉo̯t̪t͡sʲə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˈʉo̯t͡sʲə# | Rule 325 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#n̪ˈʉo̯t͡sə# | Rule 339 : t͡sʲ > t͡s 
+#n̪ˈyo̯t͡sə# | Rule 343 : [+hi,+round,-back] > [+front] 
+#n̪ˈye̯t͡sə# | Rule 351 : o̯ > e̯ 
+#n̪ˈøt͡sə# | Rule 378 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#n̪ˈøsə# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#n̪ˈøsə̯# | Rule 493 : ə > ə̯ / __ #
+#n̪ˈøs# | Rule 500 : ə̯ > ∅ 
+#n̪øs# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪œs# | Rule 515 : ø > œ / __ ( [+cons] )* #

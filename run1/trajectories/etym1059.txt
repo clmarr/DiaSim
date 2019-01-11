@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1059:
-#sˈɑpɑm# >>> #sɛv# ( Correct : #sɛv#) :
-s ˈɑ p ɑ m 
-#sˈɑpɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈɑːpɑ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈaːpa# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#sˈaːba# | Rule 247 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˈaːβa# | Rule 250 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#sˈae̯βa# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈae̯va# | Rule 274 : β > v 
-#sˈae̯və# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈeːvə# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#sˈɛːvə# | Rule 491 : ˈeː > ˈɛː / __ [+cons] ə
-#sˈɛːvə̯# | Rule 493 : ə > ə̯ / __ #
-#sˈɛːv# | Rule 500 : ə̯ > ∅ 
-#sɛːv# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛv# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#sˌɑpˈɑwd̪iɑm# >>> #savuʒ# ( Correct : #savwa#) :
+s ˌɑ p ˈɑ w d̪ i ɑ m 
+#sˌɑpˈɑwd̪ɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈɑwd̪jɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑm# | Rule 24 : j > ʝ / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑpˈɑwɟʝɑ# | Rule 65 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#sˌɑpˈɑwɟɑ# | Rule 75 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#sˌɑpˈɑwd͡ʒɑ# | Rule 141 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#sˌapˈawd͡ʒa# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#sˌapˈɔwd͡ʒa# | Rule 184 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#sˌabˈɔwd͡ʒa# | Rule 247 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˌaβˈɔwd͡ʒa# | Rule 250 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
+#sˌavˈɔwd͡ʒa# | Rule 274 : β > v 
+#sˌavˈɔwd͡ʒə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌavˈud͡ʒə# | Rule 398 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#sˌavˈuʒə# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#sˌavˈuʒə̯# | Rule 493 : ə > ə̯ / __ #
+#sˌavˈuʒ# | Rule 500 : ə̯ > ∅ 
+#savuʒ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

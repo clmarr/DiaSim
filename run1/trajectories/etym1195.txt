@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1195:
-#t̪ˌen̪ˈiːre# >>> #t̪æn̪iʁ# ( Correct : #t̪ən̪iʁ#) :
-t̪ ˌe n̪ ˈiː r e 
-#t̪ˌɛn̪ˈiːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɛn̪ˈirɛ# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#t̪ˌɛn̪ˈiːrɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˌɛn̪ˈiːrə# | Rule 204 : [-stres,-lo,+syl] > ə 
-#t̪ˌɛn̪ˈiːrə̯# | Rule 205 : ə > ə̯ 
-#t̪ˌɛn̪ˈiːr# | Rule 217 : ə̯ > ∅ 
-#t̪ˌen̪ˈiːr# | Rule 272 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#t̪ˌẽn̪ˈiːr# | Rule 347 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌɛ̃n̪ˈiːr# | Rule 371 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌæ̃n̪ˈiːr# | Rule 376 : [+nas,-hi,+syl] > [+lo] 
-#t̪ˌæ̃n̪ˈiːɹ# | Rule 494 : r > ɹ / [-cons] __ #
-#t̪ˌæn̪ˈiːɹ# | Rule 503 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#t̪ˌæn̪ˈiːr# | Rule 508 : ɹ > r 
-#t̪ˌæn̪ˈiːʀ# | Rule 510 : r > ʀ 
-#t̪æn̪iːʀ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪æn̪iʀ# | Rule 512 : [+syl,+long] > [-long,-splng] 
-#t̪æn̪iʁ# | Rule 518 : ʀ > ʁ 
+#t̪ˈeːn̪sɑm# >>> #t̪waz# ( Correct : #t̪waz#) :
+t̪ ˈeː n̪ s ɑ m 
+#t̪ˈeːsɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#t̪ˈesɑm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈesɑ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeːsɑ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːzɑ# | Rule 106 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#t̪ˈeːza# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#t̪ˈejza# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈejzə# | Rule 279 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈojzə# | Rule 359 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujzə# | Rule 363 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯zə# | Rule 405 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛzə# | Rule 408 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛːzə# | Rule 485 : [+syl] > [+long] / __ z [+syl]
+#t̪wˈɛːzə̯# | Rule 493 : ə > ə̯ / __ #
+#t̪wˈɛːz# | Rule 500 : ə̯ > ∅ 
+#t̪wɛːz# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wɛz# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#t̪waz# | Rule 516 : ɛ > a / w __ 

@@ -1,23 +1,16 @@
 Trajectory file for run 'run1'; etymon number :942:
-#prˌɑe̯st̪ˈɑːre# >>> #pʁest̪ɛʁ# ( Correct : #pʁet̪e#) :
-p r ˌɑ e̯ s t̪ ˈɑː r e 
-#prˌae̯st̪ˈɑːre# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌae̯st̪ˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˌae̯st̪ˈɑrɛ# | Rule 48 : [+syl,+long] > [-long,-splng] 
-#prˌɛːst̪ˈɑrɛ# | Rule 49 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛːst̪ˈɑːrɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˌɛst̪ˈɑːrɛ# | Rule 120 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˌɛst̪ˈaːrɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
-#prˌɛst̪ˈaːrə# | Rule 204 : [-stres,-lo,+syl] > ə 
-#prˌɛst̪ˈaːrə̯# | Rule 205 : ə > ə̯ 
-#prˌɛst̪ˈaːr# | Rule 217 : ə̯ > ∅ 
-#prˌɛst̪ˈae̯r# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#prˌest̪ˈae̯r# | Rule 272 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#prˌest̪ˈeːr# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#prˌest̪ˈɛːr# | Rule 440 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#prˌest̪ˈɛːɹ# | Rule 494 : r > ɹ / [-cons] __ #
-#prˌest̪ˈɛːr# | Rule 508 : ɹ > r 
-#pʀˌest̪ˈɛːʀ# | Rule 510 : r > ʀ 
-#pʀest̪ɛːʀ# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʀest̪ɛʀ# | Rule 512 : [+syl,+long] > [-long,-splng] 
-#pʁest̪ɛʁ# | Rule 518 : ʀ > ʁ 
+#prˈɑe̯st̪um# >>> #pʁɛs# ( Correct : #pʁɛ#) :
+p r ˈɑ e̯ s t̪ u m 
+#prˈae̯st̪um# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˈae̯st̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˈɛːst̪ʊm# | Rule 49 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˈɛːst̪om# | Rule 57 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#prˈɛːst̪o# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɛst̪o# | Rule 120 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#prˈɛst̪ə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#prˈɛst̪ə̯# | Rule 205 : ə > ə̯ 
+#prˈɛst̪# | Rule 217 : ə̯ > ∅ 
+#prˈɛs# | Rule 499 : [-son] > ∅ / __ #
+#pʀˈɛs# | Rule 510 : r > ʀ 
+#pʀɛs# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛs# | Rule 518 : ʀ > ʁ 
