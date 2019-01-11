@@ -269,6 +269,8 @@ j > ∅ / [+hi,+front,-syl] __ [-syl]| ORIG : j > ∅ / [+hi,+front,-syl] __ [-s
 [+prim] > [+long] / __ [+cons] [+syl]| ORIG : [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]| ORIG : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #| ORIG : [+prim] > [+long] / # ([-syl])* __ [+cons] #
+[+prim,-front] > [-long,-splng] / __ ʎ| ORIG : [+prim,-front] > [-long] / __ ʎ 
+[+prim,-hi] > [-long,-splng] / __ ʎ| ORIG : [+prim,-hi] > [-long] / __ ʎ
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} | ORIG : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} | ORIG : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
 β > ∅ / w __ [+tense,+round,-stres]| ORIG : β > ∅ / w __ [+tense,+round,-stres]
@@ -366,7 +368,7 @@ j > ∅ / [+front,+tense,-hi,-lo] __ ʎ| ORIG : j > ∅ / [+front,+tense,-hi,-lo
 e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j| ORIG : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
 j > ɛ̯ / [+syl,+back,+round] __ r| ORIG : j > ɛ̯ / [+syl,+back,+round] __ r 
 [+round,+tense,+back] > [+hi] | ORIG : [+round,+tense,+back] > [+hi] 
-∅ > j / [+hi,+round,+syl] __ ɲ #| ORIG : ∅ > j / [+hi,+round,+syl] __ ɲ #
+∅ > j̃ / [+hi,+round,+syl] __ ɲ #| ORIG : ∅ > j̃ / [+hi,+round,+syl] __ ɲ #
 ∅ > j̃ / [+lo,+syl] __ ɲ #| ORIG : ∅ > j̃  / [+lo,+syl] __ ɲ #
 ∅ > j̃ / [-round,-hi,-lo,+tense,+front] __ ɲ #| ORIG : ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ɲ [+syl]| ORIG : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __  ɲ [+syl]

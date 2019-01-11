@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :722:
-#mˌuːrˈɑːliɑ# >>> #myʁɛ̃j# ( Correct : #myʁɑj#) :
+#mˌuːrˈɑːliɑ# >>> #myʁɑj# ( Correct : #myʁɑj#) :
 m ˌuː r ˈɑː l i ɑ 
 #mˌuːrˈɑːlɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˌuːrˈɑːljɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -10,18 +10,15 @@ m ˌuː r ˈɑː l i ɑ
 #mˌurˈɑːʎɑ# | Rule 89 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌurˈaːʎa# | Rule 157 : [+lo,+syl] > [+front,-back] 
 #mˌʉrˈaːʎa# | Rule 194 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#mˌʉrˈae̯ʎa# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˌʉrˈae̯ʎə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌʉrˈeːʎə# | Rule 304 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#mˌyrˈeːʎə# | Rule 346 : [+hi,+round,-back] > [+front] 
-#mˌyrˈeːj̃ʎə# | Rule 372 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ʎ [+syl]
-#mˌyrˈẽːj̃ʎə# | Rule 404 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#mˌyrˈɛ̃ːj̃ʎə# | Rule 436 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#mˌyrˈɛ̃ːʎə# | Rule 437 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#mˌyrˈɛ̃ːʎə̯# | Rule 497 : ə > ə̯ / __ #
-#mˌyrˈɛ̃ːʎ# | Rule 504 : ə̯ > ∅ 
-#mˌyʀˈɛ̃ːʎ# | Rule 514 : r > ʀ 
-#myʀɛ̃ːʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʀɛ̃ʎ# | Rule 516 : [+syl,+long] > [-long,-splng] 
-#myʁɛ̃ʎ# | Rule 522 : ʀ > ʁ 
-#myʁɛ̃j# | Rule 523 : ʎ > j 
+#mˌʉrˈaʎa# | Rule 272 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#mˌʉrˈaʎə# | Rule 284 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌyrˈaʎə# | Rule 348 : [+hi,+round,-back] > [+front] 
+#mˌyrˈaːʎə# | Rule 466 : [+lo,+syl] > [+long] / __ ʎ ə #
+#mˌyrˈɑːʎə# | Rule 484 : [+lo,+long,+syl] > [+back,-front] 
+#mˌyrˈɑːʎə̯# | Rule 499 : ə > ə̯ / __ #
+#mˌyrˈɑːʎ# | Rule 506 : ə̯ > ∅ 
+#mˌyʀˈɑːʎ# | Rule 516 : r > ʀ 
+#myʀɑːʎ# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#myʀɑʎ# | Rule 518 : [+syl,+long] > [-long,-splng] 
+#myʁɑʎ# | Rule 524 : ʀ > ʁ 
+#myʁɑj# | Rule 525 : ʎ > j 

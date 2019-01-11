@@ -12,19 +12,18 @@ Trajectory file for run 'run1'; etymon number :89:
 #ˌawrˈeːçʎa# | Rule 169 : [+lat] > ʎ / [+hi,+front,+cons] __ 
 #ˌɔwrˈeːçʎa# | Rule 187 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
 #ˌɔwrˈeːʎa# | Rule 195 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
-#ˌɔwrˈejʎa# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌowrˈejʎa# | Rule 275 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌowrˈejʎə# | Rule 282 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌowrˈeʎə# | Rule 361 : j > ∅ / [+front,+tense,-hi,-lo] __ ʎ
-#ˌewrˈeʎə# | Rule 362 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#ˌewrˈej̃ʎə# | Rule 372 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ʎ [+syl]
-#ˌəwrˈej̃ʎə# | Rule 393 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#ˌəwrˈẽj̃ʎə# | Rule 404 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#ˌəwrˈɛ̃j̃ʎə# | Rule 436 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#ˌəwrˈɛ̃ʎə# | Rule 437 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#ˌəwrˈɛ̃ʎə̯# | Rule 497 : ə > ə̯ / __ #
-#ˌəwrˈɛ̃ʎ# | Rule 504 : ə̯ > ∅ 
-#ˌəwʀˈɛ̃ʎ# | Rule 514 : r > ʀ 
-#əwʀɛ̃ʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#əwʁɛ̃ʎ# | Rule 522 : ʀ > ʁ 
-#əwʁɛ̃j# | Rule 523 : ʎ > j 
+#ˌɔwrˈeʎa# | Rule 272 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#ˌowrˈeʎa# | Rule 277 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#ˌowrˈeʎə# | Rule 284 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌewrˈeʎə# | Rule 364 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#ˌewrˈej̃ʎə# | Rule 374 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ʎ [+syl]
+#ˌəwrˈej̃ʎə# | Rule 395 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#ˌəwrˈẽj̃ʎə# | Rule 406 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#ˌəwrˈɛ̃j̃ʎə# | Rule 438 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#ˌəwrˈɛ̃ʎə# | Rule 439 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#ˌəwrˈɛ̃ʎə̯# | Rule 499 : ə > ə̯ / __ #
+#ˌəwrˈɛ̃ʎ# | Rule 506 : ə̯ > ∅ 
+#ˌəwʀˈɛ̃ʎ# | Rule 516 : r > ʀ 
+#əwʀɛ̃ʎ# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#əwʁɛ̃ʎ# | Rule 524 : ʀ > ʁ 
+#əwʁɛ̃j# | Rule 525 : ʎ > j 

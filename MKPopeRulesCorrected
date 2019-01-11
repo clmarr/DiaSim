@@ -878,6 +878,7 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION: But it is incorrect for this rule to operate before glides except j
 	$ not intended to apply to diphthongs with j aka i̯ as element 
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+$ CORRECTION before ʎ is CLOSED in this case unless we are talking about /i/ 
 [+syl] > [-long] / __ [+syl] # 
 [+syl] > [-long] / __ [+syl] [+cons,-son]
 [+syl] > [-long] / __ [+syl] [+cons,+nas]
@@ -888,6 +889,8 @@ $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and th
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+[+prim,-front] > [-long] / __ ʎ 
+[+prim,-hi] > [-long] / __ ʎ
 
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
@@ -1166,7 +1169,7 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
 $ Must be after o>u, but called "Early Old French" by Pope (s406)-- TODO may need to handle length. 
-∅ > j / [+hi,+round,+syl] __ ɲ #
+∅ > j̃ / [+hi,+round,+syl] __ ɲ #
 ∅ > j̃  / [+lo,+syl] __ ɲ #
 ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 

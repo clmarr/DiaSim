@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :26:
-#ˈɑllium# >>> #ɛj# ( Correct : #aj#) :
+#ˈɑllium# >>> #aj# ( Correct : #aj#) :
 ˈɑ l l i u m 
 #ˈɑllɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˈɑlljʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -12,9 +12,6 @@ Trajectory file for run 'run1'; etymon number :26:
 #ˈaːʎə# | Rule 207 : [-stres,-lo,+syl] > ə 
 #ˈaːʎə̯# | Rule 208 : ə > ə̯ 
 #ˈaːʎ# | Rule 220 : ə̯ > ∅ 
-#ˈae̯ʎ# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈeːʎ# | Rule 304 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈɛːʎ# | Rule 442 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat]
-#ɛːʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɛʎ# | Rule 516 : [+syl,+long] > [-long,-splng] 
-#ɛj# | Rule 523 : ʎ > j 
+#ˈaʎ# | Rule 272 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#aʎ# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aj# | Rule 525 : ʎ > j 

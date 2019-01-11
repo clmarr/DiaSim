@@ -16,12 +16,11 @@ Trajectory file for run 'run1'; etymon number :77:
 #ˌart̪ˈeːʎə# | Rule 207 : [-stres,-lo,+syl] > ə 
 #ˌart̪ˈeːʎə̯# | Rule 208 : ə > ə̯ 
 #ˌart̪ˈeːʎ# | Rule 220 : ə̯ > ∅ 
-#ˌart̪ˈejʎ# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌart̪ˈeʎ# | Rule 361 : j > ∅ / [+front,+tense,-hi,-lo] __ ʎ
-#ˌart̪ˈɛʎ# | Rule 433 : ˈe > ˈɛ 
-#ˌaɹt̪ˈɛʎ# | Rule 499 : r > ɹ / [-cons] __ [+cons]
-#ˌart̪ˈɛʎ# | Rule 512 : ɹ > r 
-#ˌaʀt̪ˈɛʎ# | Rule 514 : r > ʀ 
-#aʀt̪ɛʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aʁt̪ɛʎ# | Rule 522 : ʀ > ʁ 
-#aʁt̪ɛj# | Rule 523 : ʎ > j 
+#ˌart̪ˈeʎ# | Rule 272 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#ˌart̪ˈɛʎ# | Rule 435 : ˈe > ˈɛ 
+#ˌaɹt̪ˈɛʎ# | Rule 501 : r > ɹ / [-cons] __ [+cons]
+#ˌart̪ˈɛʎ# | Rule 514 : ɹ > r 
+#ˌaʀt̪ˈɛʎ# | Rule 516 : r > ʀ 
+#aʀt̪ɛʎ# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʁt̪ɛʎ# | Rule 524 : ʀ > ʁ 
+#aʁt̪ɛj# | Rule 525 : ʎ > j 

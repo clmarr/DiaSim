@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :151:
-#bˈulliˈen̪t̪em# >>> #bøjæ̃# ( Correct : #bujɑ̃#) :
+#bˈulliˈen̪t̪em# >>> #bwajæ̃# ( Correct : #bujɑ̃#) :
 b ˈu l l i ˈe n̪ t̪ e m 
 #bˈʊllɪˈɛn̪t̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #bˈʊlljˈɛn̪t̪ɛm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -12,14 +12,16 @@ b ˈu l l i ˈe n̪ t̪ e m
 #bˈoːʎˈɛ?t̪ə# | Rule 207 : [-stres,-lo,+syl] > ə 
 #bˈoːʎˈɛ?t̪ə̯# | Rule 208 : ə > ə̯ 
 #bˈoːʎˈɛ?t̪# | Rule 220 : ə̯ > ∅ 
-#bˈowʎˈɛ?t̪# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#bˈowʎˈɛ̃?t̪# | Rule 350 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#bˈewʎˈɛ̃?t̪# | Rule 362 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#bˈewʎˈæ̃?t̪# | Rule 380 : [+nas,-hi,+syl] > [+lo] 
-#bˈøwʎˈæ̃?t̪# | Rule 395 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#bˈøʎˈæ̃?t̪# | Rule 399 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#bˈøʎˈæ̃ːt̪# | Rule 483 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#bˈøʎˈæ̃ː# | Rule 503 : [-son] > ∅ / __ #
-#bøʎæ̃ː# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bøʎæ̃# | Rule 516 : [+syl,+long] > [-long,-splng] 
-#bøjæ̃# | Rule 523 : ʎ > j 
+#bˈoʎˈɛ?t̪# | Rule 271 : [+prim,-front] > [-long,-splng] / __ ʎ
+#bˈoʎˈɛ̃?t̪# | Rule 352 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#bˈuʎˈɛ̃?t̪# | Rule 369 : [+round,+tense,+back] > [+hi] 
+#bˈujʎˈɛ̃?t̪# | Rule 376 : ∅ > j / [+hi,+round,+stres] __ ʎ [+syl]
+#bˈujʎˈæ̃?t̪# | Rule 382 : [+nas,-hi,+syl] > [+lo] 
+#bˈuɛ̯ʎˈæ̃?t̪# | Rule 411 : j > ɛ̯ / [+syl,+back,+round] __ 
+#bwˈɛʎˈæ̃?t̪# | Rule 414 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#bwˈɛʎˈæ̃ːt̪# | Rule 485 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#bwˈɛʎˈæ̃ː# | Rule 505 : [-son] > ∅ / __ #
+#bwɛʎæ̃ː# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bwɛʎæ̃# | Rule 518 : [+syl,+long] > [-long,-splng] 
+#bwaʎæ̃# | Rule 522 : ɛ > a / w __ 
+#bwajæ̃# | Rule 525 : ʎ > j 

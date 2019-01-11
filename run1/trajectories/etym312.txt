@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :312:
-#ɡˌen̪ˈukulum# >>> #ʒæn̪œj# ( Correct : #ʒən̪u#) :
+#ɡˌen̪ˈukulum# >>> #ʒæn̪u# ( Correct : #ʒən̪u#) :
 ɡ ˌe n̪ ˈu k u l u m 
 #ɡˌɛn̪ˈʊkʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ɡˌɛn̪ˈʊklʊm# | Rule 30 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
@@ -16,16 +16,13 @@ Trajectory file for run 'run1'; etymon number :312:
 #d͡ʒˌɛn̪ˈoːʎə# | Rule 207 : [-stres,-lo,+syl] > ə 
 #d͡ʒˌɛn̪ˈoːʎə̯# | Rule 208 : ə > ə̯ 
 #d͡ʒˌɛn̪ˈoːʎ# | Rule 220 : ə̯ > ∅ 
-#d͡ʒˌɛn̪ˈowʎ# | Rule 272 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d͡ʒˌen̪ˈowʎ# | Rule 275 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#d͡ʒˌẽn̪ˈowʎ# | Rule 350 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#d͡ʒˌẽn̪ˈewʎ# | Rule 362 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#d͡ʒˌɛ̃n̪ˈewʎ# | Rule 375 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#d͡ʒˌæ̃n̪ˈewʎ# | Rule 380 : [+nas,-hi,+syl] > [+lo] 
-#d͡ʒˌæ̃n̪ˈøwʎ# | Rule 395 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#d͡ʒˌæ̃n̪ˈøʎ# | Rule 399 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ʒˌæ̃n̪ˈøʎ# | Rule 427 : [+delrel] > [+cont,.delrel] 
-#ʒˌæn̪ˈøʎ# | Rule 507 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ʒæn̪øʎ# | Rule 515 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʒæn̪œʎ# | Rule 519 : ø > œ / __ ( [+cons] )* #
-#ʒæn̪œj# | Rule 523 : ʎ > j 
+#d͡ʒˌɛn̪ˈoʎ# | Rule 271 : [+prim,-front] > [-long,-splng] / __ ʎ
+#d͡ʒˌen̪ˈoʎ# | Rule 277 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#d͡ʒˌẽn̪ˈoʎ# | Rule 352 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#d͡ʒˌẽn̪ˈuʎ# | Rule 369 : [+round,+tense,+back] > [+hi] 
+#d͡ʒˌɛ̃n̪ˈuʎ# | Rule 377 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#d͡ʒˌæ̃n̪ˈuʎ# | Rule 382 : [+nas,-hi,+syl] > [+lo] 
+#ʒˌæ̃n̪ˈuʎ# | Rule 429 : [+delrel] > [+cont,.delrel] 
+#ʒˌæ̃n̪ˈu# | Rule 447 : [+lat] > ∅ / [+hi,+syl] __ #
+#ʒˌæn̪ˈu# | Rule 509 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ʒæn̪u# | Rule 517 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
