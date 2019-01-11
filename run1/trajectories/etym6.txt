@@ -9,21 +9,25 @@ Trajectory file for run 'run1'; etymon number :6:
 #ˈɑɟʝɑcɛ# | Rule 68 : [+back,+front] > [-back] 
 #ˈɑɟɑcɛ# | Rule 75 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #ˈɑʝɑcɛ# | Rule 81 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#ˈɑːʝɑcɛ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɑːʝɑt͡sʲɛ# | Rule 151 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#ˈaːʝat͡sʲɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#ˈaːat͡sʲɛ# | Rule 181 : ʝ > ∅ / [-cons] __ [-cons]
-#ˈaːət͡sʲɛ# | Rule 217 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈaːət͡sʲə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#ˈaːə̯t͡sʲə̯# | Rule 220 : ə > ə̯ 
-#ˈaːət͡sʲə̯# | Rule 223 : ə̯ > ə / __ [+front,+cons]
-#ˈaːət͡sʲ# | Rule 232 : ə̯ > ∅ 
-#ˈae̯ət͡sʲ# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈeːət͡sʲ# | Rule 325 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈeːət͡s# | Rule 363 : t͡sʲ > t͡s 
-#ˈeːəs# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#ˈeːs# | Rule 476 : ə > ∅ / [+syl] __ 
-#ˈɛːs# | Rule 516 : ˈeː > ˈɛː / __ [+cons] #
-#ˈɛː# | Rule 523 : [-son] > ∅ / __ #
-#ɛː# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɛ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#ˈɑːʝɑcɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɑːʝɑt͡sʲɛ# | Rule 141 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#ˈaːʝat͡sʲɛ# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#ˈaːat͡sʲɛ# | Rule 169 : ʝ > ∅ / [-cons] __ [-cons]
+#ˈaːət͡sʲɛ# | Rule 202 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈaːət͡sʲə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#ˈaːə̯t͡sʲə̯# | Rule 205 : ə > ə̯ 
+#ˈaːət͡sʲə̯# | Rule 208 : ə̯ > ə / __ [+front,+cons]
+#ˈaːət͡sʲ# | Rule 217 : ə̯ > ∅ 
+#ˈaət͡sʲ# | Rule 232 : [+syl] > [-long,-splng] / __ [+syl] [+cons,-son]
+#ˈaːət͡sʲ# | Rule 236 : [+prim] > [+long] / __ [+syl]
+#ˈaət͡sʲ# | Rule 259 : [+syl] > [-long,-splng] / __ [+syl] [+cons,-son]
+#ˈaːət͡sʲ# | Rule 263 : [+prim] > [+long] / __ [+syl]
+#ˈae̯ət͡sʲ# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈeːət͡sʲ# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˈeːət͡s# | Rule 339 : t͡sʲ > t͡s 
+#ˈeːəs# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#ˈeːs# | Rule 452 : ə > ∅ / [+syl] __ 
+#ˈɛːs# | Rule 492 : ˈeː > ˈɛː / __ [+cons] #
+#ˈɛː# | Rule 499 : [-son] > ∅ / __ #
+#ɛː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛ# | Rule 512 : [+syl,+long] > [-long,-splng] 

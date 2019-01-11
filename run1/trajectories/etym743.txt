@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :743:
-#n̪ˌepˈoːt̪em# >>> #n̪vu# ( Correct : #n̪əvø#) :
+#n̪ˌepˈoːt̪em# >>> #n̪vœ# ( Correct : #n̪əvø#) :
 n̪ ˌe p ˈoː t̪ e m 
 #n̪ˌɛpˈoːt̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #n̪ˌɛpˈot̪ɛm# | Rule 47 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
 #n̪ˌɛpˈot̪ɛ# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˌɛpˈoːt̪ɛ# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˌɛpˈoːt̪ə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#n̪ˌɛpˈoːt̪ə̯# | Rule 220 : ə > ə̯ 
-#n̪ˌɛpˈoːt̪# | Rule 232 : ə̯ > ∅ 
-#n̪ˌɛpˈot̪# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
-#n̪ˌɛbˈot̪# | Rule 267 : [-voi] > [+voi] / [+syl] __ [+syl]
-#n̪ˌɛβˈot̪# | Rule 270 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
-#n̪ˌeβˈot̪# | Rule 296 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#n̪ˌevˈot̪# | Rule 298 : β > v 
-#n̪ˌevˈoθ# | Rule 300 : [-cont,-delrel] > [+cont,.delrel] / [+syl] __ #
-#n̪ˌəvˈoθ# | Rule 374 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#n̪ˌəvˈuθ# | Rule 387 : [+round,+tense,+back] > [+hi] 
-#n̪ˌəvˈu# | Rule 410 : {θ;ð} > {∅;∅} 
-#n̪əvu# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪vu# | Rule 548 : ə > ∅ / # [-syl] __ [-syl] [+syl]
+#n̪ˌɛpˈoːt̪ɛ# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˌɛpˈoːt̪ə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#n̪ˌɛpˈoːt̪ə̯# | Rule 205 : ə > ə̯ 
+#n̪ˌɛpˈoːt̪# | Rule 217 : ə̯ > ∅ 
+#n̪ˌɛbˈoːt̪# | Rule 247 : [-voi] > [+voi] / [+syl] __ [+syl]
+#n̪ˌɛβˈoːt̪# | Rule 250 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [+son,-lat,-nas]
+#n̪ˌɛβˈowt̪# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#n̪ˌeβˈowt̪# | Rule 272 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#n̪ˌevˈowt̪# | Rule 274 : β > v 
+#n̪ˌəvˈowt̪# | Rule 350 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#n̪ˌəvˈewt̪# | Rule 358 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#n̪ˌəvˈøwt̪# | Rule 391 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#n̪ˌəvˈøt̪# | Rule 395 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#n̪ˌəvˈø# | Rule 499 : [-son] > ∅ / __ #
+#n̪əvø# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪əvœ# | Rule 515 : ø > œ / __ ( [+cons] )* #
+#n̪vœ# | Rule 524 : ə > ∅ / # [-syl] __ [-syl] [+syl]

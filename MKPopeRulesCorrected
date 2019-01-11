@@ -319,16 +319,14 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+$ CORRECTION: But it is nevertheless incorrect for this rule to operate before glides except for j
+	$ not intended to effect diphthongs with j = i̯ as element
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl]
+[+prim] > [+long] / __ j [+syl]
 [+prim] > [+long] / __ [+cons] [-cons] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-
-$ BUT-- she does not intend for this to be applied in her diphthongs
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
@@ -460,18 +458,18 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
-[+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+$ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways...
+	$ not intended to effect diphthongs with j = i̯
+$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )
+[+syl] > [-long] / __ [-syl] # 
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
+[+prim] > [+long] / __ # 
+[+prim] > [+long] / __ [+syl]
+[+prim] > [+long] / __ j [+syl]
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$ but she does not intend for this to apply to her diphthongs
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
 $ when preceded by a palatal 
@@ -547,10 +545,6 @@ $Final unstressed i, o, u become semi-vocalic and combine into diphthong with pr
 o > u / [+syl,+prim] __ # 
 [+hi,+syl,-stres] > [-syl] / [+prim] __ # 
 
-$ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
-{ɑ;ˌɑ;ˈɑ;ˈɑː;ɑ w;ˌɑ w;ˈɑ w;ˈɑː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-[+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
-
 $ CORRECTION: deletion of e (<ɪ, eː unstressed) before t then  ɑː 
 e > ∅ / __ t̪ [+lo,+long]
 
@@ -621,19 +615,19 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+$ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways...
+	$ but not intended to effect diphthongs with j = i̯ as second element
+$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+[+syl] > [-long] / __ [-syl] # 
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl]
+[+prim] > [+long] / __ j [+syl]
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$She does not intend for this to apply to her diphthongs
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
@@ -649,6 +643,11 @@ $ s298-302, s413-415 -- Beginning of second palatalization
 $ Note: although Pope lists the second palatalization for the next period, her notes make it clear that she holds it to have preceded the a-raising therefore e/o-breaking phenomena
 $ so caused. 
 [+hi,+back,+cons] > [+front] / __ [+front,+syl] 
+
+$ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
+$ must bleed s413 but not second palatalization
+{a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+[+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
 
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
@@ -787,19 +786,19 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+$ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways. 
+	$ but not intended to effect diphthongs with j as second element
+$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+[+syl] > [-long] / __ [+syl] # 
+[+syl] > [-long] / __ [+syl] [+cons,-son]
+[+syl] > [-long] / __ [+syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl]
+[+prim] > [+long] / __ j [+syl]
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$she does not intend for this to apply to her diphthongs
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
@@ -862,23 +861,25 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+$ CORRECTION: But it is incorrect for this rule to operate before glides except j
+	$ not intended to apply to diphthongs with j aka i̯ as element 
+$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+[+syl] > [-long] / __ [+syl] # 
+[+syl] > [-long] / __ [+syl] [+cons,-son]
+[+syl] > [-long] / __ [+syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl]  
+[+prim] > [+long] / __ j [+syl]
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$ But she does not intend for this rule to apply to her diphthongs
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
 $ and also s164-14 : "second bout of diphthongization of lax e tonic free
+$ CORRECTION : if eː is already coming before j, that is absorbed
+ˈeː j > ˈe j 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
 
 $ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 

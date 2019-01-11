@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :796:
-#pˌɑlˈɑːt̪ium# >>> #pala# ( Correct : #palɛ#) :
+#pˌɑlˈɑːt̪ium# >>> #palɛ# ( Correct : #palɛ#) :
 p ˌɑ l ˈɑː t̪ i u m 
 #pˌɑlˈɑːt̪ɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɑlˈɑːt̪jʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -9,13 +9,16 @@ p ˌɑ l ˈɑː t̪ i u m
 #pˌɑlˈɑt̪ʝo# | Rule 62 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #pˌɑlˈɑt͡sʲʝo# | Rule 65 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #pˌɑlˈɑt͡sʲo# | Rule 75 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#pˌɑlˈɑːt͡sʲo# | Rule 86 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˌalˈaːt͡sʲo# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#pˌalˈaːt͡sʲə# | Rule 219 : [-stres,-lo,+syl] > ə 
-#pˌalˈaːt͡sʲə̯# | Rule 220 : ə > ə̯ 
-#pˌalˈaːt͡sʲ# | Rule 232 : ə̯ > ∅ 
-#pˌalˈat͡sʲ# | Rule 246 : [+syl] > [-long,-splng] / __ [+cons] #
-#pˌalˈat͡s# | Rule 363 : t͡sʲ > t͡s 
-#pˌalˈas# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#pˌalˈa# | Rule 523 : [-son] > ∅ / __ #
-#pala# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌɑlˈɑːt͡sʲo# | Rule 87 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌalˈaːt͡sʲo# | Rule 153 : [+lo,+syl] > [+front,-back] 
+#pˌalˈaːt͡sʲə# | Rule 204 : [-stres,-lo,+syl] > ə 
+#pˌalˈaːt͡sʲə̯# | Rule 205 : ə > ə̯ 
+#pˌalˈaːt͡sʲ# | Rule 217 : ə̯ > ∅ 
+#pˌalˈae̯t͡sʲ# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌalˈeːt͡sʲ# | Rule 301 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˌalˈeːt͡s# | Rule 339 : t͡sʲ > t͡s 
+#pˌalˈeːs# | Rule 423 : [+delrel] > [+cont,.delrel] 
+#pˌalˈɛːs# | Rule 492 : ˈeː > ˈɛː / __ [+cons] #
+#pˌalˈɛː# | Rule 499 : [-son] > ∅ / __ #
+#palɛː# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#palɛ# | Rule 512 : [+syl,+long] > [-long,-splng] 
