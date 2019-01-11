@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1238:
-#t̪rˈikɑssae̯# >>> #t̪ʁujjs# ( Correct : #t̪ʁwa#) :
+#t̪rˈikɑssae̯# >>> #t̪ʁwas# ( Correct : #t̪ʁwa#) :
 t̪ r ˈi k ɑ s s a e̯ 
 #t̪rˈikɑssɑe̯# | Rule 2 : [+lo,+syl] > [-front,+back] 
 #t̪rˈikɑssae̯# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
@@ -21,15 +21,17 @@ t̪ r ˈi k ɑ s s a e̯
 #t̪rˈeːʝsʲsə# | Rule 220 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #t̪rˈeːʝjssə# | Rule 255 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
 #t̪rˈeːʝssə# | Rule 256 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#t̪rˈejʝssə# | Rule 269 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪rˈejjssə# | Rule 299 : ʝ > j / [-cons] __ 
-#t̪rˈejjsə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#t̪rˈojjsə# | Rule 359 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t̪rˈujjsə# | Rule 363 : [+round,+tense,+back] > [+hi] 
-#t̪rˈuɛ̯jsə# | Rule 405 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t̪rˈujjsə# | Rule 406 : ɛ̯ > j / [+syl,+back,+round] __ j
-#t̪rˈujjsə̯# | Rule 493 : ə > ə̯ / __ #
-#t̪rˈujjs# | Rule 500 : ə̯ > ∅ 
-#t̪ʀˈujjs# | Rule 510 : r > ʀ 
-#t̪ʀujjs# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ʁujjs# | Rule 518 : ʀ > ʁ 
+#t̪rˈejssə# | Rule 268 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#t̪rˈejsə# | Rule 328 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#t̪rˈojsə# | Rule 359 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪rˈujsə# | Rule 363 : [+round,+tense,+back] > [+hi] 
+#t̪rˈuɛ̯sə# | Rule 405 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪rwˈɛsə# | Rule 408 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪rwˈɛːsə# | Rule 461 : [+front,-round,+syl] > [+long] / __ s ə #
+#t̪rwˈɛːsə̯# | Rule 493 : ə > ə̯ / __ #
+#t̪rwˈɛːs# | Rule 500 : ə̯ > ∅ 
+#t̪ʀwˈɛːs# | Rule 510 : r > ʀ 
+#t̪ʀwɛːs# | Rule 511 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀwɛs# | Rule 512 : [+syl,+long] > [-long,-splng] 
+#t̪ʀwas# | Rule 516 : ɛ > a / w __ 
+#t̪ʁwas# | Rule 518 : ʀ > ʁ 
