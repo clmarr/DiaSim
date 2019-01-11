@@ -138,8 +138,12 @@ $ CORRECTION: hits after ɡ too -- cases of digitum, fugitam. Any vowel can come
 $ CORRECTION: hits before n too -- cases of plantaginem, acinum and circinum. Any vowel can come before the n.
 [+syl,-stres,+front] > ∅ / [+syl] [+hi,+back,-cont] __ [+cor,-strid,-lat,+voi] [+syl] 
 
+$ CORRECTION : slur short i between ɣʷ and k 
+$ Pope sort of implies this has occurred in s187i but doesn't state it elsewhere
+ɪ > ∅ / ɣʷ __ k
+
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring"  $Note this has no effect as per Pope, even though she talks about slurring here, no slurring from a ɣʷ is anywhere close to be effectivev yet...
-$ɣʷ > w / __ [+cons]
+ɣʷ > w / __ [+cons]
 
 $ CORRECTION: a much more effective and thorough way to describe the apparent contexts of deconsonantalization of ɣʷ here...
 $ actually covering two shifts
@@ -727,7 +731,7 @@ $ s257ia : ə intertonic retained when after cons + r or l but not rr or ll
 $ s257ib : ə intertonic retained when before ʎ,ɲ,ts or "any particularly heavy group of consonants"  
 ə̯ > ə / __ [+front,+cons]
 ə̯ > ə / __ [-syl] [+front,-cont]
-ə̯ > ə / __ [-syl] [-syl] [-syl]
+ə̯ > ə / __ [+cons] [+cons] [+cons]
 $s258a : ə retained before n̪ t̪ #
 ə̯ > ə / __ n̪ t̪ (ə̯) #
 $s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
