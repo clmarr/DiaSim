@@ -492,9 +492,9 @@ $ Must come bore assibilation of first palatalization results, which would bleed
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
 $ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, and any o with any level of stress raise to u before diphthongization can occur
-$ CORRECTION: ɔ tonic unblocked is also hit. 
-[+back,-hi,+stres] > [+hi,+tense] / __ [+nas,+cons]
-
+$ CORRECTION : these go to already nasalized ũ, so that it will not get fronted. 
+[+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
+{ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
 
 $ s163-10 ~ s225, 227 -- first completed in Gallo Roman period I i.e. 6th-7th century as per s163-10
 $ RECURRENT throughout period as per s162
@@ -610,7 +610,7 @@ $ feeds dental palatalization
 ŋ > ɲ / __ [+strid,+cont]
 
 $ s321, absorption of following nasal by ɲ
-[+nas] > ∅ / ɲ __ 
+[+nas,+cons] > ∅ / ɲ __ 
 
 $ s322 
 [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -690,7 +690,7 @@ $ hits former tonic a
 $ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
 $ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
 $ s9 -- due to Gaulish (also happened in Welsh,Breton,Cornish)
-[+hi,+tense,+round,+syl] > [-front,-back]
+[+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
 $~MIDDLE GALLO-ROMAN
 $ Seventh century as per Pope s164
@@ -707,7 +707,7 @@ $ as per s372 -- also happens before r,l,m,n
 $ RECURRENT as per s162
 $ since g and b have already opened and htey recur-- and ɟ doesnˌt occur in the right context -- we can include them too. 
 $ however b explicitly doesnˌt not open before l or nasals as per s372
-[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 
 $ s355-356 first opening of final t,d
@@ -841,7 +841,7 @@ $ hits former tonic a
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
-[+hi,+tense,+round,+syl] > [-front,-back]
+[+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
 $ s164-5 ~ ss334
 $ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
@@ -853,12 +853,12 @@ $ we can just have this as a universal intervocalic voicing rule
 [-voi] > [+voi] / [+syl] __ [+syl] 
 $ as per s372 p, t also voice before l,r and t voices before n 
 [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
-t̪ > d̪ / __ [+nas]
+t̪ > d̪ / __ [+nas,+cons]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesnˌt.
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
-[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 $ s372 d > ð before nasals , and then ð > z before n "sometimes" 
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)

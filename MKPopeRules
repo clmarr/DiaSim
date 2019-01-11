@@ -509,7 +509,7 @@ $ feeds dental palatalization
 ŋ > ɲ / __ [+strid,+cont]
 
 $ s321, absorption of following nasal by ɲ
-[+nas] > ∅ / ɲ __ 
+[+nas,+cons] > ∅ / ɲ __ 
 
 $ s322 
 [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -601,7 +601,7 @@ $ as per s372 -- also happens before r,l,m,n
 $ RECURRENT as per s162
 $ since g and b have already opened and htey recur-- and ɟ doesnˌt occur in the right context -- we can include them too. 
 $ however b explicitly doesnˌt not open before l or nasals as per s372
-[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 
 $ s355-356 first opening of final t,d
@@ -748,12 +748,12 @@ $ we can just have this as a universal intervocalic voicing rule
 [-voi] > [+voi] / [+syl] __ [+syl] 
 $ as per s372 p, t also voice before l,r and t voices before n 
 [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
-t̪ > d̪ / __ [+nas]
+t̪ > d̪ / __ [+nas,+cons]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesnˌt.
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
-[-delrel,+voi] > [+cont] / [-cons] __ [+son,-lat,-nas]
+[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 $ s372 d > ð before nasals , and then ð > z before n "sometimes" 
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
