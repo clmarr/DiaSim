@@ -1,29 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1359:
-#wˌoːt̪ˈɑːre# >>> #vuɛʁ# ( Correct : #vwe#) :
-w ˌoː t̪ ˈɑː r e 
-#ɣʷˌoːt̪ˈɑːre# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌoːt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˌoːt̪ˈɑːrɛ# | Rule 45 : ɣʷ > βʷ 
-#βʷˌot̪ˈɑːrɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌot̪ˈɑrɛ# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#βʷˌot̪ˈɑːrɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˌot̪ˈɑːrɛ# | Rule 106 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌot̪ˈaːrɛ# | Rule 161 : [+lo,+syl] > [+front,-back] 
-#βˌot̪ˈaːrə# | Rule 218 : [-stres,-lo,+syl] > ə 
-#βˌot̪ˈaːrə̯# | Rule 219 : ə > ə̯ 
-#βˌot̪ˈaːr# | Rule 231 : ə̯ > ∅ 
-#βˌod̪ˈaːr# | Rule 261 : [-voi] > [+voi] / [+syl] __ [+syl]
-#βˌoðˈaːr# | Rule 264 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#βˌoðˈae̯r# | Rule 286 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˌoðˈae̯r# | Rule 291 : β > v 
-#vˌoðˈeːr# | Rule 318 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#vˌuðˈeːr# | Rule 381 : [+round,+tense,+back] > [+hi] 
-#vˌuˈeːr# | Rule 404 : {θ;ð} > {∅;∅} 
-#vˌuˈɛːr# | Rule 458 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#v?ˈɛːr# | Rule 501 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#v?ˈɛːɹ# | Rule 512 : r > ɹ / [-cons] __ #
-#v?ˈɛːr# | Rule 526 : ɹ > r 
-#v?ˈɛːʀ# | Rule 528 : r > ʀ 
-#vuɛːʀ# | Rule 529 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vuɛʀ# | Rule 530 : [+syl,+long] > [-long,-splng] 
-#vuɛʁ# | Rule 536 : ʀ > ʁ 
+#wˈoːt̪um# >>> #vœ# ( Correct : #vø#) :
+w ˈoː t̪ u m 
+#ɣʷˈoːt̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈoːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈoːt̪ʊm# | Rule 45 : ɣʷ > βʷ 
+#βʷˈot̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈot̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈot̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈoːt̪o# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈoːt̪o# | Rule 106 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈoːt̪ə# | Rule 219 : [-stres,-lo,+syl] > ə 
+#βˈoːt̪ə̯# | Rule 220 : ə > ə̯ 
+#βˈoːt̪# | Rule 232 : ə̯ > ∅ 
+#βˈowt̪# | Rule 287 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈowt̪# | Rule 292 : β > v 
+#vˈewt̪# | Rule 377 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#vˈøwt̪# | Rule 410 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˈøt̪# | Rule 414 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˈø# | Rule 518 : [-son] > ∅ / __ #
+#vø# | Rule 530 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vœ# | Rule 534 : ø > œ / __ ( [+cons] )* #

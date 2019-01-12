@@ -126,7 +126,8 @@ $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those 
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
 $ CORRECTION : -mulum endings also effected (cumulum > comble; tremulum > tremble) 
 $ CORRECTION : -rula endings also effected (berula (Gaul.) > berle not bierle) 
-ʊ > ∅ / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
+$ CORRECTION: -olum,-olus endings also included
+{ʊ;o} > {∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
@@ -401,6 +402,12 @@ $ CORRECTION: include also ɸʷ
 
 $ CORRECTION: ɸ deleted if in between consonants.
 ɸ > ∅ / [+cons] __ [+cons] 
+
+$ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
+$ CORRECTION: occurs in all -ika- instances including inside the word (i.e. praedicatorem >precheur)
+$ CORRECTION: occurs only after voicing if the e is preceded by cons + r 
+e k > ɡ / [+cons] r __ ɑ
+e > ∅ / __ k ɑ
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -697,7 +704,7 @@ $ Raising of free a to ɛ if preceded by palatal consonants
 $ CORRECTION: unless at beginning of word, this does not happen before nasal consonants and also doesn't happen before ʝ
 ˈaː > ˈɛː / # [+cons,+front] __
 ˈaː > ˈɛː / [+cons,+front] __ [+cons,-front,-nas]
-ˈaː > ˈɛː / [+cons,+front] __ {rʲ;ɣʲ}
+ˈaː > ˈɛː / [+cons,+front] __ rʲ $rʲ is the only one except ʝ that would occur in the relevant spot in the dataset. 
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
