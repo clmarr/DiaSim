@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1318:
-#wˌiˈɑːt̪ikum# >>> #vjet̪ɣ# ( Correct : #vwajaʒ#) :
+#wˌiˈɑːt̪ikum# >>> #vjɛʒ# ( Correct : #vwajaʒ#) :
 w ˌi ˈɑː t̪ i k u m 
 #ɣʷˌiˈɑːt̪ikum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɪˈɑːt̪ɪkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -17,13 +17,17 @@ w ˌi ˈɑː t̪ i k u m
 #βˌejˈaːt̪əɣə# | Rule 219 : [-stres,-lo,+syl] > ə 
 #βˌejˈaːt̪ə̯ɣə̯# | Rule 220 : ə > ə̯ 
 #βˌejˈaːt̪ə̯ɣə# | Rule 231 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#βˌejˈaːt̪ɣə# | Rule 232 : ə̯ > ∅ 
-#βˌejˈae̯t̪ɣə# | Rule 287 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˌejˈae̯t̪ɣə# | Rule 292 : β > v 
-#vˌejˈeːt̪ɣə# | Rule 319 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#vˌəjˈeːt̪ɣə# | Rule 368 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#vˌəjˈeːt̪ɣə̯# | Rule 512 : ə > ə̯ / __ #
-#vˌəjˈeːt̪ɣ# | Rule 519 : ə̯ > ∅ 
-#vəjeːt̪ɣ# | Rule 530 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vəjet̪ɣ# | Rule 531 : [+syl,+long] > [-long,-splng] 
-#vjet̪ɣ# | Rule 543 : ə > ∅ / # [-syl] __ [-syl] [+syl]
+#βˌejˈaːt̪əɣə# | Rule 232 : ə̯ > ə / t̪ __ ɣ
+#βˌejˈaːd̪əɣə# | Rule 263 : [-voi] > [+voi] / [+syl] __ [+syl]
+#βˌejˈaːd͡ʒə# | Rule 266 : {t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ} 
+#βˌejˈae̯d͡ʒə# | Rule 289 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌejˈae̯d͡ʒə# | Rule 294 : β > v 
+#vˌejˈeːd͡ʒə# | Rule 321 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#vˌəjˈeːd͡ʒə# | Rule 370 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#vˌəjˈeːʒə# | Rule 444 : [+delrel] > [+cont,.delrel] 
+#vˌəjˈɛːʒə# | Rule 512 : ˈeː > ˈɛː / __ [+cons] ə
+#vˌəjˈɛːʒə̯# | Rule 514 : ə > ə̯ / __ #
+#vˌəjˈɛːʒ# | Rule 521 : ə̯ > ∅ 
+#vəjɛːʒ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vəjɛʒ# | Rule 533 : [+syl,+long] > [-long,-splng] 
+#vjɛʒ# | Rule 545 : ə > ∅ / # [-syl] __ [-syl] [+syl]

@@ -230,6 +230,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 ə̯ > ə / [-lat,-syl] l __ #| ORIG : ə̯ > ə / [-lat,-syl] l __ #
 ə̯ > ə / [-son] r __ #| ORIG : ə̯ > ə / [-son] r __ #
 ə̯ > ə / ə̯ ( [-syl] )* __ #| ORIG : ə̯ > ə / ə̯ ([-syl])* __ # 
+ə̯ > ə / t̪ __ ɣ| ORIG : ə̯ > ə / t̪ __ ɣ
 ə̯ > ∅ | ORIG : ə̯ > ∅ 
 t̪ > d̪ / [+lab,+voi,-hi,+cons] __ | ORIG : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
 t̪ > d̪ / ʝ __ | ORIG : t̪ > d̪ / ʝ __ 
@@ -263,6 +264,7 @@ n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat]
 [-voi] > [+voi] / [+syl] __ [+syl]| ORIG : [-voi] > [+voi] / [+syl] __ [+syl] 
 [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]| ORIG : [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]| ORIG : t̪ > d̪ / __ [+nas,+cons]
+{t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ} | ORIG : {t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ}
 [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]| ORIG : [-delrel,+voi] > [+cont] / [-cons] __  [-cons]
 [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r| ORIG : [-delrel,+voi] > [+cont] / [-cons] __  r
 [-delrel,-lab,+voi] > [+cont,.delrel] / [-cons] __ [+lat]| ORIG : [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
@@ -471,7 +473,7 @@ e̯ > ə̯ / __ [+round,+back,-hi]| ORIG : e̯ > ə̯ / __ [+round,+back,-hi]
 [+stres] > [+long] / __ ə| ORIG : [+stres] > [+long] / __ ə
 ə > ∅ / [+syl] __ | ORIG : ə > ∅ / [+syl] __ 
 [+lo,+syl] [+lo,+syl] > ∅ [+long]| ORIG : [+lo,+syl] [+lo,+syl] > ∅ [+long]
-[-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]| ORIG : [-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
+[-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]| ORIG : [-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
 [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]| ORIG : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
 ˌa ˈũ > ˈãː | ORIG : ˌa ˈũ > ˈãː
 ˌa ˈi > ˈa j | ORIG : ˌa ˈi > ˈa j

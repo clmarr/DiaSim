@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :12:
-#ˌae̯t̪ˈɑːt̪ikum# >>> #et̪ɣ# ( Correct : #ɑʒ#) :
+#ˌae̯t̪ˈɑːt̪ikum# >>> #ɛʒ# ( Correct : #ɑʒ#) :
 ˌa e̯ t̪ ˈɑː t̪ i k u m 
 #ˌɑe̯t̪ˈɑːt̪ikum# | Rule 3 : [+lo,+syl] > [-front,+back] 
 #ˌae̯t̪ˈɑːt̪ikum# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
@@ -17,16 +17,19 @@ Trajectory file for run 'run1'; etymon number :12:
 #ˌɛt̪ˈaːt̪əɣə# | Rule 219 : [-stres,-lo,+syl] > ə 
 #ˌɛt̪ˈaːt̪ə̯ɣə̯# | Rule 220 : ə > ə̯ 
 #ˌɛt̪ˈaːt̪ə̯ɣə# | Rule 231 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#ˌɛt̪ˈaːt̪ɣə# | Rule 232 : ə̯ > ∅ 
-#ˌɛd̪ˈaːt̪ɣə# | Rule 262 : [-voi] > [+voi] / [+syl] __ [+syl]
-#ˌɛðˈaːt̪ɣə# | Rule 265 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#ˌɛðˈae̯t̪ɣə# | Rule 287 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌeðˈae̯t̪ɣə# | Rule 290 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌeðˈeːt̪ɣə# | Rule 319 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌəðˈeːt̪ɣə# | Rule 368 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#ˌəˈeːt̪ɣə# | Rule 405 : {θ;ð} > {∅;∅} 
-#ˈeːt̪ɣə# | Rule 467 : ˌə > ∅ / __ [+syl]
-#ˈeːt̪ɣə̯# | Rule 512 : ə > ə̯ / __ #
-#ˈeːt̪ɣ# | Rule 519 : ə̯ > ∅ 
-#eːt̪ɣ# | Rule 530 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#et̪ɣ# | Rule 531 : [+syl,+long] > [-long,-splng] 
+#ˌɛt̪ˈaːt̪əɣə# | Rule 232 : ə̯ > ə / t̪ __ ɣ
+#ˌɛd̪ˈaːd̪əɣə# | Rule 263 : [-voi] > [+voi] / [+syl] __ [+syl]
+#ˌɛd̪ˈaːd͡ʒə# | Rule 266 : {t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ} 
+#ˌɛðˈaːd͡ʒə# | Rule 267 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#ˌɛðˈae̯d͡ʒə# | Rule 289 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌeðˈae̯d͡ʒə# | Rule 292 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#ˌeðˈeːd͡ʒə# | Rule 321 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˌəðˈeːd͡ʒə# | Rule 370 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#ˌəˈeːd͡ʒə# | Rule 407 : {θ;ð} > {∅;∅} 
+#ˌəˈeːʒə# | Rule 444 : [+delrel] > [+cont,.delrel] 
+#ˈeːʒə# | Rule 469 : ˌə > ∅ / __ [+syl]
+#ˈɛːʒə# | Rule 512 : ˈeː > ˈɛː / __ [+cons] ə
+#ˈɛːʒə̯# | Rule 514 : ə > ə̯ / __ #
+#ˈɛːʒ# | Rule 521 : ə̯ > ∅ 
+#ɛːʒ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛʒ# | Rule 533 : [+syl,+long] > [-long,-splng] 

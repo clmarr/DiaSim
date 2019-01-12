@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :279:
-#fˌormˈɑːt̪ikum# >>> #fuʁmet̪ɣ# ( Correct : #fʁomaʒ#) :
+#fˌormˈɑːt̪ikum# >>> #fuʁmɛʒ# ( Correct : #fʁomaʒ#) :
 f ˌo r m ˈɑː t̪ i k u m 
 #fˌɔrmˈɑːt̪ɪkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #fˌɔrmˈɑt̪ɪkʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
@@ -13,16 +13,20 @@ f ˌo r m ˈɑː t̪ i k u m
 #fˌɔrmˈaːt̪əɣə# | Rule 219 : [-stres,-lo,+syl] > ə 
 #fˌɔrmˈaːt̪ə̯ɣə̯# | Rule 220 : ə > ə̯ 
 #fˌɔrmˈaːt̪ə̯ɣə# | Rule 231 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#fˌɔrmˈaːt̪ɣə# | Rule 232 : ə̯ > ∅ 
-#fˌɔrmˈae̯t̪ɣə# | Rule 287 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˌormˈae̯t̪ɣə# | Rule 290 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#fˌormˈeːt̪ɣə# | Rule 319 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#fˌurmˈeːt̪ɣə# | Rule 382 : [+round,+tense,+back] > [+hi] 
-#fˌurmˈeːt̪ɣə̯# | Rule 512 : ə > ə̯ / __ #
-#fˌuɹmˈeːt̪ɣə̯# | Rule 514 : r > ɹ / [-cons] __ [+cons]
-#fˌuɹmˈeːt̪ɣ# | Rule 519 : ə̯ > ∅ 
-#fˌurmˈeːt̪ɣ# | Rule 527 : ɹ > r 
-#fˌuʀmˈeːt̪ɣ# | Rule 529 : r > ʀ 
-#fuʀmeːt̪ɣ# | Rule 530 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fuʀmet̪ɣ# | Rule 531 : [+syl,+long] > [-long,-splng] 
-#fuʁmet̪ɣ# | Rule 537 : ʀ > ʁ 
+#fˌɔrmˈaːt̪əɣə# | Rule 232 : ə̯ > ə / t̪ __ ɣ
+#fˌɔrmˈaːd̪əɣə# | Rule 263 : [-voi] > [+voi] / [+syl] __ [+syl]
+#fˌɔrmˈaːd͡ʒə# | Rule 266 : {t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ} 
+#fˌɔrmˈae̯d͡ʒə# | Rule 289 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˌormˈae̯d͡ʒə# | Rule 292 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#fˌormˈeːd͡ʒə# | Rule 321 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#fˌurmˈeːd͡ʒə# | Rule 384 : [+round,+tense,+back] > [+hi] 
+#fˌurmˈeːʒə# | Rule 444 : [+delrel] > [+cont,.delrel] 
+#fˌurmˈɛːʒə# | Rule 512 : ˈeː > ˈɛː / __ [+cons] ə
+#fˌurmˈɛːʒə̯# | Rule 514 : ə > ə̯ / __ #
+#fˌuɹmˈɛːʒə̯# | Rule 516 : r > ɹ / [-cons] __ [+cons]
+#fˌuɹmˈɛːʒ# | Rule 521 : ə̯ > ∅ 
+#fˌurmˈɛːʒ# | Rule 529 : ɹ > r 
+#fˌuʀmˈɛːʒ# | Rule 531 : r > ʀ 
+#fuʀmɛːʒ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fuʀmɛʒ# | Rule 533 : [+syl,+long] > [-long,-splng] 
+#fuʁmɛʒ# | Rule 539 : ʀ > ʁ 

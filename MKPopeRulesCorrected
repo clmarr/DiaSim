@@ -790,6 +790,8 @@ $ CORRECTION : Pope only has ə retained after ɫ -- but per her notes (s390) ɫ
 ə̯ > ə / [-son] r __ #
 $s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
 ə̯ > ə / ə̯ ([-syl])* __ # 
+$ CORRECTION ə temporarily retained between t and ɣ, just long enough for t to lenit 
+ə̯ > ə / t̪ __ ɣ
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
@@ -877,7 +879,12 @@ $ we can just have this as a universal intervocalic voicing rule
 $ as per s372 p, t also voice before l,r and t voices before n 
 [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
-$ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesnˌt.
+$ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
+
+$ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
+$ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
+$ CORRECTION: where d has remained t, it becomes a voiceless tʃ
+{t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ}
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
@@ -1526,7 +1533,7 @@ $ s270 : began in the 14th century but not accepted until the 16th.
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
 [+lo,+syl] [+lo,+syl] > ∅ [+long]
-[-lo,-hi,+front,-round] [-lo,-hi,+front,-round] > ∅ [+long]
+[-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
 [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
 
 $ s242b specifications on coalescence of countertonic a
