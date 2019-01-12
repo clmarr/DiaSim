@@ -484,7 +484,8 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways...
 	$ not intended to effect diphthongs with j = i̯
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )
-[+syl] > [-long] / __ [-syl] # 
+$ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda
+$ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
 [+prim] > [+long] / __ # 
@@ -655,7 +656,8 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways...
 	$ but not intended to effect diphthongs with j = i̯ as second element
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
-[+syl] > [-long] / __ [-syl] # 
+$ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
@@ -841,9 +843,10 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION: But it is incorrect for this rule to operate before glides except j anyways. 
 	$ but not intended to effect diphthongs with j as second element
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
-[+syl] > [-long] / __ [+syl] # 
-[+syl] > [-long] / __ [+syl] [+cons,-son]
-[+syl] > [-long] / __ [+syl] [+cons,+nas]
+$ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ [+syl] > [-long] / __ [-syl] #
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]
@@ -884,7 +887,8 @@ $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ 
 $ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
 $ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
 $ CORRECTION: where d has remained t, it becomes a voiceless tʃ
-{t̪ ə ɣ;d̪ ə ɣ} > {t͡ʃ;d͡ʒ}
+$ CORRECTION: t and d are actually preserved before the new affricates at first. 
+{t̪ ə ɣ;d̪ ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ}
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
@@ -922,9 +926,10 @@ $ CORRECTION: But it is incorrect for this rule to operate before glides except 
 	$ not intended to apply to diphthongs with j aka i̯ as element 
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION before ʎ is CLOSED in this case unless we are talking about /i/ 
-[+syl] > [-long] / __ [+syl] # 
-[+syl] > [-long] / __ [+syl] [+cons,-son]
-[+syl] > [-long] / __ [+syl] [+cons,+nas]
+$ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ [+syl] > [-long] / __ [-syl] #
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]  
