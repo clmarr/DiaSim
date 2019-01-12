@@ -1,12 +1,17 @@
 Trajectory file for run 'run1'; etymon number :243:
-#fˈel# >>> #fjɛl# ( Correct : #fjɛl#) :
-f ˈe l 
-#fˈɛl# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈɛːl# | Rule 93 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#fˈie̯l# | Rule 137 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#fˈie̯lə# | Rule 353 : ∅ > ə / [-lat,-syl] l __ #
-#fjˈelə# | Rule 407 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#fjˈɛlə# | Rule 446 : ˈe > ˈɛ 
-#fjˈɛlə̯# | Rule 510 : ə > ə̯ / __ #
-#fjˈɛl# | Rule 517 : ə̯ > ∅ 
-#fjɛl# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fˈerɑm# >>> #fjaʁ# ( Correct : #fjɛʁ#) :
+f ˈe r ɑ m 
+#fˈɛrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈɛrɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈɛːrɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈie̯rɑ# | Rule 137 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#fˈie̯ra# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#fˈie̯rə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#fjˈerə# | Rule 407 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#fjˈɛrə# | Rule 446 : ˈe > ˈɛ 
+#fjˈarə# | Rule 451 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#fjˈarə̯# | Rule 510 : ə > ə̯ / __ #
+#fjˈar# | Rule 517 : ə̯ > ∅ 
+#fjˈaʀ# | Rule 527 : r > ʀ 
+#fjaʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fjaʁ# | Rule 535 : ʀ > ʁ 

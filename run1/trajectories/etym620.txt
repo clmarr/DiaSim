@@ -1,20 +1,23 @@
 Trajectory file for run 'run1'; etymon number :620:
-#mˈɑɡis# >>> #mɛ# ( Correct : #mɛ#) :
-m ˈɑ ɡ i s 
-#mˈɑɡɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɑɡes# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɑɡʲes# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#mˈɑɟes# | Rule 70 : [+back,+front] > [-back] 
-#mˈɑʝes# | Rule 85 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#mˈɑːʝes# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈaːʝes# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#mˈaːes# | Rule 178 : ʝ > ∅ / ˈaː __ e
-#mˈaːəs# | Rule 217 : [-stres,-lo,+syl] > ə 
-#mˈaːə̯s# | Rule 218 : ə > ə̯ 
-#mˈaːs# | Rule 231 : ə̯ > ∅ 
-#mˈae̯s# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˈeːs# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#mˈɛːs# | Rule 509 : ˈeː > ˈɛː / __ [+cons] #
-#mˈɛː# | Rule 516 : [-son] > ∅ / __ #
-#mɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#mˌɑkiˈoːn̪em# >>> #masɔ̃# ( Correct : #masɔ̃#) :
+m ˌɑ k i ˈoː n̪ e m 
+#mˌɑkɪˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˌɑkjˈoːn̪ɛm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#mˌɑkʝˈoːn̪ɛm# | Rule 26 : j > ʝ / __ [+syl]
+#mˌɑkʝˈon̪ɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˌɑkʝˈon̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˌɑccˈon̪ɛ# | Rule 68 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
+#mˌɑccˈoːn̪ɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌɑccˈũːn̪ɛ# | Rule 135 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#mˌɑt̪t͡sʲˈũːn̪ɛ# | Rule 148 : c c > t̪ t͡sʲ 
+#mˌat̪t͡sʲˈũːn̪ɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#mˌat̪t͡sʲˈũːn̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#mˌat̪t͡sʲˈũːn̪ə̯# | Rule 218 : ə > ə̯ 
+#mˌat̪t͡sʲˈũːn̪# | Rule 231 : ə̯ > ∅ 
+#mˌat͡sʲˈũːn̪# | Rule 341 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˌat͡sˈũːn̪# | Rule 355 : t͡sʲ > t͡s 
+#mˌasˈũːn̪# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#mˌasˈũː# | Rule 497 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#masũː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#masũ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#masɔ̃# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 

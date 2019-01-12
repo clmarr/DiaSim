@@ -1,10 +1,20 @@
 Trajectory file for run 'run1'; etymon number :901:
-#plˈɑt̪t̪ɑm# >>> #plat̪# ( Correct : #plat̪#) :
-p l ˈɑ t̪ t̪ ɑ m 
-#plˈɑt̪t̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#plˈat̪t̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#plˈat̪t̪ə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat̪ə# | Rule 341 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat̪ə̯# | Rule 510 : ə > ə̯ / __ #
-#plˈat̪# | Rule 517 : ə̯ > ∅ 
-#plat̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈɑt̪t̪eɑm# >>> #plɑs# ( Correct : #plas#) :
+p l ˈɑ t̪ t̪ e ɑ m 
+#plˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈɑt̪t̪jɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˈɑt̪t̪ʝɑm# | Rule 26 : j > ʝ / __ [+syl]
+#plˈɑt̪t̪ʝɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɑt̪t͡sʲʝɑ# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#plˈɑt̪t͡sʲɑ# | Rule 77 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#plˈat̪t͡sʲa# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#plˈat̪t͡sʲə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈat͡sʲə# | Rule 341 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#plˈat͡sə# | Rule 355 : t͡sʲ > t͡s 
+#plˈasə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#plˈaːsə# | Rule 478 : [+front,-round,+syl] > [+long] / __ s ə #
+#plˈɑːsə# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#plˈɑːsə̯# | Rule 510 : ə > ə̯ / __ #
+#plˈɑːs# | Rule 517 : ə̯ > ∅ 
+#plɑːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɑs# | Rule 529 : [+syl,+long] > [-long,-splng] 

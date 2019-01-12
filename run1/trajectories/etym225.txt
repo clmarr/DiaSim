@@ -1,8 +1,13 @@
 Trajectory file for run 'run1'; etymon number :225:
-#ˌet̪# >>> #e# ( Correct : #e#) :
-ˌe t̪ 
-#ˌɛt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɛθ# | Rule 210 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#ˌeθ# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌe# | Rule 403 : {θ;ð} > {∅;∅} 
-#e# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fˈɑlsɑm# >>> #fos# ( Correct : #fos#) :
+f ˈɑ l s ɑ m 
+#fˈɑlsɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈɑɫsɑ# | Rule 116 : l > ɫ / __ [+cons,-lat]
+#fˈaɫsa# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#fˈaɫsə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈawsə# | Rule 398 : [+lat,+back] > w 
+#fˈoːsə# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#fˈoːsə̯# | Rule 510 : ə > ə̯ / __ #
+#fˈoːs# | Rule 517 : ə̯ > ∅ 
+#foːs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fos# | Rule 529 : [+syl,+long] > [-long,-splng] 

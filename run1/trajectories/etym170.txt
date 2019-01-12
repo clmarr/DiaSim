@@ -1,16 +1,25 @@
 Trajectory file for run 'run1'; etymon number :170:
-#d̪eːˈun̪d̪e# >>> #d̪ɔ̃# ( Correct : #d̪ɔ̃#) :
-d̪ eː ˈu n̪ d̪ e 
-#d̪eːˈʊn̪d̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪eˈʊn̪d̪ɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#d̪eˈon̪d̪ɛ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#d̪eˈũn̪d̪ɛ# | Rule 135 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
-#d̪əˈũn̪d̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#d̪ə̯ˈũn̪d̪ə̯# | Rule 218 : ə > ə̯ 
-#d̪ˈũn̪d̪# | Rule 231 : ə̯ > ∅ 
-#d̪ˈũn̪t̪# | Rule 299 : [-son] > [-voi] / __ #
-#d̪ˈũːt̪# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#d̪ˈũː# | Rule 516 : [-son] > ∅ / __ #
-#d̪ũː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪ũ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#d̪ɔ̃# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#d̪iːrˈekt̪ɑm# >>> #d̪ʁijt̪# ( Correct : #d̪ʁwat̪#) :
+d̪ iː r ˈe k t̪ ɑ m 
+#d̪iːrˈɛkt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪irˈɛkt̪ɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪irˈɛxt̪ɑm# | Rule 55 : k > x / [-cons] __ [+cor,-voi]
+#d̪irˈɛxt̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪irˈɛxt̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#d̪irˈɛçt̪a# | Rule 170 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#d̪irˈɛçt̪ʲa# | Rule 175 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#d̪irˈie̯çt̪ʲa# | Rule 192 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+#d̪ərˈie̯çt̪ʲa# | Rule 217 : [-stres,-lo,+syl] > ə 
+#d̪ə̯rˈie̯çt̪ʲa# | Rule 218 : ə > ə̯ 
+#d̪rˈie̯çt̪ʲa# | Rule 231 : ə̯ > ∅ 
+#d̪rˈie̯çjt̪a# | Rule 270 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#d̪rˈie̯çt̪a# | Rule 271 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#d̪rˈie̯çt̪ə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#d̪rˈie̯ʝt̪ə# | Rule 313 : ç > ʝ 
+#d̪rˈie̯jt̪ə# | Rule 315 : ʝ > j / [-cons] __ 
+#d̪rˈijt̪ə# | Rule 378 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#d̪rˈijt̪ə̯# | Rule 510 : ə > ə̯ / __ #
+#d̪rˈijt̪# | Rule 517 : ə̯ > ∅ 
+#d̪ʀˈijt̪# | Rule 527 : r > ʀ 
+#d̪ʀijt̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ʁijt̪# | Rule 535 : ʀ > ʁ 

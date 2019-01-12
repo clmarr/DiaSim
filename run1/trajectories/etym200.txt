@@ -1,14 +1,17 @@
 Trajectory file for run 'run1'; etymon number :200:
-#d̪uˈoːs# >>> #d̪wœ# ( Correct : #d̪ø#) :
-d̪ u ˈoː s 
-#d̪ʊˈoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪wˈoːs# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#d̪wˈos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#d̪wˈoːs# | Rule 93 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈows# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪wˈews# | Rule 375 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#d̪wˈøws# | Rule 408 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#d̪wˈøs# | Rule 412 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#d̪wˈø# | Rule 516 : [-son] > ∅ / __ #
-#d̪wø# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪wœ# | Rule 532 : ø > œ / __ ( [+cons] )* #
+#d̪ˈuːroːs# >>> #d̪yʁ# ( Correct : #d̪yʁ#) :
+d̪ ˈuː r oː s 
+#d̪ˈuros# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˈuːros# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪?ros# | Rule 203 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#d̪?rəs# | Rule 217 : [-stres,-lo,+syl] > ə 
+#d̪?rə̯s# | Rule 218 : ə > ə̯ 
+#d̪?rs# | Rule 231 : ə̯ > ∅ 
+#d̪ˈʉrs# | Rule 245 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#d̪ˈyrs# | Rule 359 : [+hi,+round,-back] > [+front] 
+#d̪ˈyɹs# | Rule 512 : r > ɹ / [-cons] __ [+cons]
+#d̪ˈyɹ# | Rule 516 : [-son] > ∅ / __ #
+#d̪ˈyr# | Rule 525 : ɹ > r 
+#d̪ˈyʀ# | Rule 527 : r > ʀ 
+#d̪yʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪yʁ# | Rule 535 : ʀ > ʁ 

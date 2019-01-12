@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :729:
-#n̪ˈɑːn̪ɑm# >>> #n̪ɐ̃n̪# ( Correct : #n̪ɛn̪#) :
-n̪ ˈɑː n̪ ɑ m 
-#n̪ˈɑn̪ɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#n̪ˈɑn̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɑːn̪ɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˈaːn̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#n̪ˈae̯n̪a# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#n̪ˈae̯n̪ə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈeːn̪ə# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#n̪ˈẽːn̪ə# | Rule 363 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#n̪ˈɛ̃ːn̪ə# | Rule 388 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈæ̃ːn̪ə# | Rule 393 : [+nas,-hi,+syl] > [+lo] 
-#n̪ˈɐ̃ːn̪ə# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
-#n̪ˈɐ̃ːn̪ə̯# | Rule 510 : ə > ə̯ / __ #
-#n̪ˈɐ̃ːn̪# | Rule 517 : ə̯ > ∅ 
-#n̪ɐ̃ːn̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ɐ̃n̪# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#n̪ˈɑːsum# >>> #n̪ɛ# ( Correct : #n̪e#) :
+n̪ ˈɑː s u m 
+#n̪ˈɑːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɑsʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#n̪ˈɑsom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɑso# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˈɑːso# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˈɑːzo# | Rule 113 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#n̪ˈaːzo# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#n̪ˈaːzə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#n̪ˈaːzə̯# | Rule 218 : ə > ə̯ 
+#n̪ˈaːz# | Rule 231 : ə̯ > ∅ 
+#n̪ˈae̯z# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#n̪ˈae̯s# | Rule 299 : [-son] > [-voi] / __ #
+#n̪ˈeːs# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#n̪ˈɛːs# | Rule 509 : ˈeː > ˈɛː / __ [+cons] #
+#n̪ˈɛː# | Rule 516 : [-son] > ∅ / __ #
+#n̪ɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 

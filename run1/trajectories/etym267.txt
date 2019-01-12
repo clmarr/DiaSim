@@ -1,17 +1,20 @@
 Trajectory file for run 'run1'; etymon number :267:
-#flˌɑɡˈellum# >>> #flɛjɛl# ( Correct : #fleo#) :
-f l ˌɑ ɡ ˈe l l u m 
-#flˌɑɡˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#flˌɑɡˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#flˌɑɡˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#flˌɑɡʲˈɛllo# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#flˌɑɟˈɛllo# | Rule 70 : [+back,+front] > [-back] 
-#flˌɑʝˈɛllo# | Rule 85 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#flˌaʝˈɛllo# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#flˌajˈɛllo# | Rule 176 : ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
-#flˌajˈɛllə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#flˌajˈɛllə̯# | Rule 218 : ə > ə̯ 
-#flˌajˈɛll# | Rule 231 : ə̯ > ∅ 
-#flˌajˈɛl# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#flˌɛjˈɛl# | Rule 523 : [+lo,+front] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+prim]
-#flɛjɛl# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fˈoliɑ# >>> #fœj# ( Correct : #fœj#) :
+f ˈo l i ɑ 
+#fˈɔlɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈɔljɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#fˈɔlʝɑ# | Rule 26 : j > ʝ / __ [+syl]
+#fˈɔʎɑ# | Rule 81 : l ʝ > ʎ 
+#fˈɔːʎɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈuo̯ʎɑ# | Rule 137 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#fˈuo̯ʎa# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#fˈʉo̯ʎa# | Rule 203 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#fˈʉo̯ʎə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈyo̯ʎə# | Rule 359 : [+hi,+round,-back] > [+front] 
+#fˈye̯ʎə# | Rule 367 : o̯ > e̯ 
+#fˈøʎə# | Rule 395 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#fˈøʎə̯# | Rule 510 : ə > ə̯ / __ #
+#fˈøʎ# | Rule 517 : ə̯ > ∅ 
+#føʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fœʎ# | Rule 532 : ø > œ / __ ( [+cons] )* #
+#fœj# | Rule 536 : ʎ > j 

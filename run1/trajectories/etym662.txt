@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :662:
-#meoːs# >>> #m̥# ( Correct : #me#) :
-m e oː s 
-#mɛoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mjoːs# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#mʝoːs# | Rule 26 : j > ʝ / __ [+syl]
-#mʝos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mɟos# | Rule 212 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
-#md͡ʒos# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#md͡ʒəs# | Rule 217 : [-stres,-lo,+syl] > ə 
-#md͡ʒə̯s# | Rule 218 : ə > ə̯ 
-#md͡ʒs# | Rule 231 : ə̯ > ∅ 
-#ms# | Rule 321 : [+cons] > ∅ / [+cons] __ [-son]
-#m̥s# | Rule 343 : [-son] > [-voi] / __ [-voi]
-#m̥# | Rule 516 : [-son] > ∅ / __ #
+#mˌed̪iˈɑːliɑ# >>> #mɑj# ( Correct : #maj#) :
+m ˌe d̪ i ˈɑː l i ɑ 
+#mˌɛd̪ɪˈɑːlɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˌɛd̪jˈɑːljɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#mˌɛd̪ʝˈɑːlʝɑ# | Rule 26 : j > ʝ / __ [+syl]
+#mˌɛd̪ʝˈɑlʝɑ# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#mˌɛɟʝˈɑlʝɑ# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#mˌɛɟˈɑlʝɑ# | Rule 77 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#mˌɛɟˈɑʎɑ# | Rule 81 : l ʝ > ʎ 
+#mˌɛʝˈɑʎɑ# | Rule 85 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#mˌɛʝˈɑːʎɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌɛʝˈaːʎa# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#mˌɛˈaːʎa# | Rule 177 : ʝ > ∅ / ˌɛ __ [-cons]
+#mˌɛˈaʎa# | Rule 283 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#mˌeˈaʎa# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#mˌeˈaʎə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌəˈaʎə# | Rule 366 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#mˌaˈaʎə# | Rule 463 : ˌə > ˌa / __ [+lo,+stres]
+#mˈaːʎə# | Rule 470 : [+lo,+syl] [+lo,+syl] > ∅ [+long]
+#mˈɑːʎə# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːʎə̯# | Rule 510 : ə > ə̯ / __ #
+#mˈɑːʎ# | Rule 517 : ə̯ > ∅ 
+#mɑːʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɑʎ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#mɑj# | Rule 536 : ʎ > j 

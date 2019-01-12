@@ -1,20 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1311:
-#wˌest̪ˈiːre# >>> #vest̪iʁ# ( Correct : #vet̪iʁ#) :
-w ˌe s t̪ ˈiː r e 
-#ɣʷˌest̪ˈiːre# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌɛst̪ˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˌɛst̪ˈiːrɛ# | Rule 45 : ɣʷ > βʷ 
-#βʷˌɛst̪ˈirɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌɛst̪ˈiːrɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˌɛst̪ˈiːrɛ# | Rule 106 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌɛst̪ˈiːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#βˌɛst̪ˈiːrə̯# | Rule 218 : ə > ə̯ 
-#βˌɛst̪ˈiːr# | Rule 231 : ə̯ > ∅ 
-#βˌest̪ˈiːr# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#vˌest̪ˈiːr# | Rule 290 : β > v 
-#vˌest̪ˈiːɹ# | Rule 511 : r > ɹ / [-cons] __ #
-#vˌest̪ˈiːr# | Rule 525 : ɹ > r 
-#vˌest̪ˈiːʀ# | Rule 527 : r > ʀ 
-#vest̪iːʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vest̪iʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#vest̪iʁ# | Rule 535 : ʀ > ʁ 
+#wˈet̪ulum# >>> #vjɛj# ( Correct : #vjɛj#) :
+w ˈe t̪ u l u m 
+#ɣʷˈet̪ulum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɛt̪ʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈɛt̪lʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#βʷˈɛt̪lʊm# | Rule 45 : ɣʷ > βʷ 
+#βʷˈɛt̪lom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛklom# | Rule 63 : t̪ > k / __ [+lat]
+#βʷˈɛklo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈɛːklo# | Rule 92 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#βʷˈɛːxlo# | Rule 95 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#βˈɛːxlo# | Rule 106 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈie̯xlo# | Rule 137 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#βˈie̯çlo# | Rule 170 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#βˈie̯çʎo# | Rule 174 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#βˈie̯ʎo# | Rule 204 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#βˈie̯ʎə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#βˈie̯ʎə̯# | Rule 218 : ə > ə̯ 
+#βˈie̯ʎ# | Rule 231 : ə̯ > ∅ 
+#vˈie̯ʎ# | Rule 290 : β > v 
+#vjˈeʎ# | Rule 407 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vjˈɛʎ# | Rule 446 : ˈe > ˈɛ 
+#vjɛʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vjɛj# | Rule 536 : ʎ > j 

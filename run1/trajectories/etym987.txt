@@ -1,16 +1,25 @@
 Trajectory file for run 'run1'; etymon number :987:
-#rˌɑmˈellum# >>> #ʁamɛl# ( Correct : #ʁamo#) :
-r ˌɑ m ˈe l l u m 
-#rˌɑmˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌɑmˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˌɑmˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˌamˈɛllo# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#rˌamˈɛllə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#rˌamˈɛllə̯# | Rule 218 : ə > ə̯ 
-#rˌamˈɛll# | Rule 231 : ə̯ > ∅ 
-#rˌamˈɛl# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#rˌãmˈɛl# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#rˌamˈɛl# | Rule 520 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ʀˌamˈɛl# | Rule 527 : r > ʀ 
-#ʀamɛl# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁamɛl# | Rule 535 : ʀ > ʁ 
+#rˌɑskulˈɑːre# >>> #ʁɑlɛʁ# ( Correct : #ʁɑle#) :
+r ˌɑ s k u l ˈɑː r e 
+#rˌɑskʊlˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˌɑskʊlˈɑrɛ# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#rˌɑskolˈɑrɛ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˌɑskolˈɑːrɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#rˌaskolˈaːrɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#rˌaskəlˈaːrɛ# | Rule 216 : [+syl,-stres,-lo] > ə / __ ( [-syl] )* [+syl,+lo,+prim]
+#rˌaskəlˈaːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#rˌaskə̯lˈaːrə̯# | Rule 218 : ə > ə̯ 
+#rˌasklˈaːr# | Rule 231 : ə̯ > ∅ 
+#rˌasklˈae̯r# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#rˌasklˈeːr# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#rˌazlˈeːr# | Rule 331 : {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
+#rˌaːzlˈeːr# | Rule 364 : [+syl] > [+long] / __ z [+cons]
+#rˌaːlˈeːr# | Rule 365 : z > ∅ / __ [+cons]
+#rˌaːlˈɛːr# | Rule 457 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#rˌɑːlˈɛːr# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#rˌɑːlˈɛːɹ# | Rule 511 : r > ɹ / [-cons] __ #
+#rˌɑːlˈɛːr# | Rule 525 : ɹ > r 
+#ʀˌɑːlˈɛːʀ# | Rule 527 : r > ʀ 
+#ʀɑːlɛːʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɑlɛʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#ʁɑlɛʁ# | Rule 535 : ʀ > ʁ 

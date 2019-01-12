@@ -1,12 +1,19 @@
 Trajectory file for run 'run1'; etymon number :537:
-#kwem# >>> #k# ( Correct : #kə#) :
-k w e m 
-#kɣʷem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kwem# | Rule 6 : ɣʷ > w / [+back,+hi,+cons] __ 
-#kwɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kwəm# | Rule 217 : [-stres,-lo,+syl] > ə 
-#kwə̯m# | Rule 218 : ə > ə̯ 
-#kwm# | Rule 231 : ə̯ > ∅ 
-#kwm̥# | Rule 299 : [-son] > [-voi] / __ #
-#km̥# | Rule 414 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
-#k# | Rule 516 : [-son] > ∅ / __ #
+#kwˈid̪# >>> #kwa# ( Correct : #kwa#) :
+k w ˈi d̪ 
+#kɣʷˈid̪# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#kwˈid̪# | Rule 6 : ɣʷ > w / [+back,+hi,+cons] __ 
+#kwˈɪd̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kwˈed̪# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kwˈeːd̪# | Rule 93 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kwˈeːð# | Rule 210 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#kˈeːð# | Rule 268 : w > ∅ / k __ [+front,-lo]
+#kˈejð# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈejθ# | Rule 299 : [-son] > [-voi] / __ #
+#kˈojθ# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#kˈujθ# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#kˈuj# | Rule 403 : {θ;ð} > {∅;∅} 
+#kˈuɛ̯# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#kwˈɛ# | Rule 425 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#kwɛ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kwa# | Rule 533 : ɛ > a / w __ 

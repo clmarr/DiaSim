@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :892:
-#pˈius# >>> #pwa# ( Correct : #pjø#) :
-p ˈi u s 
-#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈeos# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈeːos# | Rule 89 : [+prim] > [+long] / __ [+syl]
-#pˈeːəs# | Rule 217 : [-stres,-lo,+syl] > ə 
-#pˈeːə̯s# | Rule 218 : ə > ə̯ 
-#pˈeːs# | Rule 231 : ə̯ > ∅ 
-#pˈejs# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˈojs# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#pˈujs# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#pˈuɛ̯s# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pwˈɛs# | Rule 425 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˈɛ# | Rule 516 : [-son] > ∅ / __ #
-#pwɛ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pwa# | Rule 533 : ɛ > a / w __ 
+#plˈɑːn̪um# >>> #plɐ̃# ( Correct : #plɛ̃#) :
+p l ˈɑː n̪ u m 
+#plˈɑːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈɑn̪ʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#plˈɑn̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɑn̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɑːn̪o# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːn̪o# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#plˈaːn̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#plˈaːn̪ə̯# | Rule 218 : ə > ə̯ 
+#plˈaːn̪# | Rule 231 : ə̯ > ∅ 
+#plˈae̯n̪# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈeːn̪# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#plˈẽːn̪# | Rule 363 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#plˈɛ̃ːn̪# | Rule 388 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈæ̃ːn̪# | Rule 393 : [+nas,-hi,+syl] > [+lo] 
+#plˈɐ̃ːn̪# | Rule 495 : [+lo,+long,+syl] > [+back,-front] 
+#plˈɐ̃ː# | Rule 497 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#plɐ̃ː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɐ̃# | Rule 529 : [+syl,+long] > [-long,-splng] 

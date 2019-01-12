@@ -1,27 +1,14 @@
 Trajectory file for run 'run1'; etymon number :899:
-#plˌɑn̪t̪ˈɑːɡin̪em# >>> #plɑ̃t̪ɛ̃# ( Correct : #plɑ̃t̪ɛ̃#) :
-p l ˌɑ n̪ t̪ ˈɑː ɡ i n̪ e m 
-#plˌɑn̪t̪ˈɑːɡɪn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˌɑn̪t̪ˈɑːɡn̪ɛm# | Rule 40 : [+syl,-stres,+front] > ∅ / [+syl] [+hi,+back,-cont] __ [+cor,-strid,-lat,+voi] [+syl]
-#plˌɑn̪t̪ˈɑɡn̪ɛm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#plˌɑn̪t̪ˈɑɡn̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#plˌɑ?t̪ˈɑɡn̪ɛ# | Rule 83 : [+ant,+cons] > [-voi] / __ t̪
-#plˌɑ?t̪ˈɑɣn̪ɛ# | Rule 95 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
-#plˌa?t̪ˈaɣn̪ɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#plˌa?t̪ˈaʝn̪ɛ# | Rule 170 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#plˌa?t̪ˈaʝn̪ʲɛ# | Rule 175 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#plˌa?t̪ˈaʝ?ɛ# | Rule 212 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
-#plˌa?t̪ˈaʝ?ə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#plˌa?t̪ˈaʝ?ə̯# | Rule 218 : ə > ə̯ 
-#plˌa?t̪ˈaʝ?# | Rule 231 : ə̯ > ∅ 
-#plˌa?t̪ˈaʝ?# | Rule 299 : [-son] > [-voi] / __ #
-#plˌa?t̪ˈaj?# | Rule 315 : ʝ > j / [-cons] __ 
-#plˌa?t̪ˈaj̃?# | Rule 360 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#plˌã?t̪ˈãj̃?# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#plˌã?t̪ˈɛ̃j̃?# | Rule 411 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
-#plˌã?t̪ˈɛ̃?# | Rule 450 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#plˌãːt̪ˈɛ̃?# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#plˌãːt̪ˈɛ̃ː# | Rule 497 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#plãːt̪ɛ̃ː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plãt̪ɛ̃# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#plɑ̃t̪ɛ̃# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#plˈɑt̪t̪oːs# >>> #pla# ( Correct : #pla#) :
+p l ˈɑ t̪ t̪ oː s 
+#plˈɑt̪t̪os# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#plˈat̪t̪os# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#plˈat̪t̪əs# | Rule 217 : [-stres,-lo,+syl] > ə 
+#plˈat̪t̪ə̯s# | Rule 218 : ə > ə̯ 
+#plˈat̪t̪s# | Rule 231 : ə̯ > ∅ 
+#plˈat̪s# | Rule 239 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#plˈat͡sʲ# | Rule 320 : [+cor,-cont,-delrel] s > t͡sʲ
+#plˈat͡s# | Rule 355 : t͡sʲ > t͡s 
+#plˈas# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#plˈa# | Rule 516 : [-son] > ∅ / __ #
+#pla# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

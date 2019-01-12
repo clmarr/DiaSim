@@ -1,8 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1138:
-#suˌɑ# >>> #wwa# ( Correct : #sa#) :
-s u ˌɑ 
-#sʊˌɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#swˌɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#swˌa# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#wwˌa# | Rule 303 : [+cont,-son,-hi] > w / __ w
-#wwa# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌublˈon̪ɡum# >>> #sublɔ̃# ( Correct : #səlɔ̃#) :
+s ˌu b l ˈo n̪ ɡ u m 
+#sˌublˈoŋɡum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#sˌʊblˈɔŋɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌoblˈɔŋɡom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌoblˈɔŋɡo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌoblˈũŋɡo# | Rule 136 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#sˌoblˈũŋɡə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#sˌoblˈũŋɡə̯# | Rule 218 : ə > ə̯ 
+#sˌoblˈũŋɡ# | Rule 231 : ə̯ > ∅ 
+#sˌoblˈũŋk# | Rule 299 : [-son] > [-voi] / __ #
+#sˌublˈũŋk# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#sˌublˈũːk# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌublˈũː# | Rule 516 : [-son] > ∅ / __ #
+#sublũː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sublũ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#sublɔ̃# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 

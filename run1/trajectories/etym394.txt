@@ -1,15 +1,24 @@
 Trajectory file for run 'run1'; etymon number :394:
-#kˈɑlks# >>> #ʃo# ( Correct : #ʃo#) :
-k ˈɑ l k s 
-#kˈɑɫks# | Rule 116 : l > ɫ / __ [+cons,-lat]
-#kˈaɫks# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#kʲˈaɫks# | Rule 194 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˈaɫks# | Rule 206 : [+back,+front] > [-back] 
-#t͡ʃˈaɫks# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈaɫs# | Rule 294 : k > ∅ / __ s #
-#t͡ʃˈaws# | Rule 398 : [+lat,+back] > w 
-#ʃˈaws# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#ʃˈoːs# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ʃˈoː# | Rule 516 : [-son] > ∅ / __ #
-#ʃoː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃo# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#kˈɑmerɑm# >>> #ʃɑ̃bʁ# ( Correct : #ʃɑ̃bʁ#) :
+k ˈɑ m e r ɑ m 
+#kˈɑmɛrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɑmɛrɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈɑːmɛrɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˈɑːmrɑ# | Rule 118 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#kˈɑːmbrɑ# | Rule 122 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#kˈɑmbrɑ# | Rule 126 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#kˈambra# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#kʲˈambra# | Rule 194 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈambra# | Rule 206 : [+back,+front] > [-back] 
+#t͡ʃˈambra# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈambrə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈãmbrə# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ʃˈãmbrə# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#ʃˈãːbrə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ʃˈãːbrə̯# | Rule 510 : ə > ə̯ / __ #
+#ʃˈãːbr# | Rule 517 : ə̯ > ∅ 
+#ʃˈãːbʀ# | Rule 527 : r > ʀ 
+#ʃãːbʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃãbʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#ʃɑ̃bʀ# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#ʃɑ̃bʁ# | Rule 535 : ʀ > ʁ 

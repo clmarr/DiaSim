@@ -1,25 +1,15 @@
 Trajectory file for run 'run1'; etymon number :658:
-#mˌɑːt̪ˈuːrum# >>> #myʁ# ( Correct : #myʁ#) :
-m ˌɑː t̪ ˈuː r u m 
-#mˌɑːt̪ˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɑːt̪ˈurʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˌɑt̪ˈurʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#mˌɑt̪ˈurom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˌɑt̪ˈuro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˌɑt̪ˈuːro# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌat̪ˈuːro# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#mˌat̪?ro# | Rule 203 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌat̪?rə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#mˌat̪?rə̯# | Rule 218 : ə > ə̯ 
-#mˌat̪?r# | Rule 231 : ə̯ > ∅ 
-#mˌad̪?r# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
-#mˌað?r# | Rule 264 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#mˌaðˈyːr# | Rule 359 : [+hi,+round,-back] > [+front] 
-#mˌaˈyːr# | Rule 403 : {θ;ð} > {∅;∅} 
-#mˈyːr# | Rule 476 : ˌa > ∅ / __ [+prim]
-#mˈyːɹ# | Rule 511 : r > ɹ / [-cons] __ #
-#mˈyːr# | Rule 525 : ɹ > r 
-#mˈyːʀ# | Rule 527 : r > ʀ 
-#myːʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#myʁ# | Rule 535 : ʀ > ʁ 
+#meoːs# >>> #m̥# ( Correct : #me#) :
+m e oː s 
+#mɛoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mjoːs# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#mʝoːs# | Rule 26 : j > ʝ / __ [+syl]
+#mʝos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mɟos# | Rule 212 : [+hi,+front,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / [+cons] __ [+syl]
+#md͡ʒos# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#md͡ʒəs# | Rule 217 : [-stres,-lo,+syl] > ə 
+#md͡ʒə̯s# | Rule 218 : ə > ə̯ 
+#md͡ʒs# | Rule 231 : ə̯ > ∅ 
+#ms# | Rule 321 : [+cons] > ∅ / [+cons] __ [-son]
+#m̥s# | Rule 343 : [-son] > [-voi] / __ [-voi]
+#m̥# | Rule 516 : [-son] > ∅ / __ #

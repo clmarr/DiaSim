@@ -1,18 +1,11 @@
 Trajectory file for run 'run1'; etymon number :845:
-#pˈen̪d̪it̪ɑm# >>> #pæ̃t̪# ( Correct : #pɑ̃t̪#) :
-p ˈe n̪ d̪ i t̪ ɑ m 
-#pˈɛn̪d̪ɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛn̪d̪et̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈɛn̪d̪et̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈɛn̪d̪t̪ɑ# | Rule 82 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#pˈɛn̪t̪t̪ɑ# | Rule 83 : [+ant,+cons] > [-voi] / __ t̪
-#pˈɛn̪t̪t̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#pˈɛn̪t̪a# | Rule 168 : {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m} > {n̪;s;d̪;t̪;w;m} / [+cons] __ 
-#pˈɛn̪t̪ə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈɛ̃n̪t̪ə# | Rule 363 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˈæ̃n̪t̪ə# | Rule 393 : [+nas,-hi,+syl] > [+lo] 
-#pˈæ̃ːt̪ə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˈæ̃ːt̪ə̯# | Rule 510 : ə > ə̯ / __ #
-#pˈæ̃ːt̪# | Rule 517 : ə̯ > ∅ 
-#pæ̃ːt̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pæ̃t̪# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#pˌer# >>> #pɛʁ# ( Correct : #pɑʁ#) :
+p ˌe r 
+#pˌɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌer# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#pˌɛr# | Rule 457 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#pˌɛɹ# | Rule 511 : r > ɹ / [-cons] __ #
+#pˌɛr# | Rule 525 : ɹ > r 
+#pˌɛʀ# | Rule 527 : r > ʀ 
+#pɛʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɛʁ# | Rule 535 : ʀ > ʁ 

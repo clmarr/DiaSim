@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :504:
-#krˈɑssum# >>> #kʁa# ( Correct : #ɡʁɑ#) :
-k r ˈɑ s s u m 
-#krˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˈɑssom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#krˈɑsso# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#krˈasso# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#krˈassə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#krˈassə̯# | Rule 218 : ə > ə̯ 
-#krˈass# | Rule 231 : ə̯ > ∅ 
-#krˈas# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#krˈa# | Rule 516 : [-son] > ∅ / __ #
-#kʀˈa# | Rule 527 : r > ʀ 
-#kʀa# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʁa# | Rule 535 : ʀ > ʁ 
+#krˈeːt̪ɑm# >>> #kʁwa# ( Correct : #kʁɛ#) :
+k r ˈeː t̪ ɑ m 
+#krˈet̪ɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#krˈet̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#krˈeːt̪ɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#krˈeːt̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#krˈeːd̪a# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
+#krˈeːða# | Rule 264 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#krˈejða# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#krˈejðə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈojðə# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#krˈujðə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#krˈujə# | Rule 403 : {θ;ð} > {∅;∅} 
+#krˈuɛ̯ə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#krwˈɛə# | Rule 425 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#krwˈɛːə# | Rule 468 : [+stres] > [+long] / __ ə
+#krwˈɛː# | Rule 469 : ə > ∅ / [+syl] __ 
+#kʀwˈɛː# | Rule 527 : r > ʀ 
+#kʀwɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀwɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#kʀwa# | Rule 533 : ɛ > a / w __ 
+#kʁwa# | Rule 535 : ʀ > ʁ 

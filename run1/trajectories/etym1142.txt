@@ -1,18 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1142:
-#sˌublˈon̪ɡum# >>> #sublɔ̃# ( Correct : #səlɔ̃#) :
-s ˌu b l ˈo n̪ ɡ u m 
-#sˌublˈoŋɡum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#sˌʊblˈɔŋɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌoblˈɔŋɡom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌoblˈɔŋɡo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌoblˈũŋɡo# | Rule 136 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
-#sˌoblˈũŋɡə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#sˌoblˈũŋɡə̯# | Rule 218 : ə > ə̯ 
-#sˌoblˈũŋɡ# | Rule 231 : ə̯ > ∅ 
-#sˌoblˈũŋk# | Rule 299 : [-son] > [-voi] / __ #
-#sˌublˈũŋk# | Rule 380 : [+round,+tense,+back] > [+hi] 
-#sˌublˈũːk# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌublˈũː# | Rule 516 : [-son] > ∅ / __ #
-#sublũː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sublũ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#sublɔ̃# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#sˌuːd̪ˈoːrem# >>> #syœʁ# ( Correct : #sɥœʁ#) :
+s ˌuː d̪ ˈoː r e m 
+#sˌuːd̪ˈoːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌud̪ˈorɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌud̪ˈorɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌuðˈorɛ# | Rule 85 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#sˌuðˈoːrɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌʉðˈoːrɛ# | Rule 203 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#sˌʉðˈoːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#sˌʉðˈoːrə̯# | Rule 218 : ə > ə̯ 
+#sˌʉðˈoːr# | Rule 231 : ə̯ > ∅ 
+#sˌʉðˈowr# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˌyðˈowr# | Rule 359 : [+hi,+round,-back] > [+front] 
+#sˌyðˈewr# | Rule 375 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#sˌyˈewr# | Rule 403 : {θ;ð} > {∅;∅} 
+#sˌyˈøwr# | Rule 408 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#sˌyˈør# | Rule 412 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#s?ˈør# | Rule 500 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+#s?ˈøɹ# | Rule 511 : r > ɹ / [-cons] __ #
+#s?ˈør# | Rule 525 : ɹ > r 
+#s?ˈøʀ# | Rule 527 : r > ʀ 
+#syøʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#syœʀ# | Rule 532 : ø > œ / __ ( [+cons] )* #
+#syœʁ# | Rule 535 : ʀ > ʁ 

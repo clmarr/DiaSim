@@ -1,22 +1,15 @@
 Trajectory file for run 'run1'; etymon number :265:
-#fˌirmˈɑːre# >>> #fɛʁmɛʁ# ( Correct : #fɛʁme#) :
-f ˌi r m ˈɑː r e 
-#fˌɪrmˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˌɪrmˈɑrɛ# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#fˌermˈɑrɛ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#fˌermˈɑːrɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#fˌermˈaːrɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#fˌermˈaːrə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#fˌermˈaːrə̯# | Rule 218 : ə > ə̯ 
-#fˌermˈaːr# | Rule 231 : ə̯ > ∅ 
-#fˌermˈae̯r# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˌermˈeːr# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#fˌɛrmˈeːr# | Rule 456 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
-#fˌɛrmˈɛːr# | Rule 457 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#fˌɛrmˈɛːɹ# | Rule 511 : r > ɹ / [-cons] __ #
-#fˌɛɹmˈɛːɹ# | Rule 512 : r > ɹ / [-cons] __ [+cons]
-#fˌɛrmˈɛːr# | Rule 525 : ɹ > r 
-#fˌɛʀmˈɛːʀ# | Rule 527 : r > ʀ 
-#fɛʀmɛːʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fɛʀmɛʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#fɛʁmɛʁ# | Rule 535 : ʀ > ʁ 
+#flˈɑwum# >>> #flu# ( Correct : #flu#) :
+f l ˈɑ w u m 
+#flˈɑɣʷum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#flˈɑɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#flˈɑʊm# | Rule 29 : ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round]
+#flˈɑom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#flˈɑo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#flˈɑːo# | Rule 89 : [+prim] > [+long] / __ [+syl]
+#flˈɑːu# | Rule 157 : o > u / [+syl,+prim] __ #
+#flˈɑːw# | Rule 158 : [+hi,+syl,-stres] > [-syl,.stres,.prim] / [+prim] __ #
+#flˈaːw# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#flˈɔw# | Rule 195 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#flˈu# | Rule 415 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#flu# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

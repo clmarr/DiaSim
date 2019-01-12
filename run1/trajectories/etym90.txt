@@ -1,17 +1,26 @@
 Trajectory file for run 'run1'; etymon number :90:
-#ˈɑwrum# >>> #uʁ# ( Correct : #ɔʁ#) :
-ˈɑ w r u m 
-#ˈɑwrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɑwrom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈɑwro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈawro# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#ˈɔwro# | Rule 195 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#ˈɔwrə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#ˈɔwrə̯# | Rule 218 : ə > ə̯ 
-#ˈɔwr# | Rule 231 : ə̯ > ∅ 
-#ˈur# | Rule 415 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#ˈuɹ# | Rule 511 : r > ɹ / [-cons] __ #
-#ˈur# | Rule 525 : ɹ > r 
-#ˈuʀ# | Rule 527 : r > ʀ 
-#uʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#uʁ# | Rule 535 : ʀ > ʁ 
+#ˌɑwˈun̪kulum# >>> #ɔ̃kl# ( Correct : #ɔ̃kl#) :
+ˌɑ w ˈu n̪ k u l u m 
+#ˌɑwˈuŋkulum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#ˌɑɣʷˈuŋkulum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˌɑɣʷˈʊŋkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑˈʊŋkʊlʊm# | Rule 29 : ɣʷ > ∅ / [+syl,+lo] __ [+syl,+round]
+#ˌɑˈʊŋklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˌɑˈoŋklom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑˈoŋklo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌɑˈũŋklo# | Rule 135 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌaˈũŋklo# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#ˌɔˈũŋklo# | Rule 195 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#ˌɔˈũŋklə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#ˌɔˈũŋklə̯# | Rule 218 : ə > ə̯ 
+#ˌɔˈũŋklə# | Rule 227 : ə̯ > ə / [-lat,-syl] l __ #
+#ˌoˈũŋklə# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#ˌuˈũŋklə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#ˌũˈũŋklə# | Rule 416 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#ˈũːŋklə# | Rule 472 : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
+#ˈũːklə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːklə̯# | Rule 510 : ə > ə̯ / __ #
+#ˈũːkl# | Rule 517 : ə̯ > ∅ 
+#ũːkl# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũkl# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#ɔ̃kl# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 

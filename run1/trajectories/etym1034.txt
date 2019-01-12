@@ -1,14 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1034:
-#sˈɑkkum# >>> #sak# ( Correct : #sak#) :
-s ˈɑ k k u m 
-#sˈɑkkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɑkkom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈɑkko# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈakko# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#sˈakkə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#sˈakkə̯# | Rule 218 : ə > ə̯ 
-#sˈakk# | Rule 231 : ə̯ > ∅ 
-#sˈak# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˈakə̯# | Rule 514 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#sˈak# | Rule 517 : ə̯ > ∅ 
-#sak# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈɑlmɑst̪er# >>> #soməst̪ʁ# ( Correct : #somɑt̪ʁ#) :
+s ˈɑ l m ɑ s t̪ e r 
+#sˈɑlmɑst̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈɑlmɑst̪rɛ# | Rule 31 : {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
+#sˈɑɫmɑst̪rɛ# | Rule 116 : l > ɫ / __ [+cons,-lat]
+#sˈaɫmast̪rɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#sˈaɫməst̪rɛ# | Rule 215 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#sˈaɫməst̪rə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#sˈaɫmə̯st̪rə̯# | Rule 218 : ə > ə̯ 
+#sˈaɫməst̪rə̯# | Rule 223 : ə̯ > ə / __ [+cons] [+cons] [+cons]
+#sˈaɫməst̪rə# | Rule 228 : ə̯ > ə / [-son] r __ #
+#sˈawməst̪rə# | Rule 398 : [+lat,+back] > w 
+#sˈoːməst̪rə# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˈoːməst̪rə̯# | Rule 510 : ə > ə̯ / __ #
+#sˈoːməst̪r# | Rule 517 : ə̯ > ∅ 
+#sˈoːməst̪ʀ# | Rule 527 : r > ʀ 
+#soːməst̪ʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#soməst̪ʀ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#soməst̪ʁ# | Rule 535 : ʀ > ʁ 

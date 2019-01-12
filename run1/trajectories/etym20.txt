@@ -1,14 +1,22 @@
 Trajectory file for run 'run1'; etymon number :20:
-#ˌɑlˈɑwsɑm# >>> #aluz# ( Correct : #aloz#) :
-ˌɑ l ˈɑ w s ɑ m 
-#ˌɑlˈɑwsɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌɑlˈɑwzɑ# | Rule 113 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#ˌalˈawza# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#ˌalˈɔwza# | Rule 195 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#ˌalˈɔwzə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌalˈuzə# | Rule 415 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#ˌalˈuːzə# | Rule 502 : [+syl] > [+long] / __ z [+syl]
-#ˌalˈuːzə̯# | Rule 510 : ə > ə̯ / __ #
-#ˌalˈuːz# | Rule 517 : ə̯ > ∅ 
-#aluːz# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aluz# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#ˈɑlid̪sˌiːk# >>> #osi# ( Correct : #osi#) :
+ˈɑ l i d̪ s ˌiː k 
+#ˈɑlɪd̪sˌiːk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɑlɪd̪sˌik# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈɑled̪sˌik# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɑːled̪sˌik# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɑːled̪sˌix# | Rule 138 : k > x / [+syl] __ #
+#ˈaːled̪sˌix# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#ˈaːləd̪sˌix# | Rule 215 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈaːlə̯d̪sˌix# | Rule 218 : ə > ə̯ 
+#ˈaːld̪sˌix# | Rule 231 : ə̯ > ∅ 
+#ˈald̪sˌix# | Rule 245 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#ˈald̪sˌi# | Rule 309 : x > ∅ / [-prim] __ #
+#ˈalt͡sʲˌi# | Rule 320 : [+cor,-cont,-delrel] s > t͡sʲ
+#ˈalt͡sˌi# | Rule 355 : t͡sʲ > t͡s 
+#ˈaɫt͡sˌi# | Rule 358 : [+lat] > [+back] / __ [+cons]
+#ˈawt͡sˌi# | Rule 398 : [+lat,+back] > w 
+#ˈawsˌi# | Rule 440 : [+delrel] > [+cont,.delrel] 
+#ˈoːsˌi# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#oːsi# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#osi# | Rule 529 : [+syl,+long] > [-long,-splng] 

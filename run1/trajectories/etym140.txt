@@ -1,20 +1,18 @@
 Trajectory file for run 'run1'; etymon number :140:
-#brˈɑn̪kɑm# >>> #bʁɑ̃ʃ# ( Correct : #bʁɑ̃ʃ#) :
-b r ˈɑ n̪ k ɑ m 
-#brˈɑŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#brˈɑŋkɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#brˈaŋka# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#brˈaŋkʲa# | Rule 194 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#brˈaŋca# | Rule 206 : [+back,+front] > [-back] 
-#brˈaŋt͡ʃa# | Rule 214 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#brˈaŋt͡ʃə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#brˈãŋt͡ʃə# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#brˈãŋʃə# | Rule 440 : [+delrel] > [+cont,.delrel] 
-#brˈãːʃə# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#brˈãːʃə̯# | Rule 510 : ə > ə̯ / __ #
-#brˈãːʃ# | Rule 517 : ə̯ > ∅ 
-#bʀˈãːʃ# | Rule 527 : r > ʀ 
-#bʀãːʃ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀãʃ# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#bʀɑ̃ʃ# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#bʁɑ̃ʃ# | Rule 535 : ʀ > ʁ 
+#brˈiːn̪um# >>> #bʁɛ̃# ( Correct : #bʁɛ̃#) :
+b r ˈiː n̪ u m 
+#brˈiːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#brˈin̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#brˈin̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#brˈin̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#brˈiːn̪o# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#brˈiːn̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#brˈiːn̪ə̯# | Rule 218 : ə > ə̯ 
+#brˈiːn̪# | Rule 231 : ə̯ > ∅ 
+#brˈĩːn̪# | Rule 430 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#brˈɛ̃ːn̪# | Rule 449 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#brˈɛ̃ː# | Rule 497 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#bʀˈɛ̃ː# | Rule 527 : r > ʀ 
+#bʀɛ̃ː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀɛ̃# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#bʁɛ̃# | Rule 535 : ʀ > ʁ 

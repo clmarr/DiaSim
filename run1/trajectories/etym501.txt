@@ -1,12 +1,25 @@
 Trajectory file for run 'run1'; etymon number :501:
-#krˈɑssɑːs# >>> #kʁas# ( Correct : #ɡʁɑs#) :
-k r ˈɑ s s ɑː s 
-#krˈɑssɑs# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#krˈassas# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#krˈassəs# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈasəs# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#krˈasə# | Rule 516 : [-son] > ∅ / __ #
-#kʀˈasə# | Rule 527 : r > ʀ 
-#kʀasə# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʁasə# | Rule 535 : ʀ > ʁ 
-#kʁas# | Rule 537 : ə > ∅ / __ #
+#krˌɑːt̪ˈiːkulɑ# >>> #kʁij# ( Correct : #ɡʁij#) :
+k r ˌɑː t̪ ˈiː k u l ɑ 
+#krˌɑːt̪ˈiːkʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#krˌɑːt̪ˈiːklɑ# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#krˌɑːt̪ˈiklɑ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#krˌɑt̪ˈiklɑ# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#krˌɑt̪ˈiːklɑ# | Rule 92 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#krˌɑt̪ˈiːxlɑ# | Rule 95 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#krˌat̪ˈiːxla# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#krˌat̪ˈiːçla# | Rule 170 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#krˌat̪ˈiːçʎa# | Rule 174 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#krˌat̪ˈiːʎa# | Rule 204 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#krˌad̪ˈiːʎa# | Rule 260 : [-voi] > [+voi] / [+syl] __ [+syl]
+#krˌaðˈiːʎa# | Rule 264 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#krˌaðˈiːʎə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#krˌaˈiːʎə# | Rule 403 : {θ;ð} > {∅;∅} 
+#krˈiːʎə# | Rule 476 : ˌa > ∅ / __ [+prim]
+#krˈiːʎə̯# | Rule 510 : ə > ə̯ / __ #
+#krˈiːʎ# | Rule 517 : ə̯ > ∅ 
+#kʀˈiːʎ# | Rule 527 : r > ʀ 
+#kʀiːʎ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀiʎ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#kʁiʎ# | Rule 535 : ʀ > ʁ 
+#kʁij# | Rule 536 : ʎ > j 

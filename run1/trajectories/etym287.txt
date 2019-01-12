@@ -1,18 +1,25 @@
 Trajectory file for run 'run1'; etymon number :287:
-#frˈɑn̪koːs# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
-f r ˈɑ n̪ k oː s 
-#frˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#frˈɑŋkos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#frˈaŋkos# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#frˈaŋkəs# | Rule 217 : [-stres,-lo,+syl] > ə 
-#frˈaŋkə̯s# | Rule 218 : ə > ə̯ 
-#frˈaŋks# | Rule 231 : ə̯ > ∅ 
-#frˈaŋs# | Rule 294 : k > ∅ / __ s #
-#frˈãŋs# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#frˈãːs# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#frˈãː# | Rule 516 : [-son] > ∅ / __ #
-#fʀˈãː# | Rule 527 : r > ʀ 
-#fʀãː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀã# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#fʀɑ̃# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#fʁɑ̃# | Rule 535 : ʀ > ʁ 
+#frˈiɡid̪ɑm# >>> #fʁwad̪# ( Correct : #fʁwad̪#) :
+f r ˈi ɡ i d̪ ɑ m 
+#frˈɪɡɪd̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#frˈɪɡd̪ɑm# | Rule 40 : [+syl,-stres,+front] > ∅ / [+syl] [+hi,+back,-cont] __ [+cor,-strid,-lat,+voi] [+syl]
+#frˈeɡd̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#frˈeɡd̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#frˈeɣd̪ɑ# | Rule 95 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#frˈeɣd̪a# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#frˈeʝd̪a# | Rule 170 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#frˈeʝd̪ʲa# | Rule 175 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#frˈeʝjd̪a# | Rule 270 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#frˈeʝd̪a# | Rule 271 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#frˈeʝd̪ə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#frˈejd̪ə# | Rule 315 : ʝ > j / [-cons] __ 
+#frˈojd̪ə# | Rule 376 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#frˈujd̪ə# | Rule 380 : [+round,+tense,+back] > [+hi] 
+#frˈuɛ̯d̪ə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#frwˈɛd̪ə# | Rule 425 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#frwˈɛd̪ə̯# | Rule 510 : ə > ə̯ / __ #
+#frwˈɛd̪# | Rule 517 : ə̯ > ∅ 
+#fʀwˈɛd̪# | Rule 527 : r > ʀ 
+#fʀwɛd̪# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀwad̪# | Rule 533 : ɛ > a / w __ 
+#fʁwad̪# | Rule 535 : ʀ > ʁ 

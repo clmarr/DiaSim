@@ -1,22 +1,16 @@
 Trajectory file for run 'run1'; etymon number :11:
-#ˌae̯st̪ˈɑːt̪em# >>> #est̪ɛ# ( Correct : #et̪e#) :
-ˌa e̯ s t̪ ˈɑː t̪ e m 
-#ˌɑe̯st̪ˈɑːt̪em# | Rule 3 : [+lo,+syl] > [-front,+back] 
-#ˌae̯st̪ˈɑːt̪em# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#ˌae̯st̪ˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌae̯st̪ˈɑt̪ɛm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#ˌɛːst̪ˈɑt̪ɛm# | Rule 51 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#ˌɛːst̪ˈɑt̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌɛːst̪ˈɑːt̪ɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌɛst̪ˈɑːt̪ɛ# | Rule 126 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#ˌɛst̪ˈaːt̪ɛ# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#ˌɛst̪ˈaːt̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#ˌɛst̪ˈaːt̪ə̯# | Rule 218 : ə > ə̯ 
-#ˌɛst̪ˈaːt̪# | Rule 231 : ə̯ > ∅ 
-#ˌɛst̪ˈae̯t̪# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌest̪ˈae̯t̪# | Rule 288 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌest̪ˈeːt̪# | Rule 317 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌest̪ˈɛːt̪# | Rule 509 : ˈeː > ˈɛː / __ [+cons] #
-#ˌest̪ˈɛː# | Rule 516 : [-son] > ∅ / __ #
-#est̪ɛː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#est̪ɛ# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#ˌɑɡn̪ˈellɑm# >>> #aɲɛl# ( Correct : #aɲɛl#) :
+ˌɑ ɡ n̪ ˈe l l ɑ m 
+#ˌɑŋn̪ˈellɑm# | Rule 1 : ɡ > ŋ / __ [+nas,+cor]
+#ˌɑŋn̪ˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑŋn̪ˈɛllɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌaŋn̪ˈɛlla# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#ˌaɲn̪ˈɛlla# | Rule 171 : ŋ > ɲ / __ [+ant,+distr]
+#ˌaɲˈɛlla# | Rule 173 : [+nas,+cons] > ∅ / ɲ __ 
+#ˌaɲˈɛllə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌaɲˈɛlə# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#ˌãɲˈɛlə# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌãɲˈɛlə̯# | Rule 510 : ə > ə̯ / __ #
+#ˌãɲˈɛl# | Rule 517 : ə̯ > ∅ 
+#ˌaɲˈɛl# | Rule 520 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#aɲɛl# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

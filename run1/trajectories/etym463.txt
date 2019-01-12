@@ -1,13 +1,19 @@
 Trajectory file for run 'run1'; etymon number :463:
-#klˈɑssum# >>> #kla# ( Correct : #ɡlɑ#) :
-k l ˈɑ s s u m 
-#klˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#klˈɑssom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#klˈɑsso# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#klˈasso# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#klˈassə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#klˈassə̯# | Rule 218 : ə > ə̯ 
-#klˈass# | Rule 231 : ə̯ > ∅ 
-#klˈas# | Rule 344 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#klˈa# | Rule 516 : [-son] > ∅ / __ #
-#kla# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈoːd̪ɑm# >>> #kœ# ( Correct : #kø#) :
+k ˈoː d̪ ɑ m 
+#kˈod̪ɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈod̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈoðɑ# | Rule 85 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#kˈoːðɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˈoːða# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#kˈowða# | Rule 285 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈowðə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#kˈewðə# | Rule 375 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#kˈewə# | Rule 403 : {θ;ð} > {∅;∅} 
+#kˈøwə# | Rule 408 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#kˈøə# | Rule 412 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#kˈøːə# | Rule 468 : [+stres] > [+long] / __ ə
+#kˈøː# | Rule 469 : ə > ∅ / [+syl] __ 
+#køː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kø# | Rule 529 : [+syl,+long] > [-long,-splng] 
+#kœ# | Rule 532 : ø > œ / __ ( [+cons] )* #

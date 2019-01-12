@@ -1,16 +1,22 @@
 Trajectory file for run 'run1'; etymon number :127:
-#blˈɑn̪koːs# >>> #blɑ̃# ( Correct : #blɑ̃#) :
-b l ˈɑ n̪ k oː s 
-#blˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#blˈɑŋkos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#blˈaŋkos# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#blˈaŋkəs# | Rule 217 : [-stres,-lo,+syl] > ə 
-#blˈaŋkə̯s# | Rule 218 : ə > ə̯ 
-#blˈaŋks# | Rule 231 : ə̯ > ∅ 
-#blˈaŋs# | Rule 294 : k > ∅ / __ s #
-#blˈãŋs# | Rule 361 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#blˈãːs# | Rule 496 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#blˈãː# | Rule 516 : [-son] > ∅ / __ #
-#blãː# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#blã# | Rule 529 : [+syl,+long] > [-long,-splng] 
-#blɑ̃# | Rule 534 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#bˌon̪ˈoːn̪iɑm# >>> #bɔ̃n̪waɲ# ( Correct : #bulɔɲ#) :
+b ˌo n̪ ˈoː n̪ i ɑ m 
+#bˌɔn̪ˈoːn̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˌɔn̪ˈoːn̪jɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#bˌɔn̪ˈoːn̪ʝɑm# | Rule 26 : j > ʝ / __ [+syl]
+#bˌɔn̪ˈon̪ʝɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#bˌɔn̪ˈon̪ʝɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bˌɔn̪ˈoɲɑ# | Rule 78 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
+#bˌɔn̪ˈoːɲɑ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#bˌɔn̪ˈũːɲɑ# | Rule 135 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#bˌũn̪ˈũːɲɑ# | Rule 136 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#bˌũn̪ˈũːɲa# | Rule 162 : [+lo,+syl] > [+front,-back] 
+#bˌũn̪ˈũːɲə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
+#bˌũn̪ˈũːjɲə# | Rule 386 : ∅ > j / [+hi,+round,+stres] __ ɲ [+syl]
+#bˌũn̪ˈũːɛ̯ɲə# | Rule 422 : j > ɛ̯ / [+syl,+back,+round] __ 
+#bˌũn̪wˈɛɲə# | Rule 461 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#bˌũn̪wˈɛɲə̯# | Rule 510 : ə > ə̯ / __ #
+#bˌũn̪wˈɛɲ# | Rule 517 : ə̯ > ∅ 
+#bũn̪wɛɲ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɔ̃n̪wɛɲ# | Rule 530 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#bɔ̃n̪waɲ# | Rule 533 : ɛ > a / w __ 

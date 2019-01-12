@@ -1,12 +1,23 @@
 Trajectory file for run 'run1'; etymon number :762:
-#n̪ˈost̪rɑm# >>> #n̪ɔst̪ʁ# ( Correct : #n̪ɔt̪ʁ#) :
-n̪ ˈo s t̪ r ɑ m 
-#n̪ˈɔst̪rɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈɔst̪rɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɔst̪ra# | Rule 162 : [+lo,+syl] > [+front,-back] 
-#n̪ˈɔst̪rə# | Rule 295 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈɔst̪rə̯# | Rule 510 : ə > ə̯ / __ #
-#n̪ˈɔst̪r# | Rule 517 : ə̯ > ∅ 
-#n̪ˈɔst̪ʀ# | Rule 527 : r > ʀ 
-#n̪ɔst̪ʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ɔst̪ʁ# | Rule 535 : ʀ > ʁ 
+#n̪ˈowem# >>> #n̪œf# ( Correct : #n̪œf#) :
+n̪ ˈo w e m 
+#n̪ˈoɣʷem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#n̪ˈɔɣʷɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɔβʷɛm# | Rule 45 : ɣʷ > βʷ 
+#n̪ˈɔβʷɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˈɔːβʷɛ# | Rule 91 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˈɔːβɛ# | Rule 106 : {βʷ;ɸʷ} > {β;ɸ} 
+#n̪ˈuo̯βɛ# | Rule 137 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#n̪ˈʉo̯βɛ# | Rule 203 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#n̪ˈʉo̯βə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#n̪ˈʉo̯βə̯# | Rule 218 : ə > ə̯ 
+#n̪ˈʉo̯β# | Rule 231 : ə̯ > ∅ 
+#n̪ˈʉo̯v# | Rule 290 : β > v 
+#n̪ˈʉo̯f# | Rule 299 : [-son] > [-voi] / __ #
+#n̪ˈyo̯f# | Rule 359 : [+hi,+round,-back] > [+front] 
+#n̪ˈye̯f# | Rule 367 : o̯ > e̯ 
+#n̪ˈøf# | Rule 395 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#n̪ˈøfə̯# | Rule 515 : ∅ > ə̯ / [+syl] f __ #
+#n̪ˈøf# | Rule 517 : ə̯ > ∅ 
+#n̪øf# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪œf# | Rule 532 : ø > œ / __ ( [+cons] )* #

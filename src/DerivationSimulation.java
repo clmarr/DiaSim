@@ -73,6 +73,7 @@ public class DerivationSimulation {
 	
 	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
 	private static double ACCURACY; 
+	private static double NEAR_ACCURACY; 
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	//TODO to be set in command line...
@@ -548,9 +549,11 @@ public class DerivationSimulation {
 			double[] PERFORMANCE_arr = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
 			PERFORMANCE = PERFORMANCE_arr[0] ; 
 			ACCURACY = PERFORMANCE_arr[1]; 
+			NEAR_ACCURACY = PERFORMANCE_arr[2];
 			
 			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
 			System.out.println("FINAL OVERALL ACCURACY : "+ACCURACY); 
+			System.out.println("FINAL OVERALL NEAR ACCURACY : "+NEAR_ACCURACY);
 			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
 			if( NUM_GOLD_STAGES > 0 )
 			{
@@ -656,27 +659,30 @@ public class DerivationSimulation {
 	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of initial form for the etymon
 	 * @returns two-item array of doubles where the first element is the average lexical lakation
 	 * 		and the second is the percent accuracy 0 to 100 
+	 * 		third is accuracy within two phones. 
 	 */
 	private static double[] analyzeLDAccAndLakation(int[] lexLD, double[] lexLak, boolean[] isHit, Lexicon outForms, Lexicon goldForms)
 	{
 		lexLD = new int[NUM_ETYMA];
 		lexLak = new double[NUM_ETYMA]; 
 		isHit = new boolean[NUM_ETYMA]; 
-		double totLexQuotients = 0.0, numHits= 0.0;
+		double totLexQuotients = 0.0, numHits= 0.0, numNearHits = 0.0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
 		{
 			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
 			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
 			isHit[i] = (lexLD[i] == 0);
 			numHits += (lexLD[i] == 0) ? 1 : 0; 
+			numNearHits += (lexLD[i] <= 2) ? 1 : 0; 
 			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
 			lexLak[i] = lakation;
 			totLexQuotients += lakation; 
 		}
 		
-		double[] output = new double[2]; 
+		double[] output = new double[3]; 
 		output[0] = totLexQuotients / (double) NUM_ETYMA; 
 		output[1] = numHits / (double)NUM_ETYMA * 100.0; 
+		output[2] = numNearHits / (double)NUM_ETYMA * 100.0;
 		return output; 
 	}
 	

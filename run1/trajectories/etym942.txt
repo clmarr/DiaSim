@@ -1,16 +1,23 @@
 Trajectory file for run 'run1'; etymon number :942:
-#prˈɑe̯st̪um# >>> #pʁɛs# ( Correct : #pʁɛ#) :
-p r ˈɑ e̯ s t̪ u m 
-#prˈae̯st̪um# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˈae̯st̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪ʊm# | Rule 51 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˈɛːst̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#prˈɛst̪o# | Rule 126 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˈɛst̪ə# | Rule 217 : [-stres,-lo,+syl] > ə 
-#prˈɛst̪ə̯# | Rule 218 : ə > ə̯ 
-#prˈɛst̪# | Rule 231 : ə̯ > ∅ 
-#prˈɛs# | Rule 516 : [-son] > ∅ / __ #
-#pʀˈɛs# | Rule 527 : r > ʀ 
-#pʀɛs# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛs# | Rule 535 : ʀ > ʁ 
+#prˈesbyt̪er# >>> #pʁɛd̪ʁ# ( Correct : #pʁɛt̪ʁ#) :
+p r ˈe s b y t̪ e r 
+#prˈesbit̪er# | Rule 8 : [+hi,+front] > [-round,-lab] 
+#prˈɛsbɪt̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˈɛsbɪt̪rɛ# | Rule 31 : {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
+#prˈɛsbet̪rɛ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#prˈɛsbət̪rɛ# | Rule 215 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#prˈɛsbət̪rə# | Rule 217 : [-stres,-lo,+syl] > ə 
+#prˈɛsbə̯t̪rə̯# | Rule 218 : ə > ə̯ 
+#prˈɛsbə̯t̪rə# | Rule 228 : ə̯ > ə / [-son] r __ #
+#prˈɛsbt̪rə# | Rule 231 : ə̯ > ∅ 
+#prˈɛsbd̪rə# | Rule 232 : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
+#prˈɛsd̪d̪rə# | Rule 236 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#prˈɛsd̪rə# | Rule 239 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#prˈɛzd̪rə# | Rule 325 : s > z / __ [+voi,+cons]
+#prˈɛðd̪rə# | Rule 345 : z > ð / __ [+cor,+ant,+distr,+voi,+cons]
+#prˈɛd̪rə# | Rule 403 : {θ;ð} > {∅;∅} 
+#prˈɛd̪rə̯# | Rule 510 : ə > ə̯ / __ #
+#prˈɛd̪r# | Rule 517 : ə̯ > ∅ 
+#pʀˈɛd̪ʀ# | Rule 527 : r > ʀ 
+#pʀɛd̪ʀ# | Rule 528 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛd̪ʁ# | Rule 535 : ʀ > ʁ 
