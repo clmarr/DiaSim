@@ -8,6 +8,9 @@ $Characteristics of Classical Latin as per Pope page 75
 n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
 
+$ CORRECTION : ɸ > f 
+ɸ > f 
+
 $ CORRECTION: We delete Pope's handling of Classical Latin's variant l-allophones, as they do not seem to be diachronically relevant, and harm performance.
 
 [+lo,+syl] > [-front,+back]
@@ -236,7 +239,8 @@ $ Pope doesnˌt explicitly date this but considers it first attested in teh 3rd/
 $ Pope notes it did not occur in monosyllabic words 
 $ NOTE: as per p97-98 s205i -- unlike Italy and also South Gaul, North Gaul did not see effacement of s and t word-finally,
 $ ... because "pronunciation was influenced by the teaching in schools" in North Gaul
-m > ∅ / [+syl] ([-syl])* [+syl] __ #
+$ CORRECTION : clear also final -n in words like materiamen
+[+nas,+cons] > ∅ / [+syl] ([-syl])* [+syl] __ #
 
 $ p185 s488 : o > ɔ before labial consonants 
 $ *** NOTE : This is called a "TENDENCY" by Pope
@@ -660,10 +664,15 @@ $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 
 $ s410, s414-415
 $ Breaking of mid lax vowels by following palatal 
-{ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+hi,+front]
+$ CORRECTION: only happens to primarily vowels though! 
+{ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
 
 $ as per s410 niece, tuertre cases 
-{ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]
+$ CORRECTION: This is much more restricted than Pope describes.
+$ It does not occur at all for ɔ it seems (see noptiam > noce, skorteam > ecorce etc)
+$ It only occurs for primarily stressed ˈɛː (messionem > moisson, mentionica > mensonge etc) 
+$ It also only cocurs before ttsʲ and rtsʲ segments (walentiam>valence not valience, Arewernia>Auvergne not Auviergne etc)
+ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front] 
 
 $ s298-302, s413-415 -- Beginning of second palatalization 
 $ Note: although Pope lists the second palatalization for the next period, her notes make it clear that she holds it to have preceded the a-raising therefore e/o-breaking phenomena
@@ -675,13 +684,20 @@ $ must bleed s413 but not second palatalization
 {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
 [+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
 
+$ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
+$ unless it is followed by tonic in next syllable or if l/r come next
+$ CORRECTION: actually whether the next syllable is tonic e does not matter
+$ instead the constraining factors are that it doesn't occur before coronals
+$ and that it doesn't occur before nasals unless followed by a long vowel
+ˌa > ˌɛ / [+cons,+front] __ [-cor,-nas] [-cons]
+ˌa > ˌɛ / [+cons,+front] __ [+nas] [+syl,+long]
+
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
-$ CORRECTION: does not happen to unstressed a if word final 
-[+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
+$ CORRECTION: unless at beginning of word, this does not happen before nasal consonants and also doesn't happen before ʝ
+ˈaː > ˈɛː / # [+cons,+front] __
+ˈaː > ˈɛː / [+cons,+front] __ [+cons,-front,-nas]
+ˈaː > ˈɛː / [+cons,+front] __ {rʲ;ɣʲ}
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 

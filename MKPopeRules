@@ -575,12 +575,16 @@ $ must bleed s413 but not second palatalization
 {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
 [+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
 
+$ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
+$ unless it is followed by tonic e in next syllable or if l/r come next
+ˌa > ˌɛ / [+front,+cons] __ [+cons,-son] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
+ˌa > ˌɛ / [+front,+cons] __ [+cons,+son,+nas] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
+ˌa > ˌɛ / [+front,+cons] __ [+cons,+son,-cor] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
+
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
+$ We know it's free if it's long based on placement of this rule relative to others
+ˈaː > ˈɛː 
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
