@@ -107,7 +107,7 @@ s w > s s / [-cons] __ [-cons]| ORIG : s w > s s / [-cons] __ [-cons]
 β > ∅ / [+prim,+hi,+round,+back] __ | ORIG : β > ∅ / [+prim,+hi,+round,+back] __ 
 {βʷ;ɸʷ} > {β;ɸ} | ORIG : {βʷ;ɸʷ} > {β;ɸ}
 ɸ > ∅ / [+cons] __ [+cons]| ORIG : ɸ > ∅ / [+cons] __ [+cons] 
-e k > ɡ / [+cons] r __ [+lo,+syl]| ORIG : e k > ɡ / [+cons] r __ [+lo,+syl]
+e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]| ORIG : e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]
 e > ∅ / __ k [+lo,+syl]| ORIG : e > ∅ / __ k [+lo,+syl]
 k > ɡ / [-cons] __ [+syl]| ORIG : k > ɡ / [-cons] __ [+syl]
 [+front,+syl,-hi,-lo,-stres] > ∅ / [+front,-hi,-lo,-prim,+stres] r __ [+cons] [+back,+prim]| ORIG : [+front,+syl,-hi,-lo,-stres] > ∅ / [+front,-hi,-lo,-prim,+stres] r __ [+cons] [+back,+prim]
