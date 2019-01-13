@@ -280,6 +280,8 @@ $absorption of yod into prev, now palatalized, consonant
 $p131 s311, assigned to Late Latin in p73 s155-5iv :
 $ as per s293 and s156 however this did not YET affect ng + pal-stop -- i.
 $ trigger again in Gallo-Roman stage.
+$CORRECTION: This is bled by an early shift of mnj to mmj
+n̪ > m / m __ ʝ
 [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 
 $ CORRECTION : l deleted when immediately before ɲ 
@@ -406,8 +408,8 @@ $ CORRECTION: ɸ deleted if in between consonants.
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
 $ CORRECTION: occurs in all -ika- instances including inside the word (i.e. praedicatorem >precheur)
 $ CORRECTION: occurs only after voicing if the e is preceded by cons + r 
-e k > ɡ / [+cons] r __ ɑ
-e > ∅ / __ k ɑ
+e k > ɡ / [+cons] r __ [+lo,+syl]
+e > ∅ / __ k [+lo,+syl]
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -744,8 +746,12 @@ $ s305-- yod in initial position closes, as does Pope's w
 $ also -- s203 (for yod > gj) ; yod is closing after consonants 
 $ w ~ ɣʷ closes initially : s636 ~ s192ii
 $ s203 holds this begins in the "early Gallo-Roman" though its later stages occur after the influx of Frankish vocab
+$ CORRECTION : This does NOT occur in the context of # [+cons] __
 [+hi,-syl,+cont] > [-cont,-son,-delrel] / # __ [+syl]
-{j;ʝ} > {ɟ;ɟ} / [+cons] __ [+syl]
+{j;ʝ} > {ɟ;ɟ} / @ ([+cons])+ __ [+syl]
+
+$CORRECTION : remaining ʝ becomes j at this point 
+ʝ > j 
 
 $ s305 -- closed yod devoices if after a voiceless element (sapia > sache) 
 [+hi,-cont] > [-voi] / [-voi] __ 
@@ -890,6 +896,7 @@ $ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted �
 $ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
 $ CORRECTION: where d has remained t, it becomes a voiceless tʃ
 $ CORRECTION: t and d are actually preserved before the new affricates at first. 
+$ CORRECTION: include also ð and r 
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
