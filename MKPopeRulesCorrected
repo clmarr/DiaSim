@@ -127,7 +127,7 @@ $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those 
 $ CORRECTION : -mulum endings also effected (cumulum > comble; tremulum > tremble) 
 $ CORRECTION : -rula endings also effected (berula (Gaul.) > berle not bierle) 
 $ CORRECTION: -olum,-olus endings also included
-{ʊ;o} > {∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
+{ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
@@ -254,8 +254,8 @@ $ -- kwinkwe > kinkwe dissimilation
 $ Pope s823 iii. Currently tentative-- may be irregular.
 w > ∅ / k __ [+syl] ([-syl]) k w [+syl]
 
-$ correction : ts goes to f (tsrokna, etc.) 
-t͡s > f
+$ CORRECTION : ts goes to f before a sonorant consonant (tsrokna, etc.) 
+t͡s > f / __ [+cons,+son]
 
 $FIRST PALATALIZATION: Palatalization begins in the fourth century as per Pope p129 s304
 $t and d preceding yod become palatalized affricates
@@ -761,6 +761,10 @@ $ s164-2 : palatal stops c,ɟ become postalveolar affricates
 $ Dated to seventh century in summary by Pope (s164)
 $ s299 "must have taken place before the end of the 8th century" 
 [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
+
+$ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence
+$ TODO : find better way to handle this... -- such as when it has already become ddʒ ? 
+ˈeː > ˈɛː / __ {d̪;ð} e ɣ
 
 $s164-10 ~s250 complete effacement of unstressed penultimate
 $as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
