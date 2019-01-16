@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :281:
-#frˈɑɡilem# >>> #fʁɛl# ( Correct : #fʁɛl#) :
+#frˈɑɡilem# >>> #fʁwal# ( Correct : #fʁɛl#) :
 f r ˈɑ ɡ i l e m 
 #frˈɑɡɪlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #frˈɑɡelɛm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -10,17 +10,19 @@ f r ˈɑ ɡ i l e m
 #frˈɑːʝelɛ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
 #frˈaːʝelɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
 #frˈaːelɛ# | Rule 179 : ʝ > ∅ / ˈaː __ e
-#frˈaːəlɛ# | Rule 221 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#frˈaːələ# | Rule 224 : [-stres,-lo,+syl] > ə / __ #
-#frˈaːə̯lə̯# | Rule 226 : ə > ə̯ 
-#frˈaːə̯lə# | Rule 235 : ə̯ > ə / [-lat,-syl] l __ #
-#frˈaːlə# | Rule 239 : ə̯ > ∅ 
-#frˈae̯lə# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#frˈeːlə# | Rule 325 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#frˈɛːlə# | Rule 463 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat]
-#frˈɛːlə̯# | Rule 518 : ə > ə̯ / __ #
-#frˈɛːl# | Rule 525 : ə̯ > ∅ 
-#fʀˈɛːl# | Rule 535 : r > ʀ 
-#fʀɛːl# | Rule 536 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀɛl# | Rule 537 : [+syl,+long] > [-long,-splng] 
-#fʁɛl# | Rule 543 : ʀ > ʁ 
+#frˈaːjlɛ# | Rule 219 : {e;i} > {j;j} / [+syl] __ [-nas]
+#frˈaːjlə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
+#frˈaːjlə̯# | Rule 225 : ə > ə̯ 
+#frˈaːjlə# | Rule 234 : ə̯ > ə / [-lat,-syl] l __ #
+#frˈae̯jlə# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#frˈeːjlə# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#frˈoːjlə# | Rule 383 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#frˈuːjlə# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#frˈuːɛ̯lə# | Rule 429 : j > ɛ̯ / [+syl,+back,+round] __ 
+#frwˈɛlə# | Rule 468 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#frwˈɛlə̯# | Rule 517 : ə > ə̯ / __ #
+#frwˈɛl# | Rule 524 : ə̯ > ∅ 
+#fʀwˈɛl# | Rule 534 : r > ʀ 
+#fʀwɛl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀwal# | Rule 540 : ɛ > a / w __ 
+#fʁwal# | Rule 542 : ʀ > ʁ 

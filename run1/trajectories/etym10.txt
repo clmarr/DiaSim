@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :10:
-#ˈɑːeːrem# >>> #ɛʁ# ( Correct : #ɛʁ#) :
+#ˈɑːeːrem# >>> #waʁ# ( Correct : #ɛʁ#) :
 ˈɑː eː r e m 
 #ˈɑːeːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˈɑːerɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -7,17 +7,20 @@ Trajectory file for run 'run1'; etymon number :10:
 #ˈɑerɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #ˈɑːerɛ# | Rule 90 : [+prim] > [+long] / __ [+syl]
 #ˈaːerɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#ˈaːərɛ# | Rule 221 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈaːərə# | Rule 224 : [-stres,-lo,+syl] > ə / __ #
-#ˈaːə̯rə̯# | Rule 226 : ə > ə̯ 
-#ˈaːə̯rə# | Rule 237 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#ˈaːrə# | Rule 239 : ə̯ > ∅ 
-#ˈae̯rə# | Rule 293 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈeːrə# | Rule 325 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈɛːrə# | Rule 516 : ˈeː > ˈɛː / __ [+cons] ə
-#ˈɛːrə̯# | Rule 518 : ə > ə̯ / __ #
-#ˈɛːr# | Rule 525 : ə̯ > ∅ 
-#ˈɛːʀ# | Rule 535 : r > ʀ 
-#ɛːʀ# | Rule 536 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɛʀ# | Rule 537 : [+syl,+long] > [-long,-splng] 
-#ɛʁ# | Rule 543 : ʀ > ʁ 
+#ˈaːjrɛ# | Rule 219 : {e;i} > {j;j} / [+syl] __ [-nas]
+#ˈaːjrə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
+#ˈaːjrə̯# | Rule 225 : ə > ə̯ 
+#ˈaːjr# | Rule 238 : ə̯ > ∅ 
+#ˈae̯jr# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈeːjr# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˈeːjrə# | Rule 359 : ∅ > ə / [+front,-syl,+hi] r __ #
+#ˈoːjrə# | Rule 383 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#ˈoːɛ̯rə# | Rule 386 : j > ɛ̯ / [+syl,+back,+round] __ r
+#ˈuːɛ̯rə# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#wˈɛrə# | Rule 468 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#wˈɛrə̯# | Rule 517 : ə > ə̯ / __ #
+#wˈɛr# | Rule 524 : ə̯ > ∅ 
+#wˈɛʀ# | Rule 534 : r > ʀ 
+#wɛʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#waʀ# | Rule 540 : ɛ > a / w __ 
+#waʁ# | Rule 542 : ʀ > ʁ 
