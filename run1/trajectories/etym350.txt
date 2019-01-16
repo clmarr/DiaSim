@@ -4,10 +4,11 @@ i l l oː s
 #ɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ɪllos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
 #ellos# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#əlləs# | Rule 221 : [-stres,-lo,+syl] > ə 
-#ə̯llə̯s# | Rule 222 : ə > ə̯ 
-#lls# | Rule 235 : ə̯ > ∅ 
-#ls# | Rule 325 : [+cons] > ∅ / [+cons] __ [-son]
-#ɫs# | Rule 362 : [+lat] > [+back] / __ [+cons]
-#ws# | Rule 402 : [+lat,+back] > w 
-#w# | Rule 520 : [-son] > ∅ / __ #
+#əllos# | Rule 221 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#əlləs# | Rule 223 : [-stres,-lo,+syl] > ə / __ [-syl]
+#ə̯llə̯s# | Rule 225 : ə > ə̯ 
+#lls# | Rule 238 : ə̯ > ∅ 
+#ls# | Rule 328 : [+cons] > ∅ / [+cons] __ [-son]
+#ɫs# | Rule 365 : [+lat] > [+back] / __ [+cons]
+#ws# | Rule 405 : [+lat,+back] > w 
+#w# | Rule 523 : [-son] > ∅ / __ #

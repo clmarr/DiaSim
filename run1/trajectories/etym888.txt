@@ -1,17 +1,14 @@
 Trajectory file for run 'run1'; etymon number :888:
-#pˈius# >>> #pwa# ( Correct : #pjø#) :
+#pˈius# >>> #pjœ# ( Correct : #pjø#) :
 p ˈi u s 
 #pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˈeos# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #pˈeːos# | Rule 90 : [+prim] > [+long] / __ [+syl]
-#pˈeːəs# | Rule 221 : [-stres,-lo,+syl] > ə 
-#pˈeːə̯s# | Rule 222 : ə > ə̯ 
-#pˈeːs# | Rule 235 : ə̯ > ∅ 
-#pˈejs# | Rule 289 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˈojs# | Rule 380 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#pˈujs# | Rule 384 : [+round,+tense,+back] > [+hi] 
-#pˈuɛ̯s# | Rule 426 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pwˈɛs# | Rule 429 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˈɛ# | Rule 520 : [-son] > ∅ / __ #
-#pwɛ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pwa# | Rule 537 : ɛ > a / w __ 
+#pjˈoːs# | Rule 219 : ˈeː o > j ˈoː 
+#pjˈows# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pjˈews# | Rule 382 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#pjˈøws# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#pjˈøs# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#pjˈø# | Rule 523 : [-son] > ∅ / __ #
+#pjø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pjœ# | Rule 539 : ø > œ / __ ( [+cons] )* #

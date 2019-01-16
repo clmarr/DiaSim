@@ -217,9 +217,12 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] | ORIG : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
 ˈeː > ˈɛː / __ d̪ e ɣ| ORIG : ˈeː > ˈɛː /  __  d̪ e ɣ
 ˈeː > ˈɛː / __ ð e ɣ| ORIG : ˈeː > ˈɛː /  __  ð e ɣ
-[+syl,-stres] > ə / [-syl] __ ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : [+syl,-stres] > ə / [-syl] __ ([-syl])* [+syl] ([-syl])* # 
-[+syl,-stres,-lo] > ə / __ ( [-syl] )* [+syl,+lo,+prim]| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])* [+syl,+lo,+prim]  
-[-stres,-lo,+syl] > ə | ORIG : [-stres,-lo,+syl] > ə
+ˈeː o > j ˈoː | ORIG : ˈeː o > j ˈoː 
+{e;i} > {j;j} / [+syl] __ #| ORIG : {e;i} > {j;j} / [+syl] __ # 
+[+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : [+syl,-stres] > ə / __ ([-syl])* [+syl] ([-syl])* # 
+[+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl,+lo,+prim]  
+[-stres,-lo,+syl] > ə / __ [-syl]| ORIG : [-stres,-lo,+syl] > ə /  __  [-syl]
+[-stres,-lo,+syl] > ə / __ #| ORIG : [-stres,-lo,+syl] > ə /  __  #
 ə > ə̯ | ORIG : ə > ə̯
 ə̯ > ə / [+stres] ( [-syl] )* [-son] r __ ( [-syl] )* [+stres]| ORIG : ə̯ > ə / [+stres] ([-syl])* [-son] r __ ([-syl])* [+stres]
 ə̯ > ə / [+stres] ( [-syl] )* [-lat] l __ ( [-syl] )* [+stres]| ORIG : ə̯ > ə / [+stres] ([-syl])* [-lat] l __ ([-syl])* [+stres]

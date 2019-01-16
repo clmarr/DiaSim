@@ -7,16 +7,17 @@ Trajectory file for run 'run1'; etymon number :10:
 #ˈɑerɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #ˈɑːerɛ# | Rule 90 : [+prim] > [+long] / __ [+syl]
 #ˈaːerɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#ˈaːərə# | Rule 221 : [-stres,-lo,+syl] > ə 
-#ˈaːə̯rə̯# | Rule 222 : ə > ə̯ 
-#ˈaːə̯rə# | Rule 233 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#ˈaːrə# | Rule 235 : ə̯ > ∅ 
-#ˈae̯rə# | Rule 289 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈeːrə# | Rule 321 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈɛːrə# | Rule 512 : ˈeː > ˈɛː / __ [+cons] ə
-#ˈɛːrə̯# | Rule 514 : ə > ə̯ / __ #
-#ˈɛːr# | Rule 521 : ə̯ > ∅ 
-#ˈɛːʀ# | Rule 531 : r > ʀ 
-#ɛːʀ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɛʀ# | Rule 533 : [+syl,+long] > [-long,-splng] 
-#ɛʁ# | Rule 539 : ʀ > ʁ 
+#ˈaːərɛ# | Rule 221 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈaːərə# | Rule 224 : [-stres,-lo,+syl] > ə / __ #
+#ˈaːə̯rə̯# | Rule 225 : ə > ə̯ 
+#ˈaːə̯rə# | Rule 236 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#ˈaːrə# | Rule 238 : ə̯ > ∅ 
+#ˈae̯rə# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈeːrə# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˈɛːrə# | Rule 515 : ˈeː > ˈɛː / __ [+cons] ə
+#ˈɛːrə̯# | Rule 517 : ə > ə̯ / __ #
+#ˈɛːr# | Rule 524 : ə̯ > ∅ 
+#ˈɛːʀ# | Rule 534 : r > ʀ 
+#ɛːʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛʀ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#ɛʁ# | Rule 542 : ʀ > ʁ 

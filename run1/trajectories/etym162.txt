@@ -6,19 +6,20 @@ d̪ ˈe r b i t̪ ɑː r u m
 #d̪ˈɛrbet̪ɑrom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #d̪ˈɛrbet̪ɑro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #d̪ˈɛrbet̪aro# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#d̪ˈɛrbet̪əro# | Rule 219 : [+syl,-stres] > ə / [-syl] __ ( [-syl] )* [+syl] ( [-syl] )* #
-#d̪ˈɛrbət̪ərə# | Rule 221 : [-stres,-lo,+syl] > ə 
-#d̪ˈɛrbə̯t̪ə̯rə̯# | Rule 222 : ə > ə̯ 
-#d̪ˈɛrbə̯t̪ə̯rə# | Rule 233 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#d̪ˈɛrbt̪rə# | Rule 235 : ə̯ > ∅ 
-#d̪ˈɛrbd̪rə# | Rule 236 : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
-#d̪ˈɛrd̪d̪rə# | Rule 240 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
-#d̪ˈɛrd̪rə# | Rule 243 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
-#d̪ˈard̪rə# | Rule 455 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#d̪ˈard̪rə̯# | Rule 514 : ə > ə̯ / __ #
-#d̪ˈaɹd̪rə̯# | Rule 516 : r > ɹ / [-cons] __ [+cons]
-#d̪ˈaɹd̪r# | Rule 521 : ə̯ > ∅ 
-#d̪ˈard̪r# | Rule 529 : ɹ > r 
-#d̪ˈaʀd̪ʀ# | Rule 531 : r > ʀ 
-#d̪aʀd̪ʀ# | Rule 532 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪aʁd̪ʁ# | Rule 539 : ʀ > ʁ 
+#d̪ˈɛrbet̪əro# | Rule 221 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#d̪ˈɛrbət̪əro# | Rule 223 : [-stres,-lo,+syl] > ə / __ [-syl]
+#d̪ˈɛrbət̪ərə# | Rule 224 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˈɛrbə̯t̪ə̯rə̯# | Rule 225 : ə > ə̯ 
+#d̪ˈɛrbə̯t̪ə̯rə# | Rule 236 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#d̪ˈɛrbt̪rə# | Rule 238 : ə̯ > ∅ 
+#d̪ˈɛrbd̪rə# | Rule 239 : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
+#d̪ˈɛrd̪d̪rə# | Rule 243 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#d̪ˈɛrd̪rə# | Rule 246 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
+#d̪ˈard̪rə# | Rule 458 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#d̪ˈard̪rə̯# | Rule 517 : ə > ə̯ / __ #
+#d̪ˈaɹd̪rə̯# | Rule 519 : r > ɹ / [-cons] __ [+cons]
+#d̪ˈaɹd̪r# | Rule 524 : ə̯ > ∅ 
+#d̪ˈard̪r# | Rule 532 : ɹ > r 
+#d̪ˈaʀd̪ʀ# | Rule 534 : r > ʀ 
+#d̪aʀd̪ʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪aʁd̪ʁ# | Rule 542 : ʀ > ʁ 
