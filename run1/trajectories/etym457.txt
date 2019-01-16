@@ -1,16 +1,20 @@
 Trajectory file for run 'run1'; etymon number :457:
-#klˈɑːrɑm# >>> #klɛʁ# ( Correct : #klɛʁ#) :
-k l ˈɑː r ɑ m 
-#klˈɑrɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#klˈɑrɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#klˈɑːrɑ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
-#klˈaːra# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#klˈae̯ra# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#klˈae̯rə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
-#klˈeːrə# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#klˈɛːrə# | Rule 515 : ˈeː > ˈɛː / __ [+cons] ə
-#klˈɛːrə̯# | Rule 517 : ə > ə̯ / __ #
-#klˈɛːr# | Rule 524 : ə̯ > ∅ 
+#klˈɑːrum# >>> #klɛʁ# ( Correct : #klɛʁ#) :
+k l ˈɑː r u m 
+#klˈɑːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#klˈɑrʊm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#klˈɑrom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#klˈɑro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#klˈɑːro# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
+#klˈaːro# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#klˈaːrə# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#klˈaːrə̯# | Rule 225 : ə > ə̯ 
+#klˈaːr# | Rule 238 : ə̯ > ∅ 
+#klˈae̯r# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#klˈeːr# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#klˈɛːr# | Rule 464 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#klˈɛːɹ# | Rule 518 : r > ɹ / [-cons] __ #
+#klˈɛːr# | Rule 532 : ɹ > r 
 #klˈɛːʀ# | Rule 534 : r > ʀ 
 #klɛːʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
 #klɛʀ# | Rule 536 : [+syl,+long] > [-long,-splng] 

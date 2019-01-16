@@ -1,26 +1,18 @@
 Trajectory file for run 'run1'; etymon number :985:
-#rˌɑn̪kˈoːrem# >>> #ʁɑ̃kœ# ( Correct : #ʁɑ̃kœʁ#) :
-r ˌɑ n̪ k ˈoː r e m 
-#rˌɑŋkˈoːrem# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#rˌɑŋkˈoːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌɑŋkˈorɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#rˌɑŋkˈorɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˌɑŋkˈoːrɛ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
-#rˌaŋkˈoːrɛ# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#rˌaŋkˈoːrə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
-#rˌaŋkˈoːrə̯# | Rule 225 : ə > ə̯ 
-#rˌaŋkˈoːr# | Rule 238 : ə̯ > ∅ 
-#rˌaŋkˈowr# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#rˌãŋkˈowr# | Rule 368 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#rˌãŋkˈewr# | Rule 382 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#rˌãŋkˈøwr# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#rˌãŋkˈør# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#rˌãːkˈør# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#rˌãːkˈøɹ# | Rule 518 : r > ɹ / [-cons] __ #
-#rˌãːkˈø# | Rule 531 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ʀˌãːkˈø# | Rule 534 : r > ʀ 
-#ʀãːkø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀãkø# | Rule 536 : [+syl,+long] > [-long,-splng] 
-#ʀãkœ# | Rule 539 : ø > œ / __ ( [+cons] )* #
-#ʀɑ̃kœ# | Rule 541 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#ʁɑ̃kœ# | Rule 542 : ʀ > ʁ 
+#rˈɑpid̪um# >>> #ʁa# ( Correct : #ʁad̪#) :
+r ˈɑ p i d̪ u m 
+#rˈɑpɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈɑpd̪ʊm# | Rule 36 : ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #
+#rˈɑpd̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈɑpd̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈapd̪o# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#rˈad̪d̪o# | Rule 165 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#rˈad̪d̪ə# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#rˈad̪d̪ə̯# | Rule 225 : ə > ə̯ 
+#rˈad̪d̪# | Rule 238 : ə̯ > ∅ 
+#rˈad̪t̪# | Rule 306 : [-son] > [-voi] / __ #
+#rˈat̪# | Rule 348 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#rˈa# | Rule 523 : [-son] > ∅ / __ #
+#ʀˈa# | Rule 534 : r > ʀ 
+#ʀa# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁa# | Rule 542 : ʀ > ʁ 

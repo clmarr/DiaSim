@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :671:
-#mˈembrum# >>> #mæ̃bʁ# ( Correct : #mɑ̃bʁ#) :
-m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbrom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɛmbrə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
-#mˈɛmbrə̯# | Rule 225 : ə > ə̯ 
-#mˈɛmbrə# | Rule 235 : ə̯ > ə / [-son] r __ #
-#mˈɛ̃mbrə# | Rule 370 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈæ̃mbrə# | Rule 400 : [+nas,-hi,+syl] > [+lo] 
-#mˈæ̃ːbrə# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈæ̃ːbrə̯# | Rule 517 : ə > ə̯ / __ #
-#mˈæ̃ːbr# | Rule 524 : ə̯ > ∅ 
-#mˈæ̃ːbʀ# | Rule 534 : r > ʀ 
-#mæ̃ːbʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mæ̃bʀ# | Rule 536 : [+syl,+long] > [-long,-splng] 
-#mæ̃bʁ# | Rule 542 : ʀ > ʁ 
+#mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
+m ˈeː n̪ s ɑ m 
+#mˈeːsɑm# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#mˈesɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈesɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈeːsɑ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɑ# | Rule 114 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːza# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#mˈejza# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejzə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈojzə# | Rule 383 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#mˈujzə# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯zə# | Rule 429 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛzə# | Rule 432 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛːzə# | Rule 509 : [+syl] > [+long] / __ z [+syl]
+#mwˈɛːzə̯# | Rule 517 : ə > ə̯ / __ #
+#mwˈɛːz# | Rule 524 : ə̯ > ∅ 
+#mwɛːz# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛz# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#mwaz# | Rule 540 : ɛ > a / w __ 

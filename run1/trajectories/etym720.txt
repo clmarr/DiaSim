@@ -1,16 +1,18 @@
 Trajectory file for run 'run1'; etymon number :720:
-#mˈuskɑm# >>> #musʃ# ( Correct : #muʃ#) :
-m ˈu s k ɑ m 
-#mˈʊskɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈoskɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈoskɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈoska# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#mˈoskʲa# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#mˈosca# | Rule 207 : [+back,+front] > [-back] 
-#mˈost͡ʃa# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#mˈost͡ʃə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈust͡ʃə# | Rule 387 : [+round,+tense,+back] > [+hi] 
-#mˈusʃə# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#mˈusʃə̯# | Rule 517 : ə > ə̯ / __ #
-#mˈusʃ# | Rule 524 : ə̯ > ∅ 
-#musʃ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈuskulum# >>> #mul# ( Correct : #mul#) :
+m ˈu s k u l u m 
+#mˈʊskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈʊsklʊm# | Rule 32 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈosklom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈosklo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈosklə# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#mˈosklə̯# | Rule 225 : ə > ə̯ 
+#mˈosklə# | Rule 234 : ə̯ > ə / [-lat,-syl] l __ #
+#mˈozlə# | Rule 338 : {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
+#mˈoːzlə# | Rule 371 : [+syl] > [+long] / __ z [+cons]
+#mˈoːlə# | Rule 372 : z > ∅ / __ [+cons]
+#mˈuːlə# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#mˈuːlə̯# | Rule 517 : ə > ə̯ / __ #
+#mˈuːl# | Rule 524 : ə̯ > ∅ 
+#muːl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mul# | Rule 536 : [+syl,+long] > [-long,-splng] 

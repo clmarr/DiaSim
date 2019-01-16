@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :413:
-#kˌɑppˈellum# >>> #ʃapɛl# ( Correct : #ʃapo#) :
-k ˌɑ p p ˈe l l u m 
-#kˌɑppˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɑppˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˌɑppˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kˌappˈɛllo# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#kʲˌappˈɛllo# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˌappˈɛllo# | Rule 207 : [+back,+front] > [-back] 
-#t͡ʃˌappˈɛllo# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˌappˈɛllə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
-#t͡ʃˌappˈɛllə̯# | Rule 225 : ə > ə̯ 
-#t͡ʃˌappˈɛll# | Rule 238 : ə̯ > ∅ 
-#t͡ʃˌapˈɛl# | Rule 351 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ʃˌapˈɛl# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#ʃapɛl# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈɑprɑm# >>> #ʃɛpʁ# ( Correct : #ʃɛvʁ#) :
+k ˈɑ p r ɑ m 
+#kˈɑprɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈɑːprɑ# | Rule 93 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#kˈaːpra# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#kʲˈaːpra# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#kʲˈɛːpra# | Rule 200 : ˈaː > ˈɛː / # [+cons,+front] __ 
+#kʲˈie̯pra# | Rule 203 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#cˈie̯pra# | Rule 207 : [+back,+front] > [-back] 
+#t͡ʃˈie̯pra# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈie̯prə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃjˈeprə# | Rule 414 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ʃjˈeprə# | Rule 447 : [+delrel] > [+cont,.delrel] 
+#ʃjˈɛprə# | Rule 453 : ˈe > ˈɛ 
+#ʃˈɛprə# | Rule 459 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
+#ʃˈɛprə̯# | Rule 517 : ə > ə̯ / __ #
+#ʃˈɛpr# | Rule 524 : ə̯ > ∅ 
+#ʃˈɛpʀ# | Rule 534 : r > ʀ 
+#ʃɛpʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃɛpʁ# | Rule 542 : ʀ > ʁ 

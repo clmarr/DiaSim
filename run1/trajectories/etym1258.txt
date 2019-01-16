@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1258:
-#ˈun̪d̪ɑm# >>> #ɔ̃d̪# ( Correct : #ɔ̃d̪#) :
-ˈu n̪ d̪ ɑ m 
-#ˈʊn̪d̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈon̪d̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈon̪d̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈũn̪d̪ɑ# | Rule 136 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
-#ˈũn̪d̪a# | Rule 163 : [+lo,+syl] > [+front,-back] 
-#ˈũn̪d̪ə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈũːd̪ə# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˈũːd̪ə̯# | Rule 517 : ə > ə̯ / __ #
-#ˈũːd̪# | Rule 524 : ə̯ > ∅ 
-#ũːd̪# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ũd̪# | Rule 536 : [+syl,+long] > [-long,-splng] 
-#ɔ̃d̪# | Rule 537 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ˈun̪d̪ekim# >>> #ɔ̃d̪# ( Correct : #ɔ̃z#) :
+ˈu n̪ d̪ e k i m 
+#ˈʊn̪d̪ɛkɪm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈon̪d̪ɛkem# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈon̪d̪ɛke# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈon̪d̪ɛkʲe# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#ˈon̪d̪ɛce# | Rule 70 : [+back,+front] > [-back] 
+#ˈũn̪d̪ɛce# | Rule 136 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#ˈũn̪d̪ɛt͡sʲe# | Rule 150 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#ˈũn̪d̪ət͡sʲe# | Rule 220 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈũn̪d̪ət͡sʲə# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#ˈũn̪d̪ə̯t͡sʲə̯# | Rule 225 : ə > ə̯ 
+#ˈũn̪d̪ət͡sʲə̯# | Rule 228 : ə̯ > ə / __ [+front,+cons]
+#ˈũn̪d̪ət͡sʲ# | Rule 238 : ə̯ > ∅ 
+#ˈũn̪d̪ət͡s# | Rule 362 : t͡sʲ > t͡s 
+#ˈũn̪d̪əs# | Rule 447 : [+delrel] > [+cont,.delrel] 
+#ˈũːd̪əs# | Rule 503 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːd̪ə# | Rule 523 : [-son] > ∅ / __ #
+#ũːd̪ə# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũd̪ə# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#ɔ̃d̪ə# | Rule 537 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ɔ̃d̪# | Rule 544 : ə > ∅ / __ #

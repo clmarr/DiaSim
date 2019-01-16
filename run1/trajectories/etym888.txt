@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :888:
-#pˈius# >>> #pjœ# ( Correct : #pjø#) :
-p ˈi u s 
-#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈeos# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈeːos# | Rule 90 : [+prim] > [+long] / __ [+syl]
-#pjˈoːs# | Rule 218 : ˈeː o > j ˈoː 
-#pjˈows# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pjˈews# | Rule 382 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#pjˈøws# | Rule 415 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#pjˈøs# | Rule 419 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#pjˈø# | Rule 523 : [-son] > ∅ / __ #
-#pjø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pjœ# | Rule 539 : ø > œ / __ ( [+cons] )* #
+#plˈɑːɡɑm# >>> #plwa# ( Correct : #plɛ#) :
+p l ˈɑː ɡ ɑ m 
+#plˈɑɡɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#plˈɑɡɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɑɣɑ# | Rule 86 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#plˈɑːɣɑ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːɣa# | Rule 163 : [+lo,+syl] > [+front,-back] 
+#plˈaːɣʲa# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#plˈaːʝa# | Rule 207 : [+back,+front] > [-back] 
+#plˈaːja# | Rule 214 : ʝ > j 
+#plˈae̯ja# | Rule 292 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈae̯jə# | Rule 302 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈeːjə# | Rule 324 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#plˈoːjə# | Rule 383 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#plˈuːjə# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#plˈuːɛ̯ə# | Rule 429 : j > ɛ̯ / [+syl,+back,+round] __ 
+#plwˈɛə# | Rule 468 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#plwˈɛːə# | Rule 475 : [+stres] > [+long] / __ ə
+#plwˈɛː# | Rule 476 : ə > ∅ / [+syl] __ 
+#plwɛː# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plwɛ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#plwa# | Rule 540 : ɛ > a / w __ 

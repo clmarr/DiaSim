@@ -1,10 +1,27 @@
 Trajectory file for run 'run1'; etymon number :913:
-#plˈuːs# >>> #ply# ( Correct : #ply#) :
-p l ˈuː s 
-#plˈus# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˈuːs# | Rule 94 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#plˈʉːs# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#plˈyːs# | Rule 366 : [+hi,+round,-back] > [+front] 
-#plˈyː# | Rule 523 : [-son] > ∅ / __ #
-#plyː# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ply# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#plˌuːsiˈoːreːs# >>> #plɥizuʁ# ( Correct : #plyzjœʁ#) :
+p l ˌuː s i ˈoː r eː s 
+#plˌuːsɪˈoːreːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˌuːsjˈoːreːs# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˌuːsʝˈoːreːs# | Rule 26 : j > ʝ / __ [+syl]
+#plˌusʝˈores# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#plˌusʝˈoːres# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˌuzʝˈoːres# | Rule 115 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#plˌuzʲˈoːres# | Rule 145 : z ʝ > zʲ 
+#plˌʉzʲˈoːres# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#plˌʉzʲˈoːrəs# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#plˌʉzʲˈoːrə̯s# | Rule 225 : ə > ə̯ 
+#plˌʉzʲˈoːrs# | Rule 238 : ə̯ > ∅ 
+#plˌʉzʲˈors# | Rule 252 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#plˌʉjzˈors# | Rule 277 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#plˌyjzˈors# | Rule 366 : [+hi,+round,-back] > [+front] 
+#plˌyjzˈurs# | Rule 387 : [+round,+tense,+back] > [+hi] 
+#plɥˌizˈurs# | Rule 434 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#plɥˌiːzˈurs# | Rule 509 : [+syl] > [+long] / __ z [+syl]
+#plɥˌiːzˈuɹs# | Rule 519 : r > ɹ / [-cons] __ [+cons]
+#plɥˌiːzˈuɹ# | Rule 523 : [-son] > ∅ / __ #
+#plɥˌiːzˈur# | Rule 532 : ɹ > r 
+#plɥˌiːzˈuʀ# | Rule 534 : r > ʀ 
+#plɥiːzuʀ# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɥizuʀ# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#plɥizuʁ# | Rule 542 : ʀ > ʁ 

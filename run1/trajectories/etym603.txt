@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :603:
-#lˈokum# >>> #lœ# ( Correct : #ljø#) :
-l ˈo k u m 
-#lˈɔkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɔkom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#lˈɔko# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˈɔːko# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
-#lˈɔːɡo# | Rule 111 : k > ɡ / [-cons] __ [+syl]
-#lˈɔːɣo# | Rule 113 : ɡ > ɣ / [-cons] __ [-cons]
-#lˈuo̯ɣo# | Rule 138 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#lˈuo̯o# | Rule 153 : ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
-#lˈʉo̯o# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#lˈʉo̯ə# | Rule 223 : [-stres,-lo,+syl] > ə / __ #
-#lˈʉo̯ə̯# | Rule 225 : ə > ə̯ 
-#lˈʉo̯# | Rule 238 : ə̯ > ∅ 
-#lˈyo̯# | Rule 366 : [+hi,+round,-back] > [+front] 
-#lˈye̯# | Rule 374 : o̯ > e̯ 
-#lˈø# | Rule 402 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#lø# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lœ# | Rule 539 : ø > œ / __ ( [+cons] )* #
+#lˈon̪ɡeː# >>> #lɔ̃j̃# ( Correct : #lwɛ̃#) :
+l ˈo n̪ ɡ eː 
+#lˈoŋɡeː# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#lˈɔŋɡeː# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɔŋɡe# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#lˈɔŋɡʲe# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#lˈɔŋɟe# | Rule 70 : [+back,+front] > [-back] 
+#lˈũŋɟe# | Rule 137 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#lˈũɲɟe# | Rule 140 : [+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi,-nas]
+#lˈũɲe# | Rule 142 : [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ 
+#lˈũːɲe# | Rule 189 : [+prim] > [+long] / __ [+cons] [+syl]
+#lˈũːɲə# | Rule 224 : [-stres,-lo,+syl,+tense] > ə 
+#lˈũːɲə̯# | Rule 225 : ə > ə̯ 
+#lˈũːɲ# | Rule 238 : ə̯ > ∅ 
+#lˈũːj̃ɲ# | Rule 388 : ∅ > j̃ / [+hi,+round,+syl] __ ɲ #
+#lˈũːj̃n̪# | Rule 446 : ɲ > n̪ / __ #
+#lˈũːj̃# | Rule 506 : [+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅/ __ #
+#lũːj̃# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lũj̃# | Rule 536 : [+syl,+long] > [-long,-splng] 
+#lɔ̃j̃# | Rule 537 : [+back,-lo,+nas,+syl] > ɔ̃ 
