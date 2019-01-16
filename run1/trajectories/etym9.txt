@@ -13,11 +13,11 @@ Trajectory file for run 'run1'; etymon number :9:
 #ˌɛːt̪ˈɑːt̪eɣo# | Rule 113 : ɡ > ɣ / [-cons] __ [-cons]
 #ˌɛːt̪ˈaːt̪eɣo# | Rule 163 : [+lo,+syl] > [+front,-back] 
 #ˌɛt̪ˈaːt̪eɣo# | Rule 185 : [-prim] > [-long,-splng] 
-#ˌɛt̪ˈaːt̪əɣo# | Rule 219 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ˌɛt̪ˈaːt̪əɣo# | Rule 219 : [+syl,-stres] > ə / [-syl] __ ( [-syl] )* [+syl] ( [-syl] )* #
 #ˌɛt̪ˈaːt̪əɣə# | Rule 221 : [-stres,-lo,+syl] > ə 
 #ˌɛt̪ˈaːt̪ə̯ɣə̯# | Rule 222 : ə > ə̯ 
 #ˌɛt̪ˈaːt̪ə̯ɣə# | Rule 233 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#ˌɛt̪ˈaːt̪əɣə# | Rule 234 : ə̯ > ə / t̪ __ ɣ
+#ˌɛt̪ˈaːt̪əɣə# | Rule 234 : ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 #ˌɛd̪ˈaːd̪əɣə# | Rule 264 : [-voi] > [+voi] / [+syl] __ [+syl]
 #ˌɛd̪ˈaːd̪d͡ʒə# | Rule 267 : {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ} 
 #ˌɛðˈaːd̪d͡ʒə# | Rule 268 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
