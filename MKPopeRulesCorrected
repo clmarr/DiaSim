@@ -806,11 +806,14 @@ $ s257ia : ə intertonic retained when after cons + r or l but not rr or ll
 ə̯ > ə / [+stres] ([-syl])* [-son] r __ ([-syl])* [+stres]
 ə̯ > ə / [+stres] ([-syl])* [-lat] l __ ([-syl])* [+stres]
 $ s257ib : ə intertonic retained when before ʎ,ɲ,ts or "any particularly heavy group of consonants"  
-ə̯ > ə / __ [+front,+cons]
-ə̯ > ə / __ [-syl] [+front,-cont]
+$ CORRECTION: only retained before ʎ or ɲ -- not tsʲ or ç (with regards to palatal sounds -- i.e. we add +son specification)
+$ CORRECTION: retained before ŋ t͡sʲ but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
+ə̯ > ə / __ [+front,+cons,+son]
+ə̯ > ə / __ ŋ t͡sʲ
 ə̯ > ə / __ [+cons] [+cons] [+cons]
 $s258a : ə retained before n̪ t̪ #
-ə̯ > ə / __ n̪ t̪ (ə̯) #
+$ CORRECTION: retained before all -nt, not just finally
+ə̯ > ə / __ [+nas] t̪
 $s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
 $ CORRECTION : Pope only has ə retained after ɫ -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
 ə̯ > ə / [+lat] [+nas] __ #
