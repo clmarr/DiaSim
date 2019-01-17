@@ -218,7 +218,9 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ| ORIG : ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} | ORIG : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
 {e;i} > {j;j} / [+syl] __ [-nas]| ORIG : {e;i} > {j;j} / [+syl] __ [-nas]
-[+syl,-stres] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : [+syl,-stres] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
+a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
+ə > a / __ [+cor,+ant,+distr] [-syl]| ORIG : ə > a / __ [+cor,+ant,+distr] [-syl]
+[+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
 [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl,+lo,+prim]  
 [-stres,-lo,+syl] > ə / __ [-syl]| ORIG : [-stres,-lo,+syl] > ə /  __  [-syl]
 [-stres,-lo,+syl] > ə / __ #| ORIG : [-stres,-lo,+syl] > ə /  __  #
@@ -229,7 +231,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 ə̯ > ə / __ [+front,+cons,+son]| ORIG : ə̯ > ə / __ [+front,+cons,+son]
 ə̯ > ə / __ ŋ t͡sʲ| ORIG : ə̯ > ə / __ ŋ t͡sʲ
 ə̯ > ə / __ [+cons] [+cons] [+cons]| ORIG : ə̯ > ə / __ [+cons] [+cons] [+cons]
-ə̯ > ə / __ n̪ t̪| ORIG : ə̯ > ə / __ n̪ t̪
+ə̯ > ə / __ [+nas] t̪| ORIG : ə̯ > ə / __ [+nas] t̪
 ə̯ > ə / [+lat] [+nas] __ #| ORIG : ə̯ > ə / [+lat] [+nas] __ #
 ə̯ > ə / [-ant,+delrel] __ #| ORIG : ə̯ > ə / [-ant,+delrel] __ #
 ə̯ > ə / [-lat,-syl] l __ #| ORIG : ə̯ > ə / [-lat,-syl] l __ #
@@ -237,6 +239,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 ə̯ > ə / ə̯ ( [-syl] )* __ #| ORIG : ə̯ > ə / ə̯ ([-syl])* __ # 
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ| ORIG : ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 ə̯ > ∅ | ORIG : ə̯ > ∅ 
+k > ∅ / __ t͡sʲ| ORIG : k > ∅  / __ t͡sʲ
 t̪ > d̪ / [+lab,+voi,-hi,+cons] __ | ORIG : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
 t̪ > d̪ / ʝ __ | ORIG : t̪ > d̪ / ʝ __ 
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ | ORIG : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 

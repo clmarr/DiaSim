@@ -783,7 +783,11 @@ $the voyelle d'appui is inevitable ə
 $ as per s259 : this resolves after the reduction of non-stressed non-low vowels everywhere, as there is a different outcome for
 $ paroxytones as opposed to proparoxytones. 
 $ CORRECTION: cannot come immediately before final vowel
-[+syl,-stres] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
+$ CORRECTION: a actually doesn't go to schwa yet if before t/ð then a vowel
+a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
+ə > a / __ [+cor,+ant,+distr] [-syl]
+[+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
+
 
 $ s261 ~ s350 : as per word trajectories seen in s350, under justification of s261
 $ non-penultimate unstressed vowels except for a are effaced "early" when next syllˌs stressed vowel is a
@@ -826,6 +830,9 @@ $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
+
+$ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
+k > ∅  / __ t͡sʲ
 
 $ s350 -- ... and t immediately devoices if it comes into contact (by the previous rule) 
 $ with a PRECEDING b, β or ʝ

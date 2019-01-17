@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :204:
-#ekkehˌɑk# >>> #ksa# ( Correct : #sa#) :
+#ekkehˌɑk# >>> #sa# ( Correct : #sa#) :
 e k k e h ˌɑ k 
 #ɛkkɛhˌɑk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ɛkkɛˌɑk# | Rule 15 : h > ∅ / @ __ 
@@ -11,10 +11,11 @@ e k k e h ˌɑ k
 #ɛkcˌɑx# | Rule 140 : k > x / [+syl] __ #
 #ɛkt͡sʲˌɑx# | Rule 152 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #ɛkt͡sʲˌax# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#əkt͡sʲˌax# | Rule 220 : [+syl,-stres] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#ə̯kt͡sʲˌax# | Rule 225 : ə > ə̯ 
-#kt͡sʲˌax# | Rule 238 : ə̯ > ∅ 
-#kt͡sʲˌa# | Rule 316 : x > ∅ / [-prim] __ #
-#kt͡sˌa# | Rule 362 : t͡sʲ > t͡s 
-#ksˌa# | Rule 447 : [+delrel] > [+cont,.delrel] 
-#ksa# | Rule 535 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#əkt͡sʲˌax# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯kt͡sʲˌax# | Rule 227 : ə > ə̯ 
+#kt͡sʲˌax# | Rule 240 : ə̯ > ∅ 
+#t͡sʲˌax# | Rule 241 : k > ∅ / __ t͡sʲ
+#t͡sʲˌa# | Rule 319 : x > ∅ / [-prim] __ #
+#t͡sˌa# | Rule 365 : t͡sʲ > t͡s 
+#sˌa# | Rule 450 : [+delrel] > [+cont,.delrel] 
+#sa# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
