@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1078:
-#sˈeːpem# >>> #swa# ( Correct : #swaf#) :
-s ˈeː p e m 
-#sˈeːpɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈepɛm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈepɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈeːpɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈeːpə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#sˈeːpə̯# | Rule 227 : ə > ə̯ 
-#sˈeːp# | Rule 250 : ə̯ > ∅ 
-#sˈejp# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈojp# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#sˈujp# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#sˈuɛ̯p# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
-#swˈɛp# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#swˈɛ# | Rule 537 : [-son] > ∅ / __ #
-#swɛ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#swa# | Rule 554 : ɛ > a / w __ 
+#sˈejor# >>> #sijʁ# ( Correct : #siʁ#) :
+s ˈe j o r 
+#sˈeʝor# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#sˈɛʝɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈɛʝrɔ# | Rule 32 : {ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
+#sˈɛʝrʲɔ# | Rule 178 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#sˈie̯ʝrʲɔ# | Rule 193 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+#sˈie̯rʲɔ# | Rule 206 : [+hi,+front,-lat,-syl] > ∅ / __ rʲ
+#sˈie̯rʲə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#sˈie̯rʲə̯# | Rule 227 : ə > ə̯ 
+#sˈie̯rʲ# | Rule 250 : ə̯ > ∅ 
+#sˈie̯jr# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#sˈie̯jrə# | Rule 373 : ∅ > ə / [+front,-syl,+hi] r __ #
+#sˈijrə# | Rule 399 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#sˈijrə̯# | Rule 531 : ə > ə̯ / __ #
+#sˈijr# | Rule 538 : ə̯ > ∅ 
+#sˈijʀ# | Rule 548 : r > ʀ 
+#sijʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sijʁ# | Rule 556 : ʀ > ʁ 

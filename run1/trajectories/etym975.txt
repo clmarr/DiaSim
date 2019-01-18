@@ -1,21 +1,22 @@
 Trajectory file for run 'run1'; etymon number :975:
-#pˈurppurɑm# >>> #puʁpʁ# ( Correct : #puʁpʁ#) :
-p ˈu r p p u r ɑ m 
-#pˈʊrppʊrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈorpporɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈorpporɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈorppora# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#pˈorppəra# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#pˈorppə̯ra# | Rule 227 : ə > ə̯ 
-#pˈorpə̯ra# | Rule 241 : [+cons,+lab] > ∅ / [+cons] __ [-son]
-#pˈorpɾa# | Rule 246 : {n̪ ə̯;ə̯ ?;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
-#pˈorpra# | Rule 249 : ɾ > r 
-#pˈorprə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈurprə# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#pˈurprə̯# | Rule 531 : ə > ə̯ / __ #
-#pˈuɹprə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
-#pˈuɹpr# | Rule 538 : ə̯ > ∅ 
-#pˈurpr# | Rule 546 : ɹ > r 
-#pˈuʀpʀ# | Rule 548 : r > ʀ 
-#puʀpʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#puʁpʁ# | Rule 556 : ʀ > ʁ 
+#pˈun̪kt̪um# >>> #pwan̪# ( Correct : #pwɛ̃#) :
+p ˈu n̪ k t̪ u m 
+#pˈuŋkt̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#pˈʊŋkt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈʊŋt̪ʊm# | Rule 54 : k > ∅ / ŋ __ [+cor,-voi]
+#pˈoŋt̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈoŋt̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈũŋt̪o# | Rule 137 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#pˈũɲt̪o# | Rule 174 : ŋ > ɲ / __ [+ant,+distr]
+#pˈũɲt̪ʲo# | Rule 178 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#pˈũɲt̪ʲə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#pˈũɲt̪ʲə̯# | Rule 227 : ə > ə̯ 
+#pˈũɲt̪ʲ# | Rule 250 : ə̯ > ∅ 
+#pˈũɲjt̪# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#pˈũɲt̪# | Rule 292 : j > ∅ / [+hi,+front,-syl] __ [-syl]
+#pˈũjn̪t̪# | Rule 319 : ɲ > j n̪ / __ [+cons]
+#pˈũɛ̯n̪t̪# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛn̪t̪# | Rule 482 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#pwˈɛn̪# | Rule 537 : [-son] > ∅ / __ #
+#pwɛn̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwan̪# | Rule 554 : ɛ > a / w __ 

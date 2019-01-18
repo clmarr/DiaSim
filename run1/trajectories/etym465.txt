@@ -1,14 +1,19 @@
 Trajectory file for run 'run1'; etymon number :465:
-#kˈolloːs# >>> #ku# ( Correct : #ku#) :
-k ˈo l l oː s 
-#kˈɔlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɔllos# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#kˈɔlləs# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
-#kˈɔllə̯s# | Rule 227 : ə > ə̯ 
-#kˈɔlls# | Rule 250 : ə̯ > ∅ 
-#kˈɔls# | Rule 342 : [+cons] > ∅ / [+cons] __ [-son]
-#kˈɔɫs# | Rule 379 : [+lat] > [+back] / __ [+cons]
-#kˈɔws# | Rule 419 : [+lat,+back] > w 
-#kˈus# | Rule 436 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#kˈu# | Rule 537 : [-son] > ∅ / __ #
-#ku# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈoːd̪ɑm# >>> #kœ# ( Correct : #kø#) :
+k ˈoː d̪ ɑ m 
+#kˈod̪ɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈod̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈoðɑ# | Rule 87 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#kˈoːðɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˈoːða# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#kˈowða# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈowðə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#kˈewðə# | Rule 396 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#kˈewə# | Rule 424 : {θ;ð} > {∅;∅} 
+#kˈøwə# | Rule 429 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#kˈøə# | Rule 433 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#kˈøːə# | Rule 489 : [+stres] > [+long] / __ ə
+#kˈøː# | Rule 490 : ə > ∅ / [+syl] __ 
+#køː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kø# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#kœ# | Rule 553 : ø > œ / __ ( [+cons] )* #

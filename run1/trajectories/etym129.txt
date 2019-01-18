@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :129:
-#bˌot̪ˈellum# >>> #buɛl# ( Correct : #bwajo#) :
-b ˌo t̪ ˈe l l u m 
-#bˌɔt̪ˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#bˌɔt̪ˈɛllə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#bˌɔt̪ˈɛllə̯# | Rule 227 : ə > ə̯ 
-#bˌɔt̪ˈɛll# | Rule 250 : ə̯ > ∅ 
-#bˌɔd̪ˈɛll# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#bˌɔðˈɛll# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#bˌoðˈɛll# | Rule 309 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#bˌoðˈɛl# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#bˌuðˈɛl# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#bˌuˈɛl# | Rule 424 : {θ;ð} > {∅;∅} 
-#b?ˈɛl# | Rule 521 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#buɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˌon̪ˈoːn̪iɑm# >>> #bɔ̃n̪waɲ# ( Correct : #bulɔɲ#) :
+b ˌo n̪ ˈoː n̪ i ɑ m 
+#bˌɔn̪ˈoːn̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˌɔn̪ˈoːn̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#bˌɔn̪ˈoːn̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#bˌɔn̪ˈon̪ʝɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#bˌɔn̪ˈon̪ʝɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bˌɔn̪ˈoɲɑ# | Rule 80 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
+#bˌɔn̪ˈoːɲɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#bˌɔn̪ˈũːɲɑ# | Rule 137 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#bˌũn̪ˈũːɲɑ# | Rule 138 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#bˌũn̪ˈũːɲa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#bˌũn̪ˈũːɲə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#bˌũn̪ˈũːjɲə# | Rule 407 : ∅ > j / [+hi,+round,+stres] __ ɲ [+syl]
+#bˌũn̪ˈũːɛ̯ɲə# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#bˌũn̪wˈɛɲə# | Rule 482 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#bˌũn̪wˈɛɲə̯# | Rule 531 : ə > ə̯ / __ #
+#bˌũn̪wˈɛɲ# | Rule 538 : ə̯ > ∅ 
+#bũn̪wɛɲ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɔ̃n̪wɛɲ# | Rule 551 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#bɔ̃n̪waɲ# | Rule 554 : ɛ > a / w __ 

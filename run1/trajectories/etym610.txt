@@ -1,20 +1,16 @@
 Trajectory file for run 'run1'; etymon number :610:
-#lˌuːn̪isd̪ˈiːem# >>> #lœ̃d̪i# ( Correct : #lœ̃d̪i#) :
-l ˌuː n̪ i s d̪ ˈiː e m 
-#lˌuːn̪ɪsd̪ˈiːɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˌun̪ɪsd̪ˈiɛm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#lˌun̪esd̪ˈiɛm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#lˌun̪esd̪ˈiɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˌun̪esd̪ˈiːɛ# | Rule 91 : [+prim] > [+long] / __ [+syl]
-#lˌʉn̪esd̪ˈiːɛ# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#lˌʉn̪əsd̪ˈiːɛ# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
-#lˌʉn̪əsd̪ˈiːə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#lˌʉn̪ə̯sd̪ˈiːə̯# | Rule 227 : ə > ə̯ 
-#lˌʉn̪sd̪ˈiː# | Rule 250 : ə̯ > ∅ 
-#lˌʉn̪d̪ˈiː# | Rule 342 : [+cons] > ∅ / [+cons] __ [-son]
-#lˌyn̪d̪ˈiː# | Rule 380 : [+hi,+round,-back] > [+front] 
-#lˌỹn̪d̪ˈiː# | Rule 451 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#lˌỹːd̪ˈiː# | Rule 517 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˌœ̃ːd̪ˈiː# | Rule 539 : [+nas,+front,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#lœ̃ːd̪iː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lœ̃d̪i# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#lˈon̪ɡoːs# >>> #lɔ̃# ( Correct : #lɔ̃#) :
+l ˈo n̪ ɡ oː s 
+#lˈoŋɡoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#lˈɔŋɡoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɔŋɡos# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#lˈũŋɡos# | Rule 138 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#lˈũŋɡəs# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
+#lˈũŋɡə̯s# | Rule 227 : ə > ə̯ 
+#lˈũŋɡs# | Rule 250 : ə̯ > ∅ 
+#lˈũŋs# | Rule 342 : [+cons] > ∅ / [+cons] __ [-son]
+#lˈũːs# | Rule 517 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈũː# | Rule 537 : [-son] > ∅ / __ #
+#lũː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lũ# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#lɔ̃# | Rule 551 : [+back,-lo,+nas,+syl] > ɔ̃ 

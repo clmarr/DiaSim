@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1058:
-#sˌɑːpˈoːn̪em# >>> #savɔ̃# ( Correct : #savɔ̃#) :
-s ˌɑː p ˈoː n̪ e m 
-#sˌɑːpˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑːpˈon̪ɛm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˌɑpˈon̪ɛm# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#sˌɑpˈon̪ɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌɑpˈoːn̪ɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˌɑpˈũːn̪ɛ# | Rule 137 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
-#sˌapˈũːn̪ɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#sˌapˈũːn̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#sˌapˈũːn̪ə̯# | Rule 227 : ə > ə̯ 
-#sˌapˈũːn̪# | Rule 250 : ə̯ > ∅ 
-#sˌabˈũːn̪# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˌaβˈũːn̪# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌavˈũːn̪# | Rule 311 : β > v 
-#sˌavˈũː# | Rule 518 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#savũː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#savũ# | Rule 550 : [+syl,+long] > [-long,-splng] 
-#savɔ̃# | Rule 551 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#sˌɑpˈɑwd̪iɑm# >>> #savuʒ# ( Correct : #savwa#) :
+s ˌɑ p ˈɑ w d̪ i ɑ m 
+#sˌɑpˈɑwd̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈɑwd̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑpˈɑwɟʝɑ# | Rule 68 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#sˌɑpˈɑwɟɑ# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#sˌɑpˈɑwd͡ʒɑ# | Rule 152 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#sˌapˈawd͡ʒa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#sˌapˈɔwd͡ʒa# | Rule 196 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#sˌabˈɔwd͡ʒa# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˌaβˈɔwd͡ʒa# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˌavˈɔwd͡ʒa# | Rule 311 : β > v 
+#sˌavˈɔwd͡ʒə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌavˈud͡ʒə# | Rule 436 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#sˌavˈuʒə# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#sˌavˈuʒə̯# | Rule 531 : ə > ə̯ / __ #
+#sˌavˈuʒ# | Rule 538 : ə̯ > ∅ 
+#savuʒ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

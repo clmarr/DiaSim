@@ -1,16 +1,26 @@
 Trajectory file for run 'run1'; etymon number :428:
-#kˌɑst̪ˈellum# >>> #ʃast̪ɛl# ( Correct : #ʃɑt̪o#) :
-k ˌɑ s t̪ ˈe l l u m 
-#kˌɑst̪ˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɑst̪ˈɛllom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˌɑst̪ˈɛllo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kˌast̪ˈɛllo# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#kʲˌast̪ˈɛllo# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˌast̪ˈɛllo# | Rule 207 : [+back,+front] > [-back] 
-#t͡ʃˌast̪ˈɛllo# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˌast̪ˈɛllə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#t͡ʃˌast̪ˈɛllə̯# | Rule 227 : ə > ə̯ 
-#t͡ʃˌast̪ˈɛll# | Rule 250 : ə̯ > ∅ 
-#t͡ʃˌast̪ˈɛl# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ʃˌast̪ˈɛl# | Rule 461 : [+delrel] > [+cont,.delrel] 
-#ʃast̪ɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈɑrt̪un̪eːs# >>> #ʃaʁt̪# ( Correct : #ʃaʁt̪ʁ#) :
+k ˈɑ r t̪ u n̪ eː s 
+#kˈɑrt̪ʊn̪eːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɑrt̪ʊn̪es# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈɑrt̪on̪es# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑr̥t̪on̪es# | Rule 85 : [+ant,+cons] > [-voi] / __ t̪
+#kˈɑrt̪on̪es# | Rule 86 : r̥ > r 
+#kˈart̪on̪es# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#kʲˈart̪on̪es# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈart̪on̪es# | Rule 207 : [+back,+front] > [-back] 
+#t͡ʃˈart̪on̪es# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈart̪ən̪es# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#t͡ʃˈart̪ən̪əs# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
+#t͡ʃˈart̪ə̯n̪ə̯s# | Rule 227 : ə > ə̯ 
+#t͡ʃˈart̪n̪s# | Rule 250 : ə̯ > ∅ 
+#t͡ʃˈard̪n̪s# | Rule 283 : t̪ > d̪ / __ [+nas,+cons]
+#t͡ʃˈard̪s# | Rule 342 : [+cons] > ∅ / [+cons] __ [-son]
+#t͡ʃˈart̪s# | Rule 364 : [-son] > [-voi] / __ [-voi]
+#ʃˈart̪s# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#ʃˈaɹt̪s# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹt̪# | Rule 537 : [-son] > ∅ / __ #
+#ʃˈart̪# | Rule 546 : ɹ > r 
+#ʃˈaʀt̪# | Rule 548 : r > ʀ 
+#ʃaʀt̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃaʁt̪# | Rule 556 : ʀ > ʁ 

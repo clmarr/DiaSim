@@ -1,25 +1,20 @@
 Trajectory file for run 'run1'; etymon number :500:
-#krˌɑːt̪ˈiːkulɑ# >>> #kʁij# ( Correct : #ɡʁij#) :
-k r ˌɑː t̪ ˈiː k u l ɑ 
-#krˌɑːt̪ˈiːkʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˌɑːt̪ˈiːklɑ# | Rule 33 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#krˌɑːt̪ˈiklɑ# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#krˌɑt̪ˈiklɑ# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#krˌɑt̪ˈiːklɑ# | Rule 94 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#krˌɑt̪ˈiːxlɑ# | Rule 97 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
-#krˌat̪ˈiːxla# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#krˌat̪ˈiːçla# | Rule 173 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#krˌat̪ˈiːçʎa# | Rule 177 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#krˌat̪ˈiːʎa# | Rule 205 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
-#krˌad̪ˈiːʎa# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#krˌaðˈiːʎa# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#krˌaðˈiːʎə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#krˌaˈiːʎə# | Rule 424 : {θ;ð} > {∅;∅} 
-#krˈiːʎə# | Rule 497 : ˌa > ∅ / __ [+prim]
-#krˈiːʎə̯# | Rule 531 : ə > ə̯ / __ #
-#krˈiːʎ# | Rule 538 : ə̯ > ∅ 
-#kʀˈiːʎ# | Rule 548 : r > ʀ 
-#kʀiːʎ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀiʎ# | Rule 550 : [+syl,+long] > [-long,-splng] 
-#kʁiʎ# | Rule 556 : ʀ > ʁ 
-#kʁij# | Rule 557 : ʎ > j 
+#krˈɑssiɑ# >>> #kʁɛsjs# ( Correct : #ɡʁɛs#) :
+k r ˈɑ s s i ɑ 
+#krˈɑssɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#krˈɑssjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#krˈɑssʝɑ# | Rule 27 : j > ʝ / __ [+syl]
+#krˈɑssʲsʲɑ# | Rule 148 : s [+hi,+front,+cons] > sʲ sʲ
+#krˈɑsʲsʲsʲɑ# | Rule 149 : s [+hi,+front,+cons] > sʲ sʲ
+#krˈɑsʲsʲɑ# | Rule 150 : sʲ > ∅ / __ sʲ sʲ
+#krˈasʲsʲa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#krˈajsjsa# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#krˈajsjsə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈɛjsjsə# | Rule 430 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#krˈɛːsjsə# | Rule 455 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#krˈɛːsjsə̯# | Rule 531 : ə > ə̯ / __ #
+#krˈɛːsjs# | Rule 538 : ə̯ > ∅ 
+#kʀˈɛːsjs# | Rule 548 : r > ʀ 
+#kʀɛːsjs# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀɛsjs# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#kʁɛsjs# | Rule 556 : ʀ > ʁ 

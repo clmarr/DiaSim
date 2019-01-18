@@ -1,17 +1,27 @@
 Trajectory file for run 'run1'; etymon number :67:
-#ˈɑrkɑm# >>> #aʁʃ# ( Correct : #aʁʃ#) :
-ˈɑ r k ɑ m 
-#ˈɑrkɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈarka# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#ˈarkʲa# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#ˈarca# | Rule 207 : [+back,+front] > [-back] 
-#ˈart͡ʃa# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#ˈart͡ʃə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈarʃə# | Rule 461 : [+delrel] > [+cont,.delrel] 
-#ˈarʃə̯# | Rule 531 : ə > ə̯ / __ #
-#ˈaɹʃə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
-#ˈaɹʃ# | Rule 538 : ə̯ > ∅ 
-#ˈarʃ# | Rule 546 : ɹ > r 
-#ˈaʀʃ# | Rule 548 : r > ʀ 
-#aʀʃ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aʁʃ# | Rule 556 : ʀ > ʁ 
+#ˌɑrkˈɑːriɑm# >>> #aʁʃijʁ# ( Correct : #aʁʃɛʁ#) :
+ˌɑ r k ˈɑː r i ɑ m 
+#ˌɑrkˈɑːrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑrkˈɑːrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˌɑrkˈɑːrʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#ˌɑrkˈɑrʝɑm# | Rule 51 : [+syl,+long] > [-long,-splng] 
+#ˌɑrkˈɑrʝɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌɑrkˈɑrʲɑ# | Rule 146 : r ʝ > rʲ 
+#ˌarkˈarʲa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#ˌarkˈaːrʲa# | Rule 189 : [+prim] > [+long] / __ [+cons] [+syl]
+#ˌarkʲˈaːrʲa# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ˌarkʲˈɛːrʲa# | Rule 202 : ˈaː > ˈɛː / [+cons,+front] __ rʲ
+#ˌarkʲˈie̯rʲa# | Rule 203 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˌarcˈie̯rʲa# | Rule 207 : [+back,+front] > [-back] 
+#ˌart͡ʃˈie̯rʲa# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#ˌart͡ʃˈie̯jra# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#ˌart͡ʃˈie̯jrə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌart͡ʃˈijrə# | Rule 399 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#ˌarʃˈijrə# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#ˌarʃˈijrə̯# | Rule 531 : ə > ə̯ / __ #
+#ˌaɹʃˈijrə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#ˌaɹʃˈijr# | Rule 538 : ə̯ > ∅ 
+#ˌarʃˈijr# | Rule 546 : ɹ > r 
+#ˌaʀʃˈijʀ# | Rule 548 : r > ʀ 
+#aʀʃijʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʁʃijʁ# | Rule 556 : ʀ > ʁ 

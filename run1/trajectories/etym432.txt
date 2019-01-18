@@ -1,17 +1,24 @@
 Trajectory file for run 'run1'; etymon number :432:
-#kˈɑt̪t̪um# >>> #ʃa# ( Correct : #ʃa#) :
-k ˈɑ t̪ t̪ u m 
-#kˈɑt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɑt̪t̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˈɑt̪t̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kˈat̪t̪o# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#kʲˈat̪t̪o# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˈat̪t̪o# | Rule 207 : [+back,+front] > [-back] 
-#t͡ʃˈat̪t̪o# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈat̪t̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#t͡ʃˈat̪t̪ə̯# | Rule 227 : ə > ə̯ 
-#t͡ʃˈat̪t̪# | Rule 250 : ə̯ > ∅ 
-#t͡ʃˈat̪# | Rule 362 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#ʃˈat̪# | Rule 461 : [+delrel] > [+cont,.delrel] 
-#ʃˈa# | Rule 537 : [-son] > ∅ / __ #
-#ʃa# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈɑsum# >>> #ʃɛ# ( Correct : #ʃe#) :
+k ˈɑ s u m 
+#kˈɑsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɑsom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑso# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈɑːso# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˈɑːzo# | Rule 115 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#kˈaːzo# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#kʲˈaːzo# | Rule 195 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#kʲˈɛːzo# | Rule 200 : ˈaː > ˈɛː / # [+cons,+front] __ 
+#kʲˈie̯zo# | Rule 203 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#cˈie̯zo# | Rule 207 : [+back,+front] > [-back] 
+#t͡ʃˈie̯zo# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈie̯zə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#t͡ʃˈie̯zə̯# | Rule 227 : ə > ə̯ 
+#t͡ʃˈie̯z# | Rule 250 : ə̯ > ∅ 
+#t͡ʃˈie̯s# | Rule 320 : [-son] > [-voi] / __ #
+#t͡ʃjˈes# | Rule 428 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ʃjˈes# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#ʃjˈɛs# | Rule 467 : ˈe > ˈɛ 
+#ʃˈɛs# | Rule 473 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
+#ʃˈɛ# | Rule 537 : [-son] > ∅ / __ #
+#ʃɛ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

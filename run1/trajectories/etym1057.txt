@@ -1,21 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1057:
-#sˌɑpiˈen̪t̪em# >>> #savæ̃# ( Correct : #savɑ̃#) :
-s ˌɑ p i ˈe n̪ t̪ e m 
-#sˌɑpɪˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑpjˈɛn̪t̪ɛm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#sˌɑpˈɛn̪t̪ɛm# | Rule 25 : j > ∅ / p __ [+front,-hi,-lo,+syl]
-#sˌɑpˈɛn̪t̪ɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌɑpˈɛ?t̪ɛ# | Rule 85 : [+ant,+cons] > [-voi] / __ t̪
-#sˌapˈɛ?t̪ɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#sˌapˈɛ?t̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#sˌapˈɛ?t̪ə̯# | Rule 227 : ə > ə̯ 
-#sˌapˈɛ?t̪# | Rule 250 : ə̯ > ∅ 
-#sˌabˈɛ?t̪# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˌaβˈɛ?t̪# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌavˈɛ?t̪# | Rule 311 : β > v 
-#sˌavˈɛ̃?t̪# | Rule 384 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌavˈæ̃?t̪# | Rule 414 : [+nas,-hi,+syl] > [+lo] 
-#sˌavˈæ̃ːt̪# | Rule 517 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌavˈæ̃ː# | Rule 537 : [-son] > ∅ / __ #
-#savæ̃ː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#savæ̃# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#sˈɑpɑm# >>> #sɛv# ( Correct : #sɛv#) :
+s ˈɑ p ɑ m 
+#sˈɑpɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈɑːpɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈaːpa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#sˈaːba# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˈaːβa# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˈae̯βa# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈae̯va# | Rule 311 : β > v 
+#sˈae̯və# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈeːvə# | Rule 338 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#sˈɛːvə# | Rule 529 : ˈeː > ˈɛː / __ [+cons] ə
+#sˈɛːvə̯# | Rule 531 : ə > ə̯ / __ #
+#sˈɛːv# | Rule 538 : ə̯ > ∅ 
+#sɛːv# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛv# | Rule 550 : [+syl,+long] > [-long,-splng] 

@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1063:
-#sˌɑt̪ˈullum# >>> #su# ( Correct : #su#) :
-s ˌɑ t̪ ˈu l l u m 
-#sˌɑt̪ˈʊllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌat̪ˈollo# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#sˌat̪ˈollə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#sˌat̪ˈollə̯# | Rule 227 : ə > ə̯ 
-#sˌat̪ˈoll# | Rule 250 : ə̯ > ∅ 
-#sˌad̪ˈoll# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#sˌaðˈoll# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌaðˈol# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˌaðˈul# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#sˌaˈul# | Rule 424 : {θ;ð} > {∅;∅} 
-#sˌaˈu# | Rule 479 : [+lat] > ∅ / [+hi,+syl] __ #
-#sˈu# | Rule 497 : ˌa > ∅ / __ [+prim]
-#su# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌɑːpˈoːn̪em# >>> #savɔ̃# ( Correct : #savɔ̃#) :
+s ˌɑː p ˈoː n̪ e m 
+#sˌɑːpˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑːpˈon̪ɛm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈon̪ɛm# | Rule 51 : [+syl,+long] > [-long,-splng] 
+#sˌɑpˈon̪ɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑpˈoːn̪ɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌɑpˈũːn̪ɛ# | Rule 137 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#sˌapˈũːn̪ɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#sˌapˈũːn̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#sˌapˈũːn̪ə̯# | Rule 227 : ə > ə̯ 
+#sˌapˈũːn̪# | Rule 250 : ə̯ > ∅ 
+#sˌabˈũːn̪# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˌaβˈũːn̪# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˌavˈũːn̪# | Rule 311 : β > v 
+#sˌavˈũː# | Rule 518 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#savũː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#savũ# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#savɔ̃# | Rule 551 : [+back,-lo,+nas,+syl] > ɔ̃ 

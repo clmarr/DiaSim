@@ -1,16 +1,22 @@
 Trajectory file for run 'run1'; etymon number :197:
-#d̪ˈuplum# >>> #d̪ubl# ( Correct : #d̪ubl#) :
-d̪ ˈu p l u m 
-#d̪ˈʊplʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈoplom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈoplo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#d̪ˈoːplo# | Rule 94 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#d̪ˈoːplə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#d̪ˈoːplə̯# | Rule 227 : ə > ə̯ 
-#d̪ˈoːplə# | Rule 236 : ə̯ > ə / [-lat,-syl] l __ #
-#d̪ˈoːblə# | Rule 282 : [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
-#d̪ˈowblə# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪ˈublə# | Rule 390 : [+tense,+syl,+round,-hi,-lo] w > [+hi] ∅/ __ [+lab,-syl]
-#d̪ˈublə̯# | Rule 531 : ə > ə̯ / __ #
-#d̪ˈubl# | Rule 538 : ə̯ > ∅ 
-#d̪ubl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ˈulkium# >>> #d̪u# ( Correct : #d̪u#) :
+d̪ ˈu l k i u m 
+#d̪ˈʊlkɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈʊlkjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#d̪ˈʊlkʝʊm# | Rule 27 : j > ʝ / __ [+syl]
+#d̪ˈolkʝom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈolkʝo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˈolkʲʝo# | Rule 70 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#d̪ˈolcʝo# | Rule 71 : [+back,+front] > [-back] 
+#d̪ˈolco# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#d̪ˈoɫco# | Rule 118 : l > ɫ / __ [+cons,-lat]
+#d̪ˈoʎco# | Rule 142 : [+lat] > ʎ / __ [+cons,+hi,+front]
+#d̪ˈoʎo# | Rule 144 : [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ 
+#d̪ˈoːʎo# | Rule 189 : [+prim] > [+long] / __ [+cons] [+syl]
+#d̪ˈoːʎə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˈoːʎə̯# | Rule 227 : ə > ə̯ 
+#d̪ˈoːʎ# | Rule 250 : ə̯ > ∅ 
+#d̪ˈoʎ# | Rule 303 : [+prim,-front] > [-long,-splng] / __ ʎ
+#d̪ˈuʎ# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#d̪ˈu# | Rule 479 : [+lat] > ∅ / [+hi,+syl] __ #
+#d̪u# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

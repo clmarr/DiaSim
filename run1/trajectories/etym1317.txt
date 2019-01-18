@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1317:
-#wˈid̪wum# >>> #vɛt̪# ( Correct : #vœf#) :
-w ˈi d̪ w u m 
-#ɣʷˈid̪ɣʷum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪd̪ɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɪd̪βʷʊm# | Rule 46 : ɣʷ > βʷ 
-#βʷˈed̪βʷom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#βʷˈed̪βʷo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈed̪βo# | Rule 108 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈed̪βə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#βˈed̪βə̯# | Rule 227 : ə > ə̯ 
-#βˈed̪β# | Rule 250 : ə̯ > ∅ 
-#vˈed̪v# | Rule 311 : β > v 
-#vˈed̪f# | Rule 320 : [-son] > [-voi] / __ #
-#vˈet̪f# | Rule 364 : [-son] > [-voi] / __ [-voi]
-#vˈɛt̪f# | Rule 467 : ˈe > ˈɛ 
-#vˈɛt̪# | Rule 537 : [-son] > ∅ / __ #
-#vɛt̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈiɑm# >>> #vwa# ( Correct : #vwa#) :
+w ˈi ɑ m 
+#ɣʷˈiɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɪɑm# | Rule 46 : ɣʷ > βʷ 
+#βʷˈeɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈeɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈeːɑ# | Rule 91 : [+prim] > [+long] / __ [+syl]
+#βˈeːɑ# | Rule 108 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈeːa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#βˈeja# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈeja# | Rule 311 : β > v 
+#vˈejə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈojə# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˈujə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#vˈuɛ̯ə# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#vwˈɛə# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈɛːə# | Rule 489 : [+stres] > [+long] / __ ə
+#vwˈɛː# | Rule 490 : ə > ∅ / [+syl] __ 
+#vwɛː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwɛ# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#vwa# | Rule 554 : ɛ > a / w __ 

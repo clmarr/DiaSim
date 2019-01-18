@@ -1,19 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1183:
-#t̪ˈen̪eɑt̪# >>> #t̪jɛ̃ɲ# ( Correct : #t̪jɛn̪#) :
-t̪ ˈe n̪ e ɑ t̪ 
-#t̪ˈɛn̪ɛɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛn̪jɑt̪# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#t̪ˈɛn̪ʝɑt̪# | Rule 27 : j > ʝ / __ [+syl]
-#t̪ˈɛɲɑt̪# | Rule 80 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
-#t̪ˈɛːɲɑt̪# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯ɲɑt̪# | Rule 139 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯ɲat̪# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#t̪ˈie̯ɲaθ# | Rule 211 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#t̪ˈie̯ɲəθ# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈie̯ɲə# | Rule 424 : {θ;ð} > {∅;∅} 
-#t̪jˈeɲə# | Rule 428 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪jˈẽɲə# | Rule 438 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#t̪jˈɛ̃ɲə# | Rule 470 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#t̪jˈɛ̃ɲə̯# | Rule 531 : ə > ə̯ / __ #
-#t̪jˈɛ̃ɲ# | Rule 538 : ə̯ > ∅ 
-#t̪jɛ̃ɲ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˈeːlɑm# >>> #t̪wal# ( Correct : #t̪wal#) :
+t̪ ˈeː l ɑ m 
+#t̪ˈelɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈelɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeːlɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːla# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#t̪ˈejla# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈejlə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈojlə# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujlə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯lə# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛlə# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛlə̯# | Rule 531 : ə > ə̯ / __ #
+#t̪wˈɛl# | Rule 538 : ə̯ > ∅ 
+#t̪wɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wal# | Rule 554 : ɛ > a / w __ 

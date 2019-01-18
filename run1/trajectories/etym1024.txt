@@ -1,24 +1,15 @@
 Trajectory file for run 'run1'; etymon number :1024:
-#rˈyt̪ʰmum# >>> #ʁɛ̃# ( Correct : #ʁim#) :
-r ˈy t̪ʰ m u m 
-#rˈyt̪mum# | Rule 7 : [+sg,-cont] > [-sg] 
-#rˈit̪mum# | Rule 8 : [+hi,+front] > [-round,-lab] 
-#rˈɪt̪mʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈet̪mom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˈet̪mo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˈet̪mə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#rˈet̪mə̯# | Rule 227 : ə > ə̯ 
-#rˈet̪m# | Rule 250 : ə̯ > ∅ 
-#rˈed̪m# | Rule 283 : t̪ > d̪ / __ [+nas,+cons]
-#rˈeðm# | Rule 288 : d̪ > ð / [+syl] __ [+nas]
-#rˈeð?# | Rule 314 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
-#rˈeð?# | Rule 320 : [-son] > [-voi] / __ #
-#rˈeθ?# | Rule 364 : [-son] > [-voi] / __ [-voi]
-#rˈe?# | Rule 424 : {θ;ð} > {∅;∅} 
-#rˈẽ?# | Rule 438 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#rˈɛ̃?# | Rule 470 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#rˈɛ̃ː# | Rule 518 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#ʀˈɛ̃ː# | Rule 548 : r > ʀ 
-#ʀɛ̃ː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀɛ̃# | Rule 550 : [+syl,+long] > [-long,-splng] 
-#ʁɛ̃# | Rule 556 : ʀ > ʁ 
+#rˈussɑm# >>> #ʁus# ( Correct : #ʁus#) :
+r ˈu s s ɑ m 
+#rˈʊssɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈossɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈossɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈossa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#rˈossə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#rˈosə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#rˈusə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#rˈusə̯# | Rule 531 : ə > ə̯ / __ #
+#rˈus# | Rule 538 : ə̯ > ∅ 
+#ʀˈus# | Rule 548 : r > ʀ 
+#ʀus# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁus# | Rule 556 : ʀ > ʁ 

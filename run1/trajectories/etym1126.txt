@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1126:
-#st̪ˈeːllɑm# >>> #est̪ɛl# ( Correct : #et̪wal#) :
-s t̪ ˈeː l l ɑ m 
-#ˌɪst̪ˈeːllɑm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪst̪ˈellɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˌest̪ˈellɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌest̪ˈellɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌest̪ˈella# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#ˌest̪ˈellə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌest̪ˈelə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌest̪ˈɛlə# | Rule 467 : ˈe > ˈɛ 
-#ˌest̪ˈɛlə̯# | Rule 531 : ə > ə̯ / __ #
-#ˌest̪ˈɛl# | Rule 538 : ə̯ > ∅ 
-#est̪ɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#spˈon̪sum# >>> #espœ# ( Correct : #epu#) :
+s p ˈo n̪ s u m 
+#spˈoːn̪sum# | Rule 9 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#spˈoːsum# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#spˈoːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪspˈoːsʊm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈosʊm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈosom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈoso# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌespˈoːso# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈoːzo# | Rule 115 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˌespˈoːzə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#ˌespˈoːzə̯# | Rule 227 : ə > ə̯ 
+#ˌespˈoːz# | Rule 250 : ə̯ > ∅ 
+#ˌespˈowz# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌespˈows# | Rule 320 : [-son] > [-voi] / __ #
+#ˌespˈews# | Rule 396 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#ˌespˈøws# | Rule 429 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˌespˈøs# | Rule 433 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ˌespˈø# | Rule 537 : [-son] > ∅ / __ #
+#espø# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#espœ# | Rule 553 : ø > œ / __ ( [+cons] )* #

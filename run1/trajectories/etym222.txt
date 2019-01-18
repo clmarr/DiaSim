@@ -1,15 +1,25 @@
 Trajectory file for run 'run1'; etymon number :222:
-#fˈɑbɑ# >>> #fɛv# ( Correct : #fɛv#) :
-f ˈɑ b ɑ 
-#fˈɑβɑ# | Rule 47 : b > β / [+syl] __ [+son,-lat,-nas]
-#fˈɑːβɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#fˈaːβa# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#fˈae̯βa# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˈae̯va# | Rule 311 : β > v 
-#fˈae̯və# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#fˈeːvə# | Rule 338 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#fˈɛːvə# | Rule 529 : ˈeː > ˈɛː / __ [+cons] ə
-#fˈɛːvə̯# | Rule 531 : ə > ə̯ / __ #
-#fˈɛːv# | Rule 538 : ə̯ > ∅ 
-#fɛːv# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fɛv# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#ˈeːsiɑm# >>> #waz# ( Correct : #waz#) :
+ˈeː s i ɑ m 
+#ˈeːsɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈeːsjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˈeːsʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#ˈesʝɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈesʝɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈezʝɑ# | Rule 116 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#ˈezʲɑ# | Rule 147 : z ʝ > zʲ 
+#ˈezʲa# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#ˈeːzʲa# | Rule 189 : [+prim] > [+long] / __ [+cons] [+syl]
+#ˈeːjza# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#ˈejza# | Rule 294 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#ˈejzə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈojzə# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#ˈujzə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#ˈuɛ̯zə# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#wˈɛzə# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#wˈɛːzə# | Rule 523 : [+syl] > [+long] / __ z [+syl]
+#wˈɛːzə̯# | Rule 531 : ə > ə̯ / __ #
+#wˈɛːz# | Rule 538 : ə̯ > ∅ 
+#wɛːz# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wɛz# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#waz# | Rule 554 : ɛ > a / w __ 

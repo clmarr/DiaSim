@@ -1,13 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1251:
-#t̪ˈussem# >>> #t̪u# ( Correct : #t̪u#) :
-t̪ ˈu s s e m 
-#t̪ˈʊssɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈossɛm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈossɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈossə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈossə̯# | Rule 227 : ə > ə̯ 
-#t̪ˈoss# | Rule 250 : ə̯ > ∅ 
-#t̪ˈos# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#t̪ˈus# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#t̪ˈu# | Rule 537 : [-son] > ∅ / __ #
-#t̪u# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˌurbulˈɑːre# >>> #t̪uʁblɛʁ# ( Correct : #t̪ʁuble#) :
+t̪ ˌu r b u l ˈɑː r e 
+#t̪ˌʊrbʊlˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌʊrbʊlˈɑrɛ# | Rule 51 : [+syl,+long] > [-long,-splng] 
+#t̪ˌorbolˈɑrɛ# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌorbolˈɑːrɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌorbolˈaːrɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#t̪ˌorbəlˈaːrɛ# | Rule 223 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]
+#t̪ˌorbəlˈaːrə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌorbə̯lˈaːrə̯# | Rule 227 : ə > ə̯ 
+#t̪ˌorblˈaːr# | Rule 250 : ə̯ > ∅ 
+#t̪ˌorblˈae̯r# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˌorblˈeːr# | Rule 338 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#t̪ˌurblˈeːr# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurblˈɛːr# | Rule 478 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#t̪ˌurblˈɛːɹ# | Rule 532 : r > ɹ / [-cons] __ #
+#t̪ˌuɹblˈɛːɹ# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌurblˈɛːr# | Rule 546 : ɹ > r 
+#t̪ˌuʀblˈɛːʀ# | Rule 548 : r > ʀ 
+#t̪uʀblɛːʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪uʀblɛʀ# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#t̪uʁblɛʁ# | Rule 556 : ʀ > ʁ 

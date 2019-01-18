@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :998:
-#rˈet̪in̪ɑm# >>> #ʁɛ̃n̪# ( Correct : #ʁɛn̪#) :
-r ˈe t̪ i n̪ ɑ m 
-#rˈɛt̪ɪn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈɛt̪en̪ɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˈɛt̪en̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˈɛt̪n̪ɑ# | Rule 84 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#rˈɛt̪n̪a# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#rˈɛd̪n̪a# | Rule 283 : t̪ > d̪ / __ [+nas,+cons]
-#rˈɛðn̪a# | Rule 288 : d̪ > ð / [+syl] __ [+nas]
-#rˈɛðn̪ə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#rˈɛn̪ə# | Rule 417 : ð > ∅ / r [+syl] __ n̪
-#rˈɛ̃n̪ə# | Rule 438 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#rˈɛ̃n̪ə̯# | Rule 531 : ə > ə̯ / __ #
-#rˈɛ̃n̪# | Rule 538 : ə̯ > ∅ 
-#ʀˈɛ̃n̪# | Rule 548 : r > ʀ 
-#ʀɛ̃n̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁɛ̃n̪# | Rule 556 : ʀ > ʁ 
+#rˈeːɡem# >>> #ʁwa# ( Correct : #ʁwa#) :
+r ˈeː ɡ e m 
+#rˈeːɡɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈeɡɛm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#rˈeɡɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈeɡʲɛ# | Rule 70 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#rˈeɟɛ# | Rule 71 : [+back,+front] > [-back] 
+#rˈeʝɛ# | Rule 87 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#rˈeːʝɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#rˈeːjɛ# | Rule 214 : ʝ > j 
+#rˈeːjə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#rˈeːjə̯# | Rule 227 : ə > ə̯ 
+#rˈeːj# | Rule 250 : ə̯ > ∅ 
+#rˈej# | Rule 305 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#rˈoj# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#rˈuj# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#rˈuɛ̯# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#rwˈɛ# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ʀwˈɛ# | Rule 548 : r > ʀ 
+#ʀwɛ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀwa# | Rule 554 : ɛ > a / w __ 
+#ʁwa# | Rule 556 : ʀ > ʁ 

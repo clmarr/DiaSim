@@ -1,23 +1,15 @@
 Trajectory file for run 'run1'; etymon number :999:
-#rˌet̪ˈun̪d̪ɑm# >>> #ʁə̃ɔ̃d̪# ( Correct : #ʁɔ̃d̪#) :
-r ˌe t̪ ˈu n̪ d̪ ɑ m 
-#rˌɛt̪ˈʊn̪d̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌɛt̪ˈon̪d̪ɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˌɛt̪ˈon̪d̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˌɛt̪ˈũn̪d̪ɑ# | Rule 137 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
-#rˌɛt̪ˈũn̪d̪a# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#rˌɛd̪ˈũn̪d̪a# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#rˌɛðˈũn̪d̪a# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#rˌeðˈũn̪d̪a# | Rule 309 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#rˌeðˈũn̪d̪ə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#rˌəðˈũn̪d̪ə# | Rule 387 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#rˌəˈũn̪d̪ə# | Rule 424 : {θ;ð} > {∅;∅} 
-#rˌə̃ˈũn̪d̪ə# | Rule 437 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#rˌə̃ˈũːd̪ə# | Rule 517 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#rˌə̃ˈũːd̪ə̯# | Rule 531 : ə > ə̯ / __ #
-#rˌə̃ˈũːd̪# | Rule 538 : ə̯ > ∅ 
-#ʀˌə̃ˈũːd̪# | Rule 548 : r > ʀ 
-#ʀə̃ũːd̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀə̃ũd̪# | Rule 550 : [+syl,+long] > [-long,-splng] 
-#ʀə̃ɔ̃d̪# | Rule 551 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#ʁə̃ɔ̃d̪# | Rule 556 : ʀ > ʁ 
+#rˈem# >>> #ʁjɛ̃# ( Correct : #ʁjɛ̃#) :
+r ˈe m 
+#rˈɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈɛːm# | Rule 95 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#rˈie̯m# | Rule 139 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#rˈie̯m̥# | Rule 320 : [-son] > [-voi] / __ #
+#rjˈem̥# | Rule 428 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#rjˈẽm̥# | Rule 438 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#rjˈɛ̃m̥# | Rule 470 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#rjˈɛ̃ː# | Rule 518 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ʀjˈɛ̃ː# | Rule 548 : r > ʀ 
+#ʀjɛ̃ː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀjɛ̃# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#ʁjɛ̃# | Rule 556 : ʀ > ʁ 
