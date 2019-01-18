@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :981:
-#pˌuppˈɑːt̪ɑm# >>> #pupe# ( Correct : #pupe#) :
-p ˌu p p ˈɑː t̪ ɑ m 
-#pˌʊppˈɑːt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌʊppˈɑt̪ɑm# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#pˌoppˈɑt̪ɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˌoppˈɑt̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˌoppˈɑːt̪ɑ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˌoppˈaːt̪a# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#pˌoppˈaːd̪a# | Rule 281 : [-voi] > [+voi] / [+syl] __ [+syl]
-#pˌoppˈaːða# | Rule 285 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#pˌoppˈae̯ða# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌoppˈae̯ðə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌoppˈeːðə# | Rule 338 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌopˈeːðə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˌupˈeːðə# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#pˌupˈeːə# | Rule 424 : {θ;ð} > {∅;∅} 
-#pˌupˈeː# | Rule 490 : ə > ∅ / [+syl] __ 
-#pupeː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pupe# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#pˈurppurɑm# >>> #puʁpʁ# ( Correct : #puʁpʁ#) :
+p ˈu r p p u r ɑ m 
+#pˈʊrppʊrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈorpporɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈorpporɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈorppora# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#pˈorppəra# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈorppə̯ra# | Rule 227 : ə > ə̯ 
+#pˈorpə̯ra# | Rule 241 : [+cons,+lab] > ∅ / [+cons] __ [-son]
+#pˈorpɾa# | Rule 246 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+#pˈorpra# | Rule 249 : ɾ > r 
+#pˈorprə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈurprə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#pˈurprə̯# | Rule 531 : ə > ə̯ / __ #
+#pˈuɹprə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#pˈuɹpr# | Rule 538 : ə̯ > ∅ 
+#pˈurpr# | Rule 546 : ɹ > r 
+#pˈuʀpʀ# | Rule 548 : r > ʀ 
+#puʀpʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#puʁpʁ# | Rule 556 : ʀ > ʁ 

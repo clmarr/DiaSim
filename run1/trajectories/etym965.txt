@@ -1,13 +1,25 @@
 Trajectory file for run 'run1'; etymon number :965:
-#pˈullɑm# >>> #pul# ( Correct : #pul#) :
-p ˈu l l ɑ m 
-#pˈʊllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈollɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈolla# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#pˈollə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈolə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˈulə# | Rule 401 : [+round,+tense,+back] > [+hi] 
-#pˈulə̯# | Rule 531 : ə > ə̯ / __ #
-#pˈul# | Rule 538 : ə̯ > ∅ 
-#pul# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌuːlikˈellɑm# >>> #pywsɛl# ( Correct : #pysɛl#) :
+p ˌuː l i k ˈe l l ɑ m 
+#pˌuːlɪkˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌulɪkˈɛllɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˌulekˈɛllɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌulekˈɛllɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˌulekʲˈɛllɑ# | Rule 70 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#pˌulecˈɛllɑ# | Rule 71 : [+back,+front] > [-back] 
+#pˌulet͡sʲˈɛllɑ# | Rule 152 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#pˌulet͡sʲˈɛlla# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#pˌʉlet͡sʲˈɛlla# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#pˌʉlət͡sʲˈɛlla# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
+#pˌʉlə̯t͡sʲˈɛlla# | Rule 227 : ə > ə̯ 
+#pˌʉlt͡sʲˈɛlla# | Rule 250 : ə̯ > ∅ 
+#pˌʉlt͡sʲˈɛllə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌʉlt͡sʲˈɛlə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˌʉlt͡sˈɛlə# | Rule 376 : t͡sʲ > t͡s 
+#pˌʉɫt͡sˈɛlə# | Rule 379 : [+lat] > [+back] / __ [+cons]
+#pˌyɫt͡sˈɛlə# | Rule 380 : [+hi,+round,-back] > [+front] 
+#pˌywt͡sˈɛlə# | Rule 419 : [+lat,+back] > w 
+#pˌywsˈɛlə# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#pˌywsˈɛlə̯# | Rule 531 : ə > ə̯ / __ #
+#pˌywsˈɛl# | Rule 538 : ə̯ > ∅ 
+#pywsɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

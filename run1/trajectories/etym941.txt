@@ -1,23 +1,14 @@
 Trajectory file for run 'run1'; etymon number :941:
-#prˌɑe̯st̪ˈɑːre# >>> #pʁest̪ɛʁ# ( Correct : #pʁet̪e#) :
-p r ˌɑ e̯ s t̪ ˈɑː r e 
-#prˌae̯st̪ˈɑːre# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌae̯st̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˌae̯st̪ˈɑrɛ# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#prˌɛːst̪ˈɑrɛ# | Rule 52 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛːst̪ˈɑːrɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˌɛst̪ˈɑːrɛ# | Rule 128 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˌɛst̪ˈaːrɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#prˌɛst̪ˈaːrə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#prˌɛst̪ˈaːrə̯# | Rule 227 : ə > ə̯ 
-#prˌɛst̪ˈaːr# | Rule 250 : ə̯ > ∅ 
-#prˌɛst̪ˈae̯r# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#prˌest̪ˈae̯r# | Rule 309 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#prˌest̪ˈeːr# | Rule 338 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#prˌest̪ˈɛːr# | Rule 478 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#prˌest̪ˈɛːɹ# | Rule 532 : r > ɹ / [-cons] __ #
-#prˌest̪ˈɛːr# | Rule 546 : ɹ > r 
-#pʀˌest̪ˈɛːʀ# | Rule 548 : r > ʀ 
-#pʀest̪ɛːʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʀest̪ɛʀ# | Rule 550 : [+syl,+long] > [-long,-splng] 
-#pʁest̪ɛʁ# | Rule 556 : ʀ > ʁ 
+#prˈɑe̯st̪ɑm# >>> #pʁɛst̪# ( Correct : #pʁɛt̪#) :
+p r ˈɑ e̯ s t̪ ɑ m 
+#prˈae̯st̪ɑm# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˈɛːst̪ɑm# | Rule 52 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˈɛːst̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɛst̪ɑ# | Rule 128 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#prˈɛst̪a# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#prˈɛst̪ə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#prˈɛst̪ə̯# | Rule 531 : ə > ə̯ / __ #
+#prˈɛst̪# | Rule 538 : ə̯ > ∅ 
+#pʀˈɛst̪# | Rule 548 : r > ʀ 
+#pʀɛst̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛst̪# | Rule 556 : ʀ > ʁ 

@@ -818,14 +818,6 @@ $ CORRECTION: retained before ŋ t͡sʲ but it doesn't seem like this is true of
 $s258a : ə retained before n̪ t̪ #
 $ CORRECTION: retained before all -nt, not just finally
 ə̯ > ə / __ [+nas] t̪
-$s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
-$ CORRECTION : Pope only has ə retained after ɫ -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
-ə̯ > ə / [+lat] [+nas] __ #
-ə̯ > ə / [-ant,+delrel] __ #
-ə̯ > ə / [-lat,-syl] l __ #
-ə̯ > ə / [-son] r __ #
-$s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
-ə̯ > ə / ə̯ ([-syl])* __ # 
 $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for t to lenit 
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 
@@ -846,11 +838,14 @@ r > l / __ ə̯ r
 $ CORRECTION : flapping of n̪ə̯ and ə̯n to ɾ either after stops or before consonants: ordre, desordre, derree, Londres, Chartres, armaille (>aumaille), arme>aume, 
 $ CORRECTION : trill r also becomes a flap in the same environments... 
 $ CORRECTION : flapping before a consonant seems to only happen after a variants ( maːnuːs > mains is likely due to analogy from the singular)
-{n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [+lo,+stres,+syl] __ [+cons]
-{n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+$ CORRECTION : ejects following ə if not before a non-consonantal
+{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [+lo,+stres,+syl] __ [+cons]
+{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
+{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [-cont] __ @
 
-$ CORRECTION : (re)nasalization of the flap after vowel then t (protero>prone, possibly Rhone)
-ɾ > n̪ / [+syl] t̪ __ 
+
+$ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
+ɾ > n̪ / [-cons] t̪ __ 
 
 $ CORRECTION : lateralization of flap ɾ before labials (aumaille, aume, Auvergne...) 
 ɾ > l / __ [+cons,+lab]
@@ -858,13 +853,23 @@ $ CORRECTION : lateralization of flap ɾ before labials (aumaille, aume, Auvergn
 $ CORRECTION: ɾ goes to r everywhere else 
 ɾ > r 
 
+$s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
+$ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
+ə̯ > ə / [+lat] [+nas] __ #
+ə̯ > ə / [-ant,+delrel] __ #
+ə̯ > ə / [-lat,-syl] l __ #
+ə̯ > ə / [-son] r __ #
+$s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
+ə̯ > ə / ə̯ ([-syl])* __ # 
+
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
 $ CORRECTION: ˈʉo̯ > ˈoː before ð then son
+$ tentatively expanding this to include all dentals ð θ d̪ t̪ 
 $ TODO: place. 
-ˈʉo̯ > ˈoː / __ ð [+son,+cons]
+ˈʉo̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 

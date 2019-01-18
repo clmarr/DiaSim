@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1273:
-#wˈɑllem# >>> #val# ( Correct : #val#) :
-w ˈɑ l l e m 
-#ɣʷˈɑllem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɑllɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɑllɛm# | Rule 46 : ɣʷ > βʷ 
-#βʷˈɑllɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑllɛ# | Rule 108 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈallɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
-#βˈallə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#βˈallə̯# | Rule 227 : ə > ə̯ 
-#βˈall# | Rule 250 : ə̯ > ∅ 
-#vˈall# | Rule 311 : β > v 
-#vˈal# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#val# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌɑlˈeːre# >>> #valwaʁ# ( Correct : #valwaʁ#) :
+w ˌɑ l ˈeː r e 
+#ɣʷˌɑlˈeːre# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈeːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈeːrɛ# | Rule 46 : ɣʷ > βʷ 
+#βʷˌɑlˈerɛ# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈeːrɛ# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈeːrɛ# | Rule 108 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈeːrɛ# | Rule 165 : [+lo,+syl] > [+front,-back] 
+#βˌalˈeːrə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈeːrə̯# | Rule 227 : ə > ə̯ 
+#βˌalˈeːr# | Rule 250 : ə̯ > ∅ 
+#βˌalˈejr# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈejr# | Rule 311 : β > v 
+#vˌalˈejrə# | Rule 373 : ∅ > ə / [+front,-syl,+hi] r __ #
+#vˌalˈojrə# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌalˈoɛ̯rə# | Rule 400 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˌalˈuɛ̯rə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#vˌalwˈɛrə# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vˌalwˈarə# | Rule 472 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#vˌalwˈarə̯# | Rule 531 : ə > ə̯ / __ #
+#vˌalwˈar# | Rule 538 : ə̯ > ∅ 
+#vˌalwˈaʀ# | Rule 548 : r > ʀ 
+#valwaʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valwaʁ# | Rule 556 : ʀ > ʁ 

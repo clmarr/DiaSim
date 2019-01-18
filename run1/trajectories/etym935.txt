@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :935:
-#pˈot̪et̪# >>> #pœ# ( Correct : #pø#) :
-p ˈo t̪ e t̪ 
-#pˈɔt̪ɛt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɔːt̪ɛt̪# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈuo̯t̪ɛt̪# | Rule 139 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#pˈʉo̯t̪ɛt̪# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#pˈʉo̯t̪ɛθ# | Rule 211 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#pˈʉo̯t̪əθ# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
-#pˈʉo̯t̪ə̯θ# | Rule 227 : ə > ə̯ 
-#pˈʉo̯t̪θ# | Rule 250 : ə̯ > ∅ 
-#pˈʉo̯t̪t̪# | Rule 314 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
-#pˈʉo̯t̪# | Rule 362 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˈyo̯t̪# | Rule 380 : [+hi,+round,-back] > [+front] 
-#pˈye̯t̪# | Rule 388 : o̯ > e̯ 
-#pˈøt̪# | Rule 416 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#pˈø# | Rule 537 : [-son] > ∅ / __ #
-#pø# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pœ# | Rule 553 : ø > œ / __ ( [+cons] )* #
+#pˈost̪ium# >>> #pɥisj# ( Correct : #pɥi#) :
+p ˈo s t̪ i u m 
+#pˈɔst̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɔst̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#pˈɔst̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
+#pˈɔst̪ʝom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɔst̪ʝo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈɔst͡sʲʝo# | Rule 68 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#pˈɔst͡sʲo# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#pˈɔsʲsʲo# | Rule 148 : s [+hi,+front,+cons] > sʲ sʲ
+#pˈuo̯sʲsʲo# | Rule 193 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+#pˈʉo̯sʲsʲo# | Rule 204 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#pˈʉo̯sʲsʲə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#pˈʉo̯sʲsʲə̯# | Rule 227 : ə > ə̯ 
+#pˈʉo̯sʲsʲ# | Rule 250 : ə̯ > ∅ 
+#pˈʉo̯jsjs# | Rule 291 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#pˈyo̯jsjs# | Rule 380 : [+hi,+round,-back] > [+front] 
+#pˈye̯jsjs# | Rule 388 : o̯ > e̯ 
+#pˈyjsjs# | Rule 399 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#pɥˈisjs# | Rule 448 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#pɥˈisj# | Rule 537 : [-son] > ∅ / __ #
+#pɥisj# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

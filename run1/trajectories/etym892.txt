@@ -1,14 +1,18 @@
 Trajectory file for run 'run1'; etymon number :892:
-#pˈius# >>> #pjœ# ( Correct : #pjø#) :
-p ˈi u s 
-#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈeos# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈeːos# | Rule 91 : [+prim] > [+long] / __ [+syl]
-#pjˈoːs# | Rule 218 : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
-#pjˈows# | Rule 306 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pjˈews# | Rule 396 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#pjˈøws# | Rule 429 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#pjˈøs# | Rule 433 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#pjˈø# | Rule 537 : [-son] > ∅ / __ #
-#pjø# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pjœ# | Rule 553 : ø > œ / __ ( [+cons] )* #
+#pˌit̪t̪ˈiːt̪um# >>> #pt̪i# ( Correct : #pət̪i#) :
+p ˌi t̪ t̪ ˈiː t̪ u m 
+#pˌɪt̪t̪ˈiːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌɪt̪t̪ˈit̪ʊm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#pˌet̪t̪ˈit̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌet̪t̪ˈit̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˌet̪t̪ˈiːt̪o# | Rule 93 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌet̪t̪ˈiːt̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#pˌet̪t̪ˈiːt̪ə̯# | Rule 227 : ə > ə̯ 
+#pˌet̪t̪ˈiːt̪# | Rule 250 : ə̯ > ∅ 
+#pˌet̪t̪ˈiːθ# | Rule 313 : [-cont,-delrel] > [+cont,.delrel] / [+syl] __ #
+#pˌet̪ˈiːθ# | Rule 362 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#pˌət̪ˈiːθ# | Rule 387 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#pˌət̪ˈiː# | Rule 424 : {θ;ð} > {∅;∅} 
+#pət̪iː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pət̪i# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#pt̪i# | Rule 562 : ə > ∅ / # [-syl] __ [-syl] [+syl]

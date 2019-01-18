@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :433:
-#kˈɑt̪en̪ɑm# >>> #ʃjaʁn̪# ( Correct : #ʃɛn̪#) :
+#kˈɑt̪en̪ɑm# >>> #ʃjaʁ# ( Correct : #ʃɛn̪#) :
 k ˈɑ t̪ e n̪ ɑ m 
 #kˈɑt̪ɛn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˈɑt̪ɛn̪ɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -12,19 +12,17 @@ k ˈɑ t̪ e n̪ ɑ m
 #t͡ʃˈie̯t̪ɛn̪a# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #t͡ʃˈie̯t̪ən̪a# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #t͡ʃˈie̯t̪ə̯n̪a# | Rule 227 : ə > ə̯ 
-#t͡ʃˈie̯t̪n̪a# | Rule 250 : ə̯ > ∅ 
-#t͡ʃˈie̯d̪n̪a# | Rule 283 : t̪ > d̪ / __ [+nas,+cons]
-#t͡ʃˈie̯d̪n̪ə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˈie̯ðn̪ə# | Rule 347 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
-#t͡ʃˈie̯rn̪ə# | Rule 418 : ð > r / __ n̪
-#t͡ʃjˈern̪ə# | Rule 428 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ʃjˈern̪ə# | Rule 461 : [+delrel] > [+cont,.delrel] 
-#ʃjˈɛrn̪ə# | Rule 467 : ˈe > ˈɛ 
-#ʃjˈarn̪ə# | Rule 472 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#ʃjˈarn̪ə̯# | Rule 531 : ə > ə̯ / __ #
-#ʃjˈaɹn̪ə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
-#ʃjˈaɹn̪# | Rule 538 : ə̯ > ∅ 
-#ʃjˈarn̪# | Rule 546 : ɹ > r 
-#ʃjˈaʀn̪# | Rule 548 : r > ʀ 
-#ʃjaʀn̪# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃjaʁn̪# | Rule 556 : ʀ > ʁ 
+#t͡ʃˈie̯t̪ɾa# | Rule 246 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+#t͡ʃˈie̯t̪ra# | Rule 249 : ɾ > r 
+#t͡ʃˈie̯t̪rə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈie̯ðrə# | Rule 347 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
+#t͡ʃˈie̯rə# | Rule 424 : {θ;ð} > {∅;∅} 
+#t͡ʃjˈerə# | Rule 428 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ʃjˈerə# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#ʃjˈɛrə# | Rule 467 : ˈe > ˈɛ 
+#ʃjˈarə# | Rule 472 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#ʃjˈarə̯# | Rule 531 : ə > ə̯ / __ #
+#ʃjˈar# | Rule 538 : ə̯ > ∅ 
+#ʃjˈaʀ# | Rule 548 : r > ʀ 
+#ʃjaʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃjaʁ# | Rule 556 : ʀ > ʁ 
