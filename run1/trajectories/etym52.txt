@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :52:
-#ˌɑn̪imɑm# >>> #ɑ̃m# ( Correct : #om#) :
+#ˌɑn̪imɑm# >>> #om# ( Correct : #om#) :
 ˌɑ n̪ i m ɑ m 
 #ˌɑn̪ɪmɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑn̪emɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -7,12 +7,13 @@ Trajectory file for run 'run1'; etymon number :52:
 #ˌan̪ema# | Rule 165 : [+lo,+syl] > [+front,-back] 
 #ˌan̪əma# | Rule 222 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #ˌan̪ə̯ma# | Rule 227 : ə > ə̯ 
-#ˌan̪ma# | Rule 240 : ə̯ > ∅ 
-#ˌamma# | Rule 248 : {m n̪;n̪ m} > {m m;m m} 
-#ˌammə# | Rule 305 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌamə# | Rule 354 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌãmə# | Rule 371 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãmə̯# | Rule 520 : ə > ə̯ / __ #
-#ˌãm# | Rule 527 : ə̯ > ∅ 
-#ãm# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɑ̃m# | Rule 544 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#ˌaɾma# | Rule 245 : {n̪ ə̯;ə̯ ?;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [+lo,+stres,-long,+syl] __ [+cons]
+#ˌalma# | Rule 248 : ɾ > l / __ m
+#ˌalmə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌaɫmə# | Rule 379 : [+lat] > [+back] / __ [+cons]
+#ˌawmə# | Rule 419 : [+lat,+back] > w 
+#ˌoːmə# | Rule 474 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ˌoːmə̯# | Rule 531 : ə > ə̯ / __ #
+#ˌoːm# | Rule 538 : ə̯ > ∅ 
+#oːm# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#om# | Rule 550 : [+syl,+long] > [-long,-splng] 

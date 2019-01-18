@@ -1,16 +1,18 @@
 Trajectory file for run 'run1'; etymon number :554:
-#lˈɑmpɑd̪ɑ# >>> #lɑ̃m# ( Correct : #lɑ̃p#) :
+#lˈɑmpɑd̪ɑ# >>> #lɑ̃p# ( Correct : #lɑ̃p#) :
 l ˈɑ m p ɑ d̪ ɑ 
 #lˈɑmpɑðɑ# | Rule 87 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
 #lˈampaða# | Rule 165 : [+lo,+syl] > [+front,-back] 
 #lˈampəða# | Rule 220 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#lˈampə̯ða# | Rule 227 : ə > ə̯ 
-#lˈampða# | Rule 240 : ə̯ > ∅ 
-#lˈampðə# | Rule 305 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈamðə# | Rule 331 : [+cons] > ∅ / [+cons] __ [-son]
-#lˈãmðə# | Rule 371 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈãmə# | Rule 413 : {θ;ð} > {∅;∅} 
-#lˈãmə̯# | Rule 520 : ə > ə̯ / __ #
-#lˈãm# | Rule 527 : ə̯ > ∅ 
-#lãm# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɑ̃m# | Rule 544 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#lˈampaða# | Rule 221 : ə > a / __ [+cor,+ant,+distr] [+syl]
+#lˈampəðə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈam̥pəðə# | Rule 364 : [-son] > [-voi] / __ [-voi]
+#lˈãm̥pəðə# | Rule 382 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˈãm̥pəə# | Rule 424 : {θ;ð} > {∅;∅} 
+#lˈãm̥pə# | Rule 488 : ə > ∅ / __ [+syl]
+#lˈãːpə# | Rule 517 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːpə̯# | Rule 531 : ə > ə̯ / __ #
+#lˈãːp# | Rule 538 : ə̯ > ∅ 
+#lãːp# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lãp# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#lɑ̃p# | Rule 555 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

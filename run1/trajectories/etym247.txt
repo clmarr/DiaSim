@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :247:
-#fˈikɑt̪um# >>> #fwat̪# ( Correct : #fwa#) :
+#fˈikɑt̪um# >>> #fwa# ( Correct : #fwa#) :
 f ˈi k ɑ t̪ u m 
 #fˈɪkɑt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #fˈekɑt̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -12,16 +12,20 @@ f ˈi k ɑ t̪ u m
 #fˈeːʝat̪o# | Rule 207 : [+back,+front] > [-back] 
 #fˈeːjat̪o# | Rule 214 : ʝ > j 
 #fˈeːjət̪o# | Rule 220 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#fˈeːjət̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
-#fˈeːjə̯t̪ə̯# | Rule 227 : ə > ə̯ 
-#fˈeːjə̯t̪ə# | Rule 238 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#fˈeːjt̪ə# | Rule 240 : ə̯ > ∅ 
-#fˈejt̪ə# | Rule 255 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#fˈojt̪ə# | Rule 386 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#fˈujt̪ə# | Rule 390 : [+round,+tense,+back] > [+hi] 
-#fˈuɛ̯t̪ə# | Rule 432 : j > ɛ̯ / [+syl,+back,+round] __ 
-#fwˈɛt̪ə# | Rule 435 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#fwˈɛt̪ə̯# | Rule 520 : ə > ə̯ / __ #
-#fwˈɛt̪# | Rule 527 : ə̯ > ∅ 
-#fwɛt̪# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fwat̪# | Rule 543 : ɛ > a / w __ 
+#fˈeːjat̪o# | Rule 221 : ə > a / __ [+cor,+ant,+distr] [+syl]
+#fˈeːjat̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
+#fˈeːjat̪ə̯# | Rule 227 : ə > ə̯ 
+#fˈeːjat̪# | Rule 250 : ə̯ > ∅ 
+#fˈejat̪# | Rule 305 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#fˈejaθ# | Rule 313 : [-cont,-delrel] > [+cont,.delrel] / [+syl] __ #
+#fˈejəθ# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈojəθ# | Rule 397 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#fˈujəθ# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#fˈujə# | Rule 424 : {θ;ð} > {∅;∅} 
+#fˈuɛ̯ə# | Rule 443 : j > ɛ̯ / [+syl,+back,+round] __ 
+#fwˈɛə# | Rule 446 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#fwˈɛːə# | Rule 489 : [+stres] > [+long] / __ ə
+#fwˈɛː# | Rule 490 : ə > ∅ / [+syl] __ 
+#fwɛː# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fwɛ# | Rule 550 : [+syl,+long] > [-long,-splng] 
+#fwa# | Rule 554 : ɛ > a / w __ 

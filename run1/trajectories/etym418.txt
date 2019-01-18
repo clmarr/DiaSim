@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :418:
-#kˈɑrpin̪um# >>> #ʃaʁn̪# ( Correct : #ʃaʁm#) :
+#kˈɑrpin̪um# >>> #ʃaʁ# ( Correct : #ʃaʁm#) :
 k ˈɑ r p i n̪ u m 
 #kˈɑrpɪn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˈɑrpen̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -11,11 +11,15 @@ k ˈɑ r p i n̪ u m
 #t͡ʃˈarpn̪o# | Rule 216 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #t͡ʃˈarpn̪ə# | Rule 225 : [-stres,-lo,+syl] > ə / __ #
 #t͡ʃˈarpn̪ə̯# | Rule 227 : ə > ə̯ 
-#t͡ʃˈarpn̪# | Rule 240 : ə̯ > ∅ 
-#t͡ʃˈarn̪# | Rule 332 : [+cons] > ∅ / [+cons] __ [+nas,+cons]
-#ʃˈarn̪# | Rule 450 : [+delrel] > [+cont,.delrel] 
-#ʃˈaɹn̪# | Rule 522 : r > ɹ / [-cons] __ [+cons]
-#ʃˈarn̪# | Rule 535 : ɹ > r 
-#ʃˈaʀn̪# | Rule 537 : r > ʀ 
-#ʃaʀn̪# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃaʁn̪# | Rule 545 : ʀ > ʁ 
+#t͡ʃˈarpmə̯# | Rule 240 : n̪ > m / p __ 
+#t͡ʃˈarmə̯# | Rule 241 : [+cons,+lab] > ∅ / [+cons] __ [-son]
+#t͡ʃˈarm# | Rule 250 : ə̯ > ∅ 
+#t͡ʃˈar?# | Rule 314 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#t͡ʃˈar?# | Rule 320 : [-son] > [-voi] / __ #
+#ʃˈar?# | Rule 461 : [+delrel] > [+cont,.delrel] 
+#ʃˈaɹ?# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹ# | Rule 537 : [-son] > ∅ / __ #
+#ʃˈar# | Rule 546 : ɹ > r 
+#ʃˈaʀ# | Rule 548 : r > ʀ 
+#ʃaʀ# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃaʁ# | Rule 556 : ʀ > ʁ 

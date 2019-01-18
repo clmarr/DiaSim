@@ -219,7 +219,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} | ORIG : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
 {e;i} > {j;j} / [+syl] __ [-nas]| ORIG : {e;i} > {j;j} / [+syl] __ [-nas]
 a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
-ə > a / __ [+cor,+ant,+distr] [-syl]| ORIG : ə > a / __ [+cor,+ant,+distr] [-syl]
+ə > a / __ [+cor,+ant,+distr] [+syl]| ORIG : ə > a / __ [+cor,+ant,+distr] [+syl]
 [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
 [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]| ORIG : [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl,+lo,+prim]  
 [-stres,-lo,+syl] > ə / __ [-syl]| ORIG : [-stres,-lo,+syl] > ə /  __  [-syl]
@@ -238,7 +238,18 @@ a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : a > ə / __ ([-syl])
 ə̯ > ə / [-son] r __ #| ORIG : ə̯ > ə / [-son] r __ #
 ə̯ > ə / ə̯ ( [-syl] )* __ #| ORIG : ə̯ > ə / ə̯ ([-syl])* __ # 
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ| ORIG : ə̯ > ə / [+cor,+ant,+distr] __ ɣ
+n̪ > m / p __ | ORIG : n̪ > m / p __ 
+[+cons,+lab] > ∅ / [+cons] __ [-son]| ORIG : [+cons,+lab] > ∅ / [+cons] __ [-son]
+[+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]| ORIG : [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
+r a β ə̯ > l ə f / __ r| ORIG : r a β ə̯ > l ə f / __ r
+r > l / __ ə̯ r| ORIG : r > l / __ ə̯ r
+{n̪ ə̯;ə̯ ?;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [+lo,+stres,-long,+syl] __ [+cons]| ORIG : {n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [+lo,+stres,-long,+syl] __ [+cons]
+{n̪ ə̯;ə̯ ?;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @| ORIG : {n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+ɾ > n̪ / t̪ __ | ORIG : ɾ > n̪ / t̪ __ 
+ɾ > l / __ m| ORIG : ɾ > l / __ m 
+ɾ > r | ORIG : ɾ > r 
 ə̯ > ∅ | ORIG : ə̯ > ∅ 
+? > ˈoː / __ ð [+son,+cons]| ORIG : ˈʉo̯ > ˈoː / __ ð [+son,+cons]
 k > ∅ / __ t͡sʲ| ORIG : k > ∅  / __ t͡sʲ
 t̪ > d̪ / [+lab,+voi,-hi,+cons] __ | ORIG : t̪ > d̪ / [+lab,+voi,-hi,+cons] __ 
 t̪ > d̪ / ʝ __ | ORIG : t̪ > d̪ / ʝ __ 

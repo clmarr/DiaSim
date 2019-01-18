@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1250:
-#t̪ˌurt̪urˈellɑm# >>> #t̪uʁt̪ʁɛl# ( Correct : #t̪uʁt̪əʁɛl#) :
+#t̪ˌurt̪urˈellɑm# >>> #t̪uʁn̪ɛl# ( Correct : #t̪uʁt̪əʁɛl#) :
 t̪ ˌu r t̪ u r ˈe l l ɑ m 
 #t̪ˌʊrt̪ʊrˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #t̪ˌort̪orˈɛllɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -9,14 +9,17 @@ t̪ ˌu r t̪ u r ˈe l l ɑ m
 #t̪ˌort̪orˈɛlla# | Rule 165 : [+lo,+syl] > [+front,-back] 
 #t̪ˌort̪ərˈɛlla# | Rule 224 : [-stres,-lo,+syl] > ə / __ [-syl]
 #t̪ˌort̪ə̯rˈɛlla# | Rule 227 : ə > ə̯ 
-#t̪ˌort̪rˈɛlla# | Rule 240 : ə̯ > ∅ 
-#t̪ˌort̪rˈɛllə# | Rule 305 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌort̪rˈɛlə# | Rule 354 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#t̪ˌurt̪rˈɛlə# | Rule 390 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurt̪rˈɛlə̯# | Rule 520 : ə > ə̯ / __ #
-#t̪ˌuɹt̪rˈɛlə̯# | Rule 522 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹt̪rˈɛl# | Rule 527 : ə̯ > ∅ 
-#t̪ˌurt̪rˈɛl# | Rule 535 : ɹ > r 
-#t̪ˌuʀt̪ʀˈɛl# | Rule 537 : r > ʀ 
-#t̪uʀt̪ʀɛl# | Rule 538 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʁt̪ʁɛl# | Rule 545 : ʀ > ʁ 
+#t̪ˌort̪ɾˈɛlla# | Rule 246 : {n̪ ə̯;ə̯ ?;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+#t̪ˌort̪n̪ˈɛlla# | Rule 247 : ɾ > n̪ / t̪ __ 
+#t̪ˌord̪n̪ˈɛlla# | Rule 283 : t̪ > d̪ / __ [+nas,+cons]
+#t̪ˌord̪n̪ˈɛllə# | Rule 316 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˌorn̪ˈɛllə# | Rule 343 : [+cons] > ∅ / [+cons] __ [+nas,+cons]
+#t̪ˌorn̪ˈɛlə# | Rule 365 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#t̪ˌurn̪ˈɛlə# | Rule 401 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurn̪ˈɛlə̯# | Rule 531 : ə > ə̯ / __ #
+#t̪ˌuɹn̪ˈɛlə̯# | Rule 533 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹn̪ˈɛl# | Rule 538 : ə̯ > ∅ 
+#t̪ˌurn̪ˈɛl# | Rule 546 : ɹ > r 
+#t̪ˌuʀn̪ˈɛl# | Rule 548 : r > ʀ 
+#t̪uʀn̪ɛl# | Rule 549 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪uʁn̪ɛl# | Rule 556 : ʀ > ʁ 

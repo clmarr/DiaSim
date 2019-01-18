@@ -785,7 +785,7 @@ $ paroxytones as opposed to proparoxytones.
 $ CORRECTION: cannot come immediately before final vowel
 $ CORRECTION: a actually doesn't go to schwa yet if before t/ð then a vowel
 a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
-ə > a / __ [+cor,+ant,+distr] [-syl]
+ə > a / __ [+cor,+ant,+distr] [+syl]
 [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
 
 
@@ -828,10 +828,46 @@ $s259: ə retained in final syllable of proparoxytones that were not deleted in 
 ə̯ > ə / ə̯ ([-syl])* __ # 
 $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for t to lenit 
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ
+
+$ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
+n̪ > m / p __ 
+
+$ CORRECTION : earliest occurrence of s365iii bleeds some n flapping
+$ this is going to be recurrent...
+[+cons,+lab] > ∅ / [+cons] __ [-son]
+[+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
+
+$ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi)
+r a β ə̯ > l ə f / __ r
+
+$ CORRECTION: (ONE-CASE) dissimilation of r in rə̯r to l (pelerin)
+r > l / __ ə̯ r
+
+$ CORRECTION : flapping of n̪ə̯ and ə̯n to ɾ either after stops or before consonants: ordre, desordre, derree, Londres, Chartres, armaille (>aumaille), arme>aume, 
+$ CORRECTION : trill r also becomes a flap in the same environments... 
+$ CORRECTION : flapping before a consonant seems to only happen after ˌa,ˈa (not ˈaː  maːnus > mains)
+{n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [+lo,+stres,-long,+syl] __ [+cons]
+{n̪ ə̯;ə̯ n̻;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ @
+
+$ CORRECTION : (re)nasalization of the flap after t (protero>prone, possibly Rhone)
+ɾ > n̪ / t̪ __ 
+
+$ CORRECTION : lateralization of flap ɾ before m (aumaille, aume, Auvergne...) 
+ɾ > l / __ m 
+
+$ CORRECTION: ɾ goes to r everywhere else 
+ɾ > r 
+
+$ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
+$ CORRECTION: ˈʉo̯ > ˈoː before ð then son
+$ TODO: place. 
+ˈʉo̯ > ˈoː / __ ð [+son,+cons]
+
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
+$ definitively after first fall of schwas 
 k > ∅  / __ t͡sʲ
 
 $ s350 -- ... and t immediately devoices if it comes into contact (by the previous rule) 
@@ -874,6 +910,11 @@ $ s189 : nβl > mbl
 n β > m b / __ [+lat] 
 
 $ CORRECTION: t̪ + s --> affricate 
+$ TODO: implement -- definitively comes AFTER first fall of the schwas. 
+
+$ TODO -- determine if length rule is enforced again before or after or during these syllable structure changes 
+$ consider cases like minor > moindre
+
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
