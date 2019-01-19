@@ -113,7 +113,7 @@ $ as per s186iib -- w effaced between k and a rounded vowel
 w > ∅ / k __ [+syl,+round] 
 
 $ CORRECTION, ADDITION : unstressed -ɛr, -ɔr endings experience metathesis
-{ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
+${ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
 
 $ p115 s261-264 ~ s221 ~ s156i
 $ *** Note as per s156i, for Pope this is a "tendency" 
@@ -811,7 +811,8 @@ $ s257ia : ə intertonic retained when after cons + r or l but not rr or ll
 ə̯ > ə / [+stres] ([-syl])* [-lat] l __ ([-syl])* [+stres]
 $ s257ib : ə intertonic retained when before ʎ,ɲ,ts or "any particularly heavy group of consonants"  
 $ CORRECTION: only retained before ʎ or ɲ -- not tsʲ or ç (with regards to palatal sounds -- i.e. we add +son specification)
-$ CORRECTION: retained before ŋ t͡sʲ but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
+$ CORRECTION: retained before ŋ t͡sʲ but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters 
+	$ (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
 ə̯ > ə / __ [+front,+cons,+son]
 ə̯ > ə / __ ŋ t͡sʲ
 ə̯ > ə / __ [+cons] [+cons] [+cons]
@@ -820,6 +821,8 @@ $ CORRECTION: retained before all -nt, not just finally
 ə̯ > ə / __ [+nas] t̪
 $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for t to lenit 
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ
+$ CORRECTION : ə also retained after dental ə ɣ for now 
+ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
 
 $ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
 n̪ > m / p __ 
@@ -828,6 +831,9 @@ $ CORRECTION : earliest occurrence of s365iii bleeds some n flapping
 $ this is going to be recurrent...
 [+cons,+lab] > ∅ / [+cons] __ [-son]
 [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
+
+$ CORRECTION : final ə̯ r > r ə̯
+ə̯ r > r ə̯ / __ #
 
 $ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi)
 r a β ə̯ > l ə f / __ r
@@ -845,17 +851,18 @@ $ CORRECTION : ejects following ə if not before a non-consonantal
 
 
 $ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
-ɾ > n̪ / [-cons] t̪ __ 
+ɾ > n̪ / [+syl] t̪ __ 
 
 $ CORRECTION : lateralization of flap ɾ before labials (aumaille, aume, Auvergne...) 
-ɾ > l / __ [+cons,+lab]
+ɾ ə̯ > l / __ [+cons,+lab]
 
 $ CORRECTION: ɾ goes to r everywhere else 
 ɾ > r 
 
 $s258b: ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
-ə̯ > ə / [+lat] [+nas] __ #
+$ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
+ə̯ > ə / [+cons,-nas] [+nas] __ #
 ə̯ > ə / [-ant,+delrel] __ #
 ə̯ > ə / [-lat,-syl] l __ #
 ə̯ > ə / [-son] r __ #
@@ -920,7 +927,6 @@ $ TODO: implement -- definitively comes AFTER first fall of the schwas.
 $ TODO -- determine if length rule is enforced again before or after or during these syllable structure changes 
 $ consider cases like minor > moindre
 
-
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -973,6 +979,7 @@ $ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted �
 $ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
 $ CORRECTION: where d has remained t, it becomes a voiceless tʃ
 $ CORRECTION: t and d are actually preserved before the new affricates at first. 
+$ CORRECTION: this happens in the midst of the process of the fall of the first schwa. 
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
