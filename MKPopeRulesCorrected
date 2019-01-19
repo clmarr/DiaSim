@@ -138,8 +138,8 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and r 
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ [+cor,+son,-lat]
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ [+cor,+son,-lat] $TODO note this rule seems to have no words to aply to... 
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to aply to... 
 
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
@@ -832,8 +832,8 @@ $ this is going to be recurrent...
 [+cons,+lab] > ∅ / [+cons] __ [-son]
 [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
 
-$ CORRECTION : final ə̯ r > r ə̯
-ə̯ r > r ə̯ / __ #
+$ CORRECTION : final ə̯ r > r ə
+ə̯ r > r ə / __ #
 
 $ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi)
 r a β ə̯ > l ə f / __ r
@@ -847,7 +847,7 @@ $ CORRECTION : flapping before a consonant seems to only happen after a variants
 $ CORRECTION : ejects following ə if not before a non-consonantal
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [+lo,+stres,+syl] __ [+cons]
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
-{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [-cont] __ @
+{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [-cont] __ @
 
 
 $ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
@@ -914,18 +914,18 @@ $ Denasalization -- s369, and glide development s370
 $ b inserted between m + r or l 
 $ d inserted between n,l,dark l,z,elya + r 
 $ t inserted between s and pal. s + r 
+$ CORRECTION : denasalization of nr > ndr comes later -- after length is determined for the relevant words, determining diphthongization
+$ note: minor > meindre > moindre, but simulare > sembler (not *soimbler) and camera > chambre (not *chaimbre) 
+	$ -- note however criembre -- so the diphthongization of ɛ > ie came before) and 
 ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r
-{z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
+{z r;s r} > {z d̪ r;s t̪ r}
 
 $ s189 : nβl > mbl 
 n β > m b / __ [+lat] 
 
 $ CORRECTION: t̪ + s --> affricate 
 $ TODO: implement -- definitively comes AFTER first fall of the schwas. 
-
-$ TODO -- determine if length rule is enforced again before or after or during these syllable structure changes 
-$ consider cases like minor > moindre
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -935,6 +935,7 @@ $ CORRECTION: But it is incorrect for this rule to operate before glides except 
 	$ but not intended to effect diphthongs with j as second element
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ TODO merge with next length control phenomenon? 
 $ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
@@ -1031,6 +1032,9 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 [+prim,-front] > [-long] / __ ʎ 
 [+prim,-hi] > [-long] / __ ʎ
+
+$ CORRECTION : nr > ndr nasalization occurs AFTER length is determined, engendering diphthongization behavior (minor>moindre, 
+∅ > d̪ / n̪ __ r
 
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
