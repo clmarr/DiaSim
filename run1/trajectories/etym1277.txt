@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1277:
-#wˈɑkkɑm# >>> #vakʃ# ( Correct : #vaʃ#) :
-w ˈɑ k k ɑ m 
-#ɣʷˈɑkkɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑkkɑm# | Rule 45 : ɣʷ > βʷ 
-#βʷˈɑkkɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑkkɑ# | Rule 107 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈakka# | Rule 164 : [+lo,+syl] > [+front,-back] 
-#βˈakkʲa# | Rule 194 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˈakca# | Rule 206 : [+back,+front] > [-back] 
-#βˈakt͡ʃa# | Rule 215 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#vˈakt͡ʃa# | Rule 314 : β > v 
-#vˈakt͡ʃə# | Rule 319 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈakʃə# | Rule 464 : [+delrel] > [+cont,.delrel] 
-#vˈakʃə̯# | Rule 534 : ə > ə̯ / __ #
-#vˈakʃ# | Rule 541 : ə̯ > ∅ 
-#vakʃ# | Rule 552 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈɑːn̪ɑm# >>> #vɐ̃n̪# ( Correct : #vɛn̪#) :
+w ˈɑː n̪ ɑ m 
+#ɣʷˈɑːn̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈɑːn̪ɑm# | Rule 45 : ɣʷ > βʷ 
+#βʷˈɑn̪ɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#βʷˈɑn̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈɑːn̪ɑ# | Rule 92 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈɑːn̪ɑ# | Rule 107 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈaːn̪a# | Rule 164 : [+lo,+syl] > [+front,-back] 
+#βˈae̯n̪a# | Rule 309 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈae̯n̪a# | Rule 314 : β > v 
+#vˈae̯n̪ə# | Rule 319 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈeːn̪ə# | Rule 341 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#vˈẽːn̪ə# | Rule 387 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˈɛ̃ːn̪ə# | Rule 412 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#vˈæ̃ːn̪ə# | Rule 417 : [+nas,-hi,+syl] > [+lo] 
+#vˈɐ̃ːn̪ə# | Rule 519 : [+lo,+long,+syl] > [+back,-front] 
+#vˈɐ̃ːn̪ə̯# | Rule 534 : ə > ə̯ / __ #
+#vˈɐ̃ːn̪# | Rule 541 : ə̯ > ∅ 
+#vɐ̃ːn̪# | Rule 552 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vɐ̃n̪# | Rule 553 : [+syl,+long] > [-long,-splng] 
