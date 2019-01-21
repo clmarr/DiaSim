@@ -139,7 +139,7 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and r 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to aply to... 
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to apply to... 
 
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
@@ -299,8 +299,27 @@ l ʝ > ʎ
 
 $per Pope s353: unstressed penultimate ɪ in -item, itum, idum, ita endings is deleted before any d > ð
 $ we can use /e/ here because if it was e:, it would be stressed. 
-$ CORRECTION: include also the syncope of vowels before n̪ 
+$ CORRECTION: include also the syncope of vowels before n̪ -- removed for now
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
+
+$ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
+n̪ > m / p __ 
+
+$ CORRECTION : earliest flapping with n comes into contact with d due to falls of vowels here: cases of Londres, ordre, desordre
+$ We can just send it straight to the trill here
+$ bleeds s365
+n̪ > r / d̪ __ 
+
+$ CORRECTION : earliest implementation of s365
+$ s365 : deletion of all plosive consonants internal to a cluster not ending in l or r 
+$ CORRECTION: also does not target consonants before ʝ 
+[-cont] > ∅ / [+cons] __ [-son,-hi]
+[-cont] > ∅ / [+cons] __ [-cont,+hi]
+[-cont] > ∅ / [+cons] __ [+nas,+cons]
+
+$ CORRECTION: This inserted here too, earlier than Pope explicitly states it is. 
+$ s365i : additional deletion of velars in rgl, skl
+{s k;r ɡ} > {s;r} / __ l
 
 $ s353 : devoicing of labial and dental consonants that are now adjacent to t 
 $ since aidier is excluded we can dodge fixing palatals too. 
@@ -788,7 +807,6 @@ a > ə / __ ([-syl])+ [+syl] ([-syl])* #
 ə > a / __ [+cor,+ant,+distr] [+syl]
 [+syl,-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
 
-
 $ s261 ~ s350 : as per word trajectories seen in s350, under justification of s261
 $ non-penultimate unstressed vowels except for a are effaced "early" when next syllˌs stressed vowel is a
 $ this happens before the voicing of t
@@ -824,10 +842,7 @@ $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for
 $ CORRECTION : ə also retained after dental ə ɣ for now 
 ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
 
-$ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
-n̪ > m / p __ 
-
-$ CORRECTION : earliest occurrence of s365iii bleeds some n flapping
+$ CORRECTION : s365iii bleeds some n flapping
 $ this is going to be recurrent...
 [+cons,+lab] > ∅ / [+cons] __ [-son]
 [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
@@ -844,11 +859,17 @@ r > l / __ ə̯ r
 $ CORRECTION : flapping of n̪ə̯ and ə̯n to ɾ either after stops or before consonants: ordre, desordre, derree, Londres, Chartres, armaille (>aumaille), arme>aume, 
 $ CORRECTION : trill r also becomes a flap in the same environments... 
 $ CORRECTION : flapping before a consonant seems to only happen after a variants ( maːnuːs > mains is likely due to analogy from the singular)
+$ CORRECTION : flapping does occur adjacent to coda in cases of sonorant + stop 
 $ CORRECTION : ejects following ə if not before a non-consonantal
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [+lo,+stres,+syl] __ [+cons]
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [-cont] __ @
+{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
 
+$ CORRECTION: ˈʉo̯ > ˈoː before ð then son
+$ tentatively expanding this to include all dentals ð θ d̪ t̪ 
+$ TODO: place. 
+ˈʉ o̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
 
 $ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
 ɾ > n̪ / [+syl] t̪ __ 
@@ -872,11 +893,6 @@ $s259: ə retained in final syllable of proparoxytones that were not deleted in 
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
-
-$ CORRECTION: ˈʉo̯ > ˈoː before ð then son
-$ tentatively expanding this to include all dentals ð θ d̪ t̪ 
-$ TODO: place. 
-ˈʉo̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 
@@ -1168,7 +1184,7 @@ p > b / [+syl] __ [+son,+cont,-nas]
 b > β / [+syl] __ r
 β > v
 
-$ s365 : elimination of middle velars in three consonant intervocalic clusters
+$ s365i : elimination of middle velars in three consonant intervocalic clusters
 {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
 
 $ s368-370 denasalization and glide development
