@@ -10,22 +10,22 @@ s ˌe p t̪ i m ˈɑː n̪ ɑ m
 #sˌɛt̪t̪emˈaːn̪a# | Rule 171 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
 #sˌɛt̪t̪əmˈaːn̪a# | Rule 228 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]
 #sˌɛt̪t̪ə̯mˈaːn̪a# | Rule 232 : ə > ə̯ 
-#sˌɛt̪t̪mˈaːn̪a# | Rule 260 : ə̯ > ∅ 
-#sˌɛt̪mˈaːn̪a# | Rule 269 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / __ [+cons]
-#sˌɛd̪mˈaːn̪a# | Rule 292 : t̪ > d̪ / __ [+nas,+cons]
-#sˌɛðmˈaːn̪a# | Rule 297 : d̪ > ð / [+syl] __ [+nas]
-#sˌɛðmˈae̯n̪a# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˌeðmˈae̯n̪a# | Rule 319 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#sˌeðmˈae̯n̪ə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
-#sˌeðmˈeːn̪ə# | Rule 348 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#sˌeðmˈẽːn̪ə# | Rule 394 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌeðmˈɛ̃ːn̪ə# | Rule 419 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌeðmˈæ̃ːn̪ə# | Rule 424 : [+nas,-hi,+syl] > [+lo] 
-#sˌemˈæ̃ːn̪ə# | Rule 434 : {θ;ð} > {∅;∅} 
-#sˌəmˈæ̃ːn̪ə# | Rule 437 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#sˌə̃mˈæ̃ːn̪ə# | Rule 447 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#sˌə̃mˈɐ̃ːn̪ə# | Rule 526 : [+lo,+long,+syl] > [+back,-front] 
-#sˌə̃mˈɐ̃ːn̪ə̯# | Rule 541 : ə > ə̯ / __ #
-#sˌə̃mˈɐ̃ːn̪# | Rule 548 : ə̯ > ∅ 
-#sə̃mɐ̃ːn̪# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sə̃mɐ̃n̪# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#sˌɛt̪t̪mˈaːn̪a# | Rule 256 : ə̯ > ∅ 
+#sˌɛt̪d̪mˈaːn̪a# | Rule 302 : t̪ > d̪ / __ [+nas,+cons]
+#sˌɛt̪d̪mˈae̯n̪a# | Rule 326 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˌet̪d̪mˈae̯n̪a# | Rule 329 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#sˌet̪d̪mˈae̯n̪ə# | Rule 336 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌet̪d̪mˈeːn̪ə# | Rule 358 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#sˌet̪mˈeːn̪ə# | Rule 362 : [+cons] > ∅ / [+cons] __ [-son]
+#sˌeðmˈeːn̪ə# | Rule 368 : [-cont,-delrel,+cor] > ð / [-cons] __ [+nas]
+#sˌeðmˈẽːn̪ə# | Rule 404 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˌeðmˈɛ̃ːn̪ə# | Rule 429 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌeðmˈæ̃ːn̪ə# | Rule 434 : [+nas,-hi,+syl] > [+lo] 
+#sˌemˈæ̃ːn̪ə# | Rule 444 : {θ;ð} > {∅;∅} 
+#sˌəmˈæ̃ːn̪ə# | Rule 447 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#sˌə̃mˈæ̃ːn̪ə# | Rule 457 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#sˌə̃mˈɐ̃ːn̪ə# | Rule 536 : [+lo,+long,+syl] > [+back,-front] 
+#sˌə̃mˈɐ̃ːn̪ə̯# | Rule 551 : ə > ə̯ / __ #
+#sˌə̃mˈɐ̃ːn̪# | Rule 558 : ə̯ > ∅ 
+#sə̃mɐ̃ːn̪# | Rule 569 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sə̃mɐ̃n̪# | Rule 570 : [+syl,+long] > [-long,-splng] 
