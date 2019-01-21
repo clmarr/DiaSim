@@ -1,22 +1,23 @@
 Trajectory file for run 'run1'; etymon number :895:
-#plˌɑkˈeːre# >>> #plazʲiʁ# ( Correct : #pleziʁ#) :
-p l ˌɑ k ˈeː r e 
-#plˌɑkˈeːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˌɑkˈerɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˌɑkʲˈerɛ# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#plˌɑcˈerɛ# | Rule 70 : [+back,+front] > [-back] 
-#plˌɑcˈeːrɛ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˌɑcˈiːrɛ# | Rule 141 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
-#plˌɑt͡sʲˈiːrɛ# | Rule 157 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#plˌat͡sʲˈiːrɛ# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#plˌat͡sʲˈiːrə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#plˌat͡sʲˈiːrə̯# | Rule 232 : ə > ə̯ 
-#plˌat͡sʲˈiːr# | Rule 259 : ə̯ > ∅ 
-#plˌad͡zʲˈiːr# | Rule 289 : [-voi] > [+voi] / [+syl] __ [+syl]
-#plˌazʲˈiːr# | Rule 470 : [+delrel] > [+cont,.delrel] 
-#plˌazʲˈiːɹ# | Rule 541 : r > ɹ / [-cons] __ #
-#plˌazʲˈiːr# | Rule 555 : ɹ > r 
-#plˌazʲˈiːʀ# | Rule 557 : r > ʀ 
-#plazʲiːʀ# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plazʲiʀ# | Rule 559 : [+syl,+long] > [-long,-splng] 
-#plazʲiʁ# | Rule 565 : ʀ > ʁ 
+#plˈɑːɡɑm# >>> #plwa# ( Correct : #plɛ#) :
+p l ˈɑː ɡ ɑ m 
+#plˈɑɡɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#plˈɑɡɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɑɣɑ# | Rule 92 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#plˈɑːɣɑ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːɣa# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#plˈaːɣʲa# | Rule 200 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#plˈaːʝa# | Rule 212 : [+back,+front] > [-back] 
+#plˈaːja# | Rule 219 : ʝ > j 
+#plˈae̯ja# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈae̯jə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈeːjə# | Rule 348 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#plˈoːjə# | Rule 407 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#plˈuːjə# | Rule 411 : [+round,+tense,+back] > [+hi] 
+#plˈuːɛ̯ə# | Rule 453 : j > ɛ̯ / [+syl,+back,+round] __ 
+#plwˈɛə# | Rule 492 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+#plwˈɛːə# | Rule 499 : [+stres] > [+long] / __ ə
+#plwˈɛː# | Rule 500 : ə > ∅ / [+syl] __ 
+#plwɛː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plwɛ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#plwa# | Rule 564 : ɛ > a / w __ 

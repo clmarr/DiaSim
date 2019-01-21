@@ -1,23 +1,14 @@
 Trajectory file for run 'run1'; etymon number :894:
-#plˈɑːɡɑm# >>> #plwa# ( Correct : #plɛ#) :
-p l ˈɑː ɡ ɑ m 
-#plˈɑɡɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#plˈɑɡɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#plˈɑɣɑ# | Rule 92 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#plˈɑːɣɑ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˈaːɣa# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#plˈaːɣʲa# | Rule 200 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#plˈaːʝa# | Rule 212 : [+back,+front] > [-back] 
-#plˈaːja# | Rule 219 : ʝ > j 
-#plˈae̯ja# | Rule 315 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#plˈae̯jə# | Rule 325 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈeːjə# | Rule 347 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#plˈoːjə# | Rule 406 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#plˈuːjə# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#plˈuːɛ̯ə# | Rule 452 : j > ɛ̯ / [+syl,+back,+round] __ 
-#plwˈɛə# | Rule 491 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-#plwˈɛːə# | Rule 498 : [+stres] > [+long] / __ ə
-#plwˈɛː# | Rule 499 : ə > ∅ / [+syl] __ 
-#plwɛː# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plwɛ# | Rule 559 : [+syl,+long] > [-long,-splng] 
-#plwa# | Rule 563 : ɛ > a / w __ 
+#pˈius# >>> #pjœ# ( Correct : #pjø#) :
+p ˈi u s 
+#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈeos# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈeːos# | Rule 96 : [+prim] > [+long] / __ [+syl]
+#pjˈoːs# | Rule 223 : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
+#pjˈows# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pjˈews# | Rule 406 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#pjˈøws# | Rule 439 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#pjˈøs# | Rule 443 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#pjˈø# | Rule 547 : [-son] > ∅ / __ #
+#pjø# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pjœ# | Rule 563 : ø > œ / __ ( [+cons] )* #

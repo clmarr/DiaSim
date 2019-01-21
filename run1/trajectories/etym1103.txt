@@ -1,19 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1103:
-#sˌin̪ɡlˈut̪t̪um# >>> #sæ̃ɡlu# ( Correct : #sɑ̃ɡlo#) :
-s ˌi n̪ ɡ l ˈu t̪ t̪ u m 
-#sˌiŋɡlˈut̪t̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#sˌɪŋɡlˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌeŋɡlˈot̪t̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌeŋɡlˈot̪t̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌeŋɡlˈot̪t̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#sˌeŋɡlˈot̪t̪ə̯# | Rule 232 : ə > ə̯ 
-#sˌeŋɡlˈot̪t̪# | Rule 259 : ə̯ > ∅ 
-#sˌeŋɡlˈot̪# | Rule 371 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#sˌẽŋɡlˈot̪# | Rule 393 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌẽŋɡlˈut̪# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#sˌɛ̃ŋɡlˈut̪# | Rule 418 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌæ̃ŋɡlˈut̪# | Rule 423 : [+nas,-hi,+syl] > [+lo] 
-#sˌæ̃ːɡlˈut̪# | Rule 526 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌæ̃ːɡlˈu# | Rule 546 : [-son] > ∅ / __ #
-#sæ̃ːɡlu# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sæ̃ɡlu# | Rule 559 : [+syl,+long] > [-long,-splng] 
+#sˈin̪e# >>> #sɛ̃# ( Correct : #sɑ̃#) :
+s ˈi n̪ e 
+#sˈɪn̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈen̪ɛ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈeːn̪ɛ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈeːn̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#sˈeːn̪ə̯# | Rule 232 : ə > ə̯ 
+#sˈeːn̪# | Rule 260 : ə̯ > ∅ 
+#sˈejn̪# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈej̃n̪# | Rule 393 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#sˈẽj̃n̪# | Rule 394 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˈɛ̃j̃n̪# | Rule 419 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈæ̃j̃n̪# | Rule 424 : [+nas,-hi,+syl] > [+lo] 
+#sˈɛ̃j̃n̪# | Rule 442 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#sˈɛ̃n̪# | Rule 481 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˈɛ̃ː# | Rule 528 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#sɛ̃ː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛ̃# | Rule 560 : [+syl,+long] > [-long,-splng] 

@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :892:
-#pˌit̪t̪ˈiːt̪um# >>> #pt̪i# ( Correct : #pət̪i#) :
-p ˌi t̪ t̪ ˈiː t̪ u m 
-#pˌɪt̪t̪ˈiːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌɪt̪t̪ˈit̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˌet̪t̪ˈit̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˌet̪t̪ˈit̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˌet̪t̪ˈiːt̪o# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˌet̪t̪ˈiːt̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#pˌet̪t̪ˈiːt̪ə̯# | Rule 232 : ə > ə̯ 
-#pˌet̪t̪ˈiːt̪# | Rule 259 : ə̯ > ∅ 
-#pˌet̪t̪ˈiːθ# | Rule 322 : [-cont,-delrel] > [+cont,.delrel] / [+syl] __ #
-#pˌet̪ˈiːθ# | Rule 371 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˌət̪ˈiːθ# | Rule 396 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#pˌət̪ˈiː# | Rule 433 : {θ;ð} > {∅;∅} 
-#pət̪iː# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pət̪i# | Rule 559 : [+syl,+long] > [-long,-splng] 
-#pt̪i# | Rule 571 : ə > ∅ / # [-syl] __ [-syl] [+syl]
+#pˈisum# >>> #pwa# ( Correct : #pwa#) :
+p ˈi s u m 
+#pˈɪsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈesom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈeso# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈeːso# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːzo# | Rule 120 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#pˈeːzə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#pˈeːzə̯# | Rule 232 : ə > ə̯ 
+#pˈeːz# | Rule 260 : ə̯ > ∅ 
+#pˈejz# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejs# | Rule 330 : [-son] > [-voi] / __ #
+#pˈojs# | Rule 407 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈujs# | Rule 411 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯s# | Rule 453 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛs# | Rule 456 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛ# | Rule 547 : [-son] > ∅ / __ #
+#pwɛ# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwa# | Rule 564 : ɛ > a / w __ 

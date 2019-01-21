@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :957:
-#prˈoːd̪is# >>> #pʁu# ( Correct : #pʁø#) :
-p r ˈoː d̪ i s 
-#prˈoːd̪ɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˈod̪ɪs# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#prˈod̪es# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˈoðes# | Rule 92 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#prˈoːðes# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˈoːðəs# | Rule 229 : [-stres,-lo,+syl] > ə / __ [-syl]
-#prˈoːðə̯s# | Rule 232 : ə > ə̯ 
-#prˈoːðs# | Rule 259 : ə̯ > ∅ 
-#prˈoðs# | Rule 274 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˈoθs# | Rule 373 : [-son] > [-voi] / __ [-voi]
-#prˈuθs# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#prˈus# | Rule 433 : {θ;ð} > {∅;∅} 
-#prˈu# | Rule 546 : [-son] > ∅ / __ #
-#pʀˈu# | Rule 557 : r > ʀ 
-#pʀu# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁu# | Rule 565 : ʀ > ʁ 
+#prˈoːd̪e# >>> #pʁœ# ( Correct : #pʁu#) :
+p r ˈoː d̪ e 
+#prˈoːd̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˈod̪ɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#prˈoðɛ# | Rule 92 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#prˈoːðɛ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˈoːðə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#prˈoːðə̯# | Rule 232 : ə > ə̯ 
+#prˈoːð# | Rule 260 : ə̯ > ∅ 
+#prˈowð# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˈowθ# | Rule 330 : [-son] > [-voi] / __ #
+#prˈewθ# | Rule 406 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#prˈew# | Rule 434 : {θ;ð} > {∅;∅} 
+#prˈøw# | Rule 439 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#prˈø# | Rule 443 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#pʀˈø# | Rule 558 : r > ʀ 
+#pʀø# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀœ# | Rule 563 : ø > œ / __ ( [+cons] )* #
+#pʁœ# | Rule 566 : ʀ > ʁ 

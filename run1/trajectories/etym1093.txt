@@ -1,7 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1093:
-#sˈiː# >>> #si# ( Correct : #si#) :
-s ˈiː 
-#sˈi# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈiː# | Rule 95 : [+prim] > [+long] / __ #
-#siː# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#si# | Rule 559 : [+syl,+long] > [-long,-splng] 
+#sˈeːt̪ɑm# >>> #swa# ( Correct : #swa#) :
+s ˈeː t̪ ɑ m 
+#sˈet̪ɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˈet̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈeːt̪ɑ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈeːt̪a# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#sˈeːd̪a# | Rule 290 : [-voi] > [+voi] / [+syl] __ [+syl]
+#sˈeːða# | Rule 294 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˈejða# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈejðə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈojðə# | Rule 407 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˈujðə# | Rule 411 : [+round,+tense,+back] > [+hi] 
+#sˈujə# | Rule 434 : {θ;ð} > {∅;∅} 
+#sˈuɛ̯ə# | Rule 453 : j > ɛ̯ / [+syl,+back,+round] __ 
+#swˈɛə# | Rule 456 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˈɛːə# | Rule 499 : [+stres] > [+long] / __ ə
+#swˈɛː# | Rule 500 : ə > ∅ / [+syl] __ 
+#swɛː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swɛ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#swa# | Rule 564 : ɛ > a / w __ 

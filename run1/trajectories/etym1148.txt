@@ -1,14 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1148:
-#sˈukkum# >>> #suk# ( Correct : #sɔk#) :
-s ˈu k k u m 
-#sˈʊkkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈokkom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈokko# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈokkə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#sˈokkə̯# | Rule 232 : ə > ə̯ 
-#sˈokk# | Rule 259 : ə̯ > ∅ 
-#sˈok# | Rule 374 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˈuk# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#sˈukə̯# | Rule 544 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#sˈuk# | Rule 547 : ə̯ > ∅ 
-#suk# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#suˌessiˈoːn̪is# >>> #swəjsjsɔ̃# ( Correct : #swasɔ̃#) :
+s u ˌe s s i ˈoː n̪ i s 
+#sʊˌɛssɪˈoːn̪ɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#swˌɛssjˈoːn̪ɪs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#swˌɛssʝˈoːn̪ɪs# | Rule 27 : j > ʝ / __ [+syl]
+#swˌɛssʝˈon̪ɪs# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#swˌɛssʝˈon̪es# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#swˌɛssʝˈoːn̪es# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#swˌɛssʝˈũːn̪es# | Rule 142 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#swˌɛssʲsʲˈũːn̪es# | Rule 153 : s [+hi,+front,+cons] > sʲ sʲ
+#swˌɛsʲsʲsʲˈũːn̪es# | Rule 154 : s [+hi,+front,+cons] > sʲ sʲ
+#swˌɛsʲsʲˈũːn̪es# | Rule 155 : sʲ > ∅ / __ sʲ sʲ
+#swˌɛsʲsʲˈũːn̪əs# | Rule 229 : [-stres,-lo,+syl] > ə / __ [-syl]
+#swˌɛsʲsʲˈũːn̪ə̯s# | Rule 232 : ə > ə̯ 
+#swˌɛsʲsʲˈũːn̪s# | Rule 260 : ə̯ > ∅ 
+#swˌɛsʲsʲˈũn̪s# | Rule 275 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#swˌɛjsjsˈũn̪s# | Rule 300 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
+#swˌejsjsˈũn̪s# | Rule 319 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#swˌəjsjsˈũn̪s# | Rule 397 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#swˌəjsjsˈũːs# | Rule 527 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#swˌəjsjsˈũː# | Rule 547 : [-son] > ∅ / __ #
+#swəjsjsũː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swəjsjsũ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#swəjsjsɔ̃# | Rule 561 : [+back,-lo,+nas,+syl] > ɔ̃ 

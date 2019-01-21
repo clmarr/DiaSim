@@ -1,14 +1,9 @@
 Trajectory file for run 'run1'; etymon number :822:
-#pˈɑːst̪or# >>> #past̪ʁ# ( Correct : #pɑt̪ʁ#) :
-p ˈɑː s t̪ o r 
-#pˈɑːst̪ɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɑst̪ɔr# | Rule 50 : [+syl,+long] > [-long,-splng] 
-#pˈast̪ɔr# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#pˈast̪ər# | Rule 229 : [-stres,-lo,+syl] > ə / __ [-syl]
-#pˈast̪ə̯r# | Rule 232 : ə > ə̯ 
-#pˈast̪rə# | Rule 243 : ə̯ r > r ə / __ #
-#pˈast̪rə̯# | Rule 540 : ə > ə̯ / __ #
-#pˈast̪r# | Rule 547 : ə̯ > ∅ 
-#pˈast̪ʀ# | Rule 557 : r > ʀ 
-#past̪ʀ# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#past̪ʁ# | Rule 565 : ʀ > ʁ 
+#pˈɑst̪ɑm# >>> #past̪# ( Correct : #pɑt̪#) :
+p ˈɑ s t̪ ɑ m 
+#pˈɑst̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈast̪a# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#pˈast̪ə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈast̪ə̯# | Rule 541 : ə > ə̯ / __ #
+#pˈast̪# | Rule 548 : ə̯ > ∅ 
+#past̪# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

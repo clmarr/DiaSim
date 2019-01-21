@@ -1,10 +1,19 @@
 Trajectory file for run 'run1'; etymon number :937:
-#prˌɑe̯# >>> #pʁe# ( Correct : #pʁe#) :
-p r ˌɑ e̯ 
-#prˌae̯# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌɛː# | Rule 51 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛ# | Rule 190 : [-prim] > [-long,-splng] 
-#prˌe# | Rule 318 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#pʀˌe# | Rule 557 : r > ʀ 
-#pʀe# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁe# | Rule 565 : ʀ > ʁ 
+#pˈot̪et̪# >>> #pœ# ( Correct : #pø#) :
+p ˈo t̪ e t̪ 
+#pˈɔt̪ɛt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɔːt̪ɛt̪# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈuo̯t̪ɛt̪# | Rule 144 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˈʉo̯t̪ɛt̪# | Rule 209 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#pˈʉo̯t̪ɛθ# | Rule 216 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#pˈʉo̯t̪əθ# | Rule 229 : [-stres,-lo,+syl] > ə / __ [-syl]
+#pˈʉo̯t̪ə̯θ# | Rule 232 : ə > ə̯ 
+#pˈʉo̯t̪θ# | Rule 260 : ə̯ > ∅ 
+#pˈʉo̯t̪t̪# | Rule 324 : [+cont,-son,-strid] > [-cont,-delrel,+cons,-son,.tense] / [+cons] __ #
+#pˈʉo̯t̪# | Rule 372 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#pˈyo̯t̪# | Rule 390 : [+hi,+round,-back] > [+front] 
+#pˈye̯t̪# | Rule 398 : o̯ > e̯ 
+#pˈøt̪# | Rule 426 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#pˈø# | Rule 547 : [-son] > ∅ / __ #
+#pø# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pœ# | Rule 563 : ø > œ / __ ( [+cons] )* #

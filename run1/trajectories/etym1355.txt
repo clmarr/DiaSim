@@ -1,11 +1,16 @@
 Trajectory file for run 'run1'; etymon number :1355:
-#wˌoːs# >>> #vu# ( Correct : #vu#) :
-w ˌoː s 
-#ɣʷˌoːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˌoːs# | Rule 45 : ɣʷ > βʷ 
-#βʷˌos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βˌos# | Rule 113 : {βʷ;ɸʷ} > {β;ɸ} 
-#vˌos# | Rule 320 : β > v 
-#vˌus# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#vˌu# | Rule 546 : [-son] > ∅ / __ #
-#vu# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈoːs# >>> #vœ# ( Correct : #vu#) :
+w ˈoː s 
+#ɣʷˈoːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈoːs# | Rule 45 : ɣʷ > βʷ 
+#βʷˈos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈoːs# | Rule 100 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#βˈoːs# | Rule 113 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈows# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈows# | Rule 321 : β > v 
+#vˈews# | Rule 406 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#vˈøws# | Rule 439 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˈøs# | Rule 443 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˈø# | Rule 547 : [-son] > ∅ / __ #
+#vø# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vœ# | Rule 563 : ø > œ / __ ( [+cons] )* #

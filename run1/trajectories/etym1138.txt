@@ -1,7 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1138:
-#suˌɑ# >>> #swa# ( Correct : #sa#) :
-s u ˌɑ 
-#sʊˌɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#swˌɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#swˌa# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#swa# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈuɑ# >>> #sœ# ( Correct : #sø#) :
+s ˈu ɑ 
+#sˈʊɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈoɑ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈoːɑ# | Rule 96 : [+prim] > [+long] / __ [+syl]
+#sˈoːa# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#sˈowa# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈowə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈewə# | Rule 406 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#sˈøwə# | Rule 439 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#sˈøə# | Rule 443 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#sˈøːə# | Rule 499 : [+stres] > [+long] / __ ə
+#sˈøː# | Rule 500 : ə > ∅ / [+syl] __ 
+#søː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sø# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#sœ# | Rule 563 : ø > œ / __ ( [+cons] )* #

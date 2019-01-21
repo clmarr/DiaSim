@@ -1,13 +1,20 @@
 Trajectory file for run 'run1'; etymon number :983:
-#pˈut̪t̪um# >>> #pu# ( Correct : #po#) :
-p ˈu t̪ t̪ u m 
-#pˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈot̪t̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈot̪t̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈot̪t̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#pˈot̪t̪ə̯# | Rule 232 : ə > ə̯ 
-#pˈot̪t̪# | Rule 259 : ə̯ > ∅ 
-#pˈot̪# | Rule 371 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˈut̪# | Rule 410 : [+round,+tense,+back] > [+hi] 
-#pˈu# | Rule 546 : [-son] > ∅ / __ #
-#pu# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌuppˈɑːt̪ɑm# >>> #pupe# ( Correct : #pupe#) :
+p ˌu p p ˈɑː t̪ ɑ m 
+#pˌʊppˈɑːt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌʊppˈɑt̪ɑm# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#pˌoppˈɑt̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌoppˈɑt̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˌoppˈɑːt̪ɑ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌoppˈaːt̪a# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#pˌoppˈaːd̪a# | Rule 290 : [-voi] > [+voi] / [+syl] __ [+syl]
+#pˌoppˈaːða# | Rule 294 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#pˌoppˈae̯ða# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌoppˈae̯ðə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌoppˈeːðə# | Rule 348 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˌopˈeːðə# | Rule 375 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#pˌupˈeːðə# | Rule 411 : [+round,+tense,+back] > [+hi] 
+#pˌupˈeːə# | Rule 434 : {θ;ð} > {∅;∅} 
+#pˌupˈeː# | Rule 500 : ə > ∅ / [+syl] __ 
+#pupeː# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pupe# | Rule 560 : [+syl,+long] > [-long,-splng] 

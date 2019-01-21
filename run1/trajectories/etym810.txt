@@ -1,18 +1,19 @@
 Trajectory file for run 'run1'; etymon number :810:
-#pˌɑrˈen̪t̪em# >>> #paʁæ̃# ( Correct : #paʁɑ̃#) :
-p ˌɑ r ˈe n̪ t̪ e m 
-#pˌɑrˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌɑrˈɛn̪t̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˌɑrˈɛ?t̪ɛ# | Rule 90 : [+ant,+cons] > [-voi] / __ t̪
-#pˌarˈɛ?t̪ɛ# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#pˌarˈɛ?t̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
-#pˌarˈɛ?t̪ə̯# | Rule 232 : ə > ə̯ 
-#pˌarˈɛ?t̪# | Rule 259 : ə̯ > ∅ 
-#pˌarˈɛ̃?t̪# | Rule 393 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˌarˈæ̃?t̪# | Rule 423 : [+nas,-hi,+syl] > [+lo] 
-#pˌarˈæ̃ːt̪# | Rule 526 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˌarˈæ̃ː# | Rule 546 : [-son] > ∅ / __ #
-#pˌaʀˈæ̃ː# | Rule 557 : r > ʀ 
-#paʀæ̃ː# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʀæ̃# | Rule 559 : [+syl,+long] > [-long,-splng] 
-#paʁæ̃# | Rule 565 : ʀ > ʁ 
+#pˈɑrem# >>> #pɛʁ# ( Correct : #pɛʁ#) :
+p ˈɑ r e m 
+#pˈɑrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɑrɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈɑːrɛ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈaːrɛ# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#pˈaːrə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#pˈaːrə̯# | Rule 232 : ə > ə̯ 
+#pˈaːr# | Rule 260 : ə̯ > ∅ 
+#pˈae̯r# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈeːr# | Rule 348 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˈɛːr# | Rule 488 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#pˈɛːɹ# | Rule 542 : r > ɹ / [-cons] __ #
+#pˈɛːr# | Rule 556 : ɹ > r 
+#pˈɛːʀ# | Rule 558 : r > ʀ 
+#pɛːʀ# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɛʀ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#pɛʁ# | Rule 566 : ʀ > ʁ 

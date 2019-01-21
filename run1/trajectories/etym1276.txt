@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1276:
-#wˈɑkkɑm# >>> #vakʃ# ( Correct : #vaʃ#) :
-w ˈɑ k k ɑ m 
-#ɣʷˈɑkkɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑkkɑm# | Rule 45 : ɣʷ > βʷ 
-#βʷˈɑkkɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑkkɑ# | Rule 113 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈakka# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#βˈakkʲa# | Rule 200 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˈakca# | Rule 212 : [+back,+front] > [-back] 
-#βˈakt͡ʃa# | Rule 221 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#vˈakt͡ʃa# | Rule 320 : β > v 
-#vˈakt͡ʃə# | Rule 325 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈakʃə# | Rule 470 : [+delrel] > [+cont,.delrel] 
-#vˈakʃə̯# | Rule 540 : ə > ə̯ / __ #
-#vˈakʃ# | Rule 547 : ə̯ > ∅ 
-#vakʃ# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌɑlˈoːrem# >>> #valœ# ( Correct : #valœʁ#) :
+w ˌɑ l ˈoː r e m 
+#ɣʷˌɑlˈoːrem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈoːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈoːrɛm# | Rule 45 : ɣʷ > βʷ 
+#βʷˌɑlˈorɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈorɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌɑlˈoːrɛ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈoːrɛ# | Rule 113 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈoːrɛ# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#βˌalˈoːrə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈoːrə̯# | Rule 232 : ə > ə̯ 
+#βˌalˈoːr# | Rule 260 : ə̯ > ∅ 
+#βˌalˈowr# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈowr# | Rule 321 : β > v 
+#vˌalˈewr# | Rule 406 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#vˌalˈøwr# | Rule 439 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˌalˈør# | Rule 443 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˌalˈøɹ# | Rule 542 : r > ɹ / [-cons] __ #
+#vˌalˈø# | Rule 555 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#valø# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valœ# | Rule 563 : ø > œ / __ ( [+cons] )* #

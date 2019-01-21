@@ -861,10 +861,12 @@ $ CORRECTION : trill r also becomes a flap in the same environments...
 $ CORRECTION : flapping before a consonant seems to only happen after a variants ( maːnuːs > mains is likely due to analogy from the singular)
 $ CORRECTION : flapping does occur adjacent to coda in cases of sonorant + stop 
 $ CORRECTION : ejects following ə if not before a non-consonantal
+$ CORRECTION : flapping in r n V # sequences happens when there is more than one syllable beforehand
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [+lo,+stres,+syl] __ [+cons]
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [-cont] __ @
 {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
+n̪ ə̯ > ɾ / [+syl] ([-syl])* [+syl] r __ #
 
 $ CORRECTION: ˈʉo̯ > ˈoː before ð then son
 $ tentatively expanding this to include all dentals ð θ d̪ t̪ 

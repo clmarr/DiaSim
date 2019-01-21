@@ -1,19 +1,16 @@
 Trajectory file for run 'run1'; etymon number :1124:
-#spˈiːn̪ɡulɑm# >>> #espɛ̃ɡl# ( Correct : #epɛ̃ɡl#) :
-s p ˈiː n̪ ɡ u l ɑ m 
-#spˈiːŋɡulɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#spˈiːŋɡʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪspˈiːŋɡʊlɑm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪspˈiːŋɡlɑm# | Rule 32 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#ˌɪspˈiŋɡlɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˌespˈiŋɡlɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈiŋɡlɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌespˈiŋɡla# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#ˌespˈiŋɡlə# | Rule 325 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈĩŋɡlə# | Rule 460 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#ˌespˈɛ̃ŋɡlə# | Rule 479 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈɛ̃ːɡlə# | Rule 526 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌespˈɛ̃ːɡlə̯# | Rule 540 : ə > ə̯ / __ #
-#ˌespˈɛ̃ːɡl# | Rule 547 : ə̯ > ∅ 
-#espɛ̃ːɡl# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#espɛ̃ɡl# | Rule 559 : [+syl,+long] > [-long,-splng] 
+#spˈiːn̪ɑm# >>> #espin̪# ( Correct : #epin̪#) :
+s p ˈiː n̪ ɑ m 
+#ˌɪspˈiːn̪ɑm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈin̪ɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈin̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈin̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌespˈiːn̪ɑ# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈiːn̪a# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#ˌespˈiːn̪ə# | Rule 326 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌespˈĩːn̪ə# | Rule 461 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌespˈiːn̪ə# | Rule 478 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
+#ˌespˈiːn̪ə̯# | Rule 541 : ə > ə̯ / __ #
+#ˌespˈiːn̪# | Rule 548 : ə̯ > ∅ 
+#espiːn̪# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#espin̪# | Rule 560 : [+syl,+long] > [-long,-splng] 

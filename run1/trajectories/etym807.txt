@@ -1,17 +1,15 @@
 Trajectory file for run 'run1'; etymon number :807:
-#pˌɑrˈɑbolɑm# >>> #paʁebl# ( Correct : #paʁɔl#) :
-p ˌɑ r ˈɑ b o l ɑ m 
-#pˌɑrˈɑbɔlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌɑrˈɑblɑm# | Rule 32 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#pˌɑrˈɑblɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˌɑrˈɑːblɑ# | Rule 99 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#pˌarˈaːbla# | Rule 170 : [+lo,+syl] > [+front,-back] 
-#pˌarˈae̯bla# | Rule 315 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌarˈae̯blə# | Rule 325 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌarˈeːblə# | Rule 347 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌarˈeːblə̯# | Rule 540 : ə > ə̯ / __ #
-#pˌarˈeːbl# | Rule 547 : ə̯ > ∅ 
-#pˌaʀˈeːbl# | Rule 557 : r > ʀ 
-#paʀeːbl# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʀebl# | Rule 559 : [+syl,+long] > [-long,-splng] 
-#paʁebl# | Rule 565 : ʀ > ʁ 
+#pˈɑːr# >>> #pɛʁ# ( Correct : #pɛʁ#) :
+p ˈɑː r 
+#pˈɑr# | Rule 50 : [+syl,+long] > [-long,-splng] 
+#pˈɑːr# | Rule 100 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈaːr# | Rule 170 : [+lo,+syl] > [+front,-back] 
+#pˈae̯r# | Rule 316 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈeːr# | Rule 348 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˈɛːr# | Rule 488 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#pˈɛːɹ# | Rule 542 : r > ɹ / [-cons] __ #
+#pˈɛːr# | Rule 556 : ɹ > r 
+#pˈɛːʀ# | Rule 558 : r > ʀ 
+#pɛːʀ# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɛʀ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#pɛʁ# | Rule 566 : ʀ > ʁ 

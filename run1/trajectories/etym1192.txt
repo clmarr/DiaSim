@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1192:
-#t̪ˈen̪et# >>> #t̪jɛ̃# ( Correct : #t̪jɛ̃#) :
-t̪ ˈe n̪ e t 
-#t̪ˈɛn̪ɛt# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛːn̪ɛt# | Rule 98 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯n̪ɛt# | Rule 144 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯n̪ət# | Rule 229 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈie̯n̪ə̯t# | Rule 232 : ə > ə̯ 
-#t̪ˈie̯n̪t# | Rule 259 : ə̯ > ∅ 
-#t̪jˈen̪t# | Rule 437 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪jˈẽn̪t# | Rule 447 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#t̪jˈɛ̃n̪t# | Rule 479 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#t̪jˈɛ̃ːt# | Rule 526 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪jˈɛ̃ː# | Rule 546 : [-son] > ∅ / __ #
-#t̪jɛ̃ː# | Rule 558 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪jɛ̃# | Rule 559 : [+syl,+long] > [-long,-splng] 
+#t̪ˈen̪erum# >>> #t̪æ̃d̪ʁ# ( Correct : #t̪ɑ̃d̪ʁ#) :
+t̪ ˈe n̪ e r u m 
+#t̪ˈɛn̪ɛrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛn̪rʊm# | Rule 37 : [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* n̪ __ r [+syl]
+#t̪ˈɛn̪rom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛn̪ro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈɛn̪d̪ro# | Rule 131 : {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r} 
+#t̪ˈɛn̪d̪rə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˈɛn̪d̪rə̯# | Rule 232 : ə > ə̯ 
+#t̪ˈɛn̪d̪ɾə# | Rule 249 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
+#t̪ˈɛn̪d̪rə# | Rule 254 : ɾ > r 
+#t̪ˈɛ̃n̪d̪rə# | Rule 394 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˈæ̃n̪d̪rə# | Rule 424 : [+nas,-hi,+syl] > [+lo] 
+#t̪ˈæ̃ːd̪rə# | Rule 527 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˈæ̃ːd̪rə̯# | Rule 541 : ə > ə̯ / __ #
+#t̪ˈæ̃ːd̪r# | Rule 548 : ə̯ > ∅ 
+#t̪ˈæ̃ːd̪ʀ# | Rule 558 : r > ʀ 
+#t̪æ̃ːd̪ʀ# | Rule 559 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪æ̃d̪ʀ# | Rule 560 : [+syl,+long] > [-long,-splng] 
+#t̪æ̃d̪ʁ# | Rule 566 : ʀ > ʁ 
