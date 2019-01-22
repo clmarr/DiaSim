@@ -1000,10 +1000,11 @@ $ s413-4 -- recurrence as per medietatem, adiutare
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
-[+lo,+syl,+stres] > [-lo,+front,-tense] / [+front,+cons] __ #
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
+$ CORRECTION: only happens to primarily stressed a anywhere
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
