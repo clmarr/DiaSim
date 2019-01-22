@@ -272,6 +272,9 @@ $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for be
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
+$ CORRECTION : palalization of geminate k
+k > c / __ c
+
 $p127 s296ii : palatalization of k blocked if coming after stressed (incl. secondarily) velar vowel
 $ ... and before intertonic unstressed e (<ɪ) 
 $ CORRECTION : we broaden this to all unstressed e,ɛ before t, r or l, to hit words like iacet 
@@ -920,6 +923,11 @@ $ occurs also for n and r when in position , z and s why not
 $ RECURRENT as per s162
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 
+$ CORRECTION: t̪ + s --> affricate (assez, etc) 
+$ definitively comes AFTER first fall of the schwas. 
+$ must come before degemination of t t s (adsatis > assez etc but plattos > plats etc) 
+t̪ s > t͡s
+
 $ CORRECTION: geminate stops are degeminated if after consonant, or before consonant then non-non-consonantal (i.e. either consonantal or coda)
 $ deal with labials here -- others later, given that labials will mutate to form new geminate clusters with all the coronals after this
 {b b;p p}>{b;p} / [+cons] __
@@ -961,9 +969,6 @@ $ note: minor > meindre > moindre, but simulare > sembler (not *soimbler) and ca
 
 $ s189 : nβl > mbl 
 n β > m b / __ [+lat] 
-
-$ CORRECTION: t̪ + s --> affricate 
-$ TODO: implement -- definitively comes AFTER first fall of the schwas. 
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
