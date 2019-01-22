@@ -793,9 +793,10 @@ $ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+$ Pope doesn't include n̪ in s164-3 but she does in s190.
+{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {t̪;d̪;s;z;r;n̪} / [+hi,+front,-syl] __ 
 $ then realize the main rule here.
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
+{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪}
 
 $ s373 : oral labials efface before (coronal) affricates 
 [+lab,-nas,-son] > ∅ / __ [+delrel] 

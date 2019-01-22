@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :363:
-#ˌin̪sˈiɡn̪iɑ# >>> #æ̃sæ̃ɲ# ( Correct : #ɑ̃sɛɲ#) :
+#ˌin̪sˈiɡn̪iɑ# >>> #æ̃sɛ̃ɲ# ( Correct : #ɑ̃sɛɲ#) :
 ˌi n̪ s ˈi ɡ n̪ i ɑ 
 #ˌin̪sˈiŋn̪iɑ# | Rule 1 : ɡ > ŋ / __ [+nas,+cor]
 #ˌɪn̪sˈɪŋn̪ɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -7,13 +7,18 @@ Trajectory file for run 'run1'; etymon number :363:
 #ˌɪn̪sˈɪŋn̪ʝɑ# | Rule 27 : j > ʝ / __ [+syl]
 #ˌen̪sˈeŋn̪ʝɑ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #ˌen̪sˈeŋɲɑ# | Rule 80 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
-#ˌen̪sˈeŋɲa# | Rule 171 : [+lo,+syl] > [+front,-back] 
-#ˌen̪sˈeŋɲə# | Rule 346 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌẽn̪sˈẽŋɲə# | Rule 414 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌɛ̃n̪sˈɛ̃ŋɲə# | Rule 439 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌæ̃n̪sˈæ̃ŋɲə# | Rule 444 : [+nas,-hi,+syl] > [+lo] 
-#ˌæ̃ːsˈæ̃ːɲə# | Rule 547 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌæ̃ːsˈæ̃ːɲə̯# | Rule 561 : ə > ə̯ / __ #
-#ˌæ̃ːsˈæ̃ːɲ# | Rule 568 : ə̯ > ∅ 
-#æ̃ːsæ̃ːɲ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#æ̃sæ̃ɲ# | Rule 580 : [+syl,+long] > [-long,-splng] 
+#ˌen̪sˈeŋɲa# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#ˌen̪sˈeɲɲa# | Rule 185 : ŋ > ɲ / __ ɲ
+#ˌen̪sˈeɲɲə# | Rule 353 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌen̪sˈejn̪ɲə# | Rule 356 : ɲ > j n̪ / __ [+cons]
+#ˌen̪sˈej̃n̪ɲə# | Rule 420 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#ˌẽn̪sˈẽj̃n̪ɲə# | Rule 421 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌɛ̃n̪sˈɛ̃j̃n̪ɲə# | Rule 446 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌæ̃n̪sˈæ̃j̃n̪ɲə# | Rule 451 : [+nas,-hi,+syl] > [+lo] 
+#ˌæ̃n̪sˈɛ̃j̃n̪ɲə# | Rule 469 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#ˌæ̃n̪sˈɛ̃n̪ɲə# | Rule 508 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#ˌæ̃ːsˈɛ̃ːɲə# | Rule 554 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌæ̃ːsˈɛ̃ːɲə̯# | Rule 568 : ə > ə̯ / __ #
+#ˌæ̃ːsˈɛ̃ːɲ# | Rule 575 : ə̯ > ∅ 
+#æ̃ːsɛ̃ːɲ# | Rule 586 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#æ̃sɛ̃ɲ# | Rule 587 : [+syl,+long] > [-long,-splng] 

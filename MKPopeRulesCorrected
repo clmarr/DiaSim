@@ -531,6 +531,12 @@ $ Must come bore assibilation of first palatalization results, which would bleed
 	$ (Pope does not specify the voiced one retained any palatal element after assibiliation-- she does for c though as per p )
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
+$ CORRECTION : primary stressed vowels before x n become tense (tsrokna > frogne, pectinem > peigne) 
+[+prim] > [+tense] / __ x n̪
+
+$ CORRECTION : xn̪ > ŋɲ
+x n̪ > ŋ ɲ
+
 $ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, and any o with any level of stress raise to u before diphthongization can occur
 $ CORRECTION : these go to already nasalized ũ, so that it will not get fronted. 
 [+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
@@ -655,6 +661,9 @@ $ feeds dental palatalization
 
 $ s321, absorption of following nasal by ɲ
 [+nas,+cons] > ∅ / ɲ __ 
+
+$ CORRECTION : ŋ ɲ > ɲ ɲ 
+ŋ > ɲ / __ ɲ
 
 $ s322 
 [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -915,10 +924,12 @@ $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s
 $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
 $ CORRECTION : ə inserted after cons + son before word codas in general
 $ CORRECTION : mn and nm also eject final ə 
+$ CORRECTION : retained after +cons ɲ __ # (Auvergne, peigne, etc) 
 ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #
 ∅ > ə / m n̪ __ #
 ∅ > ə / n̪ m __ #
+∅ > ə / [+cons] ɲ __ #
 ∅ > ə / [-ant,+delrel] __ #
 ∅ > ə / [-lat,+cons] l __ #
 ∅ > ə / [-son] r __ #
@@ -935,8 +946,10 @@ t̪ s > t͡s
 
 $ CORRECTION: geminate stops are degeminated if after consonant, or before consonant then non-non-consonantal (i.e. either consonantal or coda)
 $ deal with labials here -- others later, given that labials will mutate to form new geminate clusters with all the coronals after this
+$ CORRECTION: will shorten also for a single consonant that is not r,l
 {b b;p p}>{b;p} / [+cons] __
 {b b;p p}>{b;p} / __ [+cons] {[+cons];#}
+{b b;p p}>{b;p} / __ {[+cons,-son];[+cons,+son,+nas]}
 
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -954,11 +967,16 @@ $Pope never explicitly says this but her trajectories for words make this clear
 $ recurrent since the triggers are! 
 $ CORRECTION: geminate stops are degeminated if after consonant, or before consonant then non-non-consonantal (i.e. either consonantal or coda)
 $ --don't have to deal with the affricate clusters or palatals in the latter case as they never occur 
+$ CORRECTION: will shorten also for a single consonant that is not r,l
 {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k} / [+cons] __
 {d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ [+cons] {[+cons];#}
+{d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ {[+cons,-son];[+cons,+son,+nas]}
 
 {s s;m m}>{s;m} / __ [+cons] 
 {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __  
+
+$ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere
+t͡sʲ sʲ > t͡sʲ
 
 $ action resulting on clusters formed form vowel losses 
 $ Denasalization -- s369, and glide development s370
@@ -975,8 +993,6 @@ $ note: minor > meindre > moindre, but simulare > sembler (not *soimbler) and ca
 $ s189 : nβl > mbl 
 n β > m b / __ [+lat] 
 
-$ TODO need to fix below to handle cases like foudre.. .
-
 $ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes after ejecting a j at the beginning of the cons cluster
 $ since this is j not ʝ, it shouldn't cause voicing... 
 $ -- evrium, ostrea, cupreum... 
@@ -986,14 +1002,11 @@ $ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but..
 ∅ > j / [-cons] __ rʲ
 
 $ CORRECTION: ... but when that vowel is ˈaː, ˈɛː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
-$ CORRECTION: j ˈi e̯ then becomes ˈi e̯ as does j ˈɛː 
+$ CORRECTION: j ˈi e̯ then becomes ˈi e̯
 $ CORRECTION: palatals absorb following j for now
 ˈaː j > j ˈaː / [+syl] ([-syl])* __ rʲ
 j > ∅  / [+syl] ([-syl])* __ ˈi e̯ rʲ
 j > ∅ / [+front,+hi,+cons] __  
-
-$ CORRECTION : now rʲ can depalatalize
-rʲ > r
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1076,13 +1089,17 @@ $ but in all fairness it probably SHOULD be to prevent it from getting swept up 
 $ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point -- alloiwng for latert possibility of including loanwords into system.
 [+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
+$ CORRECTION : /rʲ/'s emission of j backward occurred earlier, and it depalatalizes separately from other consonants
+rʲ > r
+
 $ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
+$ CORRECTION: rʲ handled separately
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {t̪;d̪;s;z;n̪} / [+hi,+front,-syl] __ 
 $ then realize the main rule here.
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j n̪}
 
 $ s373 : labials efface before (coronal) affricates 
 [+lab,-nas,-son] > ∅ / __ [+delrel] 
