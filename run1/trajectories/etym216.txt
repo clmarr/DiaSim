@@ -18,14 +18,13 @@ Trajectory file for run 'run1'; etymon number :216:
 #ˌɛçsʲˈaːʝə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
 #ˌɛçsʲˈaːʝə̯# | Rule 232 : ə > ə̯ 
 #ˌɛçsʲˈaːʝ# | Rule 256 : ə̯ > ∅ 
-#ˌɛçsʲˈaːj# | Rule 261 : ʝ > j 
+#ˌɛçsʲˈaːj# | Rule 261 : ʝ > j / __ ( [-syl] )* #
 #ˌɛçsʲˈɛːj# | Rule 297 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ [-cons]
 #ˌɛçsʲˈie̯j# | Rule 300 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˌɛçjsˈie̯j# | Rule 312 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#ˌɛçsˈie̯j# | Rule 313 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#ˌeçsˈie̯j# | Rule 331 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌeʝsˈie̯j# | Rule 356 : ç > ʝ 
-#ˌejsˈie̯j# | Rule 358 : ʝ > j / [-cons] __ 
-#ˌəjsˈie̯j# | Rule 409 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#ˌəjsˈij# | Rule 421 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#əjsij# | Rule 571 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌɛçsˈie̯j# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#ˌeçsˈie̯j# | Rule 332 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#ˌeʝsˈie̯j# | Rule 357 : ç > ʝ 
+#ˌejsˈie̯j# | Rule 359 : ʝ > j / [-cons] __ 
+#ˌəjsˈie̯j# | Rule 410 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#ˌəjsˈij# | Rule 422 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#əjsij# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

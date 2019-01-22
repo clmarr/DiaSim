@@ -907,9 +907,8 @@ $ CORRECTION : moved before schwa reinsertion.
 [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
 [+cor,+ant,+front] > [+voi] / ʝ __ [-cons]
 
-$CORRECTION : remaining ʝ becomes j sometime at this point 
-$ CORRECTION : moved before schwa reinsertion.
-ʝ > j 
+$ CORRECTION : ʝ > j if no syllabic units left afterward -- ə will not be reinserted just because ʝ is "not sonorant" 
+ʝ > j / __ ([-syl])* #
 
 $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
@@ -1020,11 +1019,16 @@ $ RECURRENT as per s162
 $ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
 $ and because the voicing of k,s,f is also recurrent (s162)
 $ we can just have this as a universal intervocalic voicing rule
-[-voi] > [+voi] / [+syl] __ [+syl] 
+[-voi] > [+voi] / [-cons] __ [+syl] 
 $ as per s372 p, t also voice before l,r and t voices before n 
-[-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
+[-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
+
+$CORRECTION : remaining ʝ becomes j sometime at this point 
+$ CORRECTION : moved before schwa reinsertion.
+$ CORRECTION : bleeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
+ʝ > j 
 
 $ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
 $ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
@@ -1053,10 +1057,12 @@ $ but in all fairness it probably SHOULD be to prevent it from getting swept up 
 [+syl,-hi,-lo,+round] > [+hi,+tense] / __ [+nas,+cons]
 
 $ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
-{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
-$ for maintenance -- Pope doesnˌt account for the fact that this could end up with a j + j + Cons cluster
+$ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
-j > ∅ / [+hi,+front,-syl] __ [-syl]
+$ so we bleed it with a special rule... 
+{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+$ then realize the main rule here.
+{t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r}
 
 $ s373 : labials efface before (coronal) affricates 
 [+lab,-nas,-son] > ∅ / __ [+delrel] 

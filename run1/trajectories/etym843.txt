@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :843:
-#pˈekt̪us# >>> #pijt̪j# ( Correct : #pi#) :
+#pˈekt̪us# >>> #pij# ( Correct : #pi#) :
 p ˈe k t̪ u s 
 #pˈɛkt̪ʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˈɛxt̪ʊs# | Rule 55 : k > x / [-cons] __ [+cor,-voi]
@@ -11,10 +11,12 @@ p ˈe k t̪ u s
 #pˈie̯çt̪ʲə̯s# | Rule 232 : ə > ə̯ 
 #pˈie̯çt̪ʲs# | Rule 256 : ə̯ > ∅ 
 #pˈie̯çt̪ʲsʲ# | Rule 269 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#pˈie̯çjt̪js# | Rule 312 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#pˈie̯çt̪js# | Rule 313 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#pˈie̯ʝt̪js# | Rule 356 : ç > ʝ 
-#pˈie̯jt̪js# | Rule 358 : ʝ > j / [-cons] __ 
-#pˈijt̪js# | Rule 421 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#pˈijt̪j# | Rule 559 : [-son] > ∅ / __ #
-#pijt̪j# | Rule 571 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈie̯çt̪s# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#pˈie̯ʝt̪s# | Rule 357 : ç > ʝ 
+#pˈie̯jt̪s# | Rule 359 : ʝ > j / [-cons] __ 
+#pˈie̯jt͡sʲ# | Rule 364 : [+cor,-cont,-delrel] s > t͡sʲ
+#pˈie̯jt͡s# | Rule 399 : t͡sʲ > t͡s 
+#pˈijt͡s# | Rule 422 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#pˈijs# | Rule 484 : [+delrel] > [+cont,.delrel] 
+#pˈij# | Rule 560 : [-son] > ∅ / __ #
+#pij# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

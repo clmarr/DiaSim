@@ -11,16 +11,15 @@ f r ˈi ɡ i d̪ u m
 #frˈeʝd̪ʲə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
 #frˈeʝd̪ʲə̯# | Rule 232 : ə > ə̯ 
 #frˈeʝd̪ʲ# | Rule 256 : ə̯ > ∅ 
-#frˈejd̪ʲ# | Rule 261 : ʝ > j 
-#frˈejjd̪# | Rule 312 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#frˈejd̪# | Rule 313 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#frˈejt̪# | Rule 342 : [-son] > [-voi] / __ #
-#frˈojt̪# | Rule 419 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#frˈujt̪# | Rule 423 : [+round,+tense,+back] > [+hi] 
-#frˈuɛ̯t̪# | Rule 465 : j > ɛ̯ / [+syl,+back,+round] __ 
-#frwˈɛt̪# | Rule 468 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#frwˈɛ# | Rule 559 : [-son] > ∅ / __ #
-#fʀwˈɛ# | Rule 570 : r > ʀ 
-#fʀwɛ# | Rule 571 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀwa# | Rule 576 : ɛ > a / w __ 
-#fʁwa# | Rule 578 : ʀ > ʁ 
+#frˈejd̪ʲ# | Rule 261 : ʝ > j / __ ( [-syl] )* #
+#frˈejd̪# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#frˈejt̪# | Rule 343 : [-son] > [-voi] / __ #
+#frˈojt̪# | Rule 420 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#frˈujt̪# | Rule 424 : [+round,+tense,+back] > [+hi] 
+#frˈuɛ̯t̪# | Rule 466 : j > ɛ̯ / [+syl,+back,+round] __ 
+#frwˈɛt̪# | Rule 469 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#frwˈɛ# | Rule 560 : [-son] > ∅ / __ #
+#fʀwˈɛ# | Rule 571 : r > ʀ 
+#fʀwɛ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀwa# | Rule 577 : ɛ > a / w __ 
+#fʁwa# | Rule 579 : ʀ > ʁ 

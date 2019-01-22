@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :584:
-#lˈeporem# >>> #ljɛpʁ# ( Correct : #ljɛvʁ#) :
+#lˈeporem# >>> #ljœʁ# ( Correct : #ljɛvʁ#) :
 l ˈe p o r e m 
 #lˈɛpɔrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #lˈɛpɔrɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -12,10 +12,15 @@ l ˈe p o r e m
 #lˈie̯prə̯# | Rule 254 : ɾ > r 
 #lˈie̯pr# | Rule 256 : ə̯ > ∅ 
 #lˈie̯prə# | Rule 262 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ljˈeprə# | Rule 450 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ljˈɛprə# | Rule 489 : ˈe > ˈɛ 
-#ljˈɛprə̯# | Rule 553 : ə > ə̯ / __ #
-#ljˈɛpr# | Rule 560 : ə̯ > ∅ 
-#ljˈɛpʀ# | Rule 570 : r > ʀ 
-#ljɛpʀ# | Rule 571 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ljɛpʁ# | Rule 578 : ʀ > ʁ 
+#lˈie̯brə# | Rule 303 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#lˈie̯βrə# | Rule 308 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
+#lˈie̯wrə# | Rule 333 : {β;ɣʷ} > {w;w} / __ ( ə ) [+cons]
+#ljˈewrə# | Rule 451 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ljˈøwrə# | Rule 452 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ljˈørə# | Rule 456 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ljˈørə̯# | Rule 554 : ə > ə̯ / __ #
+#ljˈør# | Rule 561 : ə̯ > ∅ 
+#ljˈøʀ# | Rule 571 : r > ʀ 
+#ljøʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ljœʀ# | Rule 576 : ø > œ / __ ( [+cons] )* #
+#ljœʁ# | Rule 579 : ʀ > ʁ 

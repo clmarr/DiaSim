@@ -18,16 +18,15 @@ s ˌɑː n̪ k t̪ i t̪ ˈɑː t̪ e m
 #sˌaɲt̪ʲˈie̯t̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
 #sˌaɲt̪ʲˈie̯t̪ə̯# | Rule 232 : ə > ə̯ 
 #sˌaɲt̪ʲˈie̯t̪# | Rule 256 : ə̯ > ∅ 
-#sˌaɲjt̪ˈie̯t̪# | Rule 312 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#sˌaɲt̪ˈie̯t̪# | Rule 313 : j > ∅ / [+hi,+front,-syl] __ [-syl]
-#sˌajn̪t̪ˈie̯t̪# | Rule 341 : ɲ > j n̪ / __ [+cons]
-#sˌaj̃n̪t̪ˈie̯t̪# | Rule 403 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#sˌãj̃n̪t̪ˈie̯t̪# | Rule 404 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌãj̃n̪t̪jˈet̪# | Rule 450 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sˌɛ̃j̃n̪t̪jˈet̪# | Rule 454 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
-#sˌɛ̃j̃n̪t̪jˈɛt̪# | Rule 489 : ˈe > ˈɛ 
-#sˌɛ̃n̪t̪jˈɛt̪# | Rule 493 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sˌɛ̃ːt̪jˈɛt̪# | Rule 539 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɛ̃ːt̪jˈɛ# | Rule 559 : [-son] > ∅ / __ #
-#sɛ̃ːt̪jɛ# | Rule 571 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛ̃t̪jɛ# | Rule 572 : [+syl,+long] > [-long,-splng] 
+#sˌaɲt̪ˈie̯t̪# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#sˌajn̪t̪ˈie̯t̪# | Rule 342 : ɲ > j n̪ / __ [+cons]
+#sˌaj̃n̪t̪ˈie̯t̪# | Rule 404 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#sˌãj̃n̪t̪ˈie̯t̪# | Rule 405 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˌãj̃n̪t̪jˈet̪# | Rule 451 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#sˌɛ̃j̃n̪t̪jˈet̪# | Rule 455 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#sˌɛ̃j̃n̪t̪jˈɛt̪# | Rule 490 : ˈe > ˈɛ 
+#sˌɛ̃n̪t̪jˈɛt̪# | Rule 494 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˌɛ̃ːt̪jˈɛt̪# | Rule 540 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌɛ̃ːt̪jˈɛ# | Rule 560 : [-son] > ∅ / __ #
+#sɛ̃ːt̪jɛ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛ̃t̪jɛ# | Rule 573 : [+syl,+long] > [-long,-splng] 
