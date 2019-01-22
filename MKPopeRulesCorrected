@@ -779,9 +779,6 @@ $ CORRECTION : This does NOT occur in the context of # [+cons] __
 [+hi,-syl,+cont] > [-cont,-son,-delrel] / # __ [+syl]
 {j;ʝ} > {ɟ;ɟ} / @ ([+cons])+ __ [+syl]
 
-$CORRECTION : remaining ʝ becomes j at this point 
-ʝ > j 
-
 $ s305 -- closed yod devoices if after a voiceless element (sapia > sache) 
 [+hi,-cont] > [-voi] / [-voi] __ 
 
@@ -896,6 +893,24 @@ $Delete all the rest which were not specifically retained:
 $ CORRECTION : ŋ ɡ w at end of word to ŋ (sanguem > sang) 
 ŋ ɡ w > ŋ / __ #
 
+$ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
+$ definitively after first fall of schwas 
+k > ∅  / __ t͡sʲ
+
+$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
+$ with a PRECEDING b, β or ʝ
+$ CORRECTION : this also effects t͡s
+$ CORRECTION : voicing influence of ʝ does not occur if target is right before word coda (iacet >git, pejus > pis etc) or right before another consonant (Tricassae > Troyes, ...) 
+$ CORRECTION : same as above for the labials too except that it does occur before voiced consonants (derbitarum > dardre, etc..) 
+$ CORRECTION : influence of yod only effects palatalized consonants -- voidier (βˌɔʝd̪ʲˈie̯r) and aise (aːʝd͡zʲə) but moitie' (mˌɛʝt̪ˈaːt̪)
+$ CORRECTION : moved before schwa reinsertion.
+[+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
+[+cor,+ant,+front] > [+voi] / ʝ __ [-cons]
+
+$CORRECTION : remaining ʝ becomes j sometime at this point 
+$ CORRECTION : moved before schwa reinsertion.
+ʝ > j 
+
 $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
 $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
@@ -908,15 +923,6 @@ $ CORRECTION : mn and nm also eject final ə
 ∅ > ə / [-ant,+delrel] __ #
 ∅ > ə / [-lat,+cons] l __ #
 ∅ > ə / [-son] r __ #
-
-$ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
-$ definitively after first fall of schwas 
-k > ∅  / __ t͡sʲ
-
-$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
-$ with a PRECEDING b, β or ʝ
-t̪ > d̪ / [+lab,+voi,-hi,+cons,-nas] __ 
-t̪ > d̪ / ʝ __ 
 
 $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position , z and s why not
