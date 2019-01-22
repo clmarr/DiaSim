@@ -16,17 +16,18 @@ Trajectory file for run 'run1'; etymon number :80:
 #ˌɔˈoːrʲə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
 #ˌɔˈoːrʲə̯# | Rule 232 : ə > ə̯ 
 #ˌɔˈoːrʲ# | Rule 256 : ə̯ > ∅ 
-#ˌɔˈoːjr# | Rule 314 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#ˌɔˈowjr# | Rule 329 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌoˈowjr# | Rule 332 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#ˌoˈowjrə# | Rule 396 : ∅ > ə / [+front,-syl,+hi] r __ #
-#ˌoˈewjrə# | Rule 419 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#ˌuˈewjrə# | Rule 424 : [+round,+tense,+back] > [+hi] 
-#ˌuˈøwjrə# | Rule 452 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#ˌuˈøjrə# | Rule 456 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#?ˈøjrə# | Rule 544 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#?ˈøjrə̯# | Rule 554 : ə > ə̯ / __ #
-#?ˈøjr# | Rule 561 : ə̯ > ∅ 
-#?ˈøjʀ# | Rule 571 : r > ʀ 
-#uøjʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#uøjʁ# | Rule 579 : ʀ > ʁ 
+#ˌɔˈoːjrʲ# | Rule 289 : ∅ > j / [-cons] __ rʲ
+#ˌɔˈoːjr# | Rule 293 : rʲ > r 
+#ˌɔˈowjr# | Rule 336 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌoˈowjr# | Rule 339 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#ˌoˈowjrə# | Rule 403 : ∅ > ə / [+front,-syl,+hi] r __ #
+#ˌoˈewjrə# | Rule 426 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#ˌuˈewjrə# | Rule 431 : [+round,+tense,+back] > [+hi] 
+#ˌuˈøwjrə# | Rule 459 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˌuˈøjrə# | Rule 463 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#?ˈøjrə# | Rule 551 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+#?ˈøjrə̯# | Rule 561 : ə > ə̯ / __ #
+#?ˈøjr# | Rule 568 : ə̯ > ∅ 
+#?ˈøjʀ# | Rule 578 : r > ʀ 
+#uøjʀ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#uøjʁ# | Rule 586 : ʀ > ʁ 

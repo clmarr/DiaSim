@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :883:
-#pˈin̪kt̪or# >>> #pɛ̃t̪ʁ# ( Correct : #pɛ̃t̪ʁ#) :
+#pˈin̪kt̪or# >>> #pujjn̪t̪ʁ# ( Correct : #pɛ̃t̪ʁ#) :
 p ˈi n̪ k t̪ o r 
 #pˈiŋkt̪or# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #pˈɪŋkt̪ɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -11,18 +11,16 @@ p ˈi n̪ k t̪ o r
 #pˈeɲt̪ʲə̯r# | Rule 232 : ə > ə̯ 
 #pˈeɲt̪ʲrə# | Rule 243 : ə̯ r > r ə / __ #
 #pˈeɲt̪ʲrʲə# | Rule 269 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#pˈeɲt̪rə# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
-#pˈejn̪t̪rə# | Rule 342 : ɲ > j n̪ / __ [+cons]
-#pˈej̃n̪t̪rə# | Rule 406 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#pˈẽj̃n̪t̪rə# | Rule 407 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˈɛ̃j̃n̪t̪rə# | Rule 432 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈæ̃j̃n̪t̪rə# | Rule 437 : [+nas,-hi,+syl] > [+lo] 
-#pˈɛ̃j̃n̪t̪rə# | Rule 455 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
-#pˈɛ̃n̪t̪rə# | Rule 494 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#pˈɛ̃ːt̪rə# | Rule 540 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˈɛ̃ːt̪rə̯# | Rule 554 : ə > ə̯ / __ #
-#pˈɛ̃ːt̪r# | Rule 561 : ə̯ > ∅ 
-#pˈɛ̃ːt̪ʀ# | Rule 571 : r > ʀ 
-#pɛ̃ːt̪ʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɛ̃t̪ʀ# | Rule 573 : [+syl,+long] > [-long,-splng] 
-#pɛ̃t̪ʁ# | Rule 579 : ʀ > ʁ 
+#pˈejɲt̪ʲrʲə# | Rule 287 : ∅ > j / [-cons] __ [+cons] ( [+cons] )* rʲ
+#pˈejɲt̪ʲrə# | Rule 288 : rʲ > r / [-cons] j [+cons] ( [+cons] )* __ 
+#pˈejɲt̪rə# | Rule 320 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#pˈejjn̪t̪rə# | Rule 349 : ɲ > j n̪ / __ [+cons]
+#pˈojjn̪t̪rə# | Rule 427 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈujjn̪t̪rə# | Rule 431 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯jn̪t̪rə# | Rule 473 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pˈujjn̪t̪rə# | Rule 474 : ɛ̯ > j / [+syl,+back,+round] __ j
+#pˈujjn̪t̪rə̯# | Rule 561 : ə > ə̯ / __ #
+#pˈujjn̪t̪r# | Rule 568 : ə̯ > ∅ 
+#pˈujjn̪t̪ʀ# | Rule 578 : r > ʀ 
+#pujjn̪t̪ʀ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pujjn̪t̪ʁ# | Rule 586 : ʀ > ʁ 

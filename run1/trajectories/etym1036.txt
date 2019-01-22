@@ -13,18 +13,19 @@ s ˌɑ k r ɑ m ˈe n̪ t̪ u m
 #sˌarʲamˈɛ?t̪ə# | Rule 230 : [-stres,-lo,+syl] > ə / __ #
 #sˌarʲamˈɛ?t̪ə̯# | Rule 232 : ə > ə̯ 
 #sˌarʲamˈɛ?t̪# | Rule 256 : ə̯ > ∅ 
-#sˌajramˈɛ?t̪# | Rule 314 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#sˌajrəmˈɛ?t̪# | Rule 339 : a > ə / [+syl] ( [-syl] )* __ 
-#sˌajrəmˈɛ̃?t̪# | Rule 407 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌajrəmˈæ̃?t̪# | Rule 437 : [+nas,-hi,+syl] > [+lo] 
-#sˌɛjrəmˈæ̃?t̪# | Rule 453 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#sˌɛjrə̃mˈæ̃?t̪# | Rule 460 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#sˌɛjrəmˈæ̃?t̪# | Rule 475 : ə̃ > ə 
-#sˌɛːrəmˈæ̃?t̪# | Rule 478 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#sˌɛːrə̃mˈæ̃?t̪# | Rule 487 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#sˌɛːrə̃mˈæ̃ːt̪# | Rule 540 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɛːrə̃mˈæ̃ː# | Rule 560 : [-son] > ∅ / __ #
-#sˌɛːʀə̃mˈæ̃ː# | Rule 571 : r > ʀ 
-#sɛːʀə̃mæ̃ː# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛʀə̃mæ̃# | Rule 573 : [+syl,+long] > [-long,-splng] 
-#sɛʁə̃mæ̃# | Rule 579 : ʀ > ʁ 
+#sˌajrʲamˈɛ?t̪# | Rule 289 : ∅ > j / [-cons] __ rʲ
+#sˌajramˈɛ?t̪# | Rule 293 : rʲ > r 
+#sˌajrəmˈɛ?t̪# | Rule 346 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌajrəmˈɛ̃?t̪# | Rule 414 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˌajrəmˈæ̃?t̪# | Rule 444 : [+nas,-hi,+syl] > [+lo] 
+#sˌɛjrəmˈæ̃?t̪# | Rule 460 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#sˌɛjrə̃mˈæ̃?t̪# | Rule 467 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#sˌɛjrəmˈæ̃?t̪# | Rule 482 : ə̃ > ə 
+#sˌɛːrəmˈæ̃?t̪# | Rule 485 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#sˌɛːrə̃mˈæ̃?t̪# | Rule 494 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#sˌɛːrə̃mˈæ̃ːt̪# | Rule 547 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌɛːrə̃mˈæ̃ː# | Rule 567 : [-son] > ∅ / __ #
+#sˌɛːʀə̃mˈæ̃ː# | Rule 578 : r > ʀ 
+#sɛːʀə̃mæ̃ː# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛʀə̃mæ̃# | Rule 580 : [+syl,+long] > [-long,-splng] 
+#sɛʁə̃mæ̃# | Rule 586 : ʀ > ʁ 

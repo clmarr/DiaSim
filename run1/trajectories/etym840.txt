@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :840:
-#pˈejor# >>> #pijʁ# ( Correct : #piʁ#) :
+#pˈejor# >>> #pijjʁ# ( Correct : #piʁ#) :
 p ˈe j o r 
 #pˈeʝor# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #pˈɛʝɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -9,11 +9,12 @@ p ˈe j o r
 #pˈie̯ʝə̯r# | Rule 232 : ə > ə̯ 
 #pˈie̯ʝrə# | Rule 243 : ə̯ r > r ə / __ #
 #pˈie̯ʝrʲə# | Rule 269 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#pˈie̯jrʲə# | Rule 305 : ʝ > j 
-#pˈie̯jrə# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
-#pˈijrə# | Rule 422 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#pˈijrə̯# | Rule 554 : ə > ə̯ / __ #
-#pˈijr# | Rule 561 : ə̯ > ∅ 
-#pˈijʀ# | Rule 571 : r > ʀ 
-#pijʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pijʁ# | Rule 579 : ʀ > ʁ 
+#pˈie̯jʝrʲə# | Rule 287 : ∅ > j / [-cons] __ [+cons] ( [+cons] )* rʲ
+#pˈie̯jʝrə# | Rule 288 : rʲ > r / [-cons] j [+cons] ( [+cons] )* __ 
+#pˈie̯jjrə# | Rule 312 : ʝ > j 
+#pˈijjrə# | Rule 429 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+#pˈijjrə̯# | Rule 561 : ə > ə̯ / __ #
+#pˈijjr# | Rule 568 : ə̯ > ∅ 
+#pˈijjʀ# | Rule 578 : r > ʀ 
+#pijjʀ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pijjʁ# | Rule 586 : ʀ > ʁ 

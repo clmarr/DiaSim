@@ -15,13 +15,14 @@ n̪ ˈɑː s k e r e
 #n̪ˈasʲt̪ʲɾə# | Rule 249 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
 #n̪ˈasʲt̪ʲrə# | Rule 254 : ɾ > r 
 #n̪ˈasʲt̪ʲrʲə# | Rule 269 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#n̪ˈasʲt̪rə# | Rule 313 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
-#n̪ˈajst̪rə# | Rule 314 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#n̪ˈɛjst̪rə# | Rule 453 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#n̪ˈɛːst̪rə# | Rule 478 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#n̪ˈɛːst̪rə̯# | Rule 554 : ə > ə̯ / __ #
-#n̪ˈɛːst̪r# | Rule 561 : ə̯ > ∅ 
-#n̪ˈɛːst̪ʀ# | Rule 571 : r > ʀ 
-#n̪ɛːst̪ʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪ɛst̪ʀ# | Rule 573 : [+syl,+long] > [-long,-splng] 
-#n̪ɛst̪ʁ# | Rule 579 : ʀ > ʁ 
+#n̪ˈajsʲt̪ʲrʲə# | Rule 287 : ∅ > j / [-cons] __ [+cons] ( [+cons] )* rʲ
+#n̪ˈajsʲt̪ʲrə# | Rule 288 : rʲ > r / [-cons] j [+cons] ( [+cons] )* __ 
+#n̪ˈajst̪rə# | Rule 320 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {t̪;d̪;s;z;r} / [+hi,+front,-syl] __ 
+#n̪ˈɛjst̪rə# | Rule 460 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#n̪ˈɛːst̪rə# | Rule 485 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#n̪ˈɛːst̪rə̯# | Rule 561 : ə > ə̯ / __ #
+#n̪ˈɛːst̪r# | Rule 568 : ə̯ > ∅ 
+#n̪ˈɛːst̪ʀ# | Rule 578 : r > ʀ 
+#n̪ɛːst̪ʀ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ɛst̪ʀ# | Rule 580 : [+syl,+long] > [-long,-splng] 
+#n̪ɛst̪ʁ# | Rule 586 : ʀ > ʁ 

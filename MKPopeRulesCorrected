@@ -975,6 +975,26 @@ $ note: minor > meindre > moindre, but simulare > sembler (not *soimbler) and ca
 $ s189 : nβl > mbl 
 n β > m b / __ [+lat] 
 
+$ TODO need to fix below to handle cases like foudre.. .
+
+$ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes after ejecting a j at the beginning of the cons cluster
+$ since this is j not ʝ, it shouldn't cause voicing... 
+$ -- evrium, ostrea, cupreum... 
+∅ > j / [-cons] __ ([+cons,-front])+ rʲ
+
+$ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but... 
+∅ > j / [-cons] __ rʲ
+
+$ CORRECTION: ... but when that vowel is ˈaː, ˈɛː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
+$ CORRECTION: j ˈi e̯ then becomes ˈi e̯ as does j ˈɛː 
+$ CORRECTION: palatals absorb following j for now
+ˈaː j > j ˈaː / [+syl] ([-syl])* __ rʲ
+j > ∅  / [+syl] ([-syl])* __ ˈi e̯ rʲ
+j > ∅ / [+front,+hi,+cons] __  
+
+$ CORRECTION : now rʲ can depalatalize
+rʲ > r
+
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -1000,13 +1020,12 @@ $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
 $ CORRECTION: only happens to primarily stressed a anywhere
-[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ #
-[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
-[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
-[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ #
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
 
-$ s414 recurrence of diphthongization (s163-10)
-$ hits former tonic a 
+$ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
@@ -1054,7 +1073,8 @@ $ according to Pope (s426), attested in the Glossary of Reichenau (?)
 $ s426 -- this explicitly comes BEFORE and BLEEDS the diphthongization of o > ou 
 $ Pope does NOT specify that it becomes nasal at this point -- actually she says the "first nasal vowels in Frnech were a and ai in the tenth century" (s434)
 $ but in all fairness it probably SHOULD be to prevent it from getting swept up in u>ʉ>y, the first stages of which are still active at this point
-[+syl,-hi,-lo,+round] > [+hi,+tense] / __ [+nas,+cons]
+$ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point -- alloiwng for latert possibility of including loanwords into system.
+[+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
 $ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster

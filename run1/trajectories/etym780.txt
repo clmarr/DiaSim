@@ -1,15 +1,19 @@
 Trajectory file for run 'run1'; etymon number :780:
-#ˈost̪reɑ# >>> #ɔst̪jʁ# ( Correct : #ɥit̪ʁ#) :
+#ˈost̪reɑ# >>> #wast̪ʁ# ( Correct : #ɥit̪ʁ#) :
 ˈo s t̪ r e ɑ 
 #ˈɔst̪rɛɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˈɔst̪rjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
 #ˈɔst̪rʝɑ# | Rule 27 : j > ʝ / __ [+syl]
 #ˈɔst̪rʲɑ# | Rule 152 : r ʝ > rʲ 
 #ˈɔst̪rʲa# | Rule 171 : [+lo,+syl] > [+front,-back] 
-#ˈɔst̪jra# | Rule 314 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} > {j t̪;j d̪;j s;j z;j r} 
-#ˈɔst̪jrə# | Rule 339 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈɔst̪jrə̯# | Rule 554 : ə > ə̯ / __ #
-#ˈɔst̪jr# | Rule 561 : ə̯ > ∅ 
-#ˈɔst̪jʀ# | Rule 571 : r > ʀ 
-#ɔst̪jʀ# | Rule 572 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɔst̪jʁ# | Rule 579 : ʀ > ʁ 
+#ˈɔjst̪rʲa# | Rule 287 : ∅ > j / [-cons] __ [+cons] ( [+cons] )* rʲ
+#ˈɔjst̪ra# | Rule 288 : rʲ > r / [-cons] j [+cons] ( [+cons] )* __ 
+#ˈɔjst̪rə# | Rule 346 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈɔɛ̯st̪rə# | Rule 473 : j > ɛ̯ / [+syl,+back,+round] __ 
+#wˈɛst̪rə# | Rule 476 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#wˈɛst̪rə̯# | Rule 561 : ə > ə̯ / __ #
+#wˈɛst̪r# | Rule 568 : ə̯ > ∅ 
+#wˈɛst̪ʀ# | Rule 578 : r > ʀ 
+#wɛst̪ʀ# | Rule 579 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wast̪ʀ# | Rule 584 : ɛ > a / w __ 
+#wast̪ʁ# | Rule 586 : ʀ > ʁ 
