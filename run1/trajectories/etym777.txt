@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :777:
-#ˌossifrˈɑɡɑm# >>> #usfʁwa# ( Correct : #ɔʁfʁɛ#) :
+#ˌossifrˈɑɡɑm# >>> #usfʁej# ( Correct : #ɔʁfʁɛ#) :
 ˌo s s i f r ˈɑ ɡ ɑ m 
 #ˌɔssɪfrˈɑɡɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɔssefrˈɑɡɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -17,15 +17,10 @@ Trajectory file for run 'run1'; etymon number :777:
 #ˌɔsfrˈae̯ja# | Rule 351 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #ˌosfrˈae̯ja# | Rule 354 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
 #ˌosfrˈae̯jə# | Rule 365 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌosfrˈeːjə# | Rule 387 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌosfrˈoːjə# | Rule 446 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#ˌusfrˈuːjə# | Rule 450 : [+round,+tense,+back] > [+hi] 
-#ˌusfrˈuːɛ̯ə# | Rule 492 : j > ɛ̯ / [+syl,+back,+round] __ 
-#ˌusfrwˈɛə# | Rule 531 : [+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-#ˌusfrwˈɛːə# | Rule 538 : [+stres] > [+long] / __ ə
-#ˌusfrwˈɛː# | Rule 539 : ə > ∅ / [+syl] __ 
-#ˌusfʀwˈɛː# | Rule 597 : r > ʀ 
-#usfʀwɛː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#usfʀwɛ# | Rule 599 : [+syl,+long] > [-long,-splng] 
-#usfʀwa# | Rule 603 : ɛ > a / w __ 
-#usfʁwa# | Rule 605 : ʀ > ʁ 
+#ˌosfrˈeːjə# | Rule 446 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˌusfrˈeːjə# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#ˌusfrˈeːj# | Rule 550 : ə > ∅ / [+prim] ( j ) __ 
+#ˌusfʀˈeːj# | Rule 597 : r > ʀ 
+#usfʀeːj# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#usfʀej# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#usfʁej# | Rule 605 : ʀ > ʁ 
