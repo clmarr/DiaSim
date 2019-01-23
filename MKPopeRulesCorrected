@@ -54,6 +54,10 @@ $ [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s -- CORRECTION deleting this.
 $ CORRECTION: long e: before j becomes short
 ˈeː > ˈe / __ j
 
+$ CORRECTION: stressed i +  e > iː j (case of pietatem)
+$ CORRECTION: but this doesn't occur before nasals 
+[+hi,+front,+stres] e > [+long] j / __ [-nas]
+
 $This one moved up simply because it is known to be characteristic of Classical Latin
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
@@ -624,6 +628,7 @@ e > ∅ / __ t̪ [+lo,+long]
 
 $ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
 t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
+$ may need to fix civitatem >cite' as it is continually being rendered as cide' /side/
 
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
 ∅ > j / ˌe __ [+lo,+syl]
@@ -927,6 +932,12 @@ $ CORRECTION : moved before schwa reinsertion.
 $ CORRECTION : ʝ > j if no syllabic units left afterward -- ə will not be reinserted just because ʝ is "not sonorant" 
 ʝ > j / __ ([-syl])* #
 
+$ CORRECTION: r ə t͡s(ʲ) > r t t͡s(ʲ)
+ə > t̪ / r __ [+delrel,-voi]
+
+$ CORRECTION : t r t t͡s > r t t͡s
+t̪ > ∅ / __ r t̪ [+delrel]
+
 $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
 $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
@@ -1031,6 +1042,9 @@ $ as per s372 p, t also voice before l,r and t voices before n
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
+
+$ CORRECTION : β that has come into contact with l becomes b
+β > b / __ l
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1161,7 +1175,11 @@ $ s164-15 : raising of lax countertonic e,o to tense e,o
 {ˌɛ;ˌɔ} > {ˌe;ˌo}
 
 $ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
-{β;ɣʷ} > {w;w} / __ (ə) [+cons]
+$ CORRECTION: β does not do so if before r then a non-consonantal
+ɣʷ > w / __ (ə) [+cons]
+β > w / __ [-son] 
+β > w / __ [+cons,+nas]
+β > w / __ r (ə) [+cons]
 
 $ s164.6 ~ s 189 
 β > v 

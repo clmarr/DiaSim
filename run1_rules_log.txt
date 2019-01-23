@@ -12,6 +12,7 @@ n̪ > ∅ / [+syl,+long] __ s| ORIG : n̪ > ∅ / [+syl,+long] __  s
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s| ORIG : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
 [+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s| ORIG : [+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
 ˈeː > ˈe / __ j| ORIG : ˈeː > ˈe / __ j
+[+hi,+front,+stres] e > [+long] j/ __ [-nas]| ORIG : [+hi,+front,+stres] e > [+long] j / __ [-nas]
 [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] | ORIG : [+syl,-lo,-long] > [-tense]
 h > ∅ / @ __ | ORIG : h > ∅ / @ __
 ∅ > ˌɪ / # __ s [+cons]| ORIG : ∅ > ˌɪ / # __ s [+cons] 
@@ -264,6 +265,8 @@ k > ∅ / __ t͡sʲ| ORIG : k > ∅  / __ t͡sʲ
 [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]| ORIG : [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
 [+cor,+ant,+front] > [+voi] / ʝ __ [-cons]| ORIG : [+cor,+ant,+front] > [+voi] / ʝ __ [-cons]
 ʝ > j / __ ( [-syl] )* #| ORIG : ʝ > j / __ ([-syl])* #
+ə > t̪ / r __ [+delrel,-voi]| ORIG : ə > t̪ / r __ [+delrel,-voi]
+t̪ > ∅ / __ r t̪ [+delrel]| ORIG : t̪ > ∅ / __ r t̪ [+delrel]
 ∅ > ə / [+cons,-son] [+son,-syl] __ #| ORIG : ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #| ORIG : ∅ > ə / [+cons,-nas] [+nas] __ #
 ∅ > ə / m n̪ __ #| ORIG : ∅ > ə / m n̪ __ #
@@ -304,6 +307,7 @@ j > ∅ / [+front,+hi,+cons] __ | ORIG : j > ∅ / [+front,+hi,+cons] __
 [-voi] > [+voi] / [-cons] __ j| ORIG : [-voi] > [+voi] / [-cons] __  j
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]| ORIG : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]| ORIG : t̪ > d̪ / __ [+nas,+cons]
+β > b / __ l| ORIG : β > b / __ l
 [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]| ORIG : [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long,-splng] / __ [-syl] [+cons,+nas]| ORIG : [+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long,-splng] | ORIG : [-prim] > [-long]
@@ -349,7 +353,10 @@ rʲ > r | ORIG : rʲ > r
 β > ∅ / w __ [+tense,+round,-stres]| ORIG : β > ∅ / w __ [+tense,+round,-stres]
 {θ;ð} > {t̪;d̪} / ə __ #| ORIG : {θ;ð} > [-cont,-delrel] / ə __ # 
 {ˌɛ;ˌɔ} > {ˌe;ˌo} | ORIG : {ˌɛ;ˌɔ} > {ˌe;ˌo}
-{β;ɣʷ} > {w;w} / __ ( ə ) [+cons]| ORIG : {β;ɣʷ} > {w;w} / __ (ə) [+cons]
+ɣʷ > w / __ ( ə ) [+cons]| ORIG : ɣʷ > w / __ (ə) [+cons]
+β > w / __ [-son]| ORIG : β > w / __ [-son] 
+β > w / __ [+cons,+nas]| ORIG : β > w / __ [+cons,+nas]
+β > w / __ r ( ə ) [+cons]| ORIG : β > w / __ r (ə) [+cons]
 β > v | ORIG : β > v 
 a e̯ > a j / __ [+nas,+cons,-hi]| ORIG : a e̯ > a j / __ [+nas,+cons,-hi]
 [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #| ORIG : [-cont,-delrel] > [+cont] / [-cons] __ # 
