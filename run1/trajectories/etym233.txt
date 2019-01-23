@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :233:
-#fˈɑmem# >>> #fɐ̃# ( Correct : #fɛ̃#) :
+#fˈɑmem# >>> #fɛ̃# ( Correct : #fɛ̃#) :
 f ˈɑ m e m 
 #fˈɑmɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #fˈɑmɛ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -9,12 +9,12 @@ f ˈɑ m e m
 #fˈaːmə̯# | Rule 236 : ə > ə̯ 
 #fˈaːm# | Rule 261 : ə̯ > ∅ 
 #fˈae̯m# | Rule 351 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˈae̯m̥# | Rule 369 : [-son] > [-voi] / __ #
-#fˈeːm̥# | Rule 387 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#fˈẽːm̥# | Rule 433 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#fˈɛ̃ːm̥# | Rule 458 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈæ̃ːm̥# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
-#fˈɐ̃ːm̥# | Rule 565 : [+lo,+long,+syl] > [+back,-front] 
-#fˈɐ̃ː# | Rule 567 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#fɐ̃ː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fɐ̃# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#fˈajm# | Rule 360 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#fˈajm̥# | Rule 369 : [-son] > [-voi] / __ #
+#fˈaj̃m̥# | Rule 430 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#fˈãj̃m̥# | Rule 431 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#fˈɛ̃j̃m̥# | Rule 481 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#fˈɛ̃m̥# | Rule 520 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#fˈɛ̃ː# | Rule 567 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#fɛ̃ː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fɛ̃# | Rule 599 : [+syl,+long] > [-long,-splng] 

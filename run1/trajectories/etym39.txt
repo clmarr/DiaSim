@@ -1,18 +1,17 @@
 Trajectory file for run 'run1'; etymon number :39:
-#ˈɑmɑt̪# >>> #ɐ̃m# ( Correct : #ɛm#) :
+#ˈɑmɑt̪# >>> #ɛ̃m# ( Correct : #ɛm#) :
 ˈɑ m ɑ t̪ 
 #ˈɑːmɑt̪# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˈaːmat̪# | Rule 174 : [+lo,+syl] > [+front,-back] 
 #ˈaːmaθ# | Rule 221 : {t̪;d̪} > {θ;ð} / [+syl] __ #
 #ˈae̯maθ# | Rule 351 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯məθ# | Rule 365 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈeːməθ# | Rule 387 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈẽːməθ# | Rule 433 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˈɛ̃ːməθ# | Rule 458 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈæ̃ːməθ# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
-#ˈæ̃ːmə# | Rule 473 : {θ;ð} > {∅;∅} 
-#ˈɐ̃ːmə# | Rule 565 : [+lo,+long,+syl] > [+back,-front] 
-#ˈɐ̃ːmə̯# | Rule 580 : ə > ə̯ / __ #
-#ˈɐ̃ːm# | Rule 587 : ə̯ > ∅ 
-#ɐ̃ːm# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɐ̃m# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#ˈajmaθ# | Rule 360 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#ˈajməθ# | Rule 365 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈaj̃məθ# | Rule 430 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#ˈãj̃məθ# | Rule 431 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˈãj̃mə# | Rule 473 : {θ;ð} > {∅;∅} 
+#ˈɛ̃j̃mə# | Rule 481 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#ˈɛ̃mə# | Rule 520 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#ˈɛ̃mə̯# | Rule 580 : ə > ə̯ / __ #
+#ˈɛ̃m# | Rule 587 : ə̯ > ∅ 
+#ɛ̃m# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
