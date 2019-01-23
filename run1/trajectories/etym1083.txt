@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1083:
-#sˈeːpem# >>> #swa# ( Correct : #swaf#) :
+#sˈeːpem# >>> #swaf# ( Correct : #swaf#) :
 s ˈeː p e m 
 #sˈeːpɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˈepɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -8,11 +8,14 @@ s ˈeː p e m
 #sˈeːpə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
 #sˈeːpə̯# | Rule 235 : ə > ə̯ 
 #sˈeːp# | Rule 260 : ə̯ > ∅ 
-#sˈejp# | Rule 348 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈojp# | Rule 439 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#sˈujp# | Rule 443 : [+round,+tense,+back] > [+hi] 
-#sˈuɛ̯p# | Rule 485 : j > ɛ̯ / [+syl,+back,+round] __ 
-#swˈɛp# | Rule 488 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#swˈɛ# | Rule 579 : [-son] > ∅ / __ #
-#swɛ# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#swa# | Rule 596 : ɛ > a / w __ 
+#sˈejp# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈejɸ# | Rule 354 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#sˈejf# | Rule 356 : ɸ > f 
+#sˈojf# | Rule 439 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˈujf# | Rule 443 : [+round,+tense,+back] > [+hi] 
+#sˈuɛ̯f# | Rule 485 : j > ɛ̯ / [+syl,+back,+round] __ 
+#swˈɛf# | Rule 488 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˈɛfə̯# | Rule 578 : ∅ > ə̯ / [+syl] f __ #
+#swˈɛf# | Rule 580 : ə̯ > ∅ 
+#swɛf# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swaf# | Rule 596 : ɛ > a / w __ 

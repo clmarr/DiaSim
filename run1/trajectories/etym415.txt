@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :415:
-#kˈɑpum# >>> #ʃɛ# ( Correct : #ʃɛf#) :
+#kˈɑpum# >>> #ʃɛf# ( Correct : #ʃɛf#) :
 k ˈɑ p u m 
 #kˈɑpʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˈɑpom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -14,9 +14,12 @@ k ˈɑ p u m
 #t͡ʃˈie̯pə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
 #t͡ʃˈie̯pə̯# | Rule 235 : ə > ə̯ 
 #t͡ʃˈie̯p# | Rule 260 : ə̯ > ∅ 
-#t͡ʃjˈep# | Rule 470 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ʃjˈep# | Rule 503 : [+delrel] > [+cont,.delrel] 
-#ʃjˈɛp# | Rule 509 : ˈe > ˈɛ 
-#ʃˈɛp# | Rule 515 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
-#ʃˈɛ# | Rule 579 : [-son] > ∅ / __ #
-#ʃɛ# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡ʃˈie̯ɸ# | Rule 354 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#t͡ʃˈie̯f# | Rule 356 : ɸ > f 
+#t͡ʃjˈef# | Rule 470 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ʃjˈef# | Rule 503 : [+delrel] > [+cont,.delrel] 
+#ʃjˈɛf# | Rule 509 : ˈe > ˈɛ 
+#ʃˈɛf# | Rule 515 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
+#ʃˈɛfə̯# | Rule 578 : ∅ > ə̯ / [+syl] f __ #
+#ʃˈɛf# | Rule 580 : ə̯ > ∅ 
+#ʃɛf# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
