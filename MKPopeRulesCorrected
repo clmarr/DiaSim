@@ -1065,10 +1065,12 @@ $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
 $ CORRECTION: only happens to primarily stressed a anywhere
+$ CORRECTION: also before final rʲ 
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ #
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ rʲ #
 
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}

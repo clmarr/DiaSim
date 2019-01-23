@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :573:
-#lˌɑwrˈɑːrium# >>> #ləwʁjɛʁ# ( Correct : #lɔʁje#) :
+#lˌɑwrˈɑːrium# >>> #ləwʁjaʁ# ( Correct : #lɔʁje#) :
 l ˌɑ w r ˈɑː r i u m 
 #lˌɑwrˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #lˌɑwrˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -16,16 +16,18 @@ l ˌɑ w r ˈɑː r i u m
 #lˌɔwrˈaːrʲ# | Rule 260 : ə̯ > ∅ 
 #lˌɔwrˈaːjrʲ# | Rule 298 : ∅ > j / [-cons] __ rʲ
 #lˌɔwrjˈaːrʲ# | Rule 299 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#lˌɔwrjˈaːr# | Rule 330 : rʲ > r 
-#lˌɔwrjˈae̯r# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#lˌowrjˈae̯r# | Rule 350 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#lˌowrjˈeːr# | Rule 379 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#lˌewrjˈeːr# | Rule 437 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#lˌəwrjˈeːr# | Rule 468 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#lˌəwrjˈɛːr# | Rule 519 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#lˌəwrjˈɛːɹ# | Rule 573 : r > ɹ / [-cons] __ #
-#lˌəwrjˈɛːr# | Rule 587 : ɹ > r 
-#lˌəwʀjˈɛːʀ# | Rule 589 : r > ʀ 
-#ləwʀjɛːʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ləwʀjɛʀ# | Rule 591 : [+syl,+long] > [-long,-splng] 
-#ləwʁjɛʁ# | Rule 597 : ʀ > ʁ 
+#lˌɔwrjˈɛːrʲ# | Rule 320 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
+#lˌɔwrjˈie̯rʲ# | Rule 321 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˌɔwrˈie̯rʲ# | Rule 322 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#lˌɔwrˈie̯r# | Rule 331 : rʲ > r 
+#lˌowrˈie̯r# | Rule 351 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#lˌewrˈie̯r# | Rule 438 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#lˌəwrˈie̯r# | Rule 469 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#lˌəwrjˈer# | Rule 470 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#lˌəwrjˈɛr# | Rule 509 : ˈe > ˈɛ 
+#lˌəwrjˈar# | Rule 514 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#lˌəwrjˈaɹ# | Rule 574 : r > ɹ / [-cons] __ #
+#lˌəwrjˈar# | Rule 588 : ɹ > r 
+#lˌəwʀjˈaʀ# | Rule 590 : r > ʀ 
+#ləwʀjaʀ# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ləwʁjaʁ# | Rule 598 : ʀ > ʁ 

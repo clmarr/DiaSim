@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :801:
-#pˌɑːn̪ˈɑːrium# >>> #pan̪jɛʁ# ( Correct : #pan̪je#) :
+#pˌɑːn̪ˈɑːrium# >>> #pan̪jaʁ# ( Correct : #pan̪je#) :
 p ˌɑː n̪ ˈɑː r i u m 
 #pˌɑːn̪ˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɑːn̪ˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -15,15 +15,17 @@ p ˌɑː n̪ ˈɑː r i u m
 #pˌan̪ˈaːrʲ# | Rule 260 : ə̯ > ∅ 
 #pˌan̪ˈaːjrʲ# | Rule 298 : ∅ > j / [-cons] __ rʲ
 #pˌan̪jˈaːrʲ# | Rule 299 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#pˌan̪jˈaːr# | Rule 330 : rʲ > r 
-#pˌan̪jˈae̯r# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌan̪jˈeːr# | Rule 379 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌãn̪jˈeːr# | Rule 423 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˌãn̪jˈɛːr# | Rule 519 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#pˌãn̪jˈɛːɹ# | Rule 573 : r > ɹ / [-cons] __ #
-#pˌan̪jˈɛːɹ# | Rule 582 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#pˌan̪jˈɛːr# | Rule 587 : ɹ > r 
-#pˌan̪jˈɛːʀ# | Rule 589 : r > ʀ 
-#pan̪jɛːʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pan̪jɛʀ# | Rule 591 : [+syl,+long] > [-long,-splng] 
-#pan̪jɛʁ# | Rule 597 : ʀ > ʁ 
+#pˌan̪jˈɛːrʲ# | Rule 320 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
+#pˌan̪jˈie̯rʲ# | Rule 321 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˌan̪ˈie̯rʲ# | Rule 322 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#pˌan̪ˈie̯r# | Rule 331 : rʲ > r 
+#pˌãn̪ˈie̯r# | Rule 424 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#pˌãn̪jˈer# | Rule 470 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pˌãn̪jˈɛr# | Rule 509 : ˈe > ˈɛ 
+#pˌãn̪jˈar# | Rule 514 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#pˌãn̪jˈaɹ# | Rule 574 : r > ɹ / [-cons] __ #
+#pˌan̪jˈaɹ# | Rule 583 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#pˌan̪jˈar# | Rule 588 : ɹ > r 
+#pˌan̪jˈaʀ# | Rule 590 : r > ʀ 
+#pan̪jaʀ# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pan̪jaʁ# | Rule 598 : ʀ > ʁ 

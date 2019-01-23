@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :604:
-#lˌokˈɑːrium# >>> #lwajɛʁ# ( Correct : #lwaje#) :
+#lˌokˈɑːrium# >>> #lujjaʁ# ( Correct : #lwaje#) :
 l ˌo k ˈɑː r i u m 
 #lˌɔkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #lˌɔkˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -18,17 +18,18 @@ l ˌo k ˈɑː r i u m
 #lˌɔˈaːrʲ# | Rule 260 : ə̯ > ∅ 
 #lˌɔˈaːjrʲ# | Rule 298 : ∅ > j / [-cons] __ rʲ
 #lˌɔjˈaːrʲ# | Rule 299 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#lˌɔjˈaːr# | Rule 330 : rʲ > r 
-#lˌɔjˈae̯r# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#lˌojˈae̯r# | Rule 350 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#lˌojˈeːr# | Rule 379 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#lˌujˈeːr# | Rule 442 : [+round,+tense,+back] > [+hi] 
-#lwˌɛjˈeːr# | Rule 483 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
-#lwˌɛjˈɛːr# | Rule 519 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#lwˌɛjˈɛːɹ# | Rule 573 : r > ɹ / [-cons] __ #
-#lwˌɛjˈɛːr# | Rule 587 : ɹ > r 
-#lwˌɛjˈɛːʀ# | Rule 589 : r > ʀ 
-#lwɛjɛːʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lwɛjɛʀ# | Rule 591 : [+syl,+long] > [-long,-splng] 
-#lwajɛʀ# | Rule 595 : ɛ > a / w __ 
-#lwajɛʁ# | Rule 597 : ʀ > ʁ 
+#lˌɔjˈɛːrʲ# | Rule 320 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
+#lˌɔjˈie̯rʲ# | Rule 321 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˌɔjˈie̯r# | Rule 331 : rʲ > r 
+#lˌojˈie̯r# | Rule 351 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#lˌujˈie̯r# | Rule 443 : [+round,+tense,+back] > [+hi] 
+#lˌujjˈer# | Rule 470 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#lˌuɛ̯jˈer# | Rule 485 : j > ɛ̯ / [+syl,+back,+round] __ 
+#lˌujjˈer# | Rule 486 : ɛ̯ > j / [+syl,+back,+round] __ j
+#lˌujjˈɛr# | Rule 509 : ˈe > ˈɛ 
+#lˌujjˈar# | Rule 514 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#lˌujjˈaɹ# | Rule 574 : r > ɹ / [-cons] __ #
+#lˌujjˈar# | Rule 588 : ɹ > r 
+#lˌujjˈaʀ# | Rule 590 : r > ʀ 
+#lujjaʀ# | Rule 591 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lujjaʁ# | Rule 598 : ʀ > ʁ 
