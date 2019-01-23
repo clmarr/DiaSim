@@ -1,30 +1,25 @@
 Trajectory file for run 'run1'; etymon number :698:
-#mˌod̪iˈolum# >>> #mwajœl# ( Correct : #mwajø#) :
-m ˌo d̪ i ˈo l u m 
-#mˌɔd̪ɪˈɔlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɔd̪jˈɔlʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#mˌɔd̪ʝˈɔlʊm# | Rule 27 : j > ʝ / __ [+syl]
-#mˌɔd̪ʝˈɔlom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˌɔd̪ʝˈɔlo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˌɔɟʝˈɔlo# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#mˌɔɟˈɔlo# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#mˌɔʝˈɔlo# | Rule 93 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#mˌɔʝˈɔːlo# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌɔʝˈuo̯lo# | Rule 147 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#mˌɔʝˈʉo̯lo# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌɔʝˈʉo̯lə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#mˌɔʝˈʉo̯lə̯# | Rule 235 : ə > ə̯ 
-#mˌɔʝˈʉo̯l# | Rule 259 : ə̯ > ∅ 
-#mˌɔjˈʉo̯l# | Rule 322 : ʝ > j 
-#mˌojˈʉo̯l# | Rule 349 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#mˌojˈʉo̯lə# | Rule 414 : ∅ > ə / [-lat,-syl] l __ #
-#mˌojˈyo̯lə# | Rule 420 : [+hi,+round,-back] > [+front] 
-#mˌojˈye̯lə# | Rule 428 : o̯ > e̯ 
-#mˌujˈye̯lə# | Rule 441 : [+round,+tense,+back] > [+hi] 
-#mˌujˈølə# | Rule 456 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#mwˌɛjˈølə# | Rule 482 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
-#mwˌɛjˈølə̯# | Rule 571 : ə > ə̯ / __ #
-#mwˌɛjˈøl# | Rule 578 : ə̯ > ∅ 
-#mwɛjøl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mwɛjœl# | Rule 593 : ø > œ / __ ( [+cons] )* #
-#mwajœl# | Rule 594 : ɛ > a / w __ 
+#mˈod̪ulum# >>> #møwl# ( Correct : #mul#) :
+m ˈo d̪ u l u m 
+#mˈɔd̪ʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɔd̪lʊm# | Rule 32 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɔd̪lom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɔd̪lo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈɔːd̪lo# | Rule 100 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈuo̯d̪lo# | Rule 147 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#mˈʉo̯d̪lo# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#mˈʉo̯ðlo# | Rule 219 : [-delrel,-lab,+voi] > [+cont,.delrel] / [-cons] __ [+lat]
+#mˈʉo̯ðlə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#mˈʉo̯ðlə̯# | Rule 235 : ə > ə̯ 
+#mˈoːðlə̯# | Rule 255 : ˈʉ o̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
+#mˈoːðl# | Rule 260 : ə̯ > ∅ 
+#mˈoːðlə# | Rule 266 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈowðlə# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈewðlə# | Rule 437 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#mˈewɫlə# | Rule 454 : ð > ɫ / __ [+lat]
+#mˈewwlə# | Rule 460 : [+lat,+back] > w 
+#mˈøwwlə# | Rule 470 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mˈøwlə# | Rule 474 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#mˈøwlə̯# | Rule 572 : ə > ə̯ / __ #
+#mˈøwl# | Rule 579 : ə̯ > ∅ 
+#møwl# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

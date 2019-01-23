@@ -1,19 +1,21 @@
 Trajectory file for run 'run1'; etymon number :675:
-#mˈembrum# >>> #mæ̃bʁ# ( Correct : #mɑ̃bʁ#) :
-m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbrom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbro# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɛmbrə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#mˈɛmbrə̯# | Rule 235 : ə > ə̯ 
-#mˈɛmbɾə# | Rule 252 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
-#mˈɛmbrə# | Rule 257 : ɾ > r 
-#mˈɛ̃mbrə# | Rule 424 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈæ̃mbrə# | Rule 454 : [+nas,-hi,+syl] > [+lo] 
-#mˈæ̃ːbrə# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈæ̃ːbrə̯# | Rule 571 : ə > ə̯ / __ #
-#mˈæ̃ːbr# | Rule 578 : ə̯ > ∅ 
-#mˈæ̃ːbʀ# | Rule 588 : r > ʀ 
-#mæ̃ːbʀ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mæ̃bʀ# | Rule 590 : [+syl,+long] > [-long,-splng] 
-#mæ̃bʁ# | Rule 596 : ʀ > ʁ 
+#mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
+m ˈeː n̪ s ɑ m 
+#mˈeːsɑm# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#mˈesɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈesɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈeːsɑ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɑ# | Rule 121 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːza# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#mˈejza# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejzə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈojzə# | Rule 438 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#mˈujzə# | Rule 442 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯zə# | Rule 484 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛzə# | Rule 487 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛːzə# | Rule 564 : [+syl] > [+long] / __ z [+syl]
+#mwˈɛːzə̯# | Rule 572 : ə > ə̯ / __ #
+#mwˈɛːz# | Rule 579 : ə̯ > ∅ 
+#mwɛːz# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛz# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#mwaz# | Rule 595 : ɛ > a / w __ 

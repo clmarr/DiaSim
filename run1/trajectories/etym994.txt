@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :994:
-#rˌɑst̪ˈellum# >>> #ʁast̪ɛl# ( Correct : #ʁɑt̪o#) :
-r ˌɑ s t̪ ˈe l l u m 
-#rˌɑst̪ˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌɑst̪ˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˌɑst̪ˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˌast̪ˈɛllo# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#rˌast̪ˈɛllə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#rˌast̪ˈɛllə̯# | Rule 235 : ə > ə̯ 
-#rˌast̪ˈɛll# | Rule 259 : ə̯ > ∅ 
-#rˌast̪ˈɛl# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ʀˌast̪ˈɛl# | Rule 588 : r > ʀ 
-#ʀast̪ɛl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁast̪ɛl# | Rule 596 : ʀ > ʁ 
+#rˌɑt̪iˈoːn̪em# >>> #ʁazʲɔ̃# ( Correct : #ʁɛzɔ̃#) :
+r ˌɑ t̪ i ˈoː n̪ e m 
+#rˌɑt̪ɪˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˌɑt̪jˈoːn̪ɛm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#rˌɑt̪ʝˈoːn̪ɛm# | Rule 27 : j > ʝ / __ [+syl]
+#rˌɑt̪ʝˈon̪ɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#rˌɑt̪ʝˈon̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˌɑt͡sʲʝˈon̪ɛ# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#rˌɑt͡sʲˈon̪ɛ# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#rˌɑt͡sʲˈoːn̪ɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#rˌɑt͡sʲˈũːn̪ɛ# | Rule 145 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#rˌat͡sʲˈũːn̪ɛ# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#rˌat͡sʲˈũːn̪ə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#rˌat͡sʲˈũːn̪ə̯# | Rule 235 : ə > ə̯ 
+#rˌat͡sʲˈũːn̪# | Rule 260 : ə̯ > ∅ 
+#rˌad͡zʲˈũːn̪# | Rule 302 : [-voi] > [+voi] / [-cons] __ [+syl]
+#rˌazʲˈũːn̪# | Rule 502 : [+delrel] > [+cont,.delrel] 
+#rˌazʲˈũː# | Rule 559 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ʀˌazʲˈũː# | Rule 589 : r > ʀ 
+#ʀazʲũː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀazʲũ# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#ʀazʲɔ̃# | Rule 592 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ʁazʲɔ̃# | Rule 597 : ʀ > ʁ 

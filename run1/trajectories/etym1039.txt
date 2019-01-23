@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1039:
-#sˌɑlmˈɑst̪er# >>> #somast̪ʁ# ( Correct : #somɑt̪ʁ#) :
-s ˌɑ l m ˈɑ s t̪ e r 
-#sˌɑlmˈɑst̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑɫmˈɑst̪ɛr# | Rule 124 : l > ɫ / __ [+cons,-lat]
-#sˌaɫmˈast̪ɛr# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#sˌaɫmˈast̪ər# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#sˌaɫmˈast̪ə̯r# | Rule 235 : ə > ə̯ 
-#sˌaɫmˈast̪rə# | Rule 246 : ə̯ r > r ə / __ #
-#sˌawmˈast̪rə# | Rule 459 : [+lat,+back] > w 
-#sˌoːmˈast̪rə# | Rule 514 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sˌoːmˈast̪rə̯# | Rule 571 : ə > ə̯ / __ #
-#sˌoːmˈast̪r# | Rule 578 : ə̯ > ∅ 
-#sˌoːmˈast̪ʀ# | Rule 588 : r > ʀ 
-#soːmast̪ʀ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#somast̪ʀ# | Rule 590 : [+syl,+long] > [-long,-splng] 
-#somast̪ʁ# | Rule 596 : ʀ > ʁ 
+#sˌɑlmˈoːn̪em# >>> #somɔ̃# ( Correct : #somɔ̃#) :
+s ˌɑ l m ˈoː n̪ e m 
+#sˌɑlmˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑlmˈon̪ɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɑlmˈon̪ɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑlmˈoːn̪ɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌɑɫmˈoːn̪ɛ# | Rule 124 : l > ɫ / __ [+cons,-lat]
+#sˌɑɫmˈũːn̪ɛ# | Rule 145 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#sˌaɫmˈũːn̪ɛ# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#sˌaɫmˈũːn̪ə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#sˌaɫmˈũːn̪ə̯# | Rule 235 : ə > ə̯ 
+#sˌaɫmˈũːn̪# | Rule 260 : ə̯ > ∅ 
+#sˌawmˈũːn̪# | Rule 460 : [+lat,+back] > w 
+#sˌoːmˈũːn̪# | Rule 515 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːmˈũː# | Rule 559 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#soːmũː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#somũ# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#somɔ̃# | Rule 592 : [+back,-lo,+nas,+syl] > ɔ̃ 

@@ -1,20 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1004:
-#rˈeːt̪eːs# >>> #ʁwa# ( Correct : #ʁɛ#) :
-r ˈeː t̪ eː s 
-#rˈet̪es# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#rˈeːt̪es# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
-#rˈeːt̪əs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#rˈeːt̪ə̯s# | Rule 235 : ə > ə̯ 
-#rˈeːt̪s# | Rule 259 : ə̯ > ∅ 
-#rˈeːt͡s# | Rule 274 : t̪ s > t͡s 
-#rˈejt͡s# | Rule 346 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#rˈojt͡s# | Rule 437 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#rˈujt͡s# | Rule 441 : [+round,+tense,+back] > [+hi] 
-#rˈuɛ̯t͡s# | Rule 483 : j > ɛ̯ / [+syl,+back,+round] __ 
-#rwˈɛt͡s# | Rule 486 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#rwˈɛs# | Rule 501 : [+delrel] > [+cont,.delrel] 
-#rwˈɛ# | Rule 577 : [-son] > ∅ / __ #
-#ʀwˈɛ# | Rule 588 : r > ʀ 
-#ʀwɛ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀwa# | Rule 594 : ɛ > a / w __ 
-#ʁwa# | Rule 596 : ʀ > ʁ 
+#rˈet̪in̪ɑm# >>> #ʁɛ̃n̪# ( Correct : #ʁɛn̪#) :
+r ˈe t̪ i n̪ ɑ m 
+#rˈɛt̪ɪn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈɛt̪en̪ɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈɛt̪en̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈɛt̪n̪ɑ# | Rule 84 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
+#rˈɛt̪n̪a# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#rˈɛd̪n̪a# | Rule 305 : t̪ > d̪ / __ [+nas,+cons]
+#rˈɛðn̪a# | Rule 327 : d̪ > ð / [+syl] __ [+nas]
+#rˈɛðn̪ə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#rˈɛn̪ə# | Rule 458 : ð > ∅ / r [+syl] __ n̪
+#rˈɛ̃n̪ə# | Rule 479 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#rˈɛ̃n̪ə̯# | Rule 572 : ə > ə̯ / __ #
+#rˈɛ̃n̪# | Rule 579 : ə̯ > ∅ 
+#ʀˈɛ̃n̪# | Rule 589 : r > ʀ 
+#ʀɛ̃n̪# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁɛ̃n̪# | Rule 597 : ʀ > ʁ 

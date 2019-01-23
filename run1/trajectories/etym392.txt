@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :392:
-#kˈɑlks# >>> #ʃo# ( Correct : #ʃo#) :
-k ˈɑ l k s 
-#kˈɑls# | Rule 87 : [-cont] > ∅ / [+cons] __ [-son,-hi]
-#kˈɑɫs# | Rule 124 : l > ɫ / __ [+cons,-lat]
-#kˈaɫs# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#kʲˈaɫs# | Rule 204 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˈaɫs# | Rule 216 : [+back,+front] > [-back] 
-#t͡ʃˈaɫs# | Rule 224 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈaws# | Rule 459 : [+lat,+back] > w 
-#ʃˈaws# | Rule 501 : [+delrel] > [+cont,.delrel] 
-#ʃˈoːs# | Rule 514 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ʃˈoː# | Rule 577 : [-son] > ∅ / __ #
-#ʃoː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃo# | Rule 590 : [+syl,+long] > [-long,-splng] 
+#kˌɑlˈoːrem# >>> #ʃalœ# ( Correct : #ʃalœʁ#) :
+k ˌɑ l ˈoː r e m 
+#kˌɑlˈoːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˌɑlˈorɛm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˌɑlˈorɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˌɑlˈoːrɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˌalˈoːrɛ# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#kʲˌalˈoːrɛ# | Rule 204 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˌalˈoːrɛ# | Rule 216 : [+back,+front] > [-back] 
+#t͡ʃˌalˈoːrɛ# | Rule 224 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˌalˈoːrə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#t͡ʃˌalˈoːrə̯# | Rule 235 : ə > ə̯ 
+#t͡ʃˌalˈoːr# | Rule 260 : ə̯ > ∅ 
+#t͡ʃˌalˈowr# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t͡ʃˌalˈewr# | Rule 437 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#t͡ʃˌalˈøwr# | Rule 470 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#t͡ʃˌalˈør# | Rule 474 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ʃˌalˈør# | Rule 502 : [+delrel] > [+cont,.delrel] 
+#ʃˌalˈøɹ# | Rule 573 : r > ɹ / [-cons] __ #
+#ʃˌalˈø# | Rule 586 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ʃalø# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃalœ# | Rule 594 : ø > œ / __ ( [+cons] )* #

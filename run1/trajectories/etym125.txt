@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :125:
-#blˈɑn̪koːs# >>> #blɑ̃# ( Correct : #blɑ̃#) :
-b l ˈɑ n̪ k oː s 
-#blˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#blˈɑŋkos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#blˈaŋkos# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#blˈaŋkəs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#blˈaŋkə̯s# | Rule 235 : ə > ə̯ 
-#blˈaŋks# | Rule 259 : ə̯ > ∅ 
-#blˈaŋs# | Rule 355 : k > ∅ / __ s #
-#blˈãŋs# | Rule 422 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#blˈãːs# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#blˈãː# | Rule 577 : [-son] > ∅ / __ #
-#blãː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#blã# | Rule 590 : [+syl,+long] > [-long,-splng] 
-#blɑ̃# | Rule 595 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#blˈɑn̪kum# >>> #blɑ̃# ( Correct : #blɑ̃#) :
+b l ˈɑ n̪ k u m 
+#blˈɑŋkum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#blˈɑŋkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#blˈɑŋkom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#blˈɑŋko# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#blˈaŋko# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#blˈaŋkə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#blˈaŋkə̯# | Rule 235 : ə > ə̯ 
+#blˈaŋk# | Rule 260 : ə̯ > ∅ 
+#blˈãŋk# | Rule 423 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#blˈãːk# | Rule 558 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#blˈãː# | Rule 578 : [-son] > ∅ / __ #
+#blãː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#blã# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#blɑ̃# | Rule 596 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

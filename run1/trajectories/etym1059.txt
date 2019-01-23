@@ -1,21 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1059:
-#sˌɑpˈɑwd̪iɑm# >>> #savuʒ# ( Correct : #savwa#) :
-s ˌɑ p ˈɑ w d̪ i ɑ m 
-#sˌɑpˈɑwd̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑpˈɑwd̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#sˌɑpˈɑwd̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#sˌɑpˈɑwd̪ʝɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌɑpˈɑwɟʝɑ# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#sˌɑpˈɑwɟɑ# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#sˌɑpˈɑwd͡ʒɑ# | Rule 160 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#sˌapˈawd͡ʒa# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#sˌapˈɔwd͡ʒa# | Rule 205 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#sˌabˈɔwd͡ʒa# | Rule 301 : [-voi] > [+voi] / [-cons] __ [+syl]
-#sˌaβˈɔwd͡ʒa# | Rule 323 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌavˈɔwd͡ʒa# | Rule 351 : β > v 
-#sˌavˈɔwd͡ʒə# | Rule 356 : a > ə / [+syl] ( [-syl] )* __ 
-#sˌavˈud͡ʒə# | Rule 476 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#sˌavˈuʒə# | Rule 501 : [+delrel] > [+cont,.delrel] 
-#sˌavˈuʒə̯# | Rule 571 : ə > ə̯ / __ #
-#sˌavˈuʒ# | Rule 578 : ə̯ > ∅ 
-#savuʒ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌɑpˈeːre# >>> #savwaʁ# ( Correct : #savwaʁ#) :
+s ˌɑ p ˈeː r e 
+#sˌɑpˈeːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈerɛ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɑpˈeːrɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌapˈeːrɛ# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#sˌapˈeːrə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#sˌapˈeːrə̯# | Rule 235 : ə > ə̯ 
+#sˌapˈeːr# | Rule 260 : ə̯ > ∅ 
+#sˌabˈeːr# | Rule 302 : [-voi] > [+voi] / [-cons] __ [+syl]
+#sˌaβˈeːr# | Rule 324 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˌaβˈejr# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˌavˈejr# | Rule 352 : β > v 
+#sˌavˈejrə# | Rule 414 : ∅ > ə / [+front,-syl,+hi] r __ #
+#sˌavˈojrə# | Rule 438 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˌavˈoɛ̯rə# | Rule 441 : j > ɛ̯ / [+syl,+back,+round] __ r
+#sˌavˈuɛ̯rə# | Rule 442 : [+round,+tense,+back] > [+hi] 
+#sˌavwˈɛrə# | Rule 487 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#sˌavwˈarə# | Rule 513 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#sˌavwˈarə̯# | Rule 572 : ə > ə̯ / __ #
+#sˌavwˈar# | Rule 579 : ə̯ > ∅ 
+#sˌavwˈaʀ# | Rule 589 : r > ʀ 
+#savwaʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#savwaʁ# | Rule 597 : ʀ > ʁ 

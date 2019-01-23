@@ -1,17 +1,14 @@
 Trajectory file for run 'run1'; etymon number :265:
-#flˌɑɡˈellum# >>> #flɛjɛl# ( Correct : #fleo#) :
-f l ˌɑ ɡ ˈe l l u m 
-#flˌɑɡˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#flˌɑɡˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#flˌɑɡˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#flˌɑɡʲˈɛllo# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#flˌɑɟˈɛllo# | Rule 70 : [+back,+front] > [-back] 
-#flˌɑʝˈɛllo# | Rule 93 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#flˌaʝˈɛllo# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#flˌajˈɛllo# | Rule 188 : ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
-#flˌajˈɛllə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#flˌajˈɛllə̯# | Rule 235 : ə > ə̯ 
-#flˌajˈɛll# | Rule 259 : ə̯ > ∅ 
-#flˌajˈɛl# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#flˌɛjˈɛl# | Rule 584 : [+lo,+front] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+prim]
-#flɛjɛl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#flˈɑwɑm# >>> #flu# ( Correct : #flu#) :
+f l ˈɑ w ɑ m 
+#flˈɑɣʷɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#flˈɑwɑm# | Rule 44 : ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
+#flˈɑwɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#flˈawa# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#flˈɔwa# | Rule 205 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#flˈɔwə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#flˈuə# | Rule 477 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#flˈuːə# | Rule 530 : [+stres] > [+long] / __ ə
+#flˈuː# | Rule 531 : ə > ∅ / [+syl] __ 
+#fluː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#flu# | Rule 591 : [+syl,+long] > [-long,-splng] 

@@ -1,11 +1,15 @@
 Trajectory file for run 'run1'; etymon number :116:
-#bˈellum# >>> #bɛl# ( Correct : #bo#) :
-b ˈe l l u m 
-#bˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#bˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#bˈɛllə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#bˈɛllə̯# | Rule 235 : ə > ə̯ 
-#bˈɛll# | Rule 259 : ə̯ > ∅ 
-#bˈɛl# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#bɛl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˈen̪e# >>> #bjɛ̃# ( Correct : #bjɛ̃#) :
+b ˈe n̪ e 
+#bˈɛn̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˈɛːn̪ɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#bˈie̯n̪ɛ# | Rule 147 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#bˈie̯n̪ə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#bˈie̯n̪ə̯# | Rule 235 : ə > ə̯ 
+#bˈie̯n̪# | Rule 260 : ə̯ > ∅ 
+#bjˈen̪# | Rule 469 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#bjˈẽn̪# | Rule 479 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#bjˈɛ̃n̪# | Rule 511 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#bjˈɛ̃ː# | Rule 559 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#bjɛ̃ː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bjɛ̃# | Rule 591 : [+syl,+long] > [-long,-splng] 

@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :131:
-#bˌot̪ˈellum# >>> #buɛl# ( Correct : #bwajo#) :
-b ˌo t̪ ˈe l l u m 
-#bˌɔt̪ˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#bˌɔt̪ˈɛllə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#bˌɔt̪ˈɛllə̯# | Rule 235 : ə > ə̯ 
-#bˌɔt̪ˈɛll# | Rule 259 : ə̯ > ∅ 
-#bˌɔd̪ˈɛll# | Rule 301 : [-voi] > [+voi] / [-cons] __ [+syl]
-#bˌɔðˈɛll# | Rule 323 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#bˌoðˈɛll# | Rule 349 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#bˌoðˈɛl# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#bˌuðˈɛl# | Rule 441 : [+round,+tense,+back] > [+hi] 
-#bˌuˈɛl# | Rule 464 : {θ;ð} > {∅;∅} 
-#b?ˈɛl# | Rule 561 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#buɛl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˈowem# >>> #bœf# ( Correct : #bœf#) :
+b ˈo w e m 
+#bˈoɣʷem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#bˈɔɣʷɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˈɔβʷɛm# | Rule 45 : ɣʷ > βʷ 
+#bˈɔβʷɛ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bˈɔːβʷɛ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#bˈɔːβɛ# | Rule 114 : {βʷ;ɸʷ} > {β;ɸ} 
+#bˈuo̯βɛ# | Rule 147 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#bˈʉo̯βɛ# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#bˈʉo̯βə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#bˈʉo̯βə̯# | Rule 235 : ə > ə̯ 
+#bˈʉo̯β# | Rule 260 : ə̯ > ∅ 
+#bˈʉo̯v# | Rule 352 : β > v 
+#bˈʉo̯f# | Rule 361 : [-son] > [-voi] / __ #
+#bˈyo̯f# | Rule 421 : [+hi,+round,-back] > [+front] 
+#bˈye̯f# | Rule 429 : o̯ > e̯ 
+#bˈøf# | Rule 457 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#bˈøfə̯# | Rule 577 : ∅ > ə̯ / [+syl] f __ #
+#bˈøf# | Rule 579 : ə̯ > ∅ 
+#bøf# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bœf# | Rule 594 : ø > œ / __ ( [+cons] )* #

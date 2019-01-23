@@ -1,18 +1,19 @@
 Trajectory file for run 'run1'; etymon number :286:
-#frˈɑn̪koːs# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
-f r ˈɑ n̪ k oː s 
-#frˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#frˈɑŋkos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#frˈaŋkos# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#frˈaŋkəs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#frˈaŋkə̯s# | Rule 235 : ə > ə̯ 
-#frˈaŋks# | Rule 259 : ə̯ > ∅ 
-#frˈaŋs# | Rule 355 : k > ∅ / __ s #
-#frˈãŋs# | Rule 422 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#frˈãːs# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#frˈãː# | Rule 577 : [-son] > ∅ / __ #
-#fʀˈãː# | Rule 588 : r > ʀ 
-#fʀãː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀã# | Rule 590 : [+syl,+long] > [-long,-splng] 
-#fʀɑ̃# | Rule 595 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#fʁɑ̃# | Rule 596 : ʀ > ʁ 
+#frˈɑn̪kum# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
+f r ˈɑ n̪ k u m 
+#frˈɑŋkum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#frˈɑŋkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#frˈɑŋkom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#frˈɑŋko# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#frˈaŋko# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#frˈaŋkə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#frˈaŋkə̯# | Rule 235 : ə > ə̯ 
+#frˈaŋk# | Rule 260 : ə̯ > ∅ 
+#frˈãŋk# | Rule 423 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#frˈãːk# | Rule 558 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#frˈãː# | Rule 578 : [-son] > ∅ / __ #
+#fʀˈãː# | Rule 589 : r > ʀ 
+#fʀãː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀã# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#fʀɑ̃# | Rule 596 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#fʁɑ̃# | Rule 597 : ʀ > ʁ 

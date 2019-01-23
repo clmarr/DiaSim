@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :364:
-#ˌin̪sˌimul# >>> #æ̃sæ̃bl# ( Correct : #ɑ̃sɑ̃bl#) :
-ˌi n̪ s ˌi m u l 
-#ˌɪn̪sˌɪmʊl# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪sˌemol# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪sˌeməl# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#ˌen̪sˌemə̯l# | Rule 235 : ə > ə̯ 
-#ˌen̪sˌeml# | Rule 259 : ə̯ > ∅ 
-#ˌen̪sˌemlə# | Rule 265 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˌen̪sˌemblə# | Rule 292 : ∅ > b / m __ [+cor,-nas,+son,-syl]
-#ˌẽn̪sˌẽmblə# | Rule 424 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌɛ̃n̪sˌɛ̃mblə# | Rule 449 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌæ̃n̪sˌæ̃mblə# | Rule 454 : [+nas,-hi,+syl] > [+lo] 
-#ˌæ̃ːsˌæ̃ːblə# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌæ̃ːsˌæ̃ːblə̯# | Rule 571 : ə > ə̯ / __ #
-#ˌæ̃ːsˌæ̃ːbl# | Rule 578 : ə̯ > ∅ 
-#æ̃ːsæ̃ːbl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#æ̃sæ̃bl# | Rule 590 : [+syl,+long] > [-long,-splng] 
+#ˈin̪sulɑ# >>> #il# ( Correct : #il#) :
+ˈi n̪ s u l ɑ 
+#ˈiːn̪sulɑ# | Rule 9 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#ˈiːsulɑ# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#ˈiːsʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈisʊlɑ# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈisolɑ# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈiːsolɑ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈiːzolɑ# | Rule 121 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˈiːzola# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#ˈiːzəla# | Rule 230 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈiːzə̯la# | Rule 235 : ə > ə̯ 
+#ˈiːzla# | Rule 260 : ə̯ > ∅ 
+#ˈiːzlə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːlə# | Rule 427 : z > ∅ / __ [+cons]
+#ˈiːlə̯# | Rule 572 : ə > ə̯ / __ #
+#ˈiːl# | Rule 579 : ə̯ > ∅ 
+#iːl# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#il# | Rule 591 : [+syl,+long] > [-long,-splng] 

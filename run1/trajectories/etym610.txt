@@ -1,16 +1,18 @@
 Trajectory file for run 'run1'; etymon number :610:
-#lˈon̪ɡoːs# >>> #lɔ̃# ( Correct : #lɔ̃#) :
-l ˈo n̪ ɡ oː s 
-#lˈoŋɡoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈɔŋɡoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɔŋɡos# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#lˈũŋɡos# | Rule 146 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
-#lˈũŋɡəs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#lˈũŋɡə̯s# | Rule 235 : ə > ə̯ 
-#lˈũŋɡs# | Rule 259 : ə̯ > ∅ 
-#lˈũŋs# | Rule 382 : [+cons] > ∅ / [+cons] __ [-son]
-#lˈũːs# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈũː# | Rule 577 : [-son] > ∅ / __ #
-#lũː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lũ# | Rule 590 : [+syl,+long] > [-long,-splng] 
-#lɔ̃# | Rule 591 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#lˈon̪ɡum# >>> #lɔ̃k# ( Correct : #lɔ̃#) :
+l ˈo n̪ ɡ u m 
+#lˈoŋɡum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#lˈɔŋɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɔŋɡom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɔŋɡo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#lˈũŋɡo# | Rule 146 : {ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+#lˈũŋɡə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#lˈũŋɡə̯# | Rule 235 : ə > ə̯ 
+#lˈũŋɡ# | Rule 260 : ə̯ > ∅ 
+#lˈũŋk# | Rule 361 : [-son] > [-voi] / __ #
+#lˈũːk# | Rule 558 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈũːkə̯# | Rule 576 : ∅ > ə̯ / # [-syl] [+syl] k __ #
+#lˈũːk# | Rule 579 : ə̯ > ∅ 
+#lũːk# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lũk# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#lɔ̃k# | Rule 592 : [+back,-lo,+nas,+syl] > ɔ̃ 

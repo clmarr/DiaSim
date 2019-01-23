@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :509:
-#krˈuːd̪oːs# >>> #kʁy# ( Correct : #kʁy#) :
-k r ˈuː d̪ oː s 
-#krˈud̪os# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#krˈuðos# | Rule 93 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#krˈuːðos# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
-#krˈʉːðos# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#krˈʉːðəs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
-#krˈʉːðə̯s# | Rule 235 : ə > ə̯ 
-#krˈʉːðs# | Rule 259 : ə̯ > ∅ 
-#krˈʉðs# | Rule 305 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#krˈʉθs# | Rule 404 : [-son] > [-voi] / __ [-voi]
-#krˈyθs# | Rule 420 : [+hi,+round,-back] > [+front] 
-#krˈys# | Rule 464 : {θ;ð} > {∅;∅} 
-#krˈy# | Rule 577 : [-son] > ∅ / __ #
-#kʀˈy# | Rule 588 : r > ʀ 
-#kʀy# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʁy# | Rule 596 : ʀ > ʁ 
+#krˈuːd̪um# >>> #kʁy# ( Correct : #kʁy#) :
+k r ˈuː d̪ u m 
+#krˈuːd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#krˈud̪ʊm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#krˈud̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#krˈud̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#krˈuðo# | Rule 93 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#krˈuːðo# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#krˈʉːðo# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#krˈʉːðə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#krˈʉːðə̯# | Rule 235 : ə > ə̯ 
+#krˈʉːð# | Rule 260 : ə̯ > ∅ 
+#krˈʉːθ# | Rule 361 : [-son] > [-voi] / __ #
+#krˈyːθ# | Rule 421 : [+hi,+round,-back] > [+front] 
+#krˈyː# | Rule 465 : {θ;ð} > {∅;∅} 
+#kʀˈyː# | Rule 589 : r > ʀ 
+#kʀyː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀy# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#kʁy# | Rule 597 : ʀ > ʁ 

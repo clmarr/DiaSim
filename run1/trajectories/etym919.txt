@@ -1,10 +1,27 @@
 Trajectory file for run 'run1'; etymon number :919:
-#plˈuːs# >>> #ply# ( Correct : #ply#) :
-p l ˈuː s 
-#plˈus# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˈuːs# | Rule 101 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#plˈʉːs# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#plˈyːs# | Rule 420 : [+hi,+round,-back] > [+front] 
-#plˈyː# | Rule 577 : [-son] > ∅ / __ #
-#plyː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ply# | Rule 590 : [+syl,+long] > [-long,-splng] 
+#plˌuːsiˈoːreːs# >>> #plɥizuʁ# ( Correct : #plyzjœʁ#) :
+p l ˌuː s i ˈoː r eː s 
+#plˌuːsɪˈoːreːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˌuːsjˈoːreːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˌuːsʝˈoːreːs# | Rule 27 : j > ʝ / __ [+syl]
+#plˌusʝˈores# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#plˌusʝˈoːres# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˌuzʝˈoːres# | Rule 122 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#plˌuzʲˈoːres# | Rule 155 : z ʝ > zʲ 
+#plˌʉzʲˈoːres# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#plˌʉzʲˈoːrəs# | Rule 232 : [-stres,-lo,+syl] > ə / __ [-syl]
+#plˌʉzʲˈoːrə̯s# | Rule 235 : ə > ə̯ 
+#plˌʉzʲˈoːrs# | Rule 260 : ə̯ > ∅ 
+#plˌʉzʲˈors# | Rule 306 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#plˌʉjzˈors# | Rule 333 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j n̪} 
+#plˌyjzˈors# | Rule 421 : [+hi,+round,-back] > [+front] 
+#plˌyjzˈurs# | Rule 442 : [+round,+tense,+back] > [+hi] 
+#plɥˌizˈurs# | Rule 489 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#plɥˌiːzˈurs# | Rule 564 : [+syl] > [+long] / __ z [+syl]
+#plɥˌiːzˈuɹs# | Rule 574 : r > ɹ / [-cons] __ [+cons]
+#plɥˌiːzˈuɹ# | Rule 578 : [-son] > ∅ / __ #
+#plɥˌiːzˈur# | Rule 587 : ɹ > r 
+#plɥˌiːzˈuʀ# | Rule 589 : r > ʀ 
+#plɥiːzuʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɥizuʀ# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#plɥizuʁ# | Rule 597 : ʀ > ʁ 

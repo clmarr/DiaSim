@@ -1,22 +1,14 @@
 Trajectory file for run 'run1'; etymon number :941:
-#prˌɑe̯pˈosit̪um# >>> #pʁəvɔs# ( Correct : #pʁevɔ#) :
-p r ˌɑ e̯ p ˈo s i t̪ u m 
-#prˌae̯pˈosit̪um# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌae̯pˈɔsɪt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˌɛːpˈɔsɪt̪ʊm# | Rule 51 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛːpˈɔset̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˌɛːpˈɔset̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#prˌɛːpˈɔst̪o# | Rule 84 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#prˌɛpˈɔst̪o# | Rule 194 : [-prim] > [-long,-splng] 
-#prˌɛpˈɔst̪ə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#prˌɛpˈɔst̪ə̯# | Rule 235 : ə > ə̯ 
-#prˌɛpˈɔst̪# | Rule 259 : ə̯ > ∅ 
-#prˌɛbˈɔst̪# | Rule 301 : [-voi] > [+voi] / [-cons] __ [+syl]
-#prˌɛβˈɔst̪# | Rule 323 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#prˌeβˈɔst̪# | Rule 349 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#prˌevˈɔst̪# | Rule 351 : β > v 
-#prˌəvˈɔst̪# | Rule 427 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#prˌəvˈɔs# | Rule 577 : [-son] > ∅ / __ #
-#pʀˌəvˈɔs# | Rule 588 : r > ʀ 
-#pʀəvɔs# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁəvɔs# | Rule 596 : ʀ > ʁ 
+#prˈɑe̯st̪ɑm# >>> #pʁɛst̪# ( Correct : #pʁɛt̪#) :
+p r ˈɑ e̯ s t̪ ɑ m 
+#prˈae̯st̪ɑm# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˈɛːst̪ɑm# | Rule 51 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˈɛːst̪ɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#prˈɛst̪ɑ# | Rule 134 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#prˈɛst̪a# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#prˈɛst̪ə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#prˈɛst̪ə̯# | Rule 572 : ə > ə̯ / __ #
+#prˈɛst̪# | Rule 579 : ə̯ > ∅ 
+#pʀˈɛst̪# | Rule 589 : r > ʀ 
+#pʀɛst̪# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛst̪# | Rule 597 : ʀ > ʁ 

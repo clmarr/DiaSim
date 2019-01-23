@@ -1,12 +1,23 @@
 Trajectory file for run 'run1'; etymon number :585:
-#lˈessum# >>> #lɛ# ( Correct : #lɛ#) :
-l ˈe s s u m 
-#lˈɛssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɛssom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#lˈɛsso# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˈɛssə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#lˈɛssə̯# | Rule 235 : ə > ə̯ 
-#lˈɛss# | Rule 259 : ə̯ > ∅ 
-#lˈɛs# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#lˈɛ# | Rule 577 : [-son] > ∅ / __ #
-#lɛ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lˈeukɑm# >>> #ljœ# ( Correct : #ljø#) :
+l ˈe u k ɑ m 
+#lˈɛʊkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɛokɑm# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɛokɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#lˈɛːokɑ# | Rule 97 : [+prim] > [+long] / __ [+syl]
+#lˈɛːoɡɑ# | Rule 118 : k > ɡ / [-cons] __ [+syl]
+#lˈɛːoɣɑ# | Rule 120 : ɡ > ɣ / [-cons] __ [-cons]
+#lˈie̯oɣɑ# | Rule 147 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˈie̯oɑ# | Rule 162 : ɣ > ∅ / [+round,-cons] __ [+lo,+syl]
+#lˈie̯oa# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#ljˈoːa# | Rule 226 : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
+#ljˈowa# | Rule 347 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ljˈowə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#ljˈewə# | Rule 437 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#ljˈøwə# | Rule 470 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ljˈøə# | Rule 474 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ljˈøːə# | Rule 530 : [+stres] > [+long] / __ ə
+#ljˈøː# | Rule 531 : ə > ∅ / [+syl] __ 
+#ljøː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ljø# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#ljœ# | Rule 594 : ø > œ / __ ( [+cons] )* #

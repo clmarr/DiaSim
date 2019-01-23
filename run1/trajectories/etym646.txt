@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :646:
-#mˌɑrt̪ˈellum# >>> #maʁt̪ɛl# ( Correct : #maʁt̪o#) :
-m ˌɑ r t̪ ˈe l l u m 
-#mˌɑrt̪ˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɑrt̪ˈɛllom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˌɑrt̪ˈɛllo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˌɑr̥t̪ˈɛllo# | Rule 91 : [+ant,+cons] > [-voi] / __ t̪
-#mˌɑrt̪ˈɛllo# | Rule 92 : r̥ > r 
-#mˌart̪ˈɛllo# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#mˌart̪ˈɛllə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#mˌart̪ˈɛllə̯# | Rule 235 : ə > ə̯ 
-#mˌart̪ˈɛll# | Rule 259 : ə̯ > ∅ 
-#mˌart̪ˈɛl# | Rule 405 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#mˌaɹt̪ˈɛl# | Rule 573 : r > ɹ / [-cons] __ [+cons]
-#mˌart̪ˈɛl# | Rule 586 : ɹ > r 
-#mˌaʀt̪ˈɛl# | Rule 588 : r > ʀ 
-#maʀt̪ɛl# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#maʁt̪ɛl# | Rule 596 : ʀ > ʁ 
+#mˈɑskulum# >>> #mɑl# ( Correct : #mɑl#) :
+m ˈɑ s k u l u m 
+#mˈɑskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑsklʊm# | Rule 32 : {ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɑsklom# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɑsklo# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈɑslo# | Rule 90 : {s k;r ɡ} > {s;r} / __ l
+#mˈaslo# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#mˈaslə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
+#mˈaslə̯# | Rule 235 : ə > ə̯ 
+#mˈasl# | Rule 260 : ə̯ > ∅ 
+#mˈaslə# | Rule 266 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈazlə# | Rule 387 : s > z / __ [+voi,+cons]
+#mˈaːzlə# | Rule 426 : [+syl] > [+long] / __ z [+cons]
+#mˈaːlə# | Rule 427 : z > ∅ / __ [+cons]
+#mˈɑːlə# | Rule 557 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːlə̯# | Rule 572 : ə > ə̯ / __ #
+#mˈɑːl# | Rule 579 : ə̯ > ∅ 
+#mɑːl# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɑl# | Rule 591 : [+syl,+long] > [-long,-splng] 

@@ -1,21 +1,20 @@
 Trajectory file for run 'run1'; etymon number :443:
-#kˈen̪t̪um# >>> #sæ̃# ( Correct : #sɑ̃#) :
-k ˈe n̪ t̪ u m 
-#kˈɛn̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɛn̪t̪om# | Rule 59 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˈɛn̪t̪o# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kʲˈɛn̪t̪o# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#cˈɛn̪t̪o# | Rule 70 : [+back,+front] > [-back] 
-#cˈɛ?t̪o# | Rule 91 : [+ant,+cons] > [-voi] / __ t̪
-#t͡sʲˈɛ?t̪o# | Rule 160 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#t͡sʲˈɛ?t̪ə# | Rule 233 : [-stres,-lo,+syl] > ə / __ #
-#t͡sʲˈɛ?t̪ə̯# | Rule 235 : ə > ə̯ 
-#t͡sʲˈɛ?t̪# | Rule 259 : ə̯ > ∅ 
-#t͡sˈɛ?t̪# | Rule 416 : t͡sʲ > t͡s 
-#t͡sˈɛ̃?t̪# | Rule 424 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t͡sˈæ̃?t̪# | Rule 454 : [+nas,-hi,+syl] > [+lo] 
-#sˈæ̃?t̪# | Rule 501 : [+delrel] > [+cont,.delrel] 
-#sˈæ̃ːt̪# | Rule 557 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˈæ̃ː# | Rule 577 : [-son] > ∅ / __ #
-#sæ̃ː# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sæ̃# | Rule 590 : [+syl,+long] > [-long,-splng] 
+#kˈeːrɑm# >>> #siʁ# ( Correct : #siʁ#) :
+k ˈeː r ɑ m 
+#kˈerɑm# | Rule 49 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈerɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kʲˈerɑ# | Rule 69 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#cˈerɑ# | Rule 70 : [+back,+front] > [-back] 
+#cˈeːrɑ# | Rule 99 : [+prim] > [+long] / __ [+cons] [-cons]
+#cˈiːrɑ# | Rule 142 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
+#t͡sʲˈiːrɑ# | Rule 160 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#t͡sʲˈiːra# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#t͡sʲˈiːrə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡sˈiːrə# | Rule 417 : t͡sʲ > t͡s 
+#sˈiːrə# | Rule 502 : [+delrel] > [+cont,.delrel] 
+#sˈiːrə̯# | Rule 572 : ə > ə̯ / __ #
+#sˈiːr# | Rule 579 : ə̯ > ∅ 
+#sˈiːʀ# | Rule 589 : r > ʀ 
+#siːʀ# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#siʀ# | Rule 591 : [+syl,+long] > [-long,-splng] 
+#siʁ# | Rule 597 : ʀ > ʁ 

@@ -1,21 +1,18 @@
 Trajectory file for run 'run1'; etymon number :303:
-#ɡˈɑwd̪iɑm# >>> #ʒuʒ# ( Correct : #ʒwɑ#) :
-ɡ ˈɑ w d̪ i ɑ m 
-#ɡˈɑwd̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈɑwd̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#ɡˈɑwd̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#ɡˈɑwd̪ʝɑ# | Rule 64 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ɡˈɑwɟʝɑ# | Rule 67 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#ɡˈɑwɟɑ# | Rule 78 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#ɡˈɑwd͡ʒɑ# | Rule 160 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#ɡˈawd͡ʒa# | Rule 173 : [+lo,+syl] > [+front,-back] 
-#ɡʲˈawd͡ʒa# | Rule 204 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#ɡʲˈɔwd͡ʒa# | Rule 205 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#ɟˈɔwd͡ʒa# | Rule 216 : [+back,+front] > [-back] 
-#d͡ʒˈɔwd͡ʒa# | Rule 224 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#d͡ʒˈɔwd͡ʒə# | Rule 356 : a > ə / [+syl] ( [-syl] )* __ 
-#d͡ʒˈud͡ʒə# | Rule 476 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#ʒˈuʒə# | Rule 501 : [+delrel] > [+cont,.delrel] 
-#ʒˈuʒə̯# | Rule 571 : ə > ə̯ / __ #
-#ʒˈuʒ# | Rule 578 : ə̯ > ∅ 
-#ʒuʒ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɡˈɑwt̪ɑ# >>> #ʒu# ( Correct : #ʒu#) :
+ɡ ˈɑ w t̪ ɑ 
+#ɡˈawt̪a# | Rule 173 : [+lo,+syl] > [+front,-back] 
+#ɡʲˈawt̪a# | Rule 204 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ɡʲˈɔwt̪a# | Rule 205 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#ɟˈɔwt̪a# | Rule 216 : [+back,+front] > [-back] 
+#d͡ʒˈɔwt̪a# | Rule 224 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#d͡ʒˈɔwd̪a# | Rule 302 : [-voi] > [+voi] / [-cons] __ [+syl]
+#d͡ʒˈɔwða# | Rule 324 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#d͡ʒˈɔwðə# | Rule 357 : a > ə / [+syl] ( [-syl] )* __ 
+#d͡ʒˈɔwə# | Rule 465 : {θ;ð} > {∅;∅} 
+#d͡ʒˈuə# | Rule 477 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#ʒˈuə# | Rule 502 : [+delrel] > [+cont,.delrel] 
+#ʒˈuːə# | Rule 530 : [+stres] > [+long] / __ ə
+#ʒˈuː# | Rule 531 : ə > ∅ / [+syl] __ 
+#ʒuː# | Rule 590 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒu# | Rule 591 : [+syl,+long] > [-long,-splng] 
