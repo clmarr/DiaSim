@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :28:
-#ˌɑkiˈɑːrium# >>> #asijʁ# ( Correct : #asje#) :
+#ˌɑkiˈɑːrium# >>> #asjaʁ# ( Correct : #asje#) :
 ˌɑ k i ˈɑː r i u m 
 #ˌɑkɪˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑkjˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -18,14 +18,16 @@ Trajectory file for run 'run1'; etymon number :28:
 #ˌat̪t͡sʲˈie̯rʲə̯# | Rule 235 : ə > ə̯ 
 #ˌat̪t͡sʲˈie̯rʲ# | Rule 259 : ə̯ > ∅ 
 #ˌat̪t͡sʲˈie̯jrʲ# | Rule 297 : ∅ > j / [-cons] __ rʲ
-#ˌat̪t͡sʲˈie̯jr# | Rule 328 : rʲ > r 
-#ˌat͡sʲˈie̯jr# | Rule 401 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#ˌat͡sʲˈie̯jrə# | Rule 412 : ∅ > ə / [+front,-syl,+hi] r __ #
-#ˌat͡sˈie̯jrə# | Rule 415 : t͡sʲ > t͡s 
-#ˌat͡sˈijrə# | Rule 438 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#ˌasˈijrə# | Rule 500 : [+delrel] > [+cont,.delrel] 
-#ˌasˈijrə̯# | Rule 570 : ə > ə̯ / __ #
-#ˌasˈijr# | Rule 577 : ə̯ > ∅ 
-#ˌasˈijʀ# | Rule 587 : r > ʀ 
-#asijʀ# | Rule 588 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#asijʁ# | Rule 595 : ʀ > ʁ 
+#ˌat̪t͡sʲˈie̯rʲ# | Rule 299 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#ˌat̪t͡sʲˈie̯r# | Rule 329 : rʲ > r 
+#ˌat͡sʲˈie̯r# | Rule 402 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#ˌat͡sˈie̯r# | Rule 416 : t͡sʲ > t͡s 
+#ˌat͡sjˈer# | Rule 468 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌasjˈer# | Rule 501 : [+delrel] > [+cont,.delrel] 
+#ˌasjˈɛr# | Rule 507 : ˈe > ˈɛ 
+#ˌasjˈar# | Rule 512 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#ˌasjˈaɹ# | Rule 572 : r > ɹ / [-cons] __ #
+#ˌasjˈar# | Rule 586 : ɹ > r 
+#ˌasjˈaʀ# | Rule 588 : r > ʀ 
+#asjaʀ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#asjaʁ# | Rule 596 : ʀ > ʁ 

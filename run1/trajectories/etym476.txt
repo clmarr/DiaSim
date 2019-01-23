@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :476:
-#kˌokʰleˈɑːrium# >>> #kukjijʁ# ( Correct : #kɥijɛʁ#) :
+#kˌokʰleˈɑːrium# >>> #kukjjaʁ# ( Correct : #kɥijɛʁ#) :
 k ˌo kʰ l e ˈɑː r i u m 
 #kˌokleˈɑːrium# | Rule 7 : [+sg,-cont] > [-sg] 
 #kˌɔklɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -18,14 +18,16 @@ k ˌo kʰ l e ˈɑː r i u m
 #kˌɔkʎˈie̯rʲə̯# | Rule 235 : ə > ə̯ 
 #kˌɔkʎˈie̯rʲ# | Rule 259 : ə̯ > ∅ 
 #kˌɔkʎˈie̯jrʲ# | Rule 297 : ∅ > j / [-cons] __ rʲ
-#kˌɔkʎˈie̯jr# | Rule 328 : rʲ > r 
-#kˌokʎˈie̯jr# | Rule 348 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#kˌokʎˈie̯jrə# | Rule 412 : ∅ > ə / [+front,-syl,+hi] r __ #
-#kˌokʎˈijrə# | Rule 438 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#kˌukʎˈijrə# | Rule 440 : [+round,+tense,+back] > [+hi] 
-#kˌukʎˈijrə̯# | Rule 570 : ə > ə̯ / __ #
-#kˌukʎˈijr# | Rule 577 : ə̯ > ∅ 
-#kˌukʎˈijʀ# | Rule 587 : r > ʀ 
-#kukʎijʀ# | Rule 588 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kukʎijʁ# | Rule 595 : ʀ > ʁ 
-#kukjijʁ# | Rule 596 : ʎ > j 
+#kˌɔkʎˈie̯rʲ# | Rule 299 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#kˌɔkʎˈie̯r# | Rule 329 : rʲ > r 
+#kˌokʎˈie̯r# | Rule 349 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#kˌukʎˈie̯r# | Rule 441 : [+round,+tense,+back] > [+hi] 
+#kˌukʎjˈer# | Rule 468 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#kˌukʎjˈɛr# | Rule 507 : ˈe > ˈɛ 
+#kˌukʎjˈar# | Rule 512 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#kˌukʎjˈaɹ# | Rule 572 : r > ɹ / [-cons] __ #
+#kˌukʎjˈar# | Rule 586 : ɹ > r 
+#kˌukʎjˈaʀ# | Rule 588 : r > ʀ 
+#kukʎjaʀ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kukʎjaʁ# | Rule 596 : ʀ > ʁ 
+#kukjjaʁ# | Rule 597 : ʎ > j 

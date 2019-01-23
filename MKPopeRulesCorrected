@@ -1001,8 +1001,10 @@ $ -- evrium, ostrea, cupreum...
 $ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but... 
 ∅ > j / [-cons] __ rʲ
 
-$ CORRECTION: ... but when that vowel is ˈaː, ˈɛː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
+$ CORRECTION: ... but when that vowel is ˈaː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
+$ in the case of ˈi e̯ it's going to be deleted soon so we can just delete it now... 
 ˈaː j > j ˈaː / [+syl] ([-syl])* __ rʲ
+j > ∅ / [+syl] ([-syl])* ˈi e̯ __ rʲ 
 
 $ CORRECTION: palatals absorb following j for now
 j > ∅ / [+front,+hi,+cons] __  
@@ -1071,8 +1073,7 @@ $ Currently does nothing but we're keeping it around in case loanwords will be e
 [+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
 $CORRECTION : remaining ʝ becomes j sometime at this point 
-$ CORRECTION : moved before schwa reinsertion.
-$ CORRECTION : bleeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
+$ CORRECTION : counterfeeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
 ʝ > j 
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 

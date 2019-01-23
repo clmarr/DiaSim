@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :68:
-#ˌɑrkˈɑːrium# >>> #aʁʃijʁ# ( Correct : #aʁʃe#) :
+#ˌɑrkˈɑːrium# >>> #aʁʃjaʁ# ( Correct : #aʁʃe#) :
 ˌɑ r k ˈɑː r i u m 
 #ˌɑrkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑrkˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -19,14 +19,15 @@ Trajectory file for run 'run1'; etymon number :68:
 #ˌart͡ʃˈie̯rʲə̯# | Rule 235 : ə > ə̯ 
 #ˌart͡ʃˈie̯rʲ# | Rule 259 : ə̯ > ∅ 
 #ˌart͡ʃˈie̯jrʲ# | Rule 297 : ∅ > j / [-cons] __ rʲ
-#ˌart͡ʃˈie̯jr# | Rule 328 : rʲ > r 
-#ˌart͡ʃˈie̯jrə# | Rule 412 : ∅ > ə / [+front,-syl,+hi] r __ #
-#ˌart͡ʃˈijrə# | Rule 438 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#ˌarʃˈijrə# | Rule 500 : [+delrel] > [+cont,.delrel] 
-#ˌarʃˈijrə̯# | Rule 570 : ə > ə̯ / __ #
-#ˌaɹʃˈijrə̯# | Rule 572 : r > ɹ / [-cons] __ [+cons]
-#ˌaɹʃˈijr# | Rule 577 : ə̯ > ∅ 
-#ˌarʃˈijr# | Rule 585 : ɹ > r 
-#ˌaʀʃˈijʀ# | Rule 587 : r > ʀ 
-#aʀʃijʀ# | Rule 588 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aʁʃijʁ# | Rule 595 : ʀ > ʁ 
+#ˌart͡ʃˈie̯rʲ# | Rule 299 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#ˌart͡ʃˈie̯r# | Rule 329 : rʲ > r 
+#ˌart͡ʃjˈer# | Rule 468 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌarʃjˈer# | Rule 501 : [+delrel] > [+cont,.delrel] 
+#ˌarʃjˈɛr# | Rule 507 : ˈe > ˈɛ 
+#ˌarʃjˈar# | Rule 512 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#ˌarʃjˈaɹ# | Rule 572 : r > ɹ / [-cons] __ #
+#ˌaɹʃjˈaɹ# | Rule 573 : r > ɹ / [-cons] __ [+cons]
+#ˌarʃjˈar# | Rule 586 : ɹ > r 
+#ˌaʀʃjˈaʀ# | Rule 588 : r > ʀ 
+#aʀʃjaʀ# | Rule 589 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʁʃjaʁ# | Rule 596 : ʀ > ʁ 
