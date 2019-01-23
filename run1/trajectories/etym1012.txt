@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1012:
-#rˌiːpˈɑːriɑm# >>> #ʁibjaʁ# ( Correct : #ʁivjɛʁ#) :
+#rˌiːpˈɑːriɑm# >>> #ʁivjaʁ# ( Correct : #ʁivjɛʁ#) :
 r ˌiː p ˈɑː r i ɑ m 
 #rˌiːpˈɑːrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˌiːpˈɑːrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -12,17 +12,19 @@ r ˌiː p ˈɑː r i ɑ m
 #rˌipˈaːrʲa# | Rule 198 : [+prim] > [+long] / __ [+cons] [+syl]
 #rˌipˈaːjrʲa# | Rule 297 : ∅ > j / [-cons] __ rʲ
 #rˌipjˈaːrʲa# | Rule 298 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#rˌipjˈɛːrʲa# | Rule 315 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ [+cons] [-cons]
-#rˌipjˈie̯rʲa# | Rule 317 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#rˌipˈie̯rʲa# | Rule 318 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
-#rˌipˈie̯ra# | Rule 327 : rʲ > r 
-#rˌipˈie̯rə# | Rule 354 : a > ə / [+syl] ( [-syl] )* __ 
-#rˌibˈie̯rə# | Rule 387 : p > b / [+syl] __ [+son,+cont,-nas]
-#rˌibjˈerə# | Rule 466 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#rˌibjˈɛrə# | Rule 505 : ˈe > ˈɛ 
-#rˌibjˈarə# | Rule 510 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#rˌibjˈarə̯# | Rule 569 : ə > ə̯ / __ #
-#rˌibjˈar# | Rule 576 : ə̯ > ∅ 
-#ʀˌibjˈaʀ# | Rule 586 : r > ʀ 
-#ʀibjaʀ# | Rule 587 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁibjaʁ# | Rule 594 : ʀ > ʁ 
+#rˌibjˈaːrʲa# | Rule 301 : [-voi] > [+voi] / [-cons] __ j
+#rˌibjˈɛːrʲa# | Rule 316 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ [+cons] [-cons]
+#rˌibjˈie̯rʲa# | Rule 318 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#rˌibˈie̯rʲa# | Rule 319 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#rˌiβˈie̯rʲa# | Rule 322 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#rˌiβˈie̯ra# | Rule 328 : rʲ > r 
+#rˌivˈie̯ra# | Rule 350 : β > v 
+#rˌivˈie̯rə# | Rule 355 : a > ə / [+syl] ( [-syl] )* __ 
+#rˌivjˈerə# | Rule 467 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#rˌivjˈɛrə# | Rule 506 : ˈe > ˈɛ 
+#rˌivjˈarə# | Rule 511 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#rˌivjˈarə̯# | Rule 570 : ə > ə̯ / __ #
+#rˌivjˈar# | Rule 577 : ə̯ > ∅ 
+#ʀˌivjˈaʀ# | Rule 587 : r > ʀ 
+#ʀivjaʀ# | Rule 588 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁivjaʁ# | Rule 595 : ʀ > ʁ 
