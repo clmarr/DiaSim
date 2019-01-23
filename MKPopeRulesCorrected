@@ -975,7 +975,7 @@ $ CORRECTION: will shorten also for a single consonant that is not r,l
 {s s;m m}>{s;m} / __ [+cons] 
 {s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __  
 
-$ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere
+$ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere (mauvais)
 t͡sʲ sʲ > t͡sʲ
 
 $ action resulting on clusters formed form vowel losses 
@@ -1002,11 +1002,24 @@ $ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but..
 ∅ > j / [-cons] __ rʲ
 
 $ CORRECTION: ... but when that vowel is ˈaː, ˈɛː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
-$ CORRECTION: j ˈi e̯ then becomes ˈi e̯
-$ CORRECTION: palatals absorb following j for now
 ˈaː j > j ˈaː / [+syl] ([-syl])* __ rʲ
-j > ∅  / [+syl] ([-syl])* __ ˈi e̯ rʲ
+
+$ CORRECTION: palatals absorb following j for now
 j > ∅ / [+front,+hi,+cons] __  
+
+$ s164-5 ~ ss334
+$ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
+$ voicing of p, t, ts intervocalically ss334-335
+$ RECURRENT as per s162
+$ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
+$ and because the voicing of k,s,f is also recurrent (s162)
+$ we can just have this as a universal intervocalic voicing rule
+$ CORRECTION: comes before post-palatal a-raising
+[-voi] > [+voi] / [-cons] __ [+syl] 
+$ as per s372 p, t also voice before l,r and t voices before n 
+[-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+t̪ > d̪ / __ [+nas,+cons]
+$ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1028,6 +1041,14 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
+$ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
+$ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
+$ CORRECTION: where d has remained t, it becomes a voiceless tʃ
+$ CORRECTION: t and d are actually preserved before the new affricates at first. 
+$ CORRECTION: this happens in the midst of the process of the fall of the first schwa. 
+$ CORRECTION: this bleeds post-palatal a-raising
+{t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
+
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
@@ -1041,33 +1062,17 @@ $ CORRECTION: only happens to primarily stressed a anywhere
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
-$ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
-[+hi,+tense,+round,+syl,-nas] > [-front,-back]
+$ CORRECTION: j ˈi e̯ then becomes ˈi e̯ when it came from rʲ and would not create a hiatus. 
+j > ∅  / [+syl] ([-syl])+ __ ˈi e̯ rʲ
 
-$ s164-5 ~ ss334
-$ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
-$ voicing of p, t, ts intervocalically ss334-335
-$ RECURRENT as per s162
-$ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
-$ and because the voicing of k,s,f is also recurrent (s162)
-$ we can just have this as a universal intervocalic voicing rule
-[-voi] > [+voi] / [-cons] __ [+syl] 
-$ as per s372 p, t also voice before l,r and t voices before n 
-[-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-t̪ > d̪ / __ [+nas,+cons]
-$ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
+$ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
+$ Currently does nothing but we're keeping it around in case loanwords will be encorporated
+[+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
 $CORRECTION : remaining ʝ becomes j sometime at this point 
 $ CORRECTION : moved before schwa reinsertion.
 $ CORRECTION : bleeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
 ʝ > j 
-
-$ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
-$ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
-$ CORRECTION: where d has remained t, it becomes a voiceless tʃ
-$ CORRECTION: t and d are actually preserved before the new affricates at first. 
-$ CORRECTION: this happens in the midst of the process of the fall of the first schwa. 
-{t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
