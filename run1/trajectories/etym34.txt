@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :34:
-#ˌɑkwˈɑːrium# >>> #axwjaʁ# ( Correct : #evje#) :
+#ˌɑkwˈɑːrium# >>> #evjaʁ# ( Correct : #evje#) :
 ˌɑ k w ˈɑː r i u m 
 #ˌɑkɣʷˈɑːrium# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ˌɑkwˈɑːrium# | Rule 6 : ɣʷ > w / [+back,+hi,+cons] __ 
@@ -15,18 +15,23 @@ Trajectory file for run 'run1'; etymon number :34:
 #ˌaxwˈaːrʲo# | Rule 200 : [+prim] > [+long] / __ [+cons] [+syl]
 #ˌaxwˈaːrʲə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
 #ˌaxwˈaːrʲə̯# | Rule 237 : ə > ə̯ 
-#ˌaxwˈaːrʲ# | Rule 262 : ə̯ > ∅ 
-#ˌaxwˈaːjrʲ# | Rule 303 : ∅ > j / [-cons] __ rʲ
-#ˌaxwjˈaːrʲ# | Rule 304 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#ˌaxwjˈɛːrʲ# | Rule 326 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
-#ˌaxwjˈie̯rʲ# | Rule 327 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˌaxwˈie̯rʲ# | Rule 328 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
-#ˌaxwˈie̯r# | Rule 337 : rʲ > r 
-#ˌaxwjˈer# | Rule 479 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌaxwjˈɛr# | Rule 518 : ˈe > ˈɛ 
-#ˌaxwjˈar# | Rule 523 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#ˌaxwjˈaɹ# | Rule 583 : r > ɹ / [-cons] __ #
-#ˌaxwjˈar# | Rule 597 : ɹ > r 
-#ˌaxwjˈaʀ# | Rule 599 : r > ʀ 
-#axwjaʀ# | Rule 600 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#axwjaʁ# | Rule 607 : ʀ > ʁ 
+#ˌaxwˈaːrʲ# | Rule 263 : ə̯ > ∅ 
+#ˌaxwˈaːjrʲ# | Rule 304 : ∅ > j / [-cons] __ rʲ
+#ˌaxwjˈaːrʲ# | Rule 305 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#ˌaɣwjˈaːrʲ# | Rule 308 : [-voi] > [+voi] / [-cons] __ [-cons]
+#ˌaɣwjˈɛːrʲ# | Rule 326 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
+#ˌaɣwjˈie̯rʲ# | Rule 327 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˌaɣwˈie̯rʲ# | Rule 328 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#ˌaɣwˈie̯r# | Rule 337 : rʲ > r 
+#ˌae̯wˈie̯r# | Rule 374 : ɣ > e̯ / ˌa __ 
+#ˌae̯vˈie̯r# | Rule 377 : w > v / e̯ __ [-cons]
+#ˌeːvˈie̯r# | Rule 446 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˌeːvjˈer# | Rule 477 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌeːvjˈɛr# | Rule 516 : ˈe > ˈɛ 
+#ˌeːvjˈar# | Rule 521 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#ˌeːvjˈaɹ# | Rule 581 : r > ɹ / [-cons] __ #
+#ˌeːvjˈar# | Rule 595 : ɹ > r 
+#ˌeːvjˈaʀ# | Rule 597 : r > ʀ 
+#eːvjaʀ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#evjaʀ# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#evjaʁ# | Rule 605 : ʀ > ʁ 

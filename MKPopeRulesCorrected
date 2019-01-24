@@ -381,8 +381,7 @@ $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
 
 $ CORRECTION: deletion of unstressed -we- after velars and before a cons, in syllables internal to a tri-or-more syllabic word (cases of aquila > aille, sanguisuga>sangsue) 
-$ for good measure throw in unstressed wi and wɛ too.
-w [+front,-lo] > ∅ / [+syl] ([-syl])* [+hi,+back,+cons] __ [+cons] ([-syl])* [+syl]
+w e > ∅ / [+syl] ([-syl])* [+hi,+back,+cons] __ [+cons] ([-syl])* [+syl]
 
 $ Pope s325ii intervocalic sk > ks before u,o  -- precedes s325i
 $ Logically, should be placed before breaking of long lax vowels -- otherwise it will be triggered by lax o: > uo  '''/
@@ -909,8 +908,11 @@ $ CORRECTION: ɾ goes to r everywhere else
 ɾ > r 
 
 $s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
-$ TODO : unclear if this rule is truly necessary... 
 ə̯ > ə / ə̯ ([-syl])* __ # 
+
+$ CORRECTION: ə retained if there are no syllabic elements BEFORE it 
+$ we know this operated from the end rather than the beginning of the word because of cases like illo >>>> lə (le) 
+ə̯ > ə / # ([-syl])* __ #
 
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
@@ -1043,8 +1045,7 @@ $ since k,s,f have already voiced intervocalically, and the new results of palat
 $ and because the voicing of k,s,f is also recurrent (s162)
 $ we can just have this as a universal intervocalic voicing rule
 $ CORRECTION: comes before post-palatal a-raising
-$ CORRECTION: can occur before j but not w
-[-voi] > [+voi] / [-cons] __ {[+syl];j}
+[-voi] > [+voi] / [-cons] __ [-cons]
 $ as per s372 p, t also voice before l,r and t voices before n 
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
@@ -1194,8 +1195,6 @@ $ s164.6 ~ s 189
 $ Later Gallo-Roman 
 $ 8th and 9th centuries as per Pope s165
 
-$TODO fix here... 
-
 $ s427 tonic free a ... i.e. ae̯  ... becomes aj before n, m 
 $ note : this does not seem to occur before ɲ -- with the exception of a single word châtaigne, and the possibly dialectally derived varaigne
 $ also does not seem to occur before ŋ -- note sangwem > sɑ̃ (sang), not sɛ̃
@@ -1221,32 +1220,61 @@ s > t͡sʲ / {ɲ;ʎ} __ #
 $ s165.8 ~ s279iv resolution of prae-consontal enya to jn when praeconsonantal
 ɲ > j n̪ / __ [+cons]
 
-
-$TODO FIX CASE OF AQUA ETC ETC
-
 $ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1.
 $ she says "all consonants but doesnˌt list the sonorants -- so we say non-sonorants
 [-son] > [-voi] / __ #
 
+$TODO FIX CASE OF AQUA ETC ETC
+
+$ CORRECTION: ɣw emits a following v when before r (sequere >>>>> suiVre)
+∅ > v / ɣ w __ r
+
+$ CORRECTION: ˈi e̯ ɣ w > ˈʉ e̯ j / @ __ (suit, sui(s), suie...) 
+ˈi e̯ ɣ w > ˈʉ e̯ j / @ __
+
+$ CORRECTION: ɣ > e̯ / ˌa __ (ˌaɣwˈie̯r > ˌae̯wˈie̯r >> e'vier)
+ɣ > e̯ / ˌa __
+
+$ CORRECTION: ˈa e̯ ɣ > ˈaː j / __ w (case of aqua >>> aiue >>> eaue, aquas >>> aiues >>> eaues >>> eaux) 
+ ˈa e̯ ɣ > ˈa j / __ w
+ 
+$ CORRECTION: ɣ w > j v (ive, antif, antive)
+ɣ w > j v 
+
+$ CORRECTION : w > v / e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
+w > v / e̯ __ [-cons]
+ 
 $ s327 resolution of ɣw clusters
 $ s327 : ɣ (<x) palatalizes after tonic front vowels 
-ɣ > ʝ / [+prim,+front] __ w
+$ CORRECTION : many of these are dipthongized to ae̯, ie̯, ej now, so allow one front glide in between
+$ CORRECTION : allow also for 
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$ ɣ > ʝ / [+prim,+front] ([-cons,-syl,+front]) __ w
 
 $ s327 ɣ assimilates to following w intervocalically 
-ɣ > w / [+syl] __ w [+syl]
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$ ɣ > w / [+syl] __ w [+syl]
 $ as per s374 : so do beta and delta
 $ but delta only after w > v if a follows
-ð w > w v / ð __ [+lo]
-[+cont,-son,-hi] > w / @ __ w 
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$  ð w > w v / ð __ [+lo]
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$  [+cont,-son,-hi] > w / @ __ w 
  
 $ s328 limited recurrence of breaking of ɛ before the palatal
-{ɛ;ˌɛ;ˈɛ;ˈɛː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯} / __ ʝ w
+$ CORRECTION: unnecessary -- deleted
+$  {ɛ;ˌɛ;ˈɛ;ˈɛː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯} / __ ʝ w
  
 $ s329 and etc 
-w > ɣʷ / ʝ __ r
-w > ɣʷ / ʝ __ [+syl] 
-ɣʷ > v / @ __ 
-ɣʷ > ɡ / # __ 
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$  w > ɣʷ / ʝ __ r
+$ CORRECTION: entire set of rules reformated, this deleted. 
+$  w > ɣʷ / ʝ __ [+syl]
+$ CORRECTION: entire set of rules reformated, this deleted.  
+$ ɣʷ > v / @ __ 
+
+$ s 192ii :  ɣʷ at beginning of word to ɡ if this is still around.. 
+ ɣʷ > ɡ / # __ $s192ii 
 
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
