@@ -380,6 +380,10 @@ $ CORRECTION: But it is nevertheless incorrect for this rule to operate before g
 $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
 
+$ CORRECTION: deletion of unstressed -we- after velars and before a cons, in syllables internal to a tri-or-more syllabic word (cases of aquila > aille, sanguisuga>sangsue) 
+$ for good measure throw in unstressed wi and wɛ too.
+w [+front,-lo] > ∅ / [+syl] ([-syl])* [+hi,+back,+cons] __ [+cons] ([-syl])* [+syl]
+
 $ Pope s325ii intervocalic sk > ks before u,o  -- precedes s325i
 $ Logically, should be placed before breaking of long lax vowels -- otherwise it will be triggered by lax o: > uo  '''/
 $ correct : only before boundary. Which is the soft way of deleting this. 
@@ -912,8 +916,11 @@ $ Completion of fall of the schwas
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
-$ CORRECTION : ŋ ɡ w at end of word to ŋ (sanguem > sang) 
-ŋ ɡ w > ŋ / __ #
+$ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang) 
+w > ∅  / ŋ ɡ __ #
+
+$ CORRECTION : delete interconsonantal w
+w > ∅ / [+cons] __ [+cons]
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 
@@ -1108,7 +1115,7 @@ $ s372 d > ð before nasals , and then ð > z before n "sometimes"
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
 d̪ > ð / [+syl] __ [+nas] 
 
-$p93 s192i kw > k before e and i 
+$p93 s192i kw > k before e and i at beginning of word
 $ must come after second palatalization resolves
 w > ∅ / k __ [+front,-lo]
 

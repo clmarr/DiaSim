@@ -101,6 +101,7 @@ h > ∅ | ORIG : h > ∅
 [+prim] > [+long] / __ [+cons] [-cons]| ORIG : [+prim] > [+long] / __ [+cons] [-cons] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]| ORIG : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #| ORIG : [+prim] > [+long] / # ([-syl])* __ [+cons] #
+w [+front,-lo] > ∅/ [+syl] ( [-syl] )* [+hi,+back,+cons] __ [+cons] ( [-syl] )* [+syl]| ORIG : w [+front,-lo] > ∅ / [+syl] ([-syl])* [+hi,+back,+cons] __ [+cons] ([-syl])* [+syl]
 s k > k s / [+syl] __ [+syl,+tense,+round] #| ORIG : s k > k s / [+syl] __ [+syl,+tense,+round] #
 [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]| ORIG : [+hi,+back,-cont] > [+cont] / [-cons] __ [+cor,+cons]
 k > x / [+syl] __ w [+syl]| ORIG : k > x / [+syl] __ w [+syl]
@@ -260,7 +261,8 @@ n̪ ə̯ > ɾ / [+syl] ( [-syl] )* [+syl] r __ #| ORIG : n̪ ə̯ > ɾ / [+syl] 
 ɾ > r | ORIG : ɾ > r 
 ə̯ > ə / ə̯ ( [-syl] )* __ #| ORIG : ə̯ > ə / ə̯ ([-syl])* __ # 
 ə̯ > ∅ | ORIG : ə̯ > ∅ 
-ŋ ɡ w > ŋ / __ #| ORIG : ŋ ɡ w > ŋ / __ #
+w > ∅ / ŋ ɡ __ #| ORIG : w > ∅  / ŋ ɡ __ #
+w > ∅ / [+cons] __ [+cons]| ORIG : w > ∅ / [+cons] __ [+cons]
 k > ∅ / __ t͡sʲ| ORIG : k > ∅  / __ t͡sʲ
 [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]| ORIG : [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
 [+cor,+ant,+front] > [+voi] / ʝ __ [-cons]| ORIG : [+cor,+ant,+front] > [+voi] / ʝ __ [-cons]

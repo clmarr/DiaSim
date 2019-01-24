@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :35:
-#ˈɑkwilɑm# >>> #exwl# ( Correct : #aj#) :
+#ˈɑkwilɑm# >>> #ɑj# ( Correct : #aj#) :
 ˈɑ k w i l ɑ m 
 #ˈɑkɣʷilɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ˈɑkwilɑm# | Rule 6 : ɣʷ > w / [+back,+hi,+cons] __ 
@@ -7,15 +7,18 @@ Trajectory file for run 'run1'; etymon number :35:
 #ˈɑkwelɑm# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #ˈɑkwelɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #ˈɑːkwelɑ# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɑːxwelɑ# | Rule 105 : k > x / [+syl] __ w [+syl]
-#ˈaːxwela# | Rule 174 : [+lo,+syl] > [+front,-back] 
-#ˈaːxwəla# | Rule 231 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈaːxwə̯la# | Rule 236 : ə > ə̯ 
-#ˈaːxwla# | Rule 261 : ə̯ > ∅ 
-#ˈae̯xwla# | Rule 351 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯xwlə# | Rule 365 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈeːxwlə# | Rule 446 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈeːxwlə̯# | Rule 580 : ə > ə̯ / __ #
-#ˈeːxwl# | Rule 587 : ə̯ > ∅ 
-#eːxwl# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#exwl# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#ˈɑːklɑ# | Rule 103 : w [+front,-lo] > ∅/ [+syl] ( [-syl] )* [+hi,+back,+cons] __ [+cons] ( [-syl] )* [+syl]
+#ˈɑːxlɑ# | Rule 105 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#ˈaːxla# | Rule 175 : [+lo,+syl] > [+front,-back] 
+#ˈaːçla# | Rule 183 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#ˈaːçʎa# | Rule 188 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#ˈaːʎa# | Rule 216 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#ˈaʎa# | Rule 350 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#ˈaʎə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈaːʎə# | Rule 549 : [+lo,+syl] > [+long] / __ ʎ ə #
+#ˈɑːʎə# | Rule 567 : [+lo,+long,+syl] > [+back,-front] 
+#ˈɑːʎə̯# | Rule 582 : ə > ə̯ / __ #
+#ˈɑːʎ# | Rule 589 : ə̯ > ∅ 
+#ɑːʎ# | Rule 600 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɑʎ# | Rule 601 : [+syl,+long] > [-long,-splng] 
+#ɑj# | Rule 608 : ʎ > j 
