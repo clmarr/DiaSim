@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :382:
-#kˈae̯kum# >>> #sjɛ# ( Correct : #sjø#) :
+#kˈae̯kum# >>> #sjœ# ( Correct : #sjø#) :
 k ˈa e̯ k u m 
 #kˈɑe̯kum# | Rule 3 : [+lo,+syl] > [-front,+back] 
 #kˈae̯kum# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
@@ -13,14 +13,12 @@ k ˈa e̯ k u m
 #cˈɛːɣo# | Rule 125 : ɡ > ɣ / [-cons] __ [-cons]
 #cˈie̯ɣo# | Rule 152 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #t͡sʲˈie̯ɣo# | Rule 165 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#t͡sʲˈie̯ɣə# | Rule 239 : [-stres,-lo,+syl] > ə / __ #
-#t͡sʲˈie̯ɣə̯# | Rule 241 : ə > ə̯ 
-#t͡sʲˈie̯ɣ# | Rule 268 : ə̯ > ∅ 
-#t͡sʲˈie̯x# | Rule 376 : [-son] > [-voi] / __ #
-#t͡sʲˈie̯k# | Rule 388 : x > k / __ #
-#t͡sˈie̯k# | Rule 430 : t͡sʲ > t͡s 
-#t͡sjˈek# | Rule 483 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sjˈek# | Rule 516 : [+delrel] > [+cont,.delrel] 
-#sjˈɛk# | Rule 522 : ˈe > ˈɛ 
-#sjˈɛ# | Rule 592 : [-son] > ∅ / __ #
-#sjɛ# | Rule 604 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡sʲˈie̯o# | Rule 173 : ɣ > ∅ / ˈi e̯ __ o
+#t͡sʲˈie̯w# | Rule 232 : [+back,+round,-stres] > w / ˈi e̯ __ 
+#t͡sˈie̯w# | Rule 433 : t͡sʲ > t͡s 
+#t͡sjˈew# | Rule 487 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#t͡sjˈøw# | Rule 488 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#t͡sjˈø# | Rule 492 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#sjˈø# | Rule 520 : [+delrel] > [+cont,.delrel] 
+#sjø# | Rule 608 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sjœ# | Rule 612 : ø > œ / __ ( [+cons] )* #

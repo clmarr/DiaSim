@@ -623,6 +623,9 @@ $CORRECTION also includes after uo̯ -- case of locum > lieu
 ɣ > ∅ / [-son] [+back,-cons] __ [+tense,-stres,+round,+syl]
 ɣ > ∅ / {[-syl];#} [-syl] [+back,-cons] __ [+tense,-stres,+round,+syl]
 
+$ CORRECTION : ɣ disappears also between ie̯ and o (a: has not yet been raised >> ie, so Savigny, Aubigny etc won't be effected)
+ɣ > ∅ / ˈi e̯ __ o
+
 $Pope p113 s254.
 $Final unstressed i, o, u become semi-vocalic and combine into diphthong with previous vowel. 
 o > u / [+syl,+prim] __ # 
@@ -664,8 +667,7 @@ $Pope never explicitly says this but her trajectories for words make this clear
 {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
 
 $s374i : w from hiatus u,o effaced if coming after two consonants 
-$she doesnˌt say so but we exclude the postvelar case for sanity
-$TODO remove this for demonstration  
+$CORRECTION: she doesnˌt say so but we exclude the postvelar case for sanity
 w > ∅ / [+cons] [+cons,-back] __
 
 $ s322-326, palatalization of velar frics pre-coronal
@@ -813,6 +815,13 @@ $ Dated to seventh century in summary by Pope (s164)
 $ s299 "must have taken place before the end of the 8th century" 
 [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
 
+$ CORRECTION : ɔ,o in hiatus with prior a become w : cases of paraola > parawle > parole etc
+$ CORRECTION : a becomes shortened in the process if not already 
+[+lo,+syl] [+back,+round,-stres] > [-long] w
+
+$ CORRECTION : same in case of hiatus with ie̯ 
+[+back,+round,-stres] > w / ˈi e̯ __
+
 $ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence
 $ TODO : find better way to handle this... -- such as when it has already become ddʒ ? 
 ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ
@@ -821,10 +830,6 @@ $ CORRECTION : Formation of certain diphthongs for unstressed tense final vowels
 $ CORRECTION : but this does not occur before nasals
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} $case of pˈius > pieux and leuga > lieue
 {e;i} > {j;j} / [+syl] __ [-nas]
-
-$ CORRECTION : ɔ,o in hiatus with prior a become w : cases of paraola > parawle > parole etc
-$ CORRECTION : a becomes shortened in the process if not already 
-[+lo,+syl] [+back,+round,-stres] > [-long] w
 
 $s164-10 ~s250 complete effacement of unstressed penultimate
 $as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
@@ -1005,12 +1010,15 @@ $ recurrent since the triggers are!
 $ CORRECTION: geminate stops are degeminated if after consonant, or before consonant then non-non-consonantal (i.e. either consonantal or coda)
 $ --don't have to deal with the affricate clusters or palatals in the latter case as they never occur 
 $ CORRECTION: will shorten also for a single consonant that is not r,l
-{d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k} / [+cons] __
+$ CORRECTION : s,m,l also shortened when double after another consonant or word initially - include also ɫl for good measure
+{d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / {[+cons];#} __
 {d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ [+cons] {[+cons];#}
 {d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ {[+cons,-son];[+cons,+son,+nas]}
 
 {s s;m m}>{s;m} / __ [+cons] 
-{s s;d̪ d̪;t̪ t̪;m m}>{s;d̪;t̪;m} / [+cons] __  
+
+$ CORRECTION : t̪ t͡sʲ word initially also eliminated. For good measure, handle also any word initial stop followed by a non-continuant
+[-cont] > ∅ / # __ [-cont]
 
 $ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere (mauvais)
 t͡sʲ sʲ > t͡sʲ
@@ -1208,8 +1216,6 @@ e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
 
 $s355-357 open word finals again if unsupported 
 [-cont,-delrel] > [+cont] / [-cons] __ # 
-$ close if became supported
-[+cont,-son,-strid] > [-cont,-delrel] / [+cons] __ #
 
 $ CORRECTION : ɸ > f
 ɸ > f
@@ -1248,8 +1254,9 @@ $ CORRECTION: ˈa e̯ ɣ > ˈaː j / __ w (case of aqua >>> aiue >>> eaue, aquas
 $ CORRECTION: ɣ w > j v (ive, antif, antive)
 ɣ w > j v 
 
-$ CORRECTION : w > v / e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
-w > v / e̯ __ [-cons]
+$ CORRECTION : w > v / [+lo] e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
+$ does not happen for ie̯ which ends up forming ie̯w > jew > j
+w > v / [+lo] e̯ __ [-cons]
  
 $ CORRECTION : deletion of w internal in remaining cons clusters
 w > ∅ / [+cons] __ [+cons] 
@@ -1286,12 +1293,17 @@ $ ɣʷ > v / @ __
 $ s 192ii :  ɣʷ at beginning of word to ɡ if this is still around.. 
  ɣʷ > ɡ / # __ $s192ii 
 
+$s355-357 close if became supported
+$ CORRECTION: this is moved down to come after the -xw- handling phenomena
+[+cont,-son,-strid] > [-cont,-delrel] / [+cons] __ #
+
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
 
 $ s357 x palatalizes after tonic a, i. However, neither is raised. 
-x > ç / [+lo,+front,+prim] __ #
-x > ç / [+hi,+front,+prim] __ #
+$ CORRECTION: x also palatalizes after ae̯, aj and ie̯ -- so allow one front glide in between
+x > ç / [+lo,+front,+prim] ([-cons,-syl,+front]) __ #
+x > ç / [+hi,+front,+prim] ([-cons,-syl,+front]) __ #
 
 $ s357, elsewhere, x closes back to k 
 x > k / __ #
@@ -1408,6 +1420,9 @@ $she doesnˌt seem to mention this being effected by former o,
 	$ so we assume it comes before s166.2 ~ s184 
 ˌe w >ˌo
 ˌe >ˌo / __ [+hi,+round,+prim] 
+
+$ CORRECTION: unstressed e goes to i before ɲ,ʎ
+e > i / __ [+cons,+son,+hi,+front]
 
 $s166.9 ~ s383-391 -- "beginnings" of l-vocalization praeconsonantal. 
 $As per Pope s167, "unclear" how much and if the vocalization aspect was present during this period.
@@ -1994,7 +2009,7 @@ $ for convenience œ̃ also handled in here.
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
 
 $~Modern French
-$ Not explicated in Pope -- TODO remove for demo version
+$ CORRECTION: ø closes before consonants in final syll. 
 ø > œ / __ ([+cons])* #
 
 $ s525 wɛ > wa -- first attested late 16th century
@@ -2005,8 +2020,7 @@ $s441.1~s443 ã > ɑ̃ in Modern French
 $Pope does not give an exact date for this; she merely says "in the modern period"
 {ã;ãː} >[-front,+back]
 
-$ Not found in Pope explicitly, but implied in sound tables: uvular ʀ trill becomes  a fricative 
-$ TODO remove for demo version 
+$ CORRECTION: uvular ʀ trill becomes  a fricative 
 ʀ > ʁ 
 
 $ Pope s381 ~ s687 : ʎ > j "in the course of Modern French" 
