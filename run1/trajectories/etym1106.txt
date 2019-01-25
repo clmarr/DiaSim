@@ -1,18 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1106:
-#sˌit̪ˈellum# >>> #sɛl# ( Correct : #so#) :
-s ˌi t̪ ˈe l l u m 
-#sˌɪt̪ˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌet̪ˈɛllom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌet̪ˈɛllo# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌet̪ˈɛllə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
-#sˌet̪ˈɛllə̯# | Rule 237 : ə > ə̯ 
-#sˌet̪ˈɛll# | Rule 263 : ə̯ > ∅ 
-#sˌed̪ˈɛll# | Rule 308 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sˌeðˈɛll# | Rule 331 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌeðˈɛl# | Rule 413 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˌəðˈɛl# | Rule 435 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#sˌəˈɛl# | Rule 473 : {θ;ð} > {∅;∅} 
-#sˌəˈɛːl# | Rule 534 : [+prim] > [+long] / ˌə __ 
-#sˈɛːl# | Rule 535 : ˌə > ∅ / __ [+syl]
-#sɛːl# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛl# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#sˌin̪ɡlˈut̪t̪um# >>> #sæ̃ɡlu# ( Correct : #sɑ̃ɡlo#) :
+s ˌi n̪ ɡ l ˈu t̪ t̪ u m 
+#sˌiŋɡlˈut̪t̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#sˌɪŋɡlˈʊt̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌeŋɡlˈot̪t̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌeŋɡlˈot̪t̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌeŋɡlˈot̪t̪ə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
+#sˌeŋɡlˈot̪t̪ə̯# | Rule 237 : ə > ə̯ 
+#sˌeŋɡlˈot̪t̪# | Rule 264 : ə̯ > ∅ 
+#sˌeŋɡlˈot̪# | Rule 410 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#sˌẽŋɡlˈot̪# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˌẽŋɡlˈut̪# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#sˌɛ̃ŋɡlˈut̪# | Rule 458 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌæ̃ŋɡlˈut̪# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
+#sˌæ̃ːɡlˈut̪# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌæ̃ːɡlˈu# | Rule 586 : [-son] > ∅ / __ #
+#sæ̃ːɡlu# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sæ̃ɡlu# | Rule 599 : [+syl,+long] > [-long,-splng] 

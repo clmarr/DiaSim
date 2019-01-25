@@ -1,15 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1228:
-#t̪rˈɑːn̪s# >>> #t̪ʁɛ# ( Correct : #t̪ʁɛ#) :
-t̪ r ˈɑː n̪ s 
-#t̪rˈɑːs# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
-#t̪rˈɑs# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#t̪rˈɑːs# | Rule 102 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#t̪rˈaːs# | Rule 175 : [+lo,+syl] > [+front,-back] 
-#t̪rˈae̯s# | Rule 353 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪rˈeːs# | Rule 446 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#t̪rˈɛːs# | Rule 579 : ˈeː > ˈɛː / __ [+cons] #
-#t̪rˈɛː# | Rule 586 : [-son] > ∅ / __ #
-#t̪ʀˈɛː# | Rule 597 : r > ʀ 
-#t̪ʀɛː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ʀɛ# | Rule 599 : [+syl,+long] > [-long,-splng] 
-#t̪ʁɛ# | Rule 605 : ʀ > ʁ 
+#t̪rˈɑɡere# >>> #t̪ʁɛʁ# ( Correct : #t̪ʁɛʁ#) :
+t̪ r ˈɑ ɡ e r e 
+#t̪rˈɑɡɛrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪rˈɑɡrɛ# | Rule 40 : [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
+#t̪rˈɑɣrɛ# | Rule 94 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#t̪rˈaɣrɛ# | Rule 175 : [+lo,+syl] > [+front,-back] 
+#t̪rˈaʝrɛ# | Rule 183 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#t̪rˈaʝrʲɛ# | Rule 189 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#t̪rˈarʲɛ# | Rule 217 : [+hi,+front,-lat,-syl] > ∅ / __ rʲ
+#t̪rˈarʲə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
+#t̪rˈarʲə̯# | Rule 237 : ə > ə̯ 
+#t̪rˈarʲ# | Rule 264 : ə̯ > ∅ 
+#t̪rˈajrʲ# | Rule 304 : ∅ > j / [-cons] __ rʲ
+#t̪rˈajr# | Rule 337 : rʲ > r 
+#t̪rˈajrə# | Rule 421 : ∅ > ə / [+front,-syl,+hi] r __ #
+#t̪rˈɛjrə# | Rule 479 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#t̪rˈɛːrə# | Rule 504 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#t̪rˈɛːrə̯# | Rule 580 : ə > ə̯ / __ #
+#t̪rˈɛːr# | Rule 587 : ə̯ > ∅ 
+#t̪ʀˈɛːʀ# | Rule 597 : r > ʀ 
+#t̪ʀɛːʀ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀɛʀ# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#t̪ʁɛʁ# | Rule 605 : ʀ > ʁ 

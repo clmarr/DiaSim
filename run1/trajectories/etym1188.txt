@@ -1,19 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1188:
-#t̪ˈen̪eɑt̪# >>> #t̪jɛ̃ɲ# ( Correct : #t̪jɛn̪#) :
-t̪ ˈe n̪ e ɑ t̪ 
-#t̪ˈɛn̪ɛɑt̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛn̪jɑt̪# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#t̪ˈɛn̪ʝɑt̪# | Rule 28 : j > ʝ / __ [+syl]
-#t̪ˈɛɲɑt̪# | Rule 81 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
-#t̪ˈɛːɲɑt̪# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯ɲɑt̪# | Rule 149 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯ɲat̪# | Rule 175 : [+lo,+syl] > [+front,-back] 
-#t̪ˈie̯ɲaθ# | Rule 222 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#t̪ˈie̯ɲəθ# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈie̯ɲə# | Rule 473 : {θ;ð} > {∅;∅} 
-#t̪jˈeɲə# | Rule 477 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪jˈẽɲə# | Rule 487 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#t̪jˈɛ̃ɲə# | Rule 519 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#t̪jˈɛ̃ɲə̯# | Rule 580 : ə > ə̯ / __ #
-#t̪jˈɛ̃ɲ# | Rule 587 : ə̯ > ∅ 
-#t̪jɛ̃ɲ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˈempus# >>> #t̪æ̃# ( Correct : #t̪ɑ̃#) :
+t̪ ˈe m p u s 
+#t̪ˈɛmpʊs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛmpos# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛmpəs# | Rule 234 : [-stres,-lo,+syl] > ə / __ [-syl]
+#t̪ˈɛmpə̯s# | Rule 237 : ə > ə̯ 
+#t̪ˈɛmps# | Rule 264 : ə̯ > ∅ 
+#t̪ˈɛmss# | Rule 289 : [+lab,-nas,-round,+cons] > s / __ s
+#t̪ˈɛms# | Rule 297 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / [+cons] __ 
+#t̪ˈɛm̥s# | Rule 412 : [-son] > [-voi] / __ [-voi]
+#t̪ˈɛ̃m̥s# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˈæ̃m̥s# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
+#t̪ˈæ̃ːs# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˈæ̃ː# | Rule 586 : [-son] > ∅ / __ #
+#t̪æ̃ː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪æ̃# | Rule 599 : [+syl,+long] > [-long,-splng] 

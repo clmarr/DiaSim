@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1099:
-#sˈikkum# >>> #sɛk# ( Correct : #sɛk#) :
-s ˈi k k u m 
-#sˈɪkkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈekkom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈekko# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈekkə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
-#sˈekkə̯# | Rule 237 : ə > ə̯ 
-#sˈekk# | Rule 263 : ə̯ > ∅ 
-#sˈek# | Rule 413 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˈɛk# | Rule 516 : ˈe > ˈɛ 
-#sˈɛkə̯# | Rule 584 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#sˈɛk# | Rule 587 : ə̯ > ∅ 
-#sɛk# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈiɡn̪um# >>> #sɛ̃# ( Correct : #sɛ̃#) :
+s ˈi ɡ n̪ u m 
+#sˈiŋn̪um# | Rule 1 : ɡ > ŋ / __ [+nas,+cor]
+#sˈɪŋn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈeŋn̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈeŋn̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈeɲn̪o# | Rule 184 : ŋ > ɲ / __ [+ant,+distr]
+#sˈeɲo# | Rule 186 : [+nas,+cons] > ∅ / ɲ __ 
+#sˈeːɲo# | Rule 200 : [+prim] > [+long] / __ [+cons] [+syl]
+#sˈeːɲə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
+#sˈeːɲə̯# | Rule 237 : ə > ə̯ 
+#sˈeːɲ# | Rule 264 : ə̯ > ∅ 
+#sˈejɲ# | Rule 353 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈej̃ɲ# | Rule 431 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#sˈẽj̃ɲ# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˈɛ̃j̃ɲ# | Rule 458 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈæ̃j̃ɲ# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
+#sˈɛ̃j̃ɲ# | Rule 481 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#sˈɛ̃j̃n̪# | Rule 509 : ɲ > n̪ / __ #
+#sˈɛ̃n̪# | Rule 520 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˈɛ̃ː# | Rule 567 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#sɛ̃ː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛ̃# | Rule 599 : [+syl,+long] > [-long,-splng] 

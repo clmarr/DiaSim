@@ -119,7 +119,8 @@ $ CORRECTION: This seems to only reliably occur after /ɑ/ and /ɑː/ -- this is
 $ as per s186iib -- w effaced between k and a rounded vowel
 	$ Note most authors interpret this differently, as the delabialization of k
 	$ Note also that Pope seems to have missed that his also happend after g?
-w > ∅ / k __ [+syl,+round] 
+	$ CORRECTION: does not happen when following vowel is word final -- case of sequo >>>> siue >>> suis
+w > ∅ / k __ [+syl,+round] @
 
 $ CORRECTION, ADDITION : unstressed -ɛr, -ɔr endings experience metathesis
 ${ɛ r;ɔ r} > {r ɛ;r ɔ} / __ #
@@ -497,8 +498,9 @@ $ but BEFORE regressive palatalization of r !
 $ s189 : nβl > mbl -- only relevant for inwolare>embler, an obselete word, it seems though. 
 n β > m b / __ [+lat] 
 
-$ CORRECTION : β and w are deleted elsewhere when in middle of cluster not following a labial 
-{β;w} > {∅;∅} / [+cons,-lab] __ r
+$ CORRECTION : β and w are deleted elsewhere when in middle of cluster not following a labial or velar 
+$ (we can use -hi since we assume a palatal cons would not emerge here - -back won't work because of ɫ) 
+{β;w} > {∅;∅} / [+cons,-lab,-hi] __ r
 
 $ CORRECTION : [+lat] ʝ > ʎ before r 
 [+lat] ʝ > ʎ / __ r 
@@ -864,6 +866,8 @@ $ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for
 ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 $ CORRECTION : ə also retained after dental ə ɣ for now 
 ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
+$ CORRECTION : ə also retained when after [+cons] w and before [+cons] 
+ə̯ > ə / [+cons] w __ [+cons] 
 
 $ CORRECTION : s365iii bleeds some n flapping
 $ this is going to be recurrent...
@@ -920,9 +924,6 @@ $Delete all the rest which were not specifically retained:
 
 $ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang) 
 w > ∅  / ŋ ɡ __ #
-
-$ CORRECTION : delete interconsonantal w
-w > ∅ / [+cons] __ [+cons]
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 

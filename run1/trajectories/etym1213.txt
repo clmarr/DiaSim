@@ -1,22 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1213:
-#t̪ˌorn̪ˈɑːre# >>> #t̪uʁn̪ɛʁ# ( Correct : #t̪uʁn̪e#) :
-t̪ ˌo r n̪ ˈɑː r e 
-#t̪ˌɔrn̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrn̪ˈɑrɛ# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#t̪ˌɔrn̪ˈɑːrɛ# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˌɔrn̪ˈaːrɛ# | Rule 175 : [+lo,+syl] > [+front,-back] 
-#t̪ˌɔrn̪ˈaːrə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˌɔrn̪ˈaːrə̯# | Rule 237 : ə > ə̯ 
-#t̪ˌɔrn̪ˈaːr# | Rule 263 : ə̯ > ∅ 
-#t̪ˌɔrn̪ˈae̯r# | Rule 353 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪ˌorn̪ˈae̯r# | Rule 356 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#t̪ˌorn̪ˈeːr# | Rule 446 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#t̪ˌurn̪ˈeːr# | Rule 450 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurn̪ˈɛːr# | Rule 527 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#t̪ˌurn̪ˈɛːɹ# | Rule 581 : r > ɹ / [-cons] __ #
-#t̪ˌuɹn̪ˈɛːɹ# | Rule 582 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌurn̪ˈɛːr# | Rule 595 : ɹ > r 
-#t̪ˌuʀn̪ˈɛːʀ# | Rule 597 : r > ʀ 
-#t̪uʀn̪ɛːʀ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʀn̪ɛʀ# | Rule 599 : [+syl,+long] > [-long,-splng] 
-#t̪uʁn̪ɛʁ# | Rule 605 : ʀ > ʁ 
+#t̪ˈorkɑm# >>> #t̪ɔʁʃ# ( Correct : #t̪ɔʁʃ#) :
+t̪ ˈo r k ɑ m 
+#t̪ˈɔrkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɔrkɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈɔrka# | Rule 175 : [+lo,+syl] > [+front,-back] 
+#t̪ˈɔrkʲa# | Rule 206 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#t̪ˈɔrca# | Rule 218 : [+back,+front] > [-back] 
+#t̪ˈɔrt͡ʃa# | Rule 226 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t̪ˈɔrt͡ʃə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈɔrʃə# | Rule 510 : [+delrel] > [+cont,.delrel] 
+#t̪ˈɔrʃə̯# | Rule 580 : ə > ə̯ / __ #
+#t̪ˈɔɹʃə̯# | Rule 582 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈɔɹʃ# | Rule 587 : ə̯ > ∅ 
+#t̪ˈɔrʃ# | Rule 595 : ɹ > r 
+#t̪ˈɔʀʃ# | Rule 597 : r > ʀ 
+#t̪ɔʀʃ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ɔʁʃ# | Rule 605 : ʀ > ʁ 

@@ -1,26 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1214:
-#t̪ˌorn̪ɑːt̪ˈuːrɑm# >>> #t̪uʁn̪yʁ# ( Correct : #t̪uʁn̪yʁ#) :
-t̪ ˌo r n̪ ɑː t̪ ˈuː r ɑ m 
-#t̪ˌɔrn̪ɑːt̪ˈuːrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrn̪ɑːt̪ˈurɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrn̪ɑt̪ˈurɑm# | Rule 51 : [+syl,+long] > [-long,-splng] 
-#t̪ˌɔrn̪ɑt̪ˈurɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˌɔrn̪ɑt̪ˈuːrɑ# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˌɔrn̪at̪ˈuːra# | Rule 175 : [+lo,+syl] > [+front,-back] 
-#t̪ˌɔrn̪at̪ˈʉːra# | Rule 215 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#t̪ˌɔrn̪ad̪ˈʉːra# | Rule 308 : [-voi] > [+voi] / [-cons] __ [-cons]
-#t̪ˌɔrn̪aðˈʉːra# | Rule 331 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#t̪ˌorn̪aðˈʉːra# | Rule 356 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#t̪ˌorn̪əðˈʉːrə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌorn̪əðˈyːrə# | Rule 428 : [+hi,+round,-back] > [+front] 
-#t̪ˌurn̪əðˈyːrə# | Rule 450 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurn̪əˈyːrə# | Rule 473 : {θ;ð} > {∅;∅} 
-#t̪ˌurn̪ˈyːrə# | Rule 537 : ə > ∅ / __ [+syl]
-#t̪ˌurn̪ˈyːrə̯# | Rule 580 : ə > ə̯ / __ #
-#t̪ˌuɹn̪ˈyːrə̯# | Rule 582 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹn̪ˈyːr# | Rule 587 : ə̯ > ∅ 
-#t̪ˌurn̪ˈyːr# | Rule 595 : ɹ > r 
-#t̪ˌuʀn̪ˈyːʀ# | Rule 597 : r > ʀ 
-#t̪uʀn̪yːʀ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʀn̪yʀ# | Rule 599 : [+syl,+long] > [-long,-splng] 
-#t̪uʁn̪yʁ# | Rule 605 : ʀ > ʁ 
+#t̪ˌormˈen̪t̪ɑ# >>> #t̪uʁmæ̃t̪# ( Correct : #t̪uʁmɑ̃t̪#) :
+t̪ ˌo r m ˈe n̪ t̪ ɑ 
+#t̪ˌɔrmˈɛn̪t̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɔrmˈɛ?t̪ɑ# | Rule 92 : [+ant,+cons] > [-voi] / __ t̪
+#t̪ˌɔrmˈɛ?t̪a# | Rule 175 : [+lo,+syl] > [+front,-back] 
+#t̪ˌormˈɛ?t̪a# | Rule 356 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#t̪ˌormˈɛ?t̪ə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˌormˈɛ̃?t̪ə# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˌurmˈɛ̃?t̪ə# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurmˈæ̃?t̪ə# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
+#t̪ˌurmˈæ̃ːt̪ə# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˌurmˈæ̃ːt̪ə̯# | Rule 580 : ə > ə̯ / __ #
+#t̪ˌuɹmˈæ̃ːt̪ə̯# | Rule 582 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹmˈæ̃ːt̪# | Rule 587 : ə̯ > ∅ 
+#t̪ˌurmˈæ̃ːt̪# | Rule 595 : ɹ > r 
+#t̪ˌuʀmˈæ̃ːt̪# | Rule 597 : r > ʀ 
+#t̪uʀmæ̃ːt̪# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪uʀmæ̃t̪# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#t̪uʁmæ̃t̪# | Rule 605 : ʀ > ʁ 

@@ -1,16 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1184:
-#t̪ˌempˈest̪ɑ# >>> #t̪æ̃pɛst̪# ( Correct : #t̪ɑ̃pɛt̪#) :
-t̪ ˌe m p ˈe s t̪ ɑ 
-#t̪ˌɛmpˈɛst̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɛmpˈɛst̪a# | Rule 175 : [+lo,+syl] > [+front,-back] 
-#t̪ˌempˈɛst̪a# | Rule 356 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#t̪ˌempˈɛst̪ə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌem̥pˈɛst̪ə# | Rule 412 : [-son] > [-voi] / __ [-voi]
-#t̪ˌẽm̥pˈɛst̪ə# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌɛ̃m̥pˈɛst̪ə# | Rule 458 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌæ̃m̥pˈɛst̪ə# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
-#t̪ˌæ̃ːpˈɛst̪ə# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌæ̃ːpˈɛst̪ə̯# | Rule 580 : ə > ə̯ / __ #
-#t̪ˌæ̃ːpˈɛst̪# | Rule 587 : ə̯ > ∅ 
-#t̪æ̃ːpɛst̪# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪æ̃pɛst̪# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#t̪ʰˈeːkɑm# >>> #t̪wa# ( Correct : #t̪ɛ#) :
+t̪ʰ ˈeː k ɑ m 
+#t̪ˈeːkɑm# | Rule 7 : [+sg,-cont] > [-sg] 
+#t̪ˈekɑm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈekɑ# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeːkɑ# | Rule 100 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːɡɑ# | Rule 120 : k > ɡ / [-cons] __ [+syl]
+#t̪ˈeːɣɑ# | Rule 122 : ɡ > ɣ / [-cons] __ [-cons]
+#t̪ˈeːɣa# | Rule 175 : [+lo,+syl] > [+front,-back] 
+#t̪ˈeːɣʲa# | Rule 206 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#t̪ˈeːʝa# | Rule 218 : [+back,+front] > [-back] 
+#t̪ˈeːja# | Rule 330 : ʝ > j 
+#t̪ˈeja# | Rule 352 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#t̪ˈejə# | Rule 367 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈojə# | Rule 445 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujə# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯ə# | Rule 492 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛə# | Rule 495 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛːə# | Rule 538 : [+stres] > [+long] / __ ə
+#t̪wˈɛː# | Rule 539 : ə > ∅ / [+syl] __ 
+#t̪wɛː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wɛ# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#t̪wa# | Rule 603 : ɛ > a / w __ 

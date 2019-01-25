@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1185:
-#t̪ˈempus# >>> #t̪æ̃# ( Correct : #t̪ɑ̃#) :
-t̪ ˈe m p u s 
-#t̪ˈɛmpʊs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛmpos# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛmpəs# | Rule 234 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈɛmpə̯s# | Rule 237 : ə > ə̯ 
-#t̪ˈɛmps# | Rule 263 : ə̯ > ∅ 
-#t̪ˈɛmss# | Rule 289 : [+lab,-nas,-round,+cons] > s / __ s
-#t̪ˈɛms# | Rule 297 : {s s;d̪ d̪;t̪ t̪;m m} > {s;d̪;t̪;m} / [+cons] __ 
-#t̪ˈɛm̥s# | Rule 412 : [-son] > [-voi] / __ [-voi]
-#t̪ˈɛ̃m̥s# | Rule 432 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˈæ̃m̥s# | Rule 463 : [+nas,-hi,+syl] > [+lo] 
-#t̪ˈæ̃ːs# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈæ̃ː# | Rule 586 : [-son] > ∅ / __ #
-#t̪æ̃ː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪æ̃# | Rule 599 : [+syl,+long] > [-long,-splng] 
+#t̪ˈeːkt̪um# >>> #t̪wa# ( Correct : #t̪wa#) :
+t̪ ˈeː k t̪ u m 
+#t̪ˈeːkt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈekt̪ʊm# | Rule 50 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈext̪ʊm# | Rule 56 : k > x / [-cons] __ [+cor,-voi]
+#t̪ˈext̪om# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈext̪o# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeçt̪o# | Rule 183 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#t̪ˈeçt̪ʲo# | Rule 189 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#t̪ˈeçt̪ʲə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˈeçt̪ʲə̯# | Rule 237 : ə > ə̯ 
+#t̪ˈeçt̪ʲ# | Rule 264 : ə̯ > ∅ 
+#t̪ˈeçt̪# | Rule 338 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {t̪;d̪;s;z;n̪} / [+hi,+front,-syl] __ 
+#t̪ˈeʝt̪# | Rule 383 : ç > ʝ 
+#t̪ˈejt̪# | Rule 385 : ʝ > j / [-cons] __ 
+#t̪ˈojt̪# | Rule 445 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujt̪# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯t̪# | Rule 492 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛt̪# | Rule 495 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛ# | Rule 586 : [-son] > ∅ / __ #
+#t̪wɛ# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wa# | Rule 603 : ɛ > a / w __ 

@@ -1,12 +1,14 @@
 Trajectory file for run 'run1'; etymon number :1151:
-#sˈun̪t̪# >>> #sɔ̃# ( Correct : #sɔ̃#) :
-s ˈu n̪ t̪ 
-#sˈʊn̪t̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈon̪t̪# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈo?t̪# | Rule 92 : [+ant,+cons] > [-voi] / __ t̪
-#sˈũ?t̪# | Rule 147 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
-#sˈũːt̪# | Rule 566 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˈũː# | Rule 586 : [-son] > ∅ / __ #
-#sũː# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sũ# | Rule 599 : [+syl,+long] > [-long,-splng] 
-#sɔ̃# | Rule 600 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#sˈukkum# >>> #suk# ( Correct : #sɔk#) :
+s ˈu k k u m 
+#sˈʊkkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈokkom# | Rule 60 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈokko# | Rule 65 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈokkə# | Rule 235 : [-stres,-lo,+syl] > ə / __ #
+#sˈokkə̯# | Rule 237 : ə > ə̯ 
+#sˈokk# | Rule 264 : ə̯ > ∅ 
+#sˈok# | Rule 413 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#sˈuk# | Rule 450 : [+round,+tense,+back] > [+hi] 
+#sˈukə̯# | Rule 584 : ∅ > ə̯ / # [-syl] [+syl] k __ #
+#sˈuk# | Rule 587 : ə̯ > ∅ 
+#suk# | Rule 598 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
