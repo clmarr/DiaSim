@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :666:
-#mˌed̪iˈɑːn̪ɑm# >>> #məjjɛ̃n̪# ( Correct : #mwajɛn̪#) :
+#mˌed̪iˈɑːn̪ɑm# >>> #mujjɛ̃n̪# ( Correct : #mwajɛn̪#) :
 m ˌe d̪ i ˈɑː n̪ ɑ m 
 #mˌɛd̪ɪˈɑːn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˌɛd̪jˈɑːn̪ɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -16,10 +16,13 @@ m ˌe d̪ i ˈɑː n̪ ɑ m
 #mˌɛjˈie̯n̪a# | Rule 340 : ʝ > j 
 #mˌejˈie̯n̪a# | Rule 368 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
 #mˌejˈie̯n̪ə# | Rule 378 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌəjˈie̯n̪ə# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#mˌəjjˈen̪ə# | Rule 492 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mˌəjjˈẽn̪ə# | Rule 502 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#mˌəjjˈɛ̃n̪ə# | Rule 534 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#mˌəjjˈɛ̃n̪ə̯# | Rule 595 : ə > ə̯ / __ #
-#mˌəjjˈɛ̃n̪# | Rule 602 : ə̯ > ∅ 
-#məjjɛ̃n̪# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˌojˈie̯n̪ə# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#mˌujˈie̯n̪ə# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#mˌujjˈen̪ə# | Rule 492 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#mˌujjˈẽn̪ə# | Rule 502 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
+#mˌuɛ̯jˈẽn̪ə# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mˌujjˈẽn̪ə# | Rule 508 : ɛ̯ > j / [+syl,+back,+round] __ j
+#mˌujjˈɛ̃n̪ə# | Rule 534 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#mˌujjˈɛ̃n̪ə̯# | Rule 595 : ə > ə̯ / __ #
+#mˌujjˈɛ̃n̪# | Rule 602 : ə̯ > ∅ 
+#mujjɛ̃n̪# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

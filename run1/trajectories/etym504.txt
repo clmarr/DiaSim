@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :504:
-#krˌeːskˈen̪t̪em# >>> #kʁəjsæ̃# ( Correct : #kʁwasɑ̃#) :
+#krˌeːskˈen̪t̪em# >>> #kʁwasæ̃# ( Correct : #kʁwasɑ̃#) :
 k r ˌeː s k ˈe n̪ t̪ e m 
 #krˌeːskˈɛn̪t̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #krˌeskˈɛn̪t̪ɛm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -15,11 +15,15 @@ k r ˌeː s k ˈe n̪ t̪ e m
 #krˌejssˈɛ?t̪# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
 #krˌejsˈɛ?t̪# | Rule 427 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
 #krˌejsˈɛ̃?t̪# | Rule 447 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#krˌəjsˈɛ̃?t̪# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#krˌəjsˈæ̃?t̪# | Rule 478 : [+nas,-hi,+syl] > [+lo] 
-#krˌəjsˈæ̃ːt̪# | Rule 581 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#krˌəjsˈæ̃ː# | Rule 601 : [-son] > ∅ / __ #
-#kʀˌəjsˈæ̃ː# | Rule 612 : r > ʀ 
-#kʀəjsæ̃ː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀəjsæ̃# | Rule 614 : [+syl,+long] > [-long,-splng] 
-#kʁəjsæ̃# | Rule 620 : ʀ > ʁ 
+#krˌojsˈɛ̃?t̪# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#krˌujsˈɛ̃?t̪# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#krˌujsˈæ̃?t̪# | Rule 478 : [+nas,-hi,+syl] > [+lo] 
+#krˌuɛ̯sˈæ̃?t̪# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#krwˌɛsˈæ̃?t̪# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#krwˌɛsˈæ̃ːt̪# | Rule 581 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#krwˌɛsˈæ̃ː# | Rule 601 : [-son] > ∅ / __ #
+#kʀwˌɛsˈæ̃ː# | Rule 612 : r > ʀ 
+#kʀwɛsæ̃ː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀwɛsæ̃# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#kʀwasæ̃# | Rule 618 : ɛ > a / w __ 
+#kʁwasæ̃# | Rule 620 : ʀ > ʁ 

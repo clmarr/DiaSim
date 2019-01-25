@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :889:
-#pˌiskiˈoːn̪em# >>> #pəjsɔ̃# ( Correct : #pwasɔ̃#) :
+#pˌiskiˈoːn̪em# >>> #pwasɔ̃# ( Correct : #pwasɔ̃#) :
 p ˌi s k i ˈoː n̪ e m 
 #pˌɪskɪˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɪskjˈoːn̪ɛm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -19,8 +19,12 @@ p ˌi s k i ˈoː n̪ e m
 #pˌesʲsˈũːn̪# | Rule 348 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #pˌejssˈũːn̪# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
 #pˌejsˈũːn̪# | Rule 427 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pˌəjsˈũːn̪# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#pˌəjsˈũː# | Rule 582 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pəjsũː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pəjsũ# | Rule 614 : [+syl,+long] > [-long,-splng] 
-#pəjsɔ̃# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pˌojsˈũːn̪# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˌujsˈũːn̪# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#pˌuɛ̯sˈũːn̪# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˌɛsˈũːn̪# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˌɛsˈũː# | Rule 582 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#pwɛsũː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛsũ# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#pwɛsɔ̃# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pwasɔ̃# | Rule 618 : ɛ > a / w __ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :183:
-#d̪ˌomn̪ˌikˈɛllɑm# >>> #d̪ɔməjzɛl# ( Correct : #d̪əmwazɛl#) :
+#d̪ˌomn̪ˌikˈɛllɑm# >>> #d̪ɔ̃mwazɛl# ( Correct : #d̪əmwazɛl#) :
 d̪ ˌo m n̪ ˌi k ˈɛ l l ɑ m 
 #d̪ˌɔmn̪ˌɪkˈɛllɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #d̪ˌɔmn̪ˌekˈɛllɑm# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -14,10 +14,15 @@ d̪ ˌo m n̪ ˌi k ˈɛ l l ɑ m
 #d̪ˌũmmˌejd͡zˈɛlla# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
 #d̪ˌũmmˌejd͡zˈɛllə# | Rule 378 : a > ə / [+syl] ( [-syl] )* __ 
 #d̪ˌũmˌejd͡zˈɛlə# | Rule 427 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#d̪ˌũmˌəjd͡zˈɛlə# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#d̪ˌũmˌəjzˈɛlə# | Rule 525 : [+delrel] > [+cont,.delrel] 
-#d̪ˌũmˌəjzˈɛlə̯# | Rule 595 : ə > ə̯ / __ #
-#d̪ˌũmˌəjzˈɛl# | Rule 602 : ə̯ > ∅ 
-#d̪ũməjzɛl# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪ɔ̃məjzɛl# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#d̪ɔməjzɛl# | Rule 616 : [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
+#d̪ˌũmˌojd͡zˈɛlə# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#d̪ˌũmˌujd͡zˈɛlə# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#d̪ˌũmˌuɛ̯d͡zˈɛlə# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#d̪ˌũmwˌɛd͡zˈɛlə# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪ˌũmwˌɛzˈɛlə# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#d̪ˌũmwˌɛːzˈɛlə# | Rule 587 : [+syl] > [+long] / __ z [+syl]
+#d̪ˌũmwˌɛːzˈɛlə̯# | Rule 595 : ə > ə̯ / __ #
+#d̪ˌũmwˌɛːzˈɛl# | Rule 602 : ə̯ > ∅ 
+#d̪ũmwɛːzɛl# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ũmwɛzɛl# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#d̪ɔ̃mwɛzɛl# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#d̪ɔ̃mwazɛl# | Rule 618 : ɛ > a / w __ 

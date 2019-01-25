@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1292:
-#wˌekt̪ˈuːrɑm# >>> #vəjt̪yʁ# ( Correct : #vwat̪yʁ#) :
+#wˌekt̪ˈuːrɑm# >>> #vwat̪yʁ# ( Correct : #vwat̪yʁ#) :
 w ˌe k t̪ ˈuː r ɑ m 
 #ɣʷˌekt̪ˈuːrɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɛkt̪ˈuːrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -20,10 +20,14 @@ w ˌe k t̪ ˈuː r ɑ m
 #vˌeʝt̪ˈʉːrə# | Rule 397 : ç > ʝ 
 #vˌejt̪ˈʉːrə# | Rule 398 : ʝ > j / [-cons] __ 
 #vˌejt̪ˈyːrə# | Rule 443 : [+hi,+round,-back] > [+front] 
-#vˌəjt̪ˈyːrə# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#vˌəjt̪ˈyːrə̯# | Rule 595 : ə > ə̯ / __ #
-#vˌəjt̪ˈyːr# | Rule 602 : ə̯ > ∅ 
-#vˌəjt̪ˈyːʀ# | Rule 612 : r > ʀ 
-#vəjt̪yːʀ# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vəjt̪yʀ# | Rule 614 : [+syl,+long] > [-long,-splng] 
-#vəjt̪yʁ# | Rule 620 : ʀ > ʁ 
+#vˌojt̪ˈyːrə# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌujt̪ˈyːrə# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#vˌuɛ̯t̪ˈyːrə# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#vwˌɛt̪ˈyːrə# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˌɛt̪ˈyːrə̯# | Rule 595 : ə > ə̯ / __ #
+#vwˌɛt̪ˈyːr# | Rule 602 : ə̯ > ∅ 
+#vwˌɛt̪ˈyːʀ# | Rule 612 : r > ʀ 
+#vwɛt̪yːʀ# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwɛt̪yʀ# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#vwat̪yʀ# | Rule 618 : ɛ > a / w __ 
+#vwat̪yʁ# | Rule 620 : ʀ > ʁ 

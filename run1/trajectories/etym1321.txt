@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1321:
-#wˌiˈɑːt̪ikum# >>> #vjaʒ# ( Correct : #vwajaʒ#) :
+#wˌiˈɑːt̪ikum# >>> #vwajaʒ# ( Correct : #vwajaʒ#) :
 w ˌi ˈɑː t̪ i k u m 
 #ɣʷˌiˈɑːt̪ikum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɪˈɑːt̪ɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -23,11 +23,13 @@ w ˌi ˈɑː t̪ i k u m
 #βˌejˈad̪d͡ʒə# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
 #vˌejˈad̪d͡ʒə# | Rule 373 : β > v 
 #vˌejˈad͡ʒə# | Rule 424 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#vˌəjˈad͡ʒə# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#vˌəjˈaʒə# | Rule 525 : [+delrel] > [+cont,.delrel] 
-#vˌəjˈaːʒə# | Rule 588 : [+lo] > [+long] / __ ʒ ə #
-#vˌəjˈaːʒə̯# | Rule 595 : ə > ə̯ / __ #
-#vˌəjˈaːʒ# | Rule 602 : ə̯ > ∅ 
-#vəjaːʒ# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vəjaʒ# | Rule 614 : [+syl,+long] > [-long,-splng] 
-#vjaʒ# | Rule 626 : ə > ∅ / # [-syl] __ [-syl] [+syl]
+#vˌojˈad͡ʒə# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌujˈad͡ʒə# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#vwˌɛjˈad͡ʒə# | Rule 506 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
+#vwˌɛjˈaʒə# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#vwˌɛjˈaːʒə# | Rule 588 : [+lo] > [+long] / __ ʒ ə #
+#vwˌɛjˈaːʒə̯# | Rule 595 : ə > ə̯ / __ #
+#vwˌɛjˈaːʒ# | Rule 602 : ə̯ > ∅ 
+#vwɛjaːʒ# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwɛjaʒ# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#vwajaʒ# | Rule 618 : ɛ > a / w __ 

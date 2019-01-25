@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :998:
-#rˌeːɡˈɑːleːs# >>> #ʁəjjœ# ( Correct : #ʁwajo#) :
+#rˌeːɡˈɑːleːs# >>> #ʁujjœ# ( Correct : #ʁwajo#) :
 r ˌeː ɡ ˈɑː l eː s 
 #rˌeɡˈɑːles# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
 #rˌeɡˈɑles# | Rule 54 : [+syl,+long] > [-long,-splng] 
@@ -15,13 +15,16 @@ r ˌeː ɡ ˈɑː l eː s
 #rˌeʝˈie̯ls# | Rule 271 : ə̯ > ∅ 
 #rˌejˈie̯ls# | Rule 340 : ʝ > j 
 #rˌejˈie̯ɫs# | Rule 442 : [+lat] > [+back] / __ [+cons]
-#rˌəjˈie̯ɫs# | Rule 450 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#rˌəjˈie̯ws# | Rule 483 : [+lat,+back] > w 
-#rˌəjjˈews# | Rule 492 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#rˌəjjˈøws# | Rule 493 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#rˌəjjˈøs# | Rule 497 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#rˌəjjˈø# | Rule 601 : [-son] > ∅ / __ #
-#ʀˌəjjˈø# | Rule 612 : r > ʀ 
-#ʀəjjø# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀəjjœ# | Rule 617 : ø > œ / __ ( [+cons] )* #
-#ʁəjjœ# | Rule 620 : ʀ > ʁ 
+#rˌojˈie̯ɫs# | Rule 460 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#rˌujˈie̯ɫs# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#rˌujˈie̯ws# | Rule 483 : [+lat,+back] > w 
+#rˌujjˈews# | Rule 492 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#rˌujjˈøws# | Rule 493 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#rˌujjˈøs# | Rule 497 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#rˌuɛ̯jˈøs# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#rˌujjˈøs# | Rule 508 : ɛ̯ > j / [+syl,+back,+round] __ j
+#rˌujjˈø# | Rule 601 : [-son] > ∅ / __ #
+#ʀˌujjˈø# | Rule 612 : r > ʀ 
+#ʀujjø# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀujjœ# | Rule 617 : ø > œ / __ ( [+cons] )* #
+#ʁujjœ# | Rule 620 : ʀ > ʁ 
