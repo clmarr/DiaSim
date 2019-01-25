@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :987:
-#rˌɑkˈeːmum# >>> #ʁazʲɛ̃# ( Correct : #ʁɛzɛ̃#) :
+#rˌɑkˈeːmum# >>> #ʁɛzɛ̃# ( Correct : #ʁɛzɛ̃#) :
 r ˌɑ k ˈeː m u m 
 #rˌɑkˈeːmʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˌɑkˈemʊm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -15,12 +15,15 @@ r ˌɑ k ˈeː m u m
 #rˌat͡sʲˈiːmə̯# | Rule 244 : ə > ə̯ 
 #rˌat͡sʲˈiːm# | Rule 271 : ə̯ > ∅ 
 #rˌad͡zʲˈiːm# | Rule 319 : [-voi] > [+voi] / [-cons] __ [-cons]
-#rˌad͡zʲˈiːn̪# | Rule 456 : m > n̪ / [-cons] __ #
-#rˌad͡zʲˈĩːn̪# | Rule 514 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#rˌazʲˈĩːn̪# | Rule 524 : [+delrel] > [+cont,.delrel] 
-#rˌazʲˈɛ̃ːn̪# | Rule 533 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#rˌazʲˈɛ̃ː# | Rule 581 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#ʀˌazʲˈɛ̃ː# | Rule 611 : r > ʀ 
-#ʀazʲɛ̃ː# | Rule 612 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀazʲɛ̃# | Rule 613 : [+syl,+long] > [-long,-splng] 
-#ʁazʲɛ̃# | Rule 619 : ʀ > ʁ 
+#rˌajd͡zˈiːm# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#rˌajd͡zˈiːn̪# | Rule 457 : m > n̪ / [-cons] __ #
+#rˌɛjd͡zˈiːn̪# | Rule 494 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#rˌɛjd͡zˈĩːn̪# | Rule 515 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#rˌɛːd͡zˈĩːn̪# | Rule 519 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#rˌɛːzˈĩːn̪# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#rˌɛːzˈɛ̃ːn̪# | Rule 534 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
+#rˌɛːzˈɛ̃ː# | Rule 582 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ʀˌɛːzˈɛ̃ː# | Rule 612 : r > ʀ 
+#ʀɛːzɛ̃ː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛzɛ̃# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#ʁɛzɛ̃# | Rule 620 : ʀ > ʁ 

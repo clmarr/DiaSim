@@ -1158,9 +1158,13 @@ $ CORRECTION: rʲ handled separately
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {t̪;d̪;s;z;n̪} / [+hi,+front,-syl] __ 
+$ CORRECTION: d͡zʲ also ejects j backwards and depalatalizes at this stage
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 $ then realize the main rule here.
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j n̪}
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z}
+
+$ CORRECTION: (round vowel) w j > j 
+w > ∅ / [+round,+syl] __ j
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,

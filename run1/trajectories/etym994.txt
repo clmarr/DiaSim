@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :994:
-#rˌɑt̪iˈoːn̪em# >>> #ʁazʲɔ̃# ( Correct : #ʁɛzɔ̃#) :
+#rˌɑt̪iˈoːn̪em# >>> #ʁɛzɔ̃# ( Correct : #ʁɛzɔ̃#) :
 r ˌɑ t̪ i ˈoː n̪ e m 
 #rˌɑt̪ɪˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˌɑt̪jˈoːn̪ɛm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -15,10 +15,13 @@ r ˌɑ t̪ i ˈoː n̪ e m
 #rˌat͡sʲˈũːn̪ə̯# | Rule 244 : ə > ə̯ 
 #rˌat͡sʲˈũːn̪# | Rule 271 : ə̯ > ∅ 
 #rˌad͡zʲˈũːn̪# | Rule 319 : [-voi] > [+voi] / [-cons] __ [-cons]
-#rˌazʲˈũːn̪# | Rule 524 : [+delrel] > [+cont,.delrel] 
-#rˌazʲˈũː# | Rule 581 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#ʀˌazʲˈũː# | Rule 611 : r > ʀ 
-#ʀazʲũː# | Rule 612 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀazʲũ# | Rule 613 : [+syl,+long] > [-long,-splng] 
-#ʀazʲɔ̃# | Rule 614 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#ʁazʲɔ̃# | Rule 619 : ʀ > ʁ 
+#rˌajd͡zˈũːn̪# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#rˌɛjd͡zˈũːn̪# | Rule 494 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#rˌɛːd͡zˈũːn̪# | Rule 519 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#rˌɛːzˈũːn̪# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#rˌɛːzˈũː# | Rule 582 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ʀˌɛːzˈũː# | Rule 612 : r > ʀ 
+#ʀɛːzũː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛzũ# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#ʀɛzɔ̃# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ʁɛzɔ̃# | Rule 620 : ʀ > ʁ 

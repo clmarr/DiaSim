@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :934:
-#pˌoːt̪iˈoːn̪em# >>> #puzʲɔ̃# ( Correct : #pwazɔ̃#) :
+#pˌoːt̪iˈoːn̪em# >>> #pwazɔ̃# ( Correct : #pwazɔ̃#) :
 p ˌoː t̪ i ˈoː n̪ e m 
 #pˌoːt̪ɪˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌoːt̪jˈoːn̪ɛm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -14,9 +14,14 @@ p ˌoː t̪ i ˈoː n̪ e m
 #pˌot͡sʲˈũːn̪ə̯# | Rule 244 : ə > ə̯ 
 #pˌot͡sʲˈũːn̪# | Rule 271 : ə̯ > ∅ 
 #pˌod͡zʲˈũːn̪# | Rule 319 : [-voi] > [+voi] / [-cons] __ [-cons]
-#pˌud͡zʲˈũːn̪# | Rule 464 : [+round,+tense,+back] > [+hi] 
-#pˌuzʲˈũːn̪# | Rule 524 : [+delrel] > [+cont,.delrel] 
-#pˌuzʲˈũː# | Rule 581 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#puzʲũː# | Rule 612 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#puzʲũ# | Rule 613 : [+syl,+long] > [-long,-splng] 
-#puzʲɔ̃# | Rule 614 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pˌojd͡zˈũːn̪# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#pˌujd͡zˈũːn̪# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#pˌuɛ̯d͡zˈũːn̪# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˌɛd͡zˈũːn̪# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˌɛzˈũːn̪# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#pwˌɛzˈũː# | Rule 582 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#pwˌɛːzˈũː# | Rule 587 : [+syl] > [+long] / __ z [+syl]
+#pwɛːzũː# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛzũ# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#pwɛzɔ̃# | Rule 615 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pwazɔ̃# | Rule 618 : ɛ > a / w __ 

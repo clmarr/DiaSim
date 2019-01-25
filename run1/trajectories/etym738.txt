@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :738:
-#n̪ˌɑwikˈellɑm# >>> #n̪əwzʲɛl# ( Correct : #n̪asɛl#) :
+#n̪ˌɑwikˈellɑm# >>> #n̪wazɛl# ( Correct : #n̪asɛl#) :
 n̪ ˌɑ w i k ˈe l l ɑ m 
 #n̪ˌɑɣʷikˈellɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #n̪ˌɑɣʷɪkˈɛllɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -12,12 +12,18 @@ n̪ ˌɑ w i k ˈe l l ɑ m
 #n̪ˌawt͡sʲˈɛlla# | Rule 179 : [+lo,+syl] > [+front,-back] 
 #n̪ˌɔwt͡sʲˈɛlla# | Rule 212 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
 #n̪ˌɔwd͡zʲˈɛlla# | Rule 319 : [-voi] > [+voi] / [-cons] __ [-cons]
-#n̪ˌowd͡zʲˈɛlla# | Rule 367 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#n̪ˌowd͡zʲˈɛllə# | Rule 377 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˌowd͡zʲˈɛlə# | Rule 426 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#n̪ˌewd͡zʲˈɛlə# | Rule 458 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#n̪ˌəwd͡zʲˈɛlə# | Rule 490 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#n̪ˌəwzʲˈɛlə# | Rule 524 : [+delrel] > [+cont,.delrel] 
-#n̪ˌəwzʲˈɛlə̯# | Rule 594 : ə > ə̯ / __ #
-#n̪ˌəwzʲˈɛl# | Rule 601 : ə̯ > ∅ 
-#n̪əwzʲɛl# | Rule 612 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˌɔwjd͡zˈɛlla# | Rule 349 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#n̪ˌɔjd͡zˈɛlla# | Rule 350 : w > ∅ / [+round,+syl] __ j
+#n̪ˌojd͡zˈɛlla# | Rule 368 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
+#n̪ˌojd͡zˈɛllə# | Rule 378 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˌojd͡zˈɛlə# | Rule 427 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#n̪ˌujd͡zˈɛlə# | Rule 465 : [+round,+tense,+back] > [+hi] 
+#n̪ˌuɛ̯d͡zˈɛlə# | Rule 507 : j > ɛ̯ / [+syl,+back,+round] __ 
+#n̪wˌɛd͡zˈɛlə# | Rule 510 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#n̪wˌɛzˈɛlə# | Rule 525 : [+delrel] > [+cont,.delrel] 
+#n̪wˌɛːzˈɛlə# | Rule 587 : [+syl] > [+long] / __ z [+syl]
+#n̪wˌɛːzˈɛlə̯# | Rule 595 : ə > ə̯ / __ #
+#n̪wˌɛːzˈɛl# | Rule 602 : ə̯ > ∅ 
+#n̪wɛːzɛl# | Rule 613 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪wɛzɛl# | Rule 614 : [+syl,+long] > [-long,-splng] 
+#n̪wazɛl# | Rule 618 : ɛ > a / w __ 
