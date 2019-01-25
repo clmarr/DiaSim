@@ -139,8 +139,9 @@ $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those 
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
 $ CORRECTION : -mulum endings also effected (cumulum > comble; tremulum > tremble) 
 $ CORRECTION : -rula endings also effected (berula (Gaul.) > berle not bierle) 
-$ CORRECTION: -olum,-olus endings also included
-{ʊ;o;ɔ} > {∅;∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
+$ CORRECTION: -olum,-olus endings also included if not after a labial cons
+{ʊ;o} > {∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
+ɔ > ∅ / [+prim] ([-syl])* {[-cont,-lab];m;r} __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
@@ -821,6 +822,10 @@ $ CORRECTION : but this does not occur before nasals
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} $case of pˈius > pieux and leuga > lieue
 {e;i} > {j;j} / [+syl] __ [-nas]
 
+$ CORRECTION : ɔ,o in hiatus with prior a become w : cases of paraola > parawle > parole etc
+$ CORRECTION : a becomes shortened in the process if not already 
+[+lo,+syl] [+back,+round,-stres] > [-long] w
+
 $s164-10 ~s250 complete effacement of unstressed penultimate
 $as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
 $the voyelle d'appui is inevitable ə
@@ -921,6 +926,9 @@ $ we know this operated from the end rather than the beginning of the word becau
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
+
+$ CORRECTION : β that has come into contact with l becomes b
+β > b / __ l
 
 $ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang) 
 w > ∅  / ŋ ɡ __ #
@@ -1051,9 +1059,6 @@ $ as per s372 p, t also voice before l,r and t voices before n
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
 $ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
-
-$ CORRECTION : β that has come into contact with l becomes b
-β > b / __ l
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1225,8 +1230,6 @@ $ s165-3 ~ s206 : devoicing of all final consonants that have become final -- op
 $ she says "all consonants but doesnˌt list the sonorants -- so we say non-sonorants
 [-son] > [-voi] / __ #
 
-$TODO FIX CASE OF AQUA ETC ETC
-
 $ CORRECTION: ɣw emits a following v when before r (sequere >>>>> suiVre)
 ∅ > v / ɣ w __ r
 
@@ -1244,6 +1247,9 @@ $ CORRECTION: ɣ w > j v (ive, antif, antive)
 
 $ CORRECTION : w > v / e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
 w > v / e̯ __ [-cons]
+ 
+$ CORRECTION : deletion of w internal in remaining cons clusters
+w > ∅ / [+cons] __ [+cons] 
  
 $ s327 resolution of ɣw clusters
 $ s327 : ɣ (<x) palatalizes after tonic front vowels 
