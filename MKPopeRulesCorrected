@@ -716,7 +716,9 @@ $ CORRECTION: But it is incorrect for this rule to operate before glides except 
 	$ but not intended to effect diphthongs with j = i̯ as second element
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ CORRECTION : multiple sonorants at the end of the word will shorten 
 $ [+syl] > [-long] / __ [-syl] #
+[+syl] > [-long] / __ [-syl] ([-syl])+ #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
@@ -931,6 +933,12 @@ $ we know this operated from the end rather than the beginning of the word becau
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
+
+$ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
+ð > d̪ / [+lat] __
+
+$ CORRECTION : ð that has come into contact with any other prior consonant effaces 
+ð > ∅ / [+cons] __
 
 $ CORRECTION : β that has come into contact with l becomes b
 β > b / __ l
@@ -1163,7 +1171,9 @@ $ CORRECTION: But it is incorrect for this rule to operate before glides except 
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION before ʎ is CLOSED in this case unless we are talking about /i/ 
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
+$ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
 $ [+syl] > [-long] / __ [-syl] #
+[+syl] > [-long] / __ [-syl] ([-syl])+ #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
@@ -1316,7 +1326,8 @@ $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by prece
 ʝ > j / [-cons] __ 
 j > ∅ / [+hi,+front,+tense,+syl] __
 
-$ s165.5 leveling of au to o (s505) 
+$ s165.5 leveling of au to o (s505)
+$ note that the "original" a w have now become ɔ w -- this rule is handling when it was once β 
 {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
 
 $ s165.7 : another round of cluster modifications follows
