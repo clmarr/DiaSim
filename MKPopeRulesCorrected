@@ -157,7 +157,8 @@ $ CORRECTION: targets only unstressed front vowels, does not occur after anythin
 [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
 $ CORRECTION: hits after ɡ too -- cases of digitum, fugitam. Any vowel can come before the d.
 $ CORRECTION: hits before n too -- cases of plantaginem, acinum and circinum. Any vowel can come before the n.
-[+syl,-stres,+front] > ∅ / [+syl] [+hi,+back,-cont] __ [+cor,-strid,-lat,+voi] [+syl] 
+$ CORRECTION: no k_d seqs, only ɡ_d 
+[+syl,-stres,+front] > ∅ / [+syl] ɡ __ [+cor,-strid,-lat,+voi] [+syl] 
 
 $ CORRECTION : slur short i between ɣʷ and k 
 $ Pope sort of implies this has occurred in s187i but doesn't state it elsewhere
@@ -516,6 +517,9 @@ $ should RECUR whenever these consonants are brought into contact.
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
+$ CORRECTION : c,ɟ spirantized between vowel and dentals t̪d̪n̪
+{c;ɟ} > {ç;ʝ} / __ [+cor,+distr,+ant]
+
 $ as per Pope p126 s293: depalatalization of palatal stops that come into contact with following non palatal consonants
 $ explicitly BEFORE assibilation (bleeds it)
 [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]
@@ -676,10 +680,11 @@ $ s322-326, palatalization of velar frics pre-coronal
 $ CORRECTION : çs > ss after word initial ˌɛ
 ç > s / # ˌɛ __ s
 
-$ CORRECTION : çt > tt after unstressed ɛ
-ç > t̪ / ɛ __ t̪
+$ CORRECTION : ç assimilates after unstressed ɛ
+ç > s / ɛ __ s
+ç > t̪ / ɛ __
 
-$ CORRECTION : ɛç > eç except when secondarily stressed
+$ CORRECTION : ɛç > eç when secondarily stressed
 ˌɛ > ˌe / __ ç
 
 $ s320-321, palatalization of ŋ before n,s,t (can also include d,z)
@@ -942,6 +947,9 @@ $ we know this operated from the end rather than the beginning of the word becau
 $ CORRECTION : affricate tsj voices and depalatalizes when it is about to comes into contact with d̪ through schwa fall, and is followed by ə
 d̪ ə̯ t͡sʲ > d͡z /__ ə 
 
+$ CORRECTION : ə̯ retained after STOP r and before a cons
+ə̯ > ə / [-cont] r __ [+cons]
+
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
@@ -955,7 +963,7 @@ $ CORRECTION : ð that has come into contact with any other prior consonant effa
 $ CORRECTION : β that has come into contact with l becomes b
 β > b / __ l
 
-$ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang) 
+$ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang)  --- abrogated 
 w > ∅  / ŋ ɡ __ #
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
@@ -1202,6 +1210,9 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim,-front] > [-long] / __ ʎ 
 [+prim,-hi] > [-long] / __ ʎ
 
+$CORRECTION: not long before ɲ 
+[+syl] > [-long] / __ ɲ
+
 $ CORRECTION : nr > ndr nasalization occurs AFTER length is determined, engendering diphthongization behavior (minor>moindre, 
 ∅ > d̪ / n̪ __ r
 
@@ -1231,6 +1242,9 @@ $ CORRECTION: β does not do so if before r then a non-consonantal
 
 $ s164.6 ~ s 189 
 β > v 
+
+$ CORRECTION : w at end of word after consonant deleted
+w > ∅  / [+cons] __ #
 
 $ Later Gallo-Roman 
 $ 8th and 9th centuries as per Pope s165
@@ -1373,8 +1387,8 @@ s > z / __ [+voi,+cons]
 
 $ s372ii t,d become edh before r,l,n,m
 $ CORRECTED -- Pope missed that this only happens after vowels
-[-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor] 
-[-cont,-delrel,+cor] > ð / [-cons] __ [+nas] 
+[-cont,-delrel,+cor] > ð / [+syl] __ [+son,+cor] 
+[-cont,-delrel,+cor] > ð / [+syl] __ [+nas] 
 
 $ s372iii p,b become beta then v before r, halts at b before l
 p > b / [+syl] __ [+son,+cont,-nas]

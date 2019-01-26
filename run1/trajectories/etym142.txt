@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :142:
-#brˌit̪tˈɑn̪iɑm# >>> #bʁətɛ̃ɲ# ( Correct : #bʁət̪aɲ#) :
+#brˌit̪tˈɑn̪iɑm# >>> #bʁətɑ̃ɲ# ( Correct : #bʁət̪aɲ#) :
 b r ˌi t̪ t ˈɑ n̪ i ɑ m 
 #brˌɪt̪tˈɑn̪ɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #brˌɪt̪tˈɑn̪jɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -8,19 +8,15 @@ b r ˌi t̪ t ˈɑ n̪ i ɑ m
 #brˌet̪tˈɑn̪ʝɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #brˌet̪tˈɑɲɑ# | Rule 84 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 #brˌet̪tˈɑːɲɑ# | Rule 103 : [+prim] > [+long] / __ [+cons] [-cons]
-#brˌet̪tˈaːɲa# | Rule 179 : [+lo,+syl] > [+front,-back] 
-#brˌet̪tˈae̯ɲa# | Rule 369 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#brˌet̪tˈae̯ɲə# | Rule 382 : a > ə / [+syl] ( [-syl] )* __ 
-#brˌetˈae̯ɲə# | Rule 428 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#brˌətˈae̯ɲə# | Rule 454 : ˌe > ˌə / __ ( [+cons] ) [+syl]
-#brˌətˈeːɲə# | Rule 465 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#brˌətˈeːj̃ɲə# | Rule 473 : ∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ ɲ [+syl]
-#brˌətˈẽːj̃ɲə# | Rule 506 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#brˌətˈɛ̃ːj̃ɲə# | Rule 538 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#brˌətˈɛ̃ːɲə# | Rule 539 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#brˌətˈɛ̃ːɲə̯# | Rule 599 : ə > ə̯ / __ #
-#brˌətˈɛ̃ːɲ# | Rule 606 : ə̯ > ∅ 
-#bʀˌətˈɛ̃ːɲ# | Rule 616 : r > ʀ 
-#bʀətɛ̃ːɲ# | Rule 617 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀətɛ̃ɲ# | Rule 618 : [+syl,+long] > [-long,-splng] 
-#bʁətɛ̃ɲ# | Rule 624 : ʀ > ʁ 
+#brˌet̪tˈaːɲa# | Rule 180 : [+lo,+syl] > [+front,-back] 
+#brˌet̪tˈaɲa# | Rule 370 : [+syl] > [-long,-splng] / __ ɲ
+#brˌet̪tˈaɲə# | Rule 387 : a > ə / [+syl] ( [-syl] )* __ 
+#brˌetˈaɲə# | Rule 433 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#brˌetˈãɲə# | Rule 454 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#brˌətˈãɲə# | Rule 459 : ˌe > ˌə / __ ( [+cons] ) [+syl]
+#brˌətˈãɲə̯# | Rule 604 : ə > ə̯ / __ #
+#brˌətˈãɲ# | Rule 611 : ə̯ > ∅ 
+#bʀˌətˈãɲ# | Rule 621 : r > ʀ 
+#bʀətãɲ# | Rule 622 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀətɑ̃ɲ# | Rule 628 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#bʁətɑ̃ɲ# | Rule 629 : ʀ > ʁ 
