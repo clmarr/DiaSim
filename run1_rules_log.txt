@@ -117,8 +117,7 @@ s w > s s / [-cons] __ [-cons]| ORIG : s w > s s / [-cons] __ [-cons]
 β > w / __ w| ORIG : β > w / __ w 
 β > ∅ / @ __ [+lab,+syl]| ORIG : β > ∅ / @ __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ | ORIG : β > ∅ / [+prim,+hi,+round,+back] __ 
-{βʷ;ɸʷ} > {β;ɸ} | ORIG : {βʷ;ɸʷ} > {β;ɸ}
-ɸ > ∅ / [+cons] __ [+cons]| ORIG : ɸ > ∅ / [+cons] __ [+cons] 
+{ɸ;ɸʷ} > {∅;∅} / [+cons] __ [+cons]| ORIG : {ɸ;ɸʷ} > {∅;∅} / [+cons] __ [+cons] 
 e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]| ORIG : e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]
 e > ∅ / __ k [+lo,+syl]| ORIG : e > ∅ / __ k [+lo,+syl]
 k > ɡ / [-cons] __ [+syl]| ORIG : k > ɡ / [-cons] __ [+syl]
@@ -146,6 +145,8 @@ n β > m b / __ [+lat]| ORIG : n β > m b / __ [+lat]
 [+prim] > [+long] / __ [+cons] [+syl]| ORIG : [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]| ORIG : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #| ORIG : [+prim] > [+long] / # ([-syl])* __ [+cons] #
+ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]| ORIG : ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
+{βʷ;ɸʷ} > {β;ɸ} | ORIG : {βʷ;ɸʷ} > {β;ɸ}
 ˈeː > ˈiː / [+cons,+hi,+front] __ | ORIG : ˈeː > ˈiː / [+cons,+hi,+front] __
 [+prim] > [+tense,-cons,-lat,+cont,.delrel] / __ x n̪| ORIG : [+prim] > [+tense] / __ x n̪
 x n̪ > ŋ ɲ | ORIG : x n̪ > ŋ ɲ
@@ -211,6 +212,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 [+prim] > [+long] / __ [+cons] [+syl]| ORIG : [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]| ORIG : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #| ORIG : [+prim] > [+long] / # ([-syl])* __ [+cons] #
+ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]| ORIG : ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} | ORIG : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]| ORIG : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
 ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front]| ORIG : ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front] 

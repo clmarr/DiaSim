@@ -314,7 +314,7 @@ l ʝ > ʎ
 
 $per Pope s353: unstressed penultimate ɪ in -item, itum, idum, ita endings is deleted before any d > ð
 $ we can use /e/ here because if it was e:, it would be stressed. 
-$ CORRECTION: include also the syncope of vowels before n̪ -- removed for now
+$ CORRECTION: include also the syncope of vowels before n̪ -
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
 
 $ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
@@ -438,12 +438,8 @@ $ CORRECTION : w (>βʷ) now not merged into β yet when this rule applies, so i
 β > ∅ / @ __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
-$ CORRECTION: now we can finally merge βʷ to β
-$ CORRECTION: include also ɸʷ
-{βʷ;ɸʷ} > {β;ɸ}
-
-$ CORRECTION: ɸ deleted if in between consonants.
-ɸ > ∅ / [+cons] __ [+cons] 
+$ CORRECTION: ɸ, ɸʷ deleted if in between consonants.
+{ɸ;ɸʷ} > {∅;∅} / [+cons] __ [+cons] 
 
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
 $ CORRECTION: occurs in all -ika- instances including inside the word (i.e. praedicatorem >precheur)
@@ -541,6 +537,13 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+
+$ CORRECTION: ˈɔ becomes long before a rounded continuant cons then a stop
+ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
+
+$ CORRECTION: now we can finally merge βʷ to β
+$ CORRECTION: include also ɸʷ
+{βʷ;ɸʷ} > {β;ɸ}
 
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
 $ when preceded by a palatal 
@@ -743,6 +746,10 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+
+$ CORRECTION: ˈɔ becomes long if it comes before rounded continuant then a stop (mowitam > meute)
+ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
+
 
 $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
