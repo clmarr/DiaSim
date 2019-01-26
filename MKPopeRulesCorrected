@@ -312,10 +312,16 @@ $trigger again in Gallo-Roman stage
 l l ʝ > ʎ
 l ʝ > ʎ
 
+$ CORRECTION: vowels deleted between [+syl] w and {t;d}
+[+syl,-stres] > ∅ / [+syl] βʷ __ [+cor,-cont]
+
 $per Pope s353: unstressed penultimate ɪ in -item, itum, idum, ita endings is deleted before any d > ð
 $ we can use /e/ here because if it was e:, it would be stressed. 
 $ CORRECTION: include also the syncope of vowels before n̪ -
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
+
+$CORRECTION e reinserted between p and d (rapidum, sapidum, tepidum > rade, sade, tiede) 
+∅ > e / p __ d̪
 
 $ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
 n̪ > m / p __ 
@@ -659,7 +665,8 @@ $ Attributed (s163) to sixth and seventh centuries
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
-[+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+$ CORRECTION: at this stage, β/ɸ does not assimilate to t or ts ( noce, doute)
+[+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 
@@ -965,6 +972,9 @@ $Delete all the rest which were not specifically retained:
 $ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
 ð > d̪ / [+lat] __
 
+$ CORRECTION : ð is also stopped after labials (sade, tiede, rade) but only labial stops (comme < quomodo)
+ð > d̪ / [-cont,+lab] __
+
 $ CORRECTION : ð that has come into contact with any other prior consonant effaces 
 ð > ∅ / [+cons] __
 
@@ -1001,12 +1011,11 @@ $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, an
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
 $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
 $ CORRECTION : ə inserted after cons + son before word codas in general
-$ CORRECTION : mn and nm also eject final ə 
+$ CORRECTION : any +lab {t;d;n} final consonant sequence ejects final ə, except when the coronal element is strident
 $ CORRECTION : retained after +cons ɲ __ # (Auvergne, peigne, etc) 
 ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #
-∅ > ə / m n̪ __ #
-∅ > ə / n̪ m __ #
+∅ > ə / [+cons,+lab] {[-cont,+cor];n̪} __ #
 ∅ > ə / [+cons] ɲ __ #
 ∅ > ə / [-ant,+delrel] __ #
 ∅ > ə / [-lat,+cons] l __ #
