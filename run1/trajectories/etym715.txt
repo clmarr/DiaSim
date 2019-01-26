@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :715:
-#mˈowit̪ɑm# >>> #mɔt̪# ( Correct : #møt̪#) :
+#mˈowit̪ɑm# >>> #mu# ( Correct : #møt̪#) :
 m ˈo w i t̪ ɑ m 
 #mˈoɣʷit̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #mˈɔɣʷɪt̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -7,12 +7,14 @@ m ˈo w i t̪ ɑ m
 #mˈɔβʷet̪ɑm# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #mˈɔβʷet̪ɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #mˈɔβʷt̪ɑ# | Rule 88 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#mˈɔɸʷt̪ɑ# | Rule 95 : [+ant,+cons] > [-voi] / __ t̪
-#mˈɔɸt̪ɑ# | Rule 119 : {βʷ;ɸʷ} > {β;ɸ} 
-#mˈɔɸt̪a# | Rule 180 : [+lo,+syl] > [+front,-back] 
-#mˈɔt̪t̪a# | Rule 181 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#mˈɔt̪t̪ə# | Rule 387 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈɔt̪ə# | Rule 433 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˈɔt̪ə̯# | Rule 604 : ə > ə̯ / __ #
-#mˈɔt̪# | Rule 611 : ə̯ > ∅ 
-#mɔt̪# | Rule 622 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈɔwt̪ɑ# | Rule 89 : βʷ > w / [-cons] __ [+cons]
+#mˈɔwt̪a# | Rule 181 : [+lo,+syl] > [+front,-back] 
+#mˈɔwd̪a# | Rule 327 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˈɔwða# | Rule 349 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#mˈɔwðə# | Rule 388 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈɔwə# | Rule 498 : {θ;ð} > {∅;∅} 
+#mˈuə# | Rule 510 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#mˈuːə# | Rule 563 : [+stres] > [+long] / __ ə
+#mˈuː# | Rule 564 : ə > ∅ / [+syl] __ 
+#muː# | Rule 623 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mu# | Rule 624 : [+syl,+long] > [-long,-splng] 
