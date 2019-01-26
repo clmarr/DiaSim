@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1277:
-#wˈɑlleːs# >>> #vo# ( Correct : #vo#) :
-w ˈɑ l l eː s 
-#ɣʷˈɑlleːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑlleːs# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɑlles# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βˈɑlles# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈalles# | Rule 183 : [+lo,+syl] > [+front,-back] 
-#βˈalləs# | Rule 250 : [-stres,-lo,+syl] > ə / __ [-syl]
-#βˈallə̯s# | Rule 253 : ə > ə̯ 
-#βˈalls# | Rule 282 : ə̯ > ∅ 
-#vˈalls# | Rule 386 : β > v 
-#vˈals# | Rule 418 : [+cons] > ∅ / [+cons] __ [-son]
-#vˈaɫs# | Rule 456 : [+lat] > [+back] / __ [+cons]
-#vˈaws# | Rule 497 : [+lat,+back] > w 
-#vˈoːs# | Rule 552 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#vˈoː# | Rule 615 : [-son] > ∅ / __ #
-#voː# | Rule 627 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vo# | Rule 628 : [+syl,+long] > [-long,-splng] 
+#wˌɑlˈoːrem# >>> #valœ# ( Correct : #valœʁ#) :
+w ˌɑ l ˈoː r e m 
+#ɣʷˌɑlˈoːrem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈoːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈoːrɛm# | Rule 49 : ɣʷ > βʷ 
+#βʷˌɑlˈorɛm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈorɛ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌɑlˈoːrɛ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈoːrɛ# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈoːrɛ# | Rule 183 : [+lo,+syl] > [+front,-back] 
+#βˌalˈoːrə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈoːrə̯# | Rule 253 : ə > ə̯ 
+#βˌalˈoːr# | Rule 282 : ə̯ > ∅ 
+#βˌalˈowr# | Rule 378 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈowr# | Rule 386 : β > v 
+#vˌalˈewr# | Rule 473 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#vˌalˈøwr# | Rule 507 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˌalˈør# | Rule 511 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˌalˈøɹ# | Rule 610 : r > ɹ / [-cons] __ #
+#vˌalˈø# | Rule 623 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#valø# | Rule 627 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valœ# | Rule 631 : ø > œ / __ ( [+cons] )* #
