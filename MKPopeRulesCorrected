@@ -825,6 +825,9 @@ $ however b explicitly doesnˌt not open before l or nasals as per s372
 [-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 
+$ s372 : d̪ > ð before w 
+d̪ > ð / __ [+cont,+lab,+cons]
+
 $ s355-356 first opening of final t,d
 $does not however occur after slurred vowel ə
 $ would seem to happen BEFORE the palatal fricatives are lost as it doesnˌt happen it words like lit, nuit (<lectum, noctem)
@@ -1029,7 +1032,12 @@ $ RECURRENT as per s162
 $ CORRECTION: t̪ + s --> affricate (assez, etc) 
 $ definitively comes AFTER first fall of the schwas. 
 $ must come before degemination of t t s (adsatis > assez etc but plattos > plats etc) 
-t̪ s > t͡s
+$ CORRECTION: this also occurs for ð,θ,s
+$ CORRECTION: but this only occurs word finally
+[+ant,+cor,+distr,-nas] s > t͡s / __ #
+
+$ CORRECTION: z deleted before s 
+z > ∅ / __ s
 
 $ CORRECTION: geminate stops are degeminated if after consonant, or before consonant then non-non-consonantal (i.e. either consonantal or coda)
 $ deal with labials here -- others later, given that labials will mutate to form new geminate clusters with all the coronals after this
@@ -1445,7 +1453,8 @@ $ s366 degemination
 {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}
 
 $s378 z > ð before voiced dentals 
-z > ð / __ [+cor,+ant,+distr,+voi,+cons]
+$CORRECTION: This rule deleted
+$ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 
 $s234 ~ s223 ~ s121 ɛ and ɔ countertonic closed except when followed by r or l and then another cons. 
 $ ɔ also closed before r + cons (s234)

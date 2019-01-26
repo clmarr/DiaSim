@@ -234,6 +234,7 @@ w > ∅ / [+cons] [+cons,-back] __ | ORIG : w > ∅ / [+cons] [+cons,-back] __
 [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]| ORIG : [-delrel,+voi] > [+cont] / [-cons] __  [-cons]
 [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r| ORIG : [-delrel,+voi] > [+cont] / [-cons] __  r
 [-delrel,-lab,+voi] > [+cont,.delrel] / [-cons] __ [+lat]| ORIG : [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
+d̪ > ð / __ [+cont,+lab,+cons]| ORIG : d̪ > ð / __ [+cont,+lab,+cons]
 {t̪;d̪} > {θ;ð} / [+syl] __ #| ORIG : {t̪;d̪} > [+cont] / [+syl] __ #
 [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / # __ [+syl]| ORIG : [+hi,-syl,+cont] > [-cont,-son,-delrel] / # __ [+syl]
 {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]| ORIG : {j;ʝ} > {ɟ;ɟ} / @ ([+cons])+ __ [+syl]
@@ -301,7 +302,8 @@ t̪ > ∅ / __ r t̪ [+delrel]| ORIG : t̪ > ∅ / __ r t̪ [+delrel]
 ∅ > ə / [-lat,+cons] l __ #| ORIG : ∅ > ə / [-lat,+cons] l __ #
 ∅ > ə / [-son] r __ #| ORIG : ∅ > ə / [-son] r __ #
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ | ORIG : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-t̪ s > t͡s | ORIG : t̪ s > t͡s
+[+ant,+cor,+distr,-nas] s > t͡s/ __ #| ORIG : [+ant,+cor,+distr,-nas] s > t͡s / __ #
+z > ∅ / __ s| ORIG : z > ∅ / __ s
 {b b;p p} > {b;p} / [+cons] __ | ORIG : {b b;p p}>{b;p} / [+cons] __
 {b b;p p} > {b;p} / __ [+cons] [+cons]| ORIG : {b b;p p} > {b;p} /  __ [+cons]  [+cons]
 {b b;p p} > {b;p} / __ [+cons] #| ORIG : {b b;p p} > {b;p} /  __ [+cons]  #
@@ -440,7 +442,6 @@ b > β / [+syl] __ r| ORIG : b > β / [+syl] __ r
 [+cor,-cont,-delrel] > ∅ / __ [+delrel]| ORIG : [+cor,-cont,-delrel] > ∅ / __ [+delrel] 
 [-son] > [-voi] / __ [-voi]| ORIG : [-son] > [-voi] / __ [-voi] 
 {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} | ORIG : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}
-z > ð / __ [+cor,+ant,+distr,+voi,+cons]| ORIG : z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 {ˌɛ;ˌɔ} > {ˌe;ˌo} / __ ( [+lat] ) [+syl]| ORIG : {ˌɛ;ˌɔ} > {ˌe;ˌo} / __ ([+lat]) [+syl]
 ˌɔ > ˌo / __ [-lat]| ORIG : ˌɔ > ˌo / __ [-lat] 
 ˌɛ > ˌe / __ r [+syl]| ORIG : ˌɛ > ˌe / __ r [+syl]

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1324:
-#wˈid̪wum# >>> #vɛt̪# ( Correct : #vœf#) :
+#wˈid̪wum# >>> #vɛf# ( Correct : #vœf#) :
 w ˈi d̪ w u m 
 #ɣʷˈid̪ɣʷum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˈɪd̪ɣʷʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -7,12 +7,15 @@ w ˈi d̪ w u m
 #βʷˈed̪βʷom# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
 #βʷˈed̪βʷo# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #βˈed̪βo# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈed̪βə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
-#βˈed̪βə̯# | Rule 253 : ə > ə̯ 
-#βˈed̪β# | Rule 282 : ə̯ > ∅ 
-#vˈed̪v# | Rule 386 : β > v 
-#vˈed̪f# | Rule 397 : [-son] > [-voi] / __ #
-#vˈet̪f# | Rule 440 : [-son] > [-voi] / __ [-voi]
-#vˈɛt̪f# | Rule 545 : ˈe > ˈɛ 
-#vˈɛt̪# | Rule 615 : [-son] > ∅ / __ #
-#vɛt̪# | Rule 627 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#βˈeðβo# | Rule 236 : d̪ > ð / __ [+cont,+lab,+cons]
+#βˈeðβə# | Rule 252 : [-stres,-lo,+syl] > ə / __ #
+#βˈeðβə̯# | Rule 254 : ə > ə̯ 
+#βˈeðβ# | Rule 283 : ə̯ > ∅ 
+#vˈeðv# | Rule 388 : β > v 
+#vˈeðf# | Rule 399 : [-son] > [-voi] / __ #
+#vˈeθf# | Rule 442 : [-son] > [-voi] / __ [-voi]
+#vˈef# | Rule 503 : {θ;ð} > {∅;∅} 
+#vˈɛf# | Rule 546 : ˈe > ˈɛ 
+#vˈɛfə̯# | Rule 615 : ∅ > ə̯ / [+syl] f __ #
+#vˈɛf# | Rule 617 : ə̯ > ∅ 
+#vɛf# | Rule 628 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
