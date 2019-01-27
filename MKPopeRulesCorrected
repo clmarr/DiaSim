@@ -901,7 +901,11 @@ $ s257ib : ə intertonic retained when before ʎ,ɲ,ts or "any particularly heav
 $ CORRECTION: only retained before ʎ or ɲ -- not tsʲ or ç (with regards to palatal sounds -- i.e. we add +son specification)
 $ CORRECTION: retained before ŋ t͡sʲ but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters 
 	$ (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
+$ CORRECTION: ə also preserved between m and ts followed by a tonic
+$ CORRECTION: ə is NOT preserved before rʲ
 ə̯ > ə / __ [+front,+cons,+son]
+ə > ə̯ / __ rʲ
+ə̯ > ə / m __ t͡sʲ [+prim]
 ə̯ > ə / __ ŋ t͡sʲ
 ə̯ > ə / __ [+cons] [+cons] [+cons]
 $s258a : ə retained before n̪ t̪ #
@@ -1464,8 +1468,13 @@ $CORRECTION: This rule deleted
 $ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 
 $ s258 ə inserted after final CONS + r,l clusters 
-∅ > ə / {[-son];[+front,-syl,+hi]} r __ #
-∅ > ə / [-lat,-syl] l __ #
+$ CORRECTION where jr is concerned only a and ie̯ before the j are contexts where emission is triggered. 
+	$ it does not happen after oj (dortoir, heur, etc) or ʉo̯ (cuir) or ej (avoir, chaloir, voir, hoir, savoir, noir etc...)  
+$CORRECTION: this only happens for actual consonants followed by l, not glides.
+∅ > ə / [-son] r __ #
+∅ > ə / [+hi,+front] e̯ j r __ #
+∅ > ə / [+lo] j r __ #
+∅ > ə / [-lat,+cons] l __ #
 
 $~ Early Old French 
 $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "Formative period of the French language.”
@@ -1484,7 +1493,7 @@ t͡sʲ >t͡s
 $ s329 and s484 countertonic e becomes o before w and tonic u -- doesnˌt state when explicitly other than "in Early Old French" 
 $she doesnˌt seem to mention this being effected by former o,
 	$ so we assume it comes before s166.2 ~ s184 
-ˌe w >ˌo
+ˌe w > ˌo
 ˌe >ˌo / __ [+hi,+round,+prim] 
 
 $ CORRECTION: unstressed e goes to i before ɲ,ʎ

@@ -1,9 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1252:
-#t̪uˌɑːs# >>> #t̪wa# ( Correct : #t̪e#) :
-t̪ u ˌɑː s 
-#t̪ʊˌɑːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪wˌɑːs# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#t̪wˌɑs# | Rule 54 : [+syl,+long] > [-long,-splng] 
-#t̪wˌas# | Rule 183 : [+lo,+syl] > [+front,-back] 
-#t̪wˌa# | Rule 614 : [-son] > ∅ / __ #
-#t̪wa# | Rule 626 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˌurbulˈɑːre# >>> #t̪uʁblɛʁ# ( Correct : #t̪ʁuble#) :
+t̪ ˌu r b u l ˈɑː r e 
+#t̪ˌʊrbʊlˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌʊrbʊlˈɑrɛ# | Rule 54 : [+syl,+long] > [-long,-splng] 
+#t̪ˌorbolˈɑrɛ# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌorbolˈɑːrɛ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌorbolˈaːrɛ# | Rule 183 : [+lo,+syl] > [+front,-back] 
+#t̪ˌorbəlˈaːrɛ# | Rule 250 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]
+#t̪ˌorbəlˈaːrə# | Rule 252 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌorbə̯lˈaːrə̯# | Rule 254 : ə > ə̯ 
+#t̪ˌorblˈaːr# | Rule 285 : ə̯ > ∅ 
+#t̪ˌorblˈae̯r# | Rule 383 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˌorblˈeːr# | Rule 477 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#t̪ˌurblˈeːr# | Rule 481 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurblˈɛːr# | Rule 558 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#t̪ˌurblˈɛːɹ# | Rule 612 : r > ɹ / [-cons] __ #
+#t̪ˌuɹblˈɛːɹ# | Rule 613 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌurblˈɛːr# | Rule 626 : ɹ > r 
+#t̪ˌuʀblˈɛːʀ# | Rule 628 : r > ʀ 
+#t̪uʀblɛːʀ# | Rule 629 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪uʀblɛʀ# | Rule 630 : [+syl,+long] > [-long,-splng] 
+#t̪uʁblɛʁ# | Rule 636 : ʀ > ʁ 

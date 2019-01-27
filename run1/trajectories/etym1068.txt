@@ -1,18 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1068:
-#sˌɑt̪ˈullum# >>> #su# ( Correct : #su#) :
-s ˌɑ t̪ ˈu l l u m 
-#sˌɑt̪ˈʊllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollom# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌɑt̪ˈollo# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌat̪ˈollo# | Rule 183 : [+lo,+syl] > [+front,-back] 
-#sˌat̪ˈollə# | Rule 252 : [-stres,-lo,+syl] > ə / __ #
-#sˌat̪ˈollə̯# | Rule 254 : ə > ə̯ 
-#sˌat̪ˈoll# | Rule 283 : ə̯ > ∅ 
-#sˌad̪ˈoll# | Rule 334 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sˌaðˈoll# | Rule 356 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌaðˈol# | Rule 446 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˌaðˈul# | Rule 478 : [+round,+tense,+back] > [+hi] 
-#sˌaˈul# | Rule 501 : {θ;ð} > {∅;∅} 
-#sˌaˈu# | Rule 556 : [+lat] > ∅ / [+hi,+syl] __ #
-#sˈu# | Rule 574 : ˌa > ∅ / __ [+prim]
-#su# | Rule 626 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌɑwkˈoːn̪ɑm# >>> #swɔ̃n̪# ( Correct : #son̪#) :
+s ˌɑ w k ˈoː n̪ ɑ m 
+#sˌɑwkˈon̪ɑm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɑwkˈon̪ɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑwkˈoːn̪ɑ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌɑwɡˈoːn̪ɑ# | Rule 124 : k > ɡ / [-cons] __ [+syl]
+#sˌɑwɣˈoːn̪ɑ# | Rule 126 : ɡ > ɣ / [-cons] __ [-cons]
+#sˌɑwɣˈũːn̪ɑ# | Rule 154 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
+#sˌɑwˈũːn̪ɑ# | Rule 170 : ɣ > ∅ / __ [+tense,+round,+prim]
+#sˌawˈũːn̪a# | Rule 183 : [+lo,+syl] > [+front,-back] 
+#sˌɔwˈũːn̪a# | Rule 221 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#sˌowˈũːn̪a# | Rule 387 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#sˌowˈũːn̪ə# | Rule 399 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌewˈũːn̪ə# | Rule 475 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#sˌəwˈũːn̪ə# | Rule 507 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#sˌəwˈũːn̪ə̯# | Rule 611 : ə > ə̯ / __ #
+#sˌəwˈũːn̪# | Rule 618 : ə̯ > ∅ 
+#səwũːn̪# | Rule 629 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#səwũn̪# | Rule 630 : [+syl,+long] > [-long,-splng] 
+#səwɔ̃n̪# | Rule 631 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#swɔ̃n̪# | Rule 642 : ə > ∅ / # [-syl] __ [-syl] [+syl]

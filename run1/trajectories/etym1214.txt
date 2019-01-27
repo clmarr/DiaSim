@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1214:
-#t̪ˌormˈen̪t̪ɑ# >>> #t̪uʁmæ̃t̪# ( Correct : #t̪uʁmɑ̃t̪#) :
-t̪ ˌo r m ˈe n̪ t̪ ɑ 
-#t̪ˌɔrmˈɛn̪t̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrmˈɛ?t̪ɑ# | Rule 97 : [+ant,+cons] > [-voi] / __ t̪
-#t̪ˌɔrmˈɛ?t̪a# | Rule 183 : [+lo,+syl] > [+front,-back] 
-#t̪ˌormˈɛ?t̪a# | Rule 385 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
-#t̪ˌormˈɛ?t̪ə# | Rule 397 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌormˈɛ̃?t̪ə# | Rule 460 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌurmˈɛ̃?t̪ə# | Rule 478 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurmˈæ̃?t̪ə# | Rule 491 : [+nas,-hi,+syl] > [+lo] 
-#t̪ˌurmˈæ̃ːt̪ə# | Rule 594 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌurmˈæ̃ːt̪ə̯# | Rule 608 : ə > ə̯ / __ #
-#t̪ˌuɹmˈæ̃ːt̪ə̯# | Rule 610 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹmˈæ̃ːt̪# | Rule 615 : ə̯ > ∅ 
-#t̪ˌurmˈæ̃ːt̪# | Rule 623 : ɹ > r 
-#t̪ˌuʀmˈæ̃ːt̪# | Rule 625 : r > ʀ 
-#t̪uʀmæ̃ːt̪# | Rule 626 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʀmæ̃t̪# | Rule 627 : [+syl,+long] > [-long,-splng] 
-#t̪uʁmæ̃t̪# | Rule 633 : ʀ > ʁ 
+#t̪ˌormˈen̪t̪um# >>> #t̪uʁmæ̃# ( Correct : #t̪uʁmɑ̃#) :
+t̪ ˌo r m ˈe n̪ t̪ u m 
+#t̪ˌɔrmˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɔrmˈɛn̪t̪om# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɔrmˈɛn̪t̪o# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˌɔrmˈɛ?t̪o# | Rule 97 : [+ant,+cons] > [-voi] / __ t̪
+#t̪ˌɔrmˈɛ?t̪ə# | Rule 252 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌɔrmˈɛ?t̪ə̯# | Rule 254 : ə > ə̯ 
+#t̪ˌɔrmˈɛ?t̪# | Rule 285 : ə̯ > ∅ 
+#t̪ˌormˈɛ?t̪# | Rule 387 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#t̪ˌormˈɛ̃?t̪# | Rule 463 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˌurmˈɛ̃?t̪# | Rule 481 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurmˈæ̃?t̪# | Rule 494 : [+nas,-hi,+syl] > [+lo] 
+#t̪ˌurmˈæ̃ːt̪# | Rule 597 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˌuɹmˈæ̃ːt̪# | Rule 613 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹmˈæ̃ː# | Rule 617 : [-son] > ∅ / __ #
+#t̪ˌurmˈæ̃ː# | Rule 626 : ɹ > r 
+#t̪ˌuʀmˈæ̃ː# | Rule 628 : r > ʀ 
+#t̪uʀmæ̃ː# | Rule 629 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪uʀmæ̃# | Rule 630 : [+syl,+long] > [-long,-splng] 
+#t̪uʁmæ̃# | Rule 636 : ʀ > ʁ 
