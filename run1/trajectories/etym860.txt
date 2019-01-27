@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :860:
-#pˌersˈoːn̪ɑm# >>> #pɛʁsɔ̃n̪# ( Correct : #pɛʁsɔn̪#) :
+#pˌersˈoːn̪ɑm# >>> #paʁsɔ̃n̪# ( Correct : #pɛʁsɔn̪#) :
 p ˌe r s ˈoː n̪ ɑ m 
 #pˌɛrsˈoːn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɛrsˈon̪ɑm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -7,15 +7,16 @@ p ˌe r s ˈoː n̪ ɑ m
 #pˌɛrsˈoːn̪ɑ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˌɛrsˈũːn̪ɑ# | Rule 154 : [+round,+tense,-hi,+stres] > [+hi,+nas,+son,.delrel] / __ [+nas,+cons]
 #pˌɛrsˈũːn̪a# | Rule 183 : [+lo,+syl] > [+front,-back] 
-#pˌersˈũːn̪a# | Rule 384 : {ˌɛ;ˌɔ} > {ˌe;ˌo} 
-#pˌersˈũːn̪ə# | Rule 395 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌɛrsˈũːn̪ə# | Rule 557 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
-#pˌɛrsˈũːn̪ə̯# | Rule 611 : ə > ə̯ / __ #
-#pˌɛɹsˈũːn̪ə̯# | Rule 613 : r > ɹ / [-cons] __ [+cons]
-#pˌɛɹsˈũːn̪# | Rule 618 : ə̯ > ∅ 
-#pˌɛrsˈũːn̪# | Rule 626 : ɹ > r 
-#pˌɛʀsˈũːn̪# | Rule 628 : r > ʀ 
-#pɛʀsũːn̪# | Rule 629 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɛʀsũn̪# | Rule 630 : [+syl,+long] > [-long,-splng] 
-#pɛʀsɔ̃n̪# | Rule 631 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#pɛʁsɔ̃n̪# | Rule 636 : ʀ > ʁ 
+#pˌɨrsˈũːn̪a# | Rule 384 : {ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ} / __ [+cons]
+#pˌɛrsˈũːn̪a# | Rule 385 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#pˌɛrsˈũːn̪ə# | Rule 397 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌarsˈũːn̪ə# | Rule 549 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#pˌarsˈũːn̪ə̯# | Rule 608 : ə > ə̯ / __ #
+#pˌaɹsˈũːn̪ə̯# | Rule 610 : r > ɹ / [-cons] __ [+cons]
+#pˌaɹsˈũːn̪# | Rule 615 : ə̯ > ∅ 
+#pˌarsˈũːn̪# | Rule 623 : ɹ > r 
+#pˌaʀsˈũːn̪# | Rule 625 : r > ʀ 
+#paʀsũːn̪# | Rule 626 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#paʀsũn̪# | Rule 627 : [+syl,+long] > [-long,-splng] 
+#paʀsɔ̃n̪# | Rule 628 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#paʁsɔ̃n̪# | Rule 633 : ʀ > ʁ 
