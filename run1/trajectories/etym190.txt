@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :190:
-#d̪ˌormiːt̪ˈoːrium# >>> #d̪uʁt̪waʁ# ( Correct : #d̪ɔʁt̪waʁ#) :
+#d̪ˌormiːt̪ˈoːrium# >>> #d̪ɔʁt̪waʁ# ( Correct : #d̪ɔʁt̪waʁ#) :
 d̪ ˌo r m iː t̪ ˈoː r i u m 
 #d̪ˌɔrmiːt̪ˈoːrɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #d̪ˌɔrmiːt̪ˈoːrjʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -16,15 +16,16 @@ d̪ ˌo r m iː t̪ ˈoː r i u m
 #d̪ˌɔrmt̪ˈoːjrʲ# | Rule 342 : ∅ > j / [-cons] __ rʲ
 #d̪ˌɔrmt̪ˈoːjr# | Rule 374 : rʲ > r 
 #d̪ˌɔrmt̪ˈojr# | Rule 378 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#d̪ˌormt̪ˈojr# | Rule 401 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
-#d̪ˌort̪ˈojr# | Rule 439 : [+cons] > ∅ / [+cons] __ [-son]
-#d̪ˌort̪ˈoɛ̯r# | Rule 513 : j > ɛ̯ / [+syl,+back,+round] __ r
-#d̪ˌurt̪ˈuɛ̯r# | Rule 517 : [+round,+tense,+back] > [+hi] 
-#d̪ˌurt̪wˈɛr# | Rule 559 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#d̪ˌurt̪wˈar# | Rule 585 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#d̪ˌurt̪wˈaɹ# | Rule 645 : r > ɹ / [-cons] __ #
-#d̪ˌuɹt̪wˈaɹ# | Rule 646 : r > ɹ / [-cons] __ [+cons]
-#d̪ˌurt̪wˈar# | Rule 659 : ɹ > r 
-#d̪ˌuʀt̪wˈaʀ# | Rule 661 : r > ʀ 
-#d̪uʀt̪waʀ# | Rule 662 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪uʁt̪waʁ# | Rule 669 : ʀ > ʁ 
+#d̪ˌormt̪ˈojr# | Rule 403 : ˌɔ > ˌo 
+#d̪ˌort̪ˈojr# | Rule 442 : [+cons] > ∅ / [+cons] __ [-son]
+#d̪ˌɔrt̪ˈojr# | Rule 514 : ˌo > ˌɔ / __ r [+ant,-lab,-cont]
+#d̪ˌɔrt̪ˈoɛ̯r# | Rule 522 : j > ɛ̯ / [+syl,+back,+round] __ r
+#d̪ˌɔrt̪ˈuɛ̯r# | Rule 526 : [+round,+tense,+back] > [+hi] 
+#d̪ˌɔrt̪wˈɛr# | Rule 568 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪ˌɔrt̪wˈar# | Rule 594 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#d̪ˌɔrt̪wˈaɹ# | Rule 654 : r > ɹ / [-cons] __ #
+#d̪ˌɔɹt̪wˈaɹ# | Rule 655 : r > ɹ / [-cons] __ [+cons]
+#d̪ˌɔrt̪wˈar# | Rule 668 : ɹ > r 
+#d̪ˌɔʀt̪wˈaʀ# | Rule 670 : r > ʀ 
+#d̪ɔʀt̪waʀ# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ɔʁt̪waʁ# | Rule 678 : ʀ > ʁ 

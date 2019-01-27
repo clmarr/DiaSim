@@ -1307,7 +1307,15 @@ $ s355 -- final spirantization reversed due to slurring .
 
 $ s164-15 ~  s234: raising of lax countertonic ɛ,ɔ to tense e,o except in ɛr[+cons] ɛɫ[+cons] and ɔɫ[+cons] , see also s223, 121
 {ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ}/ __ [+cons]
-{ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ}
+
+ˌɛ > ˌe 
+
+$CORRECTION: closing of ɔ blocked before voiceless coronals (prochain, fosse', côte', ...)
+ˌɔ > ˌɯ / __ [+cor,-voi]
+
+$(resolving 164-15 ~ s234
+ˌɔ > ˌo
+{ˌɨ;ˌɯ} > {ˌɛ;ˌɔ}
 
 $ CORRECTION ɛrr is also shifted 
 ˌɛ > ˌe / __ r r
@@ -1659,12 +1667,28 @@ $ CORRECTION :This is moved after s226-7 ou > eu, because there is different beh
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
 t͡sʲ > t͡s
 
+$ CORRECTION e > ɛ before ʎ
+[+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
+
+$ CORRECTION: ˌo and ˈo open before final t
+{ˌo;ˈo} > {ˌɔ;ˈɔ} / __ t̪ #
+
+$ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure
+ˌo > ˌɔ / __ r [+ant,-lab,-cont]
+
+$ ... but not if it's rtr
+ˌɔ > ˌo / __ r t̪ r
+
 $ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
 $ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
 $ syllable length rules of Gallo-Roman (open and stressed =long, else =short) must no longer be effective after this point. 
 $ Buckley criticizes this paradigm from Pope.
 $ CORRECTION: moved from Late Gallo-Roman into Early Old French, after eː becomes diphthongized, else a e̯ becomes oj > wa 
 {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}
+
+$ CORRECTION : ˌo opens before r,l then stressed a or ɛ or ə 
+$ CORRECTION : first one is bled by ae > eː 
+ˌo > ˌɔ / __ [+cons,+cor,+son] {ˈa;ˈɛ} 
 
 $ s411: ˈue̯j >"yi̯j" > yj and ˈie̯j >(ii̯j >) i
 $ see also s410~s514-5
