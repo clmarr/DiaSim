@@ -1238,7 +1238,6 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION: But it is incorrect for this rule to operate before glides except j
 	$ not intended to apply to diphthongs with j aka i̯ as element 
 $ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
-$ CORRECTION before ʎ is CLOSED in this case unless we are talking about /i/ 
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
 $ [+syl] > [-long] / __ [-syl] #
@@ -1254,6 +1253,9 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 [+prim,-front] > [-long] / __ ʎ 
 [+prim,-hi] > [-long] / __ ʎ
+
+$ CORRECTION: [-cont] l is no longer long except for round vowels
+[+syl,-round] > [-long] / __ [-cont] l
 
 $CORRECTION: not long before ɲ 
 [+syl] > [-long] / __ ɲ
@@ -1274,9 +1276,12 @@ $ CORRECTION: before depalatizing, t͡sʲ ejects a backward into if under certai
 	$ CORRECTION : this must happen before degemination of ttsj (laetitia > liesse , not lisse; neptiam> niece, not nisse; noptiam > noce, not noice; pettiam > piece not pisse) 
 	$ CORRECTION: moved this to right after palatization of aː and oː 
 	$ CORRECTION: this also changes any tonic a-variant to aj and blocks any diphthongization to ae̯ (palais, paix, etc...) 
-∅ > j / ˈi e̯ __ t͡sʲ
+∅ > j / e̯ __ t͡sʲ
 w > j / [+round,+syl] __ t͡sʲ
-e̯ > j / ˈa __ t͡sʲ
+
+$ CORRECTION : we also delete e̯ before ʎ, ɲ (as well as the newly ejected j -- and also j from other sources 
+	$ ( i.e. braie, rai, maie, orfraie, verai(e), baie, aine, lairme etc...) 
+e̯ > ∅ / ˈa __ [+front,+son,-syl]
 
 $ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 
 $ as per Popeˌs example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization

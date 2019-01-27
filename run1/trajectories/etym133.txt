@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :133:
-#brˈɑːkɑm# >>> #bʁej# ( Correct : #bʁɛ#) :
+#brˈɑːkɑm# >>> #bʁɛ# ( Correct : #bʁɛ#) :
 b r ˈɑː k ɑ m 
 #brˈɑkɑm# | Rule 54 : [+syl,+long] > [-long,-splng] 
 #brˈɑkɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -10,11 +10,13 @@ b r ˈɑː k ɑ m
 #brˈaːɣʲa# | Rule 222 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #brˈaːʝa# | Rule 234 : [+back,+front] > [-back] 
 #brˈaːja# | Rule 361 : ʝ > j 
-#brˈae̯ja# | Rule 387 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#brˈae̯jə# | Rule 406 : a > ə / [+syl] ( [-syl] )* __ 
-#brˈeːjə# | Rule 497 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#brˈeːj# | Rule 600 : ə > ∅ / [+prim] ( j ) __ 
-#bʀˈeːj# | Rule 647 : r > ʀ 
-#bʀeːj# | Rule 648 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀej# | Rule 649 : [+syl,+long] > [-long,-splng] 
-#bʁej# | Rule 655 : ʀ > ʁ 
+#brˈae̯ja# | Rule 388 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#brˈaja# | Rule 391 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#brˈajə# | Rule 407 : a > ə / [+syl] ( [-syl] )* __ 
+#brˈaːjə# | Rule 600 : [+prim] > [+long] / __ ( j ) ə #
+#brˈaːj# | Rule 601 : ə > ∅ / [+prim] ( j ) __ 
+#brˈɛː# | Rule 602 : ˈaː j > ˈɛː / __ #
+#bʀˈɛː# | Rule 648 : r > ʀ 
+#bʀɛː# | Rule 649 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀɛ# | Rule 650 : [+syl,+long] > [-long,-splng] 
+#bʁɛ# | Rule 656 : ʀ > ʁ 

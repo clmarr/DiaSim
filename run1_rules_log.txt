@@ -382,13 +382,14 @@ w > ∅ / [+round,+syl] __ j| ORIG : w > ∅ / [+round,+syl] __ j
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #| ORIG : [+prim] > [+long] / # ([-syl])* __ [+cons] #
 [+prim,-front] > [-long,-splng] / __ ʎ| ORIG : [+prim,-front] > [-long] / __ ʎ 
 [+prim,-hi] > [-long,-splng] / __ ʎ| ORIG : [+prim,-hi] > [-long] / __ ʎ
+[+syl,-round] > [-long,-splng] / __ [-cont] l| ORIG : [+syl,-round] > [-long] / __ [-cont] l
 [+syl] > [-long,-splng] / __ ɲ| ORIG : [+syl] > [-long] / __ ɲ
 ∅ > d̪ / n̪ __ r| ORIG : ∅ > d̪ / n̪ __ r
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} | ORIG : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} | ORIG : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
-∅ > j / ˈi e̯ __ t͡sʲ| ORIG : ∅ > j / ˈi e̯ __ t͡sʲ
+∅ > j / e̯ __ t͡sʲ| ORIG : ∅ > j / e̯ __ t͡sʲ
 w > j / [+round,+syl] __ t͡sʲ| ORIG : w > j / [+round,+syl] __ t͡sʲ
-e̯ > j / ˈa __ t͡sʲ| ORIG : e̯ > j / ˈa __ t͡sʲ
+e̯ > ∅ / ˈa __ [+front,+son,-syl]| ORIG : e̯ > ∅ / ˈa __ [+front,+son,-syl]
 β > ∅ / w __ [+tense,+round,-stres]| ORIG : β > ∅ / w __ [+tense,+round,-stres]
 {θ;ð} > {t̪;d̪} / ə __ #| ORIG : {θ;ð} > [-cont,-delrel] / ə __ # 
 {ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ} / __ [+cons]| ORIG : {ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ}/ __ [+cons]

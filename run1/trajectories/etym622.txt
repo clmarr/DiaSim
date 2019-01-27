@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :622:
-#mˈɑːjum# >>> #mej# ( Correct : #me#) :
+#mˈɑːjum# >>> #mɛ# ( Correct : #me#) :
 m ˈɑː j u m 
 #mˈɑːʝum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #mˈɑːʝʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -12,7 +12,9 @@ m ˈɑː j u m
 #mˈaːʝə̯# | Rule 256 : ə > ə̯ 
 #mˈaːʝ# | Rule 289 : ə̯ > ∅ 
 #mˈaːj# | Rule 298 : ʝ > j / __ ( [-syl] )* #
-#mˈae̯j# | Rule 387 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˈeːj# | Rule 497 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#meːj# | Rule 648 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mej# | Rule 649 : [+syl,+long] > [-long,-splng] 
+#mˈae̯j# | Rule 388 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈaj# | Rule 391 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#mˈɛj# | Rule 531 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #
+#mˈe# | Rule 563 : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #
+#mˈɛ# | Rule 567 : ˈe > ˈɛ 
+#mɛ# | Rule 649 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

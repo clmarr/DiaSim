@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :984:
-#rˈɑd̪ium# >>> #ʁej# ( Correct : #ʁɛ#) :
+#rˈɑd̪ium# >>> #ʁɛ# ( Correct : #ʁɛ#) :
 r ˈɑ d̪ i u m 
 #rˈɑd̪ɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˈɑd̪jʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -15,9 +15,11 @@ r ˈɑ d̪ i u m
 #rˈaːʝə̯# | Rule 256 : ə > ə̯ 
 #rˈaːʝ# | Rule 289 : ə̯ > ∅ 
 #rˈaːj# | Rule 298 : ʝ > j / __ ( [-syl] )* #
-#rˈae̯j# | Rule 387 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#rˈeːj# | Rule 497 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ʀˈeːj# | Rule 647 : r > ʀ 
-#ʀeːj# | Rule 648 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀej# | Rule 649 : [+syl,+long] > [-long,-splng] 
-#ʁej# | Rule 655 : ʀ > ʁ 
+#rˈae̯j# | Rule 388 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#rˈaj# | Rule 391 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#rˈɛj# | Rule 531 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #
+#rˈe# | Rule 563 : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #
+#rˈɛ# | Rule 567 : ˈe > ˈɛ 
+#ʀˈɛ# | Rule 648 : r > ʀ 
+#ʀɛ# | Rule 649 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁɛ# | Rule 656 : ʀ > ʁ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :95:
-#bˈɑkɑm# >>> #bej# ( Correct : #bɛ#) :
+#bˈɑkɑm# >>> #bɛ# ( Correct : #bɛ#) :
 b ˈɑ k ɑ m 
 #bˈɑkɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
 #bˈɑːkɑ# | Rule 106 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -9,9 +9,11 @@ b ˈɑ k ɑ m
 #bˈaːɣʲa# | Rule 222 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #bˈaːʝa# | Rule 234 : [+back,+front] > [-back] 
 #bˈaːja# | Rule 361 : ʝ > j 
-#bˈae̯ja# | Rule 387 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#bˈae̯jə# | Rule 406 : a > ə / [+syl] ( [-syl] )* __ 
-#bˈeːjə# | Rule 497 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#bˈeːj# | Rule 600 : ə > ∅ / [+prim] ( j ) __ 
-#beːj# | Rule 648 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bej# | Rule 649 : [+syl,+long] > [-long,-splng] 
+#bˈae̯ja# | Rule 388 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#bˈaja# | Rule 391 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#bˈajə# | Rule 407 : a > ə / [+syl] ( [-syl] )* __ 
+#bˈaːjə# | Rule 600 : [+prim] > [+long] / __ ( j ) ə #
+#bˈaːj# | Rule 601 : ə > ∅ / [+prim] ( j ) __ 
+#bˈɛː# | Rule 602 : ˈaː j > ˈɛː / __ #
+#bɛː# | Rule 649 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɛ# | Rule 650 : [+syl,+long] > [-long,-splng] 

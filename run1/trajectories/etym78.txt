@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :78:
-#ɑt̪ˈɑwiɑm# >>> #aej# ( Correct : #t̪ɛ#) :
+#ɑt̪ˈɑwiɑm# >>> #ɛ# ( Correct : #t̪ɛ#) :
 ɑ t̪ ˈɑ w i ɑ m 
 #ɑt̪ˈɑɣʷiɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɑt̪ˈɑɣʷɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -12,10 +12,12 @@ Trajectory file for run 'run1'; etymon number :78:
 #ad̪ˈaːʝa# | Rule 340 : [-voi] > [+voi] / [-cons] __ [-cons]
 #ad̪ˈaːja# | Rule 361 : ʝ > j 
 #aðˈaːja# | Rule 362 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#aðˈae̯ja# | Rule 387 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#aðˈae̯jə# | Rule 406 : a > ə / [+syl] ( [-syl] )* __ 
-#aðˈeːjə# | Rule 497 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#aˈeːjə# | Rule 523 : {θ;ð} > {∅;∅} 
-#aˈeːj# | Rule 600 : ə > ∅ / [+prim] ( j ) __ 
-#aeːj# | Rule 648 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aej# | Rule 649 : [+syl,+long] > [-long,-splng] 
+#aðˈae̯ja# | Rule 388 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#aðˈaja# | Rule 391 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#aðˈajə# | Rule 407 : a > ə / [+syl] ( [-syl] )* __ 
+#aˈajə# | Rule 524 : {θ;ð} > {∅;∅} 
+#ˈaːjə# | Rule 591 : [+lo,+syl] [+lo,+syl] > ∅ [+long]
+#ˈaːj# | Rule 601 : ə > ∅ / [+prim] ( j ) __ 
+#ˈɛː# | Rule 602 : ˈaː j > ˈɛː / __ #
+#ɛː# | Rule 649 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛ# | Rule 650 : [+syl,+long] > [-long,-splng] 
