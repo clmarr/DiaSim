@@ -1,17 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1200:
-#t̪ˈerrɑm# >>> #t̪ɑʁ# ( Correct : #t̪ɛʁ#) :
-t̪ ˈe r r ɑ m 
-#t̪ˈɛrrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛrrɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈɛrra# | Rule 182 : [+lo,+syl] > [+front,-back] 
-#t̪ˈɛrrə# | Rule 400 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈarrə# | Rule 561 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#t̪ˈaːrrə# | Rule 592 : [+syl] > [+long] / __ r r
-#t̪ˈaːrə# | Rule 593 : r r > r / __ ə
-#t̪ˈɑːrə# | Rule 605 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˈɑːrə̯# | Rule 620 : ə > ə̯ / __ #
-#t̪ˈɑːr# | Rule 627 : ə̯ > ∅ 
-#t̪ˈɑːʀ# | Rule 637 : r > ʀ 
-#t̪ɑːʀ# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ɑʀ# | Rule 639 : [+syl,+long] > [-long,-splng] 
-#t̪ɑʁ# | Rule 645 : ʀ > ʁ 
+#t̪ˈert̪iɑm# >>> #t̪jaʁs# ( Correct : #t̪jɛʁs#) :
+t̪ ˈe r t̪ i ɑ m 
+#t̪ˈɛrt̪ɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛrt̪jɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#t̪ˈɛrt̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
+#t̪ˈɛrt̪ʝɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈɛrt͡sʲʝɑ# | Rule 71 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#t̪ˈɛrt͡sʲɑ# | Rule 82 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#t̪ˈɛrt͡sʲa# | Rule 182 : [+lo,+syl] > [+front,-back] 
+#t̪ˈie̯rt͡sʲa# | Rule 218 : ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front]
+#t̪ˈie̯rt͡sʲə# | Rule 400 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈie̯rt͡sə# | Rule 456 : t͡sʲ > t͡s 
+#t̪jˈert͡sə# | Rule 517 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#t̪jˈersə# | Rule 550 : [+delrel] > [+cont,.delrel] 
+#t̪jˈɛrsə# | Rule 556 : ˈe > ˈɛ 
+#t̪jˈarsə# | Rule 561 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#t̪jˈarsə̯# | Rule 620 : ə > ə̯ / __ #
+#t̪jˈaɹsə̯# | Rule 622 : r > ɹ / [-cons] __ [+cons]
+#t̪jˈaɹs# | Rule 627 : ə̯ > ∅ 
+#t̪jˈars# | Rule 635 : ɹ > r 
+#t̪jˈaʀs# | Rule 637 : r > ʀ 
+#t̪jaʀs# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪jaʁs# | Rule 645 : ʀ > ʁ 

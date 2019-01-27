@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1299:
-#wˈen̪t̪um# >>> #væ̃# ( Correct : #vɑ̃#) :
-w ˈe n̪ t̪ u m 
-#ɣʷˈen̪t̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪t̪ʊm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɛn̪t̪om# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪t̪o# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βʷˈɛ?t̪o# | Rule 97 : [+ant,+cons] > [-voi] / __ t̪
-#βˈɛ?t̪o# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈɛ?t̪ə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
-#βˈɛ?t̪ə̯# | Rule 253 : ə > ə̯ 
-#βˈɛ?t̪# | Rule 286 : ə̯ > ∅ 
-#vˈɛ?t̪# | Rule 394 : β > v 
-#vˈɛ̃?t̪# | Rule 465 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˈæ̃?t̪# | Rule 503 : [+nas,-hi,+syl] > [+lo] 
-#vˈæ̃ːt̪# | Rule 606 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˈæ̃ː# | Rule 626 : [-son] > ∅ / __ #
-#væ̃ː# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#væ̃# | Rule 639 : [+syl,+long] > [-long,-splng] 
+#wˈeːrɑ# >>> #vwaʁ# ( Correct : #vwaʁ#) :
+w ˈeː r ɑ 
+#ɣʷˈeːrɑ# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈeːrɑ# | Rule 49 : ɣʷ > βʷ 
+#βʷˈerɑ# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈeːrɑ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈeːrɑ# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈeːra# | Rule 182 : [+lo,+syl] > [+front,-back] 
+#βˈejra# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈejra# | Rule 394 : β > v 
+#vˈejrə# | Rule 400 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈojrə# | Rule 485 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˈoɛ̯rə# | Rule 489 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˈuɛ̯rə# | Rule 490 : [+round,+tense,+back] > [+hi] 
+#vwˈɛrə# | Rule 535 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈarə# | Rule 561 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#vwˈarə̯# | Rule 620 : ə > ə̯ / __ #
+#vwˈar# | Rule 627 : ə̯ > ∅ 
+#vwˈaʀ# | Rule 637 : r > ʀ 
+#vwaʀ# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwaʁ# | Rule 645 : ʀ > ʁ 

@@ -1,15 +1,16 @@
 Trajectory file for run 'run1'; etymon number :1020:
-#rˈupt̪ɑ# >>> #ʁut̪# ( Correct : #ʁut̪#) :
-r ˈu p t̪ ɑ 
-#rˈʊpt̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈopt̪ɑ# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˈopt̪a# | Rule 182 : [+lo,+syl] > [+front,-back] 
-#rˈot̪t̪a# | Rule 183 : [+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
-#rˈot̪t̪ə# | Rule 400 : a > ə / [+syl] ( [-syl] )* __ 
-#rˈot̪ə# | Rule 447 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#rˈut̪ə# | Rule 490 : [+round,+tense,+back] > [+hi] 
-#rˈut̪ə̯# | Rule 620 : ə > ə̯ / __ #
-#rˈut̪# | Rule 627 : ə̯ > ∅ 
-#ʀˈut̪# | Rule 637 : r > ʀ 
-#ʀut̪# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁut̪# | Rule 645 : ʀ > ʁ 
+#rˈupt̪um# >>> #ʁu# ( Correct : #ʁo#) :
+r ˈu p t̪ u m 
+#rˈʊpt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈopt̪om# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈopt̪o# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈot̪t̪o# | Rule 183 : [+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
+#rˈot̪t̪ə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
+#rˈot̪t̪ə̯# | Rule 253 : ə > ə̯ 
+#rˈot̪t̪# | Rule 286 : ə̯ > ∅ 
+#rˈot̪# | Rule 447 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#rˈut̪# | Rule 490 : [+round,+tense,+back] > [+hi] 
+#rˈu# | Rule 626 : [-son] > ∅ / __ #
+#ʀˈu# | Rule 637 : r > ʀ 
+#ʀu# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁu# | Rule 645 : ʀ > ʁ 

@@ -1,15 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1274:
-#wˈɑllem# >>> #val# ( Correct : #val#) :
-w ˈɑ l l e m 
-#ɣʷˈɑllem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɑllɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɑllɛm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɑllɛ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑllɛ# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈallɛ# | Rule 182 : [+lo,+syl] > [+front,-back] 
-#βˈallə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
-#βˈallə̯# | Rule 253 : ə > ə̯ 
-#βˈall# | Rule 286 : ə̯ > ∅ 
-#vˈall# | Rule 394 : β > v 
-#vˈal# | Rule 450 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#val# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈɑlleːs# >>> #vo# ( Correct : #vo#) :
+w ˈɑ l l eː s 
+#ɣʷˈɑlleːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈɑlleːs# | Rule 49 : ɣʷ > βʷ 
+#βʷˈɑlles# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βˈɑlles# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈalles# | Rule 182 : [+lo,+syl] > [+front,-back] 
+#βˈalləs# | Rule 250 : [-stres,-lo,+syl] > ə / __ [-syl]
+#βˈallə̯s# | Rule 253 : ə > ə̯ 
+#βˈalls# | Rule 286 : ə̯ > ∅ 
+#vˈalls# | Rule 394 : β > v 
+#vˈals# | Rule 426 : [+cons] > ∅ / [+cons] __ [-son]
+#vˈaɫs# | Rule 460 : [+lat] > [+back] / __ [+cons]
+#vˈaws# | Rule 508 : [+lat,+back] > w 
+#vˈoːs# | Rule 563 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#vˈoː# | Rule 626 : [-son] > ∅ / __ #
+#voː# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vo# | Rule 639 : [+syl,+long] > [-long,-splng] 

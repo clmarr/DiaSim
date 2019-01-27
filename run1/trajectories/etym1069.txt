@@ -1,12 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1069:
-#sˈeː# >>> #swa# ( Correct : #swa#) :
-s ˈeː 
-#sˈe# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈeː# | Rule 102 : [+prim] > [+long] / __ #
-#sˈej# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈoj# | Rule 485 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#sˈuj# | Rule 490 : [+round,+tense,+back] > [+hi] 
-#sˈuɛ̯# | Rule 532 : j > ɛ̯ / [+syl,+back,+round] __ 
-#swˈɛ# | Rule 535 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#swɛ# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#swa# | Rule 643 : ɛ > a / w __ 
+#sˌed̪ˈeːre# >>> #swaʁ# ( Correct : #swaʁ#) :
+s ˌe d̪ ˈeː r e 
+#sˌɛd̪ˈeːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɛd̪ˈerɛ# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɛðˈerɛ# | Rule 99 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#sˌɛðˈeːrɛ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌɛðˈeːrə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
+#sˌɛðˈeːrə̯# | Rule 253 : ə > ə̯ 
+#sˌɛðˈeːr# | Rule 286 : ə̯ > ∅ 
+#sˌɛðˈejr# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˌeðˈejr# | Rule 388 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#sˌeðˈojr# | Rule 485 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˌeðˈoɛ̯r# | Rule 489 : j > ɛ̯ / [+syl,+back,+round] __ r
+#sˌeðˈuɛ̯r# | Rule 490 : [+round,+tense,+back] > [+hi] 
+#sˌeˈuɛ̯r# | Rule 513 : {θ;ð} > {∅;∅} 
+#sˌəˈuɛ̯r# | Rule 516 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#sˌəwˈɛr# | Rule 535 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#sˌəwˈar# | Rule 561 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#sˌəwˈaɹ# | Rule 621 : r > ɹ / [-cons] __ #
+#sˌəwˈar# | Rule 635 : ɹ > r 
+#sˌəwˈaʀ# | Rule 637 : r > ʀ 
+#səwaʀ# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#səwaʁ# | Rule 645 : ʀ > ʁ 
+#swaʁ# | Rule 651 : ə > ∅ / # [-syl] __ [-syl] [+syl]

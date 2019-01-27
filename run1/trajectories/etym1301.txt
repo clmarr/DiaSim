@@ -1,26 +1,30 @@
 Trajectory file for run 'run1'; etymon number :1301:
-#wˌeːrˈɑːkɑm# >>> #vʁej# ( Correct : #vʁɛ#) :
-w ˌeː r ˈɑː k ɑ m 
-#ɣʷˌeːrˈɑːkɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˌeːrˈɑːkɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˌerˈɑːkɑm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌerˈɑkɑm# | Rule 54 : [+syl,+long] > [-long,-splng] 
-#βʷˌerˈɑkɑ# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βʷˌerˈɑːkɑ# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
-#βʷˌerˈɑːɡɑ# | Rule 124 : k > ɡ / [-cons] __ [+syl]
-#βʷˌerˈɑːɣɑ# | Rule 126 : ɡ > ɣ / [-cons] __ [-cons]
-#βˌerˈɑːɣɑ# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌerˈaːɣa# | Rule 182 : [+lo,+syl] > [+front,-back] 
-#βˌerˈaːɣʲa# | Rule 219 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˌerˈaːʝa# | Rule 231 : [+back,+front] > [-back] 
-#βˌerˈaːja# | Rule 358 : ʝ > j 
-#βˌerˈae̯ja# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˌerˈae̯ja# | Rule 394 : β > v 
-#vˌerˈae̯jə# | Rule 400 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌərˈae̯jə# | Rule 469 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
-#vˌərˈeːjə# | Rule 486 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#vrˈeːjə# | Rule 551 : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
-#vrˈeːj# | Rule 590 : ə > ∅ / [+prim] ( j ) __ 
+#wˌeːrˈɑːkum# >>> #vʁej# ( Correct : #vʁɛ#) :
+w ˌeː r ˈɑː k u m 
+#ɣʷˌeːrˈɑːkum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌeːrˈɑːkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌeːrˈɑːkʊm# | Rule 49 : ɣʷ > βʷ 
+#βʷˌerˈɑːkʊm# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌerˈɑkʊm# | Rule 54 : [+syl,+long] > [-long,-splng] 
+#βʷˌerˈɑkom# | Rule 63 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˌerˈɑko# | Rule 68 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌerˈɑːko# | Rule 105 : [+prim] > [+long] / __ [+cons] [-cons]
+#βʷˌerˈɑːɡo# | Rule 124 : k > ɡ / [-cons] __ [+syl]
+#βʷˌerˈɑːɣo# | Rule 126 : ɡ > ɣ / [-cons] __ [-cons]
+#βˌerˈɑːɣo# | Rule 150 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌerˈaːɣo# | Rule 182 : [+lo,+syl] > [+front,-back] 
+#βˌerˈaːɣə# | Rule 251 : [-stres,-lo,+syl] > ə / __ #
+#βˌerˈaːɣə̯# | Rule 253 : ə > ə̯ 
+#βˌerˈaːɣ# | Rule 286 : ə̯ > ∅ 
+#βˌerˈae̯ɣ# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌerˈae̯ɣ# | Rule 394 : β > v 
+#vˌerˈae̯x# | Rule 405 : [-son] > [-voi] / __ #
+#vˌerˈae̯ç# | Rule 416 : x > ç / [+lo,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#vˌerˈae̯ʝ# | Rule 419 : ç > ʝ 
+#vˌerˈae̯j# | Rule 420 : ʝ > j / [-cons] __ 
+#vˌərˈae̯j# | Rule 469 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
+#vˌərˈeːj# | Rule 486 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#vrˈeːj# | Rule 551 : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
 #vʀˈeːj# | Rule 637 : r > ʀ 
 #vʀeːj# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
 #vʀej# | Rule 639 : [+syl,+long] > [-long,-splng] 
