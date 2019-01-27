@@ -152,6 +152,12 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to apply to... 
 
+$ CORRECTION : stress shift in ˌɪ ɡ ˈɪ segments to > ˈɪ ɡ ɪ 
+ˌɪ ɡ ˈɪ > ˈɪ ɡ ɪ
+
+$ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded by an ɑ variant 
+ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
+
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
 [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
@@ -280,7 +286,7 @@ $p130 s308-9
 $ as per s306ii : k+yod > c c intervocalically only 
 k [+hi,+front,-syl] > c c / [+syl] __ [+syl]
 
-$p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for before yod
+$p 124 s283-284 : palatalization of velar stops before e and i, s306-307 for before yod
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
@@ -406,6 +412,8 @@ $ for convenience we are also placing here k>x before t (s325, again after the f
 $ we can just refer to these as the coronals (since k and ɡ donˌt occur before n, d, z and we place the assibilation of palatals after this for convenience)
 $ CORRECTION: Pope failed to explicitly specify that this occurs after nonconsonantal sounds
 [+hi,+back,-cont] > [+cont] / [-cons] __ [+cor,+cons]
+$ CORRECTION : also open before ʎ
+[+hi,+back,-cont] > [+cont] / [-cons] __ ʎ
 
 $ intervocalic -qu- 
 $ k > x before Popeˌs fricative w as per s327-330
@@ -698,6 +706,8 @@ w > ∅ / [+cons] [+cons,-back] __
 
 $ s322-326, palatalization of velar frics pre-coronal
 [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+$ CORRECTION: also pre-ʎ
+[+back,+hi,+cont,-son] > [-back,+front] / __ ʎ
 
 $ CORRECTION : çs > ss after word initial ˌɛ
 ç > s / # ˌɛ __ s
