@@ -358,6 +358,9 @@ $Right after the beginning of palatalization. This should be roughly 4th century
 $ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
 [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
 
+$ CORRECTION : d opens before l 
+d̪ > ð / __ [+lat]
+
 $p73 s155i ~ p91 s185 -- as Pope explained, happened word-internally first. 
 $It was apparently still being resisted among the educated classes in the time of St. Augustine, 4th century and early 5th century 
 h > ∅ 
@@ -654,10 +657,15 @@ $ CORRECTION: include /i/ too -- ki:wi:tatem
 
 $ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
 t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
-$ may need to fix civitatem >cite' as it is continually being rendered as cide' /side/
 
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
 ∅ > j / ˌe __ [+lo,+syl]
+
+$ CORRECTION : ð before a lateral can now assimilate to ɫ here-- just early enough for espɑtulɑ to become espɑɫlɑ
+$ CORRECTION: Pope s372 moved here, date was rather unclear in Pope's prose previously.
+$ CORRECTION: only becomes dark l after a back or lo vowel, else to normal l 
+ð > ɫ / [+back] __ [+lat]
+ð > ɫ / __ [+lat]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
@@ -954,7 +962,6 @@ n̪ ə̯ > ɾ / [+syl] ([-syl])* [+syl] r __ #
 
 $ CORRECTION: ˈʉo̯ > ˈoː before ð then son
 $ tentatively expanding this to include all dentals ð θ d̪ t̪ 
-$ TODO: place. 
 ˈʉ o̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
 
 $ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
@@ -1261,6 +1268,16 @@ $ CORRECTION : if eː is already coming before j, that is absorbed. Same for ʝ
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
 
+$ CORRECTION: before depalatizing, t͡sʲ ejects a backward into if under certain conditions: 
+	$ (1) prior is ˈie̯ (decimum > dime, pretium > prix
+	$ CORRECTION (2) prior is ˈow (nukem > noix, crucem > croix) 
+	$ CORRECTION : this must happen before degemination of ttsj (laetitia > liesse , not lisse; neptiam> niece, not nisse; noptiam > noce, not noice; pettiam > piece not pisse) 
+	$ CORRECTION: moved this to right after palatization of aː and oː 
+	$ CORRECTION: this also changes any tonic a-variant to aj and blocks any diphthongization to ae̯ (palais, paix, etc...) 
+∅ > j / ˈi e̯ __ t͡sʲ
+w > j / [+round,+syl] __ t͡sʲ
+e̯ > j / ˈa __ t͡sʲ
+
 $ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 
 $ as per Popeˌs example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization
 β > ∅ / w __ [+tense,+round,-stres]
@@ -1409,7 +1426,7 @@ $ 365ii early denasalization nns, rns . Utlimately becomes the alveolar affricat
 n̪ > t̪  / [-cons] [+cor,-lat,+son] __ s [-cons]
 
 $ s365ii s t s > ts 
-s t̪ s > t͡sʲ / [-cons] __ [-cons]
+s t̪ s > t͡s / [-cons] __ [-cons]
 
 $ s367 d,t + s becomes the affricate 
 [+cor,-cont,-delrel] s > t͡sʲ
@@ -1491,13 +1508,6 @@ $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "F
 $ Pope s257 : unstressed ə > e before yod. She implies this is also happening before ʎ and ɲ in her examples
 $ s252 : this feeds ej > oj phenomena.
 ə > e / __ [+front,+son,+hi,-syl]
-
-$s291-s292 -- t͡sʲ eventually depalatalizes. Pope does not explicate when, but it is clearly before Later Old French.
-$ This would seem to be AFTER the influence exercised by palatals 
-           $on preceding vowels such as e (s418)
-$ as the results of the first palatalization DO exercise this influence 
-$ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old French
-t͡sʲ > t͡s
 
 $ s329 and s484 countertonic e becomes o before w and tonic u -- doesnˌt state when explicitly other than "in Early Old French" 
 $she doesnˌt seem to mention this being effected by former o,
@@ -1581,8 +1591,27 @@ j > ∅ / [+front,+tense,-hi,-lo] __ ʎ
 $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle of the twelfth century".
 $ She places it in EOF-- so we place it there too, though clearly at the end. 
 $ Any e before yod effected.
-[+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w 
+$ per s226 : effects ei whether tonic, intertonic or countertonic, but only tonic ou 
+ˈo > ˈe / __ w 
 [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
+
+$ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
+ˌo > ˌe / d͡ʒ __ w
+
+$ CORRECTION : tonic ˈow > ˈew is REVERSED before a coronal voiced fricative (z,ð) [epoux, epouse, moule, ...] 
+ˈe > ˈo / __ w [+cor,+voi,-son,+cont]
+
+$s291-s292 -- t͡sʲ eventually depalatalizes. Pope does not explicate when, but it is clearly before Later Old French.
+$ This would seem to be AFTER the influence exercised by palatals 
+           $on preceding vowels such as e (s418)
+$ as the results of the first palatalization DO exercise this influence 
+$ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old French
+$ CORRECTION :This is moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
+	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
+$ CORRECTION: Judging from noix and croix, it seems that t͡sʲ ejected a j backward into ow before disappearing as well. 
+j > ∅ / [+round,+back,+syl] w __ j t͡sʲ
+t͡sʲ > t͡s
+
 
 $ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
 $ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
@@ -1636,10 +1665,6 @@ $She says it occurs for s and f both, but s is excluded here as that is obviousl
 $TODO use this one as example of how machine can improve Pope in paper. 
 $s > z / [-cons] __ [-cos]
 f > v / [-cons] __ [-cons]
-
-$Pope s372 : ð >ɫ / __ l
-$date unclear, but should be before ɫ goes to w. 
-ð > ɫ / __ [+lat]
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 [+nas,-hi,+syl] > [+lo]
