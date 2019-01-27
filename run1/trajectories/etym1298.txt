@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1298:
-#wˈen̪t̪um# >>> #væ̃# ( Correct : #vɑ̃#) :
-w ˈe n̪ t̪ u m 
-#ɣʷˈen̪t̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪t̪ʊm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈɛn̪t̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪t̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βʷˈɛ?t̪o# | Rule 100 : [+ant,+cons] > [-voi] / __ t̪
-#βˈɛ?t̪o# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈɛ?t̪ə# | Rule 259 : [-stres,-lo,+syl] > ə / __ #
-#βˈɛ?t̪ə̯# | Rule 261 : ə > ə̯ 
-#βˈɛ?t̪# | Rule 294 : ə̯ > ∅ 
-#vˈɛ?t̪# | Rule 406 : β > v 
-#vˈɛ̃?t̪# | Rule 485 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˈæ̃?t̪# | Rule 519 : [+nas,-hi,+syl] > [+lo] 
-#vˈæ̃ːt̪# | Rule 622 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˈæ̃ː# | Rule 642 : [-son] > ∅ / __ #
-#væ̃ː# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#væ̃# | Rule 655 : [+syl,+long] > [-long,-splng] 
+#wˈeːrɑ# >>> #vwaʁ# ( Correct : #vwaʁ#) :
+w ˈeː r ɑ 
+#ɣʷˈeːrɑ# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈeːrɑ# | Rule 51 : ɣʷ > βʷ 
+#βʷˈerɑ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈeːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈeːrɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈeːra# | Rule 189 : [+lo,+syl] > [+front,-back] 
+#βˈejra# | Rule 393 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈejra# | Rule 406 : β > v 
+#vˈejrə# | Rule 412 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈojrə# | Rule 499 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˈoɛ̯rə# | Rule 506 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˈuɛ̯rə# | Rule 507 : [+round,+tense,+back] > [+hi] 
+#vwˈɛrə# | Rule 551 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈarə# | Rule 577 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#vwˈarə̯# | Rule 636 : ə > ə̯ / __ #
+#vwˈar# | Rule 643 : ə̯ > ∅ 
+#vwˈaʀ# | Rule 653 : r > ʀ 
+#vwaʀ# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwaʁ# | Rule 661 : ʀ > ʁ 

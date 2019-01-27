@@ -1572,6 +1572,10 @@ $ CORRECTION: This does not simply happen everywhere that is open. It appears it
 $CORRECTION : ˌə reverts to ˌe if before s or ʎ
 ˌə > ˌe / __ {s;ʎ}
 
+$ CORRECTION : ə from previous period (restoration after schwa falls) becomes e if in closed nasal syllable. (parente', jouvencelle, etc.) 
+$ CORRECTION : but only if it is not the final syllable (hence all the verb -ent endings remain non-nasalized schwas)
+ə > e / __ [+nas,+cons] [-nas,+cons] ([-syl])* [+syl]
+
 $ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
 $ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
 j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
@@ -1621,6 +1625,8 @@ $ per s226 : effects ei whether tonic, intertonic or countertonic, but only toni
 ˈo > ˈe / __ w 
 [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
 
+$ TODO : return here and use notes -- I found evidence of regular patterning here, but it does seem challenged by Pope's philological evidence :(
+
 $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 ˌo > ˌe / d͡ʒ __ w
 
@@ -1634,10 +1640,7 @@ $ as the results of the first palatalization DO exercise this influence
 $ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old French
 $ CORRECTION :This is moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
-$ CORRECTION: Judging from noix and croix, it seems that t͡sʲ ejected a j backward into ow before disappearing as well. 
-j > ∅ / [+round,+back,+syl] w __ j t͡sʲ
 t͡sʲ > t͡s
-
 
 $ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
 $ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
