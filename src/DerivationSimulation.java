@@ -525,7 +525,7 @@ public class DerivationSimulation {
 			System.out.println("Words changed for rule "+ri+" "+thisShift); 
 			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 				if (wordsChanged[wi])
-					System.out.println("etym "+wi+" [ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ] is now : "+testResultLexicon.getByID(wi));
+					System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
 			ri++; 
 		}
 		

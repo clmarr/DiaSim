@@ -568,8 +568,10 @@ x n̪ > ŋ ɲ
 
 $ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, and any o with any level of stress raise to u before diphthongization can occur
 $ CORRECTION : these go to already nasalized ũ, so that it will not get fronted. 
-[+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
-{ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+$ CORRECTION: free tonic ɔ is also effected... so essentially ANY variant of o or ɔ is affected
+[+round,-hi] > [+tense,+hi,+nas] / __ [+nas,+cons]
+$[+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
+${ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
 
 $ s163-10 ~ s225, 227 -- first completed in Gallo Roman period I i.e. 6th-7th century as per s163-10
 $ RECURRENT throughout period as per s162
@@ -1422,6 +1424,9 @@ $ s374ii: fricative + w > w w
 $ recurrence of s374i 
 w > ∅ / [-cont] [-cont] __
 
+$ CORRECTION: delete w after stops that are not velar
+w > ∅ / [-cont,-back] __
+
 $ s377 s > z before voiced consonants
 s > z / __ [+voi,+cons]
 
@@ -1530,7 +1535,20 @@ z > ∅ / __ [+cons]
 $ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
 $ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
-ˌe > ˌə / __ ([+cons]) [+syl] 
+$ CORRECTION: This does not simply happen everywhere that is open. It appears it happens (1) after tʃ ... (cheval, cheveu, cheville ...)
+ˌe > ˌə / t͡ʃ __ ([+cons]) [+syl] 
+	$ CORRECTION: also happens after v... (v(e)rai(e), velu(e), v(e)oir, v(e)ouge, veau ...) 
+ˌe > ˌə / v __ ([+cons]) [+syl]
+	$ CORRECTION: and after any word initial sonorant (levain, mesure, m(e)aille, neveu, ...) 
+ˌe > ˌə / # [+son] __ ([+cons]) [+syl] 
+	$ CORRECTION: and (still in open syllables) when next syllable has the tonic a, ã, aj, ae̯, or ɛ or tense o (Bretagne, (e)age, seau, ...)
+		$-- specifically the oral and not the nasal variants of these (not Cevennes, etc...) 
+ˌe > ˌə / __ ([+cons]) [+lo,+prim]
+ˌe > ˌə / __ ([+cons]) ˈɛ
+	$CORRECTION: before a non-sonorant then stressed ˈiː (petit, devin...)
+ˌe > ˌə / __ [-son] ˈiː 
+$CORRECTION : ˌə reverts to ˌe if before s or ʎ
+ˌə > ˌe / __ {s;ʎ}
 
 $ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
 $As per s226, this happened "before the end of the [EOF] period". 
@@ -1542,7 +1560,8 @@ $ s330 : early leveling of aj before w -- case of aqua -- 11th century.
 
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
-[+tense,+syl,+round,-hi,-lo] w >[+hi] ∅ / __ [+lab,-syl]
+$ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant though (meuble)
+[+tense,+syl,+round,-hi,-lo] w >[+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.

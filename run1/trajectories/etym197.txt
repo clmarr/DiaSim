@@ -1,14 +1,15 @@
 Trajectory file for run 'run1'; etymon number :197:
-#d̪uˈoːs# >>> #d̪wœ# ( Correct : #d̪ø#) :
+#d̪uˈoːs# >>> #d̪œ# ( Correct : #d̪ø#) :
 d̪ u ˈoː s 
 #d̪ʊˈoːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #d̪wˈoːs# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
 #d̪wˈos# | Rule 53 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
 #d̪wˈoːs# | Rule 107 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#d̪wˈows# | Rule 385 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪wˈews# | Rule 477 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
-#d̪wˈøws# | Rule 511 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#d̪wˈøs# | Rule 515 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#d̪wˈø# | Rule 619 : [-son] > ∅ / __ #
-#d̪wø# | Rule 631 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪wœ# | Rule 635 : ø > œ / __ ( [+cons] )* #
+#d̪wˈows# | Rule 384 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#d̪ˈows# | Rule 430 : w > ∅ / [-cont,-back] __ 
+#d̪ˈews# | Rule 484 : [+round,+back,+tense,-hi,+syl] > [-back,+front,-round,-lab] / __ w
+#d̪ˈøws# | Rule 518 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#d̪ˈøs# | Rule 522 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#d̪ˈø# | Rule 626 : [-son] > ∅ / __ #
+#d̪ø# | Rule 638 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪œ# | Rule 642 : ø > œ / __ ( [+cons] )* #
