@@ -1540,14 +1540,6 @@ $As per Pope s167, "unclear" how much and if the vocalization aspect was present
 $First attested in 9th century -- s390. 
 [+lat] > [+back] / __ [+cons]
 
-$ s674 : countertonic ow > uw bled before z and v where it goes to ɔ, as well as when blocked by one cons then free after.
-$ (Pope doesn't realize that at this point ð may not have been deleted yet... she gives laudare as an example of "in hiatus" 
-	$ (but she notes herself the loss of θ and ð was not finalized "until the middle of the twelfth century") 
-$ CORRECTION : s also causes automatic simplification (Autun) like v and z do. With s,v, and z we can just say +strid will cover it (no examples either way of f, tʃ, dʒ, ts or dz)
-$ CORRECTION : correct the "blocked and free" second realization of this shift to only effect r 
-ˌo w > ˌɔ / __ [+strid]
-ˌo w > ˌɔ / __ r [-cons]
-
 $ s166.1 ~ s183 ~ s9 ~ s36 ~ s42 completion of u fronting. 
 $"Spread slowly from the South" (s183, s36), continuing in the tenth century (s42), with some Eastern and Northern (esp Walloon, Picard) dialects remaining unaffected.
 $ precedes u>o (s166.2~s184) as per s183. 
@@ -1665,6 +1657,22 @@ j > ∅ / ˈi __
 
 $ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
 j > ɛ̯ / [+syl,+back,+round] __ r 
+
+$ s674 : countertonic ɔw > uw bled before z and v where it goes to ɔ, as well as when blocked by one cons then free after.
+$ (Pope doesn't realize that at this point ð may not have been deleted yet... she gives laudare as an example of "in hiatus" 
+	$ (but she notes herself the loss of θ and ð was not finalized "until the middle of the twelfth century") 
+$ s673 : this also happens for tonic ɔw
+$ Pope only calls this for ɔw, not ow, but she had shifted countertonic ɔ to o earlier... 
+$ CORRECTION : s also causes automatic simplification (Autun) like v and z do. With s,v, and z we can just say +strid will cover it (no examples either way of f, tʃ, dʒ, ts or dz)
+$ CORRECTION : correct the "blocked and free" second realization of this shift to only effect r 
+$ CORRECTION : this does not happen word finally 
+$ CORRECTION : also targets countertonic ˌow
+{ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
+{ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ r [-cons]
+
+ˈo w > ˈɔ / __ [+strid] @
+ˈo w > ˈɔ / __ r [+cons]
+
 
 $ s166.2 ~ s184 o > u. As per s184, occurs in the eleventh and twelth centuries.
 $ s518: this also means oi > ui
@@ -2073,6 +2081,11 @@ $giving Pope benefit of the doubt, we place this after long a velarization, beca
 $s570iii ending aʒə sees lengthening of a 
 $ giving Pope benefit of the doubt, we place this after long a velarization, because of examples like voyage /vwajaʒ/
 [+lo] > [+long] / __ ʒ ə #
+
+$s579: ɔ lengthens before z,v ... and then any long ɔː becomes oː 
+$ CORRECTION abrogated for now... 
+$[-hi,-lo,+back,+syl,-tense] > [+long] / __ {z;v} 
+$ [-hi,-lo,+back,+syl,+long] > [+tense]
 
 $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 ∅ > j / w ˌɛ __ [+prim]
