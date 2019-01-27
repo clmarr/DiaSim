@@ -1532,16 +1532,7 @@ $ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10t
 j > [+nas] / [+lo,+syl] __ [+nas,-syl]
 [+lo,+syl] > [+nas] / __ [+nas,-syl]
 
-$ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
-$ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
-j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
-[+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
-
-$ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
-$ Complete before the Norman Conquest of England (1066) as per s377
-[+syl] > [+long] / __ z [+cons]
-z > ∅ / __ [+cons]
-
+$ CORRECTION: countertonic ˌə to ˌe can bleed nasalization -- moved before it. 
 $ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
 $ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
@@ -1557,8 +1548,22 @@ $ CORRECTION: This does not simply happen everywhere that is open. It appears it
 ˌe > ˌə / __ ([+cons]) ˈɛ
 	$CORRECTION: before a non-sonorant then stressed ˈiː (petit, devin...)
 ˌe > ˌə / __ [-son] ˈiː 
+	$CORRECTION: in open syll before n or m this happens too. (benoit, genouille, grenouille, plenier, tenir, jumeaux, fumier, tremuie etc..) 
+		$ s486 -- jumeaux, fumier etc will be rounded and closed in Middle French. 
+ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
+
 $CORRECTION : ˌə reverts to ˌe if before s or ʎ
 ˌə > ˌe / __ {s;ʎ}
+
+$ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
+$ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
+j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
+[+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
+
+$ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
+$ Complete before the Norman Conquest of England (1066) as per s377
+[+syl] > [+long] / __ z [+cons]
+z > ∅ / __ [+cons]
 
 $ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
 $As per s226, this happened "before the end of the [EOF] period". 
