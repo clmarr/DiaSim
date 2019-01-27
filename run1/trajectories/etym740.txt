@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :740:
-#n̪ˈek# >>> #n̪ij# ( Correct : #n̪i#) :
+#n̪ˈek# >>> #n̪i# ( Correct : #n̪i#) :
 n̪ ˈe k 
 #n̪ˈɛk# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #n̪ˈɛːk# | Rule 111 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
@@ -8,5 +8,6 @@ n̪ ˈe k
 #n̪ˈie̯ç# | Rule 429 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
 #n̪ˈie̯ʝ# | Rule 431 : ç > ʝ 
 #n̪ˈie̯j# | Rule 432 : ʝ > j / [-cons] __ 
-#n̪ˈij# | Rule 505 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#n̪ij# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˈij# | Rule 505 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
+#n̪ˈi# | Rule 506 : j > ∅ / ˈi __ 
+#n̪i# | Rule 655 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

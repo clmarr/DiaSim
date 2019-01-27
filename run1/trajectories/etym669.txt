@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :669:
-#mˈed̪ium# >>> #mij# ( Correct : #mi#) :
+#mˈed̪ium# >>> #mi# ( Correct : #mi#) :
 m ˈe d̪ i u m 
 #mˈɛd̪ɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˈɛd̪jʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -15,5 +15,6 @@ m ˈe d̪ i u m
 #mˈie̯ʝə̯# | Rule 261 : ə > ə̯ 
 #mˈie̯ʝ# | Rule 294 : ə̯ > ∅ 
 #mˈie̯j# | Rule 303 : ʝ > j / __ ( [-syl] )* #
-#mˈij# | Rule 505 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#mij# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈij# | Rule 505 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
+#mˈi# | Rule 506 : j > ∅ / ˈi __ 
+#mi# | Rule 655 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

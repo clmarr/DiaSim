@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :170:
-#d̪ˌimˈed̪ium# >>> #d̪ə̃mij# ( Correct : #d̪əmi#) :
+#d̪ˌimˈed̪ium# >>> #d̪ə̃mi# ( Correct : #d̪əmi#) :
 d̪ ˌi m ˈe d̪ i u m 
 #d̪ˌɪmˈɛd̪ɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #d̪ˌɪmˈɛd̪jʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -16,6 +16,7 @@ d̪ ˌi m ˈe d̪ i u m
 #d̪ˌemˈie̯ʝ# | Rule 294 : ə̯ > ∅ 
 #d̪ˌemˈie̯j# | Rule 303 : ʝ > j / __ ( [-syl] )* #
 #d̪ˌəmˈie̯j# | Rule 481 : ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
-#d̪ˌəmˈij# | Rule 505 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#d̪ˌə̃mˈij# | Rule 542 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
-#d̪ə̃mij# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ˌəmˈij# | Rule 505 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
+#d̪ˌəmˈi# | Rule 506 : j > ∅ / ˈi __ 
+#d̪ˌə̃mˈi# | Rule 543 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#d̪ə̃mi# | Rule 655 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :342:
-#iˈɑket̪# >>> #ʒij# ( Correct : #ʒi#) :
+#iˈɑket̪# >>> #ʒi# ( Correct : #ʒi#) :
 i ˈɑ k e t̪ 
 #ɪˈɑkɛt̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #jˈɑkɛt̪# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -22,7 +22,8 @@ i ˈɑ k e t̪
 #d͡ʒˈie̯ʝə̯θ# | Rule 261 : ə > ə̯ 
 #d͡ʒˈie̯ʝθ# | Rule 294 : ə̯ > ∅ 
 #d͡ʒˈie̯jθ# | Rule 303 : ʝ > j / __ ( [-syl] )* #
-#d͡ʒˈijθ# | Rule 505 : e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
-#d͡ʒˈij# | Rule 529 : {θ;ð} > {∅;∅} 
-#ʒˈij# | Rule 566 : [+delrel] > [+cont,.delrel] 
-#ʒij# | Rule 654 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d͡ʒˈijθ# | Rule 505 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
+#d͡ʒˈiθ# | Rule 506 : j > ∅ / ˈi __ 
+#d͡ʒˈi# | Rule 530 : {θ;ð} > {∅;∅} 
+#ʒˈi# | Rule 567 : [+delrel] > [+cont,.delrel] 
+#ʒi# | Rule 655 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
