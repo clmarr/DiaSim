@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1162:
-#t͡sˈukkɑm# >>> #sukʃ# ( Correct : #suʃ#) :
+#t͡sˈukkɑm# >>> #suʃ# ( Correct : #suʃ#) :
 t͡s ˈu k k ɑ m 
 #t͡sˈʊkkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #t͡sˈokkɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -8,9 +8,11 @@ t͡s ˈu k k ɑ m
 #t͡sˈokkʲa# | Rule 227 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #t͡sˈokca# | Rule 239 : [+back,+front] > [-back] 
 #t͡sˈokt͡ʃa# | Rule 248 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡sˈokt͡ʃə# | Rule 412 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡sˈukt͡ʃə# | Rule 512 : [+round,+tense,+back] > [+hi] 
-#sˈukʃə# | Rule 571 : [+delrel] > [+cont,.delrel] 
-#sˈukʃə̯# | Rule 641 : ə > ə̯ / __ #
-#sˈukʃ# | Rule 648 : ə̯ > ∅ 
-#sukʃ# | Rule 659 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡sˈot̪t͡ʃa# | Rule 249 : {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ} 
+#t͡sˈot̪t͡ʃə# | Rule 413 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡sˈot͡ʃə# | Rule 460 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#t͡sˈut͡ʃə# | Rule 511 : [+round,+tense,+back] > [+hi] 
+#sˈuʃə# | Rule 570 : [+delrel] > [+cont,.delrel] 
+#sˈuʃə̯# | Rule 640 : ə > ə̯ / __ #
+#sˈuʃ# | Rule 647 : ə̯ > ∅ 
+#suʃ# | Rule 658 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
