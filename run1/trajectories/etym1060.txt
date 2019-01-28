@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1060:
-#sˌɑpiˈen̪t̪em# >>> #savæ̃# ( Correct : #savɑ̃#) :
+#sˌɑpiˈen̪t̪em# >>> #savɑ̃# ( Correct : #savɑ̃#) :
 s ˌɑ p i ˈe n̪ t̪ e m 
 #sˌɑpɪˈɛn̪t̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˌɑpjˈɛn̪t̪ɛm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -9,13 +9,14 @@ s ˌɑ p i ˈe n̪ t̪ e m
 #sˌapˈɛ?t̪ɛ# | Rule 189 : [+lo,+syl] > [+front,-back] 
 #sˌapˈɛ?t̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˌapˈɛ?t̪ə̯# | Rule 262 : ə > ə̯ 
-#sˌapˈɛ?t̪# | Rule 295 : ə̯ > ∅ 
-#sˌabˈɛ?t̪# | Rule 346 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sˌaβˈɛ?t̪# | Rule 368 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌavˈɛ?t̪# | Rule 410 : β > v 
-#sˌavˈɛ̃?t̪# | Rule 490 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌavˈæ̃?t̪# | Rule 538 : [+nas,-hi,+syl] > [+lo] 
-#sˌavˈæ̃ːt̪# | Rule 639 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌavˈæ̃ː# | Rule 659 : [-son] > ∅ / __ #
-#savæ̃ː# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#savæ̃# | Rule 672 : [+syl,+long] > [-long,-splng] 
+#sˌapˈɛ?t̪# | Rule 296 : ə̯ > ∅ 
+#sˌabˈɛ?t̪# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˌaβˈɛ?t̪# | Rule 369 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˌavˈɛ?t̪# | Rule 411 : β > v 
+#sˌavˈɛ̃?t̪# | Rule 491 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˌavˈã?t̪# | Rule 539 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] 
+#sˌavˈãːt̪# | Rule 640 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌavˈãː# | Rule 660 : [-son] > ∅ / __ #
+#savãː# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#savã# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#savɑ̃# | Rule 678 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

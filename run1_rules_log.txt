@@ -274,6 +274,7 @@ a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : a > ə / __ ([-syl])
 ə̯ > ə / [+cons] w __ [+cons]| ORIG : ə̯ > ə / [+cons] w __ [+cons] 
 ə̯ > ə / [+cons] p __ [-cont] ( [-syl] )* [+prim]| ORIG : ə̯ > ə / [+cons] p __ [-cont] ([-syl])* [+prim]
 ə̯ > ə / [+delrel,-ant] __ | ORIG : ə̯ > ə / [+delrel,-ant] __
+ə̯ > e / # [-syl] ( [-syl] )* __ s #| ORIG : ə̯ > e / # ([-syl])+ __ s #
 [+cons,+lab] > ∅ / [+cons] __ [-son]| ORIG : [+cons,+lab] > ∅ / [+cons] __ [-son]
 [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]| ORIG : [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
 ə̯ r > r ə / __ #| ORIG : ə̯ r > r ə / __ #
@@ -536,8 +537,8 @@ j > ɛ̯ / [+syl,+back,+round] __ r| ORIG : j > ɛ̯ / [+syl,+back,+round] __ r
 [+hi,+round] > [+front,-back] / __ e̯ w| ORIG : [+hi,+round] > [+front,-back] / __ e̯ w 
 e̯ > ø̯ / [+hi,+round] __ w| ORIG : e̯ > ø̯ / [+hi,+round] __ w 
 f > v / [-cons] __ [-cons]| ORIG : f > v / [-cons] __ [-cons]
-[+nas,-hi,+syl] > [+lo] | ORIG : [+nas,-hi,+syl] > [+lo]
-∅ > e̯ / ˈi __ r [+cons]| ORIG : ∅ > e̯ / ˈi __ r [+cons]
+[+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] | ORIG : [+nas,-hi,+syl] > [+lo,+tense]
+∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]| ORIG : ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
 [+hi,+round,+tense,+prim] e̯ > ˈø| ORIG : [+hi,+round,+tense,+prim] e̯ > ˈø
 [+lat,+back] > w | ORIG : [+lat,+back] > w
 ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w| ORIG : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w

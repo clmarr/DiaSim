@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :597:
-#lˈin̪ɡon̪eːs# >>> #læ̃ɡʁ# ( Correct : #lɑ̃ɡʁ#) :
+#lˈin̪ɡon̪eːs# >>> #lɑ̃ɡʁ# ( Correct : #lɑ̃ɡʁ#) :
 l ˈi n̪ ɡ o n̪ eː s 
 #lˈiŋɡon̪eːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #lˈɪŋɡɔn̪eːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -9,16 +9,17 @@ l ˈi n̪ ɡ o n̪ eː s
 #lˈeŋɡən̪es# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #lˈeŋɡən̪əs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #lˈeŋɡə̯n̪ə̯s# | Rule 262 : ə > ə̯ 
-#lˈeŋɡɾə̯s# | Rule 282 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
-#lˈeŋɡrə̯s# | Rule 290 : ɾ > r 
-#lˈeŋɡrəs# | Rule 294 : ə̯ > ə / [-cont] r __ [+cons]
-#lˈẽŋɡrəs# | Rule 490 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈɛ̃ŋɡrəs# | Rule 534 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈæ̃ŋɡrəs# | Rule 538 : [+nas,-hi,+syl] > [+lo] 
-#lˈæ̃ŋɡrs# | Rule 629 : ə > ∅ / r __ [+cons]
-#lˈæ̃ːɡrs# | Rule 639 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈæ̃ːɡr# | Rule 659 : [-son] > ∅ / __ #
-#lˈæ̃ːɡʀ# | Rule 670 : r > ʀ 
-#læ̃ːɡʀ# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#læ̃ɡʀ# | Rule 672 : [+syl,+long] > [-long,-splng] 
-#læ̃ɡʁ# | Rule 678 : ʀ > ʁ 
+#lˈeŋɡɾə̯s# | Rule 283 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
+#lˈeŋɡrə̯s# | Rule 291 : ɾ > r 
+#lˈeŋɡrəs# | Rule 295 : ə̯ > ə / [-cont] r __ [+cons]
+#lˈẽŋɡrəs# | Rule 491 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˈɛ̃ŋɡrəs# | Rule 535 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈãŋɡrəs# | Rule 539 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] 
+#lˈãŋɡrs# | Rule 630 : ə > ∅ / r __ [+cons]
+#lˈãːɡrs# | Rule 640 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːɡr# | Rule 660 : [-son] > ∅ / __ #
+#lˈãːɡʀ# | Rule 671 : r > ʀ 
+#lãːɡʀ# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lãɡʀ# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#lɑ̃ɡʀ# | Rule 678 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#lɑ̃ɡʁ# | Rule 679 : ʀ > ʁ 

@@ -947,6 +947,9 @@ $ CORRECTION : ə also preserved when after [+cons] p __ followed by -cont, and 
 $ CORRECTION : ə always retained after dʒ or tʃ\
 ə̯ > ə / [+delrel,-ant] __
 
+$ CORRECTION: ə̯ > e before final s when there is no other syllabic in the syllable
+ə̯ > e / # ([-syl])+ __ s #
+
 $ CORRECTION : s365iii bleeds some n flapping
 $ this is going to be recurrent...
 [+cons,+lab] > ∅ / [+cons] __ [-son]
@@ -1753,11 +1756,11 @@ $s > z / [-cons] __ [-cos]
 f > v / [-cons] __ [-cons]
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
-[+nas,-hi,+syl] > [+lo]
+[+nas,-hi,+syl] > [+lo,+tense]
 
 $ Pope s500 -- ir > ie̯r when stressed and before consonants. 
 $ feeds ie̯ >je shift in 12th century, must precede it.
-∅ > e̯ / ˈi __ r [+cons]
+∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
 
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested 1137 -- "over the course of the 12th century"

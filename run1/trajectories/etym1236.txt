@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1236:
-#t̪rˌiːɡˈin̪t̪ɑm# >>> #t̪ʁiæ̃t̪# ( Correct : #t̪ʁɑ̃t̪#) :
+#t̪rˌiːɡˈin̪t̪ɑm# >>> #t̪ʁiɑ̃t̪# ( Correct : #t̪ʁɑ̃t̪#) :
 t̪ r ˌiː ɡ ˈi n̪ t̪ ɑ m 
 #t̪rˌiːɡˈɪn̪t̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #t̪rˌiɡˈɪn̪t̪ɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -11,15 +11,16 @@ t̪ r ˌiː ɡ ˈi n̪ t̪ ɑ m
 #t̪rˌiʝˈe?t̪ɑ# | Rule 102 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
 #t̪rˌiʝˈe?t̪a# | Rule 189 : [+lo,+syl] > [+front,-back] 
 #t̪rˌiˈe?t̪a# | Rule 211 : ʝ > ∅ / [-cons] __ ˈe
-#t̪rˌiˈe?t̪ə# | Rule 416 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪rˌiˈẽ?t̪ə# | Rule 490 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪rˌiˈɛ̃?t̪ə# | Rule 534 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪rˌiˈæ̃?t̪ə# | Rule 538 : [+nas,-hi,+syl] > [+lo] 
-#t̪rˌiˈæ̃ːt̪ə# | Rule 639 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪r?ˈæ̃ːt̪ə# | Rule 643 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#t̪r?ˈæ̃ːt̪ə̯# | Rule 653 : ə > ə̯ / __ #
-#t̪r?ˈæ̃ːt̪# | Rule 660 : ə̯ > ∅ 
-#t̪ʀ?ˈæ̃ːt̪# | Rule 670 : r > ʀ 
-#t̪ʀiæ̃ːt̪# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ʀiæ̃t̪# | Rule 672 : [+syl,+long] > [-long,-splng] 
-#t̪ʁiæ̃t̪# | Rule 678 : ʀ > ʁ 
+#t̪rˌiˈe?t̪ə# | Rule 417 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪rˌiˈẽ?t̪ə# | Rule 491 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪rˌiˈɛ̃?t̪ə# | Rule 535 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪rˌiˈã?t̪ə# | Rule 539 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] 
+#t̪rˌiˈãːt̪ə# | Rule 640 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪r?ˈãːt̪ə# | Rule 644 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+#t̪r?ˈãːt̪ə̯# | Rule 654 : ə > ə̯ / __ #
+#t̪r?ˈãːt̪# | Rule 661 : ə̯ > ∅ 
+#t̪ʀ?ˈãːt̪# | Rule 671 : r > ʀ 
+#t̪ʀiãːt̪# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀiãt̪# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#t̪ʀiɑ̃t̪# | Rule 678 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#t̪ʁiɑ̃t̪# | Rule 679 : ʀ > ʁ 

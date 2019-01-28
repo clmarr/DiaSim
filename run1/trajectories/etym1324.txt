@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1324:
-#wˌiːɡˈin̪t̪i# >>> #viæ̃# ( Correct : #vɛ̃#) :
+#wˌiːɡˈin̪t̪i# >>> #viɑ̃# ( Correct : #vɛ̃#) :
 w ˌiː ɡ ˈi n̪ t̪ i 
 #ɣʷˌiːɡˈin̪t̪i# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌiːɡˈɪn̪t̪ɪ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -14,13 +14,14 @@ w ˌiː ɡ ˈi n̪ t̪ i
 #βˌiˈe?t̪e# | Rule 211 : ʝ > ∅ / [-cons] __ ˈe
 #βˌiˈe?t̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #βˌiˈe?t̪ə̯# | Rule 262 : ə > ə̯ 
-#βˌiˈe?t̪# | Rule 295 : ə̯ > ∅ 
-#vˌiˈe?t̪# | Rule 410 : β > v 
-#vˌiˈẽ?t̪# | Rule 490 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˌiˈɛ̃?t̪# | Rule 534 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#vˌiˈæ̃?t̪# | Rule 538 : [+nas,-hi,+syl] > [+lo] 
-#vˌiˈæ̃ːt̪# | Rule 639 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#v?ˈæ̃ːt̪# | Rule 643 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-#v?ˈæ̃ː# | Rule 659 : [-son] > ∅ / __ #
-#viæ̃ː# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#viæ̃# | Rule 672 : [+syl,+long] > [-long,-splng] 
+#βˌiˈe?t̪# | Rule 296 : ə̯ > ∅ 
+#vˌiˈe?t̪# | Rule 411 : β > v 
+#vˌiˈẽ?t̪# | Rule 491 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˌiˈɛ̃?t̪# | Rule 535 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#vˌiˈã?t̪# | Rule 539 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] 
+#vˌiˈãːt̪# | Rule 640 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#v?ˈãːt̪# | Rule 644 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+#v?ˈãː# | Rule 660 : [-son] > ∅ / __ #
+#viãː# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#viã# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#viɑ̃# | Rule 678 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

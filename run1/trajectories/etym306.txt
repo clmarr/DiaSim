@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :306:
-#ɡˈen̪t̪em# >>> #ʒæ̃# ( Correct : #ʒɑ̃#) :
+#ɡˈen̪t̪em# >>> #ʒɑ̃# ( Correct : #ʒɑ̃#) :
 ɡ ˈe n̪ t̪ e m 
 #ɡˈɛn̪t̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ɡˈɛn̪t̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -9,11 +9,12 @@ Trajectory file for run 'run1'; etymon number :306:
 #d͡ʒˈɛ?t̪ɛ# | Rule 173 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #d͡ʒˈɛ?t̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #d͡ʒˈɛ?t̪ə̯# | Rule 262 : ə > ə̯ 
-#d͡ʒˈɛ?t̪# | Rule 295 : ə̯ > ∅ 
-#d͡ʒˈɛ̃?t̪# | Rule 490 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#d͡ʒˈæ̃?t̪# | Rule 538 : [+nas,-hi,+syl] > [+lo] 
-#ʒˈæ̃?t̪# | Rule 583 : [+delrel] > [+cont,.delrel] 
-#ʒˈæ̃ːt̪# | Rule 639 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ʒˈæ̃ː# | Rule 659 : [-son] > ∅ / __ #
-#ʒæ̃ː# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʒæ̃# | Rule 672 : [+syl,+long] > [-long,-splng] 
+#d͡ʒˈɛ?t̪# | Rule 296 : ə̯ > ∅ 
+#d͡ʒˈɛ̃?t̪# | Rule 491 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#d͡ʒˈã?t̪# | Rule 539 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] 
+#ʒˈã?t̪# | Rule 584 : [+delrel] > [+cont,.delrel] 
+#ʒˈãːt̪# | Rule 640 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ʒˈãː# | Rule 660 : [-son] > ∅ / __ #
+#ʒãː# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒã# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#ʒɑ̃# | Rule 678 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
