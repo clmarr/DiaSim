@@ -1591,6 +1591,9 @@ $ CORRECTION : ə from previous period (restoration after schwa falls) becomes e
 $ CORRECTION : but only if it is not the final syllable (hence all the verb -ent endings remain non-nasalized schwas)
 ə > e / __ [+nas,+cons] [-nas,+cons] ([-syl])* [+syl]
 
+$ CORRECTION: rounding of ˈe to ˈo before j is early when preceded by a voiced labial consonant
+ˈe > ˈo / [+lab,+voi] __ j
+
 $ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
 $ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
 j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
@@ -1672,6 +1675,7 @@ $ CORRECTION :This is moved after s226-7 ou > eu, because there is different beh
 t͡sʲ > t͡s
 
 $ CORRECTION e > ɛ before ʎ
+$ TODO : make sure this doesn't have bad side effects.
 [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
 $ CORRECTION: ˌo and ˈo open before final t or k 
@@ -1726,15 +1730,19 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
 $ Must be after o>u, but called "Early Old French" by Pope (s406)-- TODO may need to handle length. 
-∅ > j̃ / [+hi,+round,+syl] __ ɲ #
+$ Correction: at least the one effecting round high vowels does not effect those in hiatus with one before. 
+∅ > j̃ / [-syl] [+hi,+round,+syl] __ ɲ #
 ∅ > j̃  / [+lo,+syl] __ ɲ #
 ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 
 $s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic-- TODO may need to handle length.  
-∅ > j̃ / [-hi,-lo,+front,-round,+tense,+stres] __ {ɲ;ʎ} [+syl]
+$ CORRECTION: ɛ should also be included in this 
+∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
 $s407ii : same for y countertonic or tonic -- TODO may need to handle length. 
-∅ > j / [+hi,+front,+round,+stres] __ {ɲ;ʎ} [+syl]
+∅ > j / [+hi,+front,+round,+stres] __ ʎ [+syl]
+∅ > j̃ / [+hi,+front,+round,+stres] __ ɲ [+syl]
 
 $s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]

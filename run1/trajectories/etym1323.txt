@@ -20,8 +20,11 @@ w ˌi ɡ ˈi l i ɑ m
 #βˈeʎa# | Rule 390 : [+prim,-hi] > [-long,-splng] / __ ʎ
 #vˈeʎa# | Rule 411 : β > v 
 #vˈeʎə# | Rule 417 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈɛʎə# | Rule 513 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
-#vˈɛʎə̯# | Rule 653 : ə > ə̯ / __ #
-#vˈɛʎ# | Rule 660 : ə̯ > ∅ 
-#vɛʎ# | Rule 671 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɛj# | Rule 679 : ʎ > j 
+#vˈɛʎə# | Rule 514 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
+#vˈɛjʎə# | Rule 532 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+#vˈɛːʎə# | Rule 578 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#vˈɛːʎə̯# | Rule 654 : ə > ə̯ / __ #
+#vˈɛːʎ# | Rule 661 : ə̯ > ∅ 
+#vɛːʎ# | Rule 672 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vɛʎ# | Rule 673 : [+syl,+long] > [-long,-splng] 
+#vɛj# | Rule 680 : ʎ > j 
