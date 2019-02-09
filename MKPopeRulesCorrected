@@ -297,6 +297,10 @@ $ ... and before intertonic unstressed e (<ɪ)
 $ CORRECTION : we broaden this to all unstressed e,ɛ before t, r or l, to hit words like iacet 
 c > k / [+back,+syl,+stres] __ {e;ɛ} {t̪;r;l}
 
+$ CORRECTION: between w and ʝ, ɟ is lost (cases of Savoie < sapaudia and joie < gaudia)
+$ bleeds the following rule. 
+ɟ > ∅ / w __ ʝ
+
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
 
@@ -675,7 +679,7 @@ $ CORRECTION : ð before a lateral can now assimilate to ɫ here-- just early en
 $ CORRECTION: Pope s372 moved here, date was rather unclear in Pope's prose previously.
 $ CORRECTION: only becomes dark l after a back or lo vowel, else to normal l 
 ð > ɫ / [+back] __ [+lat]
-ð > ɫ / __ [+lat]
+ð > l / __ [+lat]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
@@ -880,7 +884,8 @@ $ CORRECTION : a becomes shortened in the process if not already
 [+lo,+syl] [+back,+round,-stres] > [-long] w
 
 $ CORRECTION : same in case of hiatus with ie̯ 
-[+back,+round,-stres] > w / ˈi e̯ __
+$ CORRECTION : also same in hiatus with uo̯
+[+back,+round,-stres] > w / [+hi,+prim] [-hi,-syl,-cons] __
 
 $ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence
 $ TODO : find better way to handle this... -- such as when it has already become ddʒ ? 
@@ -1638,7 +1643,7 @@ $ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
 $ CORRECTED -- seems to happen immediately before u>y, and for u>y and o>u seems to happen before alveopalatal affircates, and nasals.
-$ TODO: may need to correct this again.  
+$ TODO: may need to correct this again -- but all the ones it works on currently sseem to be correctly so 
 ˌo >ˌə / __ [+prim,+hi,+round,-back]
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
@@ -1775,6 +1780,7 @@ $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested 1137 -- "over the course of the 12th century"
 $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
 $ CORRECTION: Pope errs in notating this as ue̯ undergoing this shift, when the u should have become fronted to y by this point...
+	$ -- it is actually ye̯
 $ She also explicitly limits it to hte stressed diphthong 
 $ TODO may need to add length here ... check with Pope's length section on that. 
 [+hi,+round,+tense,+prim] e̯ > ˈø
