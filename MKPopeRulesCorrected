@@ -1314,9 +1314,17 @@ $ s355 -- final spirantization reversed due to slurring .
 {θ;ð} > [-cont,-delrel] / ə __ # $reverse
 
 $ s164-15 ~  s234: raising of lax countertonic ɛ,ɔ to tense e,o except in ɛr[+cons] ɛɫ[+cons] and ɔɫ[+cons] , see also s223, 121
-{ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ}/ __ [+cons]
+	$ CORRECTION: shift for ɛ blocked by preceding tsʲ
+{ˌɛ r;ˌɛ ɫ;t͡sʲ ˌɛ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;t͡sʲ ˌɨ;ˌɯ ɫ}/ __ [+cons]
 
-ˌɛ > ˌe 
+$ CORRECTION: it is not as simple as Pope argues, as this shift is blocked in certain pre-coronal environments--
+	$ namely, before coronal continuants (s,l,ð,r) followed by other coronals (cases: beaute', essai, essaim, prêcher, prêcheur, prêter, presser) 
+	$ CORRECTION: however when the ˌɛ is word initial and followed by / s t̪ /, it IS effected (e'te', e'trange etc.) 
+	$ CORRECTION: ˌɛ word final also unaffected (ego >je) 
+ˌɛ > ˌe / __ [-cor]
+ˌɛ > ˌe / __ [+cor,-cont]
+ˌɛ > ˌe / __ [+cor,+cont] {#;[-cor]}
+ˌɛ > ˌe / # __ s t̪
 
 $CORRECTION: closing of ɔ blocked before voiceless coronals (prochain, fosse', côte', ...)
 ˌɔ > ˌɯ / __ [+cor,-voi]
