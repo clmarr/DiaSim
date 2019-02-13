@@ -1766,6 +1766,7 @@ $Pope only passingly mentions this shift, so some inference is used.
 $Pope does not explicitly state the date on this one but it is safe to say it doesnˌt interfere with others. 
 $She says it occurs for s and f both, but s is excluded here as that is obviously not the case
 $TODO use this one as example of how machine can improve Pope in paper. 
+$ TODO currently this rule has no effect for f > v
 $s > z / [-cons] __ [-cos]
 f > v / [-cons] __ [-cons]
 
@@ -1798,6 +1799,8 @@ $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -
 $s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)
 $ note this can only come from primarily stressed a (>ˈeː) 
 $ TODO return to this -- I believe it is for certain cases where word final l vocalized, and things ending in former aːlVs
+	$ likely that in case of pa:lo:s the a stayed long even after the o was deleted for some reason -- but unclear why this would be
+		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index for some reason
 ˈeː > ˈe e̯ / __ w
 
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
@@ -1807,11 +1810,16 @@ $ TODO check this -- fed only by previous shift?
 $ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
 	$TODO Add also later effects on adjacent vowels? -- TODO  what was this referring to? Did I cover this already ?
+			$ TODO I think this may be referring to my suspicions about hte relation between the former presence of θ and ð 
+				$ and words that ended up as ai rather than oi from ei (this could also be conditioned much later though, it is unclear.) 
 {θ;ð} > {∅;∅}
 
 $ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
 $ happens after the loss of the interdental frics. 
 ˌa > ˌe / __ ˈy
+
+$ CORRECTION: ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift.
+ˌe > ˌɛ / __ l ə 
 
 $ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
 $ TODO fix case of beaute' etc etc. 
