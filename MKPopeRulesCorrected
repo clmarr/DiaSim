@@ -1321,9 +1321,11 @@ $ CORRECTION: it is not as simple as Pope argues, as this shift is blocked in ce
 	$ namely, before coronal continuants (s,l,ð,r) followed by other coronals (cases: beaute', essai, essaim, prêcher, prêcheur, prêter, presser) 
 	$ CORRECTION: however when the ˌɛ is word initial and followed by / s t̪ /, it IS effected (e'te', e'trange etc.) 
 	$ CORRECTION: ˌɛ word final also unaffected (ego >je) 
+	$ CORRECTION: does not occur before r # (but can occur before r @)
 ˌɛ > ˌe / __ [-cor]
 ˌɛ > ˌe / __ [+cor,-cont]
-ˌɛ > ˌe / __ [+cor,+cont] {#;[-cor]}
+ˌɛ > ˌe / __ [+cor,+cont,-son] #
+ˌɛ > ˌe / __ [+cor,+cont] [-cor]
 ˌɛ > ˌe / # __ s t̪
 
 $CORRECTION: closing of ɔ blocked before voiceless coronals (prochain, fosse', côte', ...)
@@ -1815,23 +1817,9 @@ $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
 $ TODO check this -- fed only by previous shift? 
 ˈe > ˈi / __ e̯ w
 
-$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
-	$began dialectally in North and East in 9th century. 
-	$TODO Add also later effects on adjacent vowels? -- TODO  what was this referring to? Did I cover this already ?
-			$ TODO I think this may be referring to my suspicions about hte relation between the former presence of θ and ð 
-				$ and words that ended up as ai rather than oi from ei (this could also be conditioned much later though, it is unclear.) 
-{θ;ð} > {∅;∅}
-
 $ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
 $ happens after the loss of the interdental frics. 
 ˌa > ˌe / __ ˈy
-
-$ CORRECTION: ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift.
-ˌe > ˌɛ / __ l ə 
-
-$ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
-$ TODO fix case of beaute' etc etc. 
-ˌe > ˌə / __ ([+cons]) [-cons] 
 
 $ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
 $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
@@ -1848,6 +1836,46 @@ $ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and
 	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
 $include also here s555-556 : yø̯ > ɥø
 {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+
+$ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or r. 12th century. 
+$ CORRECTED: the timing for Pope's rule is likely wrong but also the target
+	$ this also hits countertonics 
+{ˌe;ˈe} > {ˌɛ;ˈɛ} / __ r [+cons]
+$ CORRECTED: ... but does not occur before l actually
+$ ˈe > ˈɛ / __ [+lat] [+cons]
+
+$ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
+ˌe > ˌɛ / __ l ə 
+
+$ CORRECTION ˌe > ˌɛ, blocking schwa reduction, in open syllables before voiced continuants that are not lateral or nasal
+	$ (r ,z ,v, ð) -- in many of these cases it will almost immediately return to ˌe.
+ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
+
+$ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
+ˌe > ˌə / __ ([+cons]) [-cons] 
+
+$ CORRECTION: ˌe is preserved before w (ceux, jeudi, etc)
+ˌə > ˌe / __ w
+
+$ CORRECTION: ˌɛ returns to ˌe before ð then ũː, but nowhere else
+ˌɛ > ˌe / __ ð ˈũː
+
+$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
+	$began dialectally in North and East in 9th century. 
+	$TODO Add also later effects on adjacent vowels? -- TODO  what was this referring to? Did I cover this already ?
+			$ TODO I think this may be referring to my suspicions about hte relation between the former presence of θ and ð 
+				$ and words that ended up as ai rather than oi from ei (this could also be conditioned much later though, it is unclear.) 
+	$ CORRECTION: moved to during changes to countertonic e, because it appears that some of these are being driven by ð, 
+{θ;ð} > {∅;∅}
+
+$ CORRECTION: ˌɛ returns to ˌe before r,z,v then vowel
+ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
+
+$ CORRECTION: case of terre:num > terrain -- ˌe is persistently reduced to ə if before continuant then tonic e or ẽ~
+ˌe > ˌə / __ [+cont] [+prim,+front,-hi,-lo,+tense]
+
+$ CORRECTION: ˌɛ still reduced to ˌə if now before tonic u
+ˌɛ > ˌə / __ ˈu
 
 $Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
 [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w

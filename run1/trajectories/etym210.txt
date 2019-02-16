@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :210:
-#ekkeˌilloːs# >>> #sw# ( Correct : #sø#) :
+#ekkeˌilloːs# >>> #sœ# ( Correct : #sø#) :
 e k k e ˌi l l oː s 
 #ɛkkɛˌɪlloːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ɛkkjˌɪlloːs# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -15,12 +15,15 @@ e k k e ˌi l l oː s
 #ə̯t̪t͡sʲˌellə̯s# | Rule 263 : ə > ə̯ 
 #t̪t͡sʲˌells# | Rule 297 : ə̯ > ∅ 
 #t͡sʲˌells# | Rule 337 : [-cont] > ∅ / # __ [-cont]
-#t͡sʲˌels# | Rule 447 : [+cons] > ∅ / [+cons] __ [-son]
-#t͡sʲˌeɫs# | Rule 480 : [+lat] > [+back] / __ [+cons]
-#t͡sˌeɫs# | Rule 517 : t͡sʲ > t͡s 
-#t͡sˌews# | Rule 548 : [+lat,+back] > w 
-#t͡sˌəws# | Rule 556 : ˌe > ˌə / __ ( [+cons] ) [-cons]
-#sˌəws# | Rule 590 : [+delrel] > [+cont,.delrel] 
-#sˌəw# | Rule 666 : [-son] > ∅ / __ #
-#səw# | Rule 678 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sw# | Rule 690 : ə > ∅ / # [-syl] __ [-syl] #
+#t͡sʲˌels# | Rule 448 : [+cons] > ∅ / [+cons] __ [-son]
+#t͡sʲˌeɫs# | Rule 481 : [+lat] > [+back] / __ [+cons]
+#t͡sˌeɫs# | Rule 518 : t͡sʲ > t͡s 
+#t͡sˌews# | Rule 549 : [+lat,+back] > w 
+#t͡sˌəws# | Rule 559 : ˌe > ˌə / __ ( [+cons] ) [-cons]
+#t͡sˌews# | Rule 560 : ˌə > ˌe / __ w
+#t͡sˌøws# | Rule 566 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#t͡sˌøs# | Rule 570 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#sˌøs# | Rule 598 : [+delrel] > [+cont,.delrel] 
+#sˌø# | Rule 674 : [-son] > ∅ / __ #
+#sø# | Rule 686 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sœ# | Rule 690 : ø > œ / __ ( [+cons] )* #

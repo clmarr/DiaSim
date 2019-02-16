@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1198:
-#t̪ˌerrˈeːn̪um# >>> #t̪ɛʁɛ̃# ( Correct : #t̪əʁɛ̃#) :
+#t̪ˌerrˈeːn̪um# >>> #t̪ɑʁɛ̃# ( Correct : #t̪əʁɛ̃#) :
 t̪ ˌe r r ˈeː n̪ u m 
 #t̪ˌɛrrˈeːn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #t̪ˌɛrrˈen̪ʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -11,17 +11,19 @@ t̪ ˌe r r ˈeː n̪ u m
 #t̪ˌɛrrˈeːn̪# | Rule 297 : ə̯ > ∅ 
 #t̪ˌɛrrˈejn̪# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #t̪ˌɨrrˈejn̪# | Rule 402 : {ˌɛ r;ˌɛ ɫ;t͡sʲ ˌɛ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;t͡sʲ ˌɨ;ˌɯ ɫ} / __ [+cons]
-#t̪ˌɛrrˈejn̪# | Rule 409 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
-#t̪ˌerrˈejn̪# | Rule 410 : ˌɛ > ˌe / __ r r
-#t̪ˌerrˈej̃n̪# | Rule 495 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#t̪ˌerrˈẽj̃n̪# | Rule 496 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌerrˈɛ̃j̃n̪# | Rule 540 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌerrˈɛ̃n̪# | Rule 600 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#t̪ˌɛrrˈɛ̃n̪# | Rule 606 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
-#t̪ˌɛːrrˈɛ̃n̪# | Rule 632 : [+syl] > [+long] / __ r r
-#t̪ˌɛːrˈɛ̃n̪# | Rule 641 : r r > r 
-#t̪ˌɛːrˈɛ̃ː# | Rule 647 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#t̪ˌɛːʀˈɛ̃ː# | Rule 677 : r > ʀ 
-#t̪ɛːʀɛ̃ː# | Rule 678 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ɛʀɛ̃# | Rule 679 : [+syl,+long] > [-long,-splng] 
-#t̪ɛʁɛ̃# | Rule 685 : ʀ > ʁ 
+#t̪ˌɛrrˈejn̪# | Rule 410 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
+#t̪ˌerrˈejn̪# | Rule 411 : ˌɛ > ˌe / __ r r
+#t̪ˌerrˈej̃n̪# | Rule 496 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#t̪ˌerrˈẽj̃n̪# | Rule 497 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪ˌerrˈɛ̃j̃n̪# | Rule 541 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɛrrˈɛ̃j̃n̪# | Rule 556 : {ˌe;ˈe} > {ˌɛ;ˈɛ} / __ r [+cons]
+#t̪ˌɛrrˈɛ̃n̪# | Rule 608 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#t̪ˌarrˈɛ̃n̪# | Rule 609 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#t̪ˌaːrrˈɛ̃n̪# | Rule 640 : [+syl] > [+long] / __ r r
+#t̪ˌaːrˈɛ̃n̪# | Rule 649 : r r > r 
+#t̪ˌɑːrˈɛ̃n̪# | Rule 653 : [+lo,+long,+syl] > [+back,-front] 
+#t̪ˌɑːrˈɛ̃ː# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#t̪ˌɑːʀˈɛ̃ː# | Rule 685 : r > ʀ 
+#t̪ɑːʀɛ̃ː# | Rule 686 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ɑʀɛ̃# | Rule 687 : [+syl,+long] > [-long,-splng] 
+#t̪ɑʁɛ̃# | Rule 693 : ʀ > ʁ 
