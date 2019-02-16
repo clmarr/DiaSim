@@ -1,25 +1,16 @@
 Trajectory file for run 'run1'; etymon number :910:
-#plˈikɑt̪# >>> #plwa# ( Correct : #plwa#) :
-p l ˈi k ɑ t̪ 
-#plˈɪkɑt̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˈekɑt̪# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#plˈeːkɑt̪# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˈeːɡɑt̪# | Rule 130 : k > ɡ / [-cons] __ [+syl]
-#plˈeːɣɑt̪# | Rule 132 : ɡ > ɣ / [-cons] __ [-cons]
-#plˈeːɣat̪# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#plˈeːɣʲat̪# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#plˈeːʝat̪# | Rule 240 : [+back,+front] > [-back] 
-#plˈeːʝaθ# | Rule 245 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#plˈeːjaθ# | Rule 369 : ʝ > j 
-#plˈejaθ# | Rule 395 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
-#plˈejəθ# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈojəθ# | Rule 515 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#plˈujəθ# | Rule 533 : [+round,+tense,+back] > [+hi] 
-#plˈujə# | Rule 561 : {θ;ð} > {∅;∅} 
-#plˈuɛ̯ə# | Rule 581 : j > ɛ̯ / [+syl,+back,+round] __ 
-#plwˈɛə# | Rule 584 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#plwˈɛːə# | Rule 627 : [+stres] > [+long] / __ ə
-#plwˈɛː# | Rule 628 : ə > ∅ / [+syl] __ 
-#plwɛː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plwɛ# | Rule 688 : [+syl,+long] > [-long,-splng] 
-#plwa# | Rule 692 : ɛ > a / w __ 
+#plˈuːmɑm# >>> #plym# ( Correct : #plym#) :
+p l ˈuː m ɑ m 
+#plˈumɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#plˈumɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈuːmɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈuːma# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#plˈʉːma# | Rule 237 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#plˈʉːmə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈyːmə# | Rule 482 : [+hi,+round,-back] > [+front] 
+#plˈỹːmə# | Rule 589 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#plˈyːmə# | Rule 606 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
+#plˈyːmə̯# | Rule 669 : ə > ə̯ / __ #
+#plˈyːm# | Rule 676 : ə̯ > ∅ 
+#plyːm# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plym# | Rule 688 : [+syl,+long] > [-long,-splng] 

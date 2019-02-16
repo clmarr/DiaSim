@@ -1,9 +1,14 @@
 Trajectory file for run 'run1'; etymon number :820:
-#pˈɑst̪ɑm# >>> #past̪# ( Correct : #pɑt̪#) :
-p ˈɑ s t̪ ɑ m 
-#pˈɑst̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈast̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#pˈast̪ə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈast̪ə̯# | Rule 669 : ə > ə̯ / __ #
-#pˈast̪# | Rule 676 : ə̯ > ∅ 
-#past̪# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈɑːst̪or# >>> #past̪ʁ# ( Correct : #pɑt̪ʁ#) :
+p ˈɑː s t̪ o r 
+#pˈɑːst̪ɔr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɑst̪ɔr# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#pˈast̪ɔr# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#pˈast̪ər# | Rule 260 : [-stres,-lo,+syl] > ə / __ [-syl]
+#pˈast̪ə̯r# | Rule 263 : ə > ə̯ 
+#pˈast̪rə# | Rule 280 : ə̯ r > r ə / __ #
+#pˈast̪rə̯# | Rule 669 : ə > ə̯ / __ #
+#pˈast̪r# | Rule 676 : ə̯ > ∅ 
+#pˈast̪ʀ# | Rule 686 : r > ʀ 
+#past̪ʀ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#past̪ʁ# | Rule 694 : ʀ > ʁ 

@@ -1,25 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1053:
-#sˈɑːn̪kt̪um# >>> #sɛ̃# ( Correct : #sɛ̃#) :
-s ˈɑː n̪ k t̪ u m 
-#sˈɑːŋkt̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#sˈɑːŋkt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɑŋkt̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#sˈɑŋt̪ʊm# | Rule 59 : k > ∅ / ŋ __ [+cor,-voi]
-#sˈɑŋt̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈɑŋt̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈaŋt̪o# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#sˈaɲt̪o# | Rule 204 : ŋ > ɲ / __ [+ant,+distr]
-#sˈaɲt̪ʲo# | Rule 209 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#sˈaɲt̪ʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#sˈaɲt̪ʲə̯# | Rule 263 : ə > ə̯ 
-#sˈaɲt̪ʲ# | Rule 297 : ə̯ > ∅ 
-#sˈaɲt̪# | Rule 377 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#sˈajn̪t̪# | Rule 426 : ɲ > j n̪ / __ [+cons]
-#sˈaj̃n̪t̪# | Rule 483 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#sˈãj̃n̪t̪# | Rule 484 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˈɛ̃j̃n̪t̪# | Rule 570 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
-#sˈɛ̃n̪t̪# | Rule 609 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sˈɛ̃ːt̪# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˈɛ̃ː# | Rule 675 : [-son] > ∅ / __ #
-#sɛ̃ː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛ̃# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#sˈɑpɑm# >>> #sɛv# ( Correct : #sɛv#) :
+s ˈɑ p ɑ m 
+#sˈɑpɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈɑːpɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈaːpa# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#sˈaːba# | Rule 348 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˈaːβa# | Rule 370 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#sˈae̯βa# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈae̯va# | Rule 416 : β > v 
+#sˈae̯və# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈeːvə# | Rule 523 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#sˈɛːvə# | Rule 667 : ˈeː > ˈɛː / __ [+cons] ə
+#sˈɛːvə̯# | Rule 669 : ə > ə̯ / __ #
+#sˈɛːv# | Rule 676 : ə̯ > ∅ 
+#sɛːv# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛv# | Rule 688 : [+syl,+long] > [-long,-splng] 

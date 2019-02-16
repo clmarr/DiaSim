@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1345:
-#wˌiːwˈɑn̪d̪ɑm# >>> #vivɑ̃d̪# ( Correct : #vjɑ̃d̪#) :
-w ˌiː w ˈɑ n̪ d̪ ɑ m 
-#ɣʷˌiːɣʷˈɑn̪d̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˌiːβʷˈɑn̪d̪ɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˌiβʷˈɑn̪d̪ɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌiβʷˈɑn̪d̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˌiβˈɑn̪d̪ɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌiβˈan̪d̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#vˌivˈan̪d̪a# | Rule 416 : β > v 
-#vˌivˈan̪d̪ə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌivˈãn̪d̪ə# | Rule 484 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˌivˈãːd̪ə# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˌivˈãːd̪ə̯# | Rule 669 : ə > ə̯ / __ #
-#vˌivˈãːd̪# | Rule 676 : ə̯ > ∅ 
-#vivãːd̪# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vivãd̪# | Rule 688 : [+syl,+long] > [-long,-splng] 
-#vivɑ̃d̪# | Rule 693 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#wˈiːwum# >>> #vif# ( Correct : #vif#) :
+w ˈiː w u m 
+#ɣʷˈiːɣʷum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈiːɣʷʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈiːβʷʊm# | Rule 51 : ɣʷ > βʷ 
+#βʷˈiβʷʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈiβʷom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈiβʷo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈiːβʷo# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈiːβo# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈiːβə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#βˈiːβə̯# | Rule 263 : ə > ə̯ 
+#βˈiːβ# | Rule 297 : ə̯ > ∅ 
+#vˈiːv# | Rule 416 : β > v 
+#vˈiːf# | Rule 427 : [-son] > [-voi] / __ #
+#vˈiːfə̯# | Rule 674 : ∅ > ə̯ / [+syl] f __ #
+#vˈiːf# | Rule 676 : ə̯ > ∅ 
+#viːf# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vif# | Rule 688 : [+syl,+long] > [-long,-splng] 

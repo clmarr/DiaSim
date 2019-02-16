@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1107:
-#sˌit̪ˈellum# >>> #sɛl# ( Correct : #so#) :
-s ˌi t̪ ˈe l l u m 
-#sˌɪt̪ˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌet̪ˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˌet̪ˈɛllo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌet̪ˈɛllə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#sˌet̪ˈɛllə̯# | Rule 263 : ə > ə̯ 
-#sˌet̪ˈɛll# | Rule 297 : ə̯ > ∅ 
-#sˌed̪ˈɛll# | Rule 348 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sˌeðˈɛll# | Rule 370 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#sˌeðˈɛl# | Rule 472 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˌəðˈɛl# | Rule 489 : ˌe > ˌə / __ ( [+cons] ) ˈɛ
-#sˌəˈɛl# | Rule 561 : {θ;ð} > {∅;∅} 
-#sˌəˈɛːl# | Rule 623 : [+prim] > [+long] / ˌə __ 
-#sˈɛːl# | Rule 624 : ˌə > ∅ / __ [+syl]
-#sɛːl# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛl# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#skˈort̪eɑ# >>> #eskɔʁs# ( Correct : #ekɔʁs#) :
+s k ˈo r t̪ e ɑ 
+#skˈɔrt̪ɛɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪskˈɔrt̪ɛɑ# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪskˈɔrt̪jɑ# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˌɪskˈɔrt̪ʝɑ# | Rule 28 : j > ʝ / __ [+syl]
+#ˌeskˈɔrt̪ʝɑ# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌeskˈɔrt͡sʲʝɑ# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#ˌeskˈɔrt͡sʲɑ# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#ˌeskˈɔrt͡sʲa# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#ˌeskˈɔrt͡sʲə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌeskˈɔrt͡sə# | Rule 518 : t͡sʲ > t͡s 
+#ˌeskˈɔrsə# | Rule 599 : [+delrel] > [+cont,.delrel] 
+#ˌeskˈɔrsə̯# | Rule 669 : ə > ə̯ / __ #
+#ˌeskˈɔɹsə̯# | Rule 671 : r > ɹ / [-cons] __ [+cons]
+#ˌeskˈɔɹs# | Rule 676 : ə̯ > ∅ 
+#ˌeskˈɔrs# | Rule 684 : ɹ > r 
+#ˌeskˈɔʀs# | Rule 686 : r > ʀ 
+#eskɔʀs# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#eskɔʁs# | Rule 694 : ʀ > ʁ 

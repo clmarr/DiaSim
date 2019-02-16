@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1193:
-#t̪ˈen̪et# >>> #t̪jɛ̃# ( Correct : #t̪jɛ̃#) :
-t̪ ˈe n̪ e t 
-#t̪ˈɛn̪ɛt# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛːn̪ɛt# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯n̪ɛt# | Rule 161 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯n̪ət# | Rule 260 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈie̯n̪ə̯t# | Rule 263 : ə > ə̯ 
-#t̪ˈie̯n̪t# | Rule 297 : ə̯ > ∅ 
-#t̪jˈen̪t# | Rule 563 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪jˈẽn̪t# | Rule 576 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]
-#t̪jˈɛ̃n̪t# | Rule 608 : [+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#t̪jˈɛ̃ːt# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪jˈɛ̃ː# | Rule 675 : [-son] > ∅ / __ #
-#t̪jɛ̃ː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪jɛ̃# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#t̪ˈeːn̪sɑm# >>> #t̪waz# ( Correct : #t̪waz#) :
+t̪ ˈeː n̪ s ɑ m 
+#t̪ˈeːsɑm# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#t̪ˈesɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈesɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeːsɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːzɑ# | Rule 133 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#t̪ˈeːza# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#t̪ˈejza# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈejzə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈojzə# | Rule 515 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujzə# | Rule 533 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯zə# | Rule 581 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛzə# | Rule 584 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛːzə# | Rule 661 : [+syl] > [+long] / __ z [+syl]
+#t̪wˈɛːzə̯# | Rule 669 : ə > ə̯ / __ #
+#t̪wˈɛːz# | Rule 676 : ə̯ > ∅ 
+#t̪wɛːz# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wɛz# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#t̪waz# | Rule 692 : ɛ > a / w __ 

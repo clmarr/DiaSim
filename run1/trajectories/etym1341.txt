@@ -1,18 +1,29 @@
 Trajectory file for run 'run1'; etymon number :1341:
-#wˈiːt̪ɑm# >>> #vi# ( Correct : #vi#) :
-w ˈiː t̪ ɑ m 
-#ɣʷˈiːt̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːt̪ɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈit̪ɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˈit̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βʷˈiːt̪ɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˈiːt̪ɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈiːt̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#βˈiːd̪a# | Rule 348 : [-voi] > [+voi] / [-cons] __ [-cons]
-#βˈiːða# | Rule 370 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#vˈiːða# | Rule 416 : β > v 
-#vˈiːðə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈiːə# | Rule 561 : {θ;ð} > {∅;∅} 
-#vˈiː# | Rule 628 : ə > ∅ / [+syl] __ 
-#viː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vi# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#wˈit̪rum# >>> #vwaʁ# ( Correct : #vɛʁ#) :
+w ˈi t̪ r u m 
+#ɣʷˈit̪rum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɪt̪rʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɪt̪rʊm# | Rule 51 : ɣʷ > βʷ 
+#βʷˈet̪rom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈet̪ro# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈeːt̪ro# | Rule 111 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#βˈeːt̪ro# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈeːt̪rə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#βˈeːt̪rə̯# | Rule 263 : ə > ə̯ 
+#βˈeːt̪r# | Rule 297 : ə̯ > ∅ 
+#βˈeːt̪rə# | Rule 309 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#βˈeːd̪rə# | Rule 349 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#βˈeːðrə# | Rule 371 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
+#βˈejðrə# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈejðrə# | Rule 416 : β > v 
+#vˈojðrə# | Rule 495 : ˈe > ˈo / [+lab,+voi] __ j
+#vˈujðrə# | Rule 533 : [+round,+tense,+back] > [+hi] 
+#vˈujrə# | Rule 561 : {θ;ð} > {∅;∅} 
+#vˈuɛ̯rə# | Rule 581 : j > ɛ̯ / [+syl,+back,+round] __ 
+#vwˈɛrə# | Rule 584 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈarə# | Rule 610 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+#vwˈarə̯# | Rule 669 : ə > ə̯ / __ #
+#vwˈar# | Rule 676 : ə̯ > ∅ 
+#vwˈaʀ# | Rule 686 : r > ʀ 
+#vwaʀ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwaʁ# | Rule 694 : ʀ > ʁ 

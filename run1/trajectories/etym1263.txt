@@ -1,22 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1263:
-#ˈun̪d̪ekim# >>> #ɔ̃z# ( Correct : #ɔ̃z#) :
-ˈu n̪ d̪ e k i m 
-#ˈʊn̪d̪ɛkɪm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈon̪d̪ɛkem# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈon̪d̪ɛke# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈon̪d̪ɛkʲe# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#ˈon̪d̪ɛce# | Rule 76 : [+back,+front] > [-back] 
-#ˈũn̪d̪ɛce# | Rule 160 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
-#ˈũn̪d̪ɛt͡sʲe# | Rule 174 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#ˈũn̪d̪ət͡sʲe# | Rule 258 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈũn̪d̪ət͡sʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#ˈũn̪d̪ə̯t͡sʲə̯# | Rule 263 : ə > ə̯ 
-#ˈũn̪d̪ə̯t͡sʲə# | Rule 293 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#ˈũn̪d͡zə# | Rule 295 : d̪ ə̯ t͡sʲ > d͡z / __ ə
-#ˈũn̪zə# | Rule 599 : [+delrel] > [+cont,.delrel] 
-#ˈũːzə# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˈũːzə̯# | Rule 669 : ə > ə̯ / __ #
-#ˈũːz# | Rule 676 : ə̯ > ∅ 
-#ũːz# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ũz# | Rule 688 : [+syl,+long] > [-long,-splng] 
-#ɔ̃z# | Rule 689 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#ˈun̪ɡulɑm# >>> #ɔ̃ɡl# ( Correct : #ɔ̃ɡl#) :
+ˈu n̪ ɡ u l ɑ m 
+#ˈuŋɡulɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#ˈʊŋɡʊlɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈʊŋɡlɑm# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˈoŋɡlɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈoŋɡlɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈũŋɡlɑ# | Rule 160 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#ˈũŋɡla# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#ˈũŋɡlə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈũːɡlə# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːɡlə̯# | Rule 669 : ə > ə̯ / __ #
+#ˈũːɡl# | Rule 676 : ə̯ > ∅ 
+#ũːɡl# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũɡl# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#ɔ̃ɡl# | Rule 689 : [+back,-lo,+nas,+syl] > ɔ̃ 

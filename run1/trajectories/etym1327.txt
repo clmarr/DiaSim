@@ -1,15 +1,27 @@
 Trajectory file for run 'run1'; etymon number :1327:
-#wˈiːllɑm# >>> #vil# ( Correct : #vil#) :
-w ˈiː l l ɑ m 
-#ɣʷˈiːllɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːllɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈillɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˈillɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈillɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈilla# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#vˈilla# | Rule 416 : β > v 
-#vˈillə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈilə# | Rule 472 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#vˈilə̯# | Rule 669 : ə > ə̯ / __ #
-#vˈil# | Rule 676 : ə̯ > ∅ 
-#vil# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌiːllˈɑːn̪um# >>> #vilɛ̃# ( Correct : #vilɛ̃#) :
+w ˌiː l l ˈɑː n̪ u m 
+#ɣʷˌiːllˈɑːn̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌiːllˈɑːn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌiːllˈɑːn̪ʊm# | Rule 51 : ɣʷ > βʷ 
+#βʷˌillˈɑːn̪ʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌillˈɑn̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#βʷˌillˈɑn̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˌillˈɑn̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌillˈɑːn̪o# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌillˈɑːn̪o# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌillˈaːn̪o# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#βˌillˈaːn̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#βˌillˈaːn̪ə̯# | Rule 263 : ə > ə̯ 
+#βˌillˈaːn̪# | Rule 297 : ə̯ > ∅ 
+#βˌillˈae̯n̪# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌillˈae̯n̪# | Rule 416 : β > v 
+#vˌillˈajn̪# | Rule 418 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#vˌilˈajn̪# | Rule 472 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#vˌilˈaj̃n̪# | Rule 483 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#vˌilˈãj̃n̪# | Rule 484 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˌilˈɛ̃j̃n̪# | Rule 570 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#vˌilˈɛ̃n̪# | Rule 609 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#vˌilˈɛ̃ː# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#vilɛ̃ː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vilɛ̃# | Rule 688 : [+syl,+long] > [-long,-splng] 

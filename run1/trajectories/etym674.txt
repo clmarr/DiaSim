@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :674:
-#mˈembrum# >>> #mɑ̃bʁ# ( Correct : #mɑ̃bʁ#) :
-m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbrom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbro# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɛmbrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#mˈɛmbrə̯# | Rule 263 : ə > ə̯ 
-#mˈɛmbɾə# | Rule 286 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
-#mˈɛmbrə# | Rule 292 : ɾ > r 
-#mˈɛ̃mbrə# | Rule 497 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈãmbrə# | Rule 546 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#mˈãːbrə# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈãːbrə̯# | Rule 669 : ə > ə̯ / __ #
-#mˈãːbr# | Rule 676 : ə̯ > ∅ 
-#mˈãːbʀ# | Rule 686 : r > ʀ 
-#mãːbʀ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mãbʀ# | Rule 688 : [+syl,+long] > [-long,-splng] 
-#mɑ̃bʀ# | Rule 693 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#mɑ̃bʁ# | Rule 694 : ʀ > ʁ 
+#mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
+m ˈeː n̪ s ɑ m 
+#mˈeːsɑm# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#mˈesɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈesɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈeːsɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɑ# | Rule 133 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːza# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#mˈejza# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejzə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈojzə# | Rule 495 : ˈe > ˈo / [+lab,+voi] __ j
+#mˈujzə# | Rule 533 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯zə# | Rule 581 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛzə# | Rule 584 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛːzə# | Rule 661 : [+syl] > [+long] / __ z [+syl]
+#mwˈɛːzə̯# | Rule 669 : ə > ə̯ / __ #
+#mwˈɛːz# | Rule 676 : ə̯ > ∅ 
+#mwɛːz# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛz# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#mwaz# | Rule 692 : ɛ > a / w __ 

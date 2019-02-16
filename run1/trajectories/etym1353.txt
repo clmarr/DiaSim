@@ -1,11 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1353:
-#wˌoːs# >>> #vu# ( Correct : #vu#) :
-w ˌoː s 
-#ɣʷˌoːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˌoːs# | Rule 51 : ɣʷ > βʷ 
-#βʷˌos# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βˌos# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#vˌos# | Rule 416 : β > v 
-#vˌus# | Rule 533 : [+round,+tense,+back] > [+hi] 
-#vˌu# | Rule 675 : [-son] > ∅ / __ #
-#vu# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈost̪rum# >>> #vɔst̪ʁ# ( Correct : #vɔt̪ʁ#) :
+w ˈo s t̪ r u m 
+#ɣʷˈost̪rum# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɔst̪rʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɔst̪rʊm# | Rule 51 : ɣʷ > βʷ 
+#βʷˈɔst̪rom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɔst̪ro# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βˈɔst̪ro# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈɔst̪rə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#βˈɔst̪rə̯# | Rule 263 : ə > ə̯ 
+#βˈɔst̪ɾə# | Rule 286 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
+#βˈɔst̪rə# | Rule 292 : ɾ > r 
+#vˈɔst̪rə# | Rule 416 : β > v 
+#vˈɔst̪rə̯# | Rule 669 : ə > ə̯ / __ #
+#vˈɔst̪r# | Rule 676 : ə̯ > ∅ 
+#vˈɔst̪ʀ# | Rule 686 : r > ʀ 
+#vɔst̪ʀ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vɔst̪ʁ# | Rule 694 : ʀ > ʁ 

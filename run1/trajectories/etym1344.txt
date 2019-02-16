@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1344:
-#wˈiːwɑm# >>> #viv# ( Correct : #viv#) :
-w ˈiː w ɑ m 
-#ɣʷˈiːɣʷɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːβʷɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈiβʷɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˈiβʷɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βʷˈiːβʷɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˈiːβɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈiːβa# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#vˈiːva# | Rule 416 : β > v 
-#vˈiːvə# | Rule 422 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈiːvə̯# | Rule 669 : ə > ə̯ / __ #
-#vˈiːv# | Rule 676 : ə̯ > ∅ 
-#viːv# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#viv# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#wˈiːwere# >>> #vivʁ# ( Correct : #vivʁ#) :
+w ˈiː w e r e 
+#ɣʷˈiːɣʷere# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈiːɣʷɛrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈiːβʷɛrɛ# | Rule 51 : ɣʷ > βʷ 
+#βʷˈiβʷɛrɛ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈiːβʷɛrɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#βʷˈiːβʷrɛ# | Rule 138 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#βˈiːβrɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈiːβrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#βˈiːβrə̯# | Rule 263 : ə > ə̯ 
+#βˈiːβr# | Rule 297 : ə̯ > ∅ 
+#βˈiːβrə# | Rule 309 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#vˈiːvrə# | Rule 416 : β > v 
+#vˈiːvrə̯# | Rule 669 : ə > ə̯ / __ #
+#vˈiːvr# | Rule 676 : ə̯ > ∅ 
+#vˈiːvʀ# | Rule 686 : r > ʀ 
+#viːvʀ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vivʀ# | Rule 688 : [+syl,+long] > [-long,-splng] 
+#vivʁ# | Rule 694 : ʀ > ʁ 

@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1129:
-#spˈissum# >>> #espɛ# ( Correct : #epɛ#) :
-s p ˈi s s u m 
-#spˈɪssʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪspˈɪssʊm# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈessom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈesso# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˌespˈessə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#ˌespˈessə̯# | Rule 263 : ə > ə̯ 
-#ˌespˈess# | Rule 297 : ə̯ > ∅ 
-#ˌespˈes# | Rule 472 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˌespˈɛs# | Rule 605 : ˈe > ˈɛ 
-#ˌespˈɛ# | Rule 675 : [-son] > ∅ / __ #
-#espɛ# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#st̪ˈɑːmen̪# >>> #est̪ɛ̃# ( Correct : #et̪ɛ̃#) :
+s t̪ ˈɑː m e n̪ 
+#st̪ˈɑːmɛn̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪst̪ˈɑːmɛn̪# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪst̪ˈɑmɛn̪# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#ˌest̪ˈɑmɛn̪# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌest̪ˈɑmɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌest̪ˈɑːmɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌest̪ˈaːmɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#ˌest̪ˈaːmə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#ˌest̪ˈaːmə̯# | Rule 263 : ə > ə̯ 
+#ˌest̪ˈaːm# | Rule 297 : ə̯ > ∅ 
+#ˌest̪ˈae̯m# | Rule 396 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌest̪ˈajm# | Rule 418 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#ˌest̪ˈaj̃m# | Rule 483 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#ˌest̪ˈãj̃m# | Rule 484 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌest̪ˈãj̃n̪# | Rule 512 : m > n̪ / [-cons] __ #
+#ˌest̪ˈɛ̃j̃n̪# | Rule 570 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#ˌest̪ˈɛ̃n̪# | Rule 609 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#ˌest̪ˈɛ̃ː# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#est̪ɛ̃ː# | Rule 687 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#est̪ɛ̃# | Rule 688 : [+syl,+long] > [-long,-splng] 
