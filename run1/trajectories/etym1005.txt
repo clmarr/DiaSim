@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1005:
-#rˈiɡid̪ɑm# >>> #ʁwad̪# ( Correct : #ʁɛd̪#) :
+#rˈiɡid̪ɑm# >>> #ʁɛd̪# ( Correct : #ʁɛd̪#) :
 r ˈi ɡ i d̪ ɑ m 
 #rˈɪɡɪd̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˈɪɡd̪ɑm# | Rule 46 : [+syl,-stres,+front] > ∅ / [+syl] ɡ __ [+cor,-strid,-lat,+voi] [+syl]
@@ -14,11 +14,13 @@ r ˈi ɡ i d̪ ɑ m
 #rˈejd̪ə# | Rule 423 : a > ə / [+syl] ( [-syl] )* __ 
 #rˈojd̪ə# | Rule 518 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
 #rˈujd̪ə# | Rule 536 : [+round,+tense,+back] > [+hi] 
-#rˈuɛ̯d̪ə# | Rule 588 : j > ɛ̯ / [+syl,+back,+round] __ 
-#rwˈɛd̪ə# | Rule 591 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#rwˈɛd̪ə̯# | Rule 676 : ə > ə̯ / __ #
-#rwˈɛd̪# | Rule 683 : ə̯ > ∅ 
-#ʀwˈɛd̪# | Rule 693 : r > ʀ 
-#ʀwɛd̪# | Rule 694 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀwad̪# | Rule 699 : ɛ > a / w __ 
-#ʁwad̪# | Rule 701 : ʀ > ʁ 
+#rˈʌjd̪ə# | Rule 567 : ˈu > ˈʌ / __ j [+ant,+voi,+cor,+distr] ( r ) ə #
+#rˈajd̪ə# | Rule 575 : ˈʌ > ˈa 
+#rˈɛjd̪ə# | Rule 576 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#rˈɛːd̪ə# | Rule 600 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#rˈɛːd̪ə̯# | Rule 676 : ə > ə̯ / __ #
+#rˈɛːd̪# | Rule 683 : ə̯ > ∅ 
+#ʀˈɛːd̪# | Rule 693 : r > ʀ 
+#ʀɛːd̪# | Rule 694 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛd̪# | Rule 695 : [+syl,+long] > [-long,-splng] 
+#ʁɛd̪# | Rule 701 : ʀ > ʁ 
