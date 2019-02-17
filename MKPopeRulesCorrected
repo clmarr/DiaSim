@@ -1039,8 +1039,10 @@ $ CORRECTION : voicing influence of ʝ does not occur if target is right before 
 $ CORRECTION : same as above for the labials too except that it does occur before voiced consonants (derbitarum > dardre, etc..) 
 $ CORRECTION : influence of yod only effects palatalized consonants -- voidier (βˌɔʝd̪ʲˈie̯r) and aise (aːʝd͡zʲə) but moitie' (mˌɛʝt̪ˈaːt̪)
 $ CORRECTION : moved before schwa reinsertion.
+$ CORRECTION : ʝ only has this effect at this point if it is coming after a velar or low vowel (ʉ is excluded)
 [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
-[+cor,+ant,+front] > [+voi] / ʝ __ [-cons]
+[+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
+[+cor,+ant,+front] > [+voi] / [+lo,+syl] ʝ __ [-cons]
 
 $ CORRECTION : ʝ > j if no syllabic units left afterward -- ə will not be reinserted just because ʝ is "not sonorant" 
 ʝ > j / __ ([-syl])* #
@@ -1214,10 +1216,6 @@ $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
 $ Currently does nothing but we're keeping it around in case loanwords will be encorporated
 [+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
-$CORRECTION : remaining ʝ becomes j sometime at this point 
-$ CORRECTION : counterfeeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
-ʝ > j 
-
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
 [-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
@@ -1225,6 +1223,11 @@ $ before l,r included as per s372 (but not b before l as per 372iii)
 $ s372 d > ð before nasals , and then ð > z before n "sometimes" 
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
 d̪ > ð / [+syl] __ [+nas] 
+
+$CORRECTION : remaining ʝ becomes j sometime at this point 
+$ CORRECTION : counterfeeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
+$ CORRECTION : also counterfeeds final spirantization of voiced consonants -- rigidam > raide not raie, wokitare > voidier not voyer etc. 
+ʝ > j 
 
 $p93 s192i kw > k before e and i at beginning of word
 $ must come after second palatalization resolves
@@ -1817,6 +1820,9 @@ $ TODO return to this -- I believe it is for certain cases where word final l vo
 		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index for some reason
 ˈeː > ˈe e̯ / __ w
 
+$ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
+[+lo,+nas] > [-lo,-tense] / __ j̃
+
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
 $ TODO check this -- fed only by previous shift? 
 ˈe > ˈi / __ e̯ w
@@ -1833,9 +1839,26 @@ $ ˈe > ˈɛ / __ [+lat] [+cons]
 $ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
 ˌe > ˌɛ / __ l ə 
 
-$ CORRECTION ˌe > ˌɛ, blocking schwa reduction, in open syllables before voiced continuants that are not lateral or nasal
+$ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, in open syllables before voiced continuants that are not lateral or nasal
 	$ (r ,z ,v, ð) -- in many of these cases it will almost immediately return to ˌe.
 ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
+
+$ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
+$per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
+	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
+$ per s470 -- predates a second nasalization of e, in the 13th century. 
+	$This second nasalization then saw ẽ >ɛ̃ lowering, but it wasnˌt accepted till the 17th century
+$ Fed by s388. Feeds e>ø / __ w shift. 
+$ Seems to only occur for stressed ˈi. TODO may have to correct this if wrong.
+$ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and 
+	$per s538 "Later 12th century"
+	$Pope doesnˌt give relative dating for the closure (ɛ>e) and stress shift so we group
+		$them together. 
+	$Pope notes -- s508 ~ s472-- the leveling of diphthongs started in the south and west. 
+	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
+$include also here s555-556 : yø̯ > ɥø
+$ CORRECTION: mvoed before some of the final ˌɛ transformations as it seems to block at least one (derriere)
+{ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 
 $ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
 ˌe > ˌə / __ ([+cons]) [-cons] 
@@ -1912,22 +1935,6 @@ $ CORRECTION: rerounding of ʌ when after a labial (possibly separated by r) and
 	$ cases: via, korrigia, se:tam
 ˈʌ > ˈu / [+lab] (r) __ j ə #
 
-$ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
-$per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
-	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
-$ per s470 -- predates a second nasalization of e, in the 13th century. 
-	$This second nasalization then saw ẽ >ɛ̃ lowering, but it wasnˌt accepted till the 17th century
-$ Fed by s388. Feeds e>ø / __ w shift. 
-$ Seems to only occur for stressed ˈi. TODO may have to correct this if wrong.
-$ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and 
-	$per s538 "Later 12th century"
-	$Pope doesnˌt give relative dating for the closure (ɛ>e) and stress shift so we group
-		$them together. 
-	$Pope notes -- s508 ~ s472-- the leveling of diphthongs started in the south and west. 
-	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
-$include also here s555-556 : yø̯ > ɥø
-$ CORRECTION: mvoed before some of the final ˌɛ transformations as it seems to block at least one (derriere)
-{ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 
 $ CORRECTION: ˌɛ returns to ˌe before r,z,v then vowel
 ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
@@ -1952,9 +1959,6 @@ $Pope does not give a specific date. Makes sense to be here, given spellings ˌa
 
 $Pope s528-529 : aj > ɛj word finally
 [+lo,+syl] > [-lo,-tense] / __ j #
-
-$ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
-[+lo,+nas] > [-lo,-tense] / __ j̃
 
 $Pope s541~545: øw >ø in later 12th century. 
 w > ∅ / [+round,+front,-hi,+syl] __ 
