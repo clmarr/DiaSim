@@ -739,7 +739,6 @@ $ CORRECTION : ŋ ɲ > ɲ ɲ
 $ s322 
 [+lat] > ʎ / [+hi,+front,+cons] __ 
 
-$ placed in "Gallo-Roman group 1" i.e. 6th/7th centuries as per Pope s316-8ii
 $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position  
 $ z and s do not need to be filtered out as they will already be palatalized, edh has not emerged yet. 
@@ -759,6 +758,25 @@ $ CORRECTION : this actually only happens in some specific environments it seems
 ʝ > ∅ / ˈaː __ e
 ʝ > ∅ / [-cons] __ ˈe
 ʝ > ∅ / [-cons] __ ˈuː
+
+
+$ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
+$ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
+$ s9 -- due to Gaulish (also happened in Welsh,Breton,Cornish)
+$ CORRECTION: moved earlier because it bleeds the following rule of initial t voicing after ʝ for words that had etymological u:
+	$ this is also more consistent with Pope's view that it arose due to Gaulish
+[+hi,+tense,+round,+syl,-nas] > [-front,-back]
+
+$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
+$ with a PRECEDING b, β or ʝ
+$ CORRECTION : this also effects t͡s
+$ CORRECTION : voicing influence of ʝ does not occur if target is right before word coda (iacet >git, pejus > pis etc) or right before another consonant (Tricassae > Troyes, ...) 
+$ CORRECTION : same as above for the labials too except that it does occur before voiced consonants (derbitarum > dardre, etc..) 
+$ CORRECTION : influence of yod only effects palatalized consonants -- voidier (βˌɔʝd̪ʲˈie̯r) and aise (aːʝd͡zʲə) but moitie' (mˌɛʝt̪ˈaːt̪)
+$ CORRECTION : moved before schwa reinsertion.
+$ CORRECTION : ʝ only has this effect at this point if it is coming after a velar or low vowel (ʉ is excluded)
+[+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
+[+cor,+ant,+front] > [+voi] / [+lo,+syl] ʝ __ [-cons]
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -792,6 +810,9 @@ $ s410, s414-415
 $ Breaking of mid lax vowels by following palatal 
 $ CORRECTION: only happens to primarily vowels though! 
 {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+
+$CORRECTION: countertonic ɔ goes to ʉ before two palatal consonants consecutive.
+ˌɔ > ˌu / __ [+cons,+hi,+front] [+cons,+hi,+front]
 
 $ as per s410 niece, tuertre cases 
 $ CORRECTION: This is much more restricted than Pope describes.
@@ -828,11 +849,6 @@ $ CORRECTION: unless at beginning of word, this does not happen before nasal con
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
-
-$ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
-$ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
-$ s9 -- due to Gaulish (also happened in Welsh,Breton,Cornish)
-[+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
 $~MIDDLE GALLO-ROMAN
 $ Seventh century as per Pope s164
@@ -1032,6 +1048,7 @@ $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 
 k > ∅  / __ t͡sʲ
 
+$ RECURSE
 $ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
 $ with a PRECEDING b, β or ʝ
 $ CORRECTION : this also effects t͡s
