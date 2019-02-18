@@ -16,15 +16,14 @@ Trajectory file for run 'run1'; etymon number :779:
 #ˈʉo̯ʎs# | Rule 300 : ə̯ > ∅ 
 #ˈʉo̯ʎsʲ# | Rule 322 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 #ˈʉo̯ʎs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˈʉo̯ʎt͡sʲ# | Rule 428 : s > t͡sʲ / ʎ __ #
-#ˈʉo̯ʎˠt͡sʲ# | Rule 485 : [+lat] > [+back] / __ [+cons]
-#ˈyo̯ʎˠt͡sʲ# | Rule 486 : [+hi,+round,-back] > [+front] 
-#ˈye̯ʎˠt͡sʲ# | Rule 512 : o̯ > e̯ 
-#ˈye̯ʎˠt͡s# | Rule 524 : t͡sʲ > t͡s 
-#ˈøʎˠt͡s# | Rule 554 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#ˈøwt͡s# | Rule 555 : [+lat,+back] > w 
-#ˈøt͡s# | Rule 583 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ˈøs# | Rule 611 : [+delrel] > [+cont,.delrel] 
-#ˈø# | Rule 686 : [-son] > ∅ / __ #
-#ø# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#œ# | Rule 702 : ø > œ / __ ( [+cons] )* #
+#ˈʉo̯ʎsʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#ˈʉo̯ʎˠsʲ# | Rule 488 : [+lat] > [+back] / __ [+cons]
+#ˈyo̯ʎˠsʲ# | Rule 489 : [+hi,+round,-back] > [+front] 
+#ˈye̯ʎˠsʲ# | Rule 515 : o̯ > e̯ 
+#ˈøʎˠsʲ# | Rule 557 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#ˈøwsʲ# | Rule 558 : [+lat,+back] > w 
+#ˈøsʲ# | Rule 586 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ˈøs# | Rule 626 : {zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪} 
+#ˈø# | Rule 690 : [-son] > ∅ / __ #
+#ø# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#œ# | Rule 706 : ø > œ / __ ( [+cons] )* #

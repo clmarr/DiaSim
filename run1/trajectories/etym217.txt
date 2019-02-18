@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :217:
-#ˌeksfrˌuːkt̪ˈɑːre# >>> #esfʁɥit̪jɛʁ# ( Correct : #efʁit̪e#) :
+#ˌeksfrˌuːkt̪ˈɑːre# >>> #esfʁɥit̪ɛʁ# ( Correct : #efʁit̪e#) :
 ˌe k s f r ˌuː k t̪ ˈɑː r e 
 #ˌɛksfrˌuːkt̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɛksfrˌukt̪ˈɑːrɛ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -17,15 +17,18 @@ Trajectory file for run 'run1'; etymon number :217:
 #ˌɛsfrˌʉçt̪ʲˈie̯rə̯# | Rule 266 : ə > ə̯ 
 #ˌɛsfrˌʉçt̪ʲˈie̯r# | Rule 300 : ə̯ > ∅ 
 #ˌɛsfrˌʉçt̪ˈie̯r# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˌesfrˌʉçt̪ˈie̯r# | Rule 410 : ˌɛ > ˌe / __ [+cor,+cont] [-cor]
-#ˌesfrˌʉʝt̪ˈie̯r# | Rule 445 : ç > ʝ 
-#ˌesfrˌʉjt̪ˈie̯r# | Rule 446 : ʝ > j / [-cons] __ 
-#ˌesfrˌyjt̪ˈie̯r# | Rule 486 : [+hi,+round,-back] > [+front] 
-#ˌesfrˌyjt̪jˈer# | Rule 565 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌesfrɥˌit̪jˈer# | Rule 598 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#ˌesfrɥˌit̪jˈɛr# | Rule 617 : ˈe > ˈɛ 
-#ˌesfrɥˌit̪jˈɛɹ# | Rule 681 : r > ɹ / [-cons] __ #
-#ˌesfrɥˌit̪jˈɛr# | Rule 695 : ɹ > r 
-#ˌesfʀɥˌit̪jˈɛʀ# | Rule 697 : r > ʀ 
-#esfʀɥit̪jɛʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#esfʁɥit̪jɛʁ# | Rule 705 : ʀ > ʁ 
+#ˌɛsfrˌʉçt̪ʲˈie̯r# | Rule 384 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
+#ˌesfrˌʉçt̪ʲˈie̯r# | Rule 413 : ˌɛ > ˌe / __ [+cor,+cont] [-cor]
+#ˌesfrˌʉʝt̪ʲˈie̯r# | Rule 448 : ç > ʝ 
+#ˌesfrˌʉjt̪ʲˈie̯r# | Rule 449 : ʝ > j / [-cons] __ 
+#ˌesfrˌyjt̪ʲˈie̯r# | Rule 489 : [+hi,+round,-back] > [+front] 
+#ˌesfrˌyjt̪ʲjˈer# | Rule 568 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌesfrɥˌit̪ʲjˈer# | Rule 601 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#ˌesfrɥˌit̪ʲjˈɛr# | Rule 620 : ˈe > ˈɛ 
+#ˌesfrɥˌit̪ʲˈɛr# | Rule 625 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
+#ˌesfrɥˌit̪ˈɛr# | Rule 626 : {zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪} 
+#ˌesfrɥˌit̪ˈɛɹ# | Rule 685 : r > ɹ / [-cons] __ #
+#ˌesfrɥˌit̪ˈɛr# | Rule 699 : ɹ > r 
+#ˌesfʀɥˌit̪ˈɛʀ# | Rule 701 : r > ʀ 
+#esfʀɥit̪ɛʀ# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#esfʁɥit̪ɛʁ# | Rule 709 : ʀ > ʁ 

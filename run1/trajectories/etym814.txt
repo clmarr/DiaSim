@@ -14,11 +14,13 @@ p ˌɑ r ˈiː s i u m
 #pˌarˈiːzʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
 #pˌarˈiːzʲə̯# | Rule 266 : ə > ə̯ 
 #pˌarˈiːzʲ# | Rule 300 : ə̯ > ∅ 
-#pˌarˈiːjz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
-#pˌarˈijz# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#pˌarˈijs# | Rule 431 : [-son] > [-voi] / __ #
-#pˌarˈis# | Rule 447 : j > ∅ / [+hi,+front,+tense,+syl] __ 
-#pˌarˈi# | Rule 686 : [-son] > ∅ / __ #
-#pˌaʀˈi# | Rule 697 : r > ʀ 
-#paʀi# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʁi# | Rule 705 : ʀ > ʁ 
+#pˌarˈiːjz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pˌarˈiːjzʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#pˌarˈijzʲ# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#pˌarˈijsʲ# | Rule 434 : [-son] > [-voi] / __ #
+#pˌarˈisʲ# | Rule 450 : j > ∅ / [+hi,+front,+tense,+syl] __ 
+#pˌarˈis# | Rule 626 : {zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪} 
+#pˌarˈi# | Rule 690 : [-son] > ∅ / __ #
+#pˌaʀˈi# | Rule 701 : r > ʀ 
+#paʀi# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#paʁi# | Rule 709 : ʀ > ʁ 

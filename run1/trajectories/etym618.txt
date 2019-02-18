@@ -13,10 +13,11 @@ m ˈɑ ɡ i d̪ e m
 #mˈaʝd̪ʲ# | Rule 300 : ə̯ > ∅ 
 #mˈajd̪ʲ# | Rule 310 : ʝ > j / __ ( [-syl] )* #
 #mˈajd̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#mˈajð# | Rule 423 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
-#mˈajθ# | Rule 431 : [-son] > [-voi] / __ #
-#mˈaj# | Rule 575 : {θ;ð} > {∅;∅} 
-#mˈɛj# | Rule 582 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #
-#mˈe# | Rule 613 : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #
-#mˈɛ# | Rule 617 : ˈe > ˈɛ 
-#mɛ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈajd̪ʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#mˈajðʲ# | Rule 426 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#mˈajθʲ# | Rule 434 : [-son] > [-voi] / __ #
+#mˈɛjθʲ# | Rule 584 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#mˈɛːθʲ# | Rule 608 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#mˈɛː# | Rule 690 : [-son] > ∅ / __ #
+#mɛː# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛ# | Rule 703 : [+syl,+long] > [-long,-splng] 

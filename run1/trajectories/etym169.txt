@@ -14,11 +14,12 @@ d̪ ˈi ɡ i t̪ u m
 #d̪ˈeʝt̪ʲ# | Rule 300 : ə̯ > ∅ 
 #d̪ˈejt̪ʲ# | Rule 310 : ʝ > j / __ ( [-syl] )* #
 #d̪ˈejt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#d̪ˈejθ# | Rule 423 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
-#d̪ˈojθ# | Rule 521 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#d̪ˈujθ# | Rule 539 : [+round,+tense,+back] > [+hi] 
-#d̪ˈuj# | Rule 575 : {θ;ð} > {∅;∅} 
-#d̪ˈuɛ̯# | Rule 593 : j > ɛ̯ / [+syl,+back,+round] __ 
-#d̪wˈɛ# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#d̪wɛ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪wa# | Rule 703 : ɛ > a / w __ 
+#d̪ˈejt̪ʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#d̪ˈejθʲ# | Rule 426 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#d̪ˈojθʲ# | Rule 524 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#d̪ˈujθʲ# | Rule 542 : [+round,+tense,+back] > [+hi] 
+#d̪ˈuɛ̯θʲ# | Rule 596 : j > ɛ̯ / [+syl,+back,+round] __ 
+#d̪wˈɛθʲ# | Rule 599 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪wˈɛ# | Rule 690 : [-son] > ∅ / __ #
+#d̪wɛ# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪wa# | Rule 707 : ɛ > a / w __ 

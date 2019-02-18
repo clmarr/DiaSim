@@ -549,11 +549,12 @@ public class DerivationSimulation {
 			double[] PERFORMANCE_arr = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
 			PERFORMANCE = PERFORMANCE_arr[0] ; 
 			ACCURACY = PERFORMANCE_arr[1]; 
-			NEAR_ACCURACY = PERFORMANCE_arr[2];
+			NEAR_ACCURACY = PERFORMANCE_arr[3];
 			
 			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
 			System.out.println("FINAL OVERALL ACCURACY : "+ACCURACY); 
-			System.out.println("FINAL OVERALL NEAR ACCURACY : "+NEAR_ACCURACY);
+			System.out.println("ACCURACY WITHIN 1 PHONE: "+PERFORMANCE_arr[2]);
+			System.out.println("ACCURACY WITHIN 2 PHONES : "+NEAR_ACCURACY);
 			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
 			if( NUM_GOLD_STAGES > 0 )
 			{
@@ -666,23 +667,25 @@ public class DerivationSimulation {
 		lexLD = new int[NUM_ETYMA];
 		lexLak = new double[NUM_ETYMA]; 
 		isHit = new boolean[NUM_ETYMA]; 
-		double totLexQuotients = 0.0, numHits= 0.0, numNearHits = 0.0;
+		double totLexQuotients = 0.0, numHits= 0.0, numAlmostHits = 0.0, numNearHits = 0.0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
 		{
 			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
 			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
 			isHit[i] = (lexLD[i] == 0);
 			numHits += (lexLD[i] == 0) ? 1 : 0; 
+			numAlmostHits += (lexLD[i] <= 1) ? 1 : 0; 
 			numNearHits += (lexLD[i] <= 2) ? 1 : 0; 
 			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
 			lexLak[i] = lakation;
 			totLexQuotients += lakation; 
 		}
 		
-		double[] output = new double[3]; 
-		output[0] = totLexQuotients / (double) NUM_ETYMA; 
+		double[] output = new double[4]; 
+		output[0] = totLexQuotients / (double) NUM_ETYMA * 100.0; 
 		output[1] = numHits / (double)NUM_ETYMA * 100.0; 
-		output[2] = numNearHits / (double)NUM_ETYMA * 100.0;
+		output[2] = numAlmostHits / (double)NUM_ETYMA * 100.0; 
+		output[3] = numNearHits / (double)NUM_ETYMA * 100.0;
 		return output; 
 	}
 	

@@ -1267,9 +1267,37 @@ $ for maintenance -- Pope doesn't account for the fact that this could end up wi
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
 $ CORRECTION: d͡zʲ also ejects j backwards and depalatalizes at this stage
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+$ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ -- ABROGATED below
 $ then realize the main rule here.
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z}
+$ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} -- ABROGATED (see below)
+
+$ CORRECTION: tʲ, dʲ, sʲ and dʲ are actually preserved into Old French, but lʲ,nʲ are lost at this point
+$ ... while tsʲ and rʲ are eliminated also earlier by shifts slightly later than this
+$ The evidence is the discover of a new REGULAR RULE by which
+	$ (formerly former) palatals see the deletion of following j in jɛʁ segments
+		$ at the same time as this occurs for the uncontroversially remaining palatals
+			$ those being ʃ,ʒ,ʎ and ɲ at that point
+		$ a list to which we add sʲ, zʲ, tʲ and dʲ which are swiftly eliminated afterward
+	$ zʲ is additionally eliminated after aj,ɔj,oj,uj in the intervening period, but remains
+		$ following yj (case of plusieurs)
+	$ evidence: tractare > traiter not traitier, laxare > laisser not laissier,
+		$ vocita:re > vuider > vider, not vuidier > vidier, 
+		$ exfructica:re > effruiter > effriter not effruitier > effritier
+		$ and finally plusio:res > plusieurs not plusours, 
+	$ the only alternative to this is massive changes in the chronology of 
+		$ diphthong developments, which is pretty well substantiated
+	$ so this is the best option with regards to Occam's razor
+$ sʲ is NEVER preserved in ss though, nor are any of these preserved before a consonant
+$ the persistence of sʲ/zʲ/tʲ/dʲ is specifically both after non-strident palatal consonantal continuants
+	$ and before either # or i e̯ r #  - - so it must behave exactly like before when preceded 
+		$ by a non-consonantal. 
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 		
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+{t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+{t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
+
+$ CORRECTION: zʲ is also lost if it is after a non-high vowel + j 
+zʲ > z / [+syl,-hi] j __
 
 $ CORRECTION: (round vowel) w j > j 
 w > ∅ / [+round,+syl] __ j
@@ -2067,7 +2095,7 @@ $ as per s669-670 : wɛ nasalized takes form of wĩ for now.
 $ Exact order unknown but this seems most in line with what Pope has said elsewhere
 [+front,-tense,+nas] > [+hi,+tense] / w __ 
 
-$ Pope s528-529 : ɛj > ɛ praeconsonantally. 
+$ Pope s528-529 : ɛj > ɛː praeconsonantally. 
 $ Long as per s560
 {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
 
@@ -2136,7 +2164,14 @@ $ CORRECTION: abrogated. This shift did occur but for all but two words in the s
 ${ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
 
 $ s510 je > e after ʎ,ɲ,ʃ,ʒ . Late 15th - 16th centuries
+$ CORRECTION: palatal sʲ, tʲ, zʲ, dʲ have now been preserved to this point in restricted
+	$ set of words, and are also triggers for this change
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
+
+$ CORRECTED: now we finally lose the remaining dento-palatals
+$ after changing their developments in Gallo-Roman so they are preserved until now in
+	$ limited contexts -- evidenced by traiter, effriter, vider, laisser and plusieurs
+{zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪}
 
 $ s534-538 ~ s560 : aw > o: -- 15th-16th centuries
 $ long as per s560

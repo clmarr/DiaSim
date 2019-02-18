@@ -11,10 +11,12 @@ Trajectory file for run 'run1'; etymon number :30:
 #ˈaçsʲə̯# | Rule 266 : ə > ə̯ 
 #ˈaçsʲ# | Rule 300 : ə̯ > ∅ 
 #ˈaçs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˈaʝs# | Rule 445 : ç > ʝ 
-#ˈajs# | Rule 446 : ʝ > j / [-cons] __ 
-#ˈɛjs# | Rule 581 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#ˈɛːs# | Rule 605 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ˈɛː# | Rule 686 : [-son] > ∅ / __ #
-#ɛː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɛ# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#ˈaçsʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#ˈaʝsʲ# | Rule 448 : ç > ʝ 
+#ˈajsʲ# | Rule 449 : ʝ > j / [-cons] __ 
+#ˈɛjsʲ# | Rule 584 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#ˈɛːsʲ# | Rule 608 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˈɛːs# | Rule 626 : {zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪} 
+#ˈɛː# | Rule 690 : [-son] > ∅ / __ #
+#ɛː# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛ# | Rule 703 : [+syl,+long] > [-long,-splng] 

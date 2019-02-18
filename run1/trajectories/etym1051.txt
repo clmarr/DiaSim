@@ -14,12 +14,14 @@ s ˈɑː n̪ k t̪ u m
 #sˈaɲt̪ʲə̯# | Rule 266 : ə > ə̯ 
 #sˈaɲt̪ʲ# | Rule 300 : ə̯ > ∅ 
 #sˈaɲt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#sˈajn̪t̪# | Rule 430 : ɲ > j n̪ / __ [+cons]
-#sˈaj̃n̪t̪# | Rule 487 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#sˈãj̃n̪t̪# | Rule 488 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˈɛ̃j̃n̪t̪# | Rule 559 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
-#sˈɛ̃n̪t̪# | Rule 621 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sˈɛ̃ːt̪# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˈɛ̃ː# | Rule 686 : [-son] > ∅ / __ #
-#sɛ̃ː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛ̃# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#sˈaɲt̪ʲ# | Rule 383 : {t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#sˈajn̪t̪ʲ# | Rule 433 : ɲ > j n̪ / __ [+cons]
+#sˈaj̃n̪t̪ʲ# | Rule 490 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#sˈãj̃n̪t̪ʲ# | Rule 491 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#sˈɛ̃j̃n̪t̪ʲ# | Rule 562 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#sˈɛ̃n̪t̪ʲ# | Rule 624 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˈɛ̃n̪t̪# | Rule 626 : {zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪} 
+#sˈɛ̃ːt̪# | Rule 670 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˈɛ̃ː# | Rule 690 : [-son] > ∅ / __ #
+#sɛ̃ː# | Rule 702 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛ̃# | Rule 703 : [+syl,+long] > [-long,-splng] 
