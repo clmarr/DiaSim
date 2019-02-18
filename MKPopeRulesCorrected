@@ -1742,8 +1742,9 @@ $ as the results of the first palatalization DO exercise this influence
 $ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old French
 $ CORRECTION :This is moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
-t͡sʲ > t͡s
-
+$ CORRECTION : not yet after nasals 
+t͡sʲ > t͡s / {[-nas];#} __
+ 
 $ CORRECTION e > ɛ before ʎ
 $ TODO : make sure this doesn't have bad side effects.
 [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
@@ -2174,7 +2175,7 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
 $ CORRECTED: now we finally lose the remaining dento-palatals
 $ after changing their developments in Gallo-Roman so they are preserved until now in
 	$ limited contexts -- evidenced by traiter, effriter, vider, laisser and plusieurs
-{zʲ;sʲ;d̪ʲ;t̪ʲ} > {z;s;d̪;t̪}
+{sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪}
 
 $ s534-538 ~ s560 : aw > o: -- 15th-16th centuries
 $ long as per s560
