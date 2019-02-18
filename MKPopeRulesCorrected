@@ -1203,6 +1203,9 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
+$ CORRECTION: length retained in stressed syllables in multisyllabic words followed by rs#
+[+prim] > [+long] / [+syl] ([-syl])* __ r s #
+
 $ s352 : in deɣo and remaining deɣa (-tikum,-tika) suffixes, e (>ə) deleted ɑnd ɣ palatalizes and closes to make dʒ
 $ CORRECTION: This happens anywhere in the word where this sequence exists, not just at the end
 $ CORRECTION: where d has remained t, it becomes a voiceless tʃ
@@ -1217,13 +1220,16 @@ $ recurses as per cases of adiutare and medietatem (s414)
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
 $ CORRECTION: only happens to primarily stressed a anywhere
 $ CORRECTION: also before final rʲ 
+$ CORRECTION: also before rs#
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ #
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ rʲ #
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ r s #
 
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
+$ CORRECTION: includes tonic o
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
 $ CORRECTION: j ˈi e̯ then becomes ˈi e̯ when it came from rʲ and would not create a hiatus. 
@@ -1271,15 +1277,13 @@ $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl
 $ then realize the main rule here.
 $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} -- ABROGATED (see below)
 
-$ CORRECTION: tʲ, dʲ, sʲ and dʲ are actually preserved into Old French, but lʲ,nʲ are lost at this point
+$ CORRECTION: tʲ,  sʲ and dʲ are actually preserved into Old French, but lʲ,nʲ,zʲ are lost at this point
 $ ... while tsʲ and rʲ are eliminated also earlier by shifts slightly later than this
 $ The evidence is the discover of a new REGULAR RULE by which
 	$ (formerly former) palatals see the deletion of following j in jɛʁ segments
 		$ at the same time as this occurs for the uncontroversially remaining palatals
 			$ those being ʃ,ʒ,ʎ and ɲ at that point
-		$ a list to which we add sʲ, zʲ, tʲ and dʲ which are swiftly eliminated afterward
-	$ zʲ is additionally eliminated after aj,ɔj,oj,uj in the intervening period, but remains
-		$ following yj (case of plusieurs)
+		$ a list to which we add sʲ, tʲ and dʲ which are swiftly eliminated afterward
 	$ evidence: tractare > traiter not traitier, laxare > laisser not laissier,
 		$ vocita:re > vuider > vider, not vuidier > vidier, 
 		$ exfructica:re > effruiter > effriter not effruitier > effritier
@@ -1288,16 +1292,13 @@ $ The evidence is the discover of a new REGULAR RULE by which
 		$ diphthong developments, which is pretty well substantiated
 	$ so this is the best option with regards to Occam's razor
 $ sʲ is NEVER preserved in ss though, nor are any of these preserved before a consonant
-$ the persistence of sʲ/zʲ/tʲ/dʲ is specifically both after non-strident palatal consonantal continuants
+$ the persistence of sʲ/tʲ/dʲ is specifically both after non-strident palatal consonantal continuants
 	$ and before either # or i e̯ r #  - - so it must behave exactly like before when preceded 
 		$ by a non-consonantal. 
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 		
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-{t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-{t̪;d̪;s;z} > {t̪ʲ;d̪ʲ;sʲ;zʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
-
-$ CORRECTION: zʲ is also lost if it is after a non-high vowel + j 
-zʲ > z / [+syl,-hi] j __
+{t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+{t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
 
 $ CORRECTION: (round vowel) w j > j 
 w > ∅ / [+round,+syl] __ j
