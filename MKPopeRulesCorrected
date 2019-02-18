@@ -1519,6 +1519,19 @@ x > k / __ #
 $ s357, s359, s324, s325: ç merges into ʝ
 ç > ʝ
 
+$ s372ii t,d become edh before r,l,n,m
+$ CORRECTED -- Pope missed that this only happens after vowels
+$ CORRECTED -- moved back so that this can be blocked in former post velar enviroments (i.e. pictorina > poitrine not poirine) 
+[-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor] 
+[-cont,-delrel,+cor] > ð / [-cons] __ [+nas] 
+
+$ s372iii p,b become beta then v before r, halts at b before l
+$ CORRECTION: happens specifically after non-consonantals. 
+p > b / [-cons] __ [+son,+cont,-nas]
+b > β / [-cons] __ r
+β > v
+
+
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
 ʝ > j / [-cons] __ 
@@ -1555,16 +1568,6 @@ w > ∅ / [-cont,-back] __
 
 $ s377 s > z before voiced consonants
 s > z / __ [+voi,+cons]
-
-$ s372ii t,d become edh before r,l,n,m
-$ CORRECTED -- Pope missed that this only happens after vowels
-[-cont,-delrel,+cor] > ð / [+syl] __ [+son,+cor] 
-[-cont,-delrel,+cor] > ð / [+syl] __ [+nas] 
-
-$ s372iii p,b become beta then v before r, halts at b before l
-p > b / [+syl] __ [+son,+cont,-nas]
-b > β / [+syl] __ r
-β > v
 
 $ s365i : elimination of middle velars in three consonant intervocalic clusters
 {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]

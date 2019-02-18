@@ -448,6 +448,11 @@ x > ç / [+lo,+front,+prim] ( [-cons,-syl,+front] ) __ #| ORIG : x > ç / [+lo,+
 x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #| ORIG : x > ç / [+hi,+front,+prim] ([-cons,-syl,+front]) __ #
 x > k / __ #| ORIG : x > k / __ #
 ç > ʝ | ORIG : ç > ʝ
+[-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]| ORIG : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor] 
+[-cont,-delrel,+cor] > ð / [-cons] __ [+nas]| ORIG : [-cont,-delrel,+cor] > ð / [-cons] __ [+nas] 
+p > b / [-cons] __ [+son,+cont,-nas]| ORIG : p > b / [-cons] __ [+son,+cont,-nas]
+b > β / [-cons] __ r| ORIG : b > β / [-cons] __ r
+β > v | ORIG : β > v
 ʝ > j / [-cons] __ | ORIG : ʝ > j / [-cons] __ 
 j > ∅ / [+hi,+front,+tense,+syl] __ | ORIG : j > ∅ / [+hi,+front,+tense,+syl] __
 {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} | ORIG : {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
@@ -460,11 +465,6 @@ s t̪ s > t͡s / [-cons] __ [-cons]| ORIG : s t̪ s > t͡s / [-cons] __ [-cons]
 w > ∅ / [-cont] [-cont] __ | ORIG : w > ∅ / [-cont] [-cont] __
 w > ∅ / [-cont,-back] __ | ORIG : w > ∅ / [-cont,-back] __
 s > z / __ [+voi,+cons]| ORIG : s > z / __ [+voi,+cons]
-[-cont,-delrel,+cor] > ð / [+syl] __ [+son,+cor]| ORIG : [-cont,-delrel,+cor] > ð / [+syl] __ [+son,+cor] 
-[-cont,-delrel,+cor] > ð / [+syl] __ [+nas]| ORIG : [-cont,-delrel,+cor] > ð / [+syl] __ [+nas] 
-p > b / [+syl] __ [+son,+cont,-nas]| ORIG : p > b / [+syl] __ [+son,+cont,-nas]
-b > β / [+syl] __ r| ORIG : b > β / [+syl] __ r
-β > v | ORIG : β > v
 {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]| ORIG : {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
 ∅ > b / m __ [+cor,-nas,+son,-syl]| ORIG : ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r| ORIG : ∅ > d̪ / [+lat] __ r
