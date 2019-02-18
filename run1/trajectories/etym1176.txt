@@ -1,17 +1,13 @@
 Trajectory file for run 'run1'; etymon number :1176:
-#t̪ˈɑn̪t̪um# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃#) :
-t̪ ˈɑ n̪ t̪ u m 
-#t̪ˈɑn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪t̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪t̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈɑ?t̪o# | Rule 101 : [+ant,+cons] > [-voi] / __ t̪
-#t̪ˈa?t̪o# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#t̪ˈa?t̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈa?t̪ə̯# | Rule 266 : ə > ə̯ 
-#t̪ˈa?t̪# | Rule 300 : ə̯ > ∅ 
-#t̪ˈã?t̪# | Rule 488 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˈãːt̪# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈãː# | Rule 686 : [-son] > ∅ / __ #
-#t̪ãː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ã# | Rule 699 : [+syl,+long] > [-long,-splng] 
-#t̪ɑ̃# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#t̪ˈɑrd̪ɑm# >>> #t̪aʁd̪# ( Correct : #t̪aʁd̪#) :
+t̪ ˈɑ r d̪ ɑ m 
+#t̪ˈɑrd̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈard̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#t̪ˈard̪ə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈard̪ə̯# | Rule 680 : ə > ə̯ / __ #
+#t̪ˈaɹd̪ə̯# | Rule 682 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈaɹd̪# | Rule 687 : ə̯ > ∅ 
+#t̪ˈard̪# | Rule 695 : ɹ > r 
+#t̪ˈaʀd̪# | Rule 697 : r > ʀ 
+#t̪aʀd̪# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪aʁd̪# | Rule 705 : ʀ > ʁ 

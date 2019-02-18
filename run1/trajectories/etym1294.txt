@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1294:
-#wˈen̪n̪ɑm# >>> #vɑ̃n̪# ( Correct : #van̪#) :
-w ˈe n̪ n̪ ɑ m 
-#ɣʷˈen̪n̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛn̪n̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪n̪ɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈɛn̪n̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɛn̪n̪ɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈɛn̪n̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#vˈɛn̪n̪a# | Rule 420 : β > v 
-#vˈɛn̪n̪ə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈɛn̪ə# | Rule 476 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#vˈɛ̃n̪ə# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˈãn̪ə# | Rule 552 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#vˈãn̪ə̯# | Rule 680 : ə > ə̯ / __ #
-#vˈãn̪# | Rule 687 : ə̯ > ∅ 
-#vãn̪# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɑ̃n̪# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#wˈen̪t̪um# >>> #vɑ̃# ( Correct : #vɑ̃#) :
+w ˈe n̪ t̪ u m 
+#ɣʷˈen̪t̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛn̪t̪ʊm# | Rule 51 : ɣʷ > βʷ 
+#βʷˈɛn̪t̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛn̪t̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˈɛ?t̪o# | Rule 101 : [+ant,+cons] > [-voi] / __ t̪
+#βˈɛ?t̪o# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈɛ?t̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#βˈɛ?t̪ə̯# | Rule 266 : ə > ə̯ 
+#βˈɛ?t̪# | Rule 300 : ə̯ > ∅ 
+#vˈɛ?t̪# | Rule 420 : β > v 
+#vˈɛ̃?t̪# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˈã?t̪# | Rule 552 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
+#vˈãːt̪# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#vˈãː# | Rule 686 : [-son] > ∅ / __ #
+#vãː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vã# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#vɑ̃# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 

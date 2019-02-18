@@ -1,16 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1161:
-#t̪ˌɑbˈern̪ɑm# >>> #t̪avɛʁn̪# ( Correct : #t̪avɛʁn̪#) :
-t̪ ˌɑ b ˈe r n̪ ɑ m 
-#t̪ˌɑbˈɛrn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɑβˈɛrn̪ɑm# | Rule 52 : b > β / [+syl] __ [+son,-lat,-nas]
-#t̪ˌɑβˈɛrn̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˌaβˈɛrn̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#t̪ˌavˈɛrn̪a# | Rule 420 : β > v 
-#t̪ˌavˈɛrn̪ə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌavˈɛrn̪ə̯# | Rule 680 : ə > ə̯ / __ #
-#t̪ˌavˈɛɹn̪ə̯# | Rule 682 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌavˈɛɹn̪# | Rule 687 : ə̯ > ∅ 
-#t̪ˌavˈɛrn̪# | Rule 695 : ɹ > r 
-#t̪ˌavˈɛʀn̪# | Rule 697 : r > ʀ 
-#t̪avɛʀn̪# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪avɛʁn̪# | Rule 705 : ʀ > ʁ 
+#t̪ˌɑbˈoːn̪em# >>> #t̪ɔ̃# ( Correct : #t̪ɑ̃#) :
+t̪ ˌɑ b ˈoː n̪ e m 
+#t̪ˌɑbˈoːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑβˈoːn̪ɛm# | Rule 52 : b > β / [+syl] __ [+son,-lat,-nas]
+#t̪ˌɑβˈon̪ɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑβˈon̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˌɑβˈoːn̪ɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌɑˈoːn̪ɛ# | Rule 125 : β > ∅ / @ __ [+lab,+syl]
+#t̪ˌɑˈũːn̪ɛ# | Rule 160 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#t̪ˌaˈũːn̪ɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#t̪ˌɔˈũːn̪ɛ# | Rule 233 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#t̪ˌɔˈũːn̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌɔˈũːn̪ə̯# | Rule 266 : ə > ə̯ 
+#t̪ˌɔˈũːn̪# | Rule 300 : ə̯ > ∅ 
+#t̪ˌoˈũːn̪# | Rule 413 : ˌɔ > ˌo 
+#t̪ˌuˈũːn̪# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#t̪ˌũˈũːn̪# | Rule 587 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]
+#t̪ˈũːn̪# | Rule 642 : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
+#t̪ˈũː# | Rule 667 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#t̪ũː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ũ# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#t̪ɔ̃# | Rule 700 : [+back,-lo,+nas,+syl] > ɔ̃ 

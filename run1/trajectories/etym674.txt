@@ -1,21 +1,22 @@
 Trajectory file for run 'run1'; etymon number :674:
-#mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
-m ˈeː n̪ s ɑ m 
-#mˈeːsɑm# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
-#mˈesɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈesɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈeːsɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈeːzɑ# | Rule 133 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#mˈeːza# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#mˈejza# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˈejzə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈojzə# | Rule 499 : ˈe > ˈo / [+lab,+voi] __ j
-#mˈujzə# | Rule 539 : [+round,+tense,+back] > [+hi] 
-#mˈuɛ̯zə# | Rule 593 : j > ɛ̯ / [+syl,+back,+round] __ 
-#mwˈɛzə# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#mwˈɛːzə# | Rule 672 : [+syl] > [+long] / __ z [+syl]
-#mwˈɛːzə̯# | Rule 680 : ə > ə̯ / __ #
-#mwˈɛːz# | Rule 687 : ə̯ > ∅ 
-#mwɛːz# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mwɛz# | Rule 699 : [+syl,+long] > [-long,-splng] 
-#mwaz# | Rule 703 : ɛ > a / w __ 
+#mˈen̪sem# >>> #mwa# ( Correct : #mwa#) :
+m ˈe n̪ s e m 
+#mˈeːn̪sem# | Rule 9 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#mˈeːsem# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#mˈeːsɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈesɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈesɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈeːsɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɛ# | Rule 133 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːzə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#mˈeːzə̯# | Rule 266 : ə > ə̯ 
+#mˈeːz# | Rule 300 : ə̯ > ∅ 
+#mˈejz# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejs# | Rule 431 : [-son] > [-voi] / __ #
+#mˈojs# | Rule 499 : ˈe > ˈo / [+lab,+voi] __ j
+#mˈujs# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯s# | Rule 593 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛs# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛ# | Rule 686 : [-son] > ∅ / __ #
+#mwɛ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwa# | Rule 703 : ɛ > a / w __ 

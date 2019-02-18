@@ -1,10 +1,27 @@
 Trajectory file for run 'run1'; etymon number :914:
-#plˈuːs# >>> #ply# ( Correct : #ply#) :
-p l ˈuː s 
-#plˈus# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˈuːs# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#plˈʉːs# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#plˈyːs# | Rule 486 : [+hi,+round,-back] > [+front] 
-#plˈyː# | Rule 686 : [-son] > ∅ / __ #
-#plyː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ply# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#plˌuːsiˈoːreːs# >>> #plɥizuʁ# ( Correct : #plyzjœʁ#) :
+p l ˌuː s i ˈoː r eː s 
+#plˌuːsɪˈoːreːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˌuːsjˈoːreːs# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˌuːsʝˈoːreːs# | Rule 28 : j > ʝ / __ [+syl]
+#plˌusʝˈores# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#plˌusʝˈoːres# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˌuzʝˈoːres# | Rule 134 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#plˌuzʲˈoːres# | Rule 169 : z ʝ > zʲ 
+#plˌʉzʲˈoːres# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#plˌʉzʲˈoːrəs# | Rule 263 : [-stres,-lo,+syl] > ə / __ [-syl]
+#plˌʉzʲˈoːrə̯s# | Rule 266 : ə > ə̯ 
+#plˌʉzʲˈoːrs# | Rule 300 : ə̯ > ∅ 
+#plˌʉzʲˈors# | Rule 355 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#plˌʉjzˈors# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#plˌyjzˈors# | Rule 486 : [+hi,+round,-back] > [+front] 
+#plˌyjzˈurs# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#plɥˌizˈurs# | Rule 598 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#plɥˌiːzˈurs# | Rule 672 : [+syl] > [+long] / __ z [+syl]
+#plɥˌiːzˈuɹs# | Rule 682 : r > ɹ / [-cons] __ [+cons]
+#plɥˌiːzˈuɹ# | Rule 686 : [-son] > ∅ / __ #
+#plɥˌiːzˈur# | Rule 695 : ɹ > r 
+#plɥˌiːzˈuʀ# | Rule 697 : r > ʀ 
+#plɥiːzuʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɥizuʀ# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#plɥizuʁ# | Rule 705 : ʀ > ʁ 

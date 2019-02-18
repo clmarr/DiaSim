@@ -1,21 +1,20 @@
 Trajectory file for run 'run1'; etymon number :997:
-#rˈen̪d̪it̪ɑm# >>> #ʁɑ̃t̪# ( Correct : #ʁɑ̃t̪#) :
-r ˈe n̪ d̪ i t̪ ɑ m 
-#rˈɛn̪d̪ɪt̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈɛn̪d̪et̪ɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#rˈɛn̪d̪et̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#rˈɛn̪d̪t̪ɑ# | Rule 92 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#rˈɛn̪t̪ɑ# | Rule 97 : [-cont] > ∅ / [+cons] __ [-son,-hi]
-#rˈɛ?t̪ɑ# | Rule 101 : [+ant,+cons] > [-voi] / __ t̪
-#rˈɛ?t̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#rˈɛ?t̪ə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#rˈɛ̃?t̪ə# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#rˈã?t̪ə# | Rule 552 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#rˈãːt̪ə# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#rˈãːt̪ə̯# | Rule 680 : ə > ə̯ / __ #
-#rˈãːt̪# | Rule 687 : ə̯ > ∅ 
-#ʀˈãːt̪# | Rule 697 : r > ʀ 
-#ʀãːt̪# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀãt̪# | Rule 699 : [+syl,+long] > [-long,-splng] 
-#ʀɑ̃t̪# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#ʁɑ̃t̪# | Rule 705 : ʀ > ʁ 
+#rˈeːn̪em# >>> #ʁɛ̃# ( Correct : #ʁɛ̃#) :
+r ˈeː n̪ e m 
+#rˈeːn̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈen̪ɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#rˈen̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#rˈeːn̪ɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#rˈeːn̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#rˈeːn̪ə̯# | Rule 266 : ə > ə̯ 
+#rˈeːn̪# | Rule 300 : ə̯ > ∅ 
+#rˈejn̪# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#rˈej̃n̪# | Rule 500 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#rˈẽj̃n̪# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#rˈɛ̃j̃n̪# | Rule 547 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈɛ̃n̪# | Rule 621 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#rˈɛ̃ː# | Rule 667 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ʀˈɛ̃ː# | Rule 697 : r > ʀ 
+#ʀɛ̃ː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛ̃# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#ʁɛ̃# | Rule 705 : ʀ > ʁ 
