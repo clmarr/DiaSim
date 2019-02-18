@@ -1877,6 +1877,13 @@ $include also here s555-556 : yø̯ > ɥø
 $ CORRECTION: mvoed before some of the final ˌɛ transformations as it seems to block at least one (derriere)
 {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 
+$ CORRECTION: countertonic ˌɛ goes to ˌa when after a labial consonant and before r in a closed syllable
+$ Pope does note a few of the effects of this shift in s496 but she attributes the main effect of the shift to 
+	$ the Middle French period, and holds that hte effects in Early Old French were sporadic
+$ However, she missed that there is a consistent context here : exclusively countertonic ˌɛ
+	$  is regularly shifting after bilabial (NOT labiodental) consonants in closed syllables not immediately followed by a tense stressed vowel.
+ˌɛ > ˌa / [+lab,-strid,+cons] __ r {#;[+cons] [-stres]}
+
 $ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
 ˌe > ˌə / __ ([+cons]) [-cons] 
 
@@ -2083,7 +2090,6 @@ $ but must come after s effacement and resultant lengthening as per s580ii
 $ s435 : final ɲ > n̪ : likely in 13th century
 ɲ > n̪ / __ #
 
-
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
 
@@ -2100,7 +2106,7 @@ $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explici
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
-$ s464 : continuation of nasalizing tendency into Middle French -- stil productive except for i and y (i.e. promener, fromage...) 
+$ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas] / __ [+nas,+cons]
 
@@ -2125,7 +2131,9 @@ $ s441.3 ~ s466-467 :  ɛ̃j̃ > ɛ̃ before denasalization which was 15th and 1
 j̃ > ∅ / [+nas,+front,-tense] __ 
 
 $ s496 : ɛ > a / __ r in 15th and 16th centuries (later reversed for many words)
-{ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+$ CORRECTION: abrogated. This shift did occur but for all but two words in the set it was reversed. 
+	$ A regular and non-reversed analogous shift did occur in Early Old Frnehc however. 
+${ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
 
 $ s510 je > e after ʎ,ɲ,ʃ,ʒ . Late 15th - 16th centuries
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]

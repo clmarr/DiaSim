@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1086:
-#sˌerpˈen̪t̪em# >>> #saʁpɑ̃# ( Correct : #sɛʁpɑ̃#) :
+#sˌerpˈen̪t̪em# >>> #sɛʁpɑ̃# ( Correct : #sɛʁpɑ̃#) :
 s ˌe r p ˈe n̪ t̪ e m 
 #sˌɛrpˈɛn̪t̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˌɛrpˈɛn̪t̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
@@ -11,13 +11,12 @@ s ˌe r p ˈe n̪ t̪ e m
 #sˌɛrpˈɛ?t̪# | Rule 414 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
 #sˌɛrpˈɛ̃?t̪# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #sˌɛrpˈã?t̪# | Rule 552 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#sˌarpˈã?t̪# | Rule 620 : {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
-#sˌarpˈãːt̪# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌaɹpˈãːt̪# | Rule 681 : r > ɹ / [-cons] __ [+cons]
-#sˌaɹpˈãː# | Rule 685 : [-son] > ∅ / __ #
-#sˌarpˈãː# | Rule 694 : ɹ > r 
-#sˌaʀpˈãː# | Rule 696 : r > ʀ 
-#saʀpãː# | Rule 697 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#saʀpã# | Rule 698 : [+syl,+long] > [-long,-splng] 
-#saʀpɑ̃# | Rule 703 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#saʁpɑ̃# | Rule 704 : ʀ > ʁ 
+#sˌɛrpˈãːt̪# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌɛɹpˈãːt̪# | Rule 682 : r > ɹ / [-cons] __ [+cons]
+#sˌɛɹpˈãː# | Rule 686 : [-son] > ∅ / __ #
+#sˌɛrpˈãː# | Rule 695 : ɹ > r 
+#sˌɛʀpˈãː# | Rule 697 : r > ʀ 
+#sɛʀpãː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛʀpã# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#sɛʀpɑ̃# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#sɛʁpɑ̃# | Rule 705 : ʀ > ʁ 
