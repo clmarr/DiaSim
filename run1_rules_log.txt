@@ -586,13 +586,12 @@ r r > r | ORIG : r r > r
 [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]| ORIG : [+lo,+syl] > [-lo,-tense] / __ j [+cons] 
 [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #| ORIG : [+lo,+syl] > [-lo,-tense] / __ j #
 w > ∅ / [+round,+front,-hi,+syl] __ | ORIG : w > ∅ / [+round,+front,-hi,+syl] __ 
+{y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #| ORIG : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
 [-syl,+round,+cont] > ∅ / [+back,-cont] __ | ORIG : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
-{y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __ | ORIG : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+back,-cont] __
+ɥ > ∅ / [+lab,+cons] __ [+front,+round]| ORIG : ɥ > ∅ / [+lab,+cons] __ [+front,+round]
 [-hi,-lo,+back,+round] w > [+hi,+tense] ∅| ORIG : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅ 
 [+syl,-front] > [+nas,+son,.delrel] / __ [+nas]| ORIG : [+syl,-front] > [+nas] / __ [+nas]
 [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas]| ORIG : [+syl,-hi] > [+nas] / __ [+nas]
-ɥ > ∅ / [+lab,+cons] __ [+front,+round]| ORIG : ɥ > ∅ / [+lab,+cons] __ [+front,+round]
-ɥ > ∅ / [+back,+hi,+cons] __ [+front,+round]| ORIG : ɥ > ∅ / [+back,+hi,+cons] __ [+front,+round]
 {u j;ˌu j;ˈu j;ɔ j;ˌɔ j;ˈɔ j} > {w i;w ˌi;w ˈi;w i;w ˌi;w ˈi} / __ [+nas]| ORIG : {u j;ˌu j;ˈu j;ɔ j;ˌɔ j;ˈɔ j} > {w i;w ˌi;w ˈi;w i;w ˌi;w ˈi} / __ [+nas]
 {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]| ORIG : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
 j > ɛ̯ / [+syl,+back,+round] __ | ORIG : j > ɛ̯ / [+syl,+back,+round] __ 
@@ -618,6 +617,8 @@ j > ∅ / d͡ʒ __ [+front,+round,-hi]| ORIG : j > ∅ / d͡ʒ __ [+front,+round
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #| ORIG : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]| ORIG : [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas,+son,.delrel] / __ [+nas,+cons]| ORIG : [+syl,-front] > [+nas] / __ [+nas,+cons]
+ə̃ > ə | ORIG : ə̃ > ə 
+ə > ə̃ / __ n̪ t̪ #| ORIG : ə > ə̃ / __ n̪ t̪ #
 [+syl] x > [+long] ∅/ __ [+cons]| ORIG : [+syl] x > [+long] ∅ /  __ [+cons] 
 ˈe > ˈɛ | ORIG : ˈe > ˈɛ
 [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]| ORIG : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
