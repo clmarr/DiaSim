@@ -262,7 +262,13 @@ $ Pope notes it did not occur in monosyllabic words
 $ NOTE: as per p97-98 s205i -- unlike Italy and also South Gaul, North Gaul did not see effacement of s and t word-finally,
 $ ... because "pronunciation was influenced by the teaching in schools" in North Gaul
 $ CORRECTION : clear also final -n in words like materiamen
-[+nas,+cons] > ∅ / [+syl] ([-syl])* [+syl] __ #
+$ CORRECTION : change trigger -- we are deleting final m specifically after vowels that lack stress
+	$ monosyllables -- quem totally stressless; suum, tuum, meum, in -- countertonic
+[+nas,+cons] > ∅ / [+syl,-stres] __ #
+$ CORRECTION : also deleted after countertonic ɑ
+[+nas,+cons] > ∅ / [+lo,-prim] __ #
+
+$[+nas,+cons] > ∅ / [+syl] ([-syl])* [+syl] __ #
 
 $ p185 s488 : o > ɔ before labial consonants 
 $ *** NOTE : This is called a "TENDENCY" by Pope
@@ -628,6 +634,9 @@ $ CORRECTION : ʎc not effected : dulkiɑm > doʎca > dus
 
 $ CORRECTION : in the case of r r ʝ , ʝ does not merge into a prior rʲ, but rather closes to ɟ
 ʝ > ɟ / r r __
+
+$ CORRECTION: quasi-initial sc (prosthetic ɪ has been added) becomes st
+c > t̪ / # ˌe s __
 
 $ s313-315 : r,s,z donˌt lose their primary place of articulation but DO palatalize under influence of succeeding palatals
 $ potential RECURRENT as per Pope s162
