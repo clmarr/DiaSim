@@ -8,16 +8,20 @@ f r ˈɑ ɡ i l e m
 #frˈɑɟelɛ# | Rule 76 : [+back,+front] > [-back] 
 #frˈɑʝelɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
 #frˈɑːʝelɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#frˈaːʝelɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#frˈaːelɛ# | Rule 211 : ʝ > ∅ / ˈaː __ e
-#frˈaːjlɛ# | Rule 258 : {e;i} > {j;j} / [+syl] __ [-nas]
-#frˈaːjlə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#frˈaːjlə̯# | Rule 266 : ə > ə̯ 
-#frˈaːjl# | Rule 300 : ə̯ > ∅ 
-#frˈajl# | Rule 388 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#frˈɛjl# | Rule 585 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#frˈɛːl# | Rule 609 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#fʀˈɛːl# | Rule 703 : r > ʀ 
-#fʀɛːl# | Rule 704 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀɛl# | Rule 705 : [+syl,+long] > [-long,-splng] 
-#fʁɛl# | Rule 711 : ʀ > ʁ 
+#frˈaːʝelɛ# | Rule 193 : [+lo,+syl] > [+front,-back] 
+#frˈaːʝəlɛ# | Rule 260 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#frˈaːʝələ# | Rule 263 : [-stres,-lo,+syl] > ə / __ #
+#frˈaːʝə̯lə̯# | Rule 265 : ə > ə̯ 
+#frˈaːʝə̯lə# | Rule 295 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#frˈaːʝlə# | Rule 299 : ə̯ > ∅ 
+#frˈaːjlə# | Rule 378 : ʝ > j 
+#frˈae̯jlə# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#frˈajlə# | Rule 406 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#frˈɛjlə# | Rule 584 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#frˈɛːlə# | Rule 608 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#frˈɛːlə̯# | Rule 684 : ə > ə̯ / __ #
+#frˈɛːl# | Rule 691 : ə̯ > ∅ 
+#fʀˈɛːl# | Rule 702 : r > ʀ 
+#fʀɛːl# | Rule 703 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀɛl# | Rule 704 : [+syl,+long] > [-long,-splng] 
+#fʁɛl# | Rule 710 : ʀ > ʁ 

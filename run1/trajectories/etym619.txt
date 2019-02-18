@@ -7,14 +7,16 @@ m ˈɑ ɡ i s
 #mˈɑɟes# | Rule 76 : [+back,+front] > [-back] 
 #mˈɑʝes# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
 #mˈɑːʝes# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈaːʝes# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#mˈaːes# | Rule 211 : ʝ > ∅ / ˈaː __ e
-#mˈaːjs# | Rule 258 : {e;i} > {j;j} / [+syl] __ [-nas]
-#mˈajs# | Rule 355 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#mˈajsʲ# | Rule 385 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#mˈɛjsʲ# | Rule 585 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#mˈɛːsʲ# | Rule 609 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#mˈɛːs# | Rule 627 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#mˈɛː# | Rule 691 : [-son] > ∅ / __ #
-#mɛː# | Rule 704 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɛ# | Rule 705 : [+syl,+long] > [-long,-splng] 
+#mˈaːʝes# | Rule 193 : [+lo,+syl] > [+front,-back] 
+#mˈaːʝəs# | Rule 262 : [-stres,-lo,+syl] > ə / __ [-syl]
+#mˈaːʝə̯s# | Rule 265 : ə > ə̯ 
+#mˈaːʝs# | Rule 299 : ə̯ > ∅ 
+#mˈaːjs# | Rule 309 : ʝ > j / __ ( [-syl] )* #
+#mˈajs# | Rule 354 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#mˈajsʲ# | Rule 384 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#mˈɛjsʲ# | Rule 584 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#mˈɛːsʲ# | Rule 608 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#mˈɛːs# | Rule 626 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#mˈɛː# | Rule 690 : [-son] > ∅ / __ #
+#mɛː# | Rule 703 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛ# | Rule 704 : [+syl,+long] > [-long,-splng] 

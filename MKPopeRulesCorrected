@@ -151,9 +151,6 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to apply to... 
 
-$ CORRECTION : stress shift in ˌɪ ɡ ˈɪ segments to > ˈɪ ɡ ɪ 
-ˌɪ ɡ ˈɪ > ˈɪ ɡ ɪ
-
 $ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded by an ɑ variant 
 ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
 
@@ -202,6 +199,10 @@ b > β / [+syl] __ [+son,-lat,-nas]
 $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted "early" (s263)
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
 [+syl,-stres] ɡ > ∅ / [+prim] ([-syl])* __ [+syl,-stres] ([-syl])* #
+
+$ CORRECTION: shift occuring in Gallian (Gallo-Romance, Occitano-Romance, Gallo-Italic, Rhaeto-Romance), Venetian and Sardinian
+	$ ɑ ɡ ˈɪ n clusters become ˈɑ n 
+[+lo,+syl] ɡ ˈɪ n̪ > ˈɑ n
 
 $Page 72-73, section 154i ~ elaborated p 89 s 179 , s222
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
@@ -569,12 +570,21 @@ $ CORRECTION: now we can finally merge βʷ to β
 $ CORRECTION: include also ɸʷ
 {βʷ;ɸʷ} > {β;ɸ}
 
+$p127 s297 : developments of ʝ < ɟ : effacement intervocalically except between countertonic a and tonic e 
+$ CORRECTION: moved much earlier so it can bleed e > i raising in the case of ˌeʝˈe. We are no longer currently sending ʝ to j at this point now
+$ CORRECTION: only happens after countertonic ˌe 
+ʝ > ∅ / ˌe __ [+syl]
+
+$ CORRECTION: tonic ˈe after a palatal becomes long if closed by coronal + oral coronal or coronal + ʝ 
+ˈe > ˈeː / [+hi,+front,+cons] __ [+cor] {ʝ;[+cor,-nas]}
+
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
 $ when preceded by a palatal 
 $ Sixth/Seventh centuries as per Pope s163-11
 $ Conveniently all such vowels will be long as per s154ii -- we use this for our purposes
 $ Must come bore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
 	$ (Pope does not specify the voiced one retained any palatal element after assibiliation-- she does for c though as per p )
+$ CORRECTION: not limited to open syllables -- include also the short variants. 
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
 $ CORRECTION : primary stressed vowels before x n become tense (tsrokna > frogne, pectinem > peigne) 
@@ -749,16 +759,6 @@ $ and active BEFORE depalatalization of tsj (amicitatem > amitstate as per pope 
 $ and active BEFORE influence on a by preceding palatal
 $ and active AFTER palatalization of velar fricatives
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-
-$p127 s297 : developments of ʝ < ɟ : effacement intervocalically except between countertonic a and tonic e 
-$ however this happens after ʝ can palatalize succeeding dental consonants in Gallo-Roman s316, which itself came after unstressed vowel effacement. 
-ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
-
-$ CORRECTION : this actually only happens in some specific environments it seems...
-ʝ > ∅ / ˈaː __ e
-ʝ > ∅ / [-cons] __ ˈe
-ʝ > ∅ / [-cons] __ ˈuː
-
 
 $ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
 $ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
