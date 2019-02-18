@@ -1,15 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1270:
-#wˈɑllem# >>> #val# ( Correct : #val#) :
-w ˈɑ l l e m 
-#ɣʷˈɑllem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɑllɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɑllɛm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈɑllɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑllɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈallɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#βˈallə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#βˈallə̯# | Rule 266 : ə > ə̯ 
-#βˈall# | Rule 300 : ə̯ > ∅ 
-#vˈall# | Rule 420 : β > v 
-#vˈal# | Rule 476 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#val# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌɑlˈeːre# >>> #valwaʁ# ( Correct : #valwaʁ#) :
+w ˌɑ l ˈeː r e 
+#ɣʷˌɑlˈeːre# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈeːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈeːrɛ# | Rule 51 : ɣʷ > βʷ 
+#βʷˌɑlˈerɛ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈeːrɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈeːrɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈeːrɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#βˌalˈeːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈeːrə̯# | Rule 266 : ə > ə̯ 
+#βˌalˈeːr# | Rule 300 : ə̯ > ∅ 
+#βˌalˈejr# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈejr# | Rule 420 : β > v 
+#vˌalˈojr# | Rule 521 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌalˈoɛ̯r# | Rule 535 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˌalˈuɛ̯r# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#vˌalwˈɛr# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vˌalwˈɛɹ# | Rule 681 : r > ɹ / [-cons] __ #
+#vˌalwˈɛr# | Rule 695 : ɹ > r 
+#vˌalwˈɛʀ# | Rule 697 : r > ʀ 
+#valwɛʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valwaʀ# | Rule 703 : ɛ > a / w __ 
+#valwaʁ# | Rule 705 : ʀ > ʁ 

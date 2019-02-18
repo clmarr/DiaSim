@@ -1,16 +1,23 @@
 Trajectory file for run 'run1'; etymon number :909:
-#plˈuːmɑm# >>> #plym# ( Correct : #plym#) :
-p l ˈuː m ɑ m 
-#plˈumɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#plˈumɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#plˈuːmɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˈuːma# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#plˈʉːma# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#plˈʉːmə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈyːmə# | Rule 486 : [+hi,+round,-back] > [+front] 
-#plˈỹːmə# | Rule 601 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#plˈyːmə# | Rule 618 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
-#plˈyːmə̯# | Rule 680 : ə > ə̯ / __ #
-#plˈyːm# | Rule 687 : ə̯ > ∅ 
-#plyːm# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plym# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#plˈowiɑm# >>> #plɥi# ( Correct : #plɥi#) :
+p l ˈo w i ɑ m 
+#plˈoɣʷiɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#plˈɔɣʷɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#plˈɔɣʷjɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˈɔɣʷʝɑm# | Rule 28 : j > ʝ / __ [+syl]
+#plˈɔʝɑm# | Rule 30 : {ɣʷ;w} > {∅;∅} / __ ʝ
+#plˈɔʝɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#plˈɔːʝɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈuo̯ʝɑ# | Rule 161 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#plˈuo̯ʝa# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#plˈʉo̯ʝa# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#plˈʉo̯ja# | Rule 377 : ʝ > j 
+#plˈʉo̯jə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈyo̯jə# | Rule 486 : [+hi,+round,-back] > [+front] 
+#plˈye̯jə# | Rule 512 : o̯ > e̯ 
+#plˈyjə# | Rule 533 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
+#plɥˈiə# | Rule 598 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#plɥˈiːə# | Rule 638 : [+stres] > [+long] / __ ə
+#plɥˈiː# | Rule 639 : ə > ∅ / [+syl] __ 
+#plɥiː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɥi# | Rule 699 : [+syl,+long] > [-long,-splng] 

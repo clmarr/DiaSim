@@ -1,22 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1085:
-#sˌerpˈen̪t̪em# >>> #sɛʁpɑ̃# ( Correct : #sɛʁpɑ̃#) :
-s ˌe r p ˈe n̪ t̪ e m 
-#sˌɛrpˈɛn̪t̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɛrpˈɛn̪t̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˌɛrpˈɛ?t̪ɛ# | Rule 101 : [+ant,+cons] > [-voi] / __ t̪
-#sˌɛrpˈɛ?t̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˌɛrpˈɛ?t̪ə̯# | Rule 266 : ə > ə̯ 
-#sˌɛrpˈɛ?t̪# | Rule 300 : ə̯ > ∅ 
-#sˌɨrpˈɛ?t̪# | Rule 406 : {ˌɛ r;ˌɛ ɫ;t͡sʲ ˌɛ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;t͡sʲ ˌɨ;ˌɯ ɫ} / __ [+cons]
-#sˌɛrpˈɛ?t̪# | Rule 414 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
-#sˌɛrpˈɛ̃?t̪# | Rule 501 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌɛrpˈã?t̪# | Rule 552 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#sˌɛrpˈãːt̪# | Rule 666 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɛɹpˈãːt̪# | Rule 682 : r > ɹ / [-cons] __ [+cons]
-#sˌɛɹpˈãː# | Rule 686 : [-son] > ∅ / __ #
-#sˌɛrpˈãː# | Rule 695 : ɹ > r 
-#sˌɛʀpˈãː# | Rule 697 : r > ʀ 
-#sɛʀpãː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛʀpã# | Rule 699 : [+syl,+long] > [-long,-splng] 
-#sɛʀpɑ̃# | Rule 704 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
-#sɛʁpɑ̃# | Rule 705 : ʀ > ʁ 
+#sˈeːroː# >>> #swaʁ# ( Correct : #swaʁ#) :
+s ˈeː r oː 
+#sˈero# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˈeːro# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈeːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#sˈeːrə̯# | Rule 266 : ə > ə̯ 
+#sˈeːr# | Rule 300 : ə̯ > ∅ 
+#sˈejr# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˈojr# | Rule 521 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sˈoɛ̯r# | Rule 535 : j > ɛ̯ / [+syl,+back,+round] __ r
+#sˈuɛ̯r# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#swˈɛr# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˈɛɹ# | Rule 681 : r > ɹ / [-cons] __ #
+#swˈɛr# | Rule 695 : ɹ > r 
+#swˈɛʀ# | Rule 697 : r > ʀ 
+#swɛʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swaʀ# | Rule 703 : ɛ > a / w __ 
+#swaʁ# | Rule 705 : ʀ > ʁ 

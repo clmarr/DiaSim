@@ -1,16 +1,22 @@
 Trajectory file for run 'run1'; etymon number :938:
-#prˈɑe̯st̪um# >>> #pʁɛs# ( Correct : #pʁɛ#) :
-p r ˈɑ e̯ s t̪ u m 
-#prˈae̯st̪um# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˈae̯st̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪ʊm# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˈɛːst̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#prˈɛst̪o# | Rule 147 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˈɛst̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#prˈɛst̪ə̯# | Rule 266 : ə > ə̯ 
-#prˈɛst̪# | Rule 300 : ə̯ > ∅ 
-#prˈɛs# | Rule 686 : [-son] > ∅ / __ #
-#pʀˈɛs# | Rule 697 : r > ʀ 
-#pʀɛs# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛs# | Rule 705 : ʀ > ʁ 
+#prˌɑe̯st̪ˈɑːre# >>> #pʁɛst̪ɛʁ# ( Correct : #pʁɛt̪e#) :
+p r ˌɑ e̯ s t̪ ˈɑː r e 
+#prˌae̯st̪ˈɑːre# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˌae̯st̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˌae̯st̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#prˌɛːst̪ˈɑrɛ# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˌɛːst̪ˈɑːrɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˌɛst̪ˈɑːrɛ# | Rule 147 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#prˌɛst̪ˈaːrɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#prˌɛst̪ˈaːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#prˌɛst̪ˈaːrə̯# | Rule 266 : ə > ə̯ 
+#prˌɛst̪ˈaːr# | Rule 300 : ə̯ > ∅ 
+#prˌɛst̪ˈae̯r# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˌɛst̪ˈeːr# | Rule 529 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#prˌɛst̪ˈɛːr# | Rule 627 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#prˌɛst̪ˈɛːɹ# | Rule 681 : r > ɹ / [-cons] __ #
+#prˌɛst̪ˈɛːr# | Rule 695 : ɹ > r 
+#pʀˌɛst̪ˈɛːʀ# | Rule 697 : r > ʀ 
+#pʀɛst̪ɛːʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀɛst̪ɛʀ# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#pʁɛst̪ɛʁ# | Rule 705 : ʀ > ʁ 

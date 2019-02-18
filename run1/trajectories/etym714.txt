@@ -1,16 +1,25 @@
 Trajectory file for run 'run1'; etymon number :714:
-#mˈuffulɑm# >>> #mufl# ( Correct : #mufl#) :
-m ˈu f f u l ɑ m 
-#mˈʊffʊlɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈoffolɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈoffolɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈoffola# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#mˈoffəla# | Rule 261 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#mˈoffə̯la# | Rule 266 : ə > ə̯ 
-#mˈoffla# | Rule 300 : ə̯ > ∅ 
-#mˈofflə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈoflə# | Rule 476 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#mˈuflə# | Rule 539 : [+round,+tense,+back] > [+hi] 
-#mˈuflə̯# | Rule 680 : ə > ə̯ / __ #
-#mˈufl# | Rule 687 : ə̯ > ∅ 
-#mufl# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈowit̪ɑm# >>> #mœt̪# ( Correct : #møt̪#) :
+m ˈo w i t̪ ɑ m 
+#mˈoɣʷit̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#mˈɔɣʷɪt̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɔβʷɪt̪ɑm# | Rule 51 : ɣʷ > βʷ 
+#mˈɔβʷet̪ɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɔβʷet̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈɔβʷt̪ɑ# | Rule 91 : [+syl,-stres] > ∅ / [+syl] βʷ __ [+cor,-cont]
+#mˈɔɸʷt̪ɑ# | Rule 101 : [+ant,+cons] > [-voi] / __ t̪
+#mˈɔːɸʷt̪ɑ# | Rule 155 : ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
+#mˈɔːɸt̪ɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#mˈuo̯ɸt̪ɑ# | Rule 161 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#mˈuo̯ɸt̪a# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#mˈʉo̯ɸt̪a# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#mˈʉo̯t̪t̪a# | Rule 330 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#mˈʉo̯t̪t̪ə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈʉo̯t̪ə# | Rule 473 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˈyo̯t̪ə# | Rule 486 : [+hi,+round,-back] > [+front] 
+#mˈye̯t̪ə# | Rule 512 : o̯ > e̯ 
+#mˈøt̪ə# | Rule 554 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#mˈøt̪ə̯# | Rule 680 : ə > ə̯ / __ #
+#mˈøt̪# | Rule 687 : ə̯ > ∅ 
+#møt̪# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mœt̪# | Rule 702 : ø > œ / __ ( [+cons] )* #

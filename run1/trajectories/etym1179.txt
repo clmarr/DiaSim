@@ -1,24 +1,12 @@
 Trajectory file for run 'run1'; etymon number :1179:
-#t̪ʰˈeːkɑm# >>> #t̪ɛ# ( Correct : #t̪ɛ#) :
-t̪ʰ ˈeː k ɑ m 
-#t̪ˈeːkɑm# | Rule 7 : [+sg,-cont] > [-sg] 
-#t̪ˈekɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#t̪ˈekɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈeːkɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈeːɡɑ# | Rule 130 : k > ɡ / [-cons] __ [+syl]
-#t̪ˈeːɣɑ# | Rule 132 : ɡ > ɣ / [-cons] __ [-cons]
-#t̪ˈeːɣa# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#t̪ˈeːɣʲa# | Rule 232 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#t̪ˈeːʝa# | Rule 243 : [+back,+front] > [-back] 
-#t̪ˈeːja# | Rule 377 : ʝ > j 
-#t̪ˈeja# | Rule 399 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
-#t̪ˈejə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈojə# | Rule 521 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t̪ˈujə# | Rule 539 : [+round,+tense,+back] > [+hi] 
-#t̪ˈʌjə# | Rule 571 : ˈu > ˈʌ / __ j ə #
-#t̪ˈajə# | Rule 580 : ˈʌ > ˈa 
-#t̪ˈaːjə# | Rule 649 : [+prim] > [+long] / __ ( j ) ə #
-#t̪ˈaːj# | Rule 650 : ə > ∅ / [+prim] ( j ) __ 
-#t̪ˈɛː# | Rule 651 : ˈaː j > ˈɛː / __ #
-#t̪ɛː# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ɛ# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#t̪ˈeː# >>> #t̪wa# ( Correct : #t̪wa#) :
+t̪ ˈeː 
+#t̪ˈe# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈeː# | Rule 107 : [+prim] > [+long] / __ #
+#t̪ˈej# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈoj# | Rule 521 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈuj# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#t̪ˈuɛ̯# | Rule 593 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛ# | Rule 596 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wɛ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪wa# | Rule 703 : ɛ > a / w __ 

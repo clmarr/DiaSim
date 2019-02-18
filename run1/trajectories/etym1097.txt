@@ -1,14 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1097:
-#sˈikkum# >>> #sɛk# ( Correct : #sɛk#) :
-s ˈi k k u m 
-#sˈɪkkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈekkom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈekko# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈekkə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˈekkə̯# | Rule 266 : ə > ə̯ 
-#sˈekk# | Rule 300 : ə̯ > ∅ 
-#sˈek# | Rule 476 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#sˈɛk# | Rule 617 : ˈe > ˈɛ 
-#sˈɛkə̯# | Rule 684 : ∅ > ə̯ / # [-syl] [+syl] k __ #
-#sˈɛk# | Rule 687 : ə̯ > ∅ 
-#sɛk# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˈikkɑm# >>> #sɛʃ# ( Correct : #sɛʃ#) :
+s ˈi k k ɑ m 
+#sˈɪkkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈekkɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈekkɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈekka# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#sˈekkʲa# | Rule 232 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#sˈekca# | Rule 243 : [+back,+front] > [-back] 
+#sˈekt͡ʃa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#sˈet̪t͡ʃa# | Rule 253 : {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ} 
+#sˈet̪t͡ʃə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈet͡ʃə# | Rule 473 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#sˈeʃə# | Rule 611 : [+delrel] > [+cont,.delrel] 
+#sˈɛʃə# | Rule 617 : ˈe > ˈɛ 
+#sˈɛʃə̯# | Rule 680 : ə > ə̯ / __ #
+#sˈɛʃ# | Rule 687 : ə̯ > ∅ 
+#sɛʃ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

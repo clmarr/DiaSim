@@ -1,23 +1,24 @@
 Trajectory file for run 'run1'; etymon number :740:
-#n̪ˈept̪iɑm# >>> #n̪jɛs# ( Correct : #n̪jɛs#) :
-n̪ ˈe p t̪ i ɑ m 
-#n̪ˈɛpt̪ɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈɛpt̪jɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#n̪ˈɛpt̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
-#n̪ˈɛpt̪ʝɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɛpt͡sʲʝɑ# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#n̪ˈɛpt͡sʲɑ# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#n̪ˈɛpt͡sʲa# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#n̪ˈɛt̪t͡sʲa# | Rule 191 : [+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
-#n̪ˈie̯t̪t͡sʲa# | Rule 231 : ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front]
-#n̪ˈie̯t̪t͡sʲə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈie̯t͡sʲə# | Rule 473 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#n̪ˈie̯t͡sə# | Rule 524 : t͡sʲ > t͡s 
-#n̪jˈet͡sə# | Rule 565 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#n̪jˈesə# | Rule 611 : [+delrel] > [+cont,.delrel] 
-#n̪jˈɛsə# | Rule 617 : ˈe > ˈɛ 
-#n̪jˈɛːsə# | Rule 648 : [+front,-round,+syl] > [+long] / __ s ə #
-#n̪jˈɛːsə̯# | Rule 680 : ə > ə̯ / __ #
-#n̪jˈɛːs# | Rule 687 : ə̯ > ∅ 
-#n̪jɛːs# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪jɛs# | Rule 699 : [+syl,+long] > [-long,-splng] 
+#n̪ˌepˈoːt̪em# >>> #n̪vœ# ( Correct : #n̪əvø#) :
+n̪ ˌe p ˈoː t̪ e m 
+#n̪ˌɛpˈoːt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˌɛpˈot̪ɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#n̪ˌɛpˈot̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˌɛpˈoːt̪ɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˌɛpˈoːt̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#n̪ˌɛpˈoːt̪ə̯# | Rule 266 : ə > ə̯ 
+#n̪ˌɛpˈoːt̪# | Rule 300 : ə̯ > ∅ 
+#n̪ˌɛbˈoːt̪# | Rule 352 : [-voi] > [+voi] / [-cons] __ [-cons]
+#n̪ˌɛβˈoːt̪# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#n̪ˌɛβˈowt̪# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#n̪ˌeβˈowt̪# | Rule 407 : ˌɛ > ˌe / __ [-cor]
+#n̪ˌevˈowt̪# | Rule 420 : β > v 
+#n̪ˌevˈowθ# | Rule 423 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#n̪ˌəvˈowθ# | Rule 491 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#n̪ˌəvˈewθ# | Rule 520 : ˈo > ˈe / __ w
+#n̪ˌəvˈew# | Rule 575 : {θ;ð} > {∅;∅} 
+#n̪ˌəvˈøw# | Rule 579 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#n̪ˌəvˈø# | Rule 583 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#n̪əvø# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪əvœ# | Rule 702 : ø > œ / __ ( [+cons] )* #
+#n̪vœ# | Rule 711 : ə > ∅ / # [-syl] __ [-syl] [+syl]

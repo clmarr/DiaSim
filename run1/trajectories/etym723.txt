@@ -1,12 +1,20 @@
 Trajectory file for run 'run1'; etymon number :723:
-#mˈust̪um# >>> #mus# ( Correct : #mu#) :
-m ˈu s t̪ u m 
-#mˈʊst̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈost̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#mˈost̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈost̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#mˈost̪ə̯# | Rule 266 : ə > ə̯ 
-#mˈost̪# | Rule 300 : ə̯ > ∅ 
-#mˈust̪# | Rule 539 : [+round,+tense,+back] > [+hi] 
-#mˈus# | Rule 686 : [-son] > ∅ / __ #
-#mus# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈuskulum# >>> #mul# ( Correct : #mul#) :
+m ˈu s k u l u m 
+#mˈʊskʊlʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈʊsklʊm# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈosklom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈosklo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈoslo# | Rule 100 : {s k;r ɡ} > {s;r} / __ l
+#mˈoslə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#mˈoslə̯# | Rule 266 : ə > ə̯ 
+#mˈosl# | Rule 300 : ə̯ > ∅ 
+#mˈoslə# | Rule 313 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈozlə# | Rule 457 : s > z / __ [+voi,+cons]
+#mˈoːzlə# | Rule 510 : [+syl] > [+long] / __ z [+cons]
+#mˈoːlə# | Rule 511 : z > ∅ / __ [+cons]
+#mˈuːlə# | Rule 539 : [+round,+tense,+back] > [+hi] 
+#mˈuːlə̯# | Rule 680 : ə > ə̯ / __ #
+#mˈuːl# | Rule 687 : ə̯ > ∅ 
+#muːl# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mul# | Rule 699 : [+syl,+long] > [-long,-splng] 

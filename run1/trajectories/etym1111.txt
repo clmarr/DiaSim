@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1111:
-#sˈoːlum# >>> #sœl# ( Correct : #sœl#) :
-s ˈoː l u m 
-#sˈoːlʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈolʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈolom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈolo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈoːlo# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈoːlə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˈoːlə̯# | Rule 266 : ə > ə̯ 
-#sˈoːl# | Rule 300 : ə̯ > ∅ 
-#sˈowl# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈewl# | Rule 520 : ˈo > ˈe / __ w
-#sˈøwl# | Rule 579 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#sˈøl# | Rule 583 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#søl# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sœl# | Rule 702 : ø > œ / __ ( [+cons] )* #
+#sˌolˈikulum# >>> #sɔlɛj# ( Correct : #sɔlɛj#) :
+s ˌo l ˈi k u l u m 
+#sˌɔlˈɪkʊlʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɔlˈɪklʊm# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#sˌɔlˈeklom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌɔlˈeklo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɔlˈeːklo# | Rule 111 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#sˌɔlˈeːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#sˌɔlˈeːçlo# | Rule 198 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#sˌɔlˈeːçʎo# | Rule 208 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#sˌɔlˈeːʎo# | Rule 241 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#sˌɔlˈeːʎə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#sˌɔlˈeːʎə̯# | Rule 266 : ə > ə̯ 
+#sˌɔlˈeːʎ# | Rule 300 : ə̯ > ∅ 
+#sˌɔlˈeʎ# | Rule 395 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#sˌolˈeʎ# | Rule 413 : ˌɔ > ˌo 
+#sˌolˈɛʎ# | Rule 525 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
+#sˌɔlˈɛʎ# | Rule 531 : ˌo > ˌɔ / __ [+cons,+cor,+son] ˈɛ
+#sɔlɛʎ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɔlɛj# | Rule 706 : ʎ > j 

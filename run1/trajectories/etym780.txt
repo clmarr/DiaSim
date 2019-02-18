@@ -1,22 +1,23 @@
 Trajectory file for run 'run1'; etymon number :780:
-#ˈoperɑ# >>> #œvʁ# ( Correct : #œvʁ#) :
-ˈo p e r ɑ 
-#ˈɔpɛrɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɔːpɛrɑ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɔːprɑ# | Rule 138 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈuo̯prɑ# | Rule 161 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈuo̯pra# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#ˈʉo̯pra# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ˈʉo̯bra# | Rule 353 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#ˈʉo̯βra# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#ˈʉo̯vra# | Rule 420 : β > v 
-#ˈʉo̯vrə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈyo̯vrə# | Rule 486 : [+hi,+round,-back] > [+front] 
-#ˈye̯vrə# | Rule 512 : o̯ > e̯ 
-#ˈøvrə# | Rule 554 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#ˈøvrə̯# | Rule 680 : ə > ə̯ / __ #
-#ˈøvr# | Rule 687 : ə̯ > ∅ 
-#ˈøvʀ# | Rule 697 : r > ʀ 
-#øvʀ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#œvʀ# | Rule 702 : ø > œ / __ ( [+cons] )* #
-#œvʁ# | Rule 705 : ʀ > ʁ 
+#ˈokulum# >>> #œj# ( Correct : #œj#) :
+ˈo k u l u m 
+#ˈɔkʊlʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɔklʊm# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˈɔklom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɔklo# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈɔːklo# | Rule 111 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#ˈɔːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#ˈuo̯xlo# | Rule 161 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈuo̯çlo# | Rule 198 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#ˈuo̯çʎo# | Rule 208 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#ˈʉo̯çʎo# | Rule 214 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#ˈʉo̯ʎo# | Rule 241 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#ˈʉo̯ʎə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#ˈʉo̯ʎə̯# | Rule 266 : ə > ə̯ 
+#ˈʉo̯ʎ# | Rule 300 : ə̯ > ∅ 
+#ˈyo̯ʎ# | Rule 486 : [+hi,+round,-back] > [+front] 
+#ˈye̯ʎ# | Rule 512 : o̯ > e̯ 
+#ˈøʎ# | Rule 554 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#øʎ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#œʎ# | Rule 702 : ø > œ / __ ( [+cons] )* #
+#œj# | Rule 706 : ʎ > j 

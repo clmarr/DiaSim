@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1273:
-#wˈɑkkɑm# >>> #vaʃ# ( Correct : #vaʃ#) :
-w ˈɑ k k ɑ m 
-#ɣʷˈɑkkɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑkkɑm# | Rule 51 : ɣʷ > βʷ 
-#βʷˈɑkkɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#βˈɑkkɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈakka# | Rule 190 : [+lo,+syl] > [+front,-back] 
-#βˈakkʲa# | Rule 232 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˈakca# | Rule 243 : [+back,+front] > [-back] 
-#βˈakt͡ʃa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#βˈat̪t͡ʃa# | Rule 253 : {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ} 
-#vˈat̪t͡ʃa# | Rule 420 : β > v 
-#vˈat̪t͡ʃə# | Rule 426 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈat͡ʃə# | Rule 473 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#vˈaʃə# | Rule 611 : [+delrel] > [+cont,.delrel] 
-#vˈaʃə̯# | Rule 680 : ə > ə̯ / __ #
-#vˈaʃ# | Rule 687 : ə̯ > ∅ 
-#vaʃ# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˌɑlˈoːrem# >>> #valœ# ( Correct : #valœʁ#) :
+w ˌɑ l ˈoː r e m 
+#ɣʷˌɑlˈoːrem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈoːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈoːrɛm# | Rule 51 : ɣʷ > βʷ 
+#βʷˌɑlˈorɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈorɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βʷˌɑlˈoːrɛ# | Rule 110 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈoːrɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈoːrɛ# | Rule 190 : [+lo,+syl] > [+front,-back] 
+#βˌalˈoːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈoːrə̯# | Rule 266 : ə > ə̯ 
+#βˌalˈoːr# | Rule 300 : ə̯ > ∅ 
+#βˌalˈowr# | Rule 400 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈowr# | Rule 420 : β > v 
+#vˌalˈewr# | Rule 520 : ˈo > ˈe / __ w
+#vˌalˈøwr# | Rule 579 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˌalˈør# | Rule 583 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˌalˈøɹ# | Rule 681 : r > ɹ / [-cons] __ #
+#vˌalˈø# | Rule 694 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#valø# | Rule 698 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valœ# | Rule 702 : ø > œ / __ ( [+cons] )* #
