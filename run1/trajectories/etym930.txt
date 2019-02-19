@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :930:
-#pˌost̪ˈellum# >>> #pɔst̪ɛl# ( Correct : #pɔt̪o#) :
+#pˌost̪ˈellum# >>> #pot̪ɛl# ( Correct : #pɔt̪o#) :
 p ˌo s t̪ ˈe l l u m 
 #pˌɔst̪ˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɔst̪ˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -10,4 +10,7 @@ p ˌo s t̪ ˈe l l u m
 #pˌɯst̪ˈɛll# | Rule 418 : ˌɔ > ˌɯ / __ [+cor,-voi]
 #pˌɔst̪ˈɛll# | Rule 420 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
 #pˌɔst̪ˈɛl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#pɔst̪ɛl# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˌɔːt̪ˈɛl# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#pˌoːt̪ˈɛl# | Rule 611 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,.delrel] / __ ( x ) ( [-syl] ) [+syl]
+#poːt̪ɛl# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pot̪ɛl# | Rule 706 : [+syl,+long] > [-long,-splng] 

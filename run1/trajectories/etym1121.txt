@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1121:
-#spˈɑt̪ʰɑ# >>> #espe# ( Correct : #epe#) :
+#spˈɑt̪ʰɑ# >>> #epe# ( Correct : #epe#) :
 s p ˈɑ t̪ʰ ɑ 
 #spˈɑt̪ɑ# | Rule 7 : [+sg,-cont] > [-sg] 
 #ˌɪspˈɑt̪ɑ# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
@@ -12,6 +12,7 @@ s p ˈɑ t̪ʰ ɑ
 #ˌespˈae̯ðə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
 #ˌespˈeːðə# | Rule 534 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #ˌespˈeːə# | Rule 581 : {θ;ð} > {∅;∅} 
-#ˌespˈeː# | Rule 646 : ə > ∅ / [+syl] __ 
-#espeː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#espe# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#ˌeːpˈeːə# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#ˌeːpˈeː# | Rule 645 : ə > ∅ / [+syl] __ 
+#eːpeː# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#epe# | Rule 706 : [+syl,+long] > [-long,-splng] 

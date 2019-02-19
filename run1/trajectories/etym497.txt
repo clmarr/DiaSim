@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :497:
-#kˌost̪ˈɑːt̪um# >>> #kɔst̪e# ( Correct : #kot̪e#) :
+#kˌost̪ˈɑːt̪um# >>> #kot̪e# ( Correct : #kot̪e#) :
 k ˌo s t̪ ˈɑː t̪ u m 
 #kˌɔst̪ˈɑːt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˌɔst̪ˈɑt̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -16,5 +16,7 @@ k ˌo s t̪ ˈɑː t̪ u m
 #kˌɔst̪ˈae̯θ# | Rule 429 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
 #kˌɔst̪ˈeːθ# | Rule 534 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #kˌɔst̪ˈeː# | Rule 581 : {θ;ð} > {∅;∅} 
-#kɔst̪eː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kɔst̪e# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#kˌɔːt̪ˈeː# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#kˌoːt̪ˈeː# | Rule 611 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,.delrel] / __ ( x ) ( [-syl] ) [+syl]
+#koːt̪eː# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kot̪e# | Rule 706 : [+syl,+long] > [-long,-splng] 

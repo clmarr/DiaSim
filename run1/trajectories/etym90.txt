@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :90:
-#ˌɑwskˌult̪ˈɑːre# >>> #askuwt̪ɛʁ# ( Correct : #ekut̪e#) :
+#ˌɑwskˌult̪ˈɑːre# >>> #ɑkuwt̪ɛʁ# ( Correct : #ekut̪e#) :
 ˌɑ w s k ˌu l t̪ ˈɑː r e 
 #ˌɑwskˌʊlt̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑwskˌʊlt̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -16,10 +16,12 @@ Trajectory file for run 'run1'; etymon number :90:
 #ˌaskˌo?t̪ˈeːr# | Rule 534 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #ˌaskˌu?t̪ˈeːr# | Rule 544 : [+round,+tense,+back] > [+hi] 
 #ˌaskˌuwt̪ˈeːr# | Rule 560 : [+lat,+back] > w 
-#ˌaskˌuwt̪ˈɛːr# | Rule 634 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
-#ˌaskˌuwt̪ˈɛːɹ# | Rule 688 : r > ɹ / [-cons] __ #
-#ˌaskˌuwt̪ˈɛːr# | Rule 703 : ɹ > r 
-#ˌaskˌuwt̪ˈɛːʀ# | Rule 705 : r > ʀ 
-#askuwt̪ɛːʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#askuwt̪ɛʀ# | Rule 707 : [+syl,+long] > [-long,-splng] 
-#askuwt̪ɛʁ# | Rule 713 : ʀ > ʁ 
+#ˌaːkˌuwt̪ˈeːr# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#ˌaːkˌuwt̪ˈɛːr# | Rule 633 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#ˌɑːkˌuwt̪ˈɛːr# | Rule 671 : [+lo,+long,+syl] > [+back,-front] 
+#ˌɑːkˌuwt̪ˈɛːɹ# | Rule 687 : r > ɹ / [-cons] __ #
+#ˌɑːkˌuwt̪ˈɛːr# | Rule 702 : ɹ > r 
+#ˌɑːkˌuwt̪ˈɛːʀ# | Rule 704 : r > ʀ 
+#ɑːkuwt̪ɛːʀ# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɑkuwt̪ɛʀ# | Rule 706 : [+syl,+long] > [-long,-splng] 
+#ɑkuwt̪ɛʁ# | Rule 712 : ʀ > ʁ 

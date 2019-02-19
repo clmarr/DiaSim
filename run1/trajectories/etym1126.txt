@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1126:
-#spˈon̪sum# >>> #espœ# ( Correct : #epu#) :
+#spˈon̪sum# >>> #epœ# ( Correct : #epu#) :
 s p ˈo n̪ s u m 
 #spˈoːn̪sum# | Rule 9 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
 #spˈoːsum# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
@@ -18,6 +18,8 @@ s p ˈo n̪ s u m
 #ˌespˈews# | Rule 524 : ˈo > ˈe / __ w
 #ˌespˈøws# | Rule 585 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 #ˌespˈøs# | Rule 589 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ˌespˈø# | Rule 693 : [-son] > ∅ / __ #
-#espø# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#espœ# | Rule 710 : ø > œ / __ ( [+cons] )* #
+#ˌeːpˈøs# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#ˌeːpˈø# | Rule 692 : [-son] > ∅ / __ #
+#eːpø# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#epø# | Rule 706 : [+syl,+long] > [-long,-splng] 
+#epœ# | Rule 709 : ø > œ / __ ( [+cons] )* #

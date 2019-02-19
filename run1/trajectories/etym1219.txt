@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1219:
-#t̪ˈost̪um# >>> #t̪ɔs# ( Correct : #t̪o#) :
+#t̪ˈost̪um# >>> #t̪o# ( Correct : #t̪o#) :
 t̪ ˈo s t̪ u m 
 #t̪ˈɔst̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #t̪ˈɔst̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -7,5 +7,8 @@ t̪ ˈo s t̪ u m
 #t̪ˈɔst̪ə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
 #t̪ˈɔst̪ə̯# | Rule 268 : ə > ə̯ 
 #t̪ˈɔst̪# | Rule 302 : ə̯ > ∅ 
-#t̪ˈɔs# | Rule 693 : [-son] > ∅ / __ #
-#t̪ɔs# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˈɔːt̪# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#t̪ˈoːt̪# | Rule 612 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,.delrel] / __ ( x ) ( [-syl] ) #
+#t̪ˈoː# | Rule 692 : [-son] > ∅ / __ #
+#t̪oː# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪o# | Rule 706 : [+syl,+long] > [-long,-splng] 

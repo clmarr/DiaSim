@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1134:
-#st̪rˈikt̪ɑm# >>> #est̪ʁwat̪# ( Correct : #et̪ʁwat̪#) :
+#st̪rˈikt̪ɑm# >>> #et̪ʁwat̪# ( Correct : #et̪ʁwat̪#) :
 s t̪ r ˈi k t̪ ɑ m 
 #st̪rˈɪkt̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɪst̪rˈɪkt̪ɑm# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
@@ -17,9 +17,11 @@ s t̪ r ˈi k t̪ ɑ m
 #ˌest̪rˈujt̪ə# | Rule 544 : [+round,+tense,+back] > [+hi] 
 #ˌest̪rˈuɛ̯t̪ə# | Rule 600 : j > ɛ̯ / [+syl,+back,+round] __ 
 #ˌest̪rwˈɛt̪ə# | Rule 601 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#ˌest̪rwˈɛt̪ə̯# | Rule 687 : ə > ə̯ / __ #
-#ˌest̪rwˈɛt̪# | Rule 694 : ə̯ > ∅ 
-#ˌest̪ʀwˈɛt̪# | Rule 705 : r > ʀ 
-#est̪ʀwɛt̪# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#est̪ʀwat̪# | Rule 711 : ɛ > a / w __ 
-#est̪ʁwat̪# | Rule 713 : ʀ > ʁ 
+#ˌeːt̪rwˈɛt̪ə# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#ˌeːt̪rwˈɛt̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#ˌeːt̪rwˈɛt̪# | Rule 693 : ə̯ > ∅ 
+#ˌeːt̪ʀwˈɛt̪# | Rule 704 : r > ʀ 
+#eːt̪ʀwɛt̪# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#et̪ʀwɛt̪# | Rule 706 : [+syl,+long] > [-long,-splng] 
+#et̪ʀwat̪# | Rule 710 : ɛ > a / w __ 
+#et̪ʁwat̪# | Rule 712 : ʀ > ʁ 

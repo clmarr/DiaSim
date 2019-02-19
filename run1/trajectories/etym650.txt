@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :650:
-#mˈɑst̪um# >>> #mas# ( Correct : #mɑ#) :
+#mˈɑst̪um# >>> #mɑ# ( Correct : #mɑ#) :
 m ˈɑ s t̪ u m 
 #mˈɑst̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˈɑst̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -8,5 +8,8 @@ m ˈɑ s t̪ u m
 #mˈast̪ə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
 #mˈast̪ə̯# | Rule 268 : ə > ə̯ 
 #mˈast̪# | Rule 302 : ə̯ > ∅ 
-#mˈas# | Rule 693 : [-son] > ∅ / __ #
-#mas# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈaːt̪# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#mˈɑːt̪# | Rule 671 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑː# | Rule 692 : [-son] > ∅ / __ #
+#mɑː# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɑ# | Rule 706 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :431:
-#kˌɑst̪ˈellum# >>> #ʃast̪ɛl# ( Correct : #ʃɑt̪o#) :
+#kˌɑst̪ˈellum# >>> #ʃɑt̪ɛl# ( Correct : #ʃɑt̪o#) :
 k ˌɑ s t̪ ˈe l l u m 
 #kˌɑst̪ˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˌɑst̪ˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -12,5 +12,8 @@ k ˌɑ s t̪ ˈe l l u m
 #t͡ʃˌast̪ˈɛllə̯# | Rule 268 : ə > ə̯ 
 #t͡ʃˌast̪ˈɛll# | Rule 302 : ə̯ > ∅ 
 #t͡ʃˌast̪ˈɛl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ʃˌast̪ˈɛl# | Rule 615 : [+delrel] > [+cont,.delrel] 
-#ʃast̪ɛl# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡ʃˌaːt̪ˈɛl# | Rule 610 : [+syl] s > [+long] ∅/ __ [+cons]
+#ʃˌaːt̪ˈɛl# | Rule 614 : [+delrel] > [+cont,.delrel] 
+#ʃˌɑːt̪ˈɛl# | Rule 671 : [+lo,+long,+syl] > [+back,-front] 
+#ʃɑːt̪ɛl# | Rule 705 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃɑt̪ɛl# | Rule 706 : [+syl,+long] > [-long,-splng] 
