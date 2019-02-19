@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :274:
-#fˌorˈest̪em# >>> #fɔʁɛs# ( Correct : #fɔʁe#) :
-f ˌo r ˈe s t̪ e m 
-#fˌɔrˈɛst̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˌɔrˈɛst̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#fˌɔrˈɛst̪ə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
-#fˌɔrˈɛst̪ə̯# | Rule 268 : ə > ə̯ 
-#fˌɔrˈɛst̪# | Rule 302 : ə̯ > ∅ 
-#fˌorˈɛst̪# | Rule 419 : ˌɔ > ˌo 
-#fˌɔrˈɛst̪# | Rule 536 : ˌo > ˌɔ / __ [+cons,+cor,+son] ˈɛ
-#fˌɔrˈɛs# | Rule 693 : [-son] > ∅ / __ #
-#fˌɔʀˈɛs# | Rule 705 : r > ʀ 
-#fɔʀɛs# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fɔʁɛs# | Rule 713 : ʀ > ʁ 
+#fˌon̪t̪ˈɑːn̪ɑm# >>> #fɔ̃t̪ɛ̃n̪# ( Correct : #fɔ̃t̪ɛn̪#) :
+f ˌo n̪ t̪ ˈɑː n̪ ɑ m 
+#fˌɔn̪t̪ˈɑːn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˌɔn̪t̪ˈɑn̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#fˌɔn̪t̪ˈɑn̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#fˌɔ?t̪ˈɑn̪ɑ# | Rule 102 : [+ant,+cons] > [-voi] / __ t̪
+#fˌɔ?t̪ˈɑːn̪ɑ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˌũ?t̪ˈɑːn̪ɑ# | Rule 164 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#fˌũ?t̪ˈaːn̪a# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#fˌũ?t̪ˈae̯n̪a# | Rule 406 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˌũ?t̪ˈajn̪a# | Rule 428 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#fˌũ?t̪ˈajn̪ə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
+#fˌũ?t̪ˈaj̃n̪ə# | Rule 491 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#fˌũ?t̪ˈãj̃n̪ə# | Rule 492 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#fˌũ?t̪ˈɛ̃j̃n̪ə# | Rule 564 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#fˌũ?t̪ˈɛ̃n̪ə# | Rule 627 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#fˌũːt̪ˈɛ̃n̪ə# | Rule 673 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#fˌũːt̪ˈɛ̃n̪ə̯# | Rule 687 : ə > ə̯ / __ #
+#fˌũːt̪ˈɛ̃n̪# | Rule 694 : ə̯ > ∅ 
+#fũːt̪ɛ̃n̪# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fũt̪ɛ̃n̪# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#fɔ̃t̪ɛ̃n̪# | Rule 708 : [+back,-lo,+nas,+syl] > ɔ̃ 

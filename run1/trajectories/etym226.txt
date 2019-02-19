@@ -1,13 +1,15 @@
 Trajectory file for run 'run1'; etymon number :226:
-#fˈɑlsɑm# >>> #fos# ( Correct : #fos#) :
-f ˈɑ l s ɑ m 
-#fˈɑlsɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#fˈɑɫsɑ# | Rule 137 : l > ɫ / __ [+cons,-lat]
-#fˈaɫsa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#fˈaɫsə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#fˈawsə# | Rule 560 : [+lat,+back] > w 
-#fˈoːsə# | Rule 630 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#fˈoːsə̯# | Rule 687 : ə > ə̯ / __ #
-#fˈoːs# | Rule 694 : ə̯ > ∅ 
-#foːs# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fos# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#fˈɑɡum# >>> #fu# ( Correct : #fu#) :
+f ˈɑ ɡ u m 
+#fˈɑɡʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈɑɡom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˈɑɡo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#fˈɑɣo# | Rule 104 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#fˈɑːɣo# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈɑːo# | Rule 121 : ɣ > ∅ / __ [+tense,+round,+syl]
+#fˈɑːu# | Rule 190 : o > u / [+syl,+prim] __ #
+#fˈɑːw# | Rule 191 : [+hi,+syl,-stres] > [-syl,.stres,.prim] / [+prim] __ #
+#fˈaːw# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#fˈɔw# | Rule 235 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#fˈu# | Rule 593 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
+#fu# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

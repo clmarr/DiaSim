@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :186:
-#d̪ˈoːn̪ɑt̪# >>> #d̪ɔ̃n̪# ( Correct : #d̪ɔn̪#) :
-d̪ ˈoː n̪ ɑ t̪ 
-#d̪ˈon̪ɑt̪# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#d̪ˈoːn̪ɑt̪# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
-#d̪ˈũːn̪ɑt̪# | Rule 164 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
-#d̪ˈũːn̪at̪# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#d̪ˈũːn̪aθ# | Rule 250 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#d̪ˈũːn̪əθ# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˈũːn̪ə# | Rule 581 : {θ;ð} > {∅;∅} 
-#d̪ˈũːn̪ə̯# | Rule 687 : ə > ə̯ / __ #
-#d̪ˈũːn̪# | Rule 694 : ə̯ > ∅ 
-#d̪ũːn̪# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪ũn̪# | Rule 707 : [+syl,+long] > [-long,-splng] 
-#d̪ɔ̃n̪# | Rule 708 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#d̪ˌoːn̪ˈɑːre# >>> #d̪ɔn̪ɛʁ# ( Correct : #d̪ɔn̪e#) :
+d̪ ˌoː n̪ ˈɑː r e 
+#d̪ˌoːn̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˌon̪ˈɑːrɛ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˌon̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#d̪ˌon̪ˈɑːrɛ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˌũn̪ˈɑːrɛ# | Rule 164 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#d̪ˌũn̪ˈaːrɛ# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#d̪ˌũn̪ˈaːrə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˌũn̪ˈaːrə̯# | Rule 268 : ə > ə̯ 
+#d̪ˌũn̪ˈaːr# | Rule 302 : ə̯ > ∅ 
+#d̪ˌũn̪ˈae̯r# | Rule 406 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#d̪ˌũn̪ˈeːr# | Rule 534 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#d̪ˌũn̪ˈɛːr# | Rule 634 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#d̪ˌũn̪ˈɛːɹ# | Rule 688 : r > ɹ / [-cons] __ #
+#d̪ˌũn̪ˈɛːr# | Rule 703 : ɹ > r 
+#d̪ˌũn̪ˈɛːʀ# | Rule 705 : r > ʀ 
+#d̪ũn̪ɛːʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ũn̪ɛʀ# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#d̪ɔ̃n̪ɛʀ# | Rule 708 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#d̪ɔn̪ɛʀ# | Rule 709 : [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
+#d̪ɔn̪ɛʁ# | Rule 713 : ʀ > ʁ 

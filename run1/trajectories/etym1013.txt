@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1013:
-#rˈuːɡɑm# >>> #ʁy# ( Correct : #ʁy#) :
-r ˈuː ɡ ɑ m 
-#rˈuɡɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#rˈuɡɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#rˈuɣɑ# | Rule 104 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#rˈuːɣɑ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
-#rˈuːɑ# | Rule 122 : ɣ > ∅ / [+hi,+round,+back,+syl] __ [+lo,+syl]
-#rˈuːa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#rˈʉːa# | Rule 216 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#rˈʉːə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#rˈyːə# | Rule 490 : [+hi,+round,-back] > [+front] 
-#rˈyː# | Rule 646 : ə > ∅ / [+syl] __ 
-#ʀˈyː# | Rule 705 : r > ʀ 
-#ʀyː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀy# | Rule 707 : [+syl,+long] > [-long,-splng] 
-#ʁy# | Rule 713 : ʀ > ʁ 
+#rˈubeum# >>> #ʁuʒ# ( Correct : #ʁuʒ#) :
+r ˈu b e u m 
+#rˈʊbɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#rˈʊbjʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#rˈʊbʝʊm# | Rule 28 : j > ʝ / __ [+syl]
+#rˈobʝom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈobʝo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#rˈobɟo# | Rule 252 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#rˈobd͡ʒo# | Rule 254 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#rˈobd͡ʒə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
+#rˈobd͡ʒə̯# | Rule 268 : ə > ə̯ 
+#rˈobd͡ʒə# | Rule 281 : ə̯ > ə / [+delrel,-ant] __ 
+#rˈod̪d͡ʒə# | Rule 333 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#rˈod͡ʒə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#rˈud͡ʒə# | Rule 544 : [+round,+tense,+back] > [+hi] 
+#rˈuʒə# | Rule 615 : [+delrel] > [+cont,.delrel] 
+#rˈuʒə̯# | Rule 687 : ə > ə̯ / __ #
+#rˈuʒ# | Rule 694 : ə̯ > ∅ 
+#ʀˈuʒ# | Rule 705 : r > ʀ 
+#ʀuʒ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʁuʒ# | Rule 713 : ʀ > ʁ 

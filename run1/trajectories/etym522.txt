@@ -1,13 +1,17 @@
 Trajectory file for run 'run1'; etymon number :522:
-#kˈuppɑm# >>> #kup# ( Correct : #kup#) :
-k ˈu p p ɑ m 
-#kˈʊppɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈoppɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˈoppɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈoppa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#kˈoppə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#kˈopə# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#kˈupə# | Rule 544 : [+round,+tense,+back] > [+hi] 
-#kˈupə̯# | Rule 687 : ə > ə̯ / __ #
-#kˈup# | Rule 694 : ə̯ > ∅ 
-#kup# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈuːpɑm# >>> #kyv# ( Correct : #kyv#) :
+k ˈuː p ɑ m 
+#kˈupɑm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈupɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#kˈuːpɑ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#kˈuːpa# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#kˈʉːpa# | Rule 216 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈʉːba# | Rule 354 : [-voi] > [+voi] / [-cons] __ [-cons]
+#kˈʉːβa# | Rule 377 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#kˈʉːva# | Rule 426 : β > v 
+#kˈʉːvə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
+#kˈyːvə# | Rule 490 : [+hi,+round,-back] > [+front] 
+#kˈyːvə̯# | Rule 687 : ə > ə̯ / __ #
+#kˈyːv# | Rule 694 : ə̯ > ∅ 
+#kyːv# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kyv# | Rule 707 : [+syl,+long] > [-long,-splng] 

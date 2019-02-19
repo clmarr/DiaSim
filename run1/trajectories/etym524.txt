@@ -1,16 +1,29 @@
 Trajectory file for run 'run1'; etymon number :524:
-#kˈursum# >>> #kuʁ# ( Correct : #kuʁ#) :
-k ˈu r s u m 
-#kˈʊrsʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈorsom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˈorso# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈorsə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
-#kˈorsə̯# | Rule 268 : ə > ə̯ 
-#kˈors# | Rule 302 : ə̯ > ∅ 
-#kˈurs# | Rule 544 : [+round,+tense,+back] > [+hi] 
-#kˈuɹs# | Rule 689 : r > ɹ / [-cons] __ [+cons]
-#kˈuɹ# | Rule 693 : [-son] > ∅ / __ #
-#kˈur# | Rule 703 : ɹ > r 
-#kˈuʀ# | Rule 705 : r > ʀ 
-#kuʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kuʁ# | Rule 713 : ʀ > ʁ 
+#kˈuːpreum# >>> #kɥivʁ# ( Correct : #kɥivʁ#) :
+k ˈuː p r e u m 
+#kˈuːprɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈuːprjʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˈuːprʝʊm# | Rule 28 : j > ʝ / __ [+syl]
+#kˈuprʝʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈuprʝom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈuprʝo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#kˈuːprʝo# | Rule 112 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#kˈuːprʲo# | Rule 174 : r ʝ > rʲ 
+#kˈʉːprʲo# | Rule 216 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈʉːprʲə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
+#kˈʉːprʲə̯# | Rule 268 : ə > ə̯ 
+#kˈʉːprʲ# | Rule 302 : ə̯ > ∅ 
+#kˈʉːprʲə# | Rule 315 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#kˈʉːjprʲə# | Rule 349 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#kˈʉːjbrʲə# | Rule 355 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#kˈʉjbrʲə# | Rule 357 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#kˈʉjbrə# | Rule 384 : rʲ > r 
+#kˈʉjβrə# | Rule 453 : b > β / [-cons] __ r
+#kˈʉjvrə# | Rule 454 : β > v 
+#kˈyjvrə# | Rule 490 : [+hi,+round,-back] > [+front] 
+#kɥˈivrə# | Rule 602 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#kɥˈivrə̯# | Rule 687 : ə > ə̯ / __ #
+#kɥˈivr# | Rule 694 : ə̯ > ∅ 
+#kɥˈivʀ# | Rule 705 : r > ʀ 
+#kɥivʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kɥivʁ# | Rule 713 : ʀ > ʁ 

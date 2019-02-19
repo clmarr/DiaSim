@@ -1,16 +1,24 @@
 Trajectory file for run 'run1'; etymon number :130:
-#bˌot̪ˈellum# >>> #bɔɛl# ( Correct : #bwajo#) :
-b ˌo t̪ ˈe l l u m 
-#bˌɔt̪ˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#bˌɔt̪ˈɛllo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#bˌɔt̪ˈɛllə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
-#bˌɔt̪ˈɛllə̯# | Rule 268 : ə > ə̯ 
-#bˌɔt̪ˈɛll# | Rule 302 : ə̯ > ∅ 
-#bˌɔd̪ˈɛll# | Rule 354 : [-voi] > [+voi] / [-cons] __ [-cons]
-#bˌɔðˈɛll# | Rule 377 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#bˌoðˈɛll# | Rule 419 : ˌɔ > ˌo 
-#bˌoðˈɛl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#bˌɔðˈɛl# | Rule 509 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ( [-syl] )* [+syl,-tense]
-#bˌɔˈɛl# | Rule 581 : {θ;ð} > {∅;∅} 
-#bɔɛl# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bˌot̪ˈelloːs# >>> #bɔo# ( Correct : #bwajo#) :
+b ˌo t̪ ˈe l l oː s 
+#bˌɔt̪ˈɛlloːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˌɔt̪ˈɛllos# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#bˌɔt̪ˈɛlləs# | Rule 265 : [-stres,-lo,+syl] > ə / __ [-syl]
+#bˌɔt̪ˈɛllə̯s# | Rule 268 : ə > ə̯ 
+#bˌɔt̪ˈɛlls# | Rule 302 : ə̯ > ∅ 
+#bˌɔd̪ˈɛlls# | Rule 354 : [-voi] > [+voi] / [-cons] __ [-cons]
+#bˌɔðˈɛlls# | Rule 377 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#bˌoðˈɛlls# | Rule 419 : ˌɔ > ˌo 
+#bˌoðˈɛls# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#bˌoðˈɛɫs# | Rule 489 : [+lat] > [+back] / __ [+cons]
+#bˌɔðˈɛɫs# | Rule 509 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ( [-syl] )* [+syl,-tense]
+#bˌɔðˈɛws# | Rule 560 : [+lat,+back] > w 
+#bˌɔðˈɛa̯ws# | Rule 561 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
+#bˌɔðe̯ˈaws# | Rule 570 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#bˌɔe̯ˈaws# | Rule 581 : {θ;ð} > {∅;∅} 
+#bˌɔe̯ˈoːs# | Rule 630 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#bˌɔə̯ˈoːs# | Rule 631 : e̯ > ə̯ / __ [+round,+back,-hi]
+#bˌɔə̯ˈoː# | Rule 693 : [-son] > ∅ / __ #
+#bˌɔˈoː# | Rule 694 : ə̯ > ∅ 
+#bɔoː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɔo# | Rule 707 : [+syl,+long] > [-long,-splng] 

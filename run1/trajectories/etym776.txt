@@ -1,12 +1,28 @@
 Trajectory file for run 'run1'; etymon number :776:
-#ˈossum# >>> #ɔ# ( Correct : #ɔs#) :
-ˈo s s u m 
-#ˈɔssʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɔssom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈɔsso# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈɔssə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
-#ˈɔssə̯# | Rule 268 : ə > ə̯ 
-#ˈɔss# | Rule 302 : ə̯ > ∅ 
-#ˈɔs# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#ˈɔ# | Rule 693 : [-son] > ∅ / __ #
-#ɔ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌossifrˈɑɡɑm# >>> #ɔsfʁɛ# ( Correct : #ɔʁfʁɛ#) :
+ˌo s s i f r ˈɑ ɡ ɑ m 
+#ˌɔssɪfrˈɑɡɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɔssefrˈɑɡɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɔssefrˈɑɡɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˌɔssefrˈɑɣɑ# | Rule 104 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#ˌɔssefrˈɑːɣɑ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌɔssefrˈaːɣa# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#ˌɔssefrˈaːɣʲa# | Rule 234 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ˌɔssefrˈaːʝa# | Rule 245 : [+back,+front] > [-back] 
+#ˌɔssəfrˈaːʝa# | Rule 264 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl,+lo,+prim]
+#ˌɔssə̯frˈaːʝa# | Rule 268 : ə > ə̯ 
+#ˌɔssfrˈaːʝa# | Rule 302 : ə̯ > ∅ 
+#ˌɔsfrˈaːʝa# | Rule 342 : {s s;m m} > {s;m} / __ [+cons]
+#ˌɔsfrˈaːja# | Rule 381 : ʝ > j 
+#ˌɔsfrˈae̯ja# | Rule 406 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌɔsfrˈaja# | Rule 409 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#ˌɯsfrˈaja# | Rule 418 : ˌɔ > ˌɯ / __ [+cor,-voi]
+#ˌɔsfrˈaja# | Rule 420 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
+#ˌɔsfrˈajə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌɔsfrˈaːjə# | Rule 656 : [+prim] > [+long] / __ ( j ) ə #
+#ˌɔsfrˈaːj# | Rule 657 : ə > ∅ / [+prim] ( j ) __ 
+#ˌɔsfrˈɛː# | Rule 658 : ˈaː j > ˈɛː / __ #
+#ˌɔsfʀˈɛː# | Rule 705 : r > ʀ 
+#ɔsfʀɛː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɔsfʀɛ# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#ɔsfʁɛ# | Rule 713 : ʀ > ʁ 

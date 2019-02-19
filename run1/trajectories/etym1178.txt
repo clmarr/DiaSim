@@ -1,17 +1,13 @@
 Trajectory file for run 'run1'; etymon number :1178:
-#t̪ˈɑrd̪um# >>> #t̪aʁ# ( Correct : #t̪aʁ#) :
-t̪ ˈɑ r d̪ u m 
-#t̪ˈɑrd̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑrd̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑrd̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪ˈard̪o# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#t̪ˈard̪ə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈard̪ə̯# | Rule 268 : ə > ə̯ 
-#t̪ˈard̪# | Rule 302 : ə̯ > ∅ 
-#t̪ˈart̪# | Rule 435 : [-son] > [-voi] / __ #
-#t̪ˈaɹt̪# | Rule 689 : r > ɹ / [-cons] __ [+cons]
-#t̪ˈaɹ# | Rule 693 : [-son] > ∅ / __ #
-#t̪ˈar# | Rule 703 : ɹ > r 
-#t̪ˈaʀ# | Rule 705 : r > ʀ 
-#t̪aʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪aʁ# | Rule 713 : ʀ > ʁ 
+#t̪ˈɑrd̪ɑm# >>> #t̪aʁd̪# ( Correct : #t̪aʁd̪#) :
+t̪ ˈɑ r d̪ ɑ m 
+#t̪ˈɑrd̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˈard̪a# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#t̪ˈard̪ə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈard̪ə̯# | Rule 687 : ə > ə̯ / __ #
+#t̪ˈaɹd̪ə̯# | Rule 689 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈaɹd̪# | Rule 694 : ə̯ > ∅ 
+#t̪ˈard̪# | Rule 703 : ɹ > r 
+#t̪ˈaʀd̪# | Rule 705 : r > ʀ 
+#t̪aʀd̪# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪aʁd̪# | Rule 713 : ʀ > ʁ 

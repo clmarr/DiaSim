@@ -1,14 +1,16 @@
 Trajectory file for run 'run1'; etymon number :489:
-#kˈorn̪ɑm# >>> #kɔʁn̪# ( Correct : #kɔʁn̪#) :
-k ˈo r n̪ ɑ m 
-#kˈɔrn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɔrn̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈɔrn̪a# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#kˈɔrn̪ə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#kˈɔrn̪ə̯# | Rule 687 : ə > ə̯ / __ #
-#kˈɔɹn̪ə̯# | Rule 689 : r > ɹ / [-cons] __ [+cons]
-#kˈɔɹn̪# | Rule 694 : ə̯ > ∅ 
-#kˈɔrn̪# | Rule 703 : ɹ > r 
-#kˈɔʀn̪# | Rule 705 : r > ʀ 
-#kɔʀn̪# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kɔʁn̪# | Rule 713 : ʀ > ʁ 
+#kˈor# >>> #kœʁ# ( Correct : #kœʁ#) :
+k ˈo r 
+#kˈɔr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɔːr# | Rule 113 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈuo̯r# | Rule 165 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#kˈʉo̯r# | Rule 216 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈyo̯r# | Rule 490 : [+hi,+round,-back] > [+front] 
+#kˈye̯r# | Rule 516 : o̯ > e̯ 
+#kˈør# | Rule 559 : [+hi,+round,+tense,+prim] e̯ > ˈø
+#kˈøɹ# | Rule 688 : r > ɹ / [-cons] __ #
+#kˈør# | Rule 703 : ɹ > r 
+#kˈøʀ# | Rule 705 : r > ʀ 
+#køʀ# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kœʀ# | Rule 710 : ø > œ / __ ( [+cons] )* #
+#kœʁ# | Rule 713 : ʀ > ʁ 

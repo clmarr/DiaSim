@@ -1,14 +1,18 @@
 Trajectory file for run 'run1'; etymon number :265:
-#flˈɑwɑm# >>> #flu# ( Correct : #flu#) :
-f l ˈɑ w ɑ m 
-#flˈɑɣʷɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#flˈɑwɑm# | Rule 49 : ɣʷ > w / [+lo,+syl] __ [+lo,+syl,-long]
-#flˈɑwɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#flˈawa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#flˈɔwa# | Rule 235 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-#flˈɔwə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#flˈuə# | Rule 593 : [-hi,-lo,+back,+round] w > [+hi,+tense] ∅
-#flˈuːə# | Rule 645 : [+stres] > [+long] / __ ə
-#flˈuː# | Rule 646 : ə > ∅ / [+syl] __ 
-#fluː# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#flu# | Rule 707 : [+syl,+long] > [-long,-splng] 
+#flˌɑɡˈellum# >>> #flejɛl# ( Correct : #fleo#) :
+f l ˌɑ ɡ ˈe l l u m 
+#flˌɑɡˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#flˌɑɡˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#flˌɑɡˈɛllo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#flˌɑɡʲˈɛllo# | Rule 76 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#flˌɑɟˈɛllo# | Rule 77 : [+back,+front] > [-back] 
+#flˌɑʝˈɛllo# | Rule 104 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#flˌaʝˈɛllo# | Rule 197 : [+lo,+syl] > [+front,-back] 
+#flˌaʝˈɛllə# | Rule 266 : [-stres,-lo,+syl] > ə / __ #
+#flˌaʝˈɛllə̯# | Rule 268 : ə > ə̯ 
+#flˌaʝˈɛll# | Rule 302 : ə̯ > ∅ 
+#flˌajˈɛll# | Rule 381 : ʝ > j 
+#flˌajˈɛl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
+#flˌɛjˈɛl# | Rule 700 : [+lo,+front] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+prim]
+#flˌejˈɛl# | Rule 701 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
+#flejɛl# | Rule 706 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
