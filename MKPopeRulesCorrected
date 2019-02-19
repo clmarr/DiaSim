@@ -622,8 +622,6 @@ $ n palatalizes again before voiced palatals
 $ potentially RECURRENT as per Pope s162 
 $ note earlier cases like li:neam have already been hit by an earlier rule. 
 [+nas,-lab] > ɲ / __ [+cons,+hi,+front,+voi,-nas] 
-$ CORRECTION: ŋ also palatalizes at this point before t͡sʲ
-ŋ > ɲ / __ [+strid,+front]
 
 $ l palatalizes again before all palatals, period
 [+lat] > ʎ / __ [+cons,+hi,+front]
@@ -634,6 +632,16 @@ $ CORRECTION: ɲ back to ŋ if before ɟ then tonic vowel -- case of ingenios,in
 $... and they combine with the following palatal 
 $ CORRECTION : ʎc not effected : dulkiɑm > doʎca > dus
 [-lat,-nas,-syl,+hi,+front] > ∅  / [+hi,+front,+son,+cons,+nas] __
+
+
+$ s320-321, palatalization of ŋ before n,s,t (can also include d,z)
+$ feeds dental palatalization
+$ CORRECTION: moved earlier so that we can simplify this rule (it does not include velars which will become palatalized) 
+	$ ...but does include tsj from tj--
+ŋ > ɲ / __ [+cor]
+$ŋ > ɲ / __ [+ant,+distr]
+$ŋ > ɲ / __ [+strid,+cont]
+
 
 $ CORRECTION : in the case of r r ʝ , ʝ does not merge into a prior rʲ, but rather closes to ɟ
 ʝ > ɟ / r r __
@@ -752,11 +760,6 @@ $ CORRECTION : ç assimilates after unstressed ɛ
 
 $ CORRECTION : ɛç > eç when secondarily stressed
 ˌɛ > ˌe / __ ç
-
-$ s320-321, palatalization of ŋ before n,s,t (can also include d,z)
-$ feeds dental palatalization
-ŋ > ɲ / __ [+ant,+distr]
-ŋ > ɲ / __ [+strid,+cont]
 
 $ s321, absorption of following nasal by ɲ
 [+nas,+cons] > ∅ / ɲ __ 
@@ -1447,7 +1450,8 @@ $ CORRECTION : ɲ ɲ degeminated at this point
 ɲ > ∅ / __ ɲ 
 
 $ s165.8 ~ s279iv resolution of prae-consontal enya to jn when praeconsonantal
-ɲ > j n̪ / __ [+cons]
+$ CORRECTION: ejects nasalized j̃ not purely oral j
+ɲ > j̃ n̪ / __ [+cons]
 
 $ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1.
 $ she says "all consonants but doesnˌt list the sonorants -- so we say non-sonorants
