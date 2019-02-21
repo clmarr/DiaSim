@@ -14,10 +14,12 @@ p l ˌɑ n̪ t̪ ˈɑː ɡ i n̪ e m
 #plˌa?t̪ˈaʝn̪ʲə̯# | Rule 268 : ə > ə̯ 
 #plˌa?t̪ˈaʝn̪ʲ# | Rule 302 : ə̯ > ∅ 
 #plˌa?t̪ˈajn̪ʲ# | Rule 312 : ʝ > j / __ ( [-syl] )* #
-#plˌa?t̪ˈajn̪# | Rule 385 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#plˌa?t̪ˈaj̃n̪# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#plˌã?t̪ˈãj̃n̪# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#plˌã?t̪ˈɛ̃j̃n̪# | Rule 566 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#plˌa?t̪ˈaːjn̪ʲ# | Rule 366 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#plˌa?t̪ˈaːjn̪# | Rule 386 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#plˌa?t̪ˈajn̪# | Rule 391 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#plˌa?t̪ˈaj̃n̪# | Rule 493 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#plˌã?t̪ˈãj̃n̪# | Rule 494 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#plˌã?t̪ˈɛ̃j̃n̪# | Rule 567 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
 #plˌã?t̪ˈɛ̃n̪# | Rule 631 : j̃ > ∅ / [+nas,+front,-tense] __ 
 #plˌãːt̪ˈɛ̃n̪# | Rule 677 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
 #plˌãːt̪ˈɛ̃ː# | Rule 678 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #

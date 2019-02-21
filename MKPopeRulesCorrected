@@ -1225,6 +1225,9 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
+$ CORRECTION: length also gained by primary syllables when followed by an ejected j
+[+prim] > [+long] / __ j ([+cons])* [+cor,+hi,+front]
+
 $ CORRECTION: length retained in stressed syllables in multisyllabic words followed by rs#
 [+prim] > [+long] / [+syl] ([-syl])* __ r s #
 
@@ -1923,6 +1926,9 @@ $ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, in open syllables before v
 	$ (r ,z ,v, ð) -- in many of these cases it will almost immediately return to ˌe.
 ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
 
+$ CORRECTION : t͡s goes to s before consonants that aren't coronal -- and feeds the next rule (case of decimum > dime) 
+t͡s > s / __ [-cor,+cons]
+
 $ Pope s378ii : attested by the Orthographica Gallica, written in 1300
 $ Pope noted that the final s-effacement that was engendered by this was first reported 
 	$ in the late 12th century in the Southwest -- so we place this before the late 12th
@@ -2198,12 +2204,6 @@ $ s464 : continuation of nasalizing tendency into Middle French -- still product
 $handling of unstressed ə̃ as per s434 -- recurse
 ə̃ > ə 
 ə > ə̃ / __ n̪ t̪ #
-
-$ CORRECTION : t͡s goes to s before consonants that aren't coronal -- and feeds the next rule (case of decimum > dime) 
-t͡s > s / __ [-cor,+cons]
-
-$ x effaced -- some time after the 14th century, when Orthographica Gallica was written
-[+syl] x > [+long] ∅ /  __ [+cons] 
 
 $s173.1b ~s575 : e > ɛ
 $ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
