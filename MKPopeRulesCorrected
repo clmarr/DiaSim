@@ -1646,6 +1646,9 @@ $As per Pope s167, "unclear" how much and if the vocalization aspect was present
 $First attested in 9th century -- s390. 
 [+lat] > [+back] / __ [+cons]
 
+$s382iv and s384 : but back l becomes lʲ after i 
+ɫ > lʲ / [+hi,+front,-round] __
+
 $ s166.1 ~ s183 ~ s9 ~ s36 ~ s42 completion of u fronting. 
 $"Spread slowly from the South" (s183, s36), continuing in the tenth century (s42), with some Eastern and Northern (esp Walloon, Picard) dialects remaining unaffected.
 $ precedes u>o (s166.2~s184) as per s183. 
@@ -1882,6 +1885,9 @@ $s385~s390 vocalization of dark l variants
 $ per Pope s390: attested in rhymes by middle of 12th century: 
 [+lat,+back] > w
 
+$ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced
+lʲ > ∅
+
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
 $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -- a case of secondary stressed ɛ for this)
 ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
@@ -1917,7 +1923,16 @@ $ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, in open syllables before v
 	$ (r ,z ,v, ð) -- in many of these cases it will almost immediately return to ˌe.
 ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
 
-$ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century. 
+$ Pope s378ii : attested by the Orthographica Gallica, written in 1300
+$ Pope noted that the final s-effacement that was engendered by this was first reported 
+	$ in the late 12th century in the Southwest -- so we place this before the late 12th
+$ Pope argues s > x before dentals specifically. 
+$ This bleeds normal s-effacement as per Pope -- debatable. 
+$ Walloon wrote this as 'h' (Pope s378)
+$ CORRECTION: s > x before ALL consonants
+s > x / [-cons] __ [+cons]
+
+$ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century (s538 -- later 12th century) 
 $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
 	$ dated to the same time, that moved ie̯ to je everywhere it occurred. 
 $ per s470 -- predates a second nasalization of e, in the 13th century. 
@@ -2005,7 +2020,6 @@ r r > r
 $ CORRECTION: rerounding of ʌ when after a labial (possibly separated by r) and followed by j ə #
 	$ cases: via, korrigia, froide
 ˈʌ > ˈu / [+lab] (r) __ j ([+ant,+voi,+cor,+distr]) ə #
-
 
 $ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
@@ -2140,25 +2154,26 @@ $ Pope s528-529 : ɛj > ɛː praeconsonantally.
 $ Long as per s560
 {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
 
-$ Pope s378ii : as per the 14th century Orthographica Gallica, Pope argues s > x before dentals. 
-$ This bleeds normal s-effacement as per Pope -- debatable. 
-$ CORRECTION: s > x before ALL consonants
-[+syl] s > [+long] x / [-cons] __ [+cons]
-
 $ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
 $ s377 : had not yet happened in mid 13th century -- late 13th century...? 
+$ Not reported in the 1300 Orthographica Gallica, which may be conservative, but implies 
+	$ praeconsonantal s as being pronounced /x/
 $ however it must be before ts > s
 $ ...engendering lengthening of previous vowel.  
-$ CORRECTIN: now this is x
-[+syl] s > [+long] ∅ /  __ [+cons]
+$ CORRECTION: now this is x
+[+syl] x > [+long] ∅ /  __ [+cons]
+x > ∅
 
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii
-[-lo,-hi,+back,-tense,+long] > [+tense] / __ (x) ([-syl]) [+syl]
-[-lo,-hi,+back,-tense,+long] > [+tense] / __ (x) ([-syl]) #
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) [+syl]
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) #
 
 $ s435 : final ɲ > n̪ : likely in 13th century
 ɲ > n̪ / __ #
+
+$CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
+t͡s > ∅ / __ [+cons] 
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
@@ -2183,6 +2198,9 @@ $ s464 : continuation of nasalizing tendency into Middle French -- still product
 $handling of unstressed ə̃ as per s434 -- recurse
 ə̃ > ə 
 ə > ə̃ / __ n̪ t̪ #
+
+$ CORRECTION : t͡s goes to s before consonants that aren't coronal -- and feeds the next rule (case of decimum > dime) 
+t͡s > s / __ [-cor,+cons]
 
 $ x effaced -- some time after the 14th century, when Orthographica Gallica was written
 [+syl] x > [+long] ∅ /  __ [+cons] 
