@@ -132,6 +132,7 @@ e > ∅ / __ k [+lo,+syl]| ORIG : e > ∅ / __ k [+lo,+syl]
 k > ɡ / [-cons] __ [+syl]| ORIG : k > ɡ / [-cons] __ [+syl]
 [+front,+syl,-hi,-lo,-stres] > ∅ / [+front,-hi,-lo,-prim,+stres] r __ [+cons] [+back,+prim]| ORIG : [+front,+syl,-hi,-lo,-stres] > ∅ / [+front,-hi,-lo,-prim,+stres] r __ [+cons] [+back,+prim]
 ɡ > ɣ / [-cons] __ [-cons]| ORIG : ɡ > ɣ / [-cons] __ [-cons] 
+f ʝ > ʝ f | ORIG : f ʝ > ʝ f
 [+cont,-son] > [+voi] / [-cons] __ [+syl]| ORIG : [+cont,-son] > [+voi] / [-cons] __ [+syl] 
 [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]| ORIG : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons] 
 [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ( [-syl] )* i #| ORIG : [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i # 
@@ -257,6 +258,8 @@ d̪ > ð / __ [+cont,+lab,+cons]| ORIG : d̪ > ð / __ [+cont,+lab,+cons]
 [+lo,+syl] [+back,+round,-stres] > [-long] w| ORIG : [+lo,+syl] [+back,+round,-stres] > [-long] w
 [+back,+round,-stres] > w / [+hi,+prim] [-hi,-syl,-cons] __ | ORIG : [+back,+round,-stres] > w / [+hi,+prim] [-hi,-syl,-cons] __
 ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ| ORIG : ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ
+β > ∅ / # [+stres,-prim,+round,+back] __ [+syl,+front,+tense]| ORIG : β > ∅ / # [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
+β > ∅ / [-front] [+stres,-prim,+round,+back] __ [+syl,+front,+tense]| ORIG : β > ∅ / [-front] [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} | ORIG : {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} 
 {e;i} > {j;j} / [+syl] __ [-nas]| ORIG : {e;i} > {j;j} / [+syl] __ [-nas]
 a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #| ORIG : a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
@@ -300,6 +303,7 @@ n̪ ə̯ > ɾ / [+syl] ( [-syl] )* [+syl] r __ #| ORIG : n̪ ə̯ > ɾ / [+syl] 
 ə̯ > ə / # ( [-syl] )* __ #| ORIG : ə̯ > ə / # ([-syl])* __ #
 d̪ ə̯ t͡sʲ > d͡z / __ ə| ORIG : d̪ ə̯ t͡sʲ > d͡z / __ ə 
 ə̯ > ə / [-cont] r __ [+cons]| ORIG : ə̯ > ə / [-cont] r __ [+cons]
+ə̯ > ə / [-lat,+cons] l __ [+cons]| ORIG : ə̯ > ə / [-lat,+cons] l __ [+cons]
 ə̯ > ∅ | ORIG : ə̯ > ∅ 
 ð > d̪ / [+lat] __ | ORIG : ð > d̪ / [+lat] __
 ð > d̪ / [-cont,+lab] __ | ORIG : ð > d̪ / [-cont,+lab] __

@@ -494,6 +494,9 @@ $ CORRECTION : syncope of unstressed ɛ,e before countertonic ɛ and then r foll
 $ Recurrence of Pope s333i
 ɡ > ɣ / [-cons] __ [-cons] 
 
+$ CORRECTION: fʝ sees metathesis which blocks voicing to vʝ
+f ʝ > ʝ f
+
 $Pope s334ii voicing of breathed fricatives 
 $ must happen before first palatalization of s and z 
 $ not specified in Popeˌs chronology -- but "recurrent" as per s162
@@ -929,6 +932,10 @@ $ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence
 $ TODO : find better way to handle this... -- such as when it has already become ddʒ ? 
 ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ
 
+$ CORRECTION: β deleted after countertonic ˌɔ or ˌo and before a tense front vowel, when not after a front element
+	$ not a lax one : novɛllum > nouveau etc. 
+β > ∅ / {#;[-front]} [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
+
 $ CORRECTION : Formation of certain diphthongs for unstressed tense final vowels before effacement
 $ CORRECTION : but this does not occur before nasals
 {ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} $case of pˈius > pieux and leuga > lieue
@@ -1046,6 +1053,9 @@ d̪ ə̯ t͡sʲ > d͡z / __ ə
 
 $ CORRECTION : ə̯ retained after STOP r and before a cons
 ə̯ > ə / [-cont] r __ [+cons]
+
+$ CORRECTION : ə̯ retained after non-lateral cons then l, and before cons
+ə̯ > ə / [-lat,+cons] l __ [+cons]
 
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
@@ -1422,6 +1432,8 @@ $ CORRECTION: β does not do so if before r then a non-consonantal
 β > w / __ [-son] 
 β > w / __ [+cons,+nas]
 β > w / __ r (ə) [+cons]
+
+$ CORRECTION: β goes to w if between ɔ or o , and e (not ɛ 
 
 $ s164.6 ~ s 189 
 β > v 
