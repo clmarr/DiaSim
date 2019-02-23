@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :265:
-#flˌɑɡˈellum# >>> #flejɛl# ( Correct : #fleo#) :
+#flˌɑɡˈellum# >>> #flejo# ( Correct : #fleo#) :
 f l ˌɑ ɡ ˈe l l u m 
 #flˌɑɡˈɛllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #flˌɑɡˈɛllom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -13,6 +13,14 @@ f l ˌɑ ɡ ˈe l l u m
 #flˌaʝˈɛll# | Rule 309 : ə̯ > ∅ 
 #flˌajˈɛll# | Rule 390 : ʝ > j 
 #flˌajˈɛl# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#flˌɛjˈɛl# | Rule 716 : [+lo,+front] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+prim]
-#flˌejˈɛl# | Rule 717 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
-#flejɛl# | Rule 722 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#flˌajˈɛɫ# | Rule 572 : l > ɫ / [+syl,-hi,-lo,-long] __ #
+#flˌajˈɛw# | Rule 574 : [+lat,+back] > w 
+#flˌajˈɛa̯w# | Rule 576 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
+#flˌaje̯ˈaw# | Rule 587 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#flˌaje̯ˈoː# | Rule 647 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#flˌajə̯ˈoː# | Rule 648 : e̯ > ə̯ / __ [+round,+back,-hi]
+#flˌajˈoː# | Rule 711 : ə̯ > ∅ 
+#flˌɛjˈoː# | Rule 717 : [+lo,+front] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+prim]
+#flˌejˈoː# | Rule 718 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
+#flejoː# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#flejo# | Rule 724 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :409:
-#kˌɑpˈillum# >>> #ʃəvɛl# ( Correct : #ʃəvø#) :
+#kˌɑpˈillum# >>> #ʃəvœ# ( Correct : #ʃəvø#) :
 k ˌɑ p ˈi l l u m 
 #kˌɑpˈɪllʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˌɑpˈellom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -18,6 +18,10 @@ k ˌɑ p ˈi l l u m
 #t͡ʃˌevˈell# | Rule 438 : β > v 
 #t͡ʃˌevˈel# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
 #t͡ʃˌəvˈel# | Rule 506 : ˌe > ˌə / t͡ʃ __ ( [+cons] ) [+syl]
-#t͡ʃˌəvˈɛl# | Rule 602 : ˈe > ˈɛ 
-#ʃˌəvˈɛl# | Rule 631 : [+delrel] > [+cont,.delrel] 
-#ʃəvɛl# | Rule 722 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡ʃˌəvˈeɫ# | Rule 572 : l > ɫ / [+syl,-hi,-lo,-long] __ #
+#t͡ʃˌəvˈew# | Rule 574 : [+lat,+back] > w 
+#t͡ʃˌəvˈøw# | Rule 602 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#t͡ʃˌəvˈø# | Rule 607 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ʃˌəvˈø# | Rule 632 : [+delrel] > [+cont,.delrel] 
+#ʃəvø# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃəvœ# | Rule 727 : ø > œ / __ ( [+cons] )* #
