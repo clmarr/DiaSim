@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1327:
-#wˌiːllˈɑːn̪ɑm# >>> #vilɛ̃n̪# ( Correct : #vilɛn̪#) :
+#wˌiːllˈɑːn̪ɑm# >>> #vilɛn̪# ( Correct : #vilɛn̪#) :
 w ˌiː l l ˈɑː n̪ ɑ m 
 #ɣʷˌiːllˈɑːn̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #βʷˌiːllˈɑːn̪ɑm# | Rule 50 : ɣʷ > βʷ 
@@ -18,6 +18,7 @@ w ˌiː l l ˈɑː n̪ ɑ m
 #vˌilˈãj̃n̪ə# | Rule 505 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #vˌilˈɛ̃j̃n̪ə# | Rule 579 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
 #vˌilˈɛ̃n̪ə# | Rule 646 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#vˌilˈɛ̃n̪ə̯# | Rule 685 : ə > ə̯ / __ #
-#vˌilˈɛ̃n̪# | Rule 711 : ə̯ > ∅ 
-#vilɛ̃n̪# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vˌilˈɛn̪ə# | Rule 664 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#vˌilˈɛn̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#vˌilˈɛn̪# | Rule 712 : ə̯ > ∅ 
+#vilɛn̪# | Rule 724 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

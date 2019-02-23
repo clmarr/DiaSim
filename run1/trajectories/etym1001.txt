@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1001:
-#rˈet̪in̪ɑm# >>> #ʁɛ̃n̪# ( Correct : #ʁɛn̪#) :
+#rˈet̪in̪ɑm# >>> #ʁɛn̪# ( Correct : #ʁɛn̪#) :
 r ˈe t̪ i n̪ ɑ m 
 #rˈɛt̪ɪn̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #rˈɛt̪en̪ɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -13,9 +13,10 @@ r ˈe t̪ i n̪ ɑ m
 #rˈɛːzn̪ə# | Rule 527 : [+syl] > [+long] / __ z [+cons]
 #rˈɛːn̪ə# | Rule 528 : z > ∅ / __ [+cons]
 #rˈɛ̃ːn̪ə# | Rule 614 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#rˈɛ̃ːn̪ə̯# | Rule 685 : ə > ə̯ / __ #
-#rˈɛ̃ːn̪# | Rule 711 : ə̯ > ∅ 
-#ʀˈɛ̃ːn̪# | Rule 722 : r > ʀ 
-#ʀɛ̃ːn̪# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʀɛ̃n̪# | Rule 724 : [+syl,+long] > [-long,-splng] 
-#ʁɛ̃n̪# | Rule 730 : ʀ > ʁ 
+#rˈɛːn̪ə# | Rule 664 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#rˈɛːn̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#rˈɛːn̪# | Rule 712 : ə̯ > ∅ 
+#ʀˈɛːn̪# | Rule 723 : r > ʀ 
+#ʀɛːn̪# | Rule 724 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛn̪# | Rule 725 : [+syl,+long] > [-long,-splng] 
+#ʁɛn̪# | Rule 731 : ʀ > ʁ 

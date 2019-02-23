@@ -643,7 +643,7 @@ x > ∅ | ORIG : x > ∅
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #| ORIG : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]| ORIG : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
 [-syl,-cons,+round,+front] > [-nas] / __ [-nas]| ORIG : [-syl,-cons,+round,+front] > [-nas] / __ [-nas]
-[+nas,+front,-round,-lo,+syl] > [-hi,-tense,-cons,-lat,+cont,.delrel] | ORIG : [+nas,+front,-round,-lo,+syl] > [-hi,-tense] 
+[+nas,+front,-round,-lo,+syl] > [-hi] | ORIG : [+nas,+front,-round,-lo,+syl] > [-hi] 
 j̃ > ∅ / [+nas,+front,-tense] __ | ORIG : j̃ > ∅ / [+nas,+front,-tense] __ 
 {ˌa w;ˈa w} > {ˌoː;ˈoː} | ORIG : {ˌa w; ˈa w} > {ˌoː;ˈoː}
 e̯ > ə̯ / __ [+round,+back,-hi]| ORIG : e̯ > ə̯ / __ [+round,+back,-hi]
@@ -662,6 +662,7 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl]| ORIG : j > ∅ / [+fro
 [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ [+lat]| ORIG : [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
 [+lat] > ∅ / [+hi,+syl] __ #| ORIG : [+lat] > ∅ / [+hi,+syl] __ #
 [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #| ORIG : [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
+[+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]| ORIG : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
 [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]| ORIG : [-hi,-lo,+syl,+front,-round] > [-tense] / __ r [+cons]
 [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #| ORIG : [-hi,-lo,+syl,+front,-round] > [-tense] / __ r #
 [+front,+round,+tense,-prim] > [+hi] | ORIG : [+front,+round,+tense,-prim] > [+hi]
@@ -733,7 +734,3 @@ r > ʀ | ORIG : r > ʀ
 ə > ∅ / __ #| ORIG : ə > ∅ / __ #
 ə > ∅ / __ [+syl]| ORIG : ə > ∅ / __ [+syl]
 ə > ∅ / [+syl] __ | ORIG : ə > ∅ / [+syl] __
-# ə > ∅ / # [-syl] __ [-syl] #| ORIG : # ə > ∅ / # [-syl] __ [-syl]  #
-# ə > ∅ / # [-syl] __ [-syl] [+syl]| ORIG : # ə > ∅ / # [-syl] __ [-syl]  [+syl]
-# ə > ∅ / [+syl] [-syl] __ [-syl] #| ORIG : # ə > ∅ / [+syl] [-syl] __ [-syl]  #
-# ə > ∅ / [+syl] [-syl] __ [-syl] [+syl]| ORIG : # ə > ∅ / [+syl] [-syl] __ [-syl]  [+syl]

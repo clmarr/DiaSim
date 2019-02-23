@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :728:
-#n̪ˈɑːn̪ɑm# >>> #n̪ɛ̃n̪# ( Correct : #n̪ɛn̪#) :
+#n̪ˈɑːn̪ɑm# >>> #n̪ɛn̪# ( Correct : #n̪ɛn̪#) :
 n̪ ˈɑː n̪ ɑ m 
 #n̪ˈɑn̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
 #n̪ˈɑn̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -12,6 +12,7 @@ n̪ ˈɑː n̪ ɑ m
 #n̪ˈãj̃n̪ə# | Rule 505 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #n̪ˈɛ̃j̃n̪ə# | Rule 579 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
 #n̪ˈɛ̃n̪ə# | Rule 646 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#n̪ˈɛ̃n̪ə̯# | Rule 685 : ə > ə̯ / __ #
-#n̪ˈɛ̃n̪# | Rule 711 : ə̯ > ∅ 
-#n̪ɛ̃n̪# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˈɛn̪ə# | Rule 664 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#n̪ˈɛn̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#n̪ˈɛn̪# | Rule 712 : ə̯ > ∅ 
+#n̪ɛn̪# | Rule 724 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

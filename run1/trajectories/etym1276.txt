@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1276:
-#wˈɑːn̪ɑm# >>> #vɛ̃n̪# ( Correct : #vɛn̪#) :
+#wˈɑːn̪ɑm# >>> #vɛn̪# ( Correct : #vɛn̪#) :
 w ˈɑː n̪ ɑ m 
 #ɣʷˈɑːn̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #βʷˈɑːn̪ɑm# | Rule 50 : ɣʷ > βʷ 
@@ -16,6 +16,7 @@ w ˈɑː n̪ ɑ m
 #vˈãj̃n̪ə# | Rule 505 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #vˈɛ̃j̃n̪ə# | Rule 579 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
 #vˈɛ̃n̪ə# | Rule 646 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#vˈɛ̃n̪ə̯# | Rule 685 : ə > ə̯ / __ #
-#vˈɛ̃n̪# | Rule 711 : ə̯ > ∅ 
-#vɛ̃n̪# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vˈɛn̪ə# | Rule 664 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#vˈɛn̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#vˈɛn̪# | Rule 712 : ə̯ > ∅ 
+#vɛn̪# | Rule 724 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

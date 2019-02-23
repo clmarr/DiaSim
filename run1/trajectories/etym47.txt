@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :47:
-#ˈɑn̪ɑt̪em# >>> #ɛ̃n̪# ( Correct : #an̪#) :
+#ˈɑn̪ɑt̪em# >>> #ɛn̪# ( Correct : #an̪#) :
 ˈɑ n̪ ɑ t̪ e m 
 #ˈɑn̪ɑt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˈɑn̪ɑt̪ɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -19,6 +19,7 @@ Trajectory file for run 'run1'; etymon number :47:
 #ˈɛ̃j̃n̪əθ# | Rule 579 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
 #ˈɛ̃j̃n̪ə# | Rule 598 : {θ;ð} > {∅;∅} 
 #ˈɛ̃n̪ə# | Rule 646 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#ˈɛ̃n̪ə̯# | Rule 685 : ə > ə̯ / __ #
-#ˈɛ̃n̪# | Rule 711 : ə̯ > ∅ 
-#ɛ̃n̪# | Rule 723 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈɛn̪ə# | Rule 664 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#ˈɛn̪ə̯# | Rule 686 : ə > ə̯ / __ #
+#ˈɛn̪# | Rule 712 : ə̯ > ∅ 
+#ɛn̪# | Rule 724 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

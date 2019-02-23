@@ -2285,7 +2285,7 @@ $ CORRECTION: can also happen when next element is in fact a glide.
 $ s451 : ĩ > ẽ  -- 15th century (>ɛ̃ not until later sixteenth century as per s452 
 	$ -- H Estienne (1582) still says there is a difference,
 		$  but lowered pronounciation is accepted by Tabourot (1587) and Lyttelton(1566)
-[+nas,+front,-round,-lo,+syl] > [-hi,-tense] 
+[+nas,+front,-round,-lo,+syl] > [-hi] 
 
 $ s441.3 ~ s466-467 :  ɛ̃j̃ > ɛ̃ before denasalization which was 15th and 16th centuries -- so 15th century
 	$ Pope later says s467 that denasalization was in 16th century
@@ -2367,6 +2367,17 @@ $ also by Palsgrave, Tabourot (late 16th)
 $ say mid 16th 
 [+lat] > ∅ / [+hi,+syl] __ #
 [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
+
+$ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in mid to late 16th century
+$ attested in Lyttelton 1566 (s468)
+$ we can, for convenience, run this with the denasalization of jɛ̃ from jẽ (<je + n <ɛː + n)
+$ but note technically this was a few decades later, as Beze does not accept it, nor do Meigret or Peletier
+	$ with denasalization as jɛ finally being attested in Lanoue 1596
+$ we also merge into this the denasalization of œ̃ (œ,ø + n originally NOT y + n which has already denasalized to y)
+	$ -- as per s477
+$ also merge into this the denasalization of wɛ̃, even though Pope implies that was in the 17th century (s474-476)
+	$ -- simpler this way. 
+[+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
 
 $ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
 $ not accepted yet by Meigret (1500s), Lanoue,
@@ -2601,4 +2612,4 @@ $ CORRECTION: last one surpressed as it doesn't match her citation forms in most
 ə > ∅ / __ #
 ə > ∅ / __ [+syl]
 ə > ∅ / [+syl] __
-# ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
+$ ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
