@@ -2184,6 +2184,9 @@ $ but must come after s effacement and resultant lengthening as per s580ii
 $ s435 : final ɲ > n̪ : likely in 13th century
 ɲ > n̪ / __ #
 
+$s437: n̪ is absorbed by ə̃ in ə̃nt ending actually goes back to the 13th century. 
+n̪ > ∅ / ə̃ __ t̪ #
+
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
 t͡s > ∅ / __ [+cons] 
 
@@ -2196,14 +2199,16 @@ $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
 
-$ s529: ɛ j > e word-finally
-$ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
-[-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
-
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
-$TODO reorganize MF sound shifts as per Pope's dating. 
+$ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
+[+syl,-hi] > [+nas] / __ [+nas,+cons]
+[+syl,-front] > [+nas] / __ [+nas,+cons]
+
+$handling of unstressed ə̃ as per s434 -- recurse
+	$ but no ə̃nt anymore as it was absorbed as per s437
+ə̃ > ə 
 
 $ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
 $ s377 : had not yet happened in mid 13th century -- early 14th century
@@ -2213,13 +2218,12 @@ $ CORRECTION: now this is done to x
 [+syl] x > [+long] ∅ /  __ [+cons]
 x > ∅
 
-$ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
-[+syl,-hi] > [+nas] / __ [+nas,+cons]
-[+syl,-front] > [+nas] / __ [+nas,+cons]
-
-$handling of unstressed ə̃ as per s434 -- recurse
-ə̃ > ə 
-ə > ə̃ / __ n̪ t̪ #
+$ s529: ɛ j > e word-finally
+$ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
+$ note: per s529 -- although it appears this was accepted in the 15th century (Villon accepts it)...
+	$ ... it is DISTINCT from the later shift of final aj# formed Middle French which resolved in the 17th
+		$ i.e. s532. 
+[-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 
 $ s486 : rounding of e-sounds to ø between two labial consonants or ʒ __ [+lab]
 $ based on Pope's evidence, say it was accepted in early 15th century 
@@ -2227,18 +2231,12 @@ $ based on Pope's evidence, say it was accepted in early 15th century
 	$ Next reports of it are usage by Villon (lived 1431-1463) and then Palsgrave (born 1485) 
 [-back,-round,-hi,-lo] > [+front,+round,+tense] / {ʒ;[+lab,+cons]} __ [+lab,+cons]
 
-$s173.1b ~s575 : e > ɛ
-$ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
-$ we give precedence to the indepth section. 
-$ based on Pope's evidence, this happened in the 16th century
-$ attested in Baif (16th century), but not Peletier (also 16th century) 
-ˈe > ˈɛ
-
 $ denasalization of ĩ before it is lowered as per s452
 $ as per s440 - ỹ can be handled at the same time. 
 $ as per 441.10 :  so can ɥ̃ĩ 
+$ must be before when ĩ is lowered, which is 15th century. 
 [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
-[-syl,-cons,+round,+front] > ɥ / __ [-nas]
+[-syl,-cons,+round,+front] > [-nas] / __ [-nas]
 
 $ s451 : ĩ > ẽ  -- 15th century (>ɛ̃ not until later sixteenth century as per s452 
 	$ -- H Estienne (1582) still says there is a difference,
@@ -2246,14 +2244,38 @@ $ s451 : ĩ > ẽ  -- 15th century (>ɛ̃ not until later sixteenth century as 
 [+nas,+front,-round,-lo,+syl] > [-hi,-tense] 
 
 $ s441.3 ~ s466-467 :  ɛ̃j̃ > ɛ̃ before denasalization which was 15th and 16th centuries -- so 15th century
+	$ Pope later says s467 that denasalization was in 16th century
+$ this specific shift is accepted by Villon (15th century) 
 j̃ > ∅ / [+nas,+front,-tense] __ 
 
 $ s496 : ɛ > a / __ r in 15th and 16th centuries (later reversed for many words)
+$ reported by Villon (15th) and Henri Estienne (16th) 
 $ CORRECTION: abrogated. This shift did occur but for all but two words in the set it was reversed. 
 	$ A regular and non-reversed analogous shift did occur in Early Old French however. 
 ${ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
 
+$ s534-538 ~ s560 : aw > o: -- originally said to be 15th-16th centuries
+$ long as per s560
+$ s535 -- attested in 1537-1548, and in Ramus 1561 -- so seems to be complete by early 16th
+{ˌa w; ˈa w} > {ˌoː;ˈoː}
+
+$ s535~s538-539 : e̯oː >ə̯oː
+$ s539 -- reported by Erasmus, who lived around the turn of the 16th century, clearly complete by the writing of Beze on 1584. 
+$ fed by aw > o
+e̯ > ə̯ / __ [+round,+back,-hi]
+
+$ s436-437 ~ s563 : effacement of nasal consonant praeconsonantal after nasal vowels
+$ s437 : before middle of 16th century
+	$ mentioned by Peletier (1517-1582)
+	$ absorption of consonant in unstressed ə̃n̪t̪ ending goes back to 13th century per Hebrew glosses 
+$ s563 effacement of praeconsonantal nasals causes lengthening of prev nasal vowels... 
+$ s436, 438 : at the same time n̪ word final disappears except when the next word starts with a vowel -- in keeping with our dataset we delete these now as well.
+[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ {[+cons];#}
+[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ {[+cons];#}
+
 $ s510 je > e after ʎ,ɲ,ʃ,ʒ . Late 15th - 16th centuries
+$ still not accepted by Palsgrave and Meigret in 1545 but accepted by Estienne 1582
+$ s512 -- shift was earlier in the West.
 $ CORRECTION: palatal sʲ, tʲ, zʲ, dʲ have now been preserved to this point in restricted
 	$ set of words, and are also triggers for this change
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-tense,+syl]
@@ -2263,32 +2285,63 @@ $ after changing their developments in Gallo-Roman so they are preserved until n
 	$ limited contexts -- evidenced by traiter, effriter, vider, laisser and plusieurs
 {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪}
 
-$ s534-538 ~ s560 : aw > o: -- 15th-16th centuries
-$ long as per s560
-{ˌa w; ˈa w} > {ˌoː;ˈoː}
+$ s521 : oɛ̯ (uɛ̯, ͏ɔɛ̯?) > wɛj before tonics, o > wɛ before j #
+$ final completion of process started much earlier.
+$ Sixteenth century -- accepted by Meigret and Baif
+[+back,+round,+syl,-stres] ɛ̯ > w ɛ
+[+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+[+back,+round,+syl] ɛ̯ > w ˌɛ
 
-$ s535~s538-539 : e̯oː >ə̯oː
-e̯ > ə̯ / __ [+round,+back,-hi]
+$Pope s247 : ə effaced if after fricative or plosive and before r/l.
+$Accepted in 16th century. 
+$TODO NEED TO CORRECT Pope doesn't state this , but this failed to occur after sibilants.
+$CORRECTION: this only occurred right before the prime vowel -- TODO check if this is legit
+ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
+ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
 
-$ s494: e > ɛ before l, ʎ in 16th century
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
-
-$ s495 : e >ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ r [+cons]
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ r #
+$ s451-452 ẽ > ɛ̃ in later sixteenth century
+$ However this does not occur in the clusters of jẽ and wẽ until the early 17th century, in Early Modern, rather than Middle, French 
+	$ -- see s473-474, 669-670 for wẽ; s470-471 for jẽ; 476 for ɥɛ̃
+$ Accepted by Tabourot (1587) and Lyttelton (1566) and attributed early to Parisians by Bovelles (1533) -- though ĩ retained late in Northwest (while Burgundy has lowering early)
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / # __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+cons] __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+syl] __ 
 
 $ s392 : final -l effacement after e:, i, y, u
 $ regular by Later Middle French
 $ restoration for many cases for e:, y and u -- but this is not a phonologically mediated process (rather lexically and socially driven)
+$ accepted by Henri Estienne (late 16th)
+$ also by Palsgrave, Tabourot (late 16th) 
+$ say mid 16th 
 [+lat] > ∅ / [+hi,+syl] __ #
 [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
 
-$ s521 : oɛ̯ (uɛ̯, ͏ɔɛ̯?) > wɛj before tonics, o > wɛ before j #
-$ final completion of process started much earlier.
-$ Sixteenth century
-[+back,+round,+syl,-stres] ɛ̯ > w ɛ
-[+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
-[+back,+round,+syl] ɛ̯ > w ˌɛ
+$s173.1b ~s575 : e > ɛ
+$ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
+$ we give precedence to the indepth section. 
+$ based on Pope's evidence, this happened in the 16th century
+$ attested in Baif (16th century), but not Peletier (also 16th century) 
+ˈe > ˈɛ
+
+$ s494: e > ɛ before l, ʎ in 16th century
+$ Peletier (1549) still has /e/, Meigret gives both before both l and ʎ,
+$ while Meigret (also 1500s) fluctuates
+$ while Beze has /ɛ/ -- so we place it in the second half of the 16th. 
+[-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
+
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
+$ not accepted yet by Meigret (1500s), Lanoue,
+$ H. Estienne appears to be unsure (?)
+$ seems accepted by the time of Hindret (1687) though some hesitation continues
+$ -- very late Middle French to early Modern, possibly early 17th century
+[-hi,-lo,+syl,+front,-round] > [-tense] / __ r [+cons]
+[-hi,-lo,+syl,+front,-round] > [-tense] / __ r #
+
+$ s486 : these new ø variants (from e/ɛ/ə under labial influence) all close to y except in stressed syllables
+$ appears to have been accepted in the late 16th century based on Pope's presented evidence
+$ Ramus (lived 1515-1572) reports that beuvons and buvons are used by different people
+$ Vaugelas (1585-1650) also reports on variation still occurring in his lifetime. 
+[+front,+round,+tense,-prim] > [+hi]
 
 $ s243-245 countertonic ə effaced before other vowels, causing lengthening in the case of a (s244)
 $ s244 : lengthening of following a is preceded by assimilation of ə > a : actual formation of lengthened vowel by "contraction" handled by another rule, s242a
@@ -2314,26 +2367,25 @@ $ s270 : began in the 14th century but not accepted until the 16th.
 
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
+$ accepted by Regnier -- very late 16th, early 17th -- s242
 [+lo,+syl] [+lo,+syl] > ∅ [+long]
 [-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
 [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
 
 $ s242b specifications on coalescence of countertonic a
 $ s561 : length of aũ
-$ TODO implement later developments for a + i forms. 
 ˌa ˈũ > ˈãː
 ˌa ˈi > ˈa j
 ˌa ˈĩ > ˌã j̃
 ˌa > ∅ / __ [+prim]
 
-$ s570 i : a lengthens before ʎ in final ending aʎə
-[+lo,+syl] > [+long] / __ ʎ ə #
+$s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
+$ s562 attestation : Beze (17th), Peletier (later 16th), Vaugelas (early 17th) 
+[+prim] > [+long] / __ (j) ə #
 
-$ s486 : these new ø variants (from e/ɛ/ə under labial influence) all close to y except in stressed syllables
-$ appears to have been accepted in the late 16th century based on Pope's presented evidence
-$ Ramus (lived 1515-1572) reports that beuvons and buvons are used by different people
-$ Vaugelas (1585-1650) also reports on variation still occurring in his lifetime. 
-[+front,+round,+tense,-prim] > [+hi]
+$ s570 i : a lengthens before ʎ in final ending aʎə
+$ accepted by Beze -- 17th century
+[+lo,+syl] > [+long] / __ ʎ ə #
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
 $TODO need to correct Pope -- this effect is only true when s came from ss (basse, lasse, nasse, grasse)... 
@@ -2341,68 +2393,62 @@ $TODO need to correct Pope -- this effect is only true when s came from ss (bass
 	$ meaning the divergence must have occurred in Old French!
 [+front,-round,+syl] > [+long] / __ s ə #
 
-$s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
-[+prim] > [+long] / __ (j) ə #
-
 $ s271 ə final deleted in hiatus with tonic vowel, even if j comes between
 $ as per s271 began in Old French with analogy in verb forms, became widespread in late 15th and 16th centuries,
 	$ ... and accepted by writer in the 16th century, even though grammarians in the 17th continued to insist that final ə was syllabic...
 ə > ∅ / [+prim] (j) __ 
 
-$ s530 : final ajə become ɛː right after final ə is effaced next to it...
+$ s273 final ə postconsonantal becomes an "off-glide" before it disappears forever... 
+$ reported by Beze 1564 but does not bleed some of the lengthening and quantity changes conditioned on final ə
+ə > ə̯ / __ #
+
+$ s530 ~ s532: final ajə become ɛː right after final ə is effaced next to it...
 $ that it is long ɛː not short ɛ is inferred because of s562...
+$ obv comes after s271
+$ s532 : "accepted only in the 17th century" -- Lanoue (1596) accepts only in some cases
+$ "hesitation in Early Modern French" 
 ˈaː j > ˈɛː / __ #
 
-$ s366: late degemination of r, with lengthening of any prior vowels
-[+syl] > [+long] / __ r r 
-r r > r / __ ə
-r r > r / ə __ 
+$ s576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
+$ not accepted by Peletier, Lanoue oscilates, Baif oscilates
+ˈeː >ˈɛː / __ [+cons] {ə;ə̯}
+ˈeː > ˈɛː / __ [+cons] #
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ but there do not seem to be any examples of where it occurred with n coming after ə
-$ as per s272: begins twelfth and thirteenth centuries but only ecomes regular in the 16th, and even then hesitation leads to doublets
+$ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
 $ as per giving Pope the benefit of the doubt, we assume this is distinct from s247, which follows and targets countertonic rather than intertonic ə
 ə > ∅ / {n;r;l} __ [+cons]
 ə > ∅ / [+cons] __ {r;l}
 
-$ s366: reassert degemination of r and other l given that new geminates could have just been formed by ə deltion
-$with lengthening of any prior vowels
+$ s366: late degemination of r, with lengthening of any prior vowels
+$ s366 only says "before the end of Middle French" 
 [+syl] > [+long] / __ r r 
-r r > r 
-l l > l
-
-$Pope s247 : ə effaced if after fricative or plosive and before r/l.
-$Accepted in 16th century. 
-$TODO Pope doesn't state this , but this failed to occur after sibilants.
-$TODO She also doesnˌt note that it only occurred right before the prime vowel, i.e. pˌəlerˈɛ̃ -- not effected.  
-$ TODO Fix this so it "doesnˌt work" for demo. 
-ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
-ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
+r r > r / __ {ə;ə̯}
+r r > r / ə __ 
 
 $173.1c ~ s586 : long a becomes back ɑ (still long) -- 
+$ s586 -- still was palatal in 16th century as per Ronsard and interchange of e/ɛ and a before r 
+$ "but possible that some differentiation had begun earlier" 
+$ first remark seems to be 1567 by Plantin 
 $ "toward the end of the period" --  late 16th century 
 [+lo,+long,+syl] > [+back,-front]
 
-$ s436-437 ~ s563 : effacement of nasal consonant praeconsonantal after nasal vowels
-$ s437 : middle of 16th century
-$ s563 effacement of praeconsonantal nasals causes lengthening of prev nasal vowels... 
-$ s436, 438 : at the same time n̪ word final disappears except when the next word starts with a vowel -- in keeping with our dataset we delete these now as well.
-[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ {[+cons];#}
-[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ {[+cons];#}
-
 $s241 : consonantalization of countertonic high vowels before lower vowels
 $ 16th century, "Later Middle French" 
+$ accepted by early 17th -- attested in Vaugelas
 [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
 $ also formation of wi and ɥi 
 [+hi,+syl,+stres,-prim,+round] > [-syl] / __ [+hi,+front,-round,+syl]
 
 $s569: Pope citing Beze, intervocalic z engenders lengthening of prior consonants
 $giving Pope benefit of the doubt, we place this after long a velarization, because of examples like masure /mazyʁ/
+$ early 17th?? 
 [+syl] > [+long] / __ z [+syl]
 
 $s570iii ending aʒə sees lengthening of a 
 $ giving Pope benefit of the doubt, we place this after long a velarization, because of examples like voyage /vwajaʒ/
-[+lo] > [+long] / __ ʒ ə #
+[+lo] > [+long] / __ ʒ ə̯ #
 
 $s579: ɔ lengthens before z,v ... and then any long ɔː becomes oː 
 $ CORRECTION abrogated for now... 
@@ -2411,20 +2457,6 @@ $ [-hi,-lo,+back,+syl,+long] > [+tense]
 
 $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 ∅ > j / w ˌɛ __ [+prim]
-
-$ s451-452 ẽ > ɛ̃ in later sixteenth century
-$ However this does not occur in the clusters of jẽ and wẽ until the early 17th century, in Early Modern, rather than Middle, French 
-	$ -- see s473-474, 669-670 for wẽ; s470-471 for jẽ; 476 for ɥɛ̃
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / # __ 
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+cons] __ 
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+syl] __ 
-
-$ s576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
-ˈeː >ˈɛː / __ [+cons] ə
-ˈeː > ˈɛː / __ [+cons] #
-
-$ s273 final ə postconsonantal becomes an "off-glide" before it disappears forever... 
-ə > ə̯ / __ #
 
 $~Early Modern French
 
