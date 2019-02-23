@@ -1644,7 +1644,7 @@ $ cluster voicing assimilation -- find the rule for this!
 [-son] > [-voi] / __ [-voi] 
 
 $ s366 degemination 
-{p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ}
+{p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪}
 
 $s378 z > ð before voiced dentals 
 $CORRECTION: This rule deleted
@@ -2322,8 +2322,9 @@ $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
 $TODO NEED TO CORRECT Pope doesn't state this , but this failed to occur after sibilants.
 $CORRECTION: this only occurred right before the prime vowel -- TODO check if this is legit
-ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
-ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
+$CORRECTION: suppress this entirely. 
+$ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
+$ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
 
 $ s451-452 ẽ > ɛ̃ in later sixteenth century
 $ However this does not occur in the clusters of jẽ and wẽ until the early 17th century, in Early Modern, rather than Middle, French 
@@ -2333,6 +2334,12 @@ $ Accepted by Tabourot (1587) and Lyttelton (1566) and attributed early to Paris
 [+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+cons] __ 
 [+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+syl] __ 
 
+$ s494: e > ɛ before l, ʎ in 16th century
+$ Peletier (1549) still has /e/, Meigret gives both before both l and ʎ,
+$ while Meigret (also 1500s) fluctuates
+$ while Beze has /ɛ/ -- so we place it in the second half of the 16th. 
+$ CORRECTION: bleeds final l effacement 
+[-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
 
 $ s392 : final -l effacement after e:, i, y, u
 $ regular by Later Middle French
@@ -2342,12 +2349,6 @@ $ also by Palsgrave, Tabourot (late 16th)
 $ say mid 16th 
 [+lat] > ∅ / [+hi,+syl] __ #
 [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
-
-$ s494: e > ɛ before l, ʎ in 16th century
-$ Peletier (1549) still has /e/, Meigret gives both before both l and ʎ,
-$ while Meigret (also 1500s) fluctuates
-$ while Beze has /ɛ/ -- so we place it in the second half of the 16th. 
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
 
 $ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
 $ not accepted yet by Meigret (1500s), Lanoue,
