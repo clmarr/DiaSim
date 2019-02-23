@@ -1461,6 +1461,10 @@ $ while Meigret (also 1500s) fluctuates
 $ while Beze has /ɛ/ -- so we place it in the second half of the 16th. 
 [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
 
+$ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in mid to late 16th century
+$ attested in Lyttelton 1566 (s468)
+[+front,-lo,+nas,+syl] > [-nas] / {[+cons];[+syl]} __ [+nas,+cons] [-cons]
+
 $ s495 : e >ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
 $ H. Estienne appears to be unsure (?)
 $ seems accepted by the time of Hindret (1687) though some hesitation continues
@@ -1511,6 +1515,11 @@ $ TODO implement later developments for a + i forms.
 ˌa ˈĩ > ˌã j̃
 ˌa > ∅ / __ [+prim]
 
+$ s477 denasalization of jɛ̃ from jẽ (<je + n <ɛː + n) at end of 16th century
+$ Beze does not accept it, nor do Meigret or Peletier
+	$ with denasalization as jɛ finally being attested in Lanoue 1596
+[+front,-lo,-round,+nas,+syl] > [-nas] / j __ [+nas,+cons] [-cons]
+	
 $s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
 $ s562 attestation : Beze (17th), Peletier (later 16th), Vaugelas (early 17th) 
 [+prim] > [+long] / __ (j) ə #
@@ -1586,6 +1595,14 @@ $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 ∅ > j / w ˌɛ __ [+prim]
 
 $~Early Modern French
+
+
+$ s477 denasalization of œ̃ after ø̃ is absorbed into it (œ,ø + n originally NOT y + n which has already denasalized to y)
+[+front,+round,+nas,+syl] > [-tense,-hi]
+[+front,+round,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+
+$ s474-476 denasalization of wɛ, Pope implies this was in the 17th century (s474-476)
+[+front,-lo,+nas,+syl] > [-nas] / w __ [+nas,+cons] [-cons]
 
 $ s395 : r becomes a glide in certain positions... 
 r > ɹ / [-cons] __ {#;+cons}
