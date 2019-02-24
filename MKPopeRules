@@ -1465,13 +1465,14 @@ $ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in m
 $ attested in Lyttelton 1566 (s468)
 [+front,-lo,+nas,+syl] > [-nas] / {[+cons];[+syl]} __ [+nas,+cons] [-cons]
 
-$ s495 : e >ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
+$ for word-final r, only applies in monosyllables
+$ not accepted yet by Meigret (1500s), Lanoue,
 $ H. Estienne appears to be unsure (?)
 $ seems accepted by the time of Hindret (1687) though some hesitation continues
 $ -- very late Middle French to early Modern, possibly early 17th century
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ r [+cons]
-[-hi,-lo,+syl,+front,-round] >[-tense] / __ r #
-
+[-hi,-lo,+syl,+front,-round] > [-tense] / __ r [+cons]
+[-hi,-lo,+syl,+front,-round] > [-tense] / # ([-syl])* __ r #
 
 $ s516 : ɥi to i in "less stressed syllables' and "after the group consonant + r" 
 ɥ > ∅ / __ [+hi,+front,-round,-prim]
