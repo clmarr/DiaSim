@@ -1844,7 +1844,7 @@ $ CORRECTION: w [+lat] ejects a ə at the end of the word -and also after velar 
 ∅ > ə / [+back,-syl] [+lat] __ #
 $ CORRECTION : for moule < musculum and coule < cucullum : long u in monosyllable or only other syllable being u
 	$ also causes this ejection
-∅ > ə / # ([+cons])* (ˌu) ˈuː [+lat] __ #
+∅ > ə / # ([+cons])* ([+tense,+round,+back])* [+lat] __ #
 
 $ s674 : countertonic ɔw > uw bled before z and v where it goes to ɔ, as well as when blocked by one cons then free after.
 $ (Pope doesn't realize that at this point ð may not have been deleted yet... she gives laudare as an example of "in hiatus" 
@@ -2383,13 +2383,11 @@ $ also by Palsgrave, Tabourot (late 16th)
 $ say mid 16th 
 $ CORRECTION: does not happen to /e/, /eː/ etc. May have occurred synchronically (as Pope demonstrates) but did 
 	$ not become established diachronically. 
-$ CORRECTION : after i and u, only happens after sibilant (in all known cases for /i/, they were palatalized meaning 
+$ CORRECTION : after i, only happens after sibilant (in all known cases for /i/, they were palatalized meaning 
 	$ a long-distance assimilation of lʲ is not unlikely -- but more data necessary) 
-		$ allowing some sonorants in between -- this seems to have no exceptions except that it misses the l-loss of 
-			$ cul, which is perhaps the most vulgar word in this set and vulnerable to semantically motivated effects
-		$ i.e. effaced in fusil, sourcil, persil, but not avril, fil, il etc
-	$ TODO may want to review this... 
-[+lat] > ∅ / [+strid,+cor] ([+son])* [+syl,+hi] __ #
+	$ always happens after u 
+[+lat] > ∅ / [+strid,+cor] [+syl,+hi,+front] __ #
+[+lat] > ∅ / [+syl,+hi,+back] __ #
 
 $ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in mid to late 16th century
 $ attested in Lyttelton 1566 (s468)
@@ -2453,9 +2451,10 @@ $ accepted by Regnier -- very late 16th, early 17th -- s242
 
 $ s242b specifications on coalescence of countertonic a
 $ s561 : length of aũ
-ˌa ˈũ > ˈãː
-ˌa ˈi > ˈa j
-ˌa ˈĩ > ˌã j̃
+$ CORRECTION: aũ only becomes ã word finally 
+ˌa [+prim,+syl,+back,+nas] > ˈãː / __ # 
+ˌa [+prim,+syl,+front,+hi,-round,-nas] > ˈa j
+ˌa [+prim,+syl,+front,+hi,-round,+nas] > ˌã j̃
 ˌa > ∅ / __ [+prim]
 
 $s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
