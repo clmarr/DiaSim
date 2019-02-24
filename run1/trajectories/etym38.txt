@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :38:
-#ˌɑmˈɑːrum# >>> #amɛʁ# ( Correct : #amɛʁ#) :
+#ˌɑmˈɑːrum# >>> #ame# ( Correct : #amɛʁ#) :
 ˌɑ m ˈɑː r u m 
 #ˌɑmˈɑːrʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑmˈɑrʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -13,11 +13,8 @@ Trajectory file for run 'run1'; etymon number :38:
 #ˌamˈae̯r# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #ˌãmˈae̯r# | Rule 503 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #ˌãmˈeːr# | Rule 545 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌãmˈɛːr# | Rule 694 : ˈeː > ˈɛː / __ [+cons] #
-#ˌãmˈɛːɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#ˌamˈɛːɹ# | Rule 719 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ˌamˈɛːr# | Rule 725 : ɹ > r 
-#ˌamˈɛːʀ# | Rule 727 : r > ʀ 
-#amɛːʀ# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#amɛʀ# | Rule 729 : [+syl,+long] > [-long,-splng] 
-#amɛʁ# | Rule 735 : ʀ > ʁ 
+#ˌãmˈeːɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#ˌamˈeːɹ# | Rule 719 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ˌamˈeː# | Rule 724 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ameː# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ame# | Rule 729 : [+syl,+long] > [-long,-splng] 

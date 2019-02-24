@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1111:
-#sˌolid̪ˈɑːre# >>> #suwd̪ɛʁ# ( Correct : #sud̪e#) :
+#sˌolid̪ˈɑːre# >>> #suwd̪e# ( Correct : #sud̪e#) :
 s ˌo l i d̪ ˈɑː r e 
 #sˌɔlɪd̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˌɔlɪd̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -18,10 +18,7 @@ s ˌo l i d̪ ˈɑː r e
 #sˌoɫd̪ˈeːr# | Rule 545 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #sˌuɫd̪ˈeːr# | Rule 557 : [+round,+tense,+back] > [+hi] 
 #sˌuwd̪ˈeːr# | Rule 575 : [+lat,+back] > w 
-#sˌuwd̪ˈɛːr# | Rule 694 : ˈeː > ˈɛː / __ [+cons] #
-#sˌuwd̪ˈɛːɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#sˌuwd̪ˈɛːr# | Rule 725 : ɹ > r 
-#sˌuwd̪ˈɛːʀ# | Rule 727 : r > ʀ 
-#suwd̪ɛːʀ# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#suwd̪ɛʀ# | Rule 729 : [+syl,+long] > [-long,-splng] 
-#suwd̪ɛʁ# | Rule 735 : ʀ > ʁ 
+#sˌuwd̪ˈeːɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#sˌuwd̪ˈeː# | Rule 724 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#suwd̪eː# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#suwd̪e# | Rule 729 : [+syl,+long] > [-long,-splng] 

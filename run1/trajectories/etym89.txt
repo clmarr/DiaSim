@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :89:
-#ˌɑwsˈɑːre# >>> #ɔzɛʁ# ( Correct : #oze#) :
+#ˌɑwsˈɑːre# >>> #ɔze# ( Correct : #oze#) :
 ˌɑ w s ˈɑː r e 
 #ˌɑwsˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑwsˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -14,11 +14,8 @@ Trajectory file for run 'run1'; etymon number :89:
 #ˌowzˈae̯r# | Rule 429 : ˌɔ > ˌo 
 #ˌowzˈeːr# | Rule 545 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #ˌɔzˈeːr# | Rule 554 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
-#ˌɔzˈɛːr# | Rule 694 : ˈeː > ˈɛː / __ [+cons] #
-#ˌɔːzˈɛːr# | Rule 707 : [+syl] > [+long] / __ z [+syl]
-#ˌɔːzˈɛːɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#ˌɔːzˈɛːr# | Rule 725 : ɹ > r 
-#ˌɔːzˈɛːʀ# | Rule 727 : r > ʀ 
-#ɔːzɛːʀ# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɔzɛʀ# | Rule 729 : [+syl,+long] > [-long,-splng] 
-#ɔzɛʁ# | Rule 735 : ʀ > ʁ 
+#ˌɔːzˈeːr# | Rule 707 : [+syl] > [+long] / __ z [+syl]
+#ˌɔːzˈeːɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#ˌɔːzˈeː# | Rule 724 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ɔːzeː# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɔze# | Rule 729 : [+syl,+long] > [-long,-splng] 
