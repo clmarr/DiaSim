@@ -857,10 +857,21 @@ $ Note: although Pope lists the second palatalization for the next period, her n
 $ so caused. 
 [+hi,+back,+cons] > [+front] / __ [+front,+syl] 
 
+$ CORRECTION : Formation ˈeː o > j ˈoː of certain diphthongs for unstressed tense final vowels before becoming glides or effaced
+ˈeː o > j ˈoː
+
+$ CORRECTION: before they can be effaced or anything else, unstressed ɛei in hiatus wiht prior stressed vowels get glided
+$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
+$ CHECK if necessary to exclude nasals at end for the front vowels... 
+[-lo,-stres,+tense] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
+
+$ CORRECTION: any vowel before w shortens 
+[+syl] > [-long] / __ w
+
 $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
 $ must bleed s413 but not second palatalization
-{a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
-[+tense,+round,+back,-stres,-cons] > w / [+syl,-tense,+round,-hi] __	
+$ CORRECTION: does NOT occur because of any STRESSED round element
+{a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 
 $ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
 $ unless it is followed by tonic in next syllable or if l/r come next
@@ -926,14 +937,6 @@ $ s299 "must have taken place before the end of the 8th century"
 $ CORRECTION : former geminate velars assimilate
 {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ}
 
-$ CORRECTION : ɔ,o in hiatus with prior a become w : cases of paraola > parawle > parole etc
-$ CORRECTION : a becomes shortened in the process if not already 
-[+lo,+syl] [+back,+round,-stres] > [-long] w
-
-$ CORRECTION : same in case of hiatus with ie̯ 
-$ CORRECTION : also same in hiatus with uo̯
-[+back,+round,-stres] > w / [+hi,+prim] [-hi,-syl,-cons] __
-
 $ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence
 $ TODO : find better way to handle this... -- such as when it has already become ddʒ ? 
 ˈeː > ˈɛː / __ [+voi,+cor,+ant,+distr] e ɣ
@@ -941,11 +944,6 @@ $ TODO : find better way to handle this... -- such as when it has already become
 $ CORRECTION: β deleted after countertonic ˌɔ or ˌo and before a tense front vowel, when not after a front element
 	$ not a lax one : novɛllum > nouveau etc. 
 β > ∅ / {#;[-front]} [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
-
-$ CORRECTION : Formation of certain diphthongs for unstressed tense final vowels before effacement
-$ CORRECTION : but this does not occur before nasals
-{ˈeː o;ˈi e̯ o} > {j ˈoː;j ˈoː} $case of pˈius > pieux and leuga > lieue
-{e;i} > {j;j} / [+syl] __ [-nas]
 
 $s164-10 ~s250 complete effacement of unstressed penultimate
 $as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
@@ -1576,11 +1574,11 @@ p > b / [-cons] __ [+son,+cont,-nas]
 b > β / [-cons] __ r
 β > v
 
-
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
+$ CORRECTION: also absorbed by preceding j 
 ʝ > j / [-cons] __ 
-j > ∅ / [+hi,+front,+tense,+syl] __
+j > ∅ / [+hi,+front,+tense,-cons] __
 
 $ s165.5 leveling of au to o (s505)
 $ note that the "original" a w have now become ɔ w -- this rule is handling when it was once β 
@@ -2414,7 +2412,8 @@ $ s486 : these new ø variants (from e/ɛ/ə under labial influence) all close t
 $ appears to have been accepted in the late 16th century based on Pope's presented evidence
 $ Ramus (lived 1515-1572) reports that beuvons and buvons are used by different people
 $ Vaugelas (1585-1650) also reports on variation still occurring in his lifetime. 
-[+front,+round,+tense,-prim] > [+hi]
+$ only happens to ø that was once e/ɛ/ə -- must be before a labial.
+[+front,+round,+tense,-prim] > [+hi] / __ [+lab,+cons]
 
 $ s243-245 countertonic ə effaced before other vowels, causing lengthening in the case of a (s244)
 $ s244 : lengthening of following a is preceded by assimilation of ə > a : actual formation of lengthened vowel by "contraction" handled by another rule, s242a

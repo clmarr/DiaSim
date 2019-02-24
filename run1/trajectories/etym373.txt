@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :373:
-#iˈuɡum# >>> #ʒuw# ( Correct : #ʒu#) :
+#iˈuɡum# >>> #ʒœ# ( Correct : #ʒu#) :
 i ˈu ɡ u m 
 #ɪˈʊɡʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #jˈʊɡʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -11,9 +11,12 @@ i ˈu ɡ u m
 #ʝˈoːo# | Rule 122 : ɣ > ∅ / __ [+tense,+round,+syl]
 #ʝˈoːu# | Rule 193 : o > u / [+syl,+prim] __ #
 #ʝˈoːw# | Rule 194 : [+hi,+syl,-stres] > [-syl,.stres,.prim] / [+prim] __ #
-#ɟˈoːw# | Rule 255 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / # __ [+syl]
-#d͡ʒˈoːw# | Rule 258 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#d͡ʒˈoww# | Rule 417 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d͡ʒˈuw# | Rule 531 : [+tense,+syl,+round,-hi,-lo] w > [+hi] ∅/ [-lab,+cons] __ [+lab,-syl]
-#ʒˈuw# | Rule 633 : [+delrel] > [+cont,.delrel] 
-#ʒuw# | Rule 727 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʝˈow# | Rule 241 : [+syl] > [-long,-splng] / __ w
+#ɟˈow# | Rule 257 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / # __ [+syl]
+#d͡ʒˈow# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#d͡ʒˈew# | Rule 535 : ˈo > ˈe / __ w
+#d͡ʒˈøw# | Rule 601 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#d͡ʒˈø# | Rule 606 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#ʒˈø# | Rule 631 : [+delrel] > [+cont,.delrel] 
+#ʒø# | Rule 725 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒœ# | Rule 729 : ø > œ / __ ( [+cons] )* #

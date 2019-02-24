@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :550:
-#lˈɑːikum# >>> #lajj# ( Correct : #lɛ#) :
+#lˈɑːikum# >>> #le# ( Correct : #lɛ#) :
 l ˈɑː i k u m 
 #lˈɑːɪkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #lˈɑɪkʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
@@ -9,13 +9,16 @@ l ˈɑː i k u m
 #lˈɑːeɡo# | Rule 132 : k > ɡ / [-cons] __ [+syl]
 #lˈɑːeɣo# | Rule 134 : ɡ > ɣ / [-cons] __ [-cons]
 #lˈaːeɣo# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#lˈaːjɣo# | Rule 266 : {e;i} > {j;j} / [+syl] __ [-nas]
-#lˈaːjɣə# | Rule 272 : [-stres,-lo,+syl] > ə / __ #
-#lˈaːjɣə̯# | Rule 274 : ə > ə̯ 
-#lˈaːjɣ# | Rule 309 : ə̯ > ∅ 
-#lˈajɣ# | Rule 364 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#lˈajx# | Rule 447 : [-son] > [-voi] / __ #
-#lˈajç# | Rule 458 : x > ç / [+lo,+front,+prim] ( [-cons,-syl,+front] ) __ #
-#lˈajʝ# | Rule 461 : ç > ʝ 
-#lˈajj# | Rule 467 : ʝ > j / [-cons] __ 
-#lajj# | Rule 727 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lˈaːjɣo# | Rule 240 : [-lo,-stres] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
+#lˈaːjɣə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#lˈaːjɣə̯# | Rule 272 : ə > ə̯ 
+#lˈaːjɣ# | Rule 307 : ə̯ > ∅ 
+#lˈajɣ# | Rule 362 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#lˈajx# | Rule 445 : [-son] > [-voi] / __ #
+#lˈajç# | Rule 456 : x > ç / [+lo,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#lˈajʝ# | Rule 459 : ç > ʝ 
+#lˈajj# | Rule 465 : ʝ > j / [-cons] __ 
+#lˈaj# | Rule 466 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#lˈɛj# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #
+#lˈe# | Rule 641 : [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅/ __ #
+#le# | Rule 725 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
