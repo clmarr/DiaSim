@@ -863,7 +863,7 @@ $ CORRECTION : Formation ˈeː o > j ˈoː of certain diphthongs for unstressed 
 $ CORRECTION: before they can be effaced or anything else, unstressed ɛei in hiatus wiht prior stressed vowels get glided
 $ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
 $ CHECK if necessary to exclude nasals at end for the front vowels... 
-[-lo,-stres,+tense] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
+[-lo,-stres] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
 
 $ CORRECTION: any vowel before w shortens 
 [+syl] > [-long] / __ w
@@ -1840,6 +1840,12 @@ e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
 $ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
 j > ɛ̯ / [+syl,+back,+round] __ r 
 
+$ CORRECTION: w [+lat] ejects a ə at the end of the word -and also after velar l then normal l, etc...
+∅ > ə / [+back,-syl] [+lat] __ #
+$ CORRECTION : for moule < musculum and coule < cucullum : long u in monosyllable or only other syllable being u
+	$ also causes this ejection
+∅ > ə / # ([+cons])* (ˌu) ˈuː [+lat] __ #
+
 $ s674 : countertonic ɔw > uw bled before z and v where it goes to ɔ, as well as when blocked by one cons then free after.
 $ (Pope doesn't realize that at this point ð may not have been deleted yet... she gives laudare as an example of "in hiatus" 
 	$ (but she notes herself the loss of θ and ð was not finalized "until the middle of the twelfth century") 
@@ -1849,8 +1855,9 @@ $ CORRECTION : s also causes automatic simplification (Autun) like v and z do. W
 $ CORRECTION : correct the "blocked and free" second realization of this shift to only effect r 
 $ CORRECTION : this does not happen word finally 
 $ CORRECTION : also targets countertonic ˌow
+$ CORRECTION : not only just before r, but in fact before any coronal sonorant, and context after doesn't matter
 {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
-{ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ r [-cons]
+{ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+cor,+son]
 
 $CORRECTION: tonic o opens ˈo > ˈɔ in context of r [-cont,+voi] r
 ˈo > ˈɔ / __ r [-cont,+voi] r
