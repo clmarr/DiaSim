@@ -27,11 +27,11 @@ Trajectory file for run 'run1'; etymon number :19:
 #ˌaɫbəɲˈie̯j# | Rule 467 : ʝ > j / [-cons] __ 
 #ˌaɫbeɲˈie̯j# | Rule 497 : ə > e / __ [+front,+son,+hi,-syl]
 #ˌaɫbiɲˈie̯j# | Rule 500 : e > i / __ [+hi,+son,+front,+cons]
-#ˌaɫbiɲˈij# | Rule 551 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ j
-#ˌaɫbiɲˈi# | Rule 552 : j > ∅ / ˈi __ 
-#ˌawbiɲˈi# | Rule 574 : [+lat,+back] > w 
-#ˌawbĩɲˈi# | Rule 623 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#ˌawbiɲˈi# | Rule 644 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#ˌoːbiɲˈi# | Rule 648 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#oːbiɲi# | Rule 726 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#obiɲi# | Rule 727 : [+syl,+long] > [-long,-splng] 
+#ˌaɫbiɲˈij# | Rule 551 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#ˌaɫbiɲˈi# | Rule 552 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#ˌawbiɲˈi# | Rule 575 : [+lat,+back] > w 
+#ˌawbĩɲˈi# | Rule 624 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#ˌawbiɲˈi# | Rule 645 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#ˌoːbiɲˈi# | Rule 649 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#oːbiɲi# | Rule 727 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#obiɲi# | Rule 728 : [+syl,+long] > [-long,-splng] 
