@@ -18,11 +18,13 @@ l ˌɑ k s ˈɑː r e
 #lˌaʝsʲˈie̯r# | Rule 459 : ç > ʝ 
 #lˌajsʲˈie̯r# | Rule 465 : ʝ > j / [-cons] __ 
 #lˌajsʲjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#lˌɛjsʲjˈer# | Rule 619 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#lˌɛːsʲjˈer# | Rule 640 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#lˌɛːsʲˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#lˌɛːsˈer# | Rule 670 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#lˌɛːsˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#lˌɛːsˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#lɛːse# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɛse# | Rule 738 : [+syl,+long] > [-long,-splng] 
+#lˌajsʲj?r# | Rule 608 : ˈe > ? / __ @
+#lˌajsʲjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#lˌɛjsʲjˈer# | Rule 613 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#lˌɛːsʲjˈer# | Rule 634 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#lˌɛːsʲˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#lˌɛːsˈer# | Rule 664 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#lˌɛːsˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#lˌɛːsˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#lɛːse# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lɛse# | Rule 732 : [+syl,+long] > [-long,-splng] 

@@ -22,14 +22,16 @@ Trajectory file for run 'run1'; etymon number :219:
 #ˌeskˈɔrt͡ʃˈie̯r# | Rule 426 : ˌɛ > ˌe / __ [+cor,+cont] [-cor]
 #ˌexkˈɔrt͡ʃˈie̯r# | Rule 591 : s > x / [-cons] __ [+cons]
 #ˌexkˈɔrt͡ʃjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌexkˈɔrʃjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#ˌeːkˈɔrʃjˈer# | Rule 655 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌeːkˈɔrʃˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ˌeːkˈɔrʃˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#ˌeːkˈɔɹʃˈeɹ# | Rule 720 : r > ɹ / [-cons] __ [+cons]
-#ˌeːkˈɔɹʃˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ˌeːkˈɔrʃˈe# | Rule 734 : ɹ > r 
-#ˌeːkˈɔʀʃˈe# | Rule 736 : r > ʀ 
-#eːkɔʀʃe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ekɔʀʃe# | Rule 738 : [+syl,+long] > [-long,-splng] 
-#ekɔʁʃe# | Rule 744 : ʀ > ʁ 
+#ˌexkˈɔrt͡ʃj?r# | Rule 608 : ˈe > ? / __ @
+#ˌexkˈɔrt͡ʃjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌexkˈɔrʃjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#ˌeːkˈɔrʃjˈer# | Rule 649 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌeːkˈɔrʃˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ˌeːkˈɔrʃˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ˌeːkˈɔɹʃˈeɹ# | Rule 714 : r > ɹ / [-cons] __ [+cons]
+#ˌeːkˈɔɹʃˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ˌeːkˈɔrʃˈe# | Rule 728 : ɹ > r 
+#ˌeːkˈɔʀʃˈe# | Rule 730 : r > ʀ 
+#eːkɔʀʃe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ekɔʀʃe# | Rule 732 : [+syl,+long] > [-long,-splng] 
+#ekɔʁʃe# | Rule 738 : ʀ > ʁ 

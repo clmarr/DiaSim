@@ -17,12 +17,14 @@ k ˌɑ r r i k ˈɑː r e
 #t͡ʃˌarrd͡ʒˈie̯r# | Rule 307 : ə̯ > ∅ 
 #t͡ʃˌard͡ʒˈie̯r# | Rule 472 : [+cons] > ∅ / [+cons] __ [-son]
 #t͡ʃˌard͡ʒjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ʃˌarʒjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#ʃˌarʒˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ʃˌarʒˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#ʃˌaɹʒˈeɹ# | Rule 720 : r > ɹ / [-cons] __ [+cons]
-#ʃˌaɹʒˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ʃˌarʒˈe# | Rule 734 : ɹ > r 
-#ʃˌaʀʒˈe# | Rule 736 : r > ʀ 
-#ʃaʀʒe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃaʁʒe# | Rule 744 : ʀ > ʁ 
+#t͡ʃˌard͡ʒj?r# | Rule 608 : ˈe > ? / __ @
+#t͡ʃˌard͡ʒjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ʃˌarʒjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#ʃˌarʒˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ʃˌarʒˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ʃˌaɹʒˈeɹ# | Rule 714 : r > ɹ / [-cons] __ [+cons]
+#ʃˌaɹʒˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ʃˌarʒˈe# | Rule 728 : ɹ > r 
+#ʃˌaʀʒˈe# | Rule 730 : r > ʀ 
+#ʃaʀʒe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃaʁʒe# | Rule 738 : ʀ > ʁ 

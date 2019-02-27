@@ -22,9 +22,11 @@ Trajectory file for run 'run1'; etymon number :367:
 #ˌɛ̃?t̪ˈie̯r# | Rule 570 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌã?t̪ˈie̯r# | Rule 575 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
 #ˌã?t̪jˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌãːt̪jˈer# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌɑ̃ːt̪jˈer# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#ˌɑ̃ːt̪jˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#ˌɑ̃ːt̪jˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ɑ̃ːt̪je# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɑ̃t̪je# | Rule 738 : [+syl,+long] > [-long,-splng] 
+#ˌã?t̪j?r# | Rule 608 : ˈe > ? / __ @
+#ˌã?t̪jˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌãːt̪jˈer# | Rule 659 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌɑ̃ːt̪jˈer# | Rule 707 : [+lo,+long,+syl] > [+back,-front] 
+#ˌɑ̃ːt̪jˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ˌɑ̃ːt̪jˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ɑ̃ːt̪je# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɑ̃t̪je# | Rule 732 : [+syl,+long] > [-long,-splng] 

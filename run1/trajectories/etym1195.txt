@@ -17,12 +17,14 @@ t̪ ˌe n̪ t̪ i ˈɑː r e
 #t̪ˌɛ̃n̪t͡sʲˈie̯r# | Rule 517 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
 #t̪ˌãn̪t͡sʲˈie̯r# | Rule 575 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
 #t̪ˌãn̪t͡sʲjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪ˌãn̪sʲjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#t̪ˌãːsʲjˈer# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌãːsʲˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#t̪ˌãːsˈer# | Rule 670 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ˌɑ̃ːsˈer# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˌɑ̃ːsˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#t̪ˌɑ̃ːsˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#t̪ɑ̃ːse# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ɑ̃se# | Rule 738 : [+syl,+long] > [-long,-splng] 
+#t̪ˌãn̪t͡sʲj?r# | Rule 608 : ˈe > ? / __ @
+#t̪ˌãn̪t͡sʲjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#t̪ˌãn̪sʲjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#t̪ˌãːsʲjˈer# | Rule 659 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˌãːsʲˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#t̪ˌãːsˈer# | Rule 664 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#t̪ˌɑ̃ːsˈer# | Rule 707 : [+lo,+long,+syl] > [+back,-front] 
+#t̪ˌɑ̃ːsˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#t̪ˌɑ̃ːsˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#t̪ɑ̃ːse# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ɑ̃se# | Rule 732 : [+syl,+long] > [-long,-splng] 

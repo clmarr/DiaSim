@@ -19,13 +19,15 @@ t̪ r ˌi n̪ k ˈɑː r e
 #t̪rˌɛ̃ŋt͡ʃˈie̯r# | Rule 570 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
 #t̪rˌãŋt͡ʃˈie̯r# | Rule 575 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
 #t̪rˌãŋt͡ʃjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪rˌãŋʃjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#t̪rˌãːʃjˈer# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪rˌãːʃˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#t̪rˌɑ̃ːʃˈer# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#t̪rˌɑ̃ːʃˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#t̪rˌɑ̃ːʃˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#t̪ʀˌɑ̃ːʃˈe# | Rule 736 : r > ʀ 
-#t̪ʀɑ̃ːʃe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ʀɑ̃ʃe# | Rule 738 : [+syl,+long] > [-long,-splng] 
-#t̪ʁɑ̃ʃe# | Rule 744 : ʀ > ʁ 
+#t̪rˌãŋt͡ʃj?r# | Rule 608 : ˈe > ? / __ @
+#t̪rˌãŋt͡ʃjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#t̪rˌãŋʃjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#t̪rˌãːʃjˈer# | Rule 659 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪rˌãːʃˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#t̪rˌɑ̃ːʃˈer# | Rule 707 : [+lo,+long,+syl] > [+back,-front] 
+#t̪rˌɑ̃ːʃˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#t̪rˌɑ̃ːʃˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#t̪ʀˌɑ̃ːʃˈe# | Rule 730 : r > ʀ 
+#t̪ʀɑ̃ːʃe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀɑ̃ʃe# | Rule 732 : [+syl,+long] > [-long,-splng] 
+#t̪ʁɑ̃ʃe# | Rule 738 : ʀ > ʁ 

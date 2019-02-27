@@ -16,8 +16,10 @@ m ˌo l l i ˈɑː r e
 #mˌoʎˈie̯r# | Rule 429 : ˌɔ > ˌo 
 #mˌuʎˈie̯r# | Rule 561 : [+round,+tense,+back] > [+hi] 
 #mˌuʎjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mˌuʎˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#mˌuʎˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#mˌuʎˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#muʎe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#muje# | Rule 745 : ʎ > j 
+#mˌuʎj?r# | Rule 608 : ˈe > ? / __ @
+#mˌuʎjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#mˌuʎˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#mˌuʎˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#mˌuʎˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#muʎe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#muje# | Rule 739 : ʎ > j 

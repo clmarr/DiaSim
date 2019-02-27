@@ -18,11 +18,13 @@ p l ˌu m b i k ˈɑː r e
 #plˌũmd͡ʒˈie̯rə̯# | Rule 287 : [+cons,+lab] > ∅ / [+cons] __ [-son]
 #plˌũmd͡ʒˈie̯r# | Rule 307 : ə̯ > ∅ 
 #plˌũmd͡ʒjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#plˌũmʒjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#plˌũːʒjˈer# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#plˌũːʒˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#plˌũːʒˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#plˌũːʒˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#plũːʒe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plũʒe# | Rule 738 : [+syl,+long] > [-long,-splng] 
-#plɔ̃ʒe# | Rule 739 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#plˌũmd͡ʒj?r# | Rule 608 : ˈe > ? / __ @
+#plˌũmd͡ʒjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#plˌũmʒjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#plˌũːʒjˈer# | Rule 659 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#plˌũːʒˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#plˌũːʒˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#plˌũːʒˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#plũːʒe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plũʒe# | Rule 732 : [+syl,+long] > [-long,-splng] 
+#plɔ̃ʒe# | Rule 733 : [+back,-lo,+nas,+syl] > ɔ̃ 

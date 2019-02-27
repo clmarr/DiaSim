@@ -22,10 +22,12 @@ p r ˌɑ e̯ d̪ i k ˈɑː r e
 #prˌɛθt͡ʃˈie̯r# | Rule 490 : [-son] > [-voi] / __ [-voi]
 #prˌɛθt͡ʃjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #prˌɛt͡ʃjˈer# | Rule 603 : {θ;ð} > {∅;∅} 
-#prˌɛʃjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#prˌɛʃˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#prˌɛʃˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#prˌɛʃˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#pʀˌɛʃˈe# | Rule 736 : r > ʀ 
-#pʀɛʃe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛʃe# | Rule 744 : ʀ > ʁ 
+#prˌɛt͡ʃj?r# | Rule 608 : ˈe > ? / __ @
+#prˌɛt͡ʃjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#prˌɛʃjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#prˌɛʃˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#prˌɛʃˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#prˌɛʃˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#pʀˌɛʃˈe# | Rule 730 : r > ʀ 
+#pʀɛʃe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʁɛʃe# | Rule 738 : ʀ > ʁ 

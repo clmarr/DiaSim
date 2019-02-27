@@ -25,13 +25,15 @@ p ˌi k t̪ ˈɑː n̪ eː s
 #pˌojt̪ˈie̯rs# | Rule 540 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
 #pˌujt̪ˈie̯rs# | Rule 561 : [+round,+tense,+back] > [+hi] 
 #pˌujt̪jˈers# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pˌuɛ̯t̪jˈers# | Rule 632 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pwˌɛt̪jˈers# | Rule 633 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˌɛt̪jˈɛrs# | Rule 682 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
-#pwˌɛt̪jˈɛɹs# | Rule 720 : r > ɹ / [-cons] __ [+cons]
-#pwˌɛt̪jˈɛɹ# | Rule 724 : [-son] > ∅ / __ #
-#pwˌɛt̪jˈɛr# | Rule 734 : ɹ > r 
-#pwˌɛt̪jˈɛʀ# | Rule 736 : r > ʀ 
-#pwɛt̪jɛʀ# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pwat̪jɛʀ# | Rule 742 : ɛ > a / w __ 
-#pwat̪jɛʁ# | Rule 744 : ʀ > ʁ 
+#pˌujt̪j?rs# | Rule 608 : ˈe > ? / __ @
+#pˌujt̪jˈers# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#pˌuɛ̯t̪jˈers# | Rule 626 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˌɛt̪jˈers# | Rule 627 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˌɛt̪jˈɛrs# | Rule 676 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
+#pwˌɛt̪jˈɛɹs# | Rule 714 : r > ɹ / [-cons] __ [+cons]
+#pwˌɛt̪jˈɛɹ# | Rule 718 : [-son] > ∅ / __ #
+#pwˌɛt̪jˈɛr# | Rule 728 : ɹ > r 
+#pwˌɛt̪jˈɛʀ# | Rule 730 : r > ʀ 
+#pwɛt̪jɛʀ# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwat̪jɛʀ# | Rule 736 : ɛ > a / w __ 
+#pwat̪jɛʁ# | Rule 738 : ʀ > ʁ 

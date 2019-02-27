@@ -22,12 +22,14 @@ Trajectory file for run 'run1'; etymon number :68:
 #ˌart͡ʃˈie̯rʲ# | Rule 357 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
 #ˌart͡ʃˈie̯r# | Rule 391 : rʲ > r 
 #ˌart͡ʃjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌarʃjˈer# | Rule 647 : [+delrel] > [+cont,.delrel] 
-#ˌarʃˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ˌarʃˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#ˌaɹʃˈeɹ# | Rule 720 : r > ɹ / [-cons] __ [+cons]
-#ˌaɹʃˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ˌarʃˈe# | Rule 734 : ɹ > r 
-#ˌaʀʃˈe# | Rule 736 : r > ʀ 
-#aʀʃe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#aʁʃe# | Rule 744 : ʀ > ʁ 
+#ˌart͡ʃj?r# | Rule 608 : ˈe > ? / __ @
+#ˌart͡ʃjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌarʃjˈer# | Rule 641 : [+delrel] > [+cont,.delrel] 
+#ˌarʃˈer# | Rule 663 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ˌarʃˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ˌaɹʃˈeɹ# | Rule 714 : r > ɹ / [-cons] __ [+cons]
+#ˌaɹʃˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ˌarʃˈe# | Rule 728 : ɹ > r 
+#ˌaʀʃˈe# | Rule 730 : r > ʀ 
+#aʀʃe# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʁʃe# | Rule 738 : ʀ > ʁ 

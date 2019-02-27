@@ -28,9 +28,11 @@ Trajectory file for run 'run1'; etymon number :783:
 #ˌovrˈie̯r# | Rule 436 : β > v 
 #ˌuvrˈie̯r# | Rule 561 : [+round,+tense,+back] > [+hi] 
 #ˌuvrjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌuvrjˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#ˌuvriˈeɹ# | Rule 729 : j > i / [+cons] [+ant,+son] __ [+front,-hi,-lo,+tense,-round,+syl]
-#ˌuvriˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ˌuvʀiˈe# | Rule 736 : r > ʀ 
-#uvʀie# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#uvʁie# | Rule 744 : ʀ > ʁ 
+#ˌuvrj?r# | Rule 608 : ˈe > ? / __ @
+#ˌuvrjˈer# | Rule 610 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌuvrjˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ˌuvriˈeɹ# | Rule 723 : j > i / [+cons] [+ant,+son] __ [+front,-hi,-lo,+tense,-round,+syl]
+#ˌuvriˈe# | Rule 727 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ˌuvʀiˈe# | Rule 730 : r > ʀ 
+#uvʀie# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#uvʁie# | Rule 738 : ʀ > ʁ 
