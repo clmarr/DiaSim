@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1273:
-#wˈɑlleːs# >>> #vo# ( Correct : #vo#) :
-w ˈɑ l l eː s 
-#ɣʷˈɑlleːs# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑlleːs# | Rule 50 : ɣʷ > βʷ 
-#βʷˈɑlles# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βˈɑlles# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈalles# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#βˈalləs# | Rule 269 : [-stres,-lo,+syl] > ə / __ [-syl]
-#βˈallə̯s# | Rule 272 : ə > ə̯ 
-#βˈalls# | Rule 307 : ə̯ > ∅ 
-#vˈalls# | Rule 436 : β > v 
-#vˈals# | Rule 471 : [+cons] > ∅ / [+cons] __ [-son]
-#vˈaɫs# | Rule 499 : [+lat] > [+back] / __ [+cons]
-#vˈaws# | Rule 575 : [+lat,+back] > w 
-#vˈoːs# | Rule 650 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#vˈoː# | Rule 715 : [-son] > ∅ / __ #
-#voː# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vo# | Rule 729 : [+syl,+long] > [-long,-splng] 
+#wˌɑlˈoːrem# >>> #valœ# ( Correct : #valœʁ#) :
+w ˌɑ l ˈoː r e m 
+#ɣʷˌɑlˈoːrem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɑlˈoːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈoːrɛm# | Rule 50 : ɣʷ > βʷ 
+#βʷˌɑlˈorɛm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌɑlˈorɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#βʷˌɑlˈoːrɛ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌɑlˈoːrɛ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌalˈoːrɛ# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#βˌalˈoːrə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#βˌalˈoːrə̯# | Rule 272 : ə > ə̯ 
+#βˌalˈoːr# | Rule 307 : ə̯ > ∅ 
+#βˌalˈowr# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌalˈowr# | Rule 436 : β > v 
+#vˌalˈewr# | Rule 539 : ˈo > ˈe / __ w
+#vˌalˈøwr# | Rule 607 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#vˌalˈør# | Rule 620 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#vˌalˈøɹ# | Rule 718 : r > ɹ / [-cons] __ #
+#vˌalˈø# | Rule 732 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#valø# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valœ# | Rule 740 : ø > œ / __ ( [+cons] )* #

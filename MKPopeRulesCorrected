@@ -1592,8 +1592,9 @@ n̪ > t̪  / [-cons] [+cor,-lat,+son] __ s [-cons]
 
 $ s365ii s t s > ts 
 s t̪ s > t͡s / [-cons] __ [-cons]
+s > ∅ / __ t͡s
 
-$ s367 d,t + s becomes the affricate 
+$ s367 d,t + s becomes the affricate; 
 [+cor,-cont,-delrel] s > t͡sʲ
 
 $ s365 : effacement of middle consonant in groups that donˌt end in l or r 
@@ -1750,7 +1751,13 @@ $ CORRECTION: ð is simply deleted without going to z if between non-primary str
  
 $ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
 $ Complete before the Norman Conquest of England (1066) as per s377
-[+syl] > [+long] / __ z [+cons]
+$ CORRECTION: lengthening doesn't happen before d -- it seems z is simply absorbed
+$ CORRECTION: does not occur word-initially
+$ CORRECTION: for countertonics, lengthening only happens when next syllable is either long or a diphthong 
+z > ∅ / __ d̪
+[+prim] > [+long] / @ __ z [+cons]
+[+stres] > [+long] / @ __ z [+cons] [+syl,+long]
+[+stres] > [+long] / @ __ z [+cons] [+syl] [-cons]
 z > ∅ / __ [+cons]
 
 $ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
@@ -2111,8 +2118,17 @@ $Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds
 
 $Pope s575: tonic e in closed syllables closes to ɛ in 12th century
 $ does not feed s541
-$ ˈe (< Latin ˈeː and ˈi) in closed syllables closes to ɛ 
-ˈe > ˈɛ
+$ ˈe (< Latin ˈeː and ˈi) in closed syllables opens to ɛ 
+$ CORRECTION: does not open before a word final r or rs in multisyllabic words (it does in monosyllables: cher, suer, hier, fier)
+ˈe > ˈɛ / __ @ @ @
+ˈe > ˈɛ / [+syl] ([-syl])* __
+ˈe > ˈɛ / __ [-cor]
+ˈe > ˈɛ / __ [+cor,-son]
+ˈe > ˈɛ / __ [+nas]
+ˈe > ˈɛ / __ [+lat]
+ˈe > ˈɛ / __ r @ @
+ˈe > ˈɛ / __ r [-strid]
+ˈe > ˈɛ / __ r [+strid] @
 
 $ CORRECTION : ʌ lowers and fronts to a, completing early oi>ai shift attested before middle French for a number of words
 	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie, monnaie, taie, raie, verre, tonnerre 
@@ -2496,15 +2512,16 @@ $ CORRECTION: not before coronals -- two exceptions to this counterrule are amer
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ but there do not seem to be any examples of where it occurred with n coming after ə
 $ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
-$ as per giving Pope the benefit of the doubt, we assume this is distinct from s247, which follows and targets countertonic rather than intertonic ə
-ə > ∅ / {n;r;l} __ [+cons]
+$ CORRECTION: does not occur after n,r,l if next consonant is precedes word coda 
+ə > ∅ / {n;r;l} __ [+cons] @
 ə > ∅ / [+cons] __ {r;l}
 
 $ s366: late degemination of r, with lengthening of any prior vowels
 $ s366 only says "before the end of Middle French" 
-[+syl] > [+long] / __ r r 
-r r > r / __ {ə;ə̯}
-r r > r / ə __ 
+$ TODO: This seems to have no effect, because rr has now been degeminated earlier -- delete
+$ [+syl] > [+long] / __ r r 
+$ r r > r / __ {ə;ə̯}
+$  r r > r / ə __ 
 
 $173.1c ~ s586 : long a becomes back ɑ (still long) -- 
 $ s586 -- still was palatal in 16th century as per Ronsard and interchange of e/ɛ and a before r 

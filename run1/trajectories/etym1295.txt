@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1295:
-#wˈen̪n̪ɑm# >>> #vɑ̃n̪# ( Correct : #van̪#) :
-w ˈe n̪ n̪ ɑ m 
-#ɣʷˈen̪n̪ɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛn̪n̪ɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˈɛn̪n̪ɑm# | Rule 50 : ɣʷ > βʷ 
-#βʷˈɛn̪n̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#βˈɛn̪n̪ɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈɛn̪n̪a# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#vˈɛn̪n̪a# | Rule 436 : β > v 
-#vˈɛn̪n̪ə# | Rule 442 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈɛn̪ə# | Rule 490 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#vˈɛ̃n̪ə# | Rule 516 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˈãn̪ə# | Rule 571 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#vˈãn̪ə̯# | Rule 690 : ə > ə̯ / __ #
-#vˈãn̪# | Rule 716 : ə̯ > ∅ 
-#vãn̪# | Rule 728 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɑ̃n̪# | Rule 734 : {ã;ãː} > {ɑ̃;ɑ̃ː} 
+#wˈen̪t̪um# >>> #vɑ̃# ( Correct : #vɑ̃#) :
+w ˈe n̪ t̪ u m 
+#ɣʷˈen̪t̪um# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɛn̪t̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛn̪t̪ʊm# | Rule 50 : ɣʷ > βʷ 
+#βʷˈɛn̪t̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛn̪t̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#βʷˈɛ?t̪o# | Rule 102 : [+ant,+cons] > [-voi] / __ t̪
+#βˈɛ?t̪o# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈɛ?t̪ə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#βˈɛ?t̪ə̯# | Rule 272 : ə > ə̯ 
+#βˈɛ?t̪# | Rule 307 : ə̯ > ∅ 
+#vˈɛ?t̪# | Rule 436 : β > v 
+#vˈɛ̃?t̪# | Rule 517 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#vˈã?t̪# | Rule 575 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
+#vˈãːt̪# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#vˈɑ̃ːt̪# | Rule 712 : [+lo,+long,+syl] > [+back,-front] 
+#vˈɑ̃ː# | Rule 723 : [-son] > ∅ / __ #
+#vɑ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vɑ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 
