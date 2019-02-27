@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :704:
-#mˌolliˈɑːre# >>> #mujɛʁ# ( Correct : #muje#) :
+#mˌolliˈɑːre# >>> #muje# ( Correct : #muje#) :
 m ˌo l l i ˈɑː r e 
 #mˌɔllɪˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #mˌɔlljˈɑːrɛ# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
@@ -16,11 +16,8 @@ m ˌo l l i ˈɑː r e
 #mˌoʎˈie̯r# | Rule 429 : ˌɔ > ˌo 
 #mˌuʎˈie̯r# | Rule 561 : [+round,+tense,+back] > [+hi] 
 #mˌuʎjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mˌuʎjˈɛr# | Rule 609 : ˈe > ˈɛ / [+syl] ( [-syl] )* __ 
-#mˌuʎˈɛr# | Rule 668 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#mˌuʎˈɛɹ# | Rule 718 : r > ɹ / [-cons] __ #
-#mˌuʎˈɛr# | Rule 733 : ɹ > r 
-#mˌuʎˈɛʀ# | Rule 735 : r > ʀ 
-#muʎɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#muʎɛʁ# | Rule 743 : ʀ > ʁ 
-#mujɛʁ# | Rule 744 : ʎ > j 
+#mˌuʎˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#mˌuʎˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
+#mˌuʎˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#muʎe# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#muje# | Rule 745 : ʎ > j 

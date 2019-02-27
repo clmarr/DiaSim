@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1350:
-#wˌokit̪ˈɑːre# >>> #vid̪ɛʁ# ( Correct : #vid̪e#) :
+#wˌokit̪ˈɑːre# >>> #vid̪e# ( Correct : #vid̪e#) :
 w ˌo k i t̪ ˈɑː r e 
 #ɣʷˌokit̪ˈɑːre# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɔkɪt̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -31,13 +31,10 @@ w ˌo k i t̪ ˈɑː r e
 #vˌʉjd̪ʲˈie̯r# | Rule 436 : β > v 
 #vˌyjd̪ʲˈie̯r# | Rule 502 : [+hi,+round,-back] > [+front] 
 #vˌyjd̪ʲjˈer# | Rule 592 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#vˌyjd̪ʲjˈɛr# | Rule 609 : ˈe > ˈɛ / [+syl] ( [-syl] )* __ 
-#vɥˌid̪ʲjˈɛr# | Rule 633 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#vɥˌid̪ʲˈɛr# | Rule 668 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#vɥˌid̪ˈɛr# | Rule 669 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#vˌid̪ˈɛr# | Rule 683 : ɥ > ∅ / [+lab,+cont,+cons] ( r ) __ [+hi,+front,-prim]
-#vˌid̪ˈɛɹ# | Rule 718 : r > ɹ / [-cons] __ #
-#vˌid̪ˈɛr# | Rule 733 : ɹ > r 
-#vˌid̪ˈɛʀ# | Rule 735 : r > ʀ 
-#vid̪ɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vid̪ɛʁ# | Rule 743 : ʀ > ʁ 
+#vɥˌid̪ʲjˈer# | Rule 634 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#vɥˌid̪ʲˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#vɥˌid̪ˈer# | Rule 670 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#vˌid̪ˈer# | Rule 684 : ɥ > ∅ / [+lab,+cont,+cons] ( r ) __ [+hi,+front,-prim]
+#vˌid̪ˈeɹ# | Rule 719 : r > ɹ / [-cons] __ #
+#vˌid̪ˈe# | Rule 733 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#vid̪e# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
