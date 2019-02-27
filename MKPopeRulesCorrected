@@ -2509,7 +2509,8 @@ $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ but there do not seem to be any examples of where it occurred with n coming after ə
 $ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
 $ CORRECTION: does not occur after n,r,l if next consonant is precedes word coda 
-ə > ∅ / {n;r;l} __ [+cons] @
+$ CORRECTION: only happens after n/r/l when those are themselves not after a consonant
+ə > ∅ / [-cons] {n;r;l} __ [+cons] @
 ə > ∅ / [+cons] __ {r;l}
 
 $ s366: late degemination of r, with lengthening of any prior vowels

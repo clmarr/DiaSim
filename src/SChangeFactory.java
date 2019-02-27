@@ -247,7 +247,7 @@ public class SChangeFactory {
 			{
 				assert inputDest.contains("]"):  "Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
 				SChangeSeqToSeq thisShift = new SChangeSeqToSeq(featIndices, symbToFeatVects, 
-						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest), inp); 
+						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
 				output.add(thisShift); 
