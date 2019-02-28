@@ -2559,7 +2559,10 @@ $ giving Pope benefit of the doubt, we place this after long a velarization, bec
 $s579: ɔ lengthens before z,v ... and then any long ɔː becomes oː 
 $ CORRECTION abrogated for now... 
 $[-hi,-lo,+back,+syl,-tense] > [+long] / __ {z;v} 
-$ [-hi,-lo,+back,+syl,+long] > [+tense]
+[-hi,-lo,+back,+syl,+long] > [+tense]
+
+$ CORRECTION: ... but o closes if it is followed by two or more consonants
+[-hi,-lo,+back,+syl] > [-tense] / __ [+cons] [+cons]
 
 $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 ∅ > j / w ˌɛ __ [+prim]
