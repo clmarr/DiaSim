@@ -2127,7 +2127,7 @@ $ ˈe (< Latin ˈeː and ˈi) in closed syllables opens to ɛ
 $ CORRECTION: does not open before a word final r or rs in multisyllabic words (it does in monosyllables: cher, suer, hier, fier)
 $ CORRECTION: also opens after ij, yj even if before r #
 ˈe > ˈɜ / __ @
-ˈɜ > ˈɛ / [+hi,+front,+syl] j __ r #
+ˈɜ > ˈe / [+hi,+front,+syl] j __ r #
 ˈɜ > ˈe / [+syl] ([-syl])* __ r (s) #
 ˈɜ > ˈɛ
 
@@ -2533,12 +2533,19 @@ $ first remark seems to be 1567 by Plantin
 $ "toward the end of the period" --  late 16th century 
 [+lo,+long,+syl] > [+back,-front]
 
+$s511 establishment of je>ie "diaeresis" in cases of C + l/r + je
+$ CORRECTION: moved a century earlier, because it bleeds s241
+$ CORRECTION : goes to i j not just i.e
+∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
+
+$ CORRECTION j also is inserted between i and a following vowel if the ˌi is after [+back] ɥ
+∅ > j / [+back] ɥ [+hi,+front] __ [+syl]
+
 $s241 : consonantalization of countertonic high vowels before lower vowels
 $ 16th century, "Later Middle French" 
 $ accepted by early 17th -- attested in Vaugelas
-[+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
-$ also formation of wi and ɥi 
-[+hi,+syl,+stres,-prim,+round] > [-syl] / __ [+hi,+front,-round,+syl]
+$ CORRECTION: does not occur before low vowels either (truant) 
+[+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl] [+stres]
 
 $s569: Pope citing Beze, intervocalic z engenders lengthening of prior consonants
 $giving Pope benefit of the doubt, we place this after long a velarization, because of examples like masure /mazyʁ/
@@ -2597,9 +2604,6 @@ $ s440 : accepted in "Early Modern French"
 $ for convenience we also group the denasalization of wɛ̃,jɛ̃ here...
 [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
 
-$s511 establishment of je>ie "diaeresis" in cases of C + l/r + je
-j > i / [+cons] [+ant,+son] __ [+front,-hi,-lo,+tense,-round,+syl]
-
 $ s532: final aj to ɛ, accepted in the 17th century
 [+lo,+front] j > [-lo,-tense] ∅ / __ #
 
@@ -2655,6 +2659,9 @@ $ CORRECTION: uvular ʀ trill becomes  a fricative
 
 $ Pope s381 ~ s687 : ʎ > j "in the course of Modern French" 
 ʎ > j
+
+$ CORRECTION: j and i after other vowels absorbed into j
+[+hi,+front,-round] > ∅ / [+syl] __ j
 
 $ Pope s177.2: ə effaced anywhere it does not bring three consonants into a cluster. 
 $ CORRECTION: last one surpressed as it doesn't match her citation forms in most cases 
