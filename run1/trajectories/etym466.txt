@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :466:
-#kˌohˈort̪em# >>> #kwɔʁ# ( Correct : #kuʁ#) :
+#kˌohˈort̪em# >>> #kuʁ# ( Correct : #kuʁ#) :
 k ˌo h ˈo r t̪ e m 
 #kˌɔhˈɔrt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #kˌɔˈɔrt̪ɛm# | Rule 16 : h > ∅ / @ __ 
@@ -9,12 +9,13 @@ k ˌo h ˈo r t̪ e m
 #kˌɔˈɔrt̪ə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
 #kˌɔˈɔrt̪ə̯# | Rule 272 : ə > ə̯ 
 #kˌɔˈɔrt̪# | Rule 307 : ə̯ > ∅ 
-#kˌoˈɔrt̪# | Rule 429 : ˌɔ > ˌo 
-#kˌuˈɔrt̪# | Rule 561 : [+round,+tense,+back] > [+hi] 
-#kwˈɔrt̪# | Rule 708 : [+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl,.stres,.prim] [+stres,+syl,+son,.delrel]
-#kwˈɔɹt̪# | Rule 714 : r > ɹ / [-cons] __ [+cons]
-#kwˈɔɹ# | Rule 718 : [-son] > ∅ / __ #
-#kwˈɔr# | Rule 728 : ɹ > r 
-#kwˈɔʀ# | Rule 730 : r > ʀ 
-#kwɔʀ# | Rule 731 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kwɔʁ# | Rule 738 : ʀ > ʁ 
+#kˌɯˈɔrt̪# | Rule 429 : ˌɔ > ˌɯ / __ ˈɔ
+#kˌɔˈɔrt̪# | Rule 431 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
+#kˈuːrt̪# | Rule 692 : [-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ˈuː
+#kˈuːɹt̪# | Rule 717 : r > ɹ / [-cons] __ [+cons]
+#kˈuːɹ# | Rule 721 : [-son] > ∅ / __ #
+#kˈuːr# | Rule 731 : ɹ > r 
+#kˈuːʀ# | Rule 733 : r > ʀ 
+#kuːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kuʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#kuʁ# | Rule 741 : ʀ > ʁ 
