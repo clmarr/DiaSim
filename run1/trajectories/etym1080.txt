@@ -18,10 +18,11 @@ s ˌe n̪ i ˈoː r e m
 #sˌẽj̃ɲˈewr# | Rule 568 : ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 #sˌɛ̃j̃ɲˈewr# | Rule 572 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
 #sˌɛ̃j̃ɲˈøwr# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#sˌɛ̃j̃ɲˈør# | Rule 619 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#sˌɛ̃ɲˈør# | Rule 661 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sˌɛɲˈør# | Rule 680 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#sˌɛɲˈøɹ# | Rule 724 : r > ɹ / [-cons] __ #
-#sˌɛɲˈø# | Rule 739 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#sɛɲø# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛɲœ# | Rule 747 : ø > œ / __ ( [+cons] )* #
+#sˌɛ̃j̃ɲˈøːr# | Rule 619 : [+round,+front,-hi,+syl] w > [+long] ∅
+#sˌɛ̃ɲˈøːr# | Rule 661 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˌɛɲˈøːr# | Rule 680 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#sˌɛɲˈøːɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#sˌɛɲˈøː# | Rule 738 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#sɛɲøː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɛɲø# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#sɛɲœ# | Rule 746 : ø > œ / __ ( [+cons] )* #

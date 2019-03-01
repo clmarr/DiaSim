@@ -11,9 +11,8 @@ Trajectory file for run 'run1'; etymon number :353:
 #ˈeɫs# | Rule 501 : [+lat] > [+back] / __ [+cons]
 #ˈews# | Rule 581 : [+lat,+back] > w 
 #ˈøws# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#ˈøs# | Rule 619 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ˈøːs# | Rule 644 : [+prim] > [+long] / __ s #
-#ˈøː# | Rule 731 : [-son] > ∅ / __ #
-#øː# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ø# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#œ# | Rule 747 : ø > œ / __ ( [+cons] )* #
+#ˈøːs# | Rule 619 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˈøː# | Rule 730 : [-son] > ∅ / __ #
+#øː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ø# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#œ# | Rule 746 : ø > œ / __ ( [+cons] )* #

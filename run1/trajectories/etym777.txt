@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :777:
-#ˈossum# >>> #o# ( Correct : #ɔs#) :
+#ˈossum# >>> #ɔs# ( Correct : #ɔs#) :
 ˈo s s u m 
 #ˈɔssʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˈɔssom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
@@ -8,8 +8,6 @@ Trajectory file for run 'run1'; etymon number :777:
 #ˈɔssə̯# | Rule 272 : ə > ə̯ 
 #ˈɔss# | Rule 307 : ə̯ > ∅ 
 #ˈɔs# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ˈɔːs# | Rule 644 : [+prim] > [+long] / __ s #
-#ˈoːs# | Rule 721 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
-#ˈoː# | Rule 731 : [-son] > ∅ / __ #
-#oː# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#o# | Rule 744 : [+syl,+long] > [-long,-splng] 
+#ˈɔsə̯# | Rule 726 : ∅ > ə̯ / # ( [-cons,-long] )* s __ #
+#ˈɔs# | Rule 731 : ə̯ > ∅ 
+#ɔs# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

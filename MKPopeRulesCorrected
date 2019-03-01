@@ -1937,8 +1937,7 @@ $ Pope s500 -- ir > ie̯r when stressed and before consonants.
 $ feeds ie̯ >je shift in 12th century, must precede it.
 ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
 
-$ CORRECTION: final l WILL be effaced if it is preceded by a 
-	$ mid vowel that is short: 
+$ CORRECTION: final l WILL be labialized if it is preceded by a mid vowel that is short: 
 	$ ɛl# > ɛa̯w# : agneau, anneau, arceau, oiseau, beau, boyau, faisceau, fleau, jouvenceau, chameau, chapeau, chateau, cerveau, niveau, manteau, marteau, nouveau, panneau, pinceau, poteau, rameau,
 		$ rateau, ruisseau, sceau, seau, e'tourneau, vanneau, vaisseau, veau, peau
 	$ el# > ew# > øw#: cheveu, ce
@@ -1961,8 +1960,8 @@ $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
 $ CORRECTION: Pope errs in notating this as ue̯ undergoing this shift, when the u should have become fronted to y by this point...
 	$ -- it is actually ye̯
 $ She also explicitly limits it to hte stressed diphthong 
-$ TODO may need to add length here ... check with Pope's length section on that. 
-[+hi,+round,+tense,+prim] e̯ > ˈø
+$ CORRECTION: ø arising this way is always long 
+[+hi,+round,+tense,+prim] e̯ > ˈøː
 
 $s385~s390 vocalization of dark l variants 
 $ per Pope s390: attested in rhymes by middle of 12th century: 
@@ -2156,8 +2155,9 @@ $Pope does not give a specific date. Makes sense to be here, given spellings ˌa
 $Pope s528-529 : aj > ɛj word finally
 [+lo,+syl] > [-lo,-tense] / __ j #
 
-$Pope s541~545: øw >ø in later 12th century. 
-w > ∅ / [+round,+front,-hi,+syl] __ 
+$Pope s541~545: øw >ø in later 12th century.
+$ CORRECTION: this renders a LONG ø.  
+[+round,+front,-hi,+syl] w > [+long] ∅
 
 $ yj >ɥi early when it will be deleted after a velar (s503 ~ s514 ~ s516) 
 $ CORRECTION : this only occurs word finally. 
@@ -2270,8 +2270,8 @@ $ CORRECTION: moved this to before merger of ts and s (<ss) as there are clearly
 	$ as there is no length where the affricate formerly followed. 
 [+front,-round,+syl] > [+long] / __ s ə #
 
-$ CORRECTION: tonic vowels become long before a final s but NOT a final ts (thus this must come before deaffrication) 
-[+prim] > [+long] / __ s #
+$ CORRECTION: tonic a become long before a final s but NOT a final ts (thus this must come before deaffrication) 
+[+prim,+lo] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
 t͡s > ∅ / __ [+cons] 
@@ -2392,7 +2392,6 @@ $ CORRECTION : include we resulting from denasalization in this
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
-$TODO NEED TO CORRECT Pope doesn't state this , but this failed to occur after sibilants.
 $CORRECTION: this only occurred right before the prime vowel -- TODO check if this is legit
 $CORRECTION: suppress this entirely. 
 $ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
@@ -2594,10 +2593,6 @@ r > ɹ / [-cons] __ {#;+cons}
 
 $ CORRECTION: final s is preserved if there are no consonantals before it in the entire word, and no long vowels either.
 ∅ > ə̯ / # ([-cons,-long])* s __ #
-
-$ CORRECTION: ... and also not after ø.
-	$ TODO: figure out when ø is long, fix that, delete this. 
-ə̯ > ∅ / ˈø s __ #
 
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 

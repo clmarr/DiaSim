@@ -20,12 +20,11 @@ Trajectory file for run 'run1'; etymon number :780:
 #ˈʉo̯ʎˠsʲ# | Rule 501 : [+lat] > [+back] / __ [+cons]
 #ˈyo̯ʎˠsʲ# | Rule 503 : [+hi,+round,-back] > [+front] 
 #ˈye̯ʎˠsʲ# | Rule 532 : o̯ > e̯ 
-#ˈøʎˠsʲ# | Rule 580 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#ˈøwsʲ# | Rule 581 : [+lat,+back] > w 
-#ˈøsʲ# | Rule 619 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ˈøs# | Rule 669 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#ˈøsə̯# | Rule 726 : ∅ > ə̯ / # ( [-cons,-long] )* s __ #
-#ˈøs# | Rule 727 : ə̯ > ∅ / ˈø s __ #
-#ˈø# | Rule 731 : [-son] > ∅ / __ #
-#ø# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#œ# | Rule 747 : ø > œ / __ ( [+cons] )* #
+#ˈøːʎˠsʲ# | Rule 580 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#ˈøːwsʲ# | Rule 581 : [+lat,+back] > w 
+#ˈøːsʲ# | Rule 619 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˈøːs# | Rule 669 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#ˈøː# | Rule 730 : [-son] > ∅ / __ #
+#øː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ø# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#œ# | Rule 746 : ø > œ / __ ( [+cons] )* #

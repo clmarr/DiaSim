@@ -578,7 +578,7 @@ f > v / [-cons] __ [-cons]| ORIG : f > v / [-cons] __ [-cons]
 [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]| ORIG : [+nas,-hi,+syl] > [+lo,+tense] /  __  [+cons]
 ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]| ORIG : ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
 l > ɫ / [+syl,-hi,-lo,-long] __ #| ORIG : l > ɫ / [+syl,-hi,-lo,-long] __ #
-[+hi,+round,+tense,+prim] e̯ > ˈø| ORIG : [+hi,+round,+tense,+prim] e̯ > ˈø
+[+hi,+round,+tense,+prim] e̯ > ˈøː| ORIG : [+hi,+round,+tense,+prim] e̯ > ˈøː
 [+lat,+back] > w | ORIG : [+lat,+back] > w
 w > ∅ / [+syl,+hi,+round] __ | ORIG : w > ∅ / [+syl,+hi,+round] __
 lʲ > ∅ | ORIG : lʲ > ∅
@@ -617,7 +617,7 @@ r r > r | ORIG : r r > r
 ˈʌ > ˈa | ORIG : ˈʌ > ˈa
 [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]| ORIG : [+lo,+syl] > [-lo,-tense] / __ j [+cons] 
 [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #| ORIG : [+lo,+syl] > [-lo,-tense] / __ j #
-w > ∅ / [+round,+front,-hi,+syl] __ | ORIG : w > ∅ / [+round,+front,-hi,+syl] __ 
+[+round,+front,-hi,+syl] w > [+long] ∅| ORIG : [+round,+front,-hi,+syl] w > [+long] ∅
 {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #| ORIG : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
 [-syl,+round,+cont] > ∅ / [+back,-cont] __ | ORIG : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
 ɥ > ∅ / [+lab,+cons] __ [+front,+round]| ORIG : ɥ > ∅ / [+lab,+cons] __ [+front,+round]
@@ -642,7 +642,7 @@ j > ∅ / d͡ʒ __ [+front,+round,-hi]| ORIG : j > ∅ / d͡ʒ __ [+front,+round
 ɲ > n̪ / __ #| ORIG : ɲ > n̪ / __ #
 n̪ > ∅ / ə̃ __ t̪ #| ORIG : n̪ > ∅ / ə̃ __ t̪ #
 [+front,-round,+syl] > [+long] / __ s ə #| ORIG : [+front,-round,+syl] > [+long] / __ s ə #
-[+prim] > [+long] / __ s #| ORIG : [+prim] > [+long] / __ s #
+[+prim,+lo] > [+long] / __ s #| ORIG : [+prim,+lo] > [+long] / __ s #
 t͡s > ∅ / __ [+cons]| ORIG : t͡s > ∅ / __ [+cons] 
 [+delrel] > [+cont,.delrel] | ORIG : [+delrel] > [+cont]
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]| ORIG : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
@@ -725,7 +725,6 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]| ORIG : j > ∅ / 
 r > ɹ / [-cons] __ #| ORIG : r > ɹ / [-cons] __  #
 r > ɹ / [-cons] __ [+cons]| ORIG : r > ɹ / [-cons] __  +cons
 ∅ > ə̯ / # ( [-cons,-long] )* s __ #| ORIG : ∅ > ə̯ / # ([-cons,-long])* s __ #
-ə̯ > ∅ / ˈø s __ #| ORIG : ə̯ > ∅ / ˈø s __ #
 ∅ > ə̯ / # [+syl] [-syl] k __ #| ORIG : ∅ > ə̯ / # [+syl] [-syl] k __ #
 ∅ > ə̯ / # [-syl] [+syl] k __ #| ORIG : ∅ > ə̯ / # [-syl] [+syl] k __ #
 ∅ > ə̯ / [+syl] f __ #| ORIG : ∅ > ə̯ / [+syl] f __ #
