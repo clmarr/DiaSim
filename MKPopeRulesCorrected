@@ -2602,9 +2602,10 @@ $for preserving f and k as per s618-169
 $ TODO Pope misses that f seems to retain itself almost always when not supported
 $ TODO she also misses the specific conditions that meant that "the word would have lost its identity" (s619)
 $ these are implemented here -- TODO delete for purposes of demo? 
+$ CORRECTION: f is ALWAYS preserved.
 ∅ > ə̯ / # [+syl] [-syl] k __ #
 ∅ > ə̯ / # [-syl] [+syl] k __ #
-∅ > ə̯ / [+syl] f __ #
+∅ > ə̯ / f __ #
 
 $ə̯ will be deleted by rule after this one ... 
 $now implement final cons loss as per s611-620: 

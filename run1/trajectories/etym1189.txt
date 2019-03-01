@@ -1,21 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1189:
-#t̪ˈen̪en̪t̪# >>> #t̪jɛn̪ə?# ( Correct : #t̪jɛn̪#) :
-t̪ ˈe n̪ e n̪ t̪ 
-#t̪ˈɛn̪ɛn̪t̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɛn̪ɛ?t̪# | Rule 102 : [+ant,+cons] > [-voi] / __ t̪
-#t̪ˈɛːn̪ɛ?t̪# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯n̪ɛ?t̪# | Rule 168 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯n̪ə?t̪# | Rule 269 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈie̯n̪ə̯?t̪# | Rule 272 : ə > ə̯ 
-#t̪ˈie̯n̪ə?t̪# | Rule 280 : ə̯ > ə / __ [+nas] t̪
-#t̪jˈen̪ə?t̪# | Rule 595 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪j?n̪ə?t̪# | Rule 612 : ˈe > ? / __ @
-#t̪jˈɛn̪ə?t̪# | Rule 615 : ? > ˈɛ 
-#t̪jˈɛn̪ə̃?t̪# | Rule 625 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪jˈɛ̃n̪ə̃?t̪# | Rule 626 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪jˈɛ̃n̪ə?t̪# | Rule 636 : ə̃ > ə 
-#t̪jˈɛ̃n̪ə̃?t̪# | Rule 648 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#t̪jˈɛ̃n̪ə?t̪# | Rule 650 : {ə̃;ˌə̃} > {ə;ˌə} 
-#t̪jˈɛn̪ə?t̪# | Rule 680 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#t̪jˈɛn̪ə?# | Rule 731 : [-son] > ∅ / __ #
-#t̪jɛn̪ə?# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ˈen̪eɑt̪# >>> #t̪jɛɲ# ( Correct : #t̪jɛn̪#) :
+t̪ ˈe n̪ e ɑ t̪ 
+#t̪ˈɛn̪ɛɑt̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɛn̪jɑt̪# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#t̪ˈɛn̪ʝɑt̪# | Rule 28 : j > ʝ / __ [+syl]
+#t̪ˈɛɲɑt̪# | Rule 88 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
+#t̪ˈɛːɲɑt̪# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈie̯ɲɑt̪# | Rule 168 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t̪ˈie̯ɲat̪# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#t̪ˈie̯ɲaθ# | Rule 256 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#t̪ˈie̯ɲəθ# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪jˈeɲəθ# | Rule 595 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#t̪jˈeɲə# | Rule 607 : {θ;ð} > {∅;∅} 
+#t̪j?ɲə# | Rule 612 : ˈe > ? / __ @
+#t̪jˈɛɲə# | Rule 615 : ? > ˈɛ 
+#t̪jˈɛ̃ɲə# | Rule 626 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#t̪jˈɛɲə# | Rule 680 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#t̪jˈɛɲə̯# | Rule 703 : ə > ə̯ / __ #
+#t̪jˈɛɲ# | Rule 731 : ə̯ > ∅ 
+#t̪jɛɲ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

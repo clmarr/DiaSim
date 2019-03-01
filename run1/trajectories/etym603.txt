@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :603:
-#lˈit̪t̪erɑm# >>> #lɛt̪ʁ# ( Correct : #lɛt̪ʁ#) :
-l ˈi t̪ t̪ e r ɑ m 
-#lˈɪt̪t̪ɛrɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈet̪t̪ɛrɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#lˈet̪t̪ɛrɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#lˈet̪t̪rɑ# | Rule 141 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
-#lˈet̪t̪ra# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#lˈet̪t̪rə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈet̪rə# | Rule 489 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#l?t̪rə# | Rule 612 : ˈe > ? / __ @
-#lˈɛt̪rə# | Rule 615 : ? > ˈɛ 
-#lˈɛt̪rə̯# | Rule 703 : ə > ə̯ / __ #
-#lˈɛt̪r# | Rule 732 : ə̯ > ∅ 
-#lˈɛt̪ʀ# | Rule 742 : r > ʀ 
-#lɛt̪ʀ# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɛt̪ʁ# | Rule 751 : ʀ > ʁ 
+#lˈin̪ɡwɑm# >>> #lɑ̃ɡ# ( Correct : #lɑ̃ɡ#) :
+l ˈi n̪ ɡ w ɑ m 
+#lˈiŋɡwɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#lˈiŋɡɣʷɑm# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#lˈiŋɡwɑm# | Rule 6 : ɣʷ > w / [+back,+hi,+cons] __ 
+#lˈɪŋɡwɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈeŋɡwɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈeŋɡwɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#lˈeŋɡwa# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#lˈeŋɡwə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈẽŋɡwə# | Rule 518 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˈɛ̃ŋɡwə# | Rule 572 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈãŋɡwə# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
+#lˈãŋɡə# | Rule 621 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
+#lˈãːɡə# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːɡə̯# | Rule 703 : ə > ə̯ / __ #
+#lˈɑ̃ːɡə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
+#lˈɑ̃ːɡ# | Rule 731 : ə̯ > ∅ 
+#lɑ̃ːɡ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lɑ̃ɡ# | Rule 743 : [+syl,+long] > [-long,-splng] 

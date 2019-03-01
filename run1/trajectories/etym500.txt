@@ -1,23 +1,13 @@
 Trajectory file for run 'run1'; etymon number :500:
-#krˈɑssiɑ# >>> #ɡʁɛs# ( Correct : #ɡʁɛs#) :
-k r ˈɑ s s i ɑ 
-#krˈɑssɪɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˈɑssjɑ# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#krˈɑssʝɑ# | Rule 28 : j > ʝ / __ [+syl]
-#krˈɑssʲsʲɑ# | Rule 179 : s [+hi,+front,+cons] > sʲ sʲ
-#krˈɑsʲsʲsʲɑ# | Rule 180 : s [+hi,+front,+cons] > sʲ sʲ
-#krˈɑsʲsʲɑ# | Rule 181 : sʲ > ∅ / __ sʲ sʲ
-#krˈasʲsʲa# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#krˈasʲsa# | Rule 392 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#krˈajssa# | Rule 393 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#krˈajssə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈajsə# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ɡrˈajsə# | Rule 551 : k > ɡ / # __ [+cor,+son] [+lo]
-#ɡrˈɛjsə# | Rule 617 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
-#ɡrˈɛːsə# | Rule 638 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ɡrˈɛːsə̯# | Rule 703 : ə > ə̯ / __ #
-#ɡrˈɛːs# | Rule 732 : ə̯ > ∅ 
-#ɡʀˈɛːs# | Rule 742 : r > ʀ 
-#ɡʀɛːs# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɡʀɛs# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#ɡʁɛs# | Rule 751 : ʀ > ʁ 
+#krˈɑssɑːs# >>> #ɡʁas# ( Correct : #ɡʁɑs#) :
+k r ˈɑ s s ɑː s 
+#krˈɑssɑs# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#krˈassas# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#krˈassəs# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈasəs# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ɡrˈasəs# | Rule 551 : k > ɡ / # __ [+cor,+son] [+lo]
+#ɡrˈasə# | Rule 730 : [-son] > ∅ / __ #
+#ɡʀˈasə# | Rule 741 : r > ʀ 
+#ɡʀasə# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɡʁasə# | Rule 750 : ʀ > ʁ 
+#ɡʁas# | Rule 753 : ə > ∅ / __ #

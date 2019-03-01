@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1115:
-#sˈon̪um# >>> #sɔ̃# ( Correct : #sɔ̃#) :
-s ˈo n̪ u m 
-#sˈɔn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɔn̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#sˈɔn̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˈɔːn̪o# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈũːn̪o# | Rule 167 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
-#sˈũːn̪ə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
-#sˈũːn̪ə̯# | Rule 272 : ə > ə̯ 
-#sˈũːn̪# | Rule 307 : ə̯ > ∅ 
-#sˈũː# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#sũː# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sũ# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#sɔ̃# | Rule 745 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#sˈomn̪ium# >>> #sɔ̃ʒ# ( Correct : #sɔ̃ʒ#) :
+s ˈo m n̪ i u m 
+#sˈɔmn̪ɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈɔmn̪jʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˈɔmn̪ʝʊm# | Rule 28 : j > ʝ / __ [+syl]
+#sˈɔmn̪ʝom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈɔmn̪ʝo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#sˈɔmmʝo# | Rule 87 : n̪ > m / m __ ʝ
+#sˈũmmʝo# | Rule 167 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#sˈũmmɟo# | Rule 258 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#sˈũmmd͡ʒo# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#sˈũmmd͡ʒə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#sˈũmmd͡ʒə̯# | Rule 272 : ə > ə̯ 
+#sˈũmmd͡ʒə# | Rule 285 : ə̯ > ə / [+delrel,-ant] __ 
+#sˈũmd͡ʒə# | Rule 287 : [+cons,+lab] > ∅ / [+cons] __ [-son]
+#sˈũmʒə# | Rule 646 : [+delrel] > [+cont,.delrel] 
+#sˈũːʒə# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˈũːʒə̯# | Rule 703 : ə > ə̯ / __ #
+#sˈũːʒ# | Rule 731 : ə̯ > ∅ 
+#sũːʒ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sũʒ# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#sɔ̃ʒ# | Rule 744 : [+back,-lo,+nas,+syl] > ɔ̃ 

@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :654:
-#mˈɑt̪t̪eɑm# >>> #mas# ( Correct : #mas#) :
-m ˈɑ t̪ t̪ e ɑ m 
-#mˈɑt̪t̪ɛɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɑt̪t̪jɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#mˈɑt̪t̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
-#mˈɑt̪t̪ʝɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#mˈɑt̪t͡sʲʝɑ# | Rule 74 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#mˈɑt̪t͡sʲɑ# | Rule 86 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#mˈat̪t͡sʲa# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#mˈat̪t͡sʲə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈat͡sʲə# | Rule 489 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˈat͡sə# | Rule 544 : t͡sʲ > t͡s / [-nas] __ 
-#mˈasə# | Rule 646 : [+delrel] > [+cont,.delrel] 
-#mˈasə̯# | Rule 703 : ə > ə̯ / __ #
-#mˈas# | Rule 732 : ə̯ > ∅ 
-#mas# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈɑt̪rem# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ t̪ r e m 
+#mˈɑt̪rɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑt̪rɛ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈɑːt̪rɛ# | Rule 112 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rɛ# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#mˈaːt̪rə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#mˈaːt̪rə̯# | Rule 272 : ə > ə̯ 
+#mˈaːt̪r# | Rule 307 : ə̯ > ∅ 
+#mˈaːt̪rə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈaːd̪rə# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#mˈaːðrə# | Rule 385 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
+#mˈae̯ðrə# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːðrə# | Rule 550 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈeːrə# | Rule 607 : {θ;ð} > {∅;∅} 
+#mˈeːrə̯# | Rule 703 : ə > ə̯ / __ #
+#mˈɛːrə̯# | Rule 706 : ˈeː > ˈɛː / __ [+cons] ə̯
+#mˈɛːr# | Rule 731 : ə̯ > ∅ 
+#mˈɛːʀ# | Rule 741 : r > ʀ 
+#mɛːʀ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛʀ# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#mɛʁ# | Rule 750 : ʀ > ʁ 

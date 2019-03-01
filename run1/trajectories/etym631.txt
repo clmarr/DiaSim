@@ -1,19 +1,16 @@
 Trajectory file for run 'run1'; etymon number :631:
-#mˌɑn̪d̪ˈɑːre# >>> #mɑ̃d̪e# ( Correct : #mɑ̃d̪e#) :
-m ˌɑ n̪ d̪ ˈɑː r e 
-#mˌɑn̪d̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɑn̪d̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#mˌɑn̪d̪ˈɑːrɛ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌan̪d̪ˈaːrɛ# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#mˌan̪d̪ˈaːrə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
-#mˌan̪d̪ˈaːrə̯# | Rule 272 : ə > ə̯ 
-#mˌan̪d̪ˈaːr# | Rule 307 : ə̯ > ∅ 
-#mˌan̪d̪ˈae̯r# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˌãn̪d̪ˈae̯r# | Rule 505 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˌãn̪d̪ˈeːr# | Rule 550 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#mˌãːd̪ˈeːr# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˌɑ̃ːd̪ˈeːr# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#mˌɑ̃ːd̪ˈeːɹ# | Rule 724 : r > ɹ / [-cons] __ #
-#mˌɑ̃ːd̪ˈeː# | Rule 739 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#mɑ̃ːd̪eː# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɑ̃d̪e# | Rule 744 : [+syl,+long] > [-long,-splng] 
+#mˌɑmˈillɑm# >>> #mamɛl# ( Correct : #mamɛl#) :
+m ˌɑ m ˈi l l ɑ m 
+#mˌɑmˈɪllɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˌɑmˈellɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˌɑmˈellɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˌamˈella# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#mˌamˈellə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌamˈelə# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#mˌãmˈelə# | Rule 505 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#mˌãm?lə# | Rule 612 : ˈe > ? / __ @
+#mˌãmˈɛlə# | Rule 615 : ? > ˈɛ 
+#mˌãmˈɛlə̯# | Rule 703 : ə > ə̯ / __ #
+#mˌãmˈɛl# | Rule 731 : ə̯ > ∅ 
+#mˌamˈɛl# | Rule 734 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#mamɛl# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

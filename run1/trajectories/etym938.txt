@@ -1,17 +1,27 @@
 Trajectory file for run 'run1'; etymon number :938:
-#prˈɑe̯st̪ɑm# >>> #pʁɛt̪# ( Correct : #pʁɛt̪#) :
-p r ˈɑ e̯ s t̪ ɑ m 
-#prˈae̯st̪ɑm# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˈɛːst̪ɑm# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˈɛːst̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#prˈɛst̪ɑ# | Rule 150 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˈɛst̪a# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#prˈɛst̪ə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#prˈɛxt̪ə# | Rule 594 : s > x / [-cons] __ [+cons]
-#prˈɛːt̪ə# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
-#prˈɛːt̪ə̯# | Rule 703 : ə > ə̯ / __ #
-#prˈɛːt̪# | Rule 732 : ə̯ > ∅ 
-#pʀˈɛːt̪# | Rule 742 : r > ʀ 
-#pʀɛːt̪# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʀɛt̪# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#pʁɛt̪# | Rule 751 : ʀ > ʁ 
+#prˌɑe̯pˈosit̪um# >>> #pʁevo# ( Correct : #pʁevo#) :
+p r ˌɑ e̯ p ˈo s i t̪ u m 
+#prˌae̯pˈosit̪um# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˌae̯pˈɔsɪt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˌɛːpˈɔsɪt̪ʊm# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˌɛːpˈɔset̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#prˌɛːpˈɔset̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#prˌɛːpˈɔst̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
+#prˌɛpˈɔst̪o# | Rule 225 : [-prim] > [-long,-splng] 
+#prˌɛpˈɔst̪ə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#prˌɛpˈɔst̪ə̯# | Rule 272 : ə > ə̯ 
+#prˌɛpˈɔst̪# | Rule 307 : ə̯ > ∅ 
+#prˌɛbˈɔst̪# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
+#prˌɛβˈɔst̪# | Rule 384 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#prˌeβˈɔst̪# | Rule 423 : ˌɛ > ˌe / __ [-cor]
+#prˌevˈɔst̪# | Rule 437 : β > v 
+#prˌɛvˈɔst̪# | Rule 592 : ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
+#prˌɛvˈɔxt̪# | Rule 594 : s > x / [-cons] __ [+cons]
+#prˌevˈɔxt̪# | Rule 608 : ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
+#prˌevˈɔːt̪# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
+#prˌevˈoːt̪# | Rule 721 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
+#prˌevˈoː# | Rule 730 : [-son] > ∅ / __ #
+#pʀˌevˈoː# | Rule 741 : r > ʀ 
+#pʀevoː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀevo# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#pʁevo# | Rule 750 : ʀ > ʁ 

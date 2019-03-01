@@ -1,21 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1211:
-#t̪ˌormˈen̪t̪ɑ# >>> #t̪uʁmɑ̃t̪# ( Correct : #t̪uʁmɑ̃t̪#) :
-t̪ ˌo r m ˈe n̪ t̪ ɑ 
-#t̪ˌɔrmˈɛn̪t̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrmˈɛ?t̪ɑ# | Rule 102 : [+ant,+cons] > [-voi] / __ t̪
-#t̪ˌɔrmˈɛ?t̪a# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#t̪ˌormˈɛ?t̪a# | Rule 430 : ˌɔ > ˌo 
-#t̪ˌormˈɛ?t̪ə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌormˈɛ̃?t̪ə# | Rule 518 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌurmˈɛ̃?t̪ə# | Rule 563 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurmˈã?t̪ə# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#t̪ˌurmˈãːt̪ə# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌurmˈãːt̪ə̯# | Rule 703 : ə > ə̯ / __ #
-#t̪ˌurmˈɑ̃ːt̪ə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˌuɹmˈɑ̃ːt̪ə̯# | Rule 725 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹmˈɑ̃ːt̪# | Rule 732 : ə̯ > ∅ 
-#t̪ˌurmˈɑ̃ːt̪# | Rule 740 : ɹ > r 
-#t̪ˌuʀmˈɑ̃ːt̪# | Rule 742 : r > ʀ 
-#t̪uʀmɑ̃ːt̪# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʀmɑ̃t̪# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#t̪uʁmɑ̃t̪# | Rule 751 : ʀ > ʁ 
+#t̪ˈorkɑm# >>> #t̪ɔʁʃ# ( Correct : #t̪ɔʁʃ#) :
+t̪ ˈo r k ɑ m 
+#t̪ˈɔrkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɔrkɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˈɔrka# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#t̪ˈɔrkʲa# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#t̪ˈɔrca# | Rule 251 : [+back,+front] > [-back] 
+#t̪ˈɔrt͡ʃa# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t̪ˈɔrt͡ʃə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈɔrʃə# | Rule 646 : [+delrel] > [+cont,.delrel] 
+#t̪ˈɔrʃə̯# | Rule 703 : ə > ə̯ / __ #
+#t̪ˈɔɹʃə̯# | Rule 725 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈɔɹʃ# | Rule 731 : ə̯ > ∅ 
+#t̪ˈɔrʃ# | Rule 739 : ɹ > r 
+#t̪ˈɔʀʃ# | Rule 741 : r > ʀ 
+#t̪ɔʀʃ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ɔʁʃ# | Rule 750 : ʀ > ʁ 

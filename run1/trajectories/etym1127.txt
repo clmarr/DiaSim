@@ -1,19 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1127:
-#spˈissɑm# >>> #epɛs# ( Correct : #epɛs#) :
-s p ˈi s s ɑ m 
-#spˈɪssɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɪspˈɪssɑm# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈessɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌespˈessɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˌespˈessa# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#ˌespˈessə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈesə# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ˌexpˈesə# | Rule 594 : s > x / [-cons] __ [+cons]
-#ˌexp?sə# | Rule 612 : ˈe > ? / __ @
-#ˌexpˈɛsə# | Rule 615 : ? > ˈɛ 
-#ˌexpˈɛːsə# | Rule 643 : [+front,-round,+syl] > [+long] / __ s ə #
-#ˌeːpˈɛːsə# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌeːpˈɛːsə̯# | Rule 703 : ə > ə̯ / __ #
-#ˌeːpˈɛːs# | Rule 732 : ə̯ > ∅ 
-#eːpɛːs# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#epɛs# | Rule 744 : [+syl,+long] > [-long,-splng] 
+#spˈon̪sum# >>> #epœ# ( Correct : #epu#) :
+s p ˈo n̪ s u m 
+#spˈoːn̪sum# | Rule 9 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#spˈoːsum# | Rule 10 : n̪ > ∅ / [+syl,+long] __ s
+#spˈoːsʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɪspˈoːsʊm# | Rule 17 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈosʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌespˈosom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌespˈoso# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˌespˈoːso# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈoːzo# | Rule 136 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˌespˈoːzə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#ˌespˈoːzə̯# | Rule 272 : ə > ə̯ 
+#ˌespˈoːz# | Rule 307 : ə̯ > ∅ 
+#ˌespˈowz# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌespˈows# | Rule 446 : [-son] > [-voi] / __ #
+#ˌespˈews# | Rule 540 : ˈo > ˈe / __ w
+#ˌexpˈews# | Rule 594 : s > x / [-cons] __ [+cons]
+#ˌexpˈøws# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˌexpˈøːs# | Rule 619 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˌeːpˈøːs# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌeːpˈøː# | Rule 730 : [-son] > ∅ / __ #
+#eːpøː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#epø# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#epœ# | Rule 746 : ø > œ / __ ( [+cons] )* #

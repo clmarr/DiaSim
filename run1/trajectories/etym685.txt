@@ -1,10 +1,29 @@
 Trajectory file for run 'run1'; etymon number :685:
-#mˈiːlle# >>> #mil# ( Correct : #mil#) :
-m ˈiː l l e 
-#mˈiːllɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈillɛ# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈillə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
-#mˈillə̯# | Rule 272 : ə > ə̯ 
-#mˈill# | Rule 307 : ə̯ > ∅ 
-#mˈil# | Rule 492 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mil# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˌet̪ˈipsimum# >>> #mɛm# ( Correct : #mɛm#) :
+m ˌe t̪ ˈi p s i m u m 
+#mˌɛt̪ˈɪpsɪmʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˌɛt̪ˈepsemom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˌɛt̪ˈepsemo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˌɛt̪ˈessemo# | Rule 203 : [+lab,-nas,-round,+cons] > s / __ s
+#mˌɛt̪ˈessəmo# | Rule 267 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#mˌɛt̪ˈessəmə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#mˌɛt̪ˈessə̯mə̯# | Rule 272 : ə > ə̯ 
+#mˌɛt̪ˈessə̯mə# | Rule 302 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#mˌɛt̪ˈessmə# | Rule 307 : ə̯ > ∅ 
+#mˌɛt̪ˈesmə# | Rule 347 : {s s;m m} > {s;m} / __ [+cons]
+#mˌɛd̪ˈesmə# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˌɛðˈesmə# | Rule 384 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#mˌeðˈesmə# | Rule 426 : ˌɛ > ˌe / __ [+cor,+cont] [-cor]
+#mˌeðˈezmə# | Rule 478 : s > z / __ [+voi,+cons]
+#mˌəðˈezmə# | Rule 508 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#mˌəðˈeːzmə# | Rule 528 : [+prim] > [+long] / @ __ z [+cons]
+#mˌəðˈeːmə# | Rule 531 : z > ∅ / __ [+cons]
+#mˌəˈeːmə# | Rule 607 : {θ;ð} > {∅;∅} 
+#mˌəˈẽːmə# | Rule 626 : [+syl,-hi] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#mˌəˈɛ̃ːmə# | Rule 676 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,.delrel] / [+syl] __ 
+#mˌəˈɛːmə# | Rule 680 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#mˈɛːmə# | Rule 687 : ˌə > ∅ / __ [+syl]
+#mˈɛːmə̯# | Rule 703 : ə > ə̯ / __ #
+#mˈɛːm# | Rule 731 : ə̯ > ∅ 
+#mɛːm# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛm# | Rule 743 : [+syl,+long] > [-long,-splng] 

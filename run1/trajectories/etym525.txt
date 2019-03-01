@@ -1,16 +1,31 @@
 Trajectory file for run 'run1'; etymon number :525:
-#kˈursum# >>> #kuʁ# ( Correct : #kuʁ#) :
-k ˈu r s u m 
-#kˈʊrsʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈorsom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˈorso# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈorsə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
-#kˈorsə̯# | Rule 272 : ə > ə̯ 
-#kˈors# | Rule 307 : ə̯ > ∅ 
-#kˈurs# | Rule 563 : [+round,+tense,+back] > [+hi] 
-#kˈuɹs# | Rule 725 : r > ɹ / [-cons] __ [+cons]
-#kˈuɹ# | Rule 731 : [-son] > ∅ / __ #
-#kˈur# | Rule 740 : ɹ > r 
-#kˈuʀ# | Rule 742 : r > ʀ 
-#kuʀ# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kuʁ# | Rule 751 : ʀ > ʁ 
+#kˈuːpreum# >>> #kɥivʁ# ( Correct : #kɥivʁ#) :
+k ˈuː p r e u m 
+#kˈuːprɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈuːprjʊm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˈuːprʝʊm# | Rule 28 : j > ʝ / __ [+syl]
+#kˈuprʝʊm# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈuprʝom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈuprʝo# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#kˈuːprʝo# | Rule 112 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#kˈuːprʲo# | Rule 177 : r ʝ > rʲ 
+#kˈʉːprʲo# | Rule 219 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈʉːprʲə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#kˈʉːprʲə̯# | Rule 272 : ə > ə̯ 
+#kˈʉːprʲ# | Rule 307 : ə̯ > ∅ 
+#kˈʉːprʲə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#kˈʉːjprʲə# | Rule 354 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#kˈʉːjbrʲə# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#kˈʉjbrʲə# | Rule 362 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#kˈʉːjbrʲə# | Rule 372 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#kˈʉːjbrə# | Rule 391 : rʲ > r 
+#kˈʉjbrə# | Rule 398 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#kˈʉjβrə# | Rule 464 : b > β / [-cons] __ r
+#kˈʉjvrə# | Rule 465 : β > v 
+#kˈyjvrə# | Rule 503 : [+hi,+round,-back] > [+front] 
+#kɥˈivrə# | Rule 632 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#kɥˈivrə̯# | Rule 703 : ə > ə̯ / __ #
+#kɥˈivr# | Rule 731 : ə̯ > ∅ 
+#kɥˈivʀ# | Rule 741 : r > ʀ 
+#kɥivʀ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kɥivʁ# | Rule 750 : ʀ > ʁ 

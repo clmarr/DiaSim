@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :867:
-#pˈet̪t̪iɑm# >>> #pjɛs# ( Correct : #pjɛs#) :
-p ˈe t̪ t̪ i ɑ m 
-#pˈɛt̪t̪ɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛt̪t̪jɑm# | Rule 25 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#pˈɛt̪t̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
-#pˈɛt̪t̪ʝɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#pˈɛt̪t͡sʲʝɑ# | Rule 74 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#pˈɛt̪t͡sʲɑ# | Rule 86 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#pˈɛt̪t͡sʲa# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#pˈie̯t̪t͡sʲa# | Rule 237 : ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front,-cont]
-#pˈie̯t̪t͡sʲə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈie̯t͡sʲə# | Rule 489 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˈie̯t͡sə# | Rule 544 : t͡sʲ > t͡s / [-nas] __ 
-#pjˈet͡sə# | Rule 595 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pj?t͡sə# | Rule 612 : ˈe > ? / __ @
-#pjˈɛt͡sə# | Rule 615 : ? > ˈɛ 
-#pjˈɛsə# | Rule 646 : [+delrel] > [+cont,.delrel] 
-#pjˈɛsə̯# | Rule 703 : ə > ə̯ / __ #
-#pjˈɛs# | Rule 732 : ə̯ > ∅ 
-#pjɛs# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈet̪rum# >>> #pjɛʁ# ( Correct : #pjɛʁ#) :
+p ˈe t̪ r u m 
+#pˈɛt̪rʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɛt̪rom# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɛt̪ro# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#pˈɛːt̪ro# | Rule 112 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#pˈie̯t̪ro# | Rule 168 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˈie̯t̪rə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#pˈie̯t̪rə̯# | Rule 272 : ə > ə̯ 
+#pˈie̯t̪r# | Rule 307 : ə̯ > ∅ 
+#pˈie̯t̪rə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#pˈie̯d̪rə# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#pˈie̯ðrə# | Rule 385 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
+#pjˈeðrə# | Rule 595 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pjˈerə# | Rule 607 : {θ;ð} > {∅;∅} 
+#pj?rə# | Rule 612 : ˈe > ? / __ @
+#pjˈɛrə# | Rule 615 : ? > ˈɛ 
+#pjˈɛrə̯# | Rule 703 : ə > ə̯ / __ #
+#pjˈɛr# | Rule 731 : ə̯ > ∅ 
+#pjˈɛʀ# | Rule 741 : r > ʀ 
+#pjɛʀ# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pjɛʁ# | Rule 750 : ʀ > ʁ 

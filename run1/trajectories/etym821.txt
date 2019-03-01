@@ -1,18 +1,13 @@
 Trajectory file for run 'run1'; etymon number :821:
-#pˈɑːst̪or# >>> #pɑt̪ʁ# ( Correct : #pɑt̪ʁ#) :
-p ˈɑː s t̪ o r 
-#pˈɑːst̪ɔr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɑst̪ɔr# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#pˈast̪ɔr# | Rule 200 : [+lo,+syl] > [+front,-back] 
-#pˈast̪ər# | Rule 269 : [-stres,-lo,+syl] > ə / __ [-syl]
-#pˈast̪ə̯r# | Rule 272 : ə > ə̯ 
-#pˈast̪rə# | Rule 289 : ə̯ r > r ə / __ #
-#pˈaxt̪rə# | Rule 594 : s > x / [-cons] __ [+cons]
-#pˈaːt̪rə# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
-#pˈaːt̪rə̯# | Rule 703 : ə > ə̯ / __ #
-#pˈɑːt̪rə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#pˈɑːt̪r# | Rule 732 : ə̯ > ∅ 
-#pˈɑːt̪ʀ# | Rule 742 : r > ʀ 
-#pɑːt̪ʀ# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɑt̪ʀ# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#pɑt̪ʁ# | Rule 751 : ʀ > ʁ 
+#pˈɑst̪ɑm# >>> #pɑt̪# ( Correct : #pɑt̪#) :
+p ˈɑ s t̪ ɑ m 
+#pˈɑst̪ɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#pˈast̪a# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#pˈast̪ə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈaxt̪ə# | Rule 594 : s > x / [-cons] __ [+cons]
+#pˈaːt̪ə# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
+#pˈaːt̪ə̯# | Rule 703 : ə > ə̯ / __ #
+#pˈɑːt̪ə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
+#pˈɑːt̪# | Rule 731 : ə̯ > ∅ 
+#pɑːt̪# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɑt̪# | Rule 743 : [+syl,+long] > [-long,-splng] 

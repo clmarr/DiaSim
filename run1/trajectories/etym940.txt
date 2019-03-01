@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :940:
-#prˈɑe̯st̪um# >>> #pʁɛ# ( Correct : #pʁɛ#) :
-p r ˈɑ e̯ s t̪ u m 
-#prˈae̯st̪um# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˈae̯st̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪ʊm# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˈɛːst̪om# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#prˈɛːst̪o# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#prˈɛst̪o# | Rule 150 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#prˈɛst̪ə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
-#prˈɛst̪ə̯# | Rule 272 : ə > ə̯ 
-#prˈɛst̪# | Rule 307 : ə̯ > ∅ 
-#prˈɛxt̪# | Rule 594 : s > x / [-cons] __ [+cons]
-#prˈɛːt̪# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
-#prˈɛː# | Rule 731 : [-son] > ∅ / __ #
-#pʀˈɛː# | Rule 742 : r > ʀ 
-#pʀɛː# | Rule 743 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʀɛ# | Rule 744 : [+syl,+long] > [-long,-splng] 
-#pʁɛ# | Rule 751 : ʀ > ʁ 
+#prˌɑe̯st̪ˈɑːre# >>> #pʁɛt̪e# ( Correct : #pʁɛt̪e#) :
+p r ˌɑ e̯ s t̪ ˈɑː r e 
+#prˌae̯st̪ˈɑːre# | Rule 4 : [+lo,+syl] > [+front,-back] / __ e̯
+#prˌae̯st̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#prˌae̯st̪ˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#prˌɛːst̪ˈɑrɛ# | Rule 57 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#prˌɛːst̪ˈɑːrɛ# | Rule 111 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˌɛst̪ˈɑːrɛ# | Rule 150 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#prˌɛst̪ˈaːrɛ# | Rule 200 : [+lo,+syl] > [+front,-back] 
+#prˌɛst̪ˈaːrə# | Rule 270 : [-stres,-lo,+syl] > ə / __ #
+#prˌɛst̪ˈaːrə̯# | Rule 272 : ə > ə̯ 
+#prˌɛst̪ˈaːr# | Rule 307 : ə̯ > ∅ 
+#prˌɛst̪ˈae̯r# | Rule 415 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˌɛst̪ˈeːr# | Rule 550 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#prˌɛxt̪ˈeːr# | Rule 594 : s > x / [-cons] __ [+cons]
+#prˌɛːt̪ˈeːr# | Rule 654 : [+syl] x > [+long] ∅/ __ [+cons]
+#prˌɛːt̪ˈeːɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#prˌɛːt̪ˈeː# | Rule 738 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#pʀˌɛːt̪ˈeː# | Rule 741 : r > ʀ 
+#pʀɛːt̪eː# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pʀɛt̪e# | Rule 743 : [+syl,+long] > [-long,-splng] 
+#pʁɛt̪e# | Rule 750 : ʀ > ʁ 
