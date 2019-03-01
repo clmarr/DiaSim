@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :876:
-#pˌikt̪ˈɑːn̪eːs# >>> #pwat̪jɛʁ# ( Correct : #pwat̪je#) :
+#pˌikt̪ˈɑːn̪eːs# >>> #pwat̪je# ( Correct : #pwat̪je#) :
 p ˌi k t̪ ˈɑː n̪ eː s 
 #pˌɪkt̪ˈɑːn̪eːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #pˌɪkt̪ˈɑːn̪es# | Rule 55 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
@@ -29,11 +29,8 @@ p ˌi k t̪ ˈɑː n̪ eː s
 #pˌujt̪jˈers# | Rule 614 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
 #pˌuɛ̯t̪jˈers# | Rule 630 : j > ɛ̯ / [+syl,+back,+round] __ 
 #pwˌɛt̪jˈers# | Rule 631 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˌɛt̪jˈɛrs# | Rule 682 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]
-#pwˌɛt̪jˈɛɹs# | Rule 726 : r > ɹ / [-cons] __ [+cons]
-#pwˌɛt̪jˈɛɹ# | Rule 731 : [-son] > ∅ / __ #
-#pwˌɛt̪jˈɛr# | Rule 743 : ɹ > r 
-#pwˌɛt̪jˈɛʀ# | Rule 745 : r > ʀ 
-#pwɛt̪jɛʀ# | Rule 746 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pwat̪jɛʀ# | Rule 751 : ɛ > a / w __ 
-#pwat̪jɛʁ# | Rule 753 : ʀ > ʁ 
+#pwˌɛt̪jˈeɹs# | Rule 727 : r > ɹ / [-cons] __ [+cons]
+#pwˌɛt̪jˈeɹ# | Rule 732 : [-son] > ∅ / __ #
+#pwˌɛt̪jˈe# | Rule 742 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#pwɛt̪je# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwat̪je# | Rule 752 : ɛ > a / w __ 

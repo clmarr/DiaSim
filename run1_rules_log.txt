@@ -680,8 +680,9 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]| ORIG : j > ∅ / 
 [+lat] > ∅ / [+strid,+cor] [+syl,+hi,+front] __ #| ORIG : [+lat] > ∅ / [+strid,+cor] [+syl,+hi,+front] __ #
 [+lat] > ∅ / [+syl,+hi,+back] __ #| ORIG : [+lat] > ∅ / [+syl,+hi,+back] __ #
 [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]| ORIG : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-[-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons]| ORIG : [-hi,-lo,+syl,+front,-round] > [-tense] / __ r [+cons]
+[-hi,-lo,+syl,+front] > [-tense,-cons,-lat,+cont,.delrel] / __ r [+cons,-strid]| ORIG : [-hi,-lo,+syl,+front] > [-tense] / __ r [+cons,-strid]
 [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,.delrel] / # ( [-syl] )* __ r #| ORIG : [-hi,-lo,+syl,+front,-round] > [-tense] / # ([-syl])* __ r #
+[-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #| ORIG : [-hi,-lo,+syl,+front,+round] > [-tense] / __ r #
 ɥ > ∅ / [+lab,+cont,+cons] ( r ) __ [+hi,+front,-prim]| ORIG : ɥ > ∅ / [+lab,+cont,+cons] (r) __ [+hi,+front,-prim]
 [+front,+round,+tense,-prim] > [+hi] / __ [+lab,+cons]| ORIG : [+front,+round,+tense,-prim] > [+hi] / __ [+lab,+cons]
 ˌə > ˌa / __ [+lo,+stres]| ORIG : ˌə > ˌa / __ [+lo,+stres] 

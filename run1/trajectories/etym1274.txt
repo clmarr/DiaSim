@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1274:
-#wˌɑlˈoːrem# >>> #valø# ( Correct : #valœʁ#) :
+#wˌɑlˈoːrem# >>> #valœʁ# ( Correct : #valœʁ#) :
 w ˌɑ l ˈoː r e m 
 #ɣʷˌɑlˈoːrem# | Rule 5 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɑlˈoːrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
@@ -17,7 +17,10 @@ w ˌɑ l ˈoː r e m
 #vˌalˈewr# | Rule 540 : ˈo > ˈe / __ w
 #vˌalˈøwr# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 #vˌalˈøːr# | Rule 619 : [+round,+front,-hi,+syl] w > [+long] ∅
-#vˌalˈøːɹ# | Rule 725 : r > ɹ / [-cons] __ #
-#vˌalˈøː# | Rule 741 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#valøː# | Rule 746 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#valø# | Rule 747 : [+syl,+long] > [-long,-splng] 
+#vˌalˈœːr# | Rule 684 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,.delrel] / __ r #
+#vˌalˈœːɹ# | Rule 726 : r > ɹ / [-cons] __ #
+#vˌalˈœːr# | Rule 744 : ɹ > r 
+#vˌalˈœːʀ# | Rule 746 : r > ʀ 
+#valœːʀ# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#valœʀ# | Rule 748 : [+syl,+long] > [-long,-splng] 
+#valœʁ# | Rule 754 : ʀ > ʁ 
