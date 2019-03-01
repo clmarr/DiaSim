@@ -2583,8 +2583,19 @@ $ ∅ > j / w ˌɛ __ [+prim]
 
 $~Early Modern French
 
+$ CORRECTION: final t will be preserved in final cons loss series, if it is only preceded by
+	$  monosyllables with no onset consonantals (ɥ, w, j -- not consonantal)
+∅ > ə̯ / # ([-cons,-nas])* t̪ __ #
+
 $ s395 : r becomes a glide in certain positions... 
 r > ɹ / [-cons] __ {#;+cons}
+
+$ CORRECTION: final s is preserved if there are no consonantals before it in the entire word, and no long vowels either.
+∅ > ə̯ / # ([-cons,-long])* s __ #
+
+$ CORRECTION: ... and also not after ø.
+	$ TODO: figure out when ø is long, fix that, delete this. 
+ə̯ > ∅ / ˈø s __ #
 
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 

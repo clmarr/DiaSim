@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :82:
-#ˌɑwɡˈust̪um# >>> #u# ( Correct : #ut̪#) :
+#ˌɑwɡˈust̪um# >>> #ut̪# ( Correct : #ut̪#) :
 ˌɑ w ɡ ˈu s t̪ u m 
 #ˌɑwɡˈʊst̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
 #ˌɑɡˈʊst̪ʊm# | Rule 64 : [-syl,-cons,-lo,+round,+back] > ∅ / ˌɑ __ ( [-syl] )* [+stres,+hi,+round,+back]
@@ -15,6 +15,7 @@ Trajectory file for run 'run1'; etymon number :82:
 #ˌaˈuxt̪# | Rule 594 : s > x / [-cons] __ [+cons]
 #ˌaˈuːt̪# | Rule 653 : [+syl] x > [+long] ∅/ __ [+cons]
 #ˈuːt̪# | Rule 698 : ˌa > ∅ / __ [+prim]
-#ˈuː# | Rule 727 : [-son] > ∅ / __ #
-#uː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#u# | Rule 740 : [+syl,+long] > [-long,-splng] 
+#ˈuːt̪ə̯# | Rule 722 : ∅ > ə̯ / # ( [-cons,-nas] )* t̪ __ #
+#ˈuːt̪# | Rule 731 : ə̯ > ∅ 
+#uːt̪# | Rule 742 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ut̪# | Rule 743 : [+syl,+long] > [-long,-splng] 
