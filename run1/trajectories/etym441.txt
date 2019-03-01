@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :441:
-#kˈɑwsɑm# >>> #ʃɔz# ( Correct : #ʃoz#) :
+#kˈɑwsɑm# >>> #ʃoz# ( Correct : #ʃoz#) :
 k ˈɑ w s ɑ m 
 #kˈɑwsɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑwzɑ# | Rule 136 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
@@ -9,8 +9,11 @@ k ˈɑ w s ɑ m
 #cˈɔwza# | Rule 251 : [+back,+front] > [-back] 
 #t͡ʃˈɔwza# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #t͡ʃˈɔwzə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˈɔzə# | Rule 559 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
-#ʃˈɔzə# | Rule 643 : [+delrel] > [+cont,.delrel] 
-#ʃˈɔzə̯# | Rule 700 : ə > ə̯ / __ #
-#ʃˈɔz# | Rule 725 : ə̯ > ∅ 
-#ʃɔz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t͡ʃˈɔzə# | Rule 560 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
+#ʃˈɔzə# | Rule 644 : [+delrel] > [+cont,.delrel] 
+#ʃˈɔzə̯# | Rule 701 : ə > ə̯ / __ #
+#ʃˈɔːzə̯# | Rule 717 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+#ʃˈoːzə̯# | Rule 719 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
+#ʃˈoːz# | Rule 727 : ə̯ > ∅ 
+#ʃoːz# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃoz# | Rule 739 : [+syl,+long] > [-long,-splng] 

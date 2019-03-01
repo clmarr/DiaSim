@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :17:
-#ˌɑlˈɑwsɑm# >>> #alɔz# ( Correct : #aloz#) :
+#ˌɑlˈɑwsɑm# >>> #aloz# ( Correct : #aloz#) :
 ˌɑ l ˈɑ w s ɑ m 
 #ˌɑlˈɑwsɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑlˈɑwzɑ# | Rule 136 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
@@ -8,5 +8,8 @@ Trajectory file for run 'run1'; etymon number :17:
 #ˌalˈɔwzə# | Rule 443 : a > ə / [+syl] ( [-syl] )* __ 
 #ˌalˈɔzə# | Rule 559 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
 #ˌalˈɔzə̯# | Rule 700 : ə > ə̯ / __ #
-#ˌalˈɔz# | Rule 725 : ə̯ > ∅ 
-#alɔz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˌalˈɔːzə̯# | Rule 716 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+#ˌalˈoːzə̯# | Rule 718 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
+#ˌalˈoːz# | Rule 727 : ə̯ > ∅ 
+#aloːz# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aloz# | Rule 739 : [+syl,+long] > [-long,-splng] 
