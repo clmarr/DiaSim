@@ -1816,7 +1816,8 @@ $ CORRECTION : not yet after nasals
 t͡sʲ > t͡s / {[-nas];#} __
  
 $ CORRECTION e > ɛ before ʎ
-$ TODO : make sure this doesn't have bad side effects.
+$ Pope actually does have this happening, but for her it happens centuries later and does not function to block 
+	$ phenomena that would have modified e had it not occurred here. 
 [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
 $ CORRECTION: ˌo and ˈo open before final t or k 
@@ -1998,8 +1999,6 @@ $ happens after the loss of the interdental frics.
 
 $ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or r. 12th century. 
 ˈe > ˈɛ / __ r [+cons]
-$ CORRECTED: ... but does not occur before l actually
-$ ˈe > ˈɛ / __ [+lat] [+cons]
 
 $ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
 ˌe > ˌɛ / __ l ə 
@@ -2600,7 +2599,6 @@ $ CORRECTION: ... and also not after ø.
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 
 $ s618-619 : counteraction led to preservation quasiregularly where it was f or k in a monosyllable. 
-$ various other factors that arenˌt really important diachronically
 
 $for preserving f and k as per s618-169
 $ TODO Pope misses that f seems to retain itself almost always when not supported
@@ -2645,9 +2643,10 @@ $ s400-401 : final r deletion
 $ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) for all except for er and jer terminations in polysyllabic words.
 $ per s395 : began with r "losing its trill" (in the index, Pope explicitly attributes the destination 
 ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
-ɹ > r $reassertion of trill by hypercorrection elsewhere. 
+ɹ > r $reassertion of trill elsewhere. 
 
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
+	$ has no effect as Frankish and other Germanic words are currently excluded form dataset
 h > ∅ 
 
 $ s394 ~ s598 : r becomes uvular 
@@ -2673,6 +2672,9 @@ $ for convenience œ̃ also handled in here.
 $~Modern French
 $ CORRECTION: ø closes before consonants in final syll. 
 ø > œ / __ ([+cons])* #
+
+$ CORRECTION : word final ɔ to o
+ɔ > o / __ #
 
 $ s525 wɛ > wa -- first attested late 16th century
 $ as per s525, not really accepted except before r "until the Revolution destroyed the old tradition"
