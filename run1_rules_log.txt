@@ -689,8 +689,8 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]| ORIG : j > ∅ / 
 ˌə > ˌa / __ [+lo,+stres]| ORIG : ˌə > ˌa / __ [+lo,+stres] 
 [+prim] > [+long] / ˌə __ | ORIG : [+prim] > [+long] / ˌə __ 
 ˌə > ∅ / __ [+syl]| ORIG : ˌə > ∅ / __ [+syl]
-[+stres] > [+long] / ə __ | ORIG : [+stres] > [+long] / ə __ 
-ə > ∅ / __ [+syl]| ORIG : ə > ∅ / __ [+syl] 
+[+stres] > [+long] / [+syl,-front,-back] ( w ) __ | ORIG : [+stres] > [+long] / [+syl,-front,-back] (w) __
+[+syl,-front,-back] > ∅ / __ ( w ) [+syl]| ORIG : [+syl,-front,-back] > ∅ / __ (w) [+syl] 
 [+stres] > [+long] / __ ə| ORIG : [+stres] > [+long] / __ ə
 ə > ∅ / [+syl] __ | ORIG : ə > ∅ / [+syl] __ 
 [+lo,+syl] [+lo,+syl] > ∅ [+long]| ORIG : [+lo,+syl] [+lo,+syl] > ∅ [+long]
@@ -728,8 +728,8 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]| ORIG : j > ∅ / 
 r > ɹ / [-cons] __ #| ORIG : r > ɹ / [-cons] __  #
 r > ɹ / [-cons] __ [+cons]| ORIG : r > ɹ / [-cons] __  +cons
 ∅ > ə̯ / # ( [-cons,-long] )* s __ #| ORIG : ∅ > ə̯ / # ([-cons,-long])* s __ #
-∅ > ə̯ / # [+syl] [-syl] k __ #| ORIG : ∅ > ə̯ / # [+syl] [-syl] k __ #
-∅ > ə̯ / # [-syl] [+syl] k __ #| ORIG : ∅ > ə̯ / # [-syl] [+syl] k __ #
+∅ > ə̯ / # [+syl,-nas] [-syl] k __ #| ORIG : ∅ > ə̯ / # [+syl,-nas] [-syl] k __ #
+∅ > ə̯ / # [-syl] [+syl,-nas] k __ #| ORIG : ∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
 ∅ > ə̯ / f __ #| ORIG : ∅ > ə̯ / f __ #
 [-son] > ∅ / __ #| ORIG : [-son] > ∅ / __ #
 ə̯ > ∅ | ORIG : ə̯ > ∅

@@ -2487,8 +2487,9 @@ $ s562 : lengthens following vowel if it is tonic additionally
 $ s268~s269 : ə effaced when followed by another vowel
 $ s269 began in the 13th century, but not accepted until the 16th!
 $ s562 : lengthens that vowel if it bears stress. 
-[+stres] > [+long] / ə __ 
-ə > ∅ / __ [+syl] 
+$ CORRECTION: goes through w
+[+stres] > [+long] / [+syl,-front,-back] (w) __
+[+syl,-front,-back] > ∅ / __ (w) [+syl] 
 
 $ s270 ə coming after another vowel is effaced 
 $ s562 : neighboring vowel lengthens if it bears stress
@@ -2568,6 +2569,7 @@ $ "toward the end of the period" --  late 16th century
 $s511 establishment of je>ie "diaeresis" in cases of C + l/r + je
 $ CORRECTION: moved a century earlier, because it bleeds s241
 $ CORRECTION : goes to i j not just i.e
+$ CORRECTION: also happens word initially. 
 ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
 
 $ CORRECTION j also is inserted between i and a following vowel if the ˌi is after [+back] ɥ
@@ -2617,12 +2619,10 @@ $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) 
 $ s618-619 : counteraction led to preservation quasiregularly where it was f or k in a monosyllable. 
 
 $for preserving f and k as per s618-169
-$ TODO Pope misses that f seems to retain itself almost always when not supported
-$ TODO she also misses the specific conditions that meant that "the word would have lost its identity" (s619)
-$ these are implemented here -- TODO delete for purposes of demo? 
 $ CORRECTION: f is ALWAYS preserved.
-∅ > ə̯ / # [+syl] [-syl] k __ #
-∅ > ə̯ / # [-syl] [+syl] k __ #
+$ CORRECTION: only applies when the single syllabic vowel is not nasal
+∅ > ə̯ / # [+syl,-nas] [-syl] k __ #
+∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
 ∅ > ə̯ / f __ #
 
 $ə̯ will be deleted by rule after this one ... 
