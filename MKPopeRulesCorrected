@@ -2288,6 +2288,9 @@ $Pope does not give an exact date here...
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
+$ CORRECTION: final j just deleted
+j > ∅ / __ #
+
 $ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas] / __ [+nas,+cons]
@@ -2589,6 +2592,7 @@ $ CORRECTION: final t will be preserved in final cons loss series, if it is only
 ∅ > ə̯ / # ([-cons,-nas])* t̪ __ #
 
 $ s395 : r becomes a glide in certain positions... 
+$ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
 r > ɹ / [-cons] __ {#;+cons}
 
 $ CORRECTION: final s is preserved if there are no consonantals before it in the entire word, and no long vowels either.
@@ -2616,6 +2620,9 @@ $ for convenience we group this with:
 	$ s539 ə̯o: > o: finally accepted in the 17th century
 ə̯ > ∅
 
+$ CORRECTION: ø opens before consonants in final syll. ə does not change this.
+[+front,+round,-hi,+syl] > [-tense] / __ ([+cons])+ (ə) #
+
 $ s470-474 :  final acceptance of wẽ,jẽ opening to wɛ̃,jɛ̃
 $ accepted in the early 17th century
 $ for convenience ø̃ > œ̃ handled also in here. 
@@ -2633,15 +2640,21 @@ $ s532: final aj to ɛ, accepted in the 17th century
 [+lo,+front] j > [-lo,-tense] ∅ / __ #
 
 $ s531.ii : aj followed by tonic vowel becomes ɛj, accepted in late 17th century
-[+lo,+front] > [-lo,-tense] / __ j [+prim]
+$ CORRECTION: only before tense tonic vowels, and it goes to e, not ɛj
+[+lo,+front] j > [-lo] ∅ / __  [+prim,+tense]
+
+$ CORRECTION: mid vowels to lax before i,j
+[+syl,-lo,-hi] > [-tense] / __ [-cons,+hi,+front]
 
 $ CORRECTION: countertonic ə, ɛ after [+lab] l become ˌe
 [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __
 
 $ s400-401 : final r deletion 
-$ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) for all except for er and jer terminations in polysyllabic words.
-$ per s395 : began with r "losing its trill" (in the index, Pope explicitly attributes the destination 
+$ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) 
+	$ for all except for er and jer terminations in polysyllabic words.
+$ CORRECTION: r does also efface in monosyllables of pattern we(ː)r#
 ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
+ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
 ɹ > r $reassertion of trill elsewhere. 
 
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
@@ -2669,9 +2682,6 @@ $ for convenience œ̃ also handled in here.
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
 
 $~Modern French
-$ CORRECTION: ø closes before consonants in final syll. 
-ø > œ / __ ([+cons])* #
-
 $ CORRECTION : word final ɔ to o
 ɔ > o / __ #
 
