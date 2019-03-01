@@ -37,8 +37,8 @@ w > ∅ / k __ [+syl,+round] @| ORIG : w > ∅ / k __ [+syl,+round] @
 ɔ > ∅ / [+prim] ( [-syl] )* [-cont,-lab] __ [+lat] [+syl] ( [-syl] ) #| ORIG : ɔ > ∅ / [+prim] ([-syl])*  [-cont,-lab] __ [+lat] [+syl] ([-syl]) #
 ɔ > ∅ / [+prim] ( [-syl] )* m __ [+lat] [+syl] ( [-syl] ) #| ORIG : ɔ > ∅ / [+prim] ([-syl])*  m __ [+lat] [+syl] ([-syl]) #
 ɔ > ∅ / [+prim] ( [-syl] )* r __ [+lat] [+syl] ( [-syl] ) #| ORIG : ɔ > ∅ / [+prim] ([-syl])*  r __ [+lat] [+syl] ([-syl]) #
-ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ [+cor,-son,-cont] [+front,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
-ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
+ɪ > ∅ / [+prim] ( [-syl] )* [+son] __ d̪ [+front,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+son] __ d̪ [+front,-lo] ([-syl]) #
+ɪ > ∅ / [+prim] ( [-syl] )* [+cons,+voi] __ d̪ [+back,-lo] ( [-syl] ) #| ORIG : ɪ > ∅ / [+prim] ([-syl])* [+cons,+voi] __ d̪ [+back,-lo] ([-syl]) #
 [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* n̪ __ r [+syl]| ORIG : [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
 [-lo,-stres,+syl] > ∅ / [+prim] ( [-syl] )* [+lat] __ r [+syl]| ORIG : [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] 
 ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l| ORIG : ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
@@ -91,6 +91,7 @@ n̪ > m / m __ ʝ| ORIG : n̪ > m / m __ ʝ
 l l ʝ > ʎ | ORIG : l l ʝ > ʎ
 l ʝ > ʎ | ORIG : l ʝ > ʎ
 [+syl,-stres] > ∅ / [+syl] βʷ __ [+cor,-cont]| ORIG : [+syl,-stres] > ∅ / [+syl] βʷ __ [+cor,-cont]
+e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #| ORIG : e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #| ORIG : e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
 ɛ > ∅ / [+front,+cons] __ t̪| ORIG : ɛ > ∅ / [+front,+cons] __ t̪
 ∅ > e / p __ d̪| ORIG : ∅ > e / p __ d̪
@@ -320,13 +321,13 @@ k > ∅ / __ t͡sʲ| ORIG : k > ∅  / __ t͡sʲ
 t̪ > ∅ / __ r t̪ [+delrel]| ORIG : t̪ > ∅ / __ r t̪ [+delrel]
 ∅ > ə / [+cons,-son] [+son,-syl] __ #| ORIG : ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #| ORIG : ∅ > ə / [+cons,-nas] [+nas] __ #
-∅ > ə / [+cons,+lab] [-cont,+cor] __ #| ORIG : ∅ > ə / [+cons,+lab]  [-cont,+cor] __ #
-∅ > ə / [+cons,+lab] n̪ __ #| ORIG : ∅ > ə / [+cons,+lab]  n̪ __ #
 ∅ > ə / [+cons] ɲ __ #| ORIG : ∅ > ə / [+cons] ɲ __ #
 ∅ > ə / [-ant,+delrel] __ #| ORIG : ∅ > ə / [-ant,+delrel] __ #
 ∅ > ə / [-lat,+cons] l __ #| ORIG : ∅ > ə / [-lat,+cons] l __ #
-∅ > ə / [-son] r __ #| ORIG : ∅ > ə / [-son] r __ #
 ∅ > ə / m m __ #| ORIG : ∅ > ə / m m __ #
+∅ > ə / [+cons,+lab] [+cor,-delrel] __ #| ORIG : ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
+d̪ > t̪ ə / t̪ __ #| ORIG : d̪ > t̪ ə / t̪ __ #
+∅ > ə / d̪ t̪ __ #| ORIG : ∅ > ə / d̪ t̪ __ #
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ | ORIG : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 [+ant,+cor,+distr,-nas] s > t͡s/ __ #| ORIG : [+ant,+cor,+distr,-nas] s > t͡s / __ #
 z > ∅ / __ s| ORIG : z > ∅ / __ s

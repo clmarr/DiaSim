@@ -145,8 +145,12 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 	$ the most faithful way to render this also in line with Occam's Razor would seem to be [+cons] 
 	$ *** NOTE s353 -- seems to imply it was possible for this to NOT occur for some words
 	$ note also the frigidus contradiction: s297 & s316 vs. s262ii & s296i
-ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
-ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
+$ CORRECTION: ɪ does not disappear before t at this point as all the affected words (hospitem, comitem, lenditem, limitem) need to eject ə after final vowels are lost
+$ CORRECTION: ɪ only disappears before d[+front,-lo] when after a sonorant (magidem must also eject ə -- so cluster must be formed in Gallo-Roman stage)
+$ CORRECTION: ɪ before dʊ does not disappear if previous consonant is voiceless, as these will need to eject ə in Gallo-Roman when final vowels are lost (muccidum, nitidum, sapidum, tepidum)
+	$ it DOES disappear before voiced stops though (frigidum)
+ɪ > ∅ / [+prim] ([-syl])* [+son] __ d̪ [+front,-lo] ([-syl]) #
+ɪ > ∅ / [+prim] ([-syl])* [+cons,+voi] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and r 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to apply to... 
@@ -333,13 +337,15 @@ $ CORRECTION: vowels deleted between [+syl] w and {t;d}
 
 $per Pope s353: unstressed penultimate ɪ in -item, itum, idum, ita endings is deleted before any d > ð
 $ we can use /e/ here because if it was e:, it would be stressed. 
-$ CORRECTION: include also the syncope of vowels before n̪ -
+$ CORRECTION: include also the syncope of vowels before n̪ 
+$ CORRECTION: when before a vowel in coda position it instead goes to ə̯ (which will be totally effaced instead in Gallo-Roman) before t when after a consonantal continuant then a stop
+e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
 e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
 
 $ CORRECTION: unstressed ɛ after palatal deleted before t̪ followed by some a-variant
 ɛ > ∅ / [+front,+cons] __ t̪
 
-$CORRECTION e reinserted between p and d (rapidum, sapidum, tepidum > rade, sade, tiede) 
+$CORRECTION ə̯ inserted between p and d (rapidum, sapidum, tepidum > rade, sade, tiede) 
 ∅ > e / p __ d̪
 
 $ CORRECTION : n̪ > m / p __  -- case of carpinum > charme
@@ -361,7 +367,7 @@ $ CORRECTION: This inserted here too, earlier than Pope explicitly states it is.
 $ s365i : additional deletion of velars in rgl, skl
 {s k;r ɡ} > {s;r} / __ l
 
-$ s353 : devoicing of labial and dental consonants that are now adjacent to t 
+$ s353 : devoicing of labial and dental consonants that are now before t 
 $ since aidier is excluded we can dodge fixing palatals too. 
 [+ant,+cons] > [-voi] / __ t̪
 r̥ > r $CORRECTION: but not r. 
@@ -1068,7 +1074,7 @@ $Delete all the rest which were not specifically retained:
 $ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
 ð > d̪ / [+lat] __
 
-$ CORRECTION : ð is also stopped after labials (sade, tiede, rade) but only labial stops (comme < quomodo)
+$ CORRECTION : ð is also stopped after labials (sade, tiede, rade) but only labial oral stops, not nasals (comme < quomodo)
 ð > d̪ / [-cont,+lab] __
 
 $ CORRECTION : ð that has come into contact with any other prior consonant effaces 
@@ -1085,7 +1091,7 @@ $ definitively after first fall of schwas
 k > ∅  / __ t͡sʲ
 
 $ RECURSE
-$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
+$ s350 -- ... and t "immediately" voices if it comes into contact (by fall of the schwas) 
 $ with a PRECEDING b, β or ʝ
 $ CORRECTION : this also effects t͡s
 $ CORRECTION : voicing influence of ʝ does not occur if target is right before word coda (iacet >git, pejus > pis etc) or right before another consonant (Tricassae > Troyes, ...) 
@@ -1110,17 +1116,19 @@ $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, an
 $ CORRECTION : Pope only has ə retained after ɫ [+nas] -- but per her notes (s390) ɫ hadn't developed yet! Hence we only use [+lat] 
 $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then a nasal cons
 $ CORRECTION : ə inserted after cons + son before word codas in general
-$ CORRECTION : any +lab {t;d;n} final consonant sequence ejects final ə, except when the coronal element is strident
 $ CORRECTION : retained after +cons ɲ __ # (Auvergne, peigne, etc) 
 $ CORRECTION: retained after double m
 ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #
-∅ > ə / [+cons,+lab] {[-cont,+cor];n̪} __ #
 ∅ > ə / [+cons] ɲ __ #
 ∅ > ə / [-ant,+delrel] __ #
 ∅ > ə / [-lat,+cons] l __ #
-∅ > ə / [-son] r __ #
 ∅ > ə / m m __ #
+
+$ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!), td and dt also eject ə. td also assimilates at this time
+∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
+d̪ > t̪ ə / t̪ __ #
+∅ > ə / d̪ t̪ __ #
 
 $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position , z and s why not
