@@ -127,6 +127,7 @@ public class Lexicon {
 	}
 	
 	//get number of times a particular sequence of phones occurs
+	// for use in error analysis when predicting with a third, predictor, stage. 
 	public int getPhoneSeqFrequency(List<Phone> targSeq)
 	{
 		int currSeqInd = 0, count = 0;
