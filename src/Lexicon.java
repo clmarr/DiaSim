@@ -126,6 +126,34 @@ public class Lexicon {
 		return theMap;
 	}
 	
+	//get number of times a particular sequence of phones occurs
+	public int getPhoneSeqFrequency(List<Phone> targSeq)
+	{
+		int currSeqInd = 0, count = 0;
+		for (LexPhon lex : theWordList)
+		{	
+			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
+			for (SequentialPhonic curPh : thePhones)
+			{
+				if (curPh.getType().equals("phone"))
+				{
+					if(curPh.print().equals(targSeq.get(currSeqInd).print()))
+					{
+						currSeqInd++;
+						if (currSeqInd == targSeq.size())
+						{
+							currSeqInd = 0;
+							count++; 
+						}
+					}
+					else
+						currSeqInd = 0;
+				}
+			}	
+		}	
+		return count;
+	}
+	
 	//update which phones are absent (not yet in language or fell out of use) 
 		//based on whether they are absent or not in the latest gold stage 
 	public void updateAbsence(LexPhon[] stageGold)
