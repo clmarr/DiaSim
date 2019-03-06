@@ -102,6 +102,30 @@ public class Lexicon {
 		return output; 
 	}
 	
+	//counts for each phoneme
+	public HashMap<SequentialPhonic,Integer> getPhonemeCounts()
+	{
+		String hitPhonesListStr = "";
+		HashMap<SequentialPhonic,Integer> theMap = new HashMap<SequentialPhonic,Integer>(); 
+		for (LexPhon lex: theWordList)
+		{
+			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
+			for (SequentialPhonic curPh : thePhones)
+			{
+				if(curPh.getType().equals("phone"))
+				{
+					if(!hitPhonesListStr.contains(curPh.print()))
+					{
+						hitPhonesListStr = hitPhonesListStr + curPh.print() + ",";
+						theMap.put(curPh, 1);
+					}
+					else	theMap.put(curPh, theMap.get(curPh) + 1);
+				}
+			}
+		}
+		return theMap;
+	}
+	
 	//update which phones are absent (not yet in language or fell out of use) 
 		//based on whether they are absent or not in the latest gold stage 
 	public void updateAbsence(LexPhon[] stageGold)

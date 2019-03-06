@@ -65,21 +65,23 @@ public class DerivationSimulation {
 	private static boolean[] finMissInds; //each index true if the word for this index
 		// resulted in a missmatch between the gold and the test result
 	
-	private static List<int[]> stageLexLDs; 
+	private static List<int[]> stageLexLDs; //lexical Levenshtein Distance per stage.
 	private static List<double[]> stageLexLaks;
 	private static List<boolean[]> stageMissInds; 
 	
 	private static boolean goldOutput; 
 	
-	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words 
+	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words = "Lakation" for now. 
 	private static double ACCURACY; 
 	private static double NEAR_ACCURACY; 
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	//TODO to be set in command line...
 	private static String runPrefix;
-	private static boolean DEBUG = true; 
+	private static boolean DEBUG_RULE_PROCESSING = true; 
 	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
+	
+	private static int goldStageInd, blackStageInd; 
 	
 	public static void main(String args[])
 	{
@@ -93,18 +95,18 @@ public class DerivationSimulation {
 		System.out.println("What would you like the file output prefix for this run to be?");
 		runPrefix = input.nextLine(); 
 		
-		System.out.println("Would you like to use the standard symbol definitions file? Please enter 'yes' or 'no'.");
+		System.out.println("Would you like to use the standard symbol definitions file? Please enter 'y' or 'n'.");
 		String resp = input.nextLine(); 
 		
-		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Invalid response.");
-			System.out.println("Would you like to use the standard symbol definitions file location? Please enter 'yes' or 'no'. ");
+			System.out.println("Would you like to use the standard symbol definitions file location? Please enter 'y' or 'n'. ");
 			resp = input.nextLine(); 
 		}
 		
-		String symbDefsLoc = (resp.equalsIgnoreCase("yes")) ? "symbolDefs.csv" : ""; 
-		if(resp.equalsIgnoreCase("no"))
+		String symbDefsLoc = (resp.equalsIgnoreCase("y")) ? "symbolDefs.csv" : ""; 
+		if(resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			symbDefsLoc = input.nextLine(); 
@@ -171,18 +173,18 @@ public class DerivationSimulation {
 			li++; 
 		}
 
-		System.out.println("Would you like to use the standard feature implications file location? Please enter 'yes' or 'no'.");
+		System.out.println("Would you like to use the standard feature implications file location? Please enter 'y' or 'n'.");
 		resp = input.nextLine(); 
 		
-		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Invalid response.");
-			System.out.println("Would you like to use the standard symbol definitions file? Please enter 'yes' or 'no'. ");
+			System.out.println("Would you like to use the standard symbol definitions file? Please enter 'y' or 'n'. ");
 			resp = input.nextLine(); 
 		}
 		
-		String featImplsLoc = (resp.equals("yes")) ? "FeatImplications" : ""; 
-		if(resp.equals("no"))
+		String featImplsLoc = (resp.equals("y")) ? "FeatImplications" : ""; 
+		if(resp.equals("n"))
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			featImplsLoc = input.nextLine(); 
@@ -221,18 +223,18 @@ public class DerivationSimulation {
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		System.out.println("Use current default rules file location? Enter 'yes' or 'no'."); 
+		System.out.println("Use current default rules file location? Enter 'y' or 'n'."); 
 		resp = input.nextLine(); 
 		
-		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Invalid response.");
-			System.out.println("Use current default rules file location? Please enter 'yes' or 'no'. ");
+			System.out.println("Use current default rules file location? Please enter 'y' or 'n'. ");
 			resp = input.nextLine(); 
 		}
 		
-		String ruleFileLoc = (resp.equalsIgnoreCase("yes")) ? "MKPopeRules.txt" : ""; 
-		if (resp.equalsIgnoreCase("no"))	
+		String ruleFileLoc = (resp.equalsIgnoreCase("y")) ? "MKPopeRules.txt" : ""; 
+		if (resp.equalsIgnoreCase("n"))	
 		{
 			System.out.println("Please enter the location of your alternative rules file: ");
 			ruleFileLoc = input.nextLine(); 
@@ -287,11 +289,11 @@ public class DerivationSimulation {
 			if( currRule.charAt(0) == GOLD_STAGENAME_FLAG )
 			{
 				goldStagesSet = true; 
-				//assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
+				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 				
 				currRule = currRule.substring(1); 
-				//assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
-				//	"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+				assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
+					"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
 				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
 					"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
 				goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
@@ -375,7 +377,28 @@ public class DerivationSimulation {
 		
 		System.out.println("Diachronic rules extracted. "); 
 		
-		//detect whether the right number of gold stages are there, and if we will be comparing to gold output at the end.
+		System.out.println("Do you wish to print words changed for each rule? Enter 'y' or 'n'");
+		resp = input.nextLine();
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
+		{
+			System.out.println("Invalid response.");
+			System.out.println("Do you wish to print words changed for each rule? Please enter 'y' or 'n'. ");
+			resp = input.nextLine(); 
+		}
+		boolean print_changes_each_rule = (resp.equalsIgnoreCase("y"));
+		
+		System.out.println("Do you wish to pause when a stage checkpoint flag is hit? Enter 'y' or 'n'");
+		resp = input.nextLine();
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
+		{
+			System.out.println("Invalid response.");
+			System.out.println("Do you wish to pause when a stage checkpoint flag is hit? Please enter 'y' or 'n'. ");
+			resp = input.nextLine(); 
+		}
+		boolean stage_pause = (resp.equalsIgnoreCase("y"));
+		
+		//TODO fix this... how are we going to use? 
+		
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
@@ -383,16 +406,17 @@ public class DerivationSimulation {
 		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 	
-		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'yes' or 'no'"); 
+		
+		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'y' or 'n'"); 
 		resp = input.nextLine();
-		while(!resp.equalsIgnoreCase("yes") && !resp.equalsIgnoreCase("no"))
+		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Invalid response.");
 			System.out.println("Do you wish to use the default location for the lexicon input file? Please enter 'yes' or 'no'. ");
 			resp = input.nextLine(); 
 		}
-		String lexFileLoc = (resp.equalsIgnoreCase("yes")) ? "LatinLexFileForMKPopeTester.txt" : "";
-		if(resp.equalsIgnoreCase("no")) 
+		String lexFileLoc = (resp.equalsIgnoreCase("y")) ? "LatinLexFileForMKPopeTester.txt" : "";
+		if(resp.equalsIgnoreCase("n")) 
 		{
 			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
 			lexFileLoc = input.nextLine(); 
@@ -487,7 +511,7 @@ public class DerivationSimulation {
 		System.out.println("Lexicon extracted.");
 		System.out.println("Now running simulation...");
 
-		int goldStageInd = 0, blackStageInd=0;
+		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
@@ -495,9 +519,9 @@ public class DerivationSimulation {
 		
 		while (ri < numRules)
 		{
-			if(ri % 50 == 0)	System.out.println("On rule number "+ri);
+			if(ri % 100 == 0)	System.out.println("On rule number "+ri);
 				
-			SChange thisShift = theShiftsInOrder.get(ri);
+			SChange thisShift =  theShiftsInOrder.get(ri);
 			
 			if(goldStageInd < NUM_GOLD_STAGES)
 			{
@@ -521,12 +545,14 @@ public class DerivationSimulation {
 				if (wordsChanged[wi])
 					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
 			
-			//TODO debugging
-			System.out.println("Words changed for rule "+ri+" "+thisShift); 
-			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
-				if (wordsChanged[wi])
-					System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
-			ri++; 
+			if(print_changes_each_rule)
+			{	
+				System.out.println("Words changed for rule "+ri+" "+thisShift); 
+				for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
+					if (wordsChanged[wi])
+						System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
+				ri++;
+			}
 		}
 		
 		System.out.println("Simulation complete.");
@@ -545,7 +571,6 @@ public class DerivationSimulation {
 		
 		if(goldOutput)
 		{
-			
 			double[] PERFORMANCE_arr = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
 			PERFORMANCE = PERFORMANCE_arr[0] ; 
 			ACCURACY = PERFORMANCE_arr[1]; 
@@ -567,7 +592,7 @@ public class DerivationSimulation {
 			//TODO IMPORTANT, print here or to file, by phone analysis....  
 		}
 		//TODO ABROGATED BELOW
-		if(goldOutput &&  false) //TODO implement this.
+		if(goldOutput &&  false) //TODO implement this, remove "&& false" 
 		{	
 			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
 			System.out.println("PERFORMANCE ON GOLD RESULT SET = "+PERFORMANCE);
@@ -647,7 +672,7 @@ public class DerivationSimulation {
 		String filename = runPrefix + "_rules_log.txt"; 
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
-			output += ""+thisShift + (DEBUG ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
+			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
 		writeToFile(filename, output); 
 	}
 
@@ -657,7 +682,7 @@ public class DerivationSimulation {
 	 * @note : DESTRUCTIVE! Intended to modify static variables
 	 * fills lexLD and lexLak and isHit
 	 * Lakation -- level of quasisynchronic distortion that arose diachronically
-	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of initial form for the etymon
+	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of gold form for the etymon
 	 * @returns two-item array of doubles where the first element is the average lexical lakation
 	 * 		and the second is the percent accuracy 0 to 100 
 	 * 		third is accuracy within two phones. 
@@ -670,13 +695,13 @@ public class DerivationSimulation {
 		double totLexQuotients = 0.0, numHits= 0.0, numAlmostHits = 0.0, numNearHits = 0.0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
 		{
-			int numPhonesInInitWord = getNumPhones(initLexicon.getByID(i).getPhonologicalRepresentation());
+			int numPhonesInGoldWord = getNumPhones(goldForms.getByID(i).getPhonologicalRepresentation());
 			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
 			isHit[i] = (lexLD[i] == 0);
 			numHits += (lexLD[i] == 0) ? 1 : 0; 
 			numAlmostHits += (lexLD[i] <= 1) ? 1 : 0; 
 			numNearHits += (lexLD[i] <= 2) ? 1 : 0; 
-			double lakation = (double)lexLD[i] / (double) numPhonesInInitWord; 
+			double lakation = (double)lexLD[i] / (double) numPhonesInGoldWord; 
 			lexLak[i] = lakation;
 			totLexQuotients += lakation; 
 		}

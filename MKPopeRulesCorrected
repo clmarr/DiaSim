@@ -2695,6 +2695,9 @@ $ s463: first attested late 17th century, not accepted until 18th.
 $ for convenience œ̃ also handled in here. 
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]
 
+$ CORRECTION: denasalization of nasal vowels before nasal consonants that have become final. Can be handled by doing this anytime the nasal cons has not been deleted.
+[+syl,+nas] > [-nas] / __ [+nas,+cons]
+
 $~Modern French
 $ CORRECTION : word final ɔ to o
 ɔ > o / __ #
@@ -2705,7 +2708,8 @@ $ as per s525, not really accepted except before r "until the Revolution destroy
 
 $s441.1~s443 ã > ɑ̃ in Modern French
 $Pope does not give an exact date for this; she merely says "in the modern period"
-{ã;ãː} >[-front,+back]
+$ CORRECTION: ABROGATED -- this is handled correctly earlier, based purely on length, so that cases like ane, Bretagne etc are unaffected.
+$ {ã;ãː} >[-front,+back]
 
 $ CORRECTION: uvular ʀ trill becomes  a fricative 
 ʀ > ʁ 
