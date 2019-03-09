@@ -158,12 +158,15 @@ public class ErrorAnalysis {
 		HashMap<String, Integer> priorPhoneCounts = new HashMap<String, Integer>(); 
 		HashMap<String, Integer> posteriorPhoneCounts = new HashMap<String, Integer>(); 
 		
+		int total_distortion_instances = 0; 
 		
 		for (int i = 0 ; i < pairsWithDistortion.size(); i++)
 		{
 			List<SequentialPhonic>[] alignedReps = 
 					getAlignedForms(pairsWithDistortion.get(i)[0], pairsWithDistortion.get(i)[1]); 
 			List<Integer> distortLocs = getDistortionLocsInWordPair(resPhInd, goldPhInd, alignedReps); 
+			
+			total_distortion_instances += distortLocs.size(); 
 			
 			for (Integer dloc : distortLocs)
 			{
@@ -188,9 +191,38 @@ public class ErrorAnalysis {
 
 		}
 		
-		//now we have the counts -- TODO analyze
+		//now we have the counts for the immediate neighbors -- TODO analyze
+		
+		//TODO -- if >30% on either side is one particular phone -- report
+		for (String priorPh : priorPhoneCounts.keySet())
+		{
+			double share = (double)priorPhoneCounts.get(priorPh) / (double)total_distortion_instances;
+			if (share > 0.3)
+				out.add("Prior context = "+priorPh+", "+share*100.0+"%");
+		}
+		for (String postPh : posteriorPhoneCounts.keySet())
+		{
+			double share = (double)posteriorPhoneCounts.get(postPh) / (double) total_distortion_instances;
+			if (share > 0.3)
+				out.add("Post context = " +postPh+", "+share*100.0+"%"); 
+		}
+		
+		//TODO -- report any common feature designation shared by 80%+ of either side 
+			//TODO decide how word bounds factor in here... 
+		
+		
+		
 		
 	}
+	
+	
+	//return: HashMap where each feature is key 
+	// and value is an int array of [ #+, #-, #. ]
+	private static HashMap<String, int[]> getFeatureCountsForContextCounts(HashMap<String,Integer> ctxtCts)
+	{
+		
+	}
+	
 	
 	private static List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, List<SequentialPhonic>[] alignedReps)
 	{
