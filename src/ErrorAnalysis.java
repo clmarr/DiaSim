@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
 
 public class ErrorAnalysis {
@@ -17,12 +18,16 @@ public class ErrorAnalysis {
 	private static int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
+	private static String[] featsByIndex; 
+	
 	private static List<LexPhon[]> mismatches; 
 	
 	private final static int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
-	public ErrorAnalysis(Lexicon theRes, Lexicon theGold)
+	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats)
 	{
+		featsByIndex = indexedFeats;
+		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
 		
@@ -81,6 +86,8 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i]); 
 		
+		//TODO wehn/where coding wise to call confusionPrognosis()? 
+		
 		
 	}
 	
@@ -104,6 +111,9 @@ public class ErrorAnalysis {
 			System.out.println(""+i+": "+resPhInventory[topDistortions[i][0]]+" for "
 					+goldPhInventory[topDistortions[i][1]]); 
 			//parse contexts
+			List<String> contextProbs = identifyProblemContextsForDistortion(topDistortions[i][0], topDistortions[i][1]);
+			
+			//TODO some flag to determine whether we should print this info? 
 		}
 	}
 	
@@ -155,8 +165,8 @@ public class ErrorAnalysis {
 		// TODO for now we are only using the immediate contexts 
 		
 		// TODO currently doing this with the wrods in the RESULT forms -- may need to revise this. 
-		HashMap<String, Integer> priorPhoneCounts = new HashMap<String, Integer>(); 
-		HashMap<String, Integer> posteriorPhoneCounts = new HashMap<String, Integer>(); 
+		HashMap<SequentialPhonic, Integer> priorPhoneCounts = new HashMap<SequentialPhonic, Integer>(); 
+		HashMap<SequentialPhonic, Integer> posteriorPhoneCounts = new HashMap<SequentialPhonic, Integer>(); 
 		
 		int total_distortion_instances = 0; 
 		
@@ -174,18 +184,18 @@ public class ErrorAnalysis {
 				if (dloc > 0)
 					priorPh = alignedReps[0].get(dloc - 1); 
 				if (priorPhoneCounts.containsKey(priorPh.print()))
-					priorPhoneCounts.put(priorPh.print(), priorPhoneCounts.get(priorPh.print())+1); 
+					priorPhoneCounts.put(priorPh, priorPhoneCounts.get(priorPh)+1); 
 				else
-					priorPhoneCounts.put(priorPh.print(), 1);
+					priorPhoneCounts.put(priorPh, 1);
 				
 				SequentialPhonic postPh = new Boundary("word bound"); 
 				if (dloc < alignedReps[0].size() - 1)
 					postPh = alignedReps[0].get(dloc + 1);
 				if (posteriorPhoneCounts.containsKey(postPh.print()))
-					posteriorPhoneCounts.put(postPh.print(),
-							posteriorPhoneCounts.get(postPh.print()) + 1); 
+					posteriorPhoneCounts.put(postPh,
+							posteriorPhoneCounts.get(postPh) + 1); 
 				else
-					posteriorPhoneCounts.put(postPh.print(), 1);
+					posteriorPhoneCounts.put(postPh, 1);
 				
 			}
 
@@ -194,33 +204,83 @@ public class ErrorAnalysis {
 		//now we have the counts for the immediate neighbors -- TODO analyze
 		
 		//TODO -- if >30% on either side is one particular phone -- report
-		for (String priorPh : priorPhoneCounts.keySet())
+		for (SequentialPhonic priorPh : priorPhoneCounts.keySet())
 		{
 			double share = (double)priorPhoneCounts.get(priorPh) / (double)total_distortion_instances;
 			if (share > 0.3)
-				out.add("Prior context = "+priorPh+", "+share*100.0+"%");
+				out.add("Prior context = "+priorPh.print()+", "+share*100.0+"%");
 		}
-		for (String postPh : posteriorPhoneCounts.keySet())
+		for (SequentialPhonic postPh : posteriorPhoneCounts.keySet())
 		{
 			double share = (double)posteriorPhoneCounts.get(postPh) / (double) total_distortion_instances;
 			if (share > 0.3)
-				out.add("Post context = " +postPh+", "+share*100.0+"%"); 
+				out.add("Post context = " +postPh.print()+", "+share*100.0+"%"); 
 		}
 		
 		//TODO -- report any common feature designation shared by 80%+ of either side 
-			//TODO decide how word bounds factor in here... 
 		
+		// if word bound is context for more than 50% of the time, report such
 		
+		//for prior counts...		
+		if (priorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
+			out.add("Majority of instances just after word onset. Common features of remainder: "
+					+getContextCommonFeats(priorPhoneCounts, 
+							total_distortion_instances - priorPhoneCounts.get(new Boundary("word bound")))); 
+		else	out.add("Commmon prior feats: "
+					+getContextCommonFeats(priorPhoneCounts, total_distortion_instances)); 
 		
-		
+		//for posterior counts... 
+		if (posteriorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
+			out.add("Majority of instances just before word coda. Common features of remainder: "
+					+getContextCommonFeats(posteriorPhoneCounts, 
+							total_distortion_instances - posteriorPhoneCounts.get(new Boundary("word bound")))); 
+		else	out.add("Commmon prior feats: "
+					+getContextCommonFeats(posteriorPhoneCounts, total_distortion_instances)); 
+					
+		return out; 
 	}
 	
 	
 	//return: HashMap where each feature is key 
 	// and value is an int array of [ #+, #-, #. ]
-	private static HashMap<String, int[]> getFeatureCountsForContextCounts(HashMap<String,Integer> ctxtCts)
+	// where word bounds are concerned, they don't add to ANY of the counts
+		// however if the word bound itself is the boundary over 50% of the time, this will be reported in 
+		// the method identifyProblemContextsForDistortion
+	// @param ctxtName -- i.e. "prior" or "posterior" -- sequential relation to target phone
+	private static String getContextCommonFeats(HashMap<SequentialPhonic,Integer> ctxtCts, int total_dist_instances)
 	{
 		
+		Set<SequentialPhonic> phonesFound = ctxtCts.keySet(); 
+		HashMap<String, int[]> ftMatr = new HashMap<String, int[]>(); 
+		for(int i = 0 ; i < featsByIndex.length; i++)
+			ftMatr.put(featsByIndex[i], new int[] {0,0,0} );
+		for (SequentialPhonic ph : phonesFound)
+		{
+			char[] featVals = ph.getFeatString().toCharArray(); 
+			for (int i = 0 ; i < featsByIndex.length; i++)
+			{
+				int[] theArr = ftMatr.get(featsByIndex[i]); 
+				int thisVal = Integer.parseInt(""+featVals[i]); 
+				theArr[thisVal] = theArr[thisVal] + ctxtCts.get(ph); 
+				ftMatr.put(featsByIndex[i], theArr); 
+			}
+		}
+		
+		String output = ""; 
+		
+		for (String ft : ftMatr.keySet())
+		{
+			int[] arr = ftMatr.get(ft); 
+			if(arr[0] > (double)total_dist_instances * 0.8 )
+				output += "-"+ft+","; 
+			else if (arr[1] > (double)total_dist_instances * 0.8)
+				output += "."+ft+",";
+			else if(arr[2] >  (double) total_dist_instances * 0.8)
+				output += "+"+ft+","; 
+		}
+		
+		if (output.length() == 0)	return output; 
+		else	return output.substring(0, output.length()-1);
 	}
 	
 	
