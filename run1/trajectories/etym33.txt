@@ -19,6 +19,7 @@ Trajectory file for run 'run1'; etymon number :33:
 #ə̯ˈoːəs# | Rule 665 : e̯ > ə̯ / __ [+round,+back,-hi]
 #ə̯ˈoːs# | Rule 694 : ə > ∅ / [+syl] __ 
 #ə̯ˈoː# | Rule 733 : [-son] > ∅ / __ #
-#ˈoː# | Rule 734 : ə̯ > ∅ 
-#oː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#o# | Rule 749 : [+syl,+long] > [-long,-splng] 
+#əˈoː# | Rule 734 : ə̯ > ə / # ( [-syl] )* __ 
+#əoː# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#əo# | Rule 750 : [+syl,+long] > [-long,-splng] 
+#o# | Rule 760 : ə > ∅ / __ [+syl]

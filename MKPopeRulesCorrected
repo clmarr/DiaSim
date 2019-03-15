@@ -1913,7 +1913,7 @@ $s407ii : same for y countertonic or tonic -- TODO may need to handle length.
 ∅ > j / [+hi,+front,+round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [+hi,+front,+round,+stres] __ ɲ [+syl]
 
-$ CORRECTION: tonic iej and iej̃ move to iː
+$ CORRECTION: tonic iej and iej̃ move to (long) iː
 ˈi e̯ [-cons,-syl,+hi,-round] > ˈiː
 
 $s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
@@ -2632,6 +2632,8 @@ $now implement final cons loss as per s611-620:
 $ s273 : final "off-glide" ə is deleted.
 $ for convenience we group this with:
 	$ s539 ə̯o: > o: finally accepted in the 17th century
+	$ CORRECTION: but deletion of ə̯ does not occur in monosyllables. 
+ə̯ > ə / # ([-syl])* __
 ə̯ > ∅
 
 $ CORRECTION: ø opens before consonants in final syll. ə does not change this.
@@ -2721,8 +2723,10 @@ $ CORRECTION: j and i after other vowels absorbed into j
 [+hi,+front,-round] > ∅ / [+syl] __ j
 
 $ Pope s177.2: ə effaced anywhere it does not bring three consonants into a cluster. 
-$ CORRECTION: last one surpressed as it doesn't match her citation forms in most cases 
-ə > ∅ / __ #
+$ CORRECTION: last one of these is surpressed as it doesn't match Pope's citation forms in most cases 
+$ CORRECTION: final schwa deletion does not occur for lexical citation forms in monosyllables
+	$ despite phenomena like l', m', n', qu' etc
+ə > ∅ / [+syl] ([-syl])* __ #
 ə > ∅ / __ [+syl]
 ə > ∅ / [+syl] __
 $ ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}

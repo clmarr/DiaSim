@@ -179,14 +179,14 @@ public class DerivationSimulation {
 		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 		{
 			System.out.println("Invalid response.");
-			System.out.println("Would you like to use the standard symbol definitions file? Please enter 'y' or 'n'. ");
+			System.out.println("Would you like to use the standard feature implications file? Please enter 'y' or 'n'. ");
 			resp = input.nextLine(); 
 		}
 		
 		String featImplsLoc = (resp.equals("y")) ? "FeatImplications" : ""; 
 		if(resp.equals("n"))
 		{
-			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
+			System.out.println("Please enter the correct location of the feature implications file you would like to use:");
 			featImplsLoc = input.nextLine(); 
 		}
 		
@@ -529,6 +529,23 @@ public class DerivationSimulation {
 				{
 					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 					goldStageResultLexica[goldStageInd] = new Lexicon(testResultLexicon.getWordList());
+					
+					if (stage_pause)
+					{
+						System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
+						System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
+						resp = input.nextLine(); 
+						while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
+						{
+							System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
+							resp = input.nextLine(); 
+						}
+						if(resp.equalsIgnoreCase("y"))
+						{
+							ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldStageGoldLexica[goldStageInd], featsByIndex); 
+							
+						}
+					}
 					goldStageInd++;
 				}
 			}
@@ -634,6 +651,8 @@ public class DerivationSimulation {
 		}
 		
 		//TODO make the calculations and output the files! 
+		
+		input.close();
 	}
 
 	private static String printStageOutsForEtymon( int etymID)

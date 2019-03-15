@@ -86,12 +86,13 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i]); 
 		
-		//TODO wehn/where coding wise to call confusionPrognosis()? 
+		//TODO wehn/where coding-wise to call confusionPrognosis()? 
 		
 		
 	}
 	
-	public static void confusionPrognosis()
+	//@param get_contexts -- determine if we want to list the most problematic context info
+	public static void confusionPrognosis(boolean get_contexts)
 	{
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
@@ -110,17 +111,19 @@ public class ErrorAnalysis {
 		{
 			System.out.println(""+i+": "+resPhInventory[topDistortions[i][0]]+" for "
 					+goldPhInventory[topDistortions[i][1]]); 
-			//parse contexts
-			List<String> contextProbs = identifyProblemContextsForDistortion(topDistortions[i][0], topDistortions[i][1]);
 			
-			//TODO some flag to determine whether we should print this info? 
+			//parse contexts
+			if (get_contexts)
+			{
+				List<String> probCtxts = identifyProblemContextsForDistortion(topDistortions[i][0], topDistortions[i][1]);
+				System.out.println("Most common contexts in result phone sequence for this distortion: "); 
+				for (String obs : probCtxts)	System.out.println(""+obs); 
+			}
+			 
 		}
 	}
 	
-	
-	
-	//TODO method to use a "pivoting" predictor stage? 
-	
+	//TODO method to use a "pivoting" predictor stage? -- implement this later -- first paper submission first. 
 	
 	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
 	private static int getNumPhones(List<SequentialPhonic> splist)
