@@ -543,6 +543,7 @@ public class DerivationSimulation {
 						}
 						if(resp.equalsIgnoreCase("y"))
 						{
+							
 							ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldStageGoldLexica[goldStageInd], featsByIndex); 
 							
 						}
@@ -598,6 +599,9 @@ public class DerivationSimulation {
 			System.out.println("FINAL OVERALL ACCURACY : "+ACCURACY); 
 			System.out.println("ACCURACY WITHIN 1 PHONE: "+PERFORMANCE_arr[2]);
 			System.out.println("ACCURACY WITHIN 2 PHONES : "+NEAR_ACCURACY);
+			
+			
+			//TODO current error here -- need to fill finMissInds. 
 			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
 			if( NUM_GOLD_STAGES > 0 )
 			{
