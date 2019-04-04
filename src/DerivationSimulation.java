@@ -46,7 +46,7 @@ public class DerivationSimulation {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
-	private HashMap featTranslations; //TODO currently abrogated 
+	//private HashMap featTranslations; //TODO currently abrogated 
 	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
 	private static int NUM_ETYMA; 
@@ -405,8 +405,7 @@ public class DerivationSimulation {
 		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
 		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
-	
-		
+			
 		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'y' or 'n'"); 
 		resp = input.nextLine();
 		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
@@ -523,10 +522,12 @@ public class DerivationSimulation {
 				
 			SChange thisShift =  theShiftsInOrder.get(ri);
 			
+			boolean goldhere = false; 
 			if(goldStageInd < NUM_GOLD_STAGES)
 			{
 				if ( ri == goldStageTimeInstants[goldStageInd])
 				{
+					goldhere = true; 
 					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 					goldStageResultLexica[goldStageInd] = new Lexicon(testResultLexicon.getWordList());
 					
@@ -549,7 +550,7 @@ public class DerivationSimulation {
 					goldStageInd++;
 				}
 			}
-			if(blackStageInd<NUM_BLACK_STAGES)
+			if(blackStageInd<NUM_BLACK_STAGES && !goldhere)
 			{
 				if(ri == blackStageTimeInstants[blackStageInd])
 				{
@@ -568,8 +569,8 @@ public class DerivationSimulation {
 				for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 					if (wordsChanged[wi])
 						System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
-				ri++;
 			}
+			ri++;
 		}
 		
 		System.out.println("Simulation complete.");
@@ -783,7 +784,6 @@ public class DerivationSimulation {
 					/	(double)numPhonesInInitWord; 
 		}
 		return totLexQuotients / (double)NUM_ETYMA; 
-				
 	}
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold

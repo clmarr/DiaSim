@@ -10,6 +10,9 @@ import java.util.ArrayList;
  */
 public class LexPhon {
 	private List<SequentialPhonic> phonRep; //phonological representation
+	private String lemma; //name of its paradigm
+	private String lexClass; //lexical i.e. syntactic class
+	private List<String> domains; // semantic domains 
 	
 	public LexPhon(List<SequentialPhonic> pR)
 	{
@@ -18,6 +21,7 @@ public class LexPhon {
 			phonRep.add(0, new Boundary("word bound")); 
 		if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
 			phonRep.add(new Boundary("word bound")); 
+		this.domains = new ArrayList<String>(); 
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
@@ -71,5 +75,29 @@ public class LexPhon {
 		for (SequentialPhonic ph : phonRep)
 			if (ph.getType().equals("phone"))	output += ph.print(); 
 		return output + "/"; 
+	}
+
+	public String getLemma() {
+		return lemma;
+	}
+
+	public void setLemma(String lemma) {
+		this.lemma = lemma;
+	}
+
+	public String getLexClass() {
+		return lexClass;
+	}
+
+	public void setLexClass(String lex_class) {
+		this.lexClass = lex_class;
+	}
+
+	public List<String> getDomains() {
+		return domains;
+	}
+
+	public void addDomain(String domain) {
+		this.domains.add(domain);
 	}
 }

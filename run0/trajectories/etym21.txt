@@ -1,18 +1,25 @@
 Trajectory file for run 'run0'; etymon number :21:
-#kˌukˈullɑm# >>> #kul# ( Correct : #kul#) :
-k ˌu k ˈu l l ɑ m 
-#kˌʊkˈʊllɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌokˈollɑm# | Rule 65 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˌokˈollɑ# | Rule 70 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˌoɡˈollɑ# | Rule 131 : k > ɡ / [-cons] __ [+syl]
-#kˌoɣˈollɑ# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
-#kˌoˈollɑ# | Rule 182 : ɣ > ∅ / __ [+tense,+round,+prim]
-#kˌoˈolla# | Rule 198 : [+lo,+syl] > [+front,-back] 
-#kˌoˈollə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#kˌoˈolə# | Rule 484 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ} 
-#kˌuˈulə# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#kˈuːlə# | Rule 656 : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
-#kˈuːlə̯# | Rule 694 : ə > ə̯ / __ #
-#kˈuːl# | Rule 701 : ə̯ > ∅ 
-#kuːl# | Rule 713 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kul# | Rule 714 : [+syl,+long] > [-long,-splng] 
+#ˌɑlˈiːsiɑm# >>> #ɛ# ( Correct : #aliz#) :
+ˌɑ l ˈiː s i ɑ m 
+#ˌɑlʲˈiːsiɑm# | Rule 3 : l > lʲ / __ [+hi,+front]
+#ˌɑlʲˈiːsɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑlʲˈiːsjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˌɑlʲˈiːsʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#ˌɑlʲˈisʝɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌɑlʲˈisʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌɑlʲˈisʲsʲɑ# | Rule 135 : s [+hi,+front,+cons] > sʲ sʲ
+#ˌalʲˈisʲsʲa# | Rule 146 : [+lo,+syl] > [+front,-back] 
+#ˌalʲˈisʲsʲɛ# | Rule 254 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,+cons] __ #
+#ˌalʲˈisʲsɛ# | Rule 270 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {t̪;d̪;s;z;r;n̪} / [+hi,+front,-syl] __ 
+#ˌalʲˈijssɛ# | Rule 271 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪} 
+#ˌalʲˈiːjssɛ# | Rule 278 : [+prim] > [+long] / __ [-cons]
+#ˌalʲˈijssɛ# | Rule 286 : [+syl] > [-long,-splng] / __ [-syl,-cons] [-syl]
+#ˌalʲˈijssə# | Rule 290 : [-stres,-lo,+syl] > ə 
+#ˌalʲˈijss# | Rule 300 : ə > ∅ 
+#ˌalʲˈiss# | Rule 325 : j > ∅ / [+hi,+front,+tense,+syl] __ 
+#ˌalʲˈis# | Rule 355 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ˌaˈis# | Rule 404 : lʲ > ∅ 
+#ˈajs# | Rule 502 : ˌa ˈi > ˈa j 
+#ˈaj# | Rule 540 : [-son] > ∅ / __ #
+#ˈɛ# | Rule 546 : [+lo,+front] j > [-lo,-tense,-cons,-lat,+cont,.delrel] ∅/ __ #
+#ɛ# | Rule 552 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

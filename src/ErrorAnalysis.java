@@ -2,6 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ErrorAnalysis {
 	private int[] levDists; 
@@ -86,7 +87,7 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i]); 
 		
-		//TODO wehn/where coding-wise to call confusionPrognosis()? 
+		//TODO determine wehn/where coding-wise to call confusionPrognosis()? 
 		
 		
 	}
@@ -125,15 +126,7 @@ public class ErrorAnalysis {
 	
 	//TODO method to use a "pivoting" predictor stage? -- implement this later -- first paper submission first. 
 	
-	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
-	private static int getNumPhones(List<SequentialPhonic> splist)
-	{
-		int count = 0 ;
-		for (SequentialPhonic sp :  splist)
-			if(sp.getType().equals("phone"))
-				count++; 
-		return count; 
-	}
+	
 	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
@@ -158,16 +151,18 @@ public class ErrorAnalysis {
 	
 	// report which contexts tend to surround distortion frequently enough that it becomes 
 		// suspicious and is worth displaying to the user
-	// TODO refine context detection here. 
+	// will report only features that are CONSTANT for pre-prior and post-posterior positions
+	// and features taht are more common than 
+	// TODO reorganize this! 
 	private static List<String> identifyProblemContextsForDistortion(int resPhInd, int goldPhInd)
 	{
 		List<String> out = new ArrayList<String>(); 
 
 		List<LexPhon[]> pairsWithDistortion = mismatchesWithDistortion(resPhInd, goldPhInd); 
-		
-		// TODO for now we are only using the immediate contexts 
-		
-		// TODO currently doing this with the wrods in the RESULT forms -- may need to revise this. 
+	
+		// TODO currently doing this with the words in the GOLD forms -- may need to revise this. 
+		HashMap<SequentialPhonic, Integer> prePriorCounts = new HashMap<SequentialPhonic, Integer>(); 
+		HashMap<SequentialPhonic, Integer> postPostrCounts = new HashMap<SequentialPhonic, Integer>();
 		HashMap<SequentialPhonic, Integer> priorPhoneCounts = new HashMap<SequentialPhonic, Integer>(); 
 		HashMap<SequentialPhonic, Integer> posteriorPhoneCounts = new HashMap<SequentialPhonic, Integer>(); 
 		
@@ -183,66 +178,123 @@ public class ErrorAnalysis {
 			
 			for (Integer dloc : distortLocs)
 			{
+				SequentialPhonic prePrior = new Boundary("word bound"); 
 				SequentialPhonic priorPh = new Boundary("word bound"); 
 				if (dloc > 0)
-					priorPh = alignedReps[0].get(dloc - 1); 
-				if (priorPhoneCounts.containsKey(priorPh.print()))
+				{
+					priorPh = alignedReps[1].get(dloc - 1); 
+					if (dloc > 1)	prePrior = alignedReps[1].get(dloc-2); 
+				}
+				if (priorPhoneCounts.containsKey(priorPh))
 					priorPhoneCounts.put(priorPh, priorPhoneCounts.get(priorPh)+1); 
-				else
-					priorPhoneCounts.put(priorPh, 1);
+				else	priorPhoneCounts.put(priorPh, 1);
+				if (prePriorCounts.containsKey(prePrior))
+					prePriorCounts.put(prePrior, prePriorCounts.get(prePrior) + 1);
+				else	prePriorCounts.put(prePrior, 1);
 				
+				SequentialPhonic ppph =new Boundary("word bound");
 				SequentialPhonic postPh = new Boundary("word bound"); 
-				if (dloc < alignedReps[0].size() - 1)
-					postPh = alignedReps[0].get(dloc + 1);
-				if (posteriorPhoneCounts.containsKey(postPh.print()))
+				if (dloc < alignedReps[1].size() - 1)
+				{
+					postPh = alignedReps[1].get(dloc + 1);
+					if (dloc < alignedReps[1].size() - 2)	ppph = alignedReps[1].get(dloc + 2);
+				}
+				if (posteriorPhoneCounts.containsKey(postPh))
 					posteriorPhoneCounts.put(postPh,
 							posteriorPhoneCounts.get(postPh) + 1); 
 				else
 					posteriorPhoneCounts.put(postPh, 1);
+				if (postPostrCounts.containsKey(ppph))
+					postPostrCounts.put(ppph, postPostrCounts.get(ppph) + 1);
+				else	postPostrCounts.put(ppph, 1);
 				
 			}
 
 		}
 		
 		//now we have the counts for the immediate neighbors -- TODO analyze
-		
-		//TODO -- if >30% on either side is one particular phone -- report
-		for (SequentialPhonic priorPh : priorPhoneCounts.keySet())
+	
+		//prior context info
+		if (prePriorCounts.keySet().size() == 1)
+			out.add("Constant pre prior phone : "+ (new ArrayList<SequentialPhonic>(prePriorCounts.keySet())).get(0).print());
+		else
 		{
-			double share = (double)priorPhoneCounts.get(priorPh) / (double)total_distortion_instances;
-			if (share > 0.3)
-				out.add("Prior context = "+priorPh.print()+", "+share*100.0+"%");
-		}
-		for (SequentialPhonic postPh : posteriorPhoneCounts.keySet())
-		{
-			double share = (double)posteriorPhoneCounts.get(postPh) / (double) total_distortion_instances;
-			if (share > 0.3)
-				out.add("Post context = " +postPh.print()+", "+share*100.0+"%"); 
+			String ppcfs = getConstantFeats(prePriorCounts); 
+			if (ppcfs.length() > 1 )
+				out.add("Pre prior phone constant features: "+ppcfs);
 		}
 		
-		//TODO -- report any common feature designation shared by 80%+ of either side 
-		
-		// if word bound is context for more than 50% of the time, report such
-		
-		//for prior counts...		
+		String commPhsStringed = getCommonCtxtPhs(priorPhoneCounts, total_distortion_instances, 0.3); 
+		if(commPhsStringed.length() > 1)
+			out.add("Most common immediate prior phones : "+commPhsStringed); 
 		if (priorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
 			out.add("Majority of instances just after word onset. Common features of remainder: "
 					+getContextCommonFeats(priorPhoneCounts, 
 							total_distortion_instances - priorPhoneCounts.get(new Boundary("word bound")))); 
-		else	out.add("Commmon prior feats: "
+		else	out.add("Common prior feats: "
 					+getContextCommonFeats(priorPhoneCounts, total_distortion_instances)); 
 		
-		//for posterior counts... 
-		if (posteriorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
-			out.add("Majority of instances just before word coda. Common features of remainder: "
-					+getContextCommonFeats(posteriorPhoneCounts, 
-							total_distortion_instances - posteriorPhoneCounts.get(new Boundary("word bound")))); 
-		else	out.add("Commmon prior feats: "
-					+getContextCommonFeats(posteriorPhoneCounts, total_distortion_instances)); 
-					
+		//posterior context info
+		commPhsStringed = getCommonCtxtPhs(posteriorPhoneCounts, total_distortion_instances, 0.3); 
+		if (commPhsStringed.length() > 1)
+			out.add("Most common immediate posterior phones : "+commPhsStringed); 
+		else
+		{
+			String ppcfs = getConstantFeats(postPostrCounts); 
+			if (ppcfs.length() > 1)
+				out.add("Post posterior phone constant features : "+ppcfs); 
+			
+		}
+		
 		return out; 
 	}
 	
+	
+	// Stringed list of all feats that are present in EVERY phone that is a key in the HashMap. 
+	private static String getConstantFeats(HashMap<SequentialPhonic,Integer> ctxts)
+	{
+		List<SequentialPhonic> phs = new ArrayList<SequentialPhonic>(ctxts.keySet()); 
+		if (phs.size() == 1) //all consistently one phone!
+			return phs.get(0).print(); 
+		
+		char[] constVals = phs.get(0).getFeatString().toCharArray(); 
+		for (int i = 1 ; i < phs.size(); i++)
+		{	char[] theFeats = phs.get(i).getFeatString().toCharArray();
+			for (int c = 0 ; c < theFeats.length; c++)
+				if (theFeats[c] != constVals[c])	constVals[c] = ' '; 
+		}
+		
+		String output = ""; 
+		for (int c = 0 ; c < constVals.length; c++)
+			if ("+-.".contains(""+constVals[c]))
+				output += constVals[c]+featsByIndex[c]+","; 
+		
+		if (output.equals("")) 
+			return output;
+		else
+			return output.substring(0, output.length()-1);		
+	}
+	
+	/**
+	 * getCommonCtxtPhs
+	 * @param phCts -- map of phones linked to their frequency of occurrencei n the context of a paritcular distortion
+	 * @param total_dist_occs -- toal occurrences of the distortion we are getting contexts for
+	 * @param thresh -- minimum percentage of total frequency necessary to report .
+	 * @return in String form, any phones with a frequency above the threshold, followed by their share of all phones in that context
+	 */
+	private static String getCommonCtxtPhs (HashMap<SequentialPhonic, Integer> phCts, int total_dist_occs, double thresh)
+	{
+		String output = ""; 
+		
+		for (SequentialPhonic ph : phCts.keySet())
+		{
+			double share = (double) phCts.get(ph) / (double) total_dist_occs ;
+			if (share > thresh) 	output += ph.print()+" "+share+"; ";
+		}
+		
+		if (output.equals(""))	return output; 
+		else	return output.substring(0, output.length() - 1 ); 	
+	}
 	
 	//return: HashMap where each feature is key 
 	// and value is an int array of [ #+, #-, #. ]
@@ -479,5 +531,33 @@ public class ErrorAnalysis {
 		}
 		
 		return maxLocs; 
+	}
+	
+	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
+	private static int getNumPhones(List<SequentialPhonic> splist)
+	{
+		int count = 0 ;
+		for (SequentialPhonic sp :  splist)
+			if(sp.getType().equals("phone"))
+				count++; 
+		return count; 
+	}
+	
+	/** 
+	 * @return all mismatches with a specified string of seqphs in them, @param targSeq
+	 * @param look_in_gold determines whether we look for the said string in gold or not (otherwise the result)
+	 * to get all mismatches, enter a an empty list for @param targSeq
+	 * 
+	 */
+	public static List<LexPhon[]> getCurrMismatches( List<SequentialPhonic> targSeq, boolean look_in_gold)
+	{
+		if (targSeq.size() == 0)	return mismatches;
+		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
+		int ind = look_in_gold ? 1 : 0; 
+		for (LexPhon[] msmtch : mismatches)
+			if (Collections.indexOfSubList( msmtch[ind].getPhonologicalRepresentation(),
+					targSeq) != -1)
+				out.add(new LexPhon[] {msmtch[0], msmtch[1]});
+		return out;
 	}
 }
