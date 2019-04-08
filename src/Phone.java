@@ -79,6 +79,8 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	public HashMap<String,String> getFeatSymbMap()
 	{	return mapToSymb;	}
 	
+	
+	
 	/**
 	 * @precondition featExists(featName)
 	 * @return 1 if +, -1 if -, else 0 if unspecified 

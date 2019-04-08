@@ -32,7 +32,7 @@ import java.util.ArrayList;
 public class DerivationSimulation {
 	
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ','; 
-	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
+	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
@@ -85,7 +85,7 @@ public class DerivationSimulation {
 	
 	public static void main(String args[])
 	{
-		Scanner input = new Scanner(System.in); 
+		Scanner input = new Scanner(System.in);
 		
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
@@ -535,18 +535,14 @@ public class DerivationSimulation {
 					{
 						System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
 						System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
-						resp = input.nextLine(); 
+						resp = input.nextLine().substring(0,1); 
 						while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 						{
 							System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
-							resp = input.nextLine(); 
+							resp = input.nextLine().substring(0,1); 
 						}
-						if(resp.equalsIgnoreCase("y"))
-						{
-							
-							ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldStageGoldLexica[goldStageInd], featsByIndex); 
-							
-						}
+						if(resp.equalsIgnoreCase("y"))	
+							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd]); 
 					}
 					goldStageInd++;
 				}
@@ -1022,6 +1018,70 @@ public class DerivationSimulation {
 		} catch (IOException e) {
 			System.out.println("IO Exception!");
 			e.printStackTrace();
+		}
+	}
+	
+	private static void haltMenu(Lexicon r, Lexicon g)
+	{
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex); 
+		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
+		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
+		System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
+		System.out.println("Average phonemic edit distance from gold: "+ea.getAvgPhDist());
+	
+		boolean cont = true; 
+		
+		Scanner inp = new Scanner(System.in); 
+				
+		while(cont)
+		{
+			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
+					+ "1: Standard prognosis with context analysis.\n"
+					+ "2: Print all corresponding forms (initial, res, gold)\n"
+					+ "3: Print all corresponding forms (res,gold)\n"
+					+ "4: Print all forms mismatched between result and gold\n"
+					+ "5: Print all mismatched forms with a specified phone sequence in the result form\n"
+					+ "6: Print all mismatched forms with a specified phone sequence in the gold form\n"
+					+ "7: End this analysis.\n");
+			String resp = inp.nextLine();
+			
+			if(resp.equals("1"))	ea.confusionPrognosis(true);
+			else if(resp.equals("2"))
+			{
+				//TODO this
+			}
+			else if(resp.equals("3"))  
+			{
+				//TODO this
+			}
+			else if(resp.equals("4"))	ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
+			else if("56".contains(resp))
+			{
+				boolean in_gold = resp.equals("6"); 
+				System.out.println("Please enter the phoneme sequence you wish to test for, delimited by '"+PH_DELIM+"'.\n"); 
+				resp = inp.nextLine(); 
+				boolean reenter = true;
+				List<SequentialPhonic> targSeq = new ArrayList<SequentialPhonic>(); 
+				while (reenter)
+				{	try
+					{
+						targSeq = parseLexPhon(resp).getPhonologicalRepresentation();
+						reenter = false; 
+					}
+					catch (AssertionError e)
+					{
+						System.out.print("There is at least one invalid phoneme in your entry is invalid\n"
+								+ "Please make sure each are delimited by '"+PH_DELIM+"' and re-enter.\n"); 
+						reenter = true; 
+						resp = inp.nextLine();
+					}
+				}
+				List<LexPhon[]> pairs = ea.getCurrMismatches(targSeq, in_gold); 
+				System.out.println("Printing: res, gold");
+				for(LexPhon[] pair : pairs)	System.out.println(pair[0]+","+pair[1]);
+			}
+			else if(resp.equals("7"))	cont = false; 
+			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 		}
 	}
 }

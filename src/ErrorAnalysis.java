@@ -10,20 +10,20 @@ public class ErrorAnalysis {
 	private boolean[] isHit; 
 	private double pctAcc, pct1off, pct2off, overallLak; 
 	
-	private static Phone[] resPhInventory, goldPhInventory; 
+	private Phone[] resPhInventory, goldPhInventory; 
 	
-	private static HashMap<String, Integer> resPhInds, goldPhInds; 
+	private HashMap<String, Integer> resPhInds, goldPhInds; 
 		// indexes for phones in the following int arrays are above.
-	private static int[] errorsByResPhone, errorsByGoldPhone; 
-	private static double[] errorRateByResPhone, errorRateByGoldPhone; 
-	private static int[][] confusionMatrix; 
+	private int[] errorsByResPhone, errorsByGoldPhone; 
+	private double[] errorRateByResPhone, errorRateByGoldPhone; 
+	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
-	private static String[] featsByIndex; 
+	private String[] featsByIndex; 
 	
-	private static List<LexPhon[]> mismatches; 
+	private List<LexPhon[]> mismatches; 
 	
-	private final static int NUM_TOP_ERR_PHS_TO_DISP = 4; 
+	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats)
 	{
@@ -93,19 +93,37 @@ public class ErrorAnalysis {
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
-	public static void confusionPrognosis(boolean get_contexts)
+	public void confusionPrognosis(boolean get_contexts)
 	{
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		
-		System.out.println("Result phones most associated with error: ");
-		for(int i = 0 ; i < topErrResPhLocs.length; i++)
-			System.out.println(""+i+": "+resPhInventory[topErrResPhLocs[i]]+" with rate "+errorRateByResPhone[topErrResPhLocs[i]]);
-		System.out.println("Gold phones most associated with error: ");
-		for(int i = 0 ; i < topErrGoldPhLocs.length; i++)
-			System.out.println(""+i+": "+goldPhInventory[topErrGoldPhLocs[i]]+" with rate "+errorRateByGoldPhone[topErrGoldPhLocs[i]]); 
-		
+		double max_res_err_rate = errorRateByResPhone[topErrResPhLocs[0]]; 
+		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]]; 
+		if (max_res_err_rate > 1.25 * (1.0 - pctAcc) || max_gold_err_rate > 1.25 * (1.0 - pctAcc)) 
+		{ 
+			System.out.println("Result phones most associated with error: ");
+			
+			for(int i = 0 ; i < topErrResPhLocs.length; i++)
+			{
+				double rate = errorRateByResPhone[topErrResPhLocs[i]] ;
+				
+				// we will suppress once the rate is not more than 117% (100+ 0.5sd) of global error rate
+				if (rate < (1.0 - pctAcc) * 1.17)	i = topErrResPhLocs.length; 
+				else	System.out.println(""+i+": "+resPhInventory[topErrResPhLocs[i]]+" with rate "+rate);
+				
+			}
+			System.out.println("Gold phones most associated with error: ");
+			for(int i = 0 ; i < topErrGoldPhLocs.length; i++)
+			{
+				double rate = errorRateByGoldPhone[topErrGoldPhLocs[i]];
+				if (rate < pctAcc * 1.17)	i = topErrGoldPhLocs.length; 
+				else	System.out.println(""+i+": "+goldPhInventory[topErrGoldPhLocs[i]]+" with rate "+rate); 
+			}	
+		}
+		else	System.out.println("No particular phones especially associated with error.");
+			
 		System.out.println("---\nMost common distortions: "); 
 		int[][] topDistortions = arr2dLocNMax(confusionMatrix, 5); 
 		for(int i = 0 ; i < topDistortions.length; i++)
@@ -130,7 +148,7 @@ public class ErrorAnalysis {
 	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
-	private static void updateConfusionMatrix(LexPhon res, LexPhon gold)
+	private void updateConfusionMatrix(LexPhon res, LexPhon gold)
 	{
 		mismatches.add( new LexPhon[] {res, gold}) ; 
 		
@@ -154,7 +172,7 @@ public class ErrorAnalysis {
 	// will report only features that are CONSTANT for pre-prior and post-posterior positions
 	// and features taht are more common than 
 	// TODO reorganize this! 
-	private static List<String> identifyProblemContextsForDistortion(int resPhInd, int goldPhInd)
+	private List<String> identifyProblemContextsForDistortion(int resPhInd, int goldPhInd)
 	{
 		List<String> out = new ArrayList<String>(); 
 
@@ -251,7 +269,7 @@ public class ErrorAnalysis {
 	
 	
 	// Stringed list of all feats that are present in EVERY phone that is a key in the HashMap. 
-	private static String getConstantFeats(HashMap<SequentialPhonic,Integer> ctxts)
+	private String getConstantFeats(HashMap<SequentialPhonic,Integer> ctxts)
 	{
 		List<SequentialPhonic> phs = new ArrayList<SequentialPhonic>(ctxts.keySet()); 
 		if (phs.size() == 1) //all consistently one phone!
@@ -282,7 +300,7 @@ public class ErrorAnalysis {
 	 * @param thresh -- minimum percentage of total frequency necessary to report .
 	 * @return in String form, any phones with a frequency above the threshold, followed by their share of all phones in that context
 	 */
-	private static String getCommonCtxtPhs (HashMap<SequentialPhonic, Integer> phCts, int total_dist_occs, double thresh)
+	private String getCommonCtxtPhs (HashMap<SequentialPhonic, Integer> phCts, int total_dist_occs, double thresh)
 	{
 		String output = ""; 
 		
@@ -302,7 +320,7 @@ public class ErrorAnalysis {
 		// however if the word bound itself is the boundary over 50% of the time, this will be reported in 
 		// the method identifyProblemContextsForDistortion
 	// @param ctxtName -- i.e. "prior" or "posterior" -- sequential relation to target phone
-	private static String getContextCommonFeats(HashMap<SequentialPhonic,Integer> ctxtCts, int total_dist_instances)
+	private String getContextCommonFeats(HashMap<SequentialPhonic,Integer> ctxtCts, int total_dist_instances)
 	{
 		
 		Set<SequentialPhonic> phonesFound = ctxtCts.keySet(); 
@@ -339,7 +357,7 @@ public class ErrorAnalysis {
 	}
 	
 	
-	private static List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, List<SequentialPhonic>[] alignedReps)
+	private List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, List<SequentialPhonic>[] alignedReps)
 	{
 		List<Integer> output = new ArrayList<Integer>(); 
 		List<SequentialPhonic> resRep = new ArrayList<SequentialPhonic>(alignedReps[0]),
@@ -355,7 +373,7 @@ public class ErrorAnalysis {
 	// return list of word pairs with a particular distorition,
 	// as indicated by the pairing of the uniquely indexed result phone
 	// and the different uniquely indexed gold phone.
-	private static List<LexPhon[]> mismatchesWithDistortion (int resPhInd, int goldPhInd)
+	private List<LexPhon[]> mismatchesWithDistortion (int resPhInd, int goldPhInd)
 	{
 		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
 		for (int i = 0 ; i < mismatches.size() ; i++)
@@ -386,9 +404,9 @@ public class ErrorAnalysis {
 	}
 	
 	//TODO replace with actual alignment algorithm
-	private static List<SequentialPhonic>[] getAlignedForms(LexPhon r, LexPhon g)
+	private List<SequentialPhonic>[] getAlignedForms(LexPhon r, LexPhon g)
 	{
-		List<SequentialPhonic>[] out = new ArrayList[2]; 
+		List<SequentialPhonic>[] out = new ArrayList[2];
 		out[0] = extractPhones(r); out[1] = extractPhones(g); 
 		if(out[0].size() > out[1].size())
 			while (out[1].size() < out[0].size())
@@ -400,7 +418,7 @@ public class ErrorAnalysis {
 	}
 	
 	//auxiliary -- get only phone objects from a LexPhon
-	private static List<SequentialPhonic> extractPhones(LexPhon lp)
+	private List<SequentialPhonic> extractPhones(LexPhon lp)
 	{
 		List<SequentialPhonic> sps = lp.getPhonologicalRepresentation(); 
 		List<SequentialPhonic> out = new ArrayList<SequentialPhonic>(); 
@@ -413,7 +431,7 @@ public class ErrorAnalysis {
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
 	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
-	private static int levenshteinDistance(LexPhon s, LexPhon t)
+	private int levenshteinDistance(LexPhon s, LexPhon t)
 	{
 		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 
 				tPhons = t.getPhonologicalRepresentation(); 
@@ -454,7 +472,7 @@ public class ErrorAnalysis {
 		return distMatrix[n-1][m-1]; 
 	}
 
-	private static int[] arrLocNMax(double[] arr, int n)
+	private int[] arrLocNMax(double[] arr, int n)
 	{
 		int[] maxLocs = new int[n];
 		int num_filled = 1; //since maxLocs[0] = 0 already by default
@@ -492,7 +510,7 @@ public class ErrorAnalysis {
 	}
 	
 	//rows -- results, cols -- gold
-	private static int[][] arr2dLocNMax(int[][] arrArr, int n)
+	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
 		int[][] maxLocs = new int[n][2]; 
 		int nrow = 0, num_filled = 1; //since maxLocs[0][0] = 0 already by default
@@ -534,7 +552,7 @@ public class ErrorAnalysis {
 	}
 	
 	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
-	private static int getNumPhones(List<SequentialPhonic> splist)
+	private int getNumPhones(List<SequentialPhonic> splist)
 	{
 		int count = 0 ;
 		for (SequentialPhonic sp :  splist)
@@ -549,7 +567,7 @@ public class ErrorAnalysis {
 	 * to get all mismatches, enter a an empty list for @param targSeq
 	 * 
 	 */
-	public static List<LexPhon[]> getCurrMismatches( List<SequentialPhonic> targSeq, boolean look_in_gold)
+	public List<LexPhon[]> getCurrMismatches( List<SequentialPhonic> targSeq, boolean look_in_gold)
 	{
 		if (targSeq.size() == 0)	return mismatches;
 		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
@@ -560,4 +578,16 @@ public class ErrorAnalysis {
 				out.add(new LexPhon[] {msmtch[0], msmtch[1]});
 		return out;
 	}
+	
+	public double getPercentAccuracy()
+	{	return pctAcc;	}
+	
+	public double getPct1off()
+	{	return pct1off;	}
+	
+	public double getPct2off()
+	{	return pct2off;	}
+	
+	public double getAvgPhDist()
+	{	return overallLak;	}
 }
