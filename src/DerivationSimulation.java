@@ -83,6 +83,9 @@ public class DerivationSimulation {
 	
 	private static int goldStageInd, blackStageInd; 
 	
+	private static boolean feats_weighted;
+	private static double[] FT_WTS; 
+	
 	public static void main(String args[])
 	{
 		Scanner input = new Scanner(System.in);
@@ -149,6 +152,18 @@ public class DerivationSimulation {
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
+		
+		//Now we check if the features have weights
+		if (symbDefsLines.get(1).split(",")[0].equalsIgnoreCase("FEATURE_WEIGHTS"))
+		{
+			feats_weighted = true; 
+			FT_WTS = new double[featsByIndex.length];
+			String[] weightsByIndex = symbDefsLines.get(1).substring(symbDefsLines.get(1).indexOf(",")+1).split(",");
+			for(int i = 0 ; i < featsByIndex.length; i++)
+				FT_WTS[i] = Double.parseDouble(weightsByIndex[i]); 
+			symbDefsLines.remove(1); 
+		}	
+		else	feats_weighted = false;
 		
 		//from the rest-- extract the symbol def each represents
 		int li = 1; 
@@ -696,44 +711,6 @@ public class DerivationSimulation {
 		writeToFile(filename, output); 
 	}
 
-	/**
-	 * @precondition: @param outForms and @param goldForms have been filled as part of a completed simulation
-	 * @precondition: lexLD and lexLak are static
-	 * @note : DESTRUCTIVE! Intended to modify static variables
-	 * fills lexLD and lexLak and isHit
-	 * Lakation -- level of quasisynchronic distortion that arose diachronically
-	 * 	here it is measured for each lexeme by Levenshtein distance divided by phone length of gold form for the etymon
-	 * @returns two-item array of doubles where the first element is the average lexical lakation
-	 * 		and the second is the percent accuracy 0 to 100 
-	 * 		third is accuracy within two phones. 
-	 */
-	private static double[] analyzeLDAccAndLakation(int[] lexLD, double[] lexLak, boolean[] isHit, Lexicon outForms, Lexicon goldForms)
-	{
-		lexLD = new int[NUM_ETYMA];
-		lexLak = new double[NUM_ETYMA]; 
-		isHit = new boolean[NUM_ETYMA]; 
-		double totLexQuotients = 0.0, numHits= 0.0, numAlmostHits = 0.0, numNearHits = 0.0;
-		for (int i = 0 ; i < NUM_ETYMA; i++)
-		{
-			int numPhonesInGoldWord = getNumPhones(goldForms.getByID(i).getPhonologicalRepresentation());
-			lexLD[i] = levenshteinDistance(outForms.getByID(i), goldForms.getByID(i));
-			isHit[i] = (lexLD[i] == 0);
-			numHits += (lexLD[i] == 0) ? 1 : 0; 
-			numAlmostHits += (lexLD[i] <= 1) ? 1 : 0; 
-			numNearHits += (lexLD[i] <= 2) ? 1 : 0; 
-			double lakation = (double)lexLD[i] / (double) numPhonesInGoldWord; 
-			lexLak[i] = lakation;
-			totLexQuotients += lakation; 
-		}
-		
-		double[] output = new double[4]; 
-		output[0] = totLexQuotients / (double) NUM_ETYMA * 100.0; 
-		output[1] = numHits / (double)NUM_ETYMA * 100.0; 
-		output[2] = numAlmostHits / (double)NUM_ETYMA * 100.0; 
-		output[3] = numNearHits / (double)NUM_ETYMA * 100.0;
-		return output; 
-	}
-	
 	private static void makeTrajectoryFiles()
 	{
 		File trajdir = new File(""+runPrefix+"\\trajectories"); 
@@ -766,24 +743,6 @@ public class DerivationSimulation {
 			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
 		
 		writeToFile(fileName, output); 
-	}
-	
-	//on the word level, it is divided by the number of phones in the INITIAL lexicon's version of the word! 
-	//TODO abrogated! 
-	private static double getLDErrorAvgdOverWordLengthInPhones()
-	{
-		double totLexQuotients = 0.0; 
-		for(int i = 0; i < NUM_ETYMA; i++)
-		{
-			int numPhonesInInitWord = 0; 
-			List<SequentialPhonic> initWordPhSeq  = initLexicon.getByID(i).getPhonologicalRepresentation(); 
-			for(SequentialPhonic ph : initWordPhSeq)
-				if(ph.getType().equals("phone"))	numPhonesInInitWord++; 
-			
-			totLexQuotients += (double)levenshteinDistance(testResultLexicon.getByID(i), goldResultLexicon.getByID(i))
-					/	(double)numPhonesInInitWord; 
-		}
-		return totLexQuotients / (double)NUM_ETYMA; 
 	}
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
@@ -839,52 +798,6 @@ public class DerivationSimulation {
 		return output; 
 	}
 	
-	// for the lexicon of any given stage, passed as parameter, 
-	// outputs hashmap where the value for each key Phone instance
-	// is the average Levenshtein distance for words containing that phone 
-	// normalized for length of the word
-	// counted for the number of times the phone actually occurs in that word out of total phones in the word, each time. 
-	//TODO abrogated!
-	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
-	{
-		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
-		int lexSize = lexList.length; 
-
-		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
-		int inventorySize = phonemicInventory.length; 
-		HashMap<String,Integer> phonemeIndices = new HashMap<String,Integer>();
-			//maps print symbols of phoneme onto its index in phonemicInventory array
-		for(int phii = 0 ; phii < phonemicInventory.length; phii++)
-			phonemeIndices.put( phonemicInventory[phii].print(), phii); 
-		
-		int[] totalLevenshtein = new int[inventorySize]; //total levenshtein edit distance 
-			// of words with this phone
-		
-		for(int li = 0; li < lexSize; li++)
-		{
-			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation();
-			for (SequentialPhonic ph : phs)
-			{
-				if(ph.getType().equals("phone"))
-				{					
-					totalLevenshtein[phonemeIndices.get(ph.print())] += 
-							normalizedLevenshtein(testResultLexicon.getByID(li),
-									goldResultLexicon.getByID(li));
-				}
-			}
-		}
-		
-		HashMap<String,Integer> phoneFreqsByWordInLex = lexic.getPhoneFrequenciesByWord(); 
-
-		HashMap<Phone,Double> output = new HashMap<Phone,Double>(); 
-		for(int phi = 0; phi < inventorySize; phi++)
-		{
-			output.put(phonemicInventory[phi], 
-					(double)totalLevenshtein[phi] / 
-					(double)phoneFreqsByWordInLex.get(phonemicInventory[phi].getFeatString()));
-		}
-		return output;
-	}
 	/**
 	 * given String @param toLex
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
@@ -954,14 +867,6 @@ public class DerivationSimulation {
 		
 		return distMatrix[n-1][m-1]; 
 	}
-
-	//normalized by phonetic length of the gold form (t) 
-	//TODO abrogated!
-	private static double normalizedLevenshtein(LexPhon s, LexPhon t)
-	{
-		int nphons = getNumPhones(t.getPhonologicalRepresentation()); 
-		return ((double)levenshteinDistance(s,t)) / (double)nphons; 
-	}
 	
 	//auxiliary method -- get number of columns in lexicon file. 
 	private static int colCount(String str)
@@ -975,20 +880,6 @@ public class DerivationSimulation {
 			i = proxy.indexOf(","); 
 		}
 		return c; 
-	}
-
-	//count number of actual Phones in list of SequentialPhonic objects 
-	private static int getNumPhones(List<SequentialPhonic> splist)
-	{
-		int count = 0 ;
-		for (SequentialPhonic sp :  splist)
-		{
-			if(sp.getType().equals("phone"))
-			{
-				count++; 
-			}
-		}
-		return count; 
 	}
 	
 	private static int numFalse (boolean[] boolarray)
@@ -1021,14 +912,18 @@ public class DerivationSimulation {
 		}
 	}
 	
+	//TODO fix this. 
 	private static void haltMenu(Lexicon r, Lexicon g)
 	{
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex); 
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, new FED());
+		if(feats_weighted)	ea = new ErrorAnalysis(r, g, featsByIndex, new FED(FT_WTS)); 
+
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
 		System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
-		System.out.println("Average phonemic edit distance from gold: "+ea.getAvgPhDist());
-	
+		System.out.println("Average phonemic unit edit distance from gold: "+ea.getAvgPED());
+		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+		
 		boolean cont = true; 
 		
 		Scanner inp = new Scanner(System.in); 
@@ -1083,6 +978,7 @@ public class DerivationSimulation {
 			else if(resp.equals("7"))	cont = false; 
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 		}
+		inp.close();
 	}
 }
 

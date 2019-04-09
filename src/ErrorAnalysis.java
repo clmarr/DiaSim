@@ -6,9 +6,9 @@ import java.util.Collections;
 
 public class ErrorAnalysis {
 	private int[] levDists; 
-	private double[] laks;
+	private double[] peds, feds;
 	private boolean[] isHit; 
-	private double pctAcc, pct1off, pct2off, overallLak; 
+	private double pctAcc, pct1off, pct2off, avgPED, avgFED; 
 	
 	private Phone[] resPhInventory, goldPhInventory; 
 	
@@ -20,13 +20,16 @@ public class ErrorAnalysis {
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
 	private String[] featsByIndex; 
-	
+		
 	private List<LexPhon[]> mismatches; 
 	
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
-	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats)
+	private FED featDist;
+	
+	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
+		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
 		
 		resPhInventory = theRes.getPhonemicInventory();
@@ -52,9 +55,10 @@ public class ErrorAnalysis {
 		
 		int NUM_ETYMA = theGold.getWordList().length; 
 		levDists = new int[NUM_ETYMA]; 
-		laks = new double[NUM_ETYMA]; 
+		peds = new double[NUM_ETYMA];
+		feds = new double[NUM_ETYMA];
 		isHit = new boolean[NUM_ETYMA];
-		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0;
+		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 		
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
 		{
@@ -64,9 +68,12 @@ public class ErrorAnalysis {
 			numHits += (levDists[i] == 0) ? 1 : 0; 
 			num1off += (levDists[i] <= 1) ? 1 : 0; 
 			num2off += (levDists[i] <= 2) ? 1 : 0; 
-			double lakation = (double)levDists[i] / (double) numPhsGoldWd; 
-			laks[i] = lakation;
-			totLexQuotients += lakation; 
+			peds[i] = (double)levDists[i] / (double) numPhsGoldWd;
+			totLexQuotients += peds[i]; 
+			FED.compute(theRes.getByID(i).getPhonologicalRepresentation(), 
+					theGold.getByID(i).getPhonologicalRepresentation(), 1.0); 
+			feds[i] = featDist.getFED();
+			totFED += feds[i];
 			
 			if(!isHit[i])
 				updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
@@ -74,7 +81,8 @@ public class ErrorAnalysis {
 		pctAcc = numHits / (double) NUM_ETYMA; 
 		pct1off = num1off / (double) NUM_ETYMA;
 		pct2off = num2off / (double) NUM_ETYMA; 
-		overallLak = totLexQuotients / (double) NUM_ETYMA; 	
+		avgPED = totLexQuotients / (double) NUM_ETYMA; 	
+		avgFED = totFED / (double) NUM_ETYMA; 
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<SequentialPhonic, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -88,7 +96,6 @@ public class ErrorAnalysis {
 					/ (double)goldPhCts.get(goldPhInventory[i]); 
 		
 		//TODO determine wehn/where coding-wise to call confusionPrognosis()? 
-		
 		
 	}
 	
@@ -295,7 +302,7 @@ public class ErrorAnalysis {
 	
 	/**
 	 * getCommonCtxtPhs
-	 * @param phCts -- map of phones linked to their frequency of occurrencei n the context of a paritcular distortion
+	 * @param phCts -- map of phones linked to their frequency of occurrence in the context of a paritcular distortion
 	 * @param total_dist_occs -- toal occurrences of the distortion we are getting contexts for
 	 * @param thresh -- minimum percentage of total frequency necessary to report .
 	 * @return in String form, any phones with a frequency above the threshold, followed by their share of all phones in that context
@@ -588,6 +595,9 @@ public class ErrorAnalysis {
 	public double getPct2off()
 	{	return pct2off;	}
 	
-	public double getAvgPhDist()
-	{	return overallLak;	}
+	public double getAvgPED()
+	{	return avgPED;	}
+	
+	public double getAvgFED()
+	{	return avgFED;	}
 }
