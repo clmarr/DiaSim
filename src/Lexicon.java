@@ -80,7 +80,7 @@ public class Lexicon {
 	//return list of all phones present in words of the lexicon
 	public Phone[] getPhonemicInventory()
 	{
-		String hitPhonesListStr = "";
+		List<String> hitPhonesListStr = new ArrayList<String>(); 
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
 		for (LexPhon theWord : theWordList)
 		{	List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
@@ -90,7 +90,7 @@ public class Lexicon {
 				{
 					if(!hitPhonesListStr.contains(curPh.print()))
 					{
-						hitPhonesListStr = hitPhonesListStr + curPh.print() + ","; 
+						hitPhonesListStr.add(curPh.print()); 
 						phList.add(curPh);
 					}
 				}
@@ -103,24 +103,18 @@ public class Lexicon {
 	}
 	
 	//counts for each phoneme
-	public HashMap<SequentialPhonic,Integer> getPhonemeCounts()
+	public HashMap<String,Integer> getPhonemeCounts()
 	{
-		String hitPhonesListStr = "";
-		HashMap<SequentialPhonic,Integer> theMap = new HashMap<SequentialPhonic,Integer>(); 
+		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
 		for (LexPhon lex: theWordList)
 		{
-			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
+			SequentialPhonic[] thePhones = lex.getPhOnlySeq();
 			for (SequentialPhonic curPh : thePhones)
 			{
-				if(curPh.getType().equals("phone"))
-				{
-					if(!hitPhonesListStr.contains(curPh.print()))
-					{
-						hitPhonesListStr = hitPhonesListStr + curPh.print() + ",";
-						theMap.put(curPh, 1);
-					}
-					else	theMap.put(curPh, theMap.get(curPh) + 1);
-				}
+				if(!theMap.containsKey(curPh.print()))
+					theMap.put(curPh.print(), 1);
+				
+				else	theMap.put(curPh.print(), theMap.get(curPh.print()) + 1);
 			}
 		}
 		return theMap;

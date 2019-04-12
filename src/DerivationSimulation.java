@@ -804,8 +804,7 @@ public class DerivationSimulation {
 	
 	private static void haltMenu(Lexicon r, Lexicon g)
 	{		
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, new FED());
-		if(feats_weighted)	ea = new ErrorAnalysis(r, g, featsByIndex, new FED(FT_WTS)); 
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, feats_weighted ? new FED(FT_WTS) : new FED());
 
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());

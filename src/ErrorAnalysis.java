@@ -54,7 +54,8 @@ public class ErrorAnalysis {
 		errorRateByResPhone = new double[resPhInventory.length]; 
 		errorRateByGoldPhone = new double[goldPhInventory.length];
 
-		confusionMatrix = new int[resPhInventory.length][goldPhInventory.length];
+		confusionMatrix = new int[resPhInventory.length + 1][goldPhInventory.length + 1];
+		// final indices in both dimensions are for the null phone
 		
 		mismatches = new ArrayList<LexPhon[]>();
 		
@@ -93,18 +94,16 @@ public class ErrorAnalysis {
 		System.out.println("Calculate by-phone error rates...");
 		
 		//calculate error rates by phone for each of result and gold sets
-		HashMap<SequentialPhonic, Integer> resPhCts = theRes.getPhonemeCounts(), 
+		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
 				goldPhCts = theGold.getPhonemeCounts(); 
 		
 		for (int i = 0 ; i < resPhInventory.length; i++)
 			errorRateByResPhone[i] = (double)errorsByResPhone[i] 
-					/ (double)resPhCts.get(resPhInventory[i]);
+					/ (double)resPhCts.get(resPhInventory[i].print());
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
-					/ (double)goldPhCts.get(goldPhInventory[i]); 
+					/ (double)goldPhCts.get(goldPhInventory[i].print()); 
 		
-		//TODO debuggging
-		System.out.println("EA constr.");
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
