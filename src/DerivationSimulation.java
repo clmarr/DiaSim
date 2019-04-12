@@ -10,7 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap; 
 import java.util.Scanner; 
 import java.util.List;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.Collections; 
 
 
 //TODO implement command line support 
@@ -38,6 +39,8 @@ public class DerivationSimulation {
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
 	private final static char LEX_DELIM =','; 
+	//private HashMap featTranslations; //TODO currently abrogated 
+	private static List<String> rulesByTimeInstant;
 	private final static char STAGE_PRINT_DELIM = ',';  
 	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
 	
@@ -46,8 +49,6 @@ public class DerivationSimulation {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
-	//private HashMap featTranslations; //TODO currently abrogated 
-	private static List<String> rulesByTimeInstant; 
 	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
@@ -411,9 +412,7 @@ public class DerivationSimulation {
 			resp = input.nextLine(); 
 		}
 		boolean stage_pause = (resp.equalsIgnoreCase("y"));
-		
-		//TODO fix this... how are we going to use? 
-		
+				
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
@@ -598,76 +597,30 @@ public class DerivationSimulation {
 		//make output graphs file
 		System.out.println("making output graph file in "+dir);
 		makeOutGraphFile(); 
-		
+				
 		if(goldOutput)
 		{
-			double[] PERFORMANCE_arr = analyzeLDAccAndLakation(finLexLD, finLexLak, finMissInds, testResultLexicon, goldResultLexicon); 
-			PERFORMANCE = PERFORMANCE_arr[0] ; 
-			ACCURACY = PERFORMANCE_arr[1]; 
-			NEAR_ACCURACY = PERFORMANCE_arr[3];
+			haltMenu(testResultLexicon, goldResultLexicon);
 			
-			System.out.println("FINAL OVERALL LAKATION : "+PERFORMANCE); 
-			System.out.println("FINAL OVERALL ACCURACY : "+ACCURACY); 
-			System.out.println("ACCURACY WITHIN 1 PHONE: "+PERFORMANCE_arr[2]);
-			System.out.println("ACCURACY WITHIN 2 PHONES : "+NEAR_ACCURACY);
+			System.out.println("Writing analysis files...");
+			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
-			
-			//TODO current error here -- need to fill finMissInds. 
-			System.out.println(numFalse(finMissInds)+" misses out of "+NUM_ETYMA+" etyma.");
-			if( NUM_GOLD_STAGES > 0 )
-			{
-				for (int i = 0 ; i < NUM_GOLD_STAGES; i++)
-				{	System.out.println(goldStageNames[i] +" overall lakation : "
-							+analyzeLDAccAndLakation(stageLexLDs.get(i), stageLexLaks.get(i), stageMissInds.get(i), goldStageResultLexica[i], goldStageGoldLexica[i]));
-					System.out.println(numFalse(stageMissInds.get(i))+" misses out of "+NUM_ETYMA+" etyma.");
-				}
-			}
-			//TODO IMPORTANT, print here or to file, by phone analysis....  
-		}
-		//TODO ABROGATED BELOW
-		if(goldOutput &&  false) //TODO implement this, remove "&& false" 
-		{	
-			PERFORMANCE = getLDErrorAvgdOverWordLengthInPhones(); 
-			System.out.println("PERFORMANCE ON GOLD RESULT SET = "+PERFORMANCE);
-			numCorrectEtyma = 0;
-			
-			finMissInds = new boolean[NUM_ETYMA]; 
-			for(int i = 0; i < NUM_ETYMA; i++)
-			{
-				finLexLD[i] = levenshteinDistance(testResultLexicon.getByID(i), 
-						goldResultLexicon.getByID(i)); 
-				finMissInds[i] = (finLexLD[i] != 0);
-				numCorrectEtyma += (finLexLD[i] == 0) ? 0 : 1;
-				wordTrajectories[i] = wordTrajectories[i].substring(0, wordTrajectories[i].indexOf("\n")) +
-					(finMissInds[i] ? " MISS, edit distance: "+ finLexLD[i]:" HIT") +
-					wordTrajectories[i].substring(wordTrajectories[i].indexOf("\n"));	
-			}
-			
-			System.out.println("Writing analysis files...");//TODO maybe need more print statements here. 
-			
-			makeAnalysisFile("initialFormInfluenceAnalysis.txt", "Initial", initLexicon); 
-			makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon); 
-			makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon); 
+			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldResultLexicon, featsByIndex, 
+					feats_weighted ? new FED(FT_WTS) : new FED());
+			ea.makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon);
+			ea.makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon);
 			
 			if(goldStagesSet)
 			{	
 				for(int gsi = 0; gsi < NUM_GOLD_STAGES ; gsi++)
-					makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
+				{	
+					ErrorAnalysis eap = new ErrorAnalysis(goldStageResultLexica[gsi], goldStageGoldLexica[gsi], featsByIndex,
+							feats_weighted ? new FED(FT_WTS) : new FED());
+					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
 							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
+				}
 			}
-			if (blackStagesSet)
-			{	
-				for(int bsi = 0; bsi < NUM_BLACK_STAGES ; bsi++)
-					makeAnalysisFile(blackStageNames[bsi].replaceAll(" ", "")+"ResultAnalysis.txt",
-							blackStageNames[bsi]+" Result", blackStageResultLexica[bsi]);
-			}
-				
-			System.out.println("Analysis files written!");
-			
 		}
-		
-		//TODO make the calculations and output the files! 
-		
 		input.close();
 	}
 
@@ -727,28 +680,9 @@ public class DerivationSimulation {
 		}
 	}
 	
-	//TODO abrogated! 
-	private static void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
-	{
-		String output = "Analysis for "+lexicName+"/n";
-		output += "Overall performance in average derivational distance : "+PERFORMANCE+"\n"; //TODO come up with better name for this 
-		output += "Percent of derivation results that match correct forms : "+ACCURACY+"%\n"; 
-		output += "Performance associated with each phone in "+lexicName+"\n"; 
-		output += "Phone in "+lexicName+"\tAssociated lakation\tMean Associated Normalized Lev.Dist.\n";
-		
-		HashMap<Phone, Double> missLikByPhone = missLikelihoodPerPhone(lexic);
-		HashMap<Phone, Double> avgAssocdLDs = avgLDForWordsWithPhone(lexic); 
-		Phone[] phonInv = lexic.getPhonemicInventory(); 
-		for(Phone ph : phonInv)
-			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)+"\n"; 
-		
-		writeToFile(fileName, output); 
-	}
-	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
 	// outputs the scores for each phone in the word in the lexicon
-	//TODO abrogated
-	private static HashMap<Phone,Double> missLikelihoodPerPhone (Lexicon lexic)
+	public static HashMap<Phone,Double> missLikelihoodPerPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
@@ -824,50 +758,6 @@ public class DerivationSimulation {
 		return new LexPhon(phones);
 	}
 	
-	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
-	//under this definition of Levenshtein Edit Distance,
-	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
-	private static int levenshteinDistance(LexPhon s, LexPhon t)
-	{
-		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 
-				tPhons = t.getPhonologicalRepresentation(); 
-		int n = sPhons.size(), m = tPhons.size(); 
-		
-		String[] sPhonStrs = new String[n], tPhonStrs = new String[m];
-	
-		for(int i = 0; i < n; i++)	sPhonStrs[i] = sPhons.get(i).print(); 
-		for(int i = 0; i < m; i++)	tPhonStrs[i] = tPhons.get(i).print(); 
-		
-		int[][] distMatrix = new int[n][m], costMatrix = new int[n][m]; 
-	
-		//first we fill it with the base costs
-		for(int i = 0; i < n; i++)
-		{
-			for(int j = 0; j < m; j++)
-			{
-				if( sPhonStrs[i].equals(tPhonStrs[j]) )	costMatrix[i][j] = 0; 
-				else	costMatrix[i][j] = 1; 
-			}
-		}
-		
-		//then accumulate the Levenshtein Distance across the graph toward the bottom right
-		//arbitrarily, do this top-right then down row by row (could also be done up-dwon then right)
-		
-		for(int i = 0 ;  i < n ; i++)	distMatrix[i][0] = i ;
-		for(int j = 0 ; j < m ; j++)	distMatrix[0][j] = j;
-		
-		for(int i=1; i < n; i++)
-		{
-			for(int j = 1; j < m; j++)
-			{
-				distMatrix[i][j] = Math.min(distMatrix[i-1][j-1]+costMatrix[i-1][j-1],
-						1 + Math.min(distMatrix[i-1][j], distMatrix[i][j-1])); 
-			}
-		}
-		
-		return distMatrix[n-1][m-1]; 
-	}
-	
 	//auxiliary method -- get number of columns in lexicon file. 
 	private static int colCount(String str)
 	{
@@ -912,16 +802,15 @@ public class DerivationSimulation {
 		}
 	}
 	
-	//TODO fix this. 
 	private static void haltMenu(Lexicon r, Lexicon g)
-	{
+	{		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, new FED());
 		if(feats_weighted)	ea = new ErrorAnalysis(r, g, featsByIndex, new FED(FT_WTS)); 
 
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
 		System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
-		System.out.println("Average phonemic unit edit distance from gold: "+ea.getAvgPED());
+		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 		
 		boolean cont = true; 
@@ -937,7 +826,9 @@ public class DerivationSimulation {
 					+ "4: Print all forms mismatched between result and gold\n"
 					+ "5: Print all mismatched forms with a specified phone sequence in the result form\n"
 					+ "6: Print all mismatched forms with a specified phone sequence in the gold form\n"
-					+ "7: End this analysis.\n");
+					+ "7: Stats for all forms with specified phone sequence in result form\n"
+					+ "8: Stats for all forms with specified phone sequence in gold form\n"
+					+ "9: End this analysis.\n");
 			String resp = inp.nextLine();
 			
 			if(resp.equals("1"))	ea.confusionPrognosis(true);
@@ -950,9 +841,9 @@ public class DerivationSimulation {
 				//TODO this
 			}
 			else if(resp.equals("4"))	ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
-			else if("56".contains(resp))
+			else if("5678".contains(resp))
 			{
-				boolean in_gold = resp.equals("6"); 
+				boolean in_gold = "68".contains(resp), stats_not_words = "78".contains(resp); 
 				System.out.println("Please enter the phoneme sequence you wish to test for, delimited by '"+PH_DELIM+"'.\n"); 
 				resp = inp.nextLine(); 
 				boolean reenter = true;
@@ -971,15 +862,147 @@ public class DerivationSimulation {
 						resp = inp.nextLine();
 					}
 				}
-				List<LexPhon[]> pairs = ea.getCurrMismatches(targSeq, in_gold); 
-				System.out.println("Printing: res, gold");
-				for(LexPhon[] pair : pairs)	System.out.println(pair[0]+","+pair[1]);
+				if (!stats_not_words)
+				{
+					List<LexPhon[]> pairs = ea.getCurrMismatches(targSeq, in_gold); 
+					System.out.println("Printing: res, gold");
+					for(LexPhon[] pair : pairs)	System.out.println(pair[0]+","+pair[1]);
+					//TODO prompt to continue?
+				}
+				else
+				{
+					ErrorAnalysis subEA = analyze_subset_with_seq(r, g, targSeq, in_gold); 
+					System.out.println("Overall accuracy : "+subEA.getPercentAccuracy());
+					System.out.println("Accuracy within 1 phone: "+subEA.getPct1off());
+					System.out.println("Accuracy within 2 phone: "+subEA.getPct2off());
+					System.out.println("Average edit distance per from gold phone: "+subEA.getAvgPED());
+					System.out.println("Average feature edit distance from gold: "+subEA.getAvgFED());
+				}
 			}
-			else if(resp.equals("7"))	cont = false; 
+			else if(resp.equals("9"))	cont = false; 
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 		}
 		inp.close();
 	}
+	
+	//makes EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param
+	public static ErrorAnalysis analyze_subset_with_seq (Lexicon ogRes, Lexicon ogGold, List<SequentialPhonic> targSeq, boolean look_in_gold)
+	{
+		if (targSeq.size() == 0)	throw new Error("Can't make subset based on empty sequence"); 
+		List<Integer> indsInSubset = new ArrayList<Integer>(); 
+		Lexicon toCheck = look_in_gold ? ogGold : ogRes;
+		
+		for (int i = 0 ; i < NUM_ETYMA; i++)
+			if (Collections.indexOfSubList( toCheck.getByID(i).getPhonologicalRepresentation(), targSeq) != -1)
+				indsInSubset.add(i);
+		
+		int subset_size = indsInSubset.size();
+		
+		LexPhon[] subRes = new LexPhon[subset_size], subGold = new LexPhon[subset_size]; 
+		
+		for (int j = 0 ; j < subset_size; j++)
+		{
+			int k = indsInSubset.remove(0); 
+			subRes[j] = ogRes.getByID(k); 
+			subGold[j] = ogGold.getByID(k); 	
+		}
+		 
+		return new ErrorAnalysis(new Lexicon(subRes), new Lexicon(subGold), featsByIndex, 
+				feats_weighted ? new FED(FT_WTS) : new FED()); 
+		
+	}
+	
+	
+	// for the lexicon of any given stage, passed as parameter, 
+	// outputs hashmap where the value for each key Phone instance
+	// is the average Levenshtein distance for words containing that phone 
+	// normalized for length of the word
+	// counted for the number of times the phone actually occurs in that word out of total phones in the word, each time. 
+	public static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
+	{
+		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		int lexSize = lexList.length; 
+
+		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
+		int inventorySize = phonemicInventory.length; 
+		HashMap<String,Integer> phonemeIndices = new HashMap<String,Integer>();
+			//maps print symbols of phoneme onto its index in phonemicInventory array
+		for(int phii = 0 ; phii < phonemicInventory.length; phii++)
+			phonemeIndices.put( phonemicInventory[phii].print(), phii); 
+		
+		int[] totalLevenshtein = new int[inventorySize]; //total levenshtein edit distance 
+			// of words with each phone
+		
+		for(int li = 0; li < lexSize; li++)
+		{
+			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation();
+			for (SequentialPhonic ph : phs)
+			{
+				if(ph.getType().equals("phone"))
+				{					
+					totalLevenshtein[phonemeIndices.get(ph.print())] += 
+							ErrorAnalysis.levenshteinDistance(testResultLexicon.getByID(li),
+									goldResultLexicon.getByID(li)) / (double)goldResultLexicon.getByID(li).getNumPhones() ;
+				}
+			}
+		}
+		
+		HashMap<String,Integer> phoneFreqsByWordInLex = lexic.getPhoneFrequenciesByWord(); 
+
+		HashMap<Phone,Double> output = new HashMap<Phone,Double>(); 
+		for(int phi = 0; phi < inventorySize; phi++)
+		{
+			output.put(phonemicInventory[phi], 
+					(double)totalLevenshtein[phi] / 
+					(double)phoneFreqsByWordInLex.get(phonemicInventory[phi].getFeatString()));
+		}
+		return output;
+	}
+	
+	public static HashMap<Phone,Double> avgFEDForWordsWithPhone (Lexicon lexic)
+	{
+		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		int lexSize = lexList.length; 
+
+		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
+		int inventorySize = phonemicInventory.length; 
+		HashMap<String,Integer> phonemeIndices = new HashMap<String,Integer>();
+			//maps print symbols of phoneme onto its index in phonemicInventory array
+		for(int phii = 0 ; phii < phonemicInventory.length; phii++)
+			phonemeIndices.put( phonemicInventory[phii].print(), phii); 
+		
+		int[] totalFED = new int[inventorySize]; //total feature edit distance 
+			// of words with this phone
+		
+		FED distMeasure = feats_weighted ? new FED(FT_WTS) : new FED(); 
+		
+		for(int li = 0 ; li < lexSize ; li++)
+		{
+			List<SequentialPhonic> phs = lexList[li].getPhonologicalRepresentation();
+			for (SequentialPhonic ph : phs)
+			{
+				if(ph.getType().equals("phone"))
+				{
+					distMeasure.compute(testResultLexicon.getByID(li),
+							goldResultLexicon.getByID(li), 1.0);
+					totalFED[phonemeIndices.get(ph.print())] += distMeasure.getFED();
+				}
+			}
+		}
+		
+		HashMap<String,Integer> phoneFreqsByWordInLex = lexic.getPhoneFrequenciesByWord(); 
+
+		HashMap<Phone,Double> output = new HashMap<Phone,Double>(); 
+		for(int phi = 0; phi < inventorySize; phi++)
+		{
+			output.put(phonemicInventory[phi], 
+					(double)totalFED[phi] / 
+					(double)phoneFreqsByWordInLex.get(phonemicInventory[phi].getFeatString()));
+		}
+		return output;
+		
+	}
+	
 }
 
 

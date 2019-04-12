@@ -1,6 +1,11 @@
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -59,19 +64,19 @@ public class ErrorAnalysis {
 		feds = new double[NUM_ETYMA];
 		isHit = new boolean[NUM_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
-		
+				
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
-		{
-			int numPhsGoldWd = getNumPhones(theGold.getByID(i).getPhonologicalRepresentation());
+		{	
 			levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 			isHit[i] = (levDists[i] == 0); 
 			numHits += (levDists[i] == 0) ? 1 : 0; 
 			num1off += (levDists[i] <= 1) ? 1 : 0; 
 			num2off += (levDists[i] <= 2) ? 1 : 0; 
-			peds[i] = (double)levDists[i] / (double) numPhsGoldWd;
+			peds[i] = (double)levDists[i] / (double) theGold.getByID(i).getNumPhones();
 			totLexQuotients += peds[i]; 
-			FED.compute(theRes.getByID(i).getPhonologicalRepresentation(), 
-					theGold.getByID(i).getPhonologicalRepresentation(), 1.0); 
+			
+			featDist.compute(theRes.getByID(i), theGold.getByID(i), 1.0); 
+			
 			feds[i] = featDist.getFED();
 			totFED += feds[i];
 			
@@ -84,6 +89,9 @@ public class ErrorAnalysis {
 		avgPED = totLexQuotients / (double) NUM_ETYMA; 	
 		avgFED = totFED / (double) NUM_ETYMA; 
 		
+		//TODO debugging
+		System.out.println("Calculate by-phone error rates...");
+		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<SequentialPhonic, Integer> resPhCts = theRes.getPhonemeCounts(), 
 				goldPhCts = theGold.getPhonemeCounts(); 
@@ -95,8 +103,8 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i]); 
 		
-		//TODO determine wehn/where coding-wise to call confusionPrognosis()? 
-		
+		//TODO debuggging
+		System.out.println("EA constr.");
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
@@ -159,19 +167,24 @@ public class ErrorAnalysis {
 	{
 		mismatches.add( new LexPhon[] {res, gold}) ; 
 		
-		List<SequentialPhonic>[] alignedForms = getAlignedForms(res,gold); 
-		// should have the exact same length
+		SequentialPhonic[][] alignedForms = getAlignedForms(res,gold); 
+
 		
-		for (int i = 0 ; i < alignedForms[0].size(); i++)
+		for (int i = 0 ; i < alignedForms.length ; i++)
 		{
-			String r = alignedForms[0].get(i).print(), g = alignedForms[1].get(i).print();  
+			String r = alignedForms[i][0].print(), g = alignedForms[i][1].print(); 
 			if (!r.equals(g))
 			{
-				confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
-				errorsByResPhone[resPhInds.get(r)] += 1; 
-				errorsByGoldPhone[resPhInds.get(g)] += 1;	
+				if (r.equals("∅"))	confusionMatrix[resPhInventory.length][goldPhInds.get(g)] += 1;
+				else if(g.equals("∅"))	confusionMatrix[resPhInds.get(r)][goldPhInventory.length] += 1; 
+				else
+				{
+					confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
+					errorsByResPhone[resPhInds.get(r)] += 1; 
+					errorsByGoldPhone[resPhInds.get(g)] += 1;	
+				}
 			}
-		} 
+		}
 	}
 	
 	// report which contexts tend to surround distortion frequently enough that it becomes 
@@ -195,7 +208,7 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < pairsWithDistortion.size(); i++)
 		{
-			List<SequentialPhonic>[] alignedReps = 
+			SequentialPhonic[][] alignedReps = 
 					getAlignedForms(pairsWithDistortion.get(i)[0], pairsWithDistortion.get(i)[1]); 
 			List<Integer> distortLocs = getDistortionLocsInWordPair(resPhInd, goldPhInd, alignedReps); 
 			
@@ -207,8 +220,8 @@ public class ErrorAnalysis {
 				SequentialPhonic priorPh = new Boundary("word bound"); 
 				if (dloc > 0)
 				{
-					priorPh = alignedReps[1].get(dloc - 1); 
-					if (dloc > 1)	prePrior = alignedReps[1].get(dloc-2); 
+					priorPh = alignedReps[dloc-1][1];
+					if (dloc > 1)	prePrior = alignedReps[dloc-2][1]; 
 				}
 				if (priorPhoneCounts.containsKey(priorPh))
 					priorPhoneCounts.put(priorPh, priorPhoneCounts.get(priorPh)+1); 
@@ -219,10 +232,10 @@ public class ErrorAnalysis {
 				
 				SequentialPhonic ppph =new Boundary("word bound");
 				SequentialPhonic postPh = new Boundary("word bound"); 
-				if (dloc < alignedReps[1].size() - 1)
+				if (dloc < alignedReps[1].length - 1)
 				{
-					postPh = alignedReps[1].get(dloc + 1);
-					if (dloc < alignedReps[1].size() - 2)	ppph = alignedReps[1].get(dloc + 2);
+					postPh = alignedReps[dloc+1][1];
+					if (dloc < alignedReps[1].length - 2)	ppph = alignedReps[dloc+2][1];
 				}
 				if (posteriorPhoneCounts.containsKey(postPh))
 					posteriorPhoneCounts.put(postPh,
@@ -364,81 +377,108 @@ public class ErrorAnalysis {
 	}
 	
 	
-	private List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, List<SequentialPhonic>[] alignedReps)
+	private List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, SequentialPhonic[][] alignedReps)
 	{
 		List<Integer> output = new ArrayList<Integer>(); 
-		List<SequentialPhonic> resRep = new ArrayList<SequentialPhonic>(alignedReps[0]),
-				goldRep = new ArrayList<SequentialPhonic>(alignedReps[1]); 
-
-		for (int i = 0 ; i < resRep.size(); i++) //size of resRep and goldRep should be equal
-			if (resRep.get(i).print().equals(resPhInventory[resPhInd].print()) &&
-					goldRep.get(i).print().equals(goldPhInventory[goldPhInd].print()))
-				output.add(i); 
+		String rTarg = (resPhInd == -1) ? "∅" : resPhInventory[resPhInd].print(),
+				gTarg = (goldPhInd == -1) ? "∅" : goldPhInventory[goldPhInd].print(); 
+	
+		for (int i = 0 ; i < alignedReps.length; i++)
+			if (alignedReps[i][0].print().equals(rTarg) && alignedReps[i][1].print().equals(gTarg))
+				output.add(i);
+		
 		return output;
 	}
 	
 	// return list of word pairs with a particular distorition,
 	// as indicated by the pairing of the uniquely indexed result phone
 	// and the different uniquely indexed gold phone.
+	// if either resPhInd or goldPhInd are -1, they are the null phone. 
 	private List<LexPhon[]> mismatchesWithDistortion (int resPhInd, int goldPhInd)
 	{
 		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
+		boolean is_insert_or_delete = (resPhInd == -1) ||  (goldPhInd == -1); 
 		for (int i = 0 ; i < mismatches.size() ; i++)
 		{
-			List<SequentialPhonic>[] alignedReps = 
-					getAlignedForms(mismatches.get(i)[0], mismatches.get(i)[1]); 
-			List<SequentialPhonic> resRep = new ArrayList<SequentialPhonic>(alignedReps[0]),
-					goldRep = new ArrayList<SequentialPhonic>(alignedReps[1]); 
-			
-			int loc = resRep.indexOf(resPhInventory[resPhInd]); 
-			
-			while (loc != -1)
-			{
-				if (goldRep.get(loc).print().equals(goldPhInventory[goldPhInd].print()))
-				{
-					out.add(mismatches.get(i)); 
-					loc = -1; 
-				}
-				else
-				{
-					resRep = resRep.subList(i+1, resRep.size()); 
-					goldRep = goldRep.subList(i+1, goldRep.size());
-					loc = resRep.indexOf(resPhInventory[resPhInd]);
-				}
-			}
+			if ( is_insert_or_delete)
+			{	if(hasMismatch(resPhInd, goldPhInd, mismatches.get(i)[0], mismatches.get(i)[1]))	
+				out.add(mismatches.get(i)); 	}
+			else if ( mismatches.get(i)[0].findPhone(resPhInventory[resPhInd]) != -1 &&
+					mismatches.get(i)[1].findPhone(goldPhInventory[goldPhInd]) != -1)
+			{	if(hasMismatch(resPhInd, goldPhInd, mismatches.get(i)[0], mismatches.get(i)[1]))	
+				out.add(mismatches.get(i)); 	}
 		}
 		return out; 
 	}
 	
-	//TODO replace with actual alignment algorithm
-	private List<SequentialPhonic>[] getAlignedForms(LexPhon r, LexPhon g)
+	//check if specific mismatch has a specific distortion
+	// we assume either the distortion involves a null phone (i.e. it's insertion or deletion)
+	// or we have already checked that both phones involve are in fact present in both words
+	private boolean hasMismatch(int rphi, int gphi, LexPhon rlex, LexPhon glex)
 	{
-		List<SequentialPhonic>[] out = new ArrayList[2];
-		out[0] = extractPhones(r); out[1] = extractPhones(g); 
-		if(out[0].size() > out[1].size())
-			while (out[1].size() < out[0].size())
-				out[1].add(new NullPhone()); 
-		else if (out[0].size() < out[1].size())
-			while (out[0].size() < out[1].size())
-				out[0].add(new NullPhone()); 
+		SequentialPhonic[][] alignment = getAlignedForms(rlex, glex); 
+	
+		SequentialPhonic rph = new NullPhone(), gph = new NullPhone(); 
+		if (rphi != -1)	rph = resPhInventory[rphi]; 
+		if (gphi != -1)	gph = goldPhInventory[gphi]; 
+		
+		for(int ai = 0 ; ai < alignment.length; ai++)
+			if (rph.print().equals(alignment[ai][0].print()))
+				if (gph.print().equals(alignment[ai][1].print()))	return true; 
+		return false; 
+	}
+	
+	//TODO replace with actual alignment algorithm
+	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
+	{
+		featDist.compute(r, g, 1.0); //TODO may need to change insertion/deletion weight here!
+		int[][] align_stipul = featDist.get_min_alignment(); 
+		
+		int al_len = r.getNumPhones(); 
+		for (int a = 0; a < align_stipul.length; a++)
+			if (align_stipul[a][0] < 0)	al_len++; 
+		
+		SequentialPhonic[][] out = new SequentialPhonic[al_len][2]; 
+		int ari = 0, agi = 0;
+		SequentialPhonic[] rphs = r.getPhOnlySeq(), gphs = g.getPhOnlySeq(); 
+		
+		for(int oi = 0 ; oi < al_len; oi++)
+		{
+			if (align_stipul[ari][0] == -1)
+			{
+				out[oi][0] = rphs[ari]; ari++;
+				out[oi][1] = new NullPhone(); 
+			}
+			else if (align_stipul[ari][0] == -2)
+			{
+				out[oi][0] = new NullPhone(); ari++; 
+				out[oi][1] = gphs[agi]; agi++; 
+			}
+			else if (align_stipul[agi][1] == -1)
+			{
+				out[oi][0] = new NullPhone(); 
+				out[oi][1] = gphs[agi]; agi++;
+			}
+			else if (align_stipul[agi][1] == -2)
+			{
+				out[oi][0] = rphs[ari]; ari++; 
+				out[oi][1] = new NullPhone(); agi++; 
+			}
+			else //backtrace must be diagonal -- meaning a substitution occurred, or they are identical
+			{
+				out[oi][0] = rphs[ari]; ari++; //this should be true before ari is incremented : ari == align_stipul[agi]
+				out[oi][1] = rphs[agi]; agi++; // same for agi == align_stipul[ari]
+			}
+		}
+		
 		return out;
 	}
-	
-	//auxiliary -- get only phone objects from a LexPhon
-	private List<SequentialPhonic> extractPhones(LexPhon lp)
-	{
-		List<SequentialPhonic> sps = lp.getPhonologicalRepresentation(); 
-		List<SequentialPhonic> out = new ArrayList<SequentialPhonic>(); 
-		for (SequentialPhonic sp : sps)
-			if (sp.getType().equals("phone"))	out.add(sp); 
-		return out; 
-	}
-	
+
 	//auxiliary
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
 	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
-	private int levenshteinDistance(LexPhon s, LexPhon t)
+	public static int levenshteinDistance(LexPhon s, LexPhon t)
 	{
 		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 
 				tPhons = t.getPhonologicalRepresentation(); 
@@ -558,16 +598,6 @@ public class ErrorAnalysis {
 		return maxLocs; 
 	}
 	
-	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
-	private int getNumPhones(List<SequentialPhonic> splist)
-	{
-		int count = 0 ;
-		for (SequentialPhonic sp :  splist)
-			if(sp.getType().equals("phone"))
-				count++; 
-		return count; 
-	}
-	
 	/** 
 	 * @return all mismatches with a specified string of seqphs in them, @param targSeq
 	 * @param look_in_gold determines whether we look for the said string in gold or not (otherwise the result)
@@ -600,4 +630,50 @@ public class ErrorAnalysis {
 	
 	public double getAvgFED()
 	{	return avgFED;	}
+	
+	private static void writeToFile(String filename, String output)
+	{	try 
+		{	FileWriter outFile = new FileWriter(filename); 
+			BufferedWriter out = new BufferedWriter(outFile); 
+			out.write(output);
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+	}
+	
+	public void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
+	{
+		String output = "Analysis for "+lexicName+"/n";
+		
+		System.out.println("Average feature edit distance from gold: "+getAvgFED());
+		
+		output += "Overall accuracy : "+getPercentAccuracy()+"\n";
+		output += "Accuracy within 1 phone: "+getPct1off()+"%\n"; 
+		output += "Accuracy within 2 phone: "+getPct2off()+"%\n";
+		output += "Average edit distance per from gold phone: "+getAvgPED()+"\n"; 
+		output += "Average feature edit distance from gold: "+getAvgFED()+"\n";
+		
+		output += "Performance associated with each phone in "+lexicName+"\n"; 
+		output += "Phone in "+lexicName+"\tAssociated final miss likelihood\t"
+				+ "Mean Associated Normalized Lev.Dist.\tMean Associated Feat Edit Dist\n";
+		
+		HashMap<Phone, Double> missLikByPhone = DerivationSimulation.missLikelihoodPerPhone(lexic);
+		HashMap<Phone, Double> avgAssocdLDs = DerivationSimulation.avgLDForWordsWithPhone(lexic); 
+		HashMap<Phone, Double> avgAssocdFEDs = DerivationSimulation.avgFEDForWordsWithPhone(lexic);
+		Phone[] phonInv = lexic.getPhonemicInventory(); 
+		for(Phone ph : phonInv)
+			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)
+				+ "\t|\t"+avgAssocdFEDs.get(ph)+"\n"; 
+		
+		writeToFile(fileName, output); 
+	}
 }

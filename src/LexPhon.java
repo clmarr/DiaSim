@@ -27,6 +27,22 @@ public class LexPhon {
 	public List<SequentialPhonic> getPhonologicalRepresentation()
 	{	return phonRep;	}
 	
+	public SequentialPhonic[] getPhOnlySeq()
+	{
+		SequentialPhonic[] out = new SequentialPhonic[this.getNumPhones()]; 
+		int i = 0;
+		for(int j = 0; i < out.length; j++)
+		{
+			if (phonRep.get(j).getType().equals("phone"))
+			{
+				out[i] = phonRep.get(j); 
+				i++; 
+			}
+		}
+		return out; 
+	
+	}
+	
 	//index of first location of the phone if it is present, else returns -1 
 	public int findPhone(Phone ph)
 	{
@@ -100,4 +116,17 @@ public class LexPhon {
 	public void addDomain(String domain) {
 		this.domains.add(domain);
 	}
+	
+	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
+	public int getNumPhones()
+	{
+		int count = 0 ;
+		for (SequentialPhonic sp :  phonRep)
+			if(sp.getType().equals("phone"))
+				count++; 
+		return count; 
+	}
+	
+	
+	
 }
