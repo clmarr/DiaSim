@@ -1,8 +1,3 @@
-import java.util.List;
-import java.util.ArrayList;
-
-
-
 public class FED {
 
 	private static boolean weighted;
@@ -10,20 +5,24 @@ public class FED {
 	
 	private static int len1, len2;
 	
-	public static double last_min_dist;
+	public static double last_min_dist, isdl_wt;
 	
 	private static int[][] last_min_alignment; 
 	
-	public FED()
-	{	weighted = false;	}
 	
-	public FED(double[] wts)
+	public FED (double id_wt)
+	{	weighted = false; 
+		isdl_wt = id_wt;
+	}
+	
+	public FED(double[] wts, double id_wt)
 	{
 		weighted = true;
 		weights = wts;
+		isdl_wt = id_wt;  
 	}
 	
-	public void compute(LexPhon l1, LexPhon l2, double id_wt)
+	public void compute(LexPhon l1, LexPhon l2)
 	{
 		SequentialPhonic[] s1 = l1.getPhOnlySeq(), s2 = l2.getPhOnlySeq();
 		len1 = s1.length; len2= s2.length; 
@@ -35,11 +34,11 @@ public class FED {
 		
 		// initialize
 		for(int i = 1; i < len1 + 1; i++)
-		{	matr[i][0] = matr[i-1][0] + isdl_cost(s1[i-1], id_wt);
+		{	matr[i][0] = matr[i-1][0] + isdl_cost(s1[i-1]);
 			backtraces[i][0] = (i-1)+",0";
 		}
 		for(int j = 1; j < len2 + 1; j++)
-		{	matr[0][j] = matr[0][j-1] + isdl_cost(s2[j-1], id_wt); 
+		{	matr[0][j] = matr[0][j-1] + isdl_cost(s2[j-1]); 
 			backtraces[0][j] = "0,"+(j-1); 
 		}
 		
@@ -48,8 +47,8 @@ public class FED {
 		{	for (int j = 1; j < len2+1; j++)
 			{	
 				double[] cands = new double[]{matr[i-1][j-1] + subst_cost(s1[i-1],s2[j-1]),  
-						matr[i-1][j] + isdl_cost(s1[i-1], id_wt),
-								matr[i][j-1] + isdl_cost(s2[j-1], id_wt)};
+						matr[i-1][j] + isdl_cost(s1[i-1]),
+								matr[i][j-1] + isdl_cost(s2[j-1])};
 				if (cands[0] < cands[1] && cands[0] < cands[2])
 				{
 					matr[i][j] = cands[0];
@@ -121,7 +120,7 @@ public class FED {
 	
 	// @param(isdl_wt) : insertion/deletion weight
 	// TODO no current need to normalized by length of feature vector (i.e. number of features) because this is constant
-	private static double isdl_cost(SequentialPhonic sp, double isdl_wt)  
+	private static double isdl_cost(SequentialPhonic sp)  
 	{
 		double sum = 0.0;
 		char[] ftvals = sp.getFeatString().toCharArray();

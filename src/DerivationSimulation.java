@@ -77,18 +77,28 @@ public class DerivationSimulation {
 	private static double NEAR_ACCURACY; 
 	private static int numCorrectEtyma; //number of words in final result correct.
 	
-	//TODO to be set in command line...
+	//to be set in command line...
 	private static String runPrefix;
-	private static boolean DEBUG_RULE_PROCESSING = true; 
+	private static String symbDefsLoc; 
+	private static String featImplsLoc; 
+	private static String ruleFileLoc; 
+	private static String lexFileLoc;
+	
+	private static double id_wt; 
+	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause; 
 	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
+		//TODO fix for command line
 	
 	private static int goldStageInd, blackStageInd; 
 	
 	private static boolean feats_weighted;
 	private static double[] FT_WTS; 
 	
+	
 	public static void main(String args[])
 	{
+		parseArgs(args); 
+		
 		Scanner input = new Scanner(System.in);
 		
 		featIndices = new HashMap<String, Integer>() ; 
@@ -96,30 +106,9 @@ public class DerivationSimulation {
 		phoneFeatsToSymbMap = new HashMap<String, String>(); 
 		featImplications = new HashMap<String, String[]>(); 
 		
-		System.out.println("What would you like the file output prefix for this run to be?");
-		runPrefix = input.nextLine(); 
-		
-		System.out.println("Would you like to use the standard symbol definitions file? Please enter 'y' or 'n'.");
-		String resp = input.nextLine(); 
-		
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Would you like to use the standard symbol definitions file location? Please enter 'y' or 'n'. ");
-			resp = input.nextLine(); 
-		}
-		
-		String symbDefsLoc = (resp.equalsIgnoreCase("y")) ? "symbolDefs.csv" : ""; 
-		if(resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
-			symbDefsLoc = input.nextLine(); 
-		}
-		
 		//collect task information from symbol definitions file. 
 		
 		//TODO debugging
-		System.out.println("Symbol defs location: "+symbDefsLoc);
 		System.out.println("Collecting symbol definitions...");
 		
 		List<String> symbDefsLines = new ArrayList<String>();
@@ -189,23 +178,6 @@ public class DerivationSimulation {
 			li++; 
 		}
 
-		System.out.println("Would you like to use the standard feature implications file location? Please enter 'y' or 'n'.");
-		resp = input.nextLine(); 
-		
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Would you like to use the standard feature implications file? Please enter 'y' or 'n'. ");
-			resp = input.nextLine(); 
-		}
-		
-		String featImplsLoc = (resp.equals("y")) ? "FeatImplications" : ""; 
-		if(resp.equals("n"))
-		{
-			System.out.println("Please enter the correct location of the feature implications file you would like to use:");
-			featImplsLoc = input.nextLine(); 
-		}
-		
 		//TODO debugging
 		System.out.println("Now extracting info from feature implications file...");
 		
@@ -239,22 +211,6 @@ public class DerivationSimulation {
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		System.out.println("Use current default rules file location? Enter 'y' or 'n'."); 
-		resp = input.nextLine(); 
-		
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Use current default rules file location? Please enter 'y' or 'n'. ");
-			resp = input.nextLine(); 
-		}
-		
-		String ruleFileLoc = (resp.equalsIgnoreCase("y")) ? "MKPopeRules.txt" : ""; 
-		if (resp.equalsIgnoreCase("n"))	
-		{
-			System.out.println("Please enter the location of your alternative rules file: ");
-			ruleFileLoc = input.nextLine(); 
-		}
 		
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
@@ -380,12 +336,14 @@ public class DerivationSimulation {
 		
 		for(String currRule : rulesByTimeInstant)
 		{
-			//TODO debugging
-			System.out.println("Generating rules for rule number "+cri+" : "+currRule);
-			
+
 			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
-			for(SChange newShift : newShifts)
-				System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
+			
+			if(DEBUG_RULE_PROCESSING)
+			{	System.out.println("Generating rules for rule number "+cri+" : "+currRule);
+				for(SChange newShift : newShifts)
+					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
+			}
 			
 			theShiftsInOrder.addAll(theFactory.generateSoundChangesFromRule(currRule));
 			cri++; 
@@ -393,47 +351,12 @@ public class DerivationSimulation {
 		
 		System.out.println("Diachronic rules extracted. "); 
 		
-		System.out.println("Do you wish to print words changed for each rule? Enter 'y' or 'n'");
-		resp = input.nextLine();
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Do you wish to print words changed for each rule? Please enter 'y' or 'n'. ");
-			resp = input.nextLine(); 
-		}
-		boolean print_changes_each_rule = (resp.equalsIgnoreCase("y"));
-		
-		System.out.println("Do you wish to pause when a stage checkpoint flag is hit? Enter 'y' or 'n'");
-		resp = input.nextLine();
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Do you wish to pause when a stage checkpoint flag is hit? Please enter 'y' or 'n'. ");
-			resp = input.nextLine(); 
-		}
-		boolean stage_pause = (resp.equalsIgnoreCase("y"));
-				
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
 		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
 		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
-			
-		System.out.println("Do you wish to use the default location for the lexicon input file? Enter 'y' or 'n'"); 
-		resp = input.nextLine();
-		while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-		{
-			System.out.println("Invalid response.");
-			System.out.println("Do you wish to use the default location for the lexicon input file? Please enter 'yes' or 'no'. ");
-			resp = input.nextLine(); 
-		}
-		String lexFileLoc = (resp.equalsIgnoreCase("y")) ? "LatinLexFileForMKPopeTester.txt" : "";
-		if(resp.equalsIgnoreCase("n")) 
-		{
-			System.out.println("Please enter the correct location of the symbol definitions file you would like to use:");
-			lexFileLoc = input.nextLine(); 
-		}
 		
 		System.out.println("Now extracting lexicon...");
 		
@@ -528,7 +451,9 @@ public class DerivationSimulation {
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
 		
-		makeRulesLog(theShiftsInOrder); 
+		makeRulesLog(theShiftsInOrder);
+		
+		String resp; 
 		
 		while (ri < numRules)
 		{
@@ -606,7 +531,7 @@ public class DerivationSimulation {
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
 			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldResultLexicon, featsByIndex, 
-					feats_weighted ? new FED(FT_WTS) : new FED());
+					feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
 			ea.makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon);
 			ea.makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon);
 			
@@ -615,7 +540,7 @@ public class DerivationSimulation {
 				for(int gsi = 0; gsi < NUM_GOLD_STAGES ; gsi++)
 				{	
 					ErrorAnalysis eap = new ErrorAnalysis(goldStageResultLexica[gsi], goldStageGoldLexica[gsi], featsByIndex,
-							feats_weighted ? new FED(FT_WTS) : new FED());
+							feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
 					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
 							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
 				}
@@ -804,7 +729,7 @@ public class DerivationSimulation {
 	
 	private static void haltMenu(Lexicon r, Lexicon g)
 	{		
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, feats_weighted ? new FED(FT_WTS) : new FED());
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
 
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
@@ -907,7 +832,7 @@ public class DerivationSimulation {
 		}
 		 
 		return new ErrorAnalysis(new Lexicon(subRes), new Lexicon(subGold), featsByIndex, 
-				feats_weighted ? new FED(FT_WTS) : new FED()); 
+				feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt)); 
 		
 	}
 	
@@ -973,7 +898,7 @@ public class DerivationSimulation {
 		int[] totalFED = new int[inventorySize]; //total feature edit distance 
 			// of words with this phone
 		
-		FED distMeasure = feats_weighted ? new FED(FT_WTS) : new FED(); 
+		FED distMeasure = feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt); 
 		
 		for(int li = 0 ; li < lexSize ; li++)
 		{
@@ -983,7 +908,7 @@ public class DerivationSimulation {
 				if(ph.getType().equals("phone"))
 				{
 					distMeasure.compute(testResultLexicon.getByID(li),
-							goldResultLexicon.getByID(li), 1.0);
+							goldResultLexicon.getByID(li));
 					totalFED[phonemeIndices.get(ph.print())] += distMeasure.getFED();
 				}
 			}
@@ -1002,6 +927,123 @@ public class DerivationSimulation {
 		
 	}
 	
+	// required : runPrefix must be specified 
+	// flags: -r : debug rule processing
+	//		  -d : debugging mode -- TODO implement
+	//		  -p : print words every time they are changed by a rule
+	//		  -e : (explicit) do not use feature implications -- TODO implement
+	//		  -c : halt at stage checkpoints
+	private static void parseArgs(String[] args)
+	{
+		int i = 0, j; 
+		String arg;
+		char flag; 
+		boolean vflag = false;
+		
+		boolean no_prefix = true; 
+		
+		//defaults
+		symbDefsLoc = "symbolDefs.csv";
+		lexFileLoc = "LatinLexFileForMKPopeTester.txt";
+		ruleFileLoc = "MKPopeRulesCorrected"; 
+		featImplsLoc = "FeatImplications"; 
+		id_wt = 1.0; 
+		
+		DEBUG_RULE_PROCESSING = false; 
+		DEBUG_MODE = false; 
+		print_changes_each_rule = false;
+		
+		while (i < args.length && args[i].startsWith("-"))	
+		{
+			arg = args[i++];
+			
+			if (arg.equals("-verbose"))	vflag = true; 
+			
+			//variable setters
+			
+			// output prefix -- required ultimately
+			else if (arg.contains("-out"))
+			{
+				if (i < args.length)
+					runPrefix = args[i++]; 
+				else	System.err.println("Output prefix specification requires a string");
+				if (vflag)	System.out.println("output prefix: "+runPrefix);
+				no_prefix = false; 
+			}
+			
+			// symbol definitions file location
+			else if (arg.equals("-symbols"))
+			{
+				if (i < args.length)	symbDefsLoc = args[i++];
+				else	System.err.println("-symbols requires a location");
+				if (vflag)	System.out.println("symbol definitions location: "+symbDefsLoc);
+			}
+			
+			//feature implications file location
+			else if (arg.contains("-impl"))
+			{
+				if (i < args.length)	featImplsLoc = args[i++]; 
+				else	System.err.println("-impl requires a location for feature implications location.");
+				if (vflag)	System.out.println("feature implications location: "+featImplsLoc);
+			}
+			
+			//ruleset file location
+			else if (arg.contains("-rules"))
+			{
+				if (i < args.length)	ruleFileLoc = args[i++];
+				else	System.err.println("-rules requires a location for ruleset file.");
+				if (vflag)	System.out.println("ruleset file location: "+ruleFileLoc);
+			}
+			
+			//lexicon location
+			else if (arg.contains("-lex"))
+			{
+				if (i < args.length)	lexFileLoc = args[i++];
+				else	System.err.println("-lex requires a location for lexicon file location.");
+				if (vflag)	System.out.println("lexicon file location: "+lexFileLoc);
+			}
+			
+			//insertion/deletion cost
+			else if (arg.equals("-idcost"))
+			{
+				if (i < args.length)	id_wt = Double.parseDouble(args[i++]);
+				else	System.err.println("-idcost requires a double for ratio of insertion/deletion cost to substitution");
+				if (vflag)	System.out.println("insertion/deletion cost ratio to substitution: "+id_wt); 
+			}
+			
+			//flag args
+			else
+			{
+				for (j = 1; j < arg.length(); j++)
+				{	flag = arg.charAt(j);
+					switch(flag)	{
+						case 'r':
+							DEBUG_RULE_PROCESSING = true;
+							if (vflag)	System.out.println("Debugging rule processing.");
+							break; 
+						case 'd':
+							DEBUG_MODE = true;
+							if (vflag)	System.out.println("Debugging mode on.");
+							break; 
+						case 'p':
+							print_changes_each_rule = true;
+							if (vflag)	System.out.println("Printing words changed for each rule.");
+							break;
+						case 'c':
+							stage_pause = true; 
+							if (vflag)	System.out.println("Halting for analysis at stage checkpoints.");
+							break; 
+						default:
+							System.err.println("Illegal flag : "+flag);
+							break;
+					}
+					
+				}
+			}
+		}
+		if (i == args.length || no_prefix)
+            System.err.println("Usage: DerivationSimulation [-verbose] [-rdpc] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+	}
 }
 
 

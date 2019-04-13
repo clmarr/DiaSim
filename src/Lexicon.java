@@ -113,7 +113,6 @@ public class Lexicon {
 			{
 				if(!theMap.containsKey(curPh.print()))
 					theMap.put(curPh.print(), 1);
-				
 				else	theMap.put(curPh.print(), theMap.get(curPh.print()) + 1);
 			}
 		}

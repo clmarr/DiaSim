@@ -76,7 +76,7 @@ public class ErrorAnalysis {
 			peds[i] = (double)levDists[i] / (double) theGold.getByID(i).getNumPhones();
 			totLexQuotients += peds[i]; 
 			
-			featDist.compute(theRes.getByID(i), theGold.getByID(i), 1.0); 
+			featDist.compute(theRes.getByID(i), theGold.getByID(i)); 
 			
 			feds[i] = featDist.getFED();
 			totFED += feds[i];
@@ -140,10 +140,17 @@ public class ErrorAnalysis {
 			
 		System.out.println("---\nMost common distortions: "); 
 		int[][] topDistortions = arr2dLocNMax(confusionMatrix, 5); 
+		
+		//TODO debugging
+		for(int[] distort : topDistortions)
+			System.out.println(distort[0]+","+distort[1]);
+		
 		for(int i = 0 ; i < topDistortions.length; i++)
 		{
-			System.out.println(""+i+": "+resPhInventory[topDistortions[i][0]]+" for "
-					+goldPhInventory[topDistortions[i][1]]); 
+			SequentialPhonic rTarget = topDistortions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topDistortions[i][0]],
+					gTarget = topDistortions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topDistortions[i][1]];
+			
+			System.out.println(""+i+": "+ rTarget+" for "+gTarget); 
 			
 			//parse contexts
 			if (get_contexts)
@@ -215,22 +222,23 @@ public class ErrorAnalysis {
 			
 			for (Integer dloc : distortLocs)
 			{
-				SequentialPhonic prePrior = new Boundary("word bound"); 
-				SequentialPhonic priorPh = new Boundary("word bound"); 
+				SequentialPhonic prePrior = new Boundary("word bound"), 
+					priorPh = new Boundary("word bound"); 
 				if (dloc > 0)
 				{
-					priorPh = alignedReps[dloc-1][1];
+					priorPh = alignedReps[dloc-1][1]; //second index 1 because we are using the gold for contexts. 
 					if (dloc > 1)	prePrior = alignedReps[dloc-2][1]; 
 				}
 				if (priorPhoneCounts.containsKey(priorPh))
 					priorPhoneCounts.put(priorPh, priorPhoneCounts.get(priorPh)+1); 
 				else	priorPhoneCounts.put(priorPh, 1);
+				
 				if (prePriorCounts.containsKey(prePrior))
 					prePriorCounts.put(prePrior, prePriorCounts.get(prePrior) + 1);
 				else	prePriorCounts.put(prePrior, 1);
 				
-				SequentialPhonic ppph =new Boundary("word bound");
-				SequentialPhonic postPh = new Boundary("word bound"); 
+				SequentialPhonic ppph =new Boundary("word bound"),
+						postPh = new Boundary("word bound"); 
 				if (dloc < alignedReps[1].length - 1)
 				{
 					postPh = alignedReps[dloc+1][1];
@@ -247,7 +255,7 @@ public class ErrorAnalysis {
 				
 			}
 
-		}
+		} 
 		
 		//now we have the counts for the immediate neighbors -- TODO analyze
 	
@@ -264,6 +272,7 @@ public class ErrorAnalysis {
 		String commPhsStringed = getCommonCtxtPhs(priorPhoneCounts, total_distortion_instances, 0.3); 
 		if(commPhsStringed.length() > 1)
 			out.add("Most common immediate prior phones : "+commPhsStringed); 
+		
 		if (priorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
 			out.add("Majority of instances just after word onset. Common features of remainder: "
 					+getContextCommonFeats(priorPhoneCounts, 
@@ -379,8 +388,8 @@ public class ErrorAnalysis {
 	private List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, SequentialPhonic[][] alignedReps)
 	{
 		List<Integer> output = new ArrayList<Integer>(); 
-		String rTarg = (resPhInd == -1) ? "∅" : resPhInventory[resPhInd].print(),
-				gTarg = (goldPhInd == -1) ? "∅" : goldPhInventory[goldPhInd].print(); 
+		String rTarg = (resPhInd == resPhInventory.length) ? "∅" : resPhInventory[resPhInd].print(),
+				gTarg = (goldPhInd == goldPhInventory.length) ? "∅" : goldPhInventory[goldPhInd].print(); 
 	
 		for (int i = 0 ; i < alignedReps.length; i++)
 			if (alignedReps[i][0].print().equals(rTarg) && alignedReps[i][1].print().equals(gTarg))
@@ -396,16 +405,14 @@ public class ErrorAnalysis {
 	private List<LexPhon[]> mismatchesWithDistortion (int resPhInd, int goldPhInd)
 	{
 		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
-		boolean is_insert_or_delete = (resPhInd == -1) ||  (goldPhInd == -1); 
-		for (int i = 0 ; i < mismatches.size() ; i++)
+		boolean is_insert_or_delete = (resPhInd == resPhInventory.length) ||  (goldPhInd == goldPhInventory.length); 
+		for (LexPhon[] mismatch : mismatches)
 		{
 			if ( is_insert_or_delete)
-			{	if(hasMismatch(resPhInd, goldPhInd, mismatches.get(i)[0], mismatches.get(i)[1]))	
-				out.add(mismatches.get(i)); 	}
-			else if ( mismatches.get(i)[0].findPhone(resPhInventory[resPhInd]) != -1 &&
-					mismatches.get(i)[1].findPhone(goldPhInventory[goldPhInd]) != -1)
-			{	if(hasMismatch(resPhInd, goldPhInd, mismatches.get(i)[0], mismatches.get(i)[1]))	
-				out.add(mismatches.get(i)); 	}
+			{	if(hasMismatch(resPhInd, goldPhInd, mismatch[0], mismatch[1]))	out.add(mismatch); 	}
+			else if ( mismatch[0].findPhone(resPhInventory[resPhInd]) != -1 &&
+					mismatch[1].findPhone(goldPhInventory[goldPhInd]) != -1)
+				if(hasMismatch(resPhInd, goldPhInd, mismatch[0], mismatch[1]))	out.add(mismatch); 	
 		}
 		return out; 
 	}
@@ -418,8 +425,8 @@ public class ErrorAnalysis {
 		SequentialPhonic[][] alignment = getAlignedForms(rlex, glex); 
 	
 		SequentialPhonic rph = new NullPhone(), gph = new NullPhone(); 
-		if (rphi != -1)	rph = resPhInventory[rphi]; 
-		if (gphi != -1)	gph = goldPhInventory[gphi]; 
+		if (rphi != resPhInventory.length)	rph = resPhInventory[rphi]; 
+		if (gphi != goldPhInventory.length)	gph = goldPhInventory[gphi]; 
 		
 		for(int ai = 0 ; ai < alignment.length; ai++)
 			if (rph.print().equals(alignment[ai][0].print()))
@@ -430,7 +437,7 @@ public class ErrorAnalysis {
 	//TODO replace with actual alignment algorithm
 	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
 	{
-		featDist.compute(r, g, 1.0); //TODO may need to change insertion/deletion weight here!
+		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
 		int[][] align_stipul = featDist.get_min_alignment(); 
 		
 		int al_len = r.getNumPhones(); 
@@ -559,39 +566,54 @@ public class ErrorAnalysis {
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
 		int[][] maxLocs = new int[n][2]; 
-		int nrow = 0, num_filled = 1; //since maxLocs[0][0] = 0 already by default
+		int num_filled = 1; //since maxLocs[0] = {0,0} already by default
 
+		int currCol = 1, currRow = 0; 
+		
 		while (num_filled < n)
 		{
-			int currCol = num_filled - nrow * arrArr[0].length, currRow = nrow; 
-			for (int i = 0; i < num_filled; i++)
+			if (arrArr[currRow][currCol] > arrArr[maxLocs[num_filled - 1][0]][maxLocs[num_filled-1][1]])
 			{
-				if (arrArr[maxLocs[i][0]][maxLocs[i][1]] < arrArr[currRow][currCol] )
+				boolean keep_replacing = true; 
+				int i = num_filled - 1; 
+				while(keep_replacing)
 				{
-					int tempRow = currRow, tempCol = currCol; 
-					currRow = maxLocs[i][0]; currCol = maxLocs[i][1]; 
-					maxLocs[i][0] = tempRow; maxLocs[i][1] = tempCol; 
+					maxLocs[i+1] = new int[] {maxLocs[i][0], maxLocs[i][1]}; 
+					maxLocs[i] = new int[]{currRow, currCol}; 
+					i--;
+					if (i < 0)	keep_replacing = false;
+					else	keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
 				}
+				num_filled++;
 			}
-			num_filled++; 
-			if (num_filled % arrArr[0].length == 0)	nrow++;
+			currCol++; 
+			if (currCol == arrArr[0].length)
+			{	currCol = 0; currRow++; 	}
 		}
-		int currLocCol = num_filled - nrow * arrArr[0].length; 
-		int currLocRow = nrow; 
-		while (nrow < arrArr.length)
+		// now output is filled -- now replacing those with less than cells we still have not yet seen.
+		// currRow and currCol are still correct next spots we assume 
+		
+		while(currRow < arrArr.length)
 		{
-			int currRow = currLocRow, currCol = currLocCol; 
-			for (int i = 0; i < n; i++)
+			if(arrArr[currRow][currCol] > arrArr[maxLocs[n-1][0]][maxLocs[n-1][1]])
 			{
-				if(arrArr[maxLocs[i][0]][maxLocs[i][1]] < arrArr[currRow][currCol])
+				maxLocs[n-1] = new int[]{currRow, currCol}; 
+				int i = n - 2; 
+				boolean keep_replacing = i >= 0 ; 
+				if (keep_replacing)
+					keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
+				while(keep_replacing)
 				{
-					int tempRow = currRow, tempCol = currCol; 
-					currRow = maxLocs[i][0]; currCol = maxLocs[i][1]; 
-					maxLocs[i][0] = tempRow; maxLocs[i][1] = tempCol; 
+					maxLocs[i+1] = new int[] {maxLocs[i][0], maxLocs[i][1]}; 
+					maxLocs[i] = new int[] {currRow, currCol}; 
+					i--;
+					if ( i < 0)	keep_replacing = false;
+					else	keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
 				}
 			}
-			currLocCol++; 
-			if (currLocCol % arrArr[0].length == 0)	nrow++; 
+			currCol++; 
+			if (currCol == arrArr[0].length)
+			{	currCol = 0; currRow++; 	}
 		}
 		
 		return maxLocs; 
