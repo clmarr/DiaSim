@@ -13,20 +13,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections; 
 
-
-//TODO implement command line support 
-//TODO metric output regularization...
-
-/**TODO update here when decisions have been made
- * 
+/**
  * main class for diachronic derivation system
- * first takes in info from relecvant files: 
- * 		symbolDefs.csv -- gets the list of relevant features from the first row
- * 			and the definition of each phone symbol with respect to those features
- * 				from the lines below 
- *		FeatTranslations.txt and FeatImplications.txt -- for auxiliary operations, use as necessary
- *	then inputs shifts file -- saves these as is appropriate (decide how to do this, then update here
- *	and finally dataset or words entered by user -- probably use separate method for this. 
  * @author Clayton Marr
  *
  */
@@ -39,7 +27,6 @@ public class DerivationSimulation {
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
 	private final static char LEX_DELIM =','; 
-	//private HashMap featTranslations; //TODO currently abrogated 
 	private static List<String> rulesByTimeInstant;
 	private final static char STAGE_PRINT_DELIM = ',';  
 	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
@@ -416,8 +403,6 @@ public class DerivationSimulation {
 		{
 			theLine = lexFileLines.get(lfli);
 			
-			System.out.println("Lex "+lfli+" : "+theLine);
-			
 			wordTrajectories[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
 			inputs[lfli] = parseLexPhon(wordTrajectories[lfli]);
 			if (!justInput)
@@ -591,12 +576,12 @@ public class DerivationSimulation {
 
 	private static void makeTrajectoryFiles()
 	{
-		File trajdir = new File(""+runPrefix+"\\trajectories"); 
+		File trajdir = new File(runPrefix,"trajectories"); 
 		trajdir.mkdir(); 
 	
 		for( int wi =0; wi < NUM_ETYMA; wi ++) 
 		{
-			String filename = runPrefix + "\\trajectories\\etym"+wi+".txt"; 
+			String filename = new File(runPrefix, new File("trajectories","etym"+wi+".txt").toString()).toString(); 
 			String output = "Trajectory file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
 				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
 				+ (goldOutput ? " ( Correct : "+goldResultLexicon.getByID(wi)+") :\n"  : ":\n")
@@ -836,7 +821,6 @@ public class DerivationSimulation {
 		
 	}
 	
-	
 	// for the lexicon of any given stage, passed as parameter, 
 	// outputs hashmap where the value for each key Phone instance
 	// is the average Levenshtein distance for words containing that phone 
@@ -1041,8 +1025,8 @@ public class DerivationSimulation {
 				}
 			}
 		}
-		if (i == args.length || no_prefix)
-            System.err.println("Usage: DerivationSimulation [-verbose] [-rdpc] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+		if (i != args.length || no_prefix)
+            throw new Error("Usage: DerivationSimulation [-verbose] [-rdpc] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
 	}
 }
 
