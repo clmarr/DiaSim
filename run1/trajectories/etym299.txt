@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :299:
-#fˈuːst̪em# >>> #fy# ( Correct : #fy#) :
-f ˈuː s t̪ e m 
-#fˈuːst̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈust̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˈust̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#fˈʉst̪ɛ# | Rule 216 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#fˈʉst̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#fˈʉst̪ə̯# | Rule 267 : ə > ə̯ 
-#fˈʉst̪# | Rule 302 : ə̯ > ∅ 
-#fˈyst̪# | Rule 496 : [+hi,+round,-back] > [+front] 
-#fˈyxt̪# | Rule 587 : s > x / [-cons] __ [+cons]
-#fˈyːt̪# | Rule 648 : [+syl] x > [+long] ∅/ __ [+cons]
-#fˈyː# | Rule 725 : [-son] > ∅ / __ #
-#fyː# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fy# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#fˌuːmˈɑːre# >>> #fyme# ( Correct : #fyme#) :
+f ˌuː m ˈɑː r e 
+#fˌuːmˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˌumˈɑːrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#fˌumˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#fˌumˈɑːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˌumˈaːrɛ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#fˌʉmˈaːrɛ# | Rule 215 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#fˌʉmˈaːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#fˌʉmˈaːrə̯# | Rule 266 : ə > ə̯ 
+#fˌʉmˈaːr# | Rule 301 : ə̯ > ∅ 
+#fˌʉmˈae̯r# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˌymˈae̯r# | Rule 495 : [+hi,+round,-back] > [+front] 
+#fˌymˈeːr# | Rule 542 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#fˌỹmˈeːr# | Rule 627 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
+#fˌymˈeːr# | Rule 651 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#fˌymˈeːɹ# | Rule 718 : r > ɹ / [-cons] __ #
+#fˌymˈeː# | Rule 735 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#fymeː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fyme# | Rule 741 : [+syl,+long] > [-long,-splng] 

@@ -1,13 +1,25 @@
 Trajectory file for run 'run1'; etymon number :256:
-#fˈiːlum# >>> #fil# ( Correct : #fil#) :
-f ˈiː l u m 
-#fˈiːlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈilʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˈilom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#fˈilo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#fˈiːlo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#fˈiːlə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#fˈiːlə̯# | Rule 267 : ə > ə̯ 
-#fˈiːl# | Rule 302 : ə̯ > ∅ 
-#fiːl# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fil# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#fˌiːlˈiolɑm# >>> #fijœl# ( Correct : #fijœl#) :
+f ˌiː l ˈi o l ɑ m 
+#fˌiːlˈɪɔlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˌiːlˈɪˈɔlɑm# | Rule 18 : [+syl,-lo,-hi,-stres] > [+prim,+stres,+syl,+son,.delrel] / [+prim,-lo,+front,-long] __ ( [-syl] )* [+syl] ( [-syl] )* #
+#fˌiːlɪˈɔlɑm# | Rule 20 : [+prim] > [-stres,-prim,+syl,+son,.delrel] / __ [+prim]
+#fˌiːljˈɔlɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#fˌiːlʝˈɔlɑm# | Rule 27 : j > ʝ / __ [+syl]
+#fˌilʝˈɔlɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#fˌilʝˈɔlɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#fˌiʎˈɔlɑ# | Rule 90 : l ʝ > ʎ 
+#fˌiʎˈɔːlɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˌiʎˈuo̯lɑ# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#fˌiʎˈuo̯la# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#fˌiʎˈʉo̯la# | Rule 215 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#fˌiʎˈʉo̯lə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#fˌiʎˈyo̯lə# | Rule 495 : [+hi,+round,-back] > [+front] 
+#fˌiʎˈye̯lə# | Rule 524 : o̯ > e̯ 
+#fˌiʎˈøːlə# | Rule 572 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#fˌiʎˈøːlə̯# | Rule 697 : ə > ə̯ / __ #
+#fˌiʎˈøːl# | Rule 726 : ə̯ > ∅ 
+#fˌiʎˈœːl# | Rule 727 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#fiʎœːl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fiʎœl# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#fijœl# | Rule 748 : ʎ > j 

@@ -1,19 +1,18 @@
 Trajectory file for run 'run1'; etymon number :307:
-#ɡˈen̪t̪em# >>> #ʒɑ̃# ( Correct : #ʒɑ̃#) :
-ɡ ˈe n̪ t̪ e m 
-#ɡˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈɛn̪t̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ɡʲˈɛn̪t̪ɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#ɟˈɛn̪t̪ɛ# | Rule 76 : [+back,+front] > [-back] 
-#d͡ʒˈɛn̪t̪ɛ# | Rule 180 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#d͡ʒˈɛn̪t̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#d͡ʒˈɛn̪t̪ə̯# | Rule 267 : ə > ə̯ 
-#d͡ʒˈɛn̪t̪# | Rule 302 : ə̯ > ∅ 
-#d͡ʒˈɛ̃n̪t̪# | Rule 511 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#d͡ʒˈãn̪t̪# | Rule 570 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#ʒˈãn̪t̪# | Rule 639 : [+delrel] > [+cont,.delrel] 
-#ʒˈãːt̪# | Rule 658 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ʒˈɑ̃ːt̪# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#ʒˈɑ̃ː# | Rule 725 : [-son] > ∅ / __ #
-#ʒɑ̃ː# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʒɑ̃# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#ɡˈɑwt̪ɑ# >>> #ʒu# ( Correct : #ʒu#) :
+ɡ ˈɑ w t̪ ɑ 
+#ɡˈawt̪a# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ɡʲˈawt̪a# | Rule 232 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ɡʲˈɔwt̪a# | Rule 236 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#ɟˈɔwt̪a# | Rule 245 : [+back,+front] > [-back] 
+#d͡ʒˈɔwt̪a# | Rule 254 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#d͡ʒˈɔwd̪a# | Rule 353 : [-voi] > [+voi] / [-cons] __ [-cons]
+#d͡ʒˈɔwða# | Rule 377 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#d͡ʒˈɔwðə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#d͡ʒˈɔwə# | Rule 599 : {θ;ð} > {∅;∅} 
+#d͡ʒˈuə# | Rule 615 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
+#ʒˈuə# | Rule 638 : [+delrel] > [+cont,.delrel] 
+#ʒˈuːə# | Rule 684 : [+stres] > [+long] / __ ə
+#ʒˈuː# | Rule 685 : ə > ∅ / [+syl] __ 
+#ʒuː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒu# | Rule 741 : [+syl,+long] > [-long,-splng] 

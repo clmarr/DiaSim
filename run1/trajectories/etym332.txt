@@ -1,19 +1,21 @@
 Trajectory file for run 'run1'; etymon number :332:
-#hˈeri# >>> #jɛʁ# ( Correct : #jɛʁ#) :
-h ˈe r i 
-#hˈɛrɪ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#hˈɛre# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˈɛre# | Rule 105 : h > ∅ 
-#ˈɛːre# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈie̯re# | Rule 165 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈie̯rə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#ˈie̯rə̯# | Rule 267 : ə > ə̯ 
-#ˈie̯r# | Rule 302 : ə̯ > ∅ 
-#jˈer# | Rule 588 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#j?r# | Rule 605 : ˈe > ? / __ @
-#jˈɛr# | Rule 608 : ? > ˈɛ 
-#jˈɛɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#jˈɛr# | Rule 738 : ɹ > r 
-#jˈɛʀ# | Rule 740 : r > ʀ 
-#jɛʀ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#jɛʁ# | Rule 748 : ʀ > ʁ 
+#hˈɑbeo# >>> #aʒ# ( Correct : #e#) :
+h ˈɑ b e o 
+#hˈɑbɛɔ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#hˈɑbjɔ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#hˈɑbʝɔ# | Rule 27 : j > ʝ / __ [+syl]
+#ˈɑbʝɔ# | Rule 105 : h > ∅ 
+#ˈabʝɔ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈabɟɔ# | Rule 252 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#ˈabd͡ʒɔ# | Rule 254 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#ˈabd͡ʒə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#ˈabd͡ʒə̯# | Rule 266 : ə > ə̯ 
+#ˈabd͡ʒə# | Rule 279 : ə̯ > ə / [+delrel,-ant] __ 
+#ˈad̪d͡ʒə# | Rule 332 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#ˈad͡ʒə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#ˈaʒə# | Rule 638 : [+delrel] > [+cont,.delrel] 
+#ˈaʒə̯# | Rule 697 : ə > ə̯ / __ #
+#ˈaːʒə̯# | Rule 712 : [+lo] > [+long] / __ ʒ ə̯ #
+#ˈaːʒ# | Rule 726 : ə̯ > ∅ 
+#aːʒ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʒ# | Rule 741 : [+syl,+long] > [-long,-splng] 

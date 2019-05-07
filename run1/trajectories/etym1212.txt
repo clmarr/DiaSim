@@ -1,20 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1212:
-#t̪ˌormˈen̪t̪ɑ# >>> #t̪uʁmɑ̃t̪# ( Correct : #t̪uʁmɑ̃t̪#) :
-t̪ ˌo r m ˈe n̪ t̪ ɑ 
-#t̪ˌɔrmˈɛn̪t̪ɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˌɔrmˈɛn̪t̪a# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#t̪ˌormˈɛn̪t̪a# | Rule 423 : ˌɔ > ˌo 
-#t̪ˌormˈɛn̪t̪ə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌormˈɛ̃n̪t̪ə# | Rule 511 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˌurmˈɛ̃n̪t̪ə# | Rule 556 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurmˈãn̪t̪ə# | Rule 570 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#t̪ˌurmˈãːt̪ə# | Rule 658 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌurmˈãːt̪ə̯# | Rule 698 : ə > ə̯ / __ #
-#t̪ˌurmˈɑ̃ːt̪ə̯# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˌuɹmˈɑ̃ːt̪ə̯# | Rule 720 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹmˈɑ̃ːt̪# | Rule 727 : ə̯ > ∅ 
-#t̪ˌurmˈɑ̃ːt̪# | Rule 738 : ɹ > r 
-#t̪ˌuʀmˈɑ̃ːt̪# | Rule 740 : r > ʀ 
-#t̪uʀmɑ̃ːt̪# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪uʀmɑ̃t̪# | Rule 742 : [+syl,+long] > [-long,-splng] 
-#t̪uʁmɑ̃t̪# | Rule 748 : ʀ > ʁ 
+#t̪ˈiːbiɑm# >>> #t̪iʒ# ( Correct : #t̪iʒ#) :
+t̪ ˈiː b i ɑ m 
+#t̪ˈiːbɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈiːbjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#t̪ˈiːbʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#t̪ˈibʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˈibʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˈibʝa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪ˈibɟa# | Rule 252 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#t̪ˈibd͡ʒa# | Rule 254 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t̪ˈid̪d͡ʒa# | Rule 332 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#t̪ˈid̪d͡ʒə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈid͡ʒə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#t̪ˈiʒə# | Rule 638 : [+delrel] > [+cont,.delrel] 
+#t̪ˈiʒə̯# | Rule 697 : ə > ə̯ / __ #
+#t̪ˈiʒ# | Rule 726 : ə̯ > ∅ 
+#t̪iʒ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

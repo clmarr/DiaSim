@@ -1,23 +1,17 @@
 Trajectory file for run 'run1'; etymon number :563:
-#lˈɑn̪keɑm# >>> #lɑ̃s# ( Correct : #lɑ̃s#) :
-l ˈɑ n̪ k e ɑ m 
-#lˈɑŋkeɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈɑŋkɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɑŋkjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
-#lˈɑŋkʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#lˈɑŋkʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#lˈɑŋkʲʝɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#lˈɑŋcʝɑ# | Rule 76 : [+back,+front] > [-back] 
-#lˈɑŋcɑ# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#lˈɑŋt͡sʲɑ# | Rule 180 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#lˈaŋt͡sʲa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#lˈaŋt͡sʲə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈãŋt͡sʲə# | Rule 498 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈãŋsʲə# | Rule 639 : [+delrel] > [+cont,.delrel] 
-#lˈãːsʲə# | Rule 658 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãːsə# | Rule 663 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#lˈãːsə̯# | Rule 698 : ə > ə̯ / __ #
-#lˈɑ̃ːsə̯# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑ̃ːs# | Rule 727 : ə̯ > ∅ 
-#lɑ̃ːs# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɑ̃s# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#lˈɑmpɑd̪ɑ# >>> #lɑ̃p# ( Correct : #lɑ̃p#) :
+l ˈɑ m p ɑ d̪ ɑ 
+#lˈɑmpɑðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#lˈampaða# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#lˈampəða# | Rule 259 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#lˈampaða# | Rule 260 : ə > a / __ [+cor,+ant,+distr] [+syl]
+#lˈampəðə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈãmpəðə# | Rule 497 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#lˈãmpəə# | Rule 599 : {θ;ð} > {∅;∅} 
+#lˈãːpəə# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːpə# | Rule 683 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
+#lˈãːpə̯# | Rule 697 : ə > ə̯ / __ #
+#lˈɑ̃ːpə̯# | Rule 707 : [+lo,+long,+syl] > [+back,-front] 
+#lˈɑ̃ːp# | Rule 726 : ə̯ > ∅ 
+#lɑ̃ːp# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lɑ̃p# | Rule 741 : [+syl,+long] > [-long,-splng] 

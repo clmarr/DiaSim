@@ -1,16 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1177:
-#t̪ˈɑn̪n̪um# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃#) :
-t̪ ˈɑ n̪ n̪ u m 
-#t̪ˈɑn̪n̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪n̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈɑn̪n̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪ˈan̪n̪o# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#t̪ˈan̪n̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈan̪n̪ə̯# | Rule 267 : ə > ə̯ 
-#t̪ˈan̪n̪# | Rule 302 : ə̯ > ∅ 
-#t̪ˈan̪# | Rule 485 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#t̪ˈãn̪# | Rule 498 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˈãː# | Rule 659 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#t̪ˈɑ̃ː# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ɑ̃ː# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ɑ̃# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#t̪ˌɑkˈuːt̪um# >>> #t̪y# ( Correct : #t̪y#) :
+t̪ ˌɑ k ˈuː t̪ u m 
+#t̪ˌɑkˈuːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑkˈut̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑkˈut̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˌɑkˈut̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˌɑkˈuːt̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌɑɡˈuːt̪o# | Rule 131 : k > ɡ / [-cons] __ [+syl]
+#t̪ˌɑɣˈuːt̪o# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
+#t̪ˌɑˈuːt̪o# | Rule 180 : ɣ > ∅ / __ [+tense,+round,+prim]
+#t̪ˌaˈuːt̪o# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪ˌaˈʉːt̪o# | Rule 215 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#t̪ˌaˈʉːt̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌaˈʉːt̪ə̯# | Rule 266 : ə > ə̯ 
+#t̪ˌaˈʉːt̪# | Rule 301 : ə̯ > ∅ 
+#t̪ˌaˈʉːθ# | Rule 432 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#t̪ˌaˈyːθ# | Rule 495 : [+hi,+round,-back] > [+front] 
+#t̪ˌaˈyː# | Rule 599 : {θ;ð} > {∅;∅} 
+#t̪ˈyː# | Rule 693 : ˌa > ∅ / __ [+prim]
+#t̪yː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪y# | Rule 741 : [+syl,+long] > [-long,-splng] 

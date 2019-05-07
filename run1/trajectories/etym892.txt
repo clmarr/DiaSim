@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :892:
-#plˈɑːɡɑm# >>> #plɛ# ( Correct : #plɛ#) :
-p l ˈɑː ɡ ɑ m 
-#plˈɑɡɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#plˈɑɡɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#plˈɑɣɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
-#plˈɑːɣɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˈaːɣa# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#plˈaːɣʲa# | Rule 233 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#plˈaːʝa# | Rule 246 : [+back,+front] > [-back] 
-#plˈaːja# | Rule 382 : ʝ > j 
-#plˈae̯ja# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#plˈaja# | Rule 412 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
-#plˈajə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈaːjə# | Rule 695 : [+prim] > [+long] / __ ( j ) ə #
-#plˈaːj# | Rule 697 : ə > ∅ / [+prim] ( j ) __ 
-#plˈɛː# | Rule 699 : ˈaː j > ˈɛː / __ #
-#plɛː# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#plɛ# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#pˈirɑm# >>> #pwaʁ# ( Correct : #pwaʁ#) :
+p ˈi r ɑ m 
+#pˈɪrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈerɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈerɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#pˈeːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːra# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#pˈejra# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈojrə# | Rule 533 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈoɛ̯rə# | Rule 549 : j > ɛ̯ / [+syl,+back,+round] __ r
+#pˈuɛ̯rə# | Rule 555 : [+round,+tense,+back] > [+hi] 
+#pwˈɛrə# | Rule 623 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛrə̯# | Rule 697 : ə > ə̯ / __ #
+#pwˈɛr# | Rule 726 : ə̯ > ∅ 
+#pwˈɛʀ# | Rule 739 : r > ʀ 
+#pwɛʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwaʀ# | Rule 746 : ɛ > a / w __ 
+#pwaʁ# | Rule 747 : ʀ > ʁ 

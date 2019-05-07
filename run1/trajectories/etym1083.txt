@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1083:
-#sˌen̪t̪ˈiːre# >>> #sɑ̃t̪iʁ# ( Correct : #sɑ̃t̪iʁ#) :
-s ˌe n̪ t̪ ˈiː r e 
-#sˌɛn̪t̪ˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɛn̪t̪ˈirɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˌɛn̪t̪ˈiːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˌɛn̪t̪ˈiːrə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#sˌɛn̪t̪ˈiːrə̯# | Rule 267 : ə > ə̯ 
-#sˌɛn̪t̪ˈiːr# | Rule 302 : ə̯ > ∅ 
-#sˌɛ̃n̪t̪ˈiːr# | Rule 511 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌãn̪t̪ˈiːr# | Rule 570 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#sˌãːt̪ˈiːr# | Rule 658 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɑ̃ːt̪ˈiːr# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#sˌɑ̃ːt̪ˈiːɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#sˌɑ̃ːt̪ˈiːr# | Rule 738 : ɹ > r 
-#sˌɑ̃ːt̪ˈiːʀ# | Rule 740 : r > ʀ 
-#sɑ̃ːt̪iːʀ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɑ̃t̪iʀ# | Rule 742 : [+syl,+long] > [-long,-splng] 
-#sɑ̃t̪iʁ# | Rule 748 : ʀ > ʁ 
+#sˈekwet# >>> #sɥi# ( Correct : #sɥi#) :
+s ˈe k w e t 
+#sˈekɣʷet# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#sˈekwet# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#sˈɛkwɛt# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈɛːkwɛt# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈɛːxwɛt# | Rule 117 : k > x / [+syl] __ w [+syl]
+#sˈie̯xwɛt# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sˈie̯xwət# | Rule 263 : [-stres,-lo,+syl] > ə / __ [-syl]
+#sˈie̯xwə̯t# | Rule 266 : ə > ə̯ 
+#sˈie̯xwət# | Rule 277 : ə̯ > ə / [+cons] w __ [+cons]
+#sˈie̯ɣwət# | Rule 353 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˈie̯ɣwə?# | Rule 432 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#sˈʉe̯jə?# | Rule 440 : ˈi e̯ ɣ w > ˈʉ e̯ j / @ __ 
+#sˈye̯jə?# | Rule 495 : [+hi,+round,-back] > [+front] 
+#sˈyjə?# | Rule 547 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#sɥˈiə?# | Rule 624 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#sɥˈiːə?# | Rule 684 : [+stres] > [+long] / __ ə
+#sɥˈiː?# | Rule 685 : ə > ∅ / [+syl] __ 
+#sɥˈiː# | Rule 724 : [-son] > ∅ / __ #
+#sɥiː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɥi# | Rule 741 : [+syl,+long] > [-long,-splng] 

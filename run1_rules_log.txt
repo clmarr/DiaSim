@@ -118,8 +118,9 @@ s k > k s / [+syl] __ [+syl,+tense,+round] #
 k > x / [+syl] __ w [+syl]
 [+lat] w > l l/ [-cons] __ [-cons]
 s w > s s 
+s > ∅ / # __ s
 ɣ > ∅ / __ [+tense,+round,+syl]
-ɣ > ∅ / [+hi,+round,+back,+syl] __ [+lo,+syl]
+ɣ > ∅ / [+hi,+round,+syl] __ [+lo,+syl]
 ɣ > βʷ / [+round,-hi,+back,+syl] __ [+lo,+syl]
 ɣ > ∅ / [+front,-hi,-lo,+syl] __ r [+prim]
 β > w / __ w
@@ -140,14 +141,12 @@ l > ɫ / __ [+cons,-lat]
 ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
 n β > m b / __ [+lat]
 {β;w} > {∅;∅} / [+cons,-lab,-hi] __ r
-[+lat] ʝ > ʎ/ __ r
 ∅ > b / m __ [+cor,-nas,+son,-syl]
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r} 
 {c;ɟ} > {ç;ʝ} / __ [+cor,+distr,+ant]
 [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]
-[+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-[+syl] > [-long,-splng] / __ [-syl] [+cons,+nas]
+[+syl] > [-long,-splng] / __ [-syl] [+cons]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]
 [+prim] > [+long] / __ [+cons] [+syl]

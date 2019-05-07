@@ -1,10 +1,17 @@
 Trajectory file for run 'run1'; etymon number :756:
-#n̪oːn̪# >>> #n̪ə# ( Correct : #n̪ə#) :
-n̪ oː n̪ 
-#n̪on̪# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#n̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#n̪ə̯# | Rule 267 : ə > ə̯ 
-#n̪ə# | Rule 298 : ə̯ > ə / # ( [-syl] )* __ #
-#n̪ə̯# | Rule 698 : ə > ə̯ / __ #
-#n̪ə# | Rule 726 : ə̯ > ə / # ( [-syl] )* __ 
+#n̪ˈit̪id̪um# >>> #n̪ɛt̪# ( Correct : #n̪ɛt̪#) :
+n̪ ˈi t̪ i d̪ u m 
+#n̪ˈɪt̪ɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈet̪ed̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈet̪ed̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#n̪ˈet̪d̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
+#n̪ˈet̪d̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#n̪ˈet̪d̪ə̯# | Rule 266 : ə > ə̯ 
+#n̪ˈet̪d̪# | Rule 301 : ə̯ > ∅ 
+#n̪ˈet̪t̪ə# | Rule 321 : [+cor,+ant,+distr,+voi,-cont] > t̪ ə/ [-voi] __ #
+#n̪ˈet̪ə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#n̪?t̪ə# | Rule 604 : ˈe > ? / __ @
+#n̪ˈɛt̪ə# | Rule 607 : ? > ˈɛ 
+#n̪ˈɛt̪ə̯# | Rule 697 : ə > ə̯ / __ #
+#n̪ˈɛt̪# | Rule 726 : ə̯ > ∅ 
+#n̪ɛt̪# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :749:
-#n̪ˈit̪id̪um# >>> #n̪ɛt̪# ( Correct : #n̪ɛt̪#) :
-n̪ ˈi t̪ i d̪ u m 
-#n̪ˈɪt̪ɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈet̪ed̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈet̪ed̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ˈet̪d̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#n̪ˈet̪d̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#n̪ˈet̪d̪ə̯# | Rule 267 : ə > ə̯ 
-#n̪ˈet̪d̪# | Rule 302 : ə̯ > ∅ 
-#n̪ˈet̪t̪ə# | Rule 322 : [+cor,+ant,+distr,+voi,-cont] > t̪ ə/ [-voi] __ #
-#n̪ˈet̪ə# | Rule 482 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#n̪?t̪ə# | Rule 605 : ˈe > ? / __ @
-#n̪ˈɛt̪ə# | Rule 608 : ? > ˈɛ 
-#n̪ˈɛt̪ə̯# | Rule 698 : ə > ə̯ / __ #
-#n̪ˈɛt̪# | Rule 727 : ə̯ > ∅ 
-#n̪ɛt̪# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˌepˈoːt̪em# >>> #n̪əvø# ( Correct : #n̪əvø#) :
+n̪ ˌe p ˈoː t̪ e m 
+#n̪ˌɛpˈoːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˌɛpˈot̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#n̪ˌɛpˈot̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#n̪ˌɛpˈoːt̪ɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˌɛpˈoːt̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#n̪ˌɛpˈoːt̪ə̯# | Rule 266 : ə > ə̯ 
+#n̪ˌɛpˈoːt̪# | Rule 301 : ə̯ > ∅ 
+#n̪ˌɛbˈoːt̪# | Rule 353 : [-voi] > [+voi] / [-cons] __ [-cons]
+#n̪ˌɛβˈoːt̪# | Rule 377 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#n̪ˌɛβˈowt̪# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#n̪ˌeβˈowt̪# | Rule 415 : ˌɛ > ˌe / __ [-cor]
+#n̪ˌevˈowt̪# | Rule 429 : β > v 
+#n̪ˌevˈowθ# | Rule 432 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#n̪ˌəvˈowθ# | Rule 500 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#n̪ˌəvˈewθ# | Rule 532 : ˈo > ˈe / __ w
+#n̪ˌəvˈew# | Rule 599 : {θ;ð} > {∅;∅} 
+#n̪ˌəvˈøw# | Rule 603 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#n̪ˌəvˈøː# | Rule 611 : [+round,+front,-hi,+syl] w > [+long] ∅
+#n̪əvøː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪əvø# | Rule 741 : [+syl,+long] > [-long,-splng] 

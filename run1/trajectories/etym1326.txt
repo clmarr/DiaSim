@@ -1,15 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1326:
-#wˈiːllɑm# >>> #vil# ( Correct : #vil#) :
-w ˈiː l l ɑ m 
-#ɣʷˈiːllɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːllɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈillɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˈillɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#βˈillɑ# | Rule 157 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈilla# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#vˈilla# | Rule 430 : β > v 
-#vˈillə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈilə# | Rule 485 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#vˈilə̯# | Rule 698 : ə > ə̯ / __ #
-#vˈil# | Rule 727 : ə̯ > ∅ 
-#vil# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wˈid̪wɑm# >>> #vœv# ( Correct : #vœv#) :
+w ˈi d̪ w ɑ m 
+#ɣʷˈid̪ɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɪd̪ɣʷɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɪd̪βʷɑm# | Rule 49 : ɣʷ > βʷ 
+#βʷˈed̪βʷɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈed̪βʷɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#βˈed̪βɑ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈed̪βa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#βˈeðβa# | Rule 249 : d̪ > ð / __ [+cont,+lab,+cons]
+#vˈeðva# | Rule 429 : β > v 
+#vˈeðvə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈevə# | Rule 599 : {θ;ð} > {∅;∅} 
+#v?və# | Rule 604 : ˈe > ? / __ @
+#vˈɛvə# | Rule 607 : ? > ˈɛ 
+#vˈøvə# | Rule 645 : {ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / [+lab,+cons,+voi] __ [+lab,+cons]
+#vˈøvə̯# | Rule 697 : ə > ə̯ / __ #
+#vˈøv# | Rule 726 : ə̯ > ∅ 
+#vˈœv# | Rule 727 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#vœv# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

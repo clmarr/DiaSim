@@ -1,15 +1,13 @@
 Trajectory file for run 'run1'; etymon number :748:
-#n̪ˈit̪id̪ɑm# >>> #n̪ɛd̪# ( Correct : #n̪ɛt̪#) :
-n̪ ˈi t̪ i d̪ ɑ m 
-#n̪ˈɪt̪ɪd̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈet̪ed̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈet̪ed̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ˈet̪d̪ɑ# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#n̪ˈet̪d̪a# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#n̪ˈet̪d̪ə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈed̪ə# | Rule 482 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#n̪?d̪ə# | Rule 605 : ˈe > ? / __ @
-#n̪ˈɛd̪ə# | Rule 608 : ? > ˈɛ 
-#n̪ˈɛd̪ə̯# | Rule 698 : ə > ə̯ / __ #
-#n̪ˈɛd̪# | Rule 727 : ə̯ > ∅ 
-#n̪ɛd̪# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˈek# >>> #n̪i# ( Correct : #n̪i#) :
+n̪ ˈe k 
+#n̪ˈɛk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɛːk# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈie̯k# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#n̪ˈie̯x# | Rule 432 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#n̪ˈie̯ç# | Rule 450 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#n̪ˈie̯ʝ# | Rule 452 : ç > ʝ 
+#n̪ˈie̯j# | Rule 458 : ʝ > j / [-cons] __ 
+#n̪ˈij# | Rule 547 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#n̪ˈi# | Rule 548 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#n̪i# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 

@@ -1,23 +1,21 @@
 Trajectory file for run 'run1'; etymon number :422:
-#kˈɑːrɑm# >>> #ʃɛʁ# ( Correct : #ʃɛʁ#) :
-k ˈɑː r ɑ m 
-#kˈɑrɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#kˈɑrɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈɑːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#kˈaːra# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#kʲˈaːra# | Rule 233 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#kʲˈɛːra# | Rule 240 : ˈaː > ˈɛː / # [+cons,+front] __ 
-#kʲˈie̯ra# | Rule 243 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#cˈie̯ra# | Rule 246 : [+back,+front] > [-back] 
-#t͡ʃˈie̯ra# | Rule 255 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈie̯rə# | Rule 436 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃjˈerə# | Rule 588 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t͡ʃj?rə# | Rule 605 : ˈe > ? / __ @
-#t͡ʃjˈɛrə# | Rule 608 : ? > ˈɛ 
-#ʃjˈɛrə# | Rule 639 : [+delrel] > [+cont,.delrel] 
-#ʃˈɛrə# | Rule 662 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ʃˈɛrə̯# | Rule 698 : ə > ə̯ / __ #
-#ʃˈɛr# | Rule 727 : ə̯ > ∅ 
-#ʃˈɛʀ# | Rule 740 : r > ʀ 
-#ʃɛʀ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃɛʁ# | Rule 748 : ʀ > ʁ 
+#kˈɑrolus# >>> #ʃaʁl# ( Correct : #ʃaʁl#) :
+k ˈɑ r o l u s 
+#kˈɑrɔlʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɑrlʊs# | Rule 37 : ɔ > ∅ / [+prim] ( [-syl] )* r __ [+lat] [+syl] ( [-syl] ) #
+#kˈɑrlos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈarlos# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#kʲˈarlos# | Rule 232 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈarlos# | Rule 245 : [+back,+front] > [-back] 
+#t͡ʃˈarlos# | Rule 254 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈarləs# | Rule 263 : [-stres,-lo,+syl] > ə / __ [-syl]
+#t͡ʃˈarlə̯s# | Rule 266 : ə > ə̯ 
+#t͡ʃˈarləs# | Rule 300 : ə̯ > ə / [-lat,+cons] l __ [+cons]
+#ʃˈarləs# | Rule 638 : [+delrel] > [+cont,.delrel] 
+#ʃˈaɹləs# | Rule 719 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹlə# | Rule 724 : [-son] > ∅ / __ #
+#ʃˈarlə# | Rule 737 : ɹ > r 
+#ʃˈaʀlə# | Rule 739 : r > ʀ 
+#ʃaʀlə# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃaʁlə# | Rule 747 : ʀ > ʁ 
+#ʃaʁl# | Rule 750 : ə > ∅ / [+syl] ( [-syl] )* __ #

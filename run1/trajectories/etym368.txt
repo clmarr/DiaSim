@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :368:
-#ˌin̪t̪er# >>> #ɑ̃t̪ʁ# ( Correct : #ɑ̃t̪ʁ#) :
-ˌi n̪ t̪ e r 
-#ˌɪn̪t̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪t̪ɛr# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#ˌen̪t̪ər# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
-#ˌen̪t̪ə̯r# | Rule 267 : ə > ə̯ 
-#ˌen̪t̪rə# | Rule 284 : ə̯ r > r ə / __ #
-#ˌẽn̪t̪rə# | Rule 511 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌɛ̃n̪t̪rə# | Rule 565 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌãn̪t̪rə# | Rule 570 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#ˌãːt̪rə# | Rule 658 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌãːt̪rə̯# | Rule 698 : ə > ə̯ / __ #
-#ˌɑ̃ːt̪rə̯# | Rule 708 : [+lo,+long,+syl] > [+back,-front] 
-#ˌɑ̃ːt̪r# | Rule 727 : ə̯ > ∅ 
-#ˌɑ̃ːt̪ʀ# | Rule 740 : r > ʀ 
-#ɑ̃ːt̪ʀ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɑ̃t̪ʀ# | Rule 742 : [+syl,+long] > [-long,-splng] 
-#ɑ̃t̪ʁ# | Rule 748 : ʀ > ʁ 
+#ˈin̪sulɑ# >>> #il# ( Correct : #il#) :
+ˈi n̪ s u l ɑ 
+#ˈiːn̪sulɑ# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#ˈiːsulɑ# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#ˈiːsʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈisʊlɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈisolɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈiːsolɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈiːzolɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˈiːzola# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈiːzəla# | Rule 261 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈiːzə̯la# | Rule 266 : ə > ə̯ 
+#ˈiːzla# | Rule 301 : ə̯ > ∅ 
+#ˈiːzlə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːlə# | Rule 523 : z > ∅ / __ [+cons]
+#ˈiːlə̯# | Rule 697 : ə > ə̯ / __ #
+#ˈiːl# | Rule 726 : ə̯ > ∅ 
+#iːl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#il# | Rule 741 : [+syl,+long] > [-long,-splng] 

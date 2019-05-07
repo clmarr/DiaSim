@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :704:
-#mˈolliːs# >>> #mu# ( Correct : #mu#) :
-m ˈo l l iː s 
-#mˈɔlliːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɔllis# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈɔlləs# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
-#mˈɔllə̯s# | Rule 267 : ə > ə̯ 
-#mˈɔlls# | Rule 302 : ə̯ > ∅ 
-#mˈɔls# | Rule 466 : [+cons] > ∅ / [+cons] __ [-son]
-#mˈɔɫs# | Rule 494 : [+lat] > [+back] / __ [+cons]
-#mˈɔws# | Rule 574 : [+lat,+back] > w 
-#mˈus# | Rule 616 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#mˈu# | Rule 725 : [-son] > ∅ / __ #
-#mu# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈoːbilem# >>> #mœbl# ( Correct : #mœbl#) :
+m ˈoː b i l e m 
+#mˈoːbɪlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈoːβɪlɛm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
+#mˈoβɪlɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈoβelɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈoβelɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈoːβelɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈoːβəlɛ# | Rule 261 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#mˈoːβələ# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#mˈoːβə̯lə̯# | Rule 266 : ə > ə̯ 
+#mˈoːβə̯lə# | Rule 296 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#mˈoːβlə# | Rule 301 : ə̯ > ∅ 
+#mˈoːblə# | Rule 305 : β > b / __ l
+#mˈowblə# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈewblə# | Rule 532 : ˈo > ˈe / __ w
+#mˈøwblə# | Rule 603 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mˈøːblə# | Rule 611 : [+round,+front,-hi,+syl] w > [+long] ∅
+#mˈøːblə̯# | Rule 697 : ə > ə̯ / __ #
+#mˈøːbl# | Rule 726 : ə̯ > ∅ 
+#mˈœːbl# | Rule 727 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#mœːbl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mœbl# | Rule 741 : [+syl,+long] > [-long,-splng] 

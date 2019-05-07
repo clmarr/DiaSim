@@ -397,7 +397,6 @@ $ but BEFORE regressive palatalization of r !
 $ s189 : nβl > mbl (ordered earlier for benefit of the doubt)
 n β > m b / __ [+lat] 
 
-
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
 $ Denasalization -- s369, and glide development s370
 $ b inserted between m + r or l 
@@ -407,7 +406,6 @@ $ t inserted between s and pal. s + r
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
-
 $ as per Pope p126 s293: depalatalization of palatal stops that come into contact with following non palatal consonants
 $ explicitly BEFORE assibilation (bleeds it)
 [-cont,+hi,+front] > [-hi,-front,+cor,+ant,+distr] / __ [+cons,-front]
@@ -416,11 +414,9 @@ $p73 s154ii : length returns for stressed vowels only, conditioned the open/clos
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[+syl] > [-long] / __ [-syl] [+cons]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl] 
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #

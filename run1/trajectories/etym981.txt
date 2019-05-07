@@ -1,14 +1,25 @@
 Trajectory file for run 'run1'; etymon number :981:
-#pˈut̪t̪um# >>> #po# ( Correct : #po#) :
-p ˈu t̪ t̪ u m 
-#pˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈot̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#pˈot̪t̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#pˈot̪t̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#pˈot̪t̪ə̯# | Rule 267 : ə > ə̯ 
-#pˈot̪t̪# | Rule 302 : ə̯ > ∅ 
-#pˈot̪# | Rule 482 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˈɔt̪# | Rule 540 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
-#pˈɔ# | Rule 725 : [-son] > ∅ / __ #
-#pɔ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#po# | Rule 746 : ɔ > o / __ #
+#pˈun̪kt̪um# >>> #pwɛ̃# ( Correct : #pwɛ̃#) :
+p ˈu n̪ k t̪ u m 
+#pˈuŋkt̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#pˈʊŋkt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈʊŋt̪ʊm# | Rule 58 : k > ∅ / ŋ __ [+cor,-voi]
+#pˈoŋt̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈoŋt̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#pˈũŋt̪o# | Rule 163 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#pˈũɲt̪o# | Rule 170 : ŋ > ɲ / __ [+cor]
+#pˈũɲt̪ʲo# | Rule 214 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#pˈũɲt̪ʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#pˈũɲt̪ʲə̯# | Rule 266 : ə > ə̯ 
+#pˈũɲt̪ʲ# | Rule 301 : ə̯ > ∅ 
+#pˈũɲt̪# | Rule 385 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#pˈũɲt̪ʲ# | Rule 387 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#pˈũj̃n̪t̪ʲ# | Rule 437 : ɲ > j̃ n̪ / __ [+cons]
+#pwˈĩn̪t̪ʲ# | Rule 619 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
+#pwˈẽn̪t̪ʲ# | Rule 650 : [+front,+nas,+syl] > [-hi] / w __ 
+#pwˈẽːt̪ʲ# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pwˈẽːt̪# | Rule 662 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pwˈɛ̃ːt̪# | Rule 666 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,.delrel] / w __ 
+#pwˈɛ̃ː# | Rule 724 : [-son] > ∅ / __ #
+#pwɛ̃ː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛ̃# | Rule 741 : [+syl,+long] > [-long,-splng] 

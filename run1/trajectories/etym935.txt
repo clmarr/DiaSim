@@ -1,9 +1,15 @@
 Trajectory file for run 'run1'; etymon number :935:
-#prˌɑe̯# >>> #pʁɛ# ( Correct : #pʁe#) :
-p r ˌɑ e̯ 
-#prˌae̯# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#prˌɛː# | Rule 56 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#prˌɛ# | Rule 222 : [-prim] > [-long,-splng] 
-#pʀˌɛ# | Rule 740 : r > ʀ 
-#pʀɛ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pʁɛ# | Rule 748 : ʀ > ʁ 
+#pˈort̪ɑt̪# >>> #pɔʁt̪# ( Correct : #pɔʁt̪#) :
+p ˈo r t̪ ɑ t̪ 
+#pˈɔrt̪ɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɔrt̪at̪# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#pˈɔrt̪aθ# | Rule 250 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#pˈɔrt̪əθ# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈɔrt̪ə# | Rule 599 : {θ;ð} > {∅;∅} 
+#pˈɔrt̪ə̯# | Rule 697 : ə > ə̯ / __ #
+#pˈɔɹt̪ə̯# | Rule 719 : r > ɹ / [-cons] __ [+cons]
+#pˈɔɹt̪# | Rule 726 : ə̯ > ∅ 
+#pˈɔrt̪# | Rule 737 : ɹ > r 
+#pˈɔʀt̪# | Rule 739 : r > ʀ 
+#pɔʀt̪# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɔʁt̪# | Rule 747 : ʀ > ʁ 

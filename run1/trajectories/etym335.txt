@@ -1,13 +1,19 @@
 Trajectory file for run 'run1'; etymon number :335:
-#hˈiːk# >>> #i# ( Correct : #i#) :
-h ˈiː k 
-#hˈik# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˈik# | Rule 105 : h > ∅ 
-#ˈiːk# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#ˈiːx# | Rule 166 : k > x / [+syl] __ #
-#ˈiːç# | Rule 451 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
-#ˈiːʝ# | Rule 453 : ç > ʝ 
-#ˈiːj# | Rule 459 : ʝ > j / [-cons] __ 
-#ˈiː# | Rule 460 : j > ∅ / [+hi,+front,+tense,-cons] __ 
-#iː# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#i# | Rule 742 : [+syl,+long] > [-long,-splng] 
+#hˈeri# >>> #jɛʁ# ( Correct : #jɛʁ#) :
+h ˈe r i 
+#hˈɛrɪ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#hˈɛre# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɛre# | Rule 105 : h > ∅ 
+#ˈɛːre# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈie̯re# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈie̯rə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
+#ˈie̯rə̯# | Rule 266 : ə > ə̯ 
+#ˈie̯r# | Rule 301 : ə̯ > ∅ 
+#jˈer# | Rule 587 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#j?r# | Rule 604 : ˈe > ? / __ @
+#jˈɛr# | Rule 607 : ? > ˈɛ 
+#jˈɛɹ# | Rule 718 : r > ɹ / [-cons] __ #
+#jˈɛr# | Rule 737 : ɹ > r 
+#jˈɛʀ# | Rule 739 : r > ʀ 
+#jɛʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#jɛʁ# | Rule 747 : ʀ > ʁ 

@@ -1,25 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1271:
-#wˌɑlˈeːre# >>> #valwaʁ# ( Correct : #valwaʁ#) :
-w ˌɑ l ˈeː r e 
-#ɣʷˌɑlˈeːre# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌɑlˈeːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#βʷˌɑlˈeːrɛ# | Rule 49 : ɣʷ > βʷ 
-#βʷˌɑlˈerɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌɑlˈeːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˌɑlˈeːrɛ# | Rule 157 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌalˈeːrɛ# | Rule 197 : [+lo,+syl] > [+front,-back] 
-#βˌalˈeːrə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#βˌalˈeːrə̯# | Rule 267 : ə > ə̯ 
-#βˌalˈeːr# | Rule 302 : ə̯ > ∅ 
-#βˌalˈejr# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˌalˈejr# | Rule 430 : β > v 
-#vˌalˈojr# | Rule 534 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#vˌalˈoɛ̯r# | Rule 550 : j > ɛ̯ / [+syl,+back,+round] __ r
-#vˌalˈuɛ̯r# | Rule 556 : [+round,+tense,+back] > [+hi] 
-#vˌalwˈɛr# | Rule 624 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#vˌalwˈɛɹ# | Rule 719 : r > ɹ / [-cons] __ #
-#vˌalwˈɛr# | Rule 738 : ɹ > r 
-#vˌalwˈɛʀ# | Rule 740 : r > ʀ 
-#valwɛʀ# | Rule 741 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#valwaʀ# | Rule 747 : ɛ > a / w __ 
-#valwaʁ# | Rule 748 : ʀ > ʁ 
+#ˈun̪ɡulɑm# >>> #ɔ̃ɡl# ( Correct : #ɔ̃ɡl#) :
+ˈu n̪ ɡ u l ɑ m 
+#ˈuŋɡulɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#ˈʊŋɡʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈʊŋɡlɑm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˈoŋɡlɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈoŋɡlɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˈũŋɡlɑ# | Rule 163 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#ˈũŋɡla# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈũŋɡlə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈũːɡlə# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːɡlə̯# | Rule 697 : ə > ə̯ / __ #
+#ˈũːɡl# | Rule 726 : ə̯ > ∅ 
+#ũːɡl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ũɡl# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#ɔ̃ɡl# | Rule 742 : [+back,-lo,+nas,+syl] > ɔ̃ 
