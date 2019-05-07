@@ -36,4 +36,7 @@ public class Boundary extends PseudoPhone {
 		if (!patSeq.get(ind).equals(this))		throw new Error("Error: tried to use Boundary to forceTruth on a non-equivalent unit.");
 		else return patSeq; 
 	}
+	
+	public SequentialPhonic copy()
+	{	return new Boundary(type);	}
 }

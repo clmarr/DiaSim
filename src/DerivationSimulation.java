@@ -516,7 +516,7 @@ public class DerivationSimulation {
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
 			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldResultLexicon, featsByIndex, 
-					feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
+					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 			ea.makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon);
 			ea.makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon);
 			
@@ -525,7 +525,7 @@ public class DerivationSimulation {
 				for(int gsi = 0; gsi < NUM_GOLD_STAGES ; gsi++)
 				{	
 					ErrorAnalysis eap = new ErrorAnalysis(goldStageResultLexica[gsi], goldStageGoldLexica[gsi], featsByIndex,
-							feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
 							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
 				}
@@ -714,7 +714,8 @@ public class DerivationSimulation {
 	
 	private static void haltMenu(Lexicon r, Lexicon g)
 	{		
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt));
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
@@ -817,7 +818,7 @@ public class DerivationSimulation {
 		}
 		 
 		return new ErrorAnalysis(new Lexicon(subRes), new Lexicon(subGold), featsByIndex, 
-				feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt)); 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt)); 
 		
 	}
 	
@@ -882,7 +883,7 @@ public class DerivationSimulation {
 		int[] totalFED = new int[inventorySize]; //total feature edit distance 
 			// of words with this phone
 		
-		FED distMeasure = feats_weighted ? new FED(FT_WTS,id_wt) : new FED(id_wt); 
+		FED distMeasure = feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt); 
 		
 		for(int li = 0 ; li < lexSize ; li++)
 		{
@@ -929,7 +930,7 @@ public class DerivationSimulation {
 		//defaults
 		symbDefsLoc = "symbolDefs.csv";
 		lexFileLoc = "LatinLexFileForMKPopeTester.txt";
-		ruleFileLoc = "MKPopeRulesCorrected"; 
+		ruleFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
 		id_wt = 1.0; 
 		
@@ -1020,8 +1021,7 @@ public class DerivationSimulation {
 						default:
 							System.err.println("Illegal flag : "+flag);
 							break;
-					}
-					
+					}	
 				}
 			}
 		}

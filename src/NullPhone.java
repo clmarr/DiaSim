@@ -28,4 +28,7 @@ public class NullPhone extends PseudoPhone {
 		return output; 
 	}
 	
+	public SequentialPhonic copy()
+	{	return new NullPhone();	}
+	
 }

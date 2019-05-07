@@ -8,15 +8,16 @@ public class FED {
 	public static double last_min_dist, isdl_wt;
 	
 	private static int[][] last_min_alignment; 
+	private static int n_feats;
 	
-	
-	public FED (double id_wt)
-	{	weighted = false; 
+	public FED (int numFeats, double id_wt)
+	{	n_feats = numFeats;
+		weighted = false; 
 		isdl_wt = id_wt;
 	}
 	
-	public FED(double[] wts, double id_wt)
-	{
+	public FED(int numFeats, double[] wts, double id_wt)
+	{	n_feats = numFeats; 
 		weighted = true;
 		weights = wts;
 		isdl_wt = id_wt;  
@@ -66,7 +67,7 @@ public class FED {
 				}
 			}
 		}
-		last_min_dist = matr[len1][len2]; 
+		last_min_dist = matr[len1][len2] / (double)n_feats; 
 		
 		//backtrace to get the alignment
 		last_min_alignment = new int[Math.max(len1,len2)][2]; 

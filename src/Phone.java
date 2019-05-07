@@ -146,4 +146,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{
 		return featIndices.containsKey(ftName); 
 	}
+	
+	public SequentialPhonic copy()
+	{	return new Phone(this); 	}
 }

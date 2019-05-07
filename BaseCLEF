@@ -7,11 +7,19 @@ $ ---------------------------------------------------------------------------
 $Characteristics of Classical Latin as per Pope page 75
 n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
-l l > lʲ lʲ / __ [+hi,+front] 
-l > [+hi,+front] / __ [+hi,+front] $ Pope says this one is "probable" 22
-l > [+back] / @ __ $per page 75 s158, Pope does say l is dark "every where else" giving examples of nolo and plenum -- this is in need of correction
+
+l l > lʲ lʲ / [+hi,+front] __ [+hi,+front] 
+l > [+hi,+front] / [+hi,+front] __ [+hi,+front] $ Pope says this one is "probable"
+l > [+back] / @ __ $per page 75 s158, Pope specifically says is dark "every where else" giving examples of nolo and plenum
+	$ she explicates that dark l existed continuously from Latin to French in various places: 
+		$ s160-161 : references dark l existing, without this rule would be impossible
+		$ s109b: dark L "in use in Latin and Period I of French"
+		$ and for lʲ she similarly says it "survived into Old French after /i/" 
+	$ these both cause obvious problems -- but what her stance (incorrectly) is seems clear
+
 [+lo,+syl] > [-front,+back]
 [+lo,+syl] > [+front,-back] / __ e̯
+
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s105c ; for w, p56 s109
 $ Note that the sequence u: + w does not seem to occur in Latin 
@@ -36,12 +44,13 @@ $Of course later authors would very likely consider this to be part of a nasaliz
 [+syl] > [+long] / __ n̪ s
 n̪ > ∅ / __ s
 
-$p144 s359 ~ p73 s156iii --- rs > s or ss, conditioned on whether preceeding vowel is long -- must have occurred before nature of length changed
+$p144 s359 ~ p73 s156iii --- rs > s after long vowels, > ss after short vowels
+	$must have occurred before nature of length changed
+	$ implicitly consecutive vowels are "long" and second becomes so if not -- case of deorsum
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
 [+cor,+son,-nas,-lat] > ∅ / [+syl] [+syl] __ s
 [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
 
-$This one moved up simply because it is known to be characteristic of Classical Latin
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
@@ -165,10 +174,10 @@ k > ∅ / ŋ __ [+cor,-voi]
 $p144 s359 ~ p73 s156iii : kst > st rule 
 k > ∅ / __ s [+cons]
 
-$p144 s359 ~ p134 s324-325 ~ p73 s156iii ~ p64 s130 ~ p6 s9
+$p144 s359 ~ p134 s324-325 ~ p73 s156iii ~ p64 s130 ~ p6 s9i
 $ frication of k before t,s ; attributed to Gaulish substratum p6 s9 (RECTUM > REXTUM -- see also discussion of attestations like paraxsidi in other sources.) 
 $ Pope doesnˌt discuss the specific ordering of this vis-a-vis the kst>st rule, but this one would bleed that one and she never discusses an xst>st rule,
-$ so we assume this one comes second.
+$ so we favorably assume this one comes second.
 k > x / __ [+cor,-voi] 
 
 $p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
@@ -202,7 +211,7 @@ $ ... unlike some later authors Pope does not recognize a nasalization in Late L
 $ Pope doesnˌt explicitly date this but considers it first attested in teh 3rd/4th century Appendix Probi
 $ Pope notes it did not occur in monosyllabic words 
 $ NOTE: as per p97-98 s205i -- unlike Italy and also South Gaul, North Gaul did not see effacement of s and t word-finally,
-$ ... because "pronunciation was influenced by the teaching in schools" in North Gaul
+$ ... because "pronunciation was influenced by the teaching in schools" in North Gaul -- though this mainly concerns final t and s 
 m > ∅ / [+syl] ([-syl])* [+syl] __ #
 
 $ p185 s488 : o > ɔ before labial consonants 
@@ -212,7 +221,7 @@ $ --- we give her the benefit and place it after final m deletion
 [+round,-hi,+syl] > [-tense] / __ [+lab,-son] 
 
 $ -- kwinkwe > kinkwe dissimilation
-$ Pope s823 iii. Currently tentative-- may be irregular.
+$ Pope s823 iii. 
 w > ∅ / k __ [+syl] ([-syl]) k w [+syl]
 
 $FIRST PALATALIZATION: Palatalization begins in the fourth century as per Pope p129 s304
@@ -227,9 +236,9 @@ $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for be
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 [+back,+front] > [-back] 
 
-$p127 s296ii : palatalization of k blocked if coming after stressed (incl. secondarily) velar vowel
-$ ... and before intertonic unstressed e (<ɪ) 
-c > k / [+back,+syl,+stres] __ e ([-syl])* [+prim] 
+$p127 s296ii : palatalization of k blocked if coming after secondarily stressed velar vowel
+$ ... and before intertonic unstressed e when coming from /ɪ/ (< /i/)  
+c > k / [+back,+syl,+stres,-prim] __ e ([-syl])* [+prim] 
 
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
@@ -250,7 +259,7 @@ $ we can use /e/ here because if it was e:, it would be stressed.
 e > ∅ / __ [+cor,-cont,+ant] [+syl] ([-syl]) #
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
-$ valid targets before r included -- s372
+$ valid targets before r included as well as d before l -- s372
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
 $Later authors group all voiced stops together for this shift, but Pope is unclear
 $She states (s336) that it is attested earlier for b than the others but is unclear
@@ -259,9 +268,10 @@ $So we give her the benefit of the doubt and place the lenition of the rest of t
 $Right after the beginning of palatalization. This should be roughly 4th century
 $ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
 [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
+d̪ > ð / __ [+lat]
 
-$p73 s155i ~ p91 s185 -- as Pope explained, happened word-internally first. 
-$It was apparently still being resisted among the educated classes in the time of St. Augustine, 4th century and early 5th century 
+$p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
+$It was apparently still being resisted among the educated classes at the time of St. Augustine, 4th century and early 5th century 
 h > ∅ 
 
 $p73 s156vi -- influence of tonic vowels on countertonic vowels
@@ -271,14 +281,17 @@ $ s505 for aw > a under influence of u specifically
 $ s127 for i>e
 ˌi > ˌe / __ ([-syl])* [+hi,+front,+prim,-round,+tense] $i.e. by i
 {ˌe;ˌɛ} > {ˌɑ;ˌɑ} / __ ([-syl])* [+lo,+prim]
-$ˌɑ w > ˌɑ / __ ([-syl])* [+hi,+round,+prim] $s505 -- already handled further above. 
+$s505 ~ ˌɑ w > ˌɑ before round stressed sylls -- already handled elsewhere, don't need to redundantly do it here. 
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
-$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+$ note as per p53 s100, note that Pope does not consider glides to be consonants 
+	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
+		$ hiatus with syllabic vowels, not semivowels
+$ -- give her the benefit of the doubt and specify +syl not -cons
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
+[+prim] > [+long] / __ [+syl] 
 [+prim] > [+long] / __ [+cons] [-cons] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
@@ -318,18 +331,20 @@ $ However it is attested in mid-fifth century as per Greg of Tours (p138-139 s34
 $ and was attested in Gaulish in the fourth century or even earlier (Pope s9)
 $ Precedes (s341) loss of unstressed final o,u 
 $ According to symbols used, this should precede ɑ > a (s341)
-ɣ > ∅ / __ [+tense,+round,+syl,+back]
-ɣ > ∅ / [+hi,+round,+back,+syl] __ [+lo,+syl]
+ɣ > ∅ / __ [+tense,+round,+syl]
+ɣ > ∅ / [+hi,+round,+syl] __ [+lo,+syl]
 ɣ > β / [+round,-hi,+back,+syl] __ [+lo,+syl]
 
 $also, as per s323 ɣr > r pretonic after e
-ɣ > ∅ / [+tense,+front,-hi,-lo,+syl] __ r [+prim]
+$ she says only /e/ but given the inclusion of peregrinum in her examples, 
+	$ we can give her the benefit of the doubt and let it affect /ɛ/ too.
+ɣ > ∅ / [+front,-hi,-lo,+syl] __ r [+prim]
 
 $ Pope s374ii first round of β > w before another w -- will recur
 $ as per comparing s484 and s481, clearly βw had a different fate from ðw or ɣw (including < -qu-) -- so this one happened first
 β > w / __ w 
 
-$ Pope ~ p78 s163:7 p139 s343 first effacement of β 
+$ Pope ~ p78 s163.7 p139 s343 first effacement of β 
 $ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
 	$ s163:7 says "before labial vowels", as does 343 (though 343 says u or o too) 
 $ NOTE: lots of corrections are applied to this one... 
@@ -337,7 +352,8 @@ $ NOTE: lots of corrections are applied to this one...
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
-e > ∅ / __ k ɑ #
+	$ she includes -ikat too -- vindicat > venche , masticat > mache 
+e > ∅ / __ k [+lo,+syl] ([+cons]) #
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ intervocalically. 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -378,6 +394,10 @@ $ as per symbols used should come AFTER regressive palatalization assimilation o
 $ but BEFORE regressive palatalization of r ! 
 ɛ > ∅ / __ [+cor,+son,-nas] ([-syl])* [+syl] ([-syl])* #
 
+$ s189 : nβl > mbl (ordered earlier for benefit of the doubt)
+n β > m b / __ [+lat] 
+
+
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
 $ Denasalization -- s369, and glide development s370
 $ b inserted between m + r or l 
@@ -387,8 +407,6 @@ $ t inserted between s and pal. s + r
 ∅ > d̪ / [+lat] __ r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
-$ s189 : nβl > mbl 
-n β > m b / __ [+lat] 
 
 $ as per Pope p126 s293: depalatalization of palatal stops that come into contact with following non palatal consonants
 $ explicitly BEFORE assibilation (bleeds it)

@@ -143,7 +143,7 @@ public class ErrorAnalysis {
 		
 		//TODO debugging
 		for(int[] distort : topDistortions)
-			System.out.println(distort[0]+","+distort[1]);
+			System.out.println(resPhInventory[distort[0]].print()+","+goldPhInventory[distort[1]].print());
 		
 		for(int i = 0 ; i < topDistortions.length; i++)
 		{
@@ -193,11 +193,38 @@ public class ErrorAnalysis {
 		}
 	}
 	
+	private int wordBoundCounts(HashMap<SequentialPhonic, Integer> map)
+	{
+		return mapContainsSeqPh(map, newWdBd()) ? mapGetSeqPhKey(map, newWdBd()) : 0; 
+	}
+	
+	//auxiliary -- to override issue of hashCode not matching in usage of HashMap.containsKey()
+	private boolean mapContainsSeqPh(HashMap<SequentialPhonic, Integer> map, SequentialPhonic sp)
+	{		
+		for (SequentialPhonic key : map.keySet() )
+			if(key.print().equals(sp.print()))	return true;
+		
+		return false;
+	}
+	
+	private int mapGetSeqPhKey(HashMap<SequentialPhonic, Integer> map, SequentialPhonic sp)
+	{
+		for (SequentialPhonic key : map.keySet())
+			if(key.print().equals(sp.print()))	return map.get(key); 
+		return -1; 
+	}
+	
+	//TODO another temporary aux method to replace -- handling more HashMap issues arising from calls to .hashCode()
+	private void mapUpdateSeqPhKey (HashMap<SequentialPhonic, Integer> map , SequentialPhonic sp)
+	{
+		for (SequentialPhonic key : map.keySet())
+			if(key.print().equals(sp.print()))	map.put(key, map.get(key) + 1); 
+		map.put(sp.copy(), 1); 
+	}
+	
 	// report which contexts tend to surround distortion frequently enough that it becomes 
-		// suspicious and is worth displaying to the user
-	// will report only features that are CONSTANT for pre-prior and post-posterior positions
-	// and features taht are more common than 
-	// TODO reorganize this! 
+		// suspicious and deemed worth displaying
+	// this method is frequently modified at current state of the project 
 	private List<String> identifyProblemContextsForDistortion(int resPhInd, int goldPhInd)
 	{
 		List<String> out = new ArrayList<String>(); 
@@ -222,74 +249,73 @@ public class ErrorAnalysis {
 			
 			for (Integer dloc : distortLocs)
 			{
-				SequentialPhonic prePrior = new Boundary("word bound"), 
-					priorPh = new Boundary("word bound"); 
+				SequentialPhonic prePrior = newWdBd(), priorPh = newWdBd(); 
 				if (dloc > 0)
 				{
-					priorPh = alignedReps[dloc-1][1]; //second index 1 because we are using the gold for contexts. 
+					priorPh = alignedReps[dloc-1][1]; //second index = 1 because we are using the gold for contexts. 
 					if (dloc > 1)	prePrior = alignedReps[dloc-2][1]; 
 				}
-				if (priorPhoneCounts.containsKey(priorPh))
-					priorPhoneCounts.put(priorPh, priorPhoneCounts.get(priorPh)+1); 
-				else	priorPhoneCounts.put(priorPh, 1);
+				mapUpdateSeqPhKey(priorPhoneCounts, priorPh); 				
+				mapUpdateSeqPhKey(prePriorCounts, prePrior);
 				
-				if (prePriorCounts.containsKey(prePrior))
-					prePriorCounts.put(prePrior, prePriorCounts.get(prePrior) + 1);
-				else	prePriorCounts.put(prePrior, 1);
-				
-				SequentialPhonic ppph =new Boundary("word bound"),
-						postPh = new Boundary("word bound"); 
+				SequentialPhonic ppph =newWdBd(), postPh = newWdBd(); 
 				if (dloc < alignedReps[1].length - 1)
 				{
 					postPh = alignedReps[dloc+1][1];
 					if (dloc < alignedReps[1].length - 2)	ppph = alignedReps[dloc+2][1];
 				}
-				if (posteriorPhoneCounts.containsKey(postPh))
-					posteriorPhoneCounts.put(postPh,
-							posteriorPhoneCounts.get(postPh) + 1); 
-				else
-					posteriorPhoneCounts.put(postPh, 1);
-				if (postPostrCounts.containsKey(ppph))
-					postPostrCounts.put(ppph, postPostrCounts.get(ppph) + 1);
-				else	postPostrCounts.put(ppph, 1);
-				
+				mapUpdateSeqPhKey(posteriorPhoneCounts, postPh); 
+				mapUpdateSeqPhKey(postPostrCounts, ppph); 				
 			}
 
 		} 
 		
-		//now we have the counts for the immediate neighbors -- TODO analyze
-	
 		//prior context info
 		if (prePriorCounts.keySet().size() == 1)
 			out.add("Constant pre prior phone : "+ (new ArrayList<SequentialPhonic>(prePriorCounts.keySet())).get(0).print());
 		else
 		{
+			int n_wdbd = wordBoundCounts(prePriorCounts); 
+			out.add("Percent of pre prior phones that are word bound : " + 100.0 * (double)n_wdbd / (double)total_distortion_instances); 
+			
 			String ppcfs = getConstantFeats(prePriorCounts); 
-			if (ppcfs.length() > 1 )
+			if (ppcfs.split(",").length > 3 )
 				out.add("Pre prior phone constant features: "+ppcfs);
 		}
 		
 		String commPhsStringed = getCommonCtxtPhs(priorPhoneCounts, total_distortion_instances, 0.3); 
-		if(commPhsStringed.length() > 1)
+		if(commPhsStringed.length() >= 1)
 			out.add("Most common immediate prior phones : "+commPhsStringed); 
 		
-		if (priorPhoneCounts.get(new Boundary("word bound")) > (double) total_distortion_instances * 0.5)
-			out.add("Majority of instances just after word onset. Common features of remainder: "
-					+getContextCommonFeats(priorPhoneCounts, 
-							total_distortion_instances - priorPhoneCounts.get(new Boundary("word bound")))); 
-		else	out.add("Common prior feats: "
-					+getContextCommonFeats(priorPhoneCounts, total_distortion_instances)); 
+		if(mapContainsSeqPh(priorPhoneCounts,newWdBd()))
+			out.add("Percent of instances just after onset : "+ 100.0 * (double)mapGetSeqPhKey(priorPhoneCounts, newWdBd())
+					/ (double) total_distortion_instances ) ; 
+		String ppccfs = getContextCommonFeats(priorPhoneCounts, total_distortion_instances - wordBoundCounts(priorPhoneCounts));
+		if(ppccfs.split(",").length > 3)
+			out.add("Common prior feats : "+ ppccfs); 
 		
 		//posterior context info
-		commPhsStringed = getCommonCtxtPhs(posteriorPhoneCounts, total_distortion_instances, 0.3); 
-		if (commPhsStringed.length() > 1)
-			out.add("Most common immediate posterior phones : "+commPhsStringed); 
+		commPhsStringed = getCommonCtxtPhs(posteriorPhoneCounts, total_distortion_instances, 0.3);
+		if(commPhsStringed.length() > 3)
+			out.add("Most common immediate posterior phones : "+commPhsStringed);
+		
+		if(mapContainsSeqPh(posteriorPhoneCounts,newWdBd()))
+			out.add("Percent of instances just before coda : " + 100.0 * mapGetSeqPhKey(posteriorPhoneCounts, newWdBd())
+					/ (double)total_distortion_instances ) ; 
+		ppccfs = getContextCommonFeats(posteriorPhoneCounts, total_distortion_instances - wordBoundCounts(posteriorPhoneCounts)) ; 
+		if(ppccfs.split(",").length > 3)
+			out.add("Common posterior feats : "+ ppccfs); 
+		
+		//TODO debugging
+		System.out.println("postPostrCounts size : "+postPostrCounts.keySet().size() );
+		
+		if (postPostrCounts.keySet().size() == 1)
+			out.add("Constant phone 2 phones later : "+ (new ArrayList<SequentialPhonic>(postPostrCounts.keySet())).get(0).print()); 
 		else
 		{
 			String ppcfs = getConstantFeats(postPostrCounts); 
-			if (ppcfs.length() > 1)
-				out.add("Post posterior phone constant features : "+ppcfs); 
-			
+			if (ppcfs.split("<").length > 3)
+				out.add("Post postr phone constant features: "+ppcfs);	
 		}
 		
 		return out; 
@@ -297,17 +323,26 @@ public class ErrorAnalysis {
 	
 	
 	// Stringed list of all feats that are present in EVERY phone that is a key in the HashMap. 
+	// if the null phone is among the phones in keyset, exclude it
+	// TODO further fixing here is necessary...
 	private String getConstantFeats(HashMap<SequentialPhonic,Integer> ctxts)
 	{
-		List<SequentialPhonic> phs = new ArrayList<SequentialPhonic>(ctxts.keySet()); 
-		if (phs.size() == 1) //all consistently one phone!
-			return phs.get(0).print(); 
+		List<SequentialPhonic> phs = new ArrayList<SequentialPhonic>(); 
+		for (SequentialPhonic ph : ctxts.keySet())
+		{	//TODO debugging
+			System.out.println(ph.print());
+			
+			if (!"∅#".contains(ph.print()))	phs.add(ph); 	}
 		
 		char[] constVals = phs.get(0).getFeatString().toCharArray(); 
-		for (int i = 1 ; i < phs.size(); i++)
-		{	char[] theFeats = phs.get(i).getFeatString().toCharArray();
-			for (int c = 0 ; c < theFeats.length; c++)
-				if (theFeats[c] != constVals[c])	constVals[c] = ' '; 
+		
+		if (phs.size() > 1)
+		{	
+			for (int i = 1 ; i < phs.size(); i++)
+			{	char[] theFeats = phs.get(i).getFeatString().toCharArray();
+				for (int c = 0 ; c < theFeats.length; c++)
+					if (theFeats[c] != constVals[c])	constVals[c] = ' '; 
+			}
 		}
 		
 		String output = ""; 
@@ -315,10 +350,8 @@ public class ErrorAnalysis {
 			if ("+-.".contains(""+constVals[c]))
 				output += constVals[c]+featsByIndex[c]+","; 
 		
-		if (output.equals("")) 
-			return output;
-		else
-			return output.substring(0, output.length()-1);		
+		return (output.equals("")) ? output : output.substring(0, output.length() - 1); 
+		
 	}
 	
 	/**
@@ -334,7 +367,7 @@ public class ErrorAnalysis {
 		
 		for (SequentialPhonic ph : phCts.keySet())
 		{
-			double share = (double) phCts.get(ph) / (double) total_dist_occs ;
+			double share = (double) mapGetSeqPhKey(phCts,ph) / (double) total_dist_occs ;
 			if (share > thresh) 	output += ph.print()+" "+share+"; ";
 		}
 		
@@ -350,20 +383,22 @@ public class ErrorAnalysis {
 	// @param ctxtName -- i.e. "prior" or "posterior" -- sequential relation to target phone
 	private String getContextCommonFeats(HashMap<SequentialPhonic,Integer> ctxtCts, int total_dist_instances)
 	{
-		
 		Set<SequentialPhonic> phonesFound = ctxtCts.keySet(); 
 		HashMap<String, int[]> ftMatr = new HashMap<String, int[]>(); 
 		for(int i = 0 ; i < featsByIndex.length; i++)
 			ftMatr.put(featsByIndex[i], new int[] {0,0,0} );
 		for (SequentialPhonic ph : phonesFound)
 		{
-			char[] featVals = ph.getFeatString().toCharArray(); 
-			for (int i = 0 ; i < featsByIndex.length; i++)
+			if (!ph.print().equals("#"))
 			{
-				int[] theArr = ftMatr.get(featsByIndex[i]); 
-				int thisVal = Integer.parseInt(""+featVals[i]); 
-				theArr[thisVal] = theArr[thisVal] + ctxtCts.get(ph); 
-				ftMatr.put(featsByIndex[i], theArr); 
+				char[] featVals = ph.getFeatString().toCharArray(); 
+				for (int i = 0 ; i < featsByIndex.length; i++)
+				{
+					int[] theArr = ftMatr.get(featsByIndex[i]); 
+					int thisVal = Integer.parseInt(""+featVals[i]); 
+					theArr[thisVal] = theArr[thisVal] + mapGetSeqPhKey( ctxtCts, ph); 
+					ftMatr.put(featsByIndex[i], theArr); 
+				}
 			}
 		}
 		
@@ -380,8 +415,7 @@ public class ErrorAnalysis {
 				output += "+"+ft+","; 
 		}
 		
-		if (output.length() == 0)	return output; 
-		else	return output.substring(0, output.length()-1);
+		return (output.length() == 0) ? output : output.substring(0, output.length()-1);
 	}
 	
 	
@@ -696,5 +730,10 @@ public class ErrorAnalysis {
 				+ "\t|\t"+avgAssocdFEDs.get(ph)+"\n"; 
 		
 		writeToFile(fileName, output); 
+	}
+	
+	private SequentialPhonic newWdBd()
+	{
+		return new Boundary("word bound"); 
 	}
 }
