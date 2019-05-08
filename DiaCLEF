@@ -605,8 +605,9 @@ $ Must come before assibilation of first palatalization results, which would ble
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
 $ CORRECTION : primary stressed vowels before x n become tense (tsrokna > frogne, pectinem > peigne) 
-$ and x becomes 
-[+prim] x > [+tense] ŋ / __ n̪
+$ and x n becomes ŋ ɲ 
+[+prim] > [+tense] / __ x n̪
+x n̪ > ŋ ɲ 
 
 $ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, 
 	$ and any o free or blocked with any level of stress raise to u 
@@ -812,13 +813,6 @@ $ CORRECTION : ʝ only has this effect at this point if it is coming after a vel
 [+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
 [+cor,+ant,+front] > [+voi] / [+lo,+syl] ʝ __ [-cons]
 
-$TODO this one may in fact be in Pope
-$ CORRECTION: before they can be effaced or anything else,
-	$  unstressed ɛei in hiatus with prior stressed vowels get glided
-$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
-$ CHECK if necessary to exclude nasals at end for the front vowels... 
-[-lo,-stres] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
-
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -833,7 +827,7 @@ $ CORRECTION : multiple sonorants at the end of the word will shorten
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ ([+cons]) [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
-[+prim] > [+long] / __ [+lab,+voi,+ant] r
+[+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $ CORRECTION: ˈɔ becomes long if it comes before rounded continuant then a stop (mowitam > meute)
@@ -866,6 +860,14 @@ $ so caused.
 
 $ CORRECTION : Formation ˈeː o > j ˈoː of certain diphthongs for unstressed tense final vowels before becoming glides or effaced
 ˈeː o > j ˈoː
+
+$ s254 recurrence -- final unstressed i , o , u in hiatus with tonic vowel (in Late Latin or)
+	$ brought into hiatus in Early Gallo Roman become semi-vocalic. 
+	$ bleeds effacement
+$ CORRECTION: effects all ɛei in hiatus with prior stressed vowels (aerem, lui, jeudi, lai, etc...) 
+$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
+$ CHECK if necessary to exclude nasals at end for the front vowels... 
+[-lo,-stres] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
 
 $ CORRECTION: any vowel before w shortens 
 [+syl] > [-long] / __ w
