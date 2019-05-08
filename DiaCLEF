@@ -493,7 +493,6 @@ $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ
 $ Began in fifth century, "became general" in the sixth century as per s336
 $ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same slightly later shift for t(>d) (s350)
 $ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
-	$ See also Buckley, Arteaga on this for corrections to Pope later?
 	$ potentially RECURRENT as per Pope s162 
 $ this incorporates ɡw > ɣw as per Pope s329 
 k > ɡ / [-cons] __ [+syl]
@@ -575,12 +574,10 @@ $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants 
 	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )
-$ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] [+cons]
 [+prim] > [+long] / __ # 
-[+prim] > [+long] / __ [+syl]
-[+prim] > [+long] / __ [+cons] [+syl] 
-[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
+[+prim] > [+long] / __ ([+cons]) [+syl]
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
@@ -603,20 +600,19 @@ $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-19
 $ when preceded by a palatal 
 $ Sixth/Seventh centuries as per Pope s163-11
 $ Conveniently all such vowels will be long as per s154ii -- we use this for our purposes
-$ Must come bore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
+$ Must come before assibilation of first palatalization results, which would bleed this for the voiced pal. stop
 	$ (Pope does not specify the voiced one retained any palatal element after assibiliation-- she does for c though as per p )
-$ CORRECTION: not limited to open syllables -- include also the short variants. 
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
 $ CORRECTION : primary stressed vowels before x n become tense (tsrokna > frogne, pectinem > peigne) 
-[+prim] > [+tense] / __ x n̪
+$ and x becomes 
+[+prim] x > [+tense] ŋ / __ n̪
 
-$ CORRECTION : xn̪ > ŋɲ
-x n̪ > ŋ ɲ
-
-$ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, and any o with any level of stress raise to u before diphthongization can occur
-$ CORRECTION : these go to already nasalized ũ, so that it will not get fronted. 
-$ CORRECTION: free tonic ɔ is also effected... so essentially ANY variant of o or ɔ is affected
+$ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, 
+	$ and any o free or blocked with any level of stress raise to u 
+	$ ... before diphthongization can occur
+$ CORRECTION : these go to already nasalized ũ, so that it won't feed subsequent u-fronting for these segments
+$ CORRECTION: free tonic ɔ is also effected... so essentially ANY variant of o or ɔ is affected -- cases of frogne and son
 [+round,-hi] > [+tense,+hi,+nas] / __ [+nas,+cons]
 $[+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
 ${ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
@@ -651,17 +647,16 @@ $ CORRECTION : ʎc not effected : dulkiɑm > doʎca > dus
 
 $ s320-321, palatalization of ŋ before n,s,t (can also include d,z)
 $ feeds dental palatalization
-$ CORRECTION: moved earlier so that we can simplify this rule (it does not include velars which will become palatalized) 
-	$ ...but does include tsj from tj--
+$ CORRECTION: moved earlier so that we can simplify this rule 
+	$(it does not include velars which will become palatalized...but does include tsj from tj)
 ŋ > ɲ / __ [+cor]
 $ŋ > ɲ / __ [+ant,+distr]
 $ŋ > ɲ / __ [+strid,+cont]
 
-
 $ CORRECTION : in the case of r r ʝ , ʝ does not merge into a prior rʲ, but rather closes to ɟ
 ʝ > ɟ / r r __
 
-$ CORRECTION: quasi-initial sc (prosthetic ɪ has been added) becomes st
+$ CORRECTION: quasi-initial /sc/ (prosthetic ɪ has been added) becomes st
 c > t̪ / # ˌe s __
 
 $ s313-315 : r,s,z donˌt lose their primary place of articulation but DO palatalize under influence of succeeding palatals
@@ -694,17 +689,18 @@ $ s342iii : between o, u, aw and a
 ɣ > ∅ / [+round,-cons] __ [+lo,+syl] $ o|u|au __ a
 
 $ s342ii : between a velar vowel and atonic u (short u > o , so atonic u or o)
-$CORRECTION: This one does not occur after sequences of [+syl] [+son] [+back,-cons] not followed by w -- i.e. cases of Sabigniacum > Savigny, Albiniacum > Aubigny, and veracum > vrai
+$CORRECTION: This one does not occur after sequences of [+syl] [+son] [+back,-cons] not followed by w 
+	$-- i.e. cases of Sabigniacum > Savigny, Albiniacum > Aubigny, veracum > v(e)rai etc
 $CORRECTION also includes after uo̯ -- case of locum > lieu 
 ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
 ɣ > ∅ / # [+back,-cons] __ [+tense,-stres,+round,+syl]
 ɣ > ∅ / [-son] [+back,-cons] __ [+tense,-stres,+round,+syl]
 ɣ > ∅ / {[-syl];#} [-syl] [+back,-cons] __ [+tense,-stres,+round,+syl]
 
-$ CORRECTION : ɣ disappears also between ie̯ and o (a: has not yet been raised >> ie, so Savigny, Aubigny etc won't be effected)
+$ CORRECTION : ɣ disappears also between ie̯ and o (a: has not yet been raised -- ie, so Savigny, Aubigny etc won't be effected)
 ɣ > ∅ / ˈi e̯ __ o
 
-$ CORRECTION : ɣ also disappears between e and ˈɑː 
+$ CORRECTION : ɣ (possibly actually palatal at this point) also disappears between e and ˈɑː -- loyal, royal etc. 
 ɣ > ∅ / [+front,-hi,-lo,+tense] __ ˈɑː 
 
 $Pope p113 s254.
@@ -712,39 +708,38 @@ $Final unstressed i, o, u become semi-vocalic and combine into diphthong with pr
 o > u / [+syl,+prim] __ # 
 [+hi,+syl,-stres] > [-syl] / [+prim] __ # 
 
-$ CORRECTION: deletion of e (<ɪ, eː unstressed) before t then  ɑː . 
-$ Pope hints at this in s350 but does not have properly have it as its own rule anywhere
+$ CORRECTION: deletion of e (< {ɪ or eː} unstressed) before t then  ɑː . 
+$ Pope's forms in s350 show results of this but she does not separate it from general unstressed vowel "slurring"
 $ CORRECTION: include /i/ too -- ki:wi:tatem
 [+front,+tense,-lo,-stres] > ∅ / __ t̪ [+lo,+long]
 
 $ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
 t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
 
-$ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
+$ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol) 
 ∅ > j / ˌe __ [+lo,+syl]
 
 $ CORRECTION : ð before a lateral can now assimilate to ɫ here-- just early enough for espɑtulɑ to become espɑɫlɑ
-$ CORRECTION: Pope s372 moved here, date was rather unclear in Pope's prose previously.
+$ CORRECTION: Pope s372 moved here, date was rather unclear in Pope's prose previously ("imply a velarized pronounciation in these words"-- when?)
 $ CORRECTION: only becomes dark l after a back or lo vowel, else to normal l 
 ð > ɫ / [+back] __ [+lat]
 ð > l / __ [+lat]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
-$ Eugene Buckley at U-PENN disagrees a bit -- note
 $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
-$ CORRECTION: at this stage, β/ɸ does not assimilate to t or ts ( noce, doute)
+$ CORRECTION: at this stage, β/ɸ does not assimilate to t or ts ( noce not noice, doute not dotte)
 [+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 
 $s371 nasal cluster assimilation 
-$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
+$ CORRECTION: m b > m m deleted as it only introduces errors 
 {m n̪;n̪ m} > {m m;m m}
 
 $s374ii : (n)nw > nβ intervocalically 
@@ -752,10 +747,13 @@ w > β / [+syl] (n̪) n̪ __ [+syl]
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
 $Pope never explicitly says this but her trajectories for words make this clear
+	$ and it is probably better to give her the benefit of the doubt on this rather boring error
 {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
 
 $s374i : w from hiatus u,o effaced if coming after two consonants 
-$CORRECTION: she doesnˌt say so but we exclude the postvelar case for sanity
+$CORRECTION: Pope includes post-velar w (uses placui) as an example, but we exclude post-velar environments
+	$ more examples on the other side since at this point former hiatus u,o are totally merged with w
+	$ i.e. lingua, linguaticum, quinque, quinquaginta, sanguem, omquam...
 w > ∅ / [+cons] [+cons,-back] __
 
 $ s322-326, palatalization of velar frics pre-coronal
@@ -769,12 +767,10 @@ $ CORRECTION: ç assimilates to t̪ (no palatal coarticulation) before t͡sʲ
 $ CORRECTION : çs > ss after word initial ˌɛ
 ç > s / # ˌɛ __ s
 
-$ CORRECTION : ç assimilates after unstressed ɛ
-ç > s / ɛ __ s
-ç > t̪ / ɛ __
-
 $ CORRECTION : ɛç > eç when secondarily stressed
 ˌɛ > ˌe / __ ç
+
+$ CORRECTION: s320-321 moved much earlier. 
 
 $ s321, absorption of following nasal by ɲ
 [+nas,+cons] > ∅ / ɲ __ 
@@ -796,6 +792,8 @@ $ and active BEFORE influence on a by preceding palatal
 $ and active AFTER palatalization of velar fricatives
 [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
 
+$ CORRECTION: p127 s297 moved much earlier. 
+
 $ s167 ~ s181 ~ s42 ~ s9 : beginnings of u > y -- u goes to ʉ
 $ s42 -- "a very slow process" -- s167 begins in Early Gallo-Roman (but must come after the beginning of the second palatalization)
 $ s9 -- due to Gaulish (also happened in Welsh,Breton,Cornish)
@@ -814,6 +812,13 @@ $ CORRECTION : ʝ only has this effect at this point if it is coming after a vel
 [+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
 [+cor,+ant,+front] > [+voi] / [+lo,+syl] ʝ __ [-cons]
 
+$TODO this one may in fact be in Pope
+$ CORRECTION: before they can be effaced or anything else,
+	$  unstressed ɛei in hiatus with prior stressed vowels get glided
+$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
+$ CHECK if necessary to exclude nasals at end for the front vowels... 
+[-lo,-stres] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
+
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -821,29 +826,25 @@ $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants 
 	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
-$ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION : multiple sonorants at the end of the word will shorten 
-$ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] ([-syl])+ #
-[+syl] > [-long] / __ [-syl] [+cons,-son]
-[+syl] > [-long] / __ [-syl] [+cons,+nas]
+[+syl] > [-long] / __ [-syl] [+cons]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ ([+cons]) [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
-[+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
+[+prim] > [+long] / __ [+lab,+voi,+ant] r
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $ CORRECTION: ˈɔ becomes long if it comes before rounded continuant then a stop (mowitam > meute)
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
-
 
 $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
 $ s410, s414-415
 $ Breaking of mid lax vowels by following palatal 
-$ CORRECTION: only happens to primarily vowels though! 
+$ CORRECTION: only happens to primarily stressed vowels though! 
 {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
 
 $CORRECTION: countertonic ɔ goes to ʉ before two palatal consonants consecutive.
@@ -851,8 +852,9 @@ $CORRECTION: countertonic ɔ goes to ʉ before two palatal consonants consecutiv
 
 $ as per s410 niece, tuertre cases 
 $ CORRECTION: This is much more restricted than Pope describes.
-$ It does not occur at all for ɔ it seems (see noptiam > noce, skorteam > ecorce etc)
-$ It only occurs for primarily stressed ˈɛː (messionem > moisson, mentionica > mensonge etc) 
+$  --- It does not ultimatedly diachronically matter at all for ɔ it seems 
+		$ --- (see noptiam > noce, skorteam > ecorce etc)
+$  --- It only occurs for primarily stressed ˈɛː (messionem > moisson, mentionica > mensonge etc) 
 $ It also only cocurs before ttsʲ and rtsʲ segments (walentiam>valence not valience, Arewernia>Auvergne not Auviergne etc)
 $ CORRECTION: only occurs triggered by noncontinuant palatals (not ɲ -- Auvergne not *Auviergne) 
 ˈɛ > ˈi e̯ / __ [+cons,+cor,-nas] [+cons,+hi,+front,-cont] 
@@ -864,11 +866,6 @@ $ so caused.
 
 $ CORRECTION : Formation ˈeː o > j ˈoː of certain diphthongs for unstressed tense final vowels before becoming glides or effaced
 ˈeː o > j ˈoː
-
-$ CORRECTION: before they can be effaced or anything else, unstressed ɛei in hiatus wiht prior stressed vowels get glided
-$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
-$ CHECK if necessary to exclude nasals at end for the front vowels... 
-[-lo,-stres] > [+hi,-syl,+tense] / [+prim,+syl] ([-cons,-hi]) __
 
 $ CORRECTION: any vowel before w shortens 
 [+syl] > [-long] / __ w

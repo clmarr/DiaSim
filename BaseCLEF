@@ -359,7 +359,6 @@ $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ intervocalically.
 $ Began in fifth century, "became general" in the sixth century as per s336
 $ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same slightly later shift for t(>d) (s350)
 $ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
-	$ See also Buckley, Arteaga on this for corrections to Pope later?
 	$ potentially RECURRENT as per Pope s162 
 $ this feeds ɡw > ɣw as per Pope s329 
 k > ɡ / [-cons] __ [+syl]
@@ -416,23 +415,23 @@ $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants. 
 [+syl] > [-long] / __ [-syl] [+cons]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [+syl] 
-[+prim] > [+long] / __ [+cons] [+syl] 
-[+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
+[+prim] > [+long] / __ ([+cons]) [+syl]
+[+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
 $ Pope p164 s418 : raising of "tonic free e" to i (tonic free defined in s197-198)
 $ when preceded by a palatal 
 $ Sixth/Seventh centuries as per Pope s163-11
 $ Conveniently all such vowels will be long as per s154ii -- we use this for our purposes
-$ Must come bore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
+$ Must come efbore assibilation of first palatalization results, which would bleed this for the voiced pal. stop
 	$ (Pope does not specify the voiced one retained any palatal element after assibiliation-- she does for c though as per p )
 ˈeː > ˈiː / [+cons,+hi,+front] __
 
-$ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, and any o with any level of stress raise to u before diphthongization can occur
-$ CORRECTION : these go to already nasalized ũ, so that it will not get fronted. 
-[+round,+tense,-hi,+stres] > [+hi,+nas] / __ [+nas,+cons]
-{ˌɔ;ˈɔ} > {ˌũ;ˈũ} / __ [+nas,+cons]
+$ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, 
+	$ and any o free or blocked with any level of stress raise to u 
+	$ ... before diphthongization can occur
+[+round,+tense,-hi,+stres] > [+hi] / __ [+nas,+cons]
+{ˌɔ;ˈɔ} > {ˌu;ˈu} / __ [+nas,+cons]
 
 $ s163-10 ~ s225, 227 -- first completed in Gallo Roman period I i.e. 6th-7th century as per s163-10
 $ RECURRENT throughout period as per s162
@@ -476,21 +475,23 @@ $ Pope p139 s342 : second effacement of ɣ, "Later Gallo-Roman ɣ" -- but it see
 $ should come BEFORE any raising of a 
 $ this clearly BLEEDS the second palatalization where ɣ is concerned
 $ as per s481 this seems to come BEFORE low vowel fronting 
+$ s342i : before tonic u or o 
 ɣ > ∅ / __ [+tense,+round,+prim]
-ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
+$ s342iii : between o, u, aw and a 
 ɣ > ∅ / [+round,-cons] __ [+lo,+syl] $ o|u|au __ a
+$ s342ii : between a velar vowel and atonic u (short u > o , so atonic u or o)
+ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
 
 $Pope p113 s254.
 $Final unstressed i, o, u become semi-vocalic and combine into diphthong with previous vowel. 
 o > u / [+syl,+prim] __ # 
 [+hi,+syl,-stres] > [-syl] / [+prim] __ # 
 
-$ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol... sigh) 
+$ Pope p160-161 s404.7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol) 
 ∅ > j / ˌe __ [+lo,+syl]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
-$ Eugene Buckley at U-PENN disagrees a bit -- note
 $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
@@ -509,7 +510,7 @@ w > β / [+syl] (n̪) n̪ __ [+syl]
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
 $Pope never explicitly says this but her trajectories for words make this clear
-{n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / __ [+cons] 
+	$ and it is probably better to give her the benefit of the doubt on this rather boring error
 {n̪ n̪;s s;d̪ d̪;t̪ t̪;w w;m m}>{n̪;s;d̪;t̪;w;m} / [+cons] __  
 
 $s374i : w from hiatus u,o effaced if coming after two consonants 
@@ -546,24 +547,23 @@ $ however this happens after ʝ can palatalize succeeding dental consonants in G
 ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
 ʝ > ∅ / [-cons] __ [-cons]
 
+$ s254 recurrence -- final unstressed i , o , u in hiatus with tonic vowel (in Late Latin or)
+	$ brought into hiatus in Early Gallo Roman become semi-vocalic. 
+{i;o;u} > {j;w;w} / [+prim] __ #
+
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
-$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
+$ note as per p53 s100, note that Pope does not consider glides to be consonants 
+	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
+		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 [+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+[+syl] > [-long] / __ [+cons] [+cons]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
-[+prim] > [+long] / __ [-cons] 
-[+prim] > [+long] / __ [+cons] [+syl] 
+[+prim] > [+long] / __ ([+cons]) [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-
-$but she does not intend for this to apply to her diphthongs...
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s414 recurrence of diphthongization (s225, 227 ~ s163-10)
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
