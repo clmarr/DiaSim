@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :145:
-#brˌuːkˈɑriɑm# >>> #bʁɥjɛʁ# ( Correct : #bʁɥijɛʁ#) :
+#brˌuːkˈɑriɑm# >>> #bʁɥɛʁ# ( Correct : #bʁɥijɛʁ#) :
 b r ˌuː k ˈɑ r i ɑ m 
 #brˌuːkˈɑrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #brˌuːkˈɑrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -13,17 +13,16 @@ b r ˌuː k ˈɑ r i ɑ m
 #brˌuˈarʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #brˌʉˈarʲa# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #brˌʉˈaːrʲa# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#brˌʉˈɛːra# | Rule 259 : ˈaː rʲ > ˈɛː r / [+stres] ( [-stres] )* __ [+syl] #
-#brˌʉˈie̯ra# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#brˌʉˈie̯rə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#brˌyˈie̯rə# | Rule 489 : [+hi,+round,-back] > [+front] 
-#brˌyjˈerə# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#brˌyj?rə# | Rule 598 : ˈe > ? / __ @
-#brˌyjˈɛrə# | Rule 601 : ? > ˈɛ 
-#brɥˌiˈɛrə# | Rule 618 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#brɥˌiˈɛrə̯# | Rule 691 : ə > ə̯ / __ #
-#brɥjˈɛrə̯# | Rule 704 : [+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
-#brɥjˈɛr# | Rule 720 : ə̯ > ∅ 
-#bʀɥjˈɛʀ# | Rule 733 : r > ʀ 
-#bʀɥjɛʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bʁɥjɛʁ# | Rule 741 : ʀ > ʁ 
+#brˌʉˈaːra# | Rule 378 : rʲ > r 
+#brˌʉˈae̯ra# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#brˌʉˈae̯rə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#brˌyˈae̯rə# | Rule 489 : [+hi,+round,-back] > [+front] 
+#brˌyˈeːrə# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#brˌyˈeːrə̯# | Rule 691 : ə > ə̯ / __ #
+#brˌyˈɛːrə̯# | Rule 694 : ˈeː > ˈɛː / __ [+cons] ə̯
+#brɥˈɛːrə̯# | Rule 704 : [+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
+#brɥˈɛːr# | Rule 720 : ə̯ > ∅ 
+#bʀɥˈɛːʀ# | Rule 733 : r > ʀ 
+#bʀɥɛːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bʀɥɛʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#bʁɥɛʁ# | Rule 741 : ʀ > ʁ 
