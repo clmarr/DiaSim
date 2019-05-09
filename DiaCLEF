@@ -1220,13 +1220,14 @@ n β > m b / __ [+lat]
 $ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes 
  $after ejecting a j at the beginning of the cons cluster
 $ -- evrium, ostrea, cupreum, materiamen... 
+$ in the case of ostrea>huitre and materiamen>merrain, the effects are apparent in cited forms
+	$ in s313, but never explained. 
 ∅ > j / [-cons] __ ([+cons,-front])+ rʲ
 
 $ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but... 
 ∅ > j / [-cons] __ rʲ
 
-$ CORRECTION: ... but when that vowel is ˈaː or ˈie̯ and it's not the first syllable, it metathesizes with the j (this is for before rʲ) 
-$ˈaː j > j ˈaː / [+syl] ([-syl])* __ rʲ
+$ note that the a: rʲ have already been handled above by s26 . 
 $ CORRECTION: in the case of ˈi e̯ it's going to be deleted soon so we can just delete it now... 
 j > ∅ / [+syl] ([-syl])* ˈi e̯ __ rʲ 
 
@@ -1381,7 +1382,6 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
-$ [+syl] > [-long] / __ [-syl] #
 [+syl] > [-long] / __ [-syl] ([-syl])+ #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
 [+syl] > [-long] / __ [-syl] [+cons,+nas]
