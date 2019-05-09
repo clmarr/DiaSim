@@ -2051,14 +2051,21 @@ $ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or
 ˈe > ˈɛ / __ r [+cons]
 
 $ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
+	$ s684 -- Pope definitely does not accomodate this, and has an explicitly different view of the development of pelerin 
+		$ which she cites as pˌələri:n in Old French and only getting /ˌɛ/ in Middle French 
+			$ -- yet she never explains anywhere this purported ˌə > ˌɛ shift. 
 ˌe > ˌɛ / __ l ə 
 
-$ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, in open syllables before voiced continuants that are not lateral or nasal
+$ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, 
+	$ in open syllables before voiced continuants that are not lateral or nasal
 	$ (r ,z ,v, ð) -- in many of these cases it will almost immediately return to ˌe.
 ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
 
 $ CORRECTION : t͡s goes to s before consonants that aren't coronal -- and feeds the next rule (case of decimum > dime) 
 t͡s > s / __ [-cor,+cons]
+
+$ CORRECTION recurrence of countertonic e to schwa reduction moved down four or so rules, so that it comes after
+	$ s544 (iew > jew etc etc ) 
 
 $ Pope s378ii : attested by the Orthographica Gallica, written in 1300
 $ Pope noted that the final s-effacement that was engendered by this was first reported 
@@ -2067,6 +2074,7 @@ $ Pope argues s > x before dentals specifically.
 $ This bleeds normal s-effacement as per Pope -- debatable. 
 $ Walloon wrote this as 'h' (Pope s378)
 $ CORRECTION: s > x before ALL consonants
+$ CORRECTION: moved here from later. 
 s > x / [-cons] __ [+cons]
 
 $ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century (s538 -- later 12th century) 
@@ -2083,7 +2091,8 @@ $ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and
 	$Pope notes -- s508 ~ s472-- the leveling of diphthongs started in the south and west. 
 	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
 $include also here s555-556 : yø̯ > ɥø
-$ CORRECTION: mvoed before some of the final ˌɛ transformations as it seems to block at least one (derriere)
+$ CORRECTION: some of the final ˌɛ transformations moved to after this (like reduction to schwa) 
+	$ as it seems to block at least one (derriere)
 {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 
 $ CORRECTION: countertonic ˌɛ goes to ˌa when after a labial consonant and before r in a closed syllable
@@ -2091,6 +2100,7 @@ $ Pope does note a few of the effects of this shift in s496 but she attributes t
 	$ the Middle French period, and holds that hte effects in Early Old French were sporadic
 $ However, she missed that there is a consistent context here : exclusively countertonic ˌɛ
 	$  is regularly shifting after bilabial (NOT labiodental) consonants in closed syllables followed by voiceless p or tʃ -- both voiceless and slightly rounded
+$ CORRECTION: moved earlier 
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r {#;p;t͡ʃ}
 
 $ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
@@ -2100,6 +2110,7 @@ $ CORRECTION: ˌe is preserved before w (ceux, jeudi, etc)
 ˌə > ˌe / __ w
 
 $ CORRECTION: ˌɛ returns to ˌe before ð then ũː, but nowhere else
+	$ may be somehow related to behavior in gladebon > glaive? 
 ˌɛ > ˌe / __ ð ˈũː
 
 $ CORRECTION : unrounding and lowering of u in ˈuj before ə then # in late 12th century
@@ -2175,7 +2186,8 @@ $ CORRECTION: moved to late twelth century because of data Pope missed. There ar
 $ CORRECTION: ˌɛ returns to ˌe before r,z,v then vowel
 ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
 
-$ CORRECTION: case of terre:num > terrain -- ˌe is persistently reduced to ə if before continuant then tonic e or ẽ or ɛ or ɛ̃
+$ CORRECTION: case of terre:num > terrain -- ˌe is persistently reduced to ə 
+	$ if before continuant then tonic e or ẽ or ɛ or ɛ̃
 ˌe > ˌə / __ [+cont] [+prim,+front,-hi,-lo]
 
 $ CORRECTION: ˌɛ still reduced to ˌə if now before tonic u
@@ -2185,10 +2197,11 @@ $Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds
 [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 
 $Pope s575: tonic e in closed syllables closes to ɛ in 12th century
+$ short tonic e can only be closed, making our job easy
 $ does not feed s541
 $ ˈe (< Latin ˈeː and ˈi) in closed syllables opens to ɛ 
 $ CORRECTION: does not open before a word final r or rs in multisyllabic words (it does in monosyllables: cher, suer, hier, fier)
-$ CORRECTION: also opens after ij, yj even if before r #
+$ CORRECTION: does open after ij, yj even if before r #
 ˈe > ˈɜ / __ @
 ˈɜ > ˈe / [+hi,+front,+syl] j __ r #
 ˈɜ > ˈe / [+syl] ([-syl])* __ r (s) #
@@ -2212,13 +2225,15 @@ $ CORRECTION: this renders a LONG ø.
 
 $ yj >ɥi early when it will be deleted after a velar (s503 ~ s514 ~ s516) 
 $ CORRECTION : this only occurs word finally. 
-{y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
+$ currently suppressed as has no targets anymore. 
+$ {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
 
 $ s166.8 ~ s192 : deletion of w in kw,gw. 
 $ ɥ also deleted after k,g at this time (s516) As per s192, late 12th century.
 [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
 
 $ s556  ɥø > jø is bled after labials and velars. Velars have already been covered by the rule above.
+$ CORRECTION: moved from between third nasalization and s670
 ɥ > ∅ / [+lab,+cons] __ [+front,+round]
 
 $ s547-548 : ɔw > u in the thirteenth century. 
@@ -2241,7 +2256,6 @@ $ as suggested by s670, normal development of oj>uj,ɔj } wɛ is interrupted
 	$Pope does not state this explicitly except that her trajectory in s670 suggests it
 	$some inference done to make this work (and efficiently so)
 	$... giving her the benefit of the doubt
-$TODO this is not doing what it is suppsoed to... 
 {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ}  
 
 $ s409i ~ s239 : oi (> wɛ) emits j between itself and other tonic palatal vowels
@@ -2298,15 +2312,18 @@ $handling of unstressed ə̃ as per s434
 
 $ as per s669-670 : wɛ nasalized takes form of wĩ for now. 
 $ Exact order unknown but this seems most in line with what Pope has said elsewhere
-$ currently unnecesssary 
+$ currently unnecesssary -- suppressed
 $ [+front,-tense,+nas] > [+hi,+tense] / w __ 
 
 $ Pope s528-529 : ɛj > ɛː praeconsonantally. 
 $ Long as per s560
 {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
 
+$ CORRECTION : s378ii moved earlier. 
+
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii
+$ CORRECTION: moved earlier, was previously a few rules later. 
 [-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) [+syl]
 [-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) #
 
@@ -2330,17 +2347,17 @@ t͡s > ∅ / __ [+cons]
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
 
-$s247: first round of ə effacement, here between spirant fricatives and l,r
-$TODO remove for Pope-only demo; Pope does not explicate the exact form of the shift used here.
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
+$ CORRECTION: only after spirant fricatives. 
 $Pope does not give an exact date here...
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
 
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
-$ CORRECTION: final j just deleted
-j > ∅ / __ #
+$ CORRECTION: final j after vowel just deleted except after high vowel
+$ this is s532 but Pope has it attributed to hte 17th century.
+j > ∅ / [-hi,+syl] __ #
 
 $ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
@@ -2373,12 +2390,18 @@ $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː
 $ note: per s529 -- although it appears this was accepted in the 15th century (Villon accepts it)...
 	$ ... it is DISTINCT from the later shift of final aj# formed Middle French which resolved in the 17th
 		$ i.e. s532. 
+$ note: currently has no effect. 
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
 
-$ CORRECTION: this is bled in the case of wĩ by the movement of ĩ to ẽ in this case
+$ CORRECTION: the following denasalization of ĩ  (s452) ...
+	$ ... is bled in the case of wĩ by the movement of ĩ to ẽ in this case
+	$ Pope explicates that wĩ regularly denasalizes to wɛ ultimately but never explains
+		$ why it wouldn't be effected by the earlier denasalization of i when it was wĩ at the time 
+			$ and thus a valid target. 
 [+front,+nas,+syl] > [-hi] / w __
 
 $ denasalization of ĩ before it is lowered as per s452
+$ occurs "before intervocalic nasal" (s452)
 $ as per s440 - ỹ can be handled at the same time. 
 $ as per 441.10 :  so can ɥ̃ĩ 
 $ must be before when ĩ is lowered, which is 15th century.
@@ -2425,7 +2448,7 @@ $ s510 je > e after ʎ,ɲ,ʃ,ʒ . Late 15th - 16th centuries
 $ still not accepted by Palsgrave and Meigret in 1545 but accepted by Estienne 1582
 	$ Pope doesn't say this explicitly but give her the benefit of the doubt -- this does NOT occur for the nasal jẽ
 $ s512 -- shift was earlier in the West.
-$ CORRECTION: palatal sʲ, tʲ, zʲ, dʲ have now been preserved to this point in restricted
+$ note as per prior corrections, palatal sʲ, tʲ, zʲ, dʲ have now been preserved to this point in restricted
 	$ set of words, and are also triggers for this change
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 
@@ -2442,12 +2465,12 @@ $ Sixteenth century -- accepted by Meigret and Baif
 [+back,+round,+syl] ɛ̯ > w ˌɛ
 
 $ CORRECTION : include we resulting from denasalization in this 
+	$ TODO add this to BaseCLEF* ? 
 [+front,-round,+syl,-lo] > [-hi,-tense] / w __
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
-$CORRECTION: this only occurred right before the prime vowel -- TODO check if this is legit
-$CORRECTION: suppress this entirely. 
+$CORRECTION: suppressed entirely, with restricted use earlier in Middle French.
 $ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas] [+prim] 
 $ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
 
@@ -2463,7 +2486,7 @@ $ s494: e > ɛ before l, ʎ in 16th century
 $ Peletier (1549) still has /e/, Meigret gives both before both l and ʎ,
 $ while Meigret (also 1500s) fluctuates
 $ while Beze has /ɛ/ -- so we place it in the second half of the 16th. 
-$ CORRECTION: bleeds final l effacement 
+$ CORRECTION: moved here so that it bleeds final l effacement 
 [-hi,-lo,+syl,+front,-round] >[-tense] / __ [+lat]
 
 $ s392 : final -l effacement after e:, i, y, u
