@@ -416,8 +416,6 @@ $ -- give her the benefit of the doubt and specify +syl not -cons
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$ s198 checked for /e o a/ before enya and elya
-[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
 $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
@@ -582,9 +580,6 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$ s198 checked for /e o a/ before enya and elya
-[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
-
 
 $ CORRECTION: ˈɔ becomes long before a rounded continuant cons then a stop
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
@@ -836,7 +831,6 @@ $ CORRECTION : multiple sonorants at the end of the word will shorten
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 $ s198 checked for /e o a/ before enya and elya
 [-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
-
 
 $ CORRECTION: ˈɔ becomes long if it comes before rounded continuant then a stop (mowitam > meute)
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
@@ -1260,7 +1254,9 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
-[+syl] > [-long] / __ [-syl] [+cons]
+$ CORRECTION: shortening doesn't occur before fric + r/l 
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]

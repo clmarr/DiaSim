@@ -111,8 +111,6 @@ h > ∅
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-[-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-[-hi,+tense,+syl] > [-long,-splng] / __ ɲ
 w e > ∅ / [+syl] ( [-syl] )* [+hi,+back,+cons] __ [+cons] ( [-syl] )* [+syl]
 s k > k s / [+syl] __ [+syl,+tense,+round] #
 [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
@@ -154,8 +152,6 @@ n β > m b / __ [+lat]
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-[-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-[-hi,+tense,+syl] > [-long,-splng] / __ ɲ
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
 {βʷ;ɸʷ} > {β;ɸ} 
 ʝ > ∅ / ˌe __ [+syl]
@@ -356,7 +352,8 @@ j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
 [-voi] > [+voi] / [-cons] __ [-cons]
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
-[+syl] > [-long,-splng] / __ [-syl] [+cons]
+[+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+[+syl] > [-long,-splng] / __ [-syl] [+cons,+nas]
 [-prim] > [-long,-splng] 
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]
