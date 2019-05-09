@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :383:
-#kˌɑbˈɑllikˈɑːre# >>> #ʃəvoʒe# ( Correct : #ʃəvoʃe#) :
+#kˌɑbˈɑllikˈɑːre# >>> #ʃəvoʒɛʁ# ( Correct : #ʃəvoʃe#) :
 k ˌɑ b ˈɑ l l i k ˈɑː r e 
 #kˌɑbˈɑllɪkˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβˈɑllɪkˈɑːrɛ# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
@@ -25,12 +25,13 @@ k ˌɑ b ˈɑ l l i k ˈɑː r e
 #t͡ʃˌəvˈaɫd͡ʒˈie̯r# | Rule 497 : ˌe > ˌə / t͡ʃ __ ( [+cons] ) [+syl]
 #t͡ʃˌəvˈawd͡ʒˈie̯r# | Rule 569 : [+lat,+back] > w 
 #t͡ʃˌəvˈawd͡ʒjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t͡ʃˌəvˈawd͡ʒj?r# | Rule 598 : ˈe > ? / __ @
-#t͡ʃˌəvˈawd͡ʒjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#ʃˌəvˈawʒjˈer# | Rule 631 : [+delrel] > [+cont,0delrel] 
-#ʃˌəvˈoːʒjˈer# | Rule 648 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ʃˌəvˈoːʒˈer# | Rule 654 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ʃˌəvˈoːʒˈeɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#ʃˌəvˈoːʒˈe# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ʃəvoːʒe# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃəvoʒe# | Rule 734 : [+syl,+long] > [-long,-splng] 
+#t͡ʃˌəvˈawd͡ʒjˈɛr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#ʃˌəvˈawʒjˈɛr# | Rule 630 : [+delrel] > [+cont,0delrel] 
+#ʃˌəvˈoːʒjˈɛr# | Rule 647 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ʃˌəvˈoːʒˈɛr# | Rule 653 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ʃˌəvˈoːʒˈɛɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#ʃˌəvˈoːʒˈɛr# | Rule 729 : ɹ > r 
+#ʃˌəvˈoːʒˈɛʀ# | Rule 731 : r > ʀ 
+#ʃəvoːʒɛʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃəvoʒɛʀ# | Rule 733 : [+syl,+long] > [-long,-splng] 
+#ʃəvoʒɛʁ# | Rule 739 : ʀ > ʁ 

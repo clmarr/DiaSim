@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1047:
-#sˌɑlt̪ˈɑːre# >>> #sot̪e# ( Correct : #sot̪e#) :
+#sˌɑlt̪ˈɑːre# >>> #sot̪ɛʁ# ( Correct : #sot̪e#) :
 s ˌɑ l t̪ ˈɑː r e 
 #sˌɑlt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɑlt̪ˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
@@ -12,8 +12,11 @@ s ˌɑ l t̪ ˈɑː r e
 #sˌaɫt̪ˈae̯r# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #sˌaɫt̪ˈeːr# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #sˌawt̪ˈeːr# | Rule 569 : [+lat,+back] > w 
-#sˌoːt̪ˈeːr# | Rule 648 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sˌoːt̪ˈeːɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#sˌoːt̪ˈeː# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#soːt̪eː# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sot̪e# | Rule 734 : [+syl,+long] > [-long,-splng] 
+#sˌawt̪ˈɛːr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#sˌoːt̪ˈɛːr# | Rule 647 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːt̪ˈɛːɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#sˌoːt̪ˈɛːr# | Rule 729 : ɹ > r 
+#sˌoːt̪ˈɛːʀ# | Rule 731 : r > ʀ 
+#soːt̪ɛːʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sot̪ɛʀ# | Rule 733 : [+syl,+long] > [-long,-splng] 
+#sot̪ɛʁ# | Rule 739 : ʀ > ʁ 

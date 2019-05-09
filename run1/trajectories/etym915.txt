@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :915:
-#plˌeːn̪ˈɑːrium# >>> #plen̪je# ( Correct : #plen̪je#) :
+#plˌeːn̪ˈɑːrium# >>> #plen̪jɛʁ# ( Correct : #plen̪je#) :
 p l ˌeː n̪ ˈɑː r i u m 
 #plˌeːn̪ˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #plˌeːn̪ˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -18,11 +18,12 @@ p l ˌeː n̪ ˈɑː r i u m
 #plˌen̪ˈie̯r# | Rule 374 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #plˌən̪ˈie̯r# | Rule 503 : ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
 #plˌən̪jˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#plˌən̪j?r# | Rule 598 : ˈe > ? / __ @
-#plˌən̪jˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#plˌə̃n̪jˈer# | Rule 610 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#plˌən̪jˈer# | Rule 636 : {ə̃;ˌə̃} > {ə;ˌə} 
-#plˌən̪jˈeɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#plˌen̪jˈeɹ# | Rule 727 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
-#plˌen̪jˈe# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#plen̪je# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plˌən̪jˈɛr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#plˌə̃n̪jˈɛr# | Rule 609 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#plˌən̪jˈɛr# | Rule 635 : {ə̃;ˌə̃} > {ə;ˌə} 
+#plˌən̪jˈɛɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#plˌen̪jˈɛɹ# | Rule 726 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
+#plˌen̪jˈɛr# | Rule 729 : ɹ > r 
+#plˌen̪jˈɛʀ# | Rule 731 : r > ʀ 
+#plen̪jɛʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plen̪jɛʁ# | Rule 739 : ʀ > ʁ 

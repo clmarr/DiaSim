@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :611:
-#lˌokˈɑːrium# >>> #lwaje# ( Correct : #lwaje#) :
+#lˌokˈɑːrium# >>> #lwajɛʁ# ( Correct : #lwaje#) :
 l ˌo k ˈɑː r i u m 
 #lˌɔkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #lˌɔkˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -21,11 +21,12 @@ l ˌo k ˈɑː r i u m
 #lˌojˈie̯r# | Rule 422 : ˌɔ > ˌo 
 #lˌujˈie̯r# | Rule 552 : [+round,+tense,+back] > [+hi] 
 #lˌujjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#lˌujj?r# | Rule 598 : ˈe > ? / __ @
-#lˌujjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#lˌuɛ̯jˈer# | Rule 615 : j > ɛ̯ / [+syl,+back,+round] __ 
-#lwˌɛjˈer# | Rule 616 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#lwˌɛjˈeɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#lwˌɛjˈe# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#lwɛje# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lwaje# | Rule 739 : ɛ > a / w __ 
+#lˌujjˈɛr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#lˌuɛ̯jˈɛr# | Rule 614 : j > ɛ̯ / [+syl,+back,+round] __ 
+#lwˌɛjˈɛr# | Rule 615 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#lwˌɛjˈɛɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#lwˌɛjˈɛr# | Rule 729 : ɹ > r 
+#lwˌɛjˈɛʀ# | Rule 731 : r > ʀ 
+#lwɛjɛʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lwajɛʀ# | Rule 738 : ɛ > a / w __ 
+#lwajɛʁ# | Rule 739 : ʀ > ʁ 

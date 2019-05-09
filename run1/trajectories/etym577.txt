@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :577:
-#lˌɑwd̪ˈɑːre# >>> #lwe# ( Correct : #lwe#) :
+#lˌɑwd̪ˈɑːre# >>> #lwaʁ# ( Correct : #lwe#) :
 l ˌɑ w d̪ ˈɑː r e 
 #lˌɑwd̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #lˌɑwd̪ˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
@@ -16,8 +16,12 @@ l ˌɑ w d̪ ˈɑː r e
 #lˌuwðˈeːr# | Rule 552 : [+round,+tense,+back] > [+hi] 
 #lˌuðˈeːr# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
 #lˌuˈeːr# | Rule 593 : {θ;ð} > {∅;∅} 
-#lwˈeːr# | Rule 703 : [+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
-#lwˈeːɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#lwˈeː# | Rule 729 : ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
-#lweː# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lwe# | Rule 734 : [+syl,+long] > [-long,-splng] 
+#lˌuˈɛːr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#lwˈɛːr# | Rule 702 : [+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
+#lwˈɛːɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#lwˈɛːr# | Rule 729 : ɹ > r 
+#lwˈɛːʀ# | Rule 731 : r > ʀ 
+#lwɛːʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lwɛʀ# | Rule 733 : [+syl,+long] > [-long,-splng] 
+#lwaʀ# | Rule 738 : ɛ > a / w __ 
+#lwaʁ# | Rule 739 : ʀ > ʁ 

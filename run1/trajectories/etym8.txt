@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :8:
-#ˌae̯st̪ˈɑːt̪em# >>> #et̪e# ( Correct : #et̪e#) :
+#ˌae̯st̪ˈɑːt̪em# >>> #et̪ɛ# ( Correct : #et̪e#) :
 ˌa e̯ s t̪ ˈɑː t̪ e m 
 #ˌɑe̯st̪ˈɑːt̪em# | Rule 2 : [+lo,+syl] > [-front,+back] 
 #ˌae̯st̪ˈɑːt̪em# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
@@ -19,6 +19,7 @@ Trajectory file for run 'run1'; etymon number :8:
 #ˌest̪ˈeːθ# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #ˌext̪ˈeːθ# | Rule 580 : s > x / [-cons] __ [+cons]
 #ˌext̪ˈeː# | Rule 593 : {θ;ð} > {∅;∅} 
-#ˌeːt̪ˈeː# | Rule 640 : [+syl] x > [+long] ∅/ __ [+cons]
-#eːt̪eː# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#et̪e# | Rule 734 : [+syl,+long] > [-long,-splng] 
+#ˌext̪ˈɛː# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#ˌeːt̪ˈɛː# | Rule 639 : [+syl] x > [+long] ∅/ __ [+cons]
+#eːt̪ɛː# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#et̪ɛ# | Rule 733 : [+syl,+long] > [-long,-splng] 

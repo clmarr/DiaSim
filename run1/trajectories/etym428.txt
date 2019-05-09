@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :428:
-#kˌɑːrit̪ˈɑːt̪em# >>> #ʃaʁt̪e# ( Correct : #ʃɛʁt̪e#) :
+#kˌɑːrit̪ˈɑːt̪em# >>> #ʃaʁt̪ɛ# ( Correct : #ʃɛʁt̪e#) :
 k ˌɑː r i t̪ ˈɑː t̪ e m 
 #kˌɑːrɪt̪ˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˌɑrɪt̪ˈɑt̪ɛm# | Rule 55 : [+syl,+long] > [-long,-splng] 
@@ -18,10 +18,11 @@ k ˌɑː r i t̪ ˈɑː t̪ e m
 #t͡ʃˌart̪ˈae̯θ# | Rule 431 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
 #t͡ʃˌart̪ˈeːθ# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #t͡ʃˌart̪ˈeː# | Rule 593 : {θ;ð} > {∅;∅} 
-#ʃˌart̪ˈeː# | Rule 631 : [+delrel] > [+cont,0delrel] 
-#ʃˌaɹt̪ˈeː# | Rule 712 : r > ɹ / [-cons] __ [+cons]
-#ʃˌart̪ˈeː# | Rule 730 : ɹ > r 
-#ʃˌaʀt̪ˈeː# | Rule 732 : r > ʀ 
-#ʃaʀt̪eː# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃaʀt̪e# | Rule 734 : [+syl,+long] > [-long,-splng] 
-#ʃaʁt̪e# | Rule 740 : ʀ > ʁ 
+#t͡ʃˌart̪ˈɛː# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#ʃˌart̪ˈɛː# | Rule 630 : [+delrel] > [+cont,0delrel] 
+#ʃˌaɹt̪ˈɛː# | Rule 711 : r > ɹ / [-cons] __ [+cons]
+#ʃˌart̪ˈɛː# | Rule 729 : ɹ > r 
+#ʃˌaʀt̪ˈɛː# | Rule 731 : r > ʀ 
+#ʃaʀt̪ɛː# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃaʀt̪ɛ# | Rule 733 : [+syl,+long] > [-long,-splng] 
+#ʃaʁt̪ɛ# | Rule 739 : ʀ > ʁ 

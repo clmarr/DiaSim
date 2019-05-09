@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :28:
-#ˌɑkiˈɑːrium# >>> #asje# ( Correct : #asje#) :
+#ˌɑkiˈɑːrium# >>> #asjɛʁ# ( Correct : #asje#) :
 ˌɑ k i ˈɑː r i u m 
 #ˌɑkɪˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑkjˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -23,9 +23,10 @@ Trajectory file for run 'run1'; etymon number :28:
 #ˌat͡sʲˈie̯r# | Rule 480 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
 #ˌat͡sˈie̯r# | Rule 533 : t͡sʲ > t͡s / [-nas] __ 
 #ˌat͡sjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌat͡sj?r# | Rule 598 : ˈe > ? / __ @
-#ˌat͡sjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#ˌasjˈer# | Rule 631 : [+delrel] > [+cont,0delrel] 
-#ˌasjˈeɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#ˌasjˈe# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#asje# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˌat͡sjˈɛr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#ˌasjˈɛr# | Rule 630 : [+delrel] > [+cont,0delrel] 
+#ˌasjˈɛɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#ˌasjˈɛr# | Rule 729 : ɹ > r 
+#ˌasjˈɛʀ# | Rule 731 : r > ʀ 
+#asjɛʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#asjɛʁ# | Rule 739 : ʀ > ʁ 

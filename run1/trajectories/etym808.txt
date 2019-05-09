@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :808:
-#pˌɑːn̪ˈɑːrium# >>> #pan̪je# ( Correct : #pan̪je#) :
+#pˌɑːn̪ˈɑːrium# >>> #pan̪jɛʁ# ( Correct : #pan̪je#) :
 p ˌɑː n̪ ˈɑː r i u m 
 #pˌɑːn̪ˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɑːn̪ˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -17,9 +17,10 @@ p ˌɑː n̪ ˈɑː r i u m
 #pˌan̪ˈie̯r# | Rule 374 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #pˌãn̪ˈie̯r# | Rule 496 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
 #pˌãn̪jˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pˌãn̪j?r# | Rule 598 : ˈe > ? / __ @
-#pˌãn̪jˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#pˌãn̪jˈeɹ# | Rule 711 : r > ɹ / [-cons] __ #
-#pˌan̪jˈeɹ# | Rule 723 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#pˌan̪jˈe# | Rule 728 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#pan̪je# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˌãn̪jˈɛr# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) #
+#pˌãn̪jˈɛɹ# | Rule 710 : r > ɹ / [-cons] __ #
+#pˌan̪jˈɛɹ# | Rule 722 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#pˌan̪jˈɛr# | Rule 729 : ɹ > r 
+#pˌan̪jˈɛʀ# | Rule 731 : r > ʀ 
+#pan̪jɛʀ# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pan̪jɛʁ# | Rule 739 : ʀ > ʁ 
