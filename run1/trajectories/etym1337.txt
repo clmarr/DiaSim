@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1337:
-#wˌillˈuːt̪um# >>> #vəlɥi# ( Correct : #vəly#) :
+#wˌillˈuːt̪um# >>> #vly# ( Correct : #vəly#) :
 w ˌi l l ˈuː t̪ u m 
 #ɣʷˌillˈuːt̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɪllˈuːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -13,15 +13,12 @@ w ˌi l l ˈuː t̪ u m
 #βˌellˈʉːt̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #βˌellˈʉːt̪ə̯# | Rule 263 : ə > ə̯ 
 #βˌellˈʉːt̪# | Rule 297 : ə̯ > ∅ 
-#βˌellˈʉːt̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#βˌellˈʉːjt̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#βˌellˈʉːjt̪ʲ# | Rule 381 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#βˌellˈʉjt̪ʲ# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#vˌellˈʉjt̪ʲ# | Rule 423 : β > v 
-#vˌellˈʉjθʲ# | Rule 426 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
-#vˌelˈʉjθʲ# | Rule 478 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#vˌelˈyjθʲ# | Rule 489 : [+hi,+round,-back] > [+front] 
-#vˌəlˈyjθʲ# | Rule 493 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
-#vˌəlɥˈiθʲ# | Rule 618 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#vˌəlɥˈi# | Rule 718 : [-son] > ∅ / __ #
-#vəlɥi# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vˌellˈʉːt̪# | Rule 423 : β > v 
+#vˌellˈʉːθ# | Rule 426 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#vˌelˈʉːθ# | Rule 478 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#vˌelˈyːθ# | Rule 489 : [+hi,+round,-back] > [+front] 
+#vˌəlˈyːθ# | Rule 493 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
+#vˌəlˈyː# | Rule 593 : {θ;ð} > {∅;∅} 
+#vlˈyː# | Rule 633 : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
+#vlyː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vly# | Rule 735 : [+syl,+long] > [-long,-splng] 

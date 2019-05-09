@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1305:
-#wˌeːrˈɑːkɑm# >>> #vʁi# ( Correct : #vʁɛ#) :
+#wˌeːrˈɑːkɑm# >>> #vʁɛ# ( Correct : #vʁɛ#) :
 w ˌeː r ˈɑː k ɑ m 
 #ɣʷˌeːrˈɑːkɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #βʷˌeːrˈɑːkɑm# | Rule 49 : ɣʷ > βʷ 
@@ -13,20 +13,17 @@ w ˌeː r ˈɑː k ɑ m
 #βˌerˈaːɣa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #βˌerˈaːɣʲa# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #βˌerˈaːʝa# | Rule 241 : [+back,+front] > [-back] 
-#βˌerʲˈaːʝa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#βˌerʲˈɛːʝa# | Rule 364 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
-#βˌerʲˈie̯ʝa# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#βˌerʲˈie̯ja# | Rule 375 : ʝ > j 
-#βˌerˈie̯ja# | Rule 378 : rʲ > r 
-#vˌerˈie̯ja# | Rule 423 : β > v 
-#vˌerˈie̯jə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌərˈie̯jə# | Rule 493 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
-#vˌərˈijə# | Rule 541 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#vˌərˈiə# | Rule 542 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#vrˈiə# | Rule 633 : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
-#vrˈiːə# | Rule 678 : [+stres] > [+long] / __ ə
-#vrˈiː# | Rule 679 : ə > ∅ / [+syl] __ 
-#vʀˈiː# | Rule 733 : r > ʀ 
-#vʀiː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vʀi# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#vʁi# | Rule 741 : ʀ > ʁ 
+#βˌerˈaːja# | Rule 375 : ʝ > j 
+#βˌerˈae̯ja# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#βˌerˈaja# | Rule 405 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#vˌerˈaja# | Rule 423 : β > v 
+#vˌerˈajə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌərˈajə# | Rule 493 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
+#vrˈajə# | Rule 633 : ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
+#vrˈaːjə# | Rule 688 : [+prim] > [+long] / __ ( j ) ə #
+#vrˈaːj# | Rule 690 : ə > ∅ / [+prim] ( j ) __ 
+#vrˈɛː# | Rule 692 : ˈaː j > ˈɛː / __ #
+#vʀˈɛː# | Rule 733 : r > ʀ 
+#vʀɛː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vʀɛ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#vʁɛ# | Rule 741 : ʀ > ʁ 

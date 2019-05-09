@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1318:
-#wˈet̪ulɑːs# >>> #vjɛjwa# ( Correct : #vjɛj#) :
+#wˈet̪ulɑːs# >>> #vjɛj# ( Correct : #vjɛj#) :
 w ˈe t̪ u l ɑː s 
 #ɣʷˈet̪ulɑːs# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˈɛt̪ʊlɑːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -16,21 +16,12 @@ w ˈe t̪ u l ɑː s
 #βˈɛçʎas# | Rule 210 : [+lat] > ʎ / [+hi,+front,+cons] __ 
 #βˈie̯çʎas# | Rule 225 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
 #βˈie̯ʎas# | Rule 239 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
-#βˈie̯ʎasʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#βˈie̯ʎajs# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#βˈie̯ʎajsʲ# | Rule 381 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#vˈie̯ʎajsʲ# | Rule 423 : β > v 
-#vˈie̯ʎəjsʲ# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈie̯ʎejsʲ# | Rule 483 : ə > e / __ [+front,+son,+hi,-syl]
-#vˈie̯ʎojsʲ# | Rule 527 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#vˈie̯ʎujsʲ# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#vjˈeʎujsʲ# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#vj?ʎujsʲ# | Rule 598 : ˈe > ? / __ @
-#vjˈɛʎujsʲ# | Rule 601 : ? > ˈɛ 
-#vjˈɛʎuɛ̯sʲ# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#vjˈɛʎwɛsʲ# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#vjˈɛʎwɛs# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#vjˈɛʎwɛ# | Rule 718 : [-son] > ∅ / __ #
-#vjɛʎwɛ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vjɛʎwa# | Rule 740 : ɛ > a / w __ 
-#vjɛjwa# | Rule 742 : ʎ > j 
+#vˈie̯ʎas# | Rule 423 : β > v 
+#vˈie̯ʎəs# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#vjˈeʎəs# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vj?ʎəs# | Rule 598 : ˈe > ? / __ @
+#vjˈɛʎəs# | Rule 601 : ? > ˈɛ 
+#vjˈɛʎə# | Rule 718 : [-son] > ∅ / __ #
+#vjɛʎə# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vjɛjə# | Rule 742 : ʎ > j 
+#vjɛj# | Rule 744 : ə > ∅ / [+syl] ( [-syl] )* __ #

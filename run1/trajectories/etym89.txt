@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :89:
-#ˌɑwsˈɑːre# >>> #wazje# ( Correct : #oze#) :
+#ˌɑwsˈɑːre# >>> #oze# ( Correct : #oze#) :
 ˌɑ w s ˈɑː r e 
 #ˌɑwsˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑwsˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
@@ -10,20 +10,13 @@ Trajectory file for run 'run1'; etymon number :89:
 #ˌɔwzˈaːrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #ˌɔwzˈaːrə̯# | Rule 263 : ə > ə̯ 
 #ˌɔwzˈaːr# | Rule 297 : ə̯ > ∅ 
-#ˌɔwzʲˈaːrʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#ˌɔwzʲˈɛːrʲ# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
-#ˌɔwzʲˈie̯rʲ# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˌɔwzʲˈie̯r# | Rule 378 : rʲ > r 
-#ˌɔwjzˈie̯r# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#ˌɔjzˈie̯r# | Rule 383 : w > ∅ / [+round,+syl] __ j
-#ˌojzˈie̯r# | Rule 416 : ˌɔ > ˌo 
-#ˌujzˈie̯r# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#ˌujzjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌujzj?r# | Rule 598 : ˈe > ? / __ @
-#ˌujzjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#ˌuɛ̯zjˈer# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#wˌɛzjˈer# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#wˌɛzjˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#wˌɛzjˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#wɛzje# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#wazje# | Rule 740 : ɛ > a / w __ 
+#ˌɔwzˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌowzˈae̯r# | Rule 416 : ˌɔ > ˌo 
+#ˌowzˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˌɔzˈeːr# | Rule 546 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
+#ˌɔːzˈeːr# | Rule 705 : [+syl] > [+long] / __ z [+syl]
+#ˌoːzˈeːr# | Rule 709 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
+#ˌoːzˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
+#ˌoːzˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#oːzeː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#oze# | Rule 735 : [+syl,+long] > [-long,-splng] 

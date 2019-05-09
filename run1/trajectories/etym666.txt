@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :666:
-#mˌɑːt̪uːt̪ˈiːn̪um# >>> #mɛt̪ɛ̃# ( Correct : #mat̪ɛ̃#) :
+#mˌɑːt̪uːt̪ˈiːn̪um# >>> #mat̪ɛ̃# ( Correct : #mat̪ɛ̃#) :
 m ˌɑː t̪ uː t̪ ˈiː n̪ u m 
 #mˌɑːt̪uːt̪ˈiːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˌɑːt̪ut̪ˈin̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -13,17 +13,10 @@ m ˌɑː t̪ uː t̪ ˈiː n̪ u m
 #mˌat̪ət̪ˈiːn̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #mˌat̪ə̯t̪ˈiːn̪ə̯# | Rule 263 : ə > ə̯ 
 #mˌat̪t̪ˈiːn̪# | Rule 297 : ə̯ > ∅ 
-#mˌat̪ʲt̪ʲˈiːn̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#mˌat̪ʲt̪ˈiːn̪ʲ# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#mˌajt̪t̪ˈiːjn̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#mˌajt̪t̪ˈijn̪# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#mˌajt̪t̪ˈin̪# | Rule 453 : j > ∅ / [+hi,+front,+tense,-cons] __ 
-#mˌajt̪ˈin̪# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˌɛjt̪ˈin̪# | Rule 603 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#mˌɛjt̪ˈĩn̪# | Rule 621 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
-#mˌɛːt̪ˈĩn̪# | Rule 624 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#mˌɛːt̪ˈẽn̪# | Rule 647 : [+nas,+front,-round,-lo,+syl] > [-hi] 
-#mˌɛːt̪ˈẽː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#mˌɛːt̪ˈɛ̃ː# | Rule 662 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
-#mɛːt̪ɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mɛt̪ɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#mˌat̪ˈiːn̪# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˌat̪ˈĩːn̪# | Rule 621 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#mˌat̪ˈẽːn̪# | Rule 647 : [+nas,+front,-round,-lo,+syl] > [-hi] 
+#mˌat̪ˈẽː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#mˌat̪ˈɛ̃ː# | Rule 662 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
+#mat̪ɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mat̪ɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 

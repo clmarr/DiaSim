@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :107:
-#bˌɑt̪t̪uˈɑːliɑ# >>> #bɛt̪jɛj# ( Correct : #bat̪ɑj#) :
+#bˌɑt̪t̪uˈɑːliɑ# >>> #bat̪ɑj# ( Correct : #bat̪ɑj#) :
 b ˌɑ t̪ t̪ u ˈɑː l i ɑ 
 #bˌɑt̪t̪ʊˈɑːlɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #bˌɑt̪t̪wˈɑːljɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -9,20 +9,13 @@ b ˌɑ t̪ t̪ u ˈɑː l i ɑ
 #bˌɑt̪t̪wˈɑːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #bˌat̪t̪wˈaːʎa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #bˌat̪t̪ˈaːʎa# | Rule 202 : w > ∅ / [+cons] [+cons,-back] __ 
-#bˌat̪ʲt̪ʲˈaːʎa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#bˌat̪ʲt̪ʲˈɛːʎa# | Rule 364 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
-#bˌat̪ʲt̪ʲˈie̯ʎa# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#bˌat̪ʲt̪ˈie̯ʎa# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#bˌajt̪t̪ˈie̯ʎa# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#bˌajt̪t̪ˈie̯ʎə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#bˌajt̪ˈie̯ʎə# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#bˌajt̪jˈeʎə# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#bˌajt̪j?ʎə# | Rule 598 : ˈe > ? / __ @
-#bˌajt̪jˈɛʎə# | Rule 601 : ? > ˈɛ 
-#bˌɛjt̪jˈɛʎə# | Rule 603 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#bˌɛːt̪jˈɛʎə# | Rule 624 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#bˌɛːt̪jˈɛʎə̯# | Rule 691 : ə > ə̯ / __ #
-#bˌɛːt̪jˈɛʎ# | Rule 720 : ə̯ > ∅ 
-#bɛːt̪jɛʎ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bɛt̪jɛʎ# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#bɛt̪jɛj# | Rule 742 : ʎ > j 
+#bˌat̪t̪ˈaʎa# | Rule 395 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#bˌat̪t̪ˈaʎə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#bˌat̪ˈaʎə# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#bˌat̪ˈaːʎə# | Rule 689 : [+lo,+syl] > [+long] / __ ʎ ə #
+#bˌat̪ˈaːʎə̯# | Rule 691 : ə > ə̯ / __ #
+#bˌat̪ˈɑːʎə̯# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#bˌat̪ˈɑːʎ# | Rule 720 : ə̯ > ∅ 
+#bat̪ɑːʎ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bat̪ɑʎ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#bat̪ɑj# | Rule 742 : ʎ > j 

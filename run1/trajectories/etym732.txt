@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :732:
-#mˈuskulum# >>> #mwal# ( Correct : #mul#) :
+#mˈuskulum# >>> #mul# ( Correct : #mul#) :
 m ˈu s k u l u m 
 #mˈʊskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈʊsklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
@@ -10,14 +10,11 @@ m ˈu s k u l u m
 #mˈoslə̯# | Rule 263 : ə > ə̯ 
 #mˈosl# | Rule 297 : ə̯ > ∅ 
 #mˈoslə# | Rule 311 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#mˈosʲlə# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#mˈojslə# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#mˈojzlə# | Rule 464 : s > z / __ [+voi,+cons]
-#mˈojlə# | Rule 517 : z > ∅ / __ [+cons]
-#mˈujlə# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#mˈuɛ̯lə# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#mwˈɛlə# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#mwˈɛlə̯# | Rule 691 : ə > ə̯ / __ #
-#mwˈɛl# | Rule 720 : ə̯ > ∅ 
-#mwɛl# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mwal# | Rule 740 : ɛ > a / w __ 
+#mˈozlə# | Rule 464 : s > z / __ [+voi,+cons]
+#mˈoːzlə# | Rule 514 : [+prim] > [+long] / @ __ z [+cons]
+#mˈoːlə# | Rule 517 : z > ∅ / __ [+cons]
+#mˈuːlə# | Rule 549 : [+round,+tense,+back] > [+hi] 
+#mˈuːlə̯# | Rule 691 : ə > ə̯ / __ #
+#mˈuːl# | Rule 720 : ə̯ > ∅ 
+#muːl# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mul# | Rule 735 : [+syl,+long] > [-long,-splng] 

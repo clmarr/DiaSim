@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :78:
-#ɑt̪ˈɑwiɑm# >>> #aðʲi# ( Correct : #t̪ɛ#) :
+#ɑt̪ˈɑwiɑm# >>> #ɛ# ( Correct : #t̪ɛ#) :
 ɑ t̪ ˈɑ w i ɑ m 
 #ɑt̪ˈɑɣʷiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɑt̪ˈɑɣʷɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -9,16 +9,15 @@ Trajectory file for run 'run1'; etymon number :78:
 #ɑt̪ˈɑʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ɑt̪ˈɑːʝɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #at̪ˈaːʝa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#at̪ʲˈaːʝa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#ad̪ʲˈaːʝa# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
-#ad̪ʲˈɛːʝa# | Rule 364 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
-#ad̪ʲˈie̯ʝa# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#aðʲˈie̯ʝa# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#aðʲˈie̯ja# | Rule 375 : ʝ > j 
-#aðʲˈie̯jə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#aðʲˈijə# | Rule 541 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#aðʲˈiə# | Rule 542 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#aðʲˈiːə# | Rule 678 : [+stres] > [+long] / __ ə
-#aðʲˈiː# | Rule 679 : ə > ∅ / [+syl] __ 
-#aðʲiː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aðʲi# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#ad̪ˈaːʝa# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
+#aðˈaːʝa# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#aðˈaːja# | Rule 375 : ʝ > j 
+#aðˈae̯ja# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#aðˈaja# | Rule 405 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#aðˈajə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#aˈajə# | Rule 593 : {θ;ð} > {∅;∅} 
+#ˈaːjə# | Rule 680 : [+lo,+syl] [+lo,+syl] > ∅ [+long]
+#ˈaːj# | Rule 690 : ə > ∅ / [+prim] ( j ) __ 
+#ˈɛː# | Rule 692 : ˈaː j > ˈɛː / __ #
+#ɛː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛ# | Rule 735 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :433:
-#kˈɑrt̪un̪eːs# >>> #ʃaʁt̪ʁwa# ( Correct : #ʃaʁt̪ʁ#) :
+#kˈɑrt̪un̪eːs# >>> #ʃaʁt̪ʁ# ( Correct : #ʃaʁt̪ʁ#) :
 k ˈɑ r t̪ u n̪ eː s 
 #kˈɑrt̪ʊn̪eːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˈɑrt̪ʊn̪es# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -15,21 +15,11 @@ k ˈɑ r t̪ u n̪ eː s
 #t͡ʃˈart̪ɾə̯s# | Rule 284 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
 #t͡ʃˈart̪rə̯s# | Rule 292 : ɾ > r 
 #t͡ʃˈart̪rəs# | Rule 295 : ə̯ > ə / [-cont] r __ [+cons]
-#t͡ʃˈarʲt̪ʲrʲəsʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t͡ʃˈart̪ʲrəsʲ# | Rule 378 : rʲ > r 
-#t͡ʃˈart̪ʲrəjs# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#t͡ʃˈart̪ʲrəjsʲ# | Rule 381 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#t͡ʃˈart̪ʲrejsʲ# | Rule 483 : ə > e / __ [+front,+son,+hi,-syl]
-#t͡ʃˈart̪ʲrojsʲ# | Rule 527 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t͡ʃˈart̪ʲrujsʲ# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#t͡ʃˈart̪ʲruɛ̯sʲ# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t͡ʃˈart̪ʲrwɛsʲ# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#ʃˈart̪ʲrwɛsʲ# | Rule 632 : [+delrel] > [+cont,0delrel] 
-#ʃˈart̪rwɛs# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#ʃˈaɹt̪rwɛs# | Rule 713 : r > ɹ / [-cons] __ [+cons]
-#ʃˈaɹt̪rwɛ# | Rule 718 : [-son] > ∅ / __ #
-#ʃˈart̪rwɛ# | Rule 731 : ɹ > r 
-#ʃˈaʀt̪ʀwɛ# | Rule 733 : r > ʀ 
-#ʃaʀt̪ʀwɛ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃaʀt̪ʀwa# | Rule 740 : ɛ > a / w __ 
-#ʃaʁt̪ʁwa# | Rule 741 : ʀ > ʁ 
+#ʃˈart̪rəs# | Rule 632 : [+delrel] > [+cont,0delrel] 
+#ʃˈaɹt̪rəs# | Rule 713 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹt̪rə# | Rule 718 : [-son] > ∅ / __ #
+#ʃˈart̪rə# | Rule 731 : ɹ > r 
+#ʃˈaʀt̪ʀə# | Rule 733 : r > ʀ 
+#ʃaʀt̪ʀə# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃaʁt̪ʁə# | Rule 741 : ʀ > ʁ 
+#ʃaʁt̪ʁ# | Rule 744 : ə > ∅ / [+syl] ( [-syl] )* __ #

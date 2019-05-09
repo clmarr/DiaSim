@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :352:
-#illɑːs# >>> #lɛj# ( Correct : #le#) :
+#illɑːs# >>> #la# ( Correct : #le#) :
 i l l ɑː s 
 #ɪllɑːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ɪllɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
@@ -8,10 +8,5 @@ i l l ɑː s
 #əllas# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #ə̯llas# | Rule 263 : ə > ə̯ 
 #llas# | Rule 297 : ə̯ > ∅ 
-#llasʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#lasʲ# | Rule 333 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
-#lajs# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#lajsʲ# | Rule 381 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#lɛjsʲ# | Rule 603 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#lɛjs# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#lɛj# | Rule 718 : [-son] > ∅ / __ #
+#las# | Rule 333 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
+#la# | Rule 718 : [-son] > ∅ / __ #

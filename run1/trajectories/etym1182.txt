@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1182:
-#t̪ˌɑlˈuːt̪um# >>> #t̪alɥi# ( Correct : #t̪aly#) :
+#t̪ˌɑlˈuːt̪um# >>> #t̪aly# ( Correct : #t̪aly#) :
 t̪ ˌɑ l ˈuː t̪ u m 
 #t̪ˌɑlˈuːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˌɑlˈut̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -11,13 +11,8 @@ t̪ ˌɑ l ˈuː t̪ u m
 #t̪ˌalˈʉːt̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #t̪ˌalˈʉːt̪ə̯# | Rule 263 : ə > ə̯ 
 #t̪ˌalˈʉːt̪# | Rule 297 : ə̯ > ∅ 
-#t̪ʲˌalˈʉːt̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t̪ʲˌalˈʉːjt̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#t̪ʲˌalˈʉːjt̪ʲ# | Rule 381 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#t̪ʲˌalˈʉjt̪ʲ# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#t̪ʲˌalˈʉjθʲ# | Rule 426 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
-#t̪ʲˌalˈyjθʲ# | Rule 489 : [+hi,+round,-back] > [+front] 
-#t̪ʲˌalɥˈiθʲ# | Rule 618 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#t̪ˌalɥˈiθʲ# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ˌalɥˈi# | Rule 718 : [-son] > ∅ / __ #
-#t̪alɥi# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ˌalˈʉːθ# | Rule 426 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#t̪ˌalˈyːθ# | Rule 489 : [+hi,+round,-back] > [+front] 
+#t̪ˌalˈyː# | Rule 593 : {θ;ð} > {∅;∅} 
+#t̪alyː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪aly# | Rule 735 : [+syl,+long] > [-long,-splng] 

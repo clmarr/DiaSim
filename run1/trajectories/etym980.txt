@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :980:
-#pˌun̪kt̪iˈoːn̪em# >>> #pwɛ̃swɛ̃# ( Correct : #pwɛ̃sɔ̃#) :
+#pˌun̪kt̪iˈoːn̪em# >>> #pwɛ̃sɔ̃# ( Correct : #pwɛ̃sɔ̃#) :
 p ˌu n̪ k t̪ i ˈoː n̪ e m 
 #pˌuŋkt̪iˈoːn̪em# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #pˌʊŋkt̪ɪˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -17,17 +17,14 @@ p ˌu n̪ k t̪ i ˈoː n̪ e m
 #pˌũɲt͡sʲˈũːn̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #pˌũɲt͡sʲˈũːn̪ə̯# | Rule 263 : ə > ə̯ 
 #pˌũɲt͡sʲˈũːn̪# | Rule 297 : ə̯ > ∅ 
-#pˌũɲt͡sʲˈũːn̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#pˌũɲt͡sʲˈũːjn̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#pˌũɲt͡sʲˈũjn̪# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#pˌũj̃n̪t͡sʲˈũjn̪# | Rule 431 : ɲ > j̃ n̪ / __ [+cons]
-#pˌũj̃n̪t͡sʲˈũj̃n̪# | Rule 610 : j > j̃ / __ [+nas,+cons]
-#pwˌĩn̪t͡sʲwˈĩn̪# | Rule 613 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
-#pwˌĩn̪sʲwˈĩn̪# | Rule 632 : [+delrel] > [+cont,0delrel] 
-#pwˌẽn̪sʲwˈẽn̪# | Rule 644 : [+front,+nas,+syl] > [-hi] / w __ 
-#pwˌẽːsʲwˈẽn̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pwˌẽːsʲwˈẽː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pwˌẽːswˈẽː# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#pwˌɛ̃ːswˈɛ̃ː# | Rule 660 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
-#pwɛ̃ːswɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pwɛ̃swɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#pˌũj̃n̪t͡sʲˈũːn̪# | Rule 431 : ɲ > j̃ n̪ / __ [+cons]
+#pwˌĩn̪t͡sʲˈũːn̪# | Rule 613 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
+#pwˌĩn̪sʲˈũːn̪# | Rule 632 : [+delrel] > [+cont,0delrel] 
+#pwˌẽn̪sʲˈũːn̪# | Rule 644 : [+front,+nas,+syl] > [-hi] / w __ 
+#pwˌẽːsʲˈũːn̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pwˌẽːsʲˈũː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#pwˌẽːsˈũː# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pwˌɛ̃ːsˈũː# | Rule 660 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
+#pwɛ̃ːsũː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pwɛ̃sũ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#pwɛ̃sɔ̃# | Rule 736 : [+back,-lo,+nas,+syl] > ɔ̃ 

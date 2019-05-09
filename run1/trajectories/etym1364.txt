@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1364:
-#wˌoːt̪ˈɑːre# >>> #vuðʲe# ( Correct : #vwe#) :
+#wˌoːt̪ˈɑːre# >>> #vwe# ( Correct : #vwe#) :
 w ˌoː t̪ ˈɑː r e 
 #ɣʷˌoːt̪ˈɑːre# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌoːt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -12,18 +12,15 @@ w ˌoː t̪ ˈɑː r e
 #βˌot̪ˈaːrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #βˌot̪ˈaːrə̯# | Rule 263 : ə > ə̯ 
 #βˌot̪ˈaːr# | Rule 297 : ə̯ > ∅ 
-#βˌot̪ʲˈaːrʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#βˌod̪ʲˈaːrʲ# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
-#βˌod̪ʲˈɛːrʲ# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
-#βˌod̪ʲˈie̯rʲ# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#βˌoðʲˈie̯rʲ# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#βˌoðʲˈie̯r# | Rule 378 : rʲ > r 
-#vˌoðʲˈie̯r# | Rule 423 : β > v 
-#vˌuðʲˈie̯r# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#vˌuðʲjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#vˌuðʲj?r# | Rule 598 : ˈe > ? / __ @
-#vˌuðʲjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#vˌuðʲˈer# | Rule 655 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#vˌuðʲˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#vˌuðʲˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#vuðʲe# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#βˌod̪ˈaːr# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
+#βˌoðˈaːr# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#βˌoðˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˌoðˈae̯r# | Rule 423 : β > v 
+#vˌoðˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#vˌuðˈeːr# | Rule 549 : [+round,+tense,+back] > [+hi] 
+#vˌuˈeːr# | Rule 593 : {θ;ð} > {∅;∅} 
+#vwˈeːr# | Rule 704 : [+hi,+syl,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
+#vwˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
+#vwˈeː# | Rule 730 : ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
+#vweː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vwe# | Rule 735 : [+syl,+long] > [-long,-splng] 

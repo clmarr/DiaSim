@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1220:
-#t̪ˌormˈen̪t̪um# >>> #t̪uʁmɛ̃# ( Correct : #t̪uʁmɑ̃#) :
+#t̪ˌormˈen̪t̪um# >>> #t̪uʁmɑ̃# ( Correct : #t̪uʁmɑ̃#) :
 t̪ ˌo r m ˈe n̪ t̪ u m 
 #t̪ˌɔrmˈɛn̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˌɔrmˈɛn̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
@@ -7,21 +7,16 @@ t̪ ˌo r m ˈe n̪ t̪ u m
 #t̪ˌɔrmˈɛn̪t̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #t̪ˌɔrmˈɛn̪t̪ə̯# | Rule 263 : ə > ə̯ 
 #t̪ˌɔrmˈɛn̪t̪# | Rule 297 : ə̯ > ∅ 
-#t̪ʲˌɔrʲmˈɛn̪ʲt̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t̪ʲˌɔrmˈɛn̪ʲt̪ʲ# | Rule 378 : rʲ > r 
-#t̪ʲˌɔrmˈɛn̪ʲt̪# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#t̪ʲˌɔrmˈɛjn̪t̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#t̪ʲˌormˈɛjn̪t̪# | Rule 416 : ˌɔ > ˌo 
-#t̪ʲˌormˈɛj̃n̪t̪# | Rule 503 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#t̪ʲˌormˈɛ̃j̃n̪t̪# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ʲˌurmˈɛ̃j̃n̪t̪# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#t̪ʲˌurmˈɛ̃n̪t̪# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#t̪ʲˌurmˈɛ̃ːt̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌurmˈɛ̃ːt̪# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ˌuɹmˈɛ̃ːt̪# | Rule 713 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹmˈɛ̃ː# | Rule 718 : [-son] > ∅ / __ #
-#t̪ˌurmˈɛ̃ː# | Rule 731 : ɹ > r 
-#t̪ˌuʀmˈɛ̃ː# | Rule 733 : r > ʀ 
-#t̪uʀmɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪uʀmɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#t̪uʁmɛ̃# | Rule 741 : ʀ > ʁ 
+#t̪ˌormˈɛn̪t̪# | Rule 416 : ˌɔ > ˌo 
+#t̪ˌormˈɛ̃n̪t̪# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ˌurmˈɛ̃n̪t̪# | Rule 549 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurmˈãn̪t̪# | Rule 563 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#t̪ˌurmˈãːt̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˌurmˈɑ̃ːt̪# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#t̪ˌuɹmˈɑ̃ːt̪# | Rule 713 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹmˈɑ̃ː# | Rule 718 : [-son] > ∅ / __ #
+#t̪ˌurmˈɑ̃ː# | Rule 731 : ɹ > r 
+#t̪ˌuʀmˈɑ̃ː# | Rule 733 : r > ʀ 
+#t̪uʀmɑ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪uʀmɑ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#t̪uʁmɑ̃# | Rule 741 : ʀ > ʁ 

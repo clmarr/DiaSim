@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :168:
-#d̪ˌeːrˈet̪roː# >>> #d̪eʁiʁ# ( Correct : #d̪ɛʁjɛʁ#) :
+#d̪ˌeːrˈet̪roː# >>> #d̪ɛʁjɛʁ# ( Correct : #d̪ɛʁjɛʁ#) :
 d̪ ˌeː r ˈe t̪ r oː 
 #d̪ˌeːrˈɛt̪roː# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #d̪ˌerˈɛt̪ro# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -11,19 +11,15 @@ d̪ ˌeː r ˈe t̪ r oː
 #d̪ˌerˈie̯t̪rə̯# | Rule 263 : ə > ə̯ 
 #d̪ˌerˈie̯t̪r# | Rule 297 : ə̯ > ∅ 
 #d̪ˌerˈie̯t̪rə# | Rule 311 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#d̪ʲˌerʲˈie̯t̪ʲrʲə# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#d̪ʲˌerʲˈie̯d̪ʲrʲə# | Rule 348 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#d̪ʲˌerˈie̯d̪ʲrə# | Rule 378 : rʲ > r 
-#d̪ʲˌerˈie̯jd̪rə# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#d̪ʲˌerˈie̯jðrə# | Rule 447 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
-#d̪ʲˌerˈijðrə# | Rule 541 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#d̪ʲˌerˈiðrə# | Rule 542 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#d̪ʲˌɛrˈiðrə# | Rule 578 : ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
-#d̪ʲˌɛrˈirə# | Rule 593 : {θ;ð} > {∅;∅} 
-#d̪ʲˌerˈirə# | Rule 594 : ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
-#d̪ˌerˈirə# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#d̪ˌerˈirə̯# | Rule 691 : ə > ə̯ / __ #
-#d̪ˌerˈir# | Rule 720 : ə̯ > ∅ 
-#d̪ˌeʀˈiʀ# | Rule 733 : r > ʀ 
-#d̪eʀiʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪eʁiʁ# | Rule 741 : ʀ > ʁ 
+#d̪ˌerˈie̯d̪rə# | Rule 348 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#d̪ˌerˈie̯ðrə# | Rule 372 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ r
+#d̪ˌɛrˈie̯ðrə# | Rule 578 : ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
+#d̪ˌɛrjˈeðrə# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#d̪ˌɛrjˈerə# | Rule 593 : {θ;ð} > {∅;∅} 
+#d̪ˌɛrj?rə# | Rule 598 : ˈe > ? / __ @
+#d̪ˌɛrjˈɛrə# | Rule 601 : ? > ˈɛ 
+#d̪ˌɛrjˈɛrə̯# | Rule 691 : ə > ə̯ / __ #
+#d̪ˌɛrjˈɛr# | Rule 720 : ə̯ > ∅ 
+#d̪ˌɛʀjˈɛʀ# | Rule 733 : r > ʀ 
+#d̪ɛʀjɛʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ɛʁjɛʁ# | Rule 741 : ʀ > ʁ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :774:
-#n̪ˈuːd̪ɑm# >>> #n̪ʲyðʲ# ( Correct : #n̪y#) :
+#n̪ˈuːd̪ɑm# >>> #n̪y# ( Correct : #n̪y#) :
 n̪ ˈuː d̪ ɑ m 
 #n̪ˈud̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #n̪ˈud̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -7,10 +7,9 @@ n̪ ˈuː d̪ ɑ m
 #n̪ˈuːðɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #n̪ˈuːða# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #n̪ˈʉːða# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#n̪ʲˈʉːðʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#n̪ʲˈʉːðʲə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ʲˈyːðʲə# | Rule 489 : [+hi,+round,-back] > [+front] 
-#n̪ʲˈyːðʲə̯# | Rule 691 : ə > ə̯ / __ #
-#n̪ʲˈyːðʲ# | Rule 720 : ə̯ > ∅ 
-#n̪ʲyːðʲ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#n̪ʲyðʲ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#n̪ˈʉːðə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˈyːðə# | Rule 489 : [+hi,+round,-back] > [+front] 
+#n̪ˈyːə# | Rule 593 : {θ;ð} > {∅;∅} 
+#n̪ˈyː# | Rule 679 : ə > ∅ / [+syl] __ 
+#n̪yː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪y# | Rule 735 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :243:
-#fˌebruˈɑːrium# >>> #fwavʁije# ( Correct : #fevʁije#) :
+#fˌebruˈɑːrium# >>> #fevʁe# ( Correct : #fevʁije#) :
 f ˌe b r u ˈɑː r i u m 
 #fˌɛbrʊˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˌɛbrwˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -15,24 +15,14 @@ f ˌe b r u ˈɑː r i u m
 #fˌɛβrˈaːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #fˌɛβrˈaːrʲə̯# | Rule 263 : ə > ə̯ 
 #fˌɛβrˈaːrʲ# | Rule 297 : ə̯ > ∅ 
-#fˌɛβrʲˈaːrʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#fˌɛjβrʲˈaːrʲ# | Rule 345 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
-#fˌɛjβrʲˈɛːrʲ# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
-#fˌɛjβrʲˈie̯rʲ# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#fˌɛjβrˈie̯r# | Rule 378 : rʲ > r 
-#fˌejβrˈie̯r# | Rule 409 : ˌɛ > ˌe / __ [-cor]
-#fˌejvrˈie̯r# | Rule 423 : β > v 
-#fˌojvrˈie̯r# | Rule 527 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#fˌujvrˈie̯r# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#fˌujvrjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#fˌujvrj?r# | Rule 598 : ˈe > ? / __ @
-#fˌujvrjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#fˌuɛ̯vrjˈer# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#fwˌɛvrjˈer# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#fwˌɛvrijˈer# | Rule 702 : ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
-#fwˌɛvrijˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#fwˌɛvrijˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#fwˌɛvʀijˈe# | Rule 733 : r > ʀ 
-#fwɛvʀije# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fwavʀije# | Rule 740 : ɛ > a / w __ 
-#fwavʁije# | Rule 741 : ʀ > ʁ 
+#fˌɛβrˈaːr# | Rule 378 : rʲ > r 
+#fˌɛβrˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˌeβrˈae̯r# | Rule 409 : ˌɛ > ˌe / __ [-cor]
+#fˌevrˈae̯r# | Rule 423 : β > v 
+#fˌevrˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#fˌevrˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
+#fˌevrˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#fˌevʀˈeː# | Rule 733 : r > ʀ 
+#fevʀeː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fevʀe# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#fevʁe# | Rule 741 : ʀ > ʁ 

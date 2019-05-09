@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1042:
-#sˌɑlin̪ˈɑːrium# >>> #son̪ʲe# ( Correct : #son̪je#) :
+#sˌɑlin̪ˈɑːrium# >>> #son̪e# ( Correct : #son̪je#) :
 s ˌɑ l i n̪ ˈɑː r i u m 
 #sˌɑlɪn̪ˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɑlɪn̪ˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -14,19 +14,13 @@ s ˌɑ l i n̪ ˈɑː r i u m
 #sˌalən̪ˈaːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #sˌalə̯n̪ˈaːrʲə̯# | Rule 263 : ə > ə̯ 
 #sˌaln̪ˈaːrʲ# | Rule 297 : ə̯ > ∅ 
-#sʲˌaln̪ʲˈaːrʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#sʲˌaln̪ʲˈɛːrʲ# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
-#sʲˌaln̪ʲˈie̯rʲ# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#sʲˌaln̪ʲˈie̯r# | Rule 378 : rʲ > r 
-#sʲˌaɫn̪ʲˈie̯r# | Rule 487 : [+lat] > [+back] / __ [+cons]
-#sʲˌawn̪ʲˈie̯r# | Rule 567 : [+lat,+back] > w 
-#sʲˌawn̪ʲjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sʲˌawn̪ʲj?r# | Rule 598 : ˈe > ? / __ @
-#sʲˌawn̪ʲjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#sʲˌoːn̪ʲjˈer# | Rule 649 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sʲˌoːn̪ʲˈer# | Rule 655 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#sˌoːn̪ʲˈer# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#sˌoːn̪ʲˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#sˌoːn̪ʲˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#soːn̪ʲe# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#son̪ʲe# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#sˌaln̪ˈaːr# | Rule 378 : rʲ > r 
+#sˌaln̪ˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#sˌaɫn̪ˈae̯r# | Rule 487 : [+lat] > [+back] / __ [+cons]
+#sˌaɫn̪ˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#sˌawn̪ˈeːr# | Rule 567 : [+lat,+back] > w 
+#sˌoːn̪ˈeːr# | Rule 649 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːn̪ˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
+#sˌoːn̪ˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#soːn̪eː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#son̪e# | Rule 735 : [+syl,+long] > [-long,-splng] 

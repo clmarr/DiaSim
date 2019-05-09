@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1184:
-#t̪ˈɑn̪n̪um# >>> #t̪ɛ̃# ( Correct : #t̪ɑ̃#) :
+#t̪ˈɑn̪n̪um# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃#) :
 t̪ ˈɑ n̪ n̪ u m 
 #t̪ˈɑn̪n̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˈɑn̪n̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
@@ -8,15 +8,9 @@ t̪ ˈɑ n̪ n̪ u m
 #t̪ˈan̪n̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #t̪ˈan̪n̪ə̯# | Rule 263 : ə > ə̯ 
 #t̪ˈan̪n̪# | Rule 297 : ə̯ > ∅ 
-#t̪ʲˈan̪ʲn̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t̪ʲˈan̪ʲn̪# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#t̪ʲˈajn̪n̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#t̪ʲˈajn̪# | Rule 478 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#t̪ʲˈaj̃n̪# | Rule 490 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#t̪ʲˈãj̃n̪# | Rule 491 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ʲˈɛ̃j̃n̪# | Rule 573 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
-#t̪ʲˈɛ̃n̪# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#t̪ʲˈɛ̃ː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#t̪ˈɛ̃ː# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#t̪ˈan̪# | Rule 478 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#t̪ˈãn̪# | Rule 491 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ˈãː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#t̪ˈɑ̃ː# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#t̪ɑ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɑ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :106:
-#bˌɑst̪ˈoːn̪em# >>> #bɛt̪wɛ̃# ( Correct : #bɑt̪ɔ̃#) :
+#bˌɑst̪ˈoːn̪em# >>> #bɑt̪ɔ̃# ( Correct : #bɑt̪ɔ̃#) :
 b ˌɑ s t̪ ˈoː n̪ e m 
 #bˌɑst̪ˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #bˌɑst̪ˈon̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -10,18 +10,10 @@ b ˌɑ s t̪ ˈoː n̪ e m
 #bˌast̪ˈũːn̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #bˌast̪ˈũːn̪ə̯# | Rule 263 : ə > ə̯ 
 #bˌast̪ˈũːn̪# | Rule 297 : ə̯ > ∅ 
-#bˌasʲt̪ʲˈũːn̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#bˌasʲt̪ˈũːn̪ʲ# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#bˌajst̪ˈũːjn̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#bˌajst̪ˈũjn̪# | Rule 384 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#bˌajxt̪ˈũjn̪# | Rule 580 : s > x / [-cons] __ [+cons]
-#bˌɛjxt̪ˈũjn̪# | Rule 603 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#bˌɛjxt̪ˈũj̃n̪# | Rule 610 : j > j̃ / __ [+nas,+cons]
-#bˌɛjxt̪wˈĩn̪# | Rule 613 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
-#bˌɛːxt̪wˈĩn̪# | Rule 624 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#bˌɛːt̪wˈĩn̪# | Rule 641 : [+syl] x > [+long] ∅/ __ [+cons]
-#bˌɛːt̪wˈẽn̪# | Rule 644 : [+front,+nas,+syl] > [-hi] / w __ 
-#bˌɛːt̪wˈẽː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#bˌɛːt̪wˈɛ̃ː# | Rule 660 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
-#bɛːt̪wɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bɛt̪wɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#bˌaxt̪ˈũːn̪# | Rule 580 : s > x / [-cons] __ [+cons]
+#bˌaːt̪ˈũːn̪# | Rule 641 : [+syl] x > [+long] ∅/ __ [+cons]
+#bˌaːt̪ˈũː# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#bˌɑːt̪ˈũː# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#bɑːt̪ũː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bɑt̪ũ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#bɑt̪ɔ̃# | Rule 736 : [+back,-lo,+nas,+syl] > ɔ̃ 

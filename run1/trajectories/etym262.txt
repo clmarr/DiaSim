@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :262:
-#fˈin̪d̪it̪ɑm# >>> #fɛ̃t̪# ( Correct : #fɑ̃t̪#) :
+#fˈin̪d̪it̪ɑm# >>> #fɑ̃t̪# ( Correct : #fɑ̃t̪#) :
 f ˈi n̪ d̪ i t̪ ɑ m 
 #fˈɪn̪d̪ɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˈen̪d̪et̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
@@ -7,17 +7,14 @@ f ˈi n̪ d̪ i t̪ ɑ m
 #fˈen̪d̪ə̯t̪ɑ# | Rule 92 : e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
 #fˈen̪d̪ə̯t̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #fˈen̪d̪t̪a# | Rule 297 : ə̯ > ∅ 
-#fˈen̪ʲd̪ʲt̪ʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#fˈen̪ʲd̪t̪a# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#fˈejn̪d̪t̪a# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#fˈejn̪d̪t̪ə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#fˈejn̪t̪ə# | Rule 459 : [+cons] > ∅ / [+cons] __ [-son]
-#fˈej̃n̪t̪ə# | Rule 503 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#fˈẽj̃n̪t̪ə# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#fˈɛ̃j̃n̪t̪ə# | Rule 558 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#fˈɛ̃n̪t̪ə# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#fˈɛ̃ːt̪ə# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#fˈɛ̃ːt̪ə̯# | Rule 691 : ə > ə̯ / __ #
-#fˈɛ̃ːt̪# | Rule 720 : ə̯ > ∅ 
-#fɛ̃ːt̪# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fɛ̃t̪# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#fˈen̪d̪t̪ə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈen̪t̪ə# | Rule 459 : [+cons] > ∅ / [+cons] __ [-son]
+#fˈẽn̪t̪ə# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#fˈɛ̃n̪t̪ə# | Rule 558 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈãn̪t̪ə# | Rule 563 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#fˈãːt̪ə# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#fˈãːt̪ə̯# | Rule 691 : ə > ə̯ / __ #
+#fˈɑ̃ːt̪ə̯# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#fˈɑ̃ːt̪# | Rule 720 : ə̯ > ∅ 
+#fɑ̃ːt̪# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɑ̃t̪# | Rule 735 : [+syl,+long] > [-long,-splng] 

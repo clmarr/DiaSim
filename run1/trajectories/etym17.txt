@@ -1,17 +1,15 @@
 Trajectory file for run 'run1'; etymon number :17:
-#ˌɑlˈɑwsɑm# >>> #alwaz# ( Correct : #aloz#) :
+#ˌɑlˈɑwsɑm# >>> #aloz# ( Correct : #aloz#) :
 ˌɑ l ˈɑ w s ɑ m 
 #ˌɑlˈɑwsɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑlˈɑwzɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #ˌalˈawza# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌalˈɔwza# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#ˌalˈɔwzʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#ˌalˈɔwjza# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#ˌalˈɔjza# | Rule 383 : w > ∅ / [+round,+syl] __ j
-#ˌalˈɔjzə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌalˈɔɛ̯zə# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#ˌalwˈɛzə# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#ˌalwˈɛzə̯# | Rule 691 : ə > ə̯ / __ #
-#ˌalwˈɛz# | Rule 720 : ə̯ > ∅ 
-#alwɛz# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#alwaz# | Rule 740 : ɛ > a / w __ 
+#ˌalˈɔwzə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌalˈɔzə# | Rule 546 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
+#ˌalˈɔzə̯# | Rule 691 : ə > ə̯ / __ #
+#ˌalˈɔːzə̯# | Rule 707 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+#ˌalˈoːzə̯# | Rule 709 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
+#ˌalˈoːz# | Rule 720 : ə̯ > ∅ 
+#aloːz# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aloz# | Rule 735 : [+syl,+long] > [-long,-splng] 

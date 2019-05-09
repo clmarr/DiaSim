@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1222:
-#t̪ˌorn̪ɑːt̪ˈuːrɑm# >>> #t̪uʁn̪ʲəðʲyʁ# ( Correct : #t̪uʁn̪yʁ#) :
+#t̪ˌorn̪ɑːt̪ˈuːrɑm# >>> #t̪uʁn̪yʁ# ( Correct : #t̪uʁn̪yʁ#) :
 t̪ ˌo r n̪ ɑː t̪ ˈuː r ɑ m 
 #t̪ˌɔrn̪ɑːt̪ˈuːrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˌɔrn̪ɑːt̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -8,20 +8,19 @@ t̪ ˌo r n̪ ɑː t̪ ˈuː r ɑ m
 #t̪ˌɔrn̪ɑt̪ˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #t̪ˌɔrn̪at̪ˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #t̪ˌɔrn̪at̪ˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#t̪ʲˌɔrʲn̪ʲat̪ʲˈʉːrʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t̪ʲˌɔrʲn̪ʲad̪ʲˈʉːrʲa# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
-#t̪ʲˌɔrʲn̪ʲaðʲˈʉːrʲa# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#t̪ʲˌɔrn̪ʲaðʲˈʉːra# | Rule 378 : rʲ > r 
-#t̪ʲˌorn̪ʲaðʲˈʉːra# | Rule 416 : ˌɔ > ˌo 
-#t̪ʲˌorn̪ʲəðʲˈʉːrə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ʲˌorn̪ʲəðʲˈyːrə# | Rule 489 : [+hi,+round,-back] > [+front] 
-#t̪ʲˌurn̪ʲəðʲˈyːrə# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#t̪ˌurn̪ʲəðʲˈyːrə# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ˌurn̪ʲəðʲˈyːrə̯# | Rule 691 : ə > ə̯ / __ #
-#t̪ˌuɹn̪ʲəðʲˈyːrə̯# | Rule 713 : r > ɹ / [-cons] __ [+cons]
-#t̪ˌuɹn̪ʲəðʲˈyːr# | Rule 720 : ə̯ > ∅ 
-#t̪ˌurn̪ʲəðʲˈyːr# | Rule 731 : ɹ > r 
-#t̪ˌuʀn̪ʲəðʲˈyːʀ# | Rule 733 : r > ʀ 
-#t̪uʀn̪ʲəðʲyːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪uʀn̪ʲəðʲyʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#t̪uʁn̪ʲəðʲyʁ# | Rule 741 : ʀ > ʁ 
+#t̪ˌɔrn̪ad̪ˈʉːra# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
+#t̪ˌɔrn̪aðˈʉːra# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#t̪ˌorn̪aðˈʉːra# | Rule 416 : ˌɔ > ˌo 
+#t̪ˌorn̪əðˈʉːrə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˌorn̪əðˈyːrə# | Rule 489 : [+hi,+round,-back] > [+front] 
+#t̪ˌurn̪əðˈyːrə# | Rule 549 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurn̪əˈyːrə# | Rule 593 : {θ;ð} > {∅;∅} 
+#t̪ˌurn̪ˈyːrə# | Rule 677 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
+#t̪ˌurn̪ˈyːrə̯# | Rule 691 : ə > ə̯ / __ #
+#t̪ˌuɹn̪ˈyːrə̯# | Rule 713 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹn̪ˈyːr# | Rule 720 : ə̯ > ∅ 
+#t̪ˌurn̪ˈyːr# | Rule 731 : ɹ > r 
+#t̪ˌuʀn̪ˈyːʀ# | Rule 733 : r > ʀ 
+#t̪uʀn̪yːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪uʀn̪yʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#t̪uʁn̪yʁ# | Rule 741 : ʀ > ʁ 

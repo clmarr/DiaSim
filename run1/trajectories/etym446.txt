@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :446:
-#kˈɑwsɑm# >>> #ʃwaz# ( Correct : #ʃoz#) :
+#kˈɑwsɑm# >>> #ʃoz# ( Correct : #ʃoz#) :
 k ˈɑ w s ɑ m 
 #kˈɑwsɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑwzɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
@@ -8,14 +8,12 @@ k ˈɑ w s ɑ m
 #kʲˈɔwza# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 #cˈɔwza# | Rule 241 : [+back,+front] > [-back] 
 #t͡ʃˈɔwza# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈɔwzʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#t͡ʃˈɔwjza# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#t͡ʃˈɔjza# | Rule 383 : w > ∅ / [+round,+syl] __ j
-#t͡ʃˈɔjzə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˈɔɛ̯zə# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t͡ʃwˈɛzə# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#ʃwˈɛzə# | Rule 632 : [+delrel] > [+cont,0delrel] 
-#ʃwˈɛzə̯# | Rule 691 : ə > ə̯ / __ #
-#ʃwˈɛz# | Rule 720 : ə̯ > ∅ 
-#ʃwɛz# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃwaz# | Rule 740 : ɛ > a / w __ 
+#t͡ʃˈɔwzə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈɔzə# | Rule 546 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
+#ʃˈɔzə# | Rule 632 : [+delrel] > [+cont,0delrel] 
+#ʃˈɔzə̯# | Rule 691 : ə > ə̯ / __ #
+#ʃˈɔːzə̯# | Rule 707 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+#ʃˈoːzə̯# | Rule 709 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
+#ʃˈoːz# | Rule 720 : ə̯ > ∅ 
+#ʃoːz# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃoz# | Rule 735 : [+syl,+long] > [-long,-splng] 

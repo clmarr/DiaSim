@@ -1,13 +1,14 @@
 Trajectory file for run 'run1'; etymon number :16:
-#ˌɑlˈɑwd̪ɑm# >>> #aluðʲ# ( Correct : #alu#) :
+#ˌɑlˈɑwd̪ɑm# >>> #alu# ( Correct : #alu#) :
 ˌɑ l ˈɑ w d̪ ɑ m 
 #ˌɑlˈɑwd̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌalˈawd̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌalˈɔwd̪a# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 #ˌalˈɔwða# | Rule 242 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#ˌalˈɔwðʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#ˌalˈɔwðʲə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌalˈuðʲə# | Rule 609 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
-#ˌalˈuðʲə̯# | Rule 691 : ə > ə̯ / __ #
-#ˌalˈuðʲ# | Rule 720 : ə̯ > ∅ 
-#aluðʲ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˌalˈɔwðə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌalˈɔwə# | Rule 593 : {θ;ð} > {∅;∅} 
+#ˌalˈuə# | Rule 609 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ˌalˈuːə# | Rule 678 : [+stres] > [+long] / __ ə
+#ˌalˈuː# | Rule 679 : ə > ∅ / [+syl] __ 
+#aluː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#alu# | Rule 735 : [+syl,+long] > [-long,-splng] 

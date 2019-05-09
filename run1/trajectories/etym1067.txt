@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1067:
-#sˌɑpiˈen̪t̪em# >>> #savɛ̃# ( Correct : #savɑ̃#) :
+#sˌɑpiˈen̪t̪em# >>> #savɑ̃# ( Correct : #savɑ̃#) :
 s ˌɑ p i ˈe n̪ t̪ e m 
 #sˌɑpɪˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɑpjˈɛn̪t̪ɛm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -9,17 +9,13 @@ s ˌɑ p i ˈe n̪ t̪ e m
 #sˌapˈɛn̪t̪ə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #sˌapˈɛn̪t̪ə̯# | Rule 263 : ə > ə̯ 
 #sˌapˈɛn̪t̪# | Rule 297 : ə̯ > ∅ 
-#sʲˌapˈɛn̪ʲt̪ʲ# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#sʲˌabˈɛn̪ʲt̪ʲ# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sʲˌaβˈɛn̪ʲt̪ʲ# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#sʲˌaβˈɛn̪ʲt̪# | Rule 379 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#sʲˌaβˈɛjn̪t̪# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#sʲˌavˈɛjn̪t̪# | Rule 423 : β > v 
-#sʲˌavˈɛj̃n̪t̪# | Rule 503 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#sʲˌavˈɛ̃j̃n̪t̪# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#sʲˌavˈɛ̃n̪t̪# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sʲˌavˈɛ̃ːt̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌavˈɛ̃ːt̪# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#sˌavˈɛ̃ː# | Rule 718 : [-son] > ∅ / __ #
-#savɛ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#savɛ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#sˌabˈɛn̪t̪# | Rule 347 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˌaβˈɛn̪t̪# | Rule 371 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#sˌavˈɛn̪t̪# | Rule 423 : β > v 
+#sˌavˈɛ̃n̪t̪# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#sˌavˈãn̪t̪# | Rule 563 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#sˌavˈãːt̪# | Rule 651 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌavˈɑ̃ːt̪# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#sˌavˈɑ̃ː# | Rule 718 : [-son] > ∅ / __ #
+#savɑ̃ː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#savɑ̃# | Rule 735 : [+syl,+long] > [-long,-splng] 

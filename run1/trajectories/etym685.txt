@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :685:
-#mˌeːn̪sˈuːrɑm# >>> #mizyʁ# ( Correct : #məzyʁ#) :
+#mˌeːn̪sˈuːrɑm# >>> #məzyʁ# ( Correct : #məzyʁ#) :
 m ˌeː n̪ s ˈuː r ɑ m 
 #mˌeːsˈuːrɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
 #mˌesˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
@@ -8,16 +8,13 @@ m ˌeː n̪ s ˈuː r ɑ m
 #mˌezˈuːrɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #mˌezˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˌezˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌezʲˈʉːrʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#mˌezʲˈʉːra# | Rule 378 : rʲ > r 
-#mˌejzˈʉːra# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#mˌejzˈʉːrə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌejzˈyːrə# | Rule 489 : [+hi,+round,-back] > [+front] 
-#mˌizˈyːrə# | Rule 505 : ˌe j > ˌi / __ z
-#mˌizˈyːrə̯# | Rule 691 : ə > ə̯ / __ #
-#mˌiːzˈyːrə̯# | Rule 705 : [+syl] > [+long] / __ z [+syl]
-#mˌiːzˈyːr# | Rule 720 : ə̯ > ∅ 
-#mˌiːzˈyːʀ# | Rule 733 : r > ʀ 
-#miːzyːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mizyʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#mizyʁ# | Rule 741 : ʀ > ʁ 
+#mˌezˈʉːrə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌezˈyːrə# | Rule 489 : [+hi,+round,-back] > [+front] 
+#mˌəzˈyːrə# | Rule 494 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#mˌəzˈyːrə̯# | Rule 691 : ə > ə̯ / __ #
+#m?zˈyːrə̯# | Rule 705 : [+syl] > [+long] / __ z [+syl]
+#m?zˈyːr# | Rule 720 : ə̯ > ∅ 
+#m?zˈyːʀ# | Rule 733 : r > ʀ 
+#m?zyːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#məzyʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#məzyʁ# | Rule 741 : ʀ > ʁ 

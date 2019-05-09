@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :696:
-#mˌin̪ˈɑːkiɑ# >>> #mɛn̪ɛs# ( Correct : #mən̪as#) :
+#mˌin̪ˈɑːkiɑ# >>> #mən̪as# ( Correct : #mən̪as#) :
 m ˌi n̪ ˈɑː k i ɑ 
 #mˌɪn̪ˈɑːkɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˌɪn̪ˈɑːkjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -9,20 +9,13 @@ m ˌi n̪ ˈɑː k i ɑ
 #mˌen̪ˈɑccɑ# | Rule 74 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
 #mˌen̪ˈɑt̪t͡sʲɑ# | Rule 177 : c c > t̪ t͡sʲ 
 #mˌen̪ˈat̪t͡sʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˌen̪ʲˈat̪ʲt͡sʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
-#mˌejn̪ˈajt̪t͡sʲa# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#mˌejn̪ˈajt̪t͡sʲə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌejn̪ˈajt͡sʲə# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˌej̃n̪ˈajt͡sʲə# | Rule 503 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#mˌẽj̃n̪ˈajt͡sʲə# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˌẽj̃n̪ˈajt͡sə# | Rule 530 : t͡sʲ > t͡s / [-nas] __ 
-#mˌɛ̃j̃n̪ˈajt͡sə# | Rule 558 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˌɛ̃j̃n̪ˈɛjt͡sə# | Rule 603 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#mˌɛ̃j̃n̪ˈɛːt͡sə# | Rule 624 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#mˌɛ̃j̃n̪ˈɛːsə# | Rule 632 : [+delrel] > [+cont,0delrel] 
-#mˌɛ̃n̪ˈɛːsə# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#mˌɛn̪ˈɛːsə# | Rule 667 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#mˌɛn̪ˈɛːsə̯# | Rule 691 : ə > ə̯ / __ #
-#mˌɛn̪ˈɛːs# | Rule 720 : ə̯ > ∅ 
-#mɛn̪ɛːs# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mɛn̪ɛs# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#mˌen̪ˈat̪t͡sʲə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌen̪ˈat͡sʲə# | Rule 475 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˌən̪ˈat͡sʲə# | Rule 494 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#mˌən̪ˈat͡sə# | Rule 530 : t͡sʲ > t͡s / [-nas] __ 
+#mˌə̃n̪ˈat͡sə# | Rule 611 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#mˌə̃n̪ˈasə# | Rule 632 : [+delrel] > [+cont,0delrel] 
+#mˌən̪ˈasə# | Rule 637 : {ə̃;ˌə̃} > {ə;ˌə} 
+#mˌən̪ˈasə̯# | Rule 691 : ə > ə̯ / __ #
+#mˌən̪ˈas# | Rule 720 : ə̯ > ∅ 
+#mən̪as# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
