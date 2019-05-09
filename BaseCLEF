@@ -844,15 +844,19 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ s198 checked for /e o a/ before enya and elya
 [-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
-$but she does not intend for this to apply to her diphthongs...
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
-
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
 $ and also s164-14 : "second bout of diphthongization of lax e tonic free
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
+
+$ s420 : tsj ejefcts a j across a prior n if the vowel before is e 
+∅ > j / [+front,-hi,-lo,+tense,+syl] __ n̪ t͡sʲ
+
+$ s308: tsj ejects j into vowel groups that are not e before # or vowel then # (-itia and -itium suffixes). 
+$ to implement this we use a dummy...
+t͡sʲ >  q / [-hi,-lo,+front,+tense,+syl] __ ([-syl]) #
+∅ > j / [+syl] __ t͡sʲ
+q > t͡sʲ
 
 $ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 
 $ as per Popeˌs example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization

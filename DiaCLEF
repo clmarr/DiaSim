@@ -1382,7 +1382,6 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
-$ CORRECTION: shortening of non-front and non-high vowels before ʎ
 $ CORRECTION: shortening doesn't occur here before fric + r/l : frere, mere, poele, moindre, pere, sourcil
 [+syl] > [-long] / __ [-syl] ([-syl])+ #
 [+syl] > [-long] / __ [-syl] [+cons,-son]
@@ -1394,8 +1393,6 @@ $ CORRECTION: shortening doesn't occur here before fric + r/l : frere, mere, poe
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-$[+prim,-front] > [-long] / __ ʎ 
-$[+prim,-hi] > [-long] / __ ʎ
 $ s198 checked for /e o a/ before enya and elya
 [-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
@@ -1418,21 +1415,24 @@ $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
 $ and also s164-14 : "second bout of diphthongization of lax e tonic free
 $ CORRECTION : if eː is already coming before j, that is absorbed. Same for ʝ 
+	$ This one to BaseCLEF*
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
 
-$ CORRECTION: before depalatizing, t͡sʲ ejects a backward into if under certain conditions: 
+$ s420 : tsj ejefcts a j across a prior n if the vowel before is e 
+$ CORRECTION: only countertonic e is affected.
+∅ > j / ˌe __ n̪ t͡sʲ
+
+$ s308: tsj ejects j into vowel groups that are no
+$ CORRECTION: no, only under certain conditions: 
 	$ (1) prior is ˈie̯ (decimum > dime, pretium > prix
 	$ CORRECTION (2) prior is ˈow (nukem > noix, crucem > croix) 
 	$ CORRECTION : this must happen before degemination of ttsj (laetitia > liesse , not lisse; neptiam> niece, not nisse; noptiam > noce, not noice; pettiam > piece not pisse) 
 	$ CORRECTION: moved this to right after palatization of aː and oː 
 	$ CORRECTION: this also changes any tonic a-variant to aj and blocks any diphthongization to ae̯ (palais, paix, etc...) 
-	$ CORRECTION: (3) also ejects across a prior n̪ if vowel before is countertonic ˌe
-		$ ejection : linteolum > linçeul, pe:nicellum >pinceau
-		$ no ejection: tentiare > tancer, plantio:nem>plançon, valɛntia > valence, cadɛntia > chance, mɛntionicam > mensonge
+	$ noix/croix results are shown in Pope when demonstrating separate phenomena, but never explained. 
 ∅ > j / e̯ __ t͡sʲ
 w > j / [+round,+syl] __ t͡sʲ
-∅ > j / ˌe __ n̪ t͡sʲ
 
 $ CORRECTION : we also delete e̯ before ʎ, ɲ (as well as the newly ejected j -- and also j from other sources 
 	$ ( i.e. braie, rai, maie, orfraie, verai(e), baie, aine, lairme etc...) 
@@ -1479,7 +1479,7 @@ $ CORRECTION: β does not do so if before r then a non-consonantal
 β > w / __ [+cons,+nas]
 β > w / __ r (ə) [+cons]
 
-$ CORRECTION: β goes to w if between ɔ or o , and e (not ɛ 
+$ CORRECTION: β goes to w if between ɔ or o , and e (not ɛ )
 
 $ s164.6 ~ s 189 
 β > v 
