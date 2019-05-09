@@ -1,16 +1,20 @@
 Trajectory file for run 'run1'; etymon number :302:
-#fˈuːst̪em# >>> #fy# ( Correct : #fy#) :
+#fˈuːst̪em# >>> #fɥi# ( Correct : #fy#) :
 f ˈuː s t̪ e m 
-#fˈuːst̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈust̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#fˈuːst̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈust̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #fˈust̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˈʉst̪ɛ# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #fˈʉst̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #fˈʉst̪ə̯# | Rule 262 : ə > ə̯ 
 #fˈʉst̪# | Rule 296 : ə̯ > ∅ 
-#fˈyst̪# | Rule 491 : [+hi,+round,-back] > [+front] 
-#fˈyxt̪# | Rule 582 : s > x / [-cons] __ [+cons]
-#fˈyːt̪# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#fˈyː# | Rule 720 : [-son] > ∅ / __ #
-#fyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fy# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#fˈʉsʲt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#fˈʉsʲt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#fˈʉjst̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#fˈyjst̪# | Rule 491 : [+hi,+round,-back] > [+front] 
+#fˈyjxt̪# | Rule 582 : s > x / [-cons] __ [+cons]
+#fɥˈixt̪# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#fɥˈiːt̪# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#fɥˈiː# | Rule 720 : [-son] > ∅ / __ #
+#fɥiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɥi# | Rule 737 : [+syl,+long] > [-long,-splng] 

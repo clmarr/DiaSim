@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :584:
 #lˈeːɡem# >>> #lwa# ( Correct : #lwa#) :
 l ˈeː ɡ e m 
-#lˈeːɡɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈeɡɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#lˈeːɡɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈeɡɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #lˈeɡɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˈeɡʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #lˈeɟɛ# | Rule 76 : [+back,+front] > [-back] 
-#lˈeʝɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#lˈeʝɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #lˈeːʝɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #lˈeːʝə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #lˈeːʝə̯# | Rule 262 : ə > ə̯ 
@@ -17,5 +17,5 @@ l ˈeː ɡ e m
 #lˈuj# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #lˈuɛ̯# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
 #lwˈɛ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#lwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #lwa# | Rule 742 : ɛ > a / w __ 

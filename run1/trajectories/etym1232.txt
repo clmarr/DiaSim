@@ -1,18 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1232:
-#t̪rˈɑːd̪it̪or# >>> #t̪ʁat̪ʁ# ( Correct : #t̪ʁɛt̪ʁ#) :
+#t̪rˈɑːd̪it̪or# >>> #t̪ʁɛt̪ʁ# ( Correct : #t̪ʁɛt̪ʁ#) :
 t̪ r ˈɑː d̪ i t̪ o r 
-#t̪rˈɑːd̪ɪt̪ɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t̪rˈɑːd̪ɪt̪ɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪rˈɑd̪ɪt̪ɔr# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#t̪rˈɑd̪et̪ɔr# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪rˈɑd̪et̪ɔr# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #t̪rˈɑd̪t̪ɔr# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #t̪rˈɑt̪t̪ɔr# | Rule 102 : [+ant,+cons,-son] > [-voi] / __ t̪
 #t̪rˈat̪t̪ɔr# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #t̪rˈat̪t̪ər# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #t̪rˈat̪t̪ə̯r# | Rule 262 : ə > ə̯ 
 #t̪rˈat̪t̪rə# | Rule 279 : ə̯ r > r ə / __ #
-#t̪rˈat̪rə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#t̪rˈat̪rə̯# | Rule 693 : ə > ə̯ / __ #
-#t̪rˈat̪r# | Rule 722 : ə̯ > ∅ 
-#t̪ʀˈat̪ʀ# | Rule 735 : r > ʀ 
-#t̪ʀat̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#t̪ʁat̪ʁ# | Rule 743 : ʀ > ʁ 
+#t̪ʲrʲˈat̪ʲt̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲrˈat̪ʲt̪ʲrə# | Rule 380 : rʲ > r 
+#t̪ʲrˈat̪ʲt̪rə# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#t̪ʲrˈajt̪t̪rə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#t̪ʲrˈajt̪rə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#t̪ʲrˈɛjt̪rə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#t̪ʲrˈɛːt̪rə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#t̪rˈɛːt̪rə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#t̪rˈɛːt̪rə̯# | Rule 693 : ə > ə̯ / __ #
+#t̪rˈɛːt̪r# | Rule 722 : ə̯ > ∅ 
+#t̪ʀˈɛːt̪ʀ# | Rule 735 : r > ʀ 
+#t̪ʀɛːt̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ʀɛt̪ʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#t̪ʁɛt̪ʁ# | Rule 743 : ʀ > ʁ 

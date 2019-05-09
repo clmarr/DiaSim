@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :725:
 #mˈukkid̪um# >>> #mwat̪# ( Correct : #mwat̪#) :
 m ˈu k k i d̪ u m 
-#mˈʊkkɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈokked̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈʊkkɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈokked̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈokked̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈokkʲed̪o# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #mˈokced̪o# | Rule 76 : [+back,+front] > [-back] 
@@ -15,7 +15,7 @@ m ˈu k k i d̪ u m
 #mˈoçd̪ʲə̯# | Rule 262 : ə > ə̯ 
 #mˈoçd̪ʲ# | Rule 296 : ə̯ > ∅ 
 #mˈoçt̪ə# | Rule 317 : [+cor,+ant,+distr,+voi,-cont] > t̪ ə/ [-voi] __ #
-#mˈoçt̪ʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#mˈoçt̪ʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #mˈoçt̪ə# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #mˈoʝt̪ə# | Rule 448 : ç > ʝ 
 #mˈojt̪ə# | Rule 454 : ʝ > j / [-cons] __ 
@@ -24,5 +24,5 @@ m ˈu k k i d̪ u m
 #mwˈɛt̪ə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
 #mwˈɛt̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #mwˈɛt̪# | Rule 722 : ə̯ > ∅ 
-#mwɛt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mwat̪# | Rule 742 : ɛ > a / w __ 

@@ -2,12 +2,14 @@ Trajectory file for run 'run1'; etymon number :683:
 #mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
 m ˈeː n̪ s ɑ m 
 #mˈeːsɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
-#mˈesɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈesɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˈesɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈeːsɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˈeːzɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #mˈeːza# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˈejza# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːzʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈeːjza# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˈejza# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
 #mˈejzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #mˈojzə# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
 #mˈujzə# | Rule 551 : [+round,+tense,+back] > [+hi] 
@@ -15,5 +17,5 @@ m ˈeː n̪ s ɑ m
 #mwˈɛzə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
 #mwˈɛzə̯# | Rule 693 : ə > ə̯ / __ #
 #mwˈɛz# | Rule 722 : ə̯ > ∅ 
-#mwɛz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mwaz# | Rule 742 : ɛ > a / w __ 

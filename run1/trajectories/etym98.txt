@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :98:
 #bˈɑln̪eum# >>> #bɛ̃# ( Correct : #bɛ̃#) :
 b ˈɑ l n̪ e u m 
-#bˈɑln̪ɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˈɑln̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#bˈɑln̪ɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈɑln̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #bˈɑln̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#bˈɑln̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#bˈɑln̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #bˈɑln̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #bˈɑlɲo# | Rule 87 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 #bˈɑɲo# | Rule 88 : [+lat] > ∅ / __ ɲ
@@ -14,11 +14,11 @@ b ˈɑ l n̪ e u m
 #bˈaːɲə̯# | Rule 262 : ə > ə̯ 
 #bˈaːɲ# | Rule 296 : ə̯ > ∅ 
 #bˈaɲ# | Rule 399 : [+syl] > [-long,-splng] / __ ɲ
-#bˈãɲ# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#bˈãɲ# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
 #bˈãj̃ɲ# | Rule 553 : ∅ > j̃ / [+lo,+syl] __ ɲ #
-#bˈɛ̃j̃ɲ# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#bˈɛ̃j̃ɲ# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
 #bˈɛ̃j̃n̪# | Rule 629 : ɲ > n̪ / __ #
 #bˈɛ̃n̪# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
 #bˈɛ̃ː# | Rule 654 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#bɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 

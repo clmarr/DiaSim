@@ -1,15 +1,20 @@
 Trajectory file for run 'run1'; etymon number :59:
-#ˈɑn̪n̪oːs# >>> #ɑ̃# ( Correct : #ɑ̃#) :
+#ˈɑn̪n̪oːs# >>> #ɛ̃# ( Correct : #ɑ̃#) :
 ˈɑ n̪ n̪ oː s 
-#ˈɑn̪n̪os# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈɑn̪n̪os# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˈan̪n̪os# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˈan̪n̪əs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #ˈan̪n̪ə̯s# | Rule 262 : ə > ə̯ 
 #ˈan̪n̪s# | Rule 296 : ə̯ > ∅ 
-#ˈan̪s# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#ˈãn̪s# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˈãːs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˈɑ̃ːs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#ˈɑ̃ː# | Rule 720 : [-son] > ∅ / __ #
-#ɑ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɑ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˈan̪ʲn̪ʲsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˈan̪ʲn̪s# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#ˈajn̪n̪s# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˈajn̪s# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#ˈaj̃n̪s# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#ˈãj̃n̪s# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˈɛ̃j̃n̪s# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#ˈɛ̃n̪s# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#ˈɛ̃ːs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈɛ̃ː# | Rule 720 : [-son] > ∅ / __ #
+#ɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 

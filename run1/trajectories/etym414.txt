@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :414:
 #kˌɑpˈillum# >>> #ʃəvø# ( Correct : #ʃəvø#) :
 k ˌɑ p ˈi l l u m 
-#kˌɑpˈɪllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɑpˈellom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˌɑpˈɪllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɑpˈellom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˌɑpˈello# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˌapˈello# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #kʲˌapˈello# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
@@ -13,7 +13,7 @@ k ˌɑ p ˈi l l u m
 #t͡ʃˌɛpˈellə̯# | Rule 262 : ə > ə̯ 
 #t͡ʃˌɛpˈell# | Rule 296 : ə̯ > ∅ 
 #t͡ʃˌɛbˈell# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#t͡ʃˌɛβˈell# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
+#t͡ʃˌɛβˈell# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
 #t͡ʃˌeβˈell# | Rule 411 : ˌɛ > ˌe / __ [-cor]
 #t͡ʃˌevˈell# | Rule 425 : β > v 
 #t͡ʃˌevˈel# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
@@ -22,6 +22,6 @@ k ˌɑ p ˈi l l u m
 #t͡ʃˌəvˈew# | Rule 569 : [+lat,+back] > w 
 #t͡ʃˌəvˈøw# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 #t͡ʃˌəvˈøː# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#ʃˌəvˈøː# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃəvøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃˌəvˈøː# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃəvøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʃəvø# | Rule 737 : [+syl,+long] > [-long,-splng] 

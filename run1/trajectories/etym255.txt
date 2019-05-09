@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :255:
 #fˌiːlikˈellɑm# >>> #fisɛl# ( Correct : #fisɛl#) :
 f ˌiː l i k ˈe l l ɑ m 
-#fˌiːlɪkˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˌilɪkˈɛllɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˌilekˈɛllɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˌiːlɪkˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˌilɪkˈɛllɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#fˌilekˈɛllɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #fˌilekˈɛllɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˌilekʲˈɛllɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #fˌilecˈɛllɑ# | Rule 76 : [+back,+front] > [-back] 
@@ -18,7 +18,7 @@ f ˌiː l i k ˈe l l ɑ m
 #fˌilʲt͡sʲˈɛlə# | Rule 490 : ɫ > lʲ / [+hi,+front,-round] __ 
 #fˌilʲt͡sˈɛlə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
 #fˌit͡sˈɛlə# | Rule 571 : lʲ > ∅ 
-#fˌisˈɛlə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#fˌisˈɛlə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #fˌisˈɛlə̯# | Rule 693 : ə > ə̯ / __ #
 #fˌisˈɛl# | Rule 722 : ə̯ > ∅ 
-#fisɛl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fisɛl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

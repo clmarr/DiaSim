@@ -1,21 +1,22 @@
 Trajectory file for run 'run1'; etymon number :664:
-#mˌɑːt̪ˈuːrɑm# >>> #myʁ# ( Correct : #myʁ#) :
+#mˌɑːt̪ˈuːrɑm# >>> #maðʲyjʁ# ( Correct : #myʁ#) :
 m ˌɑː t̪ ˈuː r ɑ m 
-#mˌɑːt̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˌɑːt̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˌɑt̪ˈurɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #mˌɑt̪ˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˌɑt̪ˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌat̪ˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˌat̪ˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌad̪ˈʉːra# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#mˌaðˈʉːra# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#mˌaðˈʉːrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðˈyːrə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#mˌaˈyːrə# | Rule 595 : {θ;ð} > {∅;∅} 
-#mˈyːrə# | Rule 689 : ˌa > ∅ / __ [+prim]
-#mˈyːrə̯# | Rule 693 : ə > ə̯ / __ #
-#mˈyːr# | Rule 722 : ə̯ > ∅ 
-#mˈyːʀ# | Rule 735 : r > ʀ 
-#myːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#myʁ# | Rule 743 : ʀ > ʁ 
+#mˌat̪ʲˈʉːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌat̪ʲˈʉːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#mˌad̪ʲˈʉːjrʲa# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˌaðʲˈʉːjrʲa# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#mˌaðʲˈʉːjra# | Rule 380 : rʲ > r 
+#mˌaðʲˈʉːjrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌaðʲˈyːjrə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#mˌaðʲˈyːjrə̯# | Rule 693 : ə > ə̯ / __ #
+#mˌaðʲˈyːjr# | Rule 722 : ə̯ > ∅ 
+#mˌaðʲˈyːjʀ# | Rule 735 : r > ʀ 
+#maðʲyːjʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#maðʲyjʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#maðʲyjʁ# | Rule 743 : ʀ > ʁ 

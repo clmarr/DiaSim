@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :882:
 #pˈikem# >>> #pwa# ( Correct : #pwa#) :
 p ˈi k e m 
-#pˈɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈekɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈekʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #pˈecɛ# | Rule 76 : [+back,+front] > [-back] 
@@ -17,7 +17,7 @@ p ˈi k e m
 #pˈujt͡s# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #pˈuɛ̯t͡s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
 #pwˈɛt͡s# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˈɛs# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#pwˈɛs# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #pwˈɛ# | Rule 720 : [-son] > ∅ / __ #
-#pwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #pwa# | Rule 742 : ɛ > a / w __ 

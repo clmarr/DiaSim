@@ -1,19 +1,24 @@
 Trajectory file for run 'run1'; etymon number :731:
-#mˈuskɑm# >>> #muʃ# ( Correct : #muʃ#) :
+#mˈuskɑm# >>> #mwaʃ# ( Correct : #muʃ#) :
 m ˈu s k ɑ m 
-#mˈʊskɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈoskɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈʊskɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈoskɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈoskɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈoska# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˈoskʲa# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #mˈosca# | Rule 241 : [+back,+front] > [-back] 
 #mˈost͡ʃa# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#mˈost͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈust͡ʃə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#mˈuxt͡ʃə# | Rule 582 : s > x / [-cons] __ [+cons]
-#mˈuxʃə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#mˈuːʃə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#mˈuːʃə̯# | Rule 693 : ə > ə̯ / __ #
-#mˈuːʃ# | Rule 722 : ə̯ > ∅ 
-#muːʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#muʃ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mˈosʲt͡ʃa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈojst͡ʃa# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˈojst͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈujst͡ʃə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#mˈujxt͡ʃə# | Rule 582 : s > x / [-cons] __ [+cons]
+#mˈuɛ̯xt͡ʃə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛxt͡ʃə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛxʃə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#mwˈɛːʃə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#mwˈɛːʃə̯# | Rule 693 : ə > ə̯ / __ #
+#mwˈɛːʃ# | Rule 722 : ə̯ > ∅ 
+#mwɛːʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mwɛʃ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mwaʃ# | Rule 742 : ɛ > a / w __ 

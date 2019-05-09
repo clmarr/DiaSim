@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :200:
 #d̪ˈulkium# >>> #d̪u# ( Correct : #d̪u#) :
 d̪ ˈu l k i u m 
-#d̪ˈʊlkɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈʊlkjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#d̪ˈʊlkɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈʊlkjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #d̪ˈʊlkʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#d̪ˈolkʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈolkʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #d̪ˈolkʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #d̪ˈolkʲʝo# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #d̪ˈolcʝo# | Rule 76 : [+back,+front] > [-back] 
@@ -15,11 +15,13 @@ d̪ ˈu l k i u m
 #d̪ˈoʎt͡sʲə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #d̪ˈoʎt͡sʲə̯# | Rule 262 : ə > ə̯ 
 #d̪ˈoʎt͡sʲ# | Rule 296 : ə̯ > ∅ 
-#d̪ˈoʎˠt͡sʲ# | Rule 489 : [+lat] > [+back] / __ [+cons]
-#d̪ˈoʎˠt͡s# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
-#d̪ˈuʎˠt͡s# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#d̪ˈuwt͡s# | Rule 569 : [+lat,+back] > w 
-#d̪ˈut͡s# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#d̪ˈus# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#d̪ʲˈoʎt͡sʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈoʎˠt͡sʲ# | Rule 489 : [+lat] > [+back] / __ [+cons]
+#d̪ʲˈoʎˠt͡s# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
+#d̪ʲˈuʎˠt͡s# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#d̪ʲˈuwt͡s# | Rule 569 : [+lat,+back] > w 
+#d̪ʲˈut͡s# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
+#d̪ʲˈus# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#d̪ˈus# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #d̪ˈu# | Rule 720 : [-son] > ∅ / __ #
-#d̪u# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪u# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

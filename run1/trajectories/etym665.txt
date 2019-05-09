@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :665:
-#mˌɑːt̪ˈuːrum# >>> #myʁ# ( Correct : #myʁ#) :
+#mˌɑːt̪ˈuːrum# >>> #maðʲɥiʁ# ( Correct : #myʁ#) :
 m ˌɑː t̪ ˈuː r u m 
-#mˌɑːt̪ˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɑːt̪ˈurʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˌɑːt̪ˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɑːt̪ˈurʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˌɑt̪ˈurʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#mˌɑt̪ˈurom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˌɑt̪ˈurom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˌɑt̪ˈuro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˌɑt̪ˈuːro# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌat̪ˈuːro# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -12,14 +12,16 @@ m ˌɑː t̪ ˈuː r u m
 #mˌat̪ˈʉːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #mˌat̪ˈʉːrə̯# | Rule 262 : ə > ə̯ 
 #mˌat̪ˈʉːr# | Rule 296 : ə̯ > ∅ 
-#mˌad̪ˈʉːr# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#mˌaðˈʉːr# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#mˌaðˈyːr# | Rule 491 : [+hi,+round,-back] > [+front] 
-#mˌaˈyːr# | Rule 595 : {θ;ð} > {∅;∅} 
-#mˈyːr# | Rule 689 : ˌa > ∅ / __ [+prim]
-#mˈyːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#mˈyːr# | Rule 733 : ɹ > r 
-#mˈyːʀ# | Rule 735 : r > ʀ 
-#myːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#myʁ# | Rule 743 : ʀ > ʁ 
+#mˌat̪ʲˈʉːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌat̪ʲˈʉːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#mˌad̪ʲˈʉːjrʲ# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˌaðʲˈʉːjrʲ# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#mˌaðʲˈʉːjr# | Rule 380 : rʲ > r 
+#mˌaðʲˈʉjr# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#mˌaðʲˈyjr# | Rule 491 : [+hi,+round,-back] > [+front] 
+#mˌaðʲɥˈir# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#mˌaðʲɥˈiɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#mˌaðʲɥˈir# | Rule 733 : ɹ > r 
+#mˌaðʲɥˈiʀ# | Rule 735 : r > ʀ 
+#maðʲɥiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#maðʲɥiʁ# | Rule 743 : ʀ > ʁ 

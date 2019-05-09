@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :145:
 #brˌuːkˈɑriɑm# >>> #bʁɥijɛʁ# ( Correct : #bʁɥijɛʁ#) :
 b r ˌuː k ˈɑ r i ɑ m 
-#brˌuːkˈɑrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#brˌuːkˈɑrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#brˌuːkˈɑrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#brˌuːkˈɑrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #brˌuːkˈɑrʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#brˌukˈɑrʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#brˌukˈɑrʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #brˌukˈɑrʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #brˌuɡˈɑrʝɑ# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #brˌuɣˈɑrʝɑ# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -13,10 +13,11 @@ b r ˌuː k ˈɑ r i ɑ m
 #brˌuˈarʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #brˌʉˈarʲa# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #brˌʉˈaːrʲa# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#brˌʉˈaːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
-#brˌʉjˈaːrʲa# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#brˌʉjˈɛːrʲa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ [+cons] [-cons]
-#brˌʉjˈie̯rʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#brʲˌʉˈaːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#brʲˌʉˈaːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#brʲˌʉjˈaːrʲa# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#brʲˌʉjˈɛːrʲa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+#brʲˌʉjˈie̯rʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #brˌʉjˈie̯ra# | Rule 380 : rʲ > r 
 #brˌʉjˈie̯rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #brˌyjˈie̯rə# | Rule 491 : [+hi,+round,-back] > [+front] 
@@ -27,5 +28,5 @@ b r ˌuː k ˈɑ r i ɑ m
 #brɥˌijˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
 #brɥˌijˈɛr# | Rule 722 : ə̯ > ∅ 
 #bʀɥˌijˈɛʀ# | Rule 735 : r > ʀ 
-#bʀɥijɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀɥijɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bʁɥijɛʁ# | Rule 743 : ʀ > ʁ 

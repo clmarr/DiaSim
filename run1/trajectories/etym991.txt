@@ -1,24 +1,26 @@
 Trajectory file for run 'run1'; etymon number :991:
-#rˈɑd̪ium# >>> #ʁɛ# ( Correct : #ʁɛ#) :
+#rˈɑd̪ium# >>> #ʁi# ( Correct : #ʁɛ#) :
 r ˈɑ d̪ i u m 
-#rˈɑd̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈɑd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#rˈɑd̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˈɑd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #rˈɑd̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#rˈɑd̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈɑd̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #rˈɑd̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #rˈɑɟʝo# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #rˈɑɟo# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#rˈɑʝo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#rˈɑʝo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #rˈɑːʝo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #rˈaːʝo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #rˈaːʝə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #rˈaːʝə̯# | Rule 262 : ə > ə̯ 
 #rˈaːʝ# | Rule 296 : ə̯ > ∅ 
 #rˈaːj# | Rule 307 : ʝ > j / __ ( [-syl] )* #
-#rˈae̯j# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#rˈaj# | Rule 407 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
-#rˈɛj# | Rule 606 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j #
-#rˈɛ# | Rule 636 : j > ∅ / __ #
-#ʀˈɛ# | Rule 735 : r > ʀ 
-#ʀɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁɛ# | Rule 743 : ʀ > ʁ 
+#rʲˈaːj# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#rʲˈɛːj# | Rule 365 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cons]
+#rʲˈie̯j# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#rˈie̯j# | Rule 380 : rʲ > r 
+#rˈij# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#rˈi# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#ʀˈi# | Rule 735 : r > ʀ 
+#ʀi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʁi# | Rule 743 : ʀ > ʁ 

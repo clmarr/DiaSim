@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :1237:
 #t̪rˈɑwkum# >>> #t̪ʁu# ( Correct : #t̪ʁu#) :
 t̪ r ˈɑ w k u m 
-#t̪rˈɑwkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪rˈɑwkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪rˈɑwkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈɑwkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #t̪rˈɑwko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #t̪rˈɑwɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #t̪rˈɑwɣo# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -12,7 +12,10 @@ t̪ r ˈɑ w k u m
 #t̪rˈɔwə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #t̪rˈɔwə̯# | Rule 262 : ə > ə̯ 
 #t̪rˈɔw# | Rule 296 : ə̯ > ∅ 
-#t̪rˈu# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
+#t̪ʲrʲˈɔw# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲrˈɔw# | Rule 380 : rʲ > r 
+#t̪ʲrˈu# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#t̪rˈu# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #t̪ʀˈu# | Rule 735 : r > ʀ 
-#t̪ʀu# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀu# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #t̪ʁu# | Rule 743 : ʀ > ʁ 

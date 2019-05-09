@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :60:
 #ˈɑpium# >>> #aʃ# ( Correct : #aʃ#) :
 ˈɑ p i u m 
-#ˈɑpɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɑpjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˈɑpɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑpjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɑpʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɑpʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɑpʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈɑpʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈapʝo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˈapɟo# | Rule 248 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
@@ -15,7 +15,7 @@ Trajectory file for run 'run1'; etymon number :60:
 #ˈapt͡ʃə# | Rule 275 : ə̯ > ə / [+delrel,-ant] __ 
 #ˈat̪t͡ʃə# | Rule 327 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
 #ˈat͡ʃə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#ˈaʃə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ˈaʃə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ˈaʃə̯# | Rule 693 : ə > ə̯ / __ #
 #ˈaʃ# | Rule 722 : ə̯ > ∅ 
-#aʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

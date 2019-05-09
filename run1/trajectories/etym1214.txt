@@ -2,21 +2,23 @@ Trajectory file for run 'run1'; etymon number :1214:
 #t̪ˈin̪kɑm# >>> #t̪ɑ̃ʃ# ( Correct : #t̪ɑ̃ʃ#) :
 t̪ ˈi n̪ k ɑ m 
 #t̪ˈiŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#t̪ˈɪŋkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈeŋkɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪ˈɪŋkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈeŋkɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #t̪ˈeŋkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #t̪ˈeŋka# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #t̪ˈeŋkʲa# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #t̪ˈeŋca# | Rule 241 : [+back,+front] > [-back] 
 #t̪ˈeŋt͡ʃa# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t̪ˈeŋt͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈẽŋt͡ʃə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#t̪ˈɛ̃ŋt͡ʃə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪ˈãŋt͡ʃə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#t̪ˈãŋʃə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#t̪ˈãːʃə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ʲˈeŋt͡ʃa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲˈeŋt͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ʲˈẽŋt͡ʃə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ʲˈɛ̃ŋt͡ʃə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ʲˈãŋt͡ʃə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#t̪ʲˈãŋʃə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#t̪ʲˈãːʃə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˈãːʃə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #t̪ˈãːʃə̯# | Rule 693 : ə > ə̯ / __ #
 #t̪ˈɑ̃ːʃə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #t̪ˈɑ̃ːʃ# | Rule 722 : ə̯ > ∅ 
-#t̪ɑ̃ːʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ɑ̃ːʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #t̪ɑ̃ʃ# | Rule 737 : [+syl,+long] > [-long,-splng] 

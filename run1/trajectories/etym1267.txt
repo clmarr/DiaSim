@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1267:
-#ˈuːn̪ɑm# >>> #yn̪# ( Correct : #yn̪#) :
+#ˈuːn̪ɑm# >>> #yj̃n̪# ( Correct : #yn̪#) :
 ˈuː n̪ ɑ m 
-#ˈun̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈun̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˈun̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈuːn̪ɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˈuːn̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˈʉːn̪a# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ˈʉːn̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈyːn̪ə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#ˈỹːn̪ə# | Rule 623 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#ˈyːn̪ə# | Rule 647 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#ˈyːn̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#ˈyːn̪# | Rule 722 : ə̯ > ∅ 
-#yːn̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#yn̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˈʉːn̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˈʉːjn̪a# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˈʉjn̪a# | Rule 388 : [+syl] > [-long,-splng] / __ [-syl] [+cons,+nas]
+#ˈʉjn̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈyjn̪ə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#ˈyj̃n̪ə# | Rule 612 : j > j̃ / __ [+nas,+cons]
+#ˈyj̃n̪ə̯# | Rule 693 : ə > ə̯ / __ #
+#ˈyj̃n̪# | Rule 722 : ə̯ > ∅ 
+#yj̃n̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

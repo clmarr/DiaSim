@@ -1,16 +1,20 @@
 Trajectory file for run 'run1'; etymon number :203:
-#d̪ˈuːrɑm# >>> #d̪yʁ# ( Correct : #d̪yʁ#) :
+#d̪ˈuːrɑm# >>> #d̪yjʁ# ( Correct : #d̪yʁ#) :
 d̪ ˈuː r ɑ m 
-#d̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #d̪ˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #d̪ˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #d̪ˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #d̪ˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#d̪ˈʉːrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˈyːrə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#d̪ˈyːrə̯# | Rule 693 : ə > ə̯ / __ #
-#d̪ˈyːr# | Rule 722 : ə̯ > ∅ 
-#d̪ˈyːʀ# | Rule 735 : r > ʀ 
-#d̪yːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪yʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#d̪yʁ# | Rule 743 : ʀ > ʁ 
+#d̪ʲˈʉːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈʉːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#d̪ʲˈʉːjra# | Rule 380 : rʲ > r 
+#d̪ʲˈʉːjrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#d̪ʲˈyːjrə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#d̪ˈyːjrə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#d̪ˈyːjrə̯# | Rule 693 : ə > ə̯ / __ #
+#d̪ˈyːjr# | Rule 722 : ə̯ > ∅ 
+#d̪ˈyːjʀ# | Rule 735 : r > ʀ 
+#d̪yːjʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪yjʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#d̪yjʁ# | Rule 743 : ʀ > ʁ 

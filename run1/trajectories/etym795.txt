@@ -2,9 +2,9 @@ Trajectory file for run 'run1'; etymon number :795:
 #ˈowum# >>> #œf# ( Correct : #œf#) :
 ˈo w u m 
 #ˈoɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˈɔɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɔɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɔβʷʊm# | Rule 49 : ɣʷ > βʷ 
-#ˈɔβʷom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɔβʷom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈɔβʷo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈɔːβʷo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˈɔːβo# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
@@ -20,6 +20,6 @@ Trajectory file for run 'run1'; etymon number :795:
 #ˈøːf# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
 #ˈøːfə̯# | Rule 719 : ∅ > ə̯ / f __ #
 #ˈøːf# | Rule 722 : ə̯ > ∅ 
-#ˈœːf# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#œːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈœːf# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#œːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #œf# | Rule 737 : [+syl,+long] > [-long,-splng] 

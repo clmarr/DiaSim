@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :163:
 #d̪ˈekimum# >>> #d̪im# ( Correct : #d̪im#) :
 d̪ ˈe k i m u m 
-#d̪ˈɛkɪmʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈɛkemom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈɛkɪmʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈɛkemom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #d̪ˈɛkemo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #d̪ˈɛkʲemo# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #d̪ˈɛcemo# | Rule 76 : [+back,+front] > [-back] 
@@ -14,14 +14,16 @@ d̪ ˈe k i m u m
 #d̪ˈie̯t͡sʲə̯mə̯# | Rule 262 : ə > ə̯ 
 #d̪ˈie̯t͡sʲə̯mə# | Rule 292 : ə̯ > ə / ə̯ ( [-syl] )* __ #
 #d̪ˈie̯t͡sʲmə# | Rule 296 : ə̯ > ∅ 
-#d̪ˈie̯jt͡sʲmə# | Rule 404 : ∅ > j / e̯ __ t͡sʲ
-#d̪ˈie̯jt͡smə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
-#d̪ˈijt͡smə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#d̪ˈit͡smə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#d̪ˈismə# | Rule 581 : t͡s > s / __ [-cor,+cons]
-#d̪ˈixmə# | Rule 582 : s > x / [-cons] __ [+cons]
-#d̪ˈiːmə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#d̪ʲˈie̯t͡sʲmə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈie̯jt͡sʲmə# | Rule 404 : ∅ > j / e̯ __ t͡sʲ
+#d̪ʲˈie̯jt͡smə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
+#d̪ʲˈijt͡smə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#d̪ʲˈit͡smə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#d̪ʲˈismə# | Rule 581 : t͡s > s / __ [-cor,+cons]
+#d̪ʲˈixmə# | Rule 582 : s > x / [-cons] __ [+cons]
+#d̪ʲˈiːmə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#d̪ˈiːmə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #d̪ˈiːmə̯# | Rule 693 : ə > ə̯ / __ #
 #d̪ˈiːm# | Rule 722 : ə̯ > ∅ 
-#d̪iːm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪iːm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #d̪im# | Rule 737 : [+syl,+long] > [-long,-splng] 

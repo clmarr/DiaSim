@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :292:
-#frˈɑːt̪rem# >>> #fʁɛʁ# ( Correct : #fʁɛʁ#) :
+#frˈɑːt̪rem# >>> #fʁiʁ# ( Correct : #fʁɛʁ#) :
 f r ˈɑː t̪ r e m 
-#frˈɑːt̪rɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#frˈɑːt̪rɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #frˈɑt̪rɛm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #frˈɑt̪rɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #frˈɑːt̪rɛ# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
@@ -14,15 +14,18 @@ f r ˈɑː t̪ r e m
 #frˈaːt̪rə̯# | Rule 262 : ə > ə̯ 
 #frˈaːt̪r# | Rule 296 : ə̯ > ∅ 
 #frˈaːt̪rə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#frˈaːd̪rə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#frˈaːðrə# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#frˈae̯ðrə# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#frˈeːðrə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#frˈeːrə# | Rule 595 : {θ;ð} > {∅;∅} 
-#frˈeːrə̯# | Rule 693 : ə > ə̯ / __ #
-#frˈɛːrə̯# | Rule 696 : ˈeː > ˈɛː / __ [+cons] ə̯
-#frˈɛːr# | Rule 722 : ə̯ > ∅ 
-#fʀˈɛːʀ# | Rule 735 : r > ʀ 
-#fʀɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fʀɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#fʁɛʁ# | Rule 743 : ʀ > ʁ 
+#frʲˈaːt̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#frʲˈaːd̪ʲrʲə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#frʲˈɛːd̪ʲrʲə# | Rule 367 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cont] [+cons,+son,-nas]
+#frʲˈie̯d̪ʲrʲə# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#frˈie̯d̪ʲrə# | Rule 380 : rʲ > r 
+#frˈie̯jd̪rə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#frˈie̯jðrə# | Rule 449 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
+#frˈijðrə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#frˈiðrə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#frˈirə# | Rule 595 : {θ;ð} > {∅;∅} 
+#frˈirə̯# | Rule 693 : ə > ə̯ / __ #
+#frˈir# | Rule 722 : ə̯ > ∅ 
+#fʀˈiʀ# | Rule 735 : r > ʀ 
+#fʀiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fʁiʁ# | Rule 743 : ʀ > ʁ 

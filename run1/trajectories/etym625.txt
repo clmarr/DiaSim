@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :625:
 #mˈɑɡid̪em# >>> #mɛ# ( Correct : #mɛ#) :
 m ˈɑ ɡ i d̪ e m 
-#mˈɑɡɪd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑɡɪd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈɑɡd̪ɛm# | Rule 43 : [+syl,-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
 #mˈɑɡd̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#mˈɑɣd̪ɛ# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#mˈɑɣd̪ɛ# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #mˈaɣd̪ɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˈaʝd̪ɛ# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #mˈaʝd̪ʲɛ# | Rule 211 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
@@ -16,10 +16,10 @@ m ˈɑ ɡ i d̪ e m
 #mˈaːjd̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #mˈaːjd̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
 #mˈajd̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#mˈajðʲ# | Rule 428 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#mˈajðʲ# | Rule 428 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
 #mˈajθʲ# | Rule 434 : [-son] > [-voi] / __ #
-#mˈɛjθʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#mˈɛjθʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
 #mˈɛːθʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
 #mˈɛː# | Rule 720 : [-son] > ∅ / __ #
-#mɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :296:
 #frˈuːkt̪um# >>> #fʁɥi# ( Correct : #fʁɥi#) :
 f r ˈuː k t̪ u m 
-#frˈuːkt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#frˈukt̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#frˈuːkt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#frˈukt̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #frˈuxt̪ʊm# | Rule 60 : k > x / [-cons] __ [+cor,-voi]
-#frˈuxt̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#frˈuxt̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #frˈuxt̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #frˈuçt̪o# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #frˈuçt̪ʲo# | Rule 211 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
@@ -12,6 +12,8 @@ f r ˈuː k t̪ u m
 #frˈʉçt̪ʲə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #frˈʉçt̪ʲə̯# | Rule 262 : ə > ə̯ 
 #frˈʉçt̪ʲ# | Rule 296 : ə̯ > ∅ 
+#frʲˈʉçt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#frˈʉçt̪ʲ# | Rule 380 : rʲ > r 
 #frˈʉçt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #frˈʉçt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
 #frˈʉʝt̪ʲ# | Rule 448 : ç > ʝ 
@@ -21,5 +23,5 @@ f r ˈuː k t̪ u m
 #frɥˈit̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #frɥˈi# | Rule 720 : [-son] > ∅ / __ #
 #fʀɥˈi# | Rule 735 : r > ʀ 
-#fʀɥi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀɥi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fʁɥi# | Rule 743 : ʀ > ʁ 

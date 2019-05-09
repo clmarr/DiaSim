@@ -1,10 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1256:
-#t̪uˌɑːs# >>> #t̪a# ( Correct : #t̪e#) :
+#t̪uˌɑːs# >>> #t̪ɛ# ( Correct : #t̪e#) :
 t̪ u ˌɑː s 
-#t̪ʊˌɑːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪wˌɑːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#t̪ʊˌɑːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪wˌɑːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #t̪wˌɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #t̪wˌas# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t̪ˌas# | Rule 465 : w > ∅ / [-cont,-back] __ 
-#t̪ˌa# | Rule 720 : [-son] > ∅ / __ #
-#t̪a# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʲwˌasʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲwˌajs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#t̪ʲwˌajsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#t̪ʲˌajsʲ# | Rule 465 : w > ∅ / [-cont,-back] __ 
+#t̪ʲˌɛjsʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#t̪ʲˌɛːsʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#t̪ˌɛːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#t̪ˌɛː# | Rule 720 : [-son] > ∅ / __ #
+#t̪ɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

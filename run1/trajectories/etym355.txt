@@ -1,13 +1,22 @@
 Trajectory file for run 'run1'; etymon number :355:
-#illoːs# >>> #le# ( Correct : #le#) :
+#illoːs# >>> #lwa# ( Correct : #le#) :
 i l l oː s 
-#ɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɪllos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ellos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɪllos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ellos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #əllos# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #əlləs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #ə̯llə̯s# | Rule 262 : ə > ə̯ 
 #ə̯lles# | Rule 276 : ə̯ > e / # [-syl] ( [-syl] )* __ s #
 #lles# | Rule 296 : ə̯ > ∅ 
-#les# | Rule 332 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
-#le# | Rule 720 : [-son] > ∅ / __ #
+#llesʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lesʲ# | Rule 332 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
+#lejs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#lejsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#lojsʲ# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#lujsʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#luɛ̯sʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#lwɛsʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#lwɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#lwɛ# | Rule 720 : [-son] > ∅ / __ #
+#lwa# | Rule 742 : ɛ > a / w __ 

@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :137:
-#brˈɑn̪d̪um# >>> #bʁɑ̃# ( Correct : #bʁɑ̃#) :
+#brˈɑn̪d̪um# >>> #bʁɛ̃# ( Correct : #bʁɑ̃#) :
 b r ˈɑ n̪ d̪ u m 
-#brˈɑn̪d̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#brˈɑn̪d̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#brˈɑn̪d̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#brˈɑn̪d̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #brˈɑn̪d̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #brˈan̪d̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #brˈan̪d̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #brˈan̪d̪ə̯# | Rule 262 : ə > ə̯ 
 #brˈan̪d̪# | Rule 296 : ə̯ > ∅ 
-#brˈan̪t̪# | Rule 434 : [-son] > [-voi] / __ #
-#brˈãn̪t̪# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#brˈãːt̪# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#brˈɑ̃ːt̪# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#brˈɑ̃ː# | Rule 720 : [-son] > ∅ / __ #
-#bʀˈɑ̃ː# | Rule 735 : r > ʀ 
-#bʀɑ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀɑ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#bʁɑ̃# | Rule 743 : ʀ > ʁ 
+#brʲˈan̪ʲd̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#brˈan̪ʲd̪ʲ# | Rule 380 : rʲ > r 
+#brˈan̪ʲd̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#brˈajn̪d̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#brˈajn̪t̪# | Rule 434 : [-son] > [-voi] / __ #
+#brˈaj̃n̪t̪# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#brˈãj̃n̪t̪# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#brˈɛ̃j̃n̪t̪# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#brˈɛ̃n̪t̪# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#brˈɛ̃ːt̪# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#brˈɛ̃ː# | Rule 720 : [-son] > ∅ / __ #
+#bʀˈɛ̃ː# | Rule 735 : r > ʀ 
+#bʀɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bʀɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#bʁɛ̃# | Rule 743 : ʀ > ʁ 

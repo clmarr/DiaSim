@@ -1,21 +1,26 @@
 Trajectory file for run 'run1'; etymon number :82:
-#ˌɑwɡˈust̪um# >>> #ut̪# ( Correct : #ut̪#) :
+#ˌɑwɡˈust̪um# >>> #oɛt̪# ( Correct : #ut̪#) :
 ˌɑ w ɡ ˈu s t̪ u m 
-#ˌɑwɡˈʊst̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑwɡˈʊst̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑɡˈʊst̪ʊm# | Rule 63 : [-syl,-cons,-lo,+round,+back] > ∅ / ˌɑ __ ( [-syl] )* [+stres,+hi,+round,+back]
-#ˌɑɡˈost̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑɡˈost̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɑɡˈost̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˌɑɣˈost̪o# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#ˌɑɣˈost̪o# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #ˌɑˈost̪o# | Rule 121 : ɣ > ∅ / __ [+tense,+round,+syl]
 #ˌaˈost̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌaˈost̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌaˈost̪ə̯# | Rule 262 : ə > ə̯ 
 #ˌaˈost̪# | Rule 296 : ə̯ > ∅ 
-#ˌaˈust̪# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#ˌaˈuxt̪# | Rule 582 : s > x / [-cons] __ [+cons]
-#ˌaˈuːt̪# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˈuːt̪# | Rule 689 : ˌa > ∅ / __ [+prim]
-#ˈuːt̪ə̯# | Rule 713 : ∅ > ə̯ / # ( [-cons,-nas] )* t̪ __ #
-#ˈuːt̪# | Rule 722 : ə̯ > ∅ 
-#uːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ut̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌaˈosʲt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌaˈosʲt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#ˌaˈojst̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌaˈujst̪# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#ˌaˈujxt̪# | Rule 582 : s > x / [-cons] __ [+cons]
+#ˌaˈuɛ̯xt̪# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#ˌawˈɛxt̪# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ˌawˈɛːt̪# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌoːˈɛːt̪# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ˌoːˈɛːt̪ə̯# | Rule 713 : ∅ > ə̯ / # ( [-cons,-nas] )* t̪ __ #
+#ˌoːˈɛːt̪# | Rule 722 : ə̯ > ∅ 
+#oːɛːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#oɛt̪# | Rule 737 : [+syl,+long] > [-long,-splng] 

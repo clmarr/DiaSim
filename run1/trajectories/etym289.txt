@@ -2,17 +2,20 @@ Trajectory file for run 'run1'; etymon number :289:
 #frˈɑn̪koːs# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
 f r ˈɑ n̪ k oː s 
 #frˈɑŋkoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#frˈɑŋkos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#frˈɑŋkos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #frˈaŋkos# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #frˈaŋkəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #frˈaŋkə̯s# | Rule 262 : ə > ə̯ 
 #frˈaŋks# | Rule 296 : ə̯ > ∅ 
-#frˈaŋs# | Rule 430 : k > ∅ / __ s #
-#frˈãŋs# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#frˈãːs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#frʲˈaŋksʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#frˈaŋksʲ# | Rule 380 : rʲ > r 
+#frˈaŋsʲ# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#frˈãŋsʲ# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#frˈãːsʲ# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#frˈãːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #frˈɑ̃ːs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #frˈɑ̃ː# | Rule 720 : [-son] > ∅ / __ #
 #fʀˈɑ̃ː# | Rule 735 : r > ʀ 
-#fʀɑ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀɑ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fʀɑ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #fʁɑ̃# | Rule 743 : ʀ > ʁ 

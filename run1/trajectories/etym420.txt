@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :420:
-#kˈɑprɑm# >>> #ʃɛvʁ# ( Correct : #ʃɛvʁ#) :
+#kˈɑprɑm# >>> #ʃivʁ# ( Correct : #ʃɛvʁ#) :
 k ˈɑ p r ɑ m 
 #kˈɑprɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑːprɑ# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
@@ -13,17 +13,18 @@ k ˈɑ p r ɑ m
 #kʲˈie̯pra# | Rule 238 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #cˈie̯pra# | Rule 241 : [+back,+front] > [-back] 
 #t͡ʃˈie̯pra# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈie̯bra# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#t͡ʃˈie̯βra# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#t͡ʃˈie̯vra# | Rule 425 : β > v 
-#t͡ʃˈie̯vrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃjˈevrə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t͡ʃj?vrə# | Rule 600 : ˈe > ? / __ @
-#t͡ʃjˈɛvrə# | Rule 603 : ? > ˈɛ 
-#ʃjˈɛvrə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃˈɛvrə# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ʃˈɛvrə̯# | Rule 693 : ə > ə̯ / __ #
-#ʃˈɛvr# | Rule 722 : ə̯ > ∅ 
-#ʃˈɛvʀ# | Rule 735 : r > ʀ 
-#ʃɛvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃɛvʁ# | Rule 743 : ʀ > ʁ 
+#t͡ʃˈie̯prʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˈie̯jprʲa# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#t͡ʃˈie̯jbrʲa# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#t͡ʃˈie̯jbra# | Rule 380 : rʲ > r 
+#t͡ʃˈie̯jbrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈie̯jβrə# | Rule 452 : b > β / [-cons] __ r
+#t͡ʃˈie̯jvrə# | Rule 453 : β > v 
+#t͡ʃˈijvrə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#t͡ʃˈivrə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#ʃˈivrə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃˈivrə̯# | Rule 693 : ə > ə̯ / __ #
+#ʃˈivr# | Rule 722 : ə̯ > ∅ 
+#ʃˈivʀ# | Rule 735 : r > ʀ 
+#ʃivʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃivʁ# | Rule 743 : ʀ > ʁ 

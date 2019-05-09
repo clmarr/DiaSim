@@ -2,7 +2,7 @@ Trajectory file for run 'run1'; etymon number :133:
 #bˈowes# >>> #bø# ( Correct : #bø#) :
 b ˈo w e s 
 #bˈoɣʷes# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#bˈɔɣʷɛs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˈɔɣʷɛs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #bˈɔβʷɛs# | Rule 49 : ɣʷ > βʷ 
 #bˈɔːβʷɛs# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #bˈɔːβɛs# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
@@ -11,11 +11,15 @@ b ˈo w e s
 #bˈʉo̯βəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #bˈʉo̯βə̯s# | Rule 262 : ə > ə̯ 
 #bˈʉo̯βs# | Rule 296 : ə̯ > ∅ 
-#bˈʉo̯ss# | Rule 329 : [+lab,-nas,-round,+cons] > s / __ s
-#bˈʉo̯s# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#bˈyo̯s# | Rule 491 : [+hi,+round,-back] > [+front] 
-#bˈye̯s# | Rule 520 : o̯ > e̯ 
-#bˈøːs# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#bˈʉo̯βsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#bˈʉo̯wsʲ# | Rule 422 : β > w / __ [-son]
+#bˈyo̯wsʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
+#bˈye̯wsʲ# | Rule 520 : o̯ > e̯ 
+#bˈyø̯wsʲ# | Rule 562 : e̯ > ø̯ / [+hi,+round] __ w
+#bɥˈøwsʲ# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#bɥˈøːsʲ# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
+#bˈøːsʲ# | Rule 610 : ɥ > ∅ / [+lab,+cons] __ [+front,+round]
+#bˈøːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #bˈøː# | Rule 720 : [-son] > ∅ / __ #
-#bøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bø# | Rule 737 : [+syl,+long] > [-long,-splng] 

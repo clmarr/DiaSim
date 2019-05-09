@@ -1,23 +1,24 @@
 Trajectory file for run 'run1'; etymon number :510:
-#krˈeːd̪is# >>> #kʁwa# ( Correct : #kʁwa#) :
+#krˈeːd̪is# >>> #kʁɛθʲ# ( Correct : #kʁwa#) :
 k r ˈeː d̪ i s 
-#krˈeːd̪ɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˈed̪ɪs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#krˈed̪es# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#krˈeðes# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#krˈeːd̪ɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#krˈed̪ɪs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#krˈed̪es# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#krˈeðes# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #krˈeːðes# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #krˈeːðəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #krˈeːðə̯s# | Rule 262 : ə > ə̯ 
 #krˈeːðs# | Rule 296 : ə̯ > ∅ 
-#krˈeːt͡s# | Rule 320 : [+ant,+cor,+distr,-nas] s > t͡s/ __ #
-#krˈejt͡s# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#krˈojt͡s# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#krˈujt͡s# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#krˈuɛ̯t͡s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
-#krwˈɛt͡s# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#krwˈɛs# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#krwˈɛ# | Rule 720 : [-son] > ∅ / __ #
-#kʀwˈɛ# | Rule 735 : r > ʀ 
-#kʀwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀwa# | Rule 742 : ɛ > a / w __ 
-#kʁwa# | Rule 743 : ʀ > ʁ 
+#krʲˈeːðʲsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#krʲˈeðʲsʲ# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#krˈeðʲsʲ# | Rule 380 : rʲ > r 
+#krˈeðʲs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#krˈeðʲsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#krˈeθʲsʲ# | Rule 479 : [-son] > [-voi] / __ [-voi]
+#kr?θʲsʲ# | Rule 600 : ˈe > ? / __ @
+#krˈɛθʲsʲ# | Rule 603 : ? > ˈɛ 
+#krˈɛθʲs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#krˈɛθʲ# | Rule 720 : [-son] > ∅ / __ #
+#kʀˈɛθʲ# | Rule 735 : r > ʀ 
+#kʀɛθʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kʁɛθʲ# | Rule 743 : ʀ > ʁ 

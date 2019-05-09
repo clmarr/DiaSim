@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :281:
-#fˌormˈiːkum# >>> #fuʁmi# ( Correct : #fuʁmi#) :
+#fˌormˈiːkum# >>> #fwaʁmi# ( Correct : #fuʁmi#) :
 f ˌo r m ˈiː k u m 
-#fˌɔrmˈiːkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˌɔrmˈikʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˌɔrmˈikom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˌɔrmˈiːkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˌɔrmˈikʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#fˌɔrmˈikom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #fˌɔrmˈiko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˌɔrmˈiːko# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #fˌɔrmˈiːɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -11,16 +11,22 @@ f ˌo r m ˈiː k u m
 #fˌɔrmˈiːɣə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #fˌɔrmˈiːɣə̯# | Rule 262 : ə > ə̯ 
 #fˌɔrmˈiːɣ# | Rule 296 : ə̯ > ∅ 
-#fˌormˈiːɣ# | Rule 418 : ˌɔ > ˌo 
-#fˌormˈiːx# | Rule 434 : [-son] > [-voi] / __ #
-#fˌormˈiːç# | Rule 446 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
-#fˌormˈiːʝ# | Rule 448 : ç > ʝ 
-#fˌormˈiːj# | Rule 454 : ʝ > j / [-cons] __ 
-#fˌormˈiː# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
-#fˌurmˈiː# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#fˌuɹmˈiː# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#fˌurmˈiː# | Rule 733 : ɹ > r 
-#fˌuʀmˈiː# | Rule 735 : r > ʀ 
-#fuʀmiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#fuʀmi# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#fuʁmi# | Rule 743 : ʀ > ʁ 
+#fˌɔrʲmˈiːɣ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#fˌɔjrʲmˈiːɣ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#fˌɔjrmˈiːɣ# | Rule 380 : rʲ > r 
+#fˌojrmˈiːɣ# | Rule 418 : ˌɔ > ˌo 
+#fˌojrmˈiːx# | Rule 434 : [-son] > [-voi] / __ #
+#fˌojrmˈiːç# | Rule 446 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#fˌojrmˈiːʝ# | Rule 448 : ç > ʝ 
+#fˌojrmˈiːj# | Rule 454 : ʝ > j / [-cons] __ 
+#fˌojrmˈiː# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#fˌoɛ̯rmˈiː# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
+#fˌuɛ̯rmˈiː# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#fwˌɛrmˈiː# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#fwˌɛɹmˈiː# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#fwˌɛrmˈiː# | Rule 733 : ɹ > r 
+#fwˌɛʀmˈiː# | Rule 735 : r > ʀ 
+#fwɛʀmiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fwɛʀmi# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#fwaʀmi# | Rule 742 : ɛ > a / w __ 
+#fwaʁmi# | Rule 743 : ʀ > ʁ 

@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :874:
-#pˈet̪rum# >>> #pjɛʁ# ( Correct : #pjɛʁ#) :
+#pˈet̪rum# >>> #piʁ# ( Correct : #pjɛʁ#) :
 p ˈe t̪ r u m 
-#pˈɛt̪rʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛt̪rom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɛt̪rʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɛt̪rom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈɛt̪ro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈɛːt̪ro# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 #pˈɛt̪ro# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
@@ -12,14 +12,16 @@ p ˈe t̪ r u m
 #pˈie̯t̪rə̯# | Rule 262 : ə > ə̯ 
 #pˈie̯t̪r# | Rule 296 : ə̯ > ∅ 
 #pˈie̯t̪rə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#pˈie̯d̪rə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#pˈie̯ðrə# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#pjˈeðrə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pjˈerə# | Rule 595 : {θ;ð} > {∅;∅} 
-#pj?rə# | Rule 600 : ˈe > ? / __ @
-#pjˈɛrə# | Rule 603 : ? > ˈɛ 
-#pjˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
-#pjˈɛr# | Rule 722 : ə̯ > ∅ 
-#pjˈɛʀ# | Rule 735 : r > ʀ 
-#pjɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pjɛʁ# | Rule 743 : ʀ > ʁ 
+#pˈie̯t̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈie̯d̪ʲrʲə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#pˈie̯d̪ʲrə# | Rule 380 : rʲ > r 
+#pˈie̯jd̪rə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pˈie̯jðrə# | Rule 449 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
+#pˈijðrə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#pˈiðrə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#pˈirə# | Rule 595 : {θ;ð} > {∅;∅} 
+#pˈirə̯# | Rule 693 : ə > ə̯ / __ #
+#pˈir# | Rule 722 : ə̯ > ∅ 
+#pˈiʀ# | Rule 735 : r > ʀ 
+#piʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#piʁ# | Rule 743 : ʀ > ʁ 

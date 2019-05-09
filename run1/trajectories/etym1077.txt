@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :1077:
-#sˈeːd̪ikum# >>> #sjɛʒ# ( Correct : #sjɛʒ#) :
+#sˈeːd̪ikum# >>> #sɛðʲəɣ# ( Correct : #sjɛʒ#) :
 s ˈeː d̪ i k u m 
-#sˈeːd̪ɪkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈed̪ɪkʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈed̪ekom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈeːd̪ɪkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈed̪ɪkʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˈed̪ekom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈed̪eko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˈeðeko# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#sˈeðeko# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #sˈeːðeko# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #sˈeːðeɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #sˈeːðeɣo# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -15,13 +15,13 @@ s ˈeː d̪ i k u m
 #sˈɛːðə̯ɣə̯# | Rule 262 : ə > ə̯ 
 #sˈɛːðəɣə̯# | Rule 271 : ə̯ > ə / [+cor,+ant,+distr] __ ɣ
 #sˈɛːðəɣə# | Rule 272 : ə̯ > ə / [+cor,+ant,+distr] ə ɣ __ 
-#sˈɛːd̪d͡ʒə# | Rule 363 : {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ} 
-#sˈie̯d̪d͡ʒə# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#sˈie̯d͡ʒə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#sjˈed͡ʒə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sj?d͡ʒə# | Rule 600 : ˈe > ? / __ @
-#sjˈɛd͡ʒə# | Rule 603 : ? > ˈɛ 
-#sjˈɛʒə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#sjˈɛʒə̯# | Rule 693 : ə > ə̯ / __ #
-#sjˈɛʒ# | Rule 722 : ə̯ > ∅ 
-#sjɛʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sʲˈɛːðʲəɣə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈie̯ðʲəɣə# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sʲjˈeðʲəɣə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#sʲj?ðʲəɣə# | Rule 600 : ˈe > ? / __ @
+#sʲjˈɛðʲəɣə# | Rule 603 : ? > ˈɛ 
+#sʲˈɛðʲəɣə# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#sˈɛðʲəɣə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#sˈɛðʲəɣə̯# | Rule 693 : ə > ə̯ / __ #
+#sˈɛðʲəɣ# | Rule 722 : ə̯ > ∅ 
+#sɛðʲəɣ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

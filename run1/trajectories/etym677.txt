@@ -1,14 +1,14 @@
 Trajectory file for run 'run1'; etymon number :677:
 #mˈed̪ium# >>> #mi# ( Correct : #mi#) :
 m ˈe d̪ i u m 
-#mˈɛd̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#mˈɛd̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɛd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #mˈɛd̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#mˈɛd̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɛd̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈɛd̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈɛɟʝo# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #mˈɛɟo# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#mˈɛʝo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#mˈɛʝo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #mˈɛːʝo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˈie̯ʝo# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #mˈie̯ʝə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
@@ -17,4 +17,4 @@ m ˈe d̪ i u m
 #mˈie̯j# | Rule 307 : ʝ > j / __ ( [-syl] )* #
 #mˈij# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
 #mˈi# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#mi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

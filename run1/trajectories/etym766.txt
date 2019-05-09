@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :766:
-#n̪ˈopt̪iɑm# >>> #n̪ɔs# ( Correct : #n̪ɔs#) :
+#n̪ˈopt̪iɑm# >>> #n̪ʲwas# ( Correct : #n̪ɔs#) :
 n̪ ˈo p t̪ i ɑ m 
-#n̪ˈɔpt̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈɔpt̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#n̪ˈɔpt̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈɔpt̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #n̪ˈɔpt̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #n̪ˈɔpt̪ʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #n̪ˈɔpt͡sʲʝɑ# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #n̪ˈɔpt͡sʲɑ# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #n̪ˈɔpt͡sʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #n̪ˈɔt̪t͡sʲa# | Rule 196 : [+lab,-nas,-round,-cont] > t̪ / __ [-cont,+cor,-voi]
-#n̪ˈɔt̪t͡sʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈɔt͡sʲə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#n̪ˈɔt͡sə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
-#n̪ˈɔsə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#n̪ˈɔsə̯# | Rule 693 : ə > ə̯ / __ #
-#n̪ˈɔs# | Rule 722 : ə̯ > ∅ 
-#n̪ɔs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ʲˈɔt̪ʲt͡sʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˈɔjt̪t͡sʲa# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#n̪ʲˈɔjt̪t͡sʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ʲˈɔjt͡sʲə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#n̪ʲˈɔjt͡sə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
+#n̪ʲˈɔɛ̯t͡sə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#n̪ʲwˈɛt͡sə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#n̪ʲwˈɛsə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#n̪ʲwˈɛsə̯# | Rule 693 : ə > ə̯ / __ #
+#n̪ʲwˈɛs# | Rule 722 : ə̯ > ∅ 
+#n̪ʲwɛs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ʲwas# | Rule 742 : ɛ > a / w __ 

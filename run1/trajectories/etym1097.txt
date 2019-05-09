@@ -1,22 +1,31 @@
 Trajectory file for run 'run1'; etymon number :1097:
-#sˌerwˈiːre# >>> #sɛʁviʁ# ( Correct : #sɛʁviʁ#) :
+#sˌerwˈiːre# >>> #swaʁviʁ# ( Correct : #sɛʁviʁ#) :
 s ˌe r w ˈiː r e 
 #sˌerɣʷˈiːre# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#sˌɛrɣʷˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɛrɣʷˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɛrβʷˈiːrɛ# | Rule 49 : ɣʷ > βʷ 
-#sˌɛrβʷˈirɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#sˌɛrβʷˈirɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #sˌɛrβʷˈiːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #sˌɛrβˈiːrɛ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #sˌɛrβˈiːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˌɛrβˈiːrə̯# | Rule 262 : ə > ə̯ 
 #sˌɛrβˈiːr# | Rule 296 : ə̯ > ∅ 
-#sˌɨrβˈiːr# | Rule 410 : {ˌɛ r;ˌɛ ɫ;t͡sʲ ˌɛ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;t͡sʲ ˌɨ;ˌɯ ɫ} / __ [+cons]
-#sˌɛrβˈiːr# | Rule 419 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
-#sˌɛrvˈiːr# | Rule 425 : β > v 
-#sˌɛrvˈiːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#sˌɛɹvˈiːɹ# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#sˌɛrvˈiːr# | Rule 733 : ɹ > r 
-#sˌɛʀvˈiːʀ# | Rule 735 : r > ʀ 
-#sɛʀviːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛʀviʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#sɛʁviʁ# | Rule 743 : ʀ > ʁ 
+#sʲˌɛrʲβˈiːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˌɛjrʲβˈiːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#sʲˌɛjrβˈiːjr# | Rule 380 : rʲ > r 
+#sʲˌɛjrβˈijr# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#sʲˌejrβˈijr# | Rule 411 : ˌɛ > ˌe / __ [-cor]
+#sʲˌejrvˈijr# | Rule 425 : β > v 
+#sʲˌejrvˈir# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#sʲˌojrvˈir# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sʲˌoɛ̯rvˈir# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
+#sʲˌuɛ̯rvˈir# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#sʲwˌɛrvˈir# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˌɛrvˈir# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#swˌɛrvˈiɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#swˌɛɹvˈiɹ# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#swˌɛrvˈir# | Rule 733 : ɹ > r 
+#swˌɛʀvˈiʀ# | Rule 735 : r > ʀ 
+#swɛʀviʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#swaʀviʀ# | Rule 742 : ɛ > a / w __ 
+#swaʁviʁ# | Rule 743 : ʀ > ʁ 

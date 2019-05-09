@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :822:
-#pˌɑrˈikulum# >>> #paʁɛj# ( Correct : #paʁej#) :
+#pˌɑrˈikulum# >>> #pɛʁɛj# ( Correct : #paʁej#) :
 p ˌɑ r ˈi k u l u m 
-#pˌɑrˈɪkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌɑrˈɪkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɑrˈɪklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#pˌɑrˈeklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌɑrˈeklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˌɑrˈeklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˌɑrˈeːklo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#pˌɑrˈeːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#pˌɑrˈeːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #pˌɑrˈexlo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #pˌarˈexlo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˌarˈeçlo# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -15,8 +15,14 @@ p ˌɑ r ˈi k u l u m
 #pˌarˈeʎə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˌarˈeʎə̯# | Rule 262 : ə > ə̯ 
 #pˌarˈeʎ# | Rule 296 : ə̯ > ∅ 
-#pˌarˈɛʎ# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
-#pˌaʀˈɛʎ# | Rule 735 : r > ʀ 
-#paʀɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʁɛʎ# | Rule 743 : ʀ > ʁ 
-#paʁɛj# | Rule 744 : ʎ > j 
+#pˌarʲˈeʎ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˌajrʲˈeʎ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#pˌajrˈeʎ# | Rule 380 : rʲ > r 
+#pˌajrˈɛʎ# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
+#pˌɛjrˈɛʎ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#pˌɛːrˈɛʎ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#pˌɛːʀˈɛʎ# | Rule 735 : r > ʀ 
+#pɛːʀɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛʀɛʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#pɛʁɛʎ# | Rule 743 : ʀ > ʁ 
+#pɛʁɛj# | Rule 744 : ʎ > j 

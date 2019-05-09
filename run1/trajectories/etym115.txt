@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :115:
 #bˈellum# >>> #bo# ( Correct : #bo#) :
 b ˈe l l u m 
-#bˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˈɛllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#bˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈɛllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #bˈɛllo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #bˈɛllə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #bˈɛllə̯# | Rule 262 : ə > ə̯ 
@@ -15,6 +15,6 @@ b ˈe l l u m
 #be̯ˈoː# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
 #bə̯ˈoː# | Rule 652 : e̯ > ə̯ / __ [+round,+back,-hi]
 #bəˈoː# | Rule 721 : ə̯ > ə / # ( [-syl] )* __ 
-#bəoː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bəoː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bəo# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #bo# | Rule 747 : ə > ∅ / __ [+syl]

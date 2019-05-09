@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :730:
-#mˈuːrum# >>> #myʁ# ( Correct : #myʁ#) :
+#mˈuːrum# >>> #mɥiʁ# ( Correct : #myʁ#) :
 m ˈuː r u m 
-#mˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈurʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈurom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈurʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#mˈurom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈuro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈuːro# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˈʉːro# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #mˈʉːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #mˈʉːrə̯# | Rule 262 : ə > ə̯ 
 #mˈʉːr# | Rule 296 : ə̯ > ∅ 
-#mˈyːr# | Rule 491 : [+hi,+round,-back] > [+front] 
-#mˈyːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#mˈyːr# | Rule 733 : ɹ > r 
-#mˈyːʀ# | Rule 735 : r > ʀ 
-#myːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#myʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#myʁ# | Rule 743 : ʀ > ʁ 
+#mˈʉːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈʉːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#mˈʉːjr# | Rule 380 : rʲ > r 
+#mˈʉjr# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#mˈyjr# | Rule 491 : [+hi,+round,-back] > [+front] 
+#mɥˈir# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#mɥˈiɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#mɥˈir# | Rule 733 : ɹ > r 
+#mɥˈiʀ# | Rule 735 : r > ʀ 
+#mɥiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɥiʁ# | Rule 743 : ʀ > ʁ 

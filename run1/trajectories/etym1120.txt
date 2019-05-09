@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :1120:
 #sˌolˈikulum# >>> #sɔlɛj# ( Correct : #sɔlɛj#) :
 s ˌo l ˈi k u l u m 
-#sˌɔlˈɪkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˌɔlˈɪkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɔlˈɪklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#sˌɔlˈeklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌɔlˈeklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˌɔlˈeklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˌɔlˈeːklo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#sˌɔlˈeːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#sˌɔlˈeːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #sˌɔlˈexlo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #sˌɔlˈeçlo# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #sˌɔlˈeçʎo# | Rule 210 : [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -14,8 +14,10 @@ s ˌo l ˈi k u l u m
 #sˌɔlˈeʎə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˌɔlˈeʎə̯# | Rule 262 : ə > ə̯ 
 #sˌɔlˈeʎ# | Rule 296 : ə̯ > ∅ 
-#sˌolˈeʎ# | Rule 418 : ˌɔ > ˌo 
-#sˌolˈɛʎ# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
-#sˌɔlˈɛʎ# | Rule 541 : ˌo > ˌɔ / __ [+cons,+cor,+son] ˈɛ
-#sɔlɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sʲˌɔlˈeʎ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˌolˈeʎ# | Rule 418 : ˌɔ > ˌo 
+#sʲˌolˈɛʎ# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
+#sʲˌɔlˈɛʎ# | Rule 541 : ˌo > ˌɔ / __ [+cons,+cor,+son] ˈɛ
+#sˌɔlˈɛʎ# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#sɔlɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sɔlɛj# | Rule 744 : ʎ > j 

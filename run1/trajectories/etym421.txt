@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :421:
 #kˈɑpum# >>> #ʃɛf# ( Correct : #ʃɛf#) :
 k ˈɑ p u m 
-#kˈɑpʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɑpom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑpʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɑpom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈɑpo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑːpo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #kˈaːpo# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -14,13 +14,13 @@ k ˈɑ p u m
 #t͡ʃˈie̯pə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #t͡ʃˈie̯pə̯# | Rule 262 : ə > ə̯ 
 #t͡ʃˈie̯p# | Rule 296 : ə̯ > ∅ 
-#t͡ʃˈie̯ɸ# | Rule 428 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
+#t͡ʃˈie̯ɸ# | Rule 428 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
 #t͡ʃˈie̯f# | Rule 429 : ɸ > f 
 #t͡ʃjˈef# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #t͡ʃj?f# | Rule 600 : ˈe > ? / __ @
 #t͡ʃjˈɛf# | Rule 603 : ? > ˈɛ 
-#ʃjˈɛf# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ʃjˈɛf# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ʃˈɛf# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 #ʃˈɛfə̯# | Rule 719 : ∅ > ə̯ / f __ #
 #ʃˈɛf# | Rule 722 : ə̯ > ∅ 
-#ʃɛf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃɛf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

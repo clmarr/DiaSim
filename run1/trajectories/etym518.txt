@@ -1,17 +1,24 @@
 Trajectory file for run 'run1'; etymon number :518:
-#krˈust̪ɑm# >>> #kʁut̪# ( Correct : #kʁut̪#) :
+#krˈust̪ɑm# >>> #kʁwat̪# ( Correct : #kʁut̪#) :
 k r ˈu s t̪ ɑ m 
-#krˈʊst̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˈost̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#krˈʊst̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#krˈost̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #krˈost̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #krˈost̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#krˈost̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈust̪ə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#krˈuxt̪ə# | Rule 582 : s > x / [-cons] __ [+cons]
-#krˈuːt̪ə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#krˈuːt̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#krˈuːt̪# | Rule 722 : ə̯ > ∅ 
-#kʀˈuːt̪# | Rule 735 : r > ʀ 
-#kʀuːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀut̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#kʁut̪# | Rule 743 : ʀ > ʁ 
+#krʲˈosʲt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#krˈosʲt̪ʲa# | Rule 380 : rʲ > r 
+#krˈosʲt̪a# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#krˈojst̪a# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#krˈojst̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈujst̪ə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#krˈujxt̪ə# | Rule 582 : s > x / [-cons] __ [+cons]
+#krˈuɛ̯xt̪ə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#krwˈɛxt̪ə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#krwˈɛːt̪ə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#krwˈɛːt̪ə̯# | Rule 693 : ə > ə̯ / __ #
+#krwˈɛːt̪# | Rule 722 : ə̯ > ∅ 
+#kʀwˈɛːt̪# | Rule 735 : r > ʀ 
+#kʀwɛːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kʀwɛt̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#kʀwat̪# | Rule 742 : ɛ > a / w __ 
+#kʁwat̪# | Rule 743 : ʀ > ʁ 

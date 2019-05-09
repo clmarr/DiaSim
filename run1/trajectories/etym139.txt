@@ -1,17 +1,20 @@
 Trajectory file for run 'run1'; etymon number :139:
-#brˈɑsɑm# >>> #bʁɛz# ( Correct : #bʁɛz#) :
+#brˈɑsɑm# >>> #bʁiz# ( Correct : #bʁɛz#) :
 b r ˈɑ s ɑ m 
 #brˈɑsɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #brˈɑːsɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #brˈɑːzɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #brˈaːza# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#brˈae̯za# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#brˈae̯zə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#brˈeːzə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#brˈeːzə̯# | Rule 693 : ə > ə̯ / __ #
-#brˈɛːzə̯# | Rule 696 : ˈeː > ˈɛː / __ [+cons] ə̯
-#brˈɛːz# | Rule 722 : ə̯ > ∅ 
-#bʀˈɛːz# | Rule 735 : r > ʀ 
-#bʀɛːz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bʀɛz# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#bʁɛz# | Rule 743 : ʀ > ʁ 
+#brʲˈaːzʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#brʲˈɛːzʲa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+#brʲˈie̯zʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#brˈie̯zʲa# | Rule 380 : rʲ > r 
+#brˈie̯jza# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#brˈie̯jzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#brˈijzə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#brˈizə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#brˈizə̯# | Rule 693 : ə > ə̯ / __ #
+#brˈiz# | Rule 722 : ə̯ > ∅ 
+#bʀˈiz# | Rule 735 : r > ʀ 
+#bʀiz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bʁiz# | Rule 743 : ʀ > ʁ 

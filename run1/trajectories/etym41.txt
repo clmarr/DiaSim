@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :41:
-#ˌɑmˈiːkɑːs# >>> #ami# ( Correct : #ami#) :
+#ˌɑmˈiːkɑːs# >>> #amiwa# ( Correct : #ami#) :
 ˌɑ m ˈiː k ɑː s 
-#ˌɑmˈikɑːs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌɑmˈikɑːs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˌɑmˈikɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #ˌɑmˈiːkɑs# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌɑmˈiːɡɑs# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -9,12 +9,21 @@ Trajectory file for run 'run1'; etymon number :41:
 #ˌamˈiːɣas# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌamˈiːɣʲas# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #ˌamˈiːʝas# | Rule 241 : [+back,+front] > [-back] 
-#ˌamˈiːjas# | Rule 377 : ʝ > j 
-#ˌamˈiːjəs# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌamˈiːəs# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
-#ˌãmˈiːəs# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãmˈiːs# | Rule 681 : ə > ∅ / [+syl] __ 
-#ˌãmˈiː# | Rule 720 : [-son] > ∅ / __ #
-#ˌamˈiː# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ami# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌamˈiːʝasʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌamˈiːjasʲ# | Rule 377 : ʝ > j 
+#ˌamˈiːjajs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌamˈiːjajsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#ˌamˈiːjəjsʲ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌamˈiːəjsʲ# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#ˌamˈiːejsʲ# | Rule 485 : ə > e / __ [+front,+son,+hi,-syl]
+#ˌãmˈiːejsʲ# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãmˈiːojsʲ# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#ˌãmˈiːujsʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#ˌãmˈiːuɛ̯sʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#ˌãmˈiːwɛsʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ˌãmˈiːwɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#ˌãmˈiːwɛ# | Rule 720 : [-son] > ∅ / __ #
+#ˌamˈiːwɛ# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#amiːwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#amiwɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#amiwa# | Rule 742 : ɛ > a / w __ 

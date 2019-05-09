@@ -2,9 +2,9 @@ Trajectory file for run 'run1'; etymon number :1350:
 #wˈit̪rum# >>> #vɛʁ# ( Correct : #vɛʁ#) :
 w ˈi t̪ r u m 
 #ɣʷˈit̪rum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪt̪rʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈɪt̪rʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #βʷˈɪt̪rʊm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈet̪rom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈet̪rom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˈet̪ro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #βʷˈeːt̪ro# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 #βʷˈet̪ro# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
@@ -16,20 +16,23 @@ w ˈi t̪ r u m
 #βˈeːt̪rə̯# | Rule 262 : ə > ə̯ 
 #βˈeːt̪r# | Rule 296 : ə̯ > ∅ 
 #βˈeːt̪rə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#βˈeːd̪rə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#βˈeːðrə# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#βˈejðrə# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˈejðrə# | Rule 425 : β > v 
+#βˈeːt̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˈeːd̪ʲrʲə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#βˈeːd̪ʲrə# | Rule 380 : rʲ > r 
+#βˈeːjd̪rə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#βˈejd̪rə# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#vˈejd̪rə# | Rule 425 : β > v 
+#vˈejðrə# | Rule 449 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
 #vˈojðrə# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
 #vˈujðrə# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #vˈʌjðrə# | Rule 591 : ˈu > ˈʌ / __ j [+ant,+voi,+cor,+distr] ( r ) ə #
 #vˈʌjrə# | Rule 595 : {θ;ð} > {∅;∅} 
 #vˈajrə# | Rule 604 : ˈʌ > ˈa 
-#vˈɛjrə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#vˈɛjrə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
 #vˈɛːrə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
 #vˈɛːrə̯# | Rule 693 : ə > ə̯ / __ #
 #vˈɛːr# | Rule 722 : ə̯ > ∅ 
 #vˈɛːʀ# | Rule 735 : r > ʀ 
-#vɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #vɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #vɛʁ# | Rule 743 : ʀ > ʁ 

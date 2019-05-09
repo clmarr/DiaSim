@@ -2,7 +2,7 @@ Trajectory file for run 'run1'; etymon number :141:
 #brˈewem# >>> #bʁjɛf# ( Correct : #bʁɛf#) :
 b r ˈe w e m 
 #brˈeɣʷem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#brˈɛɣʷɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#brˈɛɣʷɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #brˈɛβʷɛm# | Rule 49 : ɣʷ > βʷ 
 #brˈɛβʷɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #brˈɛːβʷɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -11,6 +11,8 @@ b r ˈe w e m
 #brˈie̯βə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #brˈie̯βə̯# | Rule 262 : ə > ə̯ 
 #brˈie̯β# | Rule 296 : ə̯ > ∅ 
+#brʲˈie̯β# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#brˈie̯β# | Rule 380 : rʲ > r 
 #brˈie̯v# | Rule 425 : β > v 
 #brˈie̯f# | Rule 434 : [-son] > [-voi] / __ #
 #brjˈef# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
@@ -19,5 +21,5 @@ b r ˈe w e m
 #brjˈɛfə̯# | Rule 719 : ∅ > ə̯ / f __ #
 #brjˈɛf# | Rule 722 : ə̯ > ∅ 
 #bʀjˈɛf# | Rule 735 : r > ʀ 
-#bʀjɛf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀjɛf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bʁjɛf# | Rule 743 : ʀ > ʁ 

@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :445:
 #kˈɑwlis# >>> #ʃu# ( Correct : #ʃu#) :
 k ˈɑ w l i s 
-#kˈɑwlɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɑwles# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑwlɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɑwles# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈawles# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #kʲˈawles# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #kʲˈɔwles# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
@@ -11,10 +11,12 @@ k ˈɑ w l i s
 #t͡ʃˈɔwləs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #t͡ʃˈɔwlə̯s# | Rule 262 : ə > ə̯ 
 #t͡ʃˈɔwls# | Rule 296 : ə̯ > ∅ 
-#t͡ʃˈɔwɫs# | Rule 489 : [+lat] > [+back] / __ [+cons]
-#t͡ʃˈɔɫs# | Rule 549 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+cor,+son]
-#t͡ʃˈɔws# | Rule 569 : [+lat,+back] > w 
-#t͡ʃˈus# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#ʃˈus# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#t͡ʃˈɔwlsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˈɔwɫsʲ# | Rule 489 : [+lat] > [+back] / __ [+cons]
+#t͡ʃˈɔɫsʲ# | Rule 549 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+cor,+son]
+#t͡ʃˈɔwsʲ# | Rule 569 : [+lat,+back] > w 
+#t͡ʃˈusʲ# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ʃˈusʲ# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃˈus# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #ʃˈu# | Rule 720 : [-son] > ∅ / __ #
-#ʃu# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃu# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

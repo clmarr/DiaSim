@@ -2,17 +2,20 @@ Trajectory file for run 'run1'; etymon number :1253:
 #t̪rˈun̪kum# >>> #t̪ʁɔ̃# ( Correct : #t̪ʁɔ̃#) :
 t̪ r ˈu n̪ k u m 
 #t̪rˈuŋkum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#t̪rˈʊŋkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#t̪rˈoŋkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#t̪rˈʊŋkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈoŋkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #t̪rˈoŋko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪rˈũŋko# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#t̪rˈũŋko# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #t̪rˈũŋkə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #t̪rˈũŋkə̯# | Rule 262 : ə > ə̯ 
 #t̪rˈũŋk# | Rule 296 : ə̯ > ∅ 
-#t̪rˈũːk# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ʲrʲˈũŋk# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲrˈũŋk# | Rule 380 : rʲ > r 
+#t̪ʲrˈũːk# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪rˈũːk# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #t̪rˈũː# | Rule 720 : [-son] > ∅ / __ #
 #t̪ʀˈũː# | Rule 735 : r > ʀ 
-#t̪ʀũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#t̪ʀũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #t̪ʀũ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #t̪ʀɔ̃# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 
 #t̪ʁɔ̃# | Rule 743 : ʀ > ʁ 

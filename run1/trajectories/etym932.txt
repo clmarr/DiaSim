@@ -1,15 +1,25 @@
 Trajectory file for run 'run1'; etymon number :932:
-#pˈorkum# >>> #pɔʁ# ( Correct : #pɔʁ#) :
+#pˈorkum# >>> #pɥiʁ# ( Correct : #pɔʁ#) :
 p ˈo r k u m 
-#pˈɔrkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɔrkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɔrkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɔrkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈɔrko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈɔrkə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˈɔrkə̯# | Rule 262 : ə > ə̯ 
 #pˈɔrk# | Rule 296 : ə̯ > ∅ 
-#pˈɔɹk# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#pˈɔɹ# | Rule 720 : [-son] > ∅ / __ #
-#pˈɔr# | Rule 733 : ɹ > r 
-#pˈɔʀ# | Rule 735 : r > ʀ 
-#pɔʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɔʁ# | Rule 743 : ʀ > ʁ 
+#pˈɔrʲk# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈɔjrʲk# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#pˈɔːjrʲk# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#pˈuo̯jrʲk# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˈʉo̯jrʲk# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#pˈʉo̯jrk# | Rule 380 : rʲ > r 
+#pˈyo̯jrk# | Rule 491 : [+hi,+round,-back] > [+front] 
+#pˈye̯jrk# | Rule 520 : o̯ > e̯ 
+#pˈyjrk# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#pɥˈirk# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#pɥˈiɹk# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#pɥˈiɹ# | Rule 720 : [-son] > ∅ / __ #
+#pɥˈir# | Rule 733 : ɹ > r 
+#pɥˈiʀ# | Rule 735 : r > ʀ 
+#pɥiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɥiʁ# | Rule 743 : ʀ > ʁ 

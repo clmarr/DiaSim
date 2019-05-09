@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :334:
 #hˈeːrem# >>> #waʁ# ( Correct : #waʁ#) :
 h ˈeː r e m 
-#hˈeːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#hˈerɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#hˈeːrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#hˈerɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #hˈerɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈerɛ# | Rule 105 : h > ∅ 
 #ˈeːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˈeːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˈeːrə̯# | Rule 262 : ə > ə̯ 
 #ˈeːr# | Rule 296 : ə̯ > ∅ 
-#ˈejr# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈeːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˈeːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#ˈeːjr# | Rule 380 : rʲ > r 
+#ˈejr# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
 #ˈojr# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
 #ˈoɛ̯r# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
 #ˈuɛ̯r# | Rule 551 : [+round,+tense,+back] > [+hi] 
@@ -17,6 +20,6 @@ h ˈeː r e m
 #wˈɛɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #wˈɛr# | Rule 733 : ɹ > r 
 #wˈɛʀ# | Rule 735 : r > ʀ 
-#wɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#wɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #waʀ# | Rule 742 : ɛ > a / w __ 
 #waʁ# | Rule 743 : ʀ > ʁ 

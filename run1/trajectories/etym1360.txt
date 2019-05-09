@@ -2,10 +2,10 @@ Trajectory file for run 'run1'; etymon number :1360:
 #wˌokit̪ˈɑːre# >>> #vid̪e# ( Correct : #vid̪e#) :
 w ˌo k i t̪ ˈɑː r e 
 #ɣʷˌokit̪ˈɑːre# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌɔkɪt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˌɔkɪt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #βʷˌɔkɪt̪ˈɑːrɛ# | Rule 49 : ɣʷ > βʷ 
 #βʷˌɔkɪt̪ˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#βʷˌɔket̪ˈɑrɛ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɔket̪ˈɑrɛ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˌɔkʲet̪ˈɑrɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #βʷˌɔcet̪ˈɑrɛ# | Rule 76 : [+back,+front] > [-back] 
 #βʷˌɔket̪ˈɑrɛ# | Rule 78 : c > k / [+back,+syl,+stres] __ e t̪
@@ -24,8 +24,12 @@ w ˌo k i t̪ ˈɑː r e
 #βˌuʝd̪ʲˈie̯rə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #βˌuʝd̪ʲˈie̯rə̯# | Rule 262 : ə > ə̯ 
 #βˌuʝd̪ʲˈie̯r# | Rule 296 : ə̯ > ∅ 
-#βˌʉʝd̪ʲˈie̯r# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#βˌʉjd̪ʲˈie̯r# | Rule 377 : ʝ > j 
+#βˌuʝd̪ʲˈie̯rʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˌuʝd̪ʲˈie̯jrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#βˌuʝd̪ʲˈie̯rʲ# | Rule 347 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#βˌʉʝd̪ʲˈie̯rʲ# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#βˌʉjd̪ʲˈie̯rʲ# | Rule 377 : ʝ > j 
+#βˌʉjd̪ʲˈie̯r# | Rule 380 : rʲ > r 
 #βˌʉjd̪ˈie̯r# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #βˌʉjd̪ʲˈie̯r# | Rule 384 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
 #vˌʉjd̪ʲˈie̯r# | Rule 425 : β > v 
@@ -39,4 +43,4 @@ w ˌo k i t̪ ˈɑː r e
 #vˌid̪ˈer# | Rule 673 : ɥ > ∅ / [+lab,+cont,+cons] ( r ) __ [+hi,+front,-prim]
 #vˌid̪ˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #vˌid̪ˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#vid̪e# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vid̪e# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

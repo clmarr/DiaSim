@@ -2,9 +2,9 @@ Trajectory file for run 'run1'; etymon number :1359:
 #wˈolwit̪ɑm# >>> #vut̪# ( Correct : #vut̪#) :
 w ˈo l w i t̪ ɑ m 
 #ɣʷˈolɣʷit̪ɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɔlɣʷɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈɔlɣʷɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #βʷˈɔlβʷɪt̪ɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɔlβʷet̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɔlβʷet̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˈɔlβʷet̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #βʷˈɔlβʷt̪ɑ# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #βʷˈɔlɸʷt̪ɑ# | Rule 102 : [+ant,+cons,-son] > [-voi] / __ t̪
@@ -12,10 +12,12 @@ w ˈo l w i t̪ ɑ m
 #βʷˈɔɫt̪ɑ# | Rule 138 : l > ɫ / __ [+cons,-lat]
 #βˈɔɫt̪ɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #βˈɔɫt̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#vˈɔɫt̪a# | Rule 425 : β > v 
-#vˈɔɫt̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈɔwt̪ə# | Rule 569 : [+lat,+back] > w 
-#vˈut̪ə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
+#βˈɔɫt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#vˈɔɫt̪ʲa# | Rule 425 : β > v 
+#vˈɔɫt̪ʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈɔwt̪ʲə# | Rule 569 : [+lat,+back] > w 
+#vˈut̪ʲə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#vˈut̪ə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #vˈut̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #vˈut̪# | Rule 722 : ə̯ > ∅ 
-#vut̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vut̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

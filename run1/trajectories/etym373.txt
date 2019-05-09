@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :373:
 #iˈokum# >>> #ʒø# ( Correct : #ʒø#) :
 i ˈo k u m 
-#ɪˈɔkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#jˈɔkʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɪˈɔkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#jˈɔkʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ʝˈɔkʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ʝˈɔkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ʝˈɔkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ʝˈɔko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ʝˈɔːko# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ʝˈɔːɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -12,8 +12,8 @@ i ˈo k u m
 #ʝˈuo̯ɣo# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #ʝˈuo̯o# | Rule 181 : ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
 #ʝˈʉo̯o# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ʝˈʉo̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
-#ɟˈʉo̯w# | Rule 247 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / # __ [+syl]
+#ʝˈʉo̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
+#ɟˈʉo̯w# | Rule 247 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,0tense] / # __ [+syl]
 #d͡ʒˈʉo̯w# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #d͡ʒˈyo̯w# | Rule 491 : [+hi,+round,-back] > [+front] 
 #d͡ʒˈye̯w# | Rule 520 : o̯ > e̯ 
@@ -22,6 +22,6 @@ i ˈo k u m
 #d͡ʒɥˈøː# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
 #d͡ʒjˈøː# | Rule 621 : ɥ > j / __ [+front,+round,-hi]
 #d͡ʒˈøː# | Rule 622 : j > ∅ / d͡ʒ __ [+front,+round,-hi]
-#ʒˈøː# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʒøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒˈøː# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʒøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʒø# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,20 +1,27 @@
 Trajectory file for run 'run1'; etymon number :38:
-#ˌɑmˈɑːrum# >>> #ame# ( Correct : #amɛʁ#) :
+#ˌɑmˈɑːrum# >>> #amje# ( Correct : #amɛʁ#) :
 ˌɑ m ˈɑː r u m 
-#ˌɑmˈɑːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑmˈɑːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑmˈɑrʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#ˌɑmˈɑrom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑmˈɑrom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɑmˈɑro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑmˈɑːro# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌamˈaːro# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌamˈaːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌamˈaːrə̯# | Rule 262 : ə > ə̯ 
 #ˌamˈaːr# | Rule 296 : ə̯ > ∅ 
-#ˌamˈae̯r# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌãmˈae̯r# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãmˈeːr# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌãmˈeːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#ˌamˈeːɹ# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ˌamˈeː# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ameː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ame# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌamˈaːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌamˈaːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#ˌamjˈaːrʲ# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#ˌamjˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
+#ˌamjˈie̯rʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˌamˈie̯rʲ# | Rule 371 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#ˌamˈie̯r# | Rule 380 : rʲ > r 
+#ˌãmˈie̯r# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãmjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌãmj?r# | Rule 600 : ˈe > ? / __ @
+#ˌãmjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌãmjˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#ˌamjˈeɹ# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ˌamjˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#amje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :393:
-#kˌɑkkˈiːt̪ɑm# >>> #ʃasi# ( Correct : #ʃasi#) :
+#kˌɑkkˈiːt̪ɑm# >>> #ʃɛsiðʲ# ( Correct : #ʃasi#) :
 k ˌɑ k k ˈiː t̪ ɑ m 
-#kˌɑkkˈit̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˌɑkkˈit̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #kˌɑkkˈit̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˌɑkkʲˈit̪ɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #kˌɑkcˈit̪ɑ# | Rule 76 : [+back,+front] > [-back] 
@@ -12,13 +12,17 @@ k ˌɑ k k ˈiː t̪ ɑ m
 #kʲˌat̪t͡sʲˈiːt̪a# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #cˌat̪t͡sʲˈiːt̪a# | Rule 241 : [+back,+front] > [-back] 
 #t͡ʃˌat̪t͡sʲˈiːt̪a# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˌat̪t͡sʲˈiːd̪a# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#t͡ʃˌat̪t͡sʲˈiːða# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#t͡ʃˌat̪t͡sʲˈiːðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˌat͡sʲˈiːðə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#t͡ʃˌat͡sˈiːðə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
-#t͡ʃˌat͡sˈiːə# | Rule 595 : {θ;ð} > {∅;∅} 
-#ʃˌasˈiːə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃˌasˈiː# | Rule 681 : ə > ∅ / [+syl] __ 
-#ʃasiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃasi# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#t͡ʃˌat̪ʲt͡sʲˈiːt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˌat̪ʲt͡sʲˈiːd̪ʲa# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#t͡ʃˌat̪ʲt͡sʲˈiːðʲa# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#t͡ʃˌajt̪t͡sʲˈiːðʲa# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#t͡ʃˌajt̪t͡sʲˈiːðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˌajt͡sʲˈiːðʲə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#t͡ʃˌajt͡sˈiːðʲə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
+#t͡ʃˌɛjt͡sˈiːðʲə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#t͡ʃˌɛːt͡sˈiːðʲə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ʃˌɛːsˈiːðʲə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃˌɛːsˈiːðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#ʃˌɛːsˈiːðʲ# | Rule 722 : ə̯ > ∅ 
+#ʃɛːsiːðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃɛsiðʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 

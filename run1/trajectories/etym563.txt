@@ -1,17 +1,16 @@
 Trajectory file for run 'run1'; etymon number :563:
-#lˈɑmpɑd̪ɑ# >>> #lɑ̃p# ( Correct : #lɑ̃p#) :
+#lˈɑmpɑd̪ɑ# >>> #lɑ̃pəðʲ# ( Correct : #lɑ̃p#) :
 l ˈɑ m p ɑ d̪ ɑ 
-#lˈɑmpɑðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#lˈɑmpɑðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #lˈampaða# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #lˈampəða# | Rule 255 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #lˈampaða# | Rule 256 : ə > a / __ [+cor,+ant,+distr] [+syl]
-#lˈampəðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈãmpəðə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#lˈãmpəə# | Rule 595 : {θ;ð} > {∅;∅} 
-#lˈãːpəə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãːpə# | Rule 679 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
-#lˈãːpə̯# | Rule 693 : ə > ə̯ / __ #
-#lˈɑ̃ːpə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑ̃ːp# | Rule 722 : ə̯ > ∅ 
-#lɑ̃ːp# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɑ̃p# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#lˈampaðʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˈampəðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈãmpəðʲə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#lˈãːpəðʲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːpəðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#lˈɑ̃ːpəðʲə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#lˈɑ̃ːpəðʲ# | Rule 722 : ə̯ > ∅ 
+#lɑ̃ːpəðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lɑ̃pəðʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 

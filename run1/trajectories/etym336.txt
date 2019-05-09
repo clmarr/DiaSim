@@ -1,20 +1,29 @@
 Trajectory file for run 'run1'; etymon number :336:
-#hˌiːbˈern̪um# >>> #ivɛʁ# ( Correct : #ivɛʁ#) :
+#hˌiːbˈern̪um# >>> #ivje# ( Correct : #ivɛʁ#) :
 h ˌiː b ˈe r n̪ u m 
-#hˌiːbˈɛrn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#hˌiːbˈɛrn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #hˌiːβˈɛrn̪ʊm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
-#hˌiβˈɛrn̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#hˌiβˈɛrn̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#hˌiβˈɛrn̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#hˌiβˈɛrn̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #hˌiβˈɛrn̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌiβˈɛrn̪o# | Rule 105 : h > ∅ 
 #ˌiβˈɛrn̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌiβˈɛrn̪ə̯# | Rule 262 : ə > ə̯ 
 #ˌiβˈɛrɾ# | Rule 287 : n̪ ə̯ > ɾ / [+syl] ( [-syl] )* [+syl] r __ #
 #ˌiβˈɛrr# | Rule 291 : ɾ > r 
-#ˌivˈɛrr# | Rule 425 : β > v 
-#ˌivˈɛr# | Rule 592 : r r > r 
-#ˌivˈɛɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#ˌivˈɛr# | Rule 733 : ɹ > r 
-#ˌivˈɛʀ# | Rule 735 : r > ʀ 
-#ivɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ivɛʁ# | Rule 743 : ʀ > ʁ 
+#ˌiβˈɛrʲrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌiβˈɛjrʲrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#ˌiβˈɛːjrʲrʲ# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#ˌiβˈie̯jrʲrʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˌiβˈie̯jrr# | Rule 380 : rʲ > r 
+#ˌivˈie̯jrr# | Rule 425 : β > v 
+#ˌivˈijrr# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#ˌivˈirr# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#ˌivˈie̯rr# | Rule 566 : ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
+#ˌivjˈerr# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌivjˈer# | Rule 592 : r r > r 
+#ˌivj?r# | Rule 600 : ˈe > ? / __ @
+#ˌivjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#ˌivjˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#ˌivjˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ivje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

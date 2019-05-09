@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :475:
 #kˈollum# >>> #ku# ( Correct : #ku#) :
 k ˈo l l u m 
-#kˈɔllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɔllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɔllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɔllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈɔllo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɔllə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #kˈɔllə̯# | Rule 262 : ə > ə̯ 
@@ -10,5 +10,5 @@ k ˈo l l u m
 #kˈɔl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
 #kˈɔɫ# | Rule 567 : l > ɫ / [+syl,-hi,-lo,-long] __ #
 #kˈɔw# | Rule 569 : [+lat,+back] > w 
-#kˈu# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#ku# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kˈu# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ku# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,19 +1,26 @@
 Trajectory file for run 'run1'; etymon number :642:
-#mˌɑn̪sˈuːrɑm# >>> #mɑ̃syʁ# ( Correct : #mazyʁ#) :
+#mˌɑn̪sˈuːrɑm# >>> #mɛ̃syjʁ# ( Correct : #mazyʁ#) :
 m ˌɑ n̪ s ˈuː r ɑ m 
-#mˌɑn̪sˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˌɑn̪sˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˌɑn̪sˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˌɑn̪sˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌan̪sˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˌan̪sˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌan̪sˈʉːrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌan̪sˈyːrə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#mˌãn̪sˈyːrə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˌãːsˈyːrə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˌãːsˈyːrə̯# | Rule 693 : ə > ə̯ / __ #
-#mˌɑ̃ːsˈyːrə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#mˌɑ̃ːsˈyːr# | Rule 722 : ə̯ > ∅ 
-#mˌɑ̃ːsˈyːʀ# | Rule 735 : r > ʀ 
-#mɑ̃ːsyːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɑ̃syʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#mɑ̃syʁ# | Rule 743 : ʀ > ʁ 
+#mˌan̪ʲsʲˈʉːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌan̪ʲsʲˈʉːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#mˌan̪ʲsʲˈʉːjra# | Rule 380 : rʲ > r 
+#mˌan̪ʲsˈʉːjra# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#mˌajn̪sˈʉːjra# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˌajn̪sˈʉːjrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌajn̪sˈyːjrə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#mˌaj̃n̪sˈyːjrə# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#mˌãj̃n̪sˈyːjrə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#mˌɛ̃j̃n̪sˈyːjrə# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#mˌɛ̃n̪sˈyːjrə# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#mˌɛ̃ːsˈyːjrə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#mˌɛ̃ːsˈyːjrə̯# | Rule 693 : ə > ə̯ / __ #
+#mˌɛ̃ːsˈyːjr# | Rule 722 : ə̯ > ∅ 
+#mˌɛ̃ːsˈyːjʀ# | Rule 735 : r > ʀ 
+#mɛ̃ːsyːjʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛ̃syjʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mɛ̃syjʁ# | Rule 743 : ʀ > ʁ 

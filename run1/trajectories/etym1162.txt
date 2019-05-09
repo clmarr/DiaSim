@@ -1,13 +1,15 @@
 Trajectory file for run 'run1'; etymon number :1162:
 #sˈuppɑm# >>> #sup# ( Correct : #sup#) :
 s ˈu p p ɑ m 
-#sˈʊppɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈoppɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈʊppɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈoppɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈoppɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈoppa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˈoppə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈopə# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#sˈupə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#sʲˈoppa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈoppə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#sʲˈopə# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#sʲˈupə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#sˈupə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˈupə̯# | Rule 693 : ə > ə̯ / __ #
 #sˈup# | Rule 722 : ə̯ > ∅ 
-#sup# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sup# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -2,9 +2,9 @@ Trajectory file for run 'run1'; etymon number :1054:
 #sˈɑlwum# >>> #sof# ( Correct : #sof#) :
 s ˈɑ l w u m 
 #sˈɑlɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#sˈɑlɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#sˈɑlɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˈɑlβʷʊm# | Rule 49 : ɣʷ > βʷ 
-#sˈɑlβʷom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈɑlβʷom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈɑlβʷo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈɑɫβʷo# | Rule 138 : l > ɫ / __ [+cons,-lat]
 #sˈɑɫβo# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
@@ -12,11 +12,13 @@ s ˈɑ l w u m
 #sˈaɫβə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˈaɫβə̯# | Rule 262 : ə > ə̯ 
 #sˈaɫβ# | Rule 296 : ə̯ > ∅ 
-#sˈaɫv# | Rule 425 : β > v 
-#sˈaɫf# | Rule 434 : [-son] > [-voi] / __ #
-#sˈawf# | Rule 569 : [+lat,+back] > w 
-#sˈoːf# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sʲˈaɫβ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈaɫv# | Rule 425 : β > v 
+#sʲˈaɫf# | Rule 434 : [-son] > [-voi] / __ #
+#sʲˈawf# | Rule 569 : [+lat,+back] > w 
+#sʲˈoːf# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˈoːf# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˈoːfə̯# | Rule 719 : ∅ > ə̯ / f __ #
 #sˈoːf# | Rule 722 : ə̯ > ∅ 
-#soːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#soːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sof# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :449:
 #kˈeːrɑm# >>> #siʁ# ( Correct : #siʁ#) :
 k ˈeː r ɑ m 
-#kˈerɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈerɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #kˈerɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kʲˈerɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #cˈerɑ# | Rule 76 : [+back,+front] > [-back] 
@@ -9,12 +9,16 @@ k ˈeː r ɑ m
 #cˈiːrɑ# | Rule 159 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
 #t͡sʲˈiːrɑ# | Rule 178 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #t͡sʲˈiːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t͡sʲˈiːrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡sʲˈiːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡sʲˈiːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#t͡sʲˈiːjra# | Rule 380 : rʲ > r 
+#t͡sʲˈiːjrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡sʲˈiːrə# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
 #t͡sˈiːrə# | Rule 533 : t͡sʲ > t͡s / # __ 
-#sˈiːrə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#sˈiːrə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #sˈiːrə̯# | Rule 693 : ə > ə̯ / __ #
 #sˈiːr# | Rule 722 : ə̯ > ∅ 
 #sˈiːʀ# | Rule 735 : r > ʀ 
-#siːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#siːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #siʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #siʁ# | Rule 743 : ʀ > ʁ 

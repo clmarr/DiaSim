@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :611:
 #lˌokˈɑːrium# >>> #lwaje# ( Correct : #lwaje#) :
 l ˌo k ˈɑː r i u m 
-#lˌɔkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˌɔkˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#lˌɔkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˌɔkˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #lˌɔkˈɑːrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
 #lˌɔkˈɑrʝʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#lˌɔkˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˌɔkˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˌɔkˈɑrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˌɔɡˈɑrʝo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #lˌɔɣˈɑrʝo# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -18,7 +18,7 @@ l ˌo k ˈɑː r i u m
 #lˌɔˈaːrʲ# | Rule 296 : ə̯ > ∅ 
 #lˌɔˈaːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
 #lˌɔjˈaːrʲ# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#lˌɔjˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
+#lˌɔjˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
 #lˌɔjˈie̯rʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #lˌɔjˈie̯r# | Rule 380 : rʲ > r 
 #lˌojˈie̯r# | Rule 418 : ˌɔ > ˌo 
@@ -30,5 +30,5 @@ l ˌo k ˈɑː r i u m
 #lwˌɛjˈer# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
 #lwˌɛjˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #lwˌɛjˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#lwɛje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lwɛje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #lwaje# | Rule 742 : ɛ > a / w __ 

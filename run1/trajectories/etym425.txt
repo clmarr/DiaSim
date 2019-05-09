@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :425:
-#kˈɑrpin̪um# >>> #ʃaʁm# ( Correct : #ʃaʁm#) :
+#kˈɑrpin̪um# >>> #ʃɛʁm# ( Correct : #ʃaʁm#) :
 k ˈɑ r p i n̪ u m 
-#kˈɑrpɪn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈɑrpen̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɑrpɪn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɑrpen̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈɑrpen̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑrpn̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #kˈɑrpmo# | Rule 96 : n̪ > m / p __ 
@@ -15,11 +15,24 @@ k ˈɑ r p i n̪ u m
 #t͡ʃˈarmə̯# | Rule 262 : ə > ə̯ 
 #t͡ʃˈarm# | Rule 296 : ə̯ > ∅ 
 #t͡ʃˈarmə# | Rule 311 : ∅ > ə / [+cons,-nas] [+nas] __ #
-#ʃˈarmə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃˈarmə̯# | Rule 693 : ə > ə̯ / __ #
-#ʃˈaɹmə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#ʃˈaɹm# | Rule 722 : ə̯ > ∅ 
-#ʃˈarm# | Rule 733 : ɹ > r 
-#ʃˈaʀm# | Rule 735 : r > ʀ 
-#ʃaʀm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃaʁm# | Rule 743 : ʀ > ʁ 
+#t͡ʃˈarʲmə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˈajrʲmə# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#t͡ʃˈaːjrʲmə# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#t͡ʃˈɛːjrʲmə# | Rule 365 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cons]
+#t͡ʃˈie̯jrʲmə# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t͡ʃˈie̯jrmə# | Rule 380 : rʲ > r 
+#t͡ʃˈijrmə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#t͡ʃˈirmə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#t͡ʃˈie̯rmə# | Rule 566 : ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
+#t͡ʃjˈermə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#t͡ʃj?rmə# | Rule 600 : ˈe > ? / __ @
+#t͡ʃjˈɛrmə# | Rule 603 : ? > ˈɛ 
+#ʃjˈɛrmə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃˈɛrmə# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ʃˈɛrmə̯# | Rule 693 : ə > ə̯ / __ #
+#ʃˈɛɹmə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#ʃˈɛɹm# | Rule 722 : ə̯ > ∅ 
+#ʃˈɛrm# | Rule 733 : ɹ > r 
+#ʃˈɛʀm# | Rule 735 : r > ʀ 
+#ʃɛʀm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃɛʁm# | Rule 743 : ʀ > ʁ 

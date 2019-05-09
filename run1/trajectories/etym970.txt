@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :970:
 #pˌuːlikˈellɑm# >>> #pysɛl# ( Correct : #pysɛl#) :
 p ˌuː l i k ˈe l l ɑ m 
-#pˌuːlɪkˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌulɪkˈɛllɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˌulekˈɛllɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌuːlɪkˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌulɪkˈɛllɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#pˌulekˈɛllɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˌulekˈɛllɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˌulekʲˈɛllɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #pˌulecˈɛllɑ# | Rule 76 : [+back,+front] > [-back] 
@@ -20,7 +20,7 @@ p ˌuː l i k ˈe l l ɑ m
 #pˌyɫt͡sˈɛlə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
 #pˌywt͡sˈɛlə# | Rule 569 : [+lat,+back] > w 
 #pˌyt͡sˈɛlə# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#pˌysˈɛlə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#pˌysˈɛlə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #pˌysˈɛlə̯# | Rule 693 : ə > ə̯ / __ #
 #pˌysˈɛl# | Rule 722 : ə̯ > ∅ 
-#pysɛl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pysɛl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :209:
 #ekkehˌɑk# >>> #sa# ( Correct : #sa#) :
 e k k e h ˌɑ k 
-#ɛkkɛhˌɑk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɛkkɛhˌɑk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ɛkkɛˌɑk# | Rule 15 : h > ∅ / @ __ 
-#ɛkkjˌɑk# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɛkkjˌɑk# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ɛkkʝˌɑk# | Rule 27 : j > ʝ / __ [+syl]
 #ɛkkʲʝˌɑk# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #ɛkcʝˌɑk# | Rule 76 : [+back,+front] > [-back] 
@@ -15,8 +15,9 @@ e k k e h ˌɑ k
 #ət̪t͡sʲˌax# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 #ə̯t̪t͡sʲˌax# | Rule 262 : ə > ə̯ 
 #t̪t͡sʲˌax# | Rule 296 : ə̯ > ∅ 
+#t̪ʲt͡sʲˌax# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #t͡sʲˌax# | Rule 338 : [-cont] > ∅ / # __ [-cont]
 #t͡sʲˌa# | Rule 444 : x > ∅ / [-prim] __ #
 #t͡sˌa# | Rule 533 : t͡sʲ > t͡s / # __ 
-#sˌa# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#sa# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sˌa# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#sa# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

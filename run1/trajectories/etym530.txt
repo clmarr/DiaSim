@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :530:
 #kˈuːpreum# >>> #kɥivʁ# ( Correct : #kɥivʁ#) :
 k ˈuː p r e u m 
-#kˈuːprɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈuːprjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˈuːprɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈuːprjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #kˈuːprʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#kˈuprʝʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#kˈuprʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈuprʝʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#kˈuprʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈuprʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈuːprʝo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 #kˈuprʝo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
@@ -31,5 +31,5 @@ k ˈuː p r e u m
 #kɥˈivrə̯# | Rule 693 : ə > ə̯ / __ #
 #kɥˈivr# | Rule 722 : ə̯ > ∅ 
 #kɥˈivʀ# | Rule 735 : r > ʀ 
-#kɥivʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kɥivʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kɥivʁ# | Rule 743 : ʀ > ʁ 

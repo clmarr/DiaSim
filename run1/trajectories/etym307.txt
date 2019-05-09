@@ -1,18 +1,17 @@
 Trajectory file for run 'run1'; etymon number :307:
-#ɡˈɑwt̪ɑ# >>> #ʒu# ( Correct : #ʒu#) :
+#ɡˈɑwt̪ɑ# >>> #ʒuðʲ# ( Correct : #ʒu#) :
 ɡ ˈɑ w t̪ ɑ 
 #ɡˈawt̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ɡʲˈawt̪a# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #ɡʲˈɔwt̪a# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 #ɟˈɔwt̪a# | Rule 241 : [+back,+front] > [-back] 
 #d͡ʒˈɔwt̪a# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#d͡ʒˈɔwd̪a# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#d͡ʒˈɔwða# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#d͡ʒˈɔwðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#d͡ʒˈɔwə# | Rule 595 : {θ;ð} > {∅;∅} 
-#d͡ʒˈuə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#ʒˈuə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʒˈuːə# | Rule 680 : [+stres] > [+long] / __ ə
-#ʒˈuː# | Rule 681 : ə > ∅ / [+syl] __ 
-#ʒuː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʒu# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#d͡ʒˈɔwt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d͡ʒˈɔwd̪ʲa# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#d͡ʒˈɔwðʲa# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#d͡ʒˈɔwðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#d͡ʒˈuðʲə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ʒˈuðʲə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʒˈuðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#ʒˈuðʲ# | Rule 722 : ə̯ > ∅ 
+#ʒuðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

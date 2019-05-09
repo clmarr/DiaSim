@@ -2,14 +2,14 @@ Trajectory file for run 'run1'; etymon number :444:
 #kˌɑːwˈikulɑm# >>> #ʃəvɛj# ( Correct : #ʃəvij#) :
 k ˌɑː w ˈi k u l ɑ m 
 #kˌɑːɣʷˈikulɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kˌɑːɣʷˈɪkʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˌɑːɣʷˈɪkʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˌɑːɣʷˈɪklɑm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
 #kˌɑːβʷˈɪklɑm# | Rule 49 : ɣʷ > βʷ 
 #kˌɑβʷˈɪklɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#kˌɑβʷˈeklɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˌɑβʷˈeklɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβʷˈeklɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˌɑβʷˈeːklɑ# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#kˌɑβʷˈeːxlɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#kˌɑβʷˈeːxlɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #kˌɑβʷˈexlɑ# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #kˌɑβˈexlɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #kˌaβˈexla# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -26,12 +26,12 @@ k ˌɑː w ˈi k u l ɑ m
 #t͡ʃˌevˈeʎa# | Rule 425 : β > v 
 #t͡ʃˌevˈeʎə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #t͡ʃˌəvˈeʎə# | Rule 494 : ˌe > ˌə / t͡ʃ __ ( [+cons] ) [+syl]
-#t͡ʃˌəvˈɛʎə# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,.delrel] / __ ʎ
+#t͡ʃˌəvˈɛʎə# | Rule 534 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
 #t͡ʃˌəvˈɛjʎə# | Rule 555 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 #t͡ʃˌəvˈɛːʎə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ʃˌəvˈɛːʎə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ʃˌəvˈɛːʎə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ʃˌəvˈɛːʎə̯# | Rule 693 : ə > ə̯ / __ #
 #ʃˌəvˈɛːʎ# | Rule 722 : ə̯ > ∅ 
-#ʃəvɛːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃəvɛːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʃəvɛʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ʃəvɛj# | Rule 744 : ʎ > j 

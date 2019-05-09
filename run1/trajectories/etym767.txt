@@ -1,7 +1,14 @@
 Trajectory file for run 'run1'; etymon number :767:
-#n̪ˌoːs# >>> #n̪u# ( Correct : #n̪u#) :
+#n̪ˌoːs# >>> #n̪ʲwa# ( Correct : #n̪u#) :
 n̪ ˌoː s 
-#n̪ˌos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#n̪ˌus# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#n̪ˌu# | Rule 720 : [-son] > ∅ / __ #
-#n̪u# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ˌos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#n̪ʲˌosʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˌojs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#n̪ʲˌojsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#n̪ʲˌujsʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#n̪ʲˌuɛ̯sʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#n̪ʲwˌɛsʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#n̪ʲwˌɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#n̪ʲwˌɛ# | Rule 720 : [-son] > ∅ / __ #
+#n̪ʲwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ʲwa# | Rule 742 : ɛ > a / w __ 

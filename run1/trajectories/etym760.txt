@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :760:
-#n̪ˈokt̪em# >>> #n̪ɥi# ( Correct : #n̪ɥi#) :
+#n̪ˈokt̪em# >>> #n̪ʲɥi# ( Correct : #n̪ɥi#) :
 n̪ ˈo k t̪ e m 
-#n̪ˈɔkt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɔkt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #n̪ˈɔxt̪ɛm# | Rule 60 : k > x / [-cons] __ [+cor,-voi]
 #n̪ˈɔxt̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #n̪ˈɔçt̪ɛ# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -10,15 +10,16 @@ n̪ ˈo k t̪ e m
 #n̪ˈuo̯çt̪ʲə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #n̪ˈuo̯çt̪ʲə̯# | Rule 262 : ə > ə̯ 
 #n̪ˈuo̯çt̪ʲ# | Rule 296 : ə̯ > ∅ 
-#n̪ˈʉo̯çt̪ʲ# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#n̪ˈʉo̯çt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#n̪ˈʉo̯çt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#n̪ˈʉo̯ʝt̪ʲ# | Rule 448 : ç > ʝ 
-#n̪ˈʉo̯jt̪ʲ# | Rule 454 : ʝ > j / [-cons] __ 
-#n̪ˈyo̯jt̪ʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
-#n̪ˈye̯jt̪ʲ# | Rule 520 : o̯ > e̯ 
-#n̪ˈyjt̪ʲ# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#n̪ɥˈit̪ʲ# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#n̪ɥˈit̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#n̪ɥˈi# | Rule 720 : [-son] > ∅ / __ #
-#n̪ɥi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ʲˈuo̯çt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˈʉo̯çt̪ʲ# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#n̪ʲˈʉo̯çt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#n̪ʲˈʉo̯çt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#n̪ʲˈʉo̯ʝt̪ʲ# | Rule 448 : ç > ʝ 
+#n̪ʲˈʉo̯jt̪ʲ# | Rule 454 : ʝ > j / [-cons] __ 
+#n̪ʲˈyo̯jt̪ʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
+#n̪ʲˈye̯jt̪ʲ# | Rule 520 : o̯ > e̯ 
+#n̪ʲˈyjt̪ʲ# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#n̪ʲɥˈit̪ʲ# | Rule 620 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#n̪ʲɥˈit̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#n̪ʲɥˈi# | Rule 720 : [-son] > ∅ / __ #
+#n̪ʲɥi# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -3,11 +3,14 @@ Trajectory file for run 'run1'; etymon number :1304:
 w ˈeː r ɑ 
 #ɣʷˈeːrɑ# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #βʷˈeːrɑ# | Rule 49 : ɣʷ > βʷ 
-#βʷˈerɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈerɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #βʷˈeːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #βˈeːrɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #βˈeːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#βˈejra# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#βˈeːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˈeːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#βˈeːjra# | Rule 380 : rʲ > r 
+#βˈejra# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 #vˈejra# | Rule 425 : β > v 
 #vˈejrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #vˈojrə# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
@@ -17,6 +20,6 @@ w ˈeː r ɑ
 #vwˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
 #vwˈɛr# | Rule 722 : ə̯ > ∅ 
 #vwˈɛʀ# | Rule 735 : r > ʀ 
-#vwɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vwɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #vwaʀ# | Rule 742 : ɛ > a / w __ 
 #vwaʁ# | Rule 743 : ʀ > ʁ 

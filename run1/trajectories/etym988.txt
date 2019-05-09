@@ -1,14 +1,19 @@
 Trajectory file for run 'run1'; etymon number :988:
-#pˈut̪t̪um# >>> #po# ( Correct : #po#) :
+#pˈut̪t̪um# >>> #pwa# ( Correct : #po#) :
 p ˈu t̪ t̪ u m 
-#pˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈot̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈot̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈot̪t̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈot̪t̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˈot̪t̪ə̯# | Rule 262 : ə > ə̯ 
 #pˈot̪t̪# | Rule 296 : ə̯ > ∅ 
-#pˈot̪# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#pˈɔt̪# | Rule 535 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
-#pˈɔ# | Rule 720 : [-son] > ∅ / __ #
-#pɔ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#po# | Rule 741 : ɔ > o / __ #
+#pˈot̪ʲt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈot̪ʲt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#pˈojt̪t̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pˈojt̪# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#pˈujt̪# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯t̪# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛt̪# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#pwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pwa# | Rule 742 : ɛ > a / w __ 

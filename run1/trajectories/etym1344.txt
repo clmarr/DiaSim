@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :1344:
-#wˌiːrˈɑːre# >>> #viʁe# ( Correct : #viʁe#) :
+#wˌiːrˈɑːre# >>> #viʁje# ( Correct : #viʁe#) :
 w ˌiː r ˈɑː r e 
 #ɣʷˌiːrˈɑːre# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌiːrˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˌiːrˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #βʷˌiːrˈɑːrɛ# | Rule 49 : ɣʷ > βʷ 
-#βʷˌirˈɑːrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˌirˈɑːrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #βʷˌirˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #βʷˌirˈɑːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #βˌirˈɑːrɛ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
@@ -12,12 +12,20 @@ w ˌiː r ˈɑː r e
 #βˌirˈaːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #βˌirˈaːrə̯# | Rule 262 : ə > ə̯ 
 #βˌirˈaːr# | Rule 296 : ə̯ > ∅ 
-#βˌirˈae̯r# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˌirˈae̯r# | Rule 425 : β > v 
-#vˌirˈeːr# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#vˌirˈeːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#vˌirˈeː# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#vˌiʀˈeː# | Rule 735 : r > ʀ 
-#viʀeː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#viʀe# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#viʁe# | Rule 743 : ʀ > ʁ 
+#βˌirʲˈaːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˌijrʲˈaːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#βˌijrʲjˈaːrʲ# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#βˌijrʲˈaːrʲ# | Rule 348 : j > ∅ / [+front,+hi,+cons] __ 
+#βˌijrʲˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
+#βˌijrʲˈie̯rʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#βˌijrˈie̯r# | Rule 380 : rʲ > r 
+#vˌijrˈie̯r# | Rule 425 : β > v 
+#vˌirˈie̯r# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#vˌirjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vˌirj?r# | Rule 600 : ˈe > ? / __ @
+#vˌirjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#vˌirjˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#vˌirjˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#vˌiʀjˈe# | Rule 735 : r > ʀ 
+#viʀje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#viʁje# | Rule 743 : ʀ > ʁ 

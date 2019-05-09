@@ -1,18 +1,30 @@
 Trajectory file for run 'run1'; etymon number :858:
-#pˈerd̪it̪ɑm# >>> #pɛʁt̪# ( Correct : #pɛʁt̪#) :
+#pˈerd̪it̪ɑm# >>> #pjɛʁt̪# ( Correct : #pɛʁt̪#) :
 p ˈe r d̪ i t̪ ɑ m 
-#pˈɛrd̪ɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɛrd̪et̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɛrd̪ɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɛrd̪et̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈɛrd̪et̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈɛrd̪ə̯t̪ɑ# | Rule 92 : e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
 #pˈɛrd̪ə̯t̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˈɛrd̪t̪a# | Rule 296 : ə̯ > ∅ 
-#pˈɛrd̪t̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈɛrt̪ə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#pˈɛrt̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#pˈɛɹt̪ə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#pˈɛɹt̪# | Rule 722 : ə̯ > ∅ 
-#pˈɛrt̪# | Rule 733 : ɹ > r 
-#pˈɛʀt̪# | Rule 735 : r > ʀ 
-#pɛʀt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɛʁt̪# | Rule 743 : ʀ > ʁ 
+#pˈɛrʲd̪ʲt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈɛjrʲd̪ʲt̪ʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#pˈɛːjrʲd̪ʲt̪ʲa# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#pˈie̯jrʲd̪ʲt̪ʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˈie̯jrd̪ʲt̪ʲa# | Rule 380 : rʲ > r 
+#pˈie̯jrd̪ʲt̪a# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#pˈie̯jrd̪ʲt̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈie̯jrt̪ə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#pˈijrt̪ə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#pˈirt̪ə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#pˈie̯rt̪ə# | Rule 566 : ∅ > e̯ / [+front,+hi,-round,+prim] __ r [+cons]
+#pjˈert̪ə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pj?rt̪ə# | Rule 600 : ˈe > ? / __ @
+#pjˈɛrt̪ə# | Rule 603 : ? > ˈɛ 
+#pjˈɛrt̪ə̯# | Rule 693 : ə > ə̯ / __ #
+#pjˈɛɹt̪ə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#pjˈɛɹt̪# | Rule 722 : ə̯ > ∅ 
+#pjˈɛrt̪# | Rule 733 : ɹ > r 
+#pjˈɛʀt̪# | Rule 735 : r > ʀ 
+#pjɛʀt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pjɛʁt̪# | Rule 743 : ʀ > ʁ 

@@ -1,14 +1,13 @@
 Trajectory file for run 'run1'; etymon number :16:
-#ˌɑlˈɑwd̪ɑm# >>> #alu# ( Correct : #alu#) :
+#ˌɑlˈɑwd̪ɑm# >>> #aluðʲ# ( Correct : #alu#) :
 ˌɑ l ˈɑ w d̪ ɑ m 
 #ˌɑlˈɑwd̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌalˈawd̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌalˈɔwd̪a# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#ˌalˈɔwða# | Rule 242 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#ˌalˈɔwðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌalˈɔwə# | Rule 595 : {θ;ð} > {∅;∅} 
-#ˌalˈuə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#ˌalˈuːə# | Rule 680 : [+stres] > [+long] / __ ə
-#ˌalˈuː# | Rule 681 : ə > ∅ / [+syl] __ 
-#aluː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#alu# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌalˈɔwða# | Rule 242 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#ˌalˈɔwðʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌalˈɔwðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌalˈuðʲə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ˌalˈuðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#ˌalˈuðʲ# | Rule 722 : ə̯ > ∅ 
+#aluðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

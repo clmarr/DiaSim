@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :516:
 #krˈuːd̪um# >>> #kʁy# ( Correct : #kʁy#) :
 k r ˈuː d̪ u m 
-#krˈuːd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#krˈud̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#krˈud̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#krˈuːd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#krˈud̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#krˈud̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #krˈud̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#krˈuðo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#krˈuðo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #krˈuːðo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #krˈʉːðo# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #krˈʉːðə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #krˈʉːðə̯# | Rule 262 : ə > ə̯ 
 #krˈʉːð# | Rule 296 : ə̯ > ∅ 
-#krˈʉːθ# | Rule 434 : [-son] > [-voi] / __ #
-#krˈyːθ# | Rule 491 : [+hi,+round,-back] > [+front] 
-#krˈyː# | Rule 595 : {θ;ð} > {∅;∅} 
+#krʲˈʉːðʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#krˈʉːðʲ# | Rule 380 : rʲ > r 
+#krˈʉːθʲ# | Rule 434 : [-son] > [-voi] / __ #
+#krˈyːθʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
+#krˈyː# | Rule 720 : [-son] > ∅ / __ #
 #kʀˈyː# | Rule 735 : r > ʀ 
-#kʀyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kʀyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kʀy# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #kʁy# | Rule 743 : ʀ > ʁ 

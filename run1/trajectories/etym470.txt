@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :470:
-#klˈeːt̪ɑ# >>> #klɛ# ( Correct : #klɛ#) :
+#klˈeːt̪ɑ# >>> #klɛðʲ# ( Correct : #klɛ#) :
 k l ˈeː t̪ ɑ 
-#klˈet̪ɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#klˈet̪ɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #klˈeːt̪ɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #klˈeːt̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#klˈeːd̪a# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#klˈeːða# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#klˈejða# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#klˈejðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#klˈojðə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#klˈujðə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#klˈʌjðə# | Rule 591 : ˈu > ˈʌ / __ j [+ant,+voi,+cor,+distr] ( r ) ə #
-#klˈʌjə# | Rule 595 : {θ;ð} > {∅;∅} 
-#klˈajə# | Rule 604 : ˈʌ > ˈa 
-#klˈaːjə# | Rule 690 : [+prim] > [+long] / __ ( j ) ə #
-#klˈaːj# | Rule 692 : ə > ∅ / [+prim] ( j ) __ 
-#klˈɛː# | Rule 694 : ˈaː j > ˈɛː / __ #
-#klɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#klɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#klˈeːt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#klˈeːd̪ʲa# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#klˈeːðʲa# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#klˈejðʲa# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#klˈejðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#klˈojðʲə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#klˈujðʲə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#klˈʌjðʲə# | Rule 591 : ˈu > ˈʌ / __ j [+ant,+voi,+cor,+distr] ( r ) ə #
+#klˈajðʲə# | Rule 604 : ˈʌ > ˈa 
+#klˈɛjðʲə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#klˈɛːðʲə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#klˈɛːðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#klˈɛːðʲ# | Rule 722 : ə̯ > ∅ 
+#klɛːðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#klɛðʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 

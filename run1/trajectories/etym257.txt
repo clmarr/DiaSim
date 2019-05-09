@@ -1,13 +1,13 @@
 Trajectory file for run 'run1'; etymon number :257:
 #fˌiːlˈiolum# >>> #fijœl# ( Correct : #fijœl#) :
 f ˌiː l ˈi o l u m 
-#fˌiːlˈɪɔlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˌiːlˈɪˈɔlʊm# | Rule 18 : [+syl,-lo,-hi,-stres] > [+prim,+stres,+syl,+son,.delrel] / [+prim,-lo,+front,-long] __ ( [-syl] )* [+syl] ( [-syl] )* #
-#fˌiːlɪˈɔlʊm# | Rule 20 : [+prim] > [-stres,-prim,+syl,+son,.delrel] / __ [+prim]
-#fˌiːljˈɔlʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#fˌiːlˈɪɔlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˌiːlˈɪˈɔlʊm# | Rule 18 : [+syl,-lo,-hi,-stres] > [+prim,+stres,+syl,+son,0delrel] / [+prim,-lo,+front,-long] __ ( [-syl] )* [+syl] ( [-syl] )* #
+#fˌiːlɪˈɔlʊm# | Rule 20 : [+prim] > [-stres,-prim,+syl,+son,0delrel] / __ [+prim]
+#fˌiːljˈɔlʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #fˌiːlʝˈɔlʊm# | Rule 27 : j > ʝ / __ [+syl]
-#fˌilʝˈɔlʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˌilʝˈɔlom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˌilʝˈɔlʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#fˌilʝˈɔlom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #fˌilʝˈɔlo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˌiʎˈɔlo# | Rule 90 : l ʝ > ʎ 
 #fˌiʎˈɔːlo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -19,7 +19,7 @@ f ˌiː l ˈi o l u m
 #fˌiʎˈyo̯l# | Rule 491 : [+hi,+round,-back] > [+front] 
 #fˌiʎˈye̯l# | Rule 520 : o̯ > e̯ 
 #fˌiʎˈøːl# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
-#fˌiʎˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#fiʎœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fˌiʎˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#fiʎœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fiʎœl# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #fijœl# | Rule 744 : ʎ > j 

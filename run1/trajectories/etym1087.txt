@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1087:
 #sˈeːmit̪ɑm# >>> #sɑ̃d̪# ( Correct : #sɑ̃t̪#) :
 s ˈeː m i t̪ ɑ m 
-#sˈeːmɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈemɪt̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈemet̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈeːmɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈemɪt̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˈemet̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈemet̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈemt̪ɑ# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #sˈemd̪ɑ# | Rule 191 : t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
 #sˈemd̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˈemd̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈẽmd̪ə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˈɛ̃md̪ə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈãmd̪ə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#sˈãːd̪ə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sʲˈemd̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈemd̪ʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#sʲˈẽmd̪ʲə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#sʲˈɛ̃md̪ʲə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#sʲˈãmd̪ʲə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#sʲˈãːd̪ʲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˈãːd̪ə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˈãːd̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #sˈɑ̃ːd̪ə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #sˈɑ̃ːd̪# | Rule 722 : ə̯ > ∅ 
-#sɑ̃ːd̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɑ̃ːd̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sɑ̃d̪# | Rule 737 : [+syl,+long] > [-long,-splng] 

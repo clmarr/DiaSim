@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :704:
 #mˈoːbilem# >>> #mœbl# ( Correct : #mœbl#) :
 m ˈoː b i l e m 
-#mˈoːbɪlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈoːbɪlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈoːβɪlɛm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
-#mˈoβɪlɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#mˈoβelɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈoβɪlɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#mˈoβelɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈoβelɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈoːβelɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˈoːβəlɛ# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
@@ -19,6 +19,6 @@ m ˈoː b i l e m
 #mˈøːblə# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
 #mˈøːblə̯# | Rule 693 : ə > ə̯ / __ #
 #mˈøːbl# | Rule 722 : ə̯ > ∅ 
-#mˈœːbl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#mœːbl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mˈœːbl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#mœːbl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mœbl# | Rule 737 : [+syl,+long] > [-long,-splng] 

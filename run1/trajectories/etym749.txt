@@ -1,23 +1,26 @@
 Trajectory file for run 'run1'; etymon number :749:
-#n̪ˌepˈoːt̪em# >>> #n̪əvø# ( Correct : #n̪əvø#) :
+#n̪ˌepˈoːt̪em# >>> #n̪ʲəvwa# ( Correct : #n̪əvø#) :
 n̪ ˌe p ˈoː t̪ e m 
-#n̪ˌɛpˈoːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˌɛpˈot̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#n̪ˌɛpˈoːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˌɛpˈot̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #n̪ˌɛpˈot̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #n̪ˌɛpˈoːt̪ɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #n̪ˌɛpˈoːt̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #n̪ˌɛpˈoːt̪ə̯# | Rule 262 : ə > ə̯ 
 #n̪ˌɛpˈoːt̪# | Rule 296 : ə̯ > ∅ 
-#n̪ˌɛbˈoːt̪# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#n̪ˌɛβˈoːt̪# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#n̪ˌɛβˈowt̪# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#n̪ˌeβˈowt̪# | Rule 411 : ˌɛ > ˌe / __ [-cor]
-#n̪ˌevˈowt̪# | Rule 425 : β > v 
-#n̪ˌevˈowθ# | Rule 428 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
-#n̪ˌəvˈowθ# | Rule 496 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
-#n̪ˌəvˈewθ# | Rule 528 : ˈo > ˈe / __ w
-#n̪ˌəvˈew# | Rule 595 : {θ;ð} > {∅;∅} 
-#n̪ˌəvˈøw# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#n̪ˌəvˈøː# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#n̪əvøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪əvø# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#n̪ʲˌɛpˈoːt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˌɛbˈoːt̪ʲ# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#n̪ʲˌɛβˈoːt̪ʲ# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#n̪ʲˌɛβˈoːjt̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#n̪ʲˌɛβˈoːjt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#n̪ʲˌɛβˈojt̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#n̪ʲˌeβˈojt̪ʲ# | Rule 411 : ˌɛ > ˌe / __ [-cor]
+#n̪ʲˌevˈojt̪ʲ# | Rule 425 : β > v 
+#n̪ʲˌevˈojθʲ# | Rule 428 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#n̪ʲˌəvˈojθʲ# | Rule 496 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#n̪ʲˌəvˈujθʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#n̪ʲˌəvˈuɛ̯θʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#n̪ʲˌəvwˈɛθʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#n̪ʲˌəvwˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#n̪ʲəvwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ʲəvwa# | Rule 742 : ɛ > a / w __ 

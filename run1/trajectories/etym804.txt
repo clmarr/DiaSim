@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :804:
 #pˌɑleˈɑːrium# >>> #paje# ( Correct : #pɑje#) :
 p ˌɑ l e ˈɑː r i u m 
-#pˌɑlɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˌɑljˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#pˌɑlɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌɑljˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #pˌɑlʝˈɑːrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
 #pˌɑlʝˈɑrʝʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#pˌɑlʝˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌɑlʝˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˌɑlʝˈɑrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˌɑʎˈɑrʝo# | Rule 90 : l ʝ > ʎ 
 #pˌɑʎˈɑrʲo# | Rule 172 : r ʝ > rʲ 
@@ -25,5 +25,5 @@ p ˌɑ l e ˈɑː r i u m
 #pˌaʎˈer# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 #pˌaʎˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #pˌaʎˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#paʎe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#paʎe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #paje# | Rule 744 : ʎ > j 

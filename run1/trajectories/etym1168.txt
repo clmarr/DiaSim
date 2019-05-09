@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1168:
 #t͡srˈokn̪ɑm# >>> #fʁɔɲ# ( Correct : #fʁɔɲ#) :
 t͡s r ˈo k n̪ ɑ m 
-#t͡srˈɔkn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#t͡srˈɔkn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t͡srˈɔkn̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #frˈɔkn̪ɑ# | Rule 72 : t͡s > f / __ [+cons,+son]
-#frˈɔxn̪ɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
-#frˈoxn̪ɑ# | Rule 160 : [+prim] > [+tense,-cons,-lat,+cont,.delrel] / __ x n̪
+#frˈɔxn̪ɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
+#frˈoxn̪ɑ# | Rule 160 : [+prim] > [+tense,-cons,-lat,+cont,0delrel] / __ x n̪
 #frˈoŋɲɑ# | Rule 161 : x n̪ > ŋ ɲ 
-#frˈũŋɲɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#frˈũŋɲɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #frˈũŋɲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #frˈũɲɲa# | Rule 209 : ŋ > ɲ / __ ɲ
+#frʲˈũɲɲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#frˈũɲɲa# | Rule 380 : rʲ > r 
 #frˈũɲɲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #frˈũɲə# | Rule 432 : ɲ > ∅ / __ ɲ
 #frˈũɲə̯# | Rule 693 : ə > ə̯ / __ #
 #frˈũɲ# | Rule 722 : ə̯ > ∅ 
 #fʀˈũɲ# | Rule 735 : r > ʀ 
-#fʀũɲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fʀũɲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fʀɔ̃ɲ# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 
 #fʀɔɲ# | Rule 740 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
 #fʁɔɲ# | Rule 743 : ʀ > ʁ 

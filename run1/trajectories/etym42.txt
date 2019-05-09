@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :42:
 #ˌɑmˈiːkoːs# >>> #ami# ( Correct : #ami#) :
 ˌɑ m ˈiː k oː s 
-#ˌɑmˈikos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌɑmˈikos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˌɑmˈiːkos# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌɑmˈiːɡos# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #ˌɑmˈiːɣos# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -9,11 +9,13 @@ Trajectory file for run 'run1'; etymon number :42:
 #ˌamˈiːɣəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #ˌamˈiːɣə̯s# | Rule 262 : ə > ə̯ 
 #ˌamˈiːɣs# | Rule 296 : ə̯ > ∅ 
-#ˌamˈiɣs# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#ˌamˈixs# | Rule 479 : [-son] > [-voi] / __ [-voi]
-#ˌãmˈixs# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãmˈiːs# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌamˈiːɣsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌamˈiɣsʲ# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#ˌamˈixsʲ# | Rule 479 : [-son] > [-voi] / __ [-voi]
+#ˌãmˈixsʲ# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãmˈiːsʲ# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌãmˈiːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #ˌãmˈiː# | Rule 720 : [-son] > ∅ / __ #
 #ˌamˈiː# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#amiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ami# | Rule 737 : [+syl,+long] > [-long,-splng] 

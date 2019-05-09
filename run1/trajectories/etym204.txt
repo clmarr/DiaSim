@@ -1,16 +1,27 @@
 Trajectory file for run 'run1'; etymon number :204:
-#d̪ˈuːrɑːs# >>> #d̪yʁ# ( Correct : #d̪yʁ#) :
+#d̪ˈuːrɑːs# >>> #d̪yjʁwa# ( Correct : #d̪yʁ#) :
 d̪ ˈuː r ɑː s 
-#d̪ˈurɑːs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˈurɑːs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #d̪ˈurɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #d̪ˈuːrɑs# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #d̪ˈuːras# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #d̪ˈʉːras# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#d̪ˈʉːrəs# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˈyːrəs# | Rule 491 : [+hi,+round,-back] > [+front] 
-#d̪ˈyːrə# | Rule 720 : [-son] > ∅ / __ #
-#d̪ˈyːʀə# | Rule 735 : r > ʀ 
-#d̪yːʀə# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪yʀə# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#d̪yʁə# | Rule 743 : ʀ > ʁ 
-#d̪yʁ# | Rule 746 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#d̪ʲˈʉːrʲasʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈʉːjrʲasʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#d̪ʲˈʉːjrasʲ# | Rule 380 : rʲ > r 
+#d̪ʲˈʉːjrajs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#d̪ʲˈʉːjrajsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#d̪ʲˈʉːjrəjsʲ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#d̪ʲˈʉːjrejsʲ# | Rule 485 : ə > e / __ [+front,+son,+hi,-syl]
+#d̪ʲˈyːjrejsʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
+#d̪ʲˈyːjrojsʲ# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#d̪ʲˈyːjrujsʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#d̪ʲˈyːjruɛ̯sʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#d̪ʲˈyːjrwɛsʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪ˈyːjrwɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#d̪ˈyːjrwɛ# | Rule 720 : [-son] > ∅ / __ #
+#d̪ˈyːjʀwɛ# | Rule 735 : r > ʀ 
+#d̪yːjʀwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪yjʀwɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#d̪yjʀwa# | Rule 742 : ɛ > a / w __ 
+#d̪yjʁwa# | Rule 743 : ʀ > ʁ 

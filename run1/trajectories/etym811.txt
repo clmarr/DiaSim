@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :811:
-#pˈɑn̪t̪ikem# >>> #pɑ̃s# ( Correct : #pɑ̃s#) :
+#pˈɑn̪t̪ikem# >>> #pɛ̃s# ( Correct : #pɑ̃s#) :
 p ˈɑ n̪ t̪ i k e m 
-#pˈɑn̪t̪ɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɑn̪t̪ekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɑn̪t̪ɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɑn̪t̪ekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈɑn̪t̪ekɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈɑn̪t̪ekʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #pˈɑn̪t̪ecɛ# | Rule 76 : [+back,+front] > [-back] 
@@ -13,13 +13,18 @@ p ˈɑ n̪ t̪ i k e m
 #pˈan̪t̪ə̯t͡sʲə̯# | Rule 262 : ə > ə̯ 
 #pˈan̪t̪ə̯t͡sʲə# | Rule 292 : ə̯ > ə / ə̯ ( [-syl] )* __ #
 #pˈan̪t̪t͡sʲə# | Rule 296 : ə̯ > ∅ 
-#pˈan̪t͡sʲə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#pˈãn̪t͡sʲə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˈãn̪sʲə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#pˈãːsʲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˈãːsə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#pˈãːsə̯# | Rule 693 : ə > ə̯ / __ #
-#pˈɑ̃ːsə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#pˈɑ̃ːs# | Rule 722 : ə̯ > ∅ 
-#pɑ̃ːs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɑ̃s# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#pˈan̪ʲt̪ʲt͡sʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈan̪ʲt̪t͡sʲə# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#pˈajn̪t̪t͡sʲə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pˈajn̪t͡sʲə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#pˈaj̃n̪t͡sʲə# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#pˈãj̃n̪t͡sʲə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#pˈɛ̃j̃n̪t͡sʲə# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#pˈɛ̃j̃n̪sʲə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#pˈɛ̃n̪sʲə# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#pˈɛ̃ːsʲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#pˈɛ̃ːsə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pˈɛ̃ːsə̯# | Rule 693 : ə > ə̯ / __ #
+#pˈɛ̃ːs# | Rule 722 : ə̯ > ∅ 
+#pɛ̃ːs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛ̃s# | Rule 737 : [+syl,+long] > [-long,-splng] 

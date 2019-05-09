@@ -1,34 +1,36 @@
 Trajectory file for run 'run1'; etymon number :1339:
-#wˌin̪d̪ˈeːsiɑm# >>> #vɑ̃d̪waz# ( Correct : #vɑ̃d̪waz#) :
+#wˌin̪d̪ˈeːsiɑm# >>> #vɛ̃d̪waz# ( Correct : #vɑ̃d̪waz#) :
 w ˌi n̪ d̪ ˈeː s i ɑ m 
 #ɣʷˌin̪d̪ˈeːsiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˌɪn̪d̪ˈeːsɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɣʷˌɪn̪d̪ˈeːsjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɣʷˌɪn̪d̪ˈeːsɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɣʷˌɪn̪d̪ˈeːsjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ɣʷˌɪn̪d̪ˈeːsʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #βʷˌɪn̪d̪ˈeːsʝɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˌɪn̪d̪ˈesʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#βʷˌen̪d̪ˈesʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˌɪn̪d̪ˈesʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#βʷˌen̪d̪ˈesʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˌen̪d̪ˈesʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #βʷˌen̪d̪ˈezʝɑ# | Rule 136 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
 #βˌen̪d̪ˈezʝɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #βˌen̪d̪ˈezʲɑ# | Rule 173 : z ʝ > zʲ 
 #βˌen̪d̪ˈezʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #βˌen̪d̪ˈeːzʲa# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#βˌen̪d̪ˈeːjza# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#βˌen̪d̪ˈejza# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#vˌen̪d̪ˈejza# | Rule 425 : β > v 
-#vˌen̪d̪ˈejzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌẽn̪d̪ˈejzə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#vˌẽn̪d̪ˈojzə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#vˌẽn̪d̪ˈujzə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#vˌɛ̃n̪d̪ˈujzə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,.delrel] 
-#vˌãn̪d̪ˈujzə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#vˌãn̪d̪ˈuɛ̯zə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
-#vˌãn̪d̪wˈɛzə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#vˌãːd̪wˈɛzə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˌãːd̪wˈɛzə̯# | Rule 693 : ə > ə̯ / __ #
-#vˌɑ̃ːd̪wˈɛzə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#vˌɑ̃ːd̪wˈɛz# | Rule 722 : ə̯ > ∅ 
-#vɑ̃ːd̪wɛz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɑ̃d̪wɛz# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#vɑ̃d̪waz# | Rule 742 : ɛ > a / w __ 
+#βˌen̪ʲd̪ʲˈeːzʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˌen̪ʲd̪ˈeːzʲa# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#βˌejn̪d̪ˈeːjza# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#βˌejn̪d̪ˈejza# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#vˌejn̪d̪ˈejza# | Rule 425 : β > v 
+#vˌejn̪d̪ˈejzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌej̃n̪d̪ˈejzə# | Rule 505 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#vˌẽj̃n̪d̪ˈejzə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#vˌẽj̃n̪d̪ˈojzə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌẽj̃n̪d̪ˈujzə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#vˌɛ̃j̃n̪d̪ˈujzə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#vˌɛ̃j̃n̪d̪ˈuɛ̯zə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#vˌɛ̃j̃n̪d̪wˈɛzə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vˌɛ̃n̪d̪wˈɛzə# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#vˌɛ̃ːd̪wˈɛzə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#vˌɛ̃ːd̪wˈɛzə̯# | Rule 693 : ə > ə̯ / __ #
+#vˌɛ̃ːd̪wˈɛz# | Rule 722 : ə̯ > ∅ 
+#vɛ̃ːd̪wɛz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vɛ̃d̪wɛz# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#vɛ̃d̪waz# | Rule 742 : ɛ > a / w __ 

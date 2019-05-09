@@ -1,18 +1,26 @@
 Trajectory file for run 'run1'; etymon number :192:
-#d̪ˌormˈiːre# >>> #d̪uʁmiʁ# ( Correct : #d̪ɔʁmiʁ#) :
+#d̪ˌormˈiːre# >>> #d̪waʁmiʁ# ( Correct : #d̪ɔʁmiʁ#) :
 d̪ ˌo r m ˈiː r e 
-#d̪ˌɔrmˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˌɔrmˈirɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#d̪ˌɔrmˈiːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˌɔrmˈirɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #d̪ˌɔrmˈiːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #d̪ˌɔrmˈiːrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #d̪ˌɔrmˈiːrə̯# | Rule 262 : ə > ə̯ 
 #d̪ˌɔrmˈiːr# | Rule 296 : ə̯ > ∅ 
-#d̪ˌormˈiːr# | Rule 418 : ˌɔ > ˌo 
-#d̪ˌurmˈiːr# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#d̪ˌurmˈiːɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#d̪ˌuɹmˈiːɹ# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#d̪ˌurmˈiːr# | Rule 733 : ɹ > r 
-#d̪ˌuʀmˈiːʀ# | Rule 735 : r > ʀ 
-#d̪uʀmiːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪uʀmiʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#d̪uʁmiʁ# | Rule 743 : ʀ > ʁ 
+#d̪ʲˌɔrʲmˈiːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˌɔjrʲmˈiːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#d̪ʲˌɔjrmˈiːjr# | Rule 380 : rʲ > r 
+#d̪ʲˌɔjrmˈijr# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#d̪ʲˌojrmˈijr# | Rule 418 : ˌɔ > ˌo 
+#d̪ʲˌojrmˈir# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#d̪ʲˌoɛ̯rmˈir# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
+#d̪ʲˌuɛ̯rmˈir# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#d̪ʲwˌɛrmˈir# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪wˌɛrmˈir# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#d̪wˌɛrmˈiɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#d̪wˌɛɹmˈiɹ# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#d̪wˌɛrmˈir# | Rule 733 : ɹ > r 
+#d̪wˌɛʀmˈiʀ# | Rule 735 : r > ʀ 
+#d̪wɛʀmiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪waʀmiʀ# | Rule 742 : ɛ > a / w __ 
+#d̪waʁmiʁ# | Rule 743 : ʀ > ʁ 

@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1065:
 #sˈɑpiɑm# >>> #saʃ# ( Correct : #saʃ#) :
 s ˈɑ p i ɑ m 
-#sˈɑpɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɑpjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˈɑpɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɑpjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #sˈɑpʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #sˈɑpʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈapʝa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #sˈapɟa# | Rule 248 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
 #sˈapca# | Rule 249 : ɟ > c / [-voi] __ 
 #sˈapt͡ʃa# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#sˈat̪t͡ʃa# | Rule 327 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#sˈat̪t͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈat͡ʃə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#sˈaʃə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#sʲˈapt͡ʃa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈat̪t͡ʃa# | Rule 327 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#sʲˈat̪t͡ʃə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#sʲˈat͡ʃə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#sʲˈaʃə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#sˈaʃə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˈaʃə̯# | Rule 693 : ə > ə̯ / __ #
 #sˈaʃ# | Rule 722 : ə̯ > ∅ 
-#saʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#saʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

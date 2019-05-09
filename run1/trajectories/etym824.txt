@@ -1,15 +1,24 @@
 Trajectory file for run 'run1'; etymon number :824:
-#pˈɑrt̪em# >>> #paʁ# ( Correct : #paʁ#) :
+#pˈɑrt̪em# >>> #pɛʁ# ( Correct : #paʁ#) :
 p ˈɑ r t̪ e m 
-#pˈɑrt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɑrt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˈɑrt̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈart̪ɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˈart̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˈart̪ə̯# | Rule 262 : ə > ə̯ 
 #pˈart̪# | Rule 296 : ə̯ > ∅ 
-#pˈaɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#pˈaɹ# | Rule 720 : [-son] > ∅ / __ #
-#pˈar# | Rule 733 : ɹ > r 
-#pˈaʀ# | Rule 735 : r > ʀ 
-#paʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#paʁ# | Rule 743 : ʀ > ʁ 
+#pˈarʲt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈajrʲt̪ʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#pˈaːjrʲt̪ʲ# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#pˈaːjrt̪ʲ# | Rule 380 : rʲ > r 
+#pˈajrt̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#pˈɛjrt̪ʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#pˈɛːrt̪ʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#pˈɛːrt̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pˈɛːɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#pˈɛːɹ# | Rule 720 : [-son] > ∅ / __ #
+#pˈɛːr# | Rule 733 : ɹ > r 
+#pˈɛːʀ# | Rule 735 : r > ʀ 
+#pɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#pɛʁ# | Rule 743 : ʀ > ʁ 

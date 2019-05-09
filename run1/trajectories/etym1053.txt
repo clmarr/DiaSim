@@ -1,21 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1053:
-#sˈɑlwiɑm# >>> #sɑj# ( Correct : #soʒ#) :
+#sˈɑlwiɑm# >>> #sɛj# ( Correct : #soʒ#) :
 s ˈɑ l w i ɑ m 
 #sˈɑlɣʷiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#sˈɑlɣʷɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɑlɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˈɑlɣʷɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɑlɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #sˈɑlɣʷʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #sˈɑlʝɑm# | Rule 29 : {ɣʷ;w} > {∅;∅} / __ ʝ
 #sˈɑlʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈɑʎɑ# | Rule 90 : l ʝ > ʎ 
 #sˈɑːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #sˈaːʎa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˈaʎa# | Rule 397 : [+prim,-hi] > [-long,-splng] / __ ʎ
-#sˈaʎə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈaːʎə# | Rule 691 : [+lo,+syl] > [+long] / __ ʎ ə #
-#sˈaːʎə̯# | Rule 693 : ə > ə̯ / __ #
-#sˈɑːʎə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#sˈɑːʎ# | Rule 722 : ə̯ > ∅ 
-#sɑːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɑʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#sɑj# | Rule 744 : ʎ > j 
+#sʲˈaːʎa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈɛːʎa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+#sʲˈie̯ʎa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sʲˈie̯ʎə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#sʲjˈeʎə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#sʲj?ʎə# | Rule 600 : ˈe > ? / __ @
+#sʲjˈɛʎə# | Rule 603 : ? > ˈɛ 
+#sʲˈɛʎə# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#sˈɛʎə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#sˈɛʎə̯# | Rule 693 : ə > ə̯ / __ #
+#sˈɛʎ# | Rule 722 : ə̯ > ∅ 
+#sɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɛj# | Rule 744 : ʎ > j 

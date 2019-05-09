@@ -1,12 +1,15 @@
 Trajectory file for run 'run1'; etymon number :892:
 #pˈirɑm# >>> #pwaʁ# ( Correct : #pwaʁ#) :
 p ˈi r ɑ m 
-#pˈɪrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈerɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɪrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈerɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈerɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈeːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˈeːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#pˈejra# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈeːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈeːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#pˈeːjra# | Rule 380 : rʲ > r 
+#pˈejra# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 #pˈejrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #pˈojrə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
 #pˈoɛ̯rə# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
@@ -15,6 +18,6 @@ p ˈi r ɑ m
 #pwˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
 #pwˈɛr# | Rule 722 : ə̯ > ∅ 
 #pwˈɛʀ# | Rule 735 : r > ʀ 
-#pwɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pwɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #pwaʀ# | Rule 742 : ɛ > a / w __ 
 #pwaʁ# | Rule 743 : ʀ > ʁ 

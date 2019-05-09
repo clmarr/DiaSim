@@ -2,14 +2,14 @@ Trajectory file for run 'run1'; etymon number :482:
 #kˌokʰleˈɑːrium# >>> #kɥije# ( Correct : #kɥijɛʁ#) :
 k ˌo kʰ l e ˈɑː r i u m 
 #kˌokleˈɑːrium# | Rule 6 : [+sg,-cont] > [-sg] 
-#kˌɔklɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɔkljˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˌɔklɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɔkljˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #kˌɔklʝˈɑːrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
 #kˌɔklʝˈɑrʝʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#kˌɔklʝˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˌɔklʝˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˌɔklʝˈɑrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˌɔkʎˈɑrʝo# | Rule 90 : l ʝ > ʎ 
-#kˌɔxʎˈɑrʝo# | Rule 116 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ ʎ
+#kˌɔxʎˈɑrʝo# | Rule 116 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ ʎ
 #kˌɔxʎˈɑrʲo# | Rule 172 : r ʝ > rʲ 
 #kˌɔxʎˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #kˌɔçʎˈarʲo# | Rule 204 : [+back,+hi,+cont,-son] > [-back,+front] / __ ʎ
@@ -34,5 +34,5 @@ k ˌo kʰ l e ˈɑː r i u m
 #kɥˌiʎˈer# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 #kɥˌiʎˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #kɥˌiʎˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#kɥiʎe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kɥiʎe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kɥije# | Rule 744 : ʎ > j 

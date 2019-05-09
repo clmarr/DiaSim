@@ -2,9 +2,9 @@ Trajectory file for run 'run1'; etymon number :1353:
 #wˈiːwere# >>> #vivʁ# ( Correct : #vivʁ#) :
 w ˈiː w e r e 
 #ɣʷˈiːɣʷere# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈiːɣʷɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈiːɣʷɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #βʷˈiːβʷɛrɛ# | Rule 49 : ɣʷ > βʷ 
-#βʷˈiβʷɛrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#βʷˈiβʷɛrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #βʷˈiːβʷɛrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #βʷˈiːβʷrɛ# | Rule 140 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
 #βʷˈiβʷrɛ# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
@@ -16,10 +16,16 @@ w ˈiː w e r e
 #βˈiːβrə̯# | Rule 262 : ə > ə̯ 
 #βˈiːβr# | Rule 296 : ə̯ > ∅ 
 #βˈiːβrə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#vˈiːvrə# | Rule 425 : β > v 
-#vˈiːvrə̯# | Rule 693 : ə > ə̯ / __ #
-#vˈiːvr# | Rule 722 : ə̯ > ∅ 
-#vˈiːvʀ# | Rule 735 : r > ʀ 
-#viːvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vivʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#βˈiːβrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˈiːjβrʲə# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#βˈijβrʲə# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#βˈiːjβrʲə# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#βˈiːjβrə# | Rule 380 : rʲ > r 
+#βˈijβrə# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#vˈijvrə# | Rule 425 : β > v 
+#vˈivrə# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#vˈivrə̯# | Rule 693 : ə > ə̯ / __ #
+#vˈivr# | Rule 722 : ə̯ > ∅ 
+#vˈivʀ# | Rule 735 : r > ʀ 
+#vivʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #vivʁ# | Rule 743 : ʀ > ʁ 

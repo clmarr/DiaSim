@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :37:
-#ˌɑmˈɑːrɑm# >>> #amɛʁ# ( Correct : #amɛʁ#) :
+#ˌɑmˈɑːrɑm# >>> #amjɛʁ# ( Correct : #amɛʁ#) :
 ˌɑ m ˈɑː r ɑ m 
 #ˌɑmˈɑrɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #ˌɑmˈɑrɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑmˈɑːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌamˈaːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˌamˈae̯ra# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌamˈae̯rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌãmˈae̯rə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãmˈeːrə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌãmˈeːrə̯# | Rule 693 : ə > ə̯ / __ #
-#ˌãmˈɛːrə̯# | Rule 696 : ˈeː > ˈɛː / __ [+cons] ə̯
-#ˌãmˈɛːr# | Rule 722 : ə̯ > ∅ 
-#ˌamˈɛːr# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#ˌamˈɛːʀ# | Rule 735 : r > ʀ 
-#amɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#amɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#amɛʁ# | Rule 743 : ʀ > ʁ 
+#ˌamˈaːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌamˈaːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#ˌamjˈaːrʲa# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#ˌamjˈɛːrʲa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+#ˌamjˈie̯rʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˌamˈie̯rʲa# | Rule 371 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
+#ˌamˈie̯ra# | Rule 380 : rʲ > r 
+#ˌamˈie̯rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌãmˈie̯rə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãmjˈerə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌãmj?rə# | Rule 600 : ˈe > ? / __ @
+#ˌãmjˈɛrə# | Rule 603 : ? > ˈɛ 
+#ˌãmjˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
+#ˌãmjˈɛr# | Rule 722 : ə̯ > ∅ 
+#ˌamjˈɛr# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ˌamjˈɛʀ# | Rule 735 : r > ʀ 
+#amjɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#amjɛʁ# | Rule 743 : ʀ > ʁ 

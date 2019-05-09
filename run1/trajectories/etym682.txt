@@ -1,20 +1,27 @@
 Trajectory file for run 'run1'; etymon number :682:
-#mˈembrum# >>> #mɑ̃bʁ# ( Correct : #mɑ̃bʁ#) :
+#mˈembrum# >>> #mɛ̃bʁ# ( Correct : #mɑ̃bʁ#) :
 m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɛmbrom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɛmbrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɛmbrom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈɛmbro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈɛmbrə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #mˈɛmbrə̯# | Rule 262 : ə > ə̯ 
 #mˈɛmbɾə# | Rule 285 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
 #mˈɛmbrə# | Rule 291 : ɾ > r 
-#mˈɛ̃mbrə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#mˈãmbrə# | Rule 565 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,.delrel] / __ [+cons]
-#mˈãːbrə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈãːbrə̯# | Rule 693 : ə > ə̯ / __ #
-#mˈɑ̃ːbrə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#mˈɑ̃ːbr# | Rule 722 : ə̯ > ∅ 
-#mˈɑ̃ːbʀ# | Rule 735 : r > ʀ 
-#mɑ̃ːbʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɑ̃bʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#mɑ̃bʁ# | Rule 743 : ʀ > ʁ 
+#mˈɛmbrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈɛjmbrʲə# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#mˈɛːjmbrʲə# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#mˈie̯jmbrʲə# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#mˈie̯jmbrə# | Rule 380 : rʲ > r 
+#mˈijmbrə# | Rule 543 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#mˈimbrə# | Rule 544 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#mˈĩmbrə# | Rule 623 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#mˈẽmbrə# | Rule 649 : [+nas,+front,-round,-lo,+syl] > [-hi] 
+#mˈẽːbrə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#mˈɛ̃ːbrə# | Rule 664 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
+#mˈɛ̃ːbrə̯# | Rule 693 : ə > ə̯ / __ #
+#mˈɛ̃ːbr# | Rule 722 : ə̯ > ∅ 
+#mˈɛ̃ːbʀ# | Rule 735 : r > ʀ 
+#mɛ̃ːbʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛ̃bʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mɛ̃bʁ# | Rule 743 : ʀ > ʁ 

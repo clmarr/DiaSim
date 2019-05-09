@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :322:
 #ɡrˈɑfium# >>> #ɡʁɛf# ( Correct : #ɡʁɛf#) :
 ɡ r ˈɑ f i u m 
-#ɡrˈɑfɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡrˈɑfjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɡrˈɑfɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡrˈɑfjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ɡrˈɑfʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ɡrˈɑfʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɡrˈɑfʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ɡrˈɑfʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ɡrˈɑʝfo# | Rule 134 : f ʝ > ʝ f 
 #ɡrˈaʝfo# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -12,11 +12,13 @@ Trajectory file for run 'run1'; etymon number :322:
 #ɡrˈaʝfə̯# | Rule 262 : ə > ə̯ 
 #ɡrˈaʝf# | Rule 296 : ə̯ > ∅ 
 #ɡrˈajf# | Rule 307 : ʝ > j / __ ( [-syl] )* #
-#ɡrˈɛjf# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#ɡrʲˈajf# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ɡrʲˈɛjf# | Rule 365 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cons]
+#ɡrˈɛjf# | Rule 380 : rʲ > r 
 #ɡrˈɛːf# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
 #ɡrˈɛːfə̯# | Rule 719 : ∅ > ə̯ / f __ #
 #ɡrˈɛːf# | Rule 722 : ə̯ > ∅ 
 #ɡʀˈɛːf# | Rule 735 : r > ʀ 
-#ɡʀɛːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɡʀɛːf# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ɡʀɛf# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ɡʁɛf# | Rule 743 : ʀ > ʁ 

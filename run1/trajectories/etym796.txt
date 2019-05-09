@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :796:
 #pˌɑːɡˈɑːn̪um# >>> #pajɛ̃# ( Correct : #pajɛ̃#) :
 p ˌɑː ɡ ˈɑː n̪ u m 
-#pˌɑːɡˈɑːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌɑːɡˈɑːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɑɡˈɑn̪ʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#pˌɑɡˈɑn̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌɑɡˈɑn̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˌɑɡˈɑn̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#pˌɑɣˈɑn̪o# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#pˌɑɣˈɑn̪o# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #pˌɑɣˈɑːn̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˌaɣˈaːn̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˌaɣʲˈaːn̪o# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
@@ -13,13 +13,14 @@ p ˌɑː ɡ ˈɑː n̪ u m
 #pˌaʝˈaːn̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˌaʝˈaːn̪ə̯# | Rule 262 : ə > ə̯ 
 #pˌaʝˈaːn̪# | Rule 296 : ə̯ > ∅ 
-#pˌajˈaːn̪# | Rule 377 : ʝ > j 
-#pˌajˈae̯n̪# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌajˈajn̪# | Rule 427 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#pˌaʝˈaːn̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˌajˈaːn̪ʲ# | Rule 377 : ʝ > j 
+#pˌajˈaːjn̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pˌajˈajn̪# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
 #pˌajˈaj̃n̪# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#pˌajˈãj̃n̪# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#pˌajˈɛ̃j̃n̪# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#pˌajˈãj̃n̪# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#pˌajˈɛ̃j̃n̪# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
 #pˌajˈɛ̃n̪# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
 #pˌajˈɛ̃ː# | Rule 654 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#pajɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pajɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #pajɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 

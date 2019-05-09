@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :1013:
 #rˈikɑm# >>> #ʁɛ# ( Correct : #ʁɛ#) :
 r ˈi k ɑ m 
-#rˈɪkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈekɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˈɪkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˈekɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #rˈekɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #rˈeːkɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #rˈeːɡɑ# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -10,7 +10,9 @@ r ˈi k ɑ m
 #rˈeːɣa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #rˈeːɣʲa# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #rˈeːʝa# | Rule 241 : [+back,+front] > [-back] 
-#rˈeːja# | Rule 377 : ʝ > j 
+#rʲˈeːʝa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#rʲˈeːja# | Rule 377 : ʝ > j 
+#rˈeːja# | Rule 380 : rʲ > r 
 #rˈeja# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 #rˈejə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #rˈojə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
@@ -21,6 +23,6 @@ r ˈi k ɑ m
 #rˈaːj# | Rule 692 : ə > ∅ / [+prim] ( j ) __ 
 #rˈɛː# | Rule 694 : ˈaː j > ˈɛː / __ #
 #ʀˈɛː# | Rule 735 : r > ʀ 
-#ʀɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʀɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ʁɛ# | Rule 743 : ʀ > ʁ 

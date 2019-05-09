@@ -3,12 +3,14 @@ Trajectory file for run 'run1'; etymon number :79:
 ˌɑ w ˈeː n̪ ɑ m 
 #ˌɑɣʷˈeːn̪ɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ˌɑβʷˈeːn̪ɑm# | Rule 49 : ɣʷ > βʷ 
-#ˌɑβʷˈen̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˌɑβʷˈen̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˌɑβʷˈen̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑβʷˈeːn̪ɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌɑβˈeːn̪ɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #ˌaβˈeːn̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˌaβˈejn̪a# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌaβˈeːn̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌaβˈeːjn̪a# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌaβˈejn̪a# | Rule 388 : [+syl] > [-long,-splng] / __ [-syl] [+cons,+nas]
 #ˌavˈejn̪a# | Rule 425 : β > v 
 #ˌavˈejn̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #ˌavˈojn̪ə# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
@@ -16,12 +18,12 @@ Trajectory file for run 'run1'; etymon number :79:
 #ˌavˈʌjn̪ə# | Rule 591 : ˈu > ˈʌ / __ j [+ant,+voi,+cor,+distr] ( r ) ə #
 #ˌavˈujn̪ə# | Rule 593 : ˈʌ > ˈu / [+lab] ( r ) __ j ( [+ant,+voi,+cor,+distr] ) ə #
 #ˌavˈuj̃n̪ə# | Rule 612 : j > j̃ / __ [+nas,+cons]
-#ˌavˈũj̃n̪ə# | Rule 613 : [+syl,-front] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#ˌavˈũj̃n̪ə# | Rule 613 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
 #ˌavwˈĩn̪ə# | Rule 615 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
 #ˌavwˈẽn̪ə# | Rule 646 : [+front,+nas,+syl] > [-hi] / w __ 
-#ˌavwˈɛ̃n̪ə# | Rule 662 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,.delrel] / w __ 
+#ˌavwˈɛ̃n̪ə# | Rule 662 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
 #ˌavwˈɛn̪ə# | Rule 669 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
 #ˌavwˈɛn̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #ˌavwˈɛn̪# | Rule 722 : ə̯ > ∅ 
-#avwɛn̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#avwɛn̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #avwan̪# | Rule 742 : ɛ > a / w __ 

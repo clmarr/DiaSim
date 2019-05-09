@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :7:
-#ˌɑd̪wokˈɑːt̪um# >>> #avɔe# ( Correct : #avwe#) :
+#ˌɑd̪wokˈɑːt̪um# >>> #aðʲvɔɛ# ( Correct : #avwe#) :
 ˌɑ d̪ w o k ˈɑː t̪ u m 
 #ˌɑd̪ɣʷokˈɑːt̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˌɑd̪ɣʷɔkˈɑːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑd̪ɣʷɔkˈɑːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑd̪βʷɔkˈɑːt̪ʊm# | Rule 49 : ɣʷ > βʷ 
 #ˌɑd̪βʷɔkˈɑt̪ʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#ˌɑd̪βʷɔkˈɑt̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑd̪βʷɔkˈɑt̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɑd̪βʷɔkˈɑt̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑd̪βʷɔkˈɑːt̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˌɑd̪βʷɔɡˈɑːt̪o# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -17,10 +17,14 @@ Trajectory file for run 'run1'; etymon number :7:
 #ˌaðβɔˈaːt̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌaðβɔˈaːt̪ə̯# | Rule 262 : ə > ə̯ 
 #ˌaðβɔˈaːt̪# | Rule 296 : ə̯ > ∅ 
-#ˌaðβɔˈae̯t̪# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌaðvɔˈae̯t̪# | Rule 425 : β > v 
-#ˌaðvɔˈae̯θ# | Rule 428 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
-#ˌaðvɔˈeːθ# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌavɔˈeː# | Rule 595 : {θ;ð} > {∅;∅} 
-#avɔeː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#avɔe# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌaðʲβɔˈaːt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌaðʲβɔˈaːjt̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌaðʲβɔˈaːjt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#ˌaðʲβɔˈajt̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#ˌaðʲvɔˈajt̪ʲ# | Rule 425 : β > v 
+#ˌaðʲvɔˈajθʲ# | Rule 428 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#ˌaðʲvɔˈɛjθʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ˌaðʲvɔˈɛːθʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˌaðʲvɔˈɛː# | Rule 720 : [-son] > ∅ / __ #
+#aðʲvɔɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aðʲvɔɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

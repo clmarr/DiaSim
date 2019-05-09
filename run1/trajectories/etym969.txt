@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :969:
 #pˈuːlikem# >>> #pys# ( Correct : #pys#) :
 p ˈuː l i k e m 
-#pˈuːlɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈulɪkɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˈulekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈuːlɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈulɪkɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#pˈulekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈulekɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈulekʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #pˈulecɛ# | Rule 76 : [+back,+front] > [-back] 
@@ -21,7 +21,7 @@ p ˈuː l i k e m
 #pˈyɫt͡sə# | Rule 532 : t͡sʲ > t͡s / [-nas] __ 
 #pˈywt͡sə# | Rule 569 : [+lat,+back] > w 
 #pˈyt͡sə# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#pˈysə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#pˈysə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #pˈysə̯# | Rule 693 : ə > ə̯ / __ #
 #pˈys# | Rule 722 : ə̯ > ∅ 
-#pys# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pys# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,14 +1,18 @@
 Trajectory file for run 'run1'; etymon number :898:
-#pˈius# >>> #pjø# ( Correct : #pjø#) :
+#pˈius# >>> #pjwa# ( Correct : #pjø#) :
 p ˈi u s 
-#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈeos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈeos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈeːos# | Rule 108 : [+prim] > [+long] / __ [+syl]
 #pjˈoːs# | Rule 229 : ˈeː o > j ˈoː 
-#pjˈows# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pjˈews# | Rule 528 : ˈo > ˈe / __ w
-#pjˈøws# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#pjˈøːs# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#pjˈøː# | Rule 720 : [-son] > ∅ / __ #
-#pjøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pjø# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#pjˈoːsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pjˈoːjs# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#pjˈoːjsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#pjˈojsʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#pjˈujsʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#pjˈuɛ̯sʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pjwˈɛsʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pjwˈɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pjwˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#pjwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pjwa# | Rule 742 : ɛ > a / w __ 

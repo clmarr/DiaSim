@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :977:
 #pˈuːmikem# >>> #pœ̃s# ( Correct : #pɔ̃s#) :
 p ˈuː m i k e m 
-#pˈuːmɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈumɪkɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#pˈumekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈuːmɪkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈumɪkɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#pˈumekɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈumekɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈumekʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #pˈumecɛ# | Rule 76 : [+back,+front] > [-back] 
@@ -17,12 +17,12 @@ p ˈuː m i k e m
 #pˈʉːmt͡sʲə# | Rule 296 : ə̯ > ∅ 
 #pˈʉmt͡sʲə# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
 #pˈymt͡sʲə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#pˈỹmt͡sʲə# | Rule 623 : [+syl] > [+nas,+son,.delrel] / __ [+nas,+cons]
-#pˈỹmsʲə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#pˈỹmt͡sʲə# | Rule 623 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#pˈỹmsʲə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #pˈỹːsʲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
 #pˈỹːsə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #pˈỹːsə̯# | Rule 693 : ə > ə̯ / __ #
 #pˈỹːs# | Rule 722 : ə̯ > ∅ 
-#pˈœ̃ːs# | Rule 724 : [+nas,+front,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,.delrel] 
-#pœ̃ːs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈœ̃ːs# | Rule 724 : [+nas,+front,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] 
+#pœ̃ːs# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #pœ̃s# | Rule 737 : [+syl,+long] > [-long,-splng] 

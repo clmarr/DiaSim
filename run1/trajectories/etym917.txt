@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :917:
 #plˈikɑt̪# >>> #plwa# ( Correct : #plwa#) :
 p l ˈi k ɑ t̪ 
-#plˈɪkɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˈekɑt̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɪkɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈekɑt̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #plˈeːkɑt̪# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #plˈeːɡɑt̪# | Rule 131 : k > ɡ / [-cons] __ [+syl]
 #plˈeːɣɑt̪# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
@@ -10,16 +10,17 @@ p l ˈi k ɑ t̪
 #plˈeːɣʲat̪# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #plˈeːʝat̪# | Rule 241 : [+back,+front] > [-back] 
 #plˈeːʝaθ# | Rule 246 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#plˈeːjaθ# | Rule 377 : ʝ > j 
-#plˈejaθ# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
-#plˈejəθ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈojəθ# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#plˈujəθ# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#plˈujə# | Rule 595 : {θ;ð} > {∅;∅} 
-#plˈuɛ̯ə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
-#plwˈɛə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#plwˈɛːə# | Rule 680 : [+stres] > [+long] / __ ə
-#plwˈɛː# | Rule 681 : ə > ∅ / [+syl] __ 
-#plwɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈeːʝaθʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#plˈeːjaθʲ# | Rule 377 : ʝ > j 
+#plˈejaθʲ# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#plˈejəθʲ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈojəθʲ# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#plˈujəθʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#plˈuɛ̯əθʲ# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#plwˈɛəθʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#plwˈɛːəθʲ# | Rule 680 : [+stres] > [+long] / __ ə
+#plwˈɛːθʲ# | Rule 681 : ə > ∅ / [+syl] __ 
+#plwˈɛː# | Rule 720 : [-son] > ∅ / __ #
+#plwɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #plwɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #plwa# | Rule 742 : ɛ > a / w __ 

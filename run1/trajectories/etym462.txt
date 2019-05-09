@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :462:
-#kˈirkulum# >>> #sɛʁkl# ( Correct : #sɛʁkl#) :
+#kˈirkulum# >>> #swaʁkl# ( Correct : #sɛʁkl#) :
 k ˈi r k u l u m 
-#kˈɪrkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈɪrkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˈɪrklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#kˈerklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈerklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈerklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kʲˈerklo# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #cˈerklo# | Rule 76 : [+back,+front] > [-back] 
@@ -12,13 +12,22 @@ k ˈi r k u l u m
 #t͡sʲˈerklə̯# | Rule 262 : ə > ə̯ 
 #t͡sʲˈerkl# | Rule 296 : ə̯ > ∅ 
 #t͡sʲˈerklə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#t͡sˈerklə# | Rule 533 : t͡sʲ > t͡s / # __ 
-#t͡sˈɛrklə# | Rule 578 : ˈe > ˈɛ / __ r [+cons]
-#sˈɛrklə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#sˈɛrklə̯# | Rule 693 : ə > ə̯ / __ #
-#sˈɛɹklə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#sˈɛɹkl# | Rule 722 : ə̯ > ∅ 
-#sˈɛrkl# | Rule 733 : ɹ > r 
-#sˈɛʀkl# | Rule 735 : r > ʀ 
-#sɛʀkl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#sɛʁkl# | Rule 743 : ʀ > ʁ 
+#t͡sʲˈerʲklə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡sʲˈejrʲklə# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#t͡sʲˈeːjrʲklə# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#t͡sʲˈeːjrklə# | Rule 380 : rʲ > r 
+#t͡sʲˈejrklə# | Rule 402 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#t͡sʲˈojrklə# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t͡sˈojrklə# | Rule 533 : t͡sʲ > t͡s / # __ 
+#t͡sˈoɛ̯rklə# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
+#t͡sˈuɛ̯rklə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#t͡swˈɛrklə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˈɛrklə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#swˈɛrklə̯# | Rule 693 : ə > ə̯ / __ #
+#swˈɛɹklə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#swˈɛɹkl# | Rule 722 : ə̯ > ∅ 
+#swˈɛrkl# | Rule 733 : ɹ > r 
+#swˈɛʀkl# | Rule 735 : r > ʀ 
+#swɛʀkl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#swaʀkl# | Rule 742 : ɛ > a / w __ 
+#swaʁkl# | Rule 743 : ʀ > ʁ 

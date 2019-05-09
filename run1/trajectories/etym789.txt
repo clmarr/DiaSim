@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :789:
 #ˈokulum# >>> #œj# ( Correct : #œj#) :
 ˈo k u l u m 
-#ˈɔkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɔkʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɔklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#ˈɔklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɔklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈɔklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈɔːklo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#ˈɔːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#ˈɔːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #ˈɔxlo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #ˈɔçlo# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #ˈɔçʎo# | Rule 210 : [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -19,7 +19,7 @@ Trajectory file for run 'run1'; etymon number :789:
 #ˈyo̯ʎ# | Rule 491 : [+hi,+round,-back] > [+front] 
 #ˈye̯ʎ# | Rule 520 : o̯ > e̯ 
 #ˈøːʎ# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
-#ˈœːʎ# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#œːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ˈœːʎ# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#œːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #œʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #œj# | Rule 744 : ʎ > j 

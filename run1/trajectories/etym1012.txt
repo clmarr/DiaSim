@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :1012:
-#rˈiːd̪ere# >>> #ʁiʁ# ( Correct : #ʁiʁ#) :
+#rˈiːd̪ere# >>> #ʁiðʲʁ# ( Correct : #ʁiʁ#) :
 r ˈiː d̪ e r e 
-#rˈiːd̪ɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˈid̪ɛrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#rˈiðɛrɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#rˈiːd̪ɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˈid̪ɛrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#rˈiðɛrɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #rˈiːðɛrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #rˈiːðrɛ# | Rule 140 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
 #rˈiðrɛ# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
@@ -11,9 +11,10 @@ r ˈiː d̪ e r e
 #rˈiðrə̯# | Rule 262 : ə > ə̯ 
 #rˈiðr# | Rule 296 : ə̯ > ∅ 
 #rˈiðrə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#rˈirə# | Rule 595 : {θ;ð} > {∅;∅} 
-#rˈirə̯# | Rule 693 : ə > ə̯ / __ #
-#rˈir# | Rule 722 : ə̯ > ∅ 
-#ʀˈiʀ# | Rule 735 : r > ʀ 
-#ʀiʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʁiʁ# | Rule 743 : ʀ > ʁ 
+#rʲˈiðʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#rˈiðʲrə# | Rule 380 : rʲ > r 
+#rˈiðʲrə̯# | Rule 693 : ə > ə̯ / __ #
+#rˈiðʲr# | Rule 722 : ə̯ > ∅ 
+#ʀˈiðʲʀ# | Rule 735 : r > ʀ 
+#ʀiðʲʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʁiðʲʁ# | Rule 743 : ʀ > ʁ 

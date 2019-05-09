@@ -1,16 +1,23 @@
 Trajectory file for run 'run1'; etymon number :191:
-#d̪ˈoːn̪um# >>> #d̪ɔ̃# ( Correct : #d̪ɔ̃#) :
+#d̪ˈoːn̪um# >>> #d̪wɛ̃# ( Correct : #d̪ɔ̃#) :
 d̪ ˈoː n̪ u m 
-#d̪ˈoːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#d̪ˈon̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#d̪ˈon̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈoːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈon̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#d̪ˈon̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #d̪ˈon̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #d̪ˈoːn̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#d̪ˈũːn̪o# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#d̪ˈũːn̪o# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #d̪ˈũːn̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #d̪ˈũːn̪ə̯# | Rule 262 : ə > ə̯ 
 #d̪ˈũːn̪# | Rule 296 : ə̯ > ∅ 
-#d̪ˈũː# | Rule 654 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#d̪ũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#d̪ũ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#d̪ɔ̃# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#d̪ʲˈũːn̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈũːjn̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#d̪ʲˈũjn̪# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#d̪ʲˈũj̃n̪# | Rule 612 : j > j̃ / __ [+nas,+cons]
+#d̪ʲwˈĩn̪# | Rule 615 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
+#d̪ʲwˈẽn̪# | Rule 646 : [+front,+nas,+syl] > [-hi] / w __ 
+#d̪ʲwˈẽː# | Rule 654 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#d̪wˈẽː# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#d̪wˈɛ̃ː# | Rule 662 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
+#d̪wɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪wɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 

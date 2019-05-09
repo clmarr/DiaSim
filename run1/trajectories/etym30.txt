@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :30:
 #ˈɑksem# >>> #ɛ# ( Correct : #ɛ#) :
 ˈɑ k s e m 
-#ˈɑksɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˈɑksɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɑxsɛm# | Rule 60 : k > x / [-cons] __ [+cor,-voi]
 #ˈɑxsɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈaxsɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -14,9 +14,9 @@ Trajectory file for run 'run1'; etymon number :30:
 #ˈaçsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
 #ˈaʝsʲ# | Rule 448 : ç > ʝ 
 #ˈajsʲ# | Rule 454 : ʝ > j / [-cons] __ 
-#ˈɛjsʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#ˈɛjsʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
 #ˈɛːsʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
 #ˈɛːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #ˈɛː# | Rule 720 : [-son] > ∅ / __ #
-#ɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

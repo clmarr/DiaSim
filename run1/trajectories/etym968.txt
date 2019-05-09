@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :968:
 #pˈuliɑm# >>> #puj# ( Correct : #puj#) :
 p ˈu l i ɑ m 
-#pˈʊlɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈʊljɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#pˈʊlɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈʊljɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #pˈʊlʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#pˈolʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˈolʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈolʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈoʎɑ# | Rule 90 : l ʝ > ʎ 
 #pˈoːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -14,5 +14,5 @@ p ˈu l i ɑ m
 #pˈuʎə# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #pˈuʎə̯# | Rule 693 : ə > ə̯ / __ #
 #pˈuʎ# | Rule 722 : ə̯ > ∅ 
-#puʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#puʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #puj# | Rule 744 : ʎ > j 

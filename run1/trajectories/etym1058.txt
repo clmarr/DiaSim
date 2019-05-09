@@ -4,22 +4,24 @@ s ˌɑ n̪ ɡ w i s ˈuː ɡ ɑ m
 #sˌɑŋɡwisˈuːɡɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #sˌɑŋɡɣʷisˈuːɡɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #sˌɑŋɡwisˈuːɡɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#sˌɑŋɡwɪsˈuːɡɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌɑŋɡwɪsˈuɡɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˌɑŋɡwesˈuɡɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌɑŋɡwɪsˈuːɡɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌɑŋɡwɪsˈuɡɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˌɑŋɡwesˈuɡɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˌɑŋɡwesˈuɡɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˌɑŋɡwesˈuɣɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#sˌɑŋɡwesˈuɣɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #sˌɑŋɡwesˈuːɣɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #sˌɑŋɡsˈuːɣɑ# | Rule 113 : w e > ∅ / [+syl] ( [-syl] )* [+hi,+back,+cons] __ [+cons] ( [-syl] )* [+syl]
 #sˌɑŋɡsˈuːɑ# | Rule 122 : ɣ > ∅ / [+hi,+round,+syl] __ [+lo,+syl]
 #sˌaŋɡsˈuːa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #sˌaŋɡsˈʉːa# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#sˌaŋɡsˈʉːə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#sˌaŋsˈʉːə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#sˌaŋsˈyːə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#sˌãŋsˈyːə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#sˌãːsˈyːə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sʲˌaŋɡsʲˈʉːa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˌaŋɡsʲˈʉːə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#sʲˌaŋsʲˈʉːə# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#sʲˌaŋsʲˈyːə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#sʲˌãŋsʲˈyːə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#sʲˌãːsʲˈyːə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌãːsˈyːə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˌãːsˈyː# | Rule 681 : ə > ∅ / [+syl] __ 
 #sˌɑ̃ːsˈyː# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#sɑ̃ːsyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sɑ̃ːsyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sɑ̃sy# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :987:
-#pˌuppˈɑːt̪ɑm# >>> #pupe# ( Correct : #pupe#) :
+#pˌuppˈɑːt̪ɑm# >>> #pupɛðʲ# ( Correct : #pupe#) :
 p ˌu p p ˈɑː t̪ ɑ m 
-#pˌʊppˈɑːt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˌʊppˈɑːt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌʊppˈɑt̪ɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#pˌoppˈɑt̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#pˌoppˈɑt̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˌoppˈɑt̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˌoppˈɑːt̪ɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˌoppˈaːt̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#pˌoppˈaːd̪a# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
-#pˌoppˈaːða# | Rule 373 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ [-cons]
-#pˌoppˈae̯ða# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌoppˈae̯ðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌopˈae̯ðə# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#pˌopˈeːðə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌupˈeːðə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#pˌupˈeːə# | Rule 595 : {θ;ð} > {∅;∅} 
-#pˌupˈeː# | Rule 681 : ə > ∅ / [+syl] __ 
-#pupeː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pupe# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#pˌoppˈaːt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˌoppˈaːd̪ʲa# | Rule 349 : [-voi] > [+voi] / [-cons] __ [-cons]
+#pˌoppˈaːðʲa# | Rule 373 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#pˌoppˈae̯ðʲa# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌoppˈae̯ðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌopˈae̯ðʲə# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#pˌopˈeːðʲə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˌupˈeːðʲə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#pˌupˈeːðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#pˌupˈɛːðʲə̯# | Rule 696 : ˈeː > ˈɛː / __ [+cons] ə̯
+#pˌupˈɛːðʲ# | Rule 722 : ə̯ > ∅ 
+#pupɛːðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pupɛðʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 

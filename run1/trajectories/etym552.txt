@@ -3,10 +3,11 @@ Trajectory file for run 'run1'; etymon number :552:
 k w ˌi d̪ 
 #kɣʷˌid̪# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #kwˌid̪# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#kwˌɪd̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kwˌed̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kwˌɪd̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kwˌed̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kwˌeð# | Rule 246 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#kˌeð# | Rule 378 : w > ∅ / k __ [+front,-lo]
-#kˌeθ# | Rule 434 : [-son] > [-voi] / __ #
-#kˌe# | Rule 595 : {θ;ð} > {∅;∅} 
-#ke# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kwˌeðʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#kˌeðʲ# | Rule 378 : w > ∅ / k __ [+front,-lo]
+#kˌeθʲ# | Rule 434 : [-son] > [-voi] / __ #
+#kˌe# | Rule 720 : [-son] > ∅ / __ #
+#ke# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

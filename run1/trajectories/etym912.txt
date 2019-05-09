@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :912:
 #plˈebium# >>> #plɛʒ# ( Correct : #plɛʒ#) :
 p l ˈe b i u m 
-#plˈɛbɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˈɛbjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#plˈɛbɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈɛbjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #plˈɛbʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#plˈɛbʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɛbʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #plˈɛbʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #plˈɛbɟo# | Rule 248 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
 #plˈɛbd͡ʒo# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
@@ -13,7 +13,7 @@ p l ˈe b i u m
 #plˈɛbd͡ʒə# | Rule 275 : ə̯ > ə / [+delrel,-ant] __ 
 #plˈɛd̪d͡ʒə# | Rule 328 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
 #plˈɛd͡ʒə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#plˈɛʒə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#plˈɛʒə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #plˈɛʒə̯# | Rule 693 : ə > ə̯ / __ #
 #plˈɛʒ# | Rule 722 : ə̯ > ∅ 
-#plɛʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plɛʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

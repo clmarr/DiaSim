@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :405:
 #kˌɑmpˈɑːn̪iɑm# >>> #ʃɑ̃paɲ# ( Correct : #ʃɑ̃paɲ#) :
 k ˌɑ m p ˈɑː n̪ i ɑ m 
-#kˌɑmpˈɑːn̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɑmpˈɑːn̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˌɑmpˈɑːn̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɑmpˈɑːn̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #kˌɑmpˈɑːn̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #kˌɑmpˈɑn̪ʝɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #kˌɑmpˈɑn̪ʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -14,12 +14,12 @@ k ˌɑ m p ˈɑː n̪ i ɑ m
 #t͡ʃˌampˈaːɲa# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #t͡ʃˌampˈaɲa# | Rule 399 : [+syl] > [-long,-splng] / __ ɲ
 #t͡ʃˌampˈaɲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˌãmpˈãɲə# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ʃˌãmpˈãɲə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#t͡ʃˌãmpˈãɲə# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ʃˌãmpˈãɲə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ʃˌãːpˈãɲə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
 #ʃˌãːpˈãɲə̯# | Rule 693 : ə > ə̯ / __ #
 #ʃˌɑ̃ːpˈãɲə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #ʃˌɑ̃ːpˈãɲ# | Rule 722 : ə̯ > ∅ 
-#ʃɑ̃ːpãɲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃɑ̃ːpãɲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʃɑ̃pãɲ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ʃɑ̃paɲ# | Rule 740 : [+syl,+nas] > [-nas] / __ [+nas,+cons]

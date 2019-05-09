@@ -1,20 +1,23 @@
 Trajectory file for run 'run1'; etymon number :732:
-#mˈuskulum# >>> #mul# ( Correct : #mul#) :
+#mˈuskulum# >>> #mwal# ( Correct : #mul#) :
 m ˈu s k u l u m 
-#mˈʊskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈʊskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈʊsklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#mˈosklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈosklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈosklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈoslo# | Rule 101 : {s k;r ɡ} > {s;r} / __ l
 #mˈoslə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #mˈoslə̯# | Rule 262 : ə > ə̯ 
 #mˈosl# | Rule 296 : ə̯ > ∅ 
 #mˈoslə# | Rule 310 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#mˈozlə# | Rule 466 : s > z / __ [+voi,+cons]
-#mˈoːzlə# | Rule 516 : [+prim] > [+long] / @ __ z [+cons]
-#mˈoːlə# | Rule 519 : z > ∅ / __ [+cons]
-#mˈuːlə# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#mˈuːlə̯# | Rule 693 : ə > ə̯ / __ #
-#mˈuːl# | Rule 722 : ə̯ > ∅ 
-#muːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mul# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mˈosʲlə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈojslə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˈojzlə# | Rule 466 : s > z / __ [+voi,+cons]
+#mˈojlə# | Rule 519 : z > ∅ / __ [+cons]
+#mˈujlə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯lə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛlə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛlə̯# | Rule 693 : ə > ə̯ / __ #
+#mwˈɛl# | Rule 722 : ə̯ > ∅ 
+#mwɛl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mwal# | Rule 742 : ɛ > a / w __ 

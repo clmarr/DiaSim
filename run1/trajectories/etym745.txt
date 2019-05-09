@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :745:
-#n̪ˈɑwikɑm# >>> #n̪u# ( Correct : #n̪u#) :
+#n̪ˈɑwikɑm# >>> #n̪ʲu# ( Correct : #n̪u#) :
 n̪ ˈɑ w i k ɑ m 
 #n̪ˈɑɣʷikɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#n̪ˈɑɣʷɪkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈɑɣʷɪkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #n̪ˈɑɣʷkɑm# | Rule 45 : ɪ > ∅ / ɣʷ __ k
 #n̪ˈɑwkɑm# | Rule 46 : ɣʷ > w / __ [+cons]
 #n̪ˈɑwkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -11,9 +11,10 @@ n̪ ˈɑ w i k ɑ m
 #n̪ˈɑwɑ# | Rule 180 : ɣ > ∅ / [+round,-cons] __ [+lo,+syl]
 #n̪ˈawa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #n̪ˈɔwa# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#n̪ˈɔwə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈuə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,.delrel] ∅
-#n̪ˈuːə# | Rule 680 : [+stres] > [+long] / __ ə
-#n̪ˈuː# | Rule 681 : ə > ∅ / [+syl] __ 
-#n̪uː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪u# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#n̪ʲˈɔwa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˈɔwə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ʲˈuə# | Rule 611 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#n̪ʲˈuːə# | Rule 680 : [+stres] > [+long] / __ ə
+#n̪ʲˈuː# | Rule 681 : ə > ∅ / [+syl] __ 
+#n̪ʲuː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ʲu# | Rule 737 : [+syl,+long] > [-long,-splng] 

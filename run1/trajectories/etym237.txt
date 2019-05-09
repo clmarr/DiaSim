@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :237:
 #fˈɑmem# >>> #fɛ̃# ( Correct : #fɛ̃#) :
 f ˈɑ m e m 
-#fˈɑmɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#fˈɑmɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˈɑmɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˈɑːmɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #fˈaːmɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -11,10 +11,10 @@ f ˈɑ m e m
 #fˈae̯m# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #fˈajm# | Rule 427 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
 #fˈaj̃m# | Rule 492 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
-#fˈãj̃m# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#fˈãj̃m# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
 #fˈãj̃n̪# | Rule 526 : m > n̪ / [-cons] __ #
-#fˈɛ̃j̃n̪# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j̃
+#fˈɛ̃j̃n̪# | Rule 575 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
 #fˈɛ̃n̪# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
 #fˈɛ̃ː# | Rule 654 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#fɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fɛ̃ː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fɛ̃# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :1002:
 #rˌeːɡˈɑːlem# >>> #ʁwajal# ( Correct : #ʁwajal#) :
 r ˌeː ɡ ˈɑː l e m 
-#rˌeːɡˈɑːlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌeɡˈɑːlɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#rˌeːɡˈɑːlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˌeɡˈɑːlɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #rˌeɡˈɑlɛm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #rˌeɡˈɑlɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#rˌeɣˈɑlɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#rˌeɣˈɑlɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #rˌeɣˈɑːlɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #rˌeˈɑːlɛ# | Rule 187 : ɣ > ∅ / [+front,-hi,-lo,+tense] __ ˈɑː
 #rˌejˈɑːlɛ# | Rule 192 : ∅ > j / ˌe __ [+lo,+syl]
@@ -13,11 +13,13 @@ r ˌeː ɡ ˈɑː l e m
 #rˌejˈaːlə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #rˌejˈaːlə̯# | Rule 262 : ə > ə̯ 
 #rˌejˈaːl# | Rule 296 : ə̯ > ∅ 
+#rʲˌejˈaːl# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#rˌejˈaːl# | Rule 380 : rʲ > r 
 #rˌejˈal# | Rule 401 : ˈaː > ˈa / [+cont] [-syl,+son] __ l #
 #rˌojˈal# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
 #rˌujˈal# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #rwˌɛjˈal# | Rule 617 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
 #ʀwˌɛjˈal# | Rule 735 : r > ʀ 
-#ʀwɛjal# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀwɛjal# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʀwajal# | Rule 742 : ɛ > a / w __ 
 #ʁwajal# | Rule 743 : ʀ > ʁ 

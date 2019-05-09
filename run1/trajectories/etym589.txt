@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :589:
-#lˌeporˈɑːrium# >>> #levʁije# ( Correct : #levʁije#) :
+#lˌeporˈɑːrium# >>> #lwavʁije# ( Correct : #levʁije#) :
 l ˌe p o r ˈɑː r i u m 
-#lˌɛpɔrˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˌɛpɔrˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#lˌɛpɔrˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˌɛpɔrˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #lˌɛpɔrˈɑːrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
 #lˌɛpɔrˈɑrʝʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#lˌɛpɔrˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˌɛpɔrˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˌɛpɔrˈɑrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˌɛpɔrˈɑrʲo# | Rule 172 : r ʝ > rʲ 
 #lˌɛpɔrˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -16,22 +16,29 @@ l ˌe p o r ˈɑː r i u m
 #lˌɛpɾˈaːrʲə̯# | Rule 283 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
 #lˌɛprˈaːrʲə̯# | Rule 291 : ɾ > r 
 #lˌɛprˈaːrʲ# | Rule 296 : ə̯ > ∅ 
-#lˌɛprˈaːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
-#lˌɛprjˈaːrʲ# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#lˌɛbrjˈaːrʲ# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#lˌɛbrjˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,.delrel] / [+front,-syl] __ rʲ #
-#lˌɛbrjˈie̯rʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#lˌɛbrˈie̯rʲ# | Rule 371 : j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
-#lˌɛβrˈie̯rʲ# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#lˌɛβrˈie̯r# | Rule 380 : rʲ > r 
-#lˌeβrˈie̯r# | Rule 411 : ˌɛ > ˌe / __ [-cor]
-#lˌevrˈie̯r# | Rule 425 : β > v 
-#lˌevrjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#lˌevrj?r# | Rule 600 : ˈe > ? / __ @
-#lˌevrjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#lˌevrijˈer# | Rule 704 : ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
-#lˌevrijˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
-#lˌevrijˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#lˌevʀijˈe# | Rule 735 : r > ʀ 
-#levʀije# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#levʁije# | Rule 743 : ʀ > ʁ 
+#lˌɛprʲˈaːrʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˌɛjprʲˈaːrʲ# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#lˌɛjprʲˈaːjrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#lˌɛjprʲjˈaːrʲ# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
+#lˌɛjprʲˈaːrʲ# | Rule 348 : j > ∅ / [+front,+hi,+cons] __ 
+#lˌɛjbrʲˈaːrʲ# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#lˌɛjbrʲˈɛːrʲ# | Rule 368 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
+#lˌɛjbrʲˈie̯rʲ# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˌɛjbrˈie̯r# | Rule 380 : rʲ > r 
+#lˌejbrˈie̯r# | Rule 411 : ˌɛ > ˌe / __ [-cor]
+#lˌejβrˈie̯r# | Rule 452 : b > β / [-cons] __ r
+#lˌejvrˈie̯r# | Rule 453 : β > v 
+#lˌojvrˈie̯r# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#lˌujvrˈie̯r# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#lˌujvrjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#lˌujvrj?r# | Rule 600 : ˈe > ? / __ @
+#lˌujvrjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#lˌuɛ̯vrjˈer# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#lwˌɛvrjˈer# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#lwˌɛvrijˈer# | Rule 704 : ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
+#lwˌɛvrijˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#lwˌɛvrijˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#lwˌɛvʀijˈe# | Rule 735 : r > ʀ 
+#lwɛvʀije# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lwavʀije# | Rule 742 : ɛ > a / w __ 
+#lwavʁije# | Rule 743 : ʀ > ʁ 

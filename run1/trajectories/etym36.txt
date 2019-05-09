@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :36:
-#ˈɑln̪um# >>> #on̪# ( Correct : #on̪#) :
+#ˈɑln̪um# >>> #on̪ʲ# ( Correct : #on̪#) :
 ˈɑ l n̪ u m 
-#ˈɑln̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɑln̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɑln̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑln̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈɑln̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈɑɫn̪o# | Rule 138 : l > ɫ / __ [+cons,-lat]
 #ˈaɫn̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -10,9 +10,10 @@ Trajectory file for run 'run1'; etymon number :36:
 #ˈaɫn̪ə̯# | Rule 262 : ə > ə̯ 
 #ˈaɫn̪# | Rule 296 : ə̯ > ∅ 
 #ˈaɫn̪ə# | Rule 311 : ∅ > ə / [+cons,-nas] [+nas] __ #
-#ˈawn̪ə# | Rule 569 : [+lat,+back] > w 
-#ˈoːn̪ə# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ˈoːn̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#ˈoːn̪# | Rule 722 : ə̯ > ∅ 
-#oːn̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#on̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˈaɫn̪ʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˈawn̪ʲə# | Rule 569 : [+lat,+back] > w 
+#ˈoːn̪ʲə# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ˈoːn̪ʲə̯# | Rule 693 : ə > ə̯ / __ #
+#ˈoːn̪ʲ# | Rule 722 : ə̯ > ∅ 
+#oːn̪ʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#on̪ʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 

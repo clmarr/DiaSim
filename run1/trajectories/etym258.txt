@@ -1,17 +1,17 @@
 Trajectory file for run 'run1'; etymon number :258:
 #fˈiːlius# >>> #fiw# ( Correct : #fis#) :
 f ˈiː l i u s 
-#fˈiːlɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈiːljʊs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#fˈiːlɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈiːljʊs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #fˈiːlʝʊs# | Rule 27 : j > ʝ / __ [+syl]
-#fˈilʝʊs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#fˈilʝos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˈilʝʊs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#fˈilʝos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #fˈiʎos# | Rule 90 : l ʝ > ʎ 
 #fˈiːʎos# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #fˈiːʎəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #fˈiːʎə̯s# | Rule 262 : ə > ə̯ 
 #fˈiːʎs# | Rule 296 : ə̯ > ∅ 
-#fˈiːʎsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#fˈiːʎsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #fˈiʎsʲ# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
 #fˈiʎs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #fˈiʎsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
@@ -19,4 +19,4 @@ f ˈiː l i u s
 #fˈiwsʲ# | Rule 569 : [+lat,+back] > w 
 #fˈiws# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #fˈiw# | Rule 720 : [-son] > ∅ / __ #
-#fiw# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fiw# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

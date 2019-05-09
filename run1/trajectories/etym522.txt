@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :522:
 #kˈuːlum# >>> #kyl# ( Correct : #ky#) :
 k ˈuː l u m 
-#kˈuːlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈulʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#kˈulom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈuːlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈulʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#kˈulom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈulo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈuːlo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #kˈʉːlo# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
@@ -11,5 +11,5 @@ k ˈuː l u m
 #kˈʉːlə̯# | Rule 262 : ə > ə̯ 
 #kˈʉːl# | Rule 296 : ə̯ > ∅ 
 #kˈyːl# | Rule 491 : [+hi,+round,-back] > [+front] 
-#kyːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kyːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kyl# | Rule 737 : [+syl,+long] > [-long,-splng] 

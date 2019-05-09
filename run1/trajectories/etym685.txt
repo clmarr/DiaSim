@@ -1,20 +1,24 @@
 Trajectory file for run 'run1'; etymon number :685:
-#mˌeːn̪sˈuːrɑm# >>> #məzyʁ# ( Correct : #məzyʁ#) :
+#mˌeːn̪sˈuːrɑm# >>> #mizyjʁ# ( Correct : #məzyʁ#) :
 m ˌeː n̪ s ˈuː r ɑ m 
 #mˌeːsˈuːrɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
-#mˌesˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˌesˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˌesˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˌesˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˌezˈuːrɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #mˌezˈuːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˌezˈʉːra# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌezˈʉːrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌezˈyːrə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#mˌəzˈyːrə# | Rule 496 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
-#mˌəzˈyːrə̯# | Rule 693 : ə > ə̯ / __ #
-#m?zˈyːrə̯# | Rule 707 : [+syl] > [+long] / __ z [+syl]
-#m?zˈyːr# | Rule 722 : ə̯ > ∅ 
-#m?zˈyːʀ# | Rule 735 : r > ʀ 
-#m?zyːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#məzyʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#məzyʁ# | Rule 743 : ʀ > ʁ 
+#mˌezʲˈʉːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌezʲˈʉːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#mˌezʲˈʉːjra# | Rule 380 : rʲ > r 
+#mˌejzˈʉːjra# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˌejzˈʉːjrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌejzˈyːjrə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#mˌizˈyːjrə# | Rule 507 : ˌe j > ˌi / __ z
+#mˌizˈyːjrə̯# | Rule 693 : ə > ə̯ / __ #
+#mˌiːzˈyːjrə̯# | Rule 707 : [+syl] > [+long] / __ z [+syl]
+#mˌiːzˈyːjr# | Rule 722 : ə̯ > ∅ 
+#mˌiːzˈyːjʀ# | Rule 735 : r > ʀ 
+#miːzyːjʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mizyjʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mizyjʁ# | Rule 743 : ʀ > ʁ 

@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :54:
 #ˌɑn̪imɑm# >>> #om# ( Correct : #om#) :
 ˌɑ n̪ i m ɑ m 
-#ˌɑn̪ɪmɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɑn̪emɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑn̪ɪmɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑn̪emɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɑn̪emɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌan̪ema# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˌan̪əma# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
@@ -15,5 +15,5 @@ Trajectory file for run 'run1'; etymon number :54:
 #ˌoːmə# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
 #ˌoːmə̯# | Rule 693 : ə > ə̯ / __ #
 #ˌoːm# | Rule 722 : ə̯ > ∅ 
-#oːm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#oːm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #om# | Rule 737 : [+syl,+long] > [-long,-splng] 

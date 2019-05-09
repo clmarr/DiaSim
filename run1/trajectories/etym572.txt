@@ -1,16 +1,19 @@
 Trajectory file for run 'run1'; etymon number :572:
-#lˈɑssum# >>> #lɑ# ( Correct : #lɑ#) :
+#lˈɑssum# >>> #lɛ# ( Correct : #lɑ#) :
 l ˈɑ s s u m 
-#lˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɑssom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɑssom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˈɑsso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˈasso# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #lˈassə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #lˈassə̯# | Rule 262 : ə > ə̯ 
 #lˈass# | Rule 296 : ə̯ > ∅ 
-#lˈas# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#lˈaːs# | Rule 632 : [+prim,+lo] > [+long] / __ s #
-#lˈɑːs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑː# | Rule 720 : [-son] > ∅ / __ #
-#lɑː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#lɑ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#lˈasʲsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˈasʲs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#lˈajss# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#lˈajs# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#lˈɛjs# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#lˈɛːs# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#lˈɛː# | Rule 720 : [-son] > ∅ / __ #
+#lɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :198:
 #d̪ˈubit̪um# >>> #d̪ut̪# ( Correct : #d̪ut̪#) :
 d̪ ˈu b i t̪ u m 
-#d̪ˈʊbɪt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈʊbɪt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #d̪ˈʊβɪt̪ʊm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
-#d̪ˈoβet̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#d̪ˈoβet̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #d̪ˈoβet̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #d̪ˈoβt̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #d̪ˈoɸt̪o# | Rule 102 : [+ant,+cons,-son] > [-voi] / __ t̪
@@ -11,9 +11,11 @@ d̪ ˈu b i t̪ u m
 #d̪ˈoɸt̪ə̯# | Rule 262 : ə > ə̯ 
 #d̪ˈoɸt̪# | Rule 296 : ə̯ > ∅ 
 #d̪ˈoɸt̪ə# | Rule 316 : ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
-#d̪ˈot̪t̪ə# | Rule 327 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#d̪ˈot̪ə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#d̪ˈut̪ə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#d̪ʲˈoɸt̪ʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#d̪ʲˈot̪t̪ʲə# | Rule 327 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#d̪ʲˈot̪ʲə# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#d̪ʲˈut̪ʲə# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#d̪ˈut̪ə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #d̪ˈut̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #d̪ˈut̪# | Rule 722 : ə̯ > ∅ 
-#d̪ut̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#d̪ut̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

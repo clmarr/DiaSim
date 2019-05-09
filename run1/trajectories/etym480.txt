@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :480:
 #kˌolˈumbɑ# >>> #kulɔ̃b# ( Correct : #kolɔ̃b#) :
 k ˌo l ˈu m b ɑ 
-#kˌɔlˈʊmbɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɔlˈombɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
-#kˌɔlˈũmbɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#kˌɔlˈʊmbɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɔlˈombɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˌɔlˈũmbɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #kˌɔlˈũmba# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #kˌolˈũmba# | Rule 418 : ˌɔ > ˌo 
 #kˌolˈũmbə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
@@ -11,6 +11,6 @@ k ˌo l ˈu m b ɑ
 #kˌulˈũːbə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
 #kˌulˈũːbə̯# | Rule 693 : ə > ə̯ / __ #
 #kˌulˈũːb# | Rule 722 : ə̯ > ∅ 
-#kulũːb# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kulũːb# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kulũb# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #kulɔ̃b# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 

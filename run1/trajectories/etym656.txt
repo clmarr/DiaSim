@@ -1,22 +1,25 @@
 Trajectory file for run 'run1'; etymon number :656:
-#mˈɑst̪ikɑt̪# >>> #mɑʃ# ( Correct : #mɑʃ#) :
+#mˈɑst̪ikɑt̪# >>> #mɛʃ# ( Correct : #mɑʃ#) :
 m ˈɑ s t̪ i k ɑ t̪ 
-#mˈɑst̪ɪkɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈɑst̪ekɑt̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˈɑst̪ɪkɑt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑst̪ekɑt̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˈɑst̪kɑt̪# | Rule 130 : e > ∅ / __ k [+lo,+syl]
 #mˈast̪kat̪# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˈast̪kʲat̪# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
 #mˈast̪cat̪# | Rule 241 : [+back,+front] > [-back] 
 #mˈast̪caθ# | Rule 246 : {t̪;d̪} > {θ;ð} / [+syl] __ #
 #mˈast̪t͡ʃaθ# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#mˈast͡ʃaθ# | Rule 331 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / [+cons] __ 
-#mˈast͡ʃəθ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈaxt͡ʃəθ# | Rule 582 : s > x / [-cons] __ [+cons]
-#mˈaxt͡ʃə# | Rule 595 : {θ;ð} > {∅;∅} 
-#mˈaxʃə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#mˈaːʃə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#mˈaːʃə̯# | Rule 693 : ə > ə̯ / __ #
-#mˈɑːʃə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#mˈɑːʃ# | Rule 722 : ə̯ > ∅ 
-#mɑːʃ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#mɑʃ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mˈasʲt̪ʲt͡ʃaθʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈasʲt̪t͡ʃaθʲ# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#mˈajst̪t͡ʃaθʲ# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˈajst̪t͡ʃəθʲ# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈajst͡ʃəθʲ# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#mˈajxt͡ʃəθʲ# | Rule 582 : s > x / [-cons] __ [+cons]
+#mˈɛjxt͡ʃəθʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#mˈɛːxt͡ʃəθʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#mˈɛːxʃəθʲ# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#mˈɛːʃəθʲ# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#mˈɛːʃə# | Rule 720 : [-son] > ∅ / __ #
+#mɛːʃə# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʃə# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mɛʃ# | Rule 746 : ə > ∅ / [+syl] ( [-syl] )* __ #

@@ -1,22 +1,24 @@
 Trajectory file for run 'run1'; etymon number :837:
-#pˈɑwper# >>> #pɔvʁ# ( Correct : #povʁ#) :
+#pˈɑwper# >>> #pwavʁ# ( Correct : #povʁ#) :
 p ˈɑ w p e r 
-#pˈɑwpɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɑwpɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˈawpɛr# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˈɔwpɛr# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 #pˈɔwpər# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #pˈɔwpə̯r# | Rule 262 : ə > ə̯ 
 #pˈɔwprə# | Rule 279 : ə̯ r > r ə / __ #
-#pˈɔwbrə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#pˈɔwβrə# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#pˈɔwvrə# | Rule 425 : β > v 
-#pˈɔvrə# | Rule 548 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
-#pˈɔvrə̯# | Rule 693 : ə > ə̯ / __ #
-#pˈɔːvrə̯# | Rule 710 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ v
-#pˈoːvrə̯# | Rule 711 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
-#pˈɔːvrə̯# | Rule 712 : [-hi,-lo,+back,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] [+cons]
-#pˈɔːvr# | Rule 722 : ə̯ > ∅ 
-#pˈɔːvʀ# | Rule 735 : r > ʀ 
-#pɔːvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#pɔvʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#pɔvʁ# | Rule 743 : ʀ > ʁ 
+#pˈɔwprʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈɔwjprʲə# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#pˈɔwjbrʲə# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#pˈɔwjbrə# | Rule 380 : rʲ > r 
+#pˈɔjbrə# | Rule 385 : w > ∅ / [+round,+syl] __ j
+#pˈɔjβrə# | Rule 452 : b > β / [-cons] __ r
+#pˈɔjvrə# | Rule 453 : β > v 
+#pˈɔɛ̯vrə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛvrə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛvrə̯# | Rule 693 : ə > ə̯ / __ #
+#pwˈɛvr# | Rule 722 : ə̯ > ∅ 
+#pwˈɛvʀ# | Rule 735 : r > ʀ 
+#pwɛvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pwavʀ# | Rule 742 : ɛ > a / w __ 
+#pwavʁ# | Rule 743 : ʀ > ʁ 

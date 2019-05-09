@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :557:
 #lˈɑkrimɑm# >>> #lɛʁm# ( Correct : #laʁm#) :
 l ˈɑ k r i m ɑ m 
-#lˈɑkrɪmɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɑkremɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɑkrɪmɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɑkremɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˈɑkremɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˈɑːkremɑ# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#lˈɑːxremɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#lˈɑːxremɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #lˈɑxremɑ# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #lˈaxrema# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #lˈaçrema# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -20,13 +20,13 @@ l ˈɑ k r i m ɑ m
 #lˈae̯jrma# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
 #lˈajrma# | Rule 407 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
 #lˈajrmə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈɛjrmə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,.delrel] / __ j [+cons]
+#lˈɛjrmə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
 #lˈɛːrmə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
 #lˈɛːrmə̯# | Rule 693 : ə > ə̯ / __ #
 #lˈɛːɹmə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
 #lˈɛːɹm# | Rule 722 : ə̯ > ∅ 
 #lˈɛːrm# | Rule 733 : ɹ > r 
 #lˈɛːʀm# | Rule 735 : r > ʀ 
-#lɛːʀm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lɛːʀm# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #lɛʀm# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #lɛʁm# | Rule 743 : ʀ > ʁ 

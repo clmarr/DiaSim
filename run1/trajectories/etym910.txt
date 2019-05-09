@@ -1,13 +1,19 @@
 Trajectory file for run 'run1'; etymon number :910:
-#plˈɑt̪t̪um# >>> #pla# ( Correct : #pla#) :
+#plˈɑt̪t̪um# >>> #plɛ# ( Correct : #pla#) :
 p l ˈɑ t̪ t̪ u m 
-#plˈɑt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#plˈɑt̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#plˈɑt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈɑt̪t̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #plˈɑt̪t̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #plˈat̪t̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #plˈat̪t̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #plˈat̪t̪ə̯# | Rule 262 : ə > ə̯ 
 #plˈat̪t̪# | Rule 296 : ə̯ > ∅ 
-#plˈat̪# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#plˈa# | Rule 720 : [-son] > ∅ / __ #
-#pla# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#plˈat̪ʲt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#plˈat̪ʲt̪# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#plˈajt̪t̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#plˈajt̪# | Rule 477 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#plˈɛjt̪# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#plˈɛːt̪# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#plˈɛː# | Rule 720 : [-son] > ∅ / __ #
+#plɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

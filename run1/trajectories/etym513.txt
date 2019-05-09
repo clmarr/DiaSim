@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :513:
-#krˈuːd̪ɑm# >>> #kʁy# ( Correct : #kʁy#) :
+#krˈuːd̪ɑm# >>> #kʁyðʲ# ( Correct : #kʁy#) :
 k r ˈuː d̪ ɑ m 
-#krˈud̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#krˈud̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #krˈud̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#krˈuðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#krˈuðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #krˈuːðɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #krˈuːða# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #krˈʉːða# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#krˈʉːðə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#krˈyːðə# | Rule 491 : [+hi,+round,-back] > [+front] 
-#krˈyːə# | Rule 595 : {θ;ð} > {∅;∅} 
-#krˈyː# | Rule 681 : ə > ∅ / [+syl] __ 
-#kʀˈyː# | Rule 735 : r > ʀ 
-#kʀyː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#kʀy# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#kʁy# | Rule 743 : ʀ > ʁ 
+#krʲˈʉːðʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#krˈʉːðʲa# | Rule 380 : rʲ > r 
+#krˈʉːðʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈyːðʲə# | Rule 491 : [+hi,+round,-back] > [+front] 
+#krˈyːðʲə̯# | Rule 693 : ə > ə̯ / __ #
+#krˈyːðʲ# | Rule 722 : ə̯ > ∅ 
+#kʀˈyːðʲ# | Rule 735 : r > ʀ 
+#kʀyːðʲ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kʀyðʲ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#kʁyðʲ# | Rule 743 : ʀ > ʁ 

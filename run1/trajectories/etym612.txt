@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :612:
 #lˈokum# >>> #ljø# ( Correct : #ljø#) :
 l ˈo k u m 
-#lˈɔkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɔkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɔkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɔkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˈɔko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˈɔːko# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #lˈɔːɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
@@ -10,12 +10,12 @@ l ˈo k u m
 #lˈuo̯ɣo# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #lˈuo̯o# | Rule 181 : ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
 #lˈʉo̯o# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#lˈʉo̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
+#lˈʉo̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
 #lˈyo̯w# | Rule 491 : [+hi,+round,-back] > [+front] 
 #lˈye̯w# | Rule 520 : o̯ > e̯ 
 #lˈyø̯w# | Rule 562 : e̯ > ø̯ / [+hi,+round] __ w
 #lɥˈøw# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #lɥˈøː# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
 #ljˈøː# | Rule 621 : ɥ > j / __ [+front,+round,-hi]
-#ljøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ljøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ljø# | Rule 737 : [+syl,+long] > [-long,-splng] 

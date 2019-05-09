@@ -2,17 +2,19 @@ Trajectory file for run 'run1'; etymon number :1150:
 #sˌublˈon̪ɡum# >>> #sublɔ̃# ( Correct : #səlɔ̃#) :
 s ˌu b l ˈo n̪ ɡ u m 
 #sˌublˈoŋɡum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#sˌʊblˈɔŋɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˌoblˈɔŋɡom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˌʊblˈɔŋɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌoblˈɔŋɡom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˌoblˈɔŋɡo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˌoblˈũŋɡo# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#sˌoblˈũŋɡo# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #sˌoblˈũŋɡə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˌoblˈũŋɡə̯# | Rule 262 : ə > ə̯ 
 #sˌoblˈũŋɡ# | Rule 296 : ə̯ > ∅ 
-#sˌoblˈũŋk# | Rule 434 : [-son] > [-voi] / __ #
-#sˌublˈũŋk# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#sˌublˈũːk# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sʲˌoblˈũŋɡ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˌoblˈũŋk# | Rule 434 : [-son] > [-voi] / __ #
+#sʲˌublˈũŋk# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#sʲˌublˈũːk# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌublˈũːk# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˌublˈũː# | Rule 720 : [-son] > ∅ / __ #
-#sublũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sublũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sublũ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #sublɔ̃# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 

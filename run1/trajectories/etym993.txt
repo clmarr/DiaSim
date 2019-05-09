@@ -1,15 +1,17 @@
 Trajectory file for run 'run1'; etymon number :993:
 #rˌɑmˈellum# >>> #ʁamo# ( Correct : #ʁamo#) :
 r ˌɑ m ˈe l l u m 
-#rˌɑmˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#rˌɑmˈɛllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#rˌɑmˈɛllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˌɑmˈɛllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #rˌɑmˈɛllo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #rˌamˈɛllo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #rˌamˈɛllə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #rˌamˈɛllə̯# | Rule 262 : ə > ə̯ 
 #rˌamˈɛll# | Rule 296 : ə̯ > ∅ 
+#rʲˌamˈɛll# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#rˌamˈɛll# | Rule 380 : rʲ > r 
 #rˌamˈɛl# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#rˌãmˈɛl# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
+#rˌãmˈɛl# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
 #rˌãmˈɛɫ# | Rule 567 : l > ɫ / [+syl,-hi,-lo,-long] __ #
 #rˌãmˈɛw# | Rule 569 : [+lat,+back] > w 
 #rˌãmˈɛa̯w# | Rule 572 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
@@ -19,6 +21,6 @@ r ˌɑ m ˈe l l u m
 #rˌãmˈoː# | Rule 722 : ə̯ > ∅ 
 #rˌamˈoː# | Rule 726 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
 #ʀˌamˈoː# | Rule 735 : r > ʀ 
-#ʀamoː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʀamoː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʀamo# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ʁamo# | Rule 743 : ʀ > ʁ 

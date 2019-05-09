@@ -1,16 +1,16 @@
 Trajectory file for run 'run1'; etymon number :378:
 #iˈuːn̪ium# >>> #ʒyj̃n̪# ( Correct : #ʒɥɛ̃#) :
 i ˈuː n̪ i u m 
-#ɪˈuːn̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#jˈuːn̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɪˈuːn̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#jˈuːn̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ʝˈuːn̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ʝˈun̪ʝʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ʝˈun̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ʝˈun̪ʝʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ʝˈun̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ʝˈun̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ʝˈuɲo# | Rule 87 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 #ʝˈuːɲo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ʝˈʉːɲo# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ɟˈʉːɲo# | Rule 247 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,.tense] / # __ [+syl]
+#ɟˈʉːɲo# | Rule 247 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,0tense] / # __ [+syl]
 #d͡ʒˈʉːɲo# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #d͡ʒˈʉːɲə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #d͡ʒˈʉːɲə̯# | Rule 262 : ə > ə̯ 
@@ -19,5 +19,5 @@ i ˈuː n̪ i u m
 #d͡ʒˈyɲ# | Rule 491 : [+hi,+round,-back] > [+front] 
 #d͡ʒˈyj̃ɲ# | Rule 552 : ∅ > j̃ / [-syl] [+hi,+round,+syl] __ ɲ #
 #d͡ʒˈyj̃n̪# | Rule 629 : ɲ > n̪ / __ #
-#ʒˈyj̃n̪# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʒyj̃n̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʒˈyj̃n̪# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʒyj̃n̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :144:
 #brˈoɡilum# >>> #bʁœj# ( Correct : #bʁœj#) :
 b r ˈo ɡ i l u m 
-#brˈɔɡɪlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#brˈɔɡɪlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #brˈɔɡlʊm# | Rule 42 : ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
-#brˈɔɡlom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#brˈɔɡlom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #brˈɔɡlo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #brˈɔːɡlo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#brˈɔːɣlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#brˈɔːɣlo# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #brˈɔɣlo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #brˈɔʝlo# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #brˈɔʝʎo# | Rule 210 : [+lat] > ʎ / [+hi,+front,+cons] __ 
@@ -15,13 +15,15 @@ b r ˈo ɡ i l u m
 #brˈuo̯ʎə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #brˈuo̯ʎə̯# | Rule 262 : ə > ə̯ 
 #brˈuo̯ʎ# | Rule 296 : ə̯ > ∅ 
-#brˈʉo̯ʎ# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#brʲˈuo̯ʎ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#brʲˈʉo̯ʎ# | Rule 372 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#brˈʉo̯ʎ# | Rule 380 : rʲ > r 
 #brˈyo̯ʎ# | Rule 491 : [+hi,+round,-back] > [+front] 
 #brˈye̯ʎ# | Rule 520 : o̯ > e̯ 
 #brˈøːʎ# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
-#brˈœːʎ# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#brˈœːʎ# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
 #bʀˈœːʎ# | Rule 735 : r > ʀ 
-#bʀœːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bʀœːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bʀœʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #bʁœʎ# | Rule 743 : ʀ > ʁ 
 #bʁœj# | Rule 744 : ʎ > j 

@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :838:
-#pˈed̪em# >>> #pje# ( Correct : #pje#) :
+#pˈed̪em# >>> #pjɛ# ( Correct : #pje#) :
 p ˈe d̪ e m 
-#pˈɛd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#pˈɛd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˈɛd̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#pˈɛðɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#pˈɛðɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #pˈɛːðɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #pˈie̯ðɛ# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #pˈie̯ðə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #pˈie̯ðə̯# | Rule 262 : ə > ə̯ 
 #pˈie̯ð# | Rule 296 : ə̯ > ∅ 
-#pˈie̯θ# | Rule 434 : [-son] > [-voi] / __ #
-#pjˈeθ# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pjˈe# | Rule 595 : {θ;ð} > {∅;∅} 
-#pje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pˈie̯ðʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#pˈie̯θʲ# | Rule 434 : [-son] > [-voi] / __ #
+#pjˈeθʲ# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pj?θʲ# | Rule 600 : ˈe > ? / __ @
+#pjˈɛθʲ# | Rule 603 : ? > ˈɛ 
+#pjˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#pjɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

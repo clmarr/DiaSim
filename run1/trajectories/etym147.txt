@@ -1,15 +1,15 @@
 Trajectory file for run 'run1'; etymon number :147:
 #bˈuksit̪ɑm# >>> #bwat̪# ( Correct : #bwat̪#) :
 b ˈu k s i t̪ ɑ m 
-#bˈʊksɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#bˈʊksɪt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #bˈʊxsɪt̪ɑm# | Rule 60 : k > x / [-cons] __ [+cor,-voi]
-#bˈoxset̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#bˈoxset̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #bˈoxset̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #bˈoxst̪ɑ# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
 #bˈoxst̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #bˈoçst̪a# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
 #bˈoçsʲt̪a# | Rule 211 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#bˈoçsʲt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#bˈoçsʲt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #bˈoçst̪a# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #bˈoçst̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
 #bˈoʝst̪ə# | Rule 448 : ç > ʝ 
@@ -21,6 +21,6 @@ b ˈu k s i t̪ ɑ m
 #bwˈɛːt̪ə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
 #bwˈɛːt̪ə̯# | Rule 693 : ə > ə̯ / __ #
 #bwˈɛːt̪# | Rule 722 : ə̯ > ∅ 
-#bwɛːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#bwɛːt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #bwɛt̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #bwat̪# | Rule 742 : ɛ > a / w __ 

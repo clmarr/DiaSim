@@ -1,17 +1,17 @@
 Trajectory file for run 'run1'; etymon number :22:
 #ˈɑllioːs# >>> #o# ( Correct : #o#) :
 ˈɑ l l i oː s 
-#ˈɑllɪoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɑlljoːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˈɑllɪoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑlljoːs# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɑllʝoːs# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɑllʝos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#ˈɑllʝos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #ˈɑʎos# | Rule 89 : l l ʝ > ʎ 
 #ˈɑːʎos# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ˈaːʎos# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˈaːʎəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #ˈaːʎə̯s# | Rule 262 : ə > ə̯ 
 #ˈaːʎs# | Rule 296 : ə̯ > ∅ 
-#ˈaːʎsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#ˈaːʎsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #ˈaʎsʲ# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
 #ˈaʎs# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #ˈaʎsʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
@@ -20,5 +20,5 @@ Trajectory file for run 'run1'; etymon number :22:
 #ˈoːsʲ# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
 #ˈoːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #ˈoː# | Rule 720 : [-son] > ∅ / __ #
-#oː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#oː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #o# | Rule 737 : [+syl,+long] > [-long,-splng] 

@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :803:
 #pˈɑleɑm# >>> #pɑj# ( Correct : #pɑj#) :
 p ˈɑ l e ɑ m 
-#pˈɑlɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#pˈɑljɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#pˈɑlɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɑljɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #pˈɑlʝɑm# | Rule 27 : j > ʝ / __ [+syl]
 #pˈɑlʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈɑʎɑ# | Rule 90 : l ʝ > ʎ 
@@ -14,6 +14,6 @@ p ˈɑ l e ɑ m
 #pˈaːʎə̯# | Rule 693 : ə > ə̯ / __ #
 #pˈɑːʎə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #pˈɑːʎ# | Rule 722 : ə̯ > ∅ 
-#pɑːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#pɑːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #pɑʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #pɑj# | Rule 744 : ʎ > j 

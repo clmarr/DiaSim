@@ -1,23 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1122:
 #sˈomn̪ium# >>> #sɔ̃ʒ# ( Correct : #sɔ̃ʒ#) :
 s ˈo m n̪ i u m 
-#sˈɔmn̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈɔmn̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#sˈɔmn̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɔmn̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #sˈɔmn̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#sˈɔmn̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈɔmn̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈɔmn̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈɔmmʝo# | Rule 86 : n̪ > m / m __ ʝ
-#sˈũmmʝo# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#sˈũmmʝo# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #sˈũmmɟo# | Rule 248 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
 #sˈũmmd͡ʒo# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #sˈũmmd͡ʒə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˈũmmd͡ʒə̯# | Rule 262 : ə > ə̯ 
 #sˈũmmd͡ʒə# | Rule 275 : ə̯ > ə / [+delrel,-ant] __ 
 #sˈũmd͡ʒə# | Rule 277 : [+cons,+lab] > ∅ / [+cons] __ [-son]
-#sˈũmʒə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#sˈũːʒə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sʲˈũmd͡ʒə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈũmʒə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#sʲˈũːʒə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˈũːʒə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #sˈũːʒə̯# | Rule 693 : ə > ə̯ / __ #
 #sˈũːʒ# | Rule 722 : ə̯ > ∅ 
-#sũːʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sũːʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sũʒ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #sɔ̃ʒ# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 

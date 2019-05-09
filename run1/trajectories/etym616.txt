@@ -2,15 +2,17 @@ Trajectory file for run 'run1'; etymon number :616:
 #lˈon̪ɡoːs# >>> #lɔ̃# ( Correct : #lɔ̃#) :
 l ˈo n̪ ɡ oː s 
 #lˈoŋɡoːs# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈɔŋɡoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#lˈɔŋɡos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#lˈũŋɡos# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#lˈɔŋɡoːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɔŋɡos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#lˈũŋɡos# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #lˈũŋɡəs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #lˈũŋɡə̯s# | Rule 262 : ə > ə̯ 
 #lˈũŋɡs# | Rule 296 : ə̯ > ∅ 
-#lˈũŋs# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#lˈũːs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈũŋɡsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˈũŋsʲ# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#lˈũːsʲ# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈũːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #lˈũː# | Rule 720 : [-son] > ∅ / __ #
-#lũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#lũː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #lũ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #lɔ̃# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 

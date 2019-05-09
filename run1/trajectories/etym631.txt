@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :631:
 #mˈɑkulɑm# >>> #mɑj# ( Correct : #mɑj#) :
 m ˈɑ k u l ɑ m 
-#mˈɑkʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#mˈɑkʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈɑklɑm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
 #mˈɑklɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈɑːklɑ# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#mˈɑːxlɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#mˈɑːxlɑ# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #mˈɑxlɑ# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #mˈaxla# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #mˈaçla# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -18,6 +18,6 @@ m ˈɑ k u l ɑ m
 #mˈaːʎə̯# | Rule 693 : ə > ə̯ / __ #
 #mˈɑːʎə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
 #mˈɑːʎ# | Rule 722 : ə̯ > ∅ 
-#mɑːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɑːʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mɑʎ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #mɑj# | Rule 744 : ʎ > j 

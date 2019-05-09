@@ -1,7 +1,7 @@
 Trajectory file for run 'run1'; etymon number :1:
-#ˌɑbbˈɑːt̪em# >>> #abe# ( Correct : #abe#) :
+#ˌɑbbˈɑːt̪em# >>> #abɛ# ( Correct : #abe#) :
 ˌɑ b b ˈɑː t̪ e m 
-#ˌɑbbˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ˌɑbbˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑbbˈɑt̪ɛm# | Rule 55 : [+syl,+long] > [-long,-splng] 
 #ˌɑbbˈɑt̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑbbˈɑːt̪ɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -9,10 +9,14 @@ Trajectory file for run 'run1'; etymon number :1:
 #ˌabbˈaːt̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌabbˈaːt̪ə̯# | Rule 262 : ə > ə̯ 
 #ˌabbˈaːt̪# | Rule 296 : ə̯ > ∅ 
-#ˌabbˈae̯t̪# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌabbˈae̯θ# | Rule 428 : [-cont,-delrel] > [+cont,.delrel] / [-cons] __ #
-#ˌabˈae̯θ# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ˌabˈeːθ# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌabˈeː# | Rule 595 : {θ;ð} > {∅;∅} 
-#abeː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#abe# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ˌabbˈaːt̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌabbˈaːjt̪# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌabbˈaːjt̪ʲ# | Rule 383 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#ˌabbˈajt̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#ˌabbˈajθʲ# | Rule 428 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#ˌabˈajθʲ# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ˌabˈɛjθʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ˌabˈɛːθʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˌabˈɛː# | Rule 720 : [-son] > ∅ / __ #
+#abɛː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#abɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 

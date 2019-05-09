@@ -3,20 +3,22 @@ Trajectory file for run 'run1'; etymon number :684:
 m ˈe n̪ s e m 
 #mˈeːn̪sem# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
 #mˈeːsem# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
-#mˈeːsɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˈesɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#mˈeːsɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈesɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #mˈesɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #mˈeːsɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #mˈeːzɛ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #mˈeːzə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #mˈeːzə̯# | Rule 262 : ə > ə̯ 
 #mˈeːz# | Rule 296 : ə̯ > ∅ 
-#mˈejz# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːzʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˈeːjz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˈejz# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
 #mˈejs# | Rule 434 : [-son] > [-voi] / __ #
 #mˈojs# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
 #mˈujs# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #mˈuɛ̯s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
 #mwˈɛs# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
 #mwˈɛ# | Rule 720 : [-son] > ∅ / __ #
-#mwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mwɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mwa# | Rule 742 : ɛ > a / w __ 

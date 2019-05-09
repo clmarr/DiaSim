@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :327:
 #ɡˈulbiɑm# >>> #ɡuʒ# ( Correct : #ɡuʒ#) :
 ɡ ˈu l b i ɑ m 
-#ɡˈʊlbɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈʊlbjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ɡˈʊlbɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈʊlbjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ɡˈʊlbʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#ɡˈolbʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɡˈolbʝɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ɡˈolbʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ɡˈoɫbʝɑ# | Rule 138 : l > ɫ / __ [+cons,-lat]
 #ɡˈoɫbʝa# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -15,7 +15,7 @@ Trajectory file for run 'run1'; etymon number :327:
 #ɡˈuɫd͡ʒə# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #ɡˈuwd͡ʒə# | Rule 569 : [+lat,+back] > w 
 #ɡˈud͡ʒə# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#ɡˈuʒə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ɡˈuʒə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ɡˈuʒə̯# | Rule 693 : ə > ə̯ / __ #
 #ɡˈuʒ# | Rule 722 : ə̯ > ∅ 
-#ɡuʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɡuʒ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

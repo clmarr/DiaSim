@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :473:
 #kˈoːleɑ# >>> #kuj# ( Correct : #kuj#) :
 k ˈoː l e ɑ 
-#kˈoːlɛɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˈoːljɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˈoːlɛɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈoːljɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #kˈoːlʝɑ# | Rule 27 : j > ʝ / __ [+syl]
-#kˈolʝɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#kˈolʝɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #kˈoʎɑ# | Rule 90 : l ʝ > ʎ 
 #kˈoːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #kˈoːʎa# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -13,5 +13,5 @@ k ˈoː l e ɑ
 #kˈuʎə# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #kˈuʎə̯# | Rule 693 : ə > ə̯ / __ #
 #kˈuʎ# | Rule 722 : ə̯ > ∅ 
-#kuʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#kuʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #kuj# | Rule 744 : ʎ > j 

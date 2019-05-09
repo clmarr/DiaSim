@@ -1,15 +1,21 @@
 Trajectory file for run 'run1'; etymon number :150:
-#bˈun̪d̪ɑm# >>> #bɔ̃d̪# ( Correct : #bɔ̃d̪#) :
+#bˈun̪d̪ɑm# >>> #bwɛ̃d̪# ( Correct : #bɔ̃d̪#) :
 b ˈu n̪ d̪ ɑ m 
-#bˈʊn̪d̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#bˈon̪d̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#bˈʊn̪d̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈon̪d̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #bˈon̪d̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#bˈũn̪d̪ɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,.delrel] / __ [+nas,+cons]
+#bˈũn̪d̪ɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
 #bˈũn̪d̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#bˈũn̪d̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#bˈũːd̪ə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#bˈũːd̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#bˈũːd̪# | Rule 722 : ə̯ > ∅ 
-#bũːd̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#bũd̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#bɔ̃d̪# | Rule 738 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#bˈũn̪ʲd̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#bˈũn̪ʲd̪a# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#bˈũjn̪d̪a# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#bˈũjn̪d̪ə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#bˈũj̃n̪d̪ə# | Rule 612 : j > j̃ / __ [+nas,+cons]
+#bwˈĩn̪d̪ə# | Rule 615 : {ũ j̃;ˌũ j̃;ˈũ j̃} > {w ĩ;w ˌĩ;w ˈĩ} 
+#bwˈẽn̪d̪ə# | Rule 646 : [+front,+nas,+syl] > [-hi] / w __ 
+#bwˈẽːd̪ə# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#bwˈɛ̃ːd̪ə# | Rule 662 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
+#bwˈɛ̃ːd̪ə̯# | Rule 693 : ə > ə̯ / __ #
+#bwˈɛ̃ːd̪# | Rule 722 : ə̯ > ∅ 
+#bwɛ̃ːd̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bwɛ̃d̪# | Rule 737 : [+syl,+long] > [-long,-splng] 

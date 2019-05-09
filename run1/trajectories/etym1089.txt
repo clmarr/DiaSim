@@ -3,21 +3,24 @@ Trajectory file for run 'run1'; etymon number :1089:
 s ˈe n̪ s u m 
 #sˈeːn̪sum# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
 #sˈeːsum# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
-#sˈeːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#sˈesʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#sˈesom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#sˈeːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈesʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˈesom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #sˈeso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #sˈeːso# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #sˈeːzo# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
 #sˈeːzə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #sˈeːzə̯# | Rule 262 : ə > ə̯ 
 #sˈeːz# | Rule 296 : ə̯ > ∅ 
-#sˈejz# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈejs# | Rule 434 : [-son] > [-voi] / __ #
-#sˈojs# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#sˈujs# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#sˈuɛ̯s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
-#swˈɛs# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#sʲˈeːzʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#sʲˈeːjz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#sʲˈejz# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#sʲˈejs# | Rule 434 : [-son] > [-voi] / __ #
+#sʲˈojs# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#sʲˈujs# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#sʲˈuɛ̯s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#sʲwˈɛs# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#swˈɛs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #swˈɛ# | Rule 720 : [-son] > ∅ / __ #
-#swɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#swɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #swa# | Rule 742 : ɛ > a / w __ 

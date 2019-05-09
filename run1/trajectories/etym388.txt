@@ -3,9 +3,9 @@ Trajectory file for run 'run1'; etymon number :388:
 k ˈa e̯ k u m 
 #kˈɑe̯kum# | Rule 2 : [+lo,+syl] > [-front,+back] 
 #kˈae̯kum# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#kˈae̯kʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˈae̯kʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˈɛːkʊm# | Rule 56 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#kˈɛːkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˈɛːkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˈɛːko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kʲˈɛːko# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #cˈɛːko# | Rule 76 : [+back,+front] > [-back] 
@@ -14,11 +14,11 @@ k ˈa e̯ k u m
 #cˈie̯ɣo# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 #t͡sʲˈie̯ɣo# | Rule 178 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
 #t͡sʲˈie̯o# | Rule 186 : ɣ > ∅ / ˈi e̯ __ o
-#t͡sʲˈie̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
+#t͡sʲˈie̯w# | Rule 230 : [-lo,-stres] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / [+prim,+syl] ( [-cons,-hi] ) __ 
 #t͡sˈie̯w# | Rule 533 : t͡sʲ > t͡s / # __ 
 #t͡sjˈew# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #t͡sjˈøw# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 #t͡sjˈøː# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#sjˈøː# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#sjøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#sjˈøː# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#sjøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #sjø# | Rule 737 : [+syl,+long] > [-long,-splng] 

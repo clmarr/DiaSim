@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :356:
 #ˈilloːs# >>> #ø# ( Correct : #ø#) :
 ˈi l l oː s 
-#ˈɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɪllos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˈellos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɪllos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ˈellos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈelləs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #ˈellə̯s# | Rule 262 : ə > ə̯ 
 #ˈells# | Rule 296 : ə̯ > ∅ 
-#ˈels# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#ˈeɫs# | Rule 489 : [+lat] > [+back] / __ [+cons]
-#ˈews# | Rule 569 : [+lat,+back] > w 
-#ˈøws# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#ˈøːs# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˈellsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˈelsʲ# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#ˈeɫsʲ# | Rule 489 : [+lat] > [+back] / __ [+cons]
+#ˈewsʲ# | Rule 569 : [+lat,+back] > w 
+#ˈøwsʲ# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˈøːsʲ# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˈøːs# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
 #ˈøː# | Rule 720 : [-son] > ∅ / __ #
-#øː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#øː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ø# | Rule 737 : [+syl,+long] > [-long,-splng] 

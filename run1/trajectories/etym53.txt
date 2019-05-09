@@ -1,12 +1,12 @@
 Trajectory file for run 'run1'; etymon number :53:
-#ˌɑn̪ɡˌust̪iˈoːsum# >>> #ɑ̃ɡwasø# ( Correct : #ɑ̃ɡwasø#) :
+#ˌɑn̪ɡˌust̪iˈoːsum# >>> #ɑ̃ɡwaswa# ( Correct : #ɑ̃ɡwasø#) :
 ˌɑ n̪ ɡ ˌu s t̪ i ˈoː s u m 
 #ˌɑŋɡˌust̪iˈoːsum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#ˌɑŋɡˌʊst̪ɪˈoːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˌɑŋɡˌʊst̪jˈoːsʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˌɑŋɡˌʊst̪ɪˈoːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑŋɡˌʊst̪jˈoːsʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˌɑŋɡˌʊst̪ʝˈoːsʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ˌɑŋɡˌʊst̪ʝˈosʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#ˌɑŋɡˌost̪ʝˈosom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˌɑŋɡˌʊst̪ʝˈosʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ˌɑŋɡˌost̪ʝˈosom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɑŋɡˌost̪ʝˈoso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˌɑŋɡˌost͡sʲʝˈoso# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #ˌɑŋɡˌost͡sʲˈoso# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
@@ -17,21 +17,19 @@ Trajectory file for run 'run1'; etymon number :53:
 #ˌaŋɡˌosʲsʲˈoːzə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #ˌaŋɡˌosʲsʲˈoːzə̯# | Rule 262 : ə > ə̯ 
 #ˌaŋɡˌosʲsʲˈoːz# | Rule 296 : ə̯ > ∅ 
-#ˌaŋɡˌosʲsˈoːz# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˌaŋɡˌojssˈoːz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#ˌaŋɡˌojssˈowz# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌaŋɡˌojssˈows# | Rule 434 : [-son] > [-voi] / __ #
-#ˌaŋɡˌojsˈows# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ˌãŋɡˌojsˈows# | Rule 493 : [+lo,+syl] > [+nas,+son,.delrel] / __ [+nas,-syl]
-#ˌãŋɡˌojsˈews# | Rule 528 : ˈo > ˈe / __ w
-#ˌãŋɡˌujsˈews# | Rule 551 : [+round,+tense,+back] > [+hi] 
-#ˌãŋɡˌujsˈøws# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#ˌãŋɡˌujsˈøːs# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#ˌãŋɡˌuɛ̯sˈøːs# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
-#ˌãŋɡwˌɛsˈøːs# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#ˌãːɡwˌɛsˈøːs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌɑ̃ːɡwˌɛsˈøːs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#ˌɑ̃ːɡwˌɛsˈøː# | Rule 720 : [-son] > ∅ / __ #
-#ɑ̃ːɡwɛsøː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ɑ̃ɡwɛsø# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#ɑ̃ɡwasø# | Rule 742 : ɛ > a / w __ 
+#ˌaŋɡˌosʲsʲˈoːzʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#ˌaŋɡˌosʲsˈoːzʲ# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#ˌaŋɡˌojssˈoːjz# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#ˌaŋɡˌojssˈojz# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#ˌaŋɡˌojssˈojs# | Rule 434 : [-son] > [-voi] / __ #
+#ˌaŋɡˌojsˈojs# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ˌãŋɡˌojsˈojs# | Rule 493 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãŋɡˌujsˈujs# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#ˌãŋɡˌuɛ̯sˈuɛ̯s# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#ˌãŋɡwˌɛswˈɛs# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ˌãːɡwˌɛswˈɛs# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˌɑ̃ːɡwˌɛswˈɛs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#ˌɑ̃ːɡwˌɛswˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#ɑ̃ːɡwɛswɛ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɑ̃ɡwɛswɛ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#ɑ̃ɡwaswa# | Rule 742 : ɛ > a / w __ 

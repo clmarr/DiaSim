@@ -1,11 +1,11 @@
 Trajectory file for run 'run1'; etymon number :627:
 #mˌɑɡˈist̪er# >>> #mɛit̪ʁ# ( Correct : #mɛt̪ʁ#) :
 m ˌɑ ɡ ˈi s t̪ e r 
-#mˌɑɡˈɪst̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#mˌɑɡˈest̪ɛr# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#mˌɑɡˈɪst̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɑɡˈest̪ɛr# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #mˌɑɡʲˈest̪ɛr# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #mˌɑɟˈest̪ɛr# | Rule 76 : [+back,+front] > [-back] 
-#mˌɑʝˈest̪ɛr# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#mˌɑʝˈest̪ɛr# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #mˌɑʝˈeːst̪ɛr# | Rule 158 : ˈe > ˈeː / [+hi,+front,+cons] __ [+cor] [+cor,-nas]
 #mˌɑʝˈiːst̪ɛr# | Rule 159 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
 #mˌaʝˈiːst̪ɛr# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -13,14 +13,19 @@ m ˌɑ ɡ ˈi s t̪ e r
 #mˌaʝˈist̪ər# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #mˌaʝˈist̪ə̯r# | Rule 262 : ə > ə̯ 
 #mˌaʝˈist̪rə# | Rule 279 : ə̯ r > r ə / __ #
-#mˌajˈist̪rə# | Rule 377 : ʝ > j 
+#mˌaʝˈisʲt̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌajˈisʲt̪ʲrʲə# | Rule 377 : ʝ > j 
+#mˌajˈisʲt̪ʲrə# | Rule 380 : rʲ > r 
+#mˌajˈisʲt̪rə# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#mˌajˈijst̪rə# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˌajˈist̪rə# | Rule 455 : j > ∅ / [+hi,+front,+tense,-cons] __ 
 #mˌajˈixt̪rə# | Rule 582 : s > x / [-cons] __ [+cons]
 #mˌajˈiːt̪rə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
 #mˌajˈiːt̪rə̯# | Rule 693 : ə > ə̯ / __ #
 #mˌajˈiːt̪r# | Rule 722 : ə̯ > ∅ 
 #mˌeˈiːt̪r# | Rule 728 : [+lo,+front] j > [-lo] ∅/ __ [+prim,+tense]
-#mˌɛˈiːt̪r# | Rule 729 : [+syl,-lo,-hi] > [-tense,-cons,-lat,+cont,.delrel] / __ [-cons,+hi,+front]
+#mˌɛˈiːt̪r# | Rule 729 : [+syl,-lo,-hi] > [-tense,-cons,-lat,+cont,0delrel] / __ [-cons,+hi,+front]
 #mˌɛˈiːt̪ʀ# | Rule 735 : r > ʀ 
-#mɛiːt̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#mɛiːt̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #mɛit̪ʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #mɛit̪ʁ# | Rule 743 : ʀ > ʁ 

@@ -1,22 +1,32 @@
 Trajectory file for run 'run1'; etymon number :1346:
-#wˈirid̪em# >>> #vɛʁ# ( Correct : #vɛʁ#) :
+#wˈirid̪em# >>> #vwaʁ# ( Correct : #vɛʁ#) :
 w ˈi r i d̪ e m 
 #ɣʷˈirid̪em# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪrɪd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈɪrɪd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ɣʷˈɪrd̪ɛm# | Rule 38 : ɪ > ∅ / [+prim] ( [-syl] )* [+son] __ d̪ [+front,-lo] ( [-syl] ) #
 #βʷˈɪrd̪ɛm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈerd̪ɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈerd̪ɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˈerd̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #βˈerd̪ɛ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #βˈerd̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #βˈerd̪ə̯# | Rule 262 : ə > ə̯ 
 #βˈerd̪# | Rule 296 : ə̯ > ∅ 
-#vˈerd̪# | Rule 425 : β > v 
-#vˈert̪# | Rule 434 : [-son] > [-voi] / __ #
-#vˈɛrt̪# | Rule 578 : ˈe > ˈɛ / __ r [+cons]
-#vˈɛɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#vˈɛɹ# | Rule 720 : [-son] > ∅ / __ #
-#vˈɛr# | Rule 733 : ɹ > r 
-#vˈɛʀ# | Rule 735 : r > ʀ 
-#vɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#vɛʁ# | Rule 743 : ʀ > ʁ 
+#βˈerʲd̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#βˈejrʲd̪ʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#βˈeːjrʲd̪ʲ# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#βˈeːjrd̪ʲ# | Rule 380 : rʲ > r 
+#βˈejrd̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#vˈejrd̪ʲ# | Rule 425 : β > v 
+#vˈejrt̪ʲ# | Rule 434 : [-son] > [-voi] / __ #
+#vˈojrt̪ʲ# | Rule 504 : ˈe > ˈo / [+lab,+voi] __ j
+#vˈoɛ̯rt̪ʲ# | Rule 545 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˈuɛ̯rt̪ʲ# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#vwˈɛrt̪ʲ# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈɛrt̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#vwˈɛɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#vwˈɛɹ# | Rule 720 : [-son] > ∅ / __ #
+#vwˈɛr# | Rule 733 : ɹ > r 
+#vwˈɛʀ# | Rule 735 : r > ʀ 
+#vwɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vwaʀ# | Rule 742 : ɛ > a / w __ 
+#vwaʁ# | Rule 743 : ʀ > ʁ 

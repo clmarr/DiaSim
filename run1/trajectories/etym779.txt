@@ -1,15 +1,17 @@
 Trajectory file for run 'run1'; etymon number :779:
-#n̪ˈuːlloːs# >>> #n̪y# ( Correct : #n̪y#) :
+#n̪ˈuːlloːs# >>> #n̪ʲy# ( Correct : #n̪y#) :
 n̪ ˈuː l l oː s 
-#n̪ˈullos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
+#n̪ˈullos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
 #n̪ˈʉllos# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
 #n̪ˈʉlləs# | Rule 259 : [-stres,-lo,+syl] > ə / __ [-syl]
 #n̪ˈʉllə̯s# | Rule 262 : ə > ə̯ 
 #n̪ˈʉlls# | Rule 296 : ə̯ > ∅ 
-#n̪ˈʉls# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
-#n̪ˈʉɫs# | Rule 489 : [+lat] > [+back] / __ [+cons]
-#n̪ˈyɫs# | Rule 491 : [+hi,+round,-back] > [+front] 
-#n̪ˈyws# | Rule 569 : [+lat,+back] > w 
-#n̪ˈys# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#n̪ˈy# | Rule 720 : [-son] > ∅ / __ #
-#n̪y# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#n̪ʲˈʉllsʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˈʉlsʲ# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
+#n̪ʲˈʉɫsʲ# | Rule 489 : [+lat] > [+back] / __ [+cons]
+#n̪ʲˈyɫsʲ# | Rule 491 : [+hi,+round,-back] > [+front] 
+#n̪ʲˈywsʲ# | Rule 569 : [+lat,+back] > w 
+#n̪ʲˈysʲ# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
+#n̪ʲˈys# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#n̪ʲˈy# | Rule 720 : [-son] > ∅ / __ #
+#n̪ʲy# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

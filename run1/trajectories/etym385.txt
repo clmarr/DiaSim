@@ -1,9 +1,9 @@
 Trajectory file for run 'run1'; etymon number :385:
 #kˌɑbˈɑllum# >>> #ʃəval# ( Correct : #ʃəval#) :
 k ˌɑ b ˈɑ l l u m 
-#kˌɑbˈɑllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˌɑbˈɑllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβˈɑllʊm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
-#kˌɑβˈɑllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˌɑβˈɑllom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβˈɑllo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˌaβˈallo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #kʲˌaβˈallo# | Rule 228 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
@@ -17,5 +17,5 @@ k ˌɑ b ˈɑ l l u m
 #t͡ʃˌevˈall# | Rule 425 : β > v 
 #t͡ʃˌevˈal# | Rule 480 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
 #t͡ʃˌəvˈal# | Rule 494 : ˌe > ˌə / t͡ʃ __ ( [+cons] ) [+syl]
-#ʃˌəvˈal# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃəval# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃˌəvˈal# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃəval# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

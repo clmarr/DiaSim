@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :23:
 #ˈɑllium# >>> #aj# ( Correct : #aj#) :
 ˈɑ l l i u m 
-#ˈɑllɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ˈɑlljʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#ˈɑllɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑlljʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɑllʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɑllʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ˈɑllʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˈɑllʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈɑʎo# | Rule 89 : l l ʝ > ʎ 
 #ˈɑːʎo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -13,5 +13,5 @@ Trajectory file for run 'run1'; etymon number :23:
 #ˈaːʎə̯# | Rule 262 : ə > ə̯ 
 #ˈaːʎ# | Rule 296 : ə̯ > ∅ 
 #ˈaʎ# | Rule 397 : [+prim,-hi] > [-long,-splng] / __ ʎ
-#aʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#aʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #aj# | Rule 744 : ʎ > j 

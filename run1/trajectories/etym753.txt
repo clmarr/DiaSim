@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :753:
-#n̪ˈiːd̪um# >>> #n̪i# ( Correct : #n̪i#) :
+#n̪ˈiːd̪um# >>> #n̪ʲi# ( Correct : #n̪i#) :
 n̪ ˈiː d̪ u m 
-#n̪ˈiːd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#n̪ˈid̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,.delrel] 
-#n̪ˈid̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#n̪ˈiːd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈid̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#n̪ˈid̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #n̪ˈid̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ˈiðo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,.delrel] / [+syl] __ [+son,-lat,-nas]
+#n̪ˈiðo# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #n̪ˈiːðo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #n̪ˈiːðə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #n̪ˈiːðə̯# | Rule 262 : ə > ə̯ 
 #n̪ˈiːð# | Rule 296 : ə̯ > ∅ 
-#n̪ˈiːθ# | Rule 434 : [-son] > [-voi] / __ #
-#n̪ˈiː# | Rule 595 : {θ;ð} > {∅;∅} 
-#n̪iː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#n̪i# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#n̪ʲˈiːðʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#n̪ʲˈiːθʲ# | Rule 434 : [-son] > [-voi] / __ #
+#n̪ʲˈiː# | Rule 720 : [-son] > ∅ / __ #
+#n̪ʲiː# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ʲi# | Rule 737 : [+syl,+long] > [-long,-splng] 

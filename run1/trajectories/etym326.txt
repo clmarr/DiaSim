@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :326:
 #ɡˈulɑm# >>> #ɡœl# ( Correct : #ɡœl#) :
 ɡ ˈu l ɑ m 
-#ɡˈʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#ɡˈolɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#ɡˈʊlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈolɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ɡˈolɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ɡˈoːlɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #ɡˈoːla# | Rule 195 : [+lo,+syl] > [+front,-back] 
@@ -13,6 +13,6 @@ Trajectory file for run 'run1'; etymon number :326:
 #ɡˈøːlə# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
 #ɡˈøːlə̯# | Rule 693 : ə > ə̯ / __ #
 #ɡˈøːl# | Rule 722 : ə̯ > ∅ 
-#ɡˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#ɡœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ɡˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#ɡœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ɡœl# | Rule 737 : [+syl,+long] > [-long,-splng] 

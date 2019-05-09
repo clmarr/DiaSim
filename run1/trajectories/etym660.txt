@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :660:
-#mˌɑt̪rˈɑst̪rɑ# >>> #maʁɑt̪ʁ# ( Correct : #maʁɑt̪ʁ#) :
+#mˌɑt̪rˈɑst̪rɑ# >>> #mɛʁɛt̪ʁ# ( Correct : #maʁɑt̪ʁ#) :
 m ˌɑ t̪ r ˈɑ s t̪ r ɑ 
 #mˌat̪rˈast̪ra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˌad̪rˈast̪ra# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#mˌaðrˈast̪ra# | Rule 374 : [-delrel,+voi] > [+cont,.delrel] / [-cons] __ r
-#mˌaðrˈast̪rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðrˈaxt̪rə# | Rule 582 : s > x / [-cons] __ [+cons]
-#mˌarˈaxt̪rə# | Rule 595 : {θ;ð} > {∅;∅} 
-#mˌarˈaːt̪rə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
-#mˌarˈaːt̪rə̯# | Rule 693 : ə > ə̯ / __ #
-#mˌarˈɑːt̪rə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#mˌarˈɑːt̪r# | Rule 722 : ə̯ > ∅ 
-#mˌaʀˈɑːt̪ʀ# | Rule 735 : r > ʀ 
-#maʀɑːt̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#maʀɑt̪ʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#maʁɑt̪ʁ# | Rule 743 : ʀ > ʁ 
+#mˌat̪ʲrʲˈasʲt̪ʲrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#mˌad̪ʲrʲˈasʲt̪ʲrʲa# | Rule 350 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#mˌad̪ʲrˈasʲt̪ʲra# | Rule 380 : rʲ > r 
+#mˌad̪ʲrˈasʲt̪ra# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#mˌajd̪rˈajst̪ra# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#mˌajd̪rˈajst̪rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌajðrˈajst̪rə# | Rule 449 : [-cont,-delrel,+cor] > ð / [-cons] __ [+son,+cor]
+#mˌajðrˈajxt̪rə# | Rule 582 : s > x / [-cons] __ [+cons]
+#mˌajrˈajxt̪rə# | Rule 595 : {θ;ð} > {∅;∅} 
+#mˌɛjrˈɛjxt̪rə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#mˌɛːrˈɛːxt̪rə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#mˌɛːrˈɛːt̪rə# | Rule 643 : [+syl] x > [+long] ∅/ __ [+cons]
+#mˌɛːrˈɛːt̪rə̯# | Rule 693 : ə > ə̯ / __ #
+#mˌɛːrˈɛːt̪r# | Rule 722 : ə̯ > ∅ 
+#mˌɛːʀˈɛːt̪ʀ# | Rule 735 : r > ʀ 
+#mɛːʀɛːt̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʀɛt̪ʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#mɛʁɛt̪ʁ# | Rule 743 : ʀ > ʁ 

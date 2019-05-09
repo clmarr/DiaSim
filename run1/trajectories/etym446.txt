@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :446:
-#kˈɑwsɑm# >>> #ʃoz# ( Correct : #ʃoz#) :
+#kˈɑwsɑm# >>> #ʃwaz# ( Correct : #ʃoz#) :
 k ˈɑ w s ɑ m 
 #kˈɑwsɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #kˈɑwzɑ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
@@ -8,12 +8,14 @@ k ˈɑ w s ɑ m
 #kʲˈɔwza# | Rule 232 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 #cˈɔwza# | Rule 241 : [+back,+front] > [-back] 
 #t͡ʃˈɔwza# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈɔwzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃˈɔzə# | Rule 548 : {ˌɔ w;ˌo w;ˈɔ w} > {ˌɔ;ˌɔ;ˈɔ} / __ [+strid] @
-#ʃˈɔzə# | Rule 634 : [+delrel] > [+cont,.delrel] 
-#ʃˈɔzə̯# | Rule 693 : ə > ə̯ / __ #
-#ʃˈɔːzə̯# | Rule 709 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
-#ʃˈoːzə̯# | Rule 711 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,.delrel] 
-#ʃˈoːz# | Rule 722 : ə̯ > ∅ 
-#ʃoːz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#ʃoz# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#t͡ʃˈɔwzʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˈɔwjza# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#t͡ʃˈɔjza# | Rule 385 : w > ∅ / [+round,+syl] __ j
+#t͡ʃˈɔjzə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈɔɛ̯zə# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t͡ʃwˈɛzə# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ʃwˈɛzə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ʃwˈɛzə̯# | Rule 693 : ə > ə̯ / __ #
+#ʃwˈɛz# | Rule 722 : ə̯ > ∅ 
+#ʃwɛz# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃwaz# | Rule 742 : ɛ > a / w __ 

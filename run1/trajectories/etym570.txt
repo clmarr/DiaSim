@@ -1,19 +1,28 @@
 Trajectory file for run 'run1'; etymon number :570:
-#lˈɑːrid̪um# >>> #laʁ# ( Correct : #laʁ#) :
+#lˈɑːrid̪um# >>> #lɛʁ# ( Correct : #laʁ#) :
 l ˈɑː r i d̪ u m 
-#lˈɑːrɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#lˈɑːrɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #lˈɑːrd̪ʊm# | Rule 39 : ɪ > ∅ / [+prim] ( [-syl] )* [+cons,+voi] __ d̪ [+back,-lo] ( [-syl] ) #
 #lˈɑrd̪ʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#lˈɑrd̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#lˈɑrd̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #lˈɑrd̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #lˈard̪o# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #lˈard̪ə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #lˈard̪ə̯# | Rule 262 : ə > ə̯ 
 #lˈard̪# | Rule 296 : ə̯ > ∅ 
-#lˈart̪# | Rule 434 : [-son] > [-voi] / __ #
-#lˈaɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#lˈaɹ# | Rule 720 : [-son] > ∅ / __ #
-#lˈar# | Rule 733 : ɹ > r 
-#lˈaʀ# | Rule 735 : r > ʀ 
-#laʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#laʁ# | Rule 743 : ʀ > ʁ 
+#lˈarʲd̪ʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˈajrʲd̪ʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#lˈaːjrʲd̪ʲ# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#lˈaːjrd̪ʲ# | Rule 380 : rʲ > r 
+#lˈajrd̪ʲ# | Rule 386 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#lˈajrt̪ʲ# | Rule 434 : [-son] > [-voi] / __ #
+#lˈɛjrt̪ʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#lˈɛːrt̪ʲ# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#lˈɛːrt̪# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#lˈɛːɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#lˈɛːɹ# | Rule 720 : [-son] > ∅ / __ #
+#lˈɛːr# | Rule 733 : ɹ > r 
+#lˈɛːʀ# | Rule 735 : r > ʀ 
+#lɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#lɛʁ# | Rule 743 : ʀ > ʁ 

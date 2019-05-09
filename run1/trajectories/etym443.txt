@@ -2,8 +2,8 @@ Trajectory file for run 'run1'; etymon number :443:
 #kˌɑweˈolɑ# >>> #ʃwajœl# ( Correct : #ʒol#) :
 k ˌɑ w e ˈo l ɑ 
 #kˌɑɣʷeˈolɑ# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kˌɑɣʷɛˈɔlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#kˌɑɣʷjˈɔlɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,.stres,.prim,-cons,-lat,+cont,.delrel] / __ [+syl]
+#kˌɑɣʷɛˈɔlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɑɣʷjˈɔlɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #kˌɑɣʷʝˈɔlɑ# | Rule 27 : j > ʝ / __ [+syl]
 #kˌɑʝˈɔlɑ# | Rule 29 : {ɣʷ;w} > {∅;∅} / __ ʝ
 #kˌɑʝˈɔːlɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
@@ -23,10 +23,10 @@ k ˌɑ w e ˈo l ɑ
 #t͡ʃˌujˈye̯lə# | Rule 551 : [+round,+tense,+back] > [+hi] 
 #t͡ʃˌujˈøːlə# | Rule 568 : [+hi,+round,+tense,+prim] e̯ > ˈøː
 #t͡ʃwˌɛjˈøːlə# | Rule 617 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
-#ʃwˌɛjˈøːlə# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ʃwˌɛjˈøːlə# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ʃwˌɛjˈøːlə̯# | Rule 693 : ə > ə̯ / __ #
 #ʃwˌɛjˈøːl# | Rule 722 : ə̯ > ∅ 
-#ʃwˌɛjˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,.delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#ʃwɛjœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃwˌɛjˈœːl# | Rule 723 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#ʃwɛjœːl# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʃwɛjœl# | Rule 737 : [+syl,+long] > [-long,-splng] 
 #ʃwajœl# | Rule 742 : ɛ > a / w __ 

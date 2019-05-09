@@ -1,8 +1,8 @@
 Trajectory file for run 'run1'; etymon number :298:
 #fˈulɡerem# >>> #fud̪ʁ# ( Correct : #fud̪ʁ#) :
 f ˈu l ɡ e r e m 
-#fˈʊlɡɛrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
-#fˈolɡɛrɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#fˈʊlɡɛrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈolɡɛrɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #fˈolɡɛrɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #fˈolɡʲɛrɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
 #fˈolɟɛrɛ# | Rule 76 : [+back,+front] > [-back] 
@@ -15,7 +15,7 @@ f ˈu l ɡ e r e m
 #fˈolʲd̪ʲrə̯# | Rule 262 : ə > ə̯ 
 #fˈolʲd̪ʲɾə# | Rule 285 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
 #fˈolʲd̪ʲrə# | Rule 291 : ɾ > r 
-#fˈolʲd̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#fˈolʲd̪ʲrʲə# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
 #fˈolʲd̪ʲrə# | Rule 380 : rʲ > r 
 #fˈolʲd̪rə# | Rule 381 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
 #fˈo?d̪rə# | Rule 489 : [+lat] > [+back] / __ [+cons]
@@ -25,5 +25,5 @@ f ˈu l ɡ e r e m
 #fˈud̪rə̯# | Rule 693 : ə > ə̯ / __ #
 #fˈud̪r# | Rule 722 : ə̯ > ∅ 
 #fˈud̪ʀ# | Rule 735 : r > ʀ 
-#fud̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#fud̪ʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #fud̪ʁ# | Rule 743 : ʀ > ʁ 

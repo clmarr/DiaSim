@@ -2,14 +2,14 @@ Trajectory file for run 'run1'; etymon number :1320:
 #wˈet̪ulum# >>> #vjɛj# ( Correct : #vjɛj#) :
 w ˈe t̪ u l u m 
 #ɣʷˈet̪ulum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛt̪ʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#ɣʷˈɛt̪ʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ɣʷˈɛt̪lʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
 #βʷˈɛt̪lʊm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɛt̪lom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#βʷˈɛt̪lom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #βʷˈɛklom# | Rule 68 : t̪ > k / __ [+lat]
 #βʷˈɛklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #βʷˈɛːklo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#βʷˈɛːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,.delrel] / [-cons] __ [+cor,+cons]
+#βʷˈɛːxlo# | Rule 115 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
 #βʷˈɛxlo# | Rule 148 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #βˈɛxlo# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
 #βˈɛçlo# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -23,5 +23,5 @@ w ˈe t̪ u l u m
 #vjˈeʎ# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #vj?ʎ# | Rule 600 : ˈe > ? / __ @
 #vjˈɛʎ# | Rule 603 : ? > ˈɛ 
-#vjɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#vjɛʎ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #vjɛj# | Rule 744 : ʎ > j 

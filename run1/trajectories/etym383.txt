@@ -1,10 +1,10 @@
 Trajectory file for run 'run1'; etymon number :383:
 #kˌɑbˈɑllikˈɑːre# >>> #ʃəvoʒe# ( Correct : #ʃəvoʃe#) :
 k ˌɑ b ˈɑ l l i k ˈɑː r e 
-#kˌɑbˈɑllɪkˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,.delrel] 
+#kˌɑbˈɑllɪkˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβˈɑllɪkˈɑːrɛ# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
 #kˌɑβˈɑllɪkˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#kˌɑβˈɑllekˈɑrɛ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,.delrel] 
+#kˌɑβˈɑllekˈɑrɛ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #kˌɑβˈɑllekˈɑːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
 #kˌɑβˈɑllɡˈɑːrɛ# | Rule 129 : e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]
 #kˌɑβˈɑlɫɡˈɑːrɛ# | Rule 138 : l > ɫ / __ [+cons,-lat]
@@ -18,6 +18,10 @@ k ˌɑ b ˈɑ l l i k ˈɑː r e
 #t͡ʃˌɛβˈalɫd͡ʒˈie̯rə# | Rule 260 : [-stres,-lo,+syl] > ə / __ #
 #t͡ʃˌɛβˈalɫd͡ʒˈie̯rə̯# | Rule 262 : ə > ə̯ 
 #t͡ʃˌɛβˈalɫd͡ʒˈie̯r# | Rule 296 : ə̯ > ∅ 
+#t͡ʃˌɛβˈalɫd͡ʒˈie̯rʲ# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#t͡ʃˌɛβˈalɫd͡ʒˈie̯jrʲ# | Rule 345 : ∅ > j / [-cons] __ rʲ
+#t͡ʃˌɛβˈalɫd͡ʒˈie̯rʲ# | Rule 347 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#t͡ʃˌɛβˈalɫd͡ʒˈie̯r# | Rule 380 : rʲ > r 
 #t͡ʃˌeβˈalɫd͡ʒˈie̯r# | Rule 411 : ˌɛ > ˌe / __ [-cor]
 #t͡ʃˌevˈalɫd͡ʒˈie̯r# | Rule 425 : β > v 
 #t͡ʃˌevˈald͡ʒˈie̯r# | Rule 461 : [+cons] > ∅ / [+cons] __ [-son]
@@ -27,10 +31,10 @@ k ˌɑ b ˈɑ l l i k ˈɑː r e
 #t͡ʃˌəvˈawd͡ʒjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #t͡ʃˌəvˈawd͡ʒj?r# | Rule 600 : ˈe > ? / __ @
 #t͡ʃˌəvˈawd͡ʒjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#ʃˌəvˈawʒjˈer# | Rule 634 : [+delrel] > [+cont,.delrel] 
+#ʃˌəvˈawʒjˈer# | Rule 634 : [+delrel] > [+cont,0delrel] 
 #ʃˌəvˈoːʒjˈer# | Rule 651 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
 #ʃˌəvˈoːʒˈer# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 #ʃˌəvˈoːʒˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
 #ʃˌəvˈoːʒˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ʃəvoːʒe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
+#ʃəvoːʒe# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #ʃəvoʒe# | Rule 737 : [+syl,+long] > [-long,-splng] 

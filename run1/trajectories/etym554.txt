@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :554:
-#lˈɑbrɑm# >>> #levʁ# ( Correct : #lɛvʁ#) :
+#lˈɑbrɑm# >>> #lɛvʁ# ( Correct : #lɛvʁ#) :
 l ˈɑ b r ɑ m 
 #lˈɑβrɑm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
 #lˈɑβrɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
@@ -9,13 +9,19 @@ l ˈɑ b r ɑ m
 #lˈaːβra# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #lˈaβra# | Rule 216 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
 #lˈaːβra# | Rule 221 : [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
-#lˈae̯βra# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#lˈae̯vra# | Rule 425 : β > v 
-#lˈae̯vrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈeːvrə# | Rule 538 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#lˈeːvrə̯# | Rule 693 : ə > ə̯ / __ #
-#lˈeːvr# | Rule 722 : ə̯ > ∅ 
-#lˈeːvʀ# | Rule 735 : r > ʀ 
-#leːvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,.delrel] 
-#levʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#levʁ# | Rule 743 : ʀ > ʁ 
+#lˈaːβrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
+#lˈaːjβrʲa# | Rule 344 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
+#lˈajβrʲa# | Rule 352 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#lˈaːjβrʲa# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#lˈaːjβra# | Rule 380 : rʲ > r 
+#lˈajβra# | Rule 387 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#lˈajvra# | Rule 425 : β > v 
+#lˈajvrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈɛjvrə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#lˈɛːvrə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#lˈɛːvrə̯# | Rule 693 : ə > ə̯ / __ #
+#lˈɛːvr# | Rule 722 : ə̯ > ∅ 
+#lˈɛːvʀ# | Rule 735 : r > ʀ 
+#lɛːvʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lɛvʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
+#lɛvʁ# | Rule 743 : ʀ > ʁ 
