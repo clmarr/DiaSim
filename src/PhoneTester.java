@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class PhoneTester {
 
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ','; 
+	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1; 
 	private final static char IMPLICATION_DELIM = ':'; 
 	
@@ -191,7 +191,7 @@ public class PhoneTester {
 		testPhones.add(testPhone); 
 		testPhones.add(testPhone); 
 		
-		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+cons,.delrel", featureIndices); 
+		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+cons,"+MARK_UNSPEC+"delrel", featureIndices); 
 	
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));
@@ -201,7 +201,7 @@ public class PhoneTester {
 		System.out.println(nasalStop.compare(testPhones, 0));
 		System.out.println("The following should be 'm'");
 		System.out.println(testPhones.get(0)); 
-		// but it's not -- because delrel is '-' not '.' --- this might be a good case for adding "feature implications"-- ask Mortensen!
+		// but it's not -- because delrel is '-' not '0' --- this might be a good case for adding "feature implications"-- ask Mortensen!
 		
 		
 		//TODO will need to add in many more testing statements 

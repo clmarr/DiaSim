@@ -1,12 +1,12 @@
 +syl:+son
--syl:.stres,.prim
+-syl:0stres,0prim
 -cons:-lat,+cont
-+cons:.tense
-+cont:.delrel
++cons:0tense
++cont:0delrel
 -cont:+cons
 delrel:-son
 +lat:+cons
--cor:.distr
+-cor:0distr
 distr:+cor
 tense:-cons
 -long:-splng
@@ -16,4 +16,4 @@ stres:+syl
 +prim:+stres
 prim:+syl
 +nas:+son
-+son:.delrel
++son:0delrel

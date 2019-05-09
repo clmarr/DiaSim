@@ -14,7 +14,7 @@ public class SChangeContextTester {
 
 	//excludes all material dealing with feature implications 
 
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ',';
+	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
 	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char restrDelim = ',';
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;

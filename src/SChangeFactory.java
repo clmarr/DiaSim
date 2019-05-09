@@ -42,7 +42,7 @@ public class SChangeFactory {
 		// or a Phone class' feature Vector
 		//TODO currently abrogated
 	
-	private final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~"};
+	private final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~","0"};
 	
 	
 	private boolean boundsMatter; 
@@ -560,7 +560,7 @@ public class SChangeFactory {
 		
 		for(int si = 0; si < specs.length; si++)
 		{	
-			if("+-.".contains(specs[si].substring(0,1)))
+			if("+-0".contains(specs[si].substring(0,1)))
 			{	if(!featNames.contains(specs[si].substring(1)))	return false;	}
 			else if(!featNames.contains(specs[si]))	return false; 
 		}
@@ -595,11 +595,11 @@ public class SChangeFactory {
 		
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
-		if(theFeatSpecs.contains(".") == false)
+		if(theFeatSpecs.contains("0") == false)
 			return new FeatMatrix(theFeatSpecs, featIndices); 
 				
 		//TODO we should make sure someone doesn't insert use "unspecification" -- i.e. period '.' as a SPECIFICATION
-		assert(!theFeatSpecs.contains(".") || isInputDest): 
+		assert(!theFeatSpecs.contains("0") || isInputDest): 
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
 		return new FeatMatrix(theFeatSpecs, featIndices); 
 	}

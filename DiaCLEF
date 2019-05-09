@@ -1072,22 +1072,25 @@ $Delete all the rest which were not specifically retained:
 $ Pope s351 : affricate tsj voices and depalatalizes when it is about to comes into contact with d through schwa fall, 
 	$ and is followed by /ə/
 	$ Pope attributes it technically to the "consonant group"
-d̪ ə̯ t͡sʲ > d͡z / __ ə 
+d̪ t͡sʲ > d͡z / __ ə 
 
 $ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
+$ exemplified but not explained in s669
 ð > d̪ / [+lat] __
 
 $ CORRECTION : ð is also stopped after labials (sade, tiede, rade) but only labial oral stops, not nasals (comme < quomodo)
 ð > d̪ / [-cont,+lab] __
 
 $ CORRECTION : ð that has come into contact with any other prior consonant effaces 
+$ Autun may have retained the  ð longer -- see cited "Ostedun" form in s257
+$ forms cited by Pope show this shift but she never explains it anywhere
 ð > ∅ / [+cons] __
 
 $ CORRECTION : β that has come into contact with l becomes b
 β > b / __ l
 
-$ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang)  --- abrogated 
-w > ∅  / ŋ ɡ __ #
+$ CORRECTION : ŋ ɡ w at end of word to ŋ ɡ (sanguem > sang etc) 
+w > ∅ / ŋ ɡ __ #
 
 $ CORRECTION: simplify word initial k t͡sʲ clusters to just t͡sʲ
 $ definitively after first fall of schwas 
@@ -1096,7 +1099,7 @@ k > ∅  / __ t͡sʲ
 $ RECURSE
 $ s350 -- ... and t "immediately" voices if it comes into contact (by fall of the schwas) 
 $ with a PRECEDING b, β or ʝ
-$ CORRECTION : this also effects t͡s
+$ CORRECTION : this also effects t͡s -- this is exemplified in Pope s250 but she never explains it
 $ CORRECTION : voicing influence of ʝ does not occur if target is right before word coda (iacet >git, pejus > pis etc) or right before another consonant (Tricassae > Troyes, ...) 
 $ CORRECTION : same as above for the labials too except that it does occur before voiced consonants (derbitarum > dardre, etc..) 
 $ CORRECTION : influence of yod only effects palatalized consonants -- voidier (βˌɔʝd̪ʲˈie̯r) and aise (aːʝd͡zʲə) but moitie' (mˌɛʝt̪ˈaːt̪)
@@ -1112,7 +1115,7 @@ $ CORRECTION : ʝ > j if no syllabic units left afterward -- ə will not be rein
 $ CORRECTION: r ə t͡s(ʲ) > r t t͡s(ʲ)
 ə > t̪ / r __ [+delrel,-voi]
 
-$ CORRECTION : t r t t͡s > r t t͡s
+$ CORRECTION : r t t͡s > r t t͡s
 t̪ > ∅ / __ r t̪ [+delrel]
 
 $s258b: ... but ə retained finally after tʃ,dʒ, cons+r/l but not rr/ll/lr, and after [+lat][+nas] 
@@ -1134,12 +1137,12 @@ $ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!), td/cd and dt al
 ∅ > ə / d̪ t̪ __ #
 
 $ s316 palatalization of d and t following palatal cons.
-$ occurs also for n and r when in position , z and s why not
+$ occurs also for n and r when in position
+	$ CORRECTION: s palatalization (s318) and z merged into this. 
 $ RECURRENT as per s162
-[+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+[+cor,+ant,-lat] > [+hi,+front] // [+hi,+front,+cons] __ 
 
-$ CORRECTION: t̪ + s --> affricate (assez, etc) 
-$ definitively comes AFTER first fall of the schwas. 
+$ s367 d,t + s becomes the affricate when brought into contact first fall of the schwas. 
 $ must come before degemination of t t s (adsatis > assez etc but plattos > plats etc) 
 $ CORRECTION: this also occurs for ð,θ,s
 $ CORRECTION: but this only occurs word finally
@@ -1179,10 +1182,11 @@ $ CORRECTION : s,m,l also shortened when double after another consonant or word 
 
 {s s;m m}>{s;m} / __ [+cons] 
 
-$ CORRECTION : t̪ t͡sʲ word initially also eliminated. For good measure, handle also any word initial stop followed by a non-continuant
+$ CORRECTION : t̪ t͡sʲ in word initial position also eliminated. 
+$ For good measure, handle also any word initial stop followed by a non-continuant
 [-cont] > ∅ / # __ [-cont]
 
-$ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere (mauvais)
+$ CORRECTION : t͡sʲ sʲ > t͡sʲ everywhere 
 t͡sʲ sʲ > t͡sʲ
 
 $ action resulting on clusters formed form vowel losses 
@@ -1200,9 +1204,9 @@ $ note: minor > meindre > moindre, but simulare > sembler (not *soimbler) and ca
 $ s189 : nβl > mbl 
 n β > m b / __ [+lat] 
 
-$ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes after ejecting a j at the beginning of the cons cluster
-$ since this is j not ʝ, it shouldn't cause voicing... 
-$ -- evrium, ostrea, cupreum... 
+$ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes 
+ $after ejecting a j at the beginning of the cons cluster
+$ -- evrium, ostrea, cupreum, materiamen... 
 ∅ > j / [-cons] __ ([+cons,-front])+ rʲ
 
 $ CORRECTION: rʲ emits j immediately backward when preceded by a vowel... but... 
@@ -1314,10 +1318,12 @@ $ but in all fairness it probably SHOULD be to prevent it from getting swept up 
 $ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point -- alloiwng for latert possibility of including loanwords into system.
 [+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
-$ CORRECTION : /rʲ/'s emission of j backward occurred earlier, and it depalatalizes separately from other consonants
+$ CORRECTION : /rʲ/'s emission of j backward moved earlier so that it can trigger breaking of /a/,
+	$  and it thus depalatalizes separately from other consonants here
 rʲ > r
 
-$ s164-3 ~ s190 palatalized dentals resolve into j + simple dental
+$ s164-3 ~ s190 ~ s279 ~ s311,312,313,314,315 
+$ ... palatalized dentals resolve into j + simple dental
 $ CORRECTION: rʲ handled separately
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
@@ -1827,7 +1833,7 @@ $ Pope actually does have this happening, but for her it happens centuries later
 	$ phenomena that would have modified e had it not occurred here. 
 [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
-$ CORRECTION: ˌo and ˈo open before final t or k 
+$ CORRECTION: ˌo and ˈo open before pre-coda t or k 
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
 
 $ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure
@@ -2277,7 +2283,7 @@ $ CORRECTION: moved this to before merger of ts and s (<ss) as there are clearly
 	$ as there is no length where the affricate formerly followed. 
 [+front,-round,+syl] > [+long] / __ s ə #
 
-$ CORRECTION: tonic a become long before a final s but NOT a final ts (thus this must come before deaffrication) 
+$ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts (thus this must come before deaffrication) 
 [+prim,+lo] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
@@ -2602,7 +2608,7 @@ $ ∅ > j / w ˌɛ __ [+prim]
 
 $~Early Modern French
 
-$ CORRECTION: final t will be preserved in final cons loss series, if it is only preceded by
+$ CORRECTION: pre-coda t will be preserved in pre-coda cons loss series, if it is only preceded by
 	$  monosyllables with no onset consonantals (ɥ, w, j -- not consonantal)
 ∅ > ə̯ / # ([-cons,-nas])* t̪ __ #
 

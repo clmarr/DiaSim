@@ -44,13 +44,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			String sp = spArr[i]; 
 			
 			String indic = sp.substring(0, 1); 
-			assert "-+.".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
+			assert "-+0".contains(indic) : "ERROR at spec number "+i+": Invalid indicator."; 
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature";
 			
 			int spInd= Integer.parseInt(""+featInds.get(feat)); 
 			featVect = featVect.substring(0,spInd)+ 
-					("+".equals(indic) ? 2 : (".".equals(indic) ? 9 : 0) ) +
+					("+".equals(indic) ? 2 : ("0".equals(indic) ? 9 : 0) ) +
 					featVect.substring(spInd+1); 
 		}
 	}
@@ -101,7 +101,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int spi = 0 ; spi < specArr.length; spi++)
 		{
 			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 
-				( (specArr[spi].substring(0, 1).equals(".")) ? 1 : 0);
+				( (specArr[spi].substring(0, 1).equals("0")) ? 1 : 0);
 			String feat = specArr[spi].substring(1);
 			
 			if(output.get(feat) != targVal)// if it is not already the acceptable value: 
@@ -153,7 +153,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				int othFtInd = featInds.get(othersSpecs[ki].substring(1));
 				char othFtSpecVal = othersSpecs[ki].charAt(0); 
 				othersVect = othersVect.substring(0, othFtInd) + 
-						(othFtSpecVal == '.' ? 9 : (othFtSpecVal == '+' ? 2 : 0)) 
+						(othFtSpecVal == '0' ? 9 : (othFtSpecVal == '+' ? 2 : 0)) 
 						+ othersVect.substring(othFtInd + 1); 
 			}
 			return this.getFeatVect().equals(othersVect);
