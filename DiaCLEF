@@ -1484,8 +1484,7 @@ $ CORRECTION: β goes to w if between ɔ or o , and e (not ɛ )
 $ s164.6 ~ s 189 
 β > v 
 
-$ CORRECTION : w at end of word after consonant deleted
-w > ∅  / [+cons] __ #
+$ CORRECTION: s258 moved much earlier. 
 
 $ Later Gallo-Roman 
 $ 8th and 9th centuries as per Pope s165
@@ -1495,10 +1494,13 @@ $ note : this does not seem to occur before ɲ -- with the exception of a single
 $ also does not seem to occur before ŋ -- note sangwem > sɑ̃ (sang), not sɛ̃
 e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
 
+$CORRECTION: s256 moved much earlier. 
+
 $s355-357 open word finals again if unsupported 
 [-cont,-delrel] > [+cont] / [-cons] __ # 
 
 $ CORRECTION : ɸ > f
+$ This to BaseCLEF*
 ɸ > f
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
@@ -1574,7 +1576,7 @@ $ CORRECTION: entire set of rules reformated, this deleted.
 $ ɣʷ > v / @ __ 
 
 $ s 192ii :  ɣʷ at beginning of word to ɡ if this is still around.. 
- ɣʷ > ɡ / # __ $s192ii 
+ɣʷ > ɡ / # __  
 
 $s355-357 close if became supported
 $ CORRECTION: this is moved down to come after the -xw- handling phenomena
@@ -1608,13 +1610,16 @@ b > β / [-cons] __ r
 
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
-$ CORRECTION: also absorbed by preceding j 
+$ CORRECTION: also absorbed by preceding j (incl nasal j) or some variant of /i/ (varying by stress/length/nasality)
+	$ TODO incorp into BaseCLEF*
 ʝ > j / [-cons] __ 
 j > ∅ / [+hi,+front,+tense,-cons] __
 
 $ s165.5 leveling of au to o (s505)
 $ note that the "original" a w have now become ɔ w -- this rule is handling when it was once β 
 {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
+
+$s231-3 ae>ee for Pope moved away from here. 
 
 $ s165.7 : another round of cluster modifications follows
 $ CLUSTER REDUCTIONS pp 145-150 ish... 
@@ -1645,6 +1650,8 @@ w > ∅ / [-cont,-back] __
 $ s377 s > z before voiced consonants
 s > z / __ [+voi,+cons]
 
+$ CORRECTION: s372ii, 372iii moved elsewhere from here
+
 $ s365i : elimination of middle velars in three consonant intervocalic clusters
 {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
 
@@ -1657,7 +1664,7 @@ $ t inserted between s and pal. s + r
 {z r;n̪ r;s r} > {z d̪ r;n̪ d̪ r;s t̪ r}
 
 $s371 nasal cluster assimilation 
-$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
+$ CORRECTION: m b > m m deleted as it is completely unnecessary and mostly causes errors
 {m n̪;n̪ m} > {m m;m m}
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
@@ -1681,9 +1688,13 @@ $s378 z > ð before voiced dentals
 $CORRECTION: This rule deleted
 $ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
 
+$TODO HERE
+
 $ s258 ə inserted after final CONS + r,l clusters 
 $ CORRECTION where jr is concerned only a and ie̯ before the j are contexts where emission is triggered. 
 	$ it does not happen after oj (dortoir, heur, etc) or ʉo̯ (cuir) or ej (avoir, chaloir, voir, hoir, savoir, noir etc...)  
+$ in the case of the palatal j r clusters, Pope shows the effects in citation forms when documenting other shifts
+		$ but never specifically explains this specific phenomenon 
 $CORRECTION: this only happens for actual consonants followed by l, not glides.
 ∅ > ə / [-son] r __ #
 ∅ > ə / [+hi,+front] e̯ j r __ #
@@ -1704,7 +1715,7 @@ $she doesnˌt seem to mention this being effected by former o,
 ˌe > ˌo / __ [+hi,+round,+prim] 
 
 $ s422 e "intertonic" (i.e. stress-less) moves up to i before palatal consonants (ɲ,ʎ)
-$ CORRECTION : this is moved back into late Gallo-Roman
+$ CORRECTION : this is moved back, originally in LOF
 e > i / __ [+hi,+son,+front,+cons]
 
 $s166.9 ~ s383-391 -- "beginnings" of l-vocalization praeconsonantal. 
@@ -1724,11 +1735,13 @@ $ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10t
 j > [+nas] / [+lo,+syl] __ [+nas,-syl]
 [+lo,+syl] > [+nas] / __ [+nas,-syl]
 
-$ CORRECTION: countertonic ˌə to ˌe can bleed nasalization -- moved before it. 
+$ CORRECTION: countertonic ˌe to ˌə can bleed second nasalization -- moved before it. 
 $ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
 $ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
-$ CORRECTION: This does not simply happen everywhere that is open. It appears it happens (1) after tʃ ... (cheval, cheveu, cheville ...)
+$ CORRECTION: This does not simply happen everywhere that is open as Pope seems to stipulate in 
+	$s166.5, s223 ("countertonic /e/ was reduced to /ə/ when free") and s234 (/e/ free (from all sources) was ordinarily reduced to ə...")
+$ It appears it happens (1) after tʃ ... (cheval, cheveu, cheville ...)
 ˌe > ˌə / t͡ʃ __ ([+cons]) [+syl] 
 	$ CORRECTION: also happens after v... (v(e)rai(e), velu(e), v(e)oir, v(e)ouge, veau ...) 
 ˌe > ˌə / v __ ([+cons]) [+syl]
@@ -1741,11 +1754,14 @@ $ CORRECTION: This does not simply happen everywhere that is open. It appears it
 	$CORRECTION: before a non-sonorant then stressed ˈiː (petit, devin...)
 ˌe > ˌə / __ [-son] ˈiː 
 	$CORRECTION: in open syll before n or m this happens too. (benoit, genouille, grenouille, plenier, tenir, jumeaux, fumier, tremuie etc..) 
+			$ Pope seems to present countertonic ˌe nasalizing before reduction and ending up denasalized as /a/ as the regular development (ss447,448)
+				$... while presenting the reduction to schwa bleeding lowering as a variant development
+					$ however in our dataset the latter is much more common. 
 		$ s486 -- jumeaux, fumier etc will be rounded and closed in Middle French. 
 ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
 
-$CORRECTION : ˌə reverts to ˌe if before s or ʎ
-ˌə > ˌe / __ {s;ʎ}
+$s665 (stated in sound table but nowhere else): ˌə reverts to ˌe if before ʎ
+ˌə > ˌe / __ ʎ
 
 $ CORRECTION : ə from previous period (restoration after schwa falls) becomes e if in closed nasal syllable. (parente', jouvencelle, etc.) 
 $ CORRECTION : but only if it is not the final syllable (hence all the verb -ent endings remain non-nasalized schwas)
@@ -1773,7 +1789,7 @@ $ Pope s372 : ð occasionally assimilated to r but when it did and didnˌt was
 	$helps show how Pope can be improved upon using DiaSym.
 	$note the z >ð >r shift may have actually been a Picard characteristic (s378i)
 	$ includes also ð > z before m : rhythme > rîme , consuetudinem > coutûme, semaine, dimanche 
-$ CORRECTION: moved to before effacement of z 
+$ CORRECTION: moved from Later Old French to here so it is before effacement of z 
 $ CORRECTION: ð goes to z before n specifically when r is on otherside of syllable, and is followed by n 
 $ CORRECTION: ð is simply deleted without going to z if between non-primary stressed vowel and m
 ð > ∅ / [+syl,-prim] __ m
@@ -1807,8 +1823,8 @@ $ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
-$ CORRECTED -- seems to happen immediately before u>y, and for u>y and o>u seems to happen before alveopalatal affircates, and nasals.
-$ TODO: may need to correct this again -- but all the ones it works on currently sseem to be correctly so 
+$ CORRECTED -- seems to happen immediately before u>y, 
+	$ and for u>y and o>u seems to happen before alveopalatal affircates, and nasals.
 ˌo >ˌə / __ [+prim,+hi,+round,-back]
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
@@ -1817,9 +1833,6 @@ $s435: dentalization of final m after vowels.
 $s435 -- accepted by late 11th century 
 m > n̪ / [-cons] __ #
 
-$ CORRECTION : j absorbed by following ʎ if after e
-j > ∅ / [+front,+tense,-hi,-lo] __ ʎ 
-
 $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle of the twelfth century".
 $ She places it in EOF-- so we place it there too, though clearly at the end. 
 $ Any e before yod effected.
@@ -1827,7 +1840,8 @@ $ per s226 : effects ei whether tonic, intertonic or countertonic, but only toni
 ˈo > ˈe / __ w 
 [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
 
-$ TODO : return here and use notes -- I found evidence of regular patterning here, but it does seem challenged by Pope's philological evidence :(
+$ TODO : return here and use notes -- seems to be evidence of regular patterning here,
+ 	$but it does seem challenged by Pope's philological evidence :(
 
 $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 ˌo > ˌe / d͡ʒ __ w
@@ -1921,12 +1935,12 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
 $ Must be after o>u, but called "Early Old French" by Pope (s406)-- TODO may need to handle length. 
-$ Correction: at least the one effecting round high vowels does not effect those in hiatus with one before. 
+$ CORRECTION: at least the rule effecting round high vowels does not effect those in hiatus with a high vowel before. 
 ∅ > j̃ / [-syl] [+hi,+round,+syl] __ ɲ #
 ∅ > j̃  / [+lo,+syl] __ ɲ #
 ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 
-$s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic-- TODO may need to handle length.  
+$s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic  
 $ CORRECTION: ɛ should also be included in this 
 ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
