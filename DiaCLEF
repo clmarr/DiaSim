@@ -1387,8 +1387,10 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
 $ CORRECTION: shortening of non-front and non-high vowels before ʎ
+$ CORRECTION: shortening doesn't occur here before fric + r/l : frere, mere, poele, moindre, pere, sourcil
 [+syl] > [-long] / __ [-syl] ([-syl])+ #
-[+syl] > [-long] / __ [-syl] [+cons]
+[+syl] > [-long] / __ [-syl] [+cons,-son]
+[+syl] > [-long] / __ [-syl] [+cons,+nas]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]  
