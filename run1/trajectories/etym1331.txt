@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1331:
-#wˌikˈɑːrium# >>> #vwajiʁ# ( Correct : #vwaje#) :
+#wˌikˈɑːrium# >>> #vwaje# ( Correct : #vwaje#) :
 w ˌi k ˈɑː r i u m 
 #ɣʷˌikˈɑːrium# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɪkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -23,18 +23,18 @@ w ˌi k ˈɑː r i u m
 #βˌeʝˈie̯rʲə̯# | Rule 263 : ə > ə̯ 
 #βˌeʝˈie̯rʲ# | Rule 297 : ə̯ > ∅ 
 #βˌeʝˈie̯jrʲ# | Rule 346 : ∅ > j / [-cons] __ rʲ
-#βˌejˈie̯jrʲ# | Rule 376 : ʝ > j 
-#βˌejˈie̯jr# | Rule 379 : rʲ > r 
-#vˌejˈie̯jr# | Rule 424 : β > v 
-#vˌejˈie̯jrə# | Rule 481 : ∅ > ə / [+hi,+front] e̯ j r __ #
-#vˌojˈie̯jrə# | Rule 528 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#vˌojˈijrə# | Rule 542 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#vˌojˈirə# | Rule 543 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#vˌujˈirə# | Rule 550 : [+round,+tense,+back] > [+hi] 
-#vwˌɛjˈirə# | Rule 616 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
-#vwˌɛjˈirə̯# | Rule 692 : ə > ə̯ / __ #
-#vwˌɛjˈir# | Rule 721 : ə̯ > ∅ 
-#vwˌɛjˈiʀ# | Rule 734 : r > ʀ 
-#vwɛjiʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vwajiʀ# | Rule 741 : ɛ > a / w __ 
-#vwajiʁ# | Rule 742 : ʀ > ʁ 
+#βˌeʝˈie̯rʲ# | Rule 347 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#βˌejˈie̯rʲ# | Rule 377 : ʝ > j 
+#βˌejˈie̯r# | Rule 380 : rʲ > r 
+#vˌejˈie̯r# | Rule 425 : β > v 
+#vˌojˈie̯r# | Rule 529 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌujˈie̯r# | Rule 551 : [+round,+tense,+back] > [+hi] 
+#vˌujjˈer# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vˌujj?r# | Rule 600 : ˈe > ? / __ @
+#vˌujjˈer# | Rule 602 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#vˌuɛ̯jˈer# | Rule 618 : j > ɛ̯ / [+syl,+back,+round] __ 
+#vwˌɛjˈer# | Rule 619 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˌɛjˈeɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#vwˌɛjˈe# | Rule 731 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#vwɛje# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vwaje# | Rule 742 : ɛ > a / w __ 

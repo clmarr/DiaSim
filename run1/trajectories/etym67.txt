@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :67:
-#ˌɑrkˈɑːriɑm# >>> #aʁʃiʁ# ( Correct : #aʁʃɛʁ#) :
+#ˌɑrkˈɑːriɑm# >>> #aʁʃɛʁ# ( Correct : #aʁʃɛʁ#) :
 ˌɑ r k ˈɑː r i ɑ m 
 #ˌɑrkˈɑːrɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑrkˈɑːrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -15,15 +15,18 @@ Trajectory file for run 'run1'; etymon number :67:
 #ˌarcˈie̯rʲa# | Rule 241 : [+back,+front] > [-back] 
 #ˌart͡ʃˈie̯rʲa# | Rule 250 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
 #ˌart͡ʃˈie̯jrʲa# | Rule 346 : ∅ > j / [-cons] __ rʲ
-#ˌart͡ʃˈie̯jra# | Rule 379 : rʲ > r 
-#ˌart͡ʃˈie̯jrə# | Rule 430 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌart͡ʃˈijrə# | Rule 542 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#ˌart͡ʃˈirə# | Rule 543 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#ˌarʃˈirə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#ˌarʃˈirə̯# | Rule 692 : ə > ə̯ / __ #
-#ˌaɹʃˈirə̯# | Rule 714 : r > ɹ / [-cons] __ [+cons]
-#ˌaɹʃˈir# | Rule 721 : ə̯ > ∅ 
-#ˌarʃˈir# | Rule 732 : ɹ > r 
-#ˌaʀʃˈiʀ# | Rule 734 : r > ʀ 
-#aʀʃiʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʁʃiʁ# | Rule 742 : ʀ > ʁ 
+#ˌart͡ʃˈie̯rʲa# | Rule 347 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
+#ˌart͡ʃˈie̯ra# | Rule 380 : rʲ > r 
+#ˌart͡ʃˈie̯rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌart͡ʃjˈerə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌart͡ʃj?rə# | Rule 600 : ˈe > ? / __ @
+#ˌart͡ʃjˈɛrə# | Rule 603 : ? > ˈɛ 
+#ˌarʃjˈɛrə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#ˌarʃˈɛrə# | Rule 657 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ˌarʃˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
+#ˌaɹʃˈɛrə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#ˌaɹʃˈɛr# | Rule 722 : ə̯ > ∅ 
+#ˌarʃˈɛr# | Rule 733 : ɹ > r 
+#ˌaʀʃˈɛʀ# | Rule 735 : r > ʀ 
+#aʀʃɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʁʃɛʁ# | Rule 743 : ʀ > ʁ 
