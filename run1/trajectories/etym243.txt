@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :243:
-#fˌebruˈɑːrium# >>> #fevʁe# ( Correct : #fevʁije#) :
+#fˌebruˈɑːrium# >>> #fevʁije# ( Correct : #fevʁije#) :
 f ˌe b r u ˈɑː r i u m 
 #fˌɛbrʊˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˌɛbrwˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -12,17 +12,19 @@ f ˌe b r u ˈɑː r i u m
 #fˌɛβrwˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #fˌɛβrˈarʲo# | Rule 202 : w > ∅ / [+cons] [+cons,-back] __ 
 #fˌɛβrˈaːrʲo# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#fˌɛβrˈaːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#fˌɛβrˈaːrʲə̯# | Rule 263 : ə > ə̯ 
-#fˌɛβrˈaːrʲ# | Rule 297 : ə̯ > ∅ 
-#fˌɛβrˈaːr# | Rule 378 : rʲ > r 
-#fˌɛβrˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#fˌeβrˈae̯r# | Rule 409 : ˌɛ > ˌe / __ [-cor]
-#fˌevrˈae̯r# | Rule 423 : β > v 
-#fˌevrˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#fˌevrˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#fˌevrˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#fˌevʀˈeː# | Rule 733 : r > ʀ 
-#fevʀeː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fevʀe# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#fevʁe# | Rule 741 : ʀ > ʁ 
+#fˌɛβrˈɛːro# | Rule 259 : ˈaː rʲ > ˈɛː r / [+syl] ( [-syl] )* __ [+syl] #
+#fˌɛβrˈɛːrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#fˌɛβrˈɛːrə̯# | Rule 263 : ə > ə̯ 
+#fˌɛβrˈɛːr# | Rule 297 : ə̯ > ∅ 
+#fˌɛβrˈie̯r# | Rule 369 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#fˌeβrˈie̯r# | Rule 410 : ˌɛ > ˌe / __ [-cor]
+#fˌevrˈie̯r# | Rule 424 : β > v 
+#fˌevrjˈer# | Rule 582 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#fˌevrj?r# | Rule 599 : ˈe > ? / __ @
+#fˌevrjˈer# | Rule 601 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#fˌevrijˈer# | Rule 703 : ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
+#fˌevrijˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#fˌevrijˈe# | Rule 730 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#fˌevʀijˈe# | Rule 734 : r > ʀ 
+#fevʀije# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fevʁije# | Rule 742 : ʀ > ʁ 

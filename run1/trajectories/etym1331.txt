@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1331:
-#wˌikˈɑːrium# >>> #vwaje# ( Correct : #vwaje#) :
+#wˌikˈɑːrium# >>> #vwajiʁ# ( Correct : #vwaje#) :
 w ˌi k ˈɑː r i u m 
 #ɣʷˌikˈɑːrium# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɪkˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -22,17 +22,19 @@ w ˌi k ˈɑː r i u m
 #βˌeʝˈie̯rʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #βˌeʝˈie̯rʲə̯# | Rule 263 : ə > ə̯ 
 #βˌeʝˈie̯rʲ# | Rule 297 : ə̯ > ∅ 
-#βˌejˈie̯rʲ# | Rule 375 : ʝ > j 
-#βˌejˈie̯r# | Rule 378 : rʲ > r 
-#vˌejˈie̯r# | Rule 423 : β > v 
-#vˌojˈie̯r# | Rule 527 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#vˌujˈie̯r# | Rule 549 : [+round,+tense,+back] > [+hi] 
-#vˌujjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#vˌujj?r# | Rule 598 : ˈe > ? / __ @
-#vˌujjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#vˌuɛ̯jˈer# | Rule 616 : j > ɛ̯ / [+syl,+back,+round] __ 
-#vwˌɛjˈer# | Rule 617 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#vwˌɛjˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#vwˌɛjˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#vwɛje# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vwaje# | Rule 740 : ɛ > a / w __ 
+#βˌeʝˈie̯jrʲ# | Rule 346 : ∅ > j / [-cons] __ rʲ
+#βˌejˈie̯jrʲ# | Rule 376 : ʝ > j 
+#βˌejˈie̯jr# | Rule 379 : rʲ > r 
+#vˌejˈie̯jr# | Rule 424 : β > v 
+#vˌejˈie̯jrə# | Rule 481 : ∅ > ə / [+hi,+front] e̯ j r __ #
+#vˌojˈie̯jrə# | Rule 528 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#vˌojˈijrə# | Rule 542 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#vˌojˈirə# | Rule 543 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#vˌujˈirə# | Rule 550 : [+round,+tense,+back] > [+hi] 
+#vwˌɛjˈirə# | Rule 616 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
+#vwˌɛjˈirə̯# | Rule 692 : ə > ə̯ / __ #
+#vwˌɛjˈir# | Rule 721 : ə̯ > ∅ 
+#vwˌɛjˈiʀ# | Rule 734 : r > ʀ 
+#vwɛjiʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vwajiʀ# | Rule 741 : ɛ > a / w __ 
+#vwajiʁ# | Rule 742 : ʀ > ʁ 

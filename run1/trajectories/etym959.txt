@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :959:
-#prˌimˈɑːrium# >>> #pʁəme# ( Correct : #pʁəmje#) :
+#prˌimˈɑːrium# >>> #pʁəmje# ( Correct : #pʁəmje#) :
 p r ˌi m ˈɑː r i u m 
 #prˌɪmˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #prˌɪmˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -10,18 +10,19 @@ p r ˌi m ˈɑː r i u m
 #prˌemˈɑrʲo# | Rule 172 : r ʝ > rʲ 
 #prˌemˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #prˌemˈaːrʲo# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#prˌemˈaːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#prˌemˈaːrʲə̯# | Rule 263 : ə > ə̯ 
-#prˌemˈaːrʲ# | Rule 297 : ə̯ > ∅ 
-#prˌemˈaːr# | Rule 378 : rʲ > r 
-#prˌemˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#prˌəmˈae̯r# | Rule 495 : ˌe > ˌə / __ ( [+cons] ) [+lo,+prim]
-#prˌəmˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#prˌə̃mˈeːr# | Rule 611 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#prˌəmˈeːr# | Rule 637 : {ə̃;ˌə̃} > {ə;ˌə} 
-#prˌəmˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#prˌəmˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#pʀˌəmˈeː# | Rule 733 : r > ʀ 
-#pʀəmeː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pʀəme# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#pʁəme# | Rule 741 : ʀ > ʁ 
+#prˌemˈɛːro# | Rule 259 : ˈaː rʲ > ˈɛː r / [+syl] ( [-syl] )* __ [+syl] #
+#prˌemˈɛːrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#prˌemˈɛːrə̯# | Rule 263 : ə > ə̯ 
+#prˌemˈɛːr# | Rule 297 : ə̯ > ∅ 
+#prˌemˈie̯r# | Rule 369 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#prˌəmˈie̯r# | Rule 499 : ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
+#prˌəmjˈer# | Rule 582 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#prˌəmj?r# | Rule 599 : ˈe > ? / __ @
+#prˌəmjˈer# | Rule 601 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#prˌə̃mjˈer# | Rule 612 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#prˌəmjˈer# | Rule 638 : {ə̃;ˌə̃} > {ə;ˌə} 
+#prˌəmjˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#prˌəmjˈe# | Rule 730 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#pʀˌəmjˈe# | Rule 734 : r > ʀ 
+#pʀəmje# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pʁəmje# | Rule 742 : ʀ > ʁ 

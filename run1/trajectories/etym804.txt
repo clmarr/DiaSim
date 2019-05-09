@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :804:
-#pˌɑleˈɑːrium# >>> #paje# ( Correct : #pɑje#) :
+#pˌɑleˈɑːrium# >>> #pajiʁ# ( Correct : #pɑje#) :
 p ˌɑ l e ˈɑː r i u m 
 #pˌɑlɛˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɑljˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -16,12 +16,14 @@ p ˌɑ l e ˈɑː r i u m
 #pˌaʎˈie̯rʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #pˌaʎˈie̯rʲə̯# | Rule 263 : ə > ə̯ 
 #pˌaʎˈie̯rʲ# | Rule 297 : ə̯ > ∅ 
-#pˌaʎˈie̯r# | Rule 378 : rʲ > r 
-#pˌaʎjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pˌaʎj?r# | Rule 598 : ˈe > ? / __ @
-#pˌaʎjˈer# | Rule 600 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
-#pˌaʎˈer# | Rule 655 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#pˌaʎˈeɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#pˌaʎˈe# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#paʎe# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#paje# | Rule 742 : ʎ > j 
+#pˌaʎˈie̯jrʲ# | Rule 346 : ∅ > j / [-cons] __ rʲ
+#pˌaʎˈie̯jr# | Rule 379 : rʲ > r 
+#pˌaʎˈie̯jrə# | Rule 481 : ∅ > ə / [+hi,+front] e̯ j r __ #
+#pˌaʎˈijrə# | Rule 542 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#pˌaʎˈirə# | Rule 543 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#pˌaʎˈirə̯# | Rule 692 : ə > ə̯ / __ #
+#pˌaʎˈir# | Rule 721 : ə̯ > ∅ 
+#pˌaʎˈiʀ# | Rule 734 : r > ʀ 
+#paʎiʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#paʎiʁ# | Rule 742 : ʀ > ʁ 
+#pajiʁ# | Rule 743 : ʎ > j 

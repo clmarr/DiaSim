@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :194:
-#d̪ˌormiːt̪ˈoːrium# >>> #d̪ɔʁt̪œʁ# ( Correct : #d̪ɔʁt̪waʁ#) :
+#d̪ˌormiːt̪ˈoːrium# >>> #d̪ɔʁt̪waʁ# ( Correct : #d̪ɔʁt̪waʁ#) :
 d̪ ˌo r m iː t̪ ˈoː r i u m 
 #d̪ˌɔrmiːt̪ˈoːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #d̪ˌɔrmiːt̪ˈoːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -13,19 +13,19 @@ d̪ ˌo r m iː t̪ ˈoː r i u m
 #d̪ˌɔrmət̪ˈoːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
 #d̪ˌɔrmə̯t̪ˈoːrʲə̯# | Rule 263 : ə > ə̯ 
 #d̪ˌɔrmt̪ˈoːrʲ# | Rule 297 : ə̯ > ∅ 
-#d̪ˌɔrmt̪ˈoːr# | Rule 378 : rʲ > r 
-#d̪ˌɔrmt̪ˈowr# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪ˌormt̪ˈowr# | Rule 416 : ˌɔ > ˌo 
-#d̪ˌort̪ˈowr# | Rule 459 : [+cons] > ∅ / [+cons] __ [-son]
-#d̪ˌort̪ˈewr# | Rule 526 : ˈo > ˈe / __ w
-#d̪ˌɔrt̪ˈewr# | Rule 534 : ˌo > ˌɔ / __ r [+ant,-lab,-cont]
-#d̪ˌɔrt̪ˈøwr# | Rule 597 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#d̪ˌɔrt̪ˈøːr# | Rule 605 : [+round,+front,-hi,+syl] w > [+long] ∅
-#d̪ˌɔrt̪ˈœːr# | Rule 670 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
-#d̪ˌɔrt̪ˈœːɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#d̪ˌɔɹt̪ˈœːɹ# | Rule 713 : r > ɹ / [-cons] __ [+cons]
-#d̪ˌɔrt̪ˈœːr# | Rule 731 : ɹ > r 
-#d̪ˌɔʀt̪ˈœːʀ# | Rule 733 : r > ʀ 
-#d̪ɔʀt̪œːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪ɔʀt̪œʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
-#d̪ɔʁt̪œʁ# | Rule 741 : ʀ > ʁ 
+#d̪ˌɔrmt̪ˈoːjrʲ# | Rule 346 : ∅ > j / [-cons] __ rʲ
+#d̪ˌɔrmt̪ˈoːjr# | Rule 379 : rʲ > r 
+#d̪ˌɔrmt̪ˈojr# | Rule 385 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#d̪ˌormt̪ˈojr# | Rule 417 : ˌɔ > ˌo 
+#d̪ˌort̪ˈojr# | Rule 460 : [+cons] > ∅ / [+cons] __ [-son]
+#d̪ˌɔrt̪ˈojr# | Rule 535 : ˌo > ˌɔ / __ r [+ant,-lab,-cont]
+#d̪ˌɔrt̪ˈoɛ̯r# | Rule 544 : j > ɛ̯ / [+syl,+back,+round] __ r
+#d̪ˌɔrt̪ˈuɛ̯r# | Rule 550 : [+round,+tense,+back] > [+hi] 
+#d̪ˌɔrt̪wˈɛr# | Rule 618 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#d̪ˌɔrt̪wˈɛɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#d̪ˌɔɹt̪wˈɛɹ# | Rule 714 : r > ɹ / [-cons] __ [+cons]
+#d̪ˌɔrt̪wˈɛr# | Rule 732 : ɹ > r 
+#d̪ˌɔʀt̪wˈɛʀ# | Rule 734 : r > ʀ 
+#d̪ɔʀt̪wɛʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ɔʀt̪waʀ# | Rule 741 : ɛ > a / w __ 
+#d̪ɔʁt̪waʁ# | Rule 742 : ʀ > ʁ 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :808:
-#pˌɑːn̪ˈɑːrium# >>> #pan̪e# ( Correct : #pan̪je#) :
+#pˌɑːn̪ˈɑːrium# >>> #pan̪je# ( Correct : #pan̪je#) :
 p ˌɑː n̪ ˈɑː r i u m 
 #pˌɑːn̪ˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɑːn̪ˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -10,15 +10,16 @@ p ˌɑː n̪ ˈɑː r i u m
 #pˌɑn̪ˈɑrʲo# | Rule 172 : r ʝ > rʲ 
 #pˌan̪ˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #pˌan̪ˈaːrʲo# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#pˌan̪ˈaːrʲə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
-#pˌan̪ˈaːrʲə̯# | Rule 263 : ə > ə̯ 
-#pˌan̪ˈaːrʲ# | Rule 297 : ə̯ > ∅ 
-#pˌan̪ˈaːr# | Rule 378 : rʲ > r 
-#pˌan̪ˈae̯r# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌãn̪ˈae̯r# | Rule 491 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#pˌãn̪ˈeːr# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌãn̪ˈeːɹ# | Rule 712 : r > ɹ / [-cons] __ #
-#pˌan̪ˈeːɹ# | Rule 724 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#pˌan̪ˈeː# | Rule 729 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#pan̪eː# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pan̪e# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#pˌan̪ˈɛːro# | Rule 259 : ˈaː rʲ > ˈɛː r / [+syl] ( [-syl] )* __ [+syl] #
+#pˌan̪ˈɛːrə# | Rule 261 : [-stres,-lo,+syl] > ə / __ #
+#pˌan̪ˈɛːrə̯# | Rule 263 : ə > ə̯ 
+#pˌan̪ˈɛːr# | Rule 297 : ə̯ > ∅ 
+#pˌan̪ˈie̯r# | Rule 369 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#pˌãn̪ˈie̯r# | Rule 492 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#pˌãn̪jˈer# | Rule 582 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pˌãn̪j?r# | Rule 599 : ˈe > ? / __ @
+#pˌãn̪jˈer# | Rule 601 : ? > ˈe / [+syl] ( [-syl] )* __ r ( s ) #
+#pˌãn̪jˈeɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#pˌan̪jˈeɹ# | Rule 725 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#pˌan̪jˈe# | Rule 730 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#pan̪je# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
