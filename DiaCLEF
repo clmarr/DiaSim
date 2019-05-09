@@ -1941,7 +1941,7 @@ $ CORRECTION: at least the rule effecting round high vowels does not effect thos
 ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 
 $s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic  
-$ CORRECTION: ɛ should also be included in this 
+$ CORRECTION: /ɛ/ to also be included in this 
 ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
@@ -1949,8 +1949,8 @@ $s407ii : same for y countertonic or tonic -- TODO may need to handle length.
 ∅ > j / [+hi,+front,+round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [+hi,+front,+round,+stres] __ ɲ [+syl]
 
-$ CORRECTION: tonic iej and iej̃ move to (long) iː
-ˈi e̯ [-cons,-syl,+hi,-round] > ˈiː
+$ CORRECTION: tonic iej and iej̃ move to (long) iː after a palatal
+ˈi e̯ [-cons,-syl,+hi,-round] > ˈiː / [+cons,+hi,+front] __ 
 
 $s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
@@ -1964,17 +1964,17 @@ $ s555 ue̯w > ye̯w : Pope seems to imply this happens in the late 11th century
 $ s556 ye̯w > yø̯w 
 e̯ > ø̯ / [+hi,+round] __ w 
 
-$s171.3 : voicing of intervocalic stridents, recurrence of s343 
-$Pope only passingly mentions this shift, so some inference is used.
-$Pope does not explicitly state the date on this one but it is safe to say it doesnˌt interfere with others. 
-$She says it occurs for s and f both, but s is excluded here as that is obviously not the case
-$TODO use this one as example of how machine can improve Pope in paper. 
-$ TODO currently this rule has no effect for f > v
-$s > z / [-cons] __ [-cos]
-f > v / [-cons] __ [-cons]
+$s171.3 : voicing of intervocalic stridents, recurrence of s334
+$She says it occurs for s and f both, and specifically says it occurs in Later Old French
+	$ in s171.3 : "... in intervocalic were voiced, s beoming z and f, v..." 
+$ CORRECTION: s > z here demonstrably only causes problems 
+$ CORRECTION: f > v has no effect here deleted  currently this rule has no effect for f > v
+$s > z / [-cons] __ [-cons]
+$f > v / [-cons] __ [-cons]
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ CORRECTION: doesn't happen before j̃
+	$ incorporate this correction into BaseCLEF* as her citation forms show she still has eh nasalized before j 
 [+nas,-hi,+syl] > [+lo,+tense] / __ {#;[+cons]}
 
 $ Pope s500 -- ir > ie̯r when stressed and before consonants. 
@@ -1999,10 +1999,11 @@ $ CORRECTION: final l WILL be labialized if it is preceded by a mid vowel that i
 l > ɫ / [+syl,-hi,-lo,-long] __ #
 
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
-$ Attested 1137 -- "over the course of the 12th century"
+$ Attested in 1137 -- "over the course of the 12th century"
 $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
 $ CORRECTION: Pope errs in notating this as ue̯ undergoing this shift, when the u should have become fronted to y by this point...
 	$ -- it is actually ye̯
+		$ Incorp this into BaseCLEF*
 $ She also explicitly limits it to hte stressed diphthong 
 $ CORRECTION: ø arising this way is always long 
 [+hi,+round,+tense,+prim] e̯ > ˈøː
@@ -2012,6 +2013,7 @@ $ per Pope s390: attested in rhymes by middle of 12th century:
 [+lat,+back] > w
 
 $ CORRECTION: w after u or y is immediately deleted
+	$ this to BaseCLEF*, seems to be just clumsiness form Pope and not really something interesting 
 w > ∅ / [+syl,+hi,+round] __
 
 $ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced
@@ -2024,17 +2026,22 @@ $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -
 
 $s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)
 $ note this can only come from primarily stressed a (>ˈeː) 
-$ TODO return to this -- I believe it is for certain cases where word final l vocalized, and things ending in former aːlVs
+$ no effect for this as of right now so suppressed -- I believe it is for certain cases where word final l vocalized, and things ending in former aːlVs
 	$ likely that in case of pa:lo:s the a stayed long even after the o was deleted for some reason -- but unclear why this would be
 		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index for some reason
-ˈeː > ˈe e̯ / __ w
+$ˈeː > ˈe e̯ / __ w
 
 $ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
+$ CORRECTION: moved back from a bit later, formerly was right after 528-9
 [+lo,+nas] > [-lo,-tense] / __ j̃
 
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
-$ TODO check this -- fed only by previous shift? 
-ˈe > ˈi / __ e̯ w
+$ CORRECTION: no targets, suppressed (only fed by s388~s544 from earlier e:>e schwa / __ w?)
+$ ˈe > ˈi / __ e̯ w
+
+$ CORRECTION: s172a (th-effacement) moved much later so that it can condition some coming phenomena 
+
+$ CORRECTION: s422 moved much ealrier. 
 
 $ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
 $ happens after the loss of the interdental frics. 
