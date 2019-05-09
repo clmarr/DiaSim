@@ -416,6 +416,8 @@ $ -- give her the benefit of the doubt and specify +syl not -cons
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ s198 checked for /e o a/ before enya and elya
+[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
 $ ~Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
@@ -580,6 +582,9 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ s198 checked for /e o a/ before enya and elya
+[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
+
 
 $ CORRECTION: ˈɔ becomes long before a rounded continuant cons then a stop
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
@@ -829,6 +834,9 @@ $ CORRECTION : multiple sonorants at the end of the word will shorten
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ s198 checked for /e o a/ before enya and elya
+[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
+
 
 $ CORRECTION: ˈɔ becomes long if it comes before rounded continuant then a stop (mowitam > meute)
 ˈɔ > ˈɔː / __ [+round,+cont,+cons] [-cont]
@@ -1231,9 +1239,6 @@ $ note that the a: rʲ have already been handled above by s26 .
 $ CORRECTION: in the case of ˈi e̯ it's going to be deleted soon so we can just delete it now... 
 j > ∅ / [+syl] ([-syl])* ˈi e̯ __ rʲ 
 
-$ CORRECTION: palatals absorb following j for now
-j > ∅ / [+front,+hi,+cons] __  
-
 $ s164-5 ~ ss334
 $ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
 $ voicing of p, t, ts intervocalically ss334-335
@@ -1241,12 +1246,11 @@ $ RECURRENT as per s162
 $ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
 $ and because the voicing of k,s,f is also recurrent (s162)
 $ we can just have this as a universal intervocalic voicing rule
-$ CORRECTION: comes before post-palatal a-raising
+$ CORRECTION: moved to before post-palatal a-raising
 [-voi] > [+voi] / [-cons] __ [-cons]
 $ as per s372 p, t also voice before l,r and t voices before n 
 [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
 t̪ > d̪ / __ [+nas,+cons]
-$ NOTE -- it would make a lot more sense for Pope to also have ç voicing to ʝ at this point before l,r... but she doesn't.
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1256,10 +1260,7 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
-$ TODO merge with next length control phenomenon? 
-$ [+syl] > [-long] / __ [-syl] #
-[+syl] > [-long] / __ [-syl] [+cons,-son]
-[+syl] > [-long] / __ [-syl] [+cons,+nas]
+[+syl] > [-long] / __ [-syl] [+cons]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]
@@ -1267,6 +1268,8 @@ $ [+syl] > [-long] / __ [-syl] #
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
+$ s198 checked for /e o a/ before enya and elya
+[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
 $ CORRECTION: length also gained by primary syllables when followed by an ejected j
 [+prim] > [+long] / __ j ([+cons])* [+cor,+hi,+front]
@@ -1286,7 +1289,7 @@ $ s413-4 -- recurrence as per medietatem, adiutare
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
-$ CORRECTION: only happens to primarily stressed a anywhere
+$ CORRECTION: happens to primarily stressed a anywhere
 $ CORRECTION: also before final rʲ 
 $ CORRECTION: also before rs#
 [+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ #
@@ -1304,8 +1307,9 @@ $ CORRECTION: j ˈi e̯ then becomes ˈi e̯ when it came from rʲ and would not
 j > ∅  / [+syl] ([-syl])+ __ ˈi e̯ rʲ
 
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
-$ Currently does nothing but we're keeping it around in case loanwords will be encorporated
 [+hi,+tense,+round,+syl,-nas] > [-front,-back]
+
+$ CORRECTION: s164.5/s334 moved earlier, as is s352.
 
 $ s164-7 ~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
@@ -1316,7 +1320,7 @@ $ s372 d > ð before nasals , and then ð > z before n "sometimes"
 d̪ > ð / [+syl] __ [+nas] 
 
 $CORRECTION : remaining ʝ becomes j sometime at this point 
-$ CORRECTION : counterfeeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
+$ CORRECTION : moved earlier as counterfeeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
 $ CORRECTION : also counterfeeds final spirantization of voiced consonants -- rigidam > raide not raie, wokitare > voidier not voyer etc. 
 ʝ > j 
 
@@ -1370,7 +1374,7 @@ $ the persistence of sʲ/tʲ/dʲ is specifically both after non-strident palatal
 {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
 {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ ˈi e̯ r #
 
-$ CORRECTION: (round vowel) w j > j 
+$ CORRECTION: (round vowel) w j > j -- side effect of lengthening before ejected j-- oiseau, noise, joie etc
 w > ∅ / [+round,+syl] __ j
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
@@ -1382,9 +1386,9 @@ $ note as per p53 s100, note that Pope does not consider glides to be consonants
 		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 $ CORRECTION : no more shortening at end of word if there is only one consonant between the vowel and the coda 
 $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a vowel in the final syllable
+$ CORRECTION: shortening of non-front and non-high vowels before ʎ
 [+syl] > [-long] / __ [-syl] ([-syl])+ #
-[+syl] > [-long] / __ [-syl] [+cons,-son]
-[+syl] > [-long] / __ [-syl] [+cons,+nas]
+[+syl] > [-long] / __ [-syl] [+cons]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [+syl]  
@@ -1394,8 +1398,11 @@ $ CORRECTION: multiple final consonants, sonorant or not, will always shorten a 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 [+prim,-front] > [-long] / __ ʎ 
 [+prim,-hi] > [-long] / __ ʎ
+$ s198 checked for /e o a/ before enya and elya
+[-hi,+tense,+syl] > [-long] / __ {ʎ;ɲ}
 
-$ CORRECTION: [-cont] l is no longer long except for round vowels
+
+$ CORRECTION: vowels not longer before [-cont] l except for round vowels
 [+syl,-round] > [-long] / __ [-cont] l
 
 $CORRECTION: not long before ɲ 

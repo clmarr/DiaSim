@@ -749,21 +749,17 @@ n β > m b / __ [+lat]
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
-$ note as per p53 s100, note that Pope does not consider glides to be consonants. 
-[+syl] > [-long] / __ [+cons] # 
-[+syl] > [-long] / __ [+cons] [+cons,-son]
-[+syl] > [-long] / __ [+cons] [+cons,+nas]
+$ note as per p53 s100, note that Pope does not consider glides to be consonants 
+	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
+		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+[+syl] > [-long] / __ [-syl] # 
+[+syl] > [-long] / __ [-syl] [+cons]
 [-prim] > [-long]
 [+prim] > [+long] / __ #
 [+prim] > [+long] / __ [-cons] 
 [+prim] > [+long] / __ [+cons] [+syl] 
 [+prim] > [+long] / __ [-cont] [+cons,+son,-nas] 
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
-
-$but she does not intend for this to apply to her diphthongs...
-[+syl] > [-long] / __ {e̯;ɛ̯;o̯;ə̯}
-[+syl] > [-long] / __ [-syl,-cons] [-syl]
-[+syl] > [-long] / __ [-syl,-cons] #
 
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
@@ -775,7 +771,7 @@ $ recurses as per cases of adiutare and medietatem (s414)
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
-{ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
+ˈɛː > ˈi e̯
 
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
 [+hi,+tense,+round,+syl] > [-front,-back]

@@ -13,19 +13,27 @@ w ˌi ɡ ˈi l i ɑ m
 #βʷˌeɟˈeʎɑ# | Rule 90 : l ʝ > ʎ 
 #βʷˌeʝˈeʎɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
 #βʷˌeʝˈeːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˌeʝˈeːʎɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌeˈeːʎɑ# | Rule 156 : ʝ > ∅ / ˌe __ [+syl]
-#βˌeˈeːʎa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#βˌeˈeʎa# | Rule 398 : [+prim,-hi] > [-long,-splng] / __ ʎ
-#vˌeˈeʎa# | Rule 426 : β > v 
-#vˌeˈeʎə# | Rule 432 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌəˈeʎə# | Rule 496 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
-#vˌəˈɛʎə# | Rule 535 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
-#vˌəˈɛjʎə# | Rule 556 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
-#vˌəˈɛːʎə# | Rule 627 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#vˈɛːʎə# | Rule 678 : ˌə > ∅ / __ [+syl]
-#vˈɛːʎə̯# | Rule 694 : ə > ə̯ / __ #
-#vˈɛːʎ# | Rule 723 : ə̯ > ∅ 
-#vɛːʎ# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vɛʎ# | Rule 738 : [+syl,+long] > [-long,-splng] 
-#vɛj# | Rule 745 : ʎ > j 
+#βʷˌeʝˈeʎɑ# | Rule 113 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#βʷˌeʝˈeːʎɑ# | Rule 152 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#βʷˌeʝˈeʎɑ# | Rule 156 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#βˌeʝˈeʎɑ# | Rule 159 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌeˈeʎɑ# | Rule 160 : ʝ > ∅ / ˌe __ [+syl]
+#βˌeˈeʎa# | Rule 199 : [+lo,+syl] > [+front,-back] 
+#βˌeˈeːʎa# | Rule 223 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#βˌeˈeʎa# | Rule 227 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#βˌeˈeːʎa# | Rule 362 : [+prim] > [+long] / __ [+cons] [+syl]
+#βˌeˈeʎa# | Rule 366 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#βˌeˈeːʎa# | Rule 398 : [+prim] > [+long] / __ [+cons] [+syl]
+#βˌeˈeʎa# | Rule 403 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#vˌeˈeʎa# | Rule 433 : β > v 
+#vˌeˈeʎə# | Rule 439 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌəˈeʎə# | Rule 503 : ˌe > ˌə / v __ ( [+cons] ) [+syl]
+#vˌəˈɛʎə# | Rule 542 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
+#vˌəˈɛjʎə# | Rule 563 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+#vˌəˈɛːʎə# | Rule 634 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#vˈɛːʎə# | Rule 685 : ˌə > ∅ / __ [+syl]
+#vˈɛːʎə̯# | Rule 701 : ə > ə̯ / __ #
+#vˈɛːʎ# | Rule 730 : ə̯ > ∅ 
+#vɛːʎ# | Rule 744 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vɛʎ# | Rule 745 : [+syl,+long] > [-long,-splng] 
+#vɛj# | Rule 752 : ʎ > j 

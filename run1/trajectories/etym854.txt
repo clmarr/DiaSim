@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :854:
-#pˈeːn̪silem# >>> #pwal# ( Correct : #pwal#) :
+#pˈeːn̪silem# >>> #pɛl# ( Correct : #pwal#) :
 p ˈeː n̪ s i l e m 
 #pˈeːsilem# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
 #pˈeːsɪlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -7,19 +7,17 @@ p ˈeː n̪ s i l e m
 #pˈeselɛm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #pˈeselɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #pˈeːselɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈeːzelɛ# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#pˈeːzəlɛ# | Rule 257 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#pˈeːzələ# | Rule 262 : [-stres,-lo,+syl] > ə / __ #
-#pˈeːzə̯lə̯# | Rule 264 : ə > ə̯ 
-#pˈeːzə̯lə# | Rule 294 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#pˈeːzlə# | Rule 298 : ə̯ > ∅ 
-#pˈejzlə# | Rule 404 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˈejlə# | Rule 520 : z > ∅ / __ [+cons]
-#pˈojlə# | Rule 530 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#pˈujlə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#pˈuɛ̯lə# | Rule 619 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pwˈɛlə# | Rule 620 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˈɛlə̯# | Rule 694 : ə > ə̯ / __ #
-#pwˈɛl# | Rule 723 : ə̯ > ∅ 
-#pwɛl# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pwal# | Rule 743 : ɛ > a / w __ 
+#pˈeːzelɛ# | Rule 137 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#pˈeːzəlɛ# | Rule 263 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈeːzələ# | Rule 268 : [-stres,-lo,+syl] > ə / __ #
+#pˈeːzə̯lə̯# | Rule 270 : ə > ə̯ 
+#pˈeːzə̯lə# | Rule 300 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#pˈeːzlə# | Rule 304 : ə̯ > ∅ 
+#pˈezlə# | Rule 358 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#pˈeːzlə# | Rule 524 : [+prim] > [+long] / @ __ z [+cons]
+#pˈeːlə# | Rule 527 : z > ∅ / __ [+cons]
+#pˈɛːlə# | Rule 674 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,0delrel] / __ [+lat]
+#pˈɛːlə̯# | Rule 701 : ə > ə̯ / __ #
+#pˈɛːl# | Rule 730 : ə̯ > ∅ 
+#pɛːl# | Rule 744 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛl# | Rule 745 : [+syl,+long] > [-long,-splng] 

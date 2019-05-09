@@ -9,16 +9,24 @@ b ˈɑ l n̪ e u m
 #bˈɑlɲo# | Rule 87 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 #bˈɑɲo# | Rule 88 : [+lat] > ∅ / __ ɲ
 #bˈɑːɲo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#bˈaːɲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#bˈaːɲə# | Rule 262 : [-stres,-lo,+syl] > ə / __ #
-#bˈaːɲə̯# | Rule 264 : ə > ə̯ 
-#bˈaːɲ# | Rule 298 : ə̯ > ∅ 
-#bˈaɲ# | Rule 400 : [+syl] > [-long,-splng] / __ ɲ
-#bˈãɲ# | Rule 494 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#bˈãj̃ɲ# | Rule 554 : ∅ > j̃ / [+lo,+syl] __ ɲ #
-#bˈɛ̃j̃ɲ# | Rule 576 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
-#bˈɛ̃j̃n̪# | Rule 630 : ɲ > n̪ / __ #
-#bˈɛ̃n̪# | Rule 651 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#bˈɛ̃ː# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#bɛ̃ː# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bɛ̃# | Rule 738 : [+syl,+long] > [-long,-splng] 
+#bˈɑɲo# | Rule 114 : [-hi,+tense,+syl] > [-long,-splng] / __ ɲ
+#bˈɑːɲo# | Rule 152 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#bˈɑɲo# | Rule 157 : [-hi,+tense,+syl] > [-long,-splng] / __ ɲ
+#bˈaɲo# | Rule 199 : [+lo,+syl] > [+front,-back] 
+#bˈaːɲo# | Rule 223 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#bˈaɲo# | Rule 228 : [-hi,+tense,+syl] > [-long,-splng] / __ ɲ
+#bˈaɲə# | Rule 268 : [-stres,-lo,+syl] > ə / __ #
+#bˈaɲə̯# | Rule 270 : ə > ə̯ 
+#bˈaɲ# | Rule 304 : ə̯ > ∅ 
+#bˈaːɲ# | Rule 365 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#bˈaɲ# | Rule 367 : [-hi,+tense,+syl] > [-long,-splng] / __ ɲ
+#bˈaːɲ# | Rule 401 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#bˈaɲ# | Rule 405 : [-hi,+tense,+syl] > [-long,-splng] / __ ɲ
+#bˈãɲ# | Rule 501 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#bˈãj̃ɲ# | Rule 561 : ∅ > j̃ / [+lo,+syl] __ ɲ #
+#bˈɛ̃j̃ɲ# | Rule 583 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#bˈɛ̃j̃n̪# | Rule 637 : ɲ > n̪ / __ #
+#bˈɛ̃n̪# | Rule 658 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#bˈɛ̃ː# | Rule 662 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#bɛ̃ː# | Rule 744 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bɛ̃# | Rule 745 : [+syl,+long] > [-long,-splng] 

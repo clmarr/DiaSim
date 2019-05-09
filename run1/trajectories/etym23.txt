@@ -8,10 +8,18 @@ Trajectory file for run 'run1'; etymon number :23:
 #ˈɑllʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #ˈɑʎo# | Rule 89 : l l ʝ > ʎ 
 #ˈɑːʎo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈaːʎo# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈaːʎə# | Rule 262 : [-stres,-lo,+syl] > ə / __ #
-#ˈaːʎə̯# | Rule 264 : ə > ə̯ 
-#ˈaːʎ# | Rule 298 : ə̯ > ∅ 
-#ˈaʎ# | Rule 398 : [+prim,-hi] > [-long,-splng] / __ ʎ
-#aʎ# | Rule 737 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aj# | Rule 745 : ʎ > j 
+#ˈɑʎo# | Rule 113 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈɑːʎo# | Rule 152 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#ˈɑʎo# | Rule 156 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈaʎo# | Rule 199 : [+lo,+syl] > [+front,-back] 
+#ˈaːʎo# | Rule 223 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#ˈaʎo# | Rule 227 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈaʎə# | Rule 268 : [-stres,-lo,+syl] > ə / __ #
+#ˈaʎə̯# | Rule 270 : ə > ə̯ 
+#ˈaʎ# | Rule 304 : ə̯ > ∅ 
+#ˈaːʎ# | Rule 365 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#ˈaʎ# | Rule 366 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈaːʎ# | Rule 401 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#ˈaʎ# | Rule 403 : [+prim,-hi] > [-long,-splng] / __ ʎ
+#aʎ# | Rule 744 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aj# | Rule 752 : ʎ > j 
