@@ -10,26 +10,23 @@ p l ˌeː n̪ ˈɑː r i ɑ m
 #plˌen̪ˈɑrʲɑ# | Rule 172 : r ʝ > rʲ 
 #plˌen̪ˈarʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #plˌen̪ˈaːrʲa# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#plˌen̪ʲˈaːrʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
-#plˌen̪ʲˈaːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
-#plˌen̪ʲjˈaːrʲa# | Rule 346 : ˈaː j > j ˈaː / [+syl] ( [-syl] )* __ rʲ
-#plˌen̪ʲˈaːrʲa# | Rule 348 : j > ∅ / [+front,+hi,+cons] __ 
-#plˌen̪ʲˈɛːrʲa# | Rule 366 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
-#plˌen̪ʲˈie̯rʲa# | Rule 370 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#plˌen̪ʲˈie̯ra# | Rule 380 : rʲ > r 
-#plˌejn̪ˈie̯ra# | Rule 382 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#plˌejn̪ˈie̯rə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#plˌej̃n̪ˈie̯rə# | Rule 505 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#plˌẽj̃n̪ˈie̯rə# | Rule 506 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#plˌɛ̃j̃n̪ˈie̯rə# | Rule 560 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#plˌɛ̃j̃n̪jˈerə# | Rule 583 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#plˌɛ̃j̃n̪j?rə# | Rule 600 : ˈe > ? / __ @
-#plˌɛ̃j̃n̪jˈɛrə# | Rule 603 : ? > ˈɛ 
-#plˌɛ̃n̪jˈɛrə# | Rule 650 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#plˌɛn̪jˈɛrə# | Rule 669 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#plˌɛn̪jˈɛrə̯# | Rule 693 : ə > ə̯ / __ #
-#plˌɛn̪jˈɛr# | Rule 722 : ə̯ > ∅ 
-#plˌen̪jˈɛr# | Rule 730 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
-#plˌen̪jˈɛʀ# | Rule 735 : r > ʀ 
-#plen̪jɛʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#plen̪jɛʁ# | Rule 743 : ʀ > ʁ 
+#plˌen̪ʲˈaːrʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
+#plˌen̪ʲˈɛːrʲa# | Rule 364 : [+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+#plˌen̪ʲˈie̯rʲa# | Rule 368 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#plˌen̪ʲˈie̯ra# | Rule 378 : rʲ > r 
+#plˌejn̪ˈie̯ra# | Rule 380 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#plˌejn̪ˈie̯rə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#plˌej̃n̪ˈie̯rə# | Rule 503 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
+#plˌẽj̃n̪ˈie̯rə# | Rule 504 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#plˌɛ̃j̃n̪ˈie̯rə# | Rule 558 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˌɛ̃j̃n̪jˈerə# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#plˌɛ̃j̃n̪j?rə# | Rule 598 : ˈe > ? / __ @
+#plˌɛ̃j̃n̪jˈɛrə# | Rule 601 : ? > ˈɛ 
+#plˌɛ̃n̪jˈɛrə# | Rule 648 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#plˌɛn̪jˈɛrə# | Rule 667 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#plˌɛn̪jˈɛrə̯# | Rule 691 : ə > ə̯ / __ #
+#plˌɛn̪jˈɛr# | Rule 720 : ə̯ > ∅ 
+#plˌen̪jˈɛr# | Rule 728 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
+#plˌen̪jˈɛʀ# | Rule 733 : r > ʀ 
+#plen̪jɛʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plen̪jɛʁ# | Rule 741 : ʀ > ʁ 

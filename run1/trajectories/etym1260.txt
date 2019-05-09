@@ -1,26 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1260:
-#t̪ˈurt̪ɑm# >>> #t̪œjʁt̪# ( Correct : #t̪uʁt̪#) :
+#t̪ˈurt̪ɑm# >>> #t̪uʁt̪# ( Correct : #t̪uʁt̪#) :
 t̪ ˈu r t̪ ɑ m 
 #t̪ˈʊrt̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˈort̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #t̪ˈort̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
 #t̪ˈort̪a# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t̪ʲˈorʲt̪ʲa# | Rule 319 : [+cor,+ant,-lat] > [+hi,+front] 
-#t̪ʲˈojrʲt̪ʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
-#t̪ʲˈoːjrʲt̪ʲa# | Rule 361 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
-#t̪ʲˈoːjrt̪ʲa# | Rule 380 : rʲ > r 
-#t̪ʲˈowjrt̪ʲa# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪ʲˈowjrt̪ʲə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ʲˈewjrt̪ʲə# | Rule 528 : ˈo > ˈe / __ w
-#t̪ʲˈøwjrt̪ʲə# | Rule 599 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#t̪ʲˈøːjrt̪ʲə# | Rule 607 : [+round,+front,-hi,+syl] w > [+long] ∅
-#t̪ˈøːjrt̪ə# | Rule 658 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#t̪ˈøːjrt̪ə̯# | Rule 693 : ə > ə̯ / __ #
-#t̪ˈøːjɹt̪ə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
-#t̪ˈøːjɹt̪# | Rule 722 : ə̯ > ∅ 
-#t̪ˈœːjɹt̪# | Rule 729 : [+syl,-lo,-hi] > [-tense,-cons,-lat,+cont,0delrel] / __ [-cons,+hi,+front]
-#t̪ˈœːjrt̪# | Rule 733 : ɹ > r 
-#t̪ˈœːjʀt̪# | Rule 735 : r > ʀ 
-#t̪œːjʀt̪# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪œjʀt̪# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#t̪œjʁt̪# | Rule 743 : ʀ > ʁ 
+#t̪ʲˈorʲt̪ʲa# | Rule 320 : [+cor,+ant,-lat] > [+hi,+front] 
+#t̪ʲˈort̪ʲa# | Rule 378 : rʲ > r 
+#t̪ʲˈort̪ʲə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ʲˈurt̪ʲə# | Rule 549 : [+round,+tense,+back] > [+hi] 
+#t̪ˈurt̪ə# | Rule 656 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#t̪ˈurt̪ə̯# | Rule 691 : ə > ə̯ / __ #
+#t̪ˈuɹt̪ə̯# | Rule 713 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈuɹt̪# | Rule 720 : ə̯ > ∅ 
+#t̪ˈurt̪# | Rule 731 : ɹ > r 
+#t̪ˈuʀt̪# | Rule 733 : r > ʀ 
+#t̪uʀt̪# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪uʁt̪# | Rule 741 : ʀ > ʁ 

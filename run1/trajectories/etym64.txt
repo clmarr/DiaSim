@@ -9,16 +9,14 @@ Trajectory file for run 'run1'; etymon number :64:
 #ˈɑrʲɑ# | Rule 172 : r ʝ > rʲ 
 #ˈarʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
 #ˈaːrʲa# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#ˈaːjrʲa# | Rule 345 : ∅ > j / [-cons] __ rʲ
-#ˈaːjra# | Rule 380 : rʲ > r 
-#ˈae̯jra# | Rule 403 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈajra# | Rule 407 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
-#ˈajrə# | Rule 431 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈɛjrə# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#ˈɛːrə# | Rule 626 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ˈɛːrə̯# | Rule 693 : ə > ə̯ / __ #
-#ˈɛːr# | Rule 722 : ə̯ > ∅ 
-#ˈɛːʀ# | Rule 735 : r > ʀ 
-#ɛːʀ# | Rule 736 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɛʀ# | Rule 737 : [+syl,+long] > [-long,-splng] 
-#ɛʁ# | Rule 743 : ʀ > ʁ 
+#ˈaːra# | Rule 378 : rʲ > r 
+#ˈae̯ra# | Rule 401 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈae̯rə# | Rule 429 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈeːrə# | Rule 536 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˈeːrə̯# | Rule 691 : ə > ə̯ / __ #
+#ˈɛːrə̯# | Rule 694 : ˈeː > ˈɛː / __ [+cons] ə̯
+#ˈɛːr# | Rule 720 : ə̯ > ∅ 
+#ˈɛːʀ# | Rule 733 : r > ʀ 
+#ɛːʀ# | Rule 734 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛʀ# | Rule 735 : [+syl,+long] > [-long,-splng] 
+#ɛʁ# | Rule 741 : ʀ > ʁ 
