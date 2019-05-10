@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1327:
-#wˈid̪wum# >>> #vef# ( Correct : #vœf#) :
+#wˈid̪wum# >>> #vœf# ( Correct : #vœf#) :
 w ˈi d̪ w u m 
 #ɣʷˈid̪ɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˈɪd̪ɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -15,6 +15,9 @@ w ˈi d̪ w u m
 #vˈeðf# | Rule 437 : [-son] > [-voi] / __ #
 #vˈeθf# | Rule 482 : [-son] > [-voi] / __ [-voi]
 #vˈef# | Rule 593 : {θ;ð} > {∅;∅} 
-#vˈefə̯# | Rule 715 : ∅ > ə̯ / f __ #
-#vˈef# | Rule 718 : ə̯ > ∅ 
-#vef# | Rule 732 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vˈɛf# | Rule 599 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
+#vˈøf# | Rule 638 : {ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / [+lab,+cons,+voi] __ [+lab,+cons]
+#vˈøfə̯# | Rule 716 : ∅ > ə̯ / f __ #
+#vˈøf# | Rule 719 : ə̯ > ∅ 
+#vˈœf# | Rule 720 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#vœf# | Rule 733 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
