@@ -1486,11 +1486,6 @@ $ say mid 16th
 [+lat] > ∅ / [+hi,+syl] __ #
 [+lat] > ∅ / [+front,-round,+tense,+long,-lo] __ #
 
-$s173.1b tonic e: "ordinarily" to ɛ
-$ note s173.1b contradicts both 575 and 576, saying it is long e: that went to long ɛ: "ordinarily"
-$ based on Pope's evidence, this happened in the 16th century
-ˈeː > ˈɛː
-
 $ s494: e > ɛ before l, ʎ in 16th century
 $ Peletier (1549) still has /e/, Meigret gives both before both l and ʎ,
 $ while Meigret (also 1500s) fluctuates
@@ -1501,7 +1496,7 @@ $ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in m
 $ attested in Lyttelton 1566 (s468)
 [+front,-lo,+nas,+syl] > [-nas] / {[+cons];[+syl]} __ [+nas,+cons] [-cons]
 
-$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century)
 $ for word-final r, only applies in monosyllables
 $ not accepted yet by Meigret (1500s), Lanoue,
 $ H. Estienne appears to be unsure (?)
@@ -1552,7 +1547,8 @@ $ accepted by Regnier -- very late 16th, early 17th -- s242
 [-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ∅ [+long]
 
 $ s242b specifications on coalescence of countertonic a
-$ s561 : length of aũ
+$ s561 : length of aũ destination 
+$ TODO need to fix here... 
 $ TODO implement later developments for a + i forms. 
 ˌa ˈũ > ˈãː
 ˌa ˈi > ˈa j
@@ -1583,7 +1579,7 @@ $ s273 final ə postconsonantal becomes an "off-glide" before it disappears fore
 $ reported by Beze 1564 but does not bleed some of the lengthening and quantity changes conditioned on final ə
 ə > ə̯ / __ #
 
-$ s530 : final ajə become ɛː right after final ə is effaced next to it...
+$ s530 ~ s532 : final ajə become ɛː right after final ə is effaced next to it...
 $ that it is long ɛː not short ɛ is inferred because of s562...
 $ obv comes after s271
 $ s532 : "accepted only in the 17th century" -- Lanoue (1596) accepts only in some cases
@@ -1596,10 +1592,10 @@ $ not accepted by Peletier, Lanoue oscilates, Baif oscilates
 ˈeː > ˈɛː / __ [+cons] #
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
-$ but there do not seem to be any examples of where it occurred with n coming after ə
+$ intertonic -- most have stress level on either side 
 $ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
-ə > ∅ / {n;r;l} __ [+cons]
-ə > ∅ / [+cons] __ {r;l}
+ə > ∅ / [+stres] ([-syl])* [+cor,+son,+cons] __ [+cons] ([-syl])* [+stres]
+ə > ∅ / [+stres] ([-syl])* [+cons] __ {r;l} ([-syl])* [+stres]
 
 $ s366: late degemination of r, with lengthening of any prior vowels
 [+syl] > [+long] / __ r r 
@@ -1668,6 +1664,16 @@ $ s273 : final "off-glide" ə is deleted.
 $ for convenience we group this with:
 	$ s539 ə̯o: > o: finally accepted in the 17th century
 ə̯ > ∅
+
+$ RECURRENCE
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century)
+$ for word-final r, only applies in monosyllables
+$ not accepted yet by Meigret (1500s), Lanoue,
+$ H. Estienne appears to be unsure (?)
+$ seems accepted by the time of Hindret (1687) though some hesitation continues
+$ -- very late Middle French to early Modern, possibly early 17th century
+[-hi,-lo,+syl,+front,-round] > [-tense] / __ r [+cons]
+[-hi,-lo,+syl,+front,-round] > [-tense] / # ([-syl])* __ r #
 
 $ s470-474 :  final acceptance of wẽ,jẽ opening to wɛ̃,jɛ̃
 $ accepted in the early 17th century

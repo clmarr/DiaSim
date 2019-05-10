@@ -2517,7 +2517,7 @@ $ also merge into this the denasalization of wɛ̃, even though Pope implies tha
 	$ -- simpler this way. 
 [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
 
-$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, TODO add to modern French. ...)
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century)
 $ for word-final r, only applies in monosyllables
 $ not accepted yet by Meigret (1500s), Lanoue,
 $ H. Estienne appears to be unsure (?)
@@ -2575,11 +2575,13 @@ $ accepted by Regnier -- very late 16th, early 17th -- s242
 [-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ˈuː
 
 $ s242b specifications on coalescence of countertonic a
-$ s561 : length of aũ
+$ s561 : length of aũ destination
 $ CORRECTION: aũ only becomes ã word finally 
+$ CORRECTION: occurs regardless of the length of the second element
+	$ TODO incorp this aspect to BaseCLEF*
 ˌa [+prim,+syl,+back,+nas] > ˈãː / __ # 
 ˌa [+prim,+syl,+front,+hi,-round,-nas] > ˈa j
-ˌa [+prim,+syl,+front,+hi,-round,+nas] > ˌã j̃
+ˌa [+prim,+syl,+front,+hi,-round,+nas] > ˈã j̃
 ˌa > ∅ / __ [+prim]
 
 $s562 : currently penultimate tonic vowels get stressed when final vowel is ə and is adjacent before the ə is deleted
@@ -2589,6 +2591,8 @@ $ s562 attestation : Beze (17th), Peletier (later 16th), Vaugelas (early 17th)
 $ s570 i : a lengthens before ʎ in final ending aʎə
 $ accepted by Beze -- 17th century
 [+lo,+syl] > [+long] / __ ʎ ə #
+
+$ CORRECTION: s570ii a:se, i:se etc lengthening moved earlier so that it is not fed by deaffrication. 
 
 $ s271 ə final deleted in hiatus with tonic vowel, even if j comes between
 $ as per s271 began in Old French with analogy in verb forms, became widespread in late 15th and 16th centuries,
@@ -2610,16 +2614,15 @@ $ s173.1b ~ 576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single co
 $ not accepted by Peletier, Lanoue oscilates, Baif oscilates
 $ CORRECTION: not before coronals -- two exceptions to this counterrule are amer and tres
 	$ but amer is likely contamination from amere, and tres has syntactic considerations
-ˈeː >ˈɛː / __ [+cons] ə $ {ə;ə̯}
+ˈeː >ˈɛː / __ [+cons] ə
 ˈeː > ˈɛː / __ [+cons,-cor] #
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
+$ intertonic -- most have stress level on either side 
 $ but there do not seem to be any examples of where it occurred with n coming after ə
 $ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
-$ CORRECTION: does not occur after n,r,l if next consonant is precedes word coda 
-$ CORRECTION: only happens after n/r/l when those are themselves not after a consonant
-ə > ∅ / [-cons] {n;r;l} __ [+cons] @
-ə > ∅ / [+cons] __ {r;l}
+ə > ∅ / [+stres] [+cor,+son,+cons] __ [+cons] ([-syl])* [+stres]
+ə > ∅ / [+stres] ([-syl])* [+cons] __ {r;l} ([-syl])* [+stres]
 
 $ s366: late degemination of r, with lengthening of any prior vowels
 $ s366 only says "before the end of Middle French" 
@@ -2704,6 +2707,23 @@ $ for convenience we group this with:
 	$ CORRECTION: but deletion of ə̯ does not occur in monosyllables. 
 ə̯ > ə / # ([-syl])* __
 ə̯ > ∅
+
+$ RECURRENCE
+$ s495 : e > ɛ when r CLOSES the syllable in 16th century (will repeat again when final ə before an r is deleted-- in 17th century, ...)
+$ for word-final r, only applies in monosyllables
+$ not accepted yet by Meigret (1500s), Lanoue,
+$ H. Estienne appears to be unsure (?)
+$ seems accepted by the time of Hindret (1687) though some hesitation continues
+$ -- very late Middle French to early Modern, possibly early 17th century
+$ CORRECTION: ø also lowers to œ before r in these same positions
+	$ Pope does mention y and u lowering to œ and ɔ but not exactly what happens here, and she calls it a tendency
+		$ which for the most part, she argues was reversed-- i.e. not diachronically relevant. 
+$ CORRECTION: does not happen finally with rs#
+$ CORRECTION: ø also lowers in non monosyllables before r#
+[-hi,-lo,+syl,+front] > [-tense] / __ r [+cons,-strid]
+[-hi,-lo,+syl,+front,-round] > [-tense] / # ([-syl])* __ r #
+[-hi,-lo,+syl,+front,+round] > [-tense] / __ r #
+
 
 $ CORRECTION: ø opens before consonants in final syll. ə does not change this.
 [+front,+round,-hi,+syl] > [-tense] / __ ([+cons])+ (ə) #
