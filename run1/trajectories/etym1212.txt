@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1212:
-#t̪ˈiːbiɑm# >>> #t̪iʒ# ( Correct : #t̪iʒ#) :
+#t̪ˈiːbiɑm# >>> #t̪i# ( Correct : #t̪iʒ#) :
 t̪ ˈiː b i ɑ m 
-#t̪ˈiːbɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈiːbɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #t̪ˈiːbjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #t̪ˈiːbʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#t̪ˈibʝɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#t̪ˈibʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪ˈibʝa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t̪ˈibɟa# | Rule 250 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
-#t̪ˈibd͡ʒa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t̪ˈid̪d͡ʒa# | Rule 332 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
-#t̪ˈid̪d͡ʒə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈid͡ʒə# | Rule 480 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#t̪ˈiʒə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#t̪ˈiʒə̯# | Rule 692 : ə > ə̯ / __ #
-#t̪ˈiʒ# | Rule 718 : ə̯ > ∅ 
-#t̪iʒ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ˈibʝɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#t̪ˈibʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈibʝa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#t̪ˈibɟa# | Rule 189 : {j;ʝ} > {ɟ;ɟ} / [+cons] __ [+syl]
+#t̪ˈibd͡ʒa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t̪ˈid̪d͡ʒa# | Rule 216 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#t̪ˈid̪d͡ʒɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#t̪ˈid̪d͡ʒə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#t̪ˈid̪d͡ʒ# | Rule 281 : ə > ∅ 
+#t̪ˈid̪t͡ʃ# | Rule 290 : [-son] > [-voi] / __ #
+#t̪ˈit͡ʃ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#t̪ˈiʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#t̪ˈi# | Rule 527 : [-son] > ∅ / __ #
+#t̪i# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

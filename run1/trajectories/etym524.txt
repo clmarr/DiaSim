@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :524:
-#kˈumbɑm# >>> #kɔ̃b# ( Correct : #kɔ̃b#) :
+#kˈumbɑm# >>> #kym# ( Correct : #kɔ̃b#) :
 k ˈu m b ɑ m 
-#kˈʊmbɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈombɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈombɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈũmbɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
-#kˈũmba# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#kˈũmbə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#kˈũːbə# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#kˈũːbə̯# | Rule 692 : ə > ə̯ / __ #
-#kˈũːb# | Rule 718 : ə̯ > ∅ 
-#kũːb# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kũb# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#kɔ̃b# | Rule 737 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#kˈʊmbɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈombɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˈombɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˈumbɑ# | Rule 113 : [+round,+tense,-hi,+stres] > [+hi] / __ [+nas,+cons]
+#kˈumba# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#kˈumma# | Rule 137 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
+#kˈʉmma# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#kˈʉmmə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#kˈʉmə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#kˈymə# | Rule 345 : [+hi,+round,-back] > [+front] 
+#kˈỹmə# | Rule 427 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#kˈymə# | Rule 448 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
+#kˈymə̯# | Rule 499 : ə > ə̯ / __ #
+#kˈym# | Rule 528 : ə̯ > ∅ 
+#kym# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

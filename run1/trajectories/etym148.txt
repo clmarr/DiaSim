@@ -1,19 +1,21 @@
 Trajectory file for run 'run1'; etymon number :148:
-#bˈulɡɑm# >>> #buʒ# ( Correct : #buʒ#) :
+#bˈulɡɑm# >>> #bu# ( Correct : #buʒ#) :
 b ˈu l ɡ ɑ m 
-#bˈʊlɡɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#bˈolɡɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#bˈolɡɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#bˈoɫɡɑ# | Rule 138 : l > ɫ / __ [+cons,-lat]
-#bˈoɫɡa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#bˈoɫɡʲa# | Rule 230 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#bˈoɫɟa# | Rule 243 : [+back,+front] > [-back] 
-#bˈoɫd͡ʒa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#bˈoɫd͡ʒə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#bˈuɫd͡ʒə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#bˈuwd͡ʒə# | Rule 569 : [+lat,+back] > w 
-#bˈud͡ʒə# | Rule 570 : w > ∅ / [+syl,+hi,+round] __ 
-#bˈuʒə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#bˈuʒə̯# | Rule 692 : ə > ə̯ / __ #
-#bˈuʒ# | Rule 718 : ə̯ > ∅ 
-#buʒ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bˈuɫɡɑm# | Rule 4 : l > ɫ / @ __ 
+#bˈʊɫɡɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈoɫɡɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#bˈoɫɡɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bˈoɫɡa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#bˈoɫɡʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#bˈoɫɟa# | Rule 182 : [+back,+front] > [-back] 
+#bˈoɫd͡ʒa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#bˈoɫd͡ʒɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#bˈoɫd͡ʒə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#bˈoɫd͡ʒ# | Rule 281 : ə > ∅ 
+#bˈoɫt͡ʃ# | Rule 290 : [-son] > [-voi] / __ #
+#bˈuɫt͡ʃ# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#bˈuwt͡ʃ# | Rule 388 : [+lat,+back] > w 
+#bˈut͡ʃ# | Rule 389 : w > ∅ / [+syl,+hi,+round] __ 
+#bˈuʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#bˈu# | Rule 527 : [-son] > ∅ / __ #
+#bu# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

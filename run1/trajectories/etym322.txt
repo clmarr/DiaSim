@@ -1,22 +1,26 @@
 Trajectory file for run 'run1'; etymon number :322:
-#ɡrˈɑfium# >>> #ɡʁɛf# ( Correct : #ɡʁɛf#) :
+#ɡrˈɑfium# >>> #dʲa# ( Correct : #ɡʁɛf#) :
 ɡ r ˈɑ f i u m 
-#ɡrˈɑfɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡrˈɑfɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ɡrˈɑfjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ɡrˈɑfʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ɡrˈɑfʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ɡrˈɑfʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ɡrˈɑʝfo# | Rule 134 : f ʝ > ʝ f 
-#ɡrˈaʝfo# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ɡrˈaʝfə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ɡrˈaʝfə̯# | Rule 266 : ə > ə̯ 
-#ɡrˈaʝf# | Rule 300 : ə̯ > ∅ 
-#ɡrˈajf# | Rule 311 : ʝ > j / __ ( [-syl] )* #
-#ɡrˈɛjf# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#ɡrˈɛːf# | Rule 625 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ɡrˈɛːfə̯# | Rule 715 : ∅ > ə̯ / f __ #
-#ɡrˈɛːf# | Rule 718 : ə̯ > ∅ 
-#ɡʀˈɛːf# | Rule 734 : r > ʀ 
-#ɡʀɛːf# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡʀɛf# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#ɡʁɛf# | Rule 742 : ʀ > ʁ 
+#ɡrˈɑfʝom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ɡrˈɑfʝo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ɣrˈɑfʝo# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
+#ɣrˈafʝo# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ʝrˈafʝo# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#ʝrʲˈafʝo# | Rule 146 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#rʲˈafʝo# | Rule 181 : [+hi,+front,-syl,-lat] > ∅ / __ rʲ
+#dʲˈafʝo# | Rule 188 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,0tense] / # __ [+syl]
+#dʲˈafɟo# | Rule 189 : {j;ʝ} > {ɟ;ɟ} / [+cons] __ [+syl]
+#dʲˈafco# | Rule 190 : ɟ > c / [-voi] __ 
+#dʲˈaft͡ʃo# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#dʲˈaft͡ʃə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#dʲˈaft͡ʃə̯# | Rule 196 : ə > ə̯ 
+#dʲˈaft͡ʃə# | Rule 204 : ə̯ > ə / [-ant,+delrel] __ #
+#dʲˈat̪t͡ʃə# | Rule 215 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#dʲˈat̪t͡ʃ# | Rule 281 : ə > ∅ 
+#dʲˈat͡ʃ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#dʲˈaʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#dʲˈa# | Rule 527 : [-son] > ∅ / __ #
+#dʲa# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

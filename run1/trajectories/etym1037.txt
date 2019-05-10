@@ -1,16 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1037:
 #sˈɑɡmɑm# >>> #sɔm# ( Correct : #sɔm#) :
 s ˈɑ ɡ m ɑ m 
-#sˈɑɣmɑm# | Rule 61 : ɡ > ɣ / __ m
-#sˈɑwmɑm# | Rule 62 : ɣ > w / __ m
-#sˈɑwmɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˈawma# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˈɔwma# | Rule 234 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#sˈɔwmə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈumə# | Rule 610 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
-#sˈũmə# | Rule 612 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#sˈũmə̯# | Rule 692 : ə > ə̯ / __ #
-#sˈũm# | Rule 718 : ə̯ > ∅ 
-#sũm# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɔ̃m# | Rule 737 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#sɔm# | Rule 739 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
+#sˈɑɣmɑm# | Rule 51 : ɡ > ɣ / __ m
+#sˈɑwmɑm# | Rule 52 : ɣ > w / __ m
+#sˈɑwmɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈawma# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#sˈɔwma# | Rule 163 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#sˈɔːwma# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#sˈɔːwmə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈɔːmə# | Rule 367 : w > ∅ / [+back,+round,-hi,-tense,+stres] __ [+cons] [-cons]
+#sˈɔ̃ːmə# | Rule 413 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas]
+#sˈõːmə# | Rule 435 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,0delrel] / __ ( x ) ( [-syl] ) [+syl]
+#sˈõːmə̯# | Rule 499 : ə > ə̯ / __ #
+#sˈõːm# | Rule 528 : ə̯ > ∅ 
+#sõːm# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sõm# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#sɔ̃m# | Rule 543 : [+back,-lo,+nas,+syl] > [-hi,-tense,-cons,-lat,+cont,0delrel] 
+#sɔm# | Rule 545 : [+syl,+nas] > [-nas] / __ [+nas,+cons]

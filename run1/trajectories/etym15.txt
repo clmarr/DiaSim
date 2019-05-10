@@ -1,15 +1,17 @@
 Trajectory file for run 'run1'; etymon number :15:
-#ˈɑːlɑm# >>> #ɛl# ( Correct : #ɛl#) :
+#ˈɑːlɑm# >>> #ie̯w# ( Correct : #ɛl#) :
 ˈɑː l ɑ m 
-#ˈɑlɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#ˈɑlɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈɑːlɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈaːla# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈae̯la# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯lə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈeːlə# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˈɛːlə# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#ˈɛːlə̯# | Rule 692 : ə > ə̯ / __ #
-#ˈɛːl# | Rule 718 : ə̯ > ∅ 
-#ɛːl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɛl# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#ˈɑːɫɑm# | Rule 4 : l > ɫ / @ __ 
+#ˈɑɫɑm# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#ˈɑɫɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈɑːɫɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈaːɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˈɛːɫa# | Rule 177 : ˈaː > ˈɛː 
+#ˈie̯ɫa# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈiːe̯ɫa# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#ˈiːe̯ɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːe̯wə# | Rule 388 : [+lat,+back] > w 
+#ˈiːe̯wə̯# | Rule 499 : ə > ə̯ / __ #
+#ˈiːe̯w# | Rule 528 : ə̯ > ∅ 
+#iːe̯w# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ie̯w# | Rule 542 : [+syl,+long] > [-long,-splng] 

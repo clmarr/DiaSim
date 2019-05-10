@@ -1,17 +1,25 @@
 Trajectory file for run 'run1'; etymon number :464:
-#klˈɑːrɑm# >>> #klɛʁ# ( Correct : #klɛʁ#) :
+#klˈɑːrɑm# >>> #?ie̯ʁ# ( Correct : #klɛʁ#) :
 k l ˈɑː r ɑ m 
-#klˈɑrɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#klˈɑrɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#klˈɑːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#klˈaːra# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#klˈae̯ra# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#klˈae̯rə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#klˈeːrə# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#klˈɛːrə# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#klˈɛːrə̯# | Rule 692 : ə > ə̯ / __ #
-#klˈɛːr# | Rule 718 : ə̯ > ∅ 
-#klˈɛːʀ# | Rule 734 : r > ʀ 
-#klɛːʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#klɛʀ# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#klɛʁ# | Rule 742 : ʀ > ʁ 
+#kɫˈɑːrɑm# | Rule 4 : l > ɫ / @ __ 
+#kɫˈɑrɑm# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#kɫˈɑrɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kɫˈɑːrɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#xɫˈɑːrɑ# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
+#xɫˈaːra# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#çɫˈaːra# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#çʎˈaːra# | Rule 145 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#çʎˈɛːra# | Rule 177 : ˈaː > ˈɛː 
+#çʎˈie̯ra# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ʎˈie̯ra# | Rule 180 : [+hi,+front,-syl,-lat] > ∅ / __ ʎ
+#?ˈie̯ra# | Rule 188 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,0tense] / # __ [+syl]
+#?ˈie̯ra# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#?ˈiːe̯ra# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#?ˈiːe̯rə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#?ˈiːe̯rə# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#?ˈiːe̯rə̯# | Rule 499 : ə > ə̯ / __ #
+#?ˈiːe̯r# | Rule 528 : ə̯ > ∅ 
+#?ˈiːe̯ʀ# | Rule 540 : r > ʀ 
+#?iːe̯ʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#?ie̯ʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#?ie̯ʁ# | Rule 548 : ʀ > ʁ 

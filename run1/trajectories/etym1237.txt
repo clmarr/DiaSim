@@ -1,18 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1237:
-#t̪rˈɑwkum# >>> #t̪ʁu# ( Correct : #t̪ʁu#) :
+#t̪rˈɑwkum# >>> #ʁu# ( Correct : #t̪ʁu#) :
 t̪ r ˈɑ w k u m 
-#t̪rˈɑwkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪rˈɑwkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪rˈɑwko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪rˈɑwɡo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
-#t̪rˈɑwɣo# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
-#t̪rˈɑwo# | Rule 181 : ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
-#t̪rˈawo# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t̪rˈɔwo# | Rule 234 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#t̪rˈɔwə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#t̪rˈɔwə̯# | Rule 266 : ə > ə̯ 
-#t̪rˈɔw# | Rule 300 : ə̯ > ∅ 
-#t̪rˈu# | Rule 610 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
-#t̪ʀˈu# | Rule 734 : r > ʀ 
-#t̪ʀu# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ʁu# | Rule 742 : ʀ > ʁ 
+#t̪rˈɑwkʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈɑwkom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈɑwko# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪rˈɑwɡo# | Rule 96 : k > ɡ / [-cons] __ [+syl]
+#t̪rˈɑwɣo# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons]
+#t̪rˈɑwo# | Rule 129 : ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
+#t̪rˈawo# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#t̪rˈɔwo# | Rule 163 : {a;ˌa;ˈa;ˈaː;a w;ˌa w;ˈa w;ˈaː w} > {ɔ;ˌɔ;ˈɔ;ˈɔ;ɔ;ˌɔ;ˈɔ;ˈɔ} / __ [-cons,+round,+tense]
+#t̪rˈɔwə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#t̪rˈɔwə̯# | Rule 196 : ə > ə̯ 
+#t̪rˈɔw# | Rule 208 : ə̯ > ∅ 
+#t̪rˈɔːw# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#ðrˈɔːw# | Rule 319 : [-cont,-delrel,+cor] > ð / __ [+son,+cor]
+#rˈɔːw# | Rule 395 : {θ;ð} > {∅;∅} 
+#rˈuː# | Rule 412 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#ʀˈuː# | Rule 540 : r > ʀ 
+#ʀuː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʀu# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#ʁu# | Rule 548 : ʀ > ʁ 

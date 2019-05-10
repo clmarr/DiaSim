@@ -1,12 +1,13 @@
 Trajectory file for run 'run1'; etymon number :352:
-#illɑːs# >>> #la# ( Correct : #le#) :
+#illɑːs# >>> #wwa# ( Correct : #le#) :
 i l l ɑː s 
-#ɪllɑːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ɪllɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#ellɑs# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ellas# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#əllas# | Rule 259 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#ə̯llas# | Rule 266 : ə > ə̯ 
-#llas# | Rule 300 : ə̯ > ∅ 
-#las# | Rule 336 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
-#la# | Rule 716 : [-son] > ∅ / __ #
+#iɫɫɑːs# | Rule 4 : l > ɫ / @ __ 
+#ɪɫɫɑːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɪɫɫɑs# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#eɫɫɑs# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#eɫɫas# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#əɫɫas# | Rule 192 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯ɫɫas# | Rule 196 : ə > ə̯ 
+#ɫɫas# | Rule 208 : ə̯ > ∅ 
+#wwas# | Rule 388 : [+lat,+back] > w 
+#wwa# | Rule 527 : [-son] > ∅ / __ #

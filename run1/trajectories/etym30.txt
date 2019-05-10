@@ -1,22 +1,20 @@
 Trajectory file for run 'run1'; etymon number :30:
 #ˈɑksem# >>> #ɛ# ( Correct : #ɛ#) :
 ˈɑ k s e m 
-#ˈɑksɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɑxsɛm# | Rule 60 : k > x / [-cons] __ [+cor,-voi]
-#ˈɑxsɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈaxsɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈaçsɛ# | Rule 203 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#ˈaçsʲɛ# | Rule 211 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#ˈaçsʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˈaçsʲə̯# | Rule 266 : ə > ə̯ 
-#ˈaçsʲ# | Rule 300 : ə̯ > ∅ 
-#ˈaçs# | Rule 385 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˈaçsʲ# | Rule 387 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
-#ˈaʝsʲ# | Rule 451 : ç > ʝ 
-#ˈajsʲ# | Rule 457 : ʝ > j / [-cons] __ 
-#ˈɛjsʲ# | Rule 605 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#ˈɛːsʲ# | Rule 625 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ˈɛːs# | Rule 657 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
-#ˈɛː# | Rule 716 : [-son] > ∅ / __ #
-#ɛː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɛ# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#ˈɑksɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑxsɛm# | Rule 50 : k > x / __ [+cor,-voi]
+#ˈɑxsɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈaxsɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˈaçsɛ# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#ˈaçsʲɛ# | Rule 146 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#ˈaçsʲə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˈaçsʲə̯# | Rule 196 : ə > ə̯ 
+#ˈaçsʲ# | Rule 208 : ə̯ > ∅ 
+#ˈaçs# | Rule 250 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {t̪;d̪;s;z;r;n̪} / [+hi,+front,-syl] __ 
+#ˈaʝs# | Rule 305 : ç > ʝ 
+#ˈajs# | Rule 306 : ʝ > j / [-cons] __ 
+#ˈɛjs# | Rule 406 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ˈɛːs# | Rule 431 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˈɛː# | Rule 527 : [-son] > ∅ / __ #
+#ɛː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛ# | Rule 542 : [+syl,+long] > [-long,-splng] 

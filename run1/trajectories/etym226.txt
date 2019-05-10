@@ -1,8 +1,10 @@
 Trajectory file for run 'run1'; etymon number :226:
-#ˌet̪# >>> #e# ( Correct : #e#) :
+#ˌet̪# >>> ## ( Correct : #e#) :
 ˌe t̪ 
-#ˌɛt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˌɛθ# | Rule 248 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#ˌeθ# | Rule 417 : ˌɛ > ˌe / __ [+cor,+cont,-son] #
-#ˌe# | Rule 593 : {θ;ð} > {∅;∅} 
-#e# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˌɛt̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɛθ# | Rule 187 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#ˌeθ# | Rule 274 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#ˌəθ# | Rule 352 : ˌe > ˌə / __ ( [+cons] ) [-syl]
+#ˌə# | Rule 395 : {θ;ð} > {∅;∅} 
+#ə# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+## | Rule 550 : ə > ∅ / __ #

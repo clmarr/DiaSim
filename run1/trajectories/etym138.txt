@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :138:
-#brˈɑn̪kɑm# >>> #bʁɑ̃ʃ# ( Correct : #bʁɑ̃ʃ#) :
+#brˈɑn̪kɑm# >>> #bʁɑ̃# ( Correct : #bʁɑ̃ʃ#) :
 b r ˈɑ n̪ k ɑ m 
 #brˈɑŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#brˈɑŋkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#brˈaŋka# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#brˈaŋkʲa# | Rule 230 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#brˈaŋca# | Rule 243 : [+back,+front] > [-back] 
-#brˈaŋt͡ʃa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#brˈaŋt͡ʃə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#brˈãŋt͡ʃə# | Rule 496 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#brˈãŋʃə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#brˈãːʃə# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#brˈãːʃə̯# | Rule 692 : ə > ə̯ / __ #
-#brˈɑ̃ːʃə̯# | Rule 699 : [+lo,+long,+syl] > [+back,-front] 
-#brˈɑ̃ːʃ# | Rule 718 : ə̯ > ∅ 
-#bʀˈɑ̃ːʃ# | Rule 734 : r > ʀ 
-#bʀɑ̃ːʃ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bʀɑ̃ʃ# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#bʁɑ̃ʃ# | Rule 742 : ʀ > ʁ 
+#brˈɑŋkɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#brˈaŋka# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#brˈaŋkʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#brˈaŋca# | Rule 182 : [+back,+front] > [-back] 
+#brˈaŋt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#brˈaŋt͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#brˈaŋt͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#brˈaŋt͡ʃ# | Rule 281 : ə > ∅ 
+#brˈãŋt͡ʃ# | Rule 347 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#brˈãŋʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#brˈãːʃ# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#brˈɑ̃ːʃ# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
+#brˈɑ̃ː# | Rule 527 : [-son] > ∅ / __ #
+#bʀˈɑ̃ː# | Rule 540 : r > ʀ 
+#bʀɑ̃ː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bʀɑ̃# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#bʁɑ̃# | Rule 548 : ʀ > ʁ 

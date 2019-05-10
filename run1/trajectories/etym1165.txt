@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1165:
 #sˈuːrsum# >>> #sy# ( Correct : #sy#) :
 s ˈuː r s u m 
-#sˈuːsum# | Rule 10 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
-#sˈuːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˈusʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#sˈusom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˈuso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˈuːso# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈuːzo# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#sˈʉːzo# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#sˈʉːzə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˈʉːzə̯# | Rule 266 : ə > ə̯ 
-#sˈʉːz# | Rule 300 : ə̯ > ∅ 
-#sˈʉːs# | Rule 437 : [-son] > [-voi] / __ #
-#sˈyːs# | Rule 494 : [+hi,+round,-back] > [+front] 
-#sˈyː# | Rule 716 : [-son] > ∅ / __ #
-#syː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sy# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#sˈuːsum# | Rule 12 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
+#sˈuːsʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈusʊm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˈusom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#sˈuso# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈuːso# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈuːzo# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#sˈʉːzo# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#sˈʉːzə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˈʉːzə̯# | Rule 196 : ə > ə̯ 
+#sˈʉːz# | Rule 208 : ə̯ > ∅ 
+#sˈʉz# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#sˈʉːz# | Rule 231 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#sˈʉz# | Rule 253 : [+syl] > [-long,-splng] / __ [+cons] #
+#sˈʉːz# | Rule 261 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#sˈʉːs# | Rule 290 : [-son] > [-voi] / __ #
+#sˈyːs# | Rule 345 : [+hi,+round,-back] > [+front] 
+#sˈyː# | Rule 527 : [-son] > ∅ / __ #
+#syː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sy# | Rule 542 : [+syl,+long] > [-long,-splng] 

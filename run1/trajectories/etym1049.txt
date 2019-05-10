@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1049:
-#sˌɑlˈuːt̪em# >>> #saly# ( Correct : #saly#) :
+#sˌɑlˈuːt̪em# >>> #soy# ( Correct : #saly#) :
 s ˌɑ l ˈuː t̪ e m 
-#sˌɑlˈuːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌɑlˈut̪ɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#sˌɑlˈut̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˌɑlˈuːt̪ɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˌalˈuːt̪ɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˌalˈʉːt̪ɛ# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#sˌalˈʉːt̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˌalˈʉːt̪ə̯# | Rule 266 : ə > ə̯ 
-#sˌalˈʉːt̪# | Rule 300 : ə̯ > ∅ 
-#sˌalˈʉːθ# | Rule 431 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
-#sˌalˈyːθ# | Rule 494 : [+hi,+round,-back] > [+front] 
-#sˌalˈyː# | Rule 593 : {θ;ð} > {∅;∅} 
-#salyː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#saly# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#sˌɑɫˈuːt̪em# | Rule 4 : l > ɫ / @ __ 
+#sˌɑɫˈuːt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌɑɫˈut̪ɛm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˌɑɫˈut̪ɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɑɫˈuːt̪ɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌaɫˈuːt̪ɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#sˌaɫˈʉːt̪ɛ# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#sˌaɫˈʉːt̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˌaɫˈʉːt̪ə̯# | Rule 196 : ə > ə̯ 
+#sˌaɫˈʉːt̪# | Rule 208 : ə̯ > ∅ 
+#sˌaɫˈʉt̪# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#sˌaɫˈʉθ# | Rule 282 : [-cont,-delrel] > [+cont,0delrel] / [+syl] __ #
+#sˌaɫˈyθ# | Rule 345 : [+hi,+round,-back] > [+front] 
+#sˌawˈyθ# | Rule 388 : [+lat,+back] > w 
+#sˌawˈy# | Rule 395 : {θ;ð} > {∅;∅} 
+#sˌoːˈy# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#soːy# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#soy# | Rule 542 : [+syl,+long] > [-long,-splng] 

@@ -1,19 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1282:
-#wˈɑkkɑm# >>> #vaʃ# ( Correct : #vaʃ#) :
+#wˈɑkkɑm# >>> #vak# ( Correct : #vaʃ#) :
 w ˈɑ k k ɑ m 
-#ɣʷˈɑkkɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑkkɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈɑkkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#βˈɑkkɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈakka# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#βˈakkʲa# | Rule 230 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˈakca# | Rule 243 : [+back,+front] > [-back] 
-#βˈakt͡ʃa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#βˈat̪t͡ʃa# | Rule 253 : {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ} 
-#vˈat̪t͡ʃa# | Rule 429 : β > v 
-#vˈat̪t͡ʃə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈat͡ʃə# | Rule 480 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#vˈaʃə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#vˈaʃə̯# | Rule 692 : ə > ə̯ / __ #
-#vˈaʃ# | Rule 718 : ə̯ > ∅ 
-#vaʃ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɣʷˈɑkkɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βˈɑkkɑm# | Rule 40 : ɣʷ > β 
+#βˈɑkkɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βˈakka# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#βˈakkʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#βˈakca# | Rule 182 : [+back,+front] > [-back] 
+#βˈakt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#βˈakt͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#βˈakt͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#vˈakt͡ʃə# | Rule 276 : β > v 
+#vˈakt͡ʃ# | Rule 281 : ə > ∅ 
+#vˈakʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#vˈak# | Rule 527 : [-son] > ∅ / __ #
+#vak# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

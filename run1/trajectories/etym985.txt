@@ -1,19 +1,23 @@
 Trajectory file for run 'run1'; etymon number :985:
 #pˈuːrum# >>> #pyʁ# ( Correct : #pyʁ#) :
 p ˈuː r u m 
-#pˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈurʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#pˈurom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈuro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#pˈuːro# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈʉːro# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#pˈʉːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#pˈʉːrə̯# | Rule 266 : ə > ə̯ 
-#pˈʉːr# | Rule 300 : ə̯ > ∅ 
-#pˈyːr# | Rule 494 : [+hi,+round,-back] > [+front] 
-#pˈyːɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#pˈyːr# | Rule 732 : ɹ > r 
-#pˈyːʀ# | Rule 734 : r > ʀ 
-#pyːʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pyʀ# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#pyʁ# | Rule 742 : ʀ > ʁ 
+#pˈuːrʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈurʊm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#pˈurom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˈuro# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#pˈuːro# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈʉːro# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#pˈʉːrə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#pˈʉːrə̯# | Rule 196 : ə > ə̯ 
+#pˈʉːr# | Rule 208 : ə̯ > ∅ 
+#pˈʉr# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#pˈʉːr# | Rule 231 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈʉr# | Rule 253 : [+syl] > [-long,-splng] / __ [+cons] #
+#pˈʉːr# | Rule 261 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#pˈyːr# | Rule 345 : [+hi,+round,-back] > [+front] 
+#pˈyːɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#pˈyːr# | Rule 538 : ɹ > r 
+#pˈyːʀ# | Rule 540 : r > ʀ 
+#pyːʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pyʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#pyʁ# | Rule 548 : ʀ > ʁ 

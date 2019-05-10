@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :545:
 #kwˈid̪# >>> #kwa# ( Correct : #kwa#) :
 k w ˈi d̪ 
-#kɣʷˈid̪# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kwˈid̪# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#kwˈɪd̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kwˈed̪# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kwˈeːd̪# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#kwˈeːð# | Rule 248 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#kˈeːð# | Rule 382 : w > ∅ / k __ [+front,-lo]
-#kˈejð# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#kˈejθ# | Rule 437 : [-son] > [-voi] / __ #
-#kˈojθ# | Rule 530 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#kˈujθ# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#kˈuj# | Rule 593 : {θ;ð} > {∅;∅} 
-#kˈuɛ̯# | Rule 617 : j > ɛ̯ / [+syl,+back,+round] __ 
-#kwˈɛ# | Rule 618 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#kwɛ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kwa# | Rule 741 : ɛ > a / w __ 
+#kɣʷˈid̪# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#kɣʷˈɪd̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kwˈɪd̪# | Rule 39 : ɣʷ > w / k __ 
+#kwˈed̪# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kwˈeːd̪# | Rule 82 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kwˈed̪# | Rule 149 : [+syl] > [-long,-splng] / __ [-syl] #
+#kwˈeːd̪# | Rule 155 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kwˈeːð# | Rule 187 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#kwˈeð# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#kwˈeːð# | Rule 231 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈeːð# | Rule 248 : w > ∅ / # k __ [+front,-lo]
+#kˈeð# | Rule 253 : [+syl] > [-long,-splng] / __ [+cons] #
+#kˈeːð# | Rule 261 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈejð# | Rule 265 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈejθ# | Rule 290 : [-son] > [-voi] / __ #
+#kˈojθ# | Rule 360 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#kˈujθ# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#kˈuj# | Rule 395 : {θ;ð} > {∅;∅} 
+#kˈuɛ̯# | Rule 419 : j > ɛ̯ / [+syl,+back,+round] __ 
+#kwˈɛ# | Rule 422 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#kwɛ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kwa# | Rule 546 : ɛ > a / w __ 

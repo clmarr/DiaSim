@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :389:
-#kˈae̯lum# >>> #sjɛl# ( Correct : #sjɛl#) :
+#kˈae̯lum# >>> #sie̯w# ( Correct : #sjɛl#) :
 k ˈa e̯ l u m 
-#kˈɑe̯lum# | Rule 2 : [+lo,+syl] > [-front,+back] 
-#kˈae̯lum# | Rule 3 : [+lo,+syl] > [+front,-back] / __ e̯
-#kˈae̯lʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈɛːlʊm# | Rule 56 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
-#kˈɛːlom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈɛːlo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kʲˈɛːlo# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#cˈɛːlo# | Rule 76 : [+back,+front] > [-back] 
-#cˈie̯lo# | Rule 163 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t͡sʲˈie̯lo# | Rule 178 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#t͡sʲˈie̯lə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#t͡sʲˈie̯lə̯# | Rule 266 : ə > ə̯ 
-#t͡sʲˈie̯l# | Rule 300 : ə̯ > ∅ 
-#t͡sˈie̯l# | Rule 534 : t͡sʲ > t͡s / # __ 
-#t͡sjˈel# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t͡sjˈɛl# | Rule 601 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+lat] #
-#sjˈɛl# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#sjɛl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kˈae̯ɫum# | Rule 4 : l > ɫ / @ __ 
+#kˈɑe̯ɫum# | Rule 5 : [+lo,+syl] > [-front,+back] 
+#kˈae̯ɫum# | Rule 6 : [+lo,+syl] > [+front,-back] / __ e̯
+#kˈae̯ɫʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɛːɫʊm# | Rule 46 : {a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː} 
+#kˈɛːɫom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˈɛːɫo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kʲˈɛːɫo# | Rule 64 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#cˈɛːɫo# | Rule 65 : [+back,+front] > [-back] 
+#cˈie̯ɫo# | Rule 115 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t͡sʲˈie̯ɫo# | Rule 126 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#t͡sʲˈie̯ɫə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#t͡sʲˈie̯ɫə̯# | Rule 196 : ə > ə̯ 
+#t͡sʲˈie̯ɫ# | Rule 208 : ə̯ > ∅ 
+#t͡sʲˈiːe̯ɫ# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#t͡sˈiːe̯ɫ# | Rule 340 : t͡sʲ > t͡s 
+#t͡sˈiːe̯w# | Rule 388 : [+lat,+back] > w 
+#sˈiːe̯w# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#siːe̯w# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sie̯w# | Rule 542 : [+syl,+long] > [-long,-splng] 

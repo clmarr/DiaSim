@@ -1,17 +1,15 @@
 Trajectory file for run 'run1'; etymon number :62:
 #ˈɑrbrem# >>> #aʁbʁ# ( Correct : #aʁbʁ#) :
 ˈɑ r b r e m 
-#ˈɑrbrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɑrbrɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈarbrɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈarbrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˈarbrə̯# | Rule 266 : ə > ə̯ 
-#ˈarbɾə# | Rule 289 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
-#ˈarbrə# | Rule 295 : ɾ > r 
-#ˈarbrə̯# | Rule 692 : ə > ə̯ / __ #
-#ˈaɹbrə̯# | Rule 711 : r > ɹ / [-cons] __ [+cons]
-#ˈaɹbr# | Rule 718 : ə̯ > ∅ 
-#ˈarbr# | Rule 732 : ɹ > r 
-#ˈaʀbʀ# | Rule 734 : r > ʀ 
-#aʀbʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʁbʁ# | Rule 742 : ʀ > ʁ 
+#ˈɑrbrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑrbrɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈarbrɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˈarbrə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˈarbrə̯# | Rule 196 : ə > ə̯ 
+#ˈarbrə# | Rule 206 : ə̯ > ə / [-son] r __ #
+#ˈarbr# | Rule 281 : ə > ∅ 
+#ˈaɹbr# | Rule 522 : r > ɹ / [-cons] __ [+cons]
+#ˈarbr# | Rule 538 : ɹ > r 
+#ˈaʀbʀ# | Rule 540 : r > ʀ 
+#aʀbʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʁbʁ# | Rule 548 : ʀ > ʁ 

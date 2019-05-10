@@ -1,11 +1,15 @@
 Trajectory file for run 'run1'; etymon number :284:
-#fˈossɑm# >>> #fɔs# ( Correct : #fos#) :
+#fˈossɑm# >>> #foz# ( Correct : #fos#) :
 f ˈo s s ɑ m 
-#fˈɔssɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#fˈɔssɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#fˈɔssa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#fˈɔssə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#fˈɔsə# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#fˈɔsə̯# | Rule 692 : ə > ə̯ / __ #
-#fˈɔs# | Rule 718 : ə̯ > ∅ 
-#fɔs# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fˈɔssɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈɔssɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#fˈɔssa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#fˈɔssə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈɔsə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#fˈɔzə# | Rule 379 : s > z / [-cons] __ [-cons]
+#fˈɔzə̯# | Rule 499 : ə > ə̯ / __ #
+#fˈɔːzə̯# | Rule 514 : [-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+#fˈoːzə̯# | Rule 516 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
+#fˈoːz# | Rule 528 : ə̯ > ∅ 
+#foːz# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#foz# | Rule 542 : [+syl,+long] > [-long,-splng] 

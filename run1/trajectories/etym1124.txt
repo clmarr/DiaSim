@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1124:
 #sˌoːrˈiːkem# >>> #suʁi# ( Correct : #suʁi#) :
 s ˌoː r ˈiː k e m 
-#sˌoːrˈiːkɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌorˈikɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#sˌorˈikɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˌorˈikʲɛ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#sˌorˈicɛ# | Rule 76 : [+back,+front] > [-back] 
-#sˌorˈiːcɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˌorˈiːt͡sʲɛ# | Rule 178 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#sˌorˈiːt͡sʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˌorˈiːt͡sʲə̯# | Rule 266 : ə > ə̯ 
-#sˌorˈiːt͡sʲ# | Rule 300 : ə̯ > ∅ 
-#sˌorˈiːt͡s# | Rule 533 : t͡sʲ > t͡s / [-nas] __ 
-#sˌurˈiːt͡s# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#sˌurˈiːs# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#sˌurˈiː# | Rule 716 : [-son] > ∅ / __ #
-#sˌuʀˈiː# | Rule 734 : r > ʀ 
-#suʀiː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#suʀi# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#suʁi# | Rule 742 : ʀ > ʁ 
+#sˌoːrˈiːkɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌorˈikɛm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˌorˈikɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌorˈikʲɛ# | Rule 64 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#sˌorˈicɛ# | Rule 65 : [+back,+front] > [-back] 
+#sˌorˈiːcɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌorˈiːt͡sʲɛ# | Rule 126 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#sˌorˈiːt͡sʲə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˌorˈiːt͡sʲə̯# | Rule 196 : ə > ə̯ 
+#sˌorˈiːt͡sʲ# | Rule 208 : ə̯ > ∅ 
+#sˌorˈit͡sʲ# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#sˌorˈijt͡sʲ# | Rule 268 : ∅ > j / [+syl] __ t͡sʲ
+#sˌorˈit͡sʲ# | Rule 307 : j > ∅ / [+hi,+front,+tense,-cons] __ 
+#sˌorˈit͡s# | Rule 340 : t͡sʲ > t͡s 
+#sˌurˈit͡s# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#sˌurˈis# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#sˌurˈi# | Rule 527 : [-son] > ∅ / __ #
+#sˌuʀˈi# | Rule 540 : r > ʀ 
+#suʀi# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#suʁi# | Rule 548 : ʀ > ʁ 

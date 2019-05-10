@@ -1,22 +1,23 @@
 Trajectory file for run 'run1'; etymon number :169:
-#d̪ˌeːsˈuːrsum# >>> #d̪ezy# ( Correct : #d̪əsy#) :
+#d̪ˌeːsˈuːrsum# >>> #d̪zy# ( Correct : #d̪əsy#) :
 d̪ ˌeː s ˈuː r s u m 
-#d̪ˌeːsˈuːsum# | Rule 10 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
-#d̪ˌeːsˈuːsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪ˌesˈusʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#d̪ˌesˈusom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#d̪ˌesˈuso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#d̪ˌesˈuːso# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#d̪ˌezˈuːzo# | Rule 135 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#d̪ˌezˈʉːzo# | Rule 212 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#d̪ˌezˈʉːzə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#d̪ˌezˈʉːzə̯# | Rule 266 : ə > ə̯ 
-#d̪ˌezˈʉːz# | Rule 300 : ə̯ > ∅ 
-#d̪ˌezˈʉːs# | Rule 437 : [-son] > [-voi] / __ #
-#d̪ˌezˈyːs# | Rule 494 : [+hi,+round,-back] > [+front] 
-#d̪ˌɛzˈyːs# | Rule 578 : ˌe > ˌɛ / __ [+cont,-lat,-nas,+voi] [+syl]
-#d̪ˌezˈyːs# | Rule 594 : ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
-#d̪ˌeːzˈyːs# | Rule 703 : [+syl] > [+long] / __ z [+syl]
-#d̪ˌeːzˈyː# | Rule 716 : [-son] > ∅ / __ #
-#d̪eːzyː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪ezy# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#d̪ˌeːsˈuːsum# | Rule 12 : [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
+#d̪ˌeːsˈuːsʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˌesˈusʊm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#d̪ˌesˈusom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˌesˈuso# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#d̪ˌesˈuːso# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˌezˈuːzo# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#d̪ˌezˈʉːzo# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#d̪ˌezˈʉːzə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#d̪ˌezˈʉːzə̯# | Rule 196 : ə > ə̯ 
+#d̪ˌezˈʉːz# | Rule 208 : ə̯ > ∅ 
+#d̪ˌezˈʉz# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#d̪ˌezˈʉs# | Rule 290 : [-son] > [-voi] / __ #
+#d̪ˌezˈys# | Rule 345 : [+hi,+round,-back] > [+front] 
+#d̪ˌəzˈys# | Rule 352 : ˌe > ˌə / __ ( [+cons] ) [-syl]
+#d̪?zˈys# | Rule 512 : [+syl] > [+long] / __ z [+syl]
+#d̪?zˈy# | Rule 527 : [-son] > ∅ / __ #
+#d̪?zy# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪əzy# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#d̪zy# | Rule 554 : ə > ∅ / # [-syl] __ [-syl] [+syl]

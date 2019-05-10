@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :678:
-#mˌed̪ˈullɑm# >>> #mul# ( Correct : #mwal#) :
+#mˌed̪ˈullɑm# >>> #muw# ( Correct : #mwal#) :
 m ˌe d̪ ˈu l l ɑ m 
-#mˌɛd̪ˈʊllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˌɛd̪ˈollɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˌɛd̪ˈollɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#mˌɛðˈollɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
-#mˌɛðˈolla# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˌeðˈolla# | Rule 418 : ˌɛ > ˌe / __ [+cor,+cont] [-cor]
-#mˌeðˈollə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌeðˈolə# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mˌəðˈolə# | Rule 499 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
-#mˌəðˈulə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#mˌəˈulə# | Rule 593 : {θ;ð} > {∅;∅} 
-#mˌəˈuːlə# | Rule 675 : [+prim] > [+long] / ˌə __ 
-#mˈuːlə# | Rule 676 : ˌə > ∅ / __ [+syl]
-#mˈuːlə̯# | Rule 692 : ə > ə̯ / __ #
-#mˈuːl# | Rule 718 : ə̯ > ∅ 
-#muːl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mul# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#mˌed̪ˈuɫɫɑm# | Rule 4 : l > ɫ / @ __ 
+#mˌɛd̪ˈʊɫɫɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɛd̪ˈoɫɫɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌɛd̪ˈoɫɫɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˌɛðˈoɫɫɑ# | Rule 73 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
+#mˌɛðˈoɫɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#mˌeðˈoɫɫa# | Rule 274 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#mˌeðˈoɫɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌəðˈoɫɫə# | Rule 352 : ˌe > ˌə / __ ( [+cons] ) [-syl]
+#mˌəðˈuɫɫə# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#mˌəðˈuwwə# | Rule 388 : [+lat,+back] > w 
+#mˌəðˈuwə# | Rule 389 : w > ∅ / [+syl,+hi,+round] __ 
+#mˌəˈuwə# | Rule 395 : {θ;ð} > {∅;∅} 
+#mˌəˈuːwə# | Rule 480 : [+prim] > [+long] / ˌə __ 
+#mˈuːwə# | Rule 481 : ˌə > ∅ / __ [+syl]
+#mˈuːwə̯# | Rule 499 : ə > ə̯ / __ #
+#mˈuːw# | Rule 528 : ə̯ > ∅ 
+#muːw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#muw# | Rule 542 : [+syl,+long] > [-long,-splng] 

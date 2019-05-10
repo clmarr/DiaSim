@@ -290,7 +290,6 @@ $p 124 s283-284 : palatalization of velar stops before e and i, s306-307 for bef
 [+back,+front] > [-back] 
 
 $ CORRECTION : regressive palatalization of geminate k
-$ THIS ONE TO BASECLEF* ? 
 k > c / __ c
 
 $p127 s296ii : palatalization of k blocked if coming after secondarily stressed velar vowel
@@ -1415,7 +1414,6 @@ $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
 $  also tonic free a to ae "?" (s233)
 $ and also s164-14 : "second bout of diphthongization of lax e tonic free
 $ CORRECTION : if eː is already coming before j, that is absorbed. Same for ʝ 
-	$ This one to BaseCLEF*
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
 {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯}
 
@@ -1500,7 +1498,6 @@ $s355-357 open word finals again if unsupported
 [-cont,-delrel] > [+cont] / [-cons] __ # 
 
 $ CORRECTION : ɸ > f
-$ This to BaseCLEF*
 ɸ > f
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
@@ -1611,7 +1608,6 @@ b > β / [-cons] __ r
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
 $ CORRECTION: also absorbed by preceding j (incl nasal j) or some variant of /i/ (varying by stress/length/nasality)
-	$ TODO incorp into BaseCLEF*
 ʝ > j / [-cons] __ 
 j > ∅ / [+hi,+front,+tense,-cons] __
 
@@ -1687,8 +1683,6 @@ $ s366 degemination
 $s378 z > ð before voiced dentals 
 $CORRECTION: This rule deleted
 $ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
-
-$TODO HERE
 
 $ s258 ə inserted after final CONS + r,l clusters 
 $ CORRECTION where jr is concerned only a and ie̯ before the j are contexts where emission is triggered. 
@@ -1974,7 +1968,6 @@ $f > v / [-cons] __ [-cons]
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ CORRECTION: doesn't happen before j̃
-	$ incorporate this correction into BaseCLEF* as her citation forms show she still has eh nasalized before j 
 [+nas,-hi,+syl] > [+lo,+tense] / __ {#;[+cons]}
 
 $ Pope s500 -- ir > ie̯r when stressed and before consonants. 
@@ -2001,9 +1994,8 @@ l > ɫ / [+syl,-hi,-lo,-long] __ #
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested in 1137 -- "over the course of the 12th century"
 $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
-$ CORRECTION: Pope errs in notating this as ue̯ undergoing this shift, when the u should have become fronted to y by this point...
-	$ -- it is actually ye̯
-		$ Incorp this into BaseCLEF*
+$ CORRECTION: Pope notates this as ue̯ undergoing this shift, but the u should have become fronted to y by this point...
+	$ -- it is actually ye̯ -- make notation sufficiently broad
 $ She also explicitly limits it to hte stressed diphthong 
 $ CORRECTION: ø arising this way is always long 
 [+hi,+round,+tense,+prim] e̯ > ˈøː
@@ -2013,7 +2005,6 @@ $ per Pope s390: attested in rhymes by middle of 12th century:
 [+lat,+back] > w
 
 $ CORRECTION: w after u or y is immediately deleted
-	$ this to BaseCLEF*, seems to be just clumsiness form Pope and not really something interesting 
 w > ∅ / [+syl,+hi,+round] __
 
 $ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced
@@ -2468,7 +2459,6 @@ $ Sixteenth century -- accepted by Meigret and Baif
 [+back,+round,+syl] ɛ̯ > w ˌɛ
 
 $ CORRECTION : include we resulting from denasalization in this 
-	$ TODO add this to BaseCLEF* ? 
 [+front,-round,+syl,-lo] > [-hi,-tense] / w __
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
@@ -2578,7 +2568,6 @@ $ s242b specifications on coalescence of countertonic a
 $ s561 : length of aũ destination
 $ CORRECTION: aũ only becomes ã word finally 
 $ CORRECTION: occurs regardless of the length of the second element
-	$ TODO incorp this aspect to BaseCLEF*
 ˌa [+prim,+syl,+back,+nas] > ˈãː / __ # 
 ˌa [+prim,+syl,+front,+hi,-round,-nas] > ˈa j
 ˌa [+prim,+syl,+front,+hi,-round,+nas] > ˈã j̃
@@ -2626,7 +2615,7 @@ $ as per s272: begins twelfth and thirteenth centuries but only becomes regular 
 
 $ s366: late degemination of r, with lengthening of any prior vowels
 $ s366 only says "before the end of Middle French" 
-$ TODO: This seems to have no effect, because rr has now been degeminated earlier -- delete
+$ CORRECTION: moved much earlier -- contradicts Pope's philological evidence but works much better result wise. 
 $ [+syl] > [+long] / __ r r 
 $ r r > r / __ {ə;ə̯}
 $  r r > r / ə __ 
@@ -2641,7 +2630,6 @@ $ "toward the end of the period" --  late 16th century
 $s511 establishment of je>ie "diaeresis" in cases of C + l/r + je
 $ CORRECTION: moved a century earlier, because it bleeds s241
 $ CORRECTION : goes to i j not just i.e
-$ CORRECTION: also happens word initially. 
 ∅ > i / [+cons] [+ant,+son] __ j [+front,-hi,-lo,+tense,-round,+syl]
 
 $ CORRECTION j also is inserted between i and a following vowel if the ˌi is after [+back] ɥ
@@ -2666,7 +2654,7 @@ $s579: ɔ lengthens before z,v ... and then any long ɔː becomes oː
 [-hi,-lo,+back,+syl,-tense] > [+long] / __ {z;v} 
 [-hi,-lo,+back,+syl,+long] > [+tense]
 
-$ CORRECTION: ... but o closes if it is followed by two or more consonants
+$ CORRECTION: ... but o opens if it is followed by two or more consonants
 [-hi,-lo,+back,+syl] > [-tense] / __ [+cons] [+cons]
 
 $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
@@ -2679,6 +2667,8 @@ $ CORRECTION: pre-coda t will be preserved in pre-coda cons loss series, if it i
 	$  monosyllables with no onset consonantals (ɥ, w, j -- not consonantal)
 ∅ > ə̯ / # ([-cons,-nas])* t̪ __ #
 
+$ CORRECTION denasalization shifts 474-477 moved back into prefvious time period. 
+
 $ s395 : r becomes a glide in certain positions... 
 $ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
 r > ɹ / [-cons] __ {#;+cons}
@@ -2686,13 +2676,16 @@ r > ɹ / [-cons] __ {#;+cons}
 $ CORRECTION: final s is preserved if there are no consonantals before it in the entire word, and no long vowels either.
 ∅ > ə̯ / # ([-cons,-long])* s __ #
 
+$ s580 open o lengthens and raises before s or z that is about to be deleted
+[+prim,-tense,+back,+round,-hi] > ˈoː / __ [+strid,-cont] #
+
 $ s611-620 : final fricative and plosive consonants deleted as a result of liaison phenomena
 $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) after the early 17th 
 $ s618-619 : counteraction led to preservation quasiregularly where it was f or k in a monosyllable. 
 
 $for preserving f and k as per s618-169
 $ CORRECTION: f is ALWAYS preserved.
-$ CORRECTION: only applies when the single syllabic vowel is not nasal
+$ CORRECTION: only applies for k when the single syllabic vowel is not nasal
 ∅ > ə̯ / # [+syl,-nas] [-syl] k __ #
 ∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
 ∅ > ə̯ / f __ #
@@ -2705,7 +2698,7 @@ $ s273 : final "off-glide" ə is deleted.
 $ for convenience we group this with:
 	$ s539 ə̯o: > o: finally accepted in the 17th century
 	$ CORRECTION: but deletion of ə̯ does not occur in monosyllables. 
-ə̯ > ə / # ([-syl])* __
+ə̯ > ə / # ([-syl])* __ ([-syl])* #
 ə̯ > ∅
 
 $ RECURRENCE
@@ -2724,8 +2717,8 @@ $ CORRECTION: ø also lowers in non monosyllables before r#
 [-hi,-lo,+syl,+front,-round] > [-tense] / # ([-syl])* __ r #
 [-hi,-lo,+syl,+front,+round] > [-tense] / __ r #
 
-
-$ CORRECTION: ø opens before consonants in final syll. ə does not change this.
+$ CORRECTION: ø opens before consonants in final syll. Any final /ə/ does not change this.
+	$ Pope mentions the emergence of the new open /œ/ sound but does not explicate this specific way it emerged
 [+front,+round,-hi,+syl] > [-tense] / __ ([+cons])+ (ə) #
 
 $ s470-474 :  final acceptance of wẽ,jẽ opening to wɛ̃,jɛ̃
@@ -2740,6 +2733,8 @@ $ s444 : denasalization of ã  -- 16th century beginning, accepted seventeenth 
 $ s440 : accepted in "Early Modern French"
 $ for convenience we also group the denasalization of wɛ̃,jɛ̃ here...
 [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+
+$ CORRECTION: s511 diarhesis moved much earlier
 
 $ s532: final aj to ɛ, accepted in the 17th century
 [+lo,+front] j > [-lo,-tense] ∅ / __ #
@@ -2757,17 +2752,17 @@ $ CORRECTION: countertonic ə, ɛ after [+lab] l become ˌe
 $ s400-401 : final r deletion 
 $ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) 
 	$ for all except for er and jer terminations in polysyllabic words.
-$ CORRECTION: r does also efface in monosyllables of pattern we(ː)r#
+$ CORRECTION: ɹ does also efface in monosyllables of pattern we(ː)ɹ#
 ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
 ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
 ɹ > r $reassertion of trill elsewhere. 
 
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
-	$ has no effect as Frankish and other Germanic words are currently excluded form dataset
+	$ has no effect unless Frankish and other Germanic words are in dataset
 h > ∅ 
 
-$ s394 ~ s598 : r becomes uvular 
-$ seventeenth century. 
+$ s394 ~ s498 : r becomes uvular 
+$ seventeenth century (s394)
 r > ʀ
 
 $ s121~s170~s223~s508~s602: leveling of stress -- stress no longer distinctive for vowels.
@@ -2812,7 +2807,7 @@ $ CORRECTION: j and i after other vowels absorbed into j
 [+hi,+front,-round] > ∅ / [+syl] __ j
 
 $ Pope s177.2: ə effaced anywhere it does not bring three consonants into a cluster. 
-$ CORRECTION: last one of these is surpressed as it doesn't match Pope's citation forms in most cases 
+$ CORRECTION: last one of these is surpressed as it caused inconsistencies with Pope's later notations
 $ CORRECTION: final schwa deletion does not occur for lexical citation forms in monosyllables
 	$ despite phenomena like l', m', n', qu' etc
 ə > ∅ / [+syl] ([-syl])* __ #

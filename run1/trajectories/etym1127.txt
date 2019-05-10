@@ -1,34 +1,38 @@
 Trajectory file for run 'run1'; etymon number :1127:
-#sˌort̪iˈɑːrium# >>> #sɔʁsje# ( Correct : #sɔʁsje#) :
+#sˌort̪iˈɑːrium# >>> #sye̯r̥siwjʁ# ( Correct : #sɔʁsje#) :
 s ˌo r t̪ i ˈɑː r i u m 
-#sˌɔrt̪ɪˈɑːrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌɔrt̪ɪˈɑːrɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˌɔrt̪jˈɑːrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #sˌɔrt̪ʝˈɑːrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#sˌɔrt̪ʝˈɑrʝʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#sˌɔrt̪ʝˈɑrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˌɔrt̪ʝˈɑrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˌɔrt͡sʲʝˈɑrʝo# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#sˌɔrt͡sʲˈɑrʝo# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#sˌɔrt͡sʲˈɑrʲo# | Rule 172 : r ʝ > rʲ 
-#sˌɔrt͡sʲˈarʲo# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˌɔrt͡sʲˈaːrʲo# | Rule 219 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#sˌɔrt͡sʲˈɛːrʲo# | Rule 239 : ˈaː > ˈɛː / [+cons,+front] __ rʲ
-#sˌɔrt͡sʲˈie̯rʲo# | Rule 240 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#sˌɔrt͡sʲˈie̯rʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˌɔrt͡sʲˈie̯rʲə̯# | Rule 266 : ə > ə̯ 
-#sˌɔrt͡sʲˈie̯rʲ# | Rule 300 : ə̯ > ∅ 
-#sˌɔrt͡sʲˈie̯jrʲ# | Rule 349 : ∅ > j / [-cons] __ rʲ
-#sˌɔrt͡sʲˈie̯rʲ# | Rule 350 : j > ∅ / [+syl] ( [-syl] )* ˈi e̯ __ rʲ
-#sˌɔrt͡sʲˈie̯r# | Rule 384 : rʲ > r 
-#sˌort͡sʲˈie̯r# | Rule 422 : ˌɔ > ˌo 
-#sˌort͡sˈie̯r# | Rule 533 : t͡sʲ > t͡s / [-nas] __ 
-#sˌɔrt͡sˈie̯r# | Rule 537 : ˌo > ˌɔ / __ r [+ant,-lab,-cont]
-#sˌɔrt͡sjˈer# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sˌɔrsjˈer# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#sˌɔrsjˈeɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#sˌɔɹsjˈeɹ# | Rule 711 : r > ɹ / [-cons] __ [+cons]
-#sˌɔɹsjˈe# | Rule 730 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#sˌɔrsjˈe# | Rule 732 : ɹ > r 
-#sˌɔʀsjˈe# | Rule 734 : r > ʀ 
-#sɔʀsje# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɔʁsje# | Rule 742 : ʀ > ʁ 
+#sˌɔr̥t̪ʝˈɑːrʝʊm# | Rule 36 : [+ant,+cons] > [-voi] / __ t̪
+#sˌɔr̥t̪ʝˈɑrʝʊm# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#sˌɔr̥t̪ʝˈɑrʝom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#sˌɔr̥t̪ʝˈɑrʝo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˌɔr̥t͡sʲʝˈɑrʝo# | Rule 62 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#sˌɔr̥t͡sʲˈɑrʝo# | Rule 68 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#sˌɔr̥t͡sʲˈɑrʲo# | Rule 120 : r ʝ > rʲ 
+#sˌɔr̥t͡sʲˈarʲo# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#sˌɔr̥t͡sʲˈaːrʲo# | Rule 153 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#sˌuo̯r̥t͡sʲˈaːrʲo# | Rule 160 : {ɛ;ˌɛ;ˈɛ;ˈɛː;ɔ;ˌɔ;ˈɔ;ˈɔː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯;u o̯;ˌu o̯;ˈu o̯;ˈu o̯} / __ [+cons,+cor] [+cons,+hi,+front]
+#sˌuo̯r̥t͡sʲˈɛːrʲo# | Rule 177 : ˈaː > ˈɛː 
+#sˌuo̯r̥t͡sʲˈie̯rʲo# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sˌʉo̯r̥t͡sʲˈie̯rʲo# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#sˌʉo̯r̥t͡sʲˈie̯rʲə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˌʉo̯r̥t͡sʲˈie̯rʲə̯# | Rule 196 : ə > ə̯ 
+#sˌʉo̯r̥t͡sʲˈie̯rʲ# | Rule 208 : ə̯ > ∅ 
+#sˌʉo̯r̥t͡sʲˈiːe̯rʲ# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#sˌʉo̯r̥t͡sʲˈiːe̯jr# | Rule 251 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪} 
+#sˌʉo̯r̥t͡sʲˈiːe̯jrə# | Rule 278 : ∅ > ə / [+front,-syl,+hi] r __ #
+#sˌʉo̯r̥t͡sʲˈiːe̯jr# | Rule 281 : ə > ∅ 
+#sˌʉo̯r̥t͡sˈiːe̯jr# | Rule 340 : t͡sʲ > t͡s 
+#sˌyo̯r̥t͡sˈiːe̯jr# | Rule 345 : [+hi,+round,-back] > [+front] 
+#sˌye̯r̥t͡sˈiːe̯jr# | Rule 354 : o̯ > e̯ 
+#sˌye̯r̥t͡sˈiːo̯jr# | Rule 360 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#sˌye̯r̥t͡sˈiːwjr# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#sˌye̯r̥sˈiːwjr# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#sˌye̯r̥sˈiːwjɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#sˌye̯r̥sˈiːwjr# | Rule 538 : ɹ > r 
+#sˌye̯r̥sˈiːwjʀ# | Rule 540 : r > ʀ 
+#sye̯r̥siːwjʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sye̯r̥siwjʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#sye̯r̥siwjʁ# | Rule 548 : ʀ > ʁ 

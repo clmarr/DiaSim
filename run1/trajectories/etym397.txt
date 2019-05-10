@@ -1,15 +1,20 @@
 Trajectory file for run 'run1'; etymon number :397:
 #kˈɑlks# >>> #ʃo# ( Correct : #ʃo#) :
 k ˈɑ l k s 
-#kˈɑls# | Rule 98 : [-cont] > ∅ / [+cons] __ [-son,-hi]
-#kˈɑɫs# | Rule 138 : l > ɫ / __ [+cons,-lat]
-#kˈaɫs# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#kʲˈaɫs# | Rule 230 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˈaɫs# | Rule 243 : [+back,+front] > [-back] 
-#t͡ʃˈaɫs# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈaws# | Rule 569 : [+lat,+back] > w 
-#ʃˈaws# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#ʃˈoːs# | Rule 650 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ʃˈoː# | Rule 716 : [-son] > ∅ / __ #
-#ʃoː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃo# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#kˈɑɫks# | Rule 4 : l > ɫ / @ __ 
+#kˈɑɫxs# | Rule 50 : k > x / __ [+cor,-voi]
+#kˈaɫxs# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#kˈaɫçs# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#kˈaɫçsʲ# | Rule 146 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#kʲˈaɫçsʲ# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈaɫçsʲ# | Rule 182 : [+back,+front] > [-back] 
+#t͡ʃˈaɫçsʲ# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈaɫçs# | Rule 250 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {t̪;d̪;s;z;r;n̪} / [+hi,+front,-syl] __ 
+#t͡ʃˈaɫʝs# | Rule 305 : ç > ʝ 
+#t͡ʃˈaɫs# | Rule 314 : [+cons] > ∅ / [+cons] __ [-son]
+#t͡ʃˈaws# | Rule 388 : [+lat,+back] > w 
+#ʃˈaws# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#ʃˈoːs# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ʃˈoː# | Rule 527 : [-son] > ∅ / __ #
+#ʃoː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃo# | Rule 542 : [+syl,+long] > [-long,-splng] 

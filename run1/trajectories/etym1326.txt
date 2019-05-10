@@ -1,20 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1326:
-#wˈid̪wɑm# >>> #vœv# ( Correct : #vœv#) :
+#wˈid̪wɑm# >>> #v?v# ( Correct : #vœv#) :
 w ˈi d̪ w ɑ m 
-#ɣʷˈid̪ɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪd̪ɣʷɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#βʷˈɪd̪βʷɑm# | Rule 49 : ɣʷ > βʷ 
-#βʷˈed̪βʷɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#βʷˈed̪βʷɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#βˈed̪βɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈed̪βa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#βˈeðβa# | Rule 247 : d̪ > ð / __ [+cont,+lab,+cons]
-#vˈeðva# | Rule 429 : β > v 
-#vˈeðvə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈevə# | Rule 593 : {θ;ð} > {∅;∅} 
-#vˈɛvə# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#vˈøvə# | Rule 640 : {ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / [+lab,+cons,+voi] __ [+lab,+cons]
-#vˈøvə̯# | Rule 692 : ə > ə̯ / __ #
-#vˈøv# | Rule 718 : ə̯ > ∅ 
-#vˈœv# | Rule 722 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
-#vœv# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɣʷˈid̪ɣʷɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɪd̪ɣʷɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βˈɪd̪βɑm# | Rule 40 : ɣʷ > β 
+#βˈed̪βɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βˈed̪βɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#βˈed̪βa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#βˈeðβa# | Rule 186 : d̪ > ð / __ [+cont,+lab,+cons]
+#vˈeðva# | Rule 276 : β > v 
+#vˈeðvə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈevə# | Rule 395 : {θ;ð} > {∅;∅} 
+#vˈɛvə# | Rule 404 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ ( [+cons] ) [+syl]
+#v?və# | Rule 447 : [-back,-round,-hi,-lo] > [+front,+round,+tense,-cons,-lat,+cont,0delrel] / [+lab,+cons] __ [+lab,+cons]
+#v?və̯# | Rule 499 : ə > ə̯ / __ #
+#v?v# | Rule 528 : ə̯ > ∅ 
+#v?v# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

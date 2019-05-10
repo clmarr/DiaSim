@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1191:
-#t̪ˈeːlɑm# >>> #t̪wal# ( Correct : #t̪wal#) :
+#t̪ˈeːlɑm# >>> #t̪wa# ( Correct : #t̪wal#) :
 t̪ ˈeː l ɑ m 
-#t̪ˈelɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#t̪ˈelɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#t̪ˈeːlɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈeːla# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#t̪ˈejla# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪ˈejlə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈojlə# | Rule 530 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t̪ˈujlə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#t̪ˈuɛ̯lə# | Rule 617 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t̪wˈɛlə# | Rule 618 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#t̪wˈɛlə̯# | Rule 692 : ə > ə̯ / __ #
-#t̪wˈɛl# | Rule 718 : ə̯ > ∅ 
-#t̪wɛl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪wal# | Rule 741 : ɛ > a / w __ 
+#t̪ˈeːɫɑm# | Rule 4 : l > ɫ / @ __ 
+#t̪ˈeɫɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#t̪ˈeɫɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#t̪ˈeːɫɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#t̪ˈejɫa# | Rule 265 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#t̪ˈejɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈejlʲə# | Rule 344 : ɫ > lʲ / [+hi,+front,-round] __ 
+#t̪ˈojlʲə# | Rule 360 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujlʲə# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#t̪ˈujə# | Rule 390 : lʲ > ∅ 
+#t̪ˈuɛ̯ə# | Rule 419 : j > ɛ̯ / [+syl,+back,+round] __ 
+#t̪wˈɛə# | Rule 422 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#t̪wˈɛːə# | Rule 484 : [+stres] > [+long] / __ ə
+#t̪wˈɛː# | Rule 485 : ə > ∅ / [+syl] __ 
+#t̪wɛː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪wɛ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#t̪wa# | Rule 546 : ɛ > a / w __ 

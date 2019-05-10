@@ -1,26 +1,20 @@
 Trajectory file for run 'run1'; etymon number :786:
-#ˈost̪reɑ# >>> #ɥit̪ʁ# ( Correct : #ɥit̪ʁ#) :
+#ˈost̪reɑ# >>> #ot̪jʁ# ( Correct : #ɥit̪ʁ#) :
 ˈo s t̪ r e ɑ 
-#ˈɔst̪rɛɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɔst̪rɛɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɔst̪rjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɔst̪rʝɑ# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɔst̪rʲɑ# | Rule 172 : r ʝ > rʲ 
-#ˈɔst̪rʲa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈɔjst̪rʲa# | Rule 348 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
-#ˈɔːjst̪rʲa# | Rule 365 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
-#ˈuo̯jst̪rʲa# | Rule 374 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈʉo̯jst̪rʲa# | Rule 376 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ˈʉo̯jst̪ra# | Rule 384 : rʲ > r 
-#ˈʉo̯jst̪rə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈyo̯jst̪rə# | Rule 494 : [+hi,+round,-back] > [+front] 
-#ˈye̯jst̪rə# | Rule 522 : o̯ > e̯ 
-#ˈyjst̪rə# | Rule 544 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#ˈyjxt̪rə# | Rule 580 : s > x / [-cons] __ [+cons]
-#ɥˈixt̪rə# | Rule 619 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
-#ɥˈiːt̪rə# | Rule 642 : [+syl] x > [+long] ∅/ __ [+cons]
-#ɥˈiːt̪rə̯# | Rule 692 : ə > ə̯ / __ #
-#ɥˈiːt̪r# | Rule 718 : ə̯ > ∅ 
-#ɥˈiːt̪ʀ# | Rule 734 : r > ʀ 
-#ɥiːt̪ʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɥit̪ʀ# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#ɥit̪ʁ# | Rule 742 : ʀ > ʁ 
+#ˈɔst̪rʲɑ# | Rule 120 : r ʝ > rʲ 
+#ˈɔst̪rʲa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˈɔst̪rʲɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#ˈɔst̪jrɛ# | Rule 251 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪} 
+#ˈɔst̪jrə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#ˈɔst̪jr# | Rule 281 : ə > ∅ 
+#ˈɔːt̪jr# | Rule 434 : [+syl] s > [+long] ∅/ __ [+cons]
+#ˈoːt̪jr# | Rule 516 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
+#ˈoːt̪jɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#ˈoːt̪jr# | Rule 538 : ɹ > r 
+#ˈoːt̪jʀ# | Rule 540 : r > ʀ 
+#oːt̪jʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ot̪jʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#ot̪jʁ# | Rule 548 : ʀ > ʁ 

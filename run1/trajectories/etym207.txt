@@ -1,26 +1,22 @@
 Trajectory file for run 'run1'; etymon number :207:
-#ˈebrium# >>> #ivʁ# ( Correct : #ivʁ#) :
+#ˈebrium# >>> #ɛvjʁ# ( Correct : #ivʁ#) :
 ˈe b r i u m 
-#ˈɛbrɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɛbrɪʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɛbrjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɛbrʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɛβrʝʊm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
-#ˈɛβrʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈɛβrʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈɛβrʲo# | Rule 172 : r ʝ > rʲ 
-#ˈɛβrʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˈɛβrʲə̯# | Rule 266 : ə > ə̯ 
-#ˈɛβrʲ# | Rule 300 : ə̯ > ∅ 
-#ˈɛβrʲə# | Rule 314 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˈɛjβrʲə# | Rule 348 : ∅ > j / [-cons] __ [+cons,-front] ( [+cons,-front] )* rʲ
-#ˈɛːjβrʲə# | Rule 365 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
-#ˈie̯jβrʲə# | Rule 374 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈie̯jβrə# | Rule 384 : rʲ > r 
-#ˈie̯jvrə# | Rule 429 : β > v 
-#ˈijvrə# | Rule 544 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#ˈivrə# | Rule 545 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#ˈivrə̯# | Rule 692 : ə > ə̯ / __ #
-#ˈivr# | Rule 718 : ə̯ > ∅ 
-#ˈivʀ# | Rule 734 : r > ʀ 
-#ivʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ivʁ# | Rule 742 : ʀ > ʁ 
+#ˈɛβrʝʊm# | Rule 41 : b > β / [+syl] __ [+son,-lat,-nas]
+#ˈɛβrʝom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈɛβrʝo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈɛβrʲo# | Rule 120 : r ʝ > rʲ 
+#ˈɛβrʲə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˈɛβrʲə̯# | Rule 196 : ə > ə̯ 
+#ˈɛβrʲ# | Rule 208 : ə̯ > ∅ 
+#ˈɛβjr# | Rule 251 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪} 
+#ˈɛvjr# | Rule 276 : β > v 
+#ˈɛvjrə# | Rule 278 : ∅ > ə / [+front,-syl,+hi] r __ #
+#ˈɛvjr# | Rule 281 : ə > ∅ 
+#ˈɛvjɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#ˈɛvjr# | Rule 538 : ɹ > r 
+#ˈɛvjʀ# | Rule 540 : r > ʀ 
+#ɛvjʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛvjʁ# | Rule 548 : ʀ > ʁ 

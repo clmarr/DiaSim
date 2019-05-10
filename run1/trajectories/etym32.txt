@@ -1,24 +1,19 @@
 Trajectory file for run 'run1'; etymon number :32:
-#ˈɑkwɑm# >>> #o# ( Correct : #o#) :
+#ˈɑkwɑm# >>> #ie̯ww# ( Correct : #o#) :
 ˈɑ k w ɑ m 
-#ˈɑkɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˈɑkwɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#ˈɑkwɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈɑːkwɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɑːxwɑ# | Rule 117 : k > x / [+syl] __ w [+syl]
-#ˈaːxwa# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˈaːɣwa# | Rule 351 : [-voi] > [+voi] / [-cons] __ [-cons]
-#ˈae̯ɣwa# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯ɣwə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈajwə# | Rule 441 : ˈa e̯ ɣ > ˈa j / __ w
-#ˈɛːwə# | Rule 523 : ˈa j > ˈɛː / __ w
-#ˈɛːa̯wə# | Rule 572 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-#ˈɛa̯wə# | Rule 573 : [-hi,-lo,+syl,-tense] > [-long,-splng] / __ a̯ w
-#e̯ˈawə# | Rule 581 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#e̯ˈoːə# | Rule 650 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ə̯ˈoːə# | Rule 651 : e̯ > ə̯ / __ [+round,+back,-hi]
-#ə̯ˈoː# | Rule 680 : ə > ∅ / [+syl] __ 
-#əˈoː# | Rule 717 : ə̯ > ə / # ( [-syl] )* __ 
-#əoː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#əo# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#o# | Rule 746 : ə > ∅ / __ [+syl]
+#ˈɑkɣʷɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˈɑkwɑm# | Rule 39 : ɣʷ > w / k __ 
+#ˈɑkwɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈɑːkwɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɑːxwɑ# | Rule 85 : k > x / [+syl] __ w [+syl]
+#ˈɑːɣwɑ# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
+#ˈaːɣwa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˈɛːɣwa# | Rule 177 : ˈaː > ˈɛː 
+#ˈie̯ɣwa# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈiːe̯ɣwa# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#ˈiːe̯ɣwə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːe̯wwə# | Rule 316 : [+cont,+cons,+voi] > w / __ w
+#ˈiːe̯wwə̯# | Rule 499 : ə > ə̯ / __ #
+#ˈiːe̯ww# | Rule 528 : ə̯ > ∅ 
+#iːe̯ww# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ie̯ww# | Rule 542 : [+syl,+long] > [-long,-splng] 

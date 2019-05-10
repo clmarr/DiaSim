@@ -1,18 +1,24 @@
 Trajectory file for run 'run1'; etymon number :61:
-#ˌɑprˈiːlem# >>> #avʁil# ( Correct : #avʁil#) :
+#ˌɑprˈiːlem# >>> #oʁi# ( Correct : #avʁil#) :
 ˌɑ p r ˈiː l e m 
-#ˌɑprˈiːlɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˌɑprˈilɛm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#ˌɑprˈilɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˌɑprˈiːlɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌaprˈiːlɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ˌaprˈiːlə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˌaprˈiːlə̯# | Rule 266 : ə > ə̯ 
-#ˌaprˈiːl# | Rule 300 : ə̯ > ∅ 
-#ˌabrˈiːl# | Rule 352 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#ˌaβrˈiːl# | Rule 378 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ r
-#ˌavrˈiːl# | Rule 429 : β > v 
-#ˌavʀˈiːl# | Rule 734 : r > ʀ 
-#avʀiːl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#avʀil# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#avʁil# | Rule 742 : ʀ > ʁ 
+#ˌɑprˈiːɫem# | Rule 4 : l > ɫ / @ __ 
+#ˌɑprˈiːɫɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑprˈiɫɛm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ˌɑprˈiɫɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˌɑprˈiːɫɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌaprˈiːɫɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ˌaprˈiːɫə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˌaprˈiːɫə̯# | Rule 196 : ə > ə̯ 
+#ˌaprˈiːɫ# | Rule 208 : ə̯ > ∅ 
+#ˌaprˈiɫ# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#ˌabrˈiɫ# | Rule 241 : [-voi,-delrel,+ant] > [+voi] / [+syl] __ [+cor,+son,-nas]
+#ˌaβrˈiɫ# | Rule 245 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ r
+#ˌawrˈiɫ# | Rule 275 : {β;ɣʷ} > {w;w} / __ ( ə ) [+cons]
+#ˌɔːrˈiɫ# | Rule 308 : {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
+#ˌɔːrˈilʲ# | Rule 344 : ɫ > lʲ / [+hi,+front,-round] __ 
+#ˌɔːrˈi# | Rule 390 : lʲ > ∅ 
+#ˌoːrˈi# | Rule 435 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,0delrel] / __ ( x ) ( [-syl] ) [+syl]
+#ˌoːʀˈi# | Rule 540 : r > ʀ 
+#oːʀi# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#oʀi# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#oʁi# | Rule 548 : ʀ > ʁ 

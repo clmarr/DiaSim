@@ -1,15 +1,17 @@
 Trajectory file for run 'run1'; etymon number :636:
-#mˌɑmˈillɑm# >>> #mamɛl# ( Correct : #mamɛl#) :
+#mˌɑmˈillɑm# >>> #mamøw# ( Correct : #mamɛl#) :
 m ˌɑ m ˈi l l ɑ m 
-#mˌɑmˈɪllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˌɑmˈellɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˌɑmˈellɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#mˌamˈella# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˌamˈellə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌamˈelə# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mˌãmˈelə# | Rule 496 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˌãmˈɛlə# | Rule 598 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#mˌãmˈɛlə̯# | Rule 692 : ə > ə̯ / __ #
-#mˌãmˈɛl# | Rule 718 : ə̯ > ∅ 
-#mˌamˈɛl# | Rule 725 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#mamɛl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˌɑmˈiɫɫɑm# | Rule 4 : l > ɫ / @ __ 
+#mˌɑmˈɪɫɫɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɑmˈeɫɫɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌɑmˈeɫɫɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˌamˈeɫɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#mˌamˈeɫɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌãmˈeɫɫə# | Rule 347 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#mˌãmˈewwə# | Rule 388 : [+lat,+back] > w 
+#mˌãmˈøwwə# | Rule 402 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mˌãmˈøwə# | Rule 409 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#mˌãmˈøwə̯# | Rule 499 : ə > ə̯ / __ #
+#mˌãmˈøw# | Rule 528 : ə̯ > ∅ 
+#mˌamˈøw# | Rule 533 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#mamøw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

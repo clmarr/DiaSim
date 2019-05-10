@@ -1,19 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1047:
-#sˌɑlt̪ˈɑːre# >>> #sot̪e# ( Correct : #sot̪e#) :
+#sˌɑlt̪ˈɑːre# >>> #sot̪ie̯# ( Correct : #sot̪e#) :
 s ˌɑ l t̪ ˈɑː r e 
-#sˌɑlt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌɑlt̪ˈɑrɛ# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#sˌɑlt̪ˈɑːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˌɑɫt̪ˈɑːrɛ# | Rule 138 : l > ɫ / __ [+cons,-lat]
-#sˌaɫt̪ˈaːrɛ# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˌaɫt̪ˈaːrə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˌaɫt̪ˈaːrə̯# | Rule 266 : ə > ə̯ 
-#sˌaɫt̪ˈaːr# | Rule 300 : ə̯ > ∅ 
-#sˌaɫt̪ˈae̯r# | Rule 407 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˌaɫt̪ˈeːr# | Rule 539 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#sˌawt̪ˈeːr# | Rule 569 : [+lat,+back] > w 
-#sˌoːt̪ˈeːr# | Rule 650 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sˌoːt̪ˈeːɹ# | Rule 710 : r > ɹ / [-cons] __ #
-#sˌoːt̪ˈeː# | Rule 730 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#soːt̪eː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sot̪e# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#sˌɑɫt̪ˈɑːre# | Rule 4 : l > ɫ / @ __ 
+#sˌɑɫt̪ˈɑːrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌɑ?t̪ˈɑːrɛ# | Rule 36 : [+ant,+cons] > [-voi] / __ t̪
+#sˌɑ?t̪ˈɑrɛ# | Rule 45 : [+syl,+long] > [-long,-splng] 
+#sˌɑ?t̪ˈɑːrɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌa?t̪ˈaːrɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#sˌa?t̪ˈɛːrɛ# | Rule 177 : ˈaː > ˈɛː 
+#sˌa?t̪ˈie̯rɛ# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sˌa?t̪ˈie̯rə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˌa?t̪ˈie̯rə̯# | Rule 196 : ə > ə̯ 
+#sˌa?t̪ˈie̯r# | Rule 208 : ə̯ > ∅ 
+#sˌa?t̪ˈiːe̯r# | Rule 228 : [+prim] > [+long] / __ [-cons]
+#sˌawt̪ˈiːe̯r# | Rule 388 : [+lat,+back] > w 
+#sˌoːt̪ˈiːe̯r# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːt̪ˈiːe̯ɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#sˌoːt̪ˈiːe̯# | Rule 537 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#soːt̪iːe̯# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sot̪ie̯# | Rule 542 : [+syl,+long] > [-long,-splng] 

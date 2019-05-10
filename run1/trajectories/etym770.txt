@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :770:
-#n̪ˌowˈellɑm# >>> #n̪uvɛl# ( Correct : #n̪uvɛl#) :
+#n̪ˌowˈellɑm# >>> #n̪uvow# ( Correct : #n̪uvɛl#) :
 n̪ ˌo w ˈe l l ɑ m 
-#n̪ˌoɣʷˈellɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#n̪ˌɔɣʷˈɛllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˌɔβʷˈɛllɑm# | Rule 49 : ɣʷ > βʷ 
-#n̪ˌɔβʷˈɛllɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ˌɔβˈɛllɑ# | Rule 155 : {βʷ;ɸʷ} > {β;ɸ} 
-#n̪ˌɔβˈɛlla# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#n̪ˌoβˈɛlla# | Rule 422 : ˌɔ > ˌo 
-#n̪ˌovˈɛlla# | Rule 429 : β > v 
-#n̪ˌovˈɛllə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˌovˈɛlə# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#n̪ˌuvˈɛlə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#n̪ˌuvˈɛlə̯# | Rule 692 : ə > ə̯ / __ #
-#n̪ˌuvˈɛl# | Rule 718 : ə̯ > ∅ 
-#n̪uvɛl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ˌowˈeɫɫɑm# | Rule 4 : l > ɫ / @ __ 
+#n̪ˌoɣʷˈeɫɫɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#n̪ˌɔɣʷˈɛɫɫɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˌɔβˈɛɫɫɑm# | Rule 40 : ɣʷ > β 
+#n̪ˌɔβˈɛɫɫɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#n̪ˌɔβˈɛɫɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#n̪ˌoβˈɛɫɫa# | Rule 274 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
+#n̪ˌovˈɛɫɫa# | Rule 276 : β > v 
+#n̪ˌovˈɛɫɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˌuvˈɛɫɫə# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#n̪ˌuvˈɛwwə# | Rule 388 : [+lat,+back] > w 
+#n̪ˌuvˈɛa̯wwə# | Rule 391 : ∅ > a̯ / [-hi,-lo,+stres,-tense,+front] __ w
+#n̪ˌuve̯ˈawwə# | Rule 401 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#n̪ˌuve̯ˈoːwə# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#n̪ˌuvə̯ˈoːwə# | Rule 454 : e̯ > ə̯ / __ [+round,+back,-hi]
+#n̪ˌuvə̯ˈoːwə̯# | Rule 499 : ə > ə̯ / __ #
+#n̪ˌuvˈoːw# | Rule 528 : ə̯ > ∅ 
+#n̪uvoːw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪uvow# | Rule 542 : [+syl,+long] > [-long,-splng] 

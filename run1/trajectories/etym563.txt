@@ -1,17 +1,16 @@
 Trajectory file for run 'run1'; etymon number :563:
-#lˈɑmpɑd̪ɑ# >>> #lɑ̃p# ( Correct : #lɑ̃p#) :
+#lˈɑmpɑd̪ɑ# >>> #lam# ( Correct : #lɑ̃p#) :
 l ˈɑ m p ɑ d̪ ɑ 
-#lˈɑmpɑðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
-#lˈampaða# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#lˈampəða# | Rule 257 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
-#lˈampaða# | Rule 258 : ə > a / __ [+cor,+ant,+distr] [+syl]
-#lˈampəðə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈãmpəðə# | Rule 496 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#lˈãmpəə# | Rule 593 : {θ;ð} > {∅;∅} 
-#lˈãːpəə# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãːpə# | Rule 678 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
-#lˈãːpə̯# | Rule 692 : ə > ə̯ / __ #
-#lˈɑ̃ːpə̯# | Rule 699 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑ̃ːp# | Rule 718 : ə̯ > ∅ 
-#lɑ̃ːp# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lɑ̃p# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#lˈɑmpɑðɑ# | Rule 73 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
+#lˈampaða# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#lˈampəða# | Rule 192 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
+#lˈampə̯ða# | Rule 196 : ə > ə̯ 
+#lˈampða# | Rule 208 : ə̯ > ∅ 
+#lˈampðə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈamðə# | Rule 314 : [+cons] > ∅ / [+cons] __ [-son]
+#lˈãmðə# | Rule 347 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#lˈãmə# | Rule 395 : {θ;ð} > {∅;∅} 
+#lˈãmə̯# | Rule 499 : ə > ə̯ / __ #
+#lˈãm# | Rule 528 : ə̯ > ∅ 
+#lãm# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lam# | Rule 545 : [+syl,+nas] > [-nas] / __ [+nas,+cons]

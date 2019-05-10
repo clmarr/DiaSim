@@ -1,15 +1,20 @@
 Trajectory file for run 'run1'; etymon number :649:
-#mˈɑrɡulɑ# >>> #maʁl# ( Correct : #maʁl#) :
+#mˈɑrɡulɑ# >>> #maʁj# ( Correct : #maʁl#) :
 m ˈɑ r ɡ u l ɑ 
-#mˈɑrɡʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɑrɡlɑ# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#mˈɑrlɑ# | Rule 101 : {s k;r ɡ} > {s;r} / __ l
-#mˈarla# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#mˈarlə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈarlə̯# | Rule 692 : ə > ə̯ / __ #
-#mˈaɹlə̯# | Rule 711 : r > ɹ / [-cons] __ [+cons]
-#mˈaɹl# | Rule 718 : ə̯ > ∅ 
-#mˈarl# | Rule 732 : ɹ > r 
-#mˈaʀl# | Rule 734 : r > ʀ 
-#maʀl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#maʁl# | Rule 742 : ʀ > ʁ 
+#mˈɑrɡuɫɑ# | Rule 4 : l > ɫ / @ __ 
+#mˈɑrɡʊɫɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑrɡɫɑ# | Rule 31 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɑrɣɫɑ# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
+#mˈarɣɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#mˈarʝɫa# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#mˈarʝʎa# | Rule 145 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#mˈarʎa# | Rule 180 : [+hi,+front,-syl,-lat] > ∅ / __ ʎ
+#mˈarʎɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#mˈarʎə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#mˈarʎ# | Rule 281 : ə > ∅ 
+#mˈaɹʎ# | Rule 522 : r > ɹ / [-cons] __ [+cons]
+#mˈarʎ# | Rule 538 : ɹ > r 
+#mˈaʀʎ# | Rule 540 : r > ʀ 
+#maʀʎ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#maʁʎ# | Rule 548 : ʀ > ʁ 
+#maʁj# | Rule 549 : ʎ > j 

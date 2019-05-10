@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :520:
-#kˌukˈullum# >>> #kul# ( Correct : #kul#) :
+#kˌukˈullum# >>> #kuw# ( Correct : #kul#) :
 k ˌu k ˈu l l u m 
-#kˌʊkˈʊllʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˌokˈollom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˌokˈollo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˌoɡˈollo# | Rule 131 : k > ɡ / [-cons] __ [+syl]
-#kˌoɣˈollo# | Rule 133 : ɡ > ɣ / [-cons] __ [-cons]
-#kˌoˈollo# | Rule 179 : ɣ > ∅ / __ [+tense,+round,+prim]
-#kˌoˈollə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#kˌoˈollə̯# | Rule 266 : ə > ə̯ 
-#kˌoˈoll# | Rule 300 : ə̯ > ∅ 
-#kˌoˈol# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#kˌoˈolə# | Rule 548 : ∅ > ə / # ( [+cons] )* ( [+tense,+round,+back] )* [+lat] __ #
-#kˌuˈulə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#kˈuːlə# | Rule 683 : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
-#kˈuːlə̯# | Rule 692 : ə > ə̯ / __ #
-#kˈuːl# | Rule 718 : ə̯ > ∅ 
-#kuːl# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kul# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#kˌukˈuɫɫum# | Rule 4 : l > ɫ / @ __ 
+#kˌʊkˈʊɫɫʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌokˈoɫɫom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˌokˈoɫɫo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#kˌoɡˈoɫɫo# | Rule 96 : k > ɡ / [-cons] __ [+syl]
+#kˌoɣˈoɫɫo# | Rule 97 : ɡ > ɣ / [-cons] __ [-cons]
+#kˌoˈoɫɫo# | Rule 127 : ɣ > ∅ / __ [+tense,+round,+prim]
+#kˌoˈoɫɫə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#kˌoˈoɫɫə̯# | Rule 196 : ə > ə̯ 
+#kˌoˈoɫɫ# | Rule 208 : ə̯ > ∅ 
+#kˌəˈoɫɫ# | Rule 357 : ˌo > ˌə / __ ( [-syl] ) [+prim,+tense,+round]
+#kˌəˈuɫɫ# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#kˌəˈuww# | Rule 388 : [+lat,+back] > w 
+#kˌəˈuw# | Rule 389 : w > ∅ / [+syl,+hi,+round] __ 
+#kˌəˈuːw# | Rule 480 : [+prim] > [+long] / ˌə __ 
+#kˈuːw# | Rule 481 : ˌə > ∅ / __ [+syl]
+#kuːw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kuw# | Rule 542 : [+syl,+long] > [-long,-splng] 

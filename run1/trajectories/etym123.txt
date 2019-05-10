@@ -1,18 +1,21 @@
 Trajectory file for run 'run1'; etymon number :123:
-#blˈɑn̪kɑm# >>> #blɑ̃ʃ# ( Correct : #blɑ̃ʃ#) :
+#blˈɑn̪kɑm# >>> #bwɑ̃# ( Correct : #blɑ̃ʃ#) :
 b l ˈɑ n̪ k ɑ m 
 #blˈɑŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#blˈɑŋkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#blˈaŋka# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#blˈaŋkʲa# | Rule 230 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#blˈaŋca# | Rule 243 : [+back,+front] > [-back] 
-#blˈaŋt͡ʃa# | Rule 252 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#blˈaŋt͡ʃə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#blˈãŋt͡ʃə# | Rule 496 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#blˈãŋʃə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#blˈãːʃə# | Rule 652 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#blˈãːʃə̯# | Rule 692 : ə > ə̯ / __ #
-#blˈɑ̃ːʃə̯# | Rule 699 : [+lo,+long,+syl] > [+back,-front] 
-#blˈɑ̃ːʃ# | Rule 718 : ə̯ > ∅ 
-#blɑ̃ːʃ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#blɑ̃ʃ# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#bɫˈɑŋkɑm# | Rule 4 : l > ɫ / @ __ 
+#bɫˈɑŋkɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#bɫˈaŋka# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#bɫˈaŋkʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#bɫˈaŋca# | Rule 182 : [+back,+front] > [-back] 
+#bɫˈaŋt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#bɫˈaŋt͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
+#bɫˈaŋt͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
+#bɫˈaŋt͡ʃ# | Rule 281 : ə > ∅ 
+#bɫˈãŋt͡ʃ# | Rule 347 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#bwˈãŋt͡ʃ# | Rule 388 : [+lat,+back] > w 
+#bwˈãŋʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#bwˈãːʃ# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#bwˈɑ̃ːʃ# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
+#bwˈɑ̃ː# | Rule 527 : [-son] > ∅ / __ #
+#bwɑ̃ː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bwɑ̃# | Rule 542 : [+syl,+long] > [-long,-splng] 

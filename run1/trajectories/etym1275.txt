@@ -1,17 +1,14 @@
 Trajectory file for run 'run1'; etymon number :1275:
-#ˈursum# >>> #uʁs# ( Correct : #uʁs#) :
+#ˈursum# >>> #u# ( Correct : #uʁs#) :
 ˈu r s u m 
-#ˈʊrsʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈorsom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈorso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈorsə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˈorsə̯# | Rule 266 : ə > ə̯ 
-#ˈors# | Rule 300 : ə̯ > ∅ 
-#ˈurs# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#ˈuɹs# | Rule 711 : r > ɹ / [-cons] __ [+cons]
-#ˈuɹsə̯# | Rule 712 : ∅ > ə̯ / # ( [-cons,-long] )* s __ #
-#ˈuɹs# | Rule 718 : ə̯ > ∅ 
-#ˈurs# | Rule 732 : ɹ > r 
-#ˈuʀs# | Rule 734 : r > ʀ 
-#uʀs# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#uʁs# | Rule 742 : ʀ > ʁ 
+#ˈussum# | Rule 14 : [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
+#ˈʊssʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈossom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈosso# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#ˈossə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˈossə̯# | Rule 196 : ə > ə̯ 
+#ˈoss# | Rule 208 : ə̯ > ∅ 
+#ˈos# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ˈus# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#ˈu# | Rule 527 : [-son] > ∅ / __ #
+#u# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

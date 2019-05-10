@@ -1,20 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1043:
-#sˌɑlmˈɑst̪er# >>> #somɑt̪ʁ# ( Correct : #somɑt̪ʁ#) :
+#sˌɑlmˈɑst̪er# >>> #somɑʁ# ( Correct : #somɑt̪ʁ#) :
 s ˌɑ l m ˈɑ s t̪ e r 
-#sˌɑlmˈɑst̪ɛr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌɑɫmˈɑst̪ɛr# | Rule 138 : l > ɫ / __ [+cons,-lat]
-#sˌaɫmˈast̪ɛr# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#sˌaɫmˈast̪ər# | Rule 263 : [-stres,-lo,+syl] > ə / __ [-syl]
-#sˌaɫmˈast̪ə̯r# | Rule 266 : ə > ə̯ 
-#sˌaɫmˈast̪rə# | Rule 283 : ə̯ r > r ə / __ #
-#sˌawmˈast̪rə# | Rule 569 : [+lat,+back] > w 
-#sˌawmˈaxt̪rə# | Rule 580 : s > x / [-cons] __ [+cons]
-#sˌawmˈaːt̪rə# | Rule 642 : [+syl] x > [+long] ∅/ __ [+cons]
-#sˌoːmˈaːt̪rə# | Rule 650 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sˌoːmˈaːt̪rə̯# | Rule 692 : ə > ə̯ / __ #
-#sˌoːmˈɑːt̪rə̯# | Rule 699 : [+lo,+long,+syl] > [+back,-front] 
-#sˌoːmˈɑːt̪r# | Rule 718 : ə̯ > ∅ 
-#sˌoːmˈɑːt̪ʀ# | Rule 734 : r > ʀ 
-#soːmɑːt̪ʀ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#somɑt̪ʀ# | Rule 736 : [+syl,+long] > [-long,-splng] 
-#somɑt̪ʁ# | Rule 742 : ʀ > ʁ 
+#sˌɑɫmˈɑst̪er# | Rule 4 : l > ɫ / @ __ 
+#sˌɑɫmˈɑst̪ɛr# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌaɫmˈast̪ɛr# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#sˌaɫmˈast̪ər# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˌaɫmˈast̪ə̯r# | Rule 196 : ə > ə̯ 
+#sˌaɫmˈast̪r# | Rule 208 : ə̯ > ∅ 
+#sˌaɫmˈast̪rə# | Rule 277 : ∅ > ə / [-son] r __ #
+#sˌaɫmˈast̪r# | Rule 281 : ə > ∅ 
+#sˌaɫmˈasðr# | Rule 319 : [-cont,-delrel,+cor] > ð / __ [+son,+cor]
+#sˌawmˈasðr# | Rule 388 : [+lat,+back] > w 
+#sˌawmˈasr# | Rule 395 : {θ;ð} > {∅;∅} 
+#sˌawmˈaːr# | Rule 434 : [+syl] s > [+long] ∅/ __ [+cons]
+#sˌoːmˈaːr# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːmˈɑːr# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
+#sˌoːmˈɑːɹ# | Rule 521 : r > ɹ / [-cons] __ #
+#sˌoːmˈɑːr# | Rule 538 : ɹ > r 
+#sˌoːmˈɑːʀ# | Rule 540 : r > ʀ 
+#soːmɑːʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#somɑʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#somɑʁ# | Rule 548 : ʀ > ʁ 

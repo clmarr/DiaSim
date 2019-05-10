@@ -1,28 +1,20 @@
 Trajectory file for run 'run1'; etymon number :725:
-#mˈukkid̪um# >>> #mwat̪# ( Correct : #mwat̪#) :
+#mˈukkid̪um# >>> #muk# ( Correct : #mwat̪#) :
 m ˈu k k i d̪ u m 
-#mˈʊkkɪd̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈokked̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˈokked̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#mˈokkʲed̪o# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#mˈokced̪o# | Rule 76 : [+back,+front] > [-back] 
-#mˈocced̪o# | Rule 77 : k > c / __ c
-#mˈoccd̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
-#mˈocd̪o# | Rule 98 : [-cont] > ∅ / [+cons] __ [-son,-hi]
-#mˈoçd̪o# | Rule 146 : {c;ɟ} > {ç;ʝ} / __ [+cor,+distr,+ant]
-#mˈoçd̪ʲo# | Rule 211 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#mˈoçd̪ʲə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#mˈoçd̪ʲə̯# | Rule 266 : ə > ə̯ 
-#mˈoçd̪ʲ# | Rule 300 : ə̯ > ∅ 
-#mˈoçt̪ə# | Rule 321 : [+cor,+ant,+distr,+voi,-cont] > t̪ ə/ [-voi] __ #
-#mˈoçt̪ʲə# | Rule 323 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#mˈoçt̪ə# | Rule 385 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#mˈoʝt̪ə# | Rule 451 : ç > ʝ 
-#mˈojt̪ə# | Rule 457 : ʝ > j / [-cons] __ 
-#mˈujt̪ə# | Rule 552 : [+round,+tense,+back] > [+hi] 
-#mˈuɛ̯t̪ə# | Rule 617 : j > ɛ̯ / [+syl,+back,+round] __ 
-#mwˈɛt̪ə# | Rule 618 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#mwˈɛt̪ə̯# | Rule 692 : ə > ə̯ / __ #
-#mwˈɛt̪# | Rule 718 : ə̯ > ∅ 
-#mwɛt̪# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mwat̪# | Rule 741 : ɛ > a / w __ 
+#mˈʊkkɪd̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈʊkkd̪ʊm# | Rule 33 : ɪ > ∅ / [+prim] ( [-syl] )* [+cons] __ d̪ [+back,-lo] ( [-syl] ) #
+#mˈokkd̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈokkd̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#mˈokxd̪o# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
+#mˈokçd̪o# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#mˈokçd̪ʲo# | Rule 146 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#mˈokçd̪ʲə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#mˈokçd̪ʲə̯# | Rule 196 : ə > ə̯ 
+#mˈokçd̪ʲ# | Rule 208 : ə̯ > ∅ 
+#mˈokçd̪# | Rule 250 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {t̪;d̪;s;z;r;n̪} / [+hi,+front,-syl] __ 
+#mˈokçt̪# | Rule 290 : [-son] > [-voi] / __ #
+#mˈokʝt̪# | Rule 305 : ç > ʝ 
+#mˈokt̪# | Rule 314 : [+cons] > ∅ / [+cons] __ [-son]
+#mˈukt̪# | Rule 368 : [+round,+tense,+back] > [+hi] 
+#mˈuk# | Rule 527 : [-son] > ∅ / __ #
+#muk# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

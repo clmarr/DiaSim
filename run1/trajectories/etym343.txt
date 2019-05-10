@@ -1,23 +1,24 @@
 Trajectory file for run 'run1'; etymon number :343:
-#hˈord̪eum# >>> #ɔʁʒ# ( Correct : #ɔʁʒ#) :
+#hˈord̪eum# >>> #ɔʁ# ( Correct : #ɔʁʒ#) :
 h ˈo r d̪ e u m 
-#hˈɔrd̪ɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#hˈɔrd̪ɛʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #hˈɔrd̪jʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #hˈɔrd̪ʝʊm# | Rule 27 : j > ʝ / __ [+syl]
-#hˈɔrd̪ʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#hˈɔrd̪ʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#hˈɔrɟʝo# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#hˈɔrɟo# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#ˈɔrɟo# | Rule 105 : h > ∅ 
-#ˈɔrd͡ʒo# | Rule 178 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#ˈɔrd͡ʒə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#ˈɔrd͡ʒə̯# | Rule 266 : ə > ə̯ 
-#ˈɔrd͡ʒə# | Rule 279 : ə̯ > ə / [+delrel,-ant] __ 
-#ˈɔrʒə# | Rule 633 : [+delrel] > [+cont,0delrel] 
-#ˈɔrʒə̯# | Rule 692 : ə > ə̯ / __ #
-#ˈɔɹʒə̯# | Rule 711 : r > ɹ / [-cons] __ [+cons]
-#ˈɔɹʒ# | Rule 718 : ə̯ > ∅ 
-#ˈɔrʒ# | Rule 732 : ɹ > r 
-#ˈɔʀʒ# | Rule 734 : r > ʀ 
-#ɔʀʒ# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɔʁʒ# | Rule 742 : ʀ > ʁ 
+#hˈɔrd̪ʝom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#hˈɔrd̪ʝo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#hˈɔrɟʝo# | Rule 62 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#hˈɔrɟo# | Rule 68 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#ˈɔrɟo# | Rule 75 : h > ∅ 
+#ˈɔrd͡ʒo# | Rule 126 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#ˈɔrd͡ʒə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#ˈɔrd͡ʒə̯# | Rule 196 : ə > ə̯ 
+#ˈɔrd͡ʒə# | Rule 204 : ə̯ > ə / [-ant,+delrel] __ #
+#ˈɔrd͡ʒ# | Rule 281 : ə > ∅ 
+#ˈɔrt͡ʃ# | Rule 290 : [-son] > [-voi] / __ #
+#ˈɔrʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
+#ˈɔɹʃ# | Rule 522 : r > ɹ / [-cons] __ [+cons]
+#ˈɔɹ# | Rule 527 : [-son] > ∅ / __ #
+#ˈɔr# | Rule 538 : ɹ > r 
+#ˈɔʀ# | Rule 540 : r > ʀ 
+#ɔʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɔʁ# | Rule 548 : ʀ > ʁ 

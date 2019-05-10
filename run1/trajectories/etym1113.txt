@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1113:
 #sˈiːn̪um# >>> #sɛ̃# ( Correct : #sɛ̃#) :
 s ˈiː n̪ u m 
-#sˈiːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˈin̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#sˈin̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˈin̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#sˈiːn̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈiːn̪ə# | Rule 264 : [-stres,-lo,+syl] > ə / __ #
-#sˈiːn̪ə̯# | Rule 266 : ə > ə̯ 
-#sˈiːn̪# | Rule 300 : ə̯ > ∅ 
-#sˈĩːn̪# | Rule 622 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
-#sˈẽːn̪# | Rule 648 : [+nas,+front,-round,-lo,+syl] > [-hi] 
-#sˈẽː# | Rule 653 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#sˈɛ̃ː# | Rule 663 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
-#sɛ̃ː# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɛ̃# | Rule 736 : [+syl,+long] > [-long,-splng] 
+#sˈiːn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈin̪ʊm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#sˈin̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#sˈin̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
+#sˈiːn̪o# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈiːn̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
+#sˈiːn̪ə̯# | Rule 196 : ə > ə̯ 
+#sˈiːn̪# | Rule 208 : ə̯ > ∅ 
+#sˈin̪# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
+#sˈiːn̪# | Rule 231 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#sˈin̪# | Rule 253 : [+syl] > [-long,-splng] / __ [+cons] #
+#sˈiːn̪# | Rule 261 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#sˈĩːn̪# | Rule 427 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#sˈẽːn̪# | Rule 450 : [+nas,+front,-round,-lo,+syl] > [-hi] 
+#sˈẽː# | Rule 456 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#sˈɛ̃ː# | Rule 467 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
+#sɛ̃ː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɛ̃# | Rule 542 : [+syl,+long] > [-long,-splng] 

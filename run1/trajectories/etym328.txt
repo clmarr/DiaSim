@@ -1,14 +1,16 @@
 Trajectory file for run 'run1'; etymon number :328:
-#ɡˈummɑ# >>> #ɡɔm# ( Correct : #ɡɔm#) :
+#ɡˈummɑ# >>> #ɡym# ( Correct : #ɡɔm#) :
 ɡ ˈu m m ɑ 
-#ɡˈʊmmɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ɡˈommɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ɡˈũmmɑ# | Rule 162 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
-#ɡˈũmma# | Rule 195 : [+lo,+syl] > [+front,-back] 
-#ɡˈũmmə# | Rule 434 : a > ə / [+syl] ( [-syl] )* __ 
-#ɡˈũmə# | Rule 483 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ɡˈũmə̯# | Rule 692 : ə > ə̯ / __ #
-#ɡˈũm# | Rule 718 : ə̯ > ∅ 
-#ɡũm# | Rule 735 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡɔ̃m# | Rule 737 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#ɡɔm# | Rule 739 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
+#ɡˈʊmmɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈommɑ# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ɡˈummɑ# | Rule 113 : [+round,+tense,-hi,+stres] > [+hi] / __ [+nas,+cons]
+#ɡˈumma# | Rule 133 : [+lo,+syl] > [+front,-back] 
+#ɡˈʉmma# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
+#ɡˈʉmmə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
+#ɡˈʉmə# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ɡˈymə# | Rule 345 : [+hi,+round,-back] > [+front] 
+#ɡˈỹmə# | Rule 427 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#ɡˈymə# | Rule 448 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [+syl]
+#ɡˈymə̯# | Rule 499 : ə > ə̯ / __ #
+#ɡˈym# | Rule 528 : ə̯ > ∅ 
+#ɡym# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
