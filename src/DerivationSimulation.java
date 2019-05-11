@@ -22,7 +22,7 @@ public class DerivationSimulation {
 	
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	private final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
+	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	private final static char STAGENAME_LOC_DELIM = ':'; 
@@ -86,8 +86,6 @@ public class DerivationSimulation {
 	public static void main(String args[])
 	{
 		parseArgs(args); 
-		
-		Scanner input = new Scanner(System.in);
 		
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
@@ -434,6 +432,8 @@ public class DerivationSimulation {
 		
 		String resp; 
 		
+		Scanner inp = new Scanner(System.in);
+		
 		while (ri < numRules)
 		{
 			if(ri % 100 == 0)	System.out.println("On rule number "+ri);
@@ -443,31 +443,31 @@ public class DerivationSimulation {
 			boolean goldhere = false; 
 			if(goldStageInd < NUM_GOLD_STAGES)
 			{
-				if ( ri == goldStageTimeInstants[goldStageInd])
+				if ( ri  + 1 == goldStageTimeInstants[goldStageInd])
 				{
 					goldhere = true; 
 					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 					goldStageResultLexica[goldStageInd] = new Lexicon(testResultLexicon.getWordList());
 					
 					if (stage_pause)
-					{
+					{						
 						System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
 						System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
-						resp = input.nextLine().substring(0,1); 
+						resp = inp.nextLine().substring(0,1); 
 						while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 						{
 							System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
-							resp = input.nextLine().substring(0,1); 
+							resp = inp.nextLine().substring(0,1); 
 						}
 						if(resp.equalsIgnoreCase("y"))	
-							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd]); 
+							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd], inp);
 					}
 					goldStageInd++;
 				}
 			}
 			if(blackStageInd<NUM_BLACK_STAGES && !goldhere)
 			{
-				if(ri == blackStageTimeInstants[blackStageInd])
+				if(ri + 1 == blackStageTimeInstants[blackStageInd])
 				{
 					blackStageResultLexica[blackStageInd] = new Lexicon(testResultLexicon.getWordList());
 					blackStageInd++; 
@@ -504,7 +504,7 @@ public class DerivationSimulation {
 				
 		if(goldOutput)
 		{
-			haltMenu(testResultLexicon, goldResultLexicon);
+			haltMenu(testResultLexicon, goldResultLexicon,inp);
 			
 			System.out.println("Writing analysis files...");
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
@@ -525,7 +525,8 @@ public class DerivationSimulation {
 				}
 			}
 		}
-		input.close();
+		inp.close();
+		
 	}
 
 	private static String printStageOutsForEtymon( int etymID)
@@ -709,7 +710,7 @@ public class DerivationSimulation {
 		}
 	}
 	
-	private static void haltMenu(Lexicon r, Lexicon g)
+	private static void haltMenu(Lexicon r, Lexicon g, Scanner inpu)
 	{		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -721,9 +722,7 @@ public class DerivationSimulation {
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 		
 		boolean cont = true; 
-		
-		Scanner inp = new Scanner(System.in); 
-				
+						
 		while(cont)
 		{
 			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
@@ -736,7 +735,7 @@ public class DerivationSimulation {
 					+ "7: Stats for all forms with specified phone sequence in result form\n"
 					+ "8: Stats for all forms with specified phone sequence in gold form\n"
 					+ "9: End this analysis.\n");
-			String resp = inp.nextLine();
+			String resp = inpu.nextLine().substring(0,1);
 			
 			if(resp.equals("1"))	ea.confusionPrognosis(true);
 			else if(resp.equals("2") || resp.equals("3"))
@@ -748,12 +747,17 @@ public class DerivationSimulation {
 					System.out.println((""+i)+STAGE_PRINT_DELIM+ (printInit ? initLexicon.getByID(i).toString()+STAGE_PRINT_DELIM : "") +
 							r.getByID(i)+STAGE_PRINT_DELIM+g.getByID(i));
 			}
-			else if(resp.equals("4"))	ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
+			else if(resp.equals("4"))	
+			{
+				List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
+				for (LexPhon[] mm : mms)
+					System.out.println(mm[0].print()+" : "+mm[1].print());
+			}
 			else if("5678".contains(resp))
 			{
 				boolean in_gold = "68".contains(resp), stats_not_words = "78".contains(resp); 
 				System.out.println("Please enter the phoneme sequence you wish to test for, delimited by '"+PH_DELIM+"'.\n"); 
-				resp = inp.nextLine(); 
+				resp = inpu.nextLine().substring(0,1); 
 				boolean reenter = true;
 				List<SequentialPhonic> targSeq = new ArrayList<SequentialPhonic>(); 
 				while (reenter)
@@ -767,7 +771,7 @@ public class DerivationSimulation {
 						System.out.print("There is at least one invalid phoneme in your entry is invalid\n"
 								+ "Please make sure each are delimited by '"+PH_DELIM+"' and re-enter.\n"); 
 						reenter = true; 
-						resp = inp.nextLine();
+						resp = inpu.nextLine();
 					}
 				}
 				if (!stats_not_words)
@@ -790,7 +794,6 @@ public class DerivationSimulation {
 			else if(resp.equals("9"))	cont = false; 
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 		}
-		inp.close();
 	}
 	
 	//makes EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param

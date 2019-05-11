@@ -130,6 +130,33 @@ public class LexPhon {
 		return count; 
 	}
 	
+	public int findSequence(RestrictPhone[] sequence)
+	{
+		int i_this = 0, i_that = 0;  
+		while (i_this < phonRep.size() - sequence.length + 1)
+		{
+			if(sequence[i_that].compare(phonRep.get(i_this)))
+			{
+				i_that += 1;
+				if (i_that == sequence.length)	return i_this-sequence.length;
+			}
+			else	i_that = 0;
+			i_this += 1; 
+		}
+		if (i_that > 0)
+		{
+			while (i_this < phonRep.size() )
+			{	if (sequence[i_that].compare(phonRep.get(i_this)))
+				{
+					i_that += 1; i_this += 1;
+					if (i_that == sequence.length)	return i_this-sequence.length;
+				}
+				else	return -1;
+			}
+		}
+		return -1; 
+	}
+	
 	
 	
 }

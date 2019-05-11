@@ -33,12 +33,15 @@ public class ErrorAnalysis {
 	
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
+	private int NUM_ETYMA;
+	
 	private FED featDist;
 	
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
+		NUM_ETYMA = theRes.getWordList().length;
 		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
@@ -742,4 +745,142 @@ public class ErrorAnalysis {
 	{
 		return new Boundary("word bound"); 
 	}
+	
+	//assume indices are constant for the word lists across lexica 
+	//TODO finish this. 
+	public void analyzeByRefSeq(RestrictPhone[] seq, Lexicon refLex)
+	{
+		int[] in_seq_subset = new int[NUM_ETYMA]; // using constant indices -- 
+			// effectively boolean as -1 if false else it's the start ind. 
+		int subset_size = 0;
+		List<Integer> missLocs = new ArrayList<Integer>(); 
+		for (int ei = 0; ei < NUM_ETYMA; ei++)
+		{
+			LexPhon et = refLex.getByID(ei); 
+			if (et.print().equals(ABS_PR))	in_seq_subset[ei] = -1;
+			else
+			{
+				in_seq_subset[ei] = et.findSequence(seq); 
+				if (in_seq_subset[ei] != -1)	subset_size += 1;
+				if (!isHit[ei])	missLocs.add(ei); 
+			}
+		}
+		
+		int num_hits = subset_size - missLocs.size(); 
+		int num_misses = missLocs.size(); 
+		
+		LexPhon[] subset_hits = new LexPhon[num_hits];
+		LexPhon[] subset_misses = new LexPhon[num_misses];
+		int[] subset_hit_ids = new int[num_hits];
+		int[] subset_miss_ids = new int[num_misses];
+		int hits_seen = 0, misses_seen = 0;
+		int[] hit_starts = new int[num_hits], miss_starts = new int [num_misses];
+		for (int ei = 0; ei < NUM_ETYMA & (hits_seen < num_hits || misses_seen < num_misses); ei++)
+		{
+			if(in_seq_subset[ei] != -1)
+			{
+				if(isHit[ei])
+				{
+					subset_hits[ei] = refLex.getByID(ei); 
+					subset_hit_ids[hits_seen] = ei;
+					hit_starts[hits_seen] = in_seq_subset[ei];
+					hits_seen += 1;
+				
+				}
+				else
+				{
+					subset_misses[ei] = refLex.getByID(ei);
+					subset_miss_ids[misses_seen] = ei;
+					miss_starts[misses_seen] = in_seq_subset[ei];
+					misses_seen += 1; 
+				}
+			}
+		}
+		
+		System.out.println("Accuracy on subset with sequence "+printCheckSeq(seq)+" : "+(double)num_hits/(double)subset_size);
+		
+		
+		gjtwoipsehgip ywhet gyqw4et
+		//TODO work here
+	}
+	
+	private String printCheckSeq(RestrictPhone[] seq)
+	{
+		String out = "";
+		char PHD = DerivationSimulation.PH_DELIM;
+		for (RestrictPhone s : seq)	out += s.print()+PHD; 
+		return out.substring(0,out.length()-1);
+	}
+	
+	private boolean containsSPh(SequentialPhonic cand, List<SequentialPhonic> sphlist)
+	{
+		for (SequentialPhonic sp : sphlist)
+			if (cand.equals(sp))	return true;
+		return false; 
+	}
+	
+	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
+		//-- so if it is 8 and rel_ind is -2, we look at index 6
+	private List<SequentialPhonic>[] miss_and_hit_phones_at_rel_loc (int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets, 
+			int[] hit_starts, int[] miss_starts)
+	{
+		List<SequentialPhonic>[] out = (ArrayList<SequentialPhonic>[])new ArrayList[2];
+		out[0] = new ArrayList<SequentialPhonic>(); 
+		out[1] = new ArrayList<SequentialPhonic>(); 
+		
+		for (int hi = 0; hi < hit_ets.length; hi++)
+		{
+			int curr_ind = hit_starts[hi] + rel_ind;
+			List<SequentialPhonic> currPhRep = hit_ets[hi].getPhonologicalRepresentation(); 
+			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			{
+				SequentialPhonic curr = currPhRep.get(curr_ind);
+				if(!containsSPh(curr,out[0]))	out[0].add(curr); 
+			}
+		}
+		for (int mi = 0 ; mi < miss_ets.length; mi++)
+		{
+			int curr_ind = miss_starts[mi] + rel_ind;
+			List<SequentialPhonic> currPhRep = miss_ets[mi].getPhonologicalRepresentation();
+			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			{
+				SequentialPhonic curr = currPhRep.get(curr_ind);
+				if(!containsSPh(curr,out[1]))	out[1].add(curr); 
+			}
+		}
+		return out;
+	}
+	
+	// 
+	//first dim -- indexed same as input miss phone list
+	//second -- [0] for frequency among miss_ets, [1] for among hit_ets
+	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
+			//-- so if it is 8 and rel_ind is -2, we look at index 6
+	private int[][] miss_ph_frqs(List<SequentialPhonic> miss_neighbs, int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets,
+			int[] hit_starts, int[] miss_starts)
+	{
+		int[][] frqs = new int[miss_neighbs.size()][miss_neighbs.size()];
+		for (int hi = 0; hi < hit_ets.length; hi++)
+		{
+			int curr_ind = hit_starts[hi] + rel_ind;
+			List<SequentialPhonic> currPhRep = hit_ets[hi].getPhonologicalRepresentation(); 
+			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			{
+				SequentialPhonic curr = currPhRep.get(curr_ind);
+				frqs[miss_neighbs.indexOf(curr)][0] += 1;
+			}
+		}
+		for (int mi = 0; mi < miss_ets.length; mi++)
+		{
+			int curr_ind = miss_starts[mi] + rel_ind;
+			List<SequentialPhonic> currPhRep = miss_ets[mi].getPhonologicalRepresentation(); 
+			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			{
+				SequentialPhonic curr = currPhRep.get(curr_ind);
+				frqs[miss_neighbs.indexOf(curr)][1] += 1;
+			}
+		}
+		return frqs;
+	}
+			
 }
