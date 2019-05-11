@@ -1,19 +1,20 @@
 Trajectory file for run 'run1'; etymon number :290:
-#frˈɑn̪kum# >>> #fʁɑ̃# ( Correct : #fʁɑ̃#) :
-f r ˈɑ n̪ k u m 
-#frˈɑŋkum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#frˈɑŋkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#frˈɑŋkom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#frˈɑŋko# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#frˈaŋko# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#frˈaŋkə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#frˈaŋkə̯# | Rule 267 : ə > ə̯ 
-#frˈaŋk# | Rule 301 : ə̯ > ∅ 
-#frˈãŋk# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#frˈãːk# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#frˈɑ̃ːk# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#frˈɑ̃ː# | Rule 721 : [-son] > ∅ / __ #
-#fʀˈɑ̃ː# | Rule 739 : r > ʀ 
-#fʀɑ̃ː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fʀɑ̃# | Rule 741 : [+syl,+long] > [-long,-splng] 
-#fʁɑ̃# | Rule 747 : ʀ > ʁ 
+#fˈɑmem# >>> #fɛ̃# ( Correct : #fɛ̃#) :
+f ˈɑ m e m 
+#fˈɑmɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈɑmɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#fˈɑːmɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˈaːmɛ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#fˈaːmə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#fˈaːmə̯# | Rule 267 : ə > ə̯ 
+#fˈaːm# | Rule 301 : ə̯ > ∅ 
+#fˈae̯m# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˈajm# | Rule 431 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#fˈaj̃m# | Rule 496 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#fˈãj̃m# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#fˈãj̃n̪# | Rule 529 : m > n̪ / [-cons] __ #
+#fˈɛ̃j̃n̪# | Rule 576 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#fˈɛ̃n̪# | Rule 652 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#fˈɛ̃ː# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#fɛ̃ː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɛ̃# | Rule 740 : [+syl,+long] > [-long,-splng] 

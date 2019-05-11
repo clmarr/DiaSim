@@ -742,11 +742,7 @@ public class DerivationSimulation {
 			String resp = inp.nextLine();
 			
 			if(resp.equals("1"))	ea.confusionPrognosis(true);
-			else if(resp.equals("2"))
-			{
-				//TODO this
-			}
-			else if(resp.equals("3"))  
+			else if(resp.equals("2") || resp.equals("3"))
 			{
 				//TODO this
 			}

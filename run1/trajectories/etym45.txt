@@ -1,18 +1,22 @@
 Trajectory file for run 'run1'; etymon number :45:
-#ˈɑmplum# >>> #ɑ̃pl# ( Correct : #ɑ̃pl#) :
-ˈɑ m p l u m 
-#ˈɑmplʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɑmplom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈɑmplo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#ˈamplo# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#ˈamplə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#ˈamplə̯# | Rule 267 : ə > ə̯ 
-#ˈampl# | Rule 301 : ə̯ > ∅ 
-#ˈamplə# | Rule 315 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˈãmplə# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ˈãːplə# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˈãːplə̯# | Rule 696 : ə > ə̯ / __ #
-#ˈɑ̃ːplə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
-#ˈɑ̃ːpl# | Rule 723 : ə̯ > ∅ 
-#ɑ̃ːpl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɑ̃pl# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#pˈeːjus# >>> #pwa# ( Correct : #pi#) :
+p ˈeː j u s 
+#pˈeːʝus# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#pˈeːʝʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈeʝʊs# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#pˈeʝos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˈeːʝos# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːʝəs# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
+#pˈeːʝə̯s# | Rule 267 : ə > ə̯ 
+#pˈeːʝs# | Rule 301 : ə̯ > ∅ 
+#pˈeːjs# | Rule 312 : ʝ > j / __ ( [-syl] )* #
+#pˈejs# | Rule 355 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#pˈejsʲ# | Rule 388 : {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ #
+#pˈojsʲ# | Rule 531 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#pˈujsʲ# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯sʲ# | Rule 620 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛsʲ# | Rule 621 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛs# | Rule 660 : {sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪} 
+#pwˈɛ# | Rule 720 : [-son] > ∅ / __ #
+#pwɛ# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pwa# | Rule 745 : ɛ > a / w __ 

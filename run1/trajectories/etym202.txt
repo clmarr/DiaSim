@@ -1,21 +1,25 @@
 Trajectory file for run 'run1'; etymon number :202:
-#d̪ˈuplum# >>> #d̪ubl# ( Correct : #d̪ubl#) :
-d̪ ˈu p l u m 
-#d̪ˈʊplʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈoplom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈoplo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#d̪ˈoːplo# | Rule 110 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#d̪ˈoplo# | Rule 149 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
-#d̪ˈoːplo# | Rule 152 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#d̪ˈoplo# | Rule 217 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
-#d̪ˈoːplo# | Rule 221 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
-#d̪ˈoːplə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
-#d̪ˈoːplə̯# | Rule 267 : ə > ə̯ 
-#d̪ˈoːpl# | Rule 301 : ə̯ > ∅ 
-#d̪ˈoːplə# | Rule 315 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#d̪ˈoːblə# | Rule 353 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#d̪ˈowblə# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#d̪ˈublə# | Rule 525 : [+tense,+syl,+round,-hi,-lo] w > [+hi] ∅/ [-lab,+cons] __ [+lab,-syl]
-#d̪ˈublə̯# | Rule 696 : ə > ə̯ / __ #
-#d̪ˈubl# | Rule 723 : ə̯ > ∅ 
-#d̪ubl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#wˈiːwere# >>> #vivʁ# ( Correct : #vivʁ#) :
+w ˈiː w e r e 
+#ɣʷˈiːɣʷere# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈiːɣʷɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˈiːβʷɛrɛ# | Rule 49 : ɣʷ > βʷ 
+#βʷˈiβʷɛrɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#βʷˈiːβʷɛrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#βʷˈiːβʷrɛ# | Rule 141 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#βʷˈiβʷrɛ# | Rule 149 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#βʷˈiːβʷrɛ# | Rule 153 : [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
+#βˈiːβrɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈiβrɛ# | Rule 217 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#βˈiːβrɛ# | Rule 222 : [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
+#βˈiːβrə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#βˈiːβrə̯# | Rule 267 : ə > ə̯ 
+#βˈiːβr# | Rule 301 : ə̯ > ∅ 
+#βˈiːβrə# | Rule 315 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#vˈiːvrə# | Rule 430 : β > v 
+#vˈiːvrə̯# | Rule 695 : ə > ə̯ / __ #
+#vˈiːvr# | Rule 722 : ə̯ > ∅ 
+#vˈiːvʀ# | Rule 738 : r > ʀ 
+#viːvʀ# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vivʀ# | Rule 740 : [+syl,+long] > [-long,-splng] 
+#vivʁ# | Rule 746 : ʀ > ʁ 

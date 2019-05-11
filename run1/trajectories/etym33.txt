@@ -1,24 +1,19 @@
 Trajectory file for run 'run1'; etymon number :33:
-#ˈɑkwɑːs# >>> #o# ( Correct : #o#) :
-ˈɑ k w ɑː s 
-#ˈɑkɣʷɑːs# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˈɑkwɑːs# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#ˈɑkwɑs# | Rule 55 : [+syl,+long] > [-long,-splng] 
-#ˈɑːkwɑs# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɑːxwɑs# | Rule 117 : k > x / [+syl] __ w [+syl]
-#ˈaːxwas# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#ˈaːɣwas# | Rule 352 : [-voi] > [+voi] / [-cons] __ [-cons]
-#ˈae̯ɣwas# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯ɣwəs# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈajwəs# | Rule 442 : ˈa e̯ ɣ > ˈa j / __ w
-#ˈɛːwəs# | Rule 524 : ˈa j > ˈɛː / __ w
-#ˈɛːa̯wəs# | Rule 573 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-#ˈɛa̯wəs# | Rule 574 : [-hi,-lo,+syl,-tense] > [-long,-splng] / __ a̯ w
-#e̯ˈawəs# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#e̯ˈoːəs# | Rule 654 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ə̯ˈoːəs# | Rule 655 : e̯ > ə̯ / __ [+round,+back,-hi]
-#ə̯ˈoːs# | Rule 684 : ə > ∅ / [+syl] __ 
-#ə̯ˈoː# | Rule 721 : [-son] > ∅ / __ #
-#ˈoː# | Rule 723 : ə̯ > ∅ 
-#oː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#o# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#bˈellus# >>> #bo# ( Correct : #bo#) :
+b ˈe l l u s 
+#bˈɛllʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈɛllos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#bˈɛlləs# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
+#bˈɛllə̯s# | Rule 267 : ə > ə̯ 
+#bˈɛlls# | Rule 301 : ə̯ > ∅ 
+#bˈɛls# | Rule 465 : [+cons] > ∅ / [+cons] __ [-son]
+#bˈɛɫs# | Rule 493 : [+lat] > [+back] / __ [+cons]
+#bˈɛws# | Rule 570 : [+lat,+back] > w 
+#bˈɛa̯ws# | Rule 573 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
+#be̯ˈaws# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#be̯ˈoːs# | Rule 653 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#bə̯ˈoːs# | Rule 654 : e̯ > ə̯ / __ [+round,+back,-hi]
+#bə̯ˈoː# | Rule 720 : [-son] > ∅ / __ #
+#bˈoː# | Rule 722 : ə̯ > ∅ 
+#boː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bo# | Rule 740 : [+syl,+long] > [-long,-splng] 
