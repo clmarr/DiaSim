@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :332:
-#hˈɑbeo# >>> #a# ( Correct : #e#) :
+#hˈɑbeo# >>> #aʒ# ( Correct : #e#) :
 h ˈɑ b e o 
-#hˈɑbɛɔ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#hˈɑbɛɔ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #hˈɑbjɔ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #hˈɑbʝɔ# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɑbʝɔ# | Rule 75 : h > ∅ 
-#ˈabʝɔ# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#ˈabɟɔ# | Rule 189 : {j;ʝ} > {ɟ;ɟ} / [+cons] __ [+syl]
-#ˈabd͡ʒɔ# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#ˈabd͡ʒə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#ˈabd͡ʒə̯# | Rule 196 : ə > ə̯ 
-#ˈabd͡ʒə# | Rule 204 : ə̯ > ə / [-ant,+delrel] __ #
-#ˈad̪d͡ʒə# | Rule 216 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
-#ˈad̪d͡ʒ# | Rule 281 : ə > ∅ 
-#ˈad̪t͡ʃ# | Rule 290 : [-son] > [-voi] / __ #
-#ˈat͡ʃ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#ˈaʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#ˈa# | Rule 527 : [-son] > ∅ / __ #
-#a# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˈɑbʝɔ# | Rule 105 : h > ∅ 
+#ˈabʝɔ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈabɟɔ# | Rule 251 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#ˈabd͡ʒɔ# | Rule 253 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#ˈabd͡ʒə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#ˈabd͡ʒə̯# | Rule 267 : ə > ə̯ 
+#ˈabd͡ʒə# | Rule 280 : ə̯ > ə / [+delrel,-ant] __ 
+#ˈad̪d͡ʒə# | Rule 333 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#ˈad͡ʒə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#ˈaʒə# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#ˈaʒə̯# | Rule 696 : ə > ə̯ / __ #
+#ˈaːʒə̯# | Rule 708 : [+lo] > [+long] / __ ʒ ə̯ #
+#ˈaːʒ# | Rule 723 : ə̯ > ∅ 
+#aːʒ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʒ# | Rule 741 : [+syl,+long] > [-long,-splng] 

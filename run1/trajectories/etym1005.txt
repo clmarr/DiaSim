@@ -1,12 +1,15 @@
 Trajectory file for run 'run1'; etymon number :1005:
-#rˈem# >>> #ʁie̯n̪# ( Correct : #ʁjɛ̃#) :
+#rˈem# >>> #ʁjɛ̃# ( Correct : #ʁjɛ̃#) :
 r ˈe m 
-#rˈɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#rˈɛːm# | Rule 82 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#rˈie̯m# | Rule 115 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#rˈiːe̯m# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#rˈiːe̯n̪# | Rule 358 : m > n̪ / [-cons] __ #
-#ʀˈiːe̯n̪# | Rule 540 : r > ʀ 
-#ʀiːe̯n̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʀie̯n̪# | Rule 542 : [+syl,+long] > [-long,-splng] 
-#ʁie̯n̪# | Rule 548 : ʀ > ʁ 
+#rˈɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˈɛːm# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#rˈie̯m# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#rˈie̯n̪# | Rule 529 : m > n̪ / [-cons] __ #
+#rjˈen̪# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#rjˈẽn̪# | Rule 616 : [+syl,-hi] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#rjˈẽː# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#rjˈɛ̃ː# | Rule 728 : [+nas,+front,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] 
+#ʀjˈɛ̃ː# | Rule 739 : r > ʀ 
+#ʀjɛ̃ː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʀjɛ̃# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#ʁjɛ̃# | Rule 747 : ʀ > ʁ 

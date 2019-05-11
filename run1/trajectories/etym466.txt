@@ -1,21 +1,17 @@
 Trajectory file for run 'run1'; etymon number :466:
-#klˈɑssum# >>> #?a# ( Correct : #ɡlɑ#) :
+#klˈɑssum# >>> #ɡlɑ# ( Correct : #ɡlɑ#) :
 k l ˈɑ s s u m 
-#kɫˈɑssum# | Rule 4 : l > ɫ / @ __ 
-#kɫˈɑssʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kɫˈɑssom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kɫˈɑsso# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#xɫˈɑsso# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
-#xɫˈasso# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#çɫˈasso# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#çʎˈasso# | Rule 145 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#ʎˈasso# | Rule 180 : [+hi,+front,-syl,-lat] > ∅ / __ ʎ
-#?ˈasso# | Rule 188 : [+hi,-syl,+cont] > [-cont,-son,-delrel,+cons,0tense] / # __ [+syl]
-#?ˈasso# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#?ˈassə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#?ˈassə̯# | Rule 196 : ə > ə̯ 
-#?ˈass# | Rule 208 : ə̯ > ∅ 
-#?ˈas# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#?ˈas# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#?ˈa# | Rule 527 : [-son] > ∅ / __ #
-#?a# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#klˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#klˈɑssom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#klˈɑsso# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#klˈasso# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#klˈassə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#klˈassə̯# | Rule 267 : ə > ə̯ 
+#klˈass# | Rule 301 : ə̯ > ∅ 
+#klˈas# | Rule 484 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#ɡlˈas# | Rule 541 : k > ɡ / # __ [+cor,+son] [+lo]
+#ɡlˈaːs# | Rule 634 : [+prim,+lo] > [+long] / __ s #
+#ɡlˈɑːs# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#ɡlˈɑː# | Rule 721 : [-son] > ∅ / __ #
+#ɡlɑː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɡlɑ# | Rule 741 : [+syl,+long] > [-long,-splng] 

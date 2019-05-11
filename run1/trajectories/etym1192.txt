@@ -1,17 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1192:
-#t̪ˌempˈest̪ɑ# >>> #t̪ɑ̃pɛt̪# ( Correct : #t̪ɑ̃pɛt̪#) :
-t̪ ˌe m p ˈe s t̪ ɑ 
-#t̪ˌɛmpˈɛst̪ɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˌɛmpˈɛst̪a# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#t̪ˌempˈɛst̪a# | Rule 274 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
-#t̪ˌempˈɛst̪ə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˌẽmpˈɛst̪ə# | Rule 349 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ˌɛ̃mpˈɛst̪ə# | Rule 376 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˌãmpˈɛst̪ə# | Rule 383 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#t̪ˌãmpˈɛːt̪ə# | Rule 434 : [+syl] s > [+long] ∅/ __ [+cons]
-#t̪ˌãːpˈɛːt̪ə# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˌãːpˈɛːt̪ə̯# | Rule 499 : ə > ə̯ / __ #
-#t̪ˌɑ̃ːpˈɛːt̪ə̯# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˌɑ̃ːpˈɛːt̪# | Rule 528 : ə̯ > ∅ 
-#t̪ɑ̃ːpɛːt̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɑ̃pɛt̪# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#t̪ʰˈeːkɑm# >>> #t̪ɛ# ( Correct : #t̪ɛ#) :
+t̪ʰ ˈeː k ɑ m 
+#t̪ˈeːkɑm# | Rule 6 : [+sg,-cont] > [-sg] 
+#t̪ˈekɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#t̪ˈekɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˈeːkɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈeːɡɑ# | Rule 132 : k > ɡ / [-cons] __ [+syl]
+#t̪ˈeːɣɑ# | Rule 134 : ɡ > ɣ / [-cons] __ [-cons]
+#t̪ˈeːɣa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪ˈeːɣʲa# | Rule 231 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#t̪ˈeːʝa# | Rule 244 : [+back,+front] > [-back] 
+#t̪ˈeːja# | Rule 382 : ʝ > j 
+#t̪ˈeja# | Rule 407 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#t̪ˈejə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈojə# | Rule 531 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#t̪ˈujə# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#t̪ˈʌjə# | Rule 591 : ˈu > ˈʌ / __ j ə #
+#t̪ˈajə# | Rule 607 : ˈʌ > ˈa 
+#t̪ˈaːjə# | Rule 693 : [+prim] > [+long] / __ ( j ) ə #
+#t̪ˈaːj# | Rule 695 : ə > ∅ / [+prim] ( j ) __ 
+#t̪ˈɛː# | Rule 697 : ˈaː j > ˈɛː / __ #
+#t̪ɛː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɛ# | Rule 741 : [+syl,+long] > [-long,-splng] 

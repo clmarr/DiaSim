@@ -1,22 +1,21 @@
 Trajectory file for run 'run1'; etymon number :608:
-#lˈin̪ɡwɑm# >>> #lɑ̃v# ( Correct : #lɑ̃ɡ#) :
+#lˈin̪ɡwɑm# >>> #lɑ̃ɡ# ( Correct : #lɑ̃ɡ#) :
 l ˈi n̪ ɡ w ɑ m 
 #lˈiŋɡwɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈiŋɡɣʷɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#lˈɪŋɡɣʷɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈɪŋɡβɑm# | Rule 40 : ɣʷ > β 
-#lˈeŋɡβɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#lˈeŋɡβɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˈeŋɡβa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#lˈeŋɡva# | Rule 276 : β > v 
-#lˈeŋɡvə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈeŋvə# | Rule 314 : [+cons] > ∅ / [+cons] __ [-son]
-#lˈẽŋvə# | Rule 349 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#lˈɛ̃ŋvə# | Rule 376 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈãŋvə# | Rule 383 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#lˈãːvə# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãːvə̯# | Rule 499 : ə > ə̯ / __ #
-#lˈɑ̃ːvə̯# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑ̃ːv# | Rule 528 : ə̯ > ∅ 
-#lɑ̃ːv# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lɑ̃v# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#lˈiŋɡɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#lˈiŋɡwɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#lˈɪŋɡwɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈeŋɡwɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#lˈeŋɡwɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#lˈeŋɡwa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#lˈeŋɡwə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈẽŋɡwə# | Rule 509 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#lˈɛ̃ŋɡwə# | Rule 562 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈãŋɡwə# | Rule 566 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#lˈãŋɡə# | Rule 611 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
+#lˈãːɡə# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#lˈãːɡə̯# | Rule 696 : ə > ə̯ / __ #
+#lˈɑ̃ːɡə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#lˈɑ̃ːɡ# | Rule 723 : ə̯ > ∅ 
+#lɑ̃ːɡ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lɑ̃ɡ# | Rule 741 : [+syl,+long] > [-long,-splng] 

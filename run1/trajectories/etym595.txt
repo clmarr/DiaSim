@@ -1,14 +1,20 @@
 Trajectory file for run 'run1'; etymon number :595:
-#lˈiːbrɑm# >>> #liwʁ# ( Correct : #livʁ#) :
+#lˈiːbrɑm# >>> #livʁ# ( Correct : #livʁ#) :
 l ˈiː b r ɑ m 
-#lˈiːβrɑm# | Rule 41 : b > β / [+syl] __ [+son,-lat,-nas]
-#lˈiβrɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#lˈiβrɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#lˈiβra# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#lˈiwra# | Rule 275 : {β;ɣʷ} > {w;w} / __ ( ə ) [+cons]
-#lˈiwrə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈiwrə̯# | Rule 499 : ə > ə̯ / __ #
-#lˈiwr# | Rule 528 : ə̯ > ∅ 
-#lˈiwʀ# | Rule 540 : r > ʀ 
-#liwʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#liwʁ# | Rule 548 : ʀ > ʁ 
+#lˈiːβrɑm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
+#lˈiβrɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#lˈiβrɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#lˈiːβrɑ# | Rule 111 : [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
+#lˈiβrɑ# | Rule 149 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#lˈiːβrɑ# | Rule 153 : [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
+#lˈiːβra# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#lˈiβra# | Rule 217 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#lˈiːβra# | Rule 222 : [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
+#lˈiːvra# | Rule 430 : β > v 
+#lˈiːvrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈiːvrə̯# | Rule 696 : ə > ə̯ / __ #
+#lˈiːvr# | Rule 723 : ə̯ > ∅ 
+#lˈiːvʀ# | Rule 739 : r > ʀ 
+#liːvʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#livʀ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#livʁ# | Rule 747 : ʀ > ʁ 

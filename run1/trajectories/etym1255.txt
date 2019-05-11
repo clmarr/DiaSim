@@ -1,7 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1255:
-#t̪uˌɑ# >>> #t̪wa# ( Correct : #t̪a#) :
-t̪ u ˌɑ 
-#t̪ʊˌɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪wˌɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#t̪wˌa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#t̪wa# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪rˈuɡn̪ɑm# >>> #t̪ʁɔɲ# ( Correct : #t̪ʁɔɲ#) :
+t̪ r ˈu ɡ n̪ ɑ m 
+#t̪rˈuŋn̪ɑm# | Rule 1 : ɡ > ŋ / __ [+nas,+cor]
+#t̪rˈʊŋn̪ɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈoŋn̪ɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪rˈoŋn̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪rˈũŋn̪ɑ# | Rule 163 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
+#t̪rˈũɲn̪ɑ# | Rule 170 : ŋ > ɲ / __ [+cor]
+#t̪rˈũɲn̪a# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪rˈũɲa# | Rule 209 : [+nas,+cons] > ∅ / ɲ __ 
+#t̪rˈũːɲa# | Rule 220 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#t̪rˈũɲa# | Rule 404 : [+syl] > [-long,-splng] / __ ɲ
+#t̪rˈũɲə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪rˈũɲə̯# | Rule 696 : ə > ə̯ / __ #
+#t̪rˈũɲ# | Rule 723 : ə̯ > ∅ 
+#t̪ʀˈũɲ# | Rule 739 : r > ʀ 
+#t̪ʀũɲ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ʀɔ̃ɲ# | Rule 742 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#t̪ʀɔɲ# | Rule 744 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
+#t̪ʁɔɲ# | Rule 747 : ʀ > ʁ 

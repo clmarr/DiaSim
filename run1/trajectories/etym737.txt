@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :737:
-#n̪ˈɑːn̪um# >>> #n̪ie̯n̪# ( Correct : #n̪ɛ̃#) :
+#n̪ˈɑːn̪um# >>> #n̪ɛ̃# ( Correct : #n̪ɛ̃#) :
 n̪ ˈɑː n̪ u m 
-#n̪ˈɑːn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈɑn̪ʊm# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#n̪ˈɑn̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈɑn̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɑːn̪o# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˈaːn̪o# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#n̪ˈɛːn̪o# | Rule 177 : ˈaː > ˈɛː 
-#n̪ˈie̯n̪o# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#n̪ˈie̯n̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#n̪ˈie̯n̪ə̯# | Rule 196 : ə > ə̯ 
-#n̪ˈie̯n̪# | Rule 208 : ə̯ > ∅ 
-#n̪ˈiːe̯n̪# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#n̪iːe̯n̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#n̪ie̯n̪# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#n̪ˈɑːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈɑn̪ʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#n̪ˈɑn̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈɑn̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#n̪ˈɑːn̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˈaːn̪o# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#n̪ˈaːn̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#n̪ˈaːn̪ə̯# | Rule 267 : ə > ə̯ 
+#n̪ˈaːn̪# | Rule 301 : ə̯ > ∅ 
+#n̪ˈae̯n̪# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#n̪ˈajn̪# | Rule 431 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#n̪ˈaj̃n̪# | Rule 496 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#n̪ˈãj̃n̪# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#n̪ˈɛ̃j̃n̪# | Rule 576 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#n̪ˈɛ̃n̪# | Rule 652 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#n̪ˈɛ̃ː# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#n̪ɛ̃ː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ɛ̃# | Rule 741 : [+syl,+long] > [-long,-splng] 

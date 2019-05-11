@@ -1,14 +1,13 @@
 Trajectory file for run 'run1'; etymon number :349:
-#illˌɑk# >>> #wwa# ( Correct : #la#) :
+#illˌɑk# >>> #la# ( Correct : #la#) :
 i l l ˌɑ k 
-#iɫɫˌɑk# | Rule 4 : l > ɫ / @ __ 
-#ɪɫɫˌɑk# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#eɫɫˌɑk# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#eɫɫˌɑx# | Rule 116 : k > x / [+syl] __ #
-#eɫɫˌax# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#əɫɫˌax# | Rule 192 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#ə̯ɫɫˌax# | Rule 196 : ə > ə̯ 
-#ɫɫˌax# | Rule 208 : ə̯ > ∅ 
-#ɫɫˌa# | Rule 301 : x > ∅ / [-prim] __ #
-#wwˌa# | Rule 388 : [+lat,+back] > w 
-#wwa# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɪllˌɑk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ellˌɑk# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ellˌɑx# | Rule 165 : k > x / [+syl] __ #
+#ellˌax# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#əllˌax# | Rule 260 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯llˌax# | Rule 267 : ə > ə̯ 
+#llˌax# | Rule 301 : ə̯ > ∅ 
+#lˌax# | Rule 337 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
+#lˌa# | Rule 448 : x > ∅ / [-prim] __ #
+#la# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

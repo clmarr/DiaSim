@@ -1,22 +1,27 @@
 Trajectory file for run 'run1'; etymon number :593:
-#lˌewˈɑːmen̪# >>> #lavie̯n̪# ( Correct : #ləvɛ̃#) :
+#lˌewˈɑːmen̪# >>> #ləvɛ̃# ( Correct : #ləvɛ̃#) :
 l ˌe w ˈɑː m e n̪ 
-#lˌeɣʷˈɑːmen̪# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#lˌɛɣʷˈɑːmɛn̪# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˌɛβˈɑːmɛn̪# | Rule 40 : ɣʷ > β 
-#lˌɛβˈɑmɛn̪# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#lˌɑβˈɑmɛn̪# | Rule 77 : {ˌe;ˌɛ} > {ˌɑ;ˌɑ} / __ ( [-syl] )* [+lo,+prim]
-#lˌɑβˈɑːmɛn̪# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#lˌaβˈaːmɛn̪# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#lˌaβˈɛːmɛn̪# | Rule 177 : ˈaː > ˈɛː 
-#lˌaβˈie̯mɛn̪# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#lˌaβˈie̯mən̪# | Rule 195 : [-stres,-lo,+syl] > ə 
-#lˌaβˈie̯mə̯n̪# | Rule 196 : ə > ə̯ 
-#lˌaβˈie̯mn̪# | Rule 208 : ə̯ > ∅ 
-#lˌaβˈie̯mm# | Rule 218 : {m n̪;n̪ m;m b} > {m m;m m;m m} 
-#lˌaβˈiːe̯mm# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#lˌavˈiːe̯mm# | Rule 276 : β > v 
-#lˌavˈiːe̯m# | Rule 337 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#lˌavˈiːe̯n̪# | Rule 358 : m > n̪ / [-cons] __ #
-#laviːe̯n̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lavie̯n̪# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#lˌeɣʷˈɑːmen̪# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#lˌɛɣʷˈɑːmɛn̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˌɛβʷˈɑːmɛn̪# | Rule 49 : ɣʷ > βʷ 
+#lˌɛβʷˈɑmɛn̪# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#lˌɛβʷˈɑmɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#lˌɛβʷˈɑːmɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#lˌɛβˈɑːmɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#lˌɛβˈaːmɛ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#lˌɛβˈaːmə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#lˌɛβˈaːmə̯# | Rule 267 : ə > ə̯ 
+#lˌɛβˈaːm# | Rule 301 : ə̯ > ∅ 
+#lˌɛβˈae̯m# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#lˌeβˈae̯m# | Rule 416 : ˌɛ > ˌe / __ [-cor]
+#lˌevˈae̯m# | Rule 430 : β > v 
+#lˌevˈajm# | Rule 431 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#lˌevˈaj̃m# | Rule 496 : j > j̃ / [+lo,+syl] __ [+nas,-syl]
+#lˌevˈãj̃m# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#lˌəvˈãj̃m# | Rule 500 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#lˌəvˈãj̃n̪# | Rule 529 : m > n̪ / [-cons] __ #
+#lˌəvˈɛ̃j̃n̪# | Rule 576 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#lˌəvˈɛ̃n̪# | Rule 652 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#lˌəvˈɛ̃ː# | Rule 657 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#ləvɛ̃ː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ləvɛ̃# | Rule 741 : [+syl,+long] > [-long,-splng] 

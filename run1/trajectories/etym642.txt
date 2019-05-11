@@ -1,21 +1,19 @@
 Trajectory file for run 'run1'; etymon number :642:
-#mˌɑn̪sˈuːrɑm# >>> #mazyʁ# ( Correct : #mazyʁ#) :
+#mˌɑn̪sˈuːrɑm# >>> #mɑ̃syʁ# ( Correct : #mazyʁ#) :
 m ˌɑ n̪ s ˈuː r ɑ m 
-#mˌɑːn̪sˈuːrɑm# | Rule 10 : [+syl] > [+long] / __ n̪ s
-#mˌɑːsˈuːrɑm# | Rule 11 : n̪ > ∅ / __ s
-#mˌɑːsˈurɑm# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#mˌɑsˈurɑm# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#mˌɑsˈurɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˌɑsˈuːrɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌɑzˈuːrɑ# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
-#mˌazˈuːra# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#mˌazˈʉːra# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#mˌazˈʉːrə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌazˈyːrə# | Rule 345 : [+hi,+round,-back] > [+front] 
-#mˌazˈyːrə̯# | Rule 499 : ə > ə̯ / __ #
-#mˌaːzˈyːrə̯# | Rule 512 : [+syl] > [+long] / __ z [+syl]
-#mˌaːzˈyːr# | Rule 528 : ə̯ > ∅ 
-#mˌaːzˈyːʀ# | Rule 540 : r > ʀ 
-#maːzyːʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mazyʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
-#mazyʁ# | Rule 548 : ʀ > ʁ 
+#mˌɑn̪sˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#mˌɑn̪sˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˌɑn̪sˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌan̪sˈuːra# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#mˌan̪sˈʉːra# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#mˌan̪sˈʉːrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌan̪sˈyːrə# | Rule 495 : [+hi,+round,-back] > [+front] 
+#mˌãn̪sˈyːrə# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#mˌãːsˈyːrə# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#mˌãːsˈyːrə̯# | Rule 696 : ə > ə̯ / __ #
+#mˌɑ̃ːsˈyːrə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#mˌɑ̃ːsˈyːr# | Rule 723 : ə̯ > ∅ 
+#mˌɑ̃ːsˈyːʀ# | Rule 739 : r > ʀ 
+#mɑ̃ːsyːʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɑ̃syʀ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#mɑ̃syʁ# | Rule 747 : ʀ > ʁ 

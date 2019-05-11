@@ -1,22 +1,21 @@
 Trajectory file for run 'run1'; etymon number :696:
-#mˌin̪ˈɑːkiɑ# >>> #man̪a# ( Correct : #mən̪as#) :
+#mˌin̪ˈɑːkiɑ# >>> #mən̪as# ( Correct : #mən̪as#) :
 m ˌi n̪ ˈɑː k i ɑ 
-#mˌɪn̪ˈɑːkɪɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɪn̪ˈɑːkɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˌɪn̪ˈɑːkjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #mˌɪn̪ˈɑːkʝɑ# | Rule 27 : j > ʝ / __ [+syl]
-#mˌɪn̪ˈɑkʝɑ# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#mˌen̪ˈɑkʝɑ# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˌen̪ˈɑccɑ# | Rule 63 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
-#mˌɑn̪ˈɑccɑ# | Rule 77 : {ˌe;ˌɛ} > {ˌɑ;ˌɑ} / __ ( [-syl] )* [+lo,+prim]
-#mˌɑn̪ˈɑt̪t͡sʲɑ# | Rule 125 : c c > t̪ t͡sʲ 
-#mˌan̪ˈat̪t͡sʲa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#mˌan̪ˈat̪t͡sʲɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#mˌan̪ˈat̪t͡sʲə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#mˌan̪ˈat̪t͡sʲ# | Rule 281 : ə > ∅ 
-#mˌan̪ˈat͡sʲ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˌan̪ˈat͡s# | Rule 340 : t͡sʲ > t͡s 
-#mˌãn̪ˈat͡s# | Rule 347 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˌãn̪ˈas# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#mˌãn̪ˈa# | Rule 527 : [-son] > ∅ / __ #
-#mˌan̪ˈa# | Rule 533 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#man̪a# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˌɪn̪ˈɑkʝɑ# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#mˌen̪ˈɑkʝɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌen̪ˈɑccɑ# | Rule 74 : k [+hi,+front,-syl] > c c/ [+syl] __ [+syl]
+#mˌen̪ˈɑt̪t͡sʲɑ# | Rule 178 : c c > t̪ t͡sʲ 
+#mˌen̪ˈat̪t͡sʲa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#mˌen̪ˈat̪t͡sʲə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#mˌen̪ˈat͡sʲə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˌən̪ˈat͡sʲə# | Rule 500 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
+#mˌən̪ˈat͡sə# | Rule 534 : t͡sʲ > t͡s / [-nas] __ 
+#mˌə̃n̪ˈat͡sə# | Rule 615 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#mˌə̃n̪ˈasə# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#mˌən̪ˈasə# | Rule 641 : {ə̃;ˌə̃} > {ə;ˌə} 
+#mˌən̪ˈasə̯# | Rule 696 : ə > ə̯ / __ #
+#mˌən̪ˈas# | Rule 723 : ə̯ > ∅ 
+#mən̪as# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

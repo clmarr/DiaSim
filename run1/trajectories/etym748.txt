@@ -1,10 +1,13 @@
 Trajectory file for run 'run1'; etymon number :748:
-#n̪ˈek# >>> #n̪ie̯# ( Correct : #n̪i#) :
+#n̪ˈek# >>> #n̪i# ( Correct : #n̪i#) :
 n̪ ˈe k 
-#n̪ˈɛk# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈɛːk# | Rule 82 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#n̪ˈie̯k# | Rule 115 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#n̪ˈiːe̯k# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#n̪ˈiːe̯# | Rule 527 : [-son] > ∅ / __ #
-#n̪iːe̯# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#n̪ie̯# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#n̪ˈɛk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈɛːk# | Rule 112 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#n̪ˈie̯k# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#n̪ˈie̯x# | Rule 432 : [-cont,-delrel] > [+cont,0delrel] / [-cons] __ #
+#n̪ˈie̯ç# | Rule 450 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#n̪ˈie̯ʝ# | Rule 452 : ç > ʝ 
+#n̪ˈie̯j# | Rule 458 : ʝ > j / [-cons] __ 
+#n̪ˈij# | Rule 545 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#n̪ˈi# | Rule 546 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#n̪i# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,12 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1225:
-#t̪ˈort̪um# >>> #t̪ɔr̥# ( Correct : #t̪ɔʁ#) :
-t̪ ˈo r t̪ u m 
-#t̪ˈɔrt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɔr̥t̪ʊm# | Rule 36 : [+ant,+cons] > [-voi] / __ t̪
-#t̪ˈɔr̥t̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɔr̥t̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈɔr̥t̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#t̪ˈɔr̥t̪ə̯# | Rule 196 : ə > ə̯ 
-#t̪ˈɔr̥t̪# | Rule 208 : ə̯ > ∅ 
-#t̪ˈɔr̥# | Rule 527 : [-son] > ∅ / __ #
-#t̪ɔr̥# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ˌorn̪ɑːt̪ˈuːrɑm# >>> #t̪uʁn̪yʁ# ( Correct : #t̪uʁn̪yʁ#) :
+t̪ ˌo r n̪ ɑː t̪ ˈuː r ɑ m 
+#t̪ˌɔrn̪ɑːt̪ˈuːrɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɔrn̪ɑːt̪ˈurɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#t̪ˌɔrn̪ɑt̪ˈurɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#t̪ˌɔrn̪ɑt̪ˈurɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˌɔrn̪ɑt̪ˈuːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌɔrn̪at̪ˈuːra# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪ˌɔrn̪at̪ˈʉːra# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#t̪ˌɔrn̪ad̪ˈʉːra# | Rule 352 : [-voi] > [+voi] / [-cons] __ [-cons]
+#t̪ˌɔrn̪aðˈʉːra# | Rule 378 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#t̪ˌorn̪aðˈʉːra# | Rule 423 : ˌɔ > ˌo 
+#t̪ˌorn̪əðˈʉːrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˌorn̪əðˈyːrə# | Rule 495 : [+hi,+round,-back] > [+front] 
+#t̪ˌurn̪əðˈyːrə# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#t̪ˌurn̪əˈyːrə# | Rule 596 : {θ;ð} > {∅;∅} 
+#t̪ˌurn̪ˈyːrə# | Rule 682 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
+#t̪ˌurn̪ˈyːrə̯# | Rule 696 : ə > ə̯ / __ #
+#t̪ˌuɹn̪ˈyːrə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#t̪ˌuɹn̪ˈyːr# | Rule 723 : ə̯ > ∅ 
+#t̪ˌurn̪ˈyːr# | Rule 737 : ɹ > r 
+#t̪ˌuʀn̪ˈyːʀ# | Rule 739 : r > ʀ 
+#t̪uʀn̪yːʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪uʀn̪yʀ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#t̪uʁn̪yʁ# | Rule 747 : ʀ > ʁ 

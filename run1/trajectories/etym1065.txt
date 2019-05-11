@@ -1,19 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1065:
-#sˈɑpiɑm# >>> #sa# ( Correct : #saʃ#) :
+#sˈɑpiɑm# >>> #saʃ# ( Correct : #saʃ#) :
 s ˈɑ p i ɑ m 
-#sˈɑpɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɑpɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #sˈɑpjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #sˈɑpʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#sˈɑpʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈapʝa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#sˈapɟa# | Rule 189 : {j;ʝ} > {ɟ;ɟ} / [+cons] __ [+syl]
-#sˈapca# | Rule 190 : ɟ > c / [-voi] __ 
-#sˈapt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#sˈat̪t͡ʃa# | Rule 215 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#sˈat̪t͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#sˈat̪t͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#sˈat̪t͡ʃ# | Rule 281 : ə > ∅ 
-#sˈat͡ʃ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#sˈaʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#sˈa# | Rule 527 : [-son] > ∅ / __ #
-#sa# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sˈɑpʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#sˈapʝa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#sˈapɟa# | Rule 251 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
+#sˈapca# | Rule 252 : ɟ > c / [-voi] __ 
+#sˈapt͡ʃa# | Rule 253 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#sˈat̪t͡ʃa# | Rule 332 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#sˈat̪t͡ʃə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈat͡ʃə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#sˈaʃə# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#sˈaʃə̯# | Rule 696 : ə > ə̯ / __ #
+#sˈaʃ# | Rule 723 : ə̯ > ∅ 
+#saʃ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

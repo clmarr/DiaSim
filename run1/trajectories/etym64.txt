@@ -1,26 +1,24 @@
 Trajectory file for run 'run1'; etymon number :64:
-#ˈɑːreɑm# >>> #iwjʁ# ( Correct : #ɛʁ#) :
+#ˈɑːreɑm# >>> #ɛʁ# ( Correct : #ɛʁ#) :
 ˈɑː r e ɑ m 
-#ˈɑːrɛɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑːrɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɑːrjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #ˈɑːrʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#ˈɑrʝɑm# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#ˈɑrʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈɑrʲɑ# | Rule 120 : r ʝ > rʲ 
-#ˈarʲa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#ˈaːrʲa# | Rule 153 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#ˈɛːrʲa# | Rule 177 : ˈaː > ˈɛː 
-#ˈie̯rʲa# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈiːe̯rʲa# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#ˈiːe̯rʲɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#ˈiːe̯jrɛ# | Rule 251 : {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ;n̪ʲ} > {j t̪;j d̪;j s;j z;j r;j n̪} 
-#ˈiːe̯jrə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#ˈiːe̯jr# | Rule 281 : ə > ∅ 
-#ˈiːo̯jr# | Rule 360 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
-#ˈiːwjr# | Rule 368 : [+round,+tense,+back] > [+hi] 
-#ˈiːwjɹ# | Rule 521 : r > ɹ / [-cons] __ #
-#ˈiːwjr# | Rule 538 : ɹ > r 
-#ˈiːwjʀ# | Rule 540 : r > ʀ 
-#iːwjʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#iwjʀ# | Rule 542 : [+syl,+long] > [-long,-splng] 
-#iwjʁ# | Rule 548 : ʀ > ʁ 
+#ˈɑrʝɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#ˈɑrʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˈɑrʲɑ# | Rule 173 : r ʝ > rʲ 
+#ˈarʲa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈaːrʲa# | Rule 220 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#ˈaːjrʲa# | Rule 350 : ∅ > j / [-cons] __ rʲ
+#ˈaːjra# | Rule 385 : rʲ > r 
+#ˈae̯jra# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈajra# | Rule 412 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#ˈajrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈɛjrə# | Rule 608 : [+lo,+syl] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ˈɛːrə# | Rule 628 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˈɛːrə̯# | Rule 696 : ə > ə̯ / __ #
+#ˈɛːr# | Rule 723 : ə̯ > ∅ 
+#ˈɛːʀ# | Rule 739 : r > ʀ 
+#ɛːʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɛʀ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#ɛʁ# | Rule 747 : ʀ > ʁ 

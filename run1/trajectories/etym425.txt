@@ -1,23 +1,25 @@
 Trajectory file for run 'run1'; etymon number :425:
-#kˈɑrpin̪um# >>> #ʃaʁn̪# ( Correct : #ʃaʁm#) :
+#kˈɑrpin̪um# >>> #ʃaʁm# ( Correct : #ʃaʁm#) :
 k ˈɑ r p i n̪ u m 
-#kˈɑrpɪn̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈɑrpen̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈɑrpen̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#kˈarpen̪o# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#kʲˈarpen̪o# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#cˈarpen̪o# | Rule 182 : [+back,+front] > [-back] 
-#t͡ʃˈarpen̪o# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t͡ʃˈarpən̪o# | Rule 192 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#t͡ʃˈarpən̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#t͡ʃˈarpə̯n̪ə̯# | Rule 196 : ə > ə̯ 
-#t͡ʃˈarpə̯n̪ə# | Rule 207 : ə̯ > ə / ə̯ ( [-syl] )* __ #
-#t͡ʃˈarpn̪ə# | Rule 208 : ə̯ > ∅ 
-#t͡ʃˈarpn̪# | Rule 281 : ə > ∅ 
-#t͡ʃˈarn̪# | Rule 315 : [+cons] > ∅ / [+cons] __ [+nas,+cons]
-#ʃˈarn̪# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#ʃˈaɹn̪# | Rule 522 : r > ɹ / [-cons] __ [+cons]
-#ʃˈarn̪# | Rule 538 : ɹ > r 
-#ʃˈaʀn̪# | Rule 540 : r > ʀ 
-#ʃaʀn̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃaʁn̪# | Rule 548 : ʀ > ʁ 
+#kˈɑrpɪn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɑrpen̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˈɑrpen̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#kˈɑrpn̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
+#kˈɑrpmo# | Rule 96 : n̪ > m / p __ 
+#kˈɑrmo# | Rule 100 : [-cont] > ∅ / [+cons] __ [+nas,+cons]
+#kˈarmo# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#kʲˈarmo# | Rule 231 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈarmo# | Rule 244 : [+back,+front] > [-back] 
+#t͡ʃˈarmo# | Rule 253 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
+#t͡ʃˈarmə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#t͡ʃˈarmə̯# | Rule 267 : ə > ə̯ 
+#t͡ʃˈarm# | Rule 301 : ə̯ > ∅ 
+#t͡ʃˈarmə# | Rule 316 : ∅ > ə / [+cons,-nas] [+nas] __ #
+#ʃˈarmə# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#ʃˈarmə̯# | Rule 696 : ə > ə̯ / __ #
+#ʃˈaɹmə̯# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹm# | Rule 723 : ə̯ > ∅ 
+#ʃˈarm# | Rule 737 : ɹ > r 
+#ʃˈaʀm# | Rule 739 : r > ʀ 
+#ʃaʀm# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃaʁm# | Rule 747 : ʀ > ʁ 

@@ -1,23 +1,14 @@
 Trajectory file for run 'run1'; etymon number :1214:
-#t̪ˈin̪kɑm# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃ʃ#) :
-t̪ ˈi n̪ k ɑ m 
-#t̪ˈiŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#t̪ˈɪŋkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈeŋkɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈeŋkɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈeŋka# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#t̪ˈeŋkʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#t̪ˈeŋca# | Rule 182 : [+back,+front] > [-back] 
-#t̪ˈeŋt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#t̪ˈeŋt͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#t̪ˈeŋt͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#t̪ˈeŋt͡ʃ# | Rule 281 : ə > ∅ 
-#t̪ˈẽŋt͡ʃ# | Rule 349 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ˈɛ̃ŋt͡ʃ# | Rule 376 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈãŋt͡ʃ# | Rule 383 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#t̪ˈãŋʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#t̪ˈãːʃ# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈɑ̃ːʃ# | Rule 510 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˈɑ̃ː# | Rule 527 : [-son] > ∅ / __ #
-#t̪ɑ̃ː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɑ̃# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#t̪ˈest̪um# >>> #t̪ɛ# ( Correct : #t̪ɛ#) :
+t̪ ˈe s t̪ u m 
+#t̪ˈɛst̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈɛst̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈɛst̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˈɛst̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˈɛst̪ə̯# | Rule 267 : ə > ə̯ 
+#t̪ˈɛst̪# | Rule 301 : ə̯ > ∅ 
+#t̪ˈɛxt̪# | Rule 583 : s > x / [-cons] __ [+cons]
+#t̪ˈɛːt̪# | Rule 645 : [+syl] x > [+long] ∅/ __ [+cons]
+#t̪ˈɛː# | Rule 721 : [-son] > ∅ / __ #
+#t̪ɛː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɛ# | Rule 741 : [+syl,+long] > [-long,-splng] 

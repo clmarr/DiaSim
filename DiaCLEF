@@ -32,7 +32,7 @@ $Pope p226-7 s632
 $ Greek y unrounded to i 
 [+hi,+front] > [-round,-lab]
 
-$~Late Latin
+$ beginning of Late Latin shifts here... 
 $As per Popeˌs paradigm, it is considered Late Latin if it occurred before the end of the firth century 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
@@ -62,7 +62,7 @@ $Classical Latin length distinction becomes a quality ("tense" for us) distincti
 $p73 s155i ~ p91 s185 -- h-loss word-internally Pope explains that this happened word-internally first "very early", word initially later 
 h > ∅ / @ __
 
-$p145 s361- i-epenthesis -- happens in Western Romance very early, attested second century
+$p145 s361- i-prosthesis -- happens in Western Romance very early, attested second century
 ∅ > ˌɪ / # __ s [+cons] 
 
 $ CORRECTION: u(ː) becomes sonus medius before [+back,-syl] [+lo,+prim]
@@ -302,6 +302,8 @@ $ CORRECTION: between w and ʝ, ɟ is lost (cases of Savoie < sapaudia and joie 
 $ this bleeds the following rule. 
 ɟ > ∅ / w __ ʝ
 
+~Late Latin
+
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
 
@@ -484,9 +486,13 @@ $ CORRECTION: ɸ, ɸʷ deleted if in between consonants.
 
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
 $ CORRECTION: occurs in all -ika- instances including inside the word (i.e. praedicatorem >precheur)
-$ CORRECTION: occurs only after voicing if the e is preceded by two voiced consonants
-e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo,+syl]
+$ CORRECTION: occurs only after voicing if the e is preceded by nasal+voiced stop, or by r
+e k > ɡ / r __ [+lo,+syl]
+e k > ɡ / [+nas] [-cont,+voi] __ [+lo,+syl]
 e > ∅ / __ k [+lo,+syl]
+
+$ Arteaga Mazzola version of this: voicing is the regular phenomenon (but later cluster assimilation plus non-phonetic influence of the "Frankish" voiceless palatal final change this for many words)
+$ e k > ɡ / [+cons,-round] __ [+lo,+syl]
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -1834,9 +1840,6 @@ $ per s226 : effects ei whether tonic, intertonic or countertonic, but only toni
 ˈo > ˈe / __ w 
 [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
 
-$ TODO : return here and use notes -- seems to be evidence of regular patterning here,
- 	$but it does seem challenged by Pope's philological evidence :(
-
 $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 ˌo > ˌe / d͡ʒ __ w
 
@@ -1946,6 +1949,8 @@ $s407ii : same for y countertonic or tonic -- TODO may need to handle length.
 $ CORRECTION: tonic iej and iej̃ move to (long) iː after a palatal
 ˈi e̯ [-cons,-syl,+hi,-round] > ˈiː / [+cons,+hi,+front] __ 
 
+~Old French I
+
 $s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
 
@@ -2013,14 +2018,14 @@ lʲ > ∅
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
 $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -- a case of secondary stressed ɛ for this)
 ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-[-hi,-lo,+syl,-tense] >[-long] / __ a̯ w
+[-hi,-lo,+syl,-tense] > [-long] / __ a̯ w
 
 $s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)
 $ note this can only come from primarily stressed a (>ˈeː) 
 $ no effect for this as of right now so suppressed -- I believe it is for certain cases where word final l vocalized, and things ending in former aːlVs
 	$ likely that in case of pa:lo:s the a stayed long even after the o was deleted for some reason -- but unclear why this would be
-		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index for some reason
-$ˈeː > ˈe e̯ / __ w
+		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index
+ˈeː > ˈe e̯ / __ w
 
 $ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
 $ CORRECTION: moved back from a bit later, formerly was right after 528-9
@@ -2028,7 +2033,7 @@ $ CORRECTION: moved back from a bit later, formerly was right after 528-9
 
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
 $ CORRECTION: no targets, suppressed (only fed by s388~s544 from earlier e:>e schwa / __ w?)
-$ ˈe > ˈi / __ e̯ w
+ˈe > ˈi / __ e̯ w
 
 $ CORRECTION: s172a (th-effacement) moved much later so that it can condition some coming phenomena 
 
@@ -2165,9 +2170,6 @@ $ CORRECTION: before ð is effaced, countertonic ˌu to ˌə if followed by a to
 
 $ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
-	$TODO Add also later effects on adjacent vowels? -- TODO  what was this referring to? Did I cover this already ?
-			$ TODO I think this may be referring to my suspicions about hte relation between the former presence of θ and ð 
-				$ and words that ended up as ai rather than oi from ei (this could also be conditioned much later though, it is unclear.) 
 	$ CORRECTION: moved to during changes to countertonic e, because it appears that some of these are being driven by ð, 
 $ CORRECTION: moved to late twelth century because of data Pope missed. There are attestations of the beginning of a oj > aj 
 	$ that seems clearly conditioned on a following ð (cle:tam,cre:tam,tonitrum,vitrum,mone:tam; exceptions are lampre:dam and se:tam) 
@@ -2306,7 +2308,7 @@ $handling of unstressed ə̃ as per s434
 
 $ as per s669-670 : wɛ nasalized takes form of wĩ for now. 
 $ Exact order unknown but this seems most in line with what Pope has said elsewhere
-$ currently unnecesssary -- suppressed
+$ CORRECTION: currently unnecesssary -- suppressed
 $ [+front,-tense,+nas] > [+hi,+tense] / w __ 
 
 $ Pope s528-529 : ɛj > ɛː praeconsonantally. 
@@ -2356,6 +2358,8 @@ j > ∅ / [-hi,+syl] __ #
 $ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas] / __ [+nas,+cons]
+
+~Old French II
 
 $handling of unstressed ə̃ as per s434 -- recurse
 	$ but no ə̃nt anymore as it was absorbed as per s437
@@ -2417,7 +2421,7 @@ $ s496 : ɛ > a / __ r in 15th and 16th centuries (later reversed for many words
 $ reported by Villon (15th) and Henri Estienne (16th) 
 $ CORRECTION: abrogated. This shift did occur but for all but two words in the set it was reversed. 
 	$ A regular and non-reversed analogous shift did occur in Early Old French however. 
-${ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
+$ {ɛ;ˌɛ;ˈɛ} > {a;ˌa;ˈa} / __ r
 
 $ s534-538 ~ s560 : aw > o: -- originally said to be 15th-16th centuries
 $ long as per s560
@@ -2577,6 +2581,8 @@ $s562 : currently penultimate tonic vowels get stressed when final vowel is ə a
 $ s562 attestation : Beze (17th), Peletier (later 16th), Vaugelas (early 17th) 
 [+prim] > [+long] / __ (j) ə #
 
+~Middle French
+
 $ s570 i : a lengthens before ʎ in final ending aʎə
 $ accepted by Beze -- 17th century
 [+lo,+syl] > [+long] / __ ʎ ə #
@@ -2618,7 +2624,7 @@ $ s366 only says "before the end of Middle French"
 $ CORRECTION: moved much earlier -- contradicts Pope's philological evidence but works much better result wise. 
 $ [+syl] > [+long] / __ r r 
 $ r r > r / __ {ə;ə̯}
-$  r r > r / ə __ 
+$ r r > r / ə __ 
 
 $173.1c ~ s586 : long a becomes back ɑ (still long) -- 
 $ s586 -- still was palatal in 16th century as per Ronsard and interchange of e/ɛ and a before r 

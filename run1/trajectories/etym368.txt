@@ -1,24 +1,20 @@
 Trajectory file for run 'run1'; etymon number :368:
-#ˈin̪sulɑ# >>> #iw# ( Correct : #il#) :
+#ˈin̪sulɑ# >>> #il# ( Correct : #il#) :
 ˈi n̪ s u l ɑ 
-#ˈin̪suɫɑ# | Rule 4 : l > ɫ / @ __ 
-#ˈiːn̪suɫɑ# | Rule 10 : [+syl] > [+long] / __ n̪ s
-#ˈiːsuɫɑ# | Rule 11 : n̪ > ∅ / __ s
-#ˈiːsʊɫɑ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈisʊɫɑ# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#ˈisoɫɑ# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈiːsoɫɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈiːzoɫɑ# | Rule 98 : [+cont,-son] > [+voi] / [-cons] __ [-cons]
-#ˈiːzoɫa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#ˈiːzəɫa# | Rule 192 : [+syl,-stres] > ə / __ ( [-syl] )* [+syl] ( [-syl] )* #
-#ˈiːzə̯ɫa# | Rule 196 : ə > ə̯ 
-#ˈiːzɫa# | Rule 208 : ə̯ > ∅ 
-#ˈizɫa# | Rule 225 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
-#ˈizɫə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈiːzɫə# | Rule 350 : [+syl] > [+long] / __ z [+cons]
-#ˈiːɫə# | Rule 351 : z > ∅ / __ [+cons]
-#ˈiːwə# | Rule 388 : [+lat,+back] > w 
-#ˈiːwə̯# | Rule 499 : ə > ə̯ / __ #
-#ˈiːw# | Rule 528 : ə̯ > ∅ 
-#iːw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#iw# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#ˈiːn̪sulɑ# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
+#ˈiːsulɑ# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#ˈiːsʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈisʊlɑ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#ˈisolɑ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈiːsolɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈiːzolɑ# | Rule 136 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˈiːzola# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈiːzəla# | Rule 260 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ˈiːzə̯la# | Rule 267 : ə > ə̯ 
+#ˈiːzla# | Rule 301 : ə̯ > ∅ 
+#ˈiːzlə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈiːlə# | Rule 522 : z > ∅ / __ [+cons]
+#ˈiːlə̯# | Rule 696 : ə > ə̯ / __ #
+#ˈiːl# | Rule 723 : ə̯ > ∅ 
+#iːl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#il# | Rule 741 : [+syl,+long] > [-long,-splng] 

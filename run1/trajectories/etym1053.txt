@@ -1,24 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1053:
-#sˈɑlwiɑm# >>> #saj# ( Correct : #soʒ#) :
+#sˈɑlwiɑm# >>> #sɑj# ( Correct : #soʒ#) :
 s ˈɑ l w i ɑ m 
-#sˈɑɫwiɑm# | Rule 4 : l > ɫ / @ __ 
-#sˈɑɫɣʷiɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#sˈɑɫɣʷɪɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˈɑɫɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#sˈɑɫɣʷʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#sˈɑɫʝɑm# | Rule 28 : {ɣʷ;w} > {∅;∅} / __ ʝ
-#sˈɑɫʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#sˈɑʎʝɑ# | Rule 118 : [+lat] > ʎ / __ [+cons,+hi,+front]
-#sˈɑʎɑ# | Rule 119 : [-lat,-nas,-syl,+hi,+front] > ∅ / [+hi,+front,+son,+cons] __ 
-#sˈaʎa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#sˈaːʎa# | Rule 153 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
-#sˈaʎa# | Rule 156 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#sˈaːʎa# | Rule 229 : [+prim] > [+long] / __ [+cons] [+syl]
-#sˈaʎa# | Rule 232 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#sˈaʎɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#sˈaːʎɛ# | Rule 259 : [+prim] > [+long] / __ [+cons] [+syl]
-#sˈaʎɛ# | Rule 262 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#sˈaʎə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#sˈaʎ# | Rule 281 : ə > ∅ 
-#saʎ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#saj# | Rule 549 : ʎ > j 
+#sˈɑlɣʷiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#sˈɑlɣʷɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɑlɣʷjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#sˈɑlɣʷʝɑm# | Rule 27 : j > ʝ / __ [+syl]
+#sˈɑlʝɑm# | Rule 29 : {ɣʷ;w} > {∅;∅} / __ ʝ
+#sˈɑlʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#sˈɑʎɑ# | Rule 90 : l ʝ > ʎ 
+#sˈɑːʎɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈaːʎa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#sˈaʎa# | Rule 224 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#sˈaːʎa# | Rule 360 : [+prim] > [+long] / __ [+cons] [+syl]
+#sˈaʎa# | Rule 364 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#sˈaːʎa# | Rule 397 : [+prim] > [+long] / __ [+cons] [+syl]
+#sˈaʎa# | Rule 401 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#sˈaʎə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#sˈaːʎə# | Rule 694 : [+lo,+syl] > [+long] / __ ʎ ə #
+#sˈaːʎə̯# | Rule 696 : ə > ə̯ / __ #
+#sˈɑːʎə̯# | Rule 703 : [+lo,+long,+syl] > [+back,-front] 
+#sˈɑːʎ# | Rule 723 : ə̯ > ∅ 
+#sɑːʎ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɑʎ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#sɑj# | Rule 748 : ʎ > j 

@@ -1,23 +1,19 @@
 Trajectory file for run 'run1'; etymon number :745:
-#n̪ˈɑwikɑm# >>> #n̪a# ( Correct : #n̪u#) :
+#n̪ˈɑwikɑm# >>> #n̪u# ( Correct : #n̪u#) :
 n̪ ˈɑ w i k ɑ m 
-#n̪ˈɑɣʷikɑm# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#n̪ˈɑɣʷɪkɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈɑβɪkɑm# | Rule 40 : ɣʷ > β 
-#n̪ˈɑβekɑm# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈɑβekɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#n̪ˈɑːβekɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˈɑːβkɑ# | Rule 95 : e > ∅ / __ k [+lo,+syl] ( [+cons] ) #
-#n̪ˈɑβkɑ# | Rule 107 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
-#n̪ˈaβka# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#n̪ˈaβkʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#n̪ˈaβca# | Rule 182 : [+back,+front] > [-back] 
-#n̪ˈaβt͡ʃa# | Rule 191 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son] 
-#n̪ˈat̪t͡ʃa# | Rule 215 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#n̪ˈat̪t͡ʃɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#n̪ˈat̪t͡ʃə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#n̪ˈat̪t͡ʃ# | Rule 281 : ə > ∅ 
-#n̪ˈat͡ʃ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#n̪ˈaʃ# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#n̪ˈa# | Rule 527 : [-son] > ∅ / __ #
-#n̪a# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ˈɑɣʷikɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#n̪ˈɑɣʷɪkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈɑɣʷkɑm# | Rule 45 : ɪ > ∅ / ɣʷ __ k
+#n̪ˈɑwkɑm# | Rule 46 : ɣʷ > w / __ [+cons]
+#n̪ˈɑwkɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#n̪ˈɑwɡɑ# | Rule 132 : k > ɡ / [-cons] __ [+syl]
+#n̪ˈɑwɣɑ# | Rule 134 : ɡ > ɣ / [-cons] __ [-cons]
+#n̪ˈɑwɑ# | Rule 181 : ɣ > ∅ / [+round,-cons] __ [+lo,+syl]
+#n̪ˈawa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#n̪ˈɔwa# | Rule 235 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#n̪ˈɔwə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˈuə# | Rule 613 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#n̪ˈuːə# | Rule 683 : [+stres] > [+long] / __ ə
+#n̪ˈuː# | Rule 684 : ə > ∅ / [+syl] __ 
+#n̪uː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪u# | Rule 741 : [+syl,+long] > [-long,-splng] 

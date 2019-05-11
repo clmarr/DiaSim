@@ -1,23 +1,20 @@
 Trajectory file for run 'run1'; etymon number :961:
 #prˈoːd̪e# >>> #pʁø# ( Correct : #pʁu#) :
 p r ˈoː d̪ e 
-#prˈoːd̪ɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#prˈod̪ɛ# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#prˈoðɛ# | Rule 73 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
-#prˈoːðɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#prˈoːðə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#prˈoːðə̯# | Rule 196 : ə > ə̯ 
-#prˈoːð# | Rule 208 : ə̯ > ∅ 
-#prˈoð# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] #
-#prˈoːð# | Rule 231 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#prˈoð# | Rule 253 : [+syl] > [-long,-splng] / __ [+cons] #
-#prˈoːð# | Rule 261 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#prˈowð# | Rule 265 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#prˈowθ# | Rule 290 : [-son] > [-voi] / __ #
-#prˈewθ# | Rule 359 : [+round,+back,+tense,-hi,+stres] > [-back,+front,-round,-lab] / __ w
-#prˈew# | Rule 395 : {θ;ð} > {∅;∅} 
-#prˈøw# | Rule 402 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#prˈø# | Rule 409 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#pʀˈø# | Rule 540 : r > ʀ 
-#pʀø# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pʁø# | Rule 548 : ʀ > ʁ 
+#prˈoːd̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#prˈod̪ɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#prˈoðɛ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
+#prˈoːðɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#prˈoːðə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#prˈoːðə̯# | Rule 267 : ə > ə̯ 
+#prˈoːð# | Rule 301 : ə̯ > ∅ 
+#prˈowð# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#prˈowθ# | Rule 438 : [-son] > [-voi] / __ #
+#prˈewθ# | Rule 530 : ˈo > ˈe / __ w
+#prˈew# | Rule 596 : {θ;ð} > {∅;∅} 
+#prˈøw# | Rule 600 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#prˈøː# | Rule 610 : [+round,+front,-hi,+syl] w > [+long] ∅
+#pʀˈøː# | Rule 739 : r > ʀ 
+#pʀøː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pʀø# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#pʁø# | Rule 747 : ʀ > ʁ 

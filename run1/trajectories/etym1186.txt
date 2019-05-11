@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1186:
-#t̪ˈɑrd̪ɑm# >>> #t̪aʁd̪# ( Correct : #t̪aʁd̪#) :
-t̪ ˈɑ r d̪ ɑ m 
-#t̪ˈɑrd̪ɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#t̪ˈard̪a# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#t̪ˈard̪ə# | Rule 286 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈard̪ə̯# | Rule 499 : ə > ə̯ / __ #
-#t̪ˈaɹd̪ə̯# | Rule 522 : r > ɹ / [-cons] __ [+cons]
-#t̪ˈaɹd̪# | Rule 528 : ə̯ > ∅ 
-#t̪ˈard̪# | Rule 538 : ɹ > r 
-#t̪ˈaʀd̪# | Rule 540 : r > ʀ 
-#t̪aʀd̪# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪aʁd̪# | Rule 548 : ʀ > ʁ 
+#t̪ˌɑmˈesium# >>> #t̪ami# ( Correct : #t̪ami#) :
+t̪ ˌɑ m ˈe s i u m 
+#t̪ˌɑmˈɛsɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɑmˈɛsjʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#t̪ˌɑmˈɛsʝʊm# | Rule 27 : j > ʝ / __ [+syl]
+#t̪ˌɑmˈɛsʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɑmˈɛsʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#t̪ˌɑmˈɛzʝo# | Rule 137 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#t̪ˌɑmˈɛzʲo# | Rule 174 : z ʝ > zʲ 
+#t̪ˌamˈɛzʲo# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#t̪ˌamˈɛːzʲo# | Rule 220 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#t̪ˌamˈie̯zʲo# | Rule 227 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t̪ˌamˈie̯zʲə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌamˈie̯zʲə̯# | Rule 267 : ə > ə̯ 
+#t̪ˌamˈie̯zʲ# | Rule 301 : ə̯ > ∅ 
+#t̪ˌamˈie̯jz# | Rule 387 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#t̪ˌamˈie̯js# | Rule 438 : [-son] > [-voi] / __ #
+#t̪ˌãmˈie̯js# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ˌãmˈijs# | Rule 545 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#t̪ˌãmˈis# | Rule 546 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#t̪ˌãmˈi# | Rule 721 : [-son] > ∅ / __ #
+#t̪ˌamˈi# | Rule 730 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#t̪ami# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

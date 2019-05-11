@@ -1,27 +1,19 @@
 Trajectory file for run 'run1'; etymon number :899:
-#plˈɑːɡɑm# >>> #pwawj# ( Correct : #plɛ#) :
+#plˈɑːɡɑm# >>> #plɛ# ( Correct : #plɛ#) :
 p l ˈɑː ɡ ɑ m 
-#pɫˈɑːɡɑm# | Rule 4 : l > ɫ / @ __ 
-#pɫˈɑɡɑm# | Rule 45 : [+syl,+long] > [-long,-splng] 
-#pɫˈɑɡɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pɫˈɑɣɑ# | Rule 73 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
-#pɫˈɑːɣɑ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#pɫˈaːɣa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#pɫˈaːɣʲa# | Rule 161 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#pɫˈɛːɣʲa# | Rule 177 : ˈaː > ˈɛː 
-#pɫˈie̯ɣʲa# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#pɫˈie̯ʝa# | Rule 182 : [+back,+front] > [-back] 
-#pɫˈiːe̯ʝa# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#pɫˈiːe̯ʝɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#pɫˈiːe̯ʝə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#pɫˈiːe̯ʝ# | Rule 281 : ə > ∅ 
-#pɫˈiːe̯ç# | Rule 290 : [-son] > [-voi] / __ #
-#pɫˈiːe̯ʝ# | Rule 305 : ç > ʝ 
-#pɫˈiːe̯j# | Rule 306 : ʝ > j / [-cons] __ 
-#pɫˈiːo̯j# | Rule 360 : [+front,+tense,-hi,-lo] > [+back,-front,+round,+lab] / __ j
-#pɫˈiːwj# | Rule 368 : [+round,+tense,+back] > [+hi] 
-#pwˈiːwj# | Rule 388 : [+lat,+back] > w 
-#pwˈɛːwj# | Rule 463 : [+front,-round,+syl,-lo] > [-hi,-tense,-cons,-lat,+cont,0delrel] / w __ 
-#pwɛːwj# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pwɛwj# | Rule 542 : [+syl,+long] > [-long,-splng] 
-#pwawj# | Rule 546 : ɛ > a / w __ 
+#plˈɑɡɑm# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#plˈɑɡɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#plˈɑɣɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
+#plˈɑːɣɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːɣa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#plˈaːɣʲa# | Rule 231 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#plˈaːʝa# | Rule 244 : [+back,+front] > [-back] 
+#plˈaːja# | Rule 382 : ʝ > j 
+#plˈae̯ja# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈaja# | Rule 412 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#plˈajə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈaːjə# | Rule 693 : [+prim] > [+long] / __ ( j ) ə #
+#plˈaːj# | Rule 695 : ə > ∅ / [+prim] ( j ) __ 
+#plˈɛː# | Rule 697 : ˈaː j > ˈɛː / __ #
+#plɛː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɛ# | Rule 741 : [+syl,+long] > [-long,-splng] 

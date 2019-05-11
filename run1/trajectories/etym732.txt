@@ -1,22 +1,20 @@
 Trajectory file for run 'run1'; etymon number :732:
-#mˈuskulum# >>> #mu# ( Correct : #mul#) :
+#mˈuskulum# >>> #mul# ( Correct : #mul#) :
 m ˈu s k u l u m 
-#mˈuskuɫum# | Rule 4 : l > ɫ / @ __ 
-#mˈʊskʊɫʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈʊskɫʊm# | Rule 31 : ʊ > ∅ / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
-#mˈoskɫom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˈoskɫo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈosxɫo# | Rule 84 : [+hi,+back,-cont] > [+cont,0delrel] / __ [+cor,+cons]
-#mˈosçɫo# | Rule 141 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#mˈosçʎo# | Rule 145 : [+lat] > ʎ / [+hi,+front,+cons] __ 
-#mˈosʎo# | Rule 180 : [+hi,+front,-syl,-lat] > ∅ / __ ʎ
-#mˈosʎə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈosʎə̯# | Rule 196 : ə > ə̯ 
-#mˈosʎ# | Rule 208 : ə̯ > ∅ 
-#mˈozʎ# | Rule 318 : s > z / __ [+voi,+cons]
-#mˈoːzʎ# | Rule 350 : [+syl] > [+long] / __ z [+cons]
-#mˈoːʎ# | Rule 351 : z > ∅ / __ [+cons]
-#mˈuːʎ# | Rule 368 : [+round,+tense,+back] > [+hi] 
-#mˈuː# | Rule 469 : [+lat] > ∅ / [+hi,+syl] __ #
-#muː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mu# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#mˈʊskʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈʊsklʊm# | Rule 32 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈosklom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈosklo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈoslo# | Rule 101 : {s k;r ɡ} > {s;r} / __ l
+#mˈoslə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#mˈoslə̯# | Rule 267 : ə > ə̯ 
+#mˈosl# | Rule 301 : ə̯ > ∅ 
+#mˈoslə# | Rule 315 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈozlə# | Rule 470 : s > z / __ [+voi,+cons]
+#mˈoːzlə# | Rule 519 : [+prim] > [+long] / @ __ z [+cons]
+#mˈoːlə# | Rule 522 : z > ∅ / __ [+cons]
+#mˈuːlə# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#mˈuːlə̯# | Rule 696 : ə > ə̯ / __ #
+#mˈuːl# | Rule 723 : ə̯ > ∅ 
+#muːl# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mul# | Rule 741 : [+syl,+long] > [-long,-splng] 

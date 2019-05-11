@@ -1,17 +1,19 @@
 Trajectory file for run 'run1'; etymon number :816:
-#pˈɑrem# >>> #pie̯# ( Correct : #pɛʁ#) :
+#pˈɑrem# >>> #pɛʁ# ( Correct : #pɛʁ#) :
 p ˈɑ r e m 
-#pˈɑrɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈɑrɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#pˈɑːrɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈaːrɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#pˈɛːrɛ# | Rule 177 : ˈaː > ˈɛː 
-#pˈie̯rɛ# | Rule 178 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#pˈie̯rə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#pˈie̯rə̯# | Rule 196 : ə > ə̯ 
-#pˈie̯r# | Rule 208 : ə̯ > ∅ 
-#pˈiːe̯r# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#pˈiːe̯ɹ# | Rule 521 : r > ɹ / [-cons] __ #
-#pˈiːe̯# | Rule 537 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#piːe̯# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pie̯# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#pˈɑrɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɑrɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#pˈɑːrɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈaːrɛ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#pˈaːrə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#pˈaːrə̯# | Rule 267 : ə > ə̯ 
+#pˈaːr# | Rule 301 : ə̯ > ∅ 
+#pˈae̯r# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈeːr# | Rule 540 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˈɛːr# | Rule 674 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,0delrel] / # ( [-syl] )* __ r #
+#pˈɛːɹ# | Rule 714 : r > ɹ / [-cons] __ #
+#pˈɛːr# | Rule 737 : ɹ > r 
+#pˈɛːʀ# | Rule 739 : r > ʀ 
+#pɛːʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛʀ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#pɛʁ# | Rule 747 : ʀ > ʁ 

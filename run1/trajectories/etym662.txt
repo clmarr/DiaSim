@@ -1,18 +1,17 @@
 Trajectory file for run 'run1'; etymon number :662:
-#mˈɑt̪t̪eɑm# >>> #ma# ( Correct : #mas#) :
+#mˈɑt̪t̪eɑm# >>> #mas# ( Correct : #mas#) :
 m ˈɑ t̪ t̪ e ɑ m 
-#mˈɑt̪t̪ɛɑm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈɑt̪t̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
 #mˈɑt̪t̪ʝɑm# | Rule 27 : j > ʝ / __ [+syl]
-#mˈɑt̪t̪ʝɑ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɑt̪t͡sʲʝɑ# | Rule 62 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#mˈɑt̪t͡sʲɑ# | Rule 68 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#mˈat̪t͡sʲa# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#mˈat̪t͡sʲɛ# | Rule 234 : [+lo,+syl] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,+cons] __ #
-#mˈat̪t͡sʲə# | Rule 271 : [-stres,-lo,+syl] > ə 
-#mˈat̪t͡sʲ# | Rule 281 : ə > ∅ 
-#mˈat͡sʲ# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#mˈat͡s# | Rule 340 : t͡sʲ > t͡s 
-#mˈas# | Rule 438 : [+delrel] > [+cont,0delrel] 
-#mˈa# | Rule 527 : [-son] > ∅ / __ #
-#ma# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɑt̪t̪ʝɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈɑt̪t͡sʲʝɑ# | Rule 73 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#mˈɑt̪t͡sʲɑ# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#mˈat̪t͡sʲa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#mˈat̪t͡sʲə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈat͡sʲə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#mˈat͡sə# | Rule 534 : t͡sʲ > t͡s / [-nas] __ 
+#mˈasə# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#mˈasə̯# | Rule 696 : ə > ə̯ / __ #
+#mˈas# | Rule 723 : ə̯ > ∅ 
+#mas# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

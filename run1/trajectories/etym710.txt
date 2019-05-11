@@ -1,12 +1,13 @@
 Trajectory file for run 'run1'; etymon number :710:
-#mˈollem# >>> #muw# ( Correct : #mu#) :
+#mˈollem# >>> #mu# ( Correct : #mu#) :
 m ˈo l l e m 
-#mˈoɫɫem# | Rule 4 : l > ɫ / @ __ 
-#mˈɔɫɫɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɔɫɫɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɔɫɫə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈɔɫɫə̯# | Rule 196 : ə > ə̯ 
-#mˈɔɫɫ# | Rule 208 : ə̯ > ∅ 
-#mˈɔww# | Rule 388 : [+lat,+back] > w 
-#mˈuw# | Rule 412 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
-#muw# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɔllɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɔllɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈɔllə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#mˈɔllə̯# | Rule 267 : ə > ə̯ 
+#mˈɔll# | Rule 301 : ə̯ > ∅ 
+#mˈɔl# | Rule 484 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#mˈɔɫ# | Rule 568 : l > ɫ / [+syl,-hi,-lo,-long] __ #
+#mˈɔw# | Rule 570 : [+lat,+back] > w 
+#mˈu# | Rule 613 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#mu# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

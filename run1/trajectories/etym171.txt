@@ -1,19 +1,17 @@
 Trajectory file for run 'run1'; etymon number :171:
-#d̪eːˈun̪d̪e# >>> #d̪œ̃# ( Correct : #d̪ɔ̃#) :
+#d̪eːˈun̪d̪e# >>> #d̪ɔ̃# ( Correct : #d̪ɔ̃#) :
 d̪ eː ˈu n̪ d̪ e 
-#d̪eːˈʊn̪d̪ɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪eˈʊn̪d̪ɛ# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#d̪eˈon̪d̪ɛ# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#d̪eˈun̪d̪ɛ# | Rule 113 : [+round,+tense,-hi,+stres] > [+hi] / __ [+nas,+cons]
-#d̪eˈʉn̪d̪ɛ# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#d̪əˈʉn̪d̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#d̪ə̯ˈʉn̪d̪ə̯# | Rule 196 : ə > ə̯ 
-#d̪ˈʉn̪d̪# | Rule 208 : ə̯ > ∅ 
-#d̪ˈʉn̪t̪# | Rule 290 : [-son] > [-voi] / __ #
-#d̪ˈyn̪t̪# | Rule 345 : [+hi,+round,-back] > [+front] 
-#d̪ˈỹn̪t̪# | Rule 427 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
-#d̪ˈỹːt̪# | Rule 455 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#d̪ˈœ̃ːt̪# | Rule 518 : [+front,+round,+nas,+syl] > [-tense,-hi,-cons,-lat,+cont,0delrel] 
-#d̪ˈœ̃ː# | Rule 527 : [-son] > ∅ / __ #
-#d̪œ̃ː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪œ̃# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#d̪eːˈʊn̪d̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪eˈʊn̪d̪ɛ# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#d̪eˈon̪d̪ɛ# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪eˈũn̪d̪ɛ# | Rule 163 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas,+cons]
+#d̪eˈũn̪d̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#d̪əˈũn̪d̪ə# | Rule 266 : [-stres,-lo,+syl,+tense] > ə 
+#d̪ə̯ˈũn̪d̪ə̯# | Rule 267 : ə > ə̯ 
+#d̪ˈũn̪d̪# | Rule 301 : ə̯ > ∅ 
+#d̪ˈũn̪t̪# | Rule 438 : [-son] > [-voi] / __ #
+#d̪ˈũːt̪# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#d̪ˈũː# | Rule 721 : [-son] > ∅ / __ #
+#d̪ũː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ũ# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#d̪ɔ̃# | Rule 742 : [+back,-lo,+nas,+syl] > ɔ̃ 

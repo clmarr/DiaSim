@@ -1,22 +1,24 @@
 Trajectory file for run 'run1'; etymon number :132:
-#bˈowem# >>> #bøf# ( Correct : #bœf#) :
+#bˈowem# >>> #bœf# ( Correct : #bœf#) :
 b ˈo w e m 
-#bˈoɣʷem# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#bˈɔɣʷɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#bˈɔβɛm# | Rule 40 : ɣʷ > β 
-#bˈɔβɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#bˈɔːβɛ# | Rule 80 : [+prim] > [+long] / __ [+cons] [-cons]
-#bˈuo̯βɛ# | Rule 115 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#bˈʉo̯βɛ# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#bˈʉo̯βə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#bˈʉo̯βə̯# | Rule 196 : ə > ə̯ 
-#bˈʉo̯β# | Rule 208 : ə̯ > ∅ 
-#bˈʉːo̯β# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#bˈʉːo̯v# | Rule 276 : β > v 
-#bˈʉːo̯f# | Rule 290 : [-son] > [-voi] / __ #
-#bˈyːo̯f# | Rule 345 : [+hi,+round,-back] > [+front] 
-#bˈyːe̯f# | Rule 354 : o̯ > e̯ 
-#bˈøf# | Rule 385 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#bˈøfə̯# | Rule 526 : ∅ > ə̯ / [+syl] f __ #
-#bˈøf# | Rule 528 : ə̯ > ∅ 
-#bøf# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bˈoɣʷem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#bˈɔɣʷɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈɔβʷɛm# | Rule 49 : ɣʷ > βʷ 
+#bˈɔβʷɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#bˈɔːβʷɛ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#bˈɔːβɛ# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#bˈuo̯βɛ# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#bˈʉo̯βɛ# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#bˈʉo̯βə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#bˈʉo̯βə̯# | Rule 267 : ə > ə̯ 
+#bˈʉo̯β# | Rule 301 : ə̯ > ∅ 
+#bˈʉo̯v# | Rule 430 : β > v 
+#bˈʉo̯f# | Rule 438 : [-son] > [-voi] / __ #
+#bˈyo̯f# | Rule 495 : [+hi,+round,-back] > [+front] 
+#bˈye̯f# | Rule 523 : o̯ > e̯ 
+#bˈøːf# | Rule 569 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#bˈøːfə̯# | Rule 720 : ∅ > ə̯ / f __ #
+#bˈøːf# | Rule 723 : ə̯ > ∅ 
+#bˈœːf# | Rule 727 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#bœːf# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bœf# | Rule 741 : [+syl,+long] > [-long,-splng] 

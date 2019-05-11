@@ -1,24 +1,25 @@
 Trajectory file for run 'run1'; etymon number :130:
-#bˌot̪ˈelloːs# >>> #buo# ( Correct : #bwajo#) :
+#bˌot̪ˈelloːs# >>> #bwajo# ( Correct : #bwajo#) :
 b ˌo t̪ ˈe l l oː s 
-#bˌot̪ˈeɫɫoːs# | Rule 4 : l > ɫ / @ __ 
-#bˌɔt̪ˈɛɫɫoːs# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#bˌɔt̪ˈɛɫɫos# | Rule 44 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#bˌɔt̪ˈɛɫɫəs# | Rule 195 : [-stres,-lo,+syl] > ə 
-#bˌɔt̪ˈɛɫɫə̯s# | Rule 196 : ə > ə̯ 
-#bˌɔt̪ˈɛɫɫs# | Rule 208 : ə̯ > ∅ 
-#bˌɔd̪ˈɛɫɫs# | Rule 240 : [-voi] > [+voi] / [+syl] __ [+syl]
-#bˌɔðˈɛɫɫs# | Rule 244 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#bˌoðˈɛɫɫs# | Rule 274 : {ˌɛ;ˌɔ;ˌɨ;ˌɯ} > {ˌe;ˌo;ˌɛ;ˌɔ} 
-#bˌoðˈɛɫs# | Rule 314 : [+cons] > ∅ / [+cons] __ [-son]
-#bˌuðˈɛɫs# | Rule 368 : [+round,+tense,+back] > [+hi] 
-#bˌuðˈɛws# | Rule 388 : [+lat,+back] > w 
-#bˌuðˈɛa̯ws# | Rule 391 : ∅ > a̯ / [-hi,-lo,+stres,-tense,+front] __ w
-#bˌuˈɛa̯ws# | Rule 395 : {θ;ð} > {∅;∅} 
-#bˌue̯ˈaws# | Rule 401 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#bˌue̯ˈoːs# | Rule 453 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#bˌuə̯ˈoːs# | Rule 454 : e̯ > ə̯ / __ [+round,+back,-hi]
-#bˌuə̯ˈoː# | Rule 527 : [-son] > ∅ / __ #
-#bˌuˈoː# | Rule 528 : ə̯ > ∅ 
-#buoː# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#buo# | Rule 542 : [+syl,+long] > [-long,-splng] 
+#bˌɔt̪ˈɛlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˌɔt̪ˈɛllos# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#bˌɔt̪ˈɛlləs# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
+#bˌɔt̪ˈɛllə̯s# | Rule 267 : ə > ə̯ 
+#bˌɔt̪ˈɛlls# | Rule 301 : ə̯ > ∅ 
+#bˌɔd̪ˈɛlls# | Rule 352 : [-voi] > [+voi] / [-cons] __ [-cons]
+#bˌɔðˈɛlls# | Rule 378 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#bˌoðˈɛlls# | Rule 423 : ˌɔ > ˌo 
+#bˌoðˈɛls# | Rule 465 : [+cons] > ∅ / [+cons] __ [-son]
+#bˌoðˈɛɫs# | Rule 493 : [+lat] > [+back] / __ [+cons]
+#bˌɔðˈɛɫs# | Rule 513 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ( [-syl] )* [+syl,-tense]
+#bˌɔðˈɛws# | Rule 570 : [+lat,+back] > w 
+#bˌɔðˈɛa̯ws# | Rule 573 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
+#bˌɔðe̯ˈaws# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#bˌɔe̯ˈaws# | Rule 596 : {θ;ð} > {∅;∅} 
+#bˌɔjˈaws# | Rule 618 : e̯ > j / ˌɔ __ [+front,+prim]
+#bwˌɛjˈaws# | Rule 619 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
+#bwˌɛjˈoːs# | Rule 654 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#bwˌɛjˈoː# | Rule 721 : [-son] > ∅ / __ #
+#bwɛjoː# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bwɛjo# | Rule 741 : [+syl,+long] > [-long,-splng] 
+#bwajo# | Rule 746 : ɛ > a / w __ 

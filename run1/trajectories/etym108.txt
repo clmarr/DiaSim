@@ -1,17 +1,18 @@
 Trajectory file for run 'run1'; etymon number :108:
 #bˈɑt̪t̪uere# >>> #bat̪ʁ# ( Correct : #bat̪ʁ#) :
 b ˈɑ t̪ t̪ u e r e 
-#bˈɑt̪t̪ʊɛrɛ# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#bˈɑt̪t̪ʊɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #bˈɑt̪t̪wɛrɛ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#bˈɑt̪t̪wrɛ# | Rule 101 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
-#bˈat̪t̪wrɛ# | Rule 133 : [+lo,+syl] > [+front,-back] 
-#bˈat̪t̪rɛ# | Rule 140 : w > ∅ / [+cons] [+cons] __ 
-#bˈat̪t̪rə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#bˈat̪t̪rə̯# | Rule 196 : ə > ə̯ 
-#bˈat̪t̪rə# | Rule 206 : ə̯ > ə / [-son] r __ #
-#bˈat̪t̪r# | Rule 281 : ə > ∅ 
-#bˈat̪ðr# | Rule 319 : [-cont,-delrel,+cor] > ð / __ [+son,+cor]
-#bˈat̪r# | Rule 395 : {θ;ð} > {∅;∅} 
-#bˈat̪ʀ# | Rule 540 : r > ʀ 
-#bat̪ʀ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#bat̪ʁ# | Rule 548 : ʀ > ʁ 
+#bˈɑt̪t̪wrɛ# | Rule 141 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#bˈɑt̪t̪rɛ# | Rule 143 : {β;w} > {∅;∅} / [+cons,-lab,-hi] __ r
+#bˈat̪t̪rɛ# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#bˈat̪t̪rə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#bˈat̪t̪rə̯# | Rule 267 : ə > ə̯ 
+#bˈat̪t̪ɾə# | Rule 290 : {n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
+#bˈat̪t̪rə# | Rule 296 : ɾ > r 
+#bˈat̪rə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#bˈat̪rə̯# | Rule 696 : ə > ə̯ / __ #
+#bˈat̪r# | Rule 723 : ə̯ > ∅ 
+#bˈat̪ʀ# | Rule 739 : r > ʀ 
+#bat̪ʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#bat̪ʁ# | Rule 747 : ʀ > ʁ 

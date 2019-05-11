@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :795:
-#ˈowum# >>> #ø# ( Correct : #œf#) :
+#ˈowum# >>> #œf# ( Correct : #œf#) :
 ˈo w u m 
-#ˈoɣʷum# | Rule 7 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˈɔɣʷʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɔʊm# | Rule 29 : ɣʷ > ∅ / [+syl] __ [+syl,+round,+back]
-#ˈɔom# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈɔo# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#ˈɔːo# | Rule 79 : [+prim] > [+long] / __ [+syl]
-#ˈuo̯o# | Rule 115 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#ˈʉo̯o# | Rule 179 : [+hi,+tense,+round,+syl] > [-front,-back] 
-#ˈʉo̯ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#ˈʉo̯ə̯# | Rule 196 : ə > ə̯ 
-#ˈʉo̯# | Rule 208 : ə̯ > ∅ 
-#ˈʉːo̯# | Rule 228 : [+prim] > [+long] / __ [-cons]
-#ˈyːo̯# | Rule 345 : [+hi,+round,-back] > [+front] 
-#ˈyːe̯# | Rule 354 : o̯ > e̯ 
-#ˈø# | Rule 385 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#ø# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˈoɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˈɔɣʷʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɔβʷʊm# | Rule 49 : ɣʷ > βʷ 
+#ˈɔβʷom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈɔβʷo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˈɔːβʷo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɔːβo# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#ˈuo̯βo# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈʉo̯βo# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#ˈʉo̯βə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#ˈʉo̯βə̯# | Rule 267 : ə > ə̯ 
+#ˈʉo̯β# | Rule 301 : ə̯ > ∅ 
+#ˈʉo̯v# | Rule 430 : β > v 
+#ˈʉo̯f# | Rule 438 : [-son] > [-voi] / __ #
+#ˈyo̯f# | Rule 495 : [+hi,+round,-back] > [+front] 
+#ˈye̯f# | Rule 523 : o̯ > e̯ 
+#ˈøːf# | Rule 569 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#ˈøːfə̯# | Rule 720 : ∅ > ə̯ / f __ #
+#ˈøːf# | Rule 723 : ə̯ > ∅ 
+#ˈœːf# | Rule 727 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#œːf# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#œf# | Rule 741 : [+syl,+long] > [-long,-splng] 

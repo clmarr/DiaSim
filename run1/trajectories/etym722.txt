@@ -1,11 +1,14 @@
 Trajectory file for run 'run1'; etymon number :722:
-#mˈort̪em# >>> #mɔr̥# ( Correct : #mɔʁ#) :
+#mˈort̪em# >>> #mɔʁ# ( Correct : #mɔʁ#) :
 m ˈo r t̪ e m 
-#mˈɔrt̪ɛm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɔr̥t̪ɛm# | Rule 36 : [+ant,+cons] > [-voi] / __ t̪
-#mˈɔr̥t̪ɛ# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#mˈɔr̥t̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#mˈɔr̥t̪ə̯# | Rule 196 : ə > ə̯ 
-#mˈɔr̥t̪# | Rule 208 : ə̯ > ∅ 
-#mˈɔr̥# | Rule 527 : [-son] > ∅ / __ #
-#mɔr̥# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɔrt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɔrt̪ɛ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#mˈɔrt̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#mˈɔrt̪ə̯# | Rule 267 : ə > ə̯ 
+#mˈɔrt̪# | Rule 301 : ə̯ > ∅ 
+#mˈɔɹt̪# | Rule 715 : r > ɹ / [-cons] __ [+cons]
+#mˈɔɹ# | Rule 721 : [-son] > ∅ / __ #
+#mˈɔr# | Rule 737 : ɹ > r 
+#mˈɔʀ# | Rule 739 : r > ʀ 
+#mɔʀ# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɔʁ# | Rule 747 : ʀ > ʁ 

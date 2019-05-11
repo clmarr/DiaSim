@@ -1,16 +1,19 @@
 Trajectory file for run 'run1'; etymon number :198:
-#d̪ˈubit̪um# >>> #d̪ɔ# ( Correct : #d̪ut̪#) :
+#d̪ˈubit̪um# >>> #d̪ut̪# ( Correct : #d̪ut̪#) :
 d̪ ˈu b i t̪ u m 
-#d̪ˈʊbɪt̪ʊm# | Rule 15 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈʊβɪt̪ʊm# | Rule 41 : b > β / [+syl] __ [+son,-lat,-nas]
-#d̪ˈoβet̪om# | Rule 54 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈoβet̪o# | Rule 59 : m > ∅ / [+syl] ( [-syl] )* [+syl] __ #
-#d̪ˈɔβet̪o# | Rule 60 : [+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+lab,-son]
-#d̪ˈɔβt̪o# | Rule 72 : e > ∅ / __ [+cor,-cont,+ant] [+syl] ( [-syl] ) #
-#d̪ˈɔt̪t̪o# | Rule 134 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
-#d̪ˈɔt̪t̪ə# | Rule 195 : [-stres,-lo,+syl] > ə 
-#d̪ˈɔt̪t̪ə̯# | Rule 196 : ə > ə̯ 
-#d̪ˈɔt̪t̪# | Rule 208 : ə̯ > ∅ 
-#d̪ˈɔt̪# | Rule 334 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
-#d̪ˈɔ# | Rule 527 : [-son] > ∅ / __ #
-#d̪ɔ# | Rule 541 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ˈʊbɪt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈʊβɪt̪ʊm# | Rule 50 : b > β / [+syl] __ [+son,-lat,-nas]
+#d̪ˈoβet̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈoβet̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#d̪ˈoβt̪o# | Rule 93 : e > ∅ / __ [+cor,+distr,+ant] [+syl] ( [-syl] ) #
+#d̪ˈoɸt̪o# | Rule 102 : [+ant,+cons,-son] > [-voi] / __ t̪
+#d̪ˈoɸt̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˈoɸt̪ə̯# | Rule 267 : ə > ə̯ 
+#d̪ˈoɸt̪# | Rule 301 : ə̯ > ∅ 
+#d̪ˈoɸt̪ə# | Rule 321 : ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
+#d̪ˈot̪t̪ə# | Rule 332 : [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
+#d̪ˈot̪ə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
+#d̪ˈut̪ə# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#d̪ˈut̪ə̯# | Rule 696 : ə > ə̯ / __ #
+#d̪ˈut̪# | Rule 723 : ə̯ > ∅ 
+#d̪ut̪# | Rule 740 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
