@@ -284,43 +284,12 @@ public class DerivationSimulation {
 		goldStageTimeInstants = new int[NUM_GOLD_STAGES]; 
 		blackStageTimeInstants = new int[NUM_BLACK_STAGES]; 
 		
-		if(goldStagesSet)
-		{
-			for(int csi = 0; csi < NUM_GOLD_STAGES; csi++)
-			{
-				//TODO debugging
-				System.out.println("Stage name and loc : "+goldStageNameAndLocList.get(csi));
-				
-				String[] stageNameAndLoc = goldStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
-				goldStageNames[csi] = stageNameAndLoc[0]; 
-				
-				//TODO debuggging
-				System.out.println("gold stage : "+goldStageNames[csi]);
-				
-				goldStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
-			}
-		}
-		if(blackStagesSet)
-		{
-			for(int csi = 0; csi < NUM_BLACK_STAGES; csi++)
-			{
-				//TODO debugging
-				System.out.println("Stage name and loc : "+blackStageNameAndLocList.get(csi));
-				
-				String[] stageNameAndLoc = blackStageNameAndLocList.get(csi).split(""+STAGENAME_LOC_DELIM);
-				blackStageNames[csi] = stageNameAndLoc[0]; 
-				
-				//TODO debugging
-				System.out.println("black stage : "+blackStageNames[csi]);
-				
-				blackStageTimeInstants[csi] = Integer.parseInt(stageNameAndLoc[1]); 
-			}
-		}
-		
 		// parse the rules
 		List<SChange> theShiftsInOrder = new ArrayList<SChange>();
 		
-		int cri = 0; 
+		int cri = 0, gsgi =0 , bsgi = 0, next_gold = -1, next_black = -1;
+		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
 		
 		for(String currRule : rulesByTimeInstant)
 		{
@@ -332,8 +301,32 @@ public class DerivationSimulation {
 				for(SChange newShift : newShifts)
 					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
 			}
-			
 			theShiftsInOrder.addAll(theFactory.generateSoundChangesFromRule(currRule));
+			
+			if(goldStagesSet)
+			{
+				if (cri == next_gold)
+				{
+					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					goldStageTimeInstants[gsgi] = theShiftsInOrder.size();		
+					gsgi += 1;
+					if ( gsgi < NUM_GOLD_STAGES)
+						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+				}
+			}
+			
+			if(blackStagesSet)
+			{
+				if (cri == next_gold)
+				{
+					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					blackStageTimeInstants[bsgi] = theShiftsInOrder.size();
+					bsgi += 1;
+					if (bsgi < NUM_BLACK_STAGES)
+						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+				}
+			}
+			
 			cri++; 
 		}
 		
