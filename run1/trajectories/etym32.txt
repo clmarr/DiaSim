@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :32:
-#t̪ˈempus# >>> #t̪ɑ̃# ( Correct : #t̪ɑ̃#) :
-t̪ ˈe m p u s 
-#t̪ˈɛmpʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛmpos# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛmpəs# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈɛmpə̯s# | Rule 267 : ə > ə̯ 
-#t̪ˈɛmps# | Rule 301 : ə̯ > ∅ 
-#t̪ˈɛmss# | Rule 334 : [+lab,-nas,-round,+cons] > s / __ s
-#t̪ˈɛms# | Rule 336 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / [+cons] __ 
-#t̪ˈɛ̃ms# | Rule 509 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ˈãms# | Rule 566 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#t̪ˈãːs# | Rule 655 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈɑ̃ːs# | Rule 702 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˈɑ̃ː# | Rule 720 : [-son] > ∅ / __ #
-#t̪ɑ̃ː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɑ̃# | Rule 740 : [+syl,+long] > [-long,-splng] 
+#ˈɑkwɑm# >>> #o# ( Correct : #o#) :
+ˈɑ k w ɑ m 
+#ˈɑkɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˈɑkwɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#ˈɑkwɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˈɑːkwɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɑːxwɑ# | Rule 117 : k > x / [+syl] __ w [+syl]
+#ˈaːxwa# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈaːɣwa# | Rule 352 : [-voi] > [+voi] / [-cons] __ [-cons]
+#ˈae̯ɣwa# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˈae̯ɣwə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈajwə# | Rule 442 : ˈa e̯ ɣ > ˈa j / __ w
+#ˈɛːwə# | Rule 524 : ˈa j > ˈɛː / __ w
+#ˈɛːa̯wə# | Rule 573 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
+#ˈɛa̯wə# | Rule 574 : [-hi,-lo,+syl,-tense] > [-long,-splng] / __ a̯ w
+#e̯ˈawə# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#e̯ˈoːə# | Rule 653 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ə̯ˈoːə# | Rule 654 : e̯ > ə̯ / __ [+round,+back,-hi]
+#ə̯ˈoː# | Rule 683 : ə > ∅ / [+syl] __ 
+#ˈoː# | Rule 722 : ə̯ > ∅ 
+#oː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#o# | Rule 740 : [+syl,+long] > [-long,-splng] 

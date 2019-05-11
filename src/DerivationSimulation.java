@@ -30,6 +30,7 @@ public class DerivationSimulation {
 	private static List<String> rulesByTimeInstant;
 	private final static char STAGE_PRINT_DELIM = ',';  
 	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
+	private final static String ABSENT_PH_INDIC = "...";
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -649,6 +650,9 @@ public class DerivationSimulation {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
+		if (toLex.contains(ABSENT_PH_INDIC))
+		{	return new AbsentLexPhon();	}
+		
 		String[] toPhones = toLex.trim().split(""+PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
@@ -744,7 +748,12 @@ public class DerivationSimulation {
 			if(resp.equals("1"))	ea.confusionPrognosis(true);
 			else if(resp.equals("2") || resp.equals("3"))
 			{
-				//TODO this
+				boolean printInit = (resp.equals("2")); 
+				System.out.println("etymID"+STAGE_PRINT_DELIM+ (printInit ? "Input"+STAGE_PRINT_DELIM:"")+
+						"Result"+STAGE_PRINT_DELIM+"Gold");
+				for (int i = 0 ; i < r.getWordList().length ; i++)
+					System.out.println((""+i)+STAGE_PRINT_DELIM+ (printInit ? initLexicon.getByID(i).toString()+STAGE_PRINT_DELIM : "") +
+							r.getByID(i)+STAGE_PRINT_DELIM+g.getByID(i));
 			}
 			else if(resp.equals("4"))	ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
 			else if("5678".contains(resp))

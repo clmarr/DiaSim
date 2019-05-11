@@ -15,6 +15,7 @@ public class AbsentLexPhon extends LexPhon {
 	
 	public int findPhone(Phone ph)	{	return -1;	}
 
+	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
 	public String toString()	{	return "[ABSENT]";	}

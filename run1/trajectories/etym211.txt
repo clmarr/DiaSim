@@ -1,15 +1,23 @@
 Trajectory file for run 'run1'; etymon number :211:
-#n̪ˈuːd̪ɑm# >>> #n̪y# ( Correct : #n̪y#) :
-n̪ ˈuː d̪ ɑ m 
-#n̪ˈud̪ɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#n̪ˈud̪ɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#n̪ˈuðɑ# | Rule 103 : [-cont,-delrel,+voi] > [+cont,0delrel] / [+syl] __ [+son,-lat,-nas]
-#n̪ˈuːðɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#n̪ˈuːða# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#n̪ˈʉːða# | Rule 213 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#n̪ˈʉːðə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
-#n̪ˈyːðə# | Rule 495 : [+hi,+round,-back] > [+front] 
-#n̪ˈyːə# | Rule 596 : {θ;ð} > {∅;∅} 
-#n̪ˈyː# | Rule 683 : ə > ∅ / [+syl] __ 
-#n̪yː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#n̪y# | Rule 740 : [+syl,+long] > [-long,-splng] 
+#ekkehˌok# >>> #su# ( Correct : #sə#) :
+e k k e h ˌo k 
+#ɛkkɛhˌɔk# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɛkkɛˌɔk# | Rule 15 : h > ∅ / @ __ 
+#ɛkkjˌɔk# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ɛkkʝˌɔk# | Rule 27 : j > ʝ / __ [+syl]
+#ɛkkʲʝˌɔk# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#ɛkcʝˌɔk# | Rule 76 : [+back,+front] > [-back] 
+#ɛccʝˌɔk# | Rule 77 : k > c / __ c
+#ɛccˌɔk# | Rule 85 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#ɛccˌɔx# | Rule 165 : k > x / [+syl] __ #
+#ɛt̪t͡sʲˌɔx# | Rule 178 : c c > t̪ t͡sʲ 
+#ət̪t͡sʲˌɔx# | Rule 260 : [+syl,-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#ə̯t̪t͡sʲˌɔx# | Rule 267 : ə > ə̯ 
+#t̪t͡sʲˌɔx# | Rule 301 : ə̯ > ∅ 
+#t͡sʲˌɔx# | Rule 343 : [-cont] > ∅ / # __ [-cont]
+#t͡sʲˌox# | Rule 423 : ˌɔ > ˌo 
+#t͡sʲˌo# | Rule 448 : x > ∅ / [-prim] __ #
+#t͡sˌo# | Rule 535 : t͡sʲ > t͡s / # __ 
+#t͡sˌu# | Rule 553 : [+round,+tense,+back] > [+hi] 
+#sˌu# | Rule 636 : [+delrel] > [+cont,0delrel] 
+#su# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

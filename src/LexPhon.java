@@ -16,12 +16,15 @@ public class LexPhon {
 	
 	public LexPhon(List<SequentialPhonic> pR)
 	{
-		phonRep = new ArrayList<SequentialPhonic>(pR); 
-		if (!phonRep.get(0).equals(new Boundary("word bound")))
-			phonRep.add(0, new Boundary("word bound")); 
-		if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
-			phonRep.add(new Boundary("word bound")); 
-		this.domains = new ArrayList<String>(); 
+		if (pR.size() != 0) //not an AbsentLexPhon
+		{	
+			phonRep = new ArrayList<SequentialPhonic>(pR); 
+			if (!phonRep.get(0).equals(new Boundary("word bound")))
+				phonRep.add(0, new Boundary("word bound")); 
+			if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
+				phonRep.add(new Boundary("word bound")); 
+			this.domains = new ArrayList<String>(); 
+		}
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()

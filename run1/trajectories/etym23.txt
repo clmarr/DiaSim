@@ -1,20 +1,21 @@
 Trajectory file for run 'run1'; etymon number :23:
-#kˈeːrɑm# >>> #siʁ# ( Correct : #siʁ#) :
-k ˈeː r ɑ m 
-#kˈerɑm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
-#kˈerɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kʲˈerɑ# | Rule 75 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#cˈerɑ# | Rule 76 : [+back,+front] > [-back] 
-#cˈeːrɑ# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#cˈiːrɑ# | Rule 160 : ˈeː > ˈiː / [+cons,+hi,+front] __ 
-#t͡sʲˈiːrɑ# | Rule 179 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
-#t͡sʲˈiːra# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#t͡sʲˈiːrə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡sˈiːrə# | Rule 535 : t͡sʲ > t͡s / # __ 
-#sˈiːrə# | Rule 636 : [+delrel] > [+cont,0delrel] 
-#sˈiːrə̯# | Rule 695 : ə > ə̯ / __ #
-#sˈiːr# | Rule 722 : ə̯ > ∅ 
-#sˈiːʀ# | Rule 738 : r > ʀ 
-#siːʀ# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#siʀ# | Rule 740 : [+syl,+long] > [-long,-splng] 
-#siʁ# | Rule 746 : ʀ > ʁ 
+#ˈɑllium# >>> #aj# ( Correct : #aj#) :
+ˈɑ l l i u m 
+#ˈɑllɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɑlljʊm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ˈɑllʝʊm# | Rule 27 : j > ʝ / __ [+syl]
+#ˈɑllʝom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈɑllʝo# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˈɑʎo# | Rule 89 : l l ʝ > ʎ 
+#ˈɑːʎo# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈaːʎo# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˈaʎo# | Rule 224 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈaʎə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#ˈaʎə̯# | Rule 267 : ə > ə̯ 
+#ˈaʎ# | Rule 301 : ə̯ > ∅ 
+#ˈaːʎ# | Rule 363 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#ˈaʎ# | Rule 364 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#ˈaːʎ# | Rule 400 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#ˈaʎ# | Rule 401 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#aʎ# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aj# | Rule 747 : ʎ > j 

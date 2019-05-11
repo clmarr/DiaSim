@@ -24,7 +24,12 @@ public class Lexicon {
 	{
 		theWordList = new LexPhon[theWords.length];
 		for (int wi = 0; wi < theWords.length; wi++)
-			theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
+		{
+			if (theWords[wi].print().equals(ABS_PR))
+				theWordList[wi] = new AbsentLexPhon();
+			else
+				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
+		}
 	}
 	
 	//retrieve a particular lexical phonology by its "ID" -- i.e. its index in theWordList
@@ -71,6 +76,7 @@ public class Lexicon {
 		
 		for( int wli = 0; wli < wlLen; wli++)
 		{
+			if(theWordList[wli].print().equals(ABS_PR))	wordsChanged[wli] = false;
 			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
 			else	wordsChanged[wli] = false; 
 		}
@@ -83,15 +89,19 @@ public class Lexicon {
 		List<String> hitPhonesListStr = new ArrayList<String>(); 
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
 		for (LexPhon theWord : theWordList)
-		{	List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
-			for (SequentialPhonic curPh : thePhones)
+		{	
+			if (!theWord.print().equals(ABS_PR))
 			{
-				if(curPh.getType().equals("phone"))
+				List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
+				for (SequentialPhonic curPh : thePhones)
 				{
-					if(!hitPhonesListStr.contains(curPh.print()))
+					if(curPh.getType().equals("phone"))
 					{
-						hitPhonesListStr.add(curPh.print()); 
-						phList.add(curPh);
+						if(!hitPhonesListStr.contains(curPh.print()))
+						{
+							hitPhonesListStr.add(curPh.print()); 
+							phList.add(curPh);
+						}
 					}
 				}
 			}
@@ -108,12 +118,14 @@ public class Lexicon {
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
 		for (LexPhon lex: theWordList)
 		{
-			SequentialPhonic[] thePhones = lex.getPhOnlySeq();
-			for (SequentialPhonic curPh : thePhones)
-			{
-				if(!theMap.containsKey(curPh.print()))
-					theMap.put(curPh.print(), 1);
-				else	theMap.put(curPh.print(), theMap.get(curPh.print()) + 1);
+			if (!lex.print().equals(ABS_PR))
+				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
+				for (SequentialPhonic curPh : thePhones)
+				{
+					if(!theMap.containsKey(curPh.print()))
+						theMap.put(curPh.print(), 1);
+					else	theMap.put(curPh.print(), theMap.get(curPh.print()) + 1);
+				}
 			}
 		}
 		return theMap;
@@ -163,5 +175,13 @@ public class Lexicon {
 				if(!theWordList[wi].print().equals(ABS_PR))
 					theWordList[wi] = new AbsentLexPhon(); 
 		}
+	}
+	
+	public int numAbsentEtyma()
+	{
+		int cnt = 0;
+		for (LexPhon lex: theWordList)
+			if (lex.print().equals(ABS_PR))	cnt += 1;
+		return cnt;
 	}
 }

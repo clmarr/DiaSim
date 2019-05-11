@@ -1,13 +1,23 @@
 Trajectory file for run 'run1'; etymon number :181:
-#kˈuppɑm# >>> #kup# ( Correct : #kup#) :
-k ˈu p p ɑ m 
-#kˈʊppɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈoppɑm# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈoppɑ# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
-#kˈoppa# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#kˈoppə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
-#kˈopə# | Rule 484 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#kˈupə# | Rule 553 : [+round,+tense,+back] > [+hi] 
-#kˈupə̯# | Rule 695 : ə > ə̯ / __ #
-#kˈup# | Rule 722 : ə̯ > ∅ 
-#kup# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ˌiːwˈiːn̪um# >>> #d̪əvɛ̃# ( Correct : #d̪əvɛ̃#) :
+d̪ ˌiː w ˈiː n̪ u m 
+#d̪ˌiːɣʷˈiːn̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#d̪ˌiːɣʷˈiːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˌiːβʷˈiːn̪ʊm# | Rule 49 : ɣʷ > βʷ 
+#d̪ˌiβʷˈin̪ʊm# | Rule 54 : [+syl,-lo,+long] > [-long,+tense,-splng,-cons,-lat,+cont,0delrel] 
+#d̪ˌiβʷˈin̪om# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˌiβʷˈin̪o# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#d̪ˌeβʷˈin̪o# | Rule 106 : ˌi > ˌe / __ ( [-syl] )* [+hi,+front,+prim,-round,+tense]
+#d̪ˌeβʷˈiːn̪o# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˌeβˈiːn̪o# | Rule 156 : {βʷ;ɸʷ} > {β;ɸ} 
+#d̪ˌeβˈiːn̪ə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˌeβˈiːn̪ə̯# | Rule 267 : ə > ə̯ 
+#d̪ˌeβˈiːn̪# | Rule 301 : ə̯ > ∅ 
+#d̪ˌevˈiːn̪# | Rule 430 : β > v 
+#d̪ˌəvˈiːn̪# | Rule 503 : ˌe > ˌə / __ [-son] ˈiː
+#d̪ˌəvˈĩːn̪# | Rule 625 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#d̪ˌəvˈẽːn̪# | Rule 651 : [+nas,+front,-round,-lo,+syl] > [-hi] 
+#d̪ˌəvˈẽː# | Rule 656 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#d̪ˌəvˈɛ̃ː# | Rule 666 : [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
+#d̪əvɛ̃ː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪əvɛ̃# | Rule 740 : [+syl,+long] > [-long,-splng] 

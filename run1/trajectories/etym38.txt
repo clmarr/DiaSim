@@ -1,21 +1,20 @@
 Trajectory file for run 'run1'; etymon number :38:
-#t̪ˈen̪en̪t̪# >>> #t̪jɛn̪# ( Correct : #t̪jɛn̪#) :
-t̪ ˈe n̪ e n̪ t̪ 
-#t̪ˈɛn̪ɛn̪t̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛːn̪ɛn̪t̪# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
-#t̪ˈie̯n̪ɛn̪t̪# | Rule 164 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#t̪ˈie̯n̪ən̪t̪# | Rule 264 : [-stres,-lo,+syl] > ə / __ [-syl]
-#t̪ˈie̯n̪ə̯n̪t̪# | Rule 267 : ə > ə̯ 
-#t̪ˈie̯n̪ən̪t̪# | Rule 275 : ə̯ > ə / __ [+nas] t̪
-#t̪jˈen̪ən̪t̪# | Rule 584 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t̪jˈɛn̪ən̪t̪# | Rule 601 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#t̪jˈɛn̪ə̃n̪t̪# | Rule 615 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪jˈɛ̃n̪ə̃n̪t̪# | Rule 616 : [+syl,-hi] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪jˈɛ̃n̪ən̪t̪# | Rule 626 : ə̃ > ə 
-#t̪jˈɛ̃n̪ə̃n̪t̪# | Rule 627 : ə > ə̃ / __ n̪ t̪ #
-#t̪jˈɛ̃n̪ə̃t̪# | Rule 632 : n̪ > ∅ / ə̃ __ t̪ #
-#t̪jˈɛ̃n̪ət̪# | Rule 641 : {ə̃;ˌə̃} > {ə;ˌə} 
-#t̪jˈɛn̪ət̪# | Rule 671 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#t̪jˈɛn̪ə# | Rule 720 : [-son] > ∅ / __ #
-#t̪jɛn̪ə# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪jɛn̪# | Rule 749 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#ˌɑmˈɑːrum# >>> #ame# ( Correct : #amɛʁ#) :
+ˌɑ m ˈɑː r u m 
+#ˌɑmˈɑːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑmˈɑrʊm# | Rule 55 : [+syl,+long] > [-long,-splng] 
+#ˌɑmˈɑrom# | Rule 64 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌɑmˈɑro# | Rule 69 : [+nas,+cons] > ∅ / [+syl,-stres] __ #
+#ˌɑmˈɑːro# | Rule 109 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌamˈaːro# | Rule 196 : [+lo,+syl] > [+front,-back] 
+#ˌamˈaːrə# | Rule 265 : [-stres,-lo,+syl] > ə / __ #
+#ˌamˈaːrə̯# | Rule 267 : ə > ə̯ 
+#ˌamˈaːr# | Rule 301 : ə̯ > ∅ 
+#ˌamˈae̯r# | Rule 408 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌãmˈae̯r# | Rule 497 : [+lo,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌãmˈeːr# | Rule 540 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#ˌãmˈeːɹ# | Rule 713 : r > ɹ / [-cons] __ #
+#ˌamˈeːɹ# | Rule 729 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#ˌamˈeː# | Rule 734 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ameː# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ame# | Rule 740 : [+syl,+long] > [-long,-splng] 

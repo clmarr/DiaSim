@@ -17,6 +17,9 @@ public class ErrorAnalysis {
 	
 	private Phone[] resPhInventory, goldPhInventory; 
 	
+	protected final String ABS_PR ="[ABSENT]"; 
+
+	
 	private HashMap<String, Integer> resPhInds, goldPhInds; 
 		// indexes for phones in the following int arrays are above.
 	private int[] errorsByResPhone, errorsByGoldPhone; 
@@ -59,7 +62,7 @@ public class ErrorAnalysis {
 		
 		mismatches = new ArrayList<LexPhon[]>();
 		
-		int NUM_ETYMA = theGold.getWordList().length; 
+		int NUM_ETYMA = theRes.getWordList().length - theRes.numAbsentEtyma();
 		levDists = new int[NUM_ETYMA]; 
 		peds = new double[NUM_ETYMA];
 		feds = new double[NUM_ETYMA];
@@ -68,21 +71,24 @@ public class ErrorAnalysis {
 				
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
 		{	
-			levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
-			isHit[i] = (levDists[i] == 0); 
-			numHits += (levDists[i] == 0) ? 1 : 0; 
-			num1off += (levDists[i] <= 1) ? 1 : 0; 
-			num2off += (levDists[i] <= 2) ? 1 : 0; 
-			peds[i] = (double)levDists[i] / (double) theGold.getByID(i).getNumPhones();
-			totLexQuotients += peds[i]; 
-			
-			featDist.compute(theRes.getByID(i), theGold.getByID(i)); 
-			
-			feds[i] = featDist.getFED();
-			totFED += feds[i];
-			
-			if(!isHit[i])
-				updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
+			if (!theRes.getByID(i).print().equals(ABS_PR))
+			{
+				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
+				isHit[i] = (levDists[i] == 0); 
+				numHits += (levDists[i] == 0) ? 1 : 0; 
+				num1off += (levDists[i] <= 1) ? 1 : 0; 
+				num2off += (levDists[i] <= 2) ? 1 : 0; 
+				peds[i] = (double)levDists[i] / (double) theGold.getByID(i).getNumPhones();
+				totLexQuotients += peds[i]; 
+				
+				featDist.compute(theRes.getByID(i), theGold.getByID(i)); 
+				
+				feds[i] = featDist.getFED();
+				totFED += feds[i];
+				
+				if(!isHit[i])
+					updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
+			}
 		}
 		pctAcc = numHits / (double) NUM_ETYMA; 
 		pct1off = num1off / (double) NUM_ETYMA;
