@@ -110,7 +110,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	
 	@Override
 	public String toString() {
-		return symb+": "+featString; 
+		return symb+":"+featString; 
 	}
 	
 	@Override

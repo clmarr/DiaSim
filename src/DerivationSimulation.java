@@ -20,7 +20,7 @@ import java.util.Collections;
  */
 public class DerivationSimulation {
 	
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
+	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
 	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line

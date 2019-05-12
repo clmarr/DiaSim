@@ -799,9 +799,52 @@ public class ErrorAnalysis {
 		
 		System.out.println("Accuracy on subset with sequence "+printCheckSeq(seq)+" : "+(double)num_hits/(double)subset_size);
 		
+		System.out.println("Autopsy -- contexts most associated with error:");
+		System.out.println("Features:"); 
 		
-		gjtwoipsehgip ywhet gyqw4et
-		//TODO work here
+		List<String[]> prior = new ArrayList<String[]>(); 
+		prior.add(top_n_predictor_feats_for_position(4, -3, subset_hits, subset_misses, hit_starts, miss_starts));
+		prior.add(top_n_predictor_feats_for_position(4, -2, subset_hits, subset_misses, hit_starts, miss_starts));
+		prior.add(top_n_predictor_feats_for_position(4, -1, subset_hits, subset_misses, hit_starts, miss_starts));
+		
+		List<String[]> postr = new ArrayList<String[]>();
+		prior.add(top_n_predictor_feats_for_position(4, seq.length, subset_hits, subset_misses, hit_starts, miss_starts));
+		prior.add(top_n_predictor_feats_for_position(4, seq.length+1, subset_hits, subset_misses, hit_starts, miss_starts));
+		prior.add(top_n_predictor_feats_for_position(4, seq.length+2, subset_hits, subset_misses, hit_starts, miss_starts));
+		
+		System.out.print(feature_autopsy(prior,postr)); 
+		
+	}
+	
+	// @precondition pri and po should have same and consistent length in both dimensions
+	public String feature_autopsy(List<String[]> pri, List<String[]> po)
+	{
+		int height = pri.get(0).length; 
+		String out = "";
+		for (int i = 0 ; i < height ; i++)
+		{
+			for (String[] ipri : pri)
+			{
+				if (ipri[i].equals(""))	out += "                ";
+				else	out += append_space_to_x(ipri[i],15); 
+			}
+			out += " XXXX ";
+			for (String[] ipo : po)
+			{
+				if (ipo[i].equals(""))	out += "                ";
+				else	out += append_space_to_x(ipo[i],15); 
+			}
+			out += "\n";
+		}
+		return out;
+	}
+	
+	private String append_space_to_x (String in, int x)
+	{
+		if (in.length() >= x)	return in;
+		String out = in + " ";
+		while (out.length() < x)	out += " ";
+		return out;
 	}
 	
 	private String printCheckSeq(RestrictPhone[] seq)
@@ -882,5 +925,87 @@ public class ErrorAnalysis {
 		}
 		return frqs;
 	}
-			
+
+	
+	
+	private int[] get_ph_freqs_at_rel_loc(int rel_ind, LexPhon[] ets, List<SequentialPhonic> phs, int[] starts)
+	{
+		int[] out = new int[phs.size()];
+		for(int pi = 0 ; pi < phs.size(); pi++)
+			for (int eti = 0 ; eti < ets.length; eti++)
+				if (starts[eti] + rel_ind >= 0)
+					out[pi] += ets[eti].equals(phs.get(pi)) ? 1 : 0; 
+		return out; 
+	}
+	
+	
+	public String[] top_n_predictor_feats_for_position(int n, int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets, 
+			int[] hit_starts, int[] miss_starts)
+	{
+		double nhit = hit_ets.length, nmiss = miss_ets.length, ntot= hit_ets.length + miss_ets.length; 
+		List<SequentialPhonic>[] phs_here = miss_and_hit_phones_at_rel_loc(rel_ind, hit_ets, miss_ets, hit_starts, miss_starts); 
+		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, miss_ets, phs_here[1], miss_starts); 
+		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, hit_ets, phs_here[0], hit_starts); 
+		
+		String[] cand_feats = new String[featsByIndex.length*2]; 
+		int[][] cand_freqs = new int[2][featsByIndex.length*2]; //first dimensh -- 0 for hit, 1 for miss
+		for (int phi = 0; phi < phs_here[1].size(); phi++)
+		{
+			char[] fstr = phs_here[1].get(phi).toString().split(":")[1].toCharArray();
+			for (int spi = 0; spi < featsByIndex.length; spi++)
+				if (fstr[spi] != DerivationSimulation.MARK_UNSPEC)
+					cand_freqs[1][2*spi + ((fstr[spi] == '+') ? 1 : 0)] += miss_ph_frqs[phi];
+		}
+		for (int phi = 0; phi < phs_here[0].size(); phi++)
+		{
+			char[] fstr = phs_here[0].toString().split(":")[1].toCharArray();
+			for (int spi = 0; spi < featsByIndex.length; spi++)
+				if (fstr[spi] != DerivationSimulation.MARK_UNSPEC)
+					cand_freqs[0][2*spi + ((fstr[spi] == '+') ? 1 : 0)] += hit_ph_frqs[phi];
+		}
+		double scores[] = new double[cand_feats.length];
+		for(int fi = 0 ; fi < cand_feats.length; fi++)
+		{
+			int tot_occ = cand_freqs[0][fi] + cand_freqs[1][fi]; 
+			if (tot_occ < ntot && cand_freqs[1][fi] > 2)
+			{
+				double c_miss = cand_freqs[1][fi], c_hit = cand_freqs[0][fi]; 
+				scores[fi] = (c_miss / c_hit) * (c_miss / nmiss); 
+			}
+		}
+		
+		
+		//choose final output
+		int ffi = 0 ; 
+		while(scores[ffi] == 0.0)	ffi++; 
+		double[] lb = new double[n]; //"leader board"
+		String[] out = new String[n];
+		while (ffi < cand_feats.length)
+		{
+			double sc= scores[ffi]; 
+			if (sc > 0.0)
+			{	int placer = 0; 
+				boolean try_place = true; 
+				String scout = cand_feats[ffi] + " : "+sc;
+				scout = scout.substring(0,scout.indexOf('.')+3);
+				
+				while(try_place)
+				{	if (sc < lb[placer])
+					{	placer++; 
+						try_place = placer < n; 
+					}
+					else	try_place = false;
+				}
+				while (placer <  n)
+				{
+					double to_move = lb[placer];	 String moving_outp = out[placer];
+					lb[placer] = sc; 	out[placer] = scout;
+					sc = to_move; 	scout = moving_outp;
+				}
+			}
+			ffi++; 
+		}
+		return out; 
+	}
+	
 }
