@@ -101,7 +101,7 @@ public class SChangeFactory {
 		List<SChange> output = new ArrayList<SChange>(); 
 		
 		if(! input.contains(""+ARROW))
-			throw new Error("Error : input to rule generation that lacks an arrow."); 
+			throw new Error("Error : input to rule generation that lacks an arrow\nRule is "+inp); 
 		
 		String[] inputSplit = input.split(""+ARROW); 
 		
@@ -304,6 +304,14 @@ public class SChangeFactory {
 		return output;
 	}
 	
+	public RestrictPhone[] parseRestrictPhoneArray(String input)
+	{
+		List<RestrictPhone> rps = parseRestrictPhoneSequence(input, false); 
+		RestrictPhone[] out = new RestrictPhone[rps.size()];
+		for (int ri = 0 ; ri < rps.size(); ri++)	out[ri] = rps.get(ri);
+		return out; 
+	}
+	
 	public List<RestrictPhone> parseRestrictPhoneSequence(String input)
 	{
 		return parseRestrictPhoneSequence(input, false); 
@@ -440,8 +448,7 @@ public class SChangeFactory {
 		for (int pisi = 0; pisi < phsInSeg.length; pisi++)
 		{	
 			if(!phsInSeg[pisi].equals("∅"))
-				output.add(parseSeqPh(phsInSeg[pisi].trim()));
-			
+				output.add(parseSeqPh(phsInSeg[pisi].trim()));		
 		}
 		
 		return output;

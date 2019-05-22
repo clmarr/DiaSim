@@ -91,6 +91,9 @@ $ -- called upon to be this early by p91 s187
 $ per s220 : yod is lost between e and p,r
 j > ∅ / {p;r} __ [+front,-hi,-lo,+syl]
 
+$ CORRECTION: before j is consonantalized, dark l emerges from l specifically before consonants (except l)
+l > [+back] / __ [+cons,-lat]
+
 j > ʝ / __ [+syl] $as per Pope s105c, 106
 $ w, newly from u,o in hiatus is clearly NOT effected by this as per treatment in s374
 
@@ -142,7 +145,7 @@ $ CORRECTION: ɪ before dʊ does not disappear if previous consonant is voiceles
 ɪ > ∅ / [+prim] ([-syl])* [+cons,+voi] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and r 
 [-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] $TODO note this rule seems to have no words to apply to... 
+[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] 
 
 $ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded by an ɑ variant 
 ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
@@ -194,6 +197,12 @@ $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowe
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
 [+syl,-stres] ɡ > ∅ / [+prim] ([-syl])* __ [+syl,-stres] ([-syl])* #
 
+$ per Pope s185 and s198, combination of vowels that have become adjacent and share the same quality become a single long vowel of same quality
+$ in practice this only happens for e'e and o'o
+[+front,-hi,-lo] [+front,-hi,-lo,+prim] > ∅ [+long]
+[+round,-hi] [+round,-hi,+prim] > ∅ [+long]
+[+front,-hi,-lo,+stres] [+front,-hi,-lo] > [+long] ∅
+
 $ CORRECTION: shift occurring in Gallian (Gallo-Romance, Occitano-Romance, Gallo-Italic, Rhaeto-Romance), Venetian and Sardinian
 	$ ɑ ɡ ˈɪ n sequences become ˈɑ n 
 [+lo,+syl] ɡ ˈɪ n̪ > ˈɑ n̪
@@ -207,8 +216,8 @@ $Classical Latin length distinction becomes a quality ("tense" for us) distincti
 $p73 s154iii ~ p190 s504 -- seems to have first occurred in the first and second centuries s504
 $giving her the benefit of the doubt, we place this after the length > tense shift, as otherwise oe would become ɛ
 $ 	given that she doesnˌt specify it as long and writes it like a short vowel 
-{a e̯;ˌa e̯;ˈa e̯} > {ɛː;ˌɛː;ˈɛː}
-[+round,-hi,+syl] e̯ > [+front,-round,-back,+tense,+long,-lab] ∅
+{a e̯;ˌa e̯;ˈa e̯} > {ɛ;ˌɛ;ˈɛ}
+[+round,-hi,+syl] e̯ > [+front,-round,-back,+tense,-lab] ∅
 
 $p144 s359 ~ p73 s156iii : simplification in ŋks, ŋkt clusters
 k > ∅ / ŋ __ [+cor,-voi]
@@ -223,6 +232,9 @@ $ so we favorably assume this one comes second.
 $ CORRECTION -- Pope fails to explicitly state that this only occurs after nonconsonantals
 	$ hence nkt and etc clusters are not effected.
 k > x / [-cons] __ [+cor,-voi] 
+
+$CORRECTION: x sibilantized if after word-initial ˌe
+x > s / # ˌɛ __
 
 $p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
 $"opened and vocalized"-- Pope is explicit that it passes through a fricative stage p65 s135b
@@ -283,7 +295,7 @@ $p130 s308-9
 {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont] 
 
 $ as per s306ii : k+yod > c c intervocalically only 
-k [+hi,+front,-syl] > c c / [+syl] __ [+syl]
+k > c c / [+syl] __  ʝ [+syl]
 
 $p 124 s283-284 : palatalization of velar stops before e and i, s306-307 for before yod
 [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
@@ -295,12 +307,17 @@ k > c / __ c
 $p127 s296ii : palatalization of k blocked if coming after secondarily stressed velar vowel
 $ ... and before intertonic unstressed e (<ɪ) 
 $ CORRECTION : we broaden this to all unstressed e,ɛ before t, r or l, to hit words like iacet 
-$ CORRECTION : also occurs after stressed velar vowels. 
-c > k / [+back,+syl,+stres] __ {e;ɛ} {t̪;r;l}
+$ CORRECTION : also occurs after stressed velar vowels.
+$ CORRECTION : not when t is word final.
+c > k / [+back,+syl,+stres] __ {e;ɛ} {t̪;r;l} @
 
-$ CORRECTION: between w and ʝ, ɟ is lost (cases of Savoie < sapaudia and joie < gaudia)
-$ this bleeds the following rule. 
-ɟ > ∅ / w __ ʝ
+$ CORRECTION : l deleted when immediately before ɲ 
+$ she actually has the effects of this in her citation forms for Late Latin (s686) 
+ $ -- but she doesn't explicitly state it. 
+[+lat] > ∅ / __ [+nas] ʝ
+
+$CORRECTION: opening of voiced velar and palatal stops intervocalically occurs early enough to get into Pope's sound tables.
+[-cont,+hi,+voi] > [+cont] / [-cons] __ {[+son,-lat,-nas];ʝ}
 
 ~Late Latin
 
@@ -311,15 +328,11 @@ $p131 s311, assigned to Late Latin in p73 s155-5iv :
 $ as per s293 and s156 however this did not YET affect ng + pal-stop -- i.
 $ trigger again in Gallo-Roman stage.
 $CORRECTION: This is bled by an early shift of mnj to mmj
+$ does not appear in Pope's s660-680ish tables. 
 n̪ > m / m __ ʝ
 [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
 
-$ CORRECTION : l deleted when immediately before ɲ 
-$ she actually has the effects of this in her citation forms for Late Latin (s686) 
- $ -- but she doesn't explicitly state it. 
-[+lat] > ∅ / __ ɲ
-
-$p131 s312, assigned to Late Latin p73 s155-5iv 
+$p131 s312, assigned to Late Latin p73 s155-5iv -- but not evident in Pope's tables in 660-680 for that stage
 $ as per s293 and s156 however this did not YET affect l + pla-stop -- i.e. not words like culcita 
 $trigger again in Gallo-Roman stage
 l l ʝ > ʎ
@@ -370,21 +383,22 @@ $ CORRECTION: s365i inserted here too, earlier than Pope explicitly states it is
 $ s365i : additional deletion of velars in rgl, skl
 {s k;r ɡ} > {s;r} / __ l
 
-$ s353 : devoicing of labial and dental consonants that are now before t 
-$ since aidier is excluded, we can dodge fixing palatals too. 
-[+ant,+cons,-son] > [-voi] / __ t̪
-
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : intervocalic lenition between vowel and (vowel or r)
 $ valid targets before r included plus d before l -- s372
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
 $Later authors group all voiced stops together for this shift, but Pope is unclear
 $She states (s336) that it is attested earlier for b than the others but is unclear
+$Her tables show a lenition of g to gamma for Late Latin but not d to delta
 $However she indicates a shift order in s307i that necessitates velar stop palatalization preceding intervocalic lenition
 $So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
 $Right after the beginning of palatalization. This should be roughly 4th century
 $ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
 [-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
 d̪ > ð / __ [+lat]
+
+$ s353 : devoicing of labial and dental consonants that are now before t 
+$ since aidier is excluded, we can dodge fixing palatals too. 
+[+ant,+cons,-son] > [-voi] / __ t̪
 
 $p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
 $It was apparently still being resisted among the educated classes at the time of St. Augustine, 4th century and early 5th century 
@@ -1037,7 +1051,7 @@ $ this is going to be recurrent...
 $ CORRECTION : final ə̯ r > r ə
 ə̯ r > r ə / __ #
 
-$ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi) -- candidate for deletion TODO
+$ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi)
 r a β ə̯ > l ə f / __ r
 
 $ CORRECTION: (ONE-CASE) dissimilation of r in rə̯r to l (pelerin)
@@ -1060,7 +1074,6 @@ $ CORRECTION: ə̯ r ə̯ > ɾ ə elsewhere
 n̪ ə̯ > ɾ / [+syl] ([-syl])* [+syl] r __ #
 
 $ CORRECTION: ˈʉo̯ > ˈoː before ð then son
-$ TODO candidate for deletion 
 ˈʉ o̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
 
 $ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
@@ -1931,7 +1944,7 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 [+round,+tense,+back] > [+hi] 
 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
-$ Must be after o>u, but called "Early Old French" by Pope (s406)-- TODO may need to handle length. 
+$ Must be after o>u, but called "Early Old French" by Pope (s406)
 $ CORRECTION: at least the rule effecting round high vowels does not effect those in hiatus with a high vowel before. 
 ∅ > j̃ / [-syl] [+hi,+round,+syl] __ ɲ #
 ∅ > j̃  / [+lo,+syl] __ ɲ #
@@ -1942,7 +1955,7 @@ $ CORRECTION: /ɛ/ to also be included in this
 ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
-$s407ii : same for y countertonic or tonic -- TODO may need to handle length. 
+$s407ii : same for y countertonic or tonic 
 ∅ > j / [+hi,+front,+round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [+hi,+front,+round,+stres] __ ɲ [+syl]
 
@@ -2079,7 +2092,7 @@ $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larg
 $ per s470 -- predates a second nasalization of e, in the 13th century. 
 	$This second nasalization then saw ẽ >ɛ̃ lowering, but it wasnˌt accepted till the 17th century
 $ Fed by s388. Feeds e>ø / __ w shift. 
-$ Seems to only occur for stressed ˈi. TODO may have to correct this if wrong.
+$ Seems to only occur for stressed ˈi.
 $ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and 
 	$per s538 "Later 12th century"
 	$Pope doesnˌt give relative dating for the closure (ɛ>e) and stress shift so we group
@@ -2332,10 +2345,12 @@ n̪ > ∅ / ə̃ __ t̪ #
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings
 $ CORRECTION: moved this to before merger of ts and s (<ss) as there are clearly different results
 	$ as there is no length where the affricate formerly followed. 
-[+front,-round,+syl] > [+long] / __ s ə #
+$ NOTE: suppress for ts/s demo
+$ [+front,-round,+syl] > [+long] / __ s ə #
 
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts (thus this must come before deaffrication) 
-[+prim,+lo] > [+long] / __ s #
+$ NOTE: suppress for ts/s demo
+$ [+prim,+lo] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
 t͡s > ∅ / __ [+cons] 
@@ -2588,6 +2603,10 @@ $ accepted by Beze -- 17th century
 [+lo,+syl] > [+long] / __ ʎ ə #
 
 $ CORRECTION: s570ii a:se, i:se etc lengthening moved earlier so that it is not fed by deaffrication. 
+
+$NOTE: following used only for ts/s demo, otherwise suppress. 
+$ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
+[+front,-round,+syl] > [+long] / __ s ə #
 
 $ s271 ə final deleted in hiatus with tonic vowel, even if j comes between
 $ as per s271 began in Old French with analogy in verb forms, became widespread in late 15th and 16th centuries,

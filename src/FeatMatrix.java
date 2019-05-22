@@ -63,7 +63,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if (!cand.getType().equals("phone"))
 			return false; 
 		
-		String candFeats = cand.toString().split(": ")[1]; 
+		String candFeats = cand.toString().split(":")[1]; 
 		assert candFeats.length() == featVect.length(): 
 			"ERROR: comparing with feature vects of unequal length"; 
 		for (int i = 0 ; i < candFeats.length(); i++)

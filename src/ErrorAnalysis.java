@@ -65,7 +65,8 @@ public class ErrorAnalysis {
 		
 		mismatches = new ArrayList<LexPhon[]>();
 		
-		int NUM_ETYMA = theRes.getWordList().length - theRes.numAbsentEtyma();
+		int NUM_ETYMA = theRes.getWordList().length;
+		int NUM_PRESENT_ETYMA = NUM_ETYMA - theRes.numAbsentEtyma();
 		levDists = new int[NUM_ETYMA]; 
 		peds = new double[NUM_ETYMA];
 		feds = new double[NUM_ETYMA];
@@ -92,15 +93,13 @@ public class ErrorAnalysis {
 				if(!isHit[i])
 					updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
 			}
+			else	isHit[i] = true;
 		}
-		pctAcc = numHits / (double) NUM_ETYMA; 
-		pct1off = num1off / (double) NUM_ETYMA;
-		pct2off = num2off / (double) NUM_ETYMA; 
-		avgPED = totLexQuotients / (double) NUM_ETYMA; 	
-		avgFED = totFED / (double) NUM_ETYMA; 
-		
-		//TODO debugging
-		System.out.println("Calculate by-phone error rates...");
+		pctAcc = numHits / (double) NUM_PRESENT_ETYMA; 
+		pct1off = num1off / (double) NUM_PRESENT_ETYMA;
+		pct2off = num2off / (double) NUM_PRESENT_ETYMA; 
+		avgPED = totLexQuotients / (double) NUM_PRESENT_ETYMA; 	
+		avgFED = totFED / (double) NUM_PRESENT_ETYMA; 
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -761,8 +760,10 @@ public class ErrorAnalysis {
 			else
 			{
 				in_seq_subset[ei] = et.findSequence(seq); 
-				if (in_seq_subset[ei] != -1)	subset_size += 1;
-				if (!isHit[ei])	missLocs.add(ei); 
+				if (in_seq_subset[ei] != -1){
+					subset_size += 1;
+					if (!isHit[ei])	missLocs.add(ei); 
+				}
 			}
 		}
 		
@@ -781,7 +782,7 @@ public class ErrorAnalysis {
 			{
 				if(isHit[ei])
 				{
-					subset_hits[ei] = refLex.getByID(ei); 
+					subset_hits[hits_seen] = refLex.getByID(ei); 
 					subset_hit_ids[hits_seen] = ei;
 					hit_starts[hits_seen] = in_seq_subset[ei];
 					hits_seen += 1;
@@ -789,7 +790,7 @@ public class ErrorAnalysis {
 				}
 				else
 				{
-					subset_misses[ei] = refLex.getByID(ei);
+					subset_misses[misses_seen] = refLex.getByID(ei);
 					subset_miss_ids[misses_seen] = ei;
 					miss_starts[misses_seen] = in_seq_subset[ei];
 					misses_seen += 1; 
@@ -970,7 +971,7 @@ public class ErrorAnalysis {
 			if (tot_occ < ntot && cand_freqs[1][fi] > 2)
 			{
 				double c_miss = cand_freqs[1][fi], c_hit = cand_freqs[0][fi]; 
-				scores[fi] = (c_miss / c_hit) * (c_miss / nmiss); 
+				scores[fi] = (c_miss / (c_hit + 0.1)) * (c_miss / nmiss); 
 			}
 		}
 		

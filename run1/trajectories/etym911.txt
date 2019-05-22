@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :911:
-#plˈɑt̪t̪eɑm# >>> #plas# ( Correct : #plas#) :
+#plˈɑt̪t̪eɑm# >>> #plɑs# ( Correct : #plas#) :
 p l ˈɑ t̪ t̪ e ɑ m 
 #plˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #plˈɑt̪t̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -11,7 +11,10 @@ p l ˈɑ t̪ t̪ e ɑ m
 #plˈat̪t͡sʲə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
 #plˈat͡sʲə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
 #plˈat͡sə# | Rule 534 : t͡sʲ > t͡s / [-nas] __ 
-#plˈasə# | Rule 636 : [+delrel] > [+cont,0delrel] 
-#plˈasə̯# | Rule 695 : ə > ə̯ / __ #
-#plˈas# | Rule 722 : ə̯ > ∅ 
-#plas# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plˈasə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#plˈaːsə# | Rule 692 : [+front,-round,+syl] > [+long] / __ s ə #
+#plˈaːsə̯# | Rule 694 : ə > ə̯ / __ #
+#plˈɑːsə̯# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#plˈɑːs# | Rule 721 : ə̯ > ∅ 
+#plɑːs# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɑs# | Rule 739 : [+syl,+long] > [-long,-splng] 

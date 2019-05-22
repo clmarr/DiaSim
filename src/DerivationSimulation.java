@@ -73,7 +73,7 @@ public class DerivationSimulation {
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
-	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause; 
+	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages; 
 	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
 		//TODO fix for command line
 	
@@ -244,7 +244,7 @@ public class DerivationSimulation {
 		while (rli < rulesByTimeInstant.size())
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
-			if( currRule.charAt(0) == GOLD_STAGENAME_FLAG )
+			if( currRule.charAt(0) == GOLD_STAGENAME_FLAG && !ignore_stages)
 			{
 				goldStagesSet = true; 
 				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
@@ -257,7 +257,7 @@ public class DerivationSimulation {
 				goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
 				rulesByTimeInstant.remove(rli);  
 			}
-			else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG)
+			else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG && !ignore_stages )
 			{
 				blackStagesSet =true;
 				currRule = currRule.substring(1); 
@@ -344,7 +344,7 @@ public class DerivationSimulation {
 		try 
 		{	File inFile = new File(lexFileLoc); 
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8")); 
+				new FileInputStream(inFile), "UTF8"));
 			while((nextLine = in.readLine()) != null)	
 			{	if (nextLine.contains(CMT_FLAG+""))
 					nextLine = nextLine.substring(0,nextLine.indexOf(CMT_FLAG)).trim(); 
@@ -460,7 +460,7 @@ public class DerivationSimulation {
 							resp = inp.nextLine().substring(0,1); 
 						}
 						if(resp.equalsIgnoreCase("y"))	
-							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd], inp);
+							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd], inp, theFactory);
 					}
 					goldStageInd++;
 				}
@@ -473,6 +473,10 @@ public class DerivationSimulation {
 					blackStageInd++; 
 				}
 			}
+
+			//TODO debugging
+			System.out.println("rule : "+thisShift);
+			
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
@@ -483,7 +487,9 @@ public class DerivationSimulation {
 				System.out.println("Words changed for rule "+ri+" "+thisShift); 
 				for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 					if (wordsChanged[wi])
+					{	
 						System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
+					}
 			}
 			ri++;
 		}
@@ -504,7 +510,7 @@ public class DerivationSimulation {
 				
 		if(goldOutput)
 		{
-			haltMenu(testResultLexicon, goldResultLexicon,inp);
+			haltMenu(testResultLexicon, goldResultLexicon,inp,theFactory);
 			
 			System.out.println("Writing analysis files...");
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
@@ -710,7 +716,7 @@ public class DerivationSimulation {
 		}
 	}
 	
-	private static void haltMenu(Lexicon r, Lexicon g, Scanner inpu)
+	private static void haltMenu(Lexicon r, Lexicon g, Scanner inpu, SChangeFactory fac)
 	{		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -726,18 +732,88 @@ public class DerivationSimulation {
 		while(cont)
 		{
 			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
-					+ "1: Standard prognosis with context analysis.\n"
-					+ "2: Print all corresponding forms (initial, res, gold)\n"
-					+ "3: Print all corresponding forms (res,gold)\n"
-					+ "4: Print all forms mismatched between result and gold\n"
-					+ "5: Print all mismatched forms with a specified phone sequence in the result form\n"
-					+ "6: Print all mismatched forms with a specified phone sequence in the gold form\n"
-					+ "7: Stats for all forms with specified phone sequence in result form\n"
-					+ "8: Stats for all forms with specified phone sequence in gold form\n"
-					+ "9: End this analysis.\n");
+					+ "| 0 : Analysis and context autopsy for subset with specified sequence~~~~~~~~~~~~~~~~~|\n"
+					+ "| 1 : Standard prognosis with context analysis                                        |\n"
+					+ "| 2 : Print all corresponding forms (initial, res, gold)                              |\n"
+					+ "| 3 : Print all corresponding forms (res,gold)                                        |\n"
+					+ "| 4 : Print all forms mismatched between result and gold                              |\n"
+					+ "| 5 : Print all mismatched forms with a specified phone sequence in the result form   |\n"
+					+ "| 6 : Print all mismatched forms with a specified phone sequence in the gold form     |\n"
+					+ "| 7 : Stats for all forms with specified phone sequence in result form                |\n"
+					+ "| 8 : Stats for all forms with specified phone sequence in gold form                  |\n"
+					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
 			
-			if(resp.equals("1"))	ea.confusionPrognosis(true);
+			if (resp.equals("0")) // context autopsy
+			{
+				System.out.println("Analyzing subset filtered for phoneme sequence to be specified"); 
+				System.out.println("What stage would you like to filter from?");
+				
+				HashMap<String, String> filter_abbrs = new HashMap<String, String>();
+				filter_abbrs.put("X","Input stage"); 
+				int gsi = 1, bsi = 1;
+				while (gsi <= NUM_GOLD_STAGES)
+				{
+					filter_abbrs.put("G"+gsi, goldStageNames[gsi-1]); gsi++;
+				}
+				while (bsi <= NUM_BLACK_STAGES)
+				{
+					filter_abbrs.put("B"+bsi, blackStageNames[bsi-1]); bsi++;
+				}
+				filter_abbrs.put("Y", "Final stage");
+			
+				String stage_indics_menu = append_space_to_x("X : Input",19)+"| Y : Result\n";
+				for (int i = 1 ; i <= Integer.max(NUM_GOLD_STAGES, NUM_BLACK_STAGES); i++)
+				{
+					String gs = append_space_to_x( (i <= NUM_GOLD_STAGES) ? "G"+i+" : "+filter_abbrs.get("G"+i) : "", 19),
+							bs = (i <= NUM_BLACK_STAGES) ? "B"+i+" : "+filter_abbrs.get("B"+i) : "";
+					stage_indics_menu += gs+"|"+bs+"\n";
+				}
+				System.out.println("Please enter the specified indicator:\n"+stage_indics_menu); 
+				String filt_stage = inpu.nextLine();
+				
+				//TODO debugging
+				System.out.println("filt stage : "+filt_stage);
+				System.out.println(filter_abbrs.containsKey(filt_stage)); 
+				
+				
+				while(!filter_abbrs.containsKey(filt_stage))
+				{
+					System.out.println("Illegitimate key, please enter a stage indicator as specified :\n"+stage_indics_menu); 
+					filt_stage = inpu.nextLine();
+					
+				}
+				Lexicon filtLex; 
+				if (filt_stage.equalsIgnoreCase("X"))	filtLex = initLexicon;
+				else if (filt_stage.charAt(0) == 'B')
+					filtLex = blackStageResultLexica[-1 + Integer.parseInt(filt_stage.substring(1))];
+				else
+				{
+					System.out.println("Illegitimate entry. Filter using gold or result? Enter 'y' or 'n'.");
+					resp = inpu.nextLine().trim(); 
+					
+					while(!"yn".contains(resp))
+					{	
+						System.out.println("Illegitimate entry. Filter using gold or result? Enter 'y' or 'n'.");
+						resp = inpu.nextLine().trim(); 
+					}
+					
+					boolean use_gold = (resp.equalsIgnoreCase("Y")); 
+					
+					if (filt_stage.equalsIgnoreCase("Y"))	filtLex = use_gold ? goldResultLexicon : testResultLexicon;
+					else	filtLex = use_gold ? 
+								goldStageGoldLexica[-1 + (Integer.parseInt(filt_stage.substring(1)))] :
+									goldStageResultLexica[-1 + (Integer.parseInt(filt_stage.substring(1)))];
+				}
+				
+				System.out.println("Filtering from "+filter_abbrs.get(filt_stage)); 
+				
+				System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+PH_DELIM+"'");
+				
+				RestrictPhone[] filter_seq = fac.parseRestrictPhoneArray(inpu.nextLine());
+				ea.analyzeByRefSeq(filter_seq, filtLex);
+			}				
+			else if(resp.equals("1"))	ea.confusionPrognosis(true);
 			else if(resp.equals("2") || resp.equals("3"))
 			{
 				boolean printInit = (resp.equals("2")); 
@@ -1019,6 +1095,10 @@ public class DerivationSimulation {
 							stage_pause = true; 
 							if (vflag)	System.out.println("Halting for analysis at stage checkpoints.");
 							break; 
+						case 'i':
+							ignore_stages = true; 
+							if (vflag)	System.out.println("Ignoring all stages.");
+							break;
 						default:
 							System.err.println("Illegal flag : "+flag);
 							break;
@@ -1028,6 +1108,14 @@ public class DerivationSimulation {
 		}
 		if (i != args.length || no_prefix)
             throw new Error("Usage: DerivationSimulation [-verbose] [-rdpc] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+	}
+	
+	private static String append_space_to_x (String in, int x)
+	{
+		if (in.length() >= x)	return in;
+		String out = in + " ";
+		while (out.length() < x)	out += " ";
+		return out;
 	}
 }
 

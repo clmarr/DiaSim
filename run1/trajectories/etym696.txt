@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :696:
-#mˌin̪ˈɑːkiɑ# >>> #mən̪as# ( Correct : #mən̪as#) :
+#mˌin̪ˈɑːkiɑ# >>> #mən̪ɑs# ( Correct : #mən̪as#) :
 m ˌi n̪ ˈɑː k i ɑ 
 #mˌɪn̪ˈɑːkɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˌɪn̪ˈɑːkjɑ# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -14,8 +14,11 @@ m ˌi n̪ ˈɑː k i ɑ
 #mˌən̪ˈat͡sʲə# | Rule 500 : ˌe > ˌə / # [+son] __ ( [+cons] ) [+syl]
 #mˌən̪ˈat͡sə# | Rule 534 : t͡sʲ > t͡s / [-nas] __ 
 #mˌə̃n̪ˈat͡sə# | Rule 615 : [+syl,-front] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˌə̃n̪ˈasə# | Rule 636 : [+delrel] > [+cont,0delrel] 
-#mˌən̪ˈasə# | Rule 641 : {ə̃;ˌə̃} > {ə;ˌə} 
-#mˌən̪ˈasə̯# | Rule 695 : ə > ə̯ / __ #
-#mˌən̪ˈas# | Rule 722 : ə̯ > ∅ 
-#mən̪as# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˌə̃n̪ˈasə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#mˌən̪ˈasə# | Rule 639 : {ə̃;ˌə̃} > {ə;ˌə} 
+#mˌən̪ˈaːsə# | Rule 692 : [+front,-round,+syl] > [+long] / __ s ə #
+#mˌən̪ˈaːsə̯# | Rule 694 : ə > ə̯ / __ #
+#mˌən̪ˈɑːsə̯# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#mˌən̪ˈɑːs# | Rule 721 : ə̯ > ∅ 
+#mən̪ɑːs# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mən̪ɑs# | Rule 739 : [+syl,+long] > [-long,-splng] 

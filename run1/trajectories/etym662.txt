@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :662:
-#mˈɑt̪t̪eɑm# >>> #mas# ( Correct : #mas#) :
+#mˈɑt̪t̪eɑm# >>> #mɑs# ( Correct : #mas#) :
 m ˈɑ t̪ t̪ e ɑ m 
 #mˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈɑt̪t̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -11,7 +11,10 @@ m ˈɑ t̪ t̪ e ɑ m
 #mˈat̪t͡sʲə# | Rule 435 : a > ə / [+syl] ( [-syl] )* __ 
 #mˈat͡sʲə# | Rule 481 : [+cor,-cont,-delrel] > ∅ / __ [+cor,-cont]
 #mˈat͡sə# | Rule 534 : t͡sʲ > t͡s / [-nas] __ 
-#mˈasə# | Rule 636 : [+delrel] > [+cont,0delrel] 
-#mˈasə̯# | Rule 695 : ə > ə̯ / __ #
-#mˈas# | Rule 722 : ə̯ > ∅ 
-#mas# | Rule 739 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈasə# | Rule 634 : [+delrel] > [+cont,0delrel] 
+#mˈaːsə# | Rule 692 : [+front,-round,+syl] > [+long] / __ s ə #
+#mˈaːsə̯# | Rule 694 : ə > ə̯ / __ #
+#mˈɑːsə̯# | Rule 701 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːs# | Rule 721 : ə̯ > ∅ 
+#mɑːs# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɑs# | Rule 739 : [+syl,+long] > [-long,-splng] 
