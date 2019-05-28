@@ -935,7 +935,7 @@ $ hits former tonic a
 
 $ CORRECTION: beginning of u > y fronting moved earlier. 
 
-$$~MIDDLE GALLO-ROMAN
+$|MIDDLE GALLO-ROMAN
 $ Seventh century as per Pope s164
 
 $Absorption of prior velar (now palatal) frics by lambda, resolving s322
@@ -1315,7 +1315,19 @@ $ CORRECTION: this happens in the midst of the process of the fall of the first 
 $ CORRECTION: this bleeds post-palatal a-raising
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
-$ CORRECTION: recurrence of s413-4 supppressed here -- did nothing good really
+$ s413-4 -- recurrence as per medietatem, adiutare, Andecanes etc
+$ Raising of free a to ɛ if preceded by palatal consonants
+$ recurses as per cases of adiutare and medietatem (s414) 
+$ CORRECTION: word-final a is unaffected if it isn't stressed.
+$ CORRECTION: happens to primarily stressed a anywhere
+$ CORRECTION: also before final rʲ 
+$ CORRECTION: also before rs#
+$ CORRECTION: does not occur immediately word finally this time
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ rʲ #
+[+lo,+syl,+prim] > [-lo,+front,-tense] / [+front,-syl] __ r s #
 
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
 $ CORRECTION: includes tonic o
@@ -1732,7 +1744,7 @@ $CORRECTION: this only happens for actual consonants followed by l, not glides.
 ∅ > ə / [+lo] j r __ #
 ∅ > ə / [-lat,+cons] l __ #
 
-$$~ Early Old French 
+$| Early Old French 
 $ as per Pope p9 s16, this spans from the 9th century to the end of the 11th. "Formative period of the French language.”
 
 $ Pope s257 : unstressed ə > e before yod. She implies this is also happening before ʎ and ɲ in her examples
@@ -1990,7 +2002,7 @@ $ CORRECTION: tonic iej and iej̃ move to (long) iː after a palatal
 $s166.6$~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
 
-$$~Later Old French
+$|Later Old French
 $AKA Old French II. As per Pope s16, from end of eleventh century to beginning of the 14th. 
 
 $ s555 ue̯w > ye̯w : Pope seems to imply this happens in the late 11th century
@@ -2386,7 +2398,7 @@ $ CORRECTION: only after spirant fricatives.
 $Pope does not give an exact date here...
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
 
-$$~Middle French
+$|Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
 
 $ CORRECTION: final j after vowel just deleted except after high vowel
@@ -2709,7 +2721,7 @@ $ recurrence of s239 : wˌɛ emits j if before tonic vowel -- late 16th century
 $ CORRECTION: removed. Unnecessary.
 $ ∅ > j / w ˌɛ __ [+prim]
 
-$$~Early Modern French
+$|Early Modern French
 
 $ CORRECTION: pre-coda t will be preserved in pre-coda cons loss series, if it is only preceded by
 	$  monosyllables with no onset consonantals (ɥ, w, j -- not consonantal)
@@ -2832,7 +2844,7 @@ $ for convenience œ̃ also handled in here.
 $ CORRECTION: denasalization of nasal vowels before nasal consonants that have become final. Can be handled by doing this anytime the nasal cons has not been deleted.
 [+syl,+nas] > [-nas] / __ [+nas,+cons]
 
-$$~Modern French
+$|Modern French
 $ CORRECTION : word final ɔ to o
 ɔ > o / __ #
 

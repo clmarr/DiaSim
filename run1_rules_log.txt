@@ -378,6 +378,11 @@ t̪ > d̪ / __ [+nas,+cons]
 [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
 [+prim] > [+long] / [+syl] ( [-syl] )* __ r s #
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ} 
+[+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [+cons] [-cons]
+[+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ [-cont] [+cons,+son,-nas]
+[+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ rʲ #
+[+lo,+syl,+prim] > [-lo,+front,-tense,-cons,-lat,+cont,0delrel] / [+front,-syl] __ r s #
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
 j > ∅ / [+syl] [-syl] ( [-syl] )* __ ˈi e̯ rʲ
 [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
