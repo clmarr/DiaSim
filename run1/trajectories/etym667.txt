@@ -3,8 +3,10 @@ Trajectory file for run 'run1'; etymon number :667:
 m e ˌɑ m 
 #mɛˌɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mjˌɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#mʝˌɑm# | Rule 27 : j > ʝ / __ [+syl]
-#mʝˌɑ# | Rule 70 : [+nas,+cons] > ∅ / [+lo,-prim] __ #
-#mʝˌa# | Rule 196 : [+lo,+syl] > [+front,-back] 
-#mjˌa# | Rule 382 : ʝ > j 
-#mja# | Rule 738 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mʝˌɑm# | Rule 28 : j > ʝ / __ [+syl]
+#mʝˌɑ# | Rule 76 : [+nas,+cons] > ∅ / [+lo,-prim] __ #
+#mʝˌa# | Rule 206 : [+lo,+syl] > [+front,-back] 
+#mʝˌɑ# | Rule 207 : [+lo,+syl] > [-front,+back] / # ( [-syl] )* __ ( [-syl] ) #
+#mjˌɑ# | Rule 388 : ʝ > j 
+#mjˌa# | Rule 415 : [+lo,+syl] > [+front,-back] 
+#mja# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -500,6 +500,9 @@ $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
 $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
+$ per s182 : temporarily blocked in monosyllables
+[+lo,+syl] > [-front,+back] / # ([-syl])* __ ([-syl])* #
+
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
@@ -789,6 +792,9 @@ $ hits former tonic a
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
 [+hi,+tense,+round,+syl] > [-front,-back]
 
+$s182 : finally remaining velar a (only in monosyllables) is fronted, late enough so that it counterfeeds breaking and diphthongization
+[+lo,+syl] > [+front,-back]
+
 $ s164-5 ~ ss334
 $ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
 $ voicing of p, t, ts intervocalically ss334-335
@@ -996,8 +1002,9 @@ $ s374ii: fricative + w > w w
 $ recurrence of s374i 
 w > ∅ / [-cont] [-cont] __
 
-$ s377 s > z before voiced consonants
+$ s377 s > z before voiced and/or "breathed" consonants (excluding s of course)
 s > z / __ [+voi,+cons]
+s > z / __ [+cont,+cons,-strid]
 
 $ s372ii t,d become edh before r,l,n,m
 [-cont,-delrel,+cor] > ð / __ [+son,+cor] 
@@ -1067,8 +1074,9 @@ $As per Pope s167, "unclear" how much and if the vocalization aspect was present
 $First attested in 9th century -- s390. 
 [+lat] > [+back] / __ [+cons]
 
-$s382iv and s384 : but back l becomes lʲ after i 
-ɫ > lʲ / [+hi,+front,-round] __
+$s382iv and s384 : but back l becomes ʎ after i (originally Pope has this as lʲ, but Occam's razor as
+	$ diachronically there is no difference -- Pope is inconsistent, using ʎ for fils but lʲ for ficelle)
+ɫ > ʎ / [+hi,+front,-round] __
 
 $ s166.1 ~ s183 ~ s9 ~ s36 ~ s42 completion of u fronting. 
 $"Spread slowly from the South" (s183, s36), continuing in the tenth century (s42), with some Eastern and Northern (esp Walloon, Picard) dialects remaining unaffected.
