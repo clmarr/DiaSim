@@ -211,7 +211,6 @@ $ CORRECTION: shift occurring in Gallian (Gallo-Romance, Occitano-Romance, Gallo
 $Page 72-73, section 154i $~ elaborated p 89 s 179 , s222
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
-[+syl,-lo,+long] > [-long,+tense]
 [+syl,+long] > [-long]
 
 $p73 s154iii $~ p190 s504 -- seems to have first occurred in the first and second centuries s504
@@ -360,7 +359,7 @@ e > ∅ / __ [+cor,+distr,+ant] [+syl] ([-syl]) #
 
 $ CORRECTION: unstressed ɛ after palatal deleted 
 	$ when before t̪ then some a-variant
-ɛ > ∅ / [+front,+cons] __ t̪
+ɛ > ∅ / [+front,+cons] __ t̪ [+lo]
 
 $CORRECTION ə̯ inserted between p and d (rapidum, sapidum, tepidum > rade, sade, tiede | etc) 
 ∅ > ə̯ / p __ d̪
@@ -762,7 +761,7 @@ $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
 $ per s182 : temporarily blocked in monosyllables
-[+lo,+syl] > [-front,+back] / # ([-syl])* __ ([+cons]) #
+[+lo,+syl] > [-front,+back] / # ([-syl])* __ #
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -2043,6 +2042,9 @@ $ CORRECTION: final l WILL be labialized if it is preceded by a mid vowel that i
 	$ NOT ajl: frele, grele
 l > ɫ / [+syl,-hi,-lo,-long] __ #
 
+$ CORRECTION: efface ʎ between i variants and consonant
+ʎ > ∅ / [+front,+hi,-round,+syl] __ [+cons]
+
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested in 1137 -- "over the course of the 12th century"
 $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
@@ -2746,11 +2748,13 @@ $ s611 : began in 13th century, established by 16th, s620 accepted (grudgingly) 
 $ s618-619 : counteraction led to preservation quasiregularly where it was f or k in a monosyllable. 
 
 $for preserving f and k as per s618-169
-$ CORRECTION: f is ALWAYS preserved.
+$ CORRECTION: f is ALWAYS preserved (regularlY)
 $ CORRECTION: only applies for k when the single syllabic vowel is not nasal
+$ CORRECTION: final s supported in monosyllables starting with a spirant
 ∅ > ə̯ / # [+syl,-nas] [-syl] k __ #
 ∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
 ∅ > ə̯ / f __ #
+∅ > ə̯ / # [+strid] [-round,+hi,+syl] s __ #
 
 $ə̯ will be deleted by rule after this one ... 
 $now implement final cons loss as per s611-620: 
