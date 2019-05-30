@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :951:
-#prˌehen̪siˈoːn̪em# >>> #pʁizɔ̃# ( Correct : #pʁizɔ̃#) :
+#prˌehen̪siˈoːn̪em# >>> #pʁwazɔ̃# ( Correct : #pʁizɔ̃#) :
 p r ˌe h e n̪ s i ˈoː n̪ e m 
 #prˌeheːn̪siˈoːn̪em# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [+syl,-stres]
 #prˌeheːsiˈoːn̪em# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
@@ -17,12 +17,16 @@ p r ˌe h e n̪ s i ˈoː n̪ e m
 #prˌezʲˈũːn̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
 #prˌezʲˈũːn̪ə̯# | Rule 278 : ə > ə̯ 
 #prˌezʲˈũːn̪# | Rule 312 : ə̯ > ∅ 
-#prˌejzˈũːn̪# | Rule 398 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-#prˌizˈũːn̪# | Rule 524 : ˌe j > ˌi / __ z
-#prˌizˈũː# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#prˌiːzˈũː# | Rule 719 : [+syl] > [+long] / __ z [+syl]
-#pʀˌiːzˈũː# | Rule 751 : r > ʀ 
-#pʀiːzũː# | Rule 752 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pʀizũ# | Rule 753 : [+syl,+long] > [-long,-splng] 
-#pʀizɔ̃# | Rule 754 : [+back,-lo,+nas,+syl] > ɔ̃ 
-#pʁizɔ̃# | Rule 759 : ʀ > ʁ 
+#prˌejzˈũːn̪# | Rule 399 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
+#prˌojzˈũːn̪# | Rule 545 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#prˌujzˈũːn̪# | Rule 567 : [+round,+tense,+back] > [+hi] 
+#prˌuɛ̯zˈũːn̪# | Rule 634 : j > ɛ̯ / [+syl,+back,+round] __ 
+#prwˌɛzˈũːn̪# | Rule 635 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#prwˌɛzˈũː# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#prwˌɛːzˈũː# | Rule 720 : [+syl] > [+long] / __ z [+syl]
+#pʀwˌɛːzˈũː# | Rule 752 : r > ʀ 
+#pʀwɛːzũː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pʀwɛzũ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#pʀwɛzɔ̃# | Rule 755 : [+back,-lo,+nas,+syl] > ɔ̃ 
+#pʀwazɔ̃# | Rule 759 : ɛ > a / w __ 
+#pʁwazɔ̃# | Rule 760 : ʀ > ʁ 

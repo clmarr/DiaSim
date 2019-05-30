@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :229:
-#fˈɑɡum# >>> #fo# ( Correct : #fu#) :
+#fˈɑɡum# >>> #fu# ( Correct : #fu#) :
 f ˈɑ ɡ u m 
 #fˈɑɡʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˈɑɡom# | Rule 70 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
@@ -10,10 +10,7 @@ f ˈɑ ɡ u m
 #fˈɑːu# | Rule 199 : o > u / [+syl,+prim] __ #
 #fˈɑːw# | Rule 200 : [+hi,+syl,-stres] > [-syl,0stres,0prim] / [+prim] __ #
 #fˈaːw# | Rule 206 : [+lo,+syl] > [+front,-back] 
-#fˈɑːw# | Rule 207 : [+lo,+syl] > [-front,+back] / # ( [-syl] )* __ ( [-syl] ) #
-#fˈɑw# | Rule 245 : [+syl] > [-long,-splng] / __ w
-#fˈaw# | Rule 420 : [+lo,+syl] > [+front,-back] 
-#fˈɔː# | Rule 472 : {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
-#fˈoː# | Rule 644 : [-lo,-hi,+back,-tense,+long] > [+tense,-cons,-lat,+cont,0delrel] / __ ( [-syl] ) #
-#foː# | Rule 752 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fo# | Rule 753 : [+syl,+long] > [-long,-splng] 
+#fˈaw# | Rule 245 : [+syl] > [-long,-splng] / __ w
+#fˈɔw# | Rule 246 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#fˈu# | Rule 627 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#fu# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

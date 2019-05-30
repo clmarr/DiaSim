@@ -237,8 +237,8 @@ k > x / [-cons] __ [+cor,-voi]
 $CORRECTION: x sibilantized if after word-initial ˌe
 x > s / # ˌɛ __
 
-$CORRECTION: countertonic /ɛ/ closes back to /e/ before ss and sf
-ˌɛ > ˌe / __ s [-son,+cont]
+$CORRECTION: countertonic /ɛ/ closes back to /e/ before s(s)ʝ
+ˌɛ > ˌe / __ s (s) ʝ
 
 $p144 s359 $~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
 $"opened and vocalized"-- Pope is explicit that it passes through a fricative stage p65 s135b
@@ -762,7 +762,7 @@ $ Attributed (s163) to sixth and seventh centuries
 [+lo,+syl] > [+front,-back]
 
 $ per s182 : temporarily blocked in monosyllables
-[+lo,+syl] > [-front,+back] / # ([-syl])* __ ([-syl]) #
+[+lo,+syl] > [-front,+back] / # ([-syl])* __ ([+cons]) #
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -1349,6 +1349,11 @@ $ s372 d > ð before nasals , and then ð > z before n "sometimes"
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
 d̪ > ð / [+syl] __ [+nas] 
 
+$ CORRECTION : countertonic ej goes to i before z (dîner (<disiunare), prison...) 
+$ this does indeed bleed any future ej>oj
+$ Counterfed by s294 
+ˌe j > ˌi / __ z 
+
 $ s294 dzj opens to zj intervocalically due to lenition (Pope implies this by citing s334) before it resolves to jz
 d͡zʲ > zʲ / [-cons] __ [-cons]
 
@@ -1384,7 +1389,8 @@ $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl
 $ then realize the main rule here.
 $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} -- ABROGATED (see below)
 
-$ CORRECTION: tʲ,  sʲ and dʲ are actually preserved into Old French, but lʲ,nʲ,zʲ are lost at this point
+$ CORRECTION: tʲ,  sʲ and dʲ are actually preserved into Old French in a specific position between a palatal continuant cons and i
+	$ , but lʲ,nʲ,zʲ are lost at this point
 $ ... while tsʲ and rʲ are eliminated also earlier by shifts slightly later than this
 $ The evidence is the discover of a new REGULAR RULE by which
 	$ (formerly former) palatals see the deletion of following j in jɛʁ segments
@@ -1405,9 +1411,6 @@ $ the persistence of sʲ/tʲ/dʲ is specifically both after non-strident palatal
 $ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ rather than a simple spirant
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 		
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-
-
-$ TODO testing new version...
 {t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,+hi,+front,+cont,-strid] __ [+hi,+front,+cont]
 s > t͡sʲ / [-syl,+hi,+front,+cont,-strid] __ #
 
@@ -1821,10 +1824,6 @@ j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
 [+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
 $ CORRECTION: some housekeeping, to avoid rather dumb errors
 [+nas,+front,-hi,+syl] > [-tense] / __ [+nas,+cons]
-
-$ CORRECTION : countertonic ej goes to i before z (dîner (<disiunare), prison...) 
-$ this does indeed bleed any future ej>oj 
-ˌe j > ˌi / __ z 
 
 $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u are BLED by effects of ð : 
 	$ except when the next vowel is tonic and tense, ˌo and ˈo go to ˌɔ before ð 
@@ -2330,6 +2329,9 @@ $  ɛ̯ > j / [+syl,+back,+round] __ [+prim]
 $ s518-521 : uɛ̯,ɔɛ̯ > wɛ 
 $ s519: late 12th and 13th centuries. 
 {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+
+$ CORRECTION: depalatalization of tj after a syllabic elemnnt
+t̪ʲ > t̪ / [+syl] __
 
 $s409ii $~ s239 : y emits j before non-high unrounded palatal vowels with at least some stress (stress part inferred from s239, which is cited by Pope)
 $ CORRECTION: this does not appear to be useful and in fact seems harmful
