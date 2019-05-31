@@ -7,9 +7,6 @@ public abstract class SequentialPhonic extends Phonic {
 	abstract public SequentialPhonic copy(); 
 	public boolean equals(Object other)
 	{
-		//TODO debugging
-		System.out.println("SeqPh eq called"); 
-		
 		if (!other.getClass().equals(this.getClass()))	return false;
 		return other.toString().equals(this.toString()); 
 	}

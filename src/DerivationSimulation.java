@@ -75,7 +75,6 @@ public class DerivationSimulation {
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages; 
 	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
-		//TODO fix for command line
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -754,7 +753,9 @@ public class DerivationSimulation {
 				int gsi = 1, bsi = 1;
 				while (gsi <= NUM_GOLD_STAGES)
 				{
-					filter_abbrs.put("G"+gsi, goldStageNames[gsi-1]); gsi++;
+					filter_abbrs.put("GR"+gsi, goldStageNames[gsi-1] + " res"); 
+					filter_abbrs.put("GG"+gsi, goldStageNames[gsi-1] + " gold");
+					gsi++;
 				}
 				while (bsi <= NUM_BLACK_STAGES)
 				{
@@ -762,14 +763,18 @@ public class DerivationSimulation {
 				}
 				filter_abbrs.put("Y", "Final stage");
 			
-				String stage_indics_menu = append_space_to_x("X : Input",19)+"| Y : Result\n";
+				String stage_indics_menu = append_space_to_x("X : Input",17);
+				if(goldOutput)	stage_indics_menu += append_space_to_x("| Y : Result",17) + "| Z : Gold set\n";
+				else	stage_indics_menu += "| Y : Result\n";
+				
 				for (int i = 1 ; i <= Integer.max(NUM_GOLD_STAGES, NUM_BLACK_STAGES); i++)
 				{
-					String gs = append_space_to_x( (i <= NUM_GOLD_STAGES) ? "G"+i+" : "+filter_abbrs.get("G"+i) : "", 19),
-							bs = (i <= NUM_BLACK_STAGES) ? "B"+i+" : "+filter_abbrs.get("B"+i) : "";
-					stage_indics_menu += gs+"|"+bs+"\n";
+					String bs = append_space_to_x( (i <= NUM_BLACK_STAGES) ? "B"+i+" : "+filter_abbrs.get("B"+i) : "", 14);
+					String gs = append_space_to_x( (i <= NUM_GOLD_STAGES) ? "G"+i+" : "+filter_abbrs.get("GR"+i) : "", 14);
+					gs += (i <= NUM_GOLD_STAGES) ? "GG"+i+" : "+filter_abbrs.get("GG"+i) : "";
+					stage_indics_menu += bs+"|"+gs+"\n";
 				}
-				System.out.println("Please enter the specified indicator:\n"+stage_indics_menu); 
+				System.out.println("Please enter the specified indicator for the desired stage:\n"+stage_indics_menu); 
 				String filt_stage = inpu.nextLine();
 				
 				//TODO debugging
@@ -779,17 +784,25 @@ public class DerivationSimulation {
 				
 				while(!filter_abbrs.containsKey(filt_stage))
 				{
-					System.out.println("Illegitimate key, please enter a stage indicator as specified :\n"+stage_indics_menu); 
+					System.out.println("Illegitimate entry: '"+filt_stage+"'\nPlease enter one of the valid stage indicators as specified :\n"+stage_indics_menu); 
 					filt_stage = inpu.nextLine();
-					
 				}
-				Lexicon filtLex; 
+				
+				Lexicon filtLex = initLexicon; 
 				if (filt_stage.equalsIgnoreCase("X"))	filtLex = initLexicon;
+				else if (filt_stage.equalsIgnoreCase("Y"))	filtLex = testResultLexicon;
+				else if (filt_stage.length() > 1)
+				{
+					if(filt_stage.substring(0,2).equals("GR"))
+						filtLex = goldStageResultLexica[-1 + Integer.parseInt(filt_stage.substring(2))];
+					else if (filt_stage.substring(0,2).equals("GG"))
+						filtLex = goldStageGoldLexica[-1 + Integer.parseInt(filt_stage.substring(2))];
+				}
 				else if (filt_stage.charAt(0) == 'B')
 					filtLex = blackStageResultLexica[-1 + Integer.parseInt(filt_stage.substring(1))];
 				else
 				{
-					System.out.println("Illegitimate entry. Filter using gold or result? Enter 'y' or 'n'.");
+					System.out.println("Illegitimate entry. What stage would you like to filter from?\nPlease enter the specified indicator:\n"+stage_indics_menu);
 					resp = inpu.nextLine().trim(); 
 					
 					while(!"yn".contains(resp))
@@ -1091,7 +1104,7 @@ public class DerivationSimulation {
 							print_changes_each_rule = true;
 							if (vflag)	System.out.println("Printing words changed for each rule.");
 							break;
-						case 'c':
+						case 'h':
 							stage_pause = true; 
 							if (vflag)	System.out.println("Halting for analysis at stage checkpoints.");
 							break; 
@@ -1107,7 +1120,7 @@ public class DerivationSimulation {
 			}
 		}
 		if (i != args.length || no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-rdpc] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-rdphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
 	}
 	
 	private static String append_space_to_x (String in, int x)

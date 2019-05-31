@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List; 
 
 /**
@@ -21,7 +22,8 @@ public abstract class SChange {
 	protected SChangeContext priorContext, postContext; 
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minTargSize; 
-	protected String orig; // for debugging purposes only -- for ensuring shift was parsed correctly.
+	protected String orig;
+	public HashMap<String,String> ALPH_VARS; 
 	
 	public SChange(String origForm)
 	{
@@ -83,5 +85,11 @@ public abstract class SChange {
 	
 	public String getOrig()
 	{	return orig;	}
+	
+	//TODO in progress
+/**	private char[] extract_local_ALPHAbet()
+	{
+		
+	}*/
 	
 }

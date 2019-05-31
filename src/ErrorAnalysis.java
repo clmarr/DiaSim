@@ -18,6 +18,7 @@ public class ErrorAnalysis {
 	private Phone[] resPhInventory, goldPhInventory; 
 	
 	protected final String ABS_PR ="[ABSENT]"; 
+	protected final int MAX_RADIUS = 3;
 
 	
 	private HashMap<String, Integer> resPhInds, goldPhInds; 
@@ -745,13 +746,50 @@ public class ErrorAnalysis {
 		return new Boundary("word bound"); 
 	}
 	
-	//assume indices are constant for the word lists across lexica 
-	//TODO finish this. 
+	// determine the scope of the autopsy based on the relation of sequence starts (and ends) to word boundaries
+		// we are conditioning this only on the hits because we figure context much more often is a positive determiner
+		// of defining context for a shift, rather than a negative determiner.
+	private int[] get_autopsy_scope(int[] hit_starts, int[] hit_ends)
+	{
+		double nh = (double) hit_starts.length; 
+		assert hit_starts.length == hit_ends.length: "Error: inconsistent number of hits";
+		int[] n_at_first_mr = new int[MAX_RADIUS], n_at_last_mr = new int[MAX_RADIUS];
+		for (int hs : hit_starts)
+			if (hs < MAX_RADIUS)	n_at_first_mr[hs-1] += 1; 
+		for (int he : hit_ends)
+			if (he >= -1*MAX_RADIUS)	n_at_last_mr[he*-1 -1] += 1;
+		int[] out = new int[] {0,0};
+		int[] cumul = new int[] {0,0};
+		boolean[] freeze = new boolean[] {false, false};
+		while (out[0] >= -1*MAX_RADIUS && out[1] <= MAX_RADIUS && (!freeze[0] || !freeze[1])) 
+		{
+			if (!freeze[0])
+			{	
+				cumul[0] += n_at_first_mr[-1 * out[0]];
+				freeze[0] = (double)cumul[0] / nh > 0.32;
+				if (!freeze[0])	out[0]--; 
+			}
+			if (!freeze[1])
+			{
+				cumul[1] += n_at_last_mr[out[0]];
+				freeze[1] = (double) cumul[1] / nh > 0.32; 	
+				if (!freeze[1])	out[1]++;
+			}
+		}
+		return out;
+	}
+	
 	public void analyzeByRefSeq(RestrictPhone[] seq, Lexicon refLex)
 	{
+		analyzeByRefSeq(seq,refLex,""); 
+	}
+	
+	//assume indices are constant for the word lists across lexica 
+	public void analyzeByRefSeq(RestrictPhone[] seq, Lexicon refLex, String stage_name)
+	{
 		int[] in_seq_subset = new int[NUM_ETYMA]; // using constant indices -- 
-			// effectively boolean as -1 if false else it's the start ind. 
-		int subset_size = 0;
+			// -1 if false not in the subset, else it's the start ind. 
+		int subset_size = 0, last_subset_member_id = -1; 
 		List<Integer> missLocs = new ArrayList<Integer>(); 
 		for (int ei = 0; ei < NUM_ETYMA; ei++)
 		{
@@ -759,13 +797,16 @@ public class ErrorAnalysis {
 			if (et.print().equals(ABS_PR))	in_seq_subset[ei] = -1;
 			else
 			{
-				in_seq_subset[ei] = et.findSequence(seq); 
+				in_seq_subset[ei] = et.findSequence(seq);
 				if (in_seq_subset[ei] != -1){
+					last_subset_member_id = ei;
 					subset_size += 1;
 					if (!isHit[ei])	missLocs.add(ei); 
 				}
 			}
 		}
+		
+		System.out.println("Subsample size : "+subset_size); 
 		
 		int num_hits = subset_size - missLocs.size(); 
 		int num_misses = missLocs.size(); 
@@ -775,8 +816,8 @@ public class ErrorAnalysis {
 		int[] subset_hit_ids = new int[num_hits];
 		int[] subset_miss_ids = new int[num_misses];
 		int hits_seen = 0, misses_seen = 0;
-		int[] hit_starts = new int[num_hits], miss_starts = new int [num_misses];
-		for (int ei = 0; ei < NUM_ETYMA & (hits_seen < num_hits || misses_seen < num_misses); ei++)
+		int[] hit_starts = new int[num_hits], miss_starts = new int [num_misses], hit_ends = new int[num_hits];
+		for (int ei = 0; ei <= last_subset_member_id; ei++)
 		{
 			if(in_seq_subset[ei] != -1)
 			{
@@ -785,6 +826,7 @@ public class ErrorAnalysis {
 					subset_hits[hits_seen] = refLex.getByID(ei); 
 					subset_hit_ids[hits_seen] = ei;
 					hit_starts[hits_seen] = in_seq_subset[ei];
+					hit_ends[hits_seen] = subset_hits[hits_seen].rFindSequence(seq); 
 					hits_seen += 1;
 				
 				}
@@ -798,29 +840,45 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		System.out.println("Accuracy on subset with sequence "+printCheckSeq(seq)+" : "+(double)num_hits/(double)subset_size);
+		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
+		
+		System.out.println("Accuracy on subset with sequence "+printCheckSeq(seq)+stage_blurb+" : "+(double)num_hits/(double)subset_size);
 		
 		System.out.println("Autopsy -- contexts most associated with error:");
 		System.out.println("Features:"); 
 		
 		List<String[]> prior = new ArrayList<String[]>(); 
-		prior.add(top_n_predictor_feats_for_position(4, -3, subset_hits, subset_misses, hit_starts, miss_starts));
-		prior.add(top_n_predictor_feats_for_position(4, -2, subset_hits, subset_misses, hit_starts, miss_starts));
-		prior.add(top_n_predictor_feats_for_position(4, -1, subset_hits, subset_misses, hit_starts, miss_starts));
 		
+		int[] scope = get_autopsy_scope(hit_starts, hit_ends); 
+		int rel_loc = scope[0];
+		while (rel_loc < 0)
+		{
+			prior.add(top_n_predictor_feats_for_position(4, rel_loc, subset_hits, subset_misses, hit_starts, miss_starts));
+			rel_loc++;
+		}
+		
+		rel_loc = 1; 
 		List<String[]> postr = new ArrayList<String[]>();
-		prior.add(top_n_predictor_feats_for_position(4, seq.length, subset_hits, subset_misses, hit_starts, miss_starts));
-		prior.add(top_n_predictor_feats_for_position(4, seq.length+1, subset_hits, subset_misses, hit_starts, miss_starts));
-		prior.add(top_n_predictor_feats_for_position(4, seq.length+2, subset_hits, subset_misses, hit_starts, miss_starts));
+		while(rel_loc <= scope[1])
+		{
+			postr.add(top_n_predictor_feats_for_position(4, rel_loc+seq.length-1, subset_hits, subset_misses, hit_starts, miss_starts));
+			rel_loc++;
+		}
 		
-		System.out.print(feature_autopsy(prior,postr)); 
+		//TODO debugging
+		for (String[] po : postr)
+		{	for (String popo : po)
+				System.out.println(popo);
+			System.out.println("");
+		}
+		
+		System.out.print(feature_autopsy(4, prior,postr)); 
 		
 	}
 	
 	// @precondition pri and po should have same and consistent length in both dimensions
-	public String feature_autopsy(List<String[]> pri, List<String[]> po)
+	public String feature_autopsy(int height, List<String[]> pri, List<String[]> po)
 	{
-		int height = pri.get(0).length; 
 		String out = "";
 		for (int i = 0 ; i < height ; i++)
 		{
@@ -934,61 +992,83 @@ public class ErrorAnalysis {
 		int[] out = new int[phs.size()];
 		for(int pi = 0 ; pi < phs.size(); pi++)
 			for (int eti = 0 ; eti < ets.length; eti++)
-				if (starts[eti] + rel_ind >= 0)
-					out[pi] += ets[eti].equals(phs.get(pi)) ? 1 : 0; 
+				if (starts[eti] + rel_ind >= 0 && starts[eti] + rel_ind < ets[eti].phRepLen() )
+					if ( ets[eti].getPhonologicalRepresentation().get(starts[eti] + rel_ind).equals(phs.get(pi)) )
+						out[pi]+=1; 
 		return out; 
 	}
-	
 	
 	public String[] top_n_predictor_feats_for_position(int n, int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets, 
 			int[] hit_starts, int[] miss_starts)
 	{
 		double nhit = hit_ets.length, nmiss = miss_ets.length, ntot= hit_ets.length + miss_ets.length; 
+		
+		assert nmiss > 0 : "Error: tried to predict feats for a sequence subset that has no misses!";
+		
+		System.out.println("calculating phones at rel loc "+rel_ind+"...");
+		
 		List<SequentialPhonic>[] phs_here = miss_and_hit_phones_at_rel_loc(rel_ind, hit_ets, miss_ets, hit_starts, miss_starts); 
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, miss_ets, phs_here[1], miss_starts); 
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, hit_ets, phs_here[0], hit_starts); 
 		
+		assert hit_ph_frqs.length == phs_here[0].size() : "Error : mismatch in size for hit_ph_frqs"; 
+		assert miss_ph_frqs.length == phs_here[1].size() : "Error : mismatch in size for miss_ph_frqs";
+		System.out.println("Number of hit phones : "+hit_ph_frqs.length+"; "+"Number of miss phones : "+miss_ph_frqs.length);
+		
 		String[] cand_feats = new String[featsByIndex.length*2]; 
+		for (int fti = 0 ; fti < featsByIndex.length; fti++)
+		{
+			cand_feats[2*fti] = "-"+featsByIndex[fti];
+			cand_feats[2*fti+1] = "+"+featsByIndex[fti];
+		}
+		
 		int[][] cand_freqs = new int[2][featsByIndex.length*2]; //first dimensh -- 0 for hit, 1 for miss
+		
 		for (int phi = 0; phi < phs_here[1].size(); phi++)
 		{
 			char[] fstr = phs_here[1].get(phi).toString().split(":")[1].toCharArray();
+			
 			for (int spi = 0; spi < featsByIndex.length; spi++)
-				if (fstr[spi] != DerivationSimulation.MARK_UNSPEC)
-					cand_freqs[1][2*spi + ((fstr[spi] == '+') ? 1 : 0)] += miss_ph_frqs[phi];
+				if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
+					cand_freqs[1][2*spi + Integer.parseInt(""+fstr[spi])/2] += miss_ph_frqs[phi];	
 		}
 		for (int phi = 0; phi < phs_here[0].size(); phi++)
 		{
-			char[] fstr = phs_here[0].toString().split(":")[1].toCharArray();
+			char[] fstr = phs_here[0].get(phi).toString().split(":")[1].toCharArray();
+			
 			for (int spi = 0; spi < featsByIndex.length; spi++)
-				if (fstr[spi] != DerivationSimulation.MARK_UNSPEC)
-					cand_freqs[0][2*spi + ((fstr[spi] == '+') ? 1 : 0)] += hit_ph_frqs[phi];
-		}
-		double scores[] = new double[cand_feats.length];
-		for(int fi = 0 ; fi < cand_feats.length; fi++)
-		{
-			int tot_occ = cand_freqs[0][fi] + cand_freqs[1][fi]; 
-			if (tot_occ < ntot && cand_freqs[1][fi] > 2)
-			{
-				double c_miss = cand_freqs[1][fi], c_hit = cand_freqs[0][fi]; 
-				scores[fi] = (c_miss / (c_hit + 0.1)) * (c_miss / nmiss); 
-			}
+				if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
+					cand_freqs[0][2*spi + Integer.parseInt(""+fstr[spi])/2] += hit_ph_frqs[phi];
 		}
 		
+		double[] scores = new double[cand_feats.length];
+		for(int fi = 0 ; fi < cand_feats.length; fi++)
+		{
+			if (cand_freqs[1][fi] > 0)
+			{
+				double c_miss = (double)cand_freqs[1][fi], c_hit = (double)cand_freqs[0][fi]; 
+				scores[fi] = ((c_miss + 1.0) / (c_hit + 1.0)) * (c_miss / nmiss); 
+			}
+		}
 		
 		//choose final output
 		int ffi = 0 ; 
 		while(scores[ffi] == 0.0)	ffi++; 
+		
 		double[] lb = new double[n]; //"leader board"
 		String[] out = new String[n];
+		
+		
 		while (ffi < cand_feats.length)
 		{
 			double sc= scores[ffi]; 
 			if (sc > 0.0)
-			{	int placer = 0; 
+			{	
+				int placer = 0; 
 				boolean try_place = true; 
 				String scout = cand_feats[ffi] + " : "+sc;
-				scout = scout.substring(0,scout.indexOf('.')+3);
+				
+				scout = scout.substring(0,Math.min(scout.indexOf('.')+3,scout.length()));
 				
 				while(try_place)
 				{	if (sc < lb[placer])
@@ -1001,7 +1081,12 @@ public class ErrorAnalysis {
 				{
 					double to_move = lb[placer];	 String moving_outp = out[placer];
 					lb[placer] = sc; 	out[placer] = scout;
-					sc = to_move; 	scout = moving_outp;
+		
+					if (to_move == 0.0)	placer = n;
+					else
+					{
+						sc = to_move; 	scout = moving_outp; placer++;
+					}
 				}
 			}
 			ffi++; 

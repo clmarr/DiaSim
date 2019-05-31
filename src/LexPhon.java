@@ -130,31 +130,66 @@ public class LexPhon {
 		return count; 
 	}
 	
+	public int phRepLen()
+	{
+		return phonRep.size();
+	}
+	
 	public int findSequence(RestrictPhone[] sequence)
 	{
-		int i_this = 0, i_that = 0;  
-		while (i_this < phonRep.size() - sequence.length + 1)
+		int lexpr_i = 0, seq_i = 0;  
+		while (lexpr_i < phonRep.size() - sequence.length + 1)
 		{
-			if(sequence[i_that].compare(phonRep.get(i_this)))
+			if(sequence[seq_i].compare(phonRep.get(lexpr_i)))
 			{
-				i_that += 1;
-				if (i_that == sequence.length)	return i_this-sequence.length;
+				seq_i += 1;
+				if (seq_i == sequence.length)	return lexpr_i -sequence.length + 1;
 			}
-			else	i_that = 0;
-			i_this += 1; 
+			else	seq_i = 0;
+			lexpr_i += 1; 
 		}
-		if (i_that > 0)
+		if (seq_i > 0)
 		{
-			while (i_this < phonRep.size() )
-			{	if (sequence[i_that].compare(phonRep.get(i_this)))
+			while (lexpr_i <= phonRep.size() - sequence.length + seq_i)
+			{	if (sequence[seq_i].compare(phonRep.get(lexpr_i)))
 				{
-					i_that += 1; i_this += 1;
-					if (i_that == sequence.length)	return i_this-sequence.length;
+					seq_i += 1; lexpr_i += 1;
+					if (seq_i == sequence.length)	return lexpr_i-sequence.length;
 				}
 				else	return -1;
 			}
 		}
 		return -1; 
+	}
+	
+	// return: how many phones before the end is it? 
+	// return of 0 = not found -- because -1 means its the last. 
+	public int rFindSequence(RestrictPhone[] sequence)
+	{
+		int lexpr_i = phonRep.size() - 1, seq_i = sequence.length -1 ;
+		while (lexpr_i >= sequence.length - 1)
+		{
+			if (sequence[seq_i].compare(phonRep.get(lexpr_i)))
+			{
+				seq_i--; 
+				if (seq_i < 0)	return lexpr_i + sequence.length - phonRep.size(); 
+			}
+			else	seq_i = sequence.length - 1;
+			lexpr_i--; 
+		}
+		if (seq_i < sequence.length - 1)
+		{
+			while(lexpr_i >= seq_i)
+			{
+				if (sequence[seq_i].compare(phonRep.get(lexpr_i)))
+				{
+					seq_i --; lexpr_i--;
+					if (seq_i < 0)	return sequence.length - phonRep.size(); 
+				}
+				else	return 0; 
+			}
+		}
+		return 0;
 	}
 	
 	
