@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List; 
 
 public class SChangeFeat extends SChange {
-	private RestrictPhone targSource, destination; 
+	protected RestrictPhone targSource, destination; 
 	
 	//auxiliary for constructors
 	public void initialize(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs)
@@ -74,8 +74,6 @@ public class SChangeFeat extends SChange {
 		int maxPlace = input.size() - minPostSize - minTargSize; 
 		/** check if target with correct context occurs at each index
 		 * We iterate from the beginning to the end of the word. 
-		 * We acknowledge the decision to iterate this way (progressive) is arbitrary, and that it may not be technically correct as some changes happen regressively. 
-		 * However it is most convenient for the time being.
 		 */
 		while(p <= maxPlace)
 		{

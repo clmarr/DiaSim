@@ -1,5 +1,6 @@
 import java.util.List; 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**nullPhone class
  * note that currently this class is abrogated for most if not all usages. 
@@ -31,4 +32,28 @@ public class NullPhone extends PseudoPhone {
 	public SequentialPhonic copy()
 	{	return new NullPhone();	}
 	
+	@Override
+	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
+	{
+		return null;
+	}
+	
+	@Override
+	public boolean check_for_alpha_conflict(SequentialPhonic inp)
+	{	return false;	}
+	
+	@Override
+	public void applyAlphaValues(HashMap<String, String> alphVals)
+	{	/* do nothing*/	}
+	
+	@Override
+	public void resetAlphaValues()
+	{	/* do nothing*/	}
+
+	@Override
+	public boolean has_alpha_specs()	{	return false;	}
+	
+
+	@Override
+	public char has_unset_alphas()	{	return '0';	}
 }

@@ -23,7 +23,7 @@ public abstract class SChange {
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minTargSize; 
 	protected String orig;
-	public HashMap<String,String> ALPH_VARS; 
+	protected HashMap<String,String> ALPH_VARS; 
 	
 	public SChange(String origForm)
 	{
@@ -77,10 +77,10 @@ public abstract class SChange {
 		if(minPriorSize == 0)	return true; 
 		else 	return priorContext.isPriorMatch(input, frstTargInd); 
 	}
-	protected boolean posteriorMatch(List<SequentialPhonic> input, int lastTargInd)
+	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{
 		if(minPostSize == 0)	return true;
-		else	return postContext.isPosteriorMatch(input, lastTargInd); 
+		return postContext.isPosteriorMatch(input, indAfter); 
 	}
 	
 	public String getOrig()

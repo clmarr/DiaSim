@@ -1,5 +1,6 @@
 import java.util.List; 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * @date 1 June 2018
@@ -13,7 +14,7 @@ public class SChangeContext {
 	
 	private int minSize;
 	private boolean boundsMatter; //determines if we will pass over boundary markers (morpheme, word) in the input. 
-	
+	private boolean hasAlphSpecs;
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
@@ -30,17 +31,24 @@ public class SChangeContext {
 	 * 		are calculated using the auxiliary method 
 	 * 
 	*/
-	
+	// bm = whether bounds matter. 
+	// pm = paren map. 
 	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		parenMap = pm ; 
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
+		
 		boundsMatter = false;
 		minSize = generateMinSize(); 
 		
 		markParenMapForMinPlacesInEachWindow();		
 		
 		minSize = generateMinSize(); 
+		
+		hasAlphSpecs = false; 
+		for(RestrictPhone pr : placeRestrs)
+			if (pr.has_alpha_specs())	hasAlphSpecs = true; 
+		
 	}
 	
 	public SChangeContext (List<RestrictPhone> prs, String[] pm)
@@ -471,4 +479,28 @@ public class SChangeContext {
 		for(String p : pm)	output += p + " "; 
 		return output.trim();
 	}
+	
+	public void applyAlphaValues(HashMap<String, String> alphVals)
+	{
+		for (int pri = 0 ; pri < placeRestrs.size(); pri++)	placeRestrs.get(pri).applyAlphaValues(alphVals);
+	}
+	
+	public void resetAllAlphaValues()
+	{
+		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	placeRestrs.get(pri).resetAlphaValues(); 
+	}
+	
+	public boolean hasAlphaSpecs()
+	{
+		return hasAlphSpecs;
+	}
+	
+	public boolean has_unset_alphas()
+	{
+		for (RestrictPhone pri : placeRestrs)
+			if (pri.has_unset_alphas() != '0')	return true;
+		return false; 
+	}
+	
+	
 }

@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 
 public interface RestrictPhone{
@@ -5,6 +6,12 @@ public interface RestrictPhone{
 	public boolean compare(List<SequentialPhonic> phonSeg, int ind);
 	public boolean compare(SequentialPhonic candPh);
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind); 
-	//public SequentialPhonic forceTruth(SequentialPhonic patient); 
 	
+	public void applyAlphaValues(HashMap<String,String> alphVals);
+	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp);
+	public boolean check_for_alpha_conflict(SequentialPhonic inp); 
+	//public SequentialPhonic forceTruth(SequentialPhonic patient); 
+	public void resetAlphaValues();
+	public boolean has_alpha_specs(); 
+	public char has_unset_alphas();  // returns '0' if "false", otherwise hte value of the unset alpha
 }

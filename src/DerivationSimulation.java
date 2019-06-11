@@ -1130,6 +1130,14 @@ public class DerivationSimulation {
 		while (out.length() < x)	out += " ";
 		return out;
 	}
+	
+	public Lexicon toyDerivationResults(LexPhon[] inps, ArrayList<SChange> ruleCascade )
+	{
+		Lexicon out = new Lexicon(inps);
+		for (SChange rule : ruleCascade)
+		{	boolean[] etymsAff = out.applyRuleAndGetChangedWords(rule);	} 
+		return out; 
+	}
 }
 
 

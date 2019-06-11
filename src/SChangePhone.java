@@ -7,8 +7,8 @@ import java.util.ArrayList;
 //this means that this class is unable to operate across boundaries! 
 
 public class SChangePhone extends SChange {
-	private List<List<SequentialPhonic>> targSources, destinations; 
-	private int minTargSize; 
+	protected List<List<SequentialPhonic>> targSources, destinations; 
+	protected int minTargSize; 
 	
 	//auxiliary for constructors
 	private void initialize(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests)
@@ -55,8 +55,8 @@ public class SChangePhone extends SChange {
 	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, String origForm)
 	{	super(true, origForm); initializeWithFeats(targs,mutations); 	}
 	
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postrs, String origForm)
-	{	super(prior,postrs, true, origForm); initializeWithFeats(targs, mutations); }
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postr, String origForm)
+	{	super(prior,postr, true, origForm); initializeWithFeats(targs, mutations); }
 		
 	
 	//Realization
@@ -123,7 +123,7 @@ public class SChangePhone extends SChange {
 	 * @precondition : priorMatch(input, ind) == true 
 	 * @precondition : only one targ segment starts at the index. This should be true if no targ segment is contained by another as a sublist.
 	 */
-	public int whichMatch (List<SequentialPhonic> input, int ind)
+	protected int whichMatch (List<SequentialPhonic> input, int ind)
 	{
 		//check each of the possible targets. We arbitrarily go by the order they are placed in the targets list. 
 		for(int it=0; it < targSources.size(); it++)
@@ -141,7 +141,7 @@ public class SChangePhone extends SChange {
 	 * @precondition : priorMatch(inpWord, ind) == true 
 	 * @return true iff a proper target lies at this index and it's posterior context reqs are fulfilled (prior reqs should have already been checked for.)
 	 */
-	public boolean isMatch(List<SequentialPhonic> input, List<SequentialPhonic> targSeg, int ind)
+	protected boolean isMatch(List<SequentialPhonic> input, List<SequentialPhonic> targSeg, int ind)
 	{
 		int inpSize = input.size(), targSize=targSeg.size();
 		//return false in case of invalid index
