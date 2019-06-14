@@ -51,7 +51,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 			else
 			{
 				boolean priorPossible = true; 
-				if (priorContext.hasAlphaSpecs())
+				if (priorContext.has_unset_alphas())
 				{
 					List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 					String[] pripm = priorContext.getParenMap(); 
@@ -149,7 +149,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 					}
 					else
 					{
-						temp_alph_vals.putAll(poi.extract_alpha_values(input.get(cpic)));
+						temp_alph_vals.putAll(poi.extract_alpha_values(cpi));
 						postContext.applyAlphaValues(temp_alph_vals);
 						popr = postContext.getPlaceRestrs();
 						popm = postContext.getParenMap(); 

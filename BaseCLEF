@@ -17,8 +17,8 @@ l > [+back] / @ __ $per page 75 s158, Pope specifically says is dark "every wher
 		$ and for lʲ she similarly says it "survived into Old French after /i/" 
 	$ these both cause obvious problems -- but what her stance (incorrectly) is seems clear
 
-[+lo,+syl] > [-front,+back]
-[+lo,+syl] > [+front,-back] / __ e̯
+[+lo] > [-front,+back]
+[+lo] > [+front,-back] / __ e̯
 
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s105c ; for w, p56 s109
@@ -70,7 +70,7 @@ $ Must come before yod formation (s220), which it feeds, as per s214i -- not att
 
 $p100 s214ii -- the (only?) other case of regular stress movement-- occurred around the same time but not for the educated classes
 $stress on antepenultimate moves forward ("ordinarily") if hte second consists of short vowel + plosive + r
-[+syl,-stres] > [+prim] / [+prim] ([-syl])* __ [-cont] r ([-syl])* [+syl] ([-syl])* #
+[-stres] > [+prim] / [+prim] ([-syl])* __ [-cont] r ([-syl])* [+syl] ([-syl])* #
 [+prim] > [-prim] / # ([-syl])* __ ([-syl])* [+prim]
 [+prim] > [-stres] / __ ([-syl])* [+prim]
 
@@ -121,15 +121,15 @@ $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsan
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ [+cor,-son,-cont] [+front,-lo] ([-syl]) #
 ɪ > ∅ / [+prim] ([-syl])* [+cons] __ d̪ [+back,-lo] ([-syl]) #
 $ p115 s262c -- effects on intertonic vowels standing between n/l and r 
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
-[-lo,-stres,+syl] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl]
+[-lo,-stres] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
+[-lo,-stres] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl]
 
 $ s353 : devoicing of labial and dental consonants that are now adjacent to t 
 $ since aidier is excluded we can dodge fixing palatals too. 
 [+ant,+cons] > [-voi] / __ t̪
 
 $s127 s296i fakere case
-[+syl,-stres,+front] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
+[-stres,+front] > ∅ / [+prim] k __ [+cor,-strid,-nas] [+syl]
 
 $as per p91 s187i -- ɣʷ > w when preconsonantal due to "slurring" 
 ɣʷ > w / __ [+cons]
@@ -154,7 +154,7 @@ b > β / [+syl] __ [+son,-lat,-nas]
 
 $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted "early" (s263)
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
-[+syl,-stres] ɡ > ∅ / [+prim] ([-syl])* __ [+syl,-stres] ([-syl])* #
+[-stres] ɡ > ∅ / [+prim] ([-syl])* __ [-stres] ([-syl])* #
 
 $ per Pope s185 and s198, combination of vowels that have become adjacent and share the same quality become a single long vowel of same quality
 $ in practice this only happens for e'e and o'o
@@ -204,7 +204,7 @@ $p328 s854 ~ p64 s131 : dissimilation of tonic vowel juxtaposed to final flexion
 $ *** this is a "tendency" as per Pope s854
 $ Other authors have other explanations for this, like tensing of vowels before other vowels or even much earlier lengthening of them 
 ˈo > ˈɔ / __ [+hi,+syl,+back]
-ˈɛ > ˈe / __ [+lo,+syl]
+ˈɛ > ˈe / __ [+lo]
 ˈe > ˈi / __ e
 
 $ p73 s156v ~ s262 ~ s360 
@@ -244,7 +244,7 @@ $p 124 s283-284 : palatalization of velar stops berfore e and i, s306-307 for be
 
 $p127 s296ii : palatalization of k blocked if coming after secondarily stressed velar vowel
 $ ... and before intertonic unstressed e when coming from /ɪ/ (< /i/)  
-c > k / [+back,+syl,+stres,-prim] __ e ([-syl])* [+prim] 
+c > k / [+back,+stres,-prim] __ e ([-syl])* [+prim] 
 
 $absorption of yod into prev, now palatalized, consonant 
 ʝ > ∅ / [-cont,+hi,+front] __
@@ -275,7 +275,7 @@ $However she indicates a shift order in s307i that necessitates velar stop palat
 $So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
 $Right after the beginning of palatalization. This should be roughly 4th century
 $ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
-[-cont,-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
+[-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
 d̪ > ð / __ [+lat]
 
 $p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
@@ -336,8 +336,8 @@ $ and was attested in Gaulish in the fourth century or even earlier (Pope s9)
 $ Precedes (s341) loss of unstressed final o,u 
 $ According to symbols used, this should precede ɑ > a (s341)
 ɣ > ∅ / __ [+tense,+round,+syl]
-ɣ > ∅ / [+hi,+round,+syl] __ [+lo,+syl]
-ɣ > β / [+round,-hi,+back,+syl] __ [+lo,+syl]
+ɣ > ∅ / [+hi,+round,+syl] __ [+lo]
+ɣ > β / [+round,-hi,+back,+syl] __ [+lo]
 
 $also, as per s323 ɣr > r pretonic after e
 $ she says only /e/ but given the inclusion of peregrinum in her examples, 
@@ -358,7 +358,7 @@ $ NOTE: lots of corrections are applied to this one...
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
 	$ she includes -ikat too -- vindicat > venche , masticat > mache 
 	$ s349 : weak verbal forms follow suit. 
-e > ∅ / __ k [+lo,+syl] $ ([+cons]) #
+e > ∅ / __ k [+lo] ([+cons]) #
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ intervocalically. 
 $ Began in fifth century, "became general" in the sixth century as per s336
@@ -390,7 +390,7 @@ $ palatalization of ng, lg and s in "word type of plangere, folgere, nascere, cu
 $ potentially RECURRENT as per s162 
 $ but definitely started before effacement of ɛ pre r/l and cluster simplification as per s293
 $ r before the palatals explicitly not effected this way. 
-{ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front] [+front,+syl,-stres] [+cor,+cons,-lat] ([-syl])* [+syl] ([-syl])* #
+{ŋ;ɫ;s} > [+hi,+front,-back] / __ [-cont,+hi,+front] [+front,-stres] [+cor,+cons,-lat] ([-syl])* [+syl] ([-syl])* #
 
 $ Pope p77 s163-3 "effacement of penultimate ɛ before r and l"
 $ comes before early Gallo-Roman cluster modification s293 
@@ -434,9 +434,10 @@ $ Must come efbore assibilation of first palatalization results, which would ble
 
 $ s426 : ɔ tonic blocked, ɔ countertonic free or blocked, 
 	$ and any o free or blocked with any level of stress raise to u 
+	$ if before nasals.
 	$ ... before diphthongization can occur
-[+round,+tense,-hi,+stres] > [+hi] / __ [+nas,+cons]
-{ˌɔ;ˈɔ} > {ˌu;ˈu} / __ [+nas,+cons]
+[+round,+tense,-hi,+stres] > [+hi] / __ [+nas]
+{ˌɔ;ˈɔ} > {ˌu;ˈu} / __ [+nas]
 
 $ s163-10 ~ s225, 227 -- first completed in Gallo Roman period I i.e. 6th-7th century as per s163-10
 $ RECURRENT throughout period as per s162
@@ -483,25 +484,25 @@ $ as per s481 this seems to come BEFORE low vowel fronting
 $ s342i : before tonic u or o 
 ɣ > ∅ / __ [+tense,+round,+prim]
 $ s342iii : between o, u, aw and a 
-ɣ > ∅ / [+round,-cons] __ [+lo,+syl] $ o|u|au __ a
+ɣ > ∅ / [+round,-cons] __ [+lo] $ o|u|au __ a
 $ s342ii : between a velar vowel and atonic u (short u > o , so atonic u or o)
 ɣ > ∅ / [+back,-cons] __ [+tense,-stres,+round,+syl]
 
 $Pope p113 s254.
 $Final unstressed i, o, u become semi-vocalic and combine into diphthong with previous vowel. 
-o > u / [+syl,+prim] __ # 
-[+hi,+syl,-stres] > [-syl] / [+prim] __ # 
+o > u / [+prim] __ # 
+[+hi,-stres] > [-syl] / [+prim] __ # 
 
 $ Pope p160-161 s404.7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol) 
-∅ > j / ˌe __ [+lo,+syl]
+∅ > j / ˌe __ [+lo]
 
 $ Pope p77 s163-2 ~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
 $ Attributed (s163) to sixth and seventh centuries
-[+lo,+syl] > [+front,-back]
+[+lo] > [+front,-back]
 
 $ per s182 : temporarily blocked in monosyllables
-[+lo,+syl] > [-front,+back] / # ([-syl])* __ ([-syl])* #
+[+lo] > [-front,+back] / # ([-syl])* __ ([-syl])* #
 
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -552,7 +553,7 @@ $ and active AFTER palatalization of velar fricatives
 
 $p127 s297 : developments of ʝ < ɟ : effacement intervocalically except between countertonic a and tonic e 
 $ however this happens after ʝ can palatalize succeeding dental consonants in Gallo-Roman s316, which itself came after unstressed vowel effacement. 
-ʝ > j / [+lo,+syl,+stres,-prim] __ [-hi,-lo,+prim]
+ʝ > j / [+lo,+stres,-prim] __ [-hi,-lo,+prim]
 ʝ > ∅ / [-cons] __ [-cons]
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
@@ -597,14 +598,14 @@ $ must bleed s413 but not second palatalization
 
 $ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
 $ unless it is followed by tonic e in next syllable or if l/r come next
-ˌa > ˌɛ / [+front,+cons] __ [+cons,-son] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
-ˌa > ˌɛ / [+front,+cons] __ [+cons,+son,+nas] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
-ˌa > ˌɛ / [+front,+cons] __ [+cons,+son,-cor] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+syl,+lo]}
+ˌa > ˌɛ / [+front,+cons] __ [+cons,-son] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+lo]}
+ˌa > ˌɛ / [+front,+cons] __ [+cons,+nas] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+lo]}
+ˌa > ˌɛ / [+front,+cons] __ [+cons,+son,-cor] {[+syl,+hi];[+syl,+round];[+syl,-tense];[+lo]}
 
 $ s413
 $ Raising of free a to ɛ if preceded by palatal consonants 
 $ We know it's free if it's long based on placement of this rule relative to others
-ˈaː > ˈɛː 
+ˈaː > ˈɛː / [+cons,+front] __
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
@@ -661,13 +662,13 @@ $as per s260: occurs in 7th century; but either does not occur or is reversed wh
 $the voyelle d'appui is inevitable ə
 $ as per s259 : this resolves after the reduction of non-stressed non-low vowels everywhere, as there is a different outcome for
 $ paroxytones as opposed to proparoxytones. 
-[+syl,-stres] > ə / __ ([-syl])* [+syl] ([-syl])* # 
+[-stres] > ə / __ ([-syl])* [+syl] ([-syl])* # 
 
 $ s261 ~ s350 : as per word trajectories seen in s350, under justification of s261
 $ non-penultimate unstressed vowels except for a are effaced "early" when next syllˌs stressed vowel is a
 $ this happens before the voicing of t
 $ this will resolve after s257-259 does. 
-[+syl,-stres,-lo] > ə / __ ([-syl])* [+syl,+lo,+prim]  
+[-stres,-lo] > ə / __ ([-syl])* [+lo,+prim]  
 
 $ s26: purportedly under Frankish influence (Germanic "mutation"), the suffixes -arium and -aria
 $ end up rendering -ier and iere, by means of changing the a to an open/lax e
@@ -731,7 +732,7 @@ s > t͡sʲ / [+hi,+front,+cons] __ #
 
 
 $ s367 d,t + s becomes the affricate when brought into contact
-[+ant,+cor,+distr,-cont] s > t͡s
+[+ant,+distr,-cont] s > t͡s
 
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -780,10 +781,10 @@ $ s198 checked for /e o a/ before enya and elya
 $ s413-4 -- recurrence as per medietatem, adiutare 
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ #
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
-[+lo,+syl] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
+[+lo] > [-lo,+front,-tense] / [+front,+cons] __ #
+[+lo] > [-lo,+front,-tense] / [+front,+cons] __ [-cons]
+[+lo] > [-lo,+front,-tense] / [+front,+cons] __ [+cons] [-cons]
+[+lo] > [-lo,+front,-tense] / [+front,+cons] __ [-cont] [+cons,+son,-nas] 
 
 $ s414 recurrence of diphthongization (s163-10)
 $ hits former tonic a 
@@ -793,7 +794,7 @@ $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
 [+hi,+tense,+round,+syl] > [-front,-back]
 
 $s182 : finally remaining velar a (only in monosyllables) is fronted, late enough so that it counterfeeds breaking and diphthongization
-[+lo,+syl] > [+front,-back]
+[+lo] > [+front,-back]
 
 $ s164-5 ~ ss334
 $ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
@@ -882,7 +883,7 @@ $ ultimate effacement is "before the ninth century".
 [-stres,-lo,+syl] > ə
 
 $ s355 -- final spirantization reversed due to slurring .
-{θ;ð} > [-cont,-delrel] / ə __ # $reverse
+{θ;ð} > [-delrel] / ə __ # $reverse
 
 $ s164-15 ~  s234: raising of lax countertonic ɛ,ɔ to tense e,o except in ɛr[+cons] ɛɫ[+cons] and ɔɫ[+cons]  
 {ˌɛ r;ˌɛ ɫ;ˌɔ ɫ} > {ˌɨ r;ˌɨ ɫ;ˌɯ ɫ}/ __ [+cons]
@@ -909,9 +910,9 @@ $ s256 : ə effaced before unstressed a becomes the new ə
 ə > ∅
 
 $s355-357 open word finals again if unsupported 
-[-cont,-delrel] > [+cont] / [+syl] __ # 
+[-delrel] > [+cont] / [+syl] __ # 
 $ close if became supported
-[+cont,-son,-strid] > [-cont,-delrel] / [+cons] __ #
+[+cont,-son,-strid] > [-delrel] / [+cons] __ #
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
 k > ∅ / __ s #
@@ -990,7 +991,7 @@ s t̪ s > t͡sʲ / [-cons] __ [-cons]
 s > ∅ / __ t͡s
 
 $ s367 d,t + s becomes the affricate 
-[+cor,-cont,-delrel] s > t͡sʲ
+[+cor,-delrel] s > t͡sʲ
 
 $ s365 : effacement of middle consonant in groups that donˌt end in l or r 
 [+cons] > ∅ / [+cons] __ [-son]
@@ -1007,8 +1008,8 @@ s > z / __ [+voi,+cons]
 s > z / __ [+cont,+cons,-strid]
 
 $ s372ii t,d become edh before r,l,n,m
-[-cont,-delrel,+cor] > ð / __ [+son,+cor] 
-[-cont,-delrel,+cor] > ð / __ [+nas] 
+[-delrel,+cor] > ð / __ [+son,+cor] 
+[-delrel,+cor] > ð / __ [+nas] 
 
 $ s372iii p,b become beta then v before r, halts at b before l
 p > b / [+syl] __ [+son,+cont,-nas]
@@ -1036,9 +1037,9 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 [+lab,-nas,-son] > ∅ / __ [+delrel] 
-[+cor,-cont,-delrel] > ∅ / __ [+lab,-cont] 
-[+cor,-cont,-delrel] > ∅ / __ [+cor,-cont] 
-[+cor,-cont,-delrel] > ∅ / __ [+delrel] 
+[+cor,-delrel] > ∅ / __ [+lab,-cont] 
+[+cor,-delrel] > ∅ / __ [+cor,-cont] 
+[+cor,-delrel] > ∅ / __ [+delrel] 
 
 $ cluster voicing assimilation -- find the rule for this! 
 [-son] > [-voi] / __ [-voi] 
@@ -1084,8 +1085,8 @@ $ precedes u>o (s166.2~s184) as per s183.
 [+hi,+round,-back] > [+front]
 
 $ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10th century
-j > [+nas] / [+lo,+syl] __ [+nas,-syl]
-[+lo,+syl] > [+nas] / __ [+nas,-syl]
+j > [+nas] / [+lo] __ [+nas,-syl]
+[+lo] > [+nas] / __ [+nas,-syl]
 
 $ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
 $ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
@@ -1134,7 +1135,7 @@ $ per s226 : effects ei whether tonic, intertonic or countertonic, but only toni
 $ s411: ˈue̯j >"yi̯j" > yj and ˈie̯j >(ii̯j >) i
 $ see also s410~s514-5
 ˈu >ˈy / __ e̯ j
-e̯ > ∅ / [+hi,+tense,+syl,+prim] __ j
+e̯ > ∅ / [+hi,+tense,+prim] __ j
 j > ∅ / ˈi __
 
 $ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
@@ -1157,7 +1158,7 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
 $ called "Early Old French" by Pope (s406)
 ∅ > j / [+hi,+round,+syl] __ ɲ #
-∅ > j̃  / [+lo,+syl] __ ɲ #
+∅ > j̃  / [+lo] __ ɲ #
 ∅ > j̃  / [-round,-hi,-lo,+tense,+front] __ ɲ # 
 
 $s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic-- TODO may need to handle length.  
@@ -1280,10 +1281,10 @@ $ does not feed s541
 
 $Pope s528-529: aj > ɛj when praeconsonantal
 $Pope does not give a specific date. Makes sense to be here, given spellings ˌai" for wɛ >ɛ later...
-[+lo,+syl] > [-lo,-tense] / __ j [+cons] 
+[+lo] > [-lo,-tense] / __ j [+cons] 
 
 $Pope s528-529 : aj > ɛj word finally
-[+lo,+syl] > [-lo,-tense] / __ j #
+[+lo] > [-lo,-tense] / __ j #
 
 $ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
 [+lo,+nas] > [-lo,-tense] / __ j̃
@@ -1402,8 +1403,8 @@ $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
-ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
-ˌə > ∅ / [-cont,-son] __ [+son,-hi,-nas] [+syl,+prim]
+ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
+ˌə > ∅ / [-cont,-son] __ [+son,-hi,-nas] [+prim]
 
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
@@ -1482,8 +1483,8 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 $ s521 : oɛ̯ (uɛ̯, ͏ɔɛ̯?) > wɛj before tonics, o > wɛ before j #
 $ final completion of process started much earlier.
 $ Sixteenth century -- accepted by Meigret and Baif
-[+back,+round,+syl,-stres] ɛ̯ > w ɛ
-[+back,+round,+syl,+prim] ɛ̯ > w ˈɛ
+[+back,+round,-stres] ɛ̯ > w ɛ
+[+back,+round,+prim] ɛ̯ > w ˈɛ
 [+back,+round,+syl] ɛ̯ > w ˌɛ
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
@@ -1562,7 +1563,7 @@ $ s270 : began in the 14th century but not accepted until the 16th.
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
 $ accepted by Regnier -- very late 16th, early 17th -- s242
-[+lo,+syl] [+lo,+syl] > ∅ [+long]
+[+lo] [+lo] > ∅ [+long]
 [-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
 [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
 [-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ∅ [+long]
@@ -1586,7 +1587,7 @@ $ s562 attestation : Beze (17th), Peletier (later 16th), Vaugelas (early 17th)
 [+prim] > [+long] / __ (j) ə #
 
 $ s570 i : a lengthens before ʎ in final ending aʎə
-[+lo,+syl] > [+long] / __ ʎ ə #
+[+lo] > [+long] / __ ʎ ə #
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
 [+front,-round,+syl] > [+long] / __ s ə #
@@ -1633,7 +1634,7 @@ $ "toward the end of the period" --  late 16th century
 $s241 : consonantalization of countertonic high vowels before lower vowels
 $ 16th century, "Later Middle French" 
 $ accepted by early 17th -- attested in Vaugelas
-[+hi,+syl,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
+[+hi,+stres,-prim] [-hi,+syl] > [-syl] [+stres]
 
 $s569: Pope citing Beze, intervocalic z engenders lengthening of prior consonants
 $giving Pope benefit of the doubt, we place this after long a velarization, because of examples like masure /mazyʁ/

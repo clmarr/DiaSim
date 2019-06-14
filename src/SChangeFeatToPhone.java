@@ -6,10 +6,10 @@ import java.util.HashMap;
 // this is necessary for pragmatic purposes. 
 public class SChangeFeatToPhone extends SChange{
 	
-	private List<RestrictPhone> targSource; 
-	private List<Phone> destination; 
+	protected List<RestrictPhone> targSource; 
+	protected List<Phone> destination; 
 	
-	private void initialize(HashMap<String, Integer> ftInds, List<RestrictPhone> sourcePlaces, List<Phone> dest)
+	protected void initialize(HashMap<String, Integer> ftInds, List<RestrictPhone> sourcePlaces, List<Phone> dest)
 	{
 		for(RestrictPhone sourcePlace : sourcePlaces)	
 			if ("∅@".contains(sourcePlace.print()))

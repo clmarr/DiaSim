@@ -17,7 +17,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private String LOCAL_ALPHABET; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
-	private boolean hasOneToManyAlphSpec; 
+	private boolean hasMultispecAlpha; 
 	
 	// DESPECIFICATION -- 
 		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
@@ -33,7 +33,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 		LOCAL_ALPHABET = "";
-		hasOneToManyAlphSpec = false;
+		hasMultispecAlpha = false;
 		type = "feat matrix";
 		featSpecs=specs+""; 
 
@@ -53,7 +53,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 			if (is_alph)
 			{	if (!LOCAL_ALPHABET.contains(indic))	LOCAL_ALPHABET += indic; 
-				else	hasOneToManyAlphSpec = true;
+				else	hasMultispecAlpha = true;
 			}
 			String feat = sp.substring(1); 
 			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature : '"+feat+"'";
@@ -198,7 +198,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
 		assert inp.getType().equals("phone") : "Error: tried to check for alpha value impossibility of a juncture phone!";
-		if (!hasOneToManyAlphSpec)	return false;	
+		if (!hasMultispecAlpha)	return false;	
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 

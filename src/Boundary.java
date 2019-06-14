@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.List;
 
 public class Boundary extends PseudoPhone {
@@ -39,4 +40,34 @@ public class Boundary extends PseudoPhone {
 	
 	public SequentialPhonic copy()
 	{	return new Boundary(type);	}
+
+	@Override
+	public void applyAlphaValues(HashMap<String, String> alphVals) {
+		/* do nothing*/
+	}
+
+	@Override
+	public HashMap<String, String> extract_alpha_values(SequentialPhonic inp) {
+		return null;
+	}
+
+	@Override
+	public boolean check_for_alpha_conflict(SequentialPhonic inp) {
+		return false;
+	}
+
+	@Override
+	public void resetAlphaValues() {
+		/* do nothing*/
+	}
+
+	@Override
+	public boolean has_alpha_specs() {
+		return false;
+	}
+
+	@Override
+	public char has_unset_alphas() {
+		return '0';
+	}
 }
