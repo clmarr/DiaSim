@@ -10,6 +10,8 @@ public class FED {
 	private static int[][] last_min_alignment; 
 	private static int n_feats;
 	
+	private static final boolean CONTEXTUALIZE_ISDL = true; 
+	
 	public FED (int numFeats, double id_wt)
 	{	n_feats = numFeats;
 		weighted = false; 
@@ -35,11 +37,11 @@ public class FED {
 		
 		// initialize
 		for(int i = 1; i < len1 + 1; i++)
-		{	matr[i][0] = matr[i-1][0] + isdl_cost(s1[i-1]);
+		{	matr[i][0] = matr[i-1][0] + isdl_cost(s1,i-1);
 			backtraces[i][0] = (i-1)+",0";
 		}
 		for(int j = 1; j < len2 + 1; j++)
-		{	matr[0][j] = matr[0][j-1] + isdl_cost(s2[j-1]); 
+		{	matr[0][j] = matr[0][j-1] + isdl_cost(s2,j-1); 
 			backtraces[0][j] = "0,"+(j-1); 
 		}
 		
@@ -48,8 +50,8 @@ public class FED {
 		{	for (int j = 1; j < len2+1; j++)
 			{	
 				double[] cands = new double[]{matr[i-1][j-1] + subst_cost(s1[i-1],s2[j-1]),  
-						matr[i-1][j] + isdl_cost(s1[i-1]),
-								matr[i][j-1] + isdl_cost(s2[j-1])};
+						matr[i-1][j] + isdl_cost(s1,i-1),
+								matr[i][j-1] + isdl_cost(s2,j-1)};
 				if (cands[0] < cands[1] && cands[0] < cands[2])
 				{
 					matr[i][j] = cands[0];
@@ -72,7 +74,7 @@ public class FED {
 		//backtrace to get the alignment
 		last_min_alignment = new int[Math.max(len1,len2)][2]; 
 		
-		int ib = len1 - 1, jb= len2 - 1; 
+		int ib = len1 - 1, jb= len2 - 1; //because an extra entry row and col were added
 		
 		if (ib != jb)
 		{
@@ -84,27 +86,47 @@ public class FED {
 		
 		while (ib > 0 && jb > 0)
 		{
-			int i = Integer.parseInt(backtraces[ib][jb].split(",")[0]),
-					j = Integer.parseInt(backtraces[ib][jb].split(",")[1]); 
-			if (i == ib - 1 && j == jb - 1)
+			int i = Integer.parseInt(backtraces[ib+1][jb+1].split(",")[0]),
+					j = Integer.parseInt(backtraces[ib+1][jb+1].split(",")[1]); 
+			if (i == ib  && j == jb )
 			{
 				last_min_alignment[ib][0] = j; 
 				last_min_alignment[jb][1] = i; 
 				ib = ib - 1; jb = jb -1;
 			}
-			else if( i == ib - 1 && j == jb)
-			{
-				last_min_alignment[jb][1] = -1; 
-				ib--;
-			}
-			else if( i == ib && j == jb - 1)
+			else if( i == ib  && j == jb + 1)
 			{
 				last_min_alignment[ib][0] = -1; 
+				ib--;
+			}
+			else if( i == ib + 1 && j == jb )
+			{
+				last_min_alignment[jb][1] = -1; 
 				jb--;
 			}
 			else
 				throw new Error("Error: invalid backtrace");
 		}
+		
+		//TODO debugging
+		System.out.println("Lex 1 : "+l1.print());
+		System.out.println("Lex 2 : "+l2.print());
+		
+		System.out.println("Matr");
+		for(int i = 0 ; i < matr.length ; i++)
+		{
+			for(int j = 0 ; j < matr[i].length; j++)	System.out.print(matr[i][j]+" ");
+			System.out.println("");
+		}
+		
+		System.out.println("Backtrace, length = "+backtraces.length);
+		for(int i = 0; i < backtraces.length; i++)
+		{
+			for (int j = 0; j < backtraces[i].length; j++)	System.out.print(backtraces[i][j]+" ");
+			System.out.println(""); 
+		}
+		
+		
 	}
 	
 	// minimum feature edit distance
@@ -114,6 +136,9 @@ public class FED {
 	// returns minimum FED alignment array 
 		// whereby each place indicates what hte aligned index of that place in the seq1 (usually res)
 		// is for the seq2 (usually gold)
+		// and vice versa
+		// -1 means aligned to null phone
+		// -2 means aligned to null phone at word boundary		
 	public int[][] get_min_alignment()
 	{
 		return last_min_alignment;
@@ -121,13 +146,42 @@ public class FED {
 	
 	// @param(isdl_wt) : insertion/deletion weight
 	// TODO no current need to normalized by length of feature vector (i.e. number of features) because this is constant
-	private static double isdl_cost(SequentialPhonic sp)  
+	private static double isdl_cost(SequentialPhonic[] fullSeq, int loc)  
 	{
+		return CONTEXTUALIZE_ISDL ? contextualized_isdl_cost(fullSeq,loc) : isdl_cost_default(); 
+		
+		/** questionable abrogated method below. 
 		double sum = 0.0;
 		char[] ftvals = sp.getFeatString().toCharArray();
 		for(int i = 0; i < ftvals.length; i++)
 			sum += (Integer.parseInt(""+ftvals[i]) == DerivationSimulation.UNSPEC_INT) ? isdl_wt / 2 : isdl_wt 
 					* (weighted ? weights[i] : 1.0 );
+		return sum;**/
+	}
+	
+	private static double isdl_cost_default()
+	{	return isdl_wt * n_feats;	}
+	
+	private static double contextualized_isdl_cost(SequentialPhonic[] fullSeq, int loc)
+	{
+		double sum = 0.0;
+		SequentialPhonic sp = fullSeq[loc];
+		int[] spFtVals = new int[n_feats];
+		for (int i = 0; i < n_feats; i++)	spFtVals[i] = Integer.parseInt(""+sp.getFeatString().substring(i,i+1));
+		if (loc == 0)
+		{	for(int i = 0; i < n_feats; i++)	sum += isdl_wt * spFtVals[i]; 	}
+		else
+		{
+			String prFtStr = fullSeq[loc-1].getFeatString();
+			for (int i = 0; i < n_feats; i++)	sum += isdl_wt * Math.abs(spFtVals[i] - Integer.parseInt(prFtStr.substring(i,i+1)));
+		}
+		if (loc == fullSeq.length-1)
+		{	for(int i = 0; i < n_feats; i++)	sum += isdl_wt * spFtVals[i]; 	}
+		else
+		{
+			String psFtStr = fullSeq[loc+1].getFeatString();
+			for (int i = 0; i < n_feats; i++)	sum += isdl_wt * Math.abs(spFtVals[i] - Integer.parseInt(psFtStr.substring(i,i+1)));
+		}
 		return sum;
 	}
 	
@@ -136,7 +190,7 @@ public class FED {
 		double sum = 0.0; 
 		char[] p1fts = p1.getFeatString().toCharArray(), p2fts = p2.getFeatString().toCharArray();
 		for(int i = 0; i < p1fts.length; i++)
-			sum += Math.abs(Integer.parseInt(p1fts[i]+"") - Integer.parseInt(""+p2fts[i])) / 2 
+			sum += (double)Math.abs(Integer.parseInt(p1fts[i]+"") - Integer.parseInt(""+p2fts[i])) / 2.0
 				* (weighted ? weights[i] : 1.0 );
 		return sum;
 	}

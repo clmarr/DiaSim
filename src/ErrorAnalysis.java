@@ -11,9 +11,16 @@ import java.util.Collections;
 
 public class ErrorAnalysis {
 	private int[] levDists; 
+	private int[] FILTER; //indices of all etyma in subset
+	private int[] PRESENT_ETS; 
 	private double[] peds, feds;
 	private boolean[] isHit; 
+	private boolean[] IN_SUBSAMP;
 	private double pctAcc, pct1off, pct2off, avgPED, avgFED; 
+	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
+	private int[] SS_HIT_IDS, SS_MISS_IDS; 
+	
+	private SequentialFilter filterSeq; 
 	
 	private Phone[] resPhInventory, goldPhInventory; 
 	
@@ -23,23 +30,39 @@ public class ErrorAnalysis {
 	
 	private HashMap<String, Integer> resPhInds, goldPhInds; 
 		// indexes for phones in the following int arrays are above.
-	private int[] errorsByResPhone, errorsByGoldPhone; 
+	protected int[] errorsByResPhone, errorsByGoldPhone; 
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
+	private int[] nResEtsWithPh , nGoldEtsWithPh; 
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
 	private String[] featsByIndex; 
 		
+	private boolean[][] isPhInResEt, isPhInGoldEt;
+		
 	private List<LexPhon[]> mismatches; 
 	
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
-	private int NUM_ETYMA;
+	private int NUM_ETYMA, SUBSAMP_SIZE;
 	
 	private FED featDist;
 	
+	private Lexicon RES, GOLD, FOCUS;
+	
+	private boolean focSet, filtSet; 
+	
+	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.7;
+	
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
+		RES = theRes;
+		GOLD = theGold; 
+		FOCUS = null; //must be manually set later.
+		
+		filtSet = false;
+		focSet = false;
+		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
 		NUM_ETYMA = theRes.getWordList().length;
@@ -54,6 +77,24 @@ public class ErrorAnalysis {
 			resPhInds.put(resPhInventory[i].print(), i);
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
+				
+		NUM_ETYMA = theRes.getWordList().length;
+		SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
+	
+		FILTER = new int[SUBSAMP_SIZE];
+		PRESENT_ETS = new int[SUBSAMP_SIZE];
+		int fi = 0;
+		for (int i = 0 ; i < NUM_ETYMA; i++)
+		{	if (!theRes.getByID(i).print().equals(ABS_PR))
+			{	FILTER[fi] = i;
+				PRESENT_ETS[fi] = i;
+				fi++;
+			}
+		}
+		
+		
+		isPhInResEt = new boolean[resPhInventory.length][NUM_ETYMA]; 
+		isPhInGoldEt = new boolean[goldPhInventory.length][NUM_ETYMA]; 
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
@@ -66,8 +107,6 @@ public class ErrorAnalysis {
 		
 		mismatches = new ArrayList<LexPhon[]>();
 		
-		int NUM_ETYMA = theRes.getWordList().length;
-		int NUM_PRESENT_ETYMA = NUM_ETYMA - theRes.numAbsentEtyma();
 		levDists = new int[NUM_ETYMA]; 
 		peds = new double[NUM_ETYMA];
 		feds = new double[NUM_ETYMA];
@@ -76,8 +115,22 @@ public class ErrorAnalysis {
 				
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
 		{	
+			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
+			{
+				LexPhon currEt = theRes.getByID(i);
+				isPhInResEt[rphi][i] = (currEt.toString().equals("[ABSENT]")) ? 
+						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
+			}
+			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
+			{
+				LexPhon currEt = theGold.getByID(i);
+				isPhInGoldEt[gphi][i] = (currEt.toString().equals("[ABSENT]")) ?
+						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
+			}
+			
 			if (!theRes.getByID(i).print().equals(ABS_PR))
 			{
+				
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
 				numHits += (levDists[i] == 0) ? 1 : 0; 
@@ -93,14 +146,15 @@ public class ErrorAnalysis {
 				
 				if(!isHit[i])
 					updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
+						//also increments errorsBy(Res/Gold)Phone^ 
 			}
 			else	isHit[i] = true;
 		}
-		pctAcc = numHits / (double) NUM_PRESENT_ETYMA; 
-		pct1off = num1off / (double) NUM_PRESENT_ETYMA;
-		pct2off = num2off / (double) NUM_PRESENT_ETYMA; 
-		avgPED = totLexQuotients / (double) NUM_PRESENT_ETYMA; 	
-		avgFED = totFED / (double) NUM_PRESENT_ETYMA; 
+		pctAcc = numHits / (double) SUBSAMP_SIZE; 
+		pct1off = num1off / (double) SUBSAMP_SIZE;
+		pct2off = num2off / (double) SUBSAMP_SIZE; 
+		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
+		avgFED = totFED / (double) SUBSAMP_SIZE; 
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -112,18 +166,46 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i].print()); 
-		
+	}
+
+	public void toDefaultFilter()
+	{
+		SUBSAMP_SIZE = PRESENT_ETS.length;
+		FILTER = new int[SUBSAMP_SIZE];
+		for (int i = 0 ; i < SUBSAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
+		filterSeq = null;
+	}
+	
+	public void setFilter(SequentialFilter newFilt, String stage_name)
+	{
+		filterSeq = newFilt; 
+		filtSet = true;
+		if(focSet)	articulateSubsample(stage_name); 
+	}
+	
+	public void setFocus(Lexicon newFoc, String stage_name)
+	{
+		FOCUS = newFoc; 
+		focSet = true; 
+		if(filtSet)	articulateSubsample(stage_name); 
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
 	public void confusionPrognosis(boolean get_contexts)
 	{
+		
+		
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		
 		double max_res_err_rate = errorRateByResPhone[topErrResPhLocs[0]]; 
 		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]]; 
+		 
+		//TODO debugging
+		System.out.println("max r, g : "+max_res_err_rate+","+max_gold_err_rate);
+		
+		
 		if (max_res_err_rate > 1.25 * (1.0 - pctAcc) || max_gold_err_rate > 1.25 * (1.0 - pctAcc)) 
 		{ 
 			System.out.println("Result phones most associated with error: ");
@@ -167,8 +249,7 @@ public class ErrorAnalysis {
 				List<String> probCtxts = identifyProblemContextsForDistortion(topDistortions[i][0], topDistortions[i][1]);
 				System.out.println("Most common contexts in result phone sequence for this distortion: "); 
 				for (String obs : probCtxts)	System.out.println(""+obs); 
-			}
-			 
+			}	 
 		}
 	}
 	
@@ -182,25 +263,31 @@ public class ErrorAnalysis {
 	{
 		mismatches.add( new LexPhon[] {res, gold}) ; 
 		
+		System.out.println("res, gold "+res.print()+","+gold.print());
+		
 		SequentialPhonic[][] alignedForms = getAlignedForms(res,gold); 
-
 		
 		for (int i = 0 ; i < alignedForms.length ; i++)
 		{
 			String r = alignedForms[i][0].print(), g = alignedForms[i][1].print(); 
+			
+			//TODO debugging
+			System.out.println("r,g "+r+","+g);
+			
+			if(!"#∅".contains(r))	errorsByResPhone[resPhInds.get(r)] += 1; 
+			if(!"#∅".contains(g))	errorsByGoldPhone[goldPhInds.get(g)] += 1;
 			if (!r.equals(g))
 			{
 				if (r.equals("∅"))	confusionMatrix[resPhInventory.length][goldPhInds.get(g)] += 1;
 				else if(g.equals("∅"))	confusionMatrix[resPhInds.get(r)][goldPhInventory.length] += 1; 
-				else
-				{
-					confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
-					errorsByResPhone[resPhInds.get(r)] += 1; 
-					errorsByGoldPhone[resPhInds.get(g)] += 1;	
-				}
+				else	confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
+				
 			}
 		}
 	}
+	
+	
+	
 	
 	private int wordBoundCounts(HashMap<SequentialPhonic, Integer> map)
 	{
@@ -481,7 +568,14 @@ public class ErrorAnalysis {
 	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
 	{
 		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
-		int[][] align_stipul = featDist.get_min_alignment(); 
+		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this.. 
+		
+		//TODO checking...
+		for(int i = 0; i < align_stipul.length; i++)	System.out.print(align_stipul[i][0]+ " ");
+		System.out.print("\n");
+		for(int i = 0; i < align_stipul.length; i++)	System.out.print(align_stipul[i][1]+ " ");
+		System.out.print("\n");
+		
 		
 		int al_len = r.getNumPhones(); 
 		for (int a = 0; a < align_stipul.length; a++)
@@ -571,7 +665,7 @@ public class ErrorAnalysis {
 	private int[] arrLocNMax(double[] arr, int n)
 	{
 		int[] maxLocs = new int[n];
-		int num_filled = 1; //since maxLocs[0] = 0 already by default
+		int num_filled = 1; //since maxLocs[0] = 0 [the ind] already by default
 		while ( num_filled < n && num_filled < arr.length)
 		{
 			int curr = num_filled; 
@@ -579,24 +673,36 @@ public class ErrorAnalysis {
 			{
 				if (arr[maxLocs[i]] < arr[curr])
 				{
-					int temp = curr; 
-					curr = maxLocs[i]; 
-					maxLocs[i] = temp; 
+					//TODO debugging
+					System.out.println("arr["+curr+"] = "+arr[curr]);
+					
+					while(i < num_filled)
+					{
+						int temp = maxLocs[i];
+						maxLocs[i] = curr;
+						curr = temp; 
+						i++; 
+					}
 				}	
 			}
+			maxLocs[num_filled] = curr; 
 			num_filled++; 
 		}
 		int j = num_filled + 1;
 		while (j < arr.length)
 		{
-			int curr = j;  
+			int curr = j;
 			for (int i = 0; i < n ; i++)
 			{
 				if (arr[maxLocs[i]] < arr[curr])
 				{
-					int temp = curr;
-					curr = maxLocs[i];
-					maxLocs[i] = temp; 
+					while (i < maxLocs.length)
+					{
+						int temp = maxLocs[i]; 
+						maxLocs[i] = curr; 
+						curr = temp; 
+						i++; 
+					}
 				}
 			}
 			
@@ -714,9 +820,9 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	public void makeAnalysisFile(String fileName, String lexicName, Lexicon lexic)
+	public void makeAnalysisFile(String fileName, boolean use_gold, Lexicon lexic)
 	{
-		String output = "Analysis for "+lexicName+"/n";
+		String output = "Analysis for "+(use_gold ? "Gold" : "Result")+"/n";
 		
 		System.out.println("Average feature edit distance from gold: "+getAvgFED());
 		
@@ -726,17 +832,40 @@ public class ErrorAnalysis {
 		output += "Average edit distance per from gold phone: "+getAvgPED()+"\n"; 
 		output += "Average feature edit distance from gold: "+getAvgFED()+"\n";
 		
-		output += "Performance associated with each phone in "+lexicName+"\n"; 
-		output += "Phone in "+lexicName+"\tAssociated final miss likelihood\t"
+		output += "Performance associated with each phone in "+(use_gold ? "Gold" : "Result")+"\n"; 
+		output += "Phone in "+(use_gold ? "Gold" : "Result")+"\tAssociated final miss likelihood\t"
 				+ "Mean Associated Normalized Lev.Dist.\tMean Associated Feat Edit Dist\n";
 		
-		HashMap<Phone, Double> missLikByPhone = DerivationSimulation.missLikelihoodPerPhone(lexic);
-		HashMap<Phone, Double> avgAssocdLDs = DerivationSimulation.avgLDForWordsWithPhone(lexic); 
-		HashMap<Phone, Double> avgAssocdFEDs = DerivationSimulation.avgFEDForWordsWithPhone(lexic);
-		Phone[] phonInv = lexic.getPhonemicInventory(); 
-		for(Phone ph : phonInv)
-			output += ph.print()+"\t|\t"+missLikByPhone.get(ph)+"\t|\t"+avgAssocdLDs.get(ph)
-				+ "\t|\t"+avgAssocdFEDs.get(ph)+"\n"; 
+		double[] errorRateByPhone = use_gold ? errorRateByGoldPhone : errorRateByResPhone; 
+		HashMap<String, Integer> phonemeInds = use_gold ? goldPhInds : resPhInds; 
+		Phone[] phonInv = use_gold ? goldPhInventory : resPhInventory; 
+		boolean[][] phInEt = use_gold ? isPhInGoldEt : isPhInResEt; 
+		
+		for (Phone ph : phonInv)
+		{
+			output += ph.print() + "\t|\t";
+			int phind = (int)phonemeInds.get(ph.print()); 
+			output += errorRateByPhone[phind] + "\t|\t"; 
+			
+			int ph_ind_str = (int)phonemeInds.get(ph.print());
+			
+			double n_words_ph_in = 0;
+			
+			
+			double totLevDist = 0.0, totFED = 0.0;
+			for (int eti = 0 ; eti < NUM_ETYMA; eti++)
+			{
+				if(phInEt[ph_ind_str][eti])	
+				{
+					totLevDist += levDists[eti];
+					totFED += feds[eti]; 
+					n_words_ph_in += 1.0; 
+				}
+			}
+			
+			output += (totLevDist / n_words_ph_in) + "\t|\t"; 
+			output += (totFED / n_words_ph_in) + "\n";
+		}
 		
 		writeToFile(fileName, output); 
 	}
@@ -749,15 +878,22 @@ public class ErrorAnalysis {
 	// determine the scope of the autopsy based on the relation of sequence starts (and ends) to word boundaries
 		// we are conditioning this only on the hits because we figure context much more often is a positive determiner
 		// of defining context for a shift, rather than a negative determiner.
-	private int[] get_autopsy_scope(int[] hit_starts, int[] hit_ends)
+	private int[] get_autopsy_scope()
 	{
-		double nh = (double) hit_starts.length; 
-		assert hit_starts.length == hit_ends.length: "Error: inconsistent number of hits";
-		int[] n_at_first_mr = new int[MAX_RADIUS], n_at_last_mr = new int[MAX_RADIUS];
-		for (int hs : hit_starts)
-			if (hs < MAX_RADIUS)	n_at_first_mr[hs-1] += 1; 
-		for (int he : hit_ends)
-			if (he >= -1*MAX_RADIUS)	n_at_last_mr[he*-1 -1] += 1;
+		int[] startInRadiusCts = new int[MAX_RADIUS];
+			// [n] -- count of filter matches that start at index n. for those starting beyond the max radius, we don't care.
+		int[] endInRadiusCts= new int[MAX_RADIUS];
+			// [n] -- count of filter matches ending at endex (-1*n-1) -- if beyond max radius, we don't care.
+		
+		for (List<int[]> locBounds : SS_HIT_BOUNDS)
+		{
+			for (int[] bound : locBounds)
+			{
+				if(bound[0] < MAX_RADIUS)	startInRadiusCts[bound[0]] += 1; 
+				if(bound[1] >= -1*MAX_RADIUS)	endInRadiusCts[bound[1]*-1-1] += 1;
+			}				
+		}
+		
 		int[] out = new int[] {0,0};
 		int[] cumul = new int[] {0,0};
 		boolean[] freeze = new boolean[] {false, false};
@@ -765,95 +901,127 @@ public class ErrorAnalysis {
 		{
 			if (!freeze[0])
 			{	
-				cumul[0] += n_at_first_mr[-1 * out[0]];
-				freeze[0] = (double)cumul[0] / nh > 0.32;
+				cumul[0] += startInRadiusCts[-1 * out[0]];
+				freeze[0] = (double)cumul[0] / (double)SS_HIT_IDS.length > 0.32;
 				if (!freeze[0])	out[0]--; 
 			}
 			if (!freeze[1])
 			{
-				cumul[1] += n_at_last_mr[out[0]];
-				freeze[1] = (double) cumul[1] / nh > 0.32; 	
+				cumul[1] += endInRadiusCts[out[1]];
+				freeze[1] = (double) cumul[1] / (double)SS_HIT_IDS.length > 0.32; 	
 				if (!freeze[1])	out[1]++;
 			}
 		}
+		//TODO debugging
+		System.out.println("autopsy scope : "+out[0]+":"+out[1]); 
+		
 		return out;
 	}
 	
-	public void analyzeByRefSeq(RestrictPhone[] seq, Lexicon refLex)
-	{
-		analyzeByRefSeq(seq,refLex,""); 
-	}
-	
 	//assume indices are constant for the word lists across lexica 
-	public void analyzeByRefSeq(RestrictPhone[] seq, Lexicon refLex, String stage_name)
-	{
-		int[] in_seq_subset = new int[NUM_ETYMA]; // using constant indices -- 
-			// -1 if false not in the subset, else it's the start ind. 
-		int subset_size = 0, last_subset_member_id = -1; 
-		List<Integer> missLocs = new ArrayList<Integer>(); 
-		for (int ei = 0; ei < NUM_ETYMA; ei++)
+	public void articulateSubsample(String stage_name)
+	{	
+		IN_SUBSAMP = new boolean[NUM_ETYMA];
+		SUBSAMP_SIZE = 0; String etStr = ""; 
+		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
+		double totPED = 0.0 , totFED = 0.0; 
+		FILTER = new int[SUBSAMP_SIZE]; 
+		mismatches = new ArrayList<LexPhon[]> (); 
+		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
+		
+		errorsByResPhone = new int[resPhInventory.length];
+		errorsByGoldPhone = new int[goldPhInventory.length];
+		errorRateByResPhone = new double[resPhInventory.length]; 
+		errorRateByGoldPhone = new double[goldPhInventory.length];
+		
+		
+		
+		for (int isi = 0; isi < NUM_ETYMA ; isi++)
 		{
-			LexPhon et = refLex.getByID(ei); 
-			if (et.print().equals(ABS_PR))	in_seq_subset[ei] = -1;
-			else
+			IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 
+			if(IN_SUBSAMP[isi])
 			{
-				in_seq_subset[ei] = et.findSequence(seq);
-				if (in_seq_subset[ei] != -1){
-					last_subset_member_id = ei;
-					subset_size += 1;
-					if (!isHit[ei])	missLocs.add(ei); 
+				int etld = levDists[isi];
+				nSS1off += (etld <= 1) ? 1.0 : 0.0;
+				nSS2off += (etld <= 2) ? 1.0 : 0.0;
+				SUBSAMP_SIZE += 1; 
+				etStr += isi+",";
+				if (isHit[isi])	nSSHits+=1; 
+				else	
+				{
+					nSSMisses+=1;
+					updateConfusionMatrix(RES.getByID(isi), GOLD.getByID(isi));
+					
+					//TODO debugging
+					System.out.println(errorsByResPhone[resPhInds.get(RES.getByID(isi).getPhOnlySeq()[0].print())]+
+							","+errorsByGoldPhone[goldPhInds.get(GOLD.getByID(isi).getPhOnlySeq()[0].print())]);
 				}
+				totPED += peds[isi];
+				totFED += feds[isi]; 
 			}
 		}
 		
-		System.out.println("Subsample size : "+subset_size); 
 		
-		int num_hits = subset_size - missLocs.size(); 
-		int num_misses = missLocs.size(); 
+		FILTER = new int[SUBSAMP_SIZE];
+		SS_HIT_IDS = new int[nSSHits];
+		SS_MISS_IDS = new int[nSSMisses];
+		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
+		SS_MISS_BOUNDS = new ArrayList<List<int[]>>(); 
 		
-		LexPhon[] subset_hits = new LexPhon[num_hits];
-		LexPhon[] subset_misses = new LexPhon[num_misses];
-		int[] subset_hit_ids = new int[num_hits];
-		int[] subset_miss_ids = new int[num_misses];
-		int hits_seen = 0, misses_seen = 0;
-		int[] hit_starts = new int[num_hits], miss_starts = new int [num_misses], hit_ends = new int[num_hits];
-		for (int ei = 0; ei <= last_subset_member_id; ei++)
+		while (etStr.contains(",") && etStr.length()>1)
 		{
-			if(in_seq_subset[ei] != -1)
+			int commaloc = etStr.indexOf(",");
+			int id = Integer.parseInt(etStr.substring(0, commaloc));
+			etStr = etStr.substring(commaloc+1); 
+			FILTER[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
+			if (isHit[id])
 			{
-				if(isHit[ei])
-				{
-					subset_hits[hits_seen] = refLex.getByID(ei); 
-					subset_hit_ids[hits_seen] = ei;
-					hit_starts[hits_seen] = in_seq_subset[ei];
-					hit_ends[hits_seen] = subset_hits[hits_seen].rFindSequence(seq); 
-					hits_seen += 1;
-				
-				}
-				else
-				{
-					subset_misses[misses_seen] = refLex.getByID(ei);
-					subset_miss_ids[misses_seen] = ei;
-					miss_starts[misses_seen] = in_seq_subset[ei];
-					misses_seen += 1; 
-				}
+				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
+				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(FOCUS.getByID(id).getPhonologicalRepresentation()));
+			}
+			else
+			{
+				SS_MISS_IDS[SS_MISS_BOUNDS.size()] = id;
+				SS_MISS_BOUNDS.add(filterSeq.filtMatchBounds(FOCUS.getByID(id).getPhonologicalRepresentation()));
 			}
 		}
 		
 		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
 		
-		System.out.println("Accuracy on subset with sequence "+printCheckSeq(seq)+stage_blurb+" : "+(double)num_hits/(double)subset_size);
+		pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
 		
+		System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+pctAcc);
+		
+		int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length]; 
+		for(int i = 0; i < SUBSAMP_SIZE; i++)
+		{
+			for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
+			for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
+			
+		}
+		pct1off = nSS1off / (double) SUBSAMP_SIZE;
+		pct2off = nSS2off / (double) SUBSAMP_SIZE; 
+		avgPED = totPED / (double) SUBSAMP_SIZE; 	
+		avgFED = totFED / (double) SUBSAMP_SIZE; 
+		for (int i = 0 ; i < resPhInventory.length; i++)
+			errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
+		for (int i = 0 ; i < goldPhInventory.length; i++)
+			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i] / (double)goldPhCts[i];
+		
+	}
+	
+	public void contextAutopsy()
+	{
 		System.out.println("Autopsy -- contexts most associated with error:");
 		System.out.println("Features:"); 
 		
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
-		int[] scope = get_autopsy_scope(hit_starts, hit_ends); 
+		int[] scope = get_autopsy_scope(); 
 		int rel_loc = scope[0];
 		while (rel_loc < 0)
 		{
-			prior.add(top_n_predictor_feats_for_position(4, rel_loc, subset_hits, subset_misses, hit_starts, miss_starts));
+			prior.add(topNPredictorsForRelInd(4, rel_loc));
 			rel_loc++;
 		}
 		
@@ -861,41 +1029,48 @@ public class ErrorAnalysis {
 		List<String[]> postr = new ArrayList<String[]>();
 		while(rel_loc <= scope[1])
 		{
-			postr.add(top_n_predictor_feats_for_position(4, rel_loc+seq.length-1, subset_hits, subset_misses, hit_starts, miss_starts));
+			postr.add(topNPredictorsForRelInd(4, rel_loc));
 			rel_loc++;
-		}
-		
-		//TODO debugging
-		for (String[] po : postr)
-		{	for (String popo : po)
-				System.out.println(popo);
-			System.out.println("");
 		}
 		
 		System.out.print(feature_autopsy(4, prior,postr)); 
 		
 	}
 	
-	// @precondition pri and po should have same and consistent length in both dimensions
+	// @precondition pri and po should have same and consistent (across high level nestings) length in both dimensions
 	public String feature_autopsy(int height, List<String[]> pri, List<String[]> po)
 	{
-		String out = "";
+		String out = "\n ";
+		
+		//header.
+		for (int prli = 0 ; prli < pri.size(); prli++)
+			out += "   "+(pri.size() - prli)+" before     |";
+		out += " FOCUS ";
+		for(int poli =0 ; poli<po.size(); poli++)
+			out += "|    "+(1+po.size() - poli)+" after    ";
+		out+="\n|"; 
+		for(int di = 0; di < pri.size() * 16 + po.size() * 16 + 8; di++)	out+="-";
+		out+="|\n"; 
+		
+		//now main scope. 
+		
 		for (int i = 0 ; i < height ; i++)
 		{
+			out += "|"; 
 			for (String[] ipri : pri)
 			{
-				if (ipri[i].equals(""))	out += "                ";
-				else	out += append_space_to_x(ipri[i],15); 
+				if (ipri[i].equals(""))	out += "               |";
+				else	out += " "+append_space_to_x(ipri[i],14) + " |"; 
 			}
-			out += " XXXX ";
+			out += " XXXXX ";
 			for (String[] ipo : po)
 			{
-				if (ipo[i].equals(""))	out += "                ";
-				else	out += append_space_to_x(ipo[i],15); 
+				if (ipo[i].equals(""))	out += "|               ";
+				else	out += "| "+append_space_to_x(ipo[i],14) + " "; 
 			}
-			out += "\n";
+			out += "|\n";
 		}
-		return out;
+		return out+"\n";
 	}
 	
 	private String append_space_to_x (String in, int x)
@@ -923,33 +1098,47 @@ public class ErrorAnalysis {
 	
 	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
 		//-- so if it is 8 and rel_ind is -2, we look at index 6
-	private List<SequentialPhonic>[] miss_and_hit_phones_at_rel_loc (int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets, 
-			int[] hit_starts, int[] miss_starts)
+	// ind 0 -- hit, ind 1 -- miss
+	private List<List<SequentialPhonic>> miss_and_hit_phones_at_rel_loc (int rel_ind)
 	{
-		List<SequentialPhonic>[] out = (ArrayList<SequentialPhonic>[])new ArrayList[2];
-		out[0] = new ArrayList<SequentialPhonic>(); 
-		out[1] = new ArrayList<SequentialPhonic>(); 
+		boolean posterior = rel_ind > 0; 
+		List<List<SequentialPhonic>> out = new ArrayList<List<SequentialPhonic>>(); 
 		
-		for (int hi = 0; hi < hit_ets.length; hi++)
+		List<SequentialPhonic> out0 = new ArrayList<SequentialPhonic>(),
+				out1 = new ArrayList<SequentialPhonic>(); 
+		
+		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
-			int curr_ind = hit_starts[hi] + rel_ind;
-			List<SequentialPhonic> currPhRep = hit_ets[hi].getPhonologicalRepresentation(); 
-			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			List<SequentialPhonic> curPR = FOCUS.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
+
+			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
 			{
-				SequentialPhonic curr = currPhRep.get(curr_ind);
-				if(!containsSPh(curr,out[0]))	out[0].add(curr); 
+				int curr_ind = posterior ? SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind :
+					SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
+				if (curr_ind >= 0 && curr_ind < curPR.size())
+				{
+					SequentialPhonic curr = curPR.get(curr_ind);
+					if(!containsSPh(curr,out0))	out0.add(curr); 
+				}
 			}
 		}
-		for (int mi = 0 ; mi < miss_ets.length; mi++)
+		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
-			int curr_ind = miss_starts[mi] + rel_ind;
-			List<SequentialPhonic> currPhRep = miss_ets[mi].getPhonologicalRepresentation();
-			if (curr_ind >= 0 && curr_ind < currPhRep.size())
+			List<SequentialPhonic> curPR = FOCUS.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
+
+			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
 			{
-				SequentialPhonic curr = currPhRep.get(curr_ind);
-				if(!containsSPh(curr,out[1]))	out[1].add(curr); 
+				int curr_ind = posterior ? SS_MISS_BOUNDS.get(mi).get(imi)[1] + curPR.size() + rel_ind 
+						: SS_MISS_BOUNDS.get(mi).get(imi)[0] + rel_ind;
+				if(curr_ind >= 0 && curr_ind < curPR.size()) {
+					SequentialPhonic curr = curPR.get(curr_ind); 
+					if(!containsSPh(curr,out1))	out1.add(curr);
+				}
 			}
 		}
+		out.add(out0);
+		out.add(out1);
+		
 		return out;
 	}
 	
@@ -987,86 +1176,118 @@ public class ErrorAnalysis {
 
 	
 	
-	private int[] get_ph_freqs_at_rel_loc(int rel_ind, LexPhon[] ets, List<SequentialPhonic> phs, int[] starts)
+	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
 	{
+		boolean posterior = rel_ind > 0; 
 		int[] out = new int[phs.size()];
-		for(int pi = 0 ; pi < phs.size(); pi++)
-			for (int eti = 0 ; eti < ets.length; eti++)
-				if (starts[eti] + rel_ind >= 0 && starts[eti] + rel_ind < ets[eti].phRepLen() )
-					if ( ets[eti].getPhonologicalRepresentation().get(starts[eti] + rel_ind).equals(phs.get(pi)) )
-						out[pi]+=1; 
+		for (int pi = 0 ; pi < phs.size(); pi++) {
+			for (int eti = 0; eti < ids.length ; eti++)
+			{
+				List<SequentialPhonic> curPR = FOCUS.getByID(ids[eti]).getPhonologicalRepresentation();
+				for(int[] bound : theBounds.get(eti))
+				{
+					int mchi = (posterior ? bound[1] + curPR.size() : bound[0]) + rel_ind ;
+					if ( ( posterior ? curPR.size() - 1 - mchi : mchi) >= 0)
+						if(curPR.get(mchi).print().equals(phs.get(pi).print()))	out[pi] += 1; 
+				}
+			}
+		}
 		return out; 
 	}
 	
-	public String[] top_n_predictor_feats_for_position(int n, int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets, 
-			int[] hit_starts, int[] miss_starts)
+	public String[] topNPredictorsForRelInd(int n, int rel_ind)
 	{
-		double nhit = hit_ets.length, nmiss = miss_ets.length, ntot= hit_ets.length + miss_ets.length; 
-		
-		assert nmiss > 0 : "Error: tried to predict feats for a sequence subset that has no misses!";
+		assert SS_MISS_IDS.length > 0 : "Error: tried to predict feats for a sequence subset that has no misses!";
 		
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
-		List<SequentialPhonic>[] phs_here = miss_and_hit_phones_at_rel_loc(rel_ind, hit_ets, miss_ets, hit_starts, miss_starts); 
-		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, miss_ets, phs_here[1], miss_starts); 
-		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, hit_ets, phs_here[0], hit_starts); 
+		List<List<SequentialPhonic>> phs_here = miss_and_hit_phones_at_rel_loc(rel_ind); 
+		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
+		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
 		
-		assert hit_ph_frqs.length == phs_here[0].size() : "Error : mismatch in size for hit_ph_frqs"; 
-		assert miss_ph_frqs.length == phs_here[1].size() : "Error : mismatch in size for miss_ph_frqs";
+		assert hit_ph_frqs.length == phs_here.get(0).size() : "Error : mismatch in size for hit_ph_frqs"; 
+		assert miss_ph_frqs.length == phs_here.get(1).size() : "Error : mismatch in size for miss_ph_frqs";
 		System.out.println("Number of hit phones : "+hit_ph_frqs.length+"; "+"Number of miss phones : "+miss_ph_frqs.length);
 		
-		String[] cand_feats = new String[featsByIndex.length*2]; 
+		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
+		
+		String[] candPredictors = new String[featsByIndex.length*2+miss_ph_frqs.length]; 
+		
+		int[][] cand_freqs = new int[2][featsByIndex.length*2+miss_ph_frqs.length]; 
+			//first dimensh -- 0 for hit, 1 for miss
+		
 		for (int fti = 0 ; fti < featsByIndex.length; fti++)
 		{
-			cand_feats[2*fti] = "-"+featsByIndex[fti];
-			cand_feats[2*fti+1] = "+"+featsByIndex[fti];
+			candPredictors[2*fti] = "-"+featsByIndex[fti];
+			candPredictors[2*fti+1] = "+"+featsByIndex[fti];
 		}
-		
-		int[][] cand_freqs = new int[2][featsByIndex.length*2]; //first dimensh -- 0 for hit, 1 for miss
-		
-		for (int phi = 0; phi < phs_here[1].size(); phi++)
+		for (int mpi = 0; mpi < miss_ph_frqs.length; mpi++)
 		{
-			char[] fstr = phs_here[1].get(phi).toString().split(":")[1].toCharArray();
-			
-			for (int spi = 0; spi < featsByIndex.length; spi++)
-				if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
-					cand_freqs[1][2*spi + Integer.parseInt(""+fstr[spi])/2] += miss_ph_frqs[phi];	
+			String phprint =  phs_here.get(1).get(mpi).print(); 
+			candPredictors[featsByIndex.length*2 + mpi] = "/"+phprint+"/"; 
+			cand_freqs[1][featsByIndex.length*2 + mpi] = miss_ph_frqs[mpi];
+			predPhIndexer.put(phprint, mpi + featsByIndex.length*2); 
 		}
-		for (int phi = 0; phi < phs_here[0].size(); phi++)
+		for (int hpi = 0; hpi < hit_ph_frqs.length; hpi++)
+			if (predPhIndexer.containsKey(phs_here.get(0).get(hpi).print()))
+				cand_freqs[0][predPhIndexer.get(phs_here.get(0).get(hpi).print())] = hit_ph_frqs[hpi]; 
+		
+		
+		for (int phi = 0; phi < phs_here.get(1).size(); phi++)
 		{
-			char[] fstr = phs_here[0].get(phi).toString().split(":")[1].toCharArray();
+			String curprint = phs_here.get(1).get(phi).toString(); 
+			if (!curprint.equals("#"))
+			{	
+				char[] fstr = curprint.split(":")[1].toCharArray();
+					
+				for (int spi = 0; spi < featsByIndex.length; spi++)
+					if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
+						cand_freqs[1][2*spi + Integer.parseInt(""+fstr[spi])/2] += miss_ph_frqs[phi];	
+			}
+		}
+		for (int phi = 0; phi < phs_here.get(0).size(); phi++)
+		{
+			String curprint = phs_here.get(0).get(phi).toString(); 
+				
+			if(!curprint.equals("#"))
+			{	char[] fstr = curprint.split(":")[1].toCharArray();
 			
-			for (int spi = 0; spi < featsByIndex.length; spi++)
-				if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
-					cand_freqs[0][2*spi + Integer.parseInt(""+fstr[spi])/2] += hit_ph_frqs[phi];
+				for (int spi = 0; spi < featsByIndex.length; spi++)
+					if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
+						cand_freqs[0][2*spi + Integer.parseInt(""+fstr[spi])/2] += hit_ph_frqs[phi];
+			}
 		}
 		
-		double[] scores = new double[cand_feats.length];
-		for(int fi = 0 ; fi < cand_feats.length; fi++)
+		double[] scores = new double[candPredictors.length];
+		for(int fi = 0 ; fi < candPredictors.length; fi++)
 		{
 			if (cand_freqs[1][fi] > 0)
 			{
 				double c_miss = (double)cand_freqs[1][fi], c_hit = (double)cand_freqs[0][fi]; 
-				scores[fi] = ((c_miss + 1.0) / (c_hit + 1.0)) * (c_miss / nmiss); 
+				scores[fi] = ((c_miss + 1.0) / (c_hit + 1.0)) * (c_miss / SS_MISS_IDS.length); 
 			}
 		}
 		
 		//choose final output
 		int ffi = 0 ; 
-		while(scores[ffi] == 0.0)	ffi++; 
+		while(ffi < scores.length ? scores[ffi] <= AUTOPSY_DISPLAY_THRESHOLD : false )	
+			ffi++; 
+		
+		String insignif = "<"+AUTOPSY_DISPLAY_THRESHOLD+" thresh";
 		
 		double[] lb = new double[n]; //"leader board"
 		String[] out = new String[n];
+		for (int oi = 0; oi < n ; oi++)	out[oi] = insignif; 
 		
 		
-		while (ffi < cand_feats.length)
+		while (ffi < candPredictors.length)
 		{
 			double sc= scores[ffi]; 
-			if (sc > 0.0)
+			if (sc > AUTOPSY_DISPLAY_THRESHOLD)
 			{	
 				int placer = 0; 
 				boolean try_place = true; 
-				String scout = cand_feats[ffi] + " : "+sc;
+				String scout = candPredictors[ffi] + " : "+sc;
 				
 				scout = scout.substring(0,Math.min(scout.indexOf('.')+3,scout.length()));
 				
@@ -1082,7 +1303,7 @@ public class ErrorAnalysis {
 					double to_move = lb[placer];	 String moving_outp = out[placer];
 					lb[placer] = sc; 	out[placer] = scout;
 		
-					if (to_move == 0.0)	placer = n;
+					if (to_move <= AUTOPSY_DISPLAY_THRESHOLD)	placer = n;
 					else
 					{
 						sc = to_move; 	scout = moving_outp; placer++;
@@ -1091,7 +1312,26 @@ public class ErrorAnalysis {
 			}
 			ffi++; 
 		}
+		
 		return out; 
+	}
+	
+	public boolean isFiltSet()
+	{
+		return filtSet; 
+	}
+	
+	public boolean isFocSet()
+	{
+		return focSet;
+	}
+	
+	public void printFourColGraph(Lexicon inpLex)
+	{
+		LexPhon[] inpWds = inpLex.getWordList(); 
+		for(int i = 0; i < inpWds.length; i++)
+			System.out.println(""+i+","+inpWds[i].toString()+ (focSet? FOCUS.getByID(i).toString() + "," : "") +
+					RES.getByID(i).toString() +"," + GOLD.getByID(i));
 	}
 	
 }

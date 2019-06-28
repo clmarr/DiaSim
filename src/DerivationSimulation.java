@@ -81,18 +81,11 @@ public class DerivationSimulation {
 	private static boolean feats_weighted;
 	private static double[] FT_WTS; 
 	
+	private static List<SChange> CASCADE;
 	
-	public static void main(String args[])
+	private static void extractSymbDefs()
 	{
-		parseArgs(args); 
-		
-		featIndices = new HashMap<String, Integer>() ; 
-		phoneSymbToFeatsMap = new HashMap<String, String>(); 
-		phoneFeatsToSymbMap = new HashMap<String, String>(); 
-		featImplications = new HashMap<String, String[]>(); 
-		
-		//collect task information from symbol definitions file. 
-		
+
 		//TODO debugging
 		System.out.println("Collecting symbol definitions...");
 		
@@ -119,10 +112,12 @@ public class DerivationSimulation {
 			e.printStackTrace();
 		}
 		
+
 		//TODO debugging
 		System.out.println("Symbol definitions extracted!");
 		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
 		
+
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
@@ -163,6 +158,23 @@ public class DerivationSimulation {
 			li++; 
 		}
 
+	}
+	
+	public static void main(String args[])
+	{
+		parseArgs(args); 
+		
+		featIndices = new HashMap<String, Integer>() ; 
+		phoneSymbToFeatsMap = new HashMap<String, String>(); 
+		phoneFeatsToSymbMap = new HashMap<String, String>(); 
+		featImplications = new HashMap<String, String[]>(); 
+		
+		//collect task information from symbol definitions file. 
+		
+		extractSymbDefs(); 
+		String nextLine; 
+		
+		
 		//TODO debugging
 		System.out.println("Now extracting info from feature implications file...");
 		
@@ -282,7 +294,7 @@ public class DerivationSimulation {
 		blackStageTimeInstants = new int[NUM_BLACK_STAGES]; 
 		
 		// parse the rules
-		List<SChange> theShiftsInOrder = new ArrayList<SChange>();
+		CASCADE = new ArrayList<SChange>();
 		
 		int cri = 0, gsgi =0 , bsgi = 0, next_gold = -1, next_black = -1;
 		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
@@ -298,14 +310,14 @@ public class DerivationSimulation {
 				for(SChange newShift : newShifts)
 					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
 			}
-			theShiftsInOrder.addAll(theFactory.generateSoundChangesFromRule(currRule));
+			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
 			
 			if(goldStagesSet)
 			{
 				if (cri == next_gold)
 				{
 					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[0];
-					goldStageTimeInstants[gsgi] = theShiftsInOrder.size();		
+					goldStageTimeInstants[gsgi] = CASCADE.size();		
 					gsgi += 1;
 					if ( gsgi < NUM_GOLD_STAGES)
 						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
@@ -314,10 +326,10 @@ public class DerivationSimulation {
 			
 			if(blackStagesSet)
 			{
-				if (cri == next_gold)
+				if (cri == next_black)
 				{
 					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[0];
-					blackStageTimeInstants[bsgi] = theShiftsInOrder.size();
+					blackStageTimeInstants[bsgi] = CASCADE.size();
 					bsgi += 1;
 					if (bsgi < NUM_BLACK_STAGES)
 						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
@@ -425,9 +437,9 @@ public class DerivationSimulation {
 
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
-		int ri = 0, numRules = theShiftsInOrder.size(); //for iteration.
+		int ri = 0, numRules = CASCADE.size(); //for iteration.
 		
-		makeRulesLog(theShiftsInOrder);
+		makeRulesLog(CASCADE);
 		
 		String resp; 
 		
@@ -437,7 +449,7 @@ public class DerivationSimulation {
 		{
 			if(ri % 100 == 0)	System.out.println("On rule number "+ri);
 				
-			SChange thisShift =  theShiftsInOrder.get(ri);
+			SChange thisShift =  CASCADE.get(ri);
 			
 			boolean goldhere = false; 
 			if(goldStageInd < NUM_GOLD_STAGES)
@@ -459,7 +471,7 @@ public class DerivationSimulation {
 							resp = inp.nextLine().substring(0,1); 
 						}
 						if(resp.equalsIgnoreCase("y"))	
-							haltMenu(testResultLexicon, goldStageGoldLexica[goldStageInd], inp, theFactory);
+							haltMenu(goldStageInd, inp, theFactory);
 					}
 					goldStageInd++;
 				}
@@ -473,9 +485,6 @@ public class DerivationSimulation {
 				}
 			}
 
-			//TODO debugging
-			System.out.println("rule : "+thisShift);
-			
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
@@ -506,30 +515,35 @@ public class DerivationSimulation {
 		//make output graphs file
 		System.out.println("making output graph file in "+dir);
 		makeOutGraphFile(); 
-				
+		
+		System.out.println("Simulation complete!");
+		
+		//TODO fix this here to remove new bug.
 		if(goldOutput)
 		{
-			haltMenu(testResultLexicon, goldResultLexicon,inp,theFactory);
+			haltMenu(-1, inp,theFactory);
 			
 			System.out.println("Writing analysis files...");
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
 			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldResultLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-			ea.makeAnalysisFile("testResultAnalysis.txt", "Test Result", testResultLexicon);
-			ea.makeAnalysisFile("goldAnalysis.txt","Gold",goldResultLexicon);
+			ea.makeAnalysisFile("testResultAnalysis.txt", false, testResultLexicon);
+			ea.makeAnalysisFile("goldAnalysis.txt",true,goldResultLexicon);
 			
 			if(goldStagesSet)
 			{	
-				for(int gsi = 0; gsi < NUM_GOLD_STAGES ; gsi++)
+				for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 				{	
 					ErrorAnalysis eap = new ErrorAnalysis(goldStageResultLexica[gsi], goldStageGoldLexica[gsi], featsByIndex,
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
-							goldStageNames[gsi]+" Result", goldStageResultLexica[gsi]);
+							false, goldStageResultLexica[gsi]);
 				}
 			}
 		}
+		System.out.println("Thank you for using DiaSim"); 
+		
 		inp.close();
 		
 	}
@@ -715,8 +729,47 @@ public class DerivationSimulation {
 		}
 	}
 	
-	private static void haltMenu(Lexicon r, Lexicon g, Scanner inpu, SChangeFactory fac)
-	{		
+	
+	// @param (cutoff) -- rule number that the black stage must be BEFORE.
+	private static void printTheseBlackStages(int first, int last, boolean prepend)
+	{
+		if(blackStagesSet)
+			for(int bsi = first; bsi < last + 1; bsi++)
+				System.out.println(bsi+": "+(prepend ? "b":"")+
+					blackStageNames[bsi]+" (@rule #: "+blackStageTimeInstants[bsi]+")");
+	}
+	
+	private static void printTheseGoldStages(int firstToPrint, int lastToPrint, boolean prepend)
+	{
+		if(goldStagesSet)
+			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
+				System.out.println(gsi+": "+(prepend ? "g":"")+
+					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageTimeInstants[gsi]+")");
+	}
+	
+	private static List<String> validBlackStageOptions(int first, int last, boolean prepend)
+	{
+		List<String> out = new ArrayList<String>();
+		if (blackStagesSet)
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "b":"")+oi);
+		return out;
+	}
+	
+	private static List<String> validGoldStageOptions(int first, int last, boolean prepend)
+	{
+		List<String> out = new ArrayList<String>();
+		if (goldStagesSet)
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
+		return out;
+	}
+	
+	//TODO fix this ! 
+	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage(Gold/Result)Lexica
+	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
+	{	
+		Lexicon r = testResultLexicon;
+		Lexicon g = (curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt]; 
+		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
@@ -726,161 +779,310 @@ public class DerivationSimulation {
 		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 		
+		int lastGoldOpt = (curSt == -1 ? NUM_GOLD_STAGES : curSt) - 1;
+		int lastBlkOpt = NUM_BLACK_STAGES - 1;
+		while((lastBlkOpt < 0 || curSt < 0) ? false : blackStageTimeInstants[lastBlkOpt] > goldStageTimeInstants[curSt])
+			lastBlkOpt--;
+		
 		boolean cont = true; 
-						
+		int evalStage = curSt; 
+		SequentialFilter filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
+		Lexicon focPtLex = null;
+		String focPtName = ""; 
+		int focPtLoc = -1; 
+		boolean focPtSet = false, filterIsSet = false;
+		
 		while(cont)
 		{
 			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
-					+ "| 0 : Analysis and context autopsy for subset with specified sequence~~~~~~~~~~~~~~~~~|\n"
-					+ "| 1 : Standard prognosis with context analysis                                        |\n"
-					+ "| 2 : Print all corresponding forms (initial, res, gold)                              |\n"
-					+ "| 3 : Print all corresponding forms (res,gold)                                        |\n"
-					+ "| 4 : Print all forms mismatched between result and gold                              |\n"
-					+ "| 5 : Print all mismatched forms with a specified phone sequence in the result form   |\n"
-					+ "| 6 : Print all mismatched forms with a specified phone sequence in the gold form     |\n"
-					+ "| 7 : Stats for all forms with specified phone sequence in result form                |\n"
-					+ "| 8 : Stats for all forms with specified phone sequence in gold form                  |\n"
+					+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
+					+ "| 1 : Set focus point                                                                 |\n"
+					+ "| 2 : Set filter sequence                                                             |\n"
+					+ "| 3 : Query                                                                           |\n"
+					+ "| 4 : Standard prognosis at evaluation point                                          |\n"
+					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon)                      |\n"
+					+ "| 6 : Print stats (at evaluation point) (for subset lexicon                           |\n"
+					+ "| 7 : Print all corresponding forms (init(,focus),res,gold)                           |\n"
+					+ "| 8 : Print all mismatched forms                                                      |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
 			
-			if (resp.equals("0")) // context autopsy
+			if (resp.equals("0")) //set evaluation point
 			{
-				System.out.println("Analyzing subset filtered for phoneme sequence to be specified"); 
-				System.out.println("What stage would you like to filter from?");
-				
-				HashMap<String, String> filter_abbrs = new HashMap<String, String>();
-				filter_abbrs.put("X","Input stage"); 
-				int gsi = 1, bsi = 1;
-				while (gsi <= NUM_GOLD_STAGES)
-				{
-					filter_abbrs.put("GR"+gsi, goldStageNames[gsi-1] + " res"); 
-					filter_abbrs.put("GG"+gsi, goldStageNames[gsi-1] + " gold");
-					gsi++;
-				}
-				while (bsi <= NUM_BLACK_STAGES)
-				{
-					filter_abbrs.put("B"+bsi, blackStageNames[bsi-1]); bsi++;
-				}
-				filter_abbrs.put("Y", "Final stage");
-			
-				String stage_indics_menu = append_space_to_x("X : Input",17);
-				if(goldOutput)	stage_indics_menu += append_space_to_x("| Y : Result",17) + "| Z : Gold set\n";
-				else	stage_indics_menu += "| Y : Result\n";
-				
-				for (int i = 1 ; i <= Integer.max(NUM_GOLD_STAGES, NUM_BLACK_STAGES); i++)
-				{
-					String bs = append_space_to_x( (i <= NUM_BLACK_STAGES) ? "B"+i+" : "+filter_abbrs.get("B"+i) : "", 14);
-					String gs = append_space_to_x( (i <= NUM_GOLD_STAGES) ? "G"+i+" : "+filter_abbrs.get("GR"+i) : "", 14);
-					gs += (i <= NUM_GOLD_STAGES) ? "GG"+i+" : "+filter_abbrs.get("GG"+i) : "";
-					stage_indics_menu += bs+"|"+gs+"\n";
-				}
-				System.out.println("Please enter the specified indicator for the desired stage:\n"+stage_indics_menu); 
-				String filt_stage = inpu.nextLine();
-				
-				//TODO debugging
-				System.out.println("filt stage : "+filt_stage);
-				System.out.println(filter_abbrs.containsKey(filt_stage)); 
-				
-				
-				while(!filter_abbrs.containsKey(filt_stage))
-				{
-					System.out.println("Illegitimate entry: '"+filt_stage+"'\nPlease enter one of the valid stage indicators as specified :\n"+stage_indics_menu); 
-					filt_stage = inpu.nextLine();
-				}
-				
-				Lexicon filtLex = initLexicon; 
-				if (filt_stage.equalsIgnoreCase("X"))	filtLex = initLexicon;
-				else if (filt_stage.equalsIgnoreCase("Y"))	filtLex = testResultLexicon;
-				else if (filt_stage.length() > 1)
-				{
-					if(filt_stage.substring(0,2).equals("GR"))
-						filtLex = goldStageResultLexica[-1 + Integer.parseInt(filt_stage.substring(2))];
-					else if (filt_stage.substring(0,2).equals("GG"))
-						filtLex = goldStageGoldLexica[-1 + Integer.parseInt(filt_stage.substring(2))];
-				}
-				else if (filt_stage.charAt(0) == 'B')
-					filtLex = blackStageResultLexica[-1 + Integer.parseInt(filt_stage.substring(1))];
+				if (!goldStagesSet)	System.out.println("Cannot change evaluation stage: no intermediate gold stages are set."); 
 				else
 				{
-					System.out.println("Illegitimate entry. What stage would you like to filter from?\nPlease enter the specified indicator:\n"+stage_indics_menu);
-					resp = inpu.nextLine().trim(); 
+					System.out.println("Changing point of evaluation (comparing result against gold)");
+					System.out.print("Current evaluation point: ");
+					if (evalStage == curSt)
+					{
+						if (evalStage == -1)	System.out.print("final result\n");
+						else	System.out.print("current forms at stage "+evalStage+": "+goldStageNames[evalStage]+"\n");
+					}
+					else	System.out.println("intermediate stage "+evalStage+": "+goldStageNames[evalStage]); 
+				
+					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,false); 
+					validOptions.add("F"); 
+					boolean chosen = false;
 					
-					while(!"yn".contains(resp))
-					{	
-						System.out.println("Illegitimate entry. Filter using gold or result? Enter 'y' or 'n'.");
-						resp = inpu.nextLine().trim(); 
+					while (!chosen)
+					{
+						System.out.println("Available options for evaluation stage: ");
+						printTheseGoldStages(0, lastGoldOpt,false); 
+						System.out.println("F : "+ (curSt == -1 ? "final forms" : "current forms at stage "+curSt));
+						System.out.println("Please enter the indicator for the stage you desire"); 
+						resp = inpu.nextLine().substring(0,1);
+						chosen = validOptions.contains(resp);
+						if(!chosen)	System.out.println("Invalid response. Please choose a valid indicator for the new evaluation stage."); 
 					}
 					
-					boolean use_gold = (resp.equalsIgnoreCase("Y")); 
+					evalStage = resp.equals("F") ? curSt : Integer.parseInt(resp); 
+					r = resp.equals("F") ? testResultLexicon : goldStageResultLexica[evalStage];
+					g = (curSt == -1 && resp.equals("F") ) ? goldResultLexicon : goldStageGoldLexica[evalStage];
+					boolean filtered = ea.isFiltSet();
+					boolean focused = ea.isFocSet(); 
 					
-					if (filt_stage.equalsIgnoreCase("Y"))	filtLex = use_gold ? goldResultLexicon : testResultLexicon;
-					else	filtLex = use_gold ? 
-								goldStageGoldLexica[-1 + (Integer.parseInt(filt_stage.substring(1)))] :
-									goldStageResultLexica[-1 + (Integer.parseInt(filt_stage.substring(1)))];
+					ea = new ErrorAnalysis(r, g, featsByIndex, 
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+					if (focused) 	ea.setFocus(focPtLex, focPtName);
+					if (filtered) 	ea.setFilter(filterSeq, focPtName);
+				}
+			}
+			else if (resp.equals("1"))
+			{
+				System.out.println("Setting focus point -- extra stage printed for word list, and point at which we filter to make subsets."); 
+				System.out.println("Current focus point lexicon: "+(focPtSet ? focPtName : "undefined"));
+				System.out.println("Current filter : "+(filterIsSet ? filterSeq.toString() : "undefined")); 
+				
+				boolean chosen = false; 
+				while(!chosen)
+				{
+					System.out.println("Available options for focus point:");
+					printTheseGoldStages(0, lastGoldOpt, true); printTheseBlackStages(0, lastBlkOpt, true); 
+					System.out.print("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
+							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#> (you can find rule indices with option 3 to query on the main menu)\n"); 
+					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
+					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
+					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold");
+					
+					for(int ri = 1; ri < CASCADE.size(); ri++)	
+						validOptions.add("R"+ri);
+					resp = inpu.nextLine();
+					resp.replace("\n", ""); 
+					chosen = validOptions.contains(resp); 
+					if(!chosen)
+					{
+						if(resp.equals("R0"))	System.out.println("'R0' is not a valid option -- instead choose 'In' "
+								+ "to delete focus point and use the input for filtering");
+						else if (resp.charAt(0) == 'R')
+							System.out.println("'"+resp+"' is not a valid option: the last rule is number "+(CASCADE.size()-1));
+						else	System.out.println("Invalid input : '"+resp+"'\nPlease select a valid option listed below:");
+					}
+					else
+					{
+						focPtSet = true;
+						if(resp.charAt(0) == 'g')
+						{
+							int si = Integer.parseInt(resp.substring(1));
+							focPtLex = goldStageGoldLexica[si]; 
+							focPtLoc = goldStageTimeInstants[si];
+							focPtName = goldStageNames[si]+" [r"+focPtLoc+"]";
+							ea.setFocus(focPtLex, focPtName); 
+						}
+						else if (resp.charAt(0) == 'b')
+						{
+							int si = Integer.parseInt(resp.substring(1));
+							focPtLex = blackStageResultLexica[si]; 
+							focPtLoc = blackStageTimeInstants[si];
+							focPtName = blackStageNames[si]+" [r"+focPtLoc+"]";
+							ea.setFocus(focPtLex, focPtName); 
+						}
+						else if (resp.charAt(0) == 'R')
+						{
+							focPtLoc = Integer.parseInt(resp.substring(1)); 
+							focPtLex = toyDerivationResults(initLexicon.getWordList(),CASCADE.subList(0, focPtLoc));
+							focPtName = "pivot@r"+focPtLoc; 
+							ea.setFocus(focPtLex, focPtName); 
+						}
+						else
+						{
+							focPtLoc = -1; focPtLex = null; focPtName = ""+resp;
+							if(resp.equals("U"))
+							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
+								filterIsSet = false; 
+								focPtName = "";
+								focPtSet = false; 
+							}
+							else	focPtLex = resp.equals("In") ? initLexicon : 
+								resp.equals("Out") ? testResultLexicon :
+									(curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt];
+							ea = new ErrorAnalysis(r, g, featsByIndex, 
+									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+							ea.setFocus(focPtLex,focPtName);
+						}
+					}
+							
 				}
 				
-				System.out.println("Filtering from "+filter_abbrs.get(filt_stage)); 
-				
-				System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+PH_DELIM+"'");
-				
-				RestrictPhone[] filter_seq = fac.parseRestrictPhoneArray(inpu.nextLine());
-				ea.analyzeByRefSeq(filter_seq, filtLex);
-			}				
-			else if(resp.equals("1"))	ea.confusionPrognosis(true);
-			else if(resp.equals("2") || resp.equals("3"))
-			{
-				boolean printInit = (resp.equals("2")); 
-				System.out.println("etymID"+STAGE_PRINT_DELIM+ (printInit ? "Input"+STAGE_PRINT_DELIM:"")+
-						"Result"+STAGE_PRINT_DELIM+"Gold");
-				for (int i = 0 ; i < r.getWordList().length ; i++)
-					System.out.println((""+i)+STAGE_PRINT_DELIM+ (printInit ? initLexicon.getByID(i).toString()+STAGE_PRINT_DELIM : "") +
-							r.getByID(i)+STAGE_PRINT_DELIM+g.getByID(i));
 			}
-			else if(resp.equals("4"))	
+			else if (resp.equals("2") && !focPtSet)
+				System.out.println("Error: cannot set a filter sequence without first setting a focus point.\nUse option '1' on the menu.");
+			else if (resp.equals("2"))
 			{
+				boolean fail = true; 
+				
+				System.out.println("Setting filter sequence to define lexicon subsample.");
+				System.out.println("[Filtering from "+focPtName+"]"); 
+				
+				while(fail)
+				{	
+					System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+PH_DELIM+"'");
+					
+					resp = inpu.nextLine().replace("\n",""); 
+					
+					try {
+						filterSeq = fac.parseNewSeqFilter(resp, true);
+						fail = false;
+					}
+					catch (Exception e)
+					{
+						System.out.println("That is not a valid filter.\nTry again and double check spelling of any feature names, and that the proper delimitation is used...");
+					}
+					
+					if(!fail)
+					{
+						System.out.println("Success: now making subsample with filter "+filterSeq.toString());
+						System.out.println("(Pivot moment name: "+focPtName+")");
+						
+						ea.setFilter(filterSeq,focPtName);
+					}
+				}
+			}
+			else if(resp.equals("3"))
+			{
+				boolean prompt = true; 
+				while(prompt)
+				{	System.out.print("What is your query? Enter the corresponding indicator:\n"
+							+ "0 : get ID of an etymon by input form\n"
+							+ "1 : get input form by ID number\n"
+							+ "2 : print all etyma by ID\n"
+							+ "3 : get trajectory up to this point for etymon by its ID\n"
+							+ "4 : get rule by time step\n"
+							+ "5 : get time step(s) by rule\n"
+							+ "6 : print all rules by time step.\n"
+							+ "7 : return to main menu.\n"); 
+					resp = inpu.nextLine().replace("\n",""); 
+					prompt = false;
+					if( !"01234567".contains(resp) || resp.length() > 1 ) {
+						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
+						prompt = true;
+					}
+					else if (resp.equals("7"))	prompt = false;
+					else if (resp.equals("0")) {
+						System.out.println("Enter the input form, separating phones by "+PH_DELIM);
+						resp = inpu.nextLine().replace("\n",""); 
+						LexPhon query = null;
+						try {
+							query = new LexPhon(fac.parseSeqPhSeg(resp));
+						}
+						catch (Exception e){
+							System.out.println("Error: could not parse entered phone string. Returning to query menu.");
+							prompt = true;
+						}
+						if(!prompt)
+						{
+							LexPhon[] wl = initLexicon.getWordList();
+							String inds = ""; 
+							for (int wli = 0; wli < wl.length; wli++)
+								if(wl[wli].toString().equals(query.toString()))
+									inds += inds.equals("") ? ""+wli : ", "+wli;
+							System.out.println("Ind(s) with this word as input : "+inds);  
+						}
+					}
+					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
+					{
+						System.out.println("Enter the ID to query:");
+						resp = inpu.nextLine(); 
+						int theID = -1; 
+						try {
+							theID = Integer.parseInt(resp); 
+						}
+						catch (Exception e)	{
+							System.out.println("Error -- you need to enter a valid integer. Returning to query menu.");
+							prompt =true;
+						}
+						if(!prompt && resp.equals("4"))
+						{
+							prompt = theID < 0 || theID >= CASCADE.size();
+							if(prompt)	System.out.println("Error -- there are only "+CASCADE.size()+"rules. Returning to query menu."); 
+							else	System.out.println(CASCADE.get(theID));
+						}
+						else if(!prompt)
+						{
+							prompt = theID < 0 || theID >= NUM_ETYMA;
+							if(prompt)	System.out.println("Error -- there are only "+NUM_ETYMA+"etyma. Returning to query menu."); 
+							else if(resp.equals("1"))	System.out.println(initLexicon.getByID(theID)); 
+							else 	System.out.println(""+wordTrajectories[theID]);
+						}
+					}
+					else if(resp.equals("2"))
+					{
+						System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
+						for (int i = 0 ; i < r.getWordList().length ; i++)
+							System.out.println(""+i+STAGE_PRINT_DELIM+initLexicon.getByID(i)+STAGE_PRINT_DELIM+goldResultLexicon.getByID(i));
+					}
+					else if(resp.equals("5"))
+					{
+						System.out.println("Enter the rule you want to query. Illegitimate rules will get no index but not otherwise be flagged.");
+						resp = inpu.nextLine().replace("\n", ""); 
+						String out = "";
+						for(int ci = 0; ci < CASCADE.size(); ci++)
+						{
+							if (resp.equals(CASCADE.get(ci).toString()))
+								out += out.equals("") ? ""+ci : ", "+ci; 
+						}
+						System.out.println(""+out); 
+					}
+					else //"6"
+					{
+						for(int ci = 0 ; ci < CASCADE.size(); ci++) 
+							System.out.println(""+ci+": "+CASCADE.get(ci)); 
+					}
+				}
+			}
+			else if(resp.equals("4"))	ea.confusionPrognosis(true);
+			else if(resp.equals("5"))
+			{
+				if(!ea.isFiltSet())
+					System.out.println("Error: tried to do context autopsy without beforehand setting filter stipulations: You can do this with 2.");
+				else if (!ea.isFocSet()) System.out.println("Error: can't do context autopsy without first setting focus point. Use option 1.");
+				else	ea.contextAutopsy();				
+			}
+			else if(resp.equals("7"))
+			{
+				System.out.println("Printing all etyma: Input," + (ea.isFocSet() ? focPtName+"," : "")+"Result, Gold"); 
+				ea.printFourColGraph(initLexicon);				
+			}
+			else if(resp.equals("8"))
+			{
+				System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
 				List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
 				for (LexPhon[] mm : mms)
 					System.out.println(mm[0].print()+" : "+mm[1].print());
 			}
-			else if("5678".contains(resp))
+			else if(resp.equals("6"))
 			{
-				boolean in_gold = "68".contains(resp), stats_not_words = "78".contains(resp); 
-				System.out.println("Please enter the phoneme sequence you wish to test for, delimited by '"+PH_DELIM+"'.\n"); 
-				resp = inpu.nextLine().substring(0,1); 
-				boolean reenter = true;
-				List<SequentialPhonic> targSeq = new ArrayList<SequentialPhonic>(); 
-				while (reenter)
-				{	try
-					{
-						targSeq = parseLexPhon(resp).getPhonologicalRepresentation();
-						reenter = false; 
-					}
-					catch (AssertionError e)
-					{
-						System.out.print("There is at least one invalid phoneme in your entry is invalid\n"
-								+ "Please make sure each are delimited by '"+PH_DELIM+"' and re-enter.\n"); 
-						reenter = true; 
-						resp = inpu.nextLine();
-					}
-				}
-				if (!stats_not_words)
-				{
-					List<LexPhon[]> pairs = ea.getCurrMismatches(targSeq, in_gold); 
-					System.out.println("Printing: res, gold");
-					for(LexPhon[] pair : pairs)	System.out.println(pair[0]+","+pair[1]);
-					//TODO prompt to continue?
-				}
-				else
-				{
-					ErrorAnalysis subEA = analyze_subset_with_seq(r, g, targSeq, in_gold); 
-					System.out.println("Overall accuracy : "+subEA.getPercentAccuracy());
-					System.out.println("Accuracy within 1 phone: "+subEA.getPct1off());
-					System.out.println("Accuracy within 2 phone: "+subEA.getPct2off());
-					System.out.println("Average edit distance per from gold phone: "+subEA.getAvgPED());
-					System.out.println("Average feature edit distance from gold: "+subEA.getAvgFED());
-				}
+				System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
+				
+				System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
+				System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
+				System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
+				System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
+				System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 			}
-			else if(resp.equals("9"))	cont = false; 
+			else if(resp.equals("9")) {
+				System.out.println("Ending"); cont = false; 
+			}
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 		}
 	}
@@ -1022,7 +1224,7 @@ public class DerivationSimulation {
 		lexFileLoc = "LatinLexFileForMKPopeTester.txt";
 		ruleFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
-		id_wt = 1.0; 
+		id_wt = 0.5; 
 		
 		DEBUG_RULE_PROCESSING = false; 
 		DEBUG_MODE = false; 
@@ -1131,7 +1333,7 @@ public class DerivationSimulation {
 		return out;
 	}
 	
-	public Lexicon toyDerivationResults(LexPhon[] inps, ArrayList<SChange> ruleCascade )
+	public static Lexicon toyDerivationResults(LexPhon[] inps, List<SChange> ruleCascade )
 	{
 		Lexicon out = new Lexicon(inps);
 		for (SChange rule : ruleCascade)

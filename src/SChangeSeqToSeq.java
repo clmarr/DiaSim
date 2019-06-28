@@ -13,10 +13,10 @@ import java.util.HashMap;
 
 public class SChangeSeqToSeq  extends SChange
 {
-	private List<RestrictPhone> targSource, destSpecs;
-	private int targSeqSize; 
-	private HashMap<String,Integer> featInds; 
-	private HashMap<String,String> symbMap; 
+	protected List<RestrictPhone> targSource, destSpecs;
+	protected int targSeqSize; 
+	protected HashMap<String,Integer> featInds; 
+	protected HashMap<String,String> symbMap; 
 	
 	
 	private void initialize(HashMap<String,Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstspcs)
@@ -38,7 +38,7 @@ public class SChangeSeqToSeq  extends SChange
 	}
 	
 	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map,  List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
-			SChangeContext prior, SChangeContext postr, String origForm)
+			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super(prior,postr, true, origForm); initialize(ftInds, symb_map, trgsrc, dstSpcs); }
 	
 	//Realization
@@ -89,7 +89,7 @@ public class SChangeSeqToSeq  extends SChange
 		return count;
 	}
 	
-	private List<SequentialPhonic> generateResult(List<SequentialPhonic> input, int firstInd)
+	protected List<SequentialPhonic> generateResult(List<SequentialPhonic> input, int firstInd)
 	{
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>();
 		int checkInd = firstInd, targInd = 0 ;

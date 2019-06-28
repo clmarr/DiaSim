@@ -24,7 +24,7 @@ public class SChangeFeatToPhone extends SChange{
 	{	super(true, origForm); initialize(ftInds, targSpecs, dest); 	}
 
 	public SChangeFeatToPhone(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			SChangeContext prior, SChangeContext postr, String origForm)
+			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super(prior,postr, true, origForm); initialize(ftInds, targSpecs, dest); }
 	
 	//Realization

@@ -67,6 +67,16 @@ public class Lexicon {
 	public LexPhon[] getWordList()
 	{	return theWordList;	}
 	
+	public boolean[] getPhonePresenceByEt(Phone ph)
+	{
+		boolean[] out = new boolean[theWordList.length];
+		for (int wi = 0 ; wi < theWordList.length; wi++)
+		{
+			out[wi] = theWordList[wi].toString().equals("[ABSENT]") ? false : theWordList[wi].findPhone(ph) != -1; 
+		}
+		return out;
+	}
+	
 	// "Get changed" -- i.e. we get them by hvaing their indexes be true.
 	// used for writing the trajectory files as the lexicon moves forward through time.
 	public boolean[] applyRuleAndGetChangedWords(SChange rule)
@@ -176,6 +186,7 @@ public class Lexicon {
 					theWordList[wi] = new AbsentLexPhon(); 
 		}
 	}
+
 	
 	public int numAbsentEtyma()
 	{
@@ -184,4 +195,6 @@ public class Lexicon {
 			if (lex.print().equals(ABS_PR))	cnt += 1;
 		return cnt;
 	}
+	
+	
 }

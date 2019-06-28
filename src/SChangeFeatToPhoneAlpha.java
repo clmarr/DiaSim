@@ -5,27 +5,17 @@ import java.util.List;
 public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 	
 	private boolean need_to_reset;
-	private boolean[] alph_in_targ; 
 	
 	public SChangeFeatToPhoneAlpha(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest, String origForm)
 	{
 		super(ftInds, targSpecs, dest, origForm);
 		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false; 
-		initAlphSpecLocs();
 	}
 	
 	public SChangeFeatToPhoneAlpha(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
-			SChangeContext prior, SChangeContext postr, String origForm)
+			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super (ftInds, targSpecs, dest,prior, postr, origForm);	
 		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false;
-		initAlphSpecLocs();
-	}
-
-	private void initAlphSpecLocs()
-	{
-		alph_in_targ = new boolean[targSource.size()];
-		for (int i = 0 ; i < targSource.size(); i++)
-			alph_in_targ[i] = targSource.get(i).has_alpha_specs(); 	
 	}
 	
 	@Override
@@ -90,7 +80,6 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 								priorContext.applyAlphaValues(alphHere);
 								postContext.applyAlphaValues(alphHere);
 								pripr = priorContext.getPlaceRestrs();
-								pripm = priorContext.getParenMap(); 
 							}
 						}
 						cpic--; crp--; cpim--;

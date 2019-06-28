@@ -43,11 +43,11 @@ public class SChangeFeat extends SChange {
 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			SChangeContext priors, SChangeContext postrs, String origForm)
+			SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{	super(priors,postrs, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, SChangeContext priorContxt, SChangeContext postContxt, String origForm)
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(priorContxt,postContxt,bm, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, String origForm)
@@ -56,10 +56,10 @@ public class SChangeFeat extends SChange {
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, boolean bm, String origForm)
 	{	super(bm, origForm); initialize(source,dest); 	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, String origForm)
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(priorContxt, postContxt, origForm); initialize(source, dest);	}
 	
-	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SChangeContext priorContxt, SChangeContext postContxt, boolean bm, String origForm)
+	public SChangeFeat(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, boolean bm, String origForm)
 	{	super(priorContxt, postContxt, bm, origForm); initialize(source, dest);	}
 	
 	//Realization

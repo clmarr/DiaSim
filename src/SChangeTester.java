@@ -134,7 +134,7 @@ public class SChangeTester {
 		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
 		SChangeFeat scfTest = new SChangeFeat(featIndices, "-voi", "+voi","DEBUG"); 
-		scfTest.setPostContext(testFactory.parseNewContext("[+voi]", false));
+		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
 		int numCorrect = 0 ; 
 		
@@ -142,17 +142,17 @@ public class SChangeTester {
 				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"d"+PH_DELIM+"a")) ? 1 : 0; 
 		
 		scfTest = new SChangeFeat(featIndices, "-nas", "+nas", "DEBUG");
-		scfTest.setPriorContext(testFactory.parseNewContext("+nas", false)); 
+		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+nas", false)); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("n a b a n a"),
 				testFactory.parseSeqPhSeg("n ã b a n ã")) ? 1 : 0;
 		
 		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", featIndices), new NullPhone(), "DEBUG");
-		scfTest.setPriorContext(testFactory.parseNewContext("+son", false));
+		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+son", false));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r a l a")) ? 1 : 0; 
 		
 		scfTest = new SChangeFeat(new FeatMatrix("+syl", featIndices), new NullPhone(), "DEBUG"); 
-		scfTest.setPriorContext(testFactory.parseNewContext("+syl", boundsMatter));
+		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+syl", boundsMatter));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r e l e")) ? 1 : 0;
 		
@@ -166,7 +166,7 @@ public class SChangeTester {
 				testFactory.parseSeqPhSeg("q i q e ð l a q q o n u r")) ? 1 : 0 ;
 		
 		scfTest = new SChangeFeat(featIndices, "-cont", "+nas,+son,.delrel,+cont",
-				testFactory.parseNewContext("+nas,-syl", false), testFactory.parseNewContext("+syl", false), "DEBUG");
+				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("b i m b d e n n o"),
 				testFactory.parseSeqPhSeg("b i m b d e n n o")) ? 1 : 0; 
 		
@@ -196,7 +196,7 @@ public class SChangeTester {
 		scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
 				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə"), "DEBUG"); 
-		scftpTest.setPostContext(testFactory.parseNewContext("#", true)); 
+		scftpTest.setPostContext(testFactory.parseNewSeqFilter("#", true)); 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j 'u #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t͡ʃ j ə #")) ? 1 : 0 ; 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ # j 'u #"), testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ j ə #")) ? 1 : 0; 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #")) ? 1 : 0; 
@@ -230,7 +230,7 @@ public class SChangeTester {
 		
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs(""), testFactory.parseSeqPhDisjunctSegs("i"),
-				testFactory.parseNewContext("#", true), testFactory.parseNewContext("s [+cons]", true), "DEBUG");
+				testFactory.parseNewSeqFilter("#", true), testFactory.parseNewSeqFilter("s [+cons]", true), "DEBUG");
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s p a t a #"), testFactory.parseSeqPhSeg("# i s p a t a #")) ? 1 : 0;
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("s p a t a #"), testFactory.parseSeqPhSeg("s p a t a #")) ? 1 : 0;
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s j a t a #"), testFactory.parseSeqPhSeg("# s j a t a #")) ? 1 : 0;
@@ -238,7 +238,7 @@ public class SChangeTester {
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("{p;b;k;ɡ}"),
 				new ArrayList<RestrictPhone>(testFactory.parseRestrictPhoneSequence("+front,+hi,-back")), "DEBUG");
-		scpTest.setPostContext(testFactory.parseNewContext("#", true));
+		scpTest.setPostContext(testFactory.parseNewSeqFilter("#", true));
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s a k #"), testFactory.parseSeqPhSeg("# s a c #")) ? 1 : 0 ;
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("s a k"), testFactory.parseSeqPhSeg("s a k")) ? 1 : 0 ;
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# s u p #"), testFactory.parseSeqPhSeg("# s u pʲ #")) ? 1 : 0 ;
@@ -246,8 +246,8 @@ public class SChangeTester {
 		scpTest = new SChangePhone(
 				testFactory.parseSeqPhDisjunctSegs("t u"),
 				testFactory.parseSeqPhDisjunctSegs("n ə"),
-				testFactory.parseNewContext("[+nas] ([-cont,-delrel]) #", true),
-				testFactory.parseNewContext("#", true), "DEBUG");
+				testFactory.parseNewSeqFilter("[+nas] ([-cont,-delrel]) #", true),
+				testFactory.parseNewSeqFilter("#", true), "DEBUG");
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # t u #"), testFactory.parseSeqPhSeg("# ɡ o w ɪ ŋ # n ə #")) ? 1 : 0; 
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # t u #"), testFactory.parseSeqPhSeg("# t u # w ɑ̃ t # n ə #")) ? 1 : 0; 
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #"), testFactory.parseSeqPhSeg("# n o w ɪ ŋ # t u v ə n #")) ? 1 : 0;
@@ -256,7 +256,7 @@ public class SChangeTester {
 				testFactory.parseSeqPhDisjunctSegs("{b;ɡ}"),
 				new ArrayList<RestrictPhone>( 
 						testFactory.parseRestrictPhoneSequence("[+cont]", true)), "DEBUG");
-		scpTest.setPriorContext(testFactory.parseNewContext("[+syl] (#)", true));
+		scpTest.setPriorContext(testFactory.parseNewSeqFilter("[+syl] (#)", true));
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# a ɡ a r a #"), testFactory.parseSeqPhSeg("# a ɣ a r a #")) ? 1 : 0 ; 
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# a # b i t u #"), testFactory.parseSeqPhSeg("# a # β i t u #")) ? 1 : 0; 
 		numCorrect += runTest(scpTest, testFactory.parseSeqPhSeg("# b i t u #"), testFactory.parseSeqPhSeg("# b i t u #")) ? 1 : 0;
@@ -282,7 +282,7 @@ public class SChangeTester {
 		
 		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
 				testFactory.parseRestrictPhoneSequence("[+hi,+son] [+lab]"), testFactory.parseRestrictPhoneSequence("[-tense] [+cont]", true), "DEBUG");
-		scsqTest.setPostContext(testFactory.parseNewContext("[+cons]",false));
+		scsqTest.setPostContext(testFactory.parseNewSeqFilter("[+cons]",false));
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("h u p p u p i p k"), testFactory.parseSeqPhSeg("h ʊ ɸ p u p ɪ ɸ k")) ? 1 : 0 ; 
 		
 		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
@@ -293,7 +293,7 @@ public class SChangeTester {
 				
 		scsqTest = new SChangeSeqToSeq(featIndices, phoneSymbToFeatsMap, 
 				testFactory.parseRestrictPhoneSequence("[+back] [+back]"), testFactory.parseRestrictPhoneSequence("∅ [+long]", true), "DEBUG"); 
-		scsqTest.setPriorContext(testFactory.parseNewContext("#", true));
+		scsqTest.setPriorContext(testFactory.parseNewSeqFilter("#", true));
 		
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# ɣ ɑ kʷ ɔ x #"), testFactory.parseSeqPhSeg("# ɑː kʷ ɔ x #")) ? 1 : 0 ; 
 		

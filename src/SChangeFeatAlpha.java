@@ -19,15 +19,41 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	}
 	
 	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			SChangeContext priors, SChangeContext postrs, String origForm)
+			SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{	super(ftInds, targSpecs, destSpecs, priors, postrs,  origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, SChangeContext priorContxt, SChangeContext postContxt, String origForm)
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(ftInds, targSpecs, destSpecs, bm, priorContxt, postContxt,  origForm);
+		ALPH_VARS = new HashMap<String, String>();
+		need_to_reset = false; 
+	}
+	
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, String origForm)
+	{	super(source, dest, origForm); 
+		ALPH_VARS = new HashMap<String, String>();
+		need_to_reset = false; 
+	}
+	
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, boolean bm, String origForm)
+	{
+		super(source, dest, bm, origForm);
+		ALPH_VARS = new HashMap<String, String>();
+		need_to_reset = false; 
+	}
+	
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
+	{	
+		super(source, dest, priorContxt, postContxt, origForm); 
+		ALPH_VARS = new HashMap<String, String>();
+		need_to_reset = false; 
+	}
+	
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, boolean bm, String origForm)
+	{	super(source, dest, priorContxt, postContxt, bm, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}
@@ -136,7 +162,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					need_to_reset = true;
 					priorContext.applyAlphaValues(ALPH_VARS);
 					pripr = priorContext.getPlaceRestrs();
-					pripm = priorContext.getParenMap(); 
 				}					
 
 				cpic--; crp--; cpim--;
@@ -174,7 +199,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					need_to_reset = true;
 					postContext.applyAlphaValues(ALPH_VARS);
 					popr = postContext.getPlaceRestrs();
-					popm = postContext.getParenMap(); 
 				}
 				cpic++; crp++; cpim++; 
 				if (crp >= popr.size())	halt = true;

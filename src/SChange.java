@@ -19,7 +19,7 @@ import java.util.List;
 
 public abstract class SChange {
 
-	protected SChangeContext priorContext, postContext; 
+	protected SequentialFilter priorContext, postContext; 
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minTargSize; 
 	protected String orig;
@@ -38,14 +38,14 @@ public abstract class SChange {
 		priorSpecd = false; postSpecd = false; 
 
 	}
-	public SChange(SChangeContext prior, SChangeContext post, String origForm)
+	public SChange(SequentialFilter prior, SequentialFilter post, String origForm)
 	{
 		orig = ""+origForm;
 		priorContext = prior; postContext = post; boundsMatter = false; 
 		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; 
 	}
-	public SChange(SChangeContext prior, SChangeContext post, boolean bm, String origForm)
+	public SChange(SequentialFilter prior, SequentialFilter post, boolean bm, String origForm)
 	{
 		orig = ""+origForm;
 		priorContext = prior; postContext = post; boundsMatter = bm;
@@ -53,10 +53,10 @@ public abstract class SChange {
 		priorSpecd = true; postSpecd = true; 
 	}
 	
-	public void setPriorContext(SChangeContext p)
+	public void setPriorContext(SequentialFilter p)
 	{	priorContext = p; minPriorSize = priorContext.getMinSize(); priorSpecd = true; }
 	
-	public void setPostContext(SChangeContext p)
+	public void setPostContext(SequentialFilter p)
 	{	postContext = p; minPostSize = postContext.getMinSize(); postSpecd = true; }
 	
 	public abstract List<SequentialPhonic> realize(List<SequentialPhonic> phonologicalSeq);

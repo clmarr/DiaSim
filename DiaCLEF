@@ -131,7 +131,7 @@ $ p115 s262a -- effects on -ulus,-ulum,-ula words. Attested for affecting those 
 	$ any words of this type ending in -dulus,-dulum, or -dula. 
 $ CORRECTION : -mulum endings also effected (cumulum > comble; tremulum > tremble) 
 $ CORRECTION : -rula endings also effected (berula (Gaul.) > berle not bierle) 
-$ CORRECTION: -olum,-olus endings also included if not after a labial cons
+$ CORRECTION: -olum,-olus endings also included if not after a labial stop
 {ʊ;o} > {∅;∅} / [+prim] ([-syl])* {[-cont];m;r} __ [+lat] [+syl] ([-syl]) #
 ɔ > ∅ / [+prim] ([-syl])* {[-cont,-lab];m;r} __ [+lat] [+syl] ([-syl]) #
 $ p115 s262b -- effects on the -idus,-idis,-itis etc group : for prior consonsants Pope lists l, g, t, s, k, and r
@@ -153,11 +153,11 @@ $ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded b
 
 $s127 s296i fakere case
 $ CORRECTION: targets only unstressed front vowels, does not occur after anything but ɑ, and doens't occur before l
-[-stres,+front] > ∅ / [+prim,+lo] [+hi,+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
+[-stres,+front] > ∅ / [+prim,+lo] [+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
 $ CORRECTION: hits after ɡ too -- cases of digitum, fugitam. Any vowel can come before the d.
-$ CORRECTION: hits before n too -- cases of plantaginem, acinum and circinum. Any vowel can come before the n.
+$ CORRECTION: hits before n too -- cases of plantaginem, acinum (circinum?? Not anymore.). Any vowel can come before the n.
 $ CORRECTION: no k_d seqments, only ɡ_d 
-[-stres,+front] > ∅ / [+syl] ɡ __ [+cor,-strid,-lat,+voi] [+syl] 
+[-stres,+front] > ∅ / [+syl] ɡ __ [+cor,-lat,+voi] [+syl] 
 
 $ CORRECTION : slur short i between ɣʷ and k 
 $ Pope lists avica and avicellum as having been effected by "slurring" in s187i 
@@ -357,7 +357,7 @@ $ CORRECTION: when before a vowel in coda position it instead goes to "evanescen
  $ (which will be completely effaced instead only in the Gallo-Roman stage) 
  	$ before t when after a consonantal continuant then a stop
 e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
-e > ∅ / __ [+distr\] [+syl] ([-syl]) #
+e > ∅ / __ [+distr] [+syl] ([-syl]) #
 
 $ CORRECTION: unstressed ɛ after palatal deleted 
 	$ when before t̪ then some a-variant
@@ -799,7 +799,7 @@ $ CORRECTION: ç assimilates to t̪ (no palatal coarticulation) before t͡sʲ
 $ CORRECTION : çs > ss after word initial ˌɛ
 ç > s / # ˌɛ __ s
 
-$ CORRECTION : ɛç > eç when secondarily stressed
+$ CORRECTION : ɛç > eç when secondarily stressed, or after tsj
 ˌɛ > ˌe / __ ç
 
 $ CORRECTION: s320-321 moved much earlier. 
@@ -991,7 +991,7 @@ $ paroxytones as opposed to proparoxytones.
 $ CORRECTION: cannot come immediately before final vowel
 $ CORRECTION: a actually doesn't go to schwa yet if before t/ð then a vowel
 a > ə / __ ([-syl])+ [+syl] ([-syl])* # 
-ə > a / __ [+cor,+ant,+distr] [+syl]
+ə > a / __ [+distr] [+syl]
 [-stres,-lo] > ə / __ ([-syl])+ [+syl] ([-syl])* # 
 
 $ s261 $~ s350 : as per word trajectories seen in s350, under justification of s261
@@ -1014,6 +1014,10 @@ $ CORRECTION: when not preceded by a consonant, this instead goes to jˈɛː
 ˈaː rʲ > j ˈɛː r / [+syl] __ [+syl] #
 ˈaː rʲ > ˈɛː r / [+syl] ([-syl])* __ [+syl] # 
 
+$ CORRECTION: initiation of flapping in words of type Cpalstop 'a: n e s
+$ TODO check this 
+n̪ > ɾ / @ [-cont,+front] ˈaː __ e s # 
+
 $ s164-11 $~ s256 Reduction of non-stressed non-low vowels to schwa 
 $ NOTE: this actually occurred a bit later than the ones above, 
 $ but diachronically it is convenient to place it here.
@@ -1023,8 +1027,48 @@ $ CORRECTION: requires posterior context of non-vowel (or word final)
 [-stres,-lo,+syl] > ə / __ {[-syl];#} 
 [-stres,-lo,+syl,+tense] > ə
 
+$ CORRECTION : s365iii bleeds some n flapping
+$ this is going to be recurrent...
+[+cons,+lab] > ∅ / [+cons] __ [-son]
+[+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
+
+$ Pope dismisses n-flapping phenomena as characteristic only of loan words (s642) 
+	$ but it can be modeled regularly. 
+$ CORRECTION: nrl become flap when after velar or dental (NOT alveolar) occlusives and between two schwas then (s)#
+[+son,+cor] > ɾ / [-son,-lab,-strid,-hi] ə __ ə (s) # 
+
+
+
+$ CORRECTION: specifically after /r/ in positions two rules above, /n/ will flap without the possibility of renasalizatoin
+n̪ > ɾ / r (ə) __ ə (s) # 
+
+$ CORRECTION: nə,ra,rə (əna never will be generated) all become ɾə before bilabials
+	$before intervocalic/pre-rhotic continuant, 
+	$ as long as neither of hte next two segs are hi
+[+cor,+son,-hi] [+syl,-stres] > ɾ ə / [+syl] __ [+cons,+cont,-cor,-front] [+son,-lat,-hi]
+
+$ CORRECTION: tap is whistled between labial continuants
+ɾ ə > z / [+cont,+lab] __ [+cont,+lab]
+
 $ s256 : ə effaced before unstressed a becomes the new ə, but retained in specific places (s256-259):  
 ə > ə̯
+
+$ CORRECTION: ɾə immediately collapses to trill if after non-low front vowel (derree, merme)
+ɾ ə̯ > r / [+front,-lo,+syl] __
+
+$ becomes l with schwa retention if before r (allowing for non strident continuant and ə̯ in between)
+ɾ ə̯ > l ə / __ ([+cont,-strid,-son] ə̯) r
+
+$ CORRECTION: lambdacism of remaining tap before ə̯ then voiced consonantal (palefroi, aume, aumaille, pele(gh)rin...)
+	$ as long as 
+ɾ > ɫ / __ ə̯ [+cons,+voi]
+
+$ CORRECTION: beta between voied schwa and whispered schwa then r absorbs the following voiceless schwa and devoices (palefroi)
+β ə̯ > f / ə __ r
+
+$ CORRECTION : final ə̯ r > r ə
+{ə̯ r;ə̯ ɾ} > {r ə;ɾ ə} / __ #
+
 $ s257ia : ə intertonic retained when after cons + r or l but not rr or ll 
 ə̯ > ə / [+stres] ([-syl])* [-son] r __ ([-syl])* [+stres]
 ə̯ > ə / [+stres] ([-syl])* [-lat] l __ ([-syl])* [+stres]
@@ -1044,8 +1088,8 @@ $ CORRECTION: ə is NOT preserved before rʲ
 $s258a : ə retained before n̪ t̪ #
 $ CORRECTION: retained before all -nt, not just finally
 ə̯ > ə / __ [+nas] t̪
-$ CORRECTION ə temporarily retained between t/d/ð and ɣ, just long enough for t to lenit 
-ə̯ > ə / [+cor,+ant,+distr] __ ɣ
+$ CORRECTION ə temporarily retained between t/d/ð/r/l and ɣ, just long enough for t to lenit and handling cases like pelerin
+ə̯ > ə / [+cor,-strid] __ ɣ
 $ CORRECTION : ə also retained after dental ə ɣ for now 
 ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
 $ CORRECTION : ə also retained when after [+cons] w and before [+cons] 
@@ -1057,48 +1101,6 @@ $ CORRECTION : ə always retained after dʒ or tʃ\
 
 $ CORRECTION: ə̯ > e before final s when there is no other syllabic in the syllable
 ə̯ > e / # ([-syl])+ __ s #
-
-$ CORRECTION : s365iii bleeds some n flapping
-$ this is going to be recurrent...
-[+cons,+lab] > ∅ / [+cons] __ [-son]
-[+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
-
-$ CORRECTION : final ə̯ r > r ə
-ə̯ r > r ə / __ #
-
-$ CORRECTION: (ONE-CASE) raβə̯r > ləfr (palefroi)
-r a β ə̯ > l ə f / __ r
-
-$ CORRECTION: (ONE-CASE) dissimilation of r in rə̯r to l (pelerin)
-r ə̯ > l ə / __ r
-
-$ Pope dismisses n-flapping phenomena as characteristic only of loan words (s642) 
-	$ but it can be modeled regularly. 
-$ CORRECTION : flapping of n̪ə̯ and ə̯n to ɾ either after stops or before consonants: ordre, desordre, derree, Londres, Chartres, armaille (>aumaille), arme>aume, 
-$ CORRECTION : trill r also becomes a flap in the same environments... 
-$ CORRECTION : flapping before a consonant seems to only happen after a variants ( maːnuːs > mains is likely due to analogy from the singular)
-$ CORRECTION : flapping does occur adjacent to coda in cases of sonorant + stop 
-$ CORRECTION : ejects following ə if not before a non-consonantal
-$ CORRECTION : flapping in r n V # sequences happens when there is more than one syllable beforehand
-$ CORRECTION: ə̯ r ə̯ > ɾ ə elsewhere
-{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə̯;ɾ ə̯;ɾ ə̯;ɾ ə̯} / [+lo,+stres] __ [+cons]
-{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ;ɾ;ɾ;ɾ} / [-cont] __ [-cons]
-{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [-cont] __ @
-{n̪ ə̯;ə̯ n̪;r ə̯;ə̯ r} > {ɾ ə;ɾ ə;ɾ ə;ɾ ə} / [+cons] [-cont] __ #
-ə̯ r ə̯ > ɾ ə 
-n̪ ə̯ > ɾ / [+syl] ([-syl])* [+syl] r __ #
-
-$ CORRECTION: ˈʉo̯ > ˈoː before ð then son
-ˈʉ o̯ > ˈoː / __ [+cor,+ant,+distr] [+son,+cons]
-
-$ CORRECTION : (re)nasalization of the flap after non-consonantal then t (protero>prone, possibly Rhone)
-ɾ > n̪ / [+syl] t̪ __ 
-
-$ CORRECTION : lateralization of flap ɾ before labials (aumaille, aume, Auvergne...) 
-ɾ ə̯ > l / __ [+cons,+lab]
-
-$ CORRECTION: ɾ goes to r everywhere else 
-ɾ > r 
 
 $s259: ə retained in final syllable of proparoxytones that were not deleted in Late Latin or Early Gallo-Roman 
 ə̯ > ə / ə̯ ([-syl])* __ # 
@@ -1116,6 +1118,11 @@ $ CORRECTION : ə̯ retained after non-lateral cons then l, and before cons
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
+
+
+$ CORRECTION: ˈʉo̯ > ˈoː before (t,d>)ð then son -- TODO move?
+ˈʉ o̯ > ˈoː / __ [+ant,+distr] [+son,+cons]
+
 
 $ Pope s351 : affricate tsj voices and depalatalizes when it is about to comes into contact with d through schwa fall, 
 	$ and is followed by /ə/
@@ -1180,7 +1187,7 @@ $ CORRECTION: retained after double m
 ∅ > ə / m m __ #
 
 $ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!), 
-	# td/cd and dt also eject ə. td also assimilates at this time
+	$ td/cd and dt also eject ə. td also assimilates at this time
 ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
 [+cor,+ant,+distr,+voi,-cont] > t̪ ə / [-voi] __ #
 ∅ > ə / d̪ t̪ __ #
@@ -1270,7 +1277,7 @@ j > ∅ / [+syl] ([-syl])* ˈi e̯ __ rʲ
 
 $ s164-5 $~ ss334
 $ as per S350 -- t was voiced AFTER INTERTONIC VOWEL LOSS 
-$ voicing of p, t, ts intervocalically ss334-335
+$ voicing of p, t, ts intervocalically ss334-335 [Second Major Lenition]
 $ RECURRENT as per s162
 $ since k,s,f have already voiced intervocalically, and the new results of palatalization will never be intervocalic
 $ and because the voicing of k,s,f is also recurrent (s162)
@@ -1344,11 +1351,17 @@ $ CORRECTION: s164.5/s334 moved earlier, as is s352.
 
 $ s164-7 $~ s335e : another bout of spirantization (recurrent anyways as per s162) 
 $ before l,r included as per s372 (but not b before l as per 372iii)
-[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];r}
+[-delrel,+voi] > [+cont] / [-cons] __ {[-cons];[+son,-nas,-lat]}
 [-delrel,-lab,+voi] > [+cont] / [-cons] __ [+lat] 
 $ s372 d > ð before nasals , and then ð > z before n "sometimes" 
 	$(excluding the latter, does not seem to have diachronic use, examples are Roðnə >Rosne, boðne>bozne, but it ended as Rhone and borne.)
 d̪ > ð / [+syl] __ [+nas] 
+
+$ CORRECTION: flap nasalizes if after ð (pro(z)ne, Rho(z)ne, borne)
+ɾ > n̪ / ð __
+
+$ CORRECTION: ɾ goes to r everywhere else 
+ɾ > r 
 
 $CORRECTION : remaining ʝ becomes j sometime at this point 
 $ CORRECTION : moved earlier as bleeds first voicing lenition of t : medietatem > moitie -- moved further down past this point. 
@@ -1364,7 +1377,8 @@ $ according to Pope (s426), attested in the Glossary of Reichenau (?)
 $ s426 -- this explicitly comes BEFORE and BLEEDS the diphthongization of o > ou 
 $ Pope does NOT specify that it becomes nasal at this point -- actually she says the "first nasal vowels in Frnech were a and ai in the tenth century" (s434)
 $ but in all fairness it probably SHOULD be to prevent it from getting swept up in u>ʉ>y, the first stages of which are still active at this point
-$ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point -- alloiwng for latert possibility of including loanwords into system.
+$ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point 
+	$-- allowing for latert possibility of including loanwords into paradigm.
 [+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
 $ CORRECTION : /rʲ/'s emission of j backward moved earlier so that it can trigger breaking of /a/,
@@ -1831,7 +1845,7 @@ $ CORRECTION: some housekeeping, to avoid rather dumb errors
 [+nas,+front,-hi,+syl] > [-tense] / __ [+nas,+cons]
 
 $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u 
-	4 ... are BLED by effects of ð : 
+	$ ... are BLED by effects of ð : 
 	$ except when the next vowel is tonic and tense, ˌo and ˈo go to ˌɔ before ð 
 		$ i.e. affected: borne, boyau, prone, Rhone; unaffected: nouer, noueux, nourrice, nourrisson, vouer
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ([-syl])* {#;[-stres];[+syl,-tense]} 
@@ -2254,7 +2268,7 @@ $ CORRECTION: r then palatal is also "open"
 {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ r [+delrel]
 
 $ CORRECTION : ʌ lowers and fronts to a, completing early oi>ai shift attested before middle French for a number of words
-	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie, monnaie, taie, raie, verre, tonnerre 
+	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie,  e, taie, raie, verre, tonnerre 
 $ Place this before Pope s528-529 because of cases of verre and tonnerre (aj > ɛj > ɛ praeconsonantally)
 ˈʌ > ˈa
 
@@ -2840,7 +2854,8 @@ $ Length is in fact preserved in conservative French dialects including those of
 [+syl,+long] > [-long]
 
 $ s460 : ũ > ɔ̃ in 17th century, but still not complete (s462) in 1696 (!)  
-[+back,-lo,+nas,+syl] > ɔ̃
+ũ > ɔ̃
+$[+back,-lo,+nas,+syl] > ɔ̃
 
 $ s463: ɔ̃ denasalizes in open syllables when followed by nasal cons. 
 $ s463: first attested late 17th century, not accepted until 18th.
@@ -2857,7 +2872,8 @@ $ CORRECTION : word final ɔ to o
 
 $ s525 wɛ > wa -- first attested late 16th century
 $ as per s525, not really accepted except before r "until the Revolution destroyed the old tradition"
-ɛ > a / w __ 
+$ TODO removed for testing purposes temporarily.
+$ɛ > a / w __ 
 
 $s441.1$~s443 ã > ɑ̃ in Modern French
 $Pope does not give an exact date for this; she merely says "in the modern period"

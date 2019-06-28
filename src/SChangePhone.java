@@ -45,7 +45,7 @@ public class SChangePhone extends SChange {
 	{	super(true, origForm);	initialize(targs, dests);	}
 	
 	//default constructor with context
-	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs, String origForm)
+	public SChangePhone(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{	super(priors,postrs,true, origForm); initialize(targs,dests);	}
 	
 	//constructor for Phone > Feat by Phone, translated to standard format with only Phones (SequentialPhonic) for storage
@@ -55,7 +55,7 @@ public class SChangePhone extends SChange {
 	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, String origForm)
 	{	super(true, origForm); initializeWithFeats(targs,mutations); 	}
 	
-	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postr, String origForm)
+	public SChangePhone(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super(prior,postr, true, origForm); initializeWithFeats(targs, mutations); }
 		
 	

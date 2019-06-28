@@ -45,4 +45,4 @@ Here is a sample row, showing the diachronic trajectory of Classical Latin *sagm
 s ˌɑ ɡ m ˈɑː r i u m	s ˌɑ w m ˈɑ r ʝ o	s ˌo m ˈi ɛ̯ r	s ˌũ m j ˈe r	s ˌũ m j ˈe	s ɔ m j e $sommier. Pope 674. 	
 ```
 
-Any questions or requests for clarification on how to use this system can be emailed to: cmarr@andrew.cmu.edu.
+Any questions or requests for clarification on how to use this system can be emailed to: diachronic.simulation@gmail.com

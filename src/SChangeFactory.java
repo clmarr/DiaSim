@@ -109,6 +109,8 @@ public class SChangeFactory {
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
 		
+		boolean usingAlphFeats = false; 
+		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
 		boolean priorSpecified = false, postrSpecified = false; 
 		if(contextSpecified)
@@ -210,31 +212,40 @@ public class SChangeFactory {
 		assert srcHasFeatMatrices == inputSource.contains("]"): 
 			"Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
 		if(srcHasFeatMatrices)
+		{
+			usingAlphFeats = alphCheck(inputSource); 
 			assert hasValidFeatSpecList(inputSource): "Error: usage of brackets without valid feature spec list : "+inputSource; 
+		}
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
 		if(isValidFeatSpecList(inputSource)) //we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
-			// note that parseSinglePhonicDest returns a word bound "#"
-			// if the input is not a valid string referring to a single phonic.
+			if (!usingAlphFeats)	usingAlphFeats = theDest.has_alpha_specs(); 
+			if (!usingAlphFeats && priorSpecified)
+				usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
+			// don't need to check with posterior since it won't have any if there are none in all of source, dest, and prior.
+			
+			// note that parseSinglePhonicDest returns a word bound "#" if the input is not a valid string referring to a single phonic.
 			if(theDest.print().equals("#") == false)
 			{
-				SChangeFeat thisShift = new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter, inp); 
-				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+				SChangeFeat thisShift = usingAlphFeats ? new SChangeFeatAlpha(getFeatMatrix(inputSource), theDest, boundsMatter, inp) :
+						new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter, inp); 
+				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				output.add(thisShift); 
 				return output;  
 			}
 			//if we reach here, we know it is a SChangeFeatToPhone
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
 			targSource.add(getFeatMatrix(inputSource)); 
-			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, targSource, 
+			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha(featIndices, targSource, 
+					parsePhoneSequenceForDest(inputDest), inp) : new SChangeFeatToPhone(featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp); 
 				//errors will be caught by assertions in parsePhoneSequenceForDest
-			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(thisShift); 
 			return output;  
 		}
@@ -246,10 +257,12 @@ public class SChangeFactory {
 			if(inputDest.contains("[")) // SChangeSeqToSeq
 			{
 				assert inputDest.contains("]"):  "Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
-				SChangeSeqToSeq thisShift = new SChangeSeqToSeq(featIndices, symbToFeatVects, 
-						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp); 
-				if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-				if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, 
+						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp) : 
+							new SChangeSeqToSeq(featIndices, symbToFeatVects, parseRestrictPhoneSequence(inputSource),
+									parseRestrictPhoneSequence(inputDest,true), inp); 
+				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				output.add(thisShift); 
 				return output;  
 			}
@@ -257,8 +270,8 @@ public class SChangeFactory {
 			//else, i.e. its a SChangeFeatToPhone 
 			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, 
 					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), inp); 
-			if(priorSpecified) thisShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-			if(postrSpecified) thisShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(thisShift); 
 			return output;  
 		}
@@ -277,8 +290,8 @@ public class SChangeFactory {
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(inputDest, true)) ; 
 				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
-				if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-				if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+				if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				output.add(newShift); 
 				return output;
 			}
@@ -288,8 +301,8 @@ public class SChangeFactory {
 				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"; 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
 			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
-			if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-			if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+			if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(newShift); 
 			return output;
 		}
@@ -298,8 +311,8 @@ public class SChangeFactory {
 		assert sourceSegs.size() == destSegs.size() : 
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!";
 		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, inp); 
-		if(priorSpecified) newShift.setPriorContext(parseNewContext(inputPrior, boundsMatter)); 
-		if(postrSpecified) newShift.setPostContext(parseNewContext(inputPostr, boundsMatter));
+		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 		output.add(newShift); 
 		return output;
 	}
@@ -483,7 +496,7 @@ public class SChangeFactory {
 	 * @precondition : all elements separated phDelim 
 	 * @return
 	 */
-	public SChangeContext parseNewContext(String input, boolean boundsMatter)
+	public SequentialFilter parseNewSeqFilter(String input, boolean boundsMatter)
 	{
 		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
@@ -544,7 +557,6 @@ public class SChangeFactory {
 					assert isValidFeatSpecList(curtp): 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
 						+ "with an invalid entrace for the list of feature specifications.";
-					
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
@@ -554,7 +566,7 @@ public class SChangeFactory {
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
-		return new SChangeContext(thePlaceRestrs, theParenMap, boundsMatter) ;
+		return new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 	
 	/** isValidFeatSpecList
@@ -565,12 +577,8 @@ public class SChangeFactory {
 	{
 		String[] specs = input.split(""+restrDelim); 
 		
-		for(int si = 0; si < specs.length; si++)
-		{	
-			if("+-0".contains(specs[si].substring(0,1)))
-			{	if(!featNames.contains(specs[si].substring(1)))	return false;	}
-			else if(!featNames.contains(specs[si]))	return false; 
-		}
+		for(int si = 0; si < specs.length; si++)	
+			if (!featNames.contains(specs[si].substring(1)))	return false;
 		return true; 
 	}
 	
@@ -585,11 +593,33 @@ public class SChangeFactory {
 		for(int ppi = 0; ppi < protophones.length; ppi++)
 		{
 			String curpp = ""+protophones[ppi].trim();
-			while(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
-			while(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
+			if(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
+			if(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
 			if(isValidFeatSpecList(curpp))	return true; 
 		}
 		return false; 
+	}
+	
+	// check if alpha notation is being used for any specs in a featMatrix
+	private boolean alphCheck (String inp)
+	{
+		String[] protophones = inp.split(""+phDelim);
+		for(int ppi = 0 ; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.charAt(0) == '[')
+			{
+				curpp = curpp.substring(1, curpp.indexOf(']'));
+				if(!"+-0".contains(curpp.substring(0,1)))	return true; 
+				if(curpp.contains(restrDelim+""))
+				{
+					String[] specs = curpp.split(""+restrDelim); 
+					for (int spi = 1; spi < specs.length; spi++)
+						if (!"+-0".contains(specs[spi].substring(0,1)))	return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public FeatMatrix getFeatMatrix(String featSpecs)
@@ -605,7 +635,6 @@ public class SChangeFactory {
 		if(theFeatSpecs.contains("0") == false)
 			return new FeatMatrix(theFeatSpecs, featIndices); 
 				
-		//TODO we should make sure someone doesn't insert use "unspecification" -- i.e. period '.' as a SPECIFICATION
 		assert(!theFeatSpecs.contains("0") || isInputDest): 
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
 		return new FeatMatrix(theFeatSpecs, featIndices); 

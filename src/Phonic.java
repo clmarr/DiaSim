@@ -7,4 +7,7 @@ public abstract class Phonic {
 	
 	abstract public String print();
 	abstract public boolean equals (Object other);
+	
+	@Override
+	public int hashCode()	{	return super.hashCode();}
 }

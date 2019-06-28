@@ -2,7 +2,7 @@ Readme for dataset policies.
 
 
 Rationale: 
-The LatinToFrenchPope (LTFP) dataset is meant to be used for the simulation of diachronic phonological rules 
+The FFLex dataset is meant to be used for the simulation of diachronic phonological rules 
 which collectively constitute the diachronic transformation of (popular) Latin to French. For the purposes of the
 initial paper introducing the DiaSim system, it is used for demonstrating how DiaSim can be used to "test" a "hypothesis"
 rule set, namely the example of the Latin-to-French diachronic transformational rule set as described by Mildred K Pope

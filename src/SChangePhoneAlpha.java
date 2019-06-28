@@ -12,7 +12,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 		need_to_reset = false;
 	}
 	
-	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SChangeContext priors, SChangeContext postrs, String origForm)
+	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{
 		super(targs, dests, priors, postrs, origForm);
 		need_to_reset = false; 
@@ -24,7 +24,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 		need_to_reset = false; 
 	}
 	
-	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SChangeContext prior, SChangeContext postr, String origForm)
+	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SequentialFilter prior, SequentialFilter postr, String origForm)
 	{
 		super(targs, mutations, prior, postr, origForm); 
 		need_to_reset = false; 
