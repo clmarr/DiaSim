@@ -1,6 +1,5 @@
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -32,7 +31,6 @@ public class ErrorAnalysis {
 		// indexes for phones in the following int arrays are above.
 	protected int[] errorsByResPhone, errorsByGoldPhone; 
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
-	private int[] nResEtsWithPh , nGoldEtsWithPh; 
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
@@ -275,38 +273,6 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	
-	
-	
-	private int wordBoundCounts(HashMap<SequentialPhonic, Integer> map)
-	{
-		return mapContainsSeqPh(map, newWdBd()) ? mapGetSeqPhKey(map, newWdBd()) : 0; 
-	}
-	
-	//auxiliary -- to override issue of hashCode not matching in usage of HashMap.containsKey()
-	private boolean mapContainsSeqPh(HashMap<SequentialPhonic, Integer> map, SequentialPhonic sp)
-	{		
-		for (SequentialPhonic key : map.keySet() )
-			if(key.print().equals(sp.print()))	return true;
-		
-		return false;
-	}
-	
-	private int mapGetSeqPhKey(HashMap<SequentialPhonic, Integer> map, SequentialPhonic sp)
-	{
-		for (SequentialPhonic key : map.keySet())
-			if(key.print().equals(sp.print()))	return map.get(key); 
-		return -1; 
-	}
-	
-	//TODO another temporary aux method to replace -- handling more HashMap issues arising from calls to .hashCode()
-	private void mapUpdateSeqPhKey (HashMap<SequentialPhonic, Integer> map , SequentialPhonic sp)
-	{
-		for (SequentialPhonic key : map.keySet())
-			if(key.print().equals(sp.print()))	map.put(key, map.get(key) + 1); 
-		map.put(sp.copy(), 1); 
-	}
-	
 
 	//@prerequisite: indexedCts should have one more index than inventory, for storing instances of the word bound
 	private List<String> ctxtPrognose (String ctxtName, int[] indexedCts, SequentialPhonic[] inventory, int total_distort_instances, double thresh)
@@ -462,115 +428,6 @@ public class ErrorAnalysis {
 		out.addAll(ctxtPrognose("post posterior",postPostrCounts,goldPhInventory,total_distortion_instances,0.2));
 		
 		return out; 
-	}
-	
-	
-	// Stringed list of all feats that are present in EVERY phone that is a key in the HashMap. 
-	// if the null phone is among the phones in keyset, exclude it
-	// TODO further fixing here is necessary...
-	private String getConstantFeats(int[] indexedCts, SequentialPhonic[] indexedPhs)
-	{
-		List<SequentialPhonic> phs = new ArrayList<SequentialPhonic>(); 
-		for (int i = 0; i < indexedPhs.length; i++)
-			if (indexedCts[i] > 0)	phs.add(indexedPhs[i]);
-		
-		
-		char[] constVals = phs.get(0).getFeatString().toCharArray(); 
-		
-		if (phs.size() > 1)
-		{	
-			for (int i = 1 ; i < phs.size(); i++)
-			{	char[] theFeats = phs.get(i).getFeatString().toCharArray();
-				for (int c = 0 ; c < theFeats.length; c++)
-					if (theFeats[c] != constVals[c])	constVals[c] = ' '; 
-			}
-		}
-		
-		String output = ""; 
-		for (int c = 0 ; c < constVals.length; c++)
-			if ("+-.".contains(""+constVals[c]))
-				output += constVals[c]+featsByIndex[c]+","; 
-		
-		return (output.equals("")) ? output : output.substring(0, output.length() - 1); 
-		
-	}
-	
-	/**
-	 * getCommonCtxtPhs
-	 * @param phCts -- map of phones linked to their frequency of occurrence in the context of a paritcular distortion
-	 * @param total_dist_occs -- toal occurrences of the distortion we are getting contexts for
-	 * @param thresh -- minimum percentage of total frequency necessary to report .
-	 * @return in String form, any phones with a frequency above the threshold, followed by their share of all phones in that context
-	 */
-	private String getCommonCtxtPhs (HashMap<SequentialPhonic, Integer> phCts, int total_dist_occs, double thresh)
-	{
-		String output = ""; 
-		
-		for (SequentialPhonic ph : phCts.keySet())
-		{
-			double share = (double) mapGetSeqPhKey(phCts,ph) / (double) total_dist_occs ;
-			if (share > thresh) 	output += ph.print()+" "+share+"; ";
-		}
-		
-		if (output.equals(""))	return output; 
-		else	return output.substring(0, output.length() - 1 ); 	
-	}
-	
-	//return: HashMap where each feature is key 
-	// and value is an int array of [ #+, #-, #. ]
-	// where word bounds are concerned, they don't add to ANY of the counts
-		// however if the word bound itself is the boundary over 50% of the time, this will be reported in 
-		// the method identifyProblemContextsForDistortion
-	// @param ctxtName -- i.e. "prior" or "posterior" -- sequential relation to target phone
-	private String getContextCommonFeats(HashMap<SequentialPhonic,Integer> ctxtCts, int total_dist_instances)
-	{
-		Set<SequentialPhonic> phonesFound = ctxtCts.keySet(); 
-		HashMap<String, int[]> ftMatr = new HashMap<String, int[]>(); 
-		for(int i = 0 ; i < featsByIndex.length; i++)
-			ftMatr.put(featsByIndex[i], new int[] {0,0,0} );
-		for (SequentialPhonic ph : phonesFound)
-		{
-			if (!ph.print().equals("#"))
-			{
-				char[] featVals = ph.getFeatString().toCharArray(); 
-				for (int i = 0 ; i < featsByIndex.length; i++)
-				{
-					int[] theArr = ftMatr.get(featsByIndex[i]); 
-					int thisVal = Integer.parseInt(""+featVals[i]); 
-					theArr[thisVal] = theArr[thisVal] + mapGetSeqPhKey( ctxtCts, ph); 
-					ftMatr.put(featsByIndex[i], theArr); 
-				}
-			}
-		}
-		
-		String output = ""; 
-		
-		for (String ft : ftMatr.keySet())
-		{
-			int[] arr = ftMatr.get(ft); 
-			if(arr[0] > (double)total_dist_instances * 0.8 )
-				output += "-"+ft+","; 
-			else if (arr[1] > (double)total_dist_instances * 0.8)
-				output += "."+ft+",";
-			else if(arr[2] >  (double) total_dist_instances * 0.8)
-				output += "+"+ft+","; 
-		}
-		
-		return (output.length() == 0) ? output : output.substring(0, output.length()-1);
-	}
-	
-	
-	private List<Integer> getDistortionLocsInWordPair(int resPhInd, int goldPhInd, SequentialPhonic[][] alignedReps)
-	{
-		List<Integer> output = new ArrayList<Integer>(); 
-		String rTarg = (resPhInd == resPhInventory.length) ? "∅" : resPhInventory[resPhInd].print(),
-				gTarg = (goldPhInd == goldPhInventory.length) ? "∅" : goldPhInventory[goldPhInd].print(); 
-	
-		for (int i = 0 ; i < alignedReps.length; i++)
-			if (alignedReps[i][0].print().equals(rTarg) && alignedReps[i][1].print().equals(gTarg))
-				output.add(i);
-		
-		return output;
 	}
 	
 	// return list of word pairs with a particular distorition,
@@ -905,11 +762,6 @@ public class ErrorAnalysis {
 		writeToFile(fileName, output); 
 	}
 	
-	private SequentialPhonic newWdBd()
-	{
-		return new Boundary("word bound"); 
-	}
-	
 	// determine the scope of the autopsy based on the relation of sequence starts (and ends) to word boundaries
 		// we are conditioning this only on the hits because we figure context much more often is a positive determiner
 		// of defining context for a shift, rather than a negative determiner.
@@ -1111,14 +963,6 @@ public class ErrorAnalysis {
 		return out;
 	}
 	
-	private String printCheckSeq(RestrictPhone[] seq)
-	{
-		String out = "";
-		char PHD = DerivationSimulation.PH_DELIM;
-		for (RestrictPhone s : seq)	out += s.print()+PHD; 
-		return out.substring(0,out.length()-1);
-	}
-	
 	private boolean containsSPh(SequentialPhonic cand, List<SequentialPhonic> sphlist)
 	{
 		for (SequentialPhonic sp : sphlist)
@@ -1171,40 +1015,6 @@ public class ErrorAnalysis {
 		
 		return out;
 	}
-	
-	// 
-	//first dim -- indexed same as input miss phone list
-	//second -- [0] for frequency among miss_ets, [1] for among hit_ets
-	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
-			//-- so if it is 8 and rel_ind is -2, we look at index 6
-	private int[][] miss_ph_frqs(List<SequentialPhonic> miss_neighbs, int rel_ind, LexPhon[] hit_ets, LexPhon[] miss_ets,
-			int[] hit_starts, int[] miss_starts)
-	{
-		int[][] frqs = new int[miss_neighbs.size()][miss_neighbs.size()];
-		for (int hi = 0; hi < hit_ets.length; hi++)
-		{
-			int curr_ind = hit_starts[hi] + rel_ind;
-			List<SequentialPhonic> currPhRep = hit_ets[hi].getPhonologicalRepresentation(); 
-			if (curr_ind >= 0 && curr_ind < currPhRep.size())
-			{
-				SequentialPhonic curr = currPhRep.get(curr_ind);
-				frqs[miss_neighbs.indexOf(curr)][0] += 1;
-			}
-		}
-		for (int mi = 0; mi < miss_ets.length; mi++)
-		{
-			int curr_ind = miss_starts[mi] + rel_ind;
-			List<SequentialPhonic> currPhRep = miss_ets[mi].getPhonologicalRepresentation(); 
-			if (curr_ind >= 0 && curr_ind < currPhRep.size())
-			{
-				SequentialPhonic curr = currPhRep.get(curr_ind);
-				frqs[miss_neighbs.indexOf(curr)][1] += 1;
-			}
-		}
-		return frqs;
-	}
-
-	
 	
 	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
 	{
