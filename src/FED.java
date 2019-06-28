@@ -74,57 +74,40 @@ public class FED {
 		//backtrace to get the alignment
 		last_min_alignment = new int[Math.max(len1,len2)][2]; 
 		
-		int ib = len1 - 1, jb= len2 - 1; //because an extra entry row and col were added
+		int ib = len1, jb= len2 ; //effectively -1+1 because an extra entry row and col were added
 		
 		if (ib != jb)
 		{
 			if (ib < jb)
-				for(int ip = jb; ip > ib; ip--)	last_min_alignment[ip][0] = -2;
+				for(int ip = jb; ip > ib; ip--)	last_min_alignment[ip-1][0] = -2;
 			else
-				for(int jp= ib; jp > jb; jp--)	last_min_alignment[jp][1] = -2; 
+				for(int jp= ib; jp > jb; jp--)	last_min_alignment[jp-1][1] = -2; 
 		}
 		
 		while (ib > 0 && jb > 0)
 		{
-			int i = Integer.parseInt(backtraces[ib+1][jb+1].split(",")[0]),
-					j = Integer.parseInt(backtraces[ib+1][jb+1].split(",")[1]); 
-			if (i == ib  && j == jb )
+			int i = Integer.parseInt(backtraces[ib][jb].split(",")[0]),
+					j = Integer.parseInt(backtraces[ib][jb].split(",")[1]); 
+			if (i == ib - 1 && j == jb - 1)
 			{
-				last_min_alignment[ib][0] = j; 
-				last_min_alignment[jb][1] = i; 
-				ib = ib - 1; jb = jb -1;
+				last_min_alignment[ib-1][0] = j; 
+				last_min_alignment[jb-1][1] = i; 
+				ib--; jb--;
 			}
-			else if( i == ib  && j == jb + 1)
+			else if( i == ib - 1  && j == jb)
 			{
-				last_min_alignment[ib][0] = -1; 
+				last_min_alignment[ib-1][0] = -1; 
 				ib--;
 			}
-			else if( i == ib + 1 && j == jb )
+			else if( i == ib && j == jb - 1 )
 			{
-				last_min_alignment[jb][1] = -1; 
+				last_min_alignment[jb-1][1] = -1; 
 				jb--;
 			}
 			else
 				throw new Error("Error: invalid backtrace");
 		}
 		
-		//TODO debugging
-		System.out.println("Lex 1 : "+l1.print());
-		System.out.println("Lex 2 : "+l2.print());
-		
-		System.out.println("Matr");
-		for(int i = 0 ; i < matr.length ; i++)
-		{
-			for(int j = 0 ; j < matr[i].length; j++)	System.out.print(matr[i][j]+" ");
-			System.out.println("");
-		}
-		
-		System.out.println("Backtrace, length = "+backtraces.length);
-		for(int i = 0; i < backtraces.length; i++)
-		{
-			for (int j = 0; j < backtraces[i].length; j++)	System.out.print(backtraces[i][j]+" ");
-			System.out.println(""); 
-		}
 		
 		
 	}
