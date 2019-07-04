@@ -1,21 +1,28 @@
 Trajectory file for run 'run1'; etymon number :236:
-#fˈɑkt̪um# >>> #fɛ# ( Correct : #fɛ#) :
-f ˈɑ k t̪ u m 
-#fˈɑkt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#fˈɑxt̪ʊm# | Rule 63 : k > x / [-cons] __ [+cor,-voi]
-#fˈɑxt̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#fˈɑxt̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#fˈaxt̪o# | Rule 205 : [+lo] > [+front,-back] 
-#fˈaçt̪o# | Rule 214 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#fˈaçt̪ʲo# | Rule 222 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#fˈaçt̪ʲə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#fˈaçt̪ʲə̯# | Rule 284 : ə > ə̯ 
-#fˈaçt̪ʲ# | Rule 308 : ə̯ > ∅ 
-#fˈaçt̪# | Rule 395 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#fˈaʝt̪# | Rule 464 : ç > ʝ 
-#fˈajt̪# | Rule 470 : ʝ > j / [-cons] __ 
-#fˈɛjt̪# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#fˈɛːt̪# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#fˈɛː# | Rule 734 : [-son] > ∅ / __ #
-#fɛː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fɛ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#fˈɑkere# >>> #fɛʁ# ( Correct : #fɛʁ#) :
+f ˈɑ k e r e 
+#fˈɑkɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈɑkrɛ# | Rule 44 : [-stres,+front] > ∅ / [+prim,+lo] [+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
+#fˈɑːkrɛ# | Rule 117 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#fˈɑːxrɛ# | Rule 122 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
+#fˈɑxrɛ# | Rule 156 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#fˈaxrɛ# | Rule 205 : [+lo] > [+front,-back] 
+#fˈaçrɛ# | Rule 214 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#fˈaçrʲɛ# | Rule 222 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#fˈarʲɛ# | Rule 253 : [+hi,+front,-lat,-syl] > ∅ / __ rʲ
+#fˈarʲə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#fˈarʲə̯# | Rule 284 : ə > ə̯ 
+#fˈarʲ# | Rule 308 : ə̯ > ∅ 
+#fˈajrʲ# | Rule 358 : ∅ > j / [-cons] __ rʲ
+#fˈaːjrʲ# | Rule 374 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
+#fˈaːjr# | Rule 394 : rʲ > r 
+#fˈajr# | Rule 403 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
+#fˈajrə# | Rule 500 : ∅ > ə / [+lo] j r __ #
+#fˈɛjrə# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#fˈɛːrə# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#fˈɛːrə̯# | Rule 708 : ə > ə̯ / __ #
+#fˈɛːr# | Rule 736 : ə̯ > ∅ 
+#fˈɛːʀ# | Rule 752 : r > ʀ 
+#fɛːʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɛʀ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#fɛʁ# | Rule 760 : ʀ > ʁ 

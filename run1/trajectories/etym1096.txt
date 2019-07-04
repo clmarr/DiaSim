@@ -1,21 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1096:
-#sˌerpˈen̪t̪em# >>> #sɛʁpɑ̃# ( Correct : #sɛʁpɑ̃#) :
-s ˌe r p ˈe n̪ t̪ e m 
-#sˌɛrpˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌɛrpˈɛn̪t̪ɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#sˌɛrpˈɛn̪t̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#sˌɛrpˈɛn̪t̪ə̯# | Rule 284 : ə > ə̯ 
-#sˌɛrpˈɛn̪t̪# | Rule 308 : ə̯ > ∅ 
-#sˌerpˈɛn̪t̪# | Rule 432 : ˌɛ > ˌe / __ @ @
-#sˌerpˈɛ̃n̪t̪# | Rule 523 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#sˌerpˈãn̪t̪# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#sˌerpˈãːt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌɛrpˈãːt̪# | Rule 685 : [-hi,-lo,+syl,+front] > [-tense,-cons,-lat,+cont,0delrel] / __ r [+cons,-strid]
-#sˌɛrpˈɑ̃ːt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#sˌɛɹpˈɑ̃ːt̪# | Rule 727 : r > ɹ / [-cons] __ [+cons]
-#sˌɛɹpˈɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#sˌɛrpˈɑ̃ː# | Rule 750 : ɹ > r 
-#sˌɛʀpˈɑ̃ː# | Rule 752 : r > ʀ 
-#sɛʀpɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɛʀpɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#sɛʁpɑ̃# | Rule 759 : ʀ > ʁ 
+#sˈekwo# >>> #sɥi# ( Correct : #sɥi#) :
+s ˈe k w o 
+#sˈekɣʷo# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#sˈekwo# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#sˈɛkwɔ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˈɛːkwɔ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˈɛːxwɔ# | Rule 124 : k > x / [+syl] __ w [+syl]
+#sˈie̯xwɔ# | Rule 173 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#sˈie̯xwə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#sˈie̯xwə̯# | Rule 284 : ə > ə̯ 
+#sˈie̯xw# | Rule 308 : ə̯ > ∅ 
+#sˈie̯xwə# | Rule 323 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#sˈie̯ɣwə# | Rule 360 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˈʉe̯jə# | Rule 452 : ˈi e̯ ɣ w > ˈʉ e̯ j / @ __ 
+#sˈye̯jə# | Rule 508 : [+hi,+round,-back] > [+front] 
+#sˈyjə# | Rule 559 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#sɥˈiə# | Rule 635 : {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} 
+#sɥˈiːə# | Rule 695 : [+stres] > [+long] / __ ə
+#sɥˈiː# | Rule 696 : ə > ∅ / [+syl] __ 
+#sɥiː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɥi# | Rule 754 : [+syl,+long] > [-long,-splng] 

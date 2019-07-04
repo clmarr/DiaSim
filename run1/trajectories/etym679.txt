@@ -1,9 +1,14 @@
 Trajectory file for run 'run1'; etymon number :679:
-#mˈel# >>> #mjɛl# ( Correct : #mjɛl#) :
-m ˈe l 
-#mˈɛl# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɛːl# | Rule 119 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#mˈie̯l# | Rule 173 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#mjˈel# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mjˈɛl# | Rule 616 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+lat] #
-#mjɛl# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈeum# >>> #mjø# ( Correct : #mjɛ̃#) :
+m ˈe u m 
+#mˈɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɛom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈɛo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈɛːo# | Rule 115 : [+prim] > [+long] / __ [+syl]
+#mˈie̯o# | Rule 173 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#mˈie̯w# | Rule 243 : [-lo,-stres] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / [+prim] ( [-cons,-hi] ) __ 
+#mjˈew# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#mjˈøw# | Rule 612 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mjˈøː# | Rule 622 : [+round,+front,-hi,+syl] w > [+long] ∅
+#mjøː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mjø# | Rule 754 : [+syl,+long] > [-long,-splng] 

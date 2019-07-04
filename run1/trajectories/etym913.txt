@@ -1,17 +1,21 @@
 Trajectory file for run 'run1'; etymon number :913:
-#plˈeːn̪ɑm# >>> #plɛn̪# ( Correct : #plɛn̪#) :
-p l ˈeː n̪ ɑ m 
-#plˈen̪ɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#plˈen̪ɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#plˈeːn̪ɑ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#plˈeːn̪a# | Rule 205 : [+lo] > [+front,-back] 
-#plˈejn̪a# | Rule 420 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#plˈejn̪ə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈej̃n̪ə# | Rule 522 : j > j̃ / [+front,-hi,+syl] __ [+nas,-syl]
-#plˈẽj̃n̪ə# | Rule 523 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#plˈɛ̃j̃n̪ə# | Rule 573 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#plˈɛ̃n̪ə# | Rule 665 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#plˈɛn̪ə# | Rule 684 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#plˈɛn̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#plˈɛn̪# | Rule 736 : ə̯ > ∅ 
-#plɛn̪# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plˈɑːn̪um# >>> #plɛ̃# ( Correct : #plɛ̃#) :
+p l ˈɑː n̪ u m 
+#plˈɑːn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈɑn̪ʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#plˈɑn̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#plˈɑn̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#plˈɑːn̪o# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːn̪o# | Rule 205 : [+lo] > [+front,-back] 
+#plˈaːn̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#plˈaːn̪ə̯# | Rule 284 : ə > ə̯ 
+#plˈaːn̪# | Rule 308 : ə̯ > ∅ 
+#plˈae̯n̪# | Rule 420 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈajn̪# | Rule 443 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#plˈaj̃n̪# | Rule 509 : j > j̃ / [+lo] __ [+nas,-syl]
+#plˈãj̃n̪# | Rule 510 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#plˈɛ̃j̃n̪# | Rule 588 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#plˈɛ̃n̪# | Rule 665 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#plˈɛ̃ː# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#plɛ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɛ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 

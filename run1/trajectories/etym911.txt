@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :911:
-#plˈɑt̪t̪eɑm# >>> #plas# ( Correct : #plas#) :
-p l ˈɑ t̪ t̪ e ɑ m 
-#plˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#plˈɑt̪t̪jɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#plˈɑt̪t̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
-#plˈɑt̪t̪ʝɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#plˈɑt̪t͡sʲʝɑ# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
-#plˈɑt̪t͡sʲɑ# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
-#plˈat̪t͡sʲa# | Rule 205 : [+lo] > [+front,-back] 
-#plˈat̪t͡sʲə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat͡sʲə# | Rule 494 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat͡sə# | Rule 548 : t͡sʲ > t͡s / [-nas] __ 
-#plˈasə# | Rule 649 : [+delrel] > [+cont,0delrel] 
-#plˈasə̯# | Rule 708 : ə > ə̯ / __ #
-#plˈas# | Rule 736 : ə̯ > ∅ 
-#plas# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plˈɑkit̪um# >>> #plɛ# ( Correct : #plɛ#) :
+p l ˈɑ k i t̪ u m 
+#plˈɑkɪt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈɑkt̪ʊm# | Rule 44 : [-stres,+front] > ∅ / [+prim,+lo] [+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
+#plˈɑxt̪ʊm# | Rule 63 : k > x / [-cons] __ [+cor,-voi]
+#plˈɑxt̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#plˈɑxt̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#plˈaxt̪o# | Rule 205 : [+lo] > [+front,-back] 
+#plˈaçt̪o# | Rule 214 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#plˈaçt̪ʲo# | Rule 222 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#plˈaçt̪ʲə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#plˈaçt̪ʲə̯# | Rule 284 : ə > ə̯ 
+#plˈaçt̪ʲ# | Rule 308 : ə̯ > ∅ 
+#plˈaçt̪# | Rule 395 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#plˈaʝt̪# | Rule 464 : ç > ʝ 
+#plˈajt̪# | Rule 470 : ʝ > j / [-cons] __ 
+#plˈɛjt̪# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#plˈɛːt̪# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#plˈɛː# | Rule 734 : [-son] > ∅ / __ #
+#plɛː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɛ# | Rule 754 : [+syl,+long] > [-long,-splng] 

@@ -1,13 +1,15 @@
 Trajectory file for run 'run1'; etymon number :657:
-#mˈɑst̪oːs# >>> #ma# ( Correct : #ma#) :
-m ˈɑ s t̪ oː s 
-#mˈɑst̪os# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#mˈast̪os# | Rule 205 : [+lo] > [+front,-back] 
-#mˈast̪əs# | Rule 275 : [-stres,-lo,+syl] > ə / __ [-syl]
-#mˈast̪ə̯s# | Rule 284 : ə > ə̯ 
-#mˈast̪s# | Rule 308 : ə̯ > ∅ 
-#mˈast͡s# | Rule 333 : [+ant,+distr,-nas] s > t͡s/ __ #
-#mˈat͡s# | Rule 475 : s > ∅ / __ t͡s
-#mˈas# | Rule 649 : [+delrel] > [+cont,0delrel] 
-#mˈa# | Rule 734 : [-son] > ∅ / __ #
-#ma# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɑrɡulɑ# >>> #maʁl# ( Correct : #maʁl#) :
+m ˈɑ r ɡ u l ɑ 
+#mˈɑrɡʊlɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑrɡlɑ# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɑrlɑ# | Rule 108 : {s k;r ɡ} > {s;r} / __ l
+#mˈarla# | Rule 205 : [+lo] > [+front,-back] 
+#mˈarlə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈarlə̯# | Rule 708 : ə > ə̯ / __ #
+#mˈaɹlə̯# | Rule 727 : r > ɹ / [-cons] __ [+cons]
+#mˈaɹl# | Rule 736 : ə̯ > ∅ 
+#mˈarl# | Rule 750 : ɹ > r 
+#mˈaʀl# | Rule 752 : r > ʀ 
+#maʀl# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#maʁl# | Rule 760 : ʀ > ʁ 

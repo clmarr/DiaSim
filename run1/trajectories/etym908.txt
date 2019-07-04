@@ -1,10 +1,14 @@
 Trajectory file for run 'run1'; etymon number :908:
-#plˈɑt̪t̪ɑːs# >>> #plat̪# ( Correct : #plat̪#) :
-p l ˈɑ t̪ t̪ ɑː s 
-#plˈɑt̪t̪ɑs# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#plˈat̪t̪as# | Rule 205 : [+lo] > [+front,-back] 
-#plˈat̪t̪əs# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat̪əs# | Rule 494 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat̪ə# | Rule 734 : [-son] > ∅ / __ #
-#plat̪ə# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#plat̪# | Rule 762 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#pˈius# >>> #pjø# ( Correct : #pjø#) :
+p ˈi u s 
+#pˈɪʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈeos# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˈeːos# | Rule 115 : [+prim] > [+long] / __ [+syl]
+#pjˈoːs# | Rule 242 : ˈeː o > j ˈoː 
+#pjˈows# | Rule 420 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pjˈews# | Rule 544 : ˈo > ˈe / __ w
+#pjˈøws# | Rule 612 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#pjˈøːs# | Rule 622 : [+round,+front,-hi,+syl] w > [+long] ∅
+#pjˈøː# | Rule 734 : [-son] > ∅ / __ #
+#pjøː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pjø# | Rule 754 : [+syl,+long] > [-long,-splng] 

@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :600:
-#lˌiːmˈɑːre# >>> #lime# ( Correct : #lime#) :
-l ˌiː m ˈɑː r e 
-#lˌiːmˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˌimˈɑrɛ# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#lˌimˈɑːrɛ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#lˌimˈaːrɛ# | Rule 205 : [+lo] > [+front,-back] 
-#lˌimˈaːrə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#lˌimˈaːrə̯# | Rule 284 : ə > ə̯ 
-#lˌimˈaːr# | Rule 308 : ə̯ > ∅ 
-#lˌimˈae̯r# | Rule 420 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#lˌimˈeːr# | Rule 554 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#lˌĩmˈeːr# | Rule 638 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
-#lˌimˈeːr# | Rule 662 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#lˌimˈeːɹ# | Rule 726 : r > ɹ / [-cons] __ #
-#lˌimˈeː# | Rule 748 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#limeː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lime# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#lˈeukɑm# >>> #ljø# ( Correct : #ljø#) :
+l ˈe u k ɑ m 
+#lˈɛʊkɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɛokɑm# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#lˈɛokɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#lˈɛːokɑ# | Rule 115 : [+prim] > [+long] / __ [+syl]
+#lˈɛːoɡɑ# | Rule 139 : k > ɡ / [-cons] __ [+syl]
+#lˈɛːoɣɑ# | Rule 141 : ɡ > ɣ / [-cons] __ [-cons]
+#lˈie̯oɣɑ# | Rule 173 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#lˈie̯oɑ# | Rule 190 : ɣ > ∅ / [+round,-cons] __ [+lo]
+#lˈie̯oa# | Rule 205 : [+lo] > [+front,-back] 
+#lˈie̯wa# | Rule 243 : [-lo,-stres] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / [+prim] ( [-cons,-hi] ) __ 
+#lˈie̯wə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
+#ljˈewə# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ljˈøwə# | Rule 612 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ljˈøːə# | Rule 622 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ljˈøː# | Rule 696 : ə > ∅ / [+syl] __ 
+#ljøː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ljø# | Rule 754 : [+syl,+long] > [-long,-splng] 

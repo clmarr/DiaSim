@@ -1,11 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1191:
-#t̪ˈeː# >>> #t̪wɛ# ( Correct : #t̪wa#) :
-t̪ ˈeː 
-#t̪ˈe# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#t̪ˈeː# | Rule 114 : [+prim] > [+long] / __ #
-#t̪ˈej# | Rule 420 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#t̪ˈoj# | Rule 545 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
-#t̪ˈuj# | Rule 567 : [+round,+tense,+back] > [+hi] 
-#t̪ˈuɛ̯# | Rule 632 : j > ɛ̯ / [+syl,+back,+round] __ 
-#t̪wˈɛ# | Rule 633 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#t̪wɛ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ˌɑksˈoːn̪em# >>> #t̪ɛsɔ̃# ( Correct : #t̪ɛsɔ̃#) :
+t̪ ˌɑ k s ˈoː n̪ e m 
+#t̪ˌɑksˈoːn̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɑksˈon̪ɛm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#t̪ˌɑxsˈon̪ɛm# | Rule 63 : k > x / [-cons] __ [+cor,-voi]
+#t̪ˌɑxsˈon̪ɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#t̪ˌɑxsˈoːn̪ɛ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˌɑxsˈũːn̪ɛ# | Rule 172 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
+#t̪ˌaxsˈũːn̪ɛ# | Rule 205 : [+lo] > [+front,-back] 
+#t̪ˌaçsˈũːn̪ɛ# | Rule 214 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#t̪ˌaçsʲˈũːn̪ɛ# | Rule 222 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#t̪ˌaçsʲˈũːn̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌaçsʲˈũːn̪ə̯# | Rule 284 : ə > ə̯ 
+#t̪ˌaçsʲˈũːn̪# | Rule 308 : ə̯ > ∅ 
+#t̪ˌaçsˈũːn̪# | Rule 395 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#t̪ˌaʝsˈũːn̪# | Rule 464 : ç > ʝ 
+#t̪ˌajsˈũːn̪# | Rule 470 : ʝ > j / [-cons] __ 
+#t̪ˌɛjsˈũːn̪# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#t̪ˌɛːsˈũːn̪# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#t̪ˌɛːsˈũː# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#t̪ɛːsũː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɛsũ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#t̪ɛsɔ̃# | Rule 755 : ũ > ɔ̃ 

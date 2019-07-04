@@ -1,16 +1,25 @@
 Trajectory file for run 'run1'; etymon number :203:
-#d̪ˈuːrɑm# >>> #d̪yʁ# ( Correct : #d̪yʁ#) :
-d̪ ˈuː r ɑ m 
-#d̪ˈurɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#d̪ˈurɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#d̪ˈuːrɑ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#d̪ˈuːra# | Rule 205 : [+lo] > [+front,-back] 
-#d̪ˈʉːra# | Rule 223 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#d̪ˈʉːrə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˈyːrə# | Rule 508 : [+hi,+round,-back] > [+front] 
-#d̪ˈyːrə̯# | Rule 708 : ə > ə̯ / __ #
-#d̪ˈyːr# | Rule 736 : ə̯ > ∅ 
-#d̪ˈyːʀ# | Rule 752 : r > ʀ 
-#d̪yːʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪yʀ# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#d̪yʁ# | Rule 759 : ʀ > ʁ 
+#d̪ˈulkiɑm# >>> #d̪us# ( Correct : #d̪us#) :
+d̪ ˈu l k i ɑ m 
+#d̪ˈʊlkɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈʊlkjɑm# | Rule 24 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#d̪ˈʊɫkjɑm# | Rule 27 : l > ɫ / __ [+cons,-lat]
+#d̪ˈʊɫkʝɑm# | Rule 28 : j > ʝ / __ [+syl]
+#d̪ˈoɫkʝɑm# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈoɫkʝɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#d̪ˈoɫkʲʝɑ# | Rule 81 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#d̪ˈoɫcʝɑ# | Rule 82 : [+back,+front] > [-back] 
+#d̪ˈoɫcɑ# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#d̪ˈoʎcɑ# | Rule 176 : [+lat] > ʎ / __ [+cons,+hi,+front]
+#d̪ˈoʎt͡sʲɑ# | Rule 188 : {c;ɟ} > {t͡sʲ;d͡ʒ} 
+#d̪ˈoʎt͡sʲa# | Rule 205 : [+lo] > [+front,-back] 
+#d̪ˈoʎt͡sʲə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
+#d̪ˈoɫt͡sʲə# | Rule 506 : [+lat] > ɫ / __ [+cons]
+#d̪ˈoɫt͡sə# | Rule 548 : t͡sʲ > t͡s / [-nas] __ 
+#d̪ˈuɫt͡sə# | Rule 567 : [+round,+tense,+back] > [+hi] 
+#d̪ˈuwt͡sə# | Rule 582 : [+lat,+back] > w 
+#d̪ˈut͡sə# | Rule 583 : w > ∅ / [+syl,+hi,+round] __ 
+#d̪ˈusə# | Rule 649 : [+delrel] > [+cont,0delrel] 
+#d̪ˈusə̯# | Rule 708 : ə > ə̯ / __ #
+#d̪ˈus# | Rule 736 : ə̯ > ∅ 
+#d̪us# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

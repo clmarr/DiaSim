@@ -768,9 +768,11 @@ $ CORRECTION: at this stage, β/ɸ does not assimilate to t or ts ( noce not noi
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 
+
 $s371 nasal cluster assimilation 
-$ CORRECTION: m b > m m deleted as it only introduces errors 
-{m n̪;n̪ m} > {m m;m m}
+$ CORRECTION: m b > m m deleted as it is completely unnecessary and mostly causes errors
+$ CORRECTION : only mn, nm doesn't occur and is inconsistent with what appears to be the actual regular pattern elsewhere
+n̪ > m / m __ 
 
 $s374ii : (n)nw > nβ intervocalically 
 w > β / [+syl] (n̪) n̪ __ [+syl]  
@@ -1221,9 +1223,11 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 
+
 $s371 nasal cluster assimilation 
-$ CORRECTION: m b > m m is completely unnecessary and harms more than helps. 
-{m n̪;n̪ m} > {m m;m m}
+$ CORRECTION: m b > m m deleted as it is completely unnecessary and mostly causes errors
+$ CORRECTION : only mn, nm doesn't occur and is inconsistent with what appears to be the actual regular pattern elsewhere
+n̪ > m / m __
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
 $Pope never explicitly says this but her trajectories for words make this clear
@@ -1381,9 +1385,8 @@ $ CORRECTION : we now have this happening much earlier, but we maintain this her
 	$-- allowing for latert possibility of including loanwords into paradigm.
 [+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
-$ CORRECTION : /rʲ/'s emission of j backward moved earlier so that it can trigger breaking of /a/,
+$ CORRECTION : /rʲ/'s emission of j backward moved earlier, away from this point, so that it can trigger breaking of /a/,
 	$  and it thus depalatalizes separately from other consonants here
-rʲ > r
 
 $ s164-3 $~ s190 $~ s279 $~ s311,312,313,314,315 
 $ ... palatalized dentals resolve into j + simple dental
@@ -1396,9 +1399,9 @@ $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl
 $ then realize the main rule here.
 $ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} -- ABROGATED (see below)
 
-$ CORRECTION: tʲ,  sʲ and dʲ are actually preserved into Old French in a specific position between a palatal continuant cons and i
-	$ , but lʲ,nʲ,zʲ are lost at this point
-$ ... while tsʲ and rʲ are eliminated also earlier by shifts slightly later than this
+$ CORRECTION: tʲ,  sʲ, zʲ, rʲ  and dʲ are actually preserved into Old French in a specific position between a palatal continuant cons and i
+	$ , but lʲ,nʲ, are lost at this point
+$ ... while tsʲ and rʲ are eliminated also earlier by shifts at different points
 $ The evidence is the discover of a new REGULAR RULE by which
 	$ still persistent dentalised palatals see the deletion of following j in jɛʁ segments
 		$ at the same time as this occurs for the uncontroversially remaining palatals
@@ -1412,14 +1415,14 @@ $ The evidence is the discover of a new REGULAR RULE by which
 		$ diphthong developments, which is pretty well substantiated
 	$ so this is the best option with regards to Occam's razor
 $ sʲ is NEVER preserved in ss though, nor are any of these preserved before a consonant
-$ the persistence of sʲ/tʲ/dʲ is specifically both after non-strident palatal consonantal continuants
+$ the persistence of sʲ/tʲ/dʲ/rʲ  is specifically both after non-strident palatal consonantal continuants
 	$ and before either # or i e̯ r #  - - so it must behave exactly like before when preceded 
 		$ by a non-consonantal. 
 $ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ rather than a simple spirant
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 		
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z}
-{t̪;d̪;s} > {t̪ʲ;d̪ʲ;sʲ} / [-syl,-cor,+front] __ [+hi,+front,+cont]
+{t̪;d̪;s;z;r} > {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} / [-syl,-cor,+front] __ [+hi,+front,+cont]
 s > t͡sʲ / [-syl,+hi,+front,+cont,-strid] __ #
 
 $ CORRECTION: case of disiunare, prehensionem, etc -- ˌej goes to ˌi before z
@@ -1724,7 +1727,8 @@ $ t inserted between s and pal. s + r
 
 $s371 nasal cluster assimilation 
 $ CORRECTION: m b > m m deleted as it is completely unnecessary and mostly causes errors
-{m n̪;n̪ m} > {m m;m m}
+$ CORRECTION : only mn, nm doesn't occur and is inconsistent with what appears to be the actual regular pattern elsewhere
+n̪ > m / m __
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162

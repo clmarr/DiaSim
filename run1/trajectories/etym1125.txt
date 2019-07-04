@@ -1,15 +1,21 @@
 Trajectory file for run 'run1'; etymon number :1125:
-#sˈon̪um# >>> #sɔ̃# ( Correct : #sɔ̃#) :
-s ˈo n̪ u m 
-#sˈɔn̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˈɔn̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˈɔn̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#sˈɔːn̪o# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈũːn̪o# | Rule 172 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
-#sˈũːn̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#sˈũːn̪ə̯# | Rule 284 : ə > ə̯ 
-#sˈũːn̪# | Rule 308 : ə̯ > ∅ 
-#sˈũː# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#sũː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sũ# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#sɔ̃# | Rule 755 : ũ > ɔ̃ 
+#sˌin̪ɡlˈut̪t̪um# >>> #sɑ̃ɡlo# ( Correct : #sɑ̃ɡlo#) :
+s ˌi n̪ ɡ l ˈu t̪ t̪ u m 
+#sˌiŋɡlˈut̪t̪um# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#sˌɪŋɡlˈʊt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌeŋɡlˈot̪t̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#sˌeŋɡlˈot̪t̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#sˌeŋɡlˈot̪t̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#sˌeŋɡlˈot̪t̪ə̯# | Rule 284 : ə > ə̯ 
+#sˌeŋɡlˈot̪t̪# | Rule 308 : ə̯ > ∅ 
+#sˌeŋɡlˈot̪# | Rule 494 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#sˌẽŋɡlˈot̪# | Rule 523 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#sˌɛ̃ŋɡlˈot̪# | Rule 524 : [+nas,+front,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+nas,+cons]
+#sˌɛ̃ŋɡlˈɔt̪# | Rule 551 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
+#sˌãŋɡlˈɔt̪# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#sˌãːɡlˈɔt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌɑ̃ːɡlˈɔt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
+#sˌɑ̃ːɡlˈɔ# | Rule 734 : [-son] > ∅ / __ #
+#sɑ̃ːɡlɔ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɑ̃ɡlɔ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#sɑ̃ɡlo# | Rule 758 : ɔ > o / __ #

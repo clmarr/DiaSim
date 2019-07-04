@@ -1,17 +1,13 @@
 Trajectory file for run 'run1'; etymon number :361:
-#ˌin̪d̪e# >>> #ɑ̃# ( Correct : #ɑ̃#) :
-ˌi n̪ d̪ e 
-#ˌɪn̪d̪ɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˌen̪d̪ɛ# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˌen̪d̪ə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#ˌen̪d̪ə̯# | Rule 284 : ə > ə̯ 
-#ˌen̪d̪# | Rule 308 : ə̯ > ∅ 
-#ˌen̪t̪# | Rule 450 : [-son] > [-voi] / __ #
-#ˌẽn̪t̪# | Rule 523 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ˌɛ̃n̪t̪# | Rule 524 : [+nas,+front,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+nas,+cons]
-#ˌãn̪t̪# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#ˌãːt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˌɑ̃ːt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#ˌɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#ɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#illoːs# >>> #le# ( Correct : #le#) :
+i l l oː s 
+#ɪlloːs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɪllos# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#ellos# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#əllos# | Rule 270 : [-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#əlləs# | Rule 275 : [-stres,-lo,+syl] > ə / __ [-syl]
+#ə̯llə̯s# | Rule 284 : ə > ə̯ 
+#ə̯lles# | Rule 303 : ə̯ > e / # [-syl] ( [-syl] )* __ s #
+#lles# | Rule 308 : ə̯ > ∅ 
+#les# | Rule 345 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / # __ 
+#le# | Rule 734 : [-son] > ∅ / __ #

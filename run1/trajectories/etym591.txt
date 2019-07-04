@@ -1,12 +1,23 @@
 Trajectory file for run 'run1'; etymon number :591:
-#lˈessum# >>> #lɛ# ( Correct : #lɛ#) :
-l ˈe s s u m 
-#lˈɛssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈɛssom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#lˈɛsso# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#lˈɛssə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
-#lˈɛssə̯# | Rule 284 : ə > ə̯ 
-#lˈɛss# | Rule 308 : ə̯ > ∅ 
-#lˈɛs# | Rule 497 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#lˈɛ# | Rule 734 : [-son] > ∅ / __ #
-#lɛ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lˌeːɡˈɑːleːs# >>> #lwajo# ( Correct : #lwajo#) :
+l ˌeː ɡ ˈɑː l eː s 
+#lˌeɡˈɑles# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#lˌeɣˈɑles# | Rule 91 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ [+son,-lat,-nas]
+#lˌeɣˈɑːles# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#lˌeˈɑːles# | Rule 197 : ɣ > ∅ / [+front,-hi,-lo,+tense] __ ˈɑː
+#lˌejˈɑːles# | Rule 202 : ∅ > j / ˌe __ [+lo]
+#lˌejˈaːles# | Rule 205 : [+lo] > [+front,-back] 
+#lˌejˈaːləs# | Rule 275 : [-stres,-lo,+syl] > ə / __ [-syl]
+#lˌejˈaːlə̯s# | Rule 284 : ə > ə̯ 
+#lˌejˈaːls# | Rule 308 : ə̯ > ∅ 
+#lˌejˈals# | Rule 363 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#lˌejˈaɫs# | Rule 506 : [+lat] > ɫ / __ [+cons]
+#lˌojˈaɫs# | Rule 545 : [+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j
+#lˌujˈaɫs# | Rule 567 : [+round,+tense,+back] > [+hi] 
+#lˌujˈaws# | Rule 582 : [+lat,+back] > w 
+#lwˌɛjˈaws# | Rule 631 : {ˌu;ˌɔ} > {w ˌɛ;w ˌɛ} / __ j [+front,+prim]
+#lwˌɛjˈoːs# | Rule 666 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#lwˌɛjˈoː# | Rule 734 : [-son] > ∅ / __ #
+#lwɛjoː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#lwɛjo# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#lwajo# | Rule 759 : ɛ > a / w __ 

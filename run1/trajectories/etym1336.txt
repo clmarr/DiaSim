@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :1336:
-#wˈiːllɑm# >>> #vil# ( Correct : #vil#) :
-w ˈiː l l ɑ m 
-#ɣʷˈiːllɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːllɑm# | Rule 50 : ɣʷ > βʷ 
-#βʷˈillɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#βʷˈillɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#βˈillɑ# | Rule 163 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈilla# | Rule 205 : [+lo] > [+front,-back] 
-#vˈilla# | Rule 442 : β > v 
-#vˈillə# | Rule 447 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈilə# | Rule 497 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#vˈilə̯# | Rule 708 : ə > ə̯ / __ #
-#vˈil# | Rule 736 : ə̯ > ∅ 
-#vil# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#wˈet̪ulum# >>> #vjɛj# ( Correct : #vjɛj#) :
+w ˈe t̪ u l u m 
+#ɣʷˈet̪ulum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɛt̪ʊlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɣʷˈɛt̪lʊm# | Rule 33 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#βʷˈɛt̪lʊm# | Rule 50 : ɣʷ > βʷ 
+#βʷˈɛt̪lom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βʷˈɛklom# | Rule 73 : t̪ > k / __ [+lat]
+#βʷˈɛklo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#βʷˈɛːklo# | Rule 117 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#βʷˈɛːxlo# | Rule 122 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
+#βʷˈɛxlo# | Rule 156 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#βˈɛxlo# | Rule 163 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈɛçlo# | Rule 214 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#βˈɛçʎo# | Rule 221 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#βˈie̯çʎo# | Rule 238 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+#βˈie̯ʎo# | Rule 252 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#βˈie̯ʎə# | Rule 276 : [-stres,-lo,+syl] > ə / __ #
+#βˈie̯ʎə̯# | Rule 284 : ə > ə̯ 
+#βˈie̯ʎ# | Rule 308 : ə̯ > ∅ 
+#vˈie̯ʎ# | Rule 442 : β > v 
+#vjˈeʎ# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vjˈɛʎ# | Rule 614 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
+#vjɛʎ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vjɛj# | Rule 761 : ʎ > j 
