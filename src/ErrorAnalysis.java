@@ -21,28 +21,31 @@ public class ErrorAnalysis {
 	
 	private SequentialFilter filterSeq; 
 	
-	private Phone[] resPhInventory, goldPhInventory; 
+	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 	
 	protected final String ABS_PR ="[ABSENT]"; 
 	protected final int MAX_RADIUS = 3;
 
 	
-	private HashMap<String, Integer> resPhInds, goldPhInds; 
+	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
 		// indexes for phones in the following int arrays are above.
 	protected int[] errorsByResPhone, errorsByGoldPhone; 
+	protected int[] errorsByPivotPhone;
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
+	private double[] errorRateByPivotPhone;
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
 	private String[] featsByIndex; 
 		
-	private boolean[][] isPhInResEt, isPhInGoldEt;
+	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
 		
 	private List<LexPhon[]> mismatches; 
 	
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
 	private int NUM_ETYMA, SUBSAMP_SIZE;
+	private double TOT_ERRS;
 	
 	private FED featDist;
 	
@@ -90,7 +93,6 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		
 		isPhInResEt = new boolean[resPhInventory.length][NUM_ETYMA]; 
 		isPhInGoldEt = new boolean[goldPhInventory.length][NUM_ETYMA]; 
 		
@@ -111,8 +113,12 @@ public class ErrorAnalysis {
 		isHit = new boolean[NUM_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 				
+		IN_SUBSAMP = new boolean[NUM_ETYMA]; 
+		
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
 		{	
+			IN_SUBSAMP[i] = true; 		// until filter is set, all words are "in the subsample"
+
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
 				LexPhon currEt = theRes.getByID(i);
@@ -143,7 +149,7 @@ public class ErrorAnalysis {
 				totFED += feds[i];
 				
 				if(!isHit[i])
-					updateConfusionMatrix(theRes.getByID(i), theGold.getByID(i));
+					updateConfusionMatrix(i);
 						//also increments errorsBy(Res/Gold)Phone^ 
 			}
 			else	isHit[i] = true;
@@ -153,6 +159,7 @@ public class ErrorAnalysis {
 		pct2off = num2off / (double) SUBSAMP_SIZE; 
 		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
 		avgFED = totFED / (double) SUBSAMP_SIZE; 
+		TOT_ERRS = (double)NUM_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -184,8 +191,43 @@ public class ErrorAnalysis {
 	public void setFocus(Lexicon newFoc, String stage_name)
 	{
 		FOCUS = newFoc; 
+		pivotPhInventory = newFoc.getPhonemicInventory();
+		
+		pivPhInds = new HashMap<String, Integer>(); 
+		
+		for(int i = 0 ; i < pivotPhInventory.length; i++)
+			pivPhInds.put(pivotPhInventory[i].print(), i);
+		
 		focSet = true; 
+		
+		isPhInPivEt = new boolean[pivotPhInventory.length][NUM_ETYMA]; 
+		int[] pivPhCts = new int[pivotPhInventory.length]; 
+		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
+		{
+			LexPhon currEt = FOCUS.getByID(ei);
+			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
+			{
+				if(!currEt.toString().equals("[ABSENT]"))
+					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
+				else	isPhInPivEt[pvi][ei] = false;
+				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
+			}
+		}
+		
 		if(filtSet)	articulateSubsample(stage_name); 
+		else
+		{
+			errorsByPivotPhone =  new int[pivotPhInventory.length];
+			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
+			for (int ei = 0 ; ei < NUM_ETYMA ; ei++)	
+			{
+				if(!isHit[ei])
+					for (SequentialPhonic pivPh : FOCUS.getByID(ei).getPhOnlySeq())
+						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
+			}
+			for (int i = 0 ; i < pivotPhInventory.length; i++)
+				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
+		}
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
@@ -194,13 +236,11 @@ public class ErrorAnalysis {
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
+		int[] topErrPivotPhLocs = new int[NUM_TOP_ERR_PHS_TO_DISP];
+		if (focSet)	topErrPivotPhLocs = arrLocNMax(errorRateByPivotPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		
 		double max_res_err_rate = errorRateByResPhone[topErrResPhLocs[0]]; 
-		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]]; 
-		 
-		//TODO debugging
-		System.out.println("max r, g : "+max_res_err_rate+","+max_gold_err_rate);
-		
+		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]];  
 		
 		if (max_res_err_rate > 1.25 * (1.0 - pctAcc) || max_gold_err_rate > 1.25 * (1.0 - pctAcc)) 
 		{ 
@@ -212,7 +252,9 @@ public class ErrorAnalysis {
 				
 				// we will suppress once the rate is not more than 117% (100+ 0.5sd) of global error rate
 				if (rate < (1.0 - pctAcc) * 1.17)	i = topErrResPhLocs.length; 
-				else	System.out.println(""+i+": /"+resPhInventory[topErrResPhLocs[i]].print()+"/ with rate "+rate);
+				else	System.out.println(""+i+": /"+resPhInventory[topErrResPhLocs[i]].print()+
+						"/ with rate "+rate+",\tRate present in mismatches : "
+						+(""+(double)errorsByResPhone[topErrResPhLocs[i]]*100.0/(double)mismatches.size()));
 				
 			}
 			System.out.println("Gold phones most associated with error: ");
@@ -220,8 +262,22 @@ public class ErrorAnalysis {
 			{
 				double rate = errorRateByGoldPhone[topErrGoldPhLocs[i]];
 				if (rate < pctAcc * 1.17)	i = topErrGoldPhLocs.length; 
-				else	System.out.println(""+i+": /"+goldPhInventory[topErrGoldPhLocs[i]].print()+"/ with rate "+rate); 
-			}	
+				else	System.out.println(""+i+": /"+goldPhInventory[topErrGoldPhLocs[i]].print()+
+						"/ with rate "+rate+",\tRate present in mismatches : "
+						+(""+(double)errorsByGoldPhone[topErrGoldPhLocs[i]]*100.0/(double)mismatches.size()));
+			}
+			if(focSet)
+			{
+				System.out.println("Focus point phones most associated with error: ");
+				for (int i = 0; i < topErrPivotPhLocs.length; i++)
+				{
+					double rate = errorRateByPivotPhone[topErrPivotPhLocs[i]];
+					if (rate < pctAcc * 1.17)	i = topErrPivotPhLocs.length;
+					else	System.out.println(""+i+": /"+pivotPhInventory[topErrPivotPhLocs[i]].print()+
+							"/ with rate "+rate+",\tRate present in mismatches : "
+							+(""+(double)errorsByPivotPhone[topErrPivotPhLocs[i]]*100.0/(double)mismatches.size()));
+				}
+			}
 		}
 		else	System.out.println("No particular phones especially associated with error.");
 			
@@ -234,6 +290,12 @@ public class ErrorAnalysis {
 					gTarget = topDistortions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topDistortions[i][1]];
 			
 			System.out.println("----\nDistortion "+i+": "+ rTarget.print()+" for "+gTarget.print()); 
+			
+			double wordsWithDistortion = (double)confusionMatrix[topDistortions[i][0]][topDistortions[i][1]];
+					
+			double errorShare = wordsWithDistortion / (double)mismatches.size() * 100.0; 
+			System.out.println("% of errant words with this distortion : "+
+					(""+errorShare).substring(0,6)+"%"); 
 			
 			//parse contexts
 			if (get_contexts)
@@ -249,12 +311,12 @@ public class ErrorAnalysis {
 	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
-	private void updateConfusionMatrix(LexPhon res, LexPhon gold)
+	private void updateConfusionMatrix(int err_id)
 	{
+		LexPhon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
+		
 		mismatches.add( new LexPhon[] {res, gold}) ; 
-		
-		System.out.println("res, gold "+res.print()+","+gold.print());
-		
+				
 		SequentialPhonic[][] alignedForms = getAlignedForms(res,gold); 
 		
 		for (int i = 0 ; i < alignedForms.length ; i++)
@@ -268,9 +330,11 @@ public class ErrorAnalysis {
 				if (r.equals("∅"))	confusionMatrix[resPhInventory.length][goldPhInds.get(g)] += 1;
 				else if(g.equals("∅"))	confusionMatrix[resPhInds.get(r)][goldPhInventory.length] += 1; 
 				else	confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
-				
 			}
 		}
+		if (focSet)
+			for (SequentialPhonic pivPh : FOCUS.getByID(err_id).getPhOnlySeq())
+				errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 	}
 	
 
@@ -291,6 +355,7 @@ public class ErrorAnalysis {
 			candFeats[2*fti+1] = "+"+featsByIndex[fti];
 		}
 		boolean constFeatsRemain = true; 
+		
 		String commonPhs = ""; 
 		for(int cti = 0; cti < indexedCts.length - 1; cti++)
 		{
@@ -298,6 +363,7 @@ public class ErrorAnalysis {
 			{
 				SequentialPhonic curPh = inventory[cti];
 				double phShare = (double)indexedCts[cti] / (double)total_distort_instances;
+				
 				if (phShare > thresh)
 					commonPhs += "/"+curPh.print()+"/ ("+(""+100.0*phShare).substring(0,4)+"%) ";
 				
@@ -343,6 +409,52 @@ public class ErrorAnalysis {
 		
 	}
 	
+	
+	private int getPrevAlignedGoldPos (int[][] alignment, int dloc, boolean alignedToNullGold)
+	{
+		if (!alignedToNullGold)	return dloc - 1; 
+		int currResLoc = dloc - 1, out = -1;
+		while (out == -1)
+		{
+			if (currResLoc == -1)	return -1;
+			out = alignment[currResLoc][0]; 
+			currResLoc = currResLoc - 1; 
+		}
+		return out; 
+	}
+	
+	private int getNextAlignedGoldPos (int[][] alignment, int dloc, boolean alignedToNullGold, int end)
+	{
+		if (!alignedToNullGold)	return dloc + 1;
+		int currResLoc = dloc, out = -1; 
+		while (out == -1)
+		{
+			if (currResLoc == alignment.length)	return end; 
+			out = alignment[currResLoc][0];
+			if (out == -2)	return end; 
+			currResLoc += 1;
+		}
+		return out; 
+	}
+	
+	
+	public void printAlignment(int[][] anmt, SequentialPhonic[] rphs, SequentialPhonic[] gphs)
+	{
+		int ri = 0 , gi = 0; 
+		for (int i = 0; i < anmt.length; i++)
+		{
+			System.out.print(append_space_to_x(i+"",2)+"| "); 
+			int ar = anmt[i][1], ag = anmt[i][0];
+
+			System.out.print(append_space_to_x(
+					(ar == -1) ? "∅" : rphs [ ag == -2 ? ar : i].print(), 5)+"| ");
+			
+			System.out.print(
+					((ag == -1) ? "∅" : gphs [ ar == -2 ? ag : i].print()) + "\n"); 		
+		}
+		
+	}
+	
 	// report which contexts tend to surround distortion frequently enough that it becomes 
 		// suspicious and deemed worth displaying
 	// this method is frequently modified at current state of the project 
@@ -365,55 +477,69 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < pairsWithDistortion.size(); i++)
 		{
 			
+			//TODO need to fix error here. 
+			
 			LexPhon[] curPair = pairsWithDistortion.get(i); 
-			SequentialPhonic[] goldPhs = curPair[1].getPhOnlySeq(); 
+			
 			featDist.compute(curPair[0],curPair[1]); 
 			int[][] alignment = featDist.get_min_alignment(); 
+				// at each outer index, find at ind 0 : position aligned to res phone at outer ind, 
+				// at ind 1 : position aligned to gold phone at outer ind
+				// -1 -- aligned to null phone
+				// -2 -- aligned to null phone at word boundary
 			
 			List<Integer> distortLocs = new ArrayList<Integer>();
+			//will be based on location in the gold form, unless it is a res phone aligned to gold null,
+				// in which case it will be in the res form. 
 
-			for(int gpi = 0 ; gpi < goldPhs.length; gpi++)
-			{
-				if(goldPhs[gpi].print().equals(goldPhInventory[goldPhInd].print())) 
-					if(alignment[gpi][1] >= 0)
-						if(curPair[0].getPhOnlySeq()[alignment[gpi][1]].print().equals(resPhInventory[resPhInd].print()))
-							distortLocs.add(gpi); 
-			}
-			
-			total_distortion_instances += distortLocs.size(); 
+			SequentialPhonic[] goldPhs = curPair[1].getPhOnlySeq(), resPhs= curPair[0].getPhOnlySeq();
+			boolean nullGold = (goldPhInd == goldPhInventory.length);
 		
+			if (nullGold) 			{
+				
+				for(int rpi = 0 ; rpi == resPhs.length ? false : alignment[rpi][0] != -2 ; rpi++)
+					if(resPhs[rpi].print().equals(resPhInventory[resPhInd].print()))
+						if(alignment[rpi][0] < 0)
+							distortLocs.add(rpi); 
+			}
+			else {
+				for(int gpi = 0 ; gpi < goldPhs.length; gpi++)
+				{
+					if(goldPhs[gpi].print().equals(goldPhInventory[goldPhInd].print())) 
+						if(alignment[gpi][1] >= 0)
+							if(resPhs[alignment[gpi][1]].print().equals(resPhInventory[resPhInd].print()))
+								distortLocs.add(gpi); 
+				}
+			}
+			total_distortion_instances += distortLocs.size(); 
+
+			//now retrieve context IN GOLD of distortion.
 			for (Integer dloc : distortLocs)
 			{
-				//goldPhInventory.length -- i.e. word bound.
+				int opLocBefore = getPrevAlignedGoldPos(alignment, dloc, nullGold); 
 				
-				int opLocBefore = dloc-1;
-				while ((opLocBefore == -1) ? 
-						false : goldPhs[opLocBefore].print().equals("∅"))
-					opLocBefore--; 
+				if (opLocBefore == goldPhs.length) {
+					printAlignment(alignment,resPhs,goldPhs); 
+				}
+				
+				
 				if(opLocBefore != -1)
 				{
 					priorPhoneCounts[goldPhInds.get(goldPhs[opLocBefore].print())] += 1; 
-					int opLocPrPr = opLocBefore -1; 
-					while ((opLocPrPr == -1) ? 
-							false : goldPhs[opLocPrPr].print().equals("∅"))
-						opLocPrPr--;
+					int opLocPrPr = getPrevAlignedGoldPos(alignment, opLocBefore, false); 
 					if (opLocPrPr != -1)
 						prePriorCounts[goldPhInds.get(goldPhs[opLocPrPr].print())] += 1; 
 					else	prePriorCounts[goldPhInventory.length] += 1;
 				}
 				else	priorPhoneCounts[goldPhInventory.length] += 1;  
-					
-				int opLocAfter = dloc + 1;
-				while ((opLocAfter == goldPhs.length) ? false :
-					goldPhs[opLocAfter].print().equals("∅"))
-					opLocAfter++; 
+				//goldPhInventory.length -- i.e. word bound.
+
+				int opLocAfter = getNextAlignedGoldPos(alignment, dloc, nullGold, goldPhs.length) ;
+
 				if (opLocAfter < goldPhs.length)
 				{
 					posteriorPhoneCounts[goldPhInds.get(goldPhs[opLocAfter].print())] += 1; 
-					int opLocPoPo = opLocAfter + 1;
-					while ((opLocPoPo == goldPhs.length) ? false :
-						goldPhs[opLocPoPo].print().equals("∅"))
-						opLocPoPo++; 
+					int opLocPoPo = getNextAlignedGoldPos(alignment, opLocAfter, false, goldPhs.length) ;
 					if(opLocPoPo != goldPhs.length)
 						postPostrCounts[goldPhInds.get(goldPhs[opLocPoPo].print())] += 1;
 					else postPostrCounts[goldPhInventory.length] += 1; 
@@ -421,6 +547,8 @@ public class ErrorAnalysis {
 				else	posteriorPhoneCounts[goldPhInventory.length] += 1;
 			}
 		} 
+		
+		
 		
 		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_distortion_instances,0.2)); 
 		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_distortion_instances,0.2));
@@ -767,9 +895,9 @@ public class ErrorAnalysis {
 		// of defining context for a shift, rather than a negative determiner.
 	private int[] get_autopsy_scope()
 	{
-		int[] startInRadiusCts = new int[MAX_RADIUS];
+		int[] startInRadiusCts = new int[MAX_RADIUS+1];
 			// [n] -- count of filter matches that start at index n. for those starting beyond the max radius, we don't care.
-		int[] endInRadiusCts= new int[MAX_RADIUS];
+		int[] endInRadiusCts= new int[MAX_RADIUS+1];
 			// [n] -- count of filter matches ending at endex (-1*n-1) -- if beyond max radius, we don't care.
 		
 		for (List<int[]> locBounds : SS_HIT_BOUNDS)
@@ -816,16 +944,16 @@ public class ErrorAnalysis {
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
+		errorsByPivotPhone =  new int[pivotPhInventory.length];
 		errorRateByResPhone = new double[resPhInventory.length]; 
 		errorRateByGoldPhone = new double[goldPhInventory.length];
-		
-		
-		
+		errorRateByPivotPhone = new double[pivotPhInventory.length];
+				
 		for (int isi = 0; isi < NUM_ETYMA ; isi++)
 		{
 			IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 
 			if(IN_SUBSAMP[isi])
-			{
+			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
@@ -835,8 +963,7 @@ public class ErrorAnalysis {
 				else	
 				{
 					nSSMisses+=1;
-					updateConfusionMatrix(RES.getByID(isi), GOLD.getByID(isi));
-					
+					updateConfusionMatrix(isi);
 				}
 				totPED += peds[isi];
 				totFED += feds[isi]; 
@@ -872,13 +999,18 @@ public class ErrorAnalysis {
 		
 		pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
 		
-		System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+pctAcc);
+		System.out.println("Size of subset : "+SUBSAMP_SIZE+"; "+(""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
+		System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
+		System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0+"").substring(0,6)+"%");
 		
-		int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length]; 
+		
+		int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
+				pivPhCts = new int[pivotPhInventory.length]; 
 		for(int i = 0; i < SUBSAMP_SIZE; i++)
 		{
 			for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
 			for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
+			for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
 			
 		}
 		pct1off = nSS1off / (double) SUBSAMP_SIZE;
@@ -889,6 +1021,8 @@ public class ErrorAnalysis {
 			errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i] / (double)goldPhCts[i];
+		for (int i = 0 ; i < pivotPhInventory.length; i++)
+			errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
 		
 	}
 	
@@ -1169,9 +1303,16 @@ public class ErrorAnalysis {
 	public void printFourColGraph(Lexicon inpLex)
 	{
 		LexPhon[] inpWds = inpLex.getWordList(); 
-		for(int i = 0; i < inpWds.length; i++)
-			System.out.println(""+i+","+inpWds[i].toString()+ (focSet? FOCUS.getByID(i).toString() + "," : "") +
-					RES.getByID(i).toString() +"," + GOLD.getByID(i));
+		for(int i = 0; i < inpWds.length; i++) {
+			if (IN_SUBSAMP[i])
+			{
+				System.out.print(append_space_to_x(i+",",6)+"| ");
+				System.out.print(append_space_to_x(inpWds[i].toString(), 19) + "| ");
+				if (focSet)
+					System.out.print(append_space_to_x(FOCUS.getByID(i).toString(),19)+"| ");
+				System.out.print(append_space_to_x(RES.getByID(i).toString(),19)+"| ");
+				System.out.print(GOLD.getByID(i)+"\n");
+			}	}
 	}
 	
 }

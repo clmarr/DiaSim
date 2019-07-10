@@ -66,9 +66,6 @@ h > ∅ / @ __
 $p145 s361- i-prosthesis -- happens in Western Romance very early, attested second century
 ∅ > ˌɪ / # __ s [+cons] 
 
-$ CORRECTION: u(ː) becomes sonus medius before [+back,-syl] [+lo,+prim]
-[+hi,+back,-stres] > ɪ / __ [+back,-syl] [+lo,+prim]
-
 $p100 s214i -- one case of regular stress movement, attested in third and fourth centuries . 
 $ movement of stress onto the penultimate if antepenultimate is immediate adjacent short vowel
 $ Must come before yod formation (s220), which it feeds, as per s214i -- not attested till the 3rd century but Pope seems to be saying it actually occurred earlier. 
@@ -88,6 +85,9 @@ $ the gliding phenomenon below
 $p102 s220 (also p73 s156i)  -- yod and w formation -- gliding of unstressed short non-low vowels before other vowels
 $ -- called upon to be this early by p91 s187
 [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl]
+
+$ CORRECTION: uː unstressed becomes sonus medius -- diachronically equivalent to ɪ -- before a non syllable and not near word boundary -- but does not bleed prior yod formation (see adiu:ta:re) or feed it (manu:opera)
+uː > ɪ / __ [-syl] @
 
 $ per s220 : yod is lost between e and p,r
 j > ∅ / {p;r} __ [+front,-hi,-lo,+syl]
@@ -738,7 +738,8 @@ o > u / [+prim] __ #
 $ CORRECTION: deletion of e (< {ɪ or eː} unstressed) before t then  ɑː . 
 $ Pope's forms in s350 show results of this but she does not separate it from general unstressed vowel "slurring"
 $ CORRECTION: include /i/ too -- ki:wi:tatem
-[+front,+tense,-lo,-stres] > ∅ / __ t̪ [+lo,+long]
+$ CORRECITON: in fact this occurs not only before t but also all coronals
+[+front,+tense,-lo,-stres] > ∅ / __ [+cor] [+lo,+long]
 
 $ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
 t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
@@ -751,6 +752,9 @@ $ CORRECTION: Pope s372 moved here, date was rather unclear in Pope's prose prev
 $ CORRECTION: only becomes dark l after a back or lo vowel, else to normal l 
 ð > ɫ / [+back] __ [+lat]
 ð > l / __ [+lat]
+
+$ CORRECTION: t coming into contact with sj or zj becomes tsj 
+t̪ [+ant,+cont,+strid,+front] > t͡sʲ
 
 $ Pope p77 s163-2 $~ p90 s182 : Palatalization of ɑ > a
 $ Pope confirms this also occurred in the diphthong ɑu (> au) -- p191 s505
@@ -835,16 +839,15 @@ $ CORRECTION: moved earlier because it bleeds the following rule of initial t vo
 	$ this is also more consistent with Pope's view that it arose due to Gaulish
 [+hi,+tense,+round,+syl,-nas] > [-front,-back]
 
-$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of the schwas) 
+$ s350 -- ... and t "immediately" devoices if it comes into contact (by fall of unstressed vowels) 
 $ with a PRECEDING b, β or ʝ
 $ CORRECTION : this also effects t͡s
 $ CORRECTION : voicing influence of ʝ does not occur if target is right before word coda (iacet >git, pejus > pis etc) or right before another consonant (Tricassae > Troyes, ...) 
 $ CORRECTION : same as above for the labials too except that it does occur before voiced consonants (derbitarum > dardre, etc..) 
-$ CORRECTION : influence of yod only effects palatalized consonants -- voidier (βˌɔʝd̪ʲˈie̯r) and aise (aːʝd͡zʲə) but moitie' (mˌɛʝt̪ˈaːt̪)
 $ CORRECTION : moved before schwa reinsertion.
 $ CORRECTION : ʝ only has this effect at this point if it is coming after a velar or low vowel (ʉ is excluded)
-[+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
-[+cor,+ant,+front] > [+voi] / [+lo] ʝ __ [-cons]
+[+cor,+ant] > [+voi] / [+back,+syl] ʝ __ [-cons]
+[+cor,+ant] > [+voi] / [+lo] ʝ __ [-cons]
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1040,7 +1043,6 @@ $ CORRECTION: nrl become flap when after velar or dental (NOT alveolar) occlusiv
 [+son,+cor] > ɾ / [-son,-lab,-strid,-hi] ə __ ə (s) # 
 
 
-
 $ CORRECTION: specifically after /r/ in positions two rules above, /n/ will flap without the possibility of renasalizatoin
 n̪ > ɾ / r (ə) __ ə (s) # 
 
@@ -1193,6 +1195,9 @@ $ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!),
 ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
 [+cor,+ant,+distr,+voi,-cont] > t̪ ə / [-voi] __ #
 ∅ > ə / d̪ t̪ __ #
+
+$ s355 -- final spirantization reversed when come into contact via slurring to consonantal. 
+[+ant,-son,+distr] > [-delrel] / [+cons] __ #
 
 $ s316 palatalization of d and t following palatal cons.
 $ occurs also for n and r when in position
@@ -1382,58 +1387,57 @@ $ s426 -- this explicitly comes BEFORE and BLEEDS the diphthongization of o > ou
 $ Pope does NOT specify that it becomes nasal at this point -- actually she says the "first nasal vowels in Frnech were a and ai in the tenth century" (s434)
 $ but in all fairness it probably SHOULD be to prevent it from getting swept up in u>ʉ>y, the first stages of which are still active at this point
 $ CORRECTION : we now have this happening much earlier, but we maintain this here in case /o/ variants got reintroduced before this point 
-	$-- allowing for latert possibility of including loanwords into paradigm.
+	$-- allowing for later possibility of including loanwords into paradigm.
 [+syl,+back,+round] > [+hi,+tense] / __ [+nas,+cons]
 
-$ CORRECTION : /rʲ/'s emission of j backward moved earlier, away from this point, so that it can trigger breaking of /a/,
-	$  and it thus depalatalizes separately from other consonants here
+$ CORRECTION : early degimination of geminate palatal s before depalatalization of coronals resolves
+sʲ sʲ > sʲ
 
 $ s164-3 $~ s190 $~ s279 $~ s311,312,313,314,315 
-$ ... palatalized dentals resolve into j + simple dental
-$ CORRECTION: rʲ handled separately
+$ ... palatalized dentals resolve into j + simple dental; lj not effected
+$ CORRECTION: any remaining d͡zʲ also ejects j backwards and depalatalizes at this stage
+$ CORRECTION: /rʲ/'s emission of j backward moved earlier, away from this point, so that it can trigger breaking of /a/
+rʲ > r
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
-$ CORRECTION: any remaining d͡zʲ also ejects j backwards and depalatalizes at this stage
-$ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ -- ABROGATED below
-$ then realize the main rule here.
-$ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} -- ABROGATED (see below)
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
 
-$ CORRECTION: tʲ,  sʲ, zʲ, rʲ  and dʲ are actually preserved into Old French in a specific position between a palatal continuant cons and i
-	$ , but lʲ,nʲ, are lost at this point
-$ ... while tsʲ and rʲ are eliminated also earlier by shifts at different points
-$ The evidence is the discover of a new REGULAR RULE by which
-	$ still persistent dentalised palatals see the deletion of following j in jɛʁ segments
-		$ at the same time as this occurs for the uncontroversially remaining palatals
-			$ those being ʃ,ʒ,ʎ and ɲ at that point
-		$ a list to which we add sʲ, tʲ and dʲ which are swiftly eliminated afterward
-	$ evidence: tractare > traiter not traitier, laxare > laisser not laissier,
-		$ vocita:re > vuider > vider, not vuidier > vidier, 
-		$ exfructa:re > effruiter > effriter not effruitier > effritier
-		$ but finally plusio:res > plusieurs not plusours, 
-	$ the only alternative to this is massive changes in the chronology of 
-		$ diphthong developments, which is pretty well substantiated
-	$ so this is the best option with regards to Occam's razor
-$ sʲ is NEVER preserved in ss though, nor are any of these preserved before a consonant
-$ the persistence of sʲ/tʲ/dʲ/rʲ  is specifically both after non-strident palatal consonantal continuants
-	$ and before either # or i e̯ r #  - - so it must behave exactly like before when preceded 
-		$ by a non-consonantal. 
-$ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ rather than a simple spirant
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 		
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} / [-cons] __ 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z}
-{t̪;d̪;s;z;r} > {t̪ʲ;d̪ʲ;sʲ;zʲ;rʲ} / [-syl,-cor,+front] __ [+hi,+front,+cont]
-s > t͡sʲ / [-syl,+hi,+front,+cont,-strid] __ #
+$ CORRECTION: from palatalized coronals except tsj, backward ejection of j after something not palatally articulated itself 
+$ followed by the (temporary) 
 
-$ CORRECTION: case of disiunare, prehensionem, etc -- ˌej goes to ˌi before z
-$ counterfeeds deaffircation of dz 
-ˌe j > ˌi / __ z
+$ CORRECTION: case of disiunare, prehensionem, etc -- ˌej goes to ɛj, and thus ultimately ˌi, before zʲ
+$ deaffircation of dz counterfeeds this (lice:re > loisir, ve:ci:num > voisin, etc) 
+ˌe > ˌɛ / __ j z
+
+$ CORRECTION: ɛj > i when countertonic and before coronal (priser, prison, di^ner...) before depalatalization of coronals resolves
+ˌɛ j > ˌi / __ [+cor]
+
+$ CORRECTION: palatalized coronals, excluding tsʲ are actually preserved into Old French in a specific position between a palatal continuant cons and i
+$ ... tsʲ is handled separately
+$ There is evidence that the deletion of j in -ier endings centuries later, which Pope and others attributed to analogy, can instead be explained regularly
+	$ as the absorption of yod by a persistently palatalized coronal
+	$ that it was absorbed by palatal segments that uncontroversially remained -- ʃ,ʒ,ʎ and ɲ at that point -- is the consensus view
+		$ to this list, we add persistently palatalized coronals, which persisted between two palatal segments (consonantal or not)
+			$ except in cases where the prior palatal consonant was preceded by countertonic i or e 
+		$ persistently palatalized coronals will disappear after they can condition the loss of j in those endings
+	$ this may be more likely than analogy (we argue for palatal persistence 
+		$because otherwise there would have to be a significant change in the chronology of diphthong developments 
+			$so that 'ie > j'e happened much earlier
+$ TODO NOTE : currently suppressed for demonstrative purposes.
+$[+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+${t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __
+
+$ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ word finally after palatal lateral and nasal elements rather than a simple spirant
+	$ and also [CORRECTION] expand it to include all palatal consonants
+s > t͡sʲ / [-syl,+hi,+front] __ #
 
 $ s294 dz opens to z intervocalically due to lenition (Pope implies this by citing s334) before it resolves to jz
 d͡z > z / [-cons] __ [-cons]
 
-$ CORRECTION: (round vowel) w j > j -- side effect of lengthening before ejected j-- oiseau, noise, joie etc
-w > ∅ / [+round,+syl] __ j
+$ CORRECTION: (round vowel) ɔwj,owj > oj -- side effect of lengthening before ejected j-- oiseau, noise, joie etc
+[+back,+round,+syl] w > [+tense] ∅ / __ j
 
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
@@ -1505,9 +1509,6 @@ e̯ > ∅ / ˈa __ [+front,+son,-syl]
 $ s343ii second effacement of beta between diphthongs ending in w and unstressed final u (or ʉ) 
 $ as per Popeˌs example in s343 this includes Latin lupum -- so must come AFTER beginning of 2nd diphthongization
 β > ∅ / w __ [+tense,+round,-stres]
-
-$ s355 -- final spirantization reversed due to slurring .
-{θ;ð} > [-delrel] / ə __ # $reverse
 
 $ s164-15 $~  s234: raising of lax countertonic ɛ,ɔ to tense e,o except in ɛr[+cons] ɛɫ[+cons] and ɔɫ[+cons] , see also s223, 121
 
@@ -1608,34 +1609,13 @@ w > v / [+lo] e̯ __ [-cons]
 $ CORRECTION : deletion of w internal in remaining cons clusters
 w > ∅ / [+cons] __ [+cons] 
  
-$ s327 resolution of ɣw clusters
-$ s327 : ɣ (<x) palatalizes after tonic front vowels 
-$ CORRECTION : many of these are dipthongized to ae̯, ie̯, ej now, so allow one front glide in between
-$ CORRECTION : allow also for 
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$ ɣ > ʝ / [+prim,+front] ([-cons,-syl,+front]) __ w
-
-$ s327 ɣ assimilates to following w intervocalically 
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$ ɣ > w / [+syl] __ w [+syl]
-$ as per s374 : so do beta and delta
-$ but delta only after w > v if a follows
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$  ð w > w v / ð __ [+lo]
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$  [+cont,-son,-hi] > w / @ __ w 
+$ CORRECTION: s327 deleted from here as entire set of rules pertaining to 
+	$ intervocalic ɣw, ðw etc reformulated
  
-$ s328 limited recurrence of breaking of ɛ before the palatal
-$ CORRECTION: unnecessary -- deleted
+$ CORRECTION s328 unnecessary -- deleted
 $  {ɛ;ˌɛ;ˈɛ;ˈɛː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯} / __ ʝ w
  
-$ s329 and etc 
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$  w > ɣʷ / ʝ __ r
-$ CORRECTION: entire set of rules reformated, this deleted. 
-$  w > ɣʷ / ʝ __ [+syl]
-$ CORRECTION: entire set of rules reformated, this deleted.  
-$ ɣʷ > v / @ __ 
+$ CORRECTION: s329 deleted as entire set of rules handling  ɣʷ reformulated
 
 $ s 192ii :  ɣʷ at beginning of word to ɡ if this is still around.. 
 ɣʷ > ɡ / # __  
@@ -1917,14 +1897,13 @@ $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 $ CORRECTION : tonic ˈow > ˈew is REVERSED before z [epoux, epouse, moule, ...] 
 ˈe > ˈo / __ w z
 
-$s291-s292 -- t͡sʲ eventually depalatalizes. Pope does not explicate when, but it is clearly before Later Old French.
-$ This would seem to be AFTER the influence exercised by palatals 
-           $on preceding vowels such as e (s418)
-$ as the results of the first palatalization DO exercise this influence 
-$ As it was clearly non-palatal t͡s by Later Old French, we place this at the end of Early Old French
-$ CORRECTION :This is moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
+$ CORRECTION : s291-s292, tsj depalatalization, is deleted. 
+	$Already had to be moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
-$ CORRECTION : not yet after nasals 
+ $ other unsalvageable issues included words like suctiare > sucer not sucier, percer not percier, blesser not blessier, chasser not chassier etc
+ $ as for the two cases of aciarium and sortiarium -- this are much more likely cases for analogy than the verbs, as it is a very restricted but recognizable noun class
+ 	$ that is much more "learned" and knonw to correspond to Latin -iarium in both cases. 
+$ TODO NOTE: reinstated for demonstrative purposes
 t͡sʲ > t͡s / {[-nas];#} __
  
 $ CORRECTION e > ɛ before ʎ
@@ -2522,10 +2501,9 @@ $ note as per prior corrections, palatal sʲ, tʲ, zʲ, dʲ have now been preser
 	$ set of words, and are also triggers for this change
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 
-$ CORRECTED: now we finally lose the remaining dento-palatals
+$ CORRECTED: now we finally lose the remaining anterior palatals
 $ after changing their developments in Gallo-Roman so they are preserved until now in
-	$ limited contexts -- evidenced by traiter, effriter, vider, laisser and plusieurs
-{sʲ;d̪ʲ;t̪ʲ} > {s;d̪;t̪}
+[+ant,+front] > [-front,-hi]
 
 $ s521 : oɛ̯ (uɛ̯, ͏ɔɛ̯?) > wɛj before tonics, o > wɛ before j #
 $ final completion of process started much earlier.

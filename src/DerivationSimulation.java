@@ -800,10 +800,10 @@ public class DerivationSimulation {
 					+ "| 2 : Set filter sequence                                                             |\n"
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Standard prognosis at evaluation point                                          |\n"
-					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon)                      |\n"
-					+ "| 6 : Print stats (at evaluation point) (for subset lexicon                           |\n"
-					+ "| 7 : Print all corresponding forms (init(,focus),res,gold)                           |\n"
-					+ "| 8 : Print all mismatched forms                                                      |\n"
+					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
+					+ "| 6 : Print stats (at evaluation point) (for subset lexicon if specified)             |\n"
+					+ "| 7 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
+					+ "| 8 : Print all mismatched forms (for subset if specified)                            |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
 			
@@ -901,7 +901,7 @@ public class DerivationSimulation {
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
 							focPtLex = toyDerivationResults(initLexicon.getWordList(),CASCADE.subList(0, focPtLoc));
-							focPtName = "pivot@r"+focPtLoc; 
+							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
 						else
@@ -968,7 +968,7 @@ public class DerivationSimulation {
 							+ "2 : print all etyma by ID\n"
 							+ "3 : get trajectory up to this point for etymon by its ID\n"
 							+ "4 : get rule by time step\n"
-							+ "5 : get time step(s) by rule\n"
+							+ "5 : get time step(s) by rule [BUGGED CURRENTLY]\n"
 							+ "6 : print all rules by time step.\n"
 							+ "7 : return to main menu.\n"); 
 					resp = inpu.nextLine().replace("\n",""); 
@@ -1002,10 +1002,10 @@ public class DerivationSimulation {
 					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
 					{
 						System.out.println("Enter the ID to query:");
-						resp = inpu.nextLine(); 
+						String idstr = inpu.nextLine(); 
 						int theID = -1; 
 						try {
-							theID = Integer.parseInt(resp); 
+							theID = Integer.parseInt(idstr); 
 						}
 						catch (Exception e)	{
 							System.out.println("Error -- you need to enter a valid integer. Returning to query menu.");
