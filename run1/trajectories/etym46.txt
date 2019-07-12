@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :46:
-#ˌɑmˌiːkit̪ˈɑːt̪em# >>> #amit̪je# ( Correct : #amit̪je#) :
+#ˌɑmˌiːkit̪ˈɑːt̪em# >>> #amist̪je# ( Correct : #amit̪je#) :
 ˌɑ m ˌiː k i t̪ ˈɑː t̪ e m 
 #ˌɑmˌiːkɪt̪ˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑmˌikɪt̪ˈɑt̪ɛm# | Rule 58 : [+syl,+long] > [-long,-splng] 
@@ -18,13 +18,15 @@ Trajectory file for run 'run1'; etymon number :46:
 #ˌamˌit͡sʲt̪ʲˈie̯t̪ə̯# | Rule 285 : ə > ə̯ 
 #ˌamˌit͡sʲt̪ʲˈie̯t̪# | Rule 309 : ə̯ > ∅ 
 #ˌamˌit͡sʲt̪ˈie̯t̪# | Rule 398 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˌamˌit͡sʲt̪ˈie̯θ# | Rule 445 : [-delrel] > [+cont,0delrel] / [-cons] __ #
-#ˌãmˌit͡sʲt̪ˈie̯θ# | Rule 511 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ˌæ̃mˌit͡sʲt̪ˈie̯θ# | Rule 525 : [+nas,+front,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+nas,+cons]
-#ˌæ̃mˌit͡st̪ˈie̯θ# | Rule 549 : t͡sʲ > t͡s / [-nas] __ 
-#ˌãmˌit͡st̪ˈie̯θ# | Rule 578 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#ˌãmˌit͡st̪jˈeθ# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌãmˌit͡st̪jˈe# | Rule 609 : {θ;ð} > {∅;∅} 
-#ˌãmˌit̪jˈe# | Rule 649 : t͡s > ∅ / __ [+cons]
-#ˌamˌit̪jˈe# | Rule 744 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amit̪je# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˌamˌit͡sʲt̪ʲˈie̯t̪# | Rule 402 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#ˌamˌit͡sʲt̪ˈie̯t̪# | Rule 403 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __ 
+#ˌamˌit͡sʲt̪ˈie̯θ# | Rule 447 : [-delrel] > [+cont,0delrel] / [-cons] __ #
+#ˌãmˌit͡sʲt̪ˈie̯θ# | Rule 513 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#ˌæ̃mˌit͡sʲt̪ˈie̯θ# | Rule 527 : [+nas,+front,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+nas,+cons]
+#ˌãmˌit͡sʲt̪ˈie̯θ# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#ˌãmˌit͡sʲt̪jˈeθ# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌãmˌit͡sʲt̪jˈe# | Rule 608 : {θ;ð} > {∅;∅} 
+#ˌãmˌisʲt̪jˈe# | Rule 646 : [+delrel] > [+cont,0delrel] 
+#ˌãmˌist̪jˈe# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#ˌamˌist̪jˈe# | Rule 741 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#amist̪je# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

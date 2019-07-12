@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :670:
-#mˈɑt̪t̪eɑm# >>> #mas# ( Correct : #mas#) :
+#mˈɑt̪t̪eɑm# >>> #mɑs# ( Correct : #mas#) :
 m ˈɑ t̪ t̪ e ɑ m 
 #mˈɑt̪t̪ɛɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˈɑt̪t̪jɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -8,10 +8,13 @@ m ˈɑ t̪ t̪ e ɑ m
 #mˈɑt̪t͡sʲʝɑ# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
 #mˈɑt̪t͡sʲɑ# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #mˈat̪t͡sʲa# | Rule 206 : [+lo] > [+front,-back] 
-#mˈat̪t͡sʲə# | Rule 448 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈat͡sʲə# | Rule 495 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#mˈat͡sə# | Rule 549 : t͡sʲ > t͡s / [-nas] __ 
-#mˈasə# | Rule 650 : [+delrel] > [+cont,0delrel] 
-#mˈasə̯# | Rule 709 : ə > ə̯ / __ #
-#mˈas# | Rule 737 : ə̯ > ∅ 
-#mas# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈat̪t͡sʲə# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
+#mˈat͡sʲə# | Rule 497 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#mˈasʲə# | Rule 646 : [+delrel] > [+cont,0delrel] 
+#mˈasə# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#mˈaːsə# | Rule 704 : [+front,-round,+syl] > [+long] / __ s ə #
+#mˈaːsə̯# | Rule 706 : ə > ə̯ / __ #
+#mˈɑːsə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːs# | Rule 734 : ə̯ > ∅ 
+#mɑːs# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɑs# | Rule 752 : [+syl,+long] > [-long,-splng] 

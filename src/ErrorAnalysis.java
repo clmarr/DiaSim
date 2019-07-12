@@ -289,7 +289,7 @@ public class ErrorAnalysis {
 			SequentialPhonic rTarget = topDistortions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topDistortions[i][0]],
 					gTarget = topDistortions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topDistortions[i][1]];
 			
-			System.out.println("----\nDistortion "+i+": "+ rTarget.print()+" for "+gTarget.print()); 
+			System.out.println("----\nDistortion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
 			
 			double wordsWithDistortion = (double)confusionMatrix[topDistortions[i][0]][topDistortions[i][1]];
 					
@@ -355,6 +355,7 @@ public class ErrorAnalysis {
 			candFeats[2*fti+1] = "+"+featsByIndex[fti];
 		}
 		boolean constFeatsRemain = true; 
+		boolean candFeatsTouched = false;
 		
 		String commonPhs = ""; 
 		for(int cti = 0; cti < indexedCts.length - 1; cti++)
@@ -386,13 +387,18 @@ public class ErrorAnalysis {
 						{
 							int featVal = Integer.parseInt(""+curPhFeats[(int)Math.floor(cfii/2)]); 
 							if(((double)featVal)/2.0 != (double)(cfii % 2) * 2.0) //i.e. not pos/pos or neg/neg
+							{
 								candFeats[cfii] = ""; 
+								candFeatsTouched = true;
+							}
 							cfii++;
 						}
 					}
 				} 
 			}
 		}
+		
+		if (!candFeatsTouched)	constFeatsRemain = false; 
 		
 		if(constFeatsRemain)
 		{
@@ -1063,7 +1069,7 @@ public class ErrorAnalysis {
 			out += "   "+(pri.size() - prli)+" before     |";
 		out += " FOCUS ";
 		for(int poli =0 ; poli<po.size(); poli++)
-			out += "|    "+(1+po.size() - poli)+" after    ";
+			out += "|    "+(1+poli)+" after    ";
 		out+="\n|"; 
 		for(int di = 0; di < pri.size() * 16 + po.size() * 16 + 8; di++)	out+="-";
 		out+="|\n"; 

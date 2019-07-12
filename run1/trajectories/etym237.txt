@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :237:
-#fˈɑkiɑ# >>> #fas# ( Correct : #fas#) :
+#fˈɑkiɑ# >>> #fɑs# ( Correct : #fas#) :
 f ˈɑ k i ɑ 
 #fˈɑkɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #fˈɑkjɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -8,10 +8,13 @@ f ˈɑ k i ɑ
 #fˈɑccɑ# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
 #fˈɑt̪t͡sʲɑ# | Rule 187 : c c > t̪ t͡sʲ 
 #fˈat̪t͡sʲa# | Rule 206 : [+lo] > [+front,-back] 
-#fˈat̪t͡sʲə# | Rule 448 : a > ə / [+syl] ( [-syl] )* __ 
-#fˈat͡sʲə# | Rule 495 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#fˈat͡sə# | Rule 549 : t͡sʲ > t͡s / [-nas] __ 
-#fˈasə# | Rule 650 : [+delrel] > [+cont,0delrel] 
-#fˈasə̯# | Rule 709 : ə > ə̯ / __ #
-#fˈas# | Rule 737 : ə̯ > ∅ 
-#fas# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fˈat̪t͡sʲə# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈat͡sʲə# | Rule 497 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#fˈasʲə# | Rule 646 : [+delrel] > [+cont,0delrel] 
+#fˈasə# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#fˈaːsə# | Rule 704 : [+front,-round,+syl] > [+long] / __ s ə #
+#fˈaːsə̯# | Rule 706 : ə > ə̯ / __ #
+#fˈɑːsə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
+#fˈɑːs# | Rule 734 : ə̯ > ∅ 
+#fɑːs# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɑs# | Rule 752 : [+syl,+long] > [-long,-splng] 

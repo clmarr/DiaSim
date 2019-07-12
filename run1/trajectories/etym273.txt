@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :273:
-#flˌɑɡrˈɑːre# >>> #fleʁje# ( Correct : #flɛʁe#) :
+#flˌɑɡrˈɑːre# >>> #fleʁe# ( Correct : #flɛʁe#) :
 f l ˌɑ ɡ r ˈɑː r e 
 #flˌɑɡrˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #flˌɑɡrˈɑrɛ# | Rule 58 : [+syl,+long] > [-long,-splng] 
@@ -16,12 +16,15 @@ f l ˌɑ ɡ r ˈɑː r e
 #flˌarʲˈie̯r# | Rule 309 : ə̯ > ∅ 
 #flˌajrʲˈie̯r# | Rule 360 : ∅ > j / [-cons] __ rʲ
 #flˌajrˈie̯r# | Rule 397 : rʲ > r 
-#flˌajrjˈer# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#flˌɛjrjˈer# | Rule 621 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#flˌɛːrjˈer# | Rule 642 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#flˌɛːrjˈeɹ# | Rule 727 : r > ɹ / [-cons] __ #
-#flˌerjˈeɹ# | Rule 748 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
-#flˌerjˈe# | Rule 749 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#flˌeʀjˈe# | Rule 753 : r > ʀ 
-#fleʀje# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#fleʁje# | Rule 761 : ʀ > ʁ 
+#flˌajrʲˈie̯r# | Rule 402 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#flˌajrʲjˈer# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#flˌɛjrʲjˈer# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#flˌɛːrʲjˈer# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#flˌɛːrʲˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#flˌɛːrˈer# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#flˌɛːrˈeɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#flˌerˈeɹ# | Rule 745 : [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __ 
+#flˌerˈe# | Rule 746 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#flˌeʀˈe# | Rule 750 : r > ʀ 
+#fleʀe# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fleʁe# | Rule 758 : ʀ > ʁ 

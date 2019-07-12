@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1071:
-#sˌɑːn̪kt̪it̪ˈɑːt̪em# >>> #sɛ̃t̪je# ( Correct : #sɛ̃t̪ət̪e#) :
+#sˌɑːn̪kt̪it̪ˈɑːt̪em# >>> #sɛ̃t̪e# ( Correct : #sɛ̃t̪ət̪e#) :
 s ˌɑː n̪ k t̪ i t̪ ˈɑː t̪ e m 
 #sˌɑːŋkt̪it̪ˈɑːt̪em# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
 #sˌɑːŋkt̪ɪt̪ˈɑːt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -19,13 +19,16 @@ s ˌɑː n̪ k t̪ i t̪ ˈɑː t̪ e m
 #sˌaɲt̪ʲˈie̯t̪ə̯# | Rule 285 : ə > ə̯ 
 #sˌaɲt̪ʲˈie̯t̪# | Rule 309 : ə̯ > ∅ 
 #sˌaɲt̪ˈie̯t̪# | Rule 398 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#sˌaɲt̪ˈie̯θ# | Rule 445 : [-delrel] > [+cont,0delrel] / [-cons] __ #
-#sˌaj̃n̪t̪ˈie̯θ# | Rule 450 : ɲ > j̃ n̪ / __ [+cons]
-#sˌãj̃n̪t̪ˈie̯θ# | Rule 511 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#sˌɛ̃j̃n̪t̪ˈie̯θ# | Rule 589 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
-#sˌɛ̃j̃n̪t̪jˈeθ# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#sˌɛ̃j̃n̪t̪jˈe# | Rule 609 : {θ;ð} > {∅;∅} 
-#sˌɛ̃n̪t̪jˈe# | Rule 666 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#sˌɛ̃ːt̪jˈe# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sɛ̃ːt̪je# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɛ̃t̪je# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#sˌaɲt̪ʲˈie̯t̪# | Rule 402 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#sˌaɲt̪ʲˈie̯θ# | Rule 447 : [-delrel] > [+cont,0delrel] / [-cons] __ #
+#sˌaj̃n̪t̪ʲˈie̯θ# | Rule 452 : ɲ > j̃ n̪ / __ [+cons]
+#sˌãj̃n̪t̪ʲˈie̯θ# | Rule 513 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#sˌɛ̃j̃n̪t̪ʲˈie̯θ# | Rule 588 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#sˌɛ̃j̃n̪t̪ʲjˈeθ# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#sˌɛ̃j̃n̪t̪ʲjˈe# | Rule 608 : {θ;ð} > {∅;∅} 
+#sˌɛ̃n̪t̪ʲjˈe# | Rule 662 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#sˌɛ̃ːt̪ʲjˈe# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#sˌɛ̃ːt̪ʲˈe# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#sˌɛ̃ːt̪ˈe# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#sɛ̃ːt̪e# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sɛ̃t̪e# | Rule 752 : [+syl,+long] > [-long,-splng] 

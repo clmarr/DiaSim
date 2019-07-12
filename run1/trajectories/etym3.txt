@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :3:
-#ˌɑd̪fˌɑkt̪ˈɑːre# >>> #afɛt̪je# ( Correct : #afɛt̪e#) :
+#ˌɑd̪fˌɑkt̪ˈɑːre# >>> #afɛt̪e# ( Correct : #afɛt̪e#) :
 ˌɑ d̪ f ˌɑ k t̪ ˈɑː r e 
 #ˌɑd̪fˌɑkt̪ˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˌɑd̪fˌɑkt̪ˈɑrɛ# | Rule 58 : [+syl,+long] > [-long,-splng] 
@@ -15,14 +15,17 @@ Trajectory file for run 'run1'; etymon number :3:
 #ˌaðfˌaçt̪ʲˈie̯rə̯# | Rule 285 : ə > ə̯ 
 #ˌaðfˌaçt̪ʲˈie̯r# | Rule 309 : ə̯ > ∅ 
 #ˌaðfˌaçt̪ˈie̯r# | Rule 398 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#ˌaðfˌaʝt̪ˈie̯r# | Rule 465 : ç > ʝ 
-#ˌaðfˌajt̪ˈie̯r# | Rule 471 : ʝ > j / [-cons] __ 
-#ˌaθfˌajt̪ˈie̯r# | Rule 497 : [-son] > [-voi] / __ [-voi]
-#ˌaθfˌajt̪jˈer# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌafˌajt̪jˈer# | Rule 609 : {θ;ð} > {∅;∅} 
-#ˌafˌɛjt̪jˈer# | Rule 621 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#ˌafˌɛːt̪jˈer# | Rule 642 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ˌafˌɛːt̪jˈeɹ# | Rule 727 : r > ɹ / [-cons] __ #
-#ˌafˌɛːt̪jˈe# | Rule 749 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#afɛːt̪je# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#afɛt̪je# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#ˌaðfˌaçt̪ʲˈie̯r# | Rule 402 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#ˌaðfˌaʝt̪ʲˈie̯r# | Rule 467 : ç > ʝ 
+#ˌaðfˌajt̪ʲˈie̯r# | Rule 473 : ʝ > j / [-cons] __ 
+#ˌaθfˌajt̪ʲˈie̯r# | Rule 499 : [-son] > [-voi] / __ [-voi]
+#ˌaθfˌajt̪ʲjˈer# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌafˌajt̪ʲjˈer# | Rule 608 : {θ;ð} > {∅;∅} 
+#ˌafˌɛjt̪ʲjˈer# | Rule 620 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ˌafˌɛːt̪ʲjˈer# | Rule 641 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#ˌafˌɛːt̪ʲˈer# | Rule 669 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ˌafˌɛːt̪ˈer# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#ˌafˌɛːt̪ˈeɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#ˌafˌɛːt̪ˈe# | Rule 746 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#afɛːt̪e# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#afɛt̪e# | Rule 752 : [+syl,+long] > [-long,-splng] 

@@ -1425,9 +1425,9 @@ $ There is evidence that the deletion of j in -ier endings centuries later, whic
 	$ this may be more likely than analogy (we argue for palatal persistence 
 		$because otherwise there would have to be a significant change in the chronology of diphthong developments 
 			$so that 'ie > j'e happened much earlier
-$ TODO NOTE : currently suppressed for demonstrative purposes.
-$[+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
-${t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __
+$  NOTE : needs to be suppressed for demonstrative purposes for case traiter
+[+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __
 
 $ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ word finally after palatal lateral and nasal elements rather than a simple spirant
 	$ and also [CORRECTION] expand it to include all palatal consonants
@@ -1903,8 +1903,8 @@ $ CORRECTION : s291-s292, tsj depalatalization, is deleted.
  $ other unsalvageable issues included words like suctiare > sucer not sucier, percer not percier, blesser not blessier, chasser not chassier etc
  $ as for the two cases of aciarium and sortiarium -- this are much more likely cases for analogy than the verbs, as it is a very restricted but recognizable noun class
  	$ that is much more "learned" and knonw to correspond to Latin -iarium in both cases. 
-$ TODO NOTE: reinstated for demonstrative purposes
-t͡sʲ > t͡s / {[-nas];#} __
+$ TODO NOTE: needs to be reinstated for demonstrative purposes with traiter
+$ t͡sʲ > t͡s / {[-nas];#} __
  
 $ CORRECTION e > ɛ before ʎ
 $ Pope actually does have this happening, but for her it happens centuries later and does not function to block 
@@ -1937,7 +1937,8 @@ $ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (re
 	$ by placing it here, we also do not accidentally hit as that become o later, and do not trigger the shift:
 		$ i.e. clavem > clef, clavum > clou
 	$ ... or those that become ae̯ : clarum > cler, etc. 
-k > ɡ / # __ [+cor,+son] [+lo]
+$ TODO NOTE : currently suppressed for demonstrative purposes for glas, gras etc. 
+$ k > ɡ / # __ [+cor,+son] [+lo]
 
 $ CORRECTION : ˌo opens before r,l then stressed a or ɛ or ə 
 $ CORRECTION : first one is counterfed by ae > eː -- moved down past s231-3
@@ -2383,14 +2384,17 @@ $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings
 $ CORRECTION: moved this to before merger of ts and s (<ss) as there are clearly different results
 	$ as there is no length where the affricate formerly followed. 
 $ NOTE: suppress for ts/s demo
-[+front,-round,+syl] > [+long] / __ s ə #
+$ TODO NOTE: currently suppressed
+$ [+front,-round,+syl] > [+long] / __ s ə #
 
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts (thus this must come before deaffrication) 
 $ NOTE: suppress for ts/s demo
-[+prim,+lo] > [+long] / __ s #
+$ TODO NOTE: currently suppressed
+$ [+prim,+lo] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
-t͡s > ∅ / __ [+cons] 
+$ TODO currently suppressed for ts/s demo
+$ t͡s > ∅ / __ [+cons] 
 
 $ s172b $~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
@@ -2639,9 +2643,10 @@ $ accepted by Beze -- 17th century
 
 $ CORRECTION: s570ii a:se, i:se etc lengthening moved earlier so that it is not fed by deaffrication. 
 
-$NOTE: following used only for ts/s demo, otherwise suppress. 
+$NOTE: original rule of Pope here following used only for ts/s demo, otherwise suppress. 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
-$ [+front,-round,+syl] > [+long] / __ s ə #
+$ TODO NOTE : currently doing demo mode..
+[+front,-round,+syl] > [+long] / __ s ə #
 
 $ s271 ə final deleted in hiatus with tonic vowel, even if j comes between
 $ as per s271 began in Old French with analogy in verb forms, became widespread in late 15th and 16th centuries,

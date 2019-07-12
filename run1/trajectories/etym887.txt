@@ -15,10 +15,12 @@ p ˌi e t̪ ˈɑː t̪ e m
 #pˌiçt̪ʲˈie̯t̪ə̯# | Rule 285 : ə > ə̯ 
 #pˌiçt̪ʲˈie̯t̪# | Rule 309 : ə̯ > ∅ 
 #pˌiçt̪ˈie̯t̪# | Rule 398 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#pˌiçt̪ˈie̯θ# | Rule 445 : [-delrel] > [+cont,0delrel] / [-cons] __ #
-#pˌiʝt̪ˈie̯θ# | Rule 465 : ç > ʝ 
-#pˌijt̪ˈie̯θ# | Rule 471 : ʝ > j / [-cons] __ 
-#pˌit̪ˈie̯θ# | Rule 472 : j > ∅ / [+hi,+front,+tense] __ 
-#pˌit̪jˈeθ# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#pˌit̪jˈe# | Rule 609 : {θ;ð} > {∅;∅} 
-#pit̪je# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˌiçt̪ʲˈie̯t̪# | Rule 402 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#pˌiçt̪ˈie̯t̪# | Rule 403 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __ 
+#pˌiçt̪ˈie̯θ# | Rule 447 : [-delrel] > [+cont,0delrel] / [-cons] __ #
+#pˌiʝt̪ˈie̯θ# | Rule 467 : ç > ʝ 
+#pˌijt̪ˈie̯θ# | Rule 473 : ʝ > j / [-cons] __ 
+#pˌit̪ˈie̯θ# | Rule 474 : j > ∅ / [+hi,+front,+tense] __ 
+#pˌit̪jˈeθ# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pˌit̪jˈe# | Rule 608 : {θ;ð} > {∅;∅} 
+#pit̪je# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
