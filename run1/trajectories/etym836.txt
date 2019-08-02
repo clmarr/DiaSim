@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :836:
-#pˈɑssum# >>> #pa# ( Correct : #pɑ#) :
+#pˈɑssum# >>> #pɑ# ( Correct : #pɑ#) :
 p ˈɑ s s u m 
 #pˈɑssʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˈɑssom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
@@ -9,5 +9,8 @@ p ˈɑ s s u m
 #pˈassə̯# | Rule 285 : ə > ə̯ 
 #pˈass# | Rule 309 : ə̯ > ∅ 
 #pˈas# | Rule 500 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#pˈa# | Rule 732 : [-son] > ∅ / __ #
-#pa# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˈaːs# | Rule 647 : [+prim,+lo] > [+long] / __ s #
+#pˈɑːs# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
+#pˈɑː# | Rule 734 : [-son] > ∅ / __ #
+#pɑː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɑ# | Rule 754 : [+syl,+long] > [-long,-splng] 

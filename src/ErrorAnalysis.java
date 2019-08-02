@@ -53,7 +53,7 @@ public class ErrorAnalysis {
 	
 	private boolean focSet, filtSet; 
 	
-	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.7;
+	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
 	
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
@@ -446,7 +446,6 @@ public class ErrorAnalysis {
 	
 	public void printAlignment(int[][] anmt, SequentialPhonic[] rphs, SequentialPhonic[] gphs)
 	{
-		int ri = 0 , gi = 0; 
 		for (int i = 0; i < anmt.length; i++)
 		{
 			System.out.print(append_space_to_x(i+"",2)+"| "); 
@@ -915,8 +914,8 @@ public class ErrorAnalysis {
 			}				
 		}
 		
-		int[] out = new int[] {0,0};
-		int[] cumul = new int[] {0,0};
+		int[] out = new int[] {-1,1};
+		int[] cumul = new int[] { startInRadiusCts[0] , endInRadiusCts[0] };
 		boolean[] freeze = new boolean[] {false, false};
 		while (out[0] >= -1*MAX_RADIUS && out[1] <= MAX_RADIUS && (!freeze[0] || !freeze[1])) 
 		{
@@ -1040,6 +1039,10 @@ public class ErrorAnalysis {
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
 		int[] scope = get_autopsy_scope(); 
+		
+		//TODO debugging
+		System.out.println("Context autopsy scope is "+scope[0]+","+scope[1]);
+		
 		int rel_loc = scope[0];
 		while (rel_loc < 0)
 		{
@@ -1156,6 +1159,15 @@ public class ErrorAnalysis {
 		return out;
 	}
 	
+	
+	/**
+	 * 
+	 * @param rel_ind -- index of analysis relative to first phone of distortion/focus
+	 * @param ids -- etymon ids 
+	 * @param phs -- phs to analyzie (typically optained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
+	 * @param theBounds -- bounds of the distortion/focus in those ids. 
+	 * @return
+	 */
 	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
 	{
 		boolean posterior = rel_ind > 0; 
@@ -1182,12 +1194,12 @@ public class ErrorAnalysis {
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
 		List<List<SequentialPhonic>> phs_here = miss_and_hit_phones_at_rel_loc(rel_ind); 
+		// frequencies of phones among hits and among misses
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
 		
 		assert hit_ph_frqs.length == phs_here.get(0).size() : "Error : mismatch in size for hit_ph_frqs"; 
 		assert miss_ph_frqs.length == phs_here.get(1).size() : "Error : mismatch in size for miss_ph_frqs";
-		System.out.println("Number of hit phones : "+hit_ph_frqs.length+"; "+"Number of miss phones : "+miss_ph_frqs.length);
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
 		
@@ -1196,45 +1208,62 @@ public class ErrorAnalysis {
 		int[][] cand_freqs = new int[2][featsByIndex.length*2+miss_ph_frqs.length]; 
 			//first dimensh -- 0 for hit, 1 for miss
 		
+		// fill list of all possible feature value predictors. 
 		for (int fti = 0 ; fti < featsByIndex.length; fti++)
 		{
 			candPredictors[2*fti] = "-"+featsByIndex[fti];
 			candPredictors[2*fti+1] = "+"+featsByIndex[fti];
 		}
+		
+		// increment counts of predictiveness toward misses here. 
 		for (int mpi = 0; mpi < miss_ph_frqs.length; mpi++)
 		{
 			String phprint =  phs_here.get(1).get(mpi).print(); 
 			candPredictors[featsByIndex.length*2 + mpi] = "/"+phprint+"/"; 
+			
 			cand_freqs[1][featsByIndex.length*2 + mpi] = miss_ph_frqs[mpi];
+			
 			predPhIndexer.put(phprint, mpi + featsByIndex.length*2); 
 		}
+
+		// only to cand_freqs for hits, since we are predicting misses, not hits per se. 
 		for (int hpi = 0; hpi < hit_ph_frqs.length; hpi++)
 			if (predPhIndexer.containsKey(phs_here.get(0).get(hpi).print()))
 				cand_freqs[0][predPhIndexer.get(phs_here.get(0).get(hpi).print())] = hit_ph_frqs[hpi]; 
 		
+		int unspec = DerivationSimulation.UNSPEC_INT;
 		
+		// get counts for feature value predictors using phone counts. 
 		for (int phi = 0; phi < phs_here.get(1).size(); phi++)
 		{
 			String curprint = phs_here.get(1).get(phi).toString(); 
 			if (!curprint.equals("#"))
 			{	
 				char[] fstr = curprint.split(":")[1].toCharArray();
-					
+				
 				for (int spi = 0; spi < featsByIndex.length; spi++)
-					if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
-						cand_freqs[1][2*spi + Integer.parseInt(""+fstr[spi])/2] += miss_ph_frqs[phi];	
+				{	
+					int fspi = Integer.parseInt(""+fstr[spi]); 
+					if (fspi != unspec)
+						cand_freqs[1][2*spi + fspi/2] += miss_ph_frqs[phi];
+				}
 			}
 		}
-		for (int phi = 0; phi < phs_here.get(0).size(); phi++)
+		
+		for(int phi = 0 ; phi < phs_here.get(0).size(); phi++)
 		{
-			String curprint = phs_here.get(0).get(phi).toString(); 
+			
+			String curprint = phs_here.get(0).get(phi).toString();
 				
 			if(!curprint.equals("#"))
 			{	char[] fstr = curprint.split(":")[1].toCharArray();
 			
 				for (int spi = 0; spi < featsByIndex.length; spi++)
-					if (Integer.parseInt(""+fstr[spi]) != DerivationSimulation.UNSPEC_INT)
-						cand_freqs[0][2*spi + Integer.parseInt(""+fstr[spi])/2] += hit_ph_frqs[phi];
+				{
+					int fspi = Integer.parseInt(""+fstr[spi]); 
+					if (fspi != unspec)
+						cand_freqs[0][2*spi + fspi/2] += hit_ph_frqs[phi];
+				}
 			}
 		}
 		
