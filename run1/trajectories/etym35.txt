@@ -1,24 +1,18 @@
 Trajectory file for run 'run1'; etymon number :35:
-#ˈɑkwɑːs# >>> #o# ( Correct : #o#) :
-ˈɑ k w ɑː s 
-#ˈɑkɣʷɑːs# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ˈɑkwɑːs# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#ˈɑkwɑs# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#ˈɑːkwɑs# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈɑːxwɑs# | Rule 124 : k > x / [+syl] __ w [+syl]
-#ˈaːxwas# | Rule 206 : [+lo] > [+front,-back] 
-#ˈaːɣwas# | Rule 362 : [-voi] > [+voi] / [-cons] __ [-cons]
-#ˈae̯ɣwas# | Rule 424 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˈae̯ɣwəs# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
-#ˈajwəs# | Rule 457 : ˈa e̯ ɣ > ˈa j / __ w
-#ˈɛːwəs# | Rule 541 : ˈa j > ˈɛː / __ w
-#ˈɛːa̯wəs# | Rule 585 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-#ˈɛa̯wəs# | Rule 586 : [-hi,-lo,+syl,-tense] > [-long,-splng] / __ a̯ w
-#e̯ˈawəs# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#e̯ˈoːəs# | Rule 666 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ə̯ˈoːəs# | Rule 667 : e̯ > ə̯ / __ [+round,+back,-hi]
-#ə̯ˈoːs# | Rule 696 : ə > ∅ / [+syl] __ 
-#ə̯ˈoː# | Rule 734 : [-son] > ∅ / __ #
-#ˈoː# | Rule 736 : ə̯ > ∅ 
-#oː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#o# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#hˈeri# >>> #jɛʁ# ( Correct : #jɛʁ#) :
+h ˈe r i 
+#hˈɛrɪ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#hˈɛre# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈɛre# | Rule 112 : h > ∅ 
+#ˈɛːre# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈie̯re# | Rule 173 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈie̯rə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
+#ˈie̯rə̯# | Rule 285 : ə > ə̯ 
+#ˈie̯r# | Rule 309 : ə̯ > ∅ 
+#jˈer# | Rule 596 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#jˈɛr# | Rule 686 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,0delrel] / # ( [-syl] )* __ r #
+#jˈɛɹ# | Rule 726 : r > ɹ / [-cons] __ #
+#jˈɛr# | Rule 750 : ɹ > r 
+#jˈɛʀ# | Rule 752 : r > ʀ 
+#jɛʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#jɛʁ# | Rule 760 : ʀ > ʁ 

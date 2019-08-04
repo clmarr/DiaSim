@@ -1,15 +1,27 @@
 Trajectory file for run 'run1'; etymon number :77:
-#ˈɑrt̪em# >>> #aʁ# ( Correct : #aʁ#) :
-ˈɑ r t̪ e m 
-#ˈɑrt̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɑrt̪ɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#ˈart̪ɛ# | Rule 206 : [+lo] > [+front,-back] 
-#ˈart̪ə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
-#ˈart̪ə̯# | Rule 285 : ə > ə̯ 
-#ˈart̪# | Rule 309 : ə̯ > ∅ 
-#ˈaɹt̪# | Rule 727 : r > ɹ / [-cons] __ [+cons]
-#ˈaɹ# | Rule 734 : [-son] > ∅ / __ #
-#ˈar# | Rule 750 : ɹ > r 
-#ˈaʀ# | Rule 752 : r > ʀ 
-#aʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʁ# | Rule 760 : ʀ > ʁ 
+#mˈɑt̪rem# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ t̪ r e m 
+#mˈɑt̪rɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑt̪rɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈɑːt̪rɛ# | Rule 117 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈɑt̪rɛ# | Rule 156 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈɑːt̪rɛ# | Rule 159 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rɛ# | Rule 206 : [+lo] > [+front,-back] 
+#mˈat̪rɛ# | Rule 228 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈaːt̪rɛ# | Rule 232 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
+#mˈaːt̪rə̯# | Rule 285 : ə > ə̯ 
+#mˈaːt̪r# | Rule 309 : ə̯ > ∅ 
+#mˈaːt̪rə# | Rule 324 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈaːd̪rə# | Rule 363 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#mˈaːðrə# | Rule 388 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#mˈae̯ðrə# | Rule 424 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːðrə# | Rule 555 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈeːrə# | Rule 608 : {θ;ð} > {∅;∅} 
+#mˈɛːrə# | Rule 613 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
+#mˈɛːrə̯# | Rule 708 : ə > ə̯ / __ #
+#mˈɛːr# | Rule 736 : ə̯ > ∅ 
+#mˈɛːʀ# | Rule 752 : r > ʀ 
+#mɛːʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʀ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#mɛʁ# | Rule 760 : ʀ > ʁ 

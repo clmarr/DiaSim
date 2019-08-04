@@ -1,8 +1,20 @@
 Trajectory file for run 'run1'; etymon number :230:
-#ˌet̪# >>> #e# ( Correct : #e#) :
-ˌe t̪ 
-#ˌɛt̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˌɛθ# | Rule 260 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#ˌeθ# | Rule 433 : ˌɛ > ˌe / # __ ( s ) [+distr,-voi]
-#ˌe# | Rule 608 : {θ;ð} > {∅;∅} 
-#e# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fˈort̪iɑm# >>> #fɔʁs# ( Correct : #fɔʁs#) :
+f ˈo r t̪ i ɑ m 
+#fˈɔrt̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˈɔrt̪jɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#fˈɔrt̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
+#fˈɔrt̪ʝɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#fˈɔrt͡sʲʝɑ# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#fˈɔrt͡sʲɑ# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#fˈɔrt͡sʲa# | Rule 206 : [+lo] > [+front,-back] 
+#fˈɔrt͡sʲə# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
+#fˈɔrsʲə# | Rule 649 : [+delrel] > [+cont,0delrel] 
+#fˈɔrsə# | Rule 673 : [+ant,+front] > [-front,-hi] 
+#fˈɔrsə̯# | Rule 708 : ə > ə̯ / __ #
+#fˈɔɹsə̯# | Rule 727 : r > ɹ / [-cons] __ [+cons]
+#fˈɔɹs# | Rule 736 : ə̯ > ∅ 
+#fˈɔrs# | Rule 750 : ɹ > r 
+#fˈɔʀs# | Rule 752 : r > ʀ 
+#fɔʀs# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɔʁs# | Rule 760 : ʀ > ʁ 

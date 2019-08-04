@@ -1,8 +1,18 @@
 Trajectory file for run 'run1'; etymon number :2:
-#ˌɑd̪# >>> #a# ( Correct : #a#) :
-ˌɑ d̪ 
-#ˌad̪# | Rule 206 : [+lo] > [+front,-back] 
-#ˌað# | Rule 260 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#ˌaθ# | Rule 453 : [-son] > [-voi] / __ #
-#ˌa# | Rule 608 : {θ;ð} > {∅;∅} 
-#a# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#spˈiːn̪ɑm# >>> #epin̪# ( Correct : #epin̪#) :
+s p ˈiː n̪ ɑ m 
+#ˌɪspˈiːn̪ɑm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈin̪ɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#ˌespˈin̪ɑm# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌespˈin̪ɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌespˈiːn̪ɑ# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈiːn̪a# | Rule 206 : [+lo] > [+front,-back] 
+#ˌespˈiːn̪ə# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌexpˈiːn̪ə# | Rule 595 : s > x / [-cons] __ [+cons]
+#ˌexpˈĩːn̪ə# | Rule 638 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
+#ˌeːpˈĩːn̪ə# | Rule 658 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌeːpˈiːn̪ə# | Rule 662 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#ˌeːpˈiːn̪ə̯# | Rule 708 : ə > ə̯ / __ #
+#ˌeːpˈiːn̪# | Rule 736 : ə̯ > ∅ 
+#eːpiːn̪# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#epin̪# | Rule 754 : [+syl,+long] > [-long,-splng] 

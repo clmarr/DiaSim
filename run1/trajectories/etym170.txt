@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :170:
-#d̪ˈen̪t̪em# >>> #d̪ɑ̃# ( Correct : #d̪ɑ̃#) :
-d̪ ˈe n̪ t̪ e m 
-#d̪ˈɛn̪t̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈɛn̪t̪ɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#d̪ˈɛn̪t̪ə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
-#d̪ˈɛn̪t̪ə̯# | Rule 285 : ə > ə̯ 
-#d̪ˈɛn̪t̪# | Rule 309 : ə̯ > ∅ 
-#d̪ˈɛ̃n̪t̪# | Rule 526 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#d̪ˈãn̪t̪# | Rule 577 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#d̪ˈãːt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#d̪ˈɑ̃ːt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#d̪ˈɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#d̪ɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪ɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#ɡˈɑwd̪iɑ# >>> #ʒɛ# ( Correct : #ʒwɑ#) :
+ɡ ˈɑ w d̪ i ɑ 
+#ɡˈɑwd̪ɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈɑwd̪jɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ɡˈɑwd̪ʝɑ# | Rule 28 : j > ʝ / __ [+syl]
+#ɡˈɑwɟʝɑ# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#ɡˈɑwʝʝɑ# | Rule 92 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ ʝ
+#ɡˈɑwʝɑ# | Rule 166 : ʝ > ∅ / __ ʝ
+#ɡˈawʝa# | Rule 206 : [+lo] > [+front,-back] 
+#ɡʲˈawʝa# | Rule 242 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#ɡʲˈɔwʝa# | Rule 246 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#ɟˈɔwʝa# | Rule 255 : [+back,+front] > [-back] 
+#d͡ʒˈɔwʝa# | Rule 264 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
+#d͡ʒˈɔwja# | Rule 393 : ʝ > j 
+#d͡ʒˈoja# | Rule 406 : [+back,+round,+syl] w > [+tense,-cons,-lat,+cont,0delrel] ∅/ __ j
+#d͡ʒˈojə# | Rule 450 : a > ə / [+syl] ( [-syl] )* __ 
+#d͡ʒˈujə# | Rule 567 : [+round,+tense,+back] > [+hi] 
+#d͡ʒˈʌjə# | Rule 603 : ˈu > ˈʌ / __ j ə #
+#d͡ʒˈajə# | Rule 619 : ˈʌ > ˈa 
+#ʒˈajə# | Rule 649 : [+delrel] > [+cont,0delrel] 
+#ʒˈaːjə# | Rule 705 : [+prim] > [+long] / __ ( j ) ə #
+#ʒˈaːj# | Rule 707 : ə > ∅ / [+prim] ( j ) __ 
+#ʒˈɛː# | Rule 709 : ˈaː j > ˈɛː / __ #
+#ʒɛː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʒɛ# | Rule 754 : [+syl,+long] > [-long,-splng] 

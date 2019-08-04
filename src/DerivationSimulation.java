@@ -285,6 +285,26 @@ public class DerivationSimulation {
 		
 		System.out.println("Using "+NUM_GOLD_STAGES+" custom stages."); 
 		
+		if (NUM_GOLD_STAGES > 0)
+		{
+			System.out.print("Gold stages: ");
+			for (String gs : goldStageNameAndLocList)
+				System.out.print(gs.substring(0,gs.indexOf(STAGENAME_LOC_DELIM))+",");
+			System.out.println(""); 
+		}
+		  
+		if (NUM_BLACK_STAGES > 0)
+		{
+			System.out.print("Black stages:");
+			for (String bs : blackStageNameAndLocList)
+				System.out.print(bs.substring(0,bs.indexOf(STAGENAME_LOC_DELIM))+",");
+			System.out.println(""); 
+		}
+			
+			
+		
+		
+		
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
 		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES];
 		blackStageResultLexica =new Lexicon[NUM_BLACK_STAGES];
@@ -1066,6 +1086,7 @@ public class DerivationSimulation {
 			else if(resp.equals("8"))
 			{
 				System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
+				System.out.println("Res : Gold");
 				List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
 				for (LexPhon[] mm : mms)
 					System.out.println(mm[0].print()+" : "+mm[1].print());
@@ -1209,7 +1230,8 @@ public class DerivationSimulation {
 	//		  -d : debugging mode -- TODO implement
 	//		  -p : print words every time they are changed by a rule
 	//		  -e : (explicit) do not use feature implications -- TODO implement
-	//		  -c : halt at stage checkpoints
+	//		  -h : halt at stage checkpoints
+	//		  -i : ignore stages
 	private static void parseArgs(String[] args)
 	{
 		int i = 0, j; 
