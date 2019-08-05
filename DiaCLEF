@@ -914,7 +914,6 @@ $ CORRECTION: any vowel before w shortens
 
 $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
 $ must bleed s413 but not second palatalization
-$ CORRECTION: does NOT occur because of any STRESSED round element
 {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
 
 $ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
@@ -1441,6 +1440,8 @@ s > t͡sʲ / [+cons,+son,+hi,+front] __ #
 $ s294 dz opens to z intervocalically due to lenition (Pope implies this by citing s334) before it resolves to jz
 d͡z > z / [-cons] __ [-cons]
 
+
+
 $ CORRECTION: (round vowel) ɔwj,owj > oj -- side effect of lengthening before ejected j-- oiseau, noise, joie etc
 [+back,+round,+syl] w > [+tense] ∅ / __ j
 
@@ -1529,14 +1530,26 @@ $ CORRECTION: it is not as simple as Pope argues, as this shift is blocked in ce
 ˌɛ > ˌɨ / __ [+cor,+cont] [+cor]
 ˌɛ > ˌe / __ @ @
 
-$CORRECTION: closing of ɔ blocked before voiceless coronals (prochain, fosse', côte', ...)
+$CORRECTION: closing of ɔ blocked before obstruent coronals (prochain, fosse', côte', ...)
 $CORRECTION: closing of ɔ also doesn't occur rihgt before tonic o
-ˌɔ > ˌɯ / __ [+cor,-voi]
+$CORRECTION: blocked in ɔw dipth
+ˌɔ > ˌɯ / __ [+cor,-son]
 ˌɔ > ˌɯ / __ ˈɔ
+ˌɔ > ˌɯ / __ w
 
 $(resolving 164-15 ~ s234
 ˌɔ > ˌo
 {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ}
+
+
+$ per Pope s481 : original aw ("au̯") becomes ɔ -- we do not differentiate "au̯" from a + w sequences
+	$ but we could reliably capture it as being whenever aw precedes a consonantal. 
+$ CORRECTION: moved to after closing of countertonic ɔ  (s164-15~s234)
+	$ because original AU segments are not effected
+$ CORRECTION: doesn't happen before DENTAL CONSONANTS
+	$ this is far too early by anyone's account for the interdentals to have been lost,
+		$ and cases like gauta > joue, aut > ou, nauda > noue, alauda > aloue etc show a clear pattern
+{a w;ˌa w;ˈa w} > {ɔ;ˌɔ;ˈɔ} / __ {[+strid];[+ant,-distr]}
 
 $ CORRECTION ɛrr is also shifted 
 ˌɛ > ˌe / __ r r
