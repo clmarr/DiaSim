@@ -381,10 +381,12 @@ n̪ > r / d̪ __
 $ CORRECTION : earliest implementation of s365 (Pope attributes these to Gallo-Roman)
 $ necessary to correctly bleed some of the following lenition shifts.
 $ s365 : deletion of all plosive consonants internal to a cluster not ending in l or r 
-$ CORRECTION: also does not target consonants before ʝ 
+$ CORRECTION: also does not target consonants before ʝ
 [-cont] > ∅ / [+cons] __ [-son,-hi]
 [-cont] > ∅ / [+cons] __ [-cont,+hi]
-[-cont] > ∅ / [+cons] __ [+nas,+cons]
+
+$ CORRECTION : before nasals, effacement does not occur at this stage
+$ [-cont] > ∅ / [+cons] __ [+nas,+cons]
 
 $ CORRECTION: s365i inserted here too, earlier than Pope explicitly states it is. 
 $ s365i : additional deletion of velars in rgl, skl
@@ -1019,10 +1021,6 @@ $ CORRECTION: when not preceded by a consonant, this instead goes to jˈɛː
 ˈaː rʲ > j ˈɛː r / [+syl] __ [+syl] #
 ˈaː rʲ > ˈɛː r / [+syl] ([-syl])* __ [+syl] # 
 
-$ CORRECTION: initiation of flapping in words of type Cpalstop 'a: n e s
-$ TODO check this 
-n̪ > ɾ / @ [-cont,+front] ˈaː __ e s # 
-
 $ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
 $ NOTE: this actually occurred a bit later than the ones above, 
 $ but diachronically it is convenient to place it here.
@@ -1042,8 +1040,13 @@ $ Pope dismisses n-flapping phenomena as characteristic only of loan words (s642
 $ CORRECTION: nrl become flap when after velar or dental (NOT alveolar) occlusives and between two schwas then (s)#
 [+son,+cor] > ɾ / [-son,-lab,-strid,-hi] ə __ ə (s) # 
 
-
 $ CORRECTION: specifically after /r/ in positions two rules above, /n/ will flap without the possibility of renasalizatoin
+$ Dating as per TLFi : appears to complete around 1100-- 1050 jorn > 1100 jor
+	$ 1100 sujurn > 1150 sejor 
+$ However it is essentially impossible to get a correct rule cascade if we do that
+	$ perhaps there was some distinct sequence for a time,
+		$ or the written form was just conservative? 
+	$ or perhpas the written -rn (wiht no e) ending indicated -rr in fact...?
 n̪ > ɾ / r (ə) __ ə (s) # 
 
 $ CORRECTION: nə,ra,rə (əna never will be generated) all become ɾə before bilabials
@@ -1332,18 +1335,20 @@ $ CORRECTION: this happens in the midst of the process of the fall of the first 
 $ CORRECTION: this bleeds post-palatal a-raising
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
-$ s413-4 -- recurrence as per medietatem, adiutare, Andecanes etc
+$ s413-4 -- recurrence as per medietatem, adiutare
 $ Raising of free a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
 $ CORRECTION: word-final a is unaffected if it isn't stressed.
 $ CORRECTION: happens to primarily stressed a anywhere
 $ CORRECTION: also before final rʲ 
 $ CORRECTION: also before rs#
+$ CORRECTION: also after palatal SONORANTS before nasals
 $ CORRECTION: does not occur immediately word finally this time
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ rʲ #
+[+lo,+prim] > [-lo,+front,-tense] / [+front,-syl,+cont] __ [+nas,+cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ r s #
 
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
@@ -1430,8 +1435,8 @@ $  NOTE : needs to be suppressed for demonstrative purposes for case traiter
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __
 
 $ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ word finally after palatal lateral and nasal elements rather than a simple spirant
-	$ and also [CORRECTION] expand it to include all palatal consonants
-s > t͡sʲ / [-syl,+hi,+front] __ #
+	$ and also [CORRECTION] expand it to include all palatal sonorant consonantals
+s > t͡sʲ / [+cons,+son,+hi,+front] __ #
 
 $ s294 dz opens to z intervocalically due to lenition (Pope implies this by citing s334) before it resolves to jz
 d͡z > z / [-cons] __ [-cons]
@@ -1478,7 +1483,7 @@ $ CORRECTION: long a shortens when between a sonorant non-syllabic and final l
 ˈaː > ˈa / [+cont] [-syl,+son] __ l #
 
 $ s164-13 : diphthongization of tense e, o > ei, ou when tonic free(s225),
-$  also tonic free a to ae "?" (s233)
+$ per Pope also tonic free a to ae "?" (s233)
 $ and also s164-14 : "second bout of diphthongization of lax e tonic free
 $ CORRECTION : if eː is already coming before j, that is absorbed. Same for ʝ 
 {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
@@ -1597,7 +1602,7 @@ $ CORRECTION: ɣ > e̯ / ˌa __ (ˌaɣwˈie̯r > ˌae̯wˈie̯r >> e'vier)
 ɣ > e̯ / ˌa __
 
 $ CORRECTION: ˈa e̯ ɣ > ˈaː j / __ w (case of aqua >>> aiue >>> eaue, aquas >>> aiues >>> eaues >>> eaux) 
- ˈa e̯ ɣ > ˈa j / __ w
+ˈa e̯ ɣ > ˈa j / __ w
  
 $ CORRECTION: ɣ w > j v (ive, antif, antive)
 ɣ w > j v 
@@ -1605,6 +1610,16 @@ $ CORRECTION: ɣ w > j v (ive, antif, antive)
 $ CORRECTION : w > v / [+lo] e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
 $ does not happen for ie̯ which ends up forming ie̯w > jew > j
 w > v / [+lo] e̯ __ [-cons]
+
+$ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
+$ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
+$ syllable length rules of Gallo-Roman (open and stressed =long, else =short) must no longer be effective after this point. 
+$ Buckley criticizes this paradigm from Pope.
+$ CORRECTION: moved miuch later as it feeds other phenomena like aqua > eau after eː becomes diphthongized and thus is no longer productive, 
+	$ else a e̯ becomes oj > wa 
+$ CORRECTION: but it needs to be before ae > aj / __ N
+ $ -- TODO DISCUSS THIS !!!!!
+{a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}
  
 $ CORRECTION : deletion of w internal in remaining cons clusters
 w > ∅ / [+cons] __ [+cons] 
@@ -1659,8 +1674,6 @@ j > ∅ / [+hi,+front,+tense] __
 $ s165.5 leveling of au to o (s505)
 $ note that the "original" a w have now become ɔ w -- this rule is handling when it was once β 
 {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
-
-$s231-3 ae>ee for Pope moved away from here. 
 
 $ s165.7 : another round of cluster modifications follows
 $ CLUSTER REDUCTIONS pp 145-150 ish... 
@@ -1818,16 +1831,27 @@ $ CORRECTION : but only if it is not the final syllable
 $ CORRECTION: rounding of ˈe to ˈo before j is early when preceded by a voiced labial consonant
 ˈe > ˈo / [+lab,+voi] __ j
 
-$s405-406 ɲ final > j ɲ when after a e (not ɛ) u (<o) or y.
+$s405-406 ɲ final > j ɲ when after a e (not ɛ or ie) u (<o) or y.
 $ called "Early Old French" by Pope (s406)
-∅ > j̃ / [+tense] __ ɲ # 
+∅ > j̃ / [+tense,+syl] __ ɲ # 
+
+$s407i : glide develops between e tonic or countertonic and ɲ intervocalic  
+$ CORRECTION: /ɛ/ to also be included in this
+$ that it is here can be evidenced by Pope's tables. 
+∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
 $ s166.6 ~ s434, s439 ~s441.2,441.4: second nasalation, effects syllabic e variants and ej, in the 11th century. Bleeds later ei > oi shift.
 $ should NOT effect ie̯ , which was nasalized in the third nasalization, in the 13th century. (s441.5 etc -- and then lowered later).
 j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
 [+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
-$ CORRECTION: some housekeeping, to avoid rather dumb errors
-[+nas,+front,-hi,-lo,+syl] > [-tense] / __ [+nas,+cons]
+
+
+$ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
+$As per s226, this happened "before the end of the [EOF] period". 
+$Attested in 1084 in Domesday book 1081
+$The mutations of ei and ou seem to have occurred later.
+o̯ > e̯ 
+
 
 $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u 
 	$ ... are BLED by effects of ð : 
@@ -1859,11 +1883,12 @@ z > ∅ / __ d̪
 [+stres] > [+long] / @ __ z [+cons] [+syl] [-cons]
 z > ∅ / __ [+cons]
 
-$ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
-$As per s226, this happened "before the end of the [EOF] period". 
-$Attested in 1084 in Domesday book 1081
-$The mutations of ei and ou seem to have occurred later.
-o̯ > e̯ 
+$ s411: ˈue̯j >"yi̯j" > yj and ˈie̯j >(ii̯j >) i
+$ see also s410~s514-5
+$ CORRECTION: also includes j̃
+ˈu > ˈy / __ e̯ j
+e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+[-syl,-cons,+hi,-round] > ∅ / ˈi __ 
 
 $ s330 : early leveling of aj before w -- case of aqua -- 11th century. 
 ˈa j > ˈɛː / __ w 
@@ -1871,7 +1896,7 @@ $ s330 : early leveling of aj before w -- case of aqua -- 11th century.
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
 $ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant though (meuble)
-[+tense,+syl,+round,-hi,-lo] w >[+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
+[+tense,+syl,+round,-hi,-lo] w > [+hi,+long] ∅ / [-lab,+cons] __ [+lab,-syl]
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
@@ -1881,16 +1906,26 @@ $ CORRECTED -- seems to happen immediately before u>y,
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
+
+$ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure
+ˌo > ˌɔ / __ r [+ant,-lab,-cont]
+
+$ ... but not if it's rtr
+ˌɔ > ˌo / __ r t̪ r
+
 $s435: dentalization of final m after vowels. 
 $s435 -- accepted by late 11th century 
 m > n̪ / [-cons] __ #
+
+~Old French I
 
 $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle of the twelfth century".
 $ She places it in EOF-- so we place it there too, though clearly at the end. 
 $ Any e before yod effected.
 $ per s226 : effects ei whether tonic, intertonic or countertonic, but only tonic ou 
+$ CORRECTION: effects only short e, so that *ae reflexes are not effected.
 ˈo > ˈe / __ w 
-[+front,+tense,-hi,-lo,+syl] > [+back,-front,+round,+lab] / __ j 
+[+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j 
 
 $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 ˌo > ˌe / d͡ʒ __ w
@@ -1908,51 +1943,17 @@ $ TODO NOTE: needs to be reinstated for demonstrative purposes with traiter
 $ t͡sʲ > t͡s / {[-nas];#} __
  
 $ CORRECTION e > ɛ before ʎ
-$ Pope actually does have this happening, but for her it happens centuries later and does not function to block 
+$ Pope actually does have this happening, 
+	$ but for her it happens centuries later and does not function to block 
 	$ phenomena that would have modified e had it not occurred here. 
 [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
 $ CORRECTION: ˌo and ˈo open before pre-coda t or k 
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
 
-$ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure
-ˌo > ˌɔ / __ r [+ant,-lab,-cont]
-
-$ ... but not if it's rtr
-ˌɔ > ˌo / __ r t̪ r
-
-$ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
-$ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
-$ syllable length rules of Gallo-Roman (open and stressed =long, else =short) must no longer be effective after this point. 
-$ Buckley criticizes this paradigm from Pope.
-$ CORRECTION: moved from Late Gallo-Roman into Early Old French, after eː becomes diphthongized, else a e̯ becomes oj > wa 
-{a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}
-
-$ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (regardless of stress)
-	$ Pope does notice this but she (likely incorrectly) attributes this to a "tendency" in Gallo-Roman 
-		$ and only conditions it on the following l or r
-	$ However if we condition it on a following a AFTER aw becomes round, and open a > ae̯ > eː 
-	$ then we hit every occurrence except irregular caveola > geole
-		$ -- i.e. craticula > grille, cranucula > grenouille, crappa > grappe, crassum > gras,
-		$ crassia > graisse, cladebos > glaive, classum > glas. 
-	$ by placing it here, we also do not accidentally hit as that become o later, and do not trigger the shift:
-		$ i.e. clavem > clef, clavum > clou
-	$ ... or those that become ae̯ : clarum > cler, etc. 
-$ TODO NOTE : currently suppressed for demonstrative purposes for glas, gras etc. 
-$ k > ɡ / # __ [+cor,+son] [+lo]
-
 $ CORRECTION : ˌo opens before r,l then stressed a or ɛ or ə 
 $ CORRECTION : first one is counterfed by ae > eː -- moved down past s231-3
 ˌo > ˌɔ / __ [+cons,+cor,+son] {ˈa;ˈɛ} 
-
-$ s411: ˈue̯j >"yi̯j" > yj and ˈie̯j >(ii̯j >) i
-$ see also s410~s514-5
-$ CORRECTION: also includes j̃
-ˈu > ˈy / __ e̯ j
-e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-[-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-
-~Old French I
 
 $ s520: early oj(uj?),ɔj >oɛ̯,ɔɛ̯ before r 
 j > ɛ̯ / [+syl,+back,+round] __ r 
@@ -1985,7 +1986,7 @@ $ except for early shift before labial consonants (see s489), this is bled by 16
 $Pope places it in EOF so we place it there too-- but clearly at the end of the period.
 [+round,+tense,+back] > [+hi] 
 
-$s407i : glide develops between e tonic or countertonic and ɲ or ʎ intervocalic  
+$s407i : glide develops between e tonic or countertonic and ʎ intervocalic  
 $ CORRECTION: /ɛ/ to also be included in this 
 ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
@@ -2016,6 +2017,24 @@ $ CORRECTION: s > z here demonstrably only causes problems
 $ CORRECTION: f > v has no effect here deleted  currently this rule has no effect for f > v
 $s > z / [-cons] __ [-cons]
 $f > v / [-cons] __ [-cons]
+
+$ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (regardless of stress)
+	$ Pope does notice this but she (likely incorrectly) attributes this to a "tendency" in Gallo-Roman 
+		$ and only conditions it on the following l or r
+	$ However if we condition it on a following a AFTER aw becomes round, and open a > ae̯ > eː 
+	$ then we hit every occurrence except irregular caveola > geole
+		$ -- i.e. craticula > grille, cranucula > grenouille, crappa > grappe, crassum > gras,
+		$ crassia > graisse, cladebos > glaive, classum > glas. 
+	$ by placing it here, we also do not accidentally hit as that become o later, and do not trigger the shift:
+		$ i.e. clavem > clef, clavum > clou
+	$ ... or those that become ae̯ : clarum > cler, etc. 
+	$ attestation info from TLFi:
+		$ the following were never attested with "c" --
+			$ glas 1140, grappe 1121, grasse 1170 ("crasse" only as rare form in 1300s later), grenouille 1225 etc
+		$ graisse -- "craisse" around 1100, but by 1150 was graisse
+	$ We know it must come before ɛ̃>ã, however, so it doesn't get feed overgeneralization
+k > ɡ / # __ [+cor,+son] [+lo]
+
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ CORRECTION: doesn't happen before j̃

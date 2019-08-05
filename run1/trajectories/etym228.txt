@@ -1,15 +1,18 @@
 Trajectory file for run 'run1'; etymon number :228:
-#t̪ˈoːt̪t̪um# >>> #t̪o# ( Correct : #t̪ˈu#) :
-t̪ ˈoː t̪ t̪ u m 
-#t̪ˈoːt̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈot̪t̪ʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#t̪ˈot̪t̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈot̪t̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#t̪ˈot̪t̪ə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈot̪t̪ə̯# | Rule 285 : ə > ə̯ 
-#t̪ˈot̪t̪# | Rule 309 : ə̯ > ∅ 
-#t̪ˈot̪# | Rule 497 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#t̪ˈɔt̪# | Rule 552 : {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
-#t̪ˈɔ# | Rule 734 : [-son] > ∅ / __ #
-#t̪ɔ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪o# | Rule 758 : ɔ > o / __ #
+#ˈekwɑ# >>> #iv# ( Correct : #iv#) :
+ˈe k w ɑ 
+#ˈekɣʷɑ# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˈekwɑ# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#ˈɛkwɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈɛːkwɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˈɛːxwɑ# | Rule 123 : k > x / [+syl] __ w [+syl]
+#ˈie̯xwɑ# | Rule 172 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#ˈie̯xwa# | Rule 205 : [+lo] > [+front,-back] 
+#ˈie̯ɣwa# | Rule 360 : [-voi] > [+voi] / [-cons] __ [-cons]
+#ˈie̯ɣwə# | Rule 449 : a > ə / [+syl] ( [-syl] )* __ 
+#ˈie̯jvə# | Rule 457 : ɣ w > j v 
+#ˈijvə# | Rule 542 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#ˈivə# | Rule 543 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#ˈivə̯# | Rule 708 : ə > ə̯ / __ #
+#ˈiv# | Rule 736 : ə̯ > ∅ 
+#iv# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

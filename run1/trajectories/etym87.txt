@@ -1,21 +1,23 @@
 Trajectory file for run 'run1'; etymon number :87:
-#ˈɑllium# >>> #aj# ( Correct : #aj#) :
-ˈɑ l l i u m 
-#ˈɑllɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈɑlljʊm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#ˈɑllʝʊm# | Rule 28 : j > ʝ / __ [+syl]
-#ˈɑllʝom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈɑllʝo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#ˈɑʎo# | Rule 96 : l l ʝ > ʎ 
-#ˈɑːʎo# | Rule 116 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˈaːʎo# | Rule 206 : [+lo] > [+front,-back] 
-#ˈaʎo# | Rule 235 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#ˈaʎə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
-#ˈaʎə̯# | Rule 285 : ə > ə̯ 
-#ˈaʎ# | Rule 309 : ə̯ > ∅ 
-#ˈaːʎ# | Rule 373 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#ˈaʎ# | Rule 374 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#ˈaːʎ# | Rule 416 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#ˈaʎ# | Rule 417 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#aʎ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aj# | Rule 761 : ʎ > j 
+#ˌɑwiˈoːlɑm# >>> #ajœl# ( Correct : #ajœl#) :
+ˌɑ w i ˈoː l ɑ m 
+#ˌɑɣʷiˈoːlɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˌɑɣʷɪˈoːlɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑɣʷjˈoːlɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ˌɑɣʷʝˈoːlɑm# | Rule 28 : j > ʝ / __ [+syl]
+#ˌɑʝˈoːlɑm# | Rule 30 : {ɣʷ;w} > {∅;∅} / __ ʝ
+#ˌɑʝˈolɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#ˌɑʝˈolɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌɑʝˈoːlɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌaʝˈoːla# | Rule 205 : [+lo] > [+front,-back] 
+#ˌajˈoːla# | Rule 392 : ʝ > j 
+#ˌajˈowla# | Rule 423 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌajˈowlə# | Rule 449 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌajˈewlə# | Rule 552 : ˈo > ˈe / __ w
+#ˌajˈøwlə# | Rule 612 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ˌajˈøːlə# | Rule 622 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ˌajˈøːlə̯# | Rule 708 : ə > ə̯ / __ #
+#ˌajˈøːl# | Rule 736 : ə̯ > ∅ 
+#ˌajˈœːl# | Rule 740 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#ajœːl# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ajœl# | Rule 754 : [+syl,+long] > [-long,-splng] 

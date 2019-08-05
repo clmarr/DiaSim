@@ -255,27 +255,33 @@ public class DerivationSimulation {
 		while (rli < rulesByTimeInstant.size())
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
-			if( currRule.charAt(0) == GOLD_STAGENAME_FLAG && !ignore_stages)
+			
+			if ( (""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
 			{
-				goldStagesSet = true; 
-				assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
-				
-				currRule = currRule.substring(1); 
-				assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
-					"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-					"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-				goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
-				rulesByTimeInstant.remove(rli);  
-			}
-			else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG && !ignore_stages )
-			{
-				blackStagesSet =true;
-				currRule = currRule.substring(1); 
-				assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-					"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-				blackStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
-				rulesByTimeInstant.remove(rli); 
+				if (ignore_stages)	rulesByTimeInstant.remove(rli); 
+				else if ( currRule.charAt(0) == GOLD_STAGENAME_FLAG)
+				{
+					goldStagesSet = true; 
+					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
+					
+					currRule = currRule.substring(1); 
+					assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
+						"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
+					goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					rulesByTimeInstant.remove(rli);  
+				}
+				else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG)
+				{
+					blackStagesSet =true;
+					currRule = currRule.substring(1); 
+					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
+					blackStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					rulesByTimeInstant.remove(rli); 
+				}
+				else	rulesByTimeInstant.remove(rli); 
 			}
 			else	rli++;
 		}
@@ -300,10 +306,6 @@ public class DerivationSimulation {
 				System.out.print(bs.substring(0,bs.indexOf(STAGENAME_LOC_DELIM))+",");
 			System.out.println(""); 
 		}
-			
-			
-		
-		
 		
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
 		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES];

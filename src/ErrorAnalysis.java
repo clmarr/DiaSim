@@ -1003,32 +1003,36 @@ public class ErrorAnalysis {
 		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
 		
 		pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
-		
-		System.out.println("Size of subset : "+SUBSAMP_SIZE+"; "+(""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
-		System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
-		System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0+"").substring(0,6)+"%");
-		
-		
-		int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
-				pivPhCts = new int[pivotPhInventory.length]; 
-		for(int i = 0; i < SUBSAMP_SIZE; i++)
-		{
-			for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
-			for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
-			for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
-			
+		 
+		if (SUBSAMP_SIZE == 0)
+			System.out.println("Uh oh -- size of subset is 0.");
+		else {
+			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
+			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
+			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
+			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0+"").substring(0,6)+"%");
+	
+			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
+					pivPhCts = new int[pivotPhInventory.length]; 
+			for(int i = 0; i < SUBSAMP_SIZE; i++)
+			{
+				for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
+				for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
+				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
+				
+			}
+			pct1off = nSS1off / (double) SUBSAMP_SIZE;
+			pct2off = nSS2off / (double) SUBSAMP_SIZE; 
+			avgPED = totPED / (double) SUBSAMP_SIZE; 	
+			avgFED = totFED / (double) SUBSAMP_SIZE; 
+			for (int i = 0 ; i < resPhInventory.length; i++)
+				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
+			for (int i = 0 ; i < goldPhInventory.length; i++)
+				errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i] / (double)goldPhCts[i];
+			for (int i = 0 ; i < pivotPhInventory.length; i++)
+				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
 		}
-		pct1off = nSS1off / (double) SUBSAMP_SIZE;
-		pct2off = nSS2off / (double) SUBSAMP_SIZE; 
-		avgPED = totPED / (double) SUBSAMP_SIZE; 	
-		avgFED = totFED / (double) SUBSAMP_SIZE; 
-		for (int i = 0 ; i < resPhInventory.length; i++)
-			errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
-		for (int i = 0 ; i < goldPhInventory.length; i++)
-			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i] / (double)goldPhCts[i];
-		for (int i = 0 ; i < pivotPhInventory.length; i++)
-			errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
-		
+			
 	}
 	
 	public void contextAutopsy()

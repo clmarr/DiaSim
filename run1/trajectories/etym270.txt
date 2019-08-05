@@ -1,14 +1,22 @@
 Trajectory file for run 'run1'; etymon number :270:
-#sˈikkum# >>> #sɛk# ( Correct : #sɛk#) :
-s ˈi k k u m 
-#sˈɪkkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˈekkom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˈekko# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#sˈekkə# | Rule 277 : [-stres,-lo,+syl] > ə / __ #
-#sˈekkə̯# | Rule 285 : ə > ə̯ 
-#sˈekk# | Rule 309 : ə̯ > ∅ 
-#sˈek# | Rule 500 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#sˈɛk# | Rule 614 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
-#sˈɛkə̯# | Rule 731 : ∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
-#sˈɛk# | Rule 736 : ə̯ > ∅ 
-#sɛk# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fˌirmˈɑːre# >>> #fɛʁme# ( Correct : #fɛʁme#) :
+f ˌi r m ˈɑː r e 
+#fˌɪrmˈɑːrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#fˌɪrmˈɑrɛ# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#fˌermˈɑrɛ# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#fˌermˈɑːrɛ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#fˌermˈaːrɛ# | Rule 205 : [+lo] > [+front,-back] 
+#fˌermˈaːrə# | Rule 275 : [-stres,-lo,+syl] > ə / __ #
+#fˌermˈaːrə̯# | Rule 283 : ə > ə̯ 
+#fˌermˈaːr# | Rule 307 : ə̯ > ∅ 
+#fˌermˈae̯r# | Rule 423 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#fˌermˈeːr# | Rule 459 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#fˌɛrmˈeːr# | Rule 685 : [-hi,-lo,+syl,+front] > [-tense,-cons,-lat,+cont,0delrel] / __ r [+cons,-strid]
+#fˌɛrmˈeːɹ# | Rule 726 : r > ɹ / [-cons] __ #
+#fˌɛɹmˈeːɹ# | Rule 727 : r > ɹ / [-cons] __ [+cons]
+#fˌɛɹmˈeː# | Rule 748 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#fˌɛrmˈeː# | Rule 750 : ɹ > r 
+#fˌɛʀmˈeː# | Rule 752 : r > ʀ 
+#fɛʀmeː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fɛʀme# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#fɛʁme# | Rule 760 : ʀ > ʁ 
