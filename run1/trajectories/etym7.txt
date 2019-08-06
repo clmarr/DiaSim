@@ -11,15 +11,14 @@ Trajectory file for run 'run1'; etymon number :7:
 #ˌaðrˈie̯t̪ro# | Rule 205 : [+lo] > [+front,-back] 
 #ˌaðrˈie̯t̪rə# | Rule 275 : [-stres,-lo,+syl] > ə / __ #
 #ˌaðrˈie̯t̪rə̯# | Rule 283 : ə > ə̯ 
-#ˌaðrˈie̯t̪r# | Rule 307 : ə̯ > ∅ 
-#ˌaðrˈie̯t̪rə# | Rule 322 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˌaðrˈie̯d̪rə# | Rule 361 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#ˌaðrˈie̯ðrə# | Rule 387 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
-#ˌaðrjˈeðrə# | Rule 599 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#ˌarjˈerə# | Rule 611 : {θ;ð} > {∅;∅} 
-#ˌarjˈɛrə# | Rule 616 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#ˌarjˈɛrə̯# | Rule 711 : ə > ə̯ / __ #
-#ˌarjˈɛr# | Rule 739 : ə̯ > ∅ 
-#ˌaʀjˈɛʀ# | Rule 755 : r > ʀ 
-#aʀjɛʀ# | Rule 756 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʁjɛʁ# | Rule 763 : ʀ > ʁ 
+#ˌaðrˈie̯t̪rə# | Rule 289 : ə̯ > ə / [+stres] ( [-syl] )* [-son] [+cor,+son] __ 
+#ˌaðrˈie̯d̪rə# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#ˌaðrˈie̯ðrə# | Rule 386 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#ˌaðrjˈeðrə# | Rule 598 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ˌarjˈerə# | Rule 610 : {θ;ð} > {∅;∅} 
+#ˌarjˈɛrə# | Rule 615 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
+#ˌarjˈɛrə̯# | Rule 710 : ə > ə̯ / __ #
+#ˌarjˈɛr# | Rule 738 : ə̯ > ∅ 
+#ˌaʀjˈɛʀ# | Rule 754 : r > ʀ 
+#aʀjɛʀ# | Rule 755 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʁjɛʁ# | Rule 762 : ʀ > ʁ 

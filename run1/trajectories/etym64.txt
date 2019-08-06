@@ -6,12 +6,11 @@ Trajectory file for run 'run1'; etymon number :64:
 #ˈarbrɛ# | Rule 205 : [+lo] > [+front,-back] 
 #ˈarbrə# | Rule 275 : [-stres,-lo,+syl] > ə / __ #
 #ˈarbrə̯# | Rule 283 : ə > ə̯ 
-#ˈarbr# | Rule 307 : ə̯ > ∅ 
-#ˈarbrə# | Rule 322 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˈarbrə̯# | Rule 711 : ə > ə̯ / __ #
-#ˈaɹbrə̯# | Rule 730 : r > ɹ / [-cons] __ [+cons]
-#ˈaɹbr# | Rule 739 : ə̯ > ∅ 
-#ˈarbr# | Rule 753 : ɹ > r 
-#ˈaʀbʀ# | Rule 755 : r > ʀ 
-#aʀbʀ# | Rule 756 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʁbʁ# | Rule 763 : ʀ > ʁ 
+#ˈarbrə# | Rule 289 : ə̯ > ə / [+stres] ( [-syl] )* [-son] [+cor,+son] __ 
+#ˈarbrə̯# | Rule 710 : ə > ə̯ / __ #
+#ˈaɹbrə̯# | Rule 729 : r > ɹ / [-cons] __ [+cons]
+#ˈaɹbr# | Rule 738 : ə̯ > ∅ 
+#ˈarbr# | Rule 752 : ɹ > r 
+#ˈaʀbʀ# | Rule 754 : r > ʀ 
+#aʀbʀ# | Rule 755 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʁbʁ# | Rule 762 : ʀ > ʁ 

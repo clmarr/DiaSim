@@ -12,12 +12,11 @@ Trajectory file for run 'run1'; etymon number :94:
 #ˌaˈũŋklo# | Rule 205 : [+lo] > [+front,-back] 
 #ˌaˈũŋklə# | Rule 275 : [-stres,-lo,+syl] > ə / __ #
 #ˌaˈũŋklə̯# | Rule 283 : ə > ə̯ 
-#ˌaˈũŋkl# | Rule 307 : ə̯ > ∅ 
-#ˌaˈũŋklə# | Rule 322 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#ˌaˈũːklə# | Rule 671 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#ˈũːklə# | Rule 707 : ˌa > ∅ / __ [+prim]
-#ˈũːklə̯# | Rule 711 : ə > ə̯ / __ #
-#ˈũːkl# | Rule 739 : ə̯ > ∅ 
-#ũːkl# | Rule 756 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ũkl# | Rule 757 : [+syl,+long] > [-long,-splng] 
-#ɔ̃kl# | Rule 758 : ũ > ɔ̃ 
+#ˌaˈũŋklə# | Rule 289 : ə̯ > ə / [+stres] ( [-syl] )* [-son] [+cor,+son] __ 
+#ˌaˈũːklə# | Rule 670 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːklə# | Rule 706 : ˌa > ∅ / __ [+prim]
+#ˈũːklə̯# | Rule 710 : ə > ə̯ / __ #
+#ˈũːkl# | Rule 738 : ə̯ > ∅ 
+#ũːkl# | Rule 755 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ũkl# | Rule 756 : [+syl,+long] > [-long,-splng] 
+#ɔ̃kl# | Rule 757 : ũ > ɔ̃ 

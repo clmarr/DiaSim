@@ -11,14 +11,13 @@ p ˈe k t̪ i n̪ e m
 #pˈie̯çt̪ʲn̪ɛ# | Rule 238 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
 #pˈie̯çt̪ʲn̪ə# | Rule 275 : [-stres,-lo,+syl] > ə / __ #
 #pˈie̯çt̪ʲn̪ə̯# | Rule 283 : ə > ə̯ 
-#pˈie̯çt̪ʲn̪# | Rule 307 : ə̯ > ∅ 
-#pˈie̯çt̪ʲn̪ə# | Rule 322 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#pˈie̯çt̪ʲn̪ʲə# | Rule 332 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#pˈie̯çt̪n̪ə# | Rule 397 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#pˈie̯ʝt̪n̪ə# | Rule 470 : ç > ʝ 
-#pˈie̯jt̪n̪ə# | Rule 476 : ʝ > j / [-cons] __ 
-#pˈijt̪n̪ə# | Rule 545 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
-#pˈit̪n̪ə# | Rule 546 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
-#pˈit̪n̪ə̯# | Rule 711 : ə > ə̯ / __ #
-#pˈit̪n̪# | Rule 739 : ə̯ > ∅ 
-#pit̪n̪# | Rule 756 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˈie̯çt̪ʲn̪ə# | Rule 289 : ə̯ > ə / [+stres] ( [-syl] )* [-son] [+cor,+son] __ 
+#pˈie̯çt̪ʲn̪ʲə# | Rule 331 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#pˈie̯çt̪n̪ə# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#pˈie̯ʝt̪n̪ə# | Rule 469 : ç > ʝ 
+#pˈie̯jt̪n̪ə# | Rule 475 : ʝ > j / [-cons] __ 
+#pˈijt̪n̪ə# | Rule 544 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#pˈit̪n̪ə# | Rule 545 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#pˈit̪n̪ə̯# | Rule 710 : ə > ə̯ / __ #
+#pˈit̪n̪# | Rule 738 : ə̯ > ∅ 
+#pit̪n̪# | Rule 755 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
