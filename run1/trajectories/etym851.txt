@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :851:
-#pˌed̪it̪ˈɑːliɑ# >>> #pɛt̪ɑj# ( Correct : #pjɛt̪aj#) :
+#pˌed̪it̪ˈɑːliɑ# >>> #pjɛt̪ɑj# ( Correct : #pjɛt̪aj#) :
 p ˌe d̪ i t̪ ˈɑː l i ɑ 
 #pˌɛd̪ɪt̪ˈɑːlɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #pˌɛd̪ɪt̪ˈɑːljɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -14,17 +14,19 @@ p ˌe d̪ i t̪ ˈɑː l i ɑ
 #pˌɛðt̪ˈaʎa# | Rule 234 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
 #pˌɛðt̪ˈaːʎa# | Rule 368 : [+prim] > [+long] / __ [+cons] [+syl]
 #pˌɛðt̪ˈaʎa# | Rule 372 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
-#pˌɛðt̪ˈaːʎa# | Rule 412 : [+prim] > [+long] / __ [+cons] [+syl]
-#pˌɛðt̪ˈaʎa# | Rule 416 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
+#pˌɛðt̪ˈaːʎa# | Rule 411 : [+prim] > [+long] / __ [+cons] [+syl]
+#pˌɛðt̪ˈaʎa# | Rule 415 : [-hi,+tense,+syl] > [-long,-splng] / __ ʎ
 #pˌɨðt̪ˈaʎa# | Rule 433 : ˌɛ > ˌɨ / __ [+cor,+cont] [+cor]
 #pˌɛðt̪ˈaʎa# | Rule 439 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
-#pˌɛðt̪ˈaʎə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌɛθt̪ˈaʎə# | Rule 503 : [-son] > [-voi] / __ [-voi]
-#pˌɛt̪ˈaʎə# | Rule 613 : {θ;ð} > {∅;∅} 
-#pˌɛt̪ˈaːʎə# | Rule 711 : [+lo] > [+long] / __ ʎ ə #
-#pˌɛt̪ˈaːʎə̯# | Rule 713 : ə > ə̯ / __ #
-#pˌɛt̪ˈɑːʎə̯# | Rule 720 : [+lo,+long,+syl] > [+back,-front] 
-#pˌɛt̪ˈɑːʎ# | Rule 741 : ə̯ > ∅ 
-#pɛt̪ɑːʎ# | Rule 758 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pɛt̪ɑʎ# | Rule 759 : [+syl,+long] > [-long,-splng] 
-#pɛt̪ɑj# | Rule 766 : ʎ > j 
+#pˌɛðt̪ˈaʎə# | Rule 454 : a > ə / [+syl] ( [-syl] )* __ 
+#pˈie̯ðt̪ˈaʎə# | Rule 505 : [+stres,+front,-hi,-lo] > ˈi e̯/ # [+cons] __ ð [-cont]
+#pˈie̯t̪ˈaʎə# | Rule 506 : ð > ∅ / __ [-cont]
+#pjˈet̪ˈaʎə# | Rule 604 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#pjˈɛt̪ˈaʎə# | Rule 621 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
+#pjˈɛt̪ˈaːʎə# | Rule 714 : [+lo] > [+long] / __ ʎ ə #
+#pjˈɛt̪ˈaːʎə̯# | Rule 716 : ə > ə̯ / __ #
+#pjˈɛt̪ˈɑːʎə̯# | Rule 723 : [+lo,+long,+syl] > [+back,-front] 
+#pjˈɛt̪ˈɑːʎ# | Rule 744 : ə̯ > ∅ 
+#pjɛt̪ɑːʎ# | Rule 761 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pjɛt̪ɑʎ# | Rule 762 : [+syl,+long] > [-long,-splng] 
+#pjɛt̪ɑj# | Rule 769 : ʎ > j 

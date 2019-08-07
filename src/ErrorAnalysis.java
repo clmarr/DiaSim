@@ -956,7 +956,10 @@ public class ErrorAnalysis {
 				
 		for (int isi = 0; isi < NUM_ETYMA ; isi++)
 		{
-			IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 
+			if(FOCUS.getByID(isi).toString().equals("[ABSENT]"))
+				IN_SUBSAMP[isi] = false;
+			else
+				IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 
 			if(IN_SUBSAMP[isi])
 			{	
 				int etld = levDists[isi];
@@ -1010,7 +1013,7 @@ public class ErrorAnalysis {
 			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
 			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
-			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0+"").substring(0,6)+"%");
+			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 

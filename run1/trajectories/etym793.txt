@@ -1,7 +1,8 @@
 Trajectory file for run 'run1'; etymon number :793:
-#ˌossifrˈɑɡɑm# >>> #ɔfʁɛ# ( Correct : #ɔʁfʁɛ#) :
-ˌo s s i f r ˈɑ ɡ ɑ m 
-#ˌɔssɪfrˈɑɡɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌossifrˈɑːɡɑm# >>> #ɔfʁɛ# ( Correct : #ɔʁfʁɛ#) :
+ˌo s s i f r ˈɑː ɡ ɑ m 
+#ˌɔssɪfrˈɑːɡɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɔssɪfrˈɑɡɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
 #ˌɔssefrˈɑɡɑm# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
 #ˌɔssefrˈɑɡɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
 #ˌɔssefrˈɑɣɑ# | Rule 91 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ [+son,-lat,-nas]
@@ -18,15 +19,13 @@ Trajectory file for run 'run1'; etymon number :793:
 #ˌɔsfrˈaja# | Rule 428 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
 #ˌɯsfrˈaja# | Rule 435 : ˌɔ > ˌɯ / __ [+cor,-son]
 #ˌɔsfrˈaja# | Rule 439 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
-#ˌɔsfrˈajə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌɔxfrˈajə# | Rule 600 : s > x / [-cons] __ [+cons]
-#ˌɔːfrˈajə# | Rule 663 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌɔːfrˈaːjə# | Rule 710 : [+prim] > [+long] / __ ( j ) ə #
-#ˌɔːfrˈaːj# | Rule 712 : ə > ∅ / [+prim] ( j ) __ 
-#ˌɔːfrˈɛː# | Rule 714 : ˈaː j > ˈɛː / __ #
-#ˌoːfrˈɛː# | Rule 728 : [-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
-#ˌɔːfrˈɛː# | Rule 729 : [-hi,-lo,+back,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] [+cons]
-#ˌɔːfʀˈɛː# | Rule 757 : r > ʀ 
-#ɔːfʀɛː# | Rule 758 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɔfʀɛ# | Rule 759 : [+syl,+long] > [-long,-splng] 
-#ɔfʁɛ# | Rule 765 : ʀ > ʁ 
+#ˌɔsfrˈajə# | Rule 454 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌɔzfrˈajə# | Rule 492 : s > z / __ [+cont,+cons,-cor]
+#ˌɔfrˈajə# | Rule 559 : z > ∅ / __ [+cons]
+#ˌɔfrˈaːjə# | Rule 713 : [+prim] > [+long] / __ ( j ) ə #
+#ˌɔfrˈaːj# | Rule 715 : ə > ∅ / [+prim] ( j ) __ 
+#ˌɔfrˈɛː# | Rule 717 : ˈaː j > ˈɛː / __ #
+#ˌɔfʀˈɛː# | Rule 760 : r > ʀ 
+#ɔfʀɛː# | Rule 761 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɔfʀɛ# | Rule 762 : [+syl,+long] > [-long,-splng] 
+#ɔfʁɛ# | Rule 768 : ʀ > ʁ 

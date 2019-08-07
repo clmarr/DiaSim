@@ -761,11 +761,11 @@ public class DerivationSimulation {
 					blackStageNames[bsi]+" (@rule #: "+blackStageTimeInstants[bsi]+")");
 	}
 	
-	private static void printTheseGoldStages(int firstToPrint, int lastToPrint, boolean prepend)
+	private static void printTheseGoldStages(int firstToPrint, int lastToPrint)
 	{
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
-				System.out.println(gsi+": "+(prepend ? "g":"")+
+				System.out.println(gsi+": "+
 					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageTimeInstants[gsi]+")");
 	}
 	
@@ -850,7 +850,7 @@ public class DerivationSimulation {
 					while (!chosen)
 					{
 						System.out.println("Available options for evaluation stage: ");
-						printTheseGoldStages(0, lastGoldOpt,false); 
+						printTheseGoldStages(0, lastGoldOpt); 
 						System.out.println("F : "+ (curSt == -1 ? "final forms" : "current forms at stage "+curSt));
 						System.out.println("Please enter the indicator for the stage you desire"); 
 						resp = inpu.nextLine().substring(0,1);
@@ -880,7 +880,7 @@ public class DerivationSimulation {
 				while(!chosen)
 				{
 					System.out.println("Available options for focus point:");
-					printTheseGoldStages(0, lastGoldOpt, true); printTheseBlackStages(0, lastBlkOpt, true); 
+					printTheseGoldStages(0, lastGoldOpt); printTheseBlackStages(0, lastBlkOpt, true); 
 					System.out.print("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
 							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#> (you can find rule indices with option 3 to query on the main menu)\n"); 
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
@@ -975,6 +975,9 @@ public class DerivationSimulation {
 					{
 						System.out.println("Success: now making subsample with filter "+filterSeq.toString());
 						System.out.println("(Pivot moment name: "+focPtName+")");
+						
+						//TODO debugging
+						System.out.println("Filter seq : "+filterSeq);
 						
 						ea.setFilter(filterSeq,focPtName);
 					}

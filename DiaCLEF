@@ -1437,11 +1437,6 @@ s > t͡sʲ / [+cons,+son,+hi,+front] __ #
 $ s294 dz opens to z intervocalically due to lenition (Pope implies this by citing s334) before it resolves to jz
 d͡z > z / [-cons] __ [-cons]
 
-
-
-$ CORRECTION: (round vowel) ɔwj,owj > oj -- side effect of lengthening before ejected j-- oiseau, noise, joie etc
-[+back,+round,+syl] w > [+tense] ∅ / __ j
-
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -1471,8 +1466,12 @@ $ CORRECTION: vowels not longer before [-cont] l except for round vowels
 $CORRECTION: not long before ɲ 
 [+syl] > [-long] / __ ɲ
 
-$ CORRECTION : nr > ndr nasalization occurs AFTER length is determined, engendering diphthongization behavior (minor>moindre, 
+$ CORRECTION : nr > ndr denasalization occurs AFTER length is determined,
+	$  not blocking diphthongization behavior (minor>moindre, 
 ∅ > d̪ / n̪ __ r
+
+$ CORRECTION: schwa inserted after stop + sonorant clusters if they are followed by nonsyllabic
+∅ > ə / [-cont] [+son,-syl] __ [-syl]
 
 $ CORRECTION: long a shortens when between a sonorant non-syllabic and final l
 	$ cases: chenal, royal, loyal, mal
@@ -1546,7 +1545,11 @@ $ CORRECTION: moved to after closing of countertonic ɔ  (s164-15~s234)
 $ CORRECTION: doesn't happen before DENTAL CONSONANTS
 	$ this is far too early by anyone's account for the interdentals to have been lost,
 		$ and cases like gauta > joue, aut > ou, nauda > noue, alauda > aloue etc show a clear pattern
-{a w;ˌa w;ˈa w} > {ɔ;ˌɔ;ˈɔ} / __ {[+strid];[+ant,-distr]}
+
+w > ∅ / [+round,-tense] __ {[-syl,-cor];[+strid];[-syl,+son]}
+
+$ feed nasalized u formation if necessary
+[+syl,+back,+round] > [+nas,+hi,+tense] / __ [+nas,+cons]
 
 $ CORRECTION ɛrr is also shifted 
 ˌɛ > ˌe / __ r r
@@ -1701,7 +1704,7 @@ s t̪ s > t͡s / [-cons] __ [-cons]
 s > ∅ / __ t͡s
 
 $ s367 d,t + s becomes the affricate; 
-[+cor,-delrel] s > t͡sʲ
+[+cor,-delrel] s > t͡s
 
 $ s365 : effacement of middle consonant in groups that donˌt end in l or r 
 [+cons] > ∅ / [+cons] __ [-son]
@@ -1716,9 +1719,10 @@ w > ∅ / [-cont] [-cont] __
 $ CORRECTION: delete w after stops that are not velar
 w > ∅ / [-cont,-back] __
 
-$ s377 s > z before voiced and/or "breathed" consonants (excluding s of course)
-s > z / __ [+voi,+cons]
-s > z / __ [+cont,+cons,-strid]
+$ s377 s > z before voiced and/or "breathed" consonants (excluding s of course, but including f)
+$ CORRECTION: only after nonconsonantals. 
+s > z / [-cons] __ [+voi,+cons]
+s > z / __ [+cont,+cons,-cor]
 
 $ CORRECTION: s372ii, 372iii moved elsewhere from here
 
@@ -1739,6 +1743,7 @@ $ CORRECTION : only mn, nm doesn't occur and is inconsistent with what appears t
 n̪ > m / m __
 
 $ s373 assimilation of oral labials b,p,β (and v) to following dental positions 
+$ as well as "d,t" to following labials or d, dzh, ts
 $ RECURRENT as per s162
 $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination 
 [+lab,-nas,-round,+cons] > t̪ / __ [-cont,+cor,-voi]
@@ -1749,8 +1754,14 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+cor,-delrel] > ∅ / __ [+cor,-cont] 
 [+cor,-delrel] > ∅ / __ [+delrel] 
 
-$ cluster voicing assimilation -- find the rule for this! 
-[-son] > [-voi] / __ [-voi] 
+$ CORRECTION: dental fricative edh is also deleted before non sonorants
+	$ not just t and d as Pope says. 
+	$ (adfactare, pedicum, peditalia, radicinam, iudicem...)
+	$ CORRECTION: does so before all non-continuants
+	$ CORRECTION: if it does so after onset, single consonant, then countertonic e or eh,
+		$ then the latter is replaced with 'ie 
+[+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ ð [-cont]
+ð > ∅ / __ [-cont]
 
 $ s366 degemination 
 $ CORRECTION: extended to also hit rr when word final 
@@ -1758,8 +1769,8 @@ $ CORRECTION: extended to also hit rr when word final
 r r >  r / __ # 
 
 $s378 z > ð before voiced dentals 
-$CORRECTION: This rule deleted
-$ z > ð / __ [+cor,+ant,+distr,+voi,+cons]
+$ CORRECTION : deleted -- not diachronically useful
+$z > ð / __ [+ant,+cor,+son]
 
 $ s258 ə inserted after final CONS + r,l clusters 
 $ CORRECTION where jr is concerned only a and ie̯ before the j are contexts where emission is triggered. 
@@ -1881,7 +1892,7 @@ $ s330 : early leveling of aj before w -- case of aqua -- 11th century.
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
 $ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant though (meuble)
-[+tense,+syl,+round,-hi,-lo] w > [+hi,+long] ∅ / [-lab,+cons] __ [+lab,-syl]
+[+tense,+syl,+round,-hi,-lo] w > [+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
@@ -1981,9 +1992,12 @@ $ CORRECTION : for moule < musculum and coule < cucullum : long u in monosyllabl
 	$ also causes this ejection
 ∅ > ə / # ([+cons])* ([+tense,+round,+back])* [+lat] __ #
 
-$ s674 : countertonic ɔw > uw bled before z and v where it goes to ɔ, as well as when blocked by one cons then free after.
-$ (Pope doesn't realize that at this point ð may not have been deleted yet... she gives laudare as an example of "in hiatus" 
-	$ (but she notes herself the loss of θ and ð was not finalized "until the middle of the twelfth century") 
+$ s674 : countertonic ɔw > uw bled before z and v where it goes to ɔ,
+	$ as well as when blocked by one cons then free after.
+$ (Pope doesn't realize that at this point ð may not have been deleted yet...
+	$ she gives laudare as an example of "in hiatus" 
+	$ (but she notes herself the loss of θ and ð was not finalized 
+		$"until the middle of the twelfth century") 
 $ s673 : this also happens for tonic ɔw
 $ Pope only calls this for ɔw, not ow, but she had shifted countertonic ɔ to o earlier... 
 $ CORRECTION : s also causes automatic simplification (Autun) like v and z do. 
