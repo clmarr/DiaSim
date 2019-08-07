@@ -12,8 +12,10 @@ Trajectory file for run 'run1'; etymon number :59:
 #ˌan̪n̪ˈeːðə# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 #ˌan̪ˈeːðə# | Rule 503 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
 #ˌãn̪ˈeːðə# | Rule 517 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ˌãn̪ˈeːə# | Rule 612 : {θ;ð} > {∅;∅} 
-#ˌãn̪ˈeː# | Rule 700 : ə > ∅ / [+syl] __ 
-#ˌan̪ˈeː# | Rule 747 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#an̪eː# | Rule 757 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#an̪e# | Rule 758 : [+syl,+long] > [-long,-splng] 
+#ˌãn̪ˈeðə# | Rule 544 : [+syl] > [-long,-splng] 
+#ˌãn̪ˈeə# | Rule 613 : {θ;ð} > {∅;∅} 
+#ˌãn̪ˈeːə# | Rule 700 : [+stres] > [+long] / __ ə
+#ˌãn̪ˈeː# | Rule 701 : ə > ∅ / [+syl] __ 
+#ˌan̪ˈeː# | Rule 748 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#an̪eː# | Rule 758 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#an̪e# | Rule 759 : [+syl,+long] > [-long,-splng] 

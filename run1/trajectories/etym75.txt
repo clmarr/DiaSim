@@ -10,13 +10,15 @@ Trajectory file for run 'run1'; etymon number :75:
 #ˌarmaðˈʉːra# | Rule 386 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
 #ˌarməðˈʉːrə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
 #ˌarməðˈyːrə# | Rule 515 : [+hi,+round,-back] > [+front] 
-#ˌarməˈyːrə# | Rule 612 : {θ;ð} > {∅;∅} 
-#ˌarmˈyːrə# | Rule 698 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
-#ˌarmˈyːrə̯# | Rule 712 : ə > ə̯ / __ #
-#ˌaɹmˈyːrə̯# | Rule 731 : r > ɹ / [-cons] __ [+cons]
-#ˌaɹmˈyːr# | Rule 740 : ə̯ > ∅ 
-#ˌarmˈyːr# | Rule 754 : ɹ > r 
-#ˌaʀmˈyːʀ# | Rule 756 : r > ʀ 
-#aʀmyːʀ# | Rule 757 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʀmyʀ# | Rule 758 : [+syl,+long] > [-long,-splng] 
-#aʁmyʁ# | Rule 764 : ʀ > ʁ 
+#ˌarməðˈyrə# | Rule 544 : [+syl] > [-long,-splng] 
+#ˌarməˈyrə# | Rule 613 : {θ;ð} > {∅;∅} 
+#ˌarməˈyːrə# | Rule 698 : [+stres] > [+long] / [+syl,-front,-back] ( w ) __ 
+#ˌarmˈyːrə# | Rule 699 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
+#ˌarmˈyːrə̯# | Rule 713 : ə > ə̯ / __ #
+#ˌaɹmˈyːrə̯# | Rule 732 : r > ɹ / [-cons] __ [+cons]
+#ˌaɹmˈyːr# | Rule 741 : ə̯ > ∅ 
+#ˌarmˈyːr# | Rule 755 : ɹ > r 
+#ˌaʀmˈyːʀ# | Rule 757 : r > ʀ 
+#aʀmyːʀ# | Rule 758 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʀmyʀ# | Rule 759 : [+syl,+long] > [-long,-splng] 
+#aʁmyʁ# | Rule 765 : ʀ > ʁ 
