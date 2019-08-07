@@ -924,7 +924,7 @@ $ and that it doesn't occur before nasals unless followed by a long vowel
 ˌa > ˌɛ / [+cons,+front] __ [+nas] [+syl,+long]
 
 $ s413
-$ Raising of free a to ɛ if preceded by palatal consonants 
+$ Raising of free tonic a to ɛ if preceded by palatal consonants 
 $ CORRECTION: unless at beginning of word, this does not happen before nasal consonants and also doesn't happen before ʝ
 ˈaː > ˈɛː / # [+cons,+front] __
 ˈaː > ˈɛː / [+cons,+front] __ [+cons,-front,-nas]
@@ -1335,20 +1335,17 @@ $ CORRECTION: this bleeds post-palatal a-raising
 {t̪ ə ɣ;d̪ ə ɣ;ð ə ɣ} > {t̪ t͡ʃ;d̪ d͡ʒ;d̪ d͡ʒ}
 
 $ s413-4 -- recurrence as per medietatem, adiutare
-$ Raising of free a to ɛ if preceded by palatal consonants
+$ Raising of free tonic a to ɛ if preceded by palatal consonants
 $ recurses as per cases of adiutare and medietatem (s414) 
-$ CORRECTION: word-final a is unaffected if it isn't stressed.
-$ CORRECTION: happens to primarily stressed a anywhere
-$ CORRECTION: also before final rʲ 
-$ CORRECTION: also before rs#
-$ CORRECTION: also after palatal SONORANTS before nasals
+$ CORRECTION: also before rʲ , r s 
+$ CORRECTION: also after pure palatal continuants (j,ʝ)  before nasals
 $ CORRECTION: does not occur immediately word finally this time
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [+cons] [-cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ [-cont] [+cons,+son,-nas] 
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ rʲ #
-[+lo,+prim] > [-lo,+front,-tense] / [+front,-syl,+cont] __ [+nas,+cons]
 [+lo,+prim] > [-lo,+front,-tense] / [+front,-syl] __ r s #
+[+lo,+prim] > [-lo,+front,-tense] / [+front,-cor,-syl,+cont] __ [+son,-lat,+cons]
 
 $ s414 recurrence of diphthongization (s163-10) that hits former tonic a 
 $ CORRECTION: includes tonic o
@@ -1860,14 +1857,13 @@ $ should NOT effect ie̯ , which was nasalized in the third nasalization, in the
 j > [+nas] / [+front,-hi,+syl] __ [+nas,-syl]
 [+front,-hi,+syl] > [+nas] / __ [+nas,-syl]
 
-
 $ s166.3 ~ s226-7 : uo > ue; see also ss550-554 for later development. 
 $As per s226, this happened "before the end of the [EOF] period". 
 $Attested in 1084 in Domesday book 1081
 $The mutations of ei and ou seem to have occurred later.
 o̯ > e̯ 
 
-
+$TODO work here, move this later. 
 $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u 
 	$ ... are BLED by effects of ð : 
 	$ except when the next vowel is tonic and tense, ˌo and ˈo go to ˌɔ before ð 
@@ -2016,8 +2012,10 @@ $ CORRECTION: tonic iej and iej̃ move to (long) iː after a palatal
 $s166.6~s439 ; beginning of first lowering of nasalized e-varieties -- late eleventh century.
 [+front,-hi,-lo,+syl,+nas] > [-tense]
 
-~Later Old French
+$~Later Old French
 $AKA Old French II. As per Pope s16, from end of eleventh century to beginning of the 14th. 
+$ However we are just using this to mark the time boundary -- this is not where OFII is for Pope's periodic table
+	$ which we used for FLLAPS. 
 
 $ s555 ue̯w > ye̯w : Pope seems to imply this happens in the late 11th century
 [+hi,+round] > [+front,-back] / __ e̯ w 
@@ -2049,7 +2047,6 @@ $ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (re
 		$ graisse -- "craisse" around 1100, but by 1150 was graisse
 	$ We know it must come before ɛ̃>ã, however, so it doesn't get feed overgeneralization
 k > ɡ / # __ [+cor,+son] [+lo]
-
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ CORRECTION: doesn't happen before j̃
@@ -2127,6 +2124,7 @@ $ happens after the loss of the interdental frics.
 ˌa > ˌe / __ ˈy
 
 $ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or r. 12th century. 
+	$but as we see below, we end up putting more constraints where the lateral is concerned. 
 ˈe > ˈɛ / __ r [+cons]
 
 $ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
@@ -2447,7 +2445,7 @@ $ s464 : continuation of nasalizing tendency into Middle French -- still product
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas] / __ [+nas,+cons]
 
-$~Old French II
+$ i.e. where it is in Pope's table -- even though this is effectively the beginning of Middle French. 
 
 $handling of unstressed ə̃ as per s434 -- recurse
 	$ but no ə̃nt anymore as it was absorbed as per s437
@@ -2469,6 +2467,9 @@ $ Not reported in the 1300 Orthographica Gallica, which may be conservative, but
 $ CORRECTION: now this is done to x
 [+syl] x > [+long] ∅ /  __ [+cons]
 x > ∅
+
+~Old French II
+
 
 $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː
