@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1319:
-#wˈen̪t̪um# >>> #vɑ̃# ( Correct : #vɑ̃#) :
-w ˈe n̪ t̪ u m 
-#ɣʷˈen̪t̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɛn̪t̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#βʷˈɛn̪t̪ʊm# | Rule 50 : ɣʷ > βʷ 
-#βʷˈɛn̪t̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#βʷˈɛn̪t̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#βˈɛn̪t̪o# | Rule 162 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈɛn̪t̪ə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
-#βˈɛn̪t̪ə̯# | Rule 282 : ə > ə̯ 
-#βˈɛn̪t̪# | Rule 306 : ə̯ > ∅ 
-#vˈɛn̪t̪# | Rule 447 : β > v 
-#vˈɛ̃n̪t̪# | Rule 533 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#vˈãn̪t̪# | Rule 583 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#vˈãːt̪# | Rule 674 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˈɑ̃ːt̪# | Rule 721 : [+lo,+long,+syl] > [+back,-front] 
-#vˈɑ̃ː# | Rule 740 : [-son] > ∅ / __ #
-#vɑ̃ː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vɑ̃# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#wˈeːrɑ# >>> #vwaʁ# ( Correct : #vwaʁ#) :
+w ˈeː r ɑ 
+#ɣʷˈeːrɑ# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#βʷˈeːrɑ# | Rule 50 : ɣʷ > βʷ 
+#βʷˈerɑ# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#βʷˈeːrɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈeːrɑ# | Rule 162 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈeːra# | Rule 204 : [+lo] > [+front,-back] 
+#βˈejra# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈejra# | Rule 447 : β > v 
+#vˈejrə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈojrə# | Rule 529 : ˈe > ˈo / [+lab,+voi] __ j
+#vˈoɛ̯rə# | Rule 566 : j > ɛ̯ / [+syl,+back,+round] __ r
+#vˈuɛ̯rə# | Rule 572 : [+round,+tense,+back] > [+hi] 
+#vwˈɛrə# | Rule 639 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#vwˈɛrə̯# | Rule 714 : ə > ə̯ / __ #
+#vwˈɛr# | Rule 742 : ə̯ > ∅ 
+#vwˈɛʀ# | Rule 758 : r > ʀ 
+#vwɛʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vwaʀ# | Rule 765 : ɛ > a / w __ 
+#vwaʁ# | Rule 766 : ʀ > ʁ 

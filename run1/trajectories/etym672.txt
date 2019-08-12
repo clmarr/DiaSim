@@ -1,20 +1,24 @@
 Trajectory file for run 'run1'; etymon number :672:
-#mˌɑːt̪ˈuːrɑm# >>> #myʁ# ( Correct : #myʁ#) :
-m ˌɑː t̪ ˈuː r ɑ m 
-#mˌɑt̪ˈurɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#mˌɑt̪ˈurɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˌɑt̪ˈuːrɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌat̪ˈuːra# | Rule 204 : [+lo] > [+front,-back] 
-#mˌat̪ˈʉːra# | Rule 222 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌad̪ˈʉːra# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
-#mˌaðˈʉːra# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#mˌaðˈʉːrə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðˈʉrə# | Rule 462 : [+syl] > [-long,-splng] 
-#mˌaðˈyrə# | Rule 518 : [+hi,+round,-back] > [+front] 
-#mˌaˈyrə# | Rule 614 : {θ;ð} > {∅;∅} 
-#mˈyrə# | Rule 710 : ˌa > ∅ / __ [+prim]
-#mˈyrə̯# | Rule 714 : ə > ə̯ / __ #
-#mˈyr# | Rule 742 : ə̯ > ∅ 
+#mˌɑːt̪ˈuːrum# >>> #myʁ# ( Correct : #myʁ#) :
+m ˌɑː t̪ ˈuː r u m 
+#mˌɑːt̪ˈuːrʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɑt̪ˈurʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#mˌɑt̪ˈurom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌɑt̪ˈuro# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˌɑt̪ˈuːro# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌat̪ˈuːro# | Rule 204 : [+lo] > [+front,-back] 
+#mˌat̪ˈʉːro# | Rule 222 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#mˌat̪ˈʉːrə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#mˌat̪ˈʉːrə̯# | Rule 282 : ə > ə̯ 
+#mˌat̪ˈʉːr# | Rule 306 : ə̯ > ∅ 
+#mˌad̪ˈʉːr# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˌaðˈʉːr# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#mˌaðˈʉr# | Rule 462 : [+syl] > [-long,-splng] 
+#mˌaðˈyr# | Rule 518 : [+hi,+round,-back] > [+front] 
+#mˌaˈyr# | Rule 614 : {θ;ð} > {∅;∅} 
+#mˈyr# | Rule 710 : ˌa > ∅ / __ [+prim]
+#mˈyɹ# | Rule 732 : r > ɹ / [-cons] __ #
+#mˈyr# | Rule 756 : ɹ > r 
 #mˈyʀ# | Rule 758 : r > ʀ 
 #myʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
 #myʁ# | Rule 766 : ʀ > ʁ 

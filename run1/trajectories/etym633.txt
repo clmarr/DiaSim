@@ -1,23 +1,20 @@
 Trajectory file for run 'run1'; etymon number :633:
-#mˈɑɡid̪em# >>> #mɛ# ( Correct : #mɛ#) :
-m ˈɑ ɡ i d̪ e m 
-#mˈɑɡɪd̪ɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɑɡd̪ɛm# | Rule 44 : [-stres,+front] > ∅ / [+prim,+lo] [+back,-cont] __ [+cor,-strid,-nas,-lat] [+syl]
-#mˈɑɡd̪ɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˈɑɣd̪ɛ# | Rule 121 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
-#mˈaɣd̪ɛ# | Rule 204 : [+lo] > [+front,-back] 
-#mˈaʝd̪ɛ# | Rule 213 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
-#mˈaʝd̪ʲɛ# | Rule 221 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
-#mˈaʝd̪ʲə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
-#mˈaʝd̪ʲə̯# | Rule 282 : ə > ə̯ 
-#mˈaʝd̪ʲ# | Rule 306 : ə̯ > ∅ 
-#mˈajd̪ʲ# | Rule 318 : ʝ > j / __ ( [-syl] )* #
-#mˈaːjd̪ʲ# | Rule 373 : [+prim] > [+long] / __ j ( [+cons] )* [+cor,+hi,+front]
-#mˈaːjd̪# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-#mˈajd̪# | Rule 404 : [+syl] > [-long,-splng] / __ [-syl] [-syl] ( [-syl] )* #
-#mˈajð# | Rule 449 : [-delrel] > [+cont,0delrel] / [-cons] __ #
-#mˈajθ# | Rule 455 : [-son] > [-voi] / __ #
-#mˈaj# | Rule 614 : {θ;ð} > {∅;∅} 
-#mˈɛj# | Rule 627 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j #
-#mˈɛ# | Rule 657 : j > ∅ / [-hi,+syl] __ #
-#mɛ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɑɡis# >>> #mɛ# ( Correct : #mɛ#) :
+m ˈɑ ɡ i s 
+#mˈɑɡɪs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑɡes# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈɑɡʲes# | Rule 81 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#mˈɑɟes# | Rule 82 : [+back,+front] > [-back] 
+#mˈɑʝes# | Rule 91 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ [+son,-lat,-nas]
+#mˈɑːʝes# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈaːʝes# | Rule 204 : [+lo] > [+front,-back] 
+#mˈaːʝəs# | Rule 273 : [-stres,-lo,+syl] > ə / __ [-syl]
+#mˈaːʝə̯s# | Rule 282 : ə > ə̯ 
+#mˈaːʝs# | Rule 306 : ə̯ > ∅ 
+#mˈaːjs# | Rule 318 : ʝ > j / __ ( [-syl] )* #
+#mˈajs# | Rule 362 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#mˈɛjs# | Rule 626 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#mˈɛːs# | Rule 647 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#mˈɛː# | Rule 740 : [-son] > ∅ / __ #
+#mɛː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛ# | Rule 760 : [+syl,+long] > [-long,-splng] 

@@ -1,16 +1,31 @@
 Trajectory file for run 'run1'; etymon number :507:
-#kˈorpus# >>> #kɔʁ# ( Correct : #kɔʁ#) :
-k ˈo r p u s 
-#kˈɔrpʊs# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈɔrpos# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈɔrpəs# | Rule 273 : [-stres,-lo,+syl] > ə / __ [-syl]
-#kˈɔrpə̯s# | Rule 282 : ə > ə̯ 
-#kˈɔrps# | Rule 306 : ə̯ > ∅ 
-#kˈɔrss# | Rule 341 : [+lab,-nas,-round,+cons] > s / __ s
-#kˈɔrs# | Rule 343 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / [+cons] __ 
-#kˈɔɹs# | Rule 733 : r > ɹ / [-cons] __ [+cons]
-#kˈɔɹ# | Rule 740 : [-son] > ∅ / __ #
-#kˈɔr# | Rule 756 : ɹ > r 
-#kˈɔʀ# | Rule 758 : r > ʀ 
-#kɔʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kɔʁ# | Rule 766 : ʀ > ʁ 
+#kˌorrˈiɡiɑ# >>> #kuʁwa# ( Correct : #kuʁwa#) :
+k ˌo r r ˈi ɡ i ɑ 
+#kˌɔrrˈɪɡɪɑ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˌɔrrˈɪɡjɑ# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#kˌɔrrˈɪɡʝɑ# | Rule 28 : j > ʝ / __ [+syl]
+#kˌɔrrˈeɡʝɑ# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˌɔrrˈeɡʲʝɑ# | Rule 81 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
+#kˌɔrrˈeɟʝɑ# | Rule 82 : [+back,+front] > [-back] 
+#kˌɔrrˈeʝʝɑ# | Rule 92 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ ʝ
+#kˌɔrrˈeʝɑ# | Rule 165 : ʝ > ∅ / __ ʝ
+#kˌɔrrˈeʝa# | Rule 204 : [+lo] > [+front,-back] 
+#kˌɔrrˈeːʝa# | Rule 229 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#kˌɔrrˈeːja# | Rule 391 : ʝ > j 
+#kˌɔrrˈeja# | Rule 421 : {ˈeː j;ˈeː ʝ} > {ˈe j;ˈe j} 
+#kˌorrˈeja# | Rule 437 : ˌɔ > ˌo 
+#kˌorrˈejə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
+#kˌorrˈojə# | Rule 559 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
+#kˌurrˈujə# | Rule 572 : [+round,+tense,+back] > [+hi] 
+#kˌurrˈʌjə# | Rule 609 : ˈu > ˈʌ / __ j ə #
+#kˌurˈʌjə# | Rule 611 : r r > r 
+#kˌurˈujə# | Rule 612 : ˈʌ > ˈu / [+lab] ( r ) __ j ( [+ant,+voi,+distr] ) ə #
+#kˌurˈuɛ̯ə# | Rule 638 : j > ɛ̯ / [+syl,+back,+round] __ 
+#kˌurwˈɛə# | Rule 639 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#kˌurwˈɛːə# | Rule 701 : [+stres] > [+long] / __ ə
+#kˌurwˈɛː# | Rule 702 : ə > ∅ / [+syl] __ 
+#kˌuʀwˈɛː# | Rule 758 : r > ʀ 
+#kuʀwɛː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kuʀwɛ# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#kuʀwa# | Rule 765 : ɛ > a / w __ 
+#kuʁwa# | Rule 766 : ʀ > ʁ 

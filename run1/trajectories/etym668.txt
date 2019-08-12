@@ -1,17 +1,26 @@
 Trajectory file for run 'run1'; etymon number :668:
-#mˌɑt̪rˈɑst̪rɑ# >>> #maʁɑt̪ʁ# ( Correct : #maʁɑt̪ʁ#) :
-m ˌɑ t̪ r ˈɑ s t̪ r ɑ 
-#mˌat̪rˈast̪ra# | Rule 204 : [+lo] > [+front,-back] 
-#mˌad̪rˈast̪ra# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#mˌaðrˈast̪ra# | Rule 386 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
-#mˌaðrˈast̪rə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðrˈaxt̪rə# | Rule 601 : s > x / [-cons] __ [+cons]
-#mˌarˈaxt̪rə# | Rule 614 : {θ;ð} > {∅;∅} 
-#mˌarˈaːt̪rə# | Rule 664 : [+syl] x > [+long] ∅/ __ [+cons]
-#mˌarˈaːt̪rə̯# | Rule 714 : ə > ə̯ / __ #
-#mˌarˈɑːt̪rə̯# | Rule 721 : [+lo,+long,+syl] > [+back,-front] 
-#mˌarˈɑːt̪r# | Rule 742 : ə̯ > ∅ 
-#mˌaʀˈɑːt̪ʀ# | Rule 758 : r > ʀ 
-#maʀɑːt̪ʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#maʀɑt̪ʀ# | Rule 760 : [+syl,+long] > [-long,-splng] 
-#maʁɑt̪ʁ# | Rule 766 : ʀ > ʁ 
+#mˈɑt̪rem# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ t̪ r e m 
+#mˈɑt̪rɛm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑt̪rɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈɑːt̪rɛ# | Rule 116 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈɑt̪rɛ# | Rule 155 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈɑːt̪rɛ# | Rule 158 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rɛ# | Rule 204 : [+lo] > [+front,-back] 
+#mˈat̪rɛ# | Rule 226 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈaːt̪rɛ# | Rule 230 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#mˈaːt̪rə̯# | Rule 282 : ə > ə̯ 
+#mˈaːt̪rə# | Rule 289 : ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
+#mˈaːd̪rə# | Rule 360 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#mˈaːðrə# | Rule 386 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#mˈae̯ðrə# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːðrə# | Rule 463 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈeːrə# | Rule 614 : {θ;ð} > {∅;∅} 
+#mˈɛːrə# | Rule 619 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
+#mˈɛːrə̯# | Rule 714 : ə > ə̯ / __ #
+#mˈɛːr# | Rule 742 : ə̯ > ∅ 
+#mˈɛːʀ# | Rule 758 : r > ʀ 
+#mɛːʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʀ# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#mɛʁ# | Rule 766 : ʀ > ʁ 

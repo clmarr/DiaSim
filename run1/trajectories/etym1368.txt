@@ -1,18 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1368:
-#wˌiːwˈɑn̪d̪ɑm# >>> #vivɑ̃d̪# ( Correct : #vjɑ̃d̪#) :
-w ˌiː w ˈɑ n̪ d̪ ɑ m 
-#ɣʷˌiːɣʷˈɑn̪d̪ɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˌiːβʷˈɑn̪d̪ɑm# | Rule 50 : ɣʷ > βʷ 
-#βʷˌiβʷˈɑn̪d̪ɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#βʷˌiβʷˈɑn̪d̪ɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#βˌiβˈɑn̪d̪ɑ# | Rule 162 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˌiβˈan̪d̪a# | Rule 204 : [+lo] > [+front,-back] 
-#vˌivˈan̪d̪a# | Rule 447 : β > v 
-#vˌivˈan̪d̪ə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#vˌivˈãn̪d̪ə# | Rule 520 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#vˌivˈãːd̪ə# | Rule 674 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#vˌivˈãːd̪ə̯# | Rule 714 : ə > ə̯ / __ #
-#vˌivˈɑ̃ːd̪ə̯# | Rule 721 : [+lo,+long,+syl] > [+back,-front] 
-#vˌivˈɑ̃ːd̪# | Rule 742 : ə̯ > ∅ 
-#vivɑ̃ːd̪# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vivɑ̃d̪# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#wˈiːwere# >>> #vivʁ# ( Correct : #vivʁ#) :
+w ˈiː w e r e 
+#ɣʷˈiːɣʷere# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈiːɣʷɛrɛ# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˈiːβʷɛrɛ# | Rule 50 : ɣʷ > βʷ 
+#βʷˈiβʷɛrɛ# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#βʷˈiːβʷɛrɛ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#βʷˈiːβʷrɛ# | Rule 147 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#βʷˈiβʷrɛ# | Rule 155 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#βʷˈiːβʷrɛ# | Rule 159 : [+prim] > [+long] / __ [+lab,+ant,+voi] r [+syl] #
+#βˈiːβrɛ# | Rule 162 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈiβrɛ# | Rule 226 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#βˈiːβrɛ# | Rule 231 : [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl]
+#βˈiːβrə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#βˈiːβrə̯# | Rule 282 : ə > ə̯ 
+#βˈiːβr# | Rule 306 : ə̯ > ∅ 
+#βˈiːβrə# | Rule 321 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#vˈiːvrə# | Rule 447 : β > v 
+#vˈivrə# | Rule 462 : [+syl] > [-long,-splng] 
+#vˈivrə̯# | Rule 714 : ə > ə̯ / __ #
+#vˈivr# | Rule 742 : ə̯ > ∅ 
+#vˈivʀ# | Rule 758 : r > ʀ 
+#vivʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vivʁ# | Rule 766 : ʀ > ʁ 

@@ -1,17 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1074:
-#sˈɑpɑm# >>> #sɛv# ( Correct : #sɛv#) :
-s ˈɑ p ɑ m 
-#sˈɑpɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#sˈɑːpɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
-#sˈaːpa# | Rule 204 : [+lo] > [+front,-back] 
-#sˈaːba# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
-#sˈaːβa# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#sˈae̯βa# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#sˈae̯va# | Rule 447 : β > v 
-#sˈae̯və# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#sˈeːvə# | Rule 463 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#sˈɛːvə# | Rule 619 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#sˈɛːvə̯# | Rule 714 : ə > ə̯ / __ #
-#sˈɛːv# | Rule 742 : ə̯ > ∅ 
-#sɛːv# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sɛv# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#sˌɑpˈɑwd̪iɑm# >>> #savwa# ( Correct : #savwa#) :
+s ˌɑ p ˈɑ w d̪ i ɑ m 
+#sˌɑpˈɑwd̪ɪɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#sˌɑpˈɑwd̪jɑm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑm# | Rule 28 : j > ʝ / __ [+syl]
+#sˌɑpˈɑwd̪ʝɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#sˌɑpˈɑwɟʝɑ# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#sˌɑpˈɑwʝʝɑ# | Rule 92 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ ʝ
+#sˌɑpˈɑwʝɑ# | Rule 165 : ʝ > ∅ / __ ʝ
+#sˌapˈawʝa# | Rule 204 : [+lo] > [+front,-back] 
+#sˌapˈɔwʝa# | Rule 244 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#sˌabˈɔwʝa# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
+#sˌaβˈɔwʝa# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#sˌaβˈɔwja# | Rule 391 : ʝ > j 
+#sˌaβˈɔja# | Rule 439 : w > ∅ / [+round,-tense] __ [-syl,-cor]
+#sˌavˈɔja# | Rule 447 : β > v 
+#sˌavˈɔjə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌavˈɔɛ̯ə# | Rule 638 : j > ɛ̯ / [+syl,+back,+round] __ 
+#sˌavwˈɛə# | Rule 639 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#sˌavwˈɛːə# | Rule 701 : [+stres] > [+long] / __ ə
+#sˌavwˈɛː# | Rule 702 : ə > ∅ / [+syl] __ 
+#savwɛː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#savwɛ# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#savwa# | Rule 765 : ɛ > a / w __ 

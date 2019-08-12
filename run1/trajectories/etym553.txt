@@ -1,15 +1,22 @@
 Trajectory file for run 'run1'; etymon number :553:
-#kwˈid̪# >>> #kwa# ( Correct : #kwa#) :
-k w ˈi d̪ 
-#kɣʷˈid̪# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kwˈid̪# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#kwˈɪd̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kwˈed̪# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kwˈeːd̪# | Rule 118 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
-#kwˈeːð# | Rule 258 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#kˈeːð# | Rule 392 : w > ∅ / k __ [+front,-lo]
-#kˈejð# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#kˈejθ# | Rule 455 : [-son] > [-voi] / __ #
+#kwiˈeːt̪um# >>> #kwa# ( Correct : #kwa#) :
+k w i ˈeː t̪ u m 
+#kɣʷiˈeːt̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#kwiˈeːt̪um# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#kwɪˈeːt̪ʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kwjˈeːt̪ʊm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#kwʝˈeːt̪ʊm# | Rule 28 : j > ʝ / __ [+syl]
+#kwˈeːt̪ʊm# | Rule 29 : ʝ > ∅ / # [+back,-cont] w __ 
+#kwˈet̪ʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#kwˈet̪om# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kwˈet̪o# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#kwˈeːt̪o# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#kwˈeːt̪ə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#kwˈeːt̪ə̯# | Rule 282 : ə > ə̯ 
+#kwˈeːt̪# | Rule 306 : ə̯ > ∅ 
+#kˈeːt̪# | Rule 392 : w > ∅ / k __ [+front,-lo]
+#kˈejt̪# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈejθ# | Rule 449 : [-delrel] > [+cont,0delrel] / [-cons] __ #
 #kˈojθ# | Rule 559 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
 #kˈujθ# | Rule 572 : [+round,+tense,+back] > [+hi] 
 #kˈuj# | Rule 614 : {θ;ð} > {∅;∅} 

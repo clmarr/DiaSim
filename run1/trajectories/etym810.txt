@@ -1,17 +1,26 @@
 Trajectory file for run 'run1'; etymon number :810:
-#pˈɑːlum# >>> #pɛl# ( Correct : #pjø#) :
-p ˈɑː l u m 
-#pˈɑːlʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈɑlʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#pˈɑlom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈɑlo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈɑːlo# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈaːlo# | Rule 204 : [+lo] > [+front,-back] 
-#pˈaːlə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
-#pˈaːlə̯# | Rule 282 : ə > ə̯ 
-#pˈaːl# | Rule 306 : ə̯ > ∅ 
-#pˈae̯l# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˈeːl# | Rule 463 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˈɛːl# | Rule 622 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+lat] #
-#pɛːl# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pɛl# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#pˌɑlˈɑːt̪ium# >>> #palɛ# ( Correct : #palɛ#) :
+p ˌɑ l ˈɑː t̪ i u m 
+#pˌɑlˈɑːt̪ɪʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌɑlˈɑːt̪jʊm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#pˌɑlˈɑːt̪ʝʊm# | Rule 28 : j > ʝ / __ [+syl]
+#pˌɑlˈɑt̪ʝʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#pˌɑlˈɑt̪ʝom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˌɑlˈɑt̪ʝo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˌɑlˈɑt͡sʲʝo# | Rule 79 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#pˌɑlˈɑt͡sʲo# | Rule 93 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#pˌɑlˈɑːt͡sʲo# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌalˈaːt͡sʲo# | Rule 204 : [+lo] > [+front,-back] 
+#pˌalˈaːt͡sʲə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#pˌalˈaːt͡sʲə̯# | Rule 282 : ə > ə̯ 
+#pˌalˈaːt͡sʲ# | Rule 306 : ə̯ > ∅ 
+#pˌalˈae̯t͡sʲ# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌalˈae̯jt͡sʲ# | Rule 425 : ∅ > j / e̯ __ t͡sʲ
+#pˌalˈajt͡sʲ# | Rule 427 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#pˌalˈɛjt͡sʲ# | Rule 626 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#pˌalˈɛːt͡sʲ# | Rule 647 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
+#pˌalˈɛːsʲ# | Rule 655 : [+delrel] > [+cont,0delrel] 
+#pˌalˈɛːs# | Rule 679 : [+ant,+front] > [-front,-hi] 
+#pˌalˈɛː# | Rule 740 : [-son] > ∅ / __ #
+#palɛː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#palɛ# | Rule 760 : [+syl,+long] > [-long,-splng] 

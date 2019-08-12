@@ -1,22 +1,19 @@
 Trajectory file for run 'run1'; etymon number :1033:
-#rˈubeum# >>> #ʁuʒ# ( Correct : #ʁuʒ#) :
-r ˈu b e u m 
-#rˈʊbɛʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#rˈʊbjʊm# | Rule 23 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
-#rˈʊbʝʊm# | Rule 28 : j > ʝ / __ [+syl]
-#rˈobʝom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#rˈobʝo# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#rˈobɟo# | Rule 260 : {j;ʝ} > {ɟ;ɟ} / @ [+cons] ( [+cons] )* __ [+syl]
-#rˈobd͡ʒo# | Rule 262 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
-#rˈobd͡ʒə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
-#rˈobd͡ʒə̯# | Rule 282 : ə > ə̯ 
-#rˈobd͡ʒə# | Rule 300 : ə̯ > ə / [+delrel,-ant] __ 
-#rˈod̪d͡ʒə# | Rule 340 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
-#rˈod͡ʒə# | Rule 501 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#rˈud͡ʒə# | Rule 572 : [+round,+tense,+back] > [+hi] 
-#rˈuʒə# | Rule 655 : [+delrel] > [+cont,0delrel] 
-#rˈuʒə̯# | Rule 714 : ə > ə̯ / __ #
-#rˈuʒ# | Rule 742 : ə̯ > ∅ 
-#ʀˈuʒ# | Rule 758 : r > ʀ 
-#ʀuʒ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʁuʒ# | Rule 766 : ʀ > ʁ 
+#rˈuːɡɑm# >>> #ʁy# ( Correct : #ʁy#) :
+r ˈuː ɡ ɑ m 
+#rˈuɡɑm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#rˈuɡɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#rˈuɣɑ# | Rule 91 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ [+son,-lat,-nas]
+#rˈuːɣɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#rˈuːɑ# | Rule 128 : ɣ > ∅ / [+hi,+round,+syl] __ [+lo]
+#rˈuːa# | Rule 204 : [+lo] > [+front,-back] 
+#rˈʉːa# | Rule 222 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#rˈʉːə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
+#rˈʉə# | Rule 462 : [+syl] > [-long,-splng] 
+#rˈyə# | Rule 518 : [+hi,+round,-back] > [+front] 
+#rˈyːə# | Rule 701 : [+stres] > [+long] / __ ə
+#rˈyː# | Rule 702 : ə > ∅ / [+syl] __ 
+#ʀˈyː# | Rule 758 : r > ʀ 
+#ʀyː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʀy# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#ʁy# | Rule 766 : ʀ > ʁ 

@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :983:
-#pˈullɑm# >>> #pul# ( Correct : #pul#) :
-p ˈu l l ɑ m 
-#pˈʊllɑm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈollɑm# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈollɑ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈolla# | Rule 204 : [+lo] > [+front,-back] 
-#pˈollə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈolə# | Rule 506 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#pˈulə# | Rule 572 : [+round,+tense,+back] > [+hi] 
-#pˈulə̯# | Rule 714 : ə > ə̯ / __ #
-#pˈul# | Rule 742 : ə̯ > ∅ 
-#pul# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˌullˈɑːmen̪# >>> #pulɛ̃# ( Correct : #pulɛ̃#) :
+p ˌu l l ˈɑː m e n̪ 
+#pˌʊllˈɑːmɛn̪# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌʊllˈɑmɛn̪# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#pˌollˈɑmɛn̪# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˌollˈɑmɛ# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˌollˈɑːmɛ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˌollˈaːmɛ# | Rule 204 : [+lo] > [+front,-back] 
+#pˌollˈaːmə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#pˌollˈaːmə̯# | Rule 282 : ə > ə̯ 
+#pˌollˈaːm# | Rule 306 : ə̯ > ∅ 
+#pˌollˈae̯m# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˌollˈajm# | Rule 448 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#pˌolˈajm# | Rule 506 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#pˌolˈaj̃m# | Rule 519 : j > j̃ / [+lo] __ [+nas,-syl]
+#pˌolˈãj̃m# | Rule 520 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#pˌolˈãj̃n̪# | Rule 545 : m > n̪ / [-cons] __ #
+#pˌulˈãj̃n̪# | Rule 572 : [+round,+tense,+back] > [+hi] 
+#pˌulˈɛ̃j̃n̪# | Rule 594 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#pˌulˈɛ̃n̪# | Rule 671 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#pˌulˈɛ̃ː# | Rule 675 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#pulɛ̃ː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pulɛ̃# | Rule 760 : [+syl,+long] > [-long,-splng] 

@@ -1,19 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1143:
-#spˈɑt̪ʰɑ# >>> #epe# ( Correct : #epe#) :
-s p ˈɑ t̪ʰ ɑ 
-#spˈɑt̪ɑ# | Rule 6 : [+sg,-cont] > [-sg] 
-#ˌɪspˈɑt̪ɑ# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
-#ˌespˈɑt̪ɑ# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˌespˈɑːt̪ɑ# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌespˈaːt̪a# | Rule 204 : [+lo] > [+front,-back] 
-#ˌespˈaːd̪a# | Rule 359 : [-voi] > [+voi] / [-cons] __ [-cons]
-#ˌespˈaːða# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#ˌespˈae̯ða# | Rule 422 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ˌespˈae̯ðə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈeːðə# | Rule 463 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#ˌexpˈeːðə# | Rule 601 : s > x / [-cons] __ [+cons]
-#ˌexpˈeːə# | Rule 614 : {θ;ð} > {∅;∅} 
-#ˌeːpˈeːə# | Rule 664 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌeːpˈeː# | Rule 702 : ə > ∅ / [+syl] __ 
-#eːpeː# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#epe# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#spˈiːkum# >>> #epi# ( Correct : #epi#) :
+s p ˈiː k u m 
+#spˈiːkʊm# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɪspˈiːkʊm# | Rule 16 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈikʊm# | Rule 58 : [+syl,+long] > [-long,-splng] 
+#ˌespˈikom# | Rule 69 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌespˈiko# | Rule 74 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌespˈiːko# | Rule 115 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈiːɡo# | Rule 138 : k > ɡ / [-cons] __ [+syl]
+#ˌespˈiːɣo# | Rule 140 : ɡ > ɣ / [-cons] __ [-cons]
+#ˌespˈiːɣə# | Rule 274 : [-stres,-lo,+syl] > ə / __ #
+#ˌespˈiːɣə̯# | Rule 282 : ə > ə̯ 
+#ˌespˈiːɣ# | Rule 306 : ə̯ > ∅ 
+#ˌespˈiːx# | Rule 455 : [-son] > [-voi] / __ #
+#ˌespˈix# | Rule 462 : [+syl] > [-long,-splng] 
+#ˌespˈiç# | Rule 469 : x > ç / [+hi,+front,+prim] ( [-cons,-syl,+front] ) __ #
+#ˌespˈiʝ# | Rule 471 : ç > ʝ 
+#ˌespˈij# | Rule 477 : ʝ > j / [-cons] __ 
+#ˌespˈi# | Rule 478 : j > ∅ / [+hi,+front,+tense] __ 
+#ˌexpˈi# | Rule 601 : s > x / [-cons] __ [+cons]
+#ˌeːpˈi# | Rule 664 : [+syl] x > [+long] ∅/ __ [+cons]
+#eːpi# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#epi# | Rule 760 : [+syl,+long] > [-long,-splng] 

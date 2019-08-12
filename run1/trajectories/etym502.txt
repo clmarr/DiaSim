@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :502:
-#kˈon̪t̪rɑː# >>> #kɔ̃t̪ʁ# ( Correct : #kɔ̃t̪ʁ#) :
-k ˈo n̪ t̪ r ɑː 
-#kˈɔn̪t̪rɑː# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈɔn̪t̪rɑ# | Rule 58 : [+syl,+long] > [-long,-splng] 
-#kˈũn̪t̪rɑ# | Rule 171 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
-#kˈũn̪t̪ra# | Rule 204 : [+lo] > [+front,-back] 
-#kˈũn̪t̪rə# | Rule 452 : a > ə / [+syl] ( [-syl] )* __ 
-#kˈũːt̪rə# | Rule 674 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#kˈũːt̪rə̯# | Rule 714 : ə > ə̯ / __ #
-#kˈũːt̪r# | Rule 742 : ə̯ > ∅ 
-#kˈũːt̪ʀ# | Rule 758 : r > ʀ 
-#kũːt̪ʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kũt̪ʀ# | Rule 760 : [+syl,+long] > [-long,-splng] 
-#kɔ̃t̪ʀ# | Rule 761 : ũ > ɔ̃ 
-#kɔ̃t̪ʁ# | Rule 766 : ʀ > ʁ 
+#kˈor# >>> #kœʁ# ( Correct : #kœʁ#) :
+k ˈo r 
+#kˈɔr# | Rule 14 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɔːr# | Rule 118 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kˈuo̯r# | Rule 172 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#kˈʉo̯r# | Rule 222 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈyo̯r# | Rule 518 : [+hi,+round,-back] > [+front] 
+#kˈye̯r# | Rule 534 : o̯ > e̯ 
+#kˈøːr# | Rule 587 : [+hi,+round,+tense,+prim] e̯ > ˈøː
+#kˈœːr# | Rule 693 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
+#kˈœːɹ# | Rule 732 : r > ɹ / [-cons] __ #
+#kˈœːr# | Rule 756 : ɹ > r 
+#kˈœːʀ# | Rule 758 : r > ʀ 
+#kœːʀ# | Rule 759 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kœʀ# | Rule 760 : [+syl,+long] > [-long,-splng] 
+#kœʁ# | Rule 766 : ʀ > ʁ 
