@@ -744,7 +744,8 @@ $ CORRECITON: in fact this occurs not only before t but also all coronals
 [+front,+tense,-lo,-stres] > ∅ / __ [+cor] [+lo,+long]
 
 $ s350: this time where a b or β has come into contact with t due to the prior rule, the t becomes voiced to d
-t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
+$ CORRECTION: suppressed. Not diachronically useful (semitam > sente, not sende, dubitare > douter, although subitanum > soudain) 
+$ t̪ > d̪ / [+lab,+cons,+ant,+voi] __ [+lo]
 
 $ Pope p160-161 s404:7 -- she calls this one a "glide" -- NOT a fricative (but uses the same symbol) 
 ∅ > j / ˌe __ [+lo]
@@ -1036,7 +1037,7 @@ $ this is going to be recurrent...
 $ Pope dismisses n-flapping phenomena as characteristic only of loan words (s642) 
 	$ but it can be modeled regularly. 
 $ CORRECTION: nrl become flap when after velar or dental (NOT alveolar) occlusives and between two schwas then (s)#
-[+son,+cor] > ɾ / [-son,-lab,-strid,-hi] ə __ ə (s) # 
+[+son,+cor] > ɾ / [-son,-lab,-strid,-front] ə __ ə (s) # 
 
 $ CORRECTION: specifically after /r/ in positions two rules above, /n/ will flap without the possibility of renasalizatoin
 $ Dating as per TLFi : appears to complete around 1100-- 1050 jorn > 1100 jor
@@ -1763,6 +1764,9 @@ $ CORRECTION: dental fricative edh is also deleted before non sonorants
 [+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ ð [-cont]
 ð > ∅ / __ [-cont]
 
+$ CORRECTION: ɣ devoices next to voiceless segments
+ɣ > x / __ [-voi]
+
 $ s366 degemination 
 $ CORRECTION: extended to also hit rr when word final 
 {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪}
@@ -1829,10 +1833,16 @@ $ CORRECTION: This does not simply happen everywhere that is open as Pope seems 
 		$ and s234 (/e/ free (from all sources) was ordinarily reduced to ə...")
 $ It appears it happens (1) after tʃ ... (cheval, cheveu, cheville ...)
 ˌe > ˌə / t͡ʃ __ ([+cons]) [+syl] 
-	$ CORRECTION: also happens after v... (v(e)rai(e), velu(e), v(e)oir, v(e)ouge, veau ...) 
-ˌe > ˌə / v __ ([+cons]) [+syl]
+
+$ CORRECTION: happens after any onset voiced anterior segment or sequence
+	$... if it precedes ([+cons]) [+stres]
+ˌe > ˌə / # ([+voi,+ant])+ __ ([+cons]) [+stres]
+
+$	$ CORRECTION: also happens after v... (v(e)rai(e), velu(e), v(e)oir, v(e)ouge, veau ...) 
+$ˌe > ˌə / v __ ([+cons]) [+syl]
 	$ CORRECTION: and after any word initial sonorant (levain, mesure, m(e)aille, neveu, ...) 
-ˌe > ˌə / # [+son] __ ([+cons]) [+syl] 
+$ˌe > ˌə / # [+son] __ ([+cons]) [+syl] 
+
 	$ CORRECTION: and (still in open syllables) 
 		$when next syllable has the tonic a, ã, aj, ae̯, or ɛ or tense o (Bretagne, (e)age, seau, ...)
 		$-- specifically the oral and not the nasal variants of these (not Cevennes, etc...) 
