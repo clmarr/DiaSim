@@ -1533,6 +1533,9 @@ $it is not as simple as Pope argues,
 ˌɛ > ˌɨ / __ [+cor,-nas,+cont] [+cons,-nas]
 ˌɛ > ˌe / __ @ @
 
+$CORRECTION: closing of ɔ blocked before voiceless coronals (prochain, fosse', côte', ...)
+ˌɔ > ˌɯ / __ [+cor,-voi]
+	$ this cannot be done later as it would overgeneralize -- see coutume, nous, vous, soupcon etc... 
 $CORRECTION: closing of ɔ doesn't occur right before tonic o
 $CORRECTION: blocked in ɔw dipth
 ˌɔ > ˌɯ / __ ˈɔ
@@ -1829,37 +1832,31 @@ $ CORRECTION: countertonic ˌe to ˌə can bleed second nasalization -- moved be
 $ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
 $ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
-$ CORRECTION: This does not simply happen everywhere that is open as Pope seems to stipulate in 
-	$s166.5, s223 ("countertonic /e/ was reduced to /ə/ when free") 
-		$ and s234 (/e/ free (from all sources) was ordinarily reduced to ə...")
-$ It appears it happens (1) after tʃ ... (cheval, cheveu, cheville ...)
-ˌe > ˌə / t͡ʃ __ ([+cons]) [+syl] 
-
-$ CORRECTION: happens after any onset voiced anterior segment or sequence
-	$... if it precedes ([+cons]) [+stres]
-ˌe > ˌə / # ([+voi,+ant])+ __ ([+cons]) [+stres]
-
-$	$ CORRECTION: also happens after v... (v(e)rai(e), velu(e), v(e)oir, v(e)ouge, veau ...) 
-$ˌe > ˌə / v __ ([+cons]) [+syl]
-	$ CORRECTION: and after any word initial sonorant (levain, mesure, m(e)aille, neveu, ...) 
-$ˌe > ˌə / # [+son] __ ([+cons]) [+syl] 
-
-	$ CORRECTION: and (still in open syllables) 
-		$when next syllable has the tonic a, ã, aj, ae̯, or ɛ or tense o (Bretagne, (e)age, seau, ...)
-		$-- specifically the oral and not the nasal variants of these (not Cevennes, etc...) 
-ˌe > ˌə / __ ([+cons]) [+lo,+prim]
-ˌe > ˌə / __ ([+cons]) ˈɛ
-	$CORRECTION: before a non-sonorant then stressed ˈiː (petit, devin...)
-ˌe > ˌə / __ [-son] ˈi
-	$CORRECTION: in open syll before n or m this happens too. (benoit, genouille, grenouille, plenier, tenir, jumeaux, fumier, tremuie etc..) 
-			$ Pope seems to present countertonic ˌe nasalizing before reduction and ending up denasalized as /a/ as the regular development (ss447,448)
-				$... while presenting the reduction to schwa bleeding lowering as a variant development
-					$ however in our dataset the latter is much more common. 
-		$ s486 -- jumeaux, fumier etc will be rounded and closed in Middle French. 
-ˌe > ˌə / __ [+nas,+ant,+cons] [+syl]
+ˌe > ˌə / __ ([+cons]) [+syl]
 
 $s665 (stated in sound table but nowhere else): ˌə reverts to ˌe if before ʎ
 ˌə > ˌe / __ ʎ
+
+$ CORRECTION: reversals include ə > ˌɛ before lə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
+	$ s684 -- Pope definitely does not accomodate this, and has an explicitly different view of the development of pelerin 
+		$ which she cites as pˌələri:n in Old French and only getting /ˌɛ/ in Middle French 
+			$ -- yet she never explains anywhere this purported ˌə > ˌɛ shift. 
+ˌə > ˌɛ / __ l ə 
+
+$ CORRECTION: ˌə > ˌe before r then anything but a : peril, derriere, Jerome, paresse
+ˌə > ˌe / __ r [-lo]
+
+$ CORRECTION: initial countertonic schwa to e 
+	$ ... if before any consonant except a dental
+		$ due to the rules of how intervocalic clusters developed
+			$ this can be summarized with [+strid]
+	$ cases: eveque(s), essai(s), essaim(s), etc.
+ˌə > ˌe / # __ [+strid]
+
+$ NOTE: other cases not handled here-
+	$ pedo:nem > pion -- form of "pëon" attested in 1380 as per TLFi
+	$ denara:ta > denree -- should be handled by earlier schwa DELETION rules
+	$ desordre, prevot, plenier(e), trem(u)i(e) -- too isolated. 
 
 $ CORRECTION : ə from previous period (restoration after schwa falls) becomes e 
 	$ if in closed nasal syllable. (parente', jouvencelle, etc.) 
@@ -1913,8 +1910,6 @@ $ CORRECTED -- seems to happen immediately before u>y,
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
-$CORRECTION: closing of ɔ blocked or reversed before voiceless coronals (prochain, fosse', côte', ...)
-ˌo > ˌɔ / __ [+cor,-voi]
 
 $ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure, then a syllabic (not tourtre < torturella) 
 ˌo > ˌɔ / __ r [+ant,-lab,-cont] [+syl]
@@ -2157,12 +2152,6 @@ $ happens after the loss of the interdental frics.
 $ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or r. 12th century. 
 	$but as we see below, we end up putting more constraints where the lateral is concerned. 
 ˈe > ˈɛ / __ r [+cons]
-
-$ CORRECTED: includes ˌe > ˌɛ before l then ə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
-	$ s684 -- Pope definitely does not accomodate this, and has an explicitly different view of the development of pelerin 
-		$ which she cites as pˌələri:n in Old French and only getting /ˌɛ/ in Middle French 
-			$ -- yet she never explains anywhere this purported ˌə > ˌɛ shift. 
-ˌe > ˌɛ / __ l ə 
 
 $ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, 
 	$ in open syllables before voiced continuants that are not lateral or nasal
