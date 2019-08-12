@@ -1518,31 +1518,29 @@ $ s164-15 ~ s223 ~ s234: raising of lax countertonic ɛ,ɔ to tense e,o except i
 $it is not as simple as Pope argues,
 	$ CORRECTION 1 : shift is NOT blocked before geminate r (terrain, etc)
 	$ CORRECTION 2 : ð then cons will block shift of ɛ
+		$ must be non-nasal -- see semaine. 
 	$ CORRECTION 3 : s (not z! -- temoin etc) then cons will block shift of ɛ usually...
 		$ ... but when it's not without prior onset (and before s)
 		$ (clearcut cases: prêcher, prêcheur, prêter, vêtir, vêtement) 
 		$ debatable cases as we don't know which pronounciation /e/ or /ɛ/ is regular:
 			$ essai, essaim, presser
 	$ we group together all three of these as oral coronal continuants. 
+	$ CORRECTION: also does happen before interdental frics always if word initial
+	$ CORRECTION: but, unless covered by a rule above, does not happen for C #
 {ˌɛ;ˌɔ} > {ˌɨ;ˌɯ} / __ [+lat] [+cons]
 ˌɛ > ˌe / __ r r
-ˌɛ > ˌe / # __ s
-ˌɛ > ˌɨ / __ [+cor,-nas,+cont] [+cons]
-	$ CORRECTION: ˌɛ word final also unaffected (ego >je) 
-	$ CORRECTION: does not occur before C # (except in et, because of the second correction here)
-ˌɛ > ˌe / __ @
+ˌɛ > ˌe / # __ [+cor,+cont]
+ˌɛ > ˌɨ / __ [+cor,-nas,+cont] [+cons,-nas]
+ˌɛ > ˌe / __ @ @
 
-$CORRECTION: closing of ɔ blocked before obstruent coronals (prochain, fosse', côte', ...)
-$CORRECTION: closing of ɔ also doesn't occur rihgt before tonic o
+$CORRECTION: closing of ɔ doesn't occur right before tonic o
 $CORRECTION: blocked in ɔw dipth
-ˌɔ > ˌɯ / __ [+cor,-son]
 ˌɔ > ˌɯ / __ ˈɔ
 ˌɔ > ˌɯ / __ w
 
-$(resolving 164-15 ~ s234
+$(resolving 164-15 ~ s223 ~ s234
 ˌɔ > ˌo
 {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ}
-
 
 $ per Pope s481 : original aw ("au̯") becomes ɔ -- we do not differentiate "au̯" from a + w sequences
 	$ but we could reliably capture it as being whenever aw precedes a consonantal. 
@@ -1915,12 +1913,11 @@ $ CORRECTED -- seems to happen immediately before u>y,
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
+$CORRECTION: closing of ɔ blocked or reversed before voiceless coronals (prochain, fosse', côte', ...)
+ˌo > ˌɔ / __ [+cor,-voi]
 
-$ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure
-ˌo > ˌɔ / __ r [+ant,-lab,-cont]
-
-$ ... but not if it's rtr
-ˌɔ > ˌo / __ r t̪ r
+$ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure, then a syllabic (not tourtre < torturella) 
+ˌo > ˌɔ / __ r [+ant,-lab,-cont] [+syl]
 
 $s435: dentalization of final m after vowels. 
 $s435 -- accepted by late 11th century 
@@ -1932,7 +1929,8 @@ $TODO work here, move this later.
 $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u 
 	$ ... are BLED by effects of ð : 
 	$ except when the next vowel is tonic and tense, ˌo and ˈo go to ˌɔ before ð 
-		$ i.e. affected: borne, boyau, prone, Rhone; unaffected: nouer, noueux, nourrice, nourrisson, vouer
+		$ i.e. affected: borne, boyau, boyaux, prone, Rhone; 
+			$ unaffected: nouer, noueux, nourrice, nourrisson, vouer
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ([-syl])* {#;[-stres];[+syl,-tense]} 
 
 $ Pope s372 : ð occasionally assimilated to r but when it did and didnˌt was
