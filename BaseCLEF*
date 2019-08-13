@@ -1437,13 +1437,17 @@ $ s464 : continuation of nasalizing tendency into Middle French -- stil producti
 [+syl,-hi] > [+nas] / __ [+nas,+cons]
 [+syl,-front] > [+nas] / __ [+nas,+cons]
 
-~Old French II
-
 $handling of unstressed ə̃ as per s434 -- recurse but without ə̃nt which has been lost by now per s437
 {ə̃;ˌə̃} > {ə;ˌə} 
 
 $ x effaced -- some time after the 14th century, when Orthographica Gallica was written
 [+syl] x > [+long] ∅ /  __ [+cons] 
+
+$ Pope s685: implied elsewhere but only stated in the table
+$ m praeconsonantal goes to n
+m > n̪ / __ [+cons] 
+
+~Old French II
 
 $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 

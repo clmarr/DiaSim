@@ -47,10 +47,8 @@ $p144 s359 ~ p73 s156iii --- rs > s after long vowels, > ss after short vowels
 $ CORRECTION : we only implement the stipulated shifts occurring after long vowels and two vowel sequences,
 $ Because the rs > ss shift after single short vowels seems to only be correct for two lexemes, persica and dorsum.
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
-[+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
-
-$ CORRECTION: long e: before j becomes short
-ˈeː > ˈe / __ j
+$ CORRECTION: two vocalics aspect suppressed - no targets as deorsum was attenuated. 
+$ [+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
 
 $ CORRECTION: stressed i + e > iː x (pietatem type lexemes affected)
 	$ needs to bleed any detensing as per Pope s154i
@@ -281,6 +279,8 @@ $ CORRECTION : also deleted after countertonic ɑ
 [+nas,+cons] > ∅ / [+lo,-prim] __ #
 $ CORRECTION : also deleted after yod then vowel (case of iam > ja, deum > dieu etc), even in monosyllables
 [+nas,+cons] > ∅ / ʝ [+syl] __ #
+
+
 
 $ p185 s488 : o > ɔ before labial consonants 
 $ *** NOTE : This is called a "TENDENCY" by Pope
@@ -2184,7 +2184,8 @@ $ This bleeds normal s-effacement as per Pope -- debatable.
 $ Walloon wrote this as 'h' (Pope s378)
 $ CORRECTION: s > x before ALL consonants
 $ CORRECTION: moved here from later. 
-s > x / [-cons] __ [+cons]
+$ CORRECTION: include also s^j
+[-distr,+strid,-voi] > x / [-cons] __ [+cons]
 
 $ s544 : ie̯w >jew as part of stress shift. Occurred during 12th century (s538 -- later 12th century) 
 $per s509-510 ~ s470-472 (see also s512-513) this can be input as part of a larger shift,
@@ -2214,14 +2215,9 @@ $ CORRECTION: countertonic ˌɛ goes to ˌa
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r {#;p;t͡ʃ}
 
 $ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
-ˌe > ˌə / __ ([+cons]) [-cons] 
-
-$ CORRECTION: ˌe is preserved before w (ceux, jeudi, etc)
-ˌə > ˌe / __ w
-
-$ CORRECTION: ˌɛ returns to ˌe before ð then ũː, but nowhere else
-	$ may be somehow related to behavior in gladebon > glaive? 
-ˌɛ > ˌe / __ ð ˈũː
+$ CORRECTION -- only sonorant consonants can come between this and next syllabic next time	
+	$ -- hence must be "over open" syllable. 
+ˌe > ˌə / __ ([+cons,+son]) [+syl] 
 
 $ CORRECTION : unrounding and lowering of u in ˈuj before ə then # in late 12th century
 $ Pope argues that oi > ai shifting only occured under Italian influence in Middle French
@@ -2500,6 +2496,10 @@ $ Not reported in the 1300 Orthographica Gallica, which may be conservative, but
 $ CORRECTION: now this is done to x
 [+syl] x > [+long] ∅ /  __ [+cons]
 x > ∅
+
+$ Pope s685: implied elsewhere but only stated in the table
+$ m praeconsonantal goes to n
+m > n̪ / __ [+cons] 
 
 ~Old French II
 
