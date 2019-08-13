@@ -1979,7 +1979,7 @@ $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 $ CORRECTION : tonic ˈow > ˈew is REVERSED before z [epoux, epouse, moule, ...] 
 ˈe > ˈo / __ w z
 
-$ CORRECTION : s291-s292, tsj depalatalization, is deleted. 
+$ CORRECTION : s291-s292, tsj depalatalization, ] is deleted. 
 	$Already had to be moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
  $ other unsalvageable issues included words like suctiare > sucer not sucier, percer not percier, blesser not blessier, chasser not chassier etc
@@ -2121,6 +2121,7 @@ $ CORRECTION: Pope notates this as ue̯ undergoing this shift, but the u should 
 	$ -- it is actually ye̯ -- make notation sufficiently broad
 $ She also explicitly limits it to hte stressed diphthong 
 $ CORRECTION: ø arising this way is always long 
+	$TODO check this. 
 [+hi,+round,+tense,+prim] e̯ > ˈøː
 
 $s385~s390 vocalization of dark l variants 
@@ -2136,7 +2137,7 @@ lʲ > ∅
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
 $ can occur for either stressed or secondarily stressed ɛ (bellitatem >beaute -- a case of secondary stressed ɛ for this)
 ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-[-hi,-lo,+syl,-tense] > [-long] / __ a̯ w
+[+syl] > [-long] / __ a̯ w
 
 $s388 ~ s544 : glide of /e/ after eː (from Gallo Roman a in open sylls)
 $ note this can only come from primarily stressed a (>ˈeː) 
@@ -2443,7 +2444,8 @@ $s437: n̪ is absorbed by ə̃ in ə̃nt ending actually goes back to the 13th c
 n̪ > ∅ / ə̃ __ t̪ #
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings
-$ CORRECTION: moved this to before merger of ts and s (<ss) as there are clearly different results
+$ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss) 
+	$ as there are clearly different results
 	$ as there is no length where the affricate formerly followed. 
 $ NOTE: suppress for ts/s demo
 [+front,-round,+syl] > [+long] / __ s ə #
@@ -2480,15 +2482,6 @@ $handling of unstressed ə̃ as per s434 -- recurse
 	$ but no ə̃nt anymore as it was absorbed as per s437
 {ə̃;ˌə̃} > {ə;ˌə} 
 
-$ s486 : rounding of e-sounds to ø between two labial consonants or ʒ __ [+lab]
-$ based on Pope's evidence, say it was accepted in early 15th century 
-	$ first reported by Guiart, who wrote in the early 1300s. 
-	$ Next reports of it are usage by Villon (lived 1431-1463) and then Palsgrave (born 1485) 
-$ CORRECTION: moved earlier to early 14th century as it is counterfed by the loss of x (case of vetement) 
-$ CORRECTION: in case of f (and, we assume p) only happens before v and m (and we assume, b, also voiced),
-{ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / {ʒ;[+lab,+cons,+voi]} __ [+lab,+cons]
-{ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / [+lab,+cons,-voi] __ [+lab,+cons,+voi]
-
 $ Pope s172d ~ s375-379 ~ s564 ~ s567 : praeconsonantal s effaced after vowels...
 $ s377 : had not yet happened in mid 13th century -- early 14th century
 $ Not reported in the 1300 Orthographica Gallica, which may be conservative, but implies 
@@ -2503,7 +2496,6 @@ m > n̪ / __ [+cons]
 
 ~Old French II
 
-
 $ s529: ɛ j > e word-finally
 $ note s560 says "earlier" aj(>ɛj)>ɛː renders long ɛː
 	$  but does not (explicitly) state this for ɛj going to e word finally -- so we do not implement it as such. 
@@ -2512,6 +2504,14 @@ $ note: per s529 -- although it appears this was accepted in the 15th century (V
 		$ i.e. s532. 
 $ note: currently has no effect. 
 [-lo,-hi,-tense,+front,+syl] j > [+tense] ∅ / __ #
+
+$ s486 : rounding of e-sounds to ø between two labial consonants or ʒ __ [+lab]
+$ based on Pope's evidence, say it was accepted in early 15th century 
+	$ first reported by Guiart, who wrote in the early 1300s. 
+	$ Next reports of it are usage by Villon (lived 1431-1463) and then Palsgrave (born 1485) 
+$ CORRECTION: in case of f (and, we assume p) only happens before v and m (and we assume, b, also voiced),
+{ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / {ʒ;[+lab,+cons,+voi]} __ [+lab,+cons]
+{ə;ˌə;ˈɛ} > {ø;ˌø;ˈø} / [+lab,+cons,-voi] __ [+lab,+cons,+voi]
 
 $ CORRECTION: the following denasalization of ĩ  (s452) ...
 	$ ... is bled in the case of wĩ by the movement of ĩ to ẽ in this case
