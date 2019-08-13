@@ -17,7 +17,7 @@ $ CORRECTION: We delete Pope's handling of Classical Latin's variant l-allophone
 $ Note that the sequence u: + w does not seem to occur in Latin 
 $ If it did there would be some logical issues with Pope's rules -- i.e. s343 she states "beta from b" is effaced after u: 
 	$ where of course w (by which she means gamma^w) had already shifted to beta s186 much earlier 
-	$ -- of course sound change has no memory! However this issue is moot because u:+w doesnˌt occur in Latin it seems
+	$ -- of course sound change has no memory! However this issue is moot because u:+w doesn't occur in Latin it seems
 	
 $ CORRECTION : Pope forgets to explicitly say that w is a proper w not ɣʷ after velar consonants hence why we don't end up with tons of kv clusters.
 $ To be sure she does note (s186) that "betacism doesn't occur after k" but she doesn't notice that other affects she attriutes to ɣʷ are not occuring in the presence
@@ -217,7 +217,7 @@ $Classical Latin length distinction becomes a quality ("tense" for us) distincti
 
 $p73 s154iii ~ p190 s504 -- seems to have first occurred in the first and second centuries s504
 $giving her the benefit of the doubt, we place this after the length > tense shift, as otherwise oe would become ɛ
-$ 	given that she doesnˌt specify it as long and writes it like a short vowel 
+$ 	given that she doesn't specify it as long and writes it like a short vowel 
 {a e̯;ˌa e̯;ˈa e̯} > {ɛ;ˌɛ;ˈɛ}
 [+round,-hi,+syl] e̯ > [+front,-round,-back,+tense,-lab] ∅
 
@@ -229,7 +229,7 @@ k > ∅ / __ s [+cons]
 
 $p144 s359 ~ p134 s324-325 ~ p73 s156iii ~ p64 s130 ~ p6 s9i
 $ frication of k before t,s ; attributed to Gaulish substratum p6 s9 (RECTUM > REXTUM -- see also discussion of attestations like paraxsidi in other sources.) 
-$ Pope doesnˌt discuss the specific ordering of this vis-a-vis the kst>st rule, but this one would bleed that one and she never discusses an xst>st rule,
+$ Pope doesn't discuss the specific ordering of this vis-a-vis the kst>st rule, but this one would bleed that one and she never discusses an xst>st rule,
 $ so we favorably assume this one comes second.
 $ CORRECTION -- Pope fails to explicitly state that this only occurs after nonconsonantals
 	$ hence nkt and etc clusters are not effected.
@@ -251,7 +251,7 @@ $ ... NOTE: Pope is not clear about when exactly this occurred, but we place it 
 [-syl,-cons,-lo,+round,+back] > ∅ / ˌɑ __ ([-syl])* [+stres,+hi,+round,+back]
 
 $p73 s154i ~ elaborated p89 s180 : ɪ > e and ʊ > o 
-$according to Pope the lowering of ɪ was earlier than taht of ʊ "which retained its value in parts of the Roman Empire up to the present"... but doesnˌt specify when exactly
+$according to Pope the lowering of ɪ was earlier than taht of ʊ "which retained its value in parts of the Roman Empire up to the present"... but doesn't specify when exactly
 $best to just place them together here. 
 [+hi,-tense] > [-hi,+tense] 
 
@@ -269,7 +269,7 @@ t̪ > k / __ [+lat]
 
 $ p97-98 s205i ~ p73 s156ii : final m deletion  -- 
 $ ... unlike some later authors Pope does not recognize a nasalization in Late Latin, instead holding that simple nasal consonant deletion occurred
-$ Pope doesnˌt explicitly date this but considers it first attested in teh 3rd/4th century Appendix Probi
+$ Pope doesn't explicitly date this but considers it first attested in teh 3rd/4th century Appendix Probi
 $ Pope notes it did not occur in monosyllabic words 
 $ NOTE: as per p97-98 s205i -- unlike Italy and also South Gaul, North Gaul did not see effacement of s and t word-finally,
 $ ... because "pronunciation was influenced by the teaching in schools" in North Gaul -- though this mainly concerns final t and s 
@@ -942,6 +942,14 @@ $ Seventh century as per Pope s164
 
 $Absorption of prior velar (now palatal) frics by lambda, resolving s322
 $also by rj -- resolving s323
+$ note : this technically will incorrectly make cases like
+	$ varium etc
+	$ equivalent to facere, disfacere etc
+	$ in reality the latter ejected a final schwa but the former did not
+		$ but there is no way yet to formalize this without massive overfitting to small data. 
+		$ this only occurred word-finally: see lacrima > lairme (>larme), not laireme
+		$ also it did not effet gr clusters : agrum > air, nigrum > noir (however tragere> traire ... analogy?)
+		$ TODO work on this case
 [+hi,+front,-lat,-syl] > ∅ / __ {ʎ;rʲ}
 
 $ 164-1 Second palatalization resolves s298-302
@@ -978,6 +986,9 @@ $ s164.2 : palatal stops c,ɟ become postalveolar affricates
 $ Dated to seventh century in summary by Pope (s164)
 $ s299 "must have taken place before the end of the 8th century" 
 [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr]
+
+$ per s685 -- never explicated elsewhere -- m > n before d͡ʒ
+m > n̪ / __ d͡ʒ
 
 $ CORRECTION : former geminate velars assimilate
 {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ}
@@ -1607,7 +1618,7 @@ $ CORRECTION: ejects nasalized j̃ not purely oral j
 ɲ > j̃ n̪ / __ [+cons]
 
 $ s165-3 ~ s206 : devoicing of all final consonants that have become final -- operates after s165-1.
-$ she says "all consonants but doesnˌt list the sonorants -- so we say non-sonorants
+$ she says "all consonants but doesn't list the sonorants -- so we say non-sonorants
 [-son] > [-voi] / __ #
 
 $ CORRECTION: ɣw emits a following v when before r (sequere >>>>> suiVre)
@@ -1620,8 +1631,9 @@ $ CORRECTION: ɣ > e̯ / ˌa __ (ˌaɣwˈie̯r > ˌae̯wˈie̯r >> e'vier)
 ɣ > e̯ / ˌa __
 
 $ CORRECTION: ˈa e̯ ɣ > ˈaː j / __ w (case of aqua >>> aiue >>> eaue, aquas >>> aiues >>> eaues >>> eaux) 
-ˈa e̯ ɣ > ˈa j / __ w
- 
+	$ CORRECTION: remove __ w context and change to generic velar fric to handle also vera:cum > vrai (not vrec--- tho this yields the same ultimate modern result)
+ˈa e̯ [+back,-round,-son] > ˈa j
+
 $ CORRECTION: ɣ w > j v (ive, antif, antive)
 ɣ w > j v 
 
@@ -1799,8 +1811,8 @@ $ Pope s257 : unstressed ə > e before yod. She implies this is also happening b
 $ s252 : this feeds ej > oj phenomena.
 ə > e / __ [+front,+son,+hi,-syl]
 
-$ s329 and s484 countertonic e becomes o before w and tonic u -- doesnˌt state when explicitly other than "in Early Old French" 
-$she doesnˌt seem to mention this being effected by former o,
+$ s329 and s484 countertonic e becomes o before w and tonic u -- doesn't state when explicitly other than "in Early Old French" 
+$she doesn't seem to mention this being effected by former o,
 	$ so we assume it comes before s166.2 ~ s184 
 ˌe w > ˌo
 ˌe > ˌo / __ [+hi,+round,+prim] 
@@ -2183,7 +2195,7 @@ $ Fed by s388. Feeds e>ø / __ w shift.
 $ Seems to only occur for stressed ˈi.
 $ also s538 : ɛa̯w > e̯aw for both stressed and secondarily stressed ɛ and 
 	$per s538 "Later 12th century"
-	$Pope doesnˌt give relative dating for the closure (ɛ>e) and stress shift so we group
+	$Pope doesn't give relative dating for the closure (ɛ>e) and stress shift so we group
 		$them together. 
 	$Pope notes -- s508 ~ s472-- the leveling of diphthongs started in the south and west. 
 	$ / __ w context isn't necessary since ɛa̯ only occurs specifically in that context...
