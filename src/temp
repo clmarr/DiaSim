@@ -1,0 +1,12 @@
+LexPhon[] curPair = pairsWithDistortion.get(i); 
+SequentialPhonic[] goldPhs = curPair[1].getPhOnlySeq(); 
+featDist.compute(curPair[0],curPair[1]); 
+int[][] alignment = featDist.get_min_alignment(); 
+List<Integer> distortLocs = new ArrayList<Integer>();
+
+for(int gpi = 0 ; gpi < goldPhs.length; gpi++)
+{
+	if(goldPhs[gpi].print().equals(goldPhInventory[goldPhInd].print())) 
+		if(curPair[0].getPhOnlySeq()[alignment[1][gpi]].print().equals(resPhInventory[resPhInd].print()))
+			distortLocs.add(gpi); 
+}
