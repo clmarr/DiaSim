@@ -1,14 +1,15 @@
 Trajectory file for run 'run1'; etymon number :334:
-#ɡˈummɑ# >>> #ɡɔm# ( Correct : #ɡɔm#) :
-ɡ ˈu m m ɑ 
-#ɡˈʊmmɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ɡˈommɑ# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ɡˈũmmɑ# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
-#ɡˈũmma# | Rule 202 : [+lo] > [+front,-back] 
-#ɡˈũmmə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#ɡˈũmə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ɡˈũmə̯# | Rule 708 : ə > ə̯ / __ #
-#ɡˈũm# | Rule 736 : ə̯ > ∅ 
-#ɡũm# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡɔ̃m# | Rule 755 : ũ > ɔ̃ 
-#ɡɔm# | Rule 757 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
+#ɡˈust̪um# >>> #ɡu# ( Correct : #ɡu#) :
+ɡ ˈu s t̪ u m 
+#ɡˈʊst̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈost̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ɡˈost̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ɡˈost̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#ɡˈost̪ə̯# | Rule 281 : ə > ə̯ 
+#ɡˈost̪# | Rule 305 : ə̯ > ∅ 
+#ɡˈust̪# | Rule 568 : [+round,+tense,+back] > [+hi] 
+#ɡˈuxt̪# | Rule 596 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
+#ɡˈuːt̪# | Rule 652 : [+syl] x > [+long] ∅/ __ [+cons]
+#ɡˈuː# | Rule 735 : [-son] > ∅ / __ #
+#ɡuː# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɡu# | Rule 755 : [+syl,+long] > [-long,-splng] 

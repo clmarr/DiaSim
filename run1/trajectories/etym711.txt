@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :711:
-#mˈissum# >>> #mɛ# ( Correct : #mɛ#) :
-m ˈi s s u m 
-#mˈɪssʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈessom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˈesso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˈessə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#mˈessə̯# | Rule 281 : ə > ə̯ 
-#mˈess# | Rule 305 : ə̯ > ∅ 
-#mˈes# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mˈɛs# | Rule 614 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / [-front] __ s #
-#mˈɛ# | Rule 734 : [-son] > ∅ / __ #
-#mɛ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈoːbilem# >>> #mœbl# ( Correct : #mœbl#) :
+m ˈoː b i l e m 
+#mˈoːbɪlɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈoːβɪlɛm# | Rule 49 : b > β / [+syl] __ [+son,-lat,-nas]
+#mˈoβɪlɛm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#mˈoβelɛm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈoβelɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈoːβelɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈoːβəlɛ# | Rule 268 : [-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#mˈoːβələ# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈoːβə̯lə̯# | Rule 281 : ə > ə̯ 
+#mˈoːβə̯lə# | Rule 301 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#mˈoːβlə# | Rule 305 : ə̯ > ∅ 
+#mˈoːblə# | Rule 311 : β > b / __ l
+#mˈowblə# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈewblə# | Rule 554 : ˈo > ˈe / __ w
+#mˈøwblə# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mˈøːblə# | Rule 621 : [+round,+front,-hi,+syl] w > [+long] ∅
+#mˈøblə# | Rule 642 : [+syl] > [-long,-splng] 
+#mˈøblə̯# | Rule 709 : ə > ə̯ / __ #
+#mˈøbl# | Rule 737 : ə̯ > ∅ 
+#mˈœbl# | Rule 741 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#mœbl# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

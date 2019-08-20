@@ -1,16 +1,17 @@
 Trajectory file for run 'run1'; etymon number :194:
-#d̪ˈoːn̪ɑt̪# >>> #d̪ɔn̪# ( Correct : #d̪ɔn̪#) :
-d̪ ˈoː n̪ ɑ t̪ 
-#d̪ˈon̪ɑt̪# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#d̪ˈoːn̪ɑt̪# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#d̪ˈũːn̪ɑt̪# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
-#d̪ˈũːn̪at̪# | Rule 202 : [+lo] > [+front,-back] 
-#d̪ˈũːn̪aθ# | Rule 256 : {t̪;d̪} > {θ;ð} / [+syl] __ #
-#d̪ˈũːn̪əθ# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#d̪ˈũn̪əθ# | Rule 461 : [+syl] > [-long,-splng] 
-#d̪ˈũn̪ə# | Rule 607 : {θ;ð} > {∅;∅} 
-#d̪ˈũn̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#d̪ˈũn̪# | Rule 736 : ə̯ > ∅ 
-#d̪ũn̪# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪ɔ̃n̪# | Rule 755 : ũ > ɔ̃ 
-#d̪ɔn̪# | Rule 757 : [+syl,+nas] > [-nas] / __ [+nas,+cons]
+#d̪ˈoːn̪um# >>> #d̪ɔ̃# ( Correct : #d̪ɔ̃#) :
+d̪ ˈoː n̪ u m 
+#d̪ˈoːn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈon̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#d̪ˈon̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈon̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#d̪ˈoːn̪o# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#d̪ˈũːn̪o# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
+#d̪ˈũːn̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˈũːn̪ə̯# | Rule 281 : ə > ə̯ 
+#d̪ˈũːn̪# | Rule 305 : ə̯ > ∅ 
+#d̪ˈũn̪# | Rule 461 : [+syl] > [-long,-splng] 
+#d̪ˈũː# | Rule 669 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#d̪ũː# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ũ# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#d̪ɔ̃# | Rule 756 : ũ > ɔ̃ 

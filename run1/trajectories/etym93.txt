@@ -1,9 +1,22 @@
 Trajectory file for run 'run1'; etymon number :93:
-#ˈɑwt̪# >>> #u# ( Correct : #u#) :
-ˈɑ w t̪ 
-#ˈawt̪# | Rule 202 : [+lo] > [+front,-back] 
-#ˈɔwt̪# | Rule 242 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
-#ˈɔwθ# | Rule 448 : [-delrel] > [+cont,0delrel] / [-cons] __ #
-#ˈɔw# | Rule 607 : {θ;ð} > {∅;∅} 
-#ˈu# | Rule 624 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
-#u# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˌɑwˈun̪kulum# >>> #ɔ̃kl# ( Correct : #ɔ̃kl#) :
+ˌɑ w ˈu n̪ k u l u m 
+#ˌɑwˈuŋkulum# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#ˌɑɣʷˈuŋkulum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ˌɑɣʷˈʊŋkʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˌɑˈʊŋkʊlʊm# | Rule 29 : ɣʷ > ∅ / [+lo] __ [+syl,+round]
+#ˌɑˈʊŋklʊm# | Rule 31 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#ˌɑˈoŋklom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌɑˈoŋklo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌɑˈũŋklo# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
+#ˌaˈũŋklo# | Rule 202 : [+lo] > [+front,-back] 
+#ˌaˈũŋklə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#ˌaˈũŋklə̯# | Rule 281 : ə > ə̯ 
+#ˌaˈũŋklə# | Rule 287 : ə̯ > ə / [+stres] ( [-syl] )* [+cons,-ant] [-distr,+son] __ 
+#ˌaˈũːklə# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#ˈũːklə# | Rule 704 : ˌa > ∅ / __ [+prim]
+#ˈũːklə̯# | Rule 709 : ə > ə̯ / __ #
+#ˈũːkl# | Rule 737 : ə̯ > ∅ 
+#ũːkl# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ũkl# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#ɔ̃kl# | Rule 756 : ũ > ɔ̃ 

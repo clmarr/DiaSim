@@ -1,10 +1,13 @@
 Trajectory file for run 'run1'; etymon number :918:
-#plˈɑt̪t̪ɑːs# >>> #plat̪# ( Correct : #plat̪#) :
-p l ˈɑ t̪ t̪ ɑː s 
-#plˈɑt̪t̪ɑs# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#plˈat̪t̪as# | Rule 202 : [+lo] > [+front,-back] 
-#plˈat̪t̪əs# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat̪əs# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat̪ə# | Rule 734 : [-son] > ∅ / __ #
-#plat̪ə# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#plat̪# | Rule 763 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#plˈɑt̪t̪oːs# >>> #pla# ( Correct : #pla#) :
+p l ˈɑ t̪ t̪ oː s 
+#plˈɑt̪t̪os# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#plˈat̪t̪os# | Rule 202 : [+lo] > [+front,-back] 
+#plˈat̪t̪əs# | Rule 272 : [-stres,-lo,+syl] > ə / __ [-syl]
+#plˈat̪t̪ə̯s# | Rule 281 : ə > ə̯ 
+#plˈat̪t̪s# | Rule 305 : ə̯ > ∅ 
+#plˈat̪t͡s# | Rule 331 : [+ant,+distr,-nas] s > t͡s/ __ #
+#plˈat͡s# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#plˈas# | Rule 646 : [+delrel] > [+cont,0delrel] 
+#plˈa# | Rule 735 : [-son] > ∅ / __ #
+#pla# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1285,7 +1285,7 @@ $ s189 : nβl > mbl
 n β > m b / __ [+lat] 
 
 $ CORRECTION: in cases of [-cons] ([+cons])+ rʲ, rʲ depalatalizes 
- $after ejecting a j at the beginning of the cons cluster
+ $after ejecting a /j/ at the beginning of the cons cluster
 $ -- evrium, ostrea, cupreum, materiamen... 
 $ in the case of ostrea>huitre and materiamen>merrain, the effects are apparent in cited forms
 	$ in s313, but never explained. 
@@ -1411,7 +1411,7 @@ $ ... palatalized dentals resolve into j + simple dental; lj not effected
 $ CORRECTION: any remaining d͡zʲ also ejects j backwards and depalatalizes at this stage
 $ CORRECTION: /rʲ/'s emission of j backward moved earlier, away from this point, so that it can trigger breaking of /a/
 rʲ > r
-$ for maintenance -- Pope doesn't account for the fact that this could end up with a j + j + Cons cluster
+$ for maintenance -- Pope doesn't account for the fact that this could end up with a /j/ + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
 {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
@@ -1501,7 +1501,7 @@ $ CORRECTION : if eː is already coming before j, that is absorbed. Same for ʝ
 $s182 : finally remaining velar a (only in monosyllables) is fronted, late enough so that it counterfeeds breaking and diphthongization
 [+lo] > [+front,-back]
 
-$ s420 : tsj ejefcts a j across a prior n if the vowel before is e 
+$ s420 : tsj ejects a /j/ across a prior n if the vowel before is e 
 $ CORRECTION: only countertonic e is affected.
 ∅ > j / ˌe __ n̪ t͡sʲ
 
@@ -1799,7 +1799,7 @@ $ in the case of the palatal j r clusters, Pope shows the effects in citation fo
 		$ but never specifically explains this specific phenomenon 
 $CORRECTION: this only happens for actual consonants followed by l, not glides.
 ∅ > ə / [-son] r __ #
-∅ > ə / [+hi,+front] e̯ j r __ #
+∅ > ə / e̯ j r __ #
 ∅ > ə / [+lo] j r __ #
 ∅ > ə / [-lat,+cons] l __ #
 
@@ -2337,7 +2337,7 @@ $ {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
 
 $ s166.8 ~ s192 : deletion of w in kw,gw. 
 $ ɥ also deleted after k,g at this time (s516) As per s192, late 12th century.
-[-syl,+round,+cont] > ∅ / [+back,-cont] __ 
+[-syl,+round] > ∅ / [+back,-cont] __ 
 
 $ s556  ɥø > jø is bled after labials and velars. Velars have already been covered by the rule above.
 $ CORRECTION: moved from between third nasalization and s670
@@ -2428,19 +2428,15 @@ $ [+front,-tense,+nas] > [+hi,+tense] / w __
 
 $ Pope s528-529 : ɛj > ɛː praeconsonantally. 
 $ Long as per s560
-{ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} /  __ [+cons] 
+[-round,-tense,+stres] j > [+long] ∅ / __ [+cons]
 
 $ CORRECTION : s378ii moved earlier. 
 
-$ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
-$ but must come after s effacement and resultant lengthening as per s580ii
-$ CORRECTION: moved earlier, was previously a few rules later. 
-[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) [+syl]
-[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) #
-
-
 $s437: n̪ is absorbed by ə̃ in ə̃nt ending actually goes back to the 13th century. 
 n̪ > ∅ / ə̃ __ t̪ #
+
+$ CORRECTION: previous distinctive length (in ew>øː, ae̯>eː and aj>ɛː) is leveled
+[+syl] > [-long]
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings
 $ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss) 
@@ -2449,7 +2445,8 @@ $ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss)
 $ NOTE: suppress for ts/s demo
 [+front,-round,+syl] > [+long] / __ s ə #
 
-$ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts (thus this must come before deaffrication) 
+$ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts 
+	$ (thus this must come before deaffrication -- moved earlier) 
 $ NOTE: suppress for ts/s demo
 [+prim,+lo] > [+long] / __ s #
 
@@ -2488,6 +2485,14 @@ $ Not reported in the 1300 Orthographica Gallica, which may be conservative, but
 $ CORRECTION: now this is done to x
 [+syl] x > [+long] ∅ /  __ [+cons]
 x > ∅
+
+$ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
+$ but must come after s effacement and resultant lengthening as per s580ii
+$ will repeat after effacement of s creates more targets for it. 
+$ CORRECTION: moved earlier, was previously a few rules later. 
+$ TODO handle this -- call only once and after preconsonantal s effacement. 
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) [+syl]
+[-lo,-hi,+back,-tense,+long] > [+tense] / __ ([-syl]) #
 
 $ Pope s685: implied elsewhere but only stated in the table
 $ m praeconsonantal goes to n

@@ -1,14 +1,24 @@
 Trajectory file for run 'run1'; etymon number :788:
-#n̪ˈuːllum# >>> #n̪yl# ( Correct : #n̪yl#) :
-n̪ ˈuː l l u m 
-#n̪ˈuːllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈullʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#n̪ˈullom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈullo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#n̪ˈʉllo# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#n̪ˈʉllə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#n̪ˈʉllə̯# | Rule 281 : ə > ə̯ 
-#n̪ˈʉll# | Rule 305 : ə̯ > ∅ 
-#n̪ˈʉl# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#n̪ˈyl# | Rule 517 : [+hi,+round,-back] > [+front] 
-#n̪yl# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ˈumerum# >>> #n̪ɔ̃bʁ# ( Correct : #n̪ɔ̃bʁ#) :
+n̪ ˈu m e r u m 
+#n̪ˈʊmɛrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈomɛrom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#n̪ˈomɛro# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#n̪ˈoːmɛro# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#n̪ˈoːmro# | Rule 145 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#n̪ˈoːmbro# | Rule 148 : ∅ > b / m __ [+cor,-nas,+son,-syl]
+#n̪ˈombro# | Rule 153 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#n̪ˈũmbro# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
+#n̪ˈũmbrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#n̪ˈũmbrə̯# | Rule 281 : ə > ə̯ 
+#n̪ˈũmbr# | Rule 305 : ə̯ > ∅ 
+#n̪ˈũmbrə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#n̪ˈũn̪brə# | Rule 656 : m > n̪ / __ [+cons]
+#n̪ˈũːbrə# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#n̪ˈũːbrə̯# | Rule 709 : ə > ə̯ / __ #
+#n̪ˈũːbr# | Rule 737 : ə̯ > ∅ 
+#n̪ˈũːbʀ# | Rule 753 : r > ʀ 
+#n̪ũːbʀ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ũbʀ# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#n̪ɔ̃bʀ# | Rule 756 : ũ > ɔ̃ 
+#n̪ɔ̃bʁ# | Rule 761 : ʀ > ʁ 

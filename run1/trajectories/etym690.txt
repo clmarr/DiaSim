@@ -1,19 +1,22 @@
 Trajectory file for run 'run1'; etymon number :690:
-#mˈeːn̪sɑm# >>> #mwaz# ( Correct : #mwaz#) :
-m ˈeː n̪ s ɑ m 
-#mˈeːsɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
-#mˈesɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#mˈesɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˈeːsɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈeːzɑ# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#mˈeːza# | Rule 202 : [+lo] > [+front,-back] 
-#mˈejza# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#mˈejzə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈojzə# | Rule 526 : ˈe > ˈo / [+lab,+voi] __ j
-#mˈujzə# | Rule 568 : [+round,+tense,+back] > [+hi] 
-#mˈuɛ̯zə# | Rule 631 : j > ɛ̯ / [+syl,+back,+round] __ 
-#mwˈɛzə# | Rule 632 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#mwˈɛzə̯# | Rule 708 : ə > ə̯ / __ #
-#mwˈɛz# | Rule 736 : ə̯ > ∅ 
-#mwɛz# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mwaz# | Rule 759 : ɛ > a / w __ 
+#mˈen̪sem# >>> #mwa# ( Correct : #mwa#) :
+m ˈe n̪ s e m 
+#mˈeːn̪sem# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [-stres]
+#mˈeːsem# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#mˈeːsɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈesɛm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#mˈesɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈeːsɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɛ# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːzə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈeːzə̯# | Rule 281 : ə > ə̯ 
+#mˈeːz# | Rule 305 : ə̯ > ∅ 
+#mˈejz# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejs# | Rule 454 : [-son] > [-voi] / __ #
+#mˈojs# | Rule 526 : ˈe > ˈo / [+lab,+voi] __ j
+#mˈujs# | Rule 568 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯s# | Rule 631 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛs# | Rule 632 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛ# | Rule 735 : [-son] > ∅ / __ #
+#mwɛ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mwa# | Rule 760 : ɛ > a / w __ 

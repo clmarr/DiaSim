@@ -1,16 +1,18 @@
 Trajectory file for run 'run1'; etymon number :331:
-#ɡrˈuːɑ# >>> #ɡʁy# ( Correct : #ɡʁy#) :
-ɡ r ˈuː ɑ 
-#ɡrˈuɑ# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#ɡrˈuːɑ# | Rule 112 : [+prim] > [+long] / __ [+syl]
-#ɡrˈuːa# | Rule 202 : [+lo] > [+front,-back] 
-#ɡrˈʉːa# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#ɡrˈʉːə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#ɡrˈʉə# | Rule 461 : [+syl] > [-long,-splng] 
-#ɡrˈyə# | Rule 517 : [+hi,+round,-back] > [+front] 
-#ɡrˈyːə# | Rule 695 : [+stres] > [+long] / __ ə
-#ɡrˈyː# | Rule 696 : ə > ∅ / [+syl] __ 
-#ɡʀˈyː# | Rule 752 : r > ʀ 
-#ɡʀyː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡʀy# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#ɡʁy# | Rule 760 : ʀ > ʁ 
+#ɡˈulɑm# >>> #ɡœl# ( Correct : #ɡœl#) :
+ɡ ˈu l ɑ m 
+#ɡˈʊlɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡˈolɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ɡˈolɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ɡˈoːlɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#ɡˈoːla# | Rule 202 : [+lo] > [+front,-back] 
+#ɡˈowla# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ɡˈowlə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#ɡˈewlə# | Rule 554 : ˈo > ˈe / __ w
+#ɡˈøwlə# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#ɡˈøːlə# | Rule 621 : [+round,+front,-hi,+syl] w > [+long] ∅
+#ɡˈølə# | Rule 642 : [+syl] > [-long,-splng] 
+#ɡˈølə̯# | Rule 709 : ə > ə̯ / __ #
+#ɡˈøl# | Rule 737 : ə̯ > ∅ 
+#ɡˈœl# | Rule 741 : [+front,+round,-hi,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ( [+cons] )* ( ə ) #
+#ɡœl# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :170:
-#d̪ˈen̪t̪em# >>> #d̪ɑ̃# ( Correct : #d̪ɑ̃#) :
-d̪ ˈe n̪ t̪ e m 
-#d̪ˈɛn̪t̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#d̪ˈɛn̪t̪ɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#d̪ˈɛn̪t̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#d̪ˈɛn̪t̪ə̯# | Rule 281 : ə > ə̯ 
-#d̪ˈɛn̪t̪# | Rule 305 : ə̯ > ∅ 
-#d̪ˈɛ̃n̪t̪# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#d̪ˈãn̪t̪# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#d̪ˈãːt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#d̪ˈɑ̃ːt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#d̪ˈɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#d̪ɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#d̪ɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#d̪ˈerbit̪ɑːrum# >>> #d̪ɛʁd̪ʁ# ( Correct : #d̪aʁt̪ʁ#) :
+d̪ ˈe r b i t̪ ɑː r u m 
+#d̪ˈɛrbɪt̪ɑːrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈɛrbɪt̪ɑrʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#d̪ˈɛrbet̪ɑrom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#d̪ˈɛrbet̪ɑro# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#d̪ˈɛrbet̪aro# | Rule 202 : [+lo] > [+front,-back] 
+#d̪ˈɛrbet̪əro# | Rule 266 : a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
+#d̪ˈɛrbət̪əro# | Rule 272 : [-stres,-lo,+syl] > ə / __ [-syl]
+#d̪ˈɛrbət̪ərə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#d̪ˈɛrbət̪əɾə# | Rule 277 : [+son,+cor] > ɾ / [-son,-lab,-strid,-front] ə __ ə ( s ) #
+#d̪ˈɛrbə̯t̪ə̯ɾə̯# | Rule 281 : ə > ə̯ 
+#d̪ˈɛrbə̯t̪ə̯ɾə# | Rule 301 : ə̯ > ə / ə̯ ( [-syl] )* __ #
+#d̪ˈɛrbt̪ɾə# | Rule 305 : ə̯ > ∅ 
+#d̪ˈɛrbd̪ɾə# | Rule 314 : [+cor,+ant] > [+voi] / [+lab,+voi,-hi,+cons,-nas] __ [+voi]
+#d̪ˈɛrd̪d̪ɾə# | Rule 339 : [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi]
+#d̪ˈɛrd̪ɾə# | Rule 342 : {d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / [+cons] __ 
+#d̪ˈɛrd̪rə# | Rule 389 : ɾ > r 
+#d̪ˈɛrd̪rə̯# | Rule 709 : ə > ə̯ / __ #
+#d̪ˈɛɹd̪rə̯# | Rule 728 : r > ɹ / [-cons] __ [+cons]
+#d̪ˈɛɹd̪r# | Rule 737 : ə̯ > ∅ 
+#d̪ˈɛrd̪r# | Rule 751 : ɹ > r 
+#d̪ˈɛʀd̪ʀ# | Rule 753 : r > ʀ 
+#d̪ɛʀd̪ʀ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#d̪ɛʁd̪ʁ# | Rule 761 : ʀ > ʁ 

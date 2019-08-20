@@ -1,17 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1290:
-#ˈursum# >>> #uʁs# ( Correct : #uʁs#) :
-ˈu r s u m 
-#ˈʊrsʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ˈorsom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˈorso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#ˈorsə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#ˈorsə̯# | Rule 281 : ə > ə̯ 
-#ˈors# | Rule 305 : ə̯ > ∅ 
-#ˈurs# | Rule 568 : [+round,+tense,+back] > [+hi] 
-#ˈuɹs# | Rule 727 : r > ɹ / [-cons] __ [+cons]
-#ˈuɹsə̯# | Rule 728 : ∅ > ə̯ / # ( [-cons,-long] )* s __ #
-#ˈuɹs# | Rule 736 : ə̯ > ∅ 
-#ˈurs# | Rule 750 : ɹ > r 
-#ˈuʀs# | Rule 752 : r > ʀ 
-#uʀs# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#uʁs# | Rule 760 : ʀ > ʁ 
+#ˈuːst̪ium# >>> #ɥis# ( Correct : #ɥi#) :
+ˈuː s t̪ i u m 
+#ˈuːst̪ɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ˈuːst̪jʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ˈuːst̪ʝʊm# | Rule 26 : j > ʝ / __ [+syl]
+#ˈust̪ʝʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#ˈust̪ʝom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˈust̪ʝo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˈust͡sʲʝo# | Rule 77 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#ˈust͡sʲo# | Rule 91 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#ˈusʲsʲo# | Rule 181 : s [+hi,+front,+cons] > sʲ sʲ
+#ˈʉsʲsʲo# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#ˈʉsʲsʲə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#ˈʉsʲsʲə̯# | Rule 281 : ə > ə̯ 
+#ˈʉsʲsʲ# | Rule 305 : ə̯ > ∅ 
+#ˈʉsʲ# | Rule 393 : sʲ sʲ > sʲ 
+#ˈʉjs# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#ˈyjs# | Rule 517 : [+hi,+round,-back] > [+front] 
+#ɥˈis# | Rule 634 : [+front,+round,+syl,+hi,βstres,ɣprim] [-round,-syl,-cons] > [-syl,0stres,0prim] [+syl,βstres,ɣprim,+son,0delrel]
+#ɥˈisə̯# | Rule 729 : ∅ > ə̯ / # ( [-cons,-long] )* s __ #
+#ɥˈis# | Rule 737 : ə̯ > ∅ 
+#ɥis# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

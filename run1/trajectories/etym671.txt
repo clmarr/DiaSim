@@ -1,20 +1,24 @@
 Trajectory file for run 'run1'; etymon number :671:
-#mˌɑːt̪ˈuːrɑm# >>> #myʁ# ( Correct : #myʁ#) :
-m ˌɑː t̪ ˈuː r ɑ m 
-#mˌɑt̪ˈurɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#mˌɑt̪ˈurɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˌɑt̪ˈuːrɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˌat̪ˈuːra# | Rule 202 : [+lo] > [+front,-back] 
-#mˌat̪ˈʉːra# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#mˌad̪ˈʉːra# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
-#mˌaðˈʉːra# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#mˌaðˈʉːrə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðˈʉrə# | Rule 461 : [+syl] > [-long,-splng] 
-#mˌaðˈyrə# | Rule 517 : [+hi,+round,-back] > [+front] 
-#mˌaˈyrə# | Rule 607 : {θ;ð} > {∅;∅} 
-#mˈyrə# | Rule 704 : ˌa > ∅ / __ [+prim]
-#mˈyrə̯# | Rule 708 : ə > ə̯ / __ #
-#mˈyr# | Rule 736 : ə̯ > ∅ 
-#mˈyʀ# | Rule 752 : r > ʀ 
-#myʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#myʁ# | Rule 760 : ʀ > ʁ 
+#mˌɑːt̪ˈuːrum# >>> #myʁ# ( Correct : #myʁ#) :
+m ˌɑː t̪ ˈuː r u m 
+#mˌɑːt̪ˈuːrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɑt̪ˈurʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#mˌɑt̪ˈurom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌɑt̪ˈuro# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˌɑt̪ˈuːro# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌat̪ˈuːro# | Rule 202 : [+lo] > [+front,-back] 
+#mˌat̪ˈʉːro# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#mˌat̪ˈʉːrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˌat̪ˈʉːrə̯# | Rule 281 : ə > ə̯ 
+#mˌat̪ˈʉːr# | Rule 305 : ə̯ > ∅ 
+#mˌad̪ˈʉːr# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
+#mˌaðˈʉːr# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#mˌaðˈʉr# | Rule 461 : [+syl] > [-long,-splng] 
+#mˌaðˈyr# | Rule 517 : [+hi,+round,-back] > [+front] 
+#mˌaˈyr# | Rule 607 : {θ;ð} > {∅;∅} 
+#mˈyr# | Rule 704 : ˌa > ∅ / __ [+prim]
+#mˈyɹ# | Rule 727 : r > ɹ / [-cons] __ #
+#mˈyr# | Rule 751 : ɹ > r 
+#mˈyʀ# | Rule 753 : r > ʀ 
+#myʀ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#myʁ# | Rule 761 : ʀ > ʁ 

@@ -1,11 +1,13 @@
 Trajectory file for run 'run1'; etymon number :1244:
-#t̪ˈoːt̪t̪ɑːs# >>> #t̪ut̪# ( Correct : #t̪ut̪#) :
-t̪ ˈoː t̪ t̪ ɑː s 
-#t̪ˈot̪t̪ɑs# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#t̪ˈot̪t̪as# | Rule 202 : [+lo] > [+front,-back] 
-#t̪ˈot̪t̪əs# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈot̪əs# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#t̪ˈut̪əs# | Rule 568 : [+round,+tense,+back] > [+hi] 
-#t̪ˈut̪ə# | Rule 734 : [-son] > ∅ / __ #
-#t̪ut̪ə# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ut̪# | Rule 763 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#t̪ˈoːt̪t̪oːs# >>> #t̪u# ( Correct : #t̪us#) :
+t̪ ˈoː t̪ t̪ oː s 
+#t̪ˈot̪t̪os# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#t̪ˈot̪t̪əs# | Rule 272 : [-stres,-lo,+syl] > ə / __ [-syl]
+#t̪ˈot̪t̪ə̯s# | Rule 281 : ə > ə̯ 
+#t̪ˈot̪t̪s# | Rule 305 : ə̯ > ∅ 
+#t̪ˈot̪t͡s# | Rule 331 : [+ant,+distr,-nas] s > t͡s/ __ #
+#t̪ˈot͡s# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#t̪ˈut͡s# | Rule 568 : [+round,+tense,+back] > [+hi] 
+#t̪ˈus# | Rule 646 : [+delrel] > [+cont,0delrel] 
+#t̪ˈu# | Rule 735 : [-son] > ∅ / __ #
+#t̪u# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

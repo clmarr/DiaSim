@@ -1,10 +1,18 @@
 Trajectory file for run 'run1'; etymon number :654:
-#mˈɑppɑm# >>> #map# ( Correct : #n̪ap#) :
-m ˈɑ p p ɑ m 
-#mˈɑppɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˈappa# | Rule 202 : [+lo] > [+front,-back] 
-#mˈappə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#mˈapə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mˈapə̯# | Rule 708 : ə > ə̯ / __ #
-#mˈap# | Rule 736 : ə̯ > ∅ 
-#map# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˈɑre# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ r e 
+#mˈɑrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑːrɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈaːrɛ# | Rule 202 : [+lo] > [+front,-back] 
+#mˈaːrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈaːrə̯# | Rule 281 : ə > ə̯ 
+#mˈaːr# | Rule 305 : ə̯ > ∅ 
+#mˈae̯r# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːr# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈer# | Rule 642 : [+syl] > [-long,-splng] 
+#mˈɛr# | Rule 686 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,0delrel] / # ( [-syl] )* __ r #
+#mˈɛɹ# | Rule 727 : r > ɹ / [-cons] __ #
+#mˈɛr# | Rule 751 : ɹ > r 
+#mˈɛʀ# | Rule 753 : r > ʀ 
+#mɛʀ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʁ# | Rule 761 : ʀ > ʁ 

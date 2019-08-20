@@ -25,10 +25,10 @@ Trajectory file for run 'run1'; etymon number :4:
 #ˌajd̪ʲˈie̯r# | Rule 399 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
 #ˌajd̪ʲjˈer# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 #ˌɛjd̪ʲjˈer# | Rule 619 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
-#ˌɛːd̪ʲjˈer# | Rule 640 : {ˌɛ j;ˌɛː j;ˈɛ j;ˈɛː j} > {ˌɛː;ˌɛː;ˈɛː;ˈɛː} / __ [+cons]
-#ˌɛːd̪ʲˈer# | Rule 672 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ˌɛːd̪ˈer# | Rule 673 : [+ant,+front] > [-front,-hi] 
-#ˌɛːd̪ˈeɹ# | Rule 726 : r > ɹ / [-cons] __ #
-#ˌɛːd̪ˈe# | Rule 748 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#ɛːd̪e# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɛd̪e# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#ˌɛːd̪ʲjˈer# | Rule 640 : [-round,-tense,+stres] j > [+long] ∅/ __ [+cons]
+#ˌɛd̪ʲjˈer# | Rule 642 : [+syl] > [-long,-splng] 
+#ˌɛd̪ʲˈer# | Rule 672 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#ˌɛd̪ˈer# | Rule 673 : [+ant,+front] > [-front,-hi] 
+#ˌɛd̪ˈeɹ# | Rule 727 : r > ɹ / [-cons] __ #
+#ˌɛd̪ˈe# | Rule 749 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#ɛd̪e# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
