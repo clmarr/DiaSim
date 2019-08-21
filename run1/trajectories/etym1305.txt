@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :1305:
-#wˌɑssellˈit̪t̪um# >>> #vale# ( Correct : #vale#) :
+#wˌɑssellˈit̪t̪um# >>> #vɑle# ( Correct : #vale#) :
 w ˌɑ s s e l l ˈi t̪ t̪ u m 
 #ɣʷˌɑssellˈit̪t̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɣʷˌɑssɛllˈɪt̪t̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -17,6 +17,9 @@ w ˌɑ s s e l l ˈi t̪ t̪ u m
 #vˌaslˈet̪t̪# | Rule 446 : β > v 
 #vˌazlˈet̪t̪# | Rule 488 : s > z / [-cons] __ [+voi,+cons]
 #vˌazlˈet̪# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#vˌalˈet̪# | Rule 553 : z > ∅ / __ [+cons]
-#vˌalˈe# | Rule 735 : [-son] > ∅ / __ #
-#vale# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vˌaːzlˈet̪# | Rule 553 : [+stres] > [+long] / @ __ z [+cons] [+syl]
+#vˌaːlˈet̪# | Rule 554 : z > ∅ / __ [+cons]
+#vˌɑːlˈet̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
+#vˌɑːlˈe# | Rule 734 : [-son] > ∅ / __ #
+#vɑːle# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vɑle# | Rule 754 : [+syl,+long] > [-long,-splng] 
