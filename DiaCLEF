@@ -1848,14 +1848,16 @@ $ Due to increasing weight of stressed syllables.
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
 ˌe > ˌə / __ ([+cons]) [+syl]
 
-$s665 (stated in sound table but nowhere else): ˌə reverts to ˌe if before ʎ
-ˌə > ˌe / __ ʎ
+$s665 (stated in sound table but nowhere else): ˌə reverts to ˌe 
+	$ if before palatal consonants (ʎ,ɲ...) 
+ˌə > ˌe / __ [+hi,+front,+cons]
 
 $ CORRECTION: reversals include ə > ˌɛ before lə (pelerin, celle, celles... bleeds following shift (s166.5~s223 ~s234-5)
 	$ s684 -- Pope definitely does not accomodate this, and has an explicitly different view of the development of pelerin 
 		$ which she cites as pˌələri:n in Old French and only getting /ˌɛ/ in Middle French 
 			$ -- yet she never explains anywhere this purported ˌə > ˌɛ shift. 
-ˌə > ˌɛ / __ l ə 
+		$ CORRECTION: expand to all non-round syllabics
+ˌə > ˌɛ / __ l [+syl,-round]
 
 $ CORRECTION: ˌə > ˌe before r then anything but a : peril, derriere, Jerome, paresse
 ˌə > ˌe / __ r [-lo]
@@ -2124,9 +2126,7 @@ $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
 $ CORRECTION: Pope notates this as ue̯ undergoing this shift, but the u should have become fronted to y by this point...
 	$ -- it is actually ye̯ -- make notation sufficiently broad
 $ She also explicitly limits it to hte stressed diphthong 
-$ CORRECTION: ø arising this way is always long 
-	$TODO check this. 
-[+hi,+round,+tense,+prim] e̯ > ˈøː
+[+hi,+round,+tense,+prim] e̯ > ˈø
 
 $s385~s390 vocalization of dark l variants 
 $ per Pope s390: attested in rhymes by middle of 12th century: 
@@ -2332,8 +2332,7 @@ $Pope s528-529 : aj > ɛj word finally
 [+lo] > [-lo,-tense] / __ j #
 
 $Pope s541~545: øw >ø in later 12th century.
-$ CORRECTION: this renders a LONG ø.  
-[+round,+front,-hi,+syl] w > [+long] ∅
+w > ∅ / [+round,+front,-hi,+syl] __
 
 $ yj >ɥi early when it will be deleted after a velar (s503 ~ s514 ~ s516) 
 $ CORRECTION : this only occurs word finally. 
@@ -2432,8 +2431,9 @@ $ CORRECTION: currently unnecesssary -- suppressed
 $ [+front,-tense,+nas] > [+hi,+tense] / w __ 
 
 $ Pope s528-529 : ɛj > ɛː praeconsonantally. 
-$ Long as per s560
-[-round,-tense,+stres] j > [+long] ∅ / __ [+cons]
+$ ɛ may have become long ɛː compensatorily as per s560 ("some writers say..")
+	$  but this does not appear diachronicallly useful. 
+j >  ∅ / [-round,-tense,+stres] __ [+cons]
 
 $ CORRECTION : s378ii moved earlier. 
 
@@ -2487,6 +2487,9 @@ $ Not reported in the 1300 Orthographica Gallica, which may be conservative, but
 $ CORRECTION: now this is done to x
 [+syl] x > [+long] ∅ /  __ [+cons]
 x > ∅
+
+$ CORRECTION: long countertonic tense e (not ɛ) is shortened.
+ˌeː > ˌe
 
 $ s173a ~ s580 ɔː > oː  when free and long -- Pope says 13th century in s173a 
 $ but must come after s effacement and resultant lengthening as per s580ii

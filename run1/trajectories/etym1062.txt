@@ -22,13 +22,14 @@ s ˌɑ l w ɑː t̪ ˈoː r e m
 #sˌawvəðˈewr# | Rule 584 : [+lat,+back] > w 
 #sˌawvəˈewr# | Rule 607 : {θ;ð} > {∅;∅} 
 #sˌawvəˈøwr# | Rule 611 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#sˌawvəˈøːr# | Rule 621 : [+round,+front,-hi,+syl] w > [+long] ∅
-#sˌoːvəˈøːr# | Rule 665 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#sˌoːvəˈœːr# | Rule 686 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
-#sˌoːvˈœːr# | Rule 693 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
-#sˌoːvˈœːɹ# | Rule 726 : r > ɹ / [-cons] __ #
-#sˌoːvˈœːr# | Rule 750 : ɹ > r 
-#sˌoːvˈœːʀ# | Rule 752 : r > ʀ 
-#soːvœːʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#sovœʀ# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#sovœʁ# | Rule 760 : ʀ > ʁ 
+#sˌawvəˈør# | Rule 621 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#sˌoːvəˈør# | Rule 666 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#sˌoːvəˈœr# | Rule 687 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
+#sˌoːvəˈœːr# | Rule 693 : [+stres] > [+long] / [+syl,-front,-back] ( w ) __ 
+#sˌoːvˈœːr# | Rule 694 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
+#sˌoːvˈœːɹ# | Rule 727 : r > ɹ / [-cons] __ #
+#sˌoːvˈœːr# | Rule 751 : ɹ > r 
+#sˌoːvˈœːʀ# | Rule 753 : r > ʀ 
+#soːvœːʀ# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sovœʀ# | Rule 755 : [+syl,+long] > [-long,-splng] 
+#sovœʁ# | Rule 761 : ʀ > ʁ 
