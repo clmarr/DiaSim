@@ -1981,13 +1981,13 @@ $ CORRECTION: only r, not l, for s492
 ˈe > ˈɛ / __ [+cons] [+syl] $Pope s575
 ˈe > ˈɛ / __ [-son] [+son,+cor,-nas] [+syl]
 $ CORRECTION: doesn't occur before non-lateral coronal cons then #, except for s when not after a palatla
+$ note that this covers ʎ# codas, which Pope asserts were only effected much later
 ˈe > ˈɛ / __ [+cons,-cor] #
 ˈe > ˈɛ / __ s #
 
 $ CORRECTION: previous distinctive length (in ew>øː, ae̯>eː and aj>ɛː) is leveled
 [+syl] > [-long]
 
- 
 $ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
 $ Complete before the Norman Conquest of England (1066) as per s377
 $ CORRECTION: lengthening doesn't happen before d -- it seems z is simply absorbed
@@ -2020,12 +2020,6 @@ $ CORRECTION : s291-s292, tsj depalatalization, ] is deleted.
  	$ that is much more "learned" and knonw to correspond to Latin -iarium in both cases. 
 $ TODO NOTE: needs to be reinstated for demonstrative purposes with traiter
 $ t͡sʲ > t͡s / {[-nas];#} __
- 
-$ CORRECTION e > ɛ before ʎ
-$ Pope actually does have this happening, 
-	$ but for her it happens centuries later and does not function to block 
-	$ phenomena that would have modified e had it not occurred here. 
-$ [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
 $ CORRECTION: ˌo and ˈo open before pre-coda t or k 
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
@@ -2158,7 +2152,7 @@ $ note this can only come from primarily stressed a (>ˈeː)
 $ no effect for this as of right now so suppressed -- I believe it is for certain cases where word final l vocalized, and things ending in former aːlVs
 	$ likely that in case of pa:lo:s the a stayed long even after the o was deleted for some reason -- but unclear why this would be
 		$ another relevant target of s388 would be taːleːs > tieus, but this is not in our dataset at the moment as it was not in Pope's index
-ˈeː > ˈe e̯ / __ w
+ˈeː > ˈe e̯ / __ ɫ
 
 $ Pope s466-467 : ãj > ɛ̃j, everywhere, twelfth century.
 $ CORRECTION: moved back from a bit later, formerly was right after 528-9
@@ -2166,7 +2160,7 @@ $ CORRECTION: moved back from a bit later, formerly was right after 528-9
 
 $ s388 ~ s544: ee̯w > ie̯w -- must be in the 12th century
 $ CORRECTION: no targets, suppressed (only fed by s388~s544 from earlier e:>e schwa / __ w?)
-ˈe > ˈi / __ e̯ w
+ˈe > ˈi / __ e̯
 
 $ CORRECTION: s172a (th-effacement) moved much later so that it can condition some coming phenomena 
 
@@ -2175,10 +2169,6 @@ $ CORRECTION: s422 moved much ealrier.
 $ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
 $ happens after the loss of the interdental frics. 
 ˌa > ˌe / __ ˈy
-
-$ s492-3 : tonic e opens to ɛ in blocked syllables when followed by l (lɣ?) or r. 12th century. 
-	$but as we see below, we end up putting more constraints where the lateral is concerned. 
-ˈe > ˈɛ / __ r [+cons]
 
 $ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, 
 	$ in open syllables before voiced continuants that are not lateral or nasal
@@ -2309,24 +2299,8 @@ $ CORRECTION: case of terre:num > terrain -- ˌe is persistently reduced to ə
 	$ if before continuant then tonic e or ẽ or ɛ or ɛ̃
 ˌe > ˌə / __ [+cont] [+prim,+front,-hi,-lo]
 
-$ CORRECTION: ˌɛ still reduced to ˌə if now before tonic u
-ˌɛ > ˌə / __ ˈu
-
 $Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
 [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-
-$ TODO work here. 
-
-$Pope s575: tonic e in former closed but now open syllables goes to ɛ in 12th century
-$ short tonic e can only be closed, making our job easy
-$ does not feed s541
-$ CORRECTION: DOES in fact require a following consonant to act. 
-$ CORRECTION: fricatives then l/r is also an "open" context here (so [-son] not [-cont]) : 
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl] 
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [-son] [+son,+cor,-nas,+cons] [+syl]
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
-$ CORRECTION: doesn't occur before non-lateral coronal cons then #, except for s when not after a palatla
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / [-front] __ s #
 
 $ CORRECTION : ʌ lowers and fronts to a, completing early oi>ai shift attested before middle French for a number of words
 	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie,  e, taie, raie, verre, tonnerre 
@@ -2439,7 +2413,7 @@ $ Exact order unknown but this seems most in line with what Pope has said elsewh
 $ CORRECTION: currently unnecesssary -- suppressed
 $ [+front,-tense,+nas] > [+hi,+tense] / w __ 
 
-$ Pope s528-529 : ɛj > ɛː praeconsonantally. 
+$ Pope s528-529 : ɛj > ɛ praeconsonantally. 
 $ ɛ may have become long ɛː compensatorily as per s560 ("some writers say..")
 	$  but this does not appear diachronicallly useful. 
 j >  ∅ / [-round,-tense,+stres] __ [+cons]
@@ -2742,6 +2716,17 @@ $ as per s271 began in Old French with analogy in verb forms, became widespread 
 	$ ... and accepted by writer in the 16th century, even though grammarians in the 17th continued to insist that final ə was syllabic...
 ə > ∅ / [+prim] (j) __ 
 
+
+$ s173.1b ~ 576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
+$ not accepted by Peletier, Lanoue oscilates, Baif oscilates
+$ CORRECTION: not before coronals then coda -- two exceptions to this counterrule are amer and tres
+	$ but amer is likely contamination from amere, and tres has syntactic considerations
+$ CORRECTION: include also ˌe as in from pietaille etc.
+$ CORRECTION: include also ˈe before two consonants (-evre cases, tiers, tierce...)
+[+tense,-hi,-lo,-round,+stres] > [-tense] / __ [+cons] ə
+ˈe > ˈɛ / __ [+cons,-cor] #
+ˈe > ˈɛ / __ [+cons] [+cons]
+
 $ s273 final ə postconsonantal becomes an "off-glide" before it disappears forever... 
 $ reported by Beze 1564 but does not bleed some of the lengthening and quantity changes conditioned on final ə
 ə > ə̯ / __ #
@@ -2752,13 +2737,6 @@ $ obv comes after s271
 $ s532 : "accepted only in the 17th century" -- Lanoue (1596) accepts only in some cases
 $ "hesitation in Early Modern French" 
 ˈaː j > ˈɛː / __ #
-
-$ s173.1b ~ 576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
-$ not accepted by Peletier, Lanoue oscilates, Baif oscilates
-$ CORRECTION: not before coronals -- two exceptions to this counterrule are amer and tres
-	$ but amer is likely contamination from amere, and tres has syntactic considerations
-ˈeː >ˈɛː / __ [+cons] ə
-ˈeː > ˈɛː / __ [+cons,-cor] #
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ intertonic -- most have stress level on either side 
