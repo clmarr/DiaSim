@@ -1961,9 +1961,6 @@ $ CORRECTION: final l WILL be labialized if it is preceded by a mid vowel that i
 	$ NOT ajl: frele, grele
 l > ɫ / [+syl,-hi,-lo,-long] __ #
 
-$ CORRECTION: previous distinctive length (in ew>øː, ae̯>eː and aj>ɛː) is leveled
-[+syl] > [-long]
-
 $ Pope s372 : ð occasionally assimilated to r but when it did and didnˌt was
 	$undetermined at the time of writing (assimilated: butina >borne but Rodanum >Rhone, etc...)
 	$helps show how Pope can be improved upon using DiaSym.
@@ -1976,6 +1973,20 @@ $ CORRECTION: ð is simply deleted without going to z if between non-primary str
 ð > z / __ m
 ð > z / r [+syl] __ n̪
 ð > r / __ n̪
+
+$ CORRECTION: various laxing effects moved to here-- 
+$ none should not feed s541
+$ CORRECTION: only r, not l, for s492
+ˈe > ˈɛ / __ r [+cons] $Pope s492-3
+ˈe > ˈɛ / __ [+cons] [+syl] $Pope s575
+ˈe > ˈɛ / __ [-son] [+son,+cor,-nas] [+syl]
+$ CORRECTION: doesn't occur before non-lateral coronal cons then #, except for s when not after a palatla
+ˈe > ˈɛ / __ [+cons,-cor] #
+ˈe > ˈɛ / __ s #
+
+$ CORRECTION: previous distinctive length (in ew>øː, ae̯>eː and aj>ɛː) is leveled
+[+syl] > [-long]
+
  
 $ s166.10 effacement of preconsonantal z, accompanied by compensatory lengthening of prior vowel. 
 $ Complete before the Norman Conquest of England (1066) as per s377
@@ -2014,7 +2025,7 @@ $ CORRECTION e > ɛ before ʎ
 $ Pope actually does have this happening, 
 	$ but for her it happens centuries later and does not function to block 
 	$ phenomena that would have modified e had it not occurred here. 
-[+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
+$ [+front,-hi,-lo,-round,+stres] > [-tense] / __ ʎ
 
 $ CORRECTION: ˌo and ˈo open before pre-coda t or k 
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
@@ -2310,16 +2321,12 @@ $Pope s575: tonic e in former closed but now open syllables goes to ɛ in 12th c
 $ short tonic e can only be closed, making our job easy
 $ does not feed s541
 $ CORRECTION: DOES in fact require a following consonant to act. 
-$ CORRECTION: doesn't occur before non-lateral coronal cons then #, except for s when not after a palatla
-$ CORRECTION: fricatives then l/r is also "open" here (so [-son] not [-cont]) : 
-	$ does not actually occur word finally. 
-$ CORRECTION: r then palatal is also "open"
+$ CORRECTION: fricatives then l/r is also an "open" context here (so [-son] not [-cont]) : 
 {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl] 
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / [-front] __ s #
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+lat] #
 {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [-son] [+son,+cor,-nas,+cons] [+syl]
-{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ r [+delrel]
+{ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons,-cor] #
+$ CORRECTION: doesn't occur before non-lateral coronal cons then #, except for s when not after a palatla
+{ˈeː;ˈe} > {ˈɛː;ˈɛ} / [-front] __ s #
 
 $ CORRECTION : ʌ lowers and fronts to a, completing early oi>ai shift attested before middle French for a number of words
 	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie,  e, taie, raie, verre, tonnerre 

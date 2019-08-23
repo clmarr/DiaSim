@@ -22,12 +22,12 @@ w ˌi ɡ i l ˈɑː r e
 #vˌeʎˈie̯r# | Rule 446 : β > v 
 #vˌəʎˈie̯r# | Rule 520 : ˌe > ˌə / __ ( [+cons] ) [+syl]
 #vˌeʎˈie̯r# | Rule 521 : ˌə > ˌe / __ [+hi,+front,+cons]
-#vˌɛʎˈie̯r# | Rule 559 : [+front,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ ʎ
-#vˌɛjʎˈie̯r# | Rule 570 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
-#vˌɛjʎjˈer# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#vˌɛʎjˈer# | Rule 640 : j > ∅ / [-round,-tense,+stres] __ [+cons]
-#vˌɛʎˈer# | Rule 672 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#vˌɛʎˈeɹ# | Rule 727 : r > ɹ / [-cons] __ #
-#vˌɛʎˈe# | Rule 749 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#vɛʎe# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vɛje# | Rule 762 : ʎ > j 
+#vˌejʎˈie̯r# | Rule 574 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+#vˌejʎjˈer# | Rule 601 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#vˌejʎˈer# | Rule 674 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
+#vˌejʎˈeɹ# | Rule 729 : r > ɹ / [-cons] __ #
+#vˌɛjʎˈeɹ# | Rule 749 : [+syl,-lo,-hi] > [-tense,-cons,-lat,+cont,0delrel] / __ [-cons,+hi,+front]
+#vˌɛjʎˈe# | Rule 751 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#vɛjʎe# | Rule 756 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vɛjje# | Rule 764 : ʎ > j 
+#vɛje# | Rule 765 : [+hi,+front,-round] > ∅ / [+syl] __ j
