@@ -1,17 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1151:
-#st̪ˈeːllɑm# >>> #et̪ɛl# ( Correct : #et̪wal#) :
-s t̪ ˈeː l l ɑ m 
-#ˌɪst̪ˈeːllɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪst̪ˈellɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#ˌest̪ˈellɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˌest̪ˈellɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#ˌest̪ˈella# | Rule 202 : [+lo] > [+front,-back] 
-#ˌest̪ˈellə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌest̪ˈelə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ˌext̪ˈelə# | Rule 596 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
-#ˌext̪ˈɛlə# | Rule 612 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#ˌeːt̪ˈɛlə# | Rule 651 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌet̪ˈɛlə# | Rule 653 : ˌeː > ˌe 
-#ˌet̪ˈɛlə̯# | Rule 709 : ə > ə̯ / __ #
-#ˌet̪ˈɛl# | Rule 737 : ə̯ > ∅ 
-#et̪ɛl# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#st̪ˈeːlɑm# >>> #et̪wal# ( Correct : #et̪wal#) :
+s t̪ ˈeː l ɑ m 
+#ˌɪst̪ˈeːlɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪst̪ˈelɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#ˌest̪ˈelɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌest̪ˈelɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌest̪ˈeːlɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌest̪ˈeːla# | Rule 202 : [+lo] > [+front,-back] 
+#ˌest̪ˈejla# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌest̪ˈejlə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌest̪ˈojlə# | Rule 556 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
+#ˌest̪ˈujlə# | Rule 569 : [+round,+tense,+back] > [+hi] 
+#ˌext̪ˈujlə# | Rule 596 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
+#ˌext̪ˈuɛ̯lə# | Rule 631 : j > ɛ̯ / [+syl,+back,+round] __ 
+#ˌext̪wˈɛlə# | Rule 632 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#ˌeːt̪wˈɛlə# | Rule 651 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌet̪wˈɛlə# | Rule 653 : ˌeː > ˌe 
+#ˌet̪wˈɛlə̯# | Rule 709 : ə > ə̯ / __ #
+#ˌet̪wˈɛl# | Rule 737 : ə̯ > ∅ 
+#et̪wɛl# | Rule 754 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#et̪wal# | Rule 760 : ɛ > a / w __ 

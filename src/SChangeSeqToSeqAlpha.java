@@ -66,12 +66,9 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						need_to_reset = true;
 						test.applyAlphaValues(ALPH_VARS);
 						mapAlphVals(); 
-						
-						System.out.println("Alpha values applied : "+toString()); 
 					}
 				}
 				targMatchFail = targMatchFail ? true : !test.compare(cand); 
-				System.out.println("Targ match fail for cand "+cand+" and test "+test+" : "+targMatchFail); 
 			}
 			if (!targMatchFail) //target matched
 			{
