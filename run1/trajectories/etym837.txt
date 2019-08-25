@@ -1,15 +1,26 @@
 Trajectory file for run 'run1'; etymon number :837:
-#pˌɑt̪ˈellɑm# >>> #pɛl# ( Correct : #pwal#) :
-p ˌɑ t̪ ˈe l l ɑ m 
-#pˌɑt̪ˈɛllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˌɑt̪ˈɛllɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˌat̪ˈɛlla# | Rule 202 : [+lo] > [+front,-back] 
-#pˌad̪ˈɛlla# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
-#pˌaðˈɛlla# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
-#pˌaðˈɛllə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#pˌaðˈɛlə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#pˌaˈɛlə# | Rule 610 : {θ;ð} > {∅;∅} 
-#pˈɛlə# | Rule 700 : ˌa > ∅ / __ [+prim]
-#pˈɛlə̯# | Rule 708 : ə > ə̯ / __ #
-#pˈɛl# | Rule 734 : ə̯ > ∅ 
-#pɛl# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˈɑt̪rem# >>> #pɛʁ# ( Correct : #pɛʁ#) :
+p ˈɑ t̪ r e m 
+#pˈɑt̪rɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈɑt̪rɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˈɑːt̪rɛ# | Rule 114 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#pˈɑt̪rɛ# | Rule 153 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#pˈɑːt̪rɛ# | Rule 156 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#pˈaːt̪rɛ# | Rule 202 : [+lo] > [+front,-back] 
+#pˈat̪rɛ# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#pˈaːt̪rɛ# | Rule 228 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#pˈaːt̪rə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#pˈaːt̪rə̯# | Rule 281 : ə > ə̯ 
+#pˈaːt̪rə# | Rule 288 : ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
+#pˈaːd̪rə# | Rule 359 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#pˈaːðrə# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#pˈae̯ðrə# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈeːðrə# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#pˈeðrə# | Rule 555 : [+syl] > [-long,-splng] 
+#pˈerə# | Rule 610 : {θ;ð} > {∅;∅} 
+#pˈɛrə# | Rule 705 : [+tense,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] ə
+#pˈɛrə̯# | Rule 708 : ə > ə̯ / __ #
+#pˈɛr# | Rule 733 : ə̯ > ∅ 
+#pˈɛʀ# | Rule 749 : r > ʀ 
+#pɛʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pɛʁ# | Rule 757 : ʀ > ʁ 

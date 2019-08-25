@@ -1,24 +1,21 @@
 Trajectory file for run 'run1'; etymon number :658:
-#mˌɑrt̪ˈellum# >>> #maʁt̪o# ( Correct : #maʁt̪o#) :
-m ˌɑ r t̪ ˈe l l u m 
-#mˌɑrt̪ˈɛllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˌɑrt̪ˈɛllom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˌɑrt̪ˈɛllo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˌart̪ˈɛllo# | Rule 202 : [+lo] > [+front,-back] 
-#mˌart̪ˈɛllə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#mˌart̪ˈɛllə̯# | Rule 281 : ə > ə̯ 
-#mˌart̪ˈɛll# | Rule 305 : ə̯ > ∅ 
-#mˌart̪ˈɛl# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#mˌart̪ˈɛɫ# | Rule 545 : l > ɫ / [+syl,-hi,-lo,-long] __ #
-#mˌart̪ˈɛw# | Rule 588 : [+lat,+back] > w 
-#mˌart̪ˈɛa̯w# | Rule 591 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
-#mˌart̪e̯ˈaw# | Rule 600 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#mˌart̪e̯ˈoː# | Rule 662 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#mˌart̪ə̯ˈoː# | Rule 663 : e̯ > ə̯ / __ [+round,+back,-hi]
-#mˌaɹt̪ə̯ˈoː# | Rule 725 : r > ɹ / [-cons] __ [+cons]
-#mˌaɹt̪ˈoː# | Rule 734 : ə̯ > ∅ 
-#mˌart̪ˈoː# | Rule 748 : ɹ > r 
-#mˌaʀt̪ˈoː# | Rule 750 : r > ʀ 
-#maʀt̪oː# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#maʀt̪o# | Rule 752 : [+syl,+long] > [-long,-splng] 
-#maʁt̪o# | Rule 758 : ʀ > ʁ 
+#mˈɑskulum# >>> #mɑl# ( Correct : #mɑl#) :
+m ˈɑ s k u l u m 
+#mˈɑskʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑsklʊm# | Rule 31 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#mˈɑsklom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˈɑsklo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈɑslo# | Rule 105 : {s k;r ɡ} > {s;r} / __ l
+#mˈaslo# | Rule 202 : [+lo] > [+front,-back] 
+#mˈaslə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈaslə̯# | Rule 281 : ə > ə̯ 
+#mˈasl# | Rule 305 : ə̯ > ∅ 
+#mˈaslə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
+#mˈazlə# | Rule 488 : s > z / [-cons] __ [+voi,+cons]
+#mˈaːzlə# | Rule 557 : [+prim] > [+long] / @ __ z [+cons]
+#mˈaːlə# | Rule 559 : z > ∅ / __ [+cons]
+#mˈaːlə̯# | Rule 708 : ə > ə̯ / __ #
+#mˈɑːlə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
+#mˈɑːl# | Rule 733 : ə̯ > ∅ 
+#mɑːl# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɑl# | Rule 751 : [+syl,+long] > [-long,-splng] 

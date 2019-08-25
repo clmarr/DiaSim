@@ -1,23 +1,21 @@
 Trajectory file for run 'run1'; etymon number :326:
-#ɡrˈɑːn̪um# >>> #ɡʁɛ̃# ( Correct : #ɡʁɛ̃#) :
-ɡ r ˈɑː n̪ u m 
-#ɡrˈɑːn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ɡrˈɑn̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#ɡrˈɑn̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ɡrˈɑn̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#ɡrˈɑːn̪o# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#ɡrˈaːn̪o# | Rule 202 : [+lo] > [+front,-back] 
-#ɡrˈaːn̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#ɡrˈaːn̪ə̯# | Rule 281 : ə > ə̯ 
-#ɡrˈaːn̪# | Rule 305 : ə̯ > ∅ 
-#ɡrˈae̯n̪# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#ɡrˈajn̪# | Rule 447 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
-#ɡrˈaj̃n̪# | Rule 518 : j > j̃ / [+lo] __ [+nas,-syl]
-#ɡrˈãj̃n̪# | Rule 519 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ɡrˈɛ̃j̃n̪# | Rule 594 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
-#ɡrˈɛ̃n̪# | Rule 661 : j̃ > ∅ / [+nas,+front,-tense] __ 
-#ɡrˈɛ̃ː# | Rule 665 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
-#ɡʀˈɛ̃ː# | Rule 750 : r > ʀ 
-#ɡʀɛ̃ː# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡʀɛ̃# | Rule 752 : [+syl,+long] > [-long,-splng] 
-#ɡʁɛ̃# | Rule 758 : ʀ > ʁ 
+#ɡrˈɑfium# >>> #ɡʁɛf# ( Correct : #ɡʁɛf#) :
+ɡ r ˈɑ f i u m 
+#ɡrˈɑfɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#ɡrˈɑfjʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#ɡrˈɑfʝʊm# | Rule 26 : j > ʝ / __ [+syl]
+#ɡrˈɑfʝom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ɡrˈɑfʝo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ɡrˈɑʝfo# | Rule 139 : f ʝ > ʝ f 
+#ɡrˈaʝfo# | Rule 202 : [+lo] > [+front,-back] 
+#ɡrˈaʝfə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#ɡrˈaʝfə̯# | Rule 281 : ə > ə̯ 
+#ɡrˈaʝf# | Rule 305 : ə̯ > ∅ 
+#ɡrˈajf# | Rule 317 : ʝ > j / __ ( [-syl] )* #
+#ɡrˈɛjf# | Rule 615 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#ɡrˈɛf# | Rule 636 : j > ∅ / [-round,-tense,+stres] __ [+cons]
+#ɡrˈɛfə̯# | Rule 729 : ∅ > ə̯ / f __ #
+#ɡrˈɛf# | Rule 733 : ə̯ > ∅ 
+#ɡʀˈɛf# | Rule 749 : r > ʀ 
+#ɡʀɛf# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɡʁɛf# | Rule 757 : ʀ > ʁ 

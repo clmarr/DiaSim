@@ -2062,9 +2062,10 @@ $ except for early shift before labial consonants (see s489), this is bled by 16
 $Pope places it in EOF so we place it there too-- but clearly at the end of the period.
 [+round,+tense,+back] > [+hi] 
 
-$s407i : glide develops between e tonic or countertonic and ʎ intervocalic  
+$s407i : glide develops between e tonic or countertonic 
+	$  and ʎ intervocalic after e TONIC
 $ CORRECTION: /ɛ/ to also be included in this 
-∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+∅ > j / [-hi,-lo,-round,+prim] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
 $s407ii : same for y countertonic or tonic 
@@ -2443,7 +2444,9 @@ $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
-ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] [+prim]
+$ CORRECTION: the inclusion stipulated by Pope of also stops here (though not affricates) 
+	$ is removed. 
+ˌə > ∅ / [+cont,-son] __ [+son,+cor,-nas] [+prim]
 
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
@@ -2804,9 +2807,6 @@ $ CORRECTION denasalization shifts 474-477 moved back into prefvious time period
 $ s395 : r becomes a glide in certain positions... 
 $ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
 r > ɹ / [-cons] __ {#;+cons}
-
-$ CORRECTION: final s is preserved if there are no consonantals before it in the entire word, and no long vowels either.
-∅ > ə̯ / # ([-cons,-long])* s __ #
 
 $ s580 open o lengthens and raises before s or z that is about to be deleted
 [+prim,-tense,+back,+round,-hi] > ˈoː / __ [+strid,-cont] #

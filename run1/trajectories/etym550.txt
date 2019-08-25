@@ -1,8 +1,19 @@
 Trajectory file for run 'run1'; etymon number :550:
-#kwˌiː# >>> #ki# ( Correct : #ki#) :
-k w ˌiː 
-#kɣʷˌiː# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#kwˌiː# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#kwˌi# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#kˌi# | Rule 391 : w > ∅ / k __ [+front,-lo]
-#ki# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kwˈid̪# >>> #kwa# ( Correct : #kwa#) :
+k w ˈi d̪ 
+#kɣʷˈid̪# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#kwˈid̪# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
+#kwˈɪd̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kwˈed̪# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kwˈeːd̪# | Rule 116 : [+prim] > [+long] / # ( [-syl] )* __ [+cons] #
+#kwˈeːð# | Rule 256 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#kˈeːð# | Rule 391 : w > ∅ / k __ [+front,-lo]
+#kˈejð# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#kˈejθ# | Rule 454 : [-son] > [-voi] / __ #
+#kˈojθ# | Rule 561 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
+#kˈujθ# | Rule 573 : [+round,+tense,+back] > [+hi] 
+#kˈuj# | Rule 610 : {θ;ð} > {∅;∅} 
+#kˈuɛ̯# | Rule 627 : j > ɛ̯ / [+syl,+back,+round] __ 
+#kwˈɛ# | Rule 628 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#kwɛ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kwa# | Rule 756 : ɛ > a / w __ 

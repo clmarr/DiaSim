@@ -1,19 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1143:
-#spˈiːn̪ɑm# >>> #epin̪# ( Correct : #epin̪#) :
-s p ˈiː n̪ ɑ m 
-#ˌɪspˈiːn̪ɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
-#ˌɪspˈin̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#ˌespˈin̪ɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ˌespˈin̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#ˌespˈiːn̪ɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#ˌespˈiːn̪a# | Rule 202 : [+lo] > [+front,-back] 
-#ˌespˈiːn̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#ˌespˈin̪ə# | Rule 461 : [+syl] > [-long,-splng] 
-#ˌexpˈin̪ə# | Rule 599 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
-#ˌexpˈĩn̪ə# | Rule 633 : [+syl] > [+nas,+son,0delrel] / __ [+nas,+cons]
-#ˌeːpˈĩn̪ə# | Rule 647 : [+syl] x > [+long] ∅/ __ [+cons]
-#ˌepˈĩn̪ə# | Rule 649 : ˌeː > ˌe 
-#ˌepˈin̪ə# | Rule 658 : [+nas,+front,+hi,+syl] > [-nas] / __ [+nas,+cons] [-cons]
-#ˌepˈin̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#ˌepˈin̪# | Rule 734 : ə̯ > ∅ 
-#epin̪# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#spˈon̪sɑm# >>> #epuz# ( Correct : #epuz#) :
+s p ˈo n̪ s ɑ m 
+#spˈoːn̪sɑm# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [-stres]
+#spˈoːsɑm# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#ˌɪspˈoːsɑm# | Rule 14 : ∅ > ˌɪ / # __ s [+cons]
+#ˌɪspˈosɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#ˌespˈosɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#ˌespˈosɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#ˌespˈoːsɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#ˌespˈoːzɑ# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#ˌespˈoːza# | Rule 202 : [+lo] > [+front,-back] 
+#ˌespˈowza# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#ˌespˈowzə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#ˌespˈewzə# | Rule 560 : ˈo > ˈe / __ w
+#ˌespˈowzə# | Rule 563 : ˈe > ˈo / __ w z
+#ˌespˈuwzə# | Rule 573 : [+round,+tense,+back] > [+hi] 
+#ˌespˈuzə# | Rule 589 : w > ∅ / [+syl,+hi,+round] __ 
+#ˌexpˈuzə# | Rule 599 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
+#ˌeːpˈuzə# | Rule 647 : [+syl] x > [+long] ∅/ __ [+cons]
+#ˌepˈuzə# | Rule 649 : ˌeː > ˌe 
+#ˌepˈuzə̯# | Rule 708 : ə > ə̯ / __ #
+#ˌepˈuz# | Rule 733 : ə̯ > ∅ 
+#epuz# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

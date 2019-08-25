@@ -1,13 +1,15 @@
 Trajectory file for run 'run1'; etymon number :835:
-#pˈɑst̪ɑm# >>> #pɑt̪# ( Correct : #pɑt̪#) :
-p ˈɑ s t̪ ɑ m 
-#pˈɑst̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈast̪a# | Rule 202 : [+lo] > [+front,-back] 
-#pˈast̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈaxt̪ə# | Rule 599 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
-#pˈaːt̪ə# | Rule 647 : [+syl] x > [+long] ∅/ __ [+cons]
-#pˈaːt̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#pˈɑːt̪ə̯# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#pˈɑːt̪# | Rule 734 : ə̯ > ∅ 
-#pɑːt̪# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pɑt̪# | Rule 752 : [+syl,+long] > [-long,-splng] 
+#pˌɑt̪ˈellɑm# >>> #pɛl# ( Correct : #pwal#) :
+p ˌɑ t̪ ˈe l l ɑ m 
+#pˌɑt̪ˈɛllɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌɑt̪ˈɛllɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˌat̪ˈɛlla# | Rule 202 : [+lo] > [+front,-back] 
+#pˌad̪ˈɛlla# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
+#pˌaðˈɛlla# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#pˌaðˈɛllə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#pˌaðˈɛlə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#pˌaˈɛlə# | Rule 610 : {θ;ð} > {∅;∅} 
+#pˈɛlə# | Rule 700 : ˌa > ∅ / __ [+prim]
+#pˈɛlə̯# | Rule 708 : ə > ə̯ / __ #
+#pˈɛl# | Rule 733 : ə̯ > ∅ 
+#pɛl# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

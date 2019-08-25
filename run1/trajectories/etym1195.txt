@@ -1,13 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1195:
-#t̪ˈɑlpɑm# >>> #t̪op# ( Correct : #t̪op#) :
-t̪ ˈɑ l p ɑ m 
-#t̪ˈɑɫpɑm# | Rule 25 : l > ɫ / __ [+cons,-lat]
-#t̪ˈɑɫpɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#t̪ˈaɫpa# | Rule 202 : [+lo] > [+front,-back] 
-#t̪ˈaɫpə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈawpə# | Rule 588 : [+lat,+back] > w 
-#t̪ˈoːpə# | Rule 662 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#t̪ˈoːpə̯# | Rule 708 : ə > ə̯ / __ #
-#t̪ˈoːp# | Rule 734 : ə̯ > ∅ 
-#t̪oːp# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪op# | Rule 752 : [+syl,+long] > [-long,-splng] 
+#t̪ˌɑmˈesium# >>> #t̪ami# ( Correct : #t̪ami#) :
+t̪ ˌɑ m ˈe s i u m 
+#t̪ˌɑmˈɛsɪʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɑmˈɛsjʊm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#t̪ˌɑmˈɛsʝʊm# | Rule 26 : j > ʝ / __ [+syl]
+#t̪ˌɑmˈɛsʝom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪ˌɑmˈɛsʝo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#t̪ˌɑmˈɛzʝo# | Rule 141 : [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons]
+#t̪ˌɑmˈɛzʲo# | Rule 180 : z ʝ > zʲ 
+#t̪ˌamˈɛzʲo# | Rule 202 : [+lo] > [+front,-back] 
+#t̪ˌamˈɛːzʲo# | Rule 227 : [+prim] > [+long] / __ ( [+cons] ) [+syl]
+#t̪ˌamˈie̯zʲo# | Rule 234 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t̪ˌamˈie̯zʲə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˌamˈie̯zʲə̯# | Rule 281 : ə > ə̯ 
+#t̪ˌamˈie̯zʲ# | Rule 305 : ə̯ > ∅ 
+#t̪ˌamˈie̯jz# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#t̪ˌamˈie̯js# | Rule 454 : [-son] > [-voi] / __ #
+#t̪ˌãmˈie̯js# | Rule 519 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ˌãmˈijs# | Rule 533 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#t̪ˌãmˈis# | Rule 534 : [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
+#t̪ˌãmˈi# | Rule 731 : [-son] > ∅ / __ #
+#t̪ˌamˈi# | Rule 740 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#t̪ami# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

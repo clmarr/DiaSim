@@ -1,15 +1,16 @@
 Trajectory file for run 'run1'; etymon number :329:
-#ɡrˈossum# >>> #ɡʁo# ( Correct : #ɡʁo#) :
-ɡ r ˈo s s u m 
-#ɡrˈɔssʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#ɡrˈɔssom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#ɡrˈɔsso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#ɡrˈɔssə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#ɡrˈɔssə̯# | Rule 281 : ə > ə̯ 
-#ɡrˈɔss# | Rule 305 : ə̯ > ∅ 
-#ɡrˈɔs# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#ɡrˈɔ# | Rule 732 : [-son] > ∅ / __ #
-#ɡʀˈɔ# | Rule 750 : r > ʀ 
-#ɡʀɔ# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɡʀo# | Rule 756 : ɔ > o / __ #
-#ɡʁo# | Rule 758 : ʀ > ʁ 
+#ɡrˈuːɑ# >>> #ɡʁy# ( Correct : #ɡʁy#) :
+ɡ r ˈuː ɑ 
+#ɡrˈuɑ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#ɡrˈuːɑ# | Rule 112 : [+prim] > [+long] / __ [+syl]
+#ɡrˈuːa# | Rule 202 : [+lo] > [+front,-back] 
+#ɡrˈʉːa# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#ɡrˈʉːə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#ɡrˈʉə# | Rule 461 : [+syl] > [-long,-splng] 
+#ɡrˈyə# | Rule 517 : [+hi,+round,-back] > [+front] 
+#ɡrˈyːə# | Rule 691 : [+stres] > [+long] / __ ə
+#ɡrˈyː# | Rule 692 : ə > ∅ / [+syl] __ 
+#ɡʀˈyː# | Rule 749 : r > ʀ 
+#ɡʀyː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɡʀy# | Rule 751 : [+syl,+long] > [-long,-splng] 
+#ɡʁy# | Rule 757 : ʀ > ʁ 

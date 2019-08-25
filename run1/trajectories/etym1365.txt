@@ -1,16 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1365:
-#wˈiːwɑm# >>> #viv# ( Correct : #viv#) :
-w ˈiː w ɑ m 
-#ɣʷˈiːɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːβʷɑm# | Rule 48 : ɣʷ > βʷ 
-#βʷˈiβʷɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#βʷˈiβʷɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#βʷˈiːβʷɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#βˈiːβɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈiːβa# | Rule 202 : [+lo] > [+front,-back] 
-#vˈiːva# | Rule 446 : β > v 
-#vˈiːvə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈivə# | Rule 461 : [+syl] > [-long,-splng] 
-#vˈivə̯# | Rule 708 : ə > ə̯ / __ #
-#vˈiv# | Rule 734 : ə̯ > ∅ 
-#viv# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#wˈiːwum# >>> #vif# ( Correct : #vif#) :
+w ˈiː w u m 
+#ɣʷˈiːɣʷum# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈiːɣʷʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˈiːβʷʊm# | Rule 48 : ɣʷ > βʷ 
+#βʷˈiβʷʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#βʷˈiβʷom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βʷˈiβʷo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#βʷˈiːβʷo# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈiːβo# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈiːβə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#βˈiːβə̯# | Rule 281 : ə > ə̯ 
+#βˈiːβ# | Rule 305 : ə̯ > ∅ 
+#vˈiːv# | Rule 446 : β > v 
+#vˈiːf# | Rule 454 : [-son] > [-voi] / __ #
+#vˈif# | Rule 461 : [+syl] > [-long,-splng] 
+#vˈifə̯# | Rule 729 : ∅ > ə̯ / f __ #
+#vˈif# | Rule 733 : ə̯ > ∅ 
+#vif# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

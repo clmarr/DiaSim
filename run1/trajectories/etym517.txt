@@ -1,28 +1,23 @@
 Trajectory file for run 'run1'; etymon number :517:
-#krˌeːskˈen̪t̪em# >>> #kʁwasɑ̃# ( Correct : #kʁwasɑ̃#) :
-k r ˌeː s k ˈe n̪ t̪ e m 
-#krˌeːskˈɛn̪t̪ɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#krˌeskˈɛn̪t̪ɛm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#krˌeskˈɛn̪t̪ɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#krˌeskʲˈɛn̪t̪ɛ# | Rule 79 : [+hi,+back,-cont] > [+front] / __ [+cont,-lo,+front]
-#krˌescˈɛn̪t̪ɛ# | Rule 80 : [+back,+front] > [-back] 
-#krˌesʲsʲˈɛn̪t̪ɛ# | Rule 181 : s [+hi,+front,+cons] > sʲ sʲ
-#krˌesʲsʲˈɛn̪t̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#krˌesʲsʲˈɛn̪t̪ə̯# | Rule 281 : ə > ə̯ 
-#krˌesʲsʲˈɛn̪t̪# | Rule 305 : ə̯ > ∅ 
-#krˌesʲˈɛn̪t̪# | Rule 393 : sʲ sʲ > sʲ 
-#krˌejsˈɛn̪t̪# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
-#krˌejsˈɛ̃n̪t̪# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#krˌojsˈɛ̃n̪t̪# | Rule 561 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
-#krˌujsˈɛ̃n̪t̪# | Rule 573 : [+round,+tense,+back] > [+hi] 
-#krˌujsˈãn̪t̪# | Rule 584 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#krˌuɛ̯sˈãn̪t̪# | Rule 627 : j > ɛ̯ / [+syl,+back,+round] __ 
-#krwˌɛsˈãn̪t̪# | Rule 628 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#krwˌɛsˈãːt̪# | Rule 664 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#krwˌɛsˈɑ̃ːt̪# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#krwˌɛsˈɑ̃ː# | Rule 732 : [-son] > ∅ / __ #
-#kʀwˌɛsˈɑ̃ː# | Rule 750 : r > ʀ 
-#kʀwɛsɑ̃ː# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#kʀwɛsɑ̃# | Rule 752 : [+syl,+long] > [-long,-splng] 
-#kʀwasɑ̃# | Rule 757 : ɛ > a / w __ 
-#kʁwasɑ̃# | Rule 758 : ʀ > ʁ 
+#krˈeːt̪ɑm# >>> #kʁɛ# ( Correct : #kʁɛ#) :
+k r ˈeː t̪ ɑ m 
+#krˈet̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#krˈet̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#krˈeːt̪ɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#krˈeːt̪a# | Rule 202 : [+lo] > [+front,-back] 
+#krˈeːd̪a# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
+#krˈeːða# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#krˈejða# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#krˈejðə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#krˈojðə# | Rule 561 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
+#krˈujðə# | Rule 573 : [+round,+tense,+back] > [+hi] 
+#krˈʌjðə# | Rule 606 : ˈu > ˈʌ / __ j [+ant,+voi,+distr] ( r ) ə #
+#krˈʌjə# | Rule 610 : {θ;ð} > {∅;∅} 
+#krˈajə# | Rule 614 : ˈʌ > ˈa 
+#krˈaːjə# | Rule 701 : [+prim] > [+long] / __ ( j ) ə #
+#krˈaːj# | Rule 704 : ə > ∅ / [+prim] ( j ) __ 
+#krˈɛː# | Rule 709 : ˈaː j > ˈɛː / __ #
+#kʀˈɛː# | Rule 749 : r > ʀ 
+#kʀɛː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kʀɛ# | Rule 751 : [+syl,+long] > [-long,-splng] 
+#kʁɛ# | Rule 757 : ʀ > ʁ 

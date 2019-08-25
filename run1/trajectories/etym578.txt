@@ -1,16 +1,21 @@
 Trajectory file for run 'run1'; etymon number :578:
-#lˈɑssum# >>> #lɑ# ( Correct : #lɑ#) :
-l ˈɑ s s u m 
-#lˈɑssʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈɑssom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#lˈɑsso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#lˈasso# | Rule 202 : [+lo] > [+front,-back] 
-#lˈassə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#lˈassə̯# | Rule 281 : ə > ə̯ 
-#lˈass# | Rule 305 : ə̯ > ∅ 
-#lˈas# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#lˈaːs# | Rule 639 : [+prim,+lo] > [+long] / __ s #
-#lˈɑːs# | Rule 713 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑː# | Rule 732 : [-son] > ∅ / __ #
-#lɑː# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lɑ# | Rule 752 : [+syl,+long] > [-long,-splng] 
+#lˈɑt̪iɑm# >>> #lɛz# ( Correct : #lɛz#) :
+l ˈɑ t̪ i ɑ m 
+#lˈɑt̪ɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˈɑt̪jɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#lˈɑt̪ʝɑm# | Rule 26 : j > ʝ / __ [+syl]
+#lˈɑt̪ʝɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#lˈɑt͡sʲʝɑ# | Rule 77 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#lˈɑt͡sʲɑ# | Rule 91 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#lˈɑːt͡sʲɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#lˈaːt͡sʲa# | Rule 202 : [+lo] > [+front,-back] 
+#lˈaːd͡zʲa# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
+#lˈaːjd͡za# | Rule 396 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+#lˈaːjza# | Rule 402 : d͡z > z / [-cons] __ [-cons]
+#lˈajza# | Rule 404 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
+#lˈajzə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#lˈɛjzə# | Rule 615 : [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#lˈɛzə# | Rule 636 : j > ∅ / [-round,-tense,+stres] __ [+cons]
+#lˈɛzə̯# | Rule 708 : ə > ə̯ / __ #
+#lˈɛz# | Rule 733 : ə̯ > ∅ 
+#lɛz# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

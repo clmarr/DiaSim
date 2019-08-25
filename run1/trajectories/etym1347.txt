@@ -1,15 +1,27 @@
 Trajectory file for run 'run1'; etymon number :1347:
-#wˈiːllɑm# >>> #vil# ( Correct : #vil#) :
-w ˈiː l l ɑ m 
-#ɣʷˈiːllɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈiːllɑm# | Rule 48 : ɣʷ > βʷ 
-#βʷˈillɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#βʷˈillɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#βˈillɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈilla# | Rule 202 : [+lo] > [+front,-back] 
-#vˈilla# | Rule 446 : β > v 
-#vˈillə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈilə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#vˈilə̯# | Rule 708 : ə > ə̯ / __ #
-#vˈil# | Rule 734 : ə̯ > ∅ 
-#vil# | Rule 751 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#wˌillˈuːt̪ɑm# >>> #vly# ( Correct : #vəly#) :
+w ˌi l l ˈuː t̪ ɑ m 
+#ɣʷˌillˈuːt̪ɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˌɪllˈuːt̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˌɪllˈuːt̪ɑm# | Rule 48 : ɣʷ > βʷ 
+#βʷˌɪllˈut̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#βʷˌellˈut̪ɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βʷˌellˈut̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#βʷˌellˈuːt̪ɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˌellˈuːt̪ɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˌellˈuːt̪a# | Rule 202 : [+lo] > [+front,-back] 
+#βˌellˈʉːt̪a# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#βˌellˈʉːd̪a# | Rule 358 : [-voi] > [+voi] / [-cons] __ [-cons]
+#βˌellˈʉːða# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
+#vˌellˈʉːða# | Rule 446 : β > v 
+#vˌellˈʉːðə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#vˌellˈʉðə# | Rule 461 : [+syl] > [-long,-splng] 
+#vˌelˈʉðə# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
+#vˌelˈyðə# | Rule 517 : [+hi,+round,-back] > [+front] 
+#vˌəlˈyðə# | Rule 520 : ˌe > ˌə / __ ( [+cons] ) [+syl]
+#vˌəlˈyə# | Rule 610 : {θ;ð} > {∅;∅} 
+#vlˈyə# | Rule 642 : ˌə > ∅ / [+cont,-son] __ [+son,+cor,-nas] [+prim]
+#vlˈyːə# | Rule 691 : [+stres] > [+long] / __ ə
+#vlˈyː# | Rule 692 : ə > ∅ / [+syl] __ 
+#vlyː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vly# | Rule 751 : [+syl,+long] > [-long,-splng] 
