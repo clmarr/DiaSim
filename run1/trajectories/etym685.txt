@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :685:
-#mˌeliˈoːrem# >>> #məjœʁ# ( Correct : #mejœʁ#) :
+#mˌeliˈoːrem# >>> #mɛjœʁ# ( Correct : #mejœʁ#) :
 m ˌe l i ˈoː r e m 
 #mˌɛlɪˈoːrɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #mˌɛljˈoːrɛm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
@@ -15,14 +15,16 @@ m ˌe l i ˈoː r e m
 #mˌeʎˈowr# | Rule 432 : ˌɛ > ˌe / __ @ @
 #mˌəʎˈowr# | Rule 520 : ˌe > ˌə / __ ( [+cons] ) [+syl]
 #mˌeʎˈowr# | Rule 521 : ˌə > ˌe / __ [+hi,+front,+cons]
-#mˌeʎˈewr# | Rule 560 : ˈo > ˈe / __ w
-#mˌəʎˈewr# | Rule 604 : ˌe > ˌə / __ ( [+cons,+son] ) [+syl]
-#mˌəʎˈøwr# | Rule 613 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
-#mˌəʎˈør# | Rule 617 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#mˌəʎˈœr# | Rule 683 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
-#mˌəʎˈœɹ# | Rule 724 : r > ɹ / [-cons] __ #
-#mˌəʎˈœr# | Rule 747 : ɹ > r 
-#mˌəʎˈœʀ# | Rule 749 : r > ʀ 
-#məʎœʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#məʎœʁ# | Rule 757 : ʀ > ʁ 
-#məjœʁ# | Rule 758 : ʎ > j 
+#mˌeʎˈewr# | Rule 562 : ˈo > ˈe / __ w
+#mˌejʎˈewr# | Rule 575 : ∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
+#mˌejʎˈøwr# | Rule 608 : [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+#mˌɛjʎˈøwr# | Rule 615 : [+syl,-round,-hi] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
+#mˌɛjʎˈør# | Rule 617 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#mˌɛʎˈør# | Rule 636 : j > ∅ / [-round,-tense,+stres] __ [+cons]
+#mˌɛʎˈœr# | Rule 683 : [-hi,-lo,+syl,+front,+round] > [-tense,-cons,-lat,+cont,0delrel] / __ r #
+#mˌɛʎˈœɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#mˌɛʎˈœr# | Rule 747 : ɹ > r 
+#mˌɛʎˈœʀ# | Rule 749 : r > ʀ 
+#mɛʎœʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʎœʁ# | Rule 757 : ʀ > ʁ 
+#mɛjœʁ# | Rule 758 : ʎ > j 

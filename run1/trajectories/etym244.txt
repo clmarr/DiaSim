@@ -16,6 +16,10 @@ f ˌɑ t̪ ˈuː t̪ u m
 #fˌaðˈʉːθ# | Rule 448 : [-delrel] > [+cont,0delrel] / [-cons] __ #
 #fˌaðˈʉθ# | Rule 461 : [+syl] > [-long,-splng] 
 #fˌaðˈyθ# | Rule 517 : [+hi,+round,-back] > [+front] 
-#fˌaˈy# | Rule 610 : {θ;ð} > {∅;∅} 
-#fˈy# | Rule 700 : ˌa > ∅ / __ [+prim]
-#fy# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fˌaˈy# | Rule 607 : {θ;ð} > {∅;∅} 
+#fˌeˈy# | Rule 609 : ˌa > ˌe / __ [+front,+round]
+#fˌəˈy# | Rule 610 : ˌe > ˌə / __ ( [+cons,+son] ) [+syl]
+#fˌəˈyː# | Rule 687 : [+prim] > [+long] / ˌə __ 
+#fˈyː# | Rule 688 : ˌə > ∅ / __ [+syl]
+#fyː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#fy# | Rule 751 : [+syl,+long] > [-long,-splng] 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :793:
-#ˈokuloːs# >>> #ø# ( Correct : #jø#) :
+#ˈokuloːs# >>> #jø# ( Correct : #jø#) :
 ˈo k u l oː s 
 #ˈɔkʊloːs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
 #ˈɔkloːs# | Rule 31 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
@@ -21,10 +21,12 @@ Trajectory file for run 'run1'; etymon number :793:
 #ˈʉo̯ɫt͡sʲ# | Rule 515 : [+lat] > ɫ / __ [+cons]
 #ˈyo̯ɫt͡sʲ# | Rule 517 : [+hi,+round,-back] > [+front] 
 #ˈye̯ɫt͡sʲ# | Rule 531 : o̯ > e̯ 
-#ˈøɫt͡sʲ# | Rule 587 : [+hi,+round,+tense,+prim] e̯ > ˈø
-#ˈøwt͡sʲ# | Rule 588 : [+lat,+back] > w 
-#ˈøt͡sʲ# | Rule 617 : w > ∅ / [+round,+front,-hi,+syl] __ 
-#ˈøsʲ# | Rule 641 : [+delrel] > [+cont,0delrel] 
-#ˈøs# | Rule 669 : [+ant,+front] > [-front,-hi] 
-#ˈø# | Rule 731 : [-son] > ∅ / __ #
-#ø# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ˈyø̯ɫt͡sʲ# | Rule 581 : e̯ > ø̯ / [+hi,+round] __ [+son,+back]
+#ˈyø̯wt͡sʲ# | Rule 587 : [+lat,+back] > w 
+#ɥˈøwt͡sʲ# | Rule 599 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#ɥˈøt͡sʲ# | Rule 617 : w > ∅ / [+round,+front,-hi,+syl] __ 
+#jˈøt͡sʲ# | Rule 631 : ɥ > j / __ [+front,+round,-hi]
+#jˈøsʲ# | Rule 641 : [+delrel] > [+cont,0delrel] 
+#jˈøs# | Rule 669 : [+ant,+front] > [-front,-hi] 
+#jˈø# | Rule 731 : [-son] > ∅ / __ #
+#jø# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

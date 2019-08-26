@@ -1915,8 +1915,10 @@ $ s330 : early leveling of aj before w -- case of aqua -- 11th century.
 
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
-$ CORRECTION: this doesn't happen when ow is also preceded by a labial consonant though (meuble)
+$ CORRECTION: this doesn't happen when ow is also preceded by a voiced labial consonant though (meuble)
+	$ CORRECTION: but DOES separately happen after p. 
 [+tense,+syl,+round,-hi,-lo] w > [+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
+[+tense,+syl,+round,-hi,-lo] w > [+hi] ∅ / p __
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
@@ -1926,13 +1928,21 @@ $ CORRECTED -- seems to happen immediately before u>y,
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
 ˌo >ˌə / __ [+delrel,-ant] [+tense,+prim,+round]
 
-
 $ CORRECTION: ˌo opens before r t or ts , throw in d and dz for good measure, then a syllabic (not tourtre < torturella) 
 ˌo > ˌɔ / __ r [+ant,-lab,-cont] [+syl]
 
 $s435: dentalization of final m after vowels. 
 $s435 -- accepted by late 11th century 
 m > n̪ / [-cons] __ #
+
+$CORRECTION: ŋ > n when before a non-velar 
+$ Pope misses this although her use of "luns" for OF for longs in the table implies it
+$ attestation through TLFI:
+$ LONGS~LONS: lonɡoːs > GR lũŋɡəs > lũns as "lons" attested in late 1100s
+$ SANGS~SANS: sɑnɡʷeːs > GR saŋɡəs > sãns -- "sans" attested in 1176 
+$ BANCS~BANS: bɑnkoːs > GR baŋkəs > bãns -- "bans" attested in 1000s in Alexis
+$ BLANCS~BLANS: blans attested in 1174 Chretien de Troyes and again throughout 1210-1260...
+ŋ > n̪ / __ [-back]
 
 ~Old French I
 
@@ -2009,9 +2019,6 @@ $ CORRECTION: effects only short e, so that *ae reflexes are not effected.
 $ CORRECTION: countertonic ow is also effected after d͡ʒ (jeudi, etc)
 ˌo > ˌe / d͡ʒ __ w
 
-$ CORRECTION : tonic ˈow > ˈew is REVERSED before z [epoux, epouse, moule, ...] 
-ˈe > ˈo / __ w z
-
 $ CORRECTION : s291-s292, tsj depalatalization, ] is deleted. 
 	$Already had to be moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
 	$ see krukem, nukem > croix, noix, whereas prodis > prowts > preux. 
@@ -2064,8 +2071,9 @@ $Pope places it in EOF so we place it there too-- but clearly at the end of the 
 
 $s407i : glide develops between e tonic or countertonic 
 	$  and ʎ intervocalic after e TONIC
-$ CORRECTION: /ɛ/ to also be included in this 
-∅ > j / [-hi,-lo,-round,+prim] __ ʎ [+syl]
+$ CORRECTION: /ɛ/ to also be included in this, and
+	$ CORRECTION: include e or ɛ whether tonic or countertonic
+∅ > j / [-hi,-lo,-round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
 $s407ii : same for y countertonic or tonic 
@@ -2084,10 +2092,13 @@ $ However we are just using this to mark the time boundary -- this is not where 
 	$ which we used for FLLAPS. 
 
 $ s555 ue̯w > ye̯w : Pope seems to imply this happens in the late 11th century
-[+hi,+round] > [+front,-back] / __ e̯ w 
+$ CORRECTION: suppressed, redundant. 
+$[+hi,+round] > [+front,-back] / __ e̯ w 
 
 $ s556 ye̯w > yø̯w 
-e̯ > ø̯ / [+hi,+round] __ w 
+	$ s556 "in the course of the eleventh and twelfth centuries the middle element was rounded to ø and stressed" 
+	$ BASECLEF* CORRECTION: allow this to also happen before ɫ, which is not fully vocalized at this point yet. 
+e̯ > ø̯ / [+hi,+round] __ [+son,+back]
 
 $s171.3 : voicing of intervocalic stridents, recurrence of s334
 $She says it occurs for s and f both, and specifically says it occurs in Later Old French
@@ -2125,17 +2136,17 @@ $ feeds ie̯ >je shift in 12th century, must precede it.
 $ CORRECTION: efface ʎ between i variants and consonant
 ʎ > ∅ / [+front,+hi,-round,+syl] __ [+cons]
 
-$ Pope s550 - 551 : ˈue̯ is monophthongized to ø
-$ Attested in 1137 -- "over the course of the 12th century"
-$ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
-$ CORRECTION: Pope notates this as ue̯ undergoing this shift, but the u should have become fronted to y by this point...
-	$ -- it is actually ye̯ -- make notation sufficiently broad
-$ She also explicitly limits it to hte stressed diphthong 
-[+hi,+round,+tense,+prim] e̯ > ˈø
-
 $s385~s390 vocalization of dark l variants 
 $ per Pope s390: attested in rhymes by middle of 12th century: 
 [+lat,+back] > w
+
+$ Pope s550 - 551 : ˈue̯ is monophthongized to ø
+$ Attested in 1137 -- "over the course of the 12th century"
+$ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
+$ BASECLEF CORRECTION: Pope notates this as ue̯ undergoing this shift, but the u should have become fronted to y by this point...
+	$ -- it is actually ye̯ -- make notation sufficiently broad
+$ She also explicitly limits it to hte stressed diphthong 
+[+hi,+round,+tense,+prim] e̯ > ˈø
 
 $ CORRECTION: w after u or y is immediately deleted
 w > ∅ / [+syl,+hi,+round] __
@@ -2166,10 +2177,6 @@ $ CORRECTION: no targets, suppressed (only fed by s388~s544 from earlier e:>e sc
 $ CORRECTION: s172a (th-effacement) moved much later so that it can condition some coming phenomena 
 
 $ CORRECTION: s422 moved much ealrier. 
-
-$ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
-$ happens after the loss of the interdental frics. 
-ˌa > ˌe / __ ˈy
 
 $ CORRECTION ˌe > ˌɛ, blocking reduction to schwa, 
 	$ in open syllables before voiced continuants that are not lateral or nasal
@@ -2221,11 +2228,6 @@ $ CORRECTION: countertonic ˌɛ goes to ˌa
 	$... when after a labial consonant and before r in a closed syllable
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r {#;p;t͡ʃ}
 
-$ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
-$ CORRECTION -- only sonorant consonants can come between this and next syllabic next time	
-	$ -- hence must be "over open" syllable. 
-ˌe > ˌə / __ ([+cons,+son]) [+syl] 
-
 $ CORRECTION : unrounding and lowering of u in ˈuj before ə then # in late 12th century
 $ Pope argues that oi > ai shifting only occured under Italian influence in Middle French
 $ However, there is textual evidence of it beginning in this context much earlier, and no exceptions
@@ -2271,16 +2273,9 @@ $ Like above, it is likely this sound, which saw delayed entrance into the writt
 	$ was neither really an a or an o for about a century-- hence ʌ is a good guess, with Canadian raising being a good analog
 ˈu > ˈʌ / __ j [+ant,+voi,+distr] (r) ə #
 
-$ CORRECTION : degemination of rr happens many centuries before Pope says it is
-$ this is surprising because Pope has much backing in historical texts describing the language -- however after making this change
-$ accuracy improved by a whole point and it appears that a lot of her French historical text-based evidence
-$ led her in the wrong direction -- such as also asserting that any a before rr would become long (and thus /ɑ/ ultimately -- but this did not
-	$ happen in every single one of the available cases: barram > /bar/, karru:kam > ʃary, karrum > ʃar ...) 
-r r > r 
-
 $ CORRECTION: rerounding of ʌ when after a labial (possibly separated by r) and followed by j ə #
 	$ cases: via, korrigia, froide
-ˈʌ > ˈu / [+lab] (r) __ j ([+ant,+voi,+distr]) ə #
+ˈʌ > ˈu / [+lab] (r)* __ j ([+ant,+voi,+distr]) ə #
 
 $ CORRECTION: before ð is effaced, countertonic ˌu to ˌə if followed by a tonic a 
 ˌu > ˌə / __ ð [+lo,+prim]
@@ -2293,15 +2288,34 @@ $ CORRECTION: moved to late twelth century because of data Pope missed. There ar
 	$ the first attestations of this appear in 1200 -- not in Middle French as Pope argues. See shift inserted above.
 {θ;ð} > {∅;∅}		
 
+$Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
+[-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
+
+$ s421 countertonic a brought into contact with tonic y raises to e ... (eventually to ə...) 
+$ happens after the loss of the interdental frics. 
+$ CORRECTION: ˌa is similarly reduced before ˈø -- pavorem becoming pëor by 1176 definition (not 1119 : "pour") 
+$ CORRECTION: moved to after ew > øw
+ˌa > ˌe / __ [+front,+round]
+
+$ Recurrence of s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. See s421. 
+$ CORRECTION -- only sonorant consonants can come between this and next syllabic next time	
+	$ -- hence must be "over open" syllable. 
+$ CORRECTION: moved to after ew > øw
+ˌe > ˌə / __ ([+cons,+son]) [+syl] 
+
+$ CORRECTION : degemination of rr happens many centuries before Pope says it is
+$ this is surprising because Pope has much backing in historical texts describing the language -- however after making this change
+$ accuracy improved by a whole point and it appears that a lot of her French historical text-based evidence
+$ led her in the wrong direction -- such as also asserting that any a before rr would become long (and thus /ɑ/ ultimately -- but this did not
+	$ happen in every single one of the available cases: barram > /bar/, karru:kam > ʃary, karrum > ʃar ...) 
+r r > r 
+
 $ CORRECTION: ˌɛ to ˌe before r,z,v then vowel
 ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
 
 $ CORRECTION: case of terre:num > terrain -- ˌe is persistently reduced to ə 
 	$ if before continuant then tonic e or ẽ or ɛ or ɛ̃
 ˌe > ˌə / __ [+cont] [+prim,+front,-hi,-lo]
-
-$Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
-[-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
 
 $ CORRECTION : ʌ lowers and fronts to a, completing early oi>ai shift attested before middle French for a number of words
 	$ cle:tam, cre:tam, mone:tam, the:ca, rica, vitrum, tonitrum > claie, craie,  e, taie, raie, verre, tonnerre 
@@ -2310,7 +2324,8 @@ $ Place this before Pope s528-529 because of cases of verre and tonnerre (aj > �
 
 $Pope s528-529: aj > ɛj when praeconsonantal
 $Pope does not give a specific date. Makes sense to be here, given spellings ˌai" for wɛ >ɛ later...
-[+lo] > [-lo,-tense] / __ j [+cons] 
+$ CORRECTION: include also cases of ˌej 
+[+syl,-round,-hi] > [-lo,-tense] / __ j [+cons] 
 
 $Pope s528-529 : aj > ɛj word finally
 [+lo] > [-lo,-tense] / __ j #
@@ -2434,7 +2449,7 @@ $ NOTE: suppress for ts/s demo
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts 
 	$ (thus this must come before deaffrication -- moved earlier) 
 	$ CORRECTION: actually we move all of s565-7 here
-$ NOTE: suppress for ts/s demo
+$ NOTE: suppress lo for ts/s demo, move s565-7 back to where it is in baseclef.
 [+prim] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
@@ -2447,7 +2462,7 @@ $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
 $ CORRECTION: the inclusion stipulated by Pope of also stops here (though not affricates) 
 	$ is removed. 
-ˌə > ∅ / [+cont,-son] __ [+son,+cor,-nas] [+prim]
+ˌə > ∅ / [+cont,-son] __ [+son,+ant,-nas] [+prim]
 
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope

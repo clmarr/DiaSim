@@ -15,10 +15,14 @@ m ˌɑː t̪ ˈuː r u m
 #mˌaðˈʉːr# | Rule 384 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [-cons]
 #mˌaðˈʉr# | Rule 461 : [+syl] > [-long,-splng] 
 #mˌaðˈyr# | Rule 517 : [+hi,+round,-back] > [+front] 
-#mˌaˈyr# | Rule 610 : {θ;ð} > {∅;∅} 
-#mˈyr# | Rule 700 : ˌa > ∅ / __ [+prim]
-#mˈyɹ# | Rule 724 : r > ɹ / [-cons] __ #
-#mˈyr# | Rule 747 : ɹ > r 
-#mˈyʀ# | Rule 749 : r > ʀ 
-#myʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mˌaˈyr# | Rule 607 : {θ;ð} > {∅;∅} 
+#mˌeˈyr# | Rule 609 : ˌa > ˌe / __ [+front,+round]
+#mˌəˈyr# | Rule 610 : ˌe > ˌə / __ ( [+cons,+son] ) [+syl]
+#mˌəˈyːr# | Rule 687 : [+prim] > [+long] / ˌə __ 
+#mˈyːr# | Rule 688 : ˌə > ∅ / __ [+syl]
+#mˈyːɹ# | Rule 724 : r > ɹ / [-cons] __ #
+#mˈyːr# | Rule 747 : ɹ > r 
+#mˈyːʀ# | Rule 749 : r > ʀ 
+#myːʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#myʀ# | Rule 751 : [+syl,+long] > [-long,-splng] 
 #myʁ# | Rule 757 : ʀ > ʁ 
