@@ -15,9 +15,10 @@ Trajectory file for run 'run1'; etymon number :34:
 #ˈɛwə# | Rule 557 : [+syl] > [-long,-splng] 
 #ˈɛa̯wə# | Rule 591 : ∅ > a̯ / [-hi,-lo,+front,-tense,+stres] __ w
 #e̯ˈawə# | Rule 599 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#e̯ˈoːə# | Rule 662 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
-#ə̯ˈoːə# | Rule 663 : e̯ > ə̯ / __ [+round,+back,-hi]
-#ə̯ˈoː# | Rule 692 : ə > ∅ / [+syl] __ 
-#ˈoː# | Rule 733 : ə̯ > ∅ 
-#oː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#o# | Rule 751 : [+syl,+long] > [-long,-splng] 
+#e̯ˈawə̯# | Rule 656 : ə > ə̯ / [-cons] __ 
+#e̯ˈoːə̯# | Rule 665 : {ˌa w;ˈa w} > {ˌoː;ˈoː} 
+#ə̯ˈoːə̯# | Rule 666 : e̯ > ə̯ / __ [+round,+back,-hi]
+#ˈoːə̯# | Rule 695 : ə̯ > ∅ / __ [-cons]
+#ˈoː# | Rule 696 : ə̯ > ∅ / [-cons] __ 
+#oː# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#o# | Rule 748 : [+syl,+long] > [-long,-splng] 

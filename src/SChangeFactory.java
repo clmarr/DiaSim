@@ -105,6 +105,9 @@ public class SChangeFactory {
 		
 		String[] inputSplit = input.split(""+ARROW); 
 		
+		//TODO debugging
+		System.out.println(input);
+		
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 

@@ -1,5 +1,5 @@
 Trajectory file for run 'run1'; etymon number :80:
-#ɑt̪ˈɑwiɑm# >>> #ɛ# ( Correct : #t̪ɛ#) :
+#ɑt̪ˈɑwiɑm# >>> #ɑj# ( Correct : #t̪ɛ#) :
 ɑ t̪ ˈɑ w i ɑ m 
 #ɑt̪ˈɑɣʷiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
 #ɑt̪ˈɑɣʷɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
@@ -16,8 +16,9 @@ Trajectory file for run 'run1'; etymon number :80:
 #aðˈaja# | Rule 426 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
 #aðˈajə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
 #aˈajə# | Rule 607 : {θ;ð} > {∅;∅} 
-#ˈaːjə# | Rule 693 : [+lo] [+lo] > ∅ [+long]
-#ˈaːj# | Rule 704 : ə > ∅ / [+prim] ( j ) __ 
-#ˈɛː# | Rule 709 : ˈaː j > ˈɛː / __ #
-#ɛː# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ɛ# | Rule 751 : [+syl,+long] > [-long,-splng] 
+#aˈajə̯# | Rule 656 : ə > ə̯ / [-cons] __ 
+#aˈaj# | Rule 696 : ə̯ > ∅ / [-cons] __ 
+#ˈaːj# | Rule 697 : [+lo] [+lo] > ∅ [+long]
+#ˈɑːj# | Rule 710 : [+lo,+long,+syl] > [+back,-front] 
+#ɑːj# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ɑj# | Rule 748 : [+syl,+long] > [-long,-splng] 

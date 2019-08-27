@@ -12,13 +12,14 @@ Trajectory file for run 'run1'; etymon number :75:
 #ˌarməðˈʉrə# | Rule 461 : [+syl] > [-long,-splng] 
 #ˌarməðˈyrə# | Rule 517 : [+hi,+round,-back] > [+front] 
 #ˌarməˈyrə# | Rule 607 : {θ;ð} > {∅;∅} 
-#ˌarməˈyːrə# | Rule 689 : [+stres] > [+long] / [+syl,-front,-back] ( w ) __ 
-#ˌarmˈyːrə# | Rule 690 : [+syl,-front,-back] > ∅ / __ ( w ) [+syl]
-#ˌarmˈyːrə̯# | Rule 708 : ə > ə̯ / __ #
-#ˌaɹmˈyːrə̯# | Rule 725 : r > ɹ / [-cons] __ [+cons]
-#ˌaɹmˈyːr# | Rule 733 : ə̯ > ∅ 
-#ˌarmˈyːr# | Rule 747 : ɹ > r 
-#ˌaʀmˈyːʀ# | Rule 749 : r > ʀ 
-#aʀmyːʀ# | Rule 750 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#aʀmyʀ# | Rule 751 : [+syl,+long] > [-long,-splng] 
-#aʁmyʁ# | Rule 757 : ʀ > ʁ 
+#ˌarmə̯ˈyrə# | Rule 654 : ə > ə̯ / __ [-cons]
+#ˌarmə̯ˈyːrə# | Rule 693 : [+stres] > [+long] / ə̯ __ 
+#ˌarmˈyːrə# | Rule 695 : ə̯ > ∅ / __ [-cons]
+#ˌarmˈyːrə̯# | Rule 709 : ə > ə̯ / __ #
+#ˌaɹmˈyːrə̯# | Rule 722 : r > ɹ / [-cons] __ [+cons]
+#ˌaɹmˈyːr# | Rule 730 : ə̯ > ∅ 
+#ˌarmˈyːr# | Rule 744 : ɹ > r 
+#ˌaʀmˈyːʀ# | Rule 746 : r > ʀ 
+#aʀmyːʀ# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#aʀmyʀ# | Rule 748 : [+syl,+long] > [-long,-splng] 
+#aʁmyʁ# | Rule 754 : ʀ > ʁ 
