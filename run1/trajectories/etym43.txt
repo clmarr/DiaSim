@@ -13,10 +13,9 @@ Trajectory file for run 'run1'; etymon number :43:
 #ˌamˈijəs# | Rule 461 : [+syl] > [-long,-splng] 
 #ˌamˈiəs# | Rule 477 : j > ∅ / [+hi,+front,+tense] __ 
 #ˌãmˈiəs# | Rule 519 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#ˌãmˈiə̯s# | Rule 656 : ə > ə̯ / [-cons] __ 
-#ˌãmˈiːə̯s# | Rule 694 : [+stres] > [+long] / __ ə̯
-#ˌãmˈiːs# | Rule 696 : ə̯ > ∅ / [-cons] __ 
-#ˌãmˈiː# | Rule 728 : [-son] > ∅ / __ #
-#ˌamˈiː# | Rule 737 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
-#amiː# | Rule 747 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ami# | Rule 748 : [+syl,+long] > [-long,-splng] 
+#ˌãmˈiə# | Rule 654 : [+cons] > ∅ / ə __ #
+#ˌãmˈiə̯# | Rule 658 : ə > ə̯ / [-cons] __ 
+#ˌãmˈiː# | Rule 683 : [+stres] ə̯ > [+long] ∅
+#ˌamˈiː# | Rule 739 : [+front,-round,+syl,+nas] > [-nas] / __ [+cons,+nas] [-cons]
+#amiː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ami# | Rule 749 : [+syl,+long] > [-long,-splng] 

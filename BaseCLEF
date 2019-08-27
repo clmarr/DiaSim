@@ -1449,6 +1449,13 @@ $ lengthening per s562
 $ per examples in s269, 271 etc : when she says vowels she must mean "nonconsonantals"
 ə > ə̯ / __ [-cons]
 
+$ s244 : lengthening of following a is preceded by assimilation of ə > a : actual formation of lengthened vowel by "contraction" handled by another rule, s242a
+$ lengthening implemented in later rule, via s242a ~ s561 
+$ per s666 -- this happens before Pope places the marker for Middle French with her table
+	$ which we interpret to be circa 1550
+$ unlike other effects on ˌə adjacent to other vowels (243-245 etc) which are placed after it
+ˌə > ˌa / __ [+lo,+stres] 
+
 $ s243-245 : countertonic ˌə effaced / __ V 
 	$ s243 began in 13th, 
 	$ "became very usual" in 16th... but traditional spellings are maintained a bit longer. 
@@ -1555,20 +1562,26 @@ $Accepted in 16th century.
 ˌə > ∅ / [-cont,-son,-delrel] __ [+son,-hi,-nas]
 ˌə > ∅ / [+cont,-son] __ [+son,-hi,-nas] 
 
-$ s244 : lengthening of following a is preceded by assimilation of ə > a : actual formation of lengthened vowel by "contraction" handled by another rule, s242a
-$ lengthening implemented in later rule, via s242a ~ s561 
-$ per s666 -- this happens before Pope places the marker for Middle French with her table
-	$ which we interpret to be circa 1550
-$ unlike other effects on ˌə adjacent to other vowels (243-245 etc) which are placed after it
-ˌə > ˌa / __ [+lo,+stres] 
+$ s530 ~ s532: s531 final ajə become ɛː right after final ə is effaced next to it...
+$ moved here for agreement with FLLAPS which has these words with final ɛː more in line with Peletier
+$ that it is long ɛː not short ɛ is inferred because of s562...
+$ obv comes after s271
+$ s532 : "accepted only in the 17th century"
+$ Peletier (1549) accepts it. 
+$  -- Lanoue (1596) accepts only in some cases
+$ "hesitation in Early Modern French" 
+[+lo,+front] j > [-lo,-tense,+long] ∅ / __ (ə̯) #
 
+$ s562 -- per consistency on FLLAPS Pope tables, ə̯ after another vowel effaced with prior lengthening at this point.
+$ but only before a stressed syllabic
+[+stres] ə̯ > [+long] ∅ 
+ə̯ > ∅ / [-cons] __
 
 $ s272 : effacement of intertonic ə between "n, r or l" and other consonants
 $ intertonic -- most have stress level on either side 
 $ as per s272: begins twelfth and thirteenth centuries but only becomes regular in the 16th, and even then hesitation leads to doublets
 ə > ∅ / [+stres] ([-syl])* [+cor,+son,+cons] __ [+cons] ([-syl])* [+stres]
 ə > ∅ / [+stres] ([-syl])* [+cons] __ {r;l} ([-syl])* [+stres]
-
 
 ~Middle French
 
@@ -1611,10 +1624,9 @@ $ and lengthening of adjacent stressed vowels (s562)
 $ s562: accepted widely by sixteenth century, spelling changes a bit later, 
 	$ we broke the shift up because of the way Pope did tables not recognizing it (based on orthography no doubt)
 		 $as a "compromise"
+$ Və# finals are simplified before MF marker per consistency.
 [+stres] > [+long] / ə̯ __
-[+stres] > [+long] / __ ə̯
 ə̯ > ∅ / __ [+syl]
-ə̯ > ∅ / [+syl] __
 
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
