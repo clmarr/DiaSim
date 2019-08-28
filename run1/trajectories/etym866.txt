@@ -1,18 +1,26 @@
 Trajectory file for run 'run1'; etymon number :866:
-#pˈerd̪it̪ɑm# >>> #pɛʁt̪# ( Correct : #pɛʁt̪#) :
-p ˈe r d̪ i t̪ ɑ m 
-#pˈɛrd̪ɪt̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈɛrd̪et̪ɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈɛrd̪et̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈɛrd̪ə̯t̪ɑ# | Rule 97 : e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
-#pˈɛrd̪ə̯t̪a# | Rule 202 : [+lo] > [+front,-back] 
-#pˈɛrd̪t̪a# | Rule 305 : ə̯ > ∅ 
-#pˈɛrd̪t̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈɛrt̪ə# | Rule 483 : [+cons] > ∅ / [+cons] __ [-son]
-#pˈɛrt̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#pˈɛɹt̪ə̯# | Rule 727 : r > ɹ / [-cons] __ [+cons]
-#pˈɛɹt̪# | Rule 736 : ə̯ > ∅ 
-#pˈɛrt̪# | Rule 750 : ɹ > r 
-#pˈɛʀt̪# | Rule 752 : r > ʀ 
-#pɛʀt̪# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pɛʁt̪# | Rule 760 : ʀ > ʁ 
+#pˌerˈiːkulum# >>> #peʁij# ( Correct : #peʁil#) :
+p ˌe r ˈiː k u l u m 
+#pˌɛrˈiːkʊlʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˌɛrˈiːklʊm# | Rule 31 : {ʊ;o} > {∅;∅} / [+prim] ( [-syl] )* [-cont] __ [+lat] [+syl] ( [-syl] ) #
+#pˌɛrˈiklʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#pˌɛrˈiklom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˌɛrˈiklo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˌɛrˈiːklo# | Rule 114 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#pˌɛrˈiːxlo# | Rule 119 : [+hi,+back,-cont] > [+cont,0delrel] / [-cons] __ [+cor,+cons]
+#pˌɛrˈixlo# | Rule 153 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#pˌɛrˈiçlo# | Rule 211 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#pˌɛrˈiçʎo# | Rule 218 : [+lat] > ʎ / [+hi,+front,+cons] __ 
+#pˌɛrˈiʎo# | Rule 249 : [+hi,+front,-lat,-syl] > ∅ / __ ʎ
+#pˌɛrˈiʎə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#pˌɛrˈiʎə̯# | Rule 281 : ə > ə̯ 
+#pˌɛrˈiʎ# | Rule 305 : ə̯ > ∅ 
+#pˌerˈiʎ# | Rule 432 : ˌɛ > ˌe / __ @ @
+#pˌərˈiʎ# | Rule 520 : ˌe > ˌə / __ ( [+cons] ) [+syl]
+#pˌerˈiʎ# | Rule 523 : ˌə > ˌe / __ r [-lo]
+#pˌɛrˈiʎ# | Rule 596 : ˌe > ˌɛ / __ r [+syl]
+#pˌerˈiʎ# | Rule 612 : ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
+#pˌeʀˈiʎ# | Rule 747 : r > ʀ 
+#peʀiʎ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#peʁiʎ# | Rule 755 : ʀ > ʁ 
+#peʁij# | Rule 756 : ʎ > j 

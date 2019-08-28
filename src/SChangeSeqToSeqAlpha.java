@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.function.Function;
 
 public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	
@@ -17,12 +19,14 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	public SChangeSeqToSeqAlpha(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
 	{
 		super(ftInds, symb_map, trgsrc, dstSpcs, origForm); 
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false; 
 	}
 	
 	public SChangeSeqToSeqAlpha(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map,  List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
 			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super(ftInds, symb_map, trgsrc, dstSpcs, prior, postr, origForm);
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false;
 	}
 	
@@ -33,6 +37,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		//abort if too small
 		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		
+		// p -- place in input being operated on.
 		int p = minPriorSize , 
 				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
@@ -41,124 +46,144 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		while (p < maxPlace)
 		{
 			int p_if_match_fail = p; 
-			boolean targMatchFail = false; 
+			boolean targMatchFail = false; // for halting for-loop.
+			// i -- place in targ source abstraction. 
 			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
 			{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
-				if (test.has_unset_alphas() != '0')
+				
+				if(!cand.getType().equals("phone"))
+					targMatchFail = !cand.print().equals(test.print()) ;
+				else if (test.first_unset_alpha() != '0')
 				{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
 					else
 					{
 						HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
+						for (String alph: alphHere.keySet())  //there will be no replacements since check_for_alpha_conflict was false.
+							ALPH_VARS.put(alph,alphHere.get(alph)); 
 						need_to_reset = true;
-						test.applyAlphaValues(alphHere);
-						if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(alphHere);
-						if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(alphHere);
-						for (int j = i; j < targSource.size(); j++)	targSource.get(j).applyAlphaValues(alphHere);
-						for (int k = 0; k < destSpecs.size(); k++)	destSpecs.get(k).applyAlphaValues(alphHere);
+						test.applyAlphaValues(ALPH_VARS);
+						mapAlphVals(); 
 					}
-					targMatchFail = targMatchFail ? true : test.compare(cand); 
 				}
+				targMatchFail = targMatchFail ? true : !test.compare(cand); 
 			}
 			if (!targMatchFail) //target matched
 			{
-				boolean priorPossible = true; 
-				if (priorContext.has_unset_alphas())
-				{
-					List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
-					String[] pripm = priorContext.getParenMap(); 
-					int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-					boolean halt = pripm[cpim].contains(")"); 
-					while (!halt)
+				boolean isPriorMatch = !priorSpecd;
+				if(!isPriorMatch)	{
+					boolean priorPossible = true; 
+	
+					if (priorContext.has_unset_alphas())
 					{
-						RestrictPhone pri = pripr.get(crp);
-						if (pri.has_unset_alphas() != '0')
-						{
-							SequentialPhonic cpi = input.get(cpic);
-							if(pri.check_for_alpha_conflict(cpi))
-							{
-								halt = true; 
-								priorPossible = false; 
-							}
-							else
-							{
-								HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
-								need_to_reset = true;
-								priorContext.applyAlphaValues(alphHere);
-								postContext.applyAlphaValues(alphHere);
-								pripr = priorContext.getPlaceRestrs();
-							}
-						}
-						cpic--; crp--; cpim--;
-						if(crp < 0)	halt = true;
-						else	halt = pripm[cpim].contains(")"); 		
-					}
-				}
-				boolean isPriorMatch = priorPossible ? priorMatch(input,p) : false;
-				if(isPriorMatch)
-				{
-					int indAfter = p + minTargSize;
-					boolean postrPossible = true; 
-					boolean reachedEnd = false; 
-					if(postContext.has_unset_alphas())
-					{
-						List<RestrictPhone> popr = postContext.getPlaceRestrs();
-						String[] popm = postContext.getParenMap();
-						int cpic = indAfter, crp = 0, cpim = 0; 
-						boolean halt = popm[cpim].contains("("); 
+						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
+						String[] pripm = priorContext.getParenMap(); 
+						int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
+						boolean halt = pripm[cpim].contains(")"); 
 						while (!halt)
 						{
-							RestrictPhone poi = popr.get(crp); 
-							if(poi.has_unset_alphas() != '0')
+							RestrictPhone pri = pripr.get(crp);
+							if (pri.first_unset_alpha() != '0')
 							{
-								SequentialPhonic cpi = input.get(cpic); 
-								if(poi.check_for_alpha_conflict(cpi))
-								{
-									halt = true; 
-									postrPossible = false; 
-								}
-								else
-								{
-									HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
-									poi.applyAlphaValues(alphHere);
-									if(poi.compare(cpi))
+								SequentialPhonic cpi = input.get(cpic);
+								if (cpi.getType().equals("phone"))
+								{	
+									if(pri.check_for_alpha_conflict(cpi))
 									{
-										postContext.applyAlphaValues(alphHere);
-										popr = postContext.getPlaceRestrs();
-										popm = postContext.getParenMap();
-										need_to_reset = true; 
+										halt = true; 
+										priorPossible = false; 
 									}
 									else
 									{
-										postrPossible = false;
-										halt = true; 
+										HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
+										need_to_reset = true;
+										priorContext.applyAlphaValues(alphHere);
+										if (postSpecd)	postContext.applyAlphaValues(alphHere);
+										for (int k = 0; k < destSpecs.size(); k++)	destSpecs.get(k).applyAlphaValues(alphHere);
+										pripr = priorContext.getPlaceRestrs();
 									}
 								}
 							}
-							if(!halt)
-							{
-								cpic++; crp++; cpim++;
-								if (crp >= popr.size())
-								{
-									halt = true;
-									reachedEnd = true;
-								}
-								else	halt = popm[cpim].contains("(");
-							}
+							cpic--; crp--; cpim--;
+							if(crp < 0)	halt = true;
+							else	halt = pripm[cpim].contains(")"); 		
 						}
 					}
-					boolean isPostrMatch = !postrPossible ? false : 
-						reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
+					isPriorMatch = priorPossible ? priorMatch(input,p) : false;
+				}
+				if(isPriorMatch)
+				{
+					boolean isPostrMatch = !postSpecd; 
+					
+					if(!isPostrMatch) {
+						int indAfter = p + minTargSize;
+						boolean postrPossible = true; 
+						boolean reachedEnd = false; 
+						if(postContext.has_unset_alphas())
+						{
+							List<RestrictPhone> popr = postContext.getPlaceRestrs();
+							String[] popm = postContext.getParenMap();
+							int cpic = indAfter, crp = 0, cpim = 0; 
+							boolean halt = popm[cpim].contains("("); 
+							while (!halt)
+							{
+								RestrictPhone poi = popr.get(crp); 
+								if(poi.first_unset_alpha() != '0')
+								{
+									SequentialPhonic cpi = input.get(cpic); 
+									if(cpi.getType().equals("phone"))	{
+										if(poi.check_for_alpha_conflict(cpi))
+										{
+											halt = true; 
+											postrPossible = false; 
+										}
+										else
+										{
+											HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
+											poi.applyAlphaValues(alphHere);
+											if(poi.compare(cpi))
+											{
+												postContext.applyAlphaValues(alphHere);
+												popr = postContext.getPlaceRestrs();
+												popm = postContext.getParenMap();
+												need_to_reset = true; 
+											}
+											else
+											{
+												postrPossible = false;
+												halt = true; 
+											}
+										}
+									}
+								}
+								if(!halt)
+								{
+									cpic++; crp++; cpim++;
+									if (crp >= popr.size())
+									{
+										halt = true;
+										reachedEnd = true;
+									}
+									else	halt = popm[cpim].contains("(");
+								}
+							}
+						}
+						isPostrMatch = !postrPossible ? false : 
+							reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
+					}
 					if (isPostrMatch)
 					{
 						res.addAll(generateResult(input,p)); 
 						p += minTargSize; 
-					}	
+					}
 				}
 			}
-			if ( p == p_if_match_fail)	res.add(input.get(p));
+			if ( p == p_if_match_fail)
+			{	res.add(input.get(p));
+				p++; 
+			}
 			if (need_to_reset)	reset_alphvals_everywhere(); 
 		}
 		if (p < inpSize)	res.addAll(input.subList(p, inpSize)); 
@@ -181,13 +206,35 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 			else
 			{
 				RestrictPhone thisDest = destSpecs.get(targInd); 
-				if(!thisDest.compare(new NullPhone()))
-						output.add( destSpecs.get(targInd).forceTruth(input, checkInd).get(checkInd));
+				if(!thisDest.compare(new NullPhone())) 
+					output.add( destSpecs.get(targInd).forceTruth(input, checkInd).get(checkInd));
 				checkInd++; 
 			}
 			targInd++; 
 		}
 		return output;
+	}
+	
+
+	private RestrictPhone applyAlph(RestrictPhone inp)
+	{
+		inp.applyAlphaValues(ALPH_VARS);
+		return inp; 
+	}
+	
+	private final Function<RestrictPhone,RestrictPhone> APPLY_ALPHAS = a -> applyAlph(a); 
+	
+	//uses global ALPH_VARS
+	public void mapAlphVals()
+	{
+		if(priorSpecd)	
+			if(priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(ALPH_VARS);
+		if(postSpecd)
+			if(postContext.hasAlphaSpecs())	postContext.applyAlphaValues(ALPH_VARS);
+		
+		targSource = targSource.stream().map(APPLY_ALPHAS).collect(Collectors.toList());
+		destSpecs = destSpecs.stream().map(APPLY_ALPHAS).collect(Collectors.toList()); 
+		
 	}
 	
 	
@@ -198,9 +245,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		for(int j = 0; j < destSpecs.size(); j++)
 			destSpecs.get(j).resetAlphaValues();
 		
-		priorContext.resetAllAlphaValues();
-		postContext.resetAllAlphaValues();
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd) postContext.resetAllAlphaValues();
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false;
 	}
+	
+	
 
 }

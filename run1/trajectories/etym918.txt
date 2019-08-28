@@ -1,10 +1,17 @@
 Trajectory file for run 'run1'; etymon number :918:
-#plˈɑt̪t̪ɑːs# >>> #plat̪# ( Correct : #plat̪#) :
-p l ˈɑ t̪ t̪ ɑː s 
-#plˈɑt̪t̪ɑs# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#plˈat̪t̪as# | Rule 202 : [+lo] > [+front,-back] 
-#plˈat̪t̪əs# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#plˈat̪əs# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#plˈat̪ə# | Rule 734 : [-son] > ∅ / __ #
-#plat̪ə# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#plat̪# | Rule 763 : ə > ∅ / [+syl] ( [-syl] )* __ #
+#plˈɑt̪t̪eɑm# >>> #plas# ( Correct : #plas#) :
+p l ˈɑ t̪ t̪ e ɑ m 
+#plˈɑt̪t̪ɛɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#plˈɑt̪t̪jɑm# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#plˈɑt̪t̪ʝɑm# | Rule 26 : j > ʝ / __ [+syl]
+#plˈɑt̪t̪ʝɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#plˈɑt̪t͡sʲʝɑ# | Rule 77 : {t̪;d̪} > {t͡sʲ;ɟ} / __ [+hi,+front,-syl,+cont]
+#plˈɑt̪t͡sʲɑ# | Rule 91 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#plˈat̪t͡sʲa# | Rule 202 : [+lo] > [+front,-back] 
+#plˈat̪t͡sʲə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈat͡sʲə# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#plˈasʲə# | Rule 641 : [+delrel] > [+cont,0delrel] 
+#plˈasə# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#plˈasə̯# | Rule 711 : ə > ə̯ / __ #
+#plˈas# | Rule 732 : ə̯ > ∅ 
+#plas# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

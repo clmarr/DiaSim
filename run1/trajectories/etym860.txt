@@ -1,19 +1,24 @@
 Trajectory file for run 'run1'; etymon number :860:
-#pˈen̪d̪it̪ɑm# >>> #pɑ̃t̪# ( Correct : #pɑ̃t̪#) :
-p ˈe n̪ d̪ i t̪ ɑ m 
-#pˈɛn̪d̪ɪt̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈɛn̪d̪et̪ɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈɛn̪d̪et̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈɛn̪d̪ə̯t̪ɑ# | Rule 97 : e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
-#pˈɛn̪d̪ə̯t̪a# | Rule 202 : [+lo] > [+front,-back] 
-#pˈɛn̪d̪t̪a# | Rule 305 : ə̯ > ∅ 
-#pˈɛn̪d̪t̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#pˈɛn̪t̪ə# | Rule 483 : [+cons] > ∅ / [+cons] __ [-son]
-#pˈɛ̃n̪t̪ə# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#pˈãn̪t̪ə# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#pˈãːt̪ə# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#pˈãːt̪ə̯# | Rule 708 : ə > ə̯ / __ #
-#pˈɑ̃ːt̪ə̯# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#pˈɑ̃ːt̪# | Rule 736 : ə̯ > ∅ 
-#pɑ̃ːt̪# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pɑ̃t̪# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#pˈeːn̪sum# >>> #pwa# ( Correct : #pwa#) :
+p ˈeː n̪ s u m 
+#pˈeːsum# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#pˈeːsʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈesʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#pˈesom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˈeso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˈeːso# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#pˈeːzo# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#pˈeːzə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#pˈeːzə̯# | Rule 281 : ə > ə̯ 
+#pˈeːz# | Rule 305 : ə̯ > ∅ 
+#pˈejz# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#pˈejs# | Rule 454 : [-son] > [-voi] / __ #
+#pˈojs# | Rule 563 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
+#pˈujs# | Rule 574 : [+round,+tense,+back] > [+hi] 
+#pˈuɛ̯s# | Rule 627 : j > ɛ̯ / [+syl,+back,+round] __ 
+#pwˈɛs# | Rule 628 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#pwˈɛːs# | Rule 639 : [+prim] > [+long] / __ s #
+#pwˈɛː# | Rule 730 : [-son] > ∅ / __ #
+#pwɛː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pwɛ# | Rule 749 : [+syl,+long] > [-long,-splng] 
+#pwa# | Rule 754 : ɛ > a / w __ 

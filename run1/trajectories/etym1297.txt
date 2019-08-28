@@ -1,19 +1,25 @@
 Trajectory file for run 'run1'; etymon number :1297:
-#wˈɑkkɑm# >>> #vaʃ# ( Correct : #vaʃ#) :
-w ˈɑ k k ɑ m 
-#ɣʷˈɑkkɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#βʷˈɑkkɑm# | Rule 48 : ɣʷ > βʷ 
-#βʷˈɑkkɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#βˈɑkkɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈakka# | Rule 202 : [+lo] > [+front,-back] 
-#βˈakkʲa# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#βˈakca# | Rule 251 : [+back,+front] > [-back] 
-#βˈakt͡ʃa# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
-#βˈat̪t͡ʃa# | Rule 262 : {k t͡ʃ;ɡ d͡ʒ} > {t̪ t͡ʃ;d̪ d͡ʒ} 
-#vˈat̪t͡ʃa# | Rule 446 : β > v 
-#vˈat̪t͡ʃə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈat͡ʃə# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
-#vˈaʃə# | Rule 648 : [+delrel] > [+cont,0delrel] 
-#vˈaʃə̯# | Rule 708 : ə > ə̯ / __ #
-#vˈaʃ# | Rule 736 : ə̯ > ∅ 
-#vaʃ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#wˈɑːn̪um# >>> #vɛ̃# ( Correct : #vɛ̃#) :
+w ˈɑː n̪ u m 
+#ɣʷˈɑːn̪um# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɑːn̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˈɑːn̪ʊm# | Rule 48 : ɣʷ > βʷ 
+#βʷˈɑn̪ʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#βʷˈɑn̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βʷˈɑn̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#βʷˈɑːn̪o# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#βˈɑːn̪o# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈaːn̪o# | Rule 202 : [+lo] > [+front,-back] 
+#βˈaːn̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#βˈaːn̪ə̯# | Rule 281 : ə > ə̯ 
+#βˈaːn̪# | Rule 305 : ə̯ > ∅ 
+#βˈae̯n̪# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#vˈae̯n̪# | Rule 446 : β > v 
+#vˈajn̪# | Rule 447 : e̯ > j / [+lo,+stres] __ [+nas,+cons,-hi]
+#vˈaj̃n̪# | Rule 518 : j > j̃ / [+lo] __ [+nas,-syl]
+#vˈãj̃n̪# | Rule 519 : [+lo] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#vˈɛ̃j̃n̪# | Rule 594 : [+lo,+nas] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j̃
+#vˈɛ̃n̪# | Rule 666 : j̃ > ∅ / [+nas,+front,-tense] __ 
+#vˈɛ̃ː# | Rule 677 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ #
+#vɛ̃ː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#vɛ̃# | Rule 749 : [+syl,+long] > [-long,-splng] 

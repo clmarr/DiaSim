@@ -13,5 +13,5 @@ public interface RestrictPhone{
 	//public SequentialPhonic forceTruth(SequentialPhonic patient); 
 	public void resetAlphaValues();
 	public boolean has_alpha_specs(); 
-	public char has_unset_alphas();  // returns '0' if "false", otherwise hte value of the unset alpha
+	public char first_unset_alpha();  // returns '0' if "false", otherwise hte value of the unset alpha
 }

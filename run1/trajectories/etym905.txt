@@ -1,20 +1,19 @@
 Trajectory file for run 'run1'; etymon number :905:
-#pˈisum# >>> #pwa# ( Correct : #pwa#) :
-p ˈi s u m 
-#pˈɪsʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˈesom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˈeso# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#pˈeːso# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˈeːzo# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
-#pˈeːzə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#pˈeːzə̯# | Rule 281 : ə > ə̯ 
-#pˈeːz# | Rule 305 : ə̯ > ∅ 
-#pˈejz# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˈejs# | Rule 454 : [-son] > [-voi] / __ #
-#pˈojs# | Rule 555 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
-#pˈujs# | Rule 568 : [+round,+tense,+back] > [+hi] 
-#pˈuɛ̯s# | Rule 631 : j > ɛ̯ / [+syl,+back,+round] __ 
-#pwˈɛs# | Rule 632 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#pwˈɛ# | Rule 734 : [-son] > ∅ / __ #
-#pwɛ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#pwa# | Rule 759 : ɛ > a / w __ 
+#plˈɑːɡɑm# >>> #plɛ# ( Correct : #plɛ#) :
+p l ˈɑː ɡ ɑ m 
+#plˈɑɡɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#plˈɑɡɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#plˈɑɣɑ# | Rule 89 : [-cont,+hi,+voi] > [+cont,0delrel] / [-cons] __ [+son,-lat,-nas]
+#plˈɑːɣɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#plˈaːɣa# | Rule 202 : [+lo] > [+front,-back] 
+#plˈaːɣʲa# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#plˈaːʝa# | Rule 251 : [+back,+front] > [-back] 
+#plˈaːja# | Rule 390 : ʝ > j 
+#plˈae̯ja# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#plˈaja# | Rule 426 : e̯ > ∅ / ˈa __ [+front,+son,-syl]
+#plˈajə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#plˈajə̯# | Rule 658 : ə > ə̯ / [-cons] __ 
+#plˈɛːə̯# | Rule 682 : [+lo,+front] j > [-lo,-tense,+long,-cons,-lat,+cont,0delrel] ∅/ __ ( ə̯ ) #
+#plˈɛː# | Rule 683 : [+stres] ə̯ > [+long] ∅
+#plɛː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#plɛ# | Rule 749 : [+syl,+long] > [-long,-splng] 

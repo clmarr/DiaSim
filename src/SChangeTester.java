@@ -14,7 +14,7 @@ import java.util.Set;
 
 public class SChangeTester {
 
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '.', FEAT_DELIM = ',';
+	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
 	private final static char IMPLICATION_DELIM = ':', PH_DELIM = ' ';
 	private final static char restrDelim = ',';
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
@@ -197,15 +197,15 @@ public class SChangeTester {
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
 				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə"), "DEBUG"); 
 		scftpTest.setPostContext(testFactory.parseNewSeqFilter("#", true)); 
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j 'u #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t͡ʃ j ə #")) ? 1 : 0 ; 
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ # j 'u #"), testFactory.parseSeqPhSeg("# kʰ `ɛ t͡ʃ j ə #")) ? 1 : 0; 
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ `ɑ t # j `æ̃ː m z #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j 'u #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t͡ʃ j ə #")) ? 1 : 0 ; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ # j 'u #"), testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ j ə #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #")) ? 1 : 0; 
 		
 		scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor] # [+syl,-prim]"),
 				testFactory.parsePhoneSequenceForDest("ɾ ə"), "DEBUG");
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ `ɛ t # ə b 'a w t # ɪ t #"),
-				testFactory.parseSeqPhSeg("# f ə ɡ `ɛ ɾ ə b 'a w ɾ ə t #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ t # ə b 'a w t # ɪ t #"),
+				testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ ɾ ə b 'a w ɾ ə t #")) ? 1 : 0; 
 		
 		System.out.println("Done testing SChangeFeatToPhone. Got "+numCorrect+" out of 8 tests correct. Now testing SChangePhone"); 
 		numCorrect = 0; 
@@ -298,6 +298,47 @@ public class SChangeTester {
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# ɣ ɑ kʷ ɔ x #"), testFactory.parseSeqPhSeg("# ɑː kʷ ɔ x #")) ? 1 : 0 ; 
 		
 		System.out.println("Done testing SChangeSeqToSeq. Got "+numCorrect+" correct out of 8.");
+		
+		numCorrect = 0; 
+		System.out.println("\nNow testing alpha variable functionality."); 
+		System.out.println("First : testing alpha variable functionality of FeatMatrices."); 
+		System.out.println("Default -- no alpha features"); 
+		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",featIndices); 
+		
+		System.out.println("init_charr : "+fmtest.getStrInitChArr()); 
+		System.out.println("feat vect : "+fmtest.getFeatVect()); 
+		System.out.println("specs : "+fmtest); 
+		System.out.println("has alpha specs? Should be false: "+fmtest.has_alpha_specs());
+		System.out.println("first unset alpha should be '0': "+fmtest.first_unset_alpha()); 
+		SequentialPhonic pfm = testFactory.parseSeqPh("e"); 
+		System.out.println("features extracted should be 0 : "+fmtest.extract_alpha_values(pfm).keySet().size()); 
+		
+		System.out.println("\nNow for a feat matrix with one alpha value.");
+		fmtest = new FeatMatrix("ɑstres,+syl",featIndices); 
+		System.out.println("init_charr : "+fmtest.getStrInitChArr()); 
+		System.out.println("feat vect : "+fmtest.getFeatVect()); 
+		System.out.println("specs : "+fmtest); 
+		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());
+		System.out.println("first unset alpha should be 'ɑ': "+fmtest.first_unset_alpha()); 
+		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
+
+		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
+		System.out.println("Trying to forceTruth without initializing the alpha value should result in a caught assertion error."); 
+		
+		try {	fmtest.forceTruth(actOn,0); 		}
+		catch(Throwable e)	{	System.out.println("Assertion caught"); 		}
+		
+		System.out.println("\nNow extract from : "+pfm); 
+		HashMap<String,String> toApply = fmtest.extract_alpha_values(pfm); 
+		fmtest.applyAlphaValues(toApply);
+		
+		System.out.println("init_charr : "+fmtest.getStrInitChArr()); 
+		System.out.println("feat vect : "+fmtest.getFeatVect()); 
+		System.out.println("specs : "+fmtest); 
+		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());
+		System.out.println("first unset alpha should be '0': "+fmtest.first_unset_alpha()); 
+		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
+		System.out.println("Action on "+actOn.get(0)+" ...\n\t"+fmtest.forceTruth(actOn,0).get(0)); 
 		
 	}
 

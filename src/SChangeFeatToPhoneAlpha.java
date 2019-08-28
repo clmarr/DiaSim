@@ -38,110 +38,125 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 			{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
-				if (test.has_unset_alphas() != '0')
+				if (test.first_unset_alpha() != '0')
 				{
-					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
-					else
-					{
-						HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
-						need_to_reset = true;
-						test.applyAlphaValues(alphHere);
-						if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(alphHere);
-						if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(alphHere);
-						for (int j = i; j < minTargSize; j++)	targSource.get(j).applyAlphaValues(alphHere);
+					if(cand.getType().equals("phone")) {
+						if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
+						else
+						{
+							HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
+							need_to_reset = true;
+							test.applyAlphaValues(alphHere);
+							if (priorSpecd)
+								if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(alphHere);
+							if (postSpecd)
+								if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(alphHere);
+							for (int j = i; j < minTargSize; j++)	targSource.get(j).applyAlphaValues(alphHere);
+						}
+						targMatchFail = targMatchFail ? true : test.compare(cand); 
 					}
-					targMatchFail = targMatchFail ? true : test.compare(cand); 
+					else	targMatchFail = true; 
 				}
 			}
 			if (!targMatchFail) //target matched
 			{
-				boolean priorPossible = true; 
-				if (priorContext.has_unset_alphas())
-				{
-					List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
-					String[] pripm = priorContext.getParenMap(); 
-					int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-					boolean halt = pripm[cpim].contains(")"); 
-					while (!halt)
+				boolean isPriorMatch = !priorSpecd; 
+				if(!isPriorMatch) {
+					boolean priorPossible = true; 
+					if (priorContext.has_unset_alphas())
 					{
-						RestrictPhone pri = pripr.get(crp);
-						if (pri.has_unset_alphas() != '0')
-						{
-							SequentialPhonic cpi = input.get(cpic);
-							if(pri.check_for_alpha_conflict(cpi))
-							{
-								halt = true; 
-								priorPossible = false; 
-							}
-							else
-							{
-								HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
-								need_to_reset = true;
-								priorContext.applyAlphaValues(alphHere);
-								postContext.applyAlphaValues(alphHere);
-								pripr = priorContext.getPlaceRestrs();
-							}
-						}
-						cpic--; crp--; cpim--;
-						if(crp < 0)	halt = true;
-						else	halt = pripm[cpim].contains(")"); 		
-					}
-				}
-				boolean isPriorMatch = priorPossible ? priorMatch(input,p) : false;
-				if(isPriorMatch)
-				{
-					int indAfter = p + minTargSize;
-					boolean postrPossible = true; 
-					boolean reachedEnd = false; 
-					if(postContext.has_unset_alphas())
-					{
-						List<RestrictPhone> popr = postContext.getPlaceRestrs();
-						String[] popm = postContext.getParenMap();
-						int cpic = indAfter, crp = 0, cpim = 0; 
-						boolean halt = popm[cpim].contains("("); 
+						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
+						String[] pripm = priorContext.getParenMap(); 
+						int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
+						boolean halt = pripm[cpim].contains(")"); 
 						while (!halt)
 						{
-							RestrictPhone poi = popr.get(crp); 
-							if(poi.has_unset_alphas() != '0')
+							RestrictPhone pri = pripr.get(crp);
+							if (pri.first_unset_alpha() != '0')
 							{
-								SequentialPhonic cpi = input.get(cpic); 
-								if(poi.check_for_alpha_conflict(cpi))
-								{
-									halt = true; 
-									postrPossible = false; 
-								}
-								else
-								{
-									HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
-									poi.applyAlphaValues(alphHere);
-									if(poi.compare(cpi))
+								SequentialPhonic cpi = input.get(cpic);
+								if(cpi.getType().equals("phone")) {
+									if(pri.check_for_alpha_conflict(cpi))
 									{
-										postContext.applyAlphaValues(alphHere);
-										popr = postContext.getPlaceRestrs();
-										popm = postContext.getParenMap();
-										need_to_reset = true; 
+										halt = true; 
+										priorPossible = false; 
 									}
 									else
 									{
-										postrPossible = false;
-										halt = true; 
-									}
-								}
+										HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
+										need_to_reset = true;
+										priorContext.applyAlphaValues(alphHere);
+										postContext.applyAlphaValues(alphHere);
+										pripr = priorContext.getPlaceRestrs();
+									}}
 							}
-							if(!halt)
-							{
-								cpic++; crp++; cpim++;
-								if (crp >= popr.size())
-								{
-									halt = true;
-									reachedEnd = true;
-								}
-								else	halt = popm[cpim].contains("(");
-							}
+							cpic--; crp--; cpim--;
+							if(crp < 0)	halt = true;
+							else	halt = pripm[cpim].contains(")"); 		
 						}
 					}
-					boolean isPostrMatch = !postrPossible ? false : 
-						reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
+					isPriorMatch = priorPossible ? priorMatch(input,p) : false;
+				}
+					
+				if(isPriorMatch)
+				{
+					boolean isPostrMatch = !postSpecd; 
+					
+					if(!isPostrMatch) {
+						int indAfter = p + minTargSize;
+						boolean postrPossible = true; 
+						boolean reachedEnd = false; 
+						if(postContext.has_unset_alphas())
+						{
+							List<RestrictPhone> popr = postContext.getPlaceRestrs();
+							String[] popm = postContext.getParenMap();
+							int cpic = indAfter, crp = 0, cpim = 0; 
+							boolean halt = popm[cpim].contains("("); 
+							while (!halt)
+							{
+								RestrictPhone poi = popr.get(crp); 
+								if(poi.first_unset_alpha() != '0')
+								{
+									SequentialPhonic cpi = input.get(cpic); 
+										if (cpi.getType().equals("phone")) {
+										if(poi.check_for_alpha_conflict(cpi))
+										{
+											halt = true; 
+											postrPossible = false; 
+										}
+										else
+										{
+											HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
+											poi.applyAlphaValues(alphHere);
+											if(poi.compare(cpi))
+											{
+												postContext.applyAlphaValues(alphHere);
+												popr = postContext.getPlaceRestrs();
+												popm = postContext.getParenMap();
+												need_to_reset = true; 
+											}
+											else
+											{
+												postrPossible = false;
+												halt = true; 
+											}
+										}}
+								}
+								if(!halt)
+								{
+									cpic++; crp++; cpim++;
+									if (crp >= popr.size())
+									{
+										halt = true;
+										reachedEnd = true;
+									}
+									else	halt = popm[cpim].contains("(");
+								}
+							}
+						}
+						isPostrMatch = !postrPossible ? false : 
+							reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
+					}
 					if (isPostrMatch)
 					{
 						res.addAll(destination); 
@@ -161,8 +176,8 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 	{
 		for(int i = 0; i < targSource.size(); i++)
 			targSource.get(i).resetAlphaValues();
-		priorContext.resetAllAlphaValues();
-		postContext.resetAllAlphaValues();
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd)	postContext.resetAllAlphaValues();
 		need_to_reset = false; 
 	}
 	

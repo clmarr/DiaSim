@@ -1,18 +1,23 @@
 Trajectory file for run 'run1'; etymon number :707:
-#mˈin̪us# >>> #mɑ̃# ( Correct : #mwɛ̃#) :
-m ˈi n̪ u s 
-#mˈɪn̪ʊs# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈen̪os# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˈeːn̪os# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#mˈeːn̪əs# | Rule 272 : [-stres,-lo,+syl] > ə / __ [-syl]
-#mˈeːn̪ə̯s# | Rule 281 : ə > ə̯ 
-#mˈeːn̪s# | Rule 305 : ə̯ > ∅ 
-#mˈen̪s# | Rule 361 : [+syl] > [-long,-splng] / __ [-syl] [+cons,-son]
-#mˈẽn̪s# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˈɛ̃n̪s# | Rule 574 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈãn̪s# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#mˈãːs# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈɑ̃ːs# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#mˈɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#mɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#mˌiskulˈɑːre# >>> #mɛle# ( Correct : #mɛle#) :
+m ˌi s k u l ˈɑː r e 
+#mˌɪskʊlˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˌɪskʊlˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#mˌeskolˈɑrɛ# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#mˌeskolˈɑːrɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˌeskolˈaːrɛ# | Rule 202 : [+lo] > [+front,-back] 
+#mˌeskəlˈaːrɛ# | Rule 269 : [-stres,-lo] > ə / __ [-syl] ( [-syl] )* [+lo,+prim]
+#mˌeskəlˈaːrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˌeskə̯lˈaːrə̯# | Rule 281 : ə > ə̯ 
+#mˌesklˈaːr# | Rule 305 : ə̯ > ∅ 
+#mˌesklˈae̯r# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˌesklˈeːr# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˌezlˈeːr# | Rule 490 : {s k l;r ɡ l} > {z l;r l} / [-cons] __ [-cons]
+#mˌezlˈer# | Rule 557 : [+syl] > [-long,-splng] 
+#mˌeːzlˈer# | Rule 560 : [+stres] > [+long] / @ __ z [+cons] [+syl]
+#mˌeːlˈer# | Rule 561 : z > ∅ / __ [+cons]
+#mˌelˈer# | Rule 649 : ˌeː > ˌe 
+#mˌɛlˈer# | Rule 700 : [-hi,-lo,+syl,+front,-round] > [-tense,-cons,-lat,+cont,0delrel] / __ [+lat]
+#mˌɛlˈeɹ# | Rule 723 : r > ɹ / [-cons] __ #
+#mˌɛlˈe# | Rule 743 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
+#mɛle# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

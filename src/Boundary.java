@@ -67,7 +67,7 @@ public class Boundary extends PseudoPhone {
 	}
 
 	@Override
-	public char has_unset_alphas() {
+	public char first_unset_alpha() {
 		return '0';
 	}
 }

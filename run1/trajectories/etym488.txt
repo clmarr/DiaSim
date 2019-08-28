@@ -1,13 +1,23 @@
 Trajectory file for run 'run1'; etymon number :488:
-#kˈokkum# >>> #kɔk# ( Correct : #kɔk#) :
-k ˈo k k u m 
-#kˈɔkkʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#kˈɔkkom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#kˈɔkko# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#kˈɔkkə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#kˈɔkkə̯# | Rule 281 : ə > ə̯ 
-#kˈɔkk# | Rule 305 : ə̯ > ∅ 
-#kˈɔk# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#kˈɔkə̯# | Rule 731 : ∅ > ə̯ / # [-syl] [+syl,-nas] k __ #
-#kˈɔk# | Rule 736 : ə̯ > ∅ 
-#kɔk# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kˈoksɑ# >>> #kɥis# ( Correct : #kɥis#) :
+k ˈo k s ɑ 
+#kˈɔksɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɔxsɑ# | Rule 61 : k > x / [-cons] __ [+cor,-voi]
+#kˈɔxsa# | Rule 202 : [+lo] > [+front,-back] 
+#kˈɔçsa# | Rule 211 : [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
+#kˈɔçsʲa# | Rule 219 : [+cor,+ant,-lat] > [+hi,+front] / [+hi,+front,+cons] __ 
+#kˈuo̯çsʲa# | Rule 235 : {ˈɛ;ˈɔ} > {ˈi e̯;ˈu o̯} / __ [+cons,+hi,+front]
+#kˈʉo̯çsʲa# | Rule 383 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
+#kˈʉo̯çsa# | Rule 395 : {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+#kˈʉo̯çsə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#kˈʉo̯ʝsə# | Rule 470 : ç > ʝ 
+#kˈʉo̯jsə# | Rule 476 : ʝ > j / [-cons] __ 
+#kˈyo̯jsə# | Rule 517 : [+hi,+round,-back] > [+front] 
+#kˈye̯jsə# | Rule 531 : o̯ > e̯ 
+#kˈyjsə# | Rule 533 : e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
+#kɥˈisə# | Rule 630 : [+front,+round,+syl,+hi,βstres,ɣprim] [-round,-syl,-cons] > [-syl,0stres,0prim] [+syl,βstres,ɣprim,+son,0delrel]
+#kɥˈiːsə# | Rule 638 : [+front,-round,+syl] > [+long] / __ s ə #
+#kɥˈiːsə̯# | Rule 711 : ə > ə̯ / __ #
+#kɥˈiːs# | Rule 732 : ə̯ > ∅ 
+#kɥiːs# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#kɥis# | Rule 749 : [+syl,+long] > [-long,-splng] 

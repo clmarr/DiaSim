@@ -1,21 +1,24 @@
 Trajectory file for run 'run1'; etymon number :1082:
-#sˌɑrmˈen̪t̪um# >>> #saʁmɑ̃# ( Correct : #saʁmɑ̃#) :
-s ˌɑ r m ˈe n̪ t̪ u m 
-#sˌɑrmˈɛn̪t̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#sˌɑrmˈɛn̪t̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#sˌɑrmˈɛn̪t̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#sˌarmˈɛn̪t̪o# | Rule 202 : [+lo] > [+front,-back] 
-#sˌarmˈɛn̪t̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#sˌarmˈɛn̪t̪ə̯# | Rule 281 : ə > ə̯ 
-#sˌarmˈɛn̪t̪# | Rule 305 : ə̯ > ∅ 
-#sˌarmˈɛ̃n̪t̪# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#sˌarmˈãn̪t̪# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#sˌarmˈãːt̪# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#sˌarmˈɑ̃ːt̪# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#sˌaɹmˈɑ̃ːt̪# | Rule 727 : r > ɹ / [-cons] __ [+cons]
-#sˌaɹmˈɑ̃ː# | Rule 734 : [-son] > ∅ / __ #
-#sˌarmˈɑ̃ː# | Rule 750 : ɹ > r 
-#sˌaʀmˈɑ̃ː# | Rule 752 : r > ʀ 
-#saʀmɑ̃ː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#saʀmɑ̃# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#saʁmɑ̃# | Rule 760 : ʀ > ʁ 
+#sˌɑwkˈoːn̪ɑm# >>> #sɔn̪# ( Correct : #son̪#) :
+s ˌɑ w k ˈoː n̪ ɑ m 
+#sˌɑwkˈon̪ɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#sˌɑwkˈon̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#sˌɑwkˈoːn̪ɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#sˌɑwɡˈoːn̪ɑ# | Rule 136 : k > ɡ / [-cons] __ [+syl]
+#sˌɑwɣˈoːn̪ɑ# | Rule 138 : ɡ > ɣ / [-cons] __ [-cons]
+#sˌɑwɣˈũːn̪ɑ# | Rule 169 : [+round,-hi] > [+tense,+hi,+nas,-cons,+son,-lat,+cont,0delrel] / __ [+nas]
+#sˌɑwˈũːn̪ɑ# | Rule 186 : ɣ > ∅ / __ [+tense,+round,+prim]
+#sˌawˈũːn̪a# | Rule 202 : [+lo] > [+front,-back] 
+#sˌɔwˈũːn̪a# | Rule 242 : {a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+#sˌɯwˈũːn̪a# | Rule 435 : ˌɔ > ˌɯ / __ w
+#sˌɔwˈũːn̪a# | Rule 437 : {ˌɨ;ˌɯ} > {ˌɛ;ˌɔ} 
+#sˌɔwˈũːn̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#sˌɔwˈũn̪ə# | Rule 461 : [+syl] > [-long,-splng] 
+#sˌuˈũn̪ə# | Rule 620 : [-hi,-lo,+back,+round] w > [+hi,+tense,-cons,-lat,+cont,0delrel] ∅
+#sˈũːn̪ə# | Rule 690 : [+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
+#sˈũːn̪ə̯# | Rule 711 : ə > ə̯ / __ #
+#sˈũːn̪# | Rule 732 : ə̯ > ∅ 
+#sũːn̪# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#sũn̪# | Rule 749 : [+syl,+long] > [-long,-splng] 
+#sɔ̃n̪# | Rule 750 : ũ > ɔ̃ 
+#sɔn̪# | Rule 752 : [+syl,+nas] > [-nas] / __ [+nas,+cons]

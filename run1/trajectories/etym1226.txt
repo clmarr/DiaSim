@@ -1,14 +1,23 @@
 Trajectory file for run 'run1'; etymon number :1226:
-#t̪ˈest̪um# >>> #t̪ɛ# ( Correct : #t̪ɛ#) :
-t̪ ˈe s t̪ u m 
-#t̪ˈɛst̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛst̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛst̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#t̪ˈɛst̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈɛst̪ə̯# | Rule 281 : ə > ə̯ 
-#t̪ˈɛst̪# | Rule 305 : ə̯ > ∅ 
-#t̪ˈɛxt̪# | Rule 596 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
-#t̪ˈɛːt̪# | Rule 657 : [+syl] x > [+long] ∅/ __ [+cons]
-#t̪ˈɛː# | Rule 734 : [-son] > ∅ / __ #
-#t̪ɛː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɛ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#t̪ˈin̪kɑm# >>> #t̪ɑ̃ʃ# ( Correct : #t̪ɑ̃ʃ#) :
+t̪ ˈi n̪ k ɑ m 
+#t̪ˈiŋkɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
+#t̪ˈɪŋkɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈeŋkɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈeŋkɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#t̪ˈeŋka# | Rule 202 : [+lo] > [+front,-back] 
+#t̪ˈeŋkʲa# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#t̪ˈeŋca# | Rule 251 : [+back,+front] > [-back] 
+#t̪ˈeŋt͡ʃa# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
+#t̪ˈeŋt͡ʃə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪ˈẽŋt͡ʃə# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪ˈẽn̪t͡ʃə# | Rule 543 : ŋ > n̪ / __ [-back]
+#t̪ˈɛ̃n̪t͡ʃə# | Rule 580 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈãn̪t͡ʃə# | Rule 584 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
+#t̪ˈãn̪ʃə# | Rule 641 : [+delrel] > [+cont,0delrel] 
+#t̪ˈãːʃə# | Rule 676 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
+#t̪ˈãːʃə̯# | Rule 711 : ə > ə̯ / __ #
+#t̪ˈɑ̃ːʃə̯# | Rule 712 : [+lo,+long,+syl] > [+back,-front] 
+#t̪ˈɑ̃ːʃ# | Rule 732 : ə̯ > ∅ 
+#t̪ɑ̃ːʃ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪ɑ̃ʃ# | Rule 749 : [+syl,+long] > [-long,-splng] 

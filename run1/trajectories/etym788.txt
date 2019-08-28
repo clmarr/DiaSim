@@ -1,14 +1,26 @@
 Trajectory file for run 'run1'; etymon number :788:
-#n̪ˈuːllum# >>> #n̪yl# ( Correct : #n̪yl#) :
-n̪ ˈuː l l u m 
-#n̪ˈuːllʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈullʊm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#n̪ˈullom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#n̪ˈullo# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#n̪ˈʉllo# | Rule 220 : [+hi,+tense,+round,+syl,-nas] > [-front,-back] 
-#n̪ˈʉllə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#n̪ˈʉllə̯# | Rule 281 : ə > ə̯ 
-#n̪ˈʉll# | Rule 305 : ə̯ > ∅ 
-#n̪ˈʉl# | Rule 505 : {p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪} 
-#n̪ˈyl# | Rule 517 : [+hi,+round,-back] > [+front] 
-#n̪yl# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪ˌut̪rˈiːkiɑ# >>> #n̪uʁis# ( Correct : #n̪uʁis#) :
+n̪ ˌu t̪ r ˈiː k i ɑ 
+#n̪ˌʊt̪rˈiːkɪɑ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#n̪ˌʊt̪rˈiːkjɑ# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#n̪ˌʊt̪rˈiːkʝɑ# | Rule 26 : j > ʝ / __ [+syl]
+#n̪ˌʊt̪rˈikʝɑ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#n̪ˌot̪rˈikʝɑ# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#n̪ˌot̪rˈiccʝɑ# | Rule 78 : k > c c / [+syl] __ ʝ [+syl]
+#n̪ˌot̪rˈiccɑ# | Rule 91 : ʝ > ∅ / [-cont,+hi,+front] __ 
+#n̪ˌot̪rˈit̪t͡sʲɑ# | Rule 184 : c c > t̪ t͡sʲ 
+#n̪ˌot̪rˈit̪t͡sʲa# | Rule 202 : [+lo] > [+front,-back] 
+#n̪ˌod̪rˈit̪t͡sʲa# | Rule 359 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#n̪ˌoðrˈit̪t͡sʲa# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#n̪ˌoðrˈit̪ʲt͡sʲa# | Rule 399 : [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
+#n̪ˌoðrˈit̪ʲt͡sʲə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#n̪ˌoðrˈit͡sʲə# | Rule 500 : [+cor,-delrel] > ∅ / __ [+cor,-cont]
+#n̪ˌuðrˈit͡sʲə# | Rule 574 : [+round,+tense,+back] > [+hi] 
+#n̪ˌurˈit͡sʲə# | Rule 607 : {θ;ð} > {∅;∅} 
+#n̪ˌurˈisʲə# | Rule 641 : [+delrel] > [+cont,0delrel] 
+#n̪ˌurˈisə# | Rule 670 : [+ant,+front] > [-front,-hi] 
+#n̪ˌurˈisə̯# | Rule 711 : ə > ə̯ / __ #
+#n̪ˌurˈis# | Rule 732 : ə̯ > ∅ 
+#n̪ˌuʀˈis# | Rule 747 : r > ʀ 
+#n̪uʀis# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#n̪uʁis# | Rule 755 : ʀ > ʁ 

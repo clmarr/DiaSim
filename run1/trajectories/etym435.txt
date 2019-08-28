@@ -1,22 +1,21 @@
 Trajectory file for run 'run1'; etymon number :435:
-#kˈɑːrɑm# >>> #ʃɛʁ# ( Correct : #ʃɛʁ#) :
-k ˈɑː r ɑ m 
-#kˈɑrɑm# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#kˈɑrɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#kˈɑːrɑ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#kˈaːra# | Rule 202 : [+lo] > [+front,-back] 
-#kʲˈaːra# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
-#kʲˈɛːra# | Rule 245 : ˈaː > ˈɛː / # [+cons,+front] __ 
-#kʲˈie̯ra# | Rule 248 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
-#cˈie̯ra# | Rule 251 : [+back,+front] > [-back] 
-#t͡ʃˈie̯ra# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
-#t͡ʃˈie̯rə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#t͡ʃjˈerə# | Rule 597 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
-#t͡ʃjˈɛrə# | Rule 612 : {ˈeː;ˈe} > {ˈɛː;ˈɛ} / __ [+cons] [+syl]
-#ʃjˈɛrə# | Rule 648 : [+delrel] > [+cont,0delrel] 
-#ʃˈɛrə# | Rule 672 : j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
-#ʃˈɛrə̯# | Rule 708 : ə > ə̯ / __ #
-#ʃˈɛr# | Rule 736 : ə̯ > ∅ 
-#ʃˈɛʀ# | Rule 752 : r > ʀ 
-#ʃɛʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʃɛʁ# | Rule 760 : ʀ > ʁ 
+#kˈɑrrikɑm# >>> #ʃaʁʒ# ( Correct : #ʃaʁʒ#) :
+k ˈɑ r r i k ɑ m 
+#kˈɑrrɪkɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#kˈɑrrekɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#kˈɑrrekɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#kˈɑrrɡɑ# | Rule 133 : e k > ɡ / r __ [+lo]
+#kˈarrɡa# | Rule 202 : [+lo] > [+front,-back] 
+#kʲˈarrɡʲa# | Rule 238 : [+hi,+back,+cons] > [+front] / __ [+front,+syl]
+#cˈarrɟa# | Rule 251 : [+back,+front] > [-back] 
+#t͡ʃˈarrd͡ʒa# | Rule 260 : [+hi,+front,-cont,-ant] > [+delrel,+cor,-hi,+strid,+distr,-son,-cont,+cons,0tense] 
+#t͡ʃˈarrd͡ʒə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#t͡ʃˈard͡ʒə# | Rule 483 : [+cons] > ∅ / [+cons] __ [-son]
+#ʃˈarʒə# | Rule 641 : [+delrel] > [+cont,0delrel] 
+#ʃˈarʒə̯# | Rule 711 : ə > ə̯ / __ #
+#ʃˈaɹʒə̯# | Rule 724 : r > ɹ / [-cons] __ [+cons]
+#ʃˈaɹʒ# | Rule 732 : ə̯ > ∅ 
+#ʃˈarʒ# | Rule 745 : ɹ > r 
+#ʃˈaʀʒ# | Rule 747 : r > ʀ 
+#ʃaʀʒ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʃaʁʒ# | Rule 755 : ʀ > ʁ 

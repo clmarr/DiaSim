@@ -1,21 +1,24 @@
 Trajectory file for run 'run1'; etymon number :689:
-#mˈembrum# >>> #mɑ̃bʁ# ( Correct : #mɑ̃bʁ#) :
-m ˈe m b r u m 
-#mˈɛmbrʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#mˈɛmbrom# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#mˈɛmbro# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#mˈɛmbrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#mˈɛmbrə̯# | Rule 281 : ə > ə̯ 
-#mˈɛmbr# | Rule 305 : ə̯ > ∅ 
-#mˈɛmbrə# | Rule 320 : ∅ > ə / [+cons,-son] [+son,-syl] __ #
-#mˈɛ̃mbrə# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#mˈãmbrə# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#mˈãn̪brə# | Rule 659 : m > n̪ / __ [+cons]
-#mˈãːbrə# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#mˈãːbrə̯# | Rule 708 : ə > ə̯ / __ #
-#mˈɑ̃ːbrə̯# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#mˈɑ̃ːbr# | Rule 736 : ə̯ > ∅ 
-#mˈɑ̃ːbʀ# | Rule 752 : r > ʀ 
-#mɑ̃ːbʀ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#mɑ̃bʀ# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#mɑ̃bʁ# | Rule 760 : ʀ > ʁ 
+#mˈen̪sem# >>> #mwa# ( Correct : #mwa#) :
+m ˈe n̪ s e m 
+#mˈeːn̪sem# | Rule 8 : [+syl] > [+long] / __ n̪ s ( [-syl] )* [-stres]
+#mˈeːsem# | Rule 9 : n̪ > ∅ / [+syl,+long] __ s
+#mˈeːsɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈesɛm# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#mˈesɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈeːsɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#mˈeːzɛ# | Rule 140 : [+cont,-son] > [+voi] / [-cons] __ [+syl]
+#mˈeːzə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈeːzə̯# | Rule 281 : ə > ə̯ 
+#mˈeːz# | Rule 305 : ə̯ > ∅ 
+#mˈejz# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈejs# | Rule 454 : [-son] > [-voi] / __ #
+#mˈojs# | Rule 526 : ˈe > ˈo / [+lab,+voi] __ j
+#mˈujs# | Rule 574 : [+round,+tense,+back] > [+hi] 
+#mˈuɛ̯s# | Rule 627 : j > ɛ̯ / [+syl,+back,+round] __ 
+#mwˈɛs# | Rule 628 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
+#mwˈɛːs# | Rule 639 : [+prim] > [+long] / __ s #
+#mwˈɛː# | Rule 730 : [-son] > ∅ / __ #
+#mwɛː# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mwɛ# | Rule 749 : [+syl,+long] > [-long,-splng] 
+#mwa# | Rule 754 : ɛ > a / w __ 

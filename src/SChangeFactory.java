@@ -105,6 +105,9 @@ public class SChangeFactory {
 		
 		String[] inputSplit = input.split(""+ARROW); 
 		
+		//TODO debugging
+		System.out.println(input);
+		
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
@@ -467,7 +470,7 @@ public class SChangeFactory {
 		return output;
 	}
 	
-	private SequentialPhonic parseSeqPh (String curtp)
+	public SequentialPhonic parseSeqPh (String curtp)
 	{
 		if("+#".contains(curtp))
 			return new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"); 

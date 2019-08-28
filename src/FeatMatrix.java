@@ -12,7 +12,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// the change of a feature from +/- to . in unspecified in a phone operated upon. 
 		// DESPECIFICATION of phones as part of the FeatMatrix is represented as a 9 in FeatSpecs	
 	private final char FEAT_DELIM = ','; 
-	private String featSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
+	private String featSpecs, initSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
+		// will always return to initSpecs after alphas are reset. 
 	private HashMap<String,Integer> featInds;
 	private String LOCAL_ALPHABET; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
@@ -36,6 +37,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		hasMultispecAlpha = false;
 		type = "feat matrix";
 		featSpecs=specs+""; 
+		initSpecs=specs+""; 
 
 		featInds = new HashMap<String,Integer>(ftInds); 
 		
@@ -72,11 +74,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 */
 	public boolean compare(SequentialPhonic cand)
 	{
-		char nonSet = has_unset_alphas();
-		assert nonSet == '0': "ERROR: tried to compare when alpha style symbol '"+nonSet+"' remains uninitialized";
-		
 		if (!cand.getType().equals("phone"))
 			return false; 
+		
+		char nonSet = first_unset_alpha();
+		assert nonSet == '0': "ERROR: tried to compare when alpha style symbol '"+nonSet+"' remains uninitialized";
 		
 		String candFeats = cand.toString().split(":")[1]; 
 		assert candFeats.length() == featVect.length(): 
@@ -106,7 +108,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * @precondition: they have the same length feature vectors*/
 	public Phone forceTruth(Phone patient)
 	{
-		char nonSet = has_unset_alphas();
+		char nonSet = first_unset_alpha();
 		assert nonSet == '0' :"ERROR: tried to force truth when alpha style symbol '"+nonSet+"' remains uninitialized"; 			
 		
 		Phone output = new Phone(patient); 
@@ -114,7 +116,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		assert patFeats.length() == featVect.length():
 			"ERROR: trying to forceTruths on phone with different length feat vector";
 			// technically it could still function if this wasn't the case, but for security best to call it out anyways
-		//iterate over featSpecs, not the feat vector -- easier to change and check them this way, and also fewer iterations
+		
+		//iterate over featSpecs, not the feat vector for now -- easier to change and check them this way, and also fewer iterations
 		String[] specArr = featSpecs.split(""+FEAT_DELIM); 
 		for (int spi = 0 ; spi < specArr.length; spi++)
 		{
@@ -136,7 +139,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 */
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{
-		char nonSet = has_unset_alphas();
+		char nonSet = first_unset_alpha();
 		assert nonSet == '0' :"ERROR: tried to force truth when alpha style symbol '"+nonSet+"' remains uninitialized"; 			
 		
 		SequentialPhonic patient = patientSeq.get(ind); 
@@ -184,12 +187,24 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	@Override
 	public void resetAlphaValues()
-	{	featVect = new String(init_chArr);	}
-
+	{	featVect = new String(init_chArr);
+		featSpecs = ""+initSpecs;
+	}
+	
+	private char toSurfVal(char i)
+	{
+		if (!"0129".contains(""+i))	throw new Error("Error: invalid specification value.");
+		return "-0+0".charAt("0129".indexOf(i)); 
+	}
+	
 	@Override
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
-		for (String s : alphVals.keySet())	featVect.replace(s, ""+alphVals.get(s)); 
+		for (String s : alphVals.keySet())
+		{
+			featVect = featVect.replaceAll(s, ""+alphVals.get(s)); 
+			featSpecs = featSpecs.replaceAll(s, ""+toSurfVal(alphVals.get(s).charAt(0)));
+		}
 	}
 	
 	// should always be called before extract_alpha_values
@@ -233,9 +248,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
+	// for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, returns empty HashMap. 
+	// also returns an empty HashMap if specifications that are not unspecified alpha specs are inconsistent with @param inp
+	// otherwise returns the values that alpha specs have in SequentialPhonic @param inp. 
 	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
 	{
-		if (has_unset_alphas() == '0')	return new HashMap<String,String>(); 
+		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 		
@@ -243,34 +261,41 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
-			String fvspec = featVect.substring(c,c+1); 
-			if (!"0192".contains(fvspec))
+			char fvspec = featVect.charAt(c); 
+			if (!"0192".contains(""+fvspec))
 			{
-				if (currReqs.containsKey(fvspec))
+				if (currReqs.containsKey(""+fvspec))
 				{
-					String currspec = currReqs.get(fvspec); 
+					String currspec = currReqs.get(""+fvspec); 
 					if (currspec.equals("9"))
-						assert "1".equals(cand_feat_vect[c]+""): "Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
+						assert '1'==cand_feat_vect[c]: "Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
 					else	assert currspec.equals(cand_feat_vect[c]+""): "Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
 				}
-				else if (cand_feat_vect[c] == '1')	currReqs.put(fvspec, "9"); 
-				else	currReqs.put(fvspec, cand_feat_vect[c]+""); 
+				else if (cand_feat_vect[c] == '1')	currReqs.put(""+fvspec, "9"); 
+				else	currReqs.put(""+fvspec, cand_feat_vect[c]+""); 
 			}
+			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] )
+				return new HashMap<String,String>(); 
+			
 		}
 		return currReqs; 
 	}
 	
 	@Override
 	public boolean has_alpha_specs()	{	return hasAlphSpecs;	} 
+	public boolean has_multispec_alph() {	return hasMultispecAlpha;	}
 	
 	// returns '0' if not 
 	// otherwise the first alpha value detected that has not become a number, in featVect
 	@Override
-	public char has_unset_alphas()
+	public char first_unset_alpha()
 	{
 		if (LOCAL_ALPHABET.length() > 0)
 			for (char c : LOCAL_ALPHABET.toCharArray())
 				if(featVect.contains(""+c))	return c; 
 		return '0';
 	}
+	
+	public String getStrInitChArr()
+	{	return String.copyValueOf(init_chArr);	}
 }

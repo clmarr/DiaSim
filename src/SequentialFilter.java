@@ -542,7 +542,7 @@ public class SequentialFilter {
 	public boolean has_unset_alphas()
 	{
 		for (RestrictPhone pri : placeRestrs)
-			if (pri.has_unset_alphas() != '0')	return true;
+			if (pri.first_unset_alpha() != '0')	return true;
 		return false; 
 	}
 	

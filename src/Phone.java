@@ -170,7 +170,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	public boolean has_alpha_specs()	{	return false;	}
 	
 	@Override
-	public char has_unset_alphas()	{	return '0';	}
+	public char first_unset_alpha()	{	return '0';	}
 	
 	
 }

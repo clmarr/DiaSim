@@ -1,21 +1,22 @@
 Trajectory file for run 'run1'; etymon number :615:
-#lˈin̪ɡwɑm# >>> #lɑ̃ɡ# ( Correct : #lɑ̃ɡ#) :
-l ˈi n̪ ɡ w ɑ m 
-#lˈiŋɡwɑm# | Rule 0 : n̪ > ŋ / __ [+hi,+back,-cont]
-#lˈiŋɡɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#lˈiŋɡwɑm# | Rule 5 : ɣʷ > w / [+back,+hi,+cons] __ 
-#lˈɪŋɡwɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈeŋɡwɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#lˈeŋɡwɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#lˈeŋɡwa# | Rule 202 : [+lo] > [+front,-back] 
-#lˈeŋɡwə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#lˈẽŋɡwə# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#lˈɛ̃ŋɡwə# | Rule 574 : [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
-#lˈãŋɡwə# | Rule 579 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#lˈãŋɡə# | Rule 622 : [-syl,+round,+cont] > ∅ / [+back,-cont] __ 
-#lˈãːɡə# | Rule 668 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#lˈãːɡə̯# | Rule 708 : ə > ə̯ / __ #
-#lˈɑ̃ːɡə̯# | Rule 715 : [+lo,+long,+syl] > [+back,-front] 
-#lˈɑ̃ːɡ# | Rule 736 : ə̯ > ∅ 
-#lɑ̃ːɡ# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#lɑ̃ɡ# | Rule 754 : [+syl,+long] > [-long,-splng] 
+#lˌokˈɑːre# >>> #lwe# ( Correct : #lwe#) :
+l ˌo k ˈɑː r e 
+#lˌɔkˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#lˌɔkˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
+#lˌɔkˈɑːrɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#lˌɔɡˈɑːrɛ# | Rule 136 : k > ɡ / [-cons] __ [+syl]
+#lˌɔɣˈɑːrɛ# | Rule 138 : ɡ > ɣ / [-cons] __ [-cons]
+#lˌɔˈɑːrɛ# | Rule 187 : ɣ > ∅ / [+round,-cons] __ [+lo]
+#lˌɔˈaːrɛ# | Rule 202 : [+lo] > [+front,-back] 
+#lˌɔˈaːrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#lˌɔˈaːrə̯# | Rule 281 : ə > ə̯ 
+#lˌɔˈaːr# | Rule 305 : ə̯ > ∅ 
+#lˌɔˈae̯r# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#lˌoˈae̯r# | Rule 436 : ˌɔ > ˌo 
+#lˌoˈeːr# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#lˌoˈer# | Rule 557 : [+syl] > [-long,-splng] 
+#lˌuˈer# | Rule 574 : [+round,+tense,+back] > [+hi] 
+#lwˈer# | Rule 715 : [+hi,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
+#lwˈeɹ# | Rule 723 : r > ɹ / [-cons] __ #
+#lwˈe# | Rule 744 : ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
+#lwe# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

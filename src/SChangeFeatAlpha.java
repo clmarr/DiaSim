@@ -121,10 +121,12 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		if(ind + minTargSize + minPostSize - 1 > inpSize || ind < minPriorSize)	return false; 
 		
 		SequentialPhonic phHere = input.get(ind); 
+		
 		if(targSource.has_alpha_specs())
 		{
-			if (!phHere.getType().equals("phone"))	return false;
-			if (!targSource.check_for_alpha_conflict(phHere))
+			if (!phHere.getType().equals("phone"))	
+				if(!phHere.print().equals(targSource.print()))	return false;
+			else if (!targSource.check_for_alpha_conflict(phHere))
 			{
 				ALPH_VARS.putAll(targSource.extract_alpha_values(phHere));
 				targSource.applyAlphaValues(ALPH_VARS);
@@ -139,36 +141,39 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			return false;
 		}
 		
-		// process alpha specs for prior if necessary...
-		if (priorContext.hasAlphaSpecs())
-		{
-			if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS);
-			List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
-			String[] pripm = priorContext.getParenMap(); 
-			int cpic = ind - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-			boolean halt = pripm[cpim].contains(")"); 
-			while(!halt)
+		if(priorSpecd) {
+			// process alpha specs for prior if necessary...
+			if (priorContext.hasAlphaSpecs())
 			{
-				RestrictPhone pri = pripr.get(crp); 
-				if(pri.has_unset_alphas() != '0')
+				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS);
+				List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
+				String[] pripm = priorContext.getParenMap(); 
+				int cpic = ind - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
+				boolean halt = pripm[cpim].contains(")"); 
+				while(!halt)
 				{
-					SequentialPhonic cpi = input.get(cpic); 
-					if (pri.check_for_alpha_conflict(cpi))
+					RestrictPhone pri = pripr.get(crp); 
+					if(pri.first_unset_alpha() != '0')
 					{
-						if (need_to_reset)	reset_alphvals_everywhere(); 
-						return false;
-					}
-					ALPH_VARS.putAll(pri.extract_alpha_values(input.get(cpic)));
-					need_to_reset = true;
-					priorContext.applyAlphaValues(ALPH_VARS);
-					pripr = priorContext.getPlaceRestrs();
-				}					
-
-				cpic--; crp--; cpim--;
-				if(crp < 0)	halt = true;
-				else	halt = pripm[cpim].contains(")"); 
-			}
-		}
+						SequentialPhonic cpi = input.get(cpic); 
+						if (cpi.getType().equals("phone")) {
+							if (pri.check_for_alpha_conflict(cpi))
+							{
+								if (need_to_reset)	reset_alphvals_everywhere(); 
+								return false;
+							}
+							ALPH_VARS.putAll(pri.extract_alpha_values(input.get(cpic)));
+							need_to_reset = true;
+							priorContext.applyAlphaValues(ALPH_VARS);
+							pripr = priorContext.getPlaceRestrs();
+						}
+					}					
+	
+					cpic--; crp--; cpim--;
+					if(crp < 0)	halt = true;
+					else	halt = pripm[cpim].contains(")"); 
+				}
+			}}
 		
 		if (!priorMatch(input, ind))
 		{
@@ -176,36 +181,41 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			return false;
 		}
 		
-		//process alpha specs for posterior if necessary...
-		if (postContext.hasAlphaSpecs())
-		{
-			if (need_to_reset)	postContext.applyAlphaValues(ALPH_VARS); 
-			List<RestrictPhone> popr = postContext.getPlaceRestrs();
-			String[] popm = postContext.getParenMap();
-			int cpic = ind + inpSize, crp = 0, cpim = 0; 
-			boolean halt = popm[cpim].contains("(");
-			while(!halt)
+		if (postSpecd) {
+			
+			//process alpha specs for posterior if necessary...
+			if (postContext.hasAlphaSpecs())
 			{
-				RestrictPhone poi = popr.get(crp); 
-				if(poi.has_unset_alphas() != '0')
+				if (need_to_reset)	postContext.applyAlphaValues(ALPH_VARS); 
+				List<RestrictPhone> popr = postContext.getPlaceRestrs();
+				String[] popm = postContext.getParenMap();
+				int cpic = ind + inpSize, crp = 0, cpim = 0; 
+				boolean halt = popm[cpim].contains("(");
+				while(!halt)
 				{
-					SequentialPhonic cpi = input.get(cpic); 
-					if(poi.check_for_alpha_conflict(cpi))
+					RestrictPhone poi = popr.get(crp); 
+					if(poi.first_unset_alpha() != '0')
 					{
-						if (need_to_reset)	reset_alphvals_everywhere(); 
-						return false;
+						SequentialPhonic cpi = input.get(cpic); 
+						if (cpi.getType().equals("phone")) {
+							if(poi.check_for_alpha_conflict(cpi))
+							{
+								if (need_to_reset)	reset_alphvals_everywhere(); 
+								return false;
+							}
+							ALPH_VARS.putAll(poi.extract_alpha_values(input.get(cpic)));
+							need_to_reset = true;
+							postContext.applyAlphaValues(ALPH_VARS);
+							popr = postContext.getPlaceRestrs();
+						}
 					}
-					ALPH_VARS.putAll(poi.extract_alpha_values(input.get(cpic)));
-					need_to_reset = true;
-					postContext.applyAlphaValues(ALPH_VARS);
-					popr = postContext.getPlaceRestrs();
+					cpic++; crp++; cpim++; 
+					if (crp >= popr.size())	halt = true;
+					else	halt = popm[cpim].contains("("); 
 				}
-				cpic++; crp++; cpim++; 
-				if (crp >= popr.size())	halt = true;
-				else	halt = popm[cpim].contains("("); 
 			}
 		}
-		
+			
 		if (!posteriorMatch(input, ind+inpSize))
 		{
 			if (need_to_reset)	reset_alphvals_everywhere(); 

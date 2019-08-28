@@ -506,7 +506,7 @@ public class DerivationSimulation {
 					blackStageInd++; 
 				}
 			}
-
+			
 			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
 			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
 				if (wordsChanged[wi])
@@ -1248,7 +1248,7 @@ public class DerivationSimulation {
 		
 		//defaults
 		symbDefsLoc = "symbolDefs.csv";
-		lexFileLoc = "LatinLexFileForMKPopeTester.txt";
+		lexFileLoc = "FLLex.txt";
 		ruleFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
 		id_wt = 0.5; 

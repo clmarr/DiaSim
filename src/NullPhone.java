@@ -55,5 +55,5 @@ public class NullPhone extends PseudoPhone {
 	
 
 	@Override
-	public char has_unset_alphas()	{	return '0';	}
+	public char first_unset_alpha()	{	return '0';	}
 }

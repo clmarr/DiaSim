@@ -1,25 +1,18 @@
 Trajectory file for run 'run1'; etymon number :1337:
-#wˈiɑm# >>> #vwa# ( Correct : #vwa#) :
-w ˈi ɑ m 
-#ɣʷˈiɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
-#ɣʷˈɪɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#βʷˈɪɑm# | Rule 48 : ɣʷ > βʷ 
-#βʷˈeɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#βʷˈeɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#βʷˈeːɑ# | Rule 112 : [+prim] > [+long] / __ [+syl]
-#βˈeːɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
-#βˈeːa# | Rule 202 : [+lo] > [+front,-back] 
-#βˈeja# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#vˈeja# | Rule 446 : β > v 
-#vˈejə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#vˈojə# | Rule 526 : ˈe > ˈo / [+lab,+voi] __ j
-#vˈujə# | Rule 568 : [+round,+tense,+back] > [+hi] 
-#vˈʌjə# | Rule 602 : ˈu > ˈʌ / __ j ə #
-#vˈujə# | Rule 605 : ˈʌ > ˈu / [+lab] ( r ) __ j ( [+ant,+voi,+distr] ) ə #
-#vˈuɛ̯ə# | Rule 631 : j > ɛ̯ / [+syl,+back,+round] __ 
-#vwˈɛə# | Rule 632 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#vwˈɛːə# | Rule 695 : [+stres] > [+long] / __ ə
-#vwˈɛː# | Rule 696 : ə > ∅ / [+syl] __ 
-#vwɛː# | Rule 753 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#vwɛ# | Rule 754 : [+syl,+long] > [-long,-splng] 
-#vwa# | Rule 759 : ɛ > a / w __ 
+#wˈid̪wɑm# >>> #vɛv# ( Correct : #vœv#) :
+w ˈi d̪ w ɑ m 
+#ɣʷˈid̪ɣʷɑm# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#ɣʷˈɪd̪ɣʷɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#βʷˈɪd̪βʷɑm# | Rule 48 : ɣʷ > βʷ 
+#βʷˈed̪βʷɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#βʷˈed̪βʷɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#βˈed̪βɑ# | Rule 160 : {βʷ;ɸʷ} > {β;ɸ} 
+#βˈed̪βa# | Rule 202 : [+lo] > [+front,-back] 
+#βˈeðβa# | Rule 255 : d̪ > ð / __ [+cont,+lab,+cons]
+#vˈeðva# | Rule 446 : β > v 
+#vˈeðvə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#vˈevə# | Rule 607 : {θ;ð} > {∅;∅} 
+#vˈɛvə# | Rule 708 : [+tense,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] [-cons,-back,-front]
+#vˈɛvə̯# | Rule 711 : ə > ə̯ / __ #
+#vˈɛv# | Rule 732 : ə̯ > ∅ 
+#vɛv# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
