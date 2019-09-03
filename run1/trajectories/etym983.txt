@@ -1,21 +1,25 @@
 Trajectory file for run 'run1'; etymon number :983:
-#pˌulsˈɑːre# >>> #puse# ( Correct : #puse#) :
-p ˌu l s ˈɑː r e 
-#pˌʊlsˈɑːrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#pˌʊɫsˈɑːrɛ# | Rule 25 : l > ɫ / __ [+cons,-lat]
-#pˌʊɫsˈɑrɛ# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#pˌoɫsˈɑrɛ# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
-#pˌoɫsˈɑːrɛ# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#pˌoɫsˈaːrɛ# | Rule 202 : [+lo] > [+front,-back] 
-#pˌoɫsˈaːrə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#pˌoɫsˈaːrə̯# | Rule 281 : ə > ə̯ 
-#pˌoɫsˈaːr# | Rule 305 : ə̯ > ∅ 
-#pˌoɫsˈae̯r# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#pˌoɫsˈeːr# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
-#pˌoɫsˈer# | Rule 557 : [+syl] > [-long,-splng] 
-#pˌuɫsˈer# | Rule 574 : [+round,+tense,+back] > [+hi] 
-#pˌuwsˈer# | Rule 587 : [+lat,+back] > w 
-#pˌusˈer# | Rule 589 : w > ∅ / [+syl,+hi,+round] __ 
-#pˌusˈeɹ# | Rule 723 : r > ɹ / [-cons] __ #
-#pˌusˈe# | Rule 743 : ɹ > ∅ / [+syl] ( [-syl] )* [-hi,+front,+tense,-lo] __ #
-#puse# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pˈulwerem# >>> #pud̪ʁ# ( Correct : #pud̪ʁ#) :
+p ˈu l w e r e m 
+#pˈulɣʷerem# | Rule 4 : {j;w} > {ʝ;ɣʷ} / __ [+syl]
+#pˈʊlɣʷɛrɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#pˈʊɫɣʷɛrɛm# | Rule 25 : l > ɫ / __ [+cons,-lat]
+#pˈʊɫβʷɛrɛm# | Rule 48 : ɣʷ > βʷ 
+#pˈoɫβʷɛrɛm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#pˈoɫβʷɛrɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#pˈollɛrɛ# | Rule 122 : [+lat] [-syl,+cont,+round] > l l/ [-cons,+round] __ [-cons]
+#pˈollrɛ# | Rule 145 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
+#pˈolld̪rɛ# | Rule 149 : ∅ > d̪ / [+lat] __ r
+#pˈolld̪rə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#pˈolld̪rə̯# | Rule 281 : ə > ə̯ 
+#pˈolld̪rə# | Rule 288 : ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
+#pˈold̪rə# | Rule 483 : [+cons] > ∅ / [+cons] __ [-son]
+#pˈoɫd̪rə# | Rule 515 : [+lat] > ɫ / __ [+cons]
+#pˈuɫd̪rə# | Rule 574 : [+round,+tense,+back] > [+hi] 
+#pˈuwd̪rə# | Rule 587 : [+lat,+back] > w 
+#pˈud̪rə# | Rule 589 : w > ∅ / [+syl,+hi,+round] __ 
+#pˈud̪rə̯# | Rule 715 : ə > ə̯ / __ #
+#pˈud̪r# | Rule 733 : ə̯ > ∅ 
+#pˈud̪ʀ# | Rule 748 : r > ʀ 
+#pud̪ʀ# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#pud̪ʁ# | Rule 757 : ʀ > ʁ 

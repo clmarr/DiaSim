@@ -665,6 +665,7 @@ m > n̪ / __ [+cons]
 [-syl,-cons,+round,+front] > [-nas] / __ [-nas]
 [+nas,+front,-round,-lo,+syl] > [-hi] 
 j̃ > ∅ / [+nas,+front,-tense] __ 
+ˈɔː > ˈɔ / __ [+cons] [+cons]
 {ˌa w;ˈa w} > {ˌoː;ˈoː} 
 e̯ > ə̯ / __ [+round,+back,-hi]
 j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
@@ -694,6 +695,9 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 ˌa > ∅ / __ [+prim,+back,+hi]
 ˌa [+prim,-round,-tense,+front] > ˈɛː
 [+lo,+stres] [+prim,+front,+hi,-round,+nas] > ˈɛ̃ː
+[-hi,-lo,+back,+syl,-tense] > [+long] / __ z
+[-hi,-lo,+back,+syl,-tense] > [+long] / __ v
+[-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
 [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / # __ 
 [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+cons] __ 
 [+front,-lo,+nas,+syl,-round] > [-hi,-tense,-cons,-lat,+cont,0delrel] / [+syl] __ 
@@ -716,9 +720,6 @@ j > ∅ / [+front,+cons] __ [+front,-hi,-lo,-round,+syl,-nas]
 [+hi,+stres,-prim] [-hi,-lo,+syl] > [-syl,0stres,0prim] [+stres,+syl,+son,0delrel]
 [+syl] > [+long] / __ z [+syl]
 [+lo] > [+long] / __ ʒ ə̯ #
-[-hi,-lo,+back,+syl,-tense] > [+long] / __ z
-[-hi,-lo,+back,+syl,-tense] > [+long] / __ v
-[-hi,-lo,+back,+syl,+long] > [+tense,-cons,-lat,+cont,0delrel] 
 [-hi,-lo,+back,+syl] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] [+cons]
 ∅ > ə̯ / # ( [-cons,-nas] )* t̪ __ #
 r > ɹ / [-cons] __ #
@@ -747,6 +748,7 @@ r > ɹ / [-cons] __ [+cons]
 h > ∅ 
 r > ʀ 
 [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+ũː > o / __ [+nas]
 [+syl,+long] > [-long,-splng] 
 ũ > ɔ̃ 
 [+round,+nas] > [-nas] / __ [+nas,+cons] [+syl]

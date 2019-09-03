@@ -1,20 +1,22 @@
 Trajectory file for run 'run1'; etymon number :1016:
-#rˈeːt̪eːs# >>> #ʁwa# ( Correct : #ʁɛ#) :
-r ˈeː t̪ eː s 
-#rˈet̪es# | Rule 56 : [+syl,+long] > [-long,-splng] 
-#rˈeːt̪es# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
-#rˈeːt̪əs# | Rule 272 : [-stres,-lo,+syl] > ə / __ [-syl]
-#rˈeːt̪ə̯s# | Rule 281 : ə > ə̯ 
-#rˈeːt̪s# | Rule 305 : ə̯ > ∅ 
-#rˈeːt͡s# | Rule 331 : [+ant,+distr,-nas] s > t͡s/ __ #
-#rˈejt͡s# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
-#rˈojt͡s# | Rule 563 : [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
-#rˈujt͡s# | Rule 574 : [+round,+tense,+back] > [+hi] 
-#rˈuɛ̯t͡s# | Rule 627 : j > ɛ̯ / [+syl,+back,+round] __ 
-#rwˈɛt͡s# | Rule 628 : {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
-#rwˈɛs# | Rule 641 : [+delrel] > [+cont,0delrel] 
-#rwˈɛ# | Rule 730 : [-son] > ∅ / __ #
-#ʀwˈɛ# | Rule 747 : r > ʀ 
-#ʀwɛ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#ʀwa# | Rule 754 : ɛ > a / w __ 
-#ʁwa# | Rule 755 : ʀ > ʁ 
+#rˈet̪in̪ɑm# >>> #ʁɛn̪# ( Correct : #ʁɛn̪#) :
+r ˈe t̪ i n̪ ɑ m 
+#rˈɛt̪ɪn̪ɑm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#rˈɛt̪en̪ɑm# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#rˈɛt̪en̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#rˈɛt̪n̪ɑ# | Rule 98 : e > ∅ / __ [+distr] [+syl] ( [-syl] ) #
+#rˈɛt̪n̪a# | Rule 202 : [+lo] > [+front,-back] 
+#rˈɛd̪n̪a# | Rule 360 : t̪ > d̪ / __ [+nas,+cons]
+#rˈɛðn̪a# | Rule 387 : d̪ > ð / [+syl] __ [+nas]
+#rˈɛðn̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#rˈɛzn̪ə# | Rule 550 : ð > z / r [+syl] __ n̪
+#rˈɛːzn̪ə# | Rule 559 : [+prim] > [+long] / @ __ z [+cons]
+#rˈɛːn̪ə# | Rule 561 : z > ∅ / __ [+cons]
+#rˈɛ̃ːn̪ə# | Rule 623 : [+syl,-hi] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#rˈɛːn̪ə# | Rule 703 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#rˈɛːn̪ə̯# | Rule 715 : ə > ə̯ / __ #
+#rˈɛːn̪# | Rule 733 : ə̯ > ∅ 
+#ʀˈɛːn̪# | Rule 748 : r > ʀ 
+#ʀɛːn̪# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#ʀɛn̪# | Rule 751 : [+syl,+long] > [-long,-splng] 
+#ʁɛn̪# | Rule 757 : ʀ > ʁ 

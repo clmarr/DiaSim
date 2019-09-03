@@ -1,13 +1,17 @@
 Trajectory file for run 'run1'; etymon number :1198:
-#t̪ˈɑrd̪ɑm# >>> #t̪aʁd̪# ( Correct : #t̪aʁd̪#) :
-t̪ ˈɑ r d̪ ɑ m 
-#t̪ˈɑrd̪ɑ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
-#t̪ˈard̪a# | Rule 202 : [+lo] > [+front,-back] 
-#t̪ˈard̪ə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#t̪ˈard̪ə̯# | Rule 711 : ə > ə̯ / __ #
-#t̪ˈaɹd̪ə̯# | Rule 724 : r > ɹ / [-cons] __ [+cons]
-#t̪ˈaɹd̪# | Rule 732 : ə̯ > ∅ 
-#t̪ˈard̪# | Rule 745 : ɹ > r 
-#t̪ˈaʀd̪# | Rule 747 : r > ʀ 
-#t̪aʀd̪# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪aʁd̪# | Rule 755 : ʀ > ʁ 
+#t̪ˈɑrd̪um# >>> #t̪aʁ# ( Correct : #t̪aʁ#) :
+t̪ ˈɑ r d̪ u m 
+#t̪ˈɑrd̪ʊm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈɑrd̪om# | Rule 67 : [+hi,-tense] > [-hi,+tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈɑrd̪o# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#t̪ˈard̪o# | Rule 202 : [+lo] > [+front,-back] 
+#t̪ˈard̪ə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#t̪ˈard̪ə̯# | Rule 281 : ə > ə̯ 
+#t̪ˈard̪# | Rule 305 : ə̯ > ∅ 
+#t̪ˈart̪# | Rule 454 : [-son] > [-voi] / __ #
+#t̪ˈaɹt̪# | Rule 725 : r > ɹ / [-cons] __ [+cons]
+#t̪ˈaɹ# | Rule 731 : [-son] > ∅ / __ #
+#t̪ˈar# | Rule 746 : ɹ > r 
+#t̪ˈaʀ# | Rule 748 : r > ʀ 
+#t̪aʀ# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#t̪aʁ# | Rule 757 : ʀ > ʁ 

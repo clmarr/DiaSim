@@ -1,18 +1,20 @@
 Trajectory file for run 'run1'; etymon number :1207:
-#t̪ˈen̪d̪ere# >>> #t̪ɑ̃d̪ʁ# ( Correct : #t̪ɑ̃d̪ʁ#) :
-t̪ ˈe n̪ d̪ e r e 
-#t̪ˈɛn̪d̪ɛrɛ# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
-#t̪ˈɛn̪d̪rɛ# | Rule 145 : ɛ > ∅ / __ [+cor,+son,-nas] ( [-syl] )* [+syl] ( [-syl] )* #
-#t̪ˈɛn̪d̪rə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
-#t̪ˈɛn̪d̪rə̯# | Rule 281 : ə > ə̯ 
-#t̪ˈɛn̪d̪rə# | Rule 288 : ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
-#t̪ˈɛ̃n̪d̪rə# | Rule 530 : [+front,-hi,+syl] > [+nas,+son,0delrel] / __ [+nas,-syl]
-#t̪ˈãn̪d̪rə# | Rule 584 : [+nas,-hi,+syl] > [+lo,+tense,-cons,-lat,+cont,0delrel] / __ [+cons]
-#t̪ˈãːd̪rə# | Rule 676 : [+nas,+syl] [+nas,+cons] > [+long] ∅/ __ [+cons]
-#t̪ˈãːd̪rə̯# | Rule 711 : ə > ə̯ / __ #
-#t̪ˈɑ̃ːd̪rə̯# | Rule 712 : [+lo,+long,+syl] > [+back,-front] 
-#t̪ˈɑ̃ːd̪r# | Rule 732 : ə̯ > ∅ 
-#t̪ˈɑ̃ːd̪ʀ# | Rule 747 : r > ʀ 
-#t̪ɑ̃ːd̪ʀ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#t̪ɑ̃d̪ʀ# | Rule 749 : [+syl,+long] > [-long,-splng] 
-#t̪ɑ̃d̪ʁ# | Rule 755 : ʀ > ʁ 
+#t̪ˈen̪eɑt̪# >>> #t̪jɛɲ# ( Correct : #t̪jɛn̪#) :
+t̪ ˈe n̪ e ɑ t̪ 
+#t̪ˈɛn̪ɛɑt̪# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#t̪ˈɛn̪jɑt̪# | Rule 21 : [+syl,-long,-stres,-lo] > [+hi,-syl,+tense,0stres,0prim,-cons,-lat,+cont,0delrel] / __ [+syl]
+#t̪ˈɛn̪ʝɑt̪# | Rule 26 : j > ʝ / __ [+syl]
+#t̪ˈɛɲɑt̪# | Rule 93 : [+nas,+cor] [+hi,+front,-syl,+voi,+cont] > ɲ
+#t̪ˈɛːɲɑt̪# | Rule 113 : [+prim] > [+long] / __ [+cons] [-cons]
+#t̪ˈie̯ɲɑt̪# | Rule 170 : {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯} 
+#t̪ˈie̯ɲat̪# | Rule 202 : [+lo] > [+front,-back] 
+#t̪ˈie̯ɲaθ# | Rule 256 : {t̪;d̪} > {θ;ð} / [+syl] __ #
+#t̪ˈie̯ɲəθ# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
+#t̪jˈeɲəθ# | Rule 602 : {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
+#t̪jˈeɲə# | Rule 607 : {θ;ð} > {∅;∅} 
+#t̪jˈẽɲə# | Rule 623 : [+syl,-hi] > [+nas,+son,0delrel] / __ [+nas,-syl]
+#t̪jˈeɲə# | Rule 703 : [+front,-lo,+nas,+syl] > [-nas] / __ [+nas,+cons] [-cons]
+#t̪jˈɛɲə# | Rule 712 : [+tense,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] [-cons,-back,-front]
+#t̪jˈɛɲə̯# | Rule 715 : ə > ə̯ / __ #
+#t̪jˈɛɲ# | Rule 733 : ə̯ > ∅ 
+#t̪jɛɲ# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 

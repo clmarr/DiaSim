@@ -1,17 +1,26 @@
 Trajectory file for run 'run1'; etymon number :665:
-#mˌɑt̪rˈɑst̪rɑ# >>> #maʁɑt̪ʁ# ( Correct : #maʁɑt̪ʁ#) :
-m ˌɑ t̪ r ˈɑ s t̪ r ɑ 
-#mˌat̪rˈast̪ra# | Rule 202 : [+lo] > [+front,-back] 
-#mˌad̪rˈast̪ra# | Rule 359 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
-#mˌaðrˈast̪ra# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
-#mˌaðrˈast̪rə# | Rule 451 : a > ə / [+syl] ( [-syl] )* __ 
-#mˌaðrˈaxt̪rə# | Rule 598 : [-distr,+strid,-voi] > x / [-cons] __ [+cons]
-#mˌarˈaxt̪rə# | Rule 607 : {θ;ð} > {∅;∅} 
-#mˌarˈaːt̪rə# | Rule 647 : [+syl] x > [+long] ∅/ __ [+cons]
-#mˌarˈaːt̪rə̯# | Rule 711 : ə > ə̯ / __ #
-#mˌarˈɑːt̪rə̯# | Rule 712 : [+lo,+long,+syl] > [+back,-front] 
-#mˌarˈɑːt̪r# | Rule 732 : ə̯ > ∅ 
-#mˌaʀˈɑːt̪ʀ# | Rule 747 : r > ʀ 
-#maʀɑːt̪ʀ# | Rule 748 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
-#maʀɑt̪ʀ# | Rule 749 : [+syl,+long] > [-long,-splng] 
-#maʁɑt̪ʁ# | Rule 755 : ʀ > ʁ 
+#mˈɑt̪rem# >>> #mɛʁ# ( Correct : #mɛʁ#) :
+m ˈɑ t̪ r e m 
+#mˈɑt̪rɛm# | Rule 12 : [+syl,-lo,-long] > [-tense,-cons,-lat,+cont,0delrel] 
+#mˈɑt̪rɛ# | Rule 72 : [+nas,+cons] > ∅ / [-stres] __ #
+#mˈɑːt̪rɛ# | Rule 114 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈɑt̪rɛ# | Rule 153 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈɑːt̪rɛ# | Rule 156 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rɛ# | Rule 202 : [+lo] > [+front,-back] 
+#mˈat̪rɛ# | Rule 224 : [+syl] > [-long,-splng] / __ [-syl] [+cons]
+#mˈaːt̪rɛ# | Rule 228 : [+prim] > [+long] / __ [-cont] [+cons,+son,-nas]
+#mˈaːt̪rə# | Rule 273 : [-stres,-lo,+syl] > ə / __ #
+#mˈaːt̪rə̯# | Rule 281 : ə > ə̯ 
+#mˈaːt̪rə# | Rule 288 : ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
+#mˈaːd̪rə# | Rule 359 : [-voi,-delrel,+ant] > [+voi] / [-cons] __ [+cor,+son,-nas]
+#mˈaːðrə# | Rule 385 : [-delrel,+voi] > [+cont,0delrel] / [-cons] __ [+son,-nas,-lat]
+#mˈae̯ðrə# | Rule 421 : {ˈaː;ˈeː;ˈoː;ˈɛː} > {ˈa e̯;ˈe j;ˈo w;ˈi e̯} 
+#mˈeːðrə# | Rule 462 : {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
+#mˈeðrə# | Rule 557 : [+syl] > [-long,-splng] 
+#mˈerə# | Rule 607 : {θ;ð} > {∅;∅} 
+#mˈɛrə# | Rule 712 : [+tense,-hi,-lo,-round,+stres] > [-tense,-cons,-lat,+cont,0delrel] / __ [+cons] [-cons,-back,-front]
+#mˈɛrə̯# | Rule 715 : ə > ə̯ / __ #
+#mˈɛr# | Rule 733 : ə̯ > ∅ 
+#mˈɛʀ# | Rule 748 : r > ʀ 
+#mɛʀ# | Rule 749 : [+stres] > [-stres,-prim,+syl,+son,0delrel] 
+#mɛʁ# | Rule 757 : ʀ > ʁ 
