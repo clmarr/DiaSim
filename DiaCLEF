@@ -8,7 +8,9 @@ $Characteristics of Classical Latin as per Pope page 75
 n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
 
-$ CORRECTION: We delete Pope's handling of Classical Latin's variant l-allophones, as they do not seem to be diachronically relevant, and harm performance.
+$ CORRECTION: We delete Pope's handling of Classical Latin's variant /l/ forms,
+	 $as they do not seem to be diachronically relevant, 
+	 	$and harm performance.
 
 [+lo] > [-front,+back]
 [+lo] > [+front,-back] / __ e̯
@@ -34,6 +36,7 @@ $ Greek y unrounded to i
 
 $ beginning of Late Latin shifts here... 
 $As per Pope's paradigm, it is considered Late Latin if it occurred before the end of the firth century 
+$ we place the marker later as per the FLLAPS table. 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
@@ -90,7 +93,8 @@ uː > ɪ / __ [-syl] @
 $ per s220 : yod is lost between e and p,r
 j > ∅ / {p;r} __ [+front,-hi,-lo,+syl]
 
-$ CORRECTION: before j is consonantalized, dark l emerges from l specifically before consonants (except l)
+$ CORRECTION: before j is consonantalized,
+	$, dark l emerges from l specifically before consonants (except l)
 l > [+back] / __ [+cons,-lat]
 
 j > ʝ / __ [+syl] $as per Pope s105c, 106
@@ -113,7 +117,9 @@ $ as per s186iib -- w effaced between k and a rounded vowel
 	$ Note most authors interpret this differently, as the delabialization of k
 	$ Note also that Pope seems to have missed that his also happend after g?
 	$ CORRECTION: does not happen when following vowel is word final -- case of sequo >>>> siue >>> suis
-w > ∅ / k __ [+syl,+round] @
+	$$ REVERSE CORRECTION : this would seem to be overfitting
+$ w > ∅ / k __ [+syl,+round] @
+w > ∅ / k __ [+syl,+round]
 
 $ p115 s261-264 ~ s221 ~ s156i
 $ *** Note as per s156i, for Pope this is a "tendency" 
@@ -146,7 +152,7 @@ $ p115 s262c -- effects on intertonic (non-low) vowels standing between n/l and 
 [-lo,-stres] > ∅ / [+prim] ([-syl])* n̪ __ r [+syl]
 [-lo,-stres] > ∅ / [+prim] ([-syl])* [+lat] __ r [+syl] 
 
-$ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded by an ɑ variant 
+$ CORRECTION : ɪ deleted between k/ɡ and l if the velar stop is not preceded by an /ɑ/ variant 
 ɪ > ∅ / [-lo,+syl] [-cont,+back] __ l
 
 $s127 s296i fakere case

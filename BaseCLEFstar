@@ -8,14 +8,24 @@ $Characteristics of Classical Latin as per Pope page 75
 n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
 
-l l > lʲ lʲ / [+hi,+front] __ [+hi,+front] 
-l > [+hi,+front] / [+hi,+front] __ [+hi,+front] $ Pope says this one is "probable"
-l > [+back] / @ __ $per page 75 s158, Pope specifically says is dark "every where else" giving examples of nolo and plenum
+$l l > lʲ lʲ / [+hi,+front] __ [+hi,+front] 
+$l > [+hi,+front] / [+hi,+front] __ [+hi,+front] $ Pope says this one is "probable"
+$l > [+back] / @ __ $per page 75 s158, Pope specifically says is dark "every where else" giving examples of nolo and plenum
 	$ she explicates that dark l existed continuously from Latin to French in various places: 
 		$ s160-161 : references dark l existing, without this rule would be impossible
 		$ s109b: dark L "in use in Latin and Period I of French"
 		$ and for lʲ she similarly says it "survived into Old French after /i/" 
 	$ these both cause obvious problems -- but what her stance (incorrectly) is seems clear
+$ BASECLEF* CORRECTION: I don't think Pope's take on Latin /l/ is the canon one, and /l/ isn't her focus
+	$ so for BaseCLEFstar we are using Allen 1978 pp33-34 on /l/
+		$ what Pope identifies for back vowels he argues is pre-Classical Latin
+			$ and argues /l/ was "clear" before all vowels in Classical Latin
+	$ Alan has : dark l before word coda and non-lateral consonants for Classical Latin
+	$ elsewhere "clear" l (i.e. in ll and before vowels). 
+	$ Alan does not have palatalized l for any stage of Classical Latin. 
+[+lat] > [+back]
+[+lat] [+lat] > [-back] [-back]
+[+lat] > [-back] / __ [+syl]
 
 [+lo] > [-front,+back]
 [+lo] > [+front,-back] / __ e̯
@@ -35,8 +45,8 @@ $Pope p226-7 s632
 $ Greek y unrounded to i 
 [+hi,+front] > [-round,-lab]
 
-$~Late Latin
-$As per Popeˌs paradigm, it is considered Late Latin if it occurred before the end of the firth century 
+$As per Pope's paradigm, it is considered Late Latin if it occurred before the end of the firth century 
+$ we place the marker later as per the FLLAPS table. 
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
@@ -1031,12 +1041,15 @@ s > z / __ [+voi,+cons]
 s > z / __ [+cont,+cons,-cor]
 
 $ s372ii t,d become edh before r,l,n,m
-[-delrel,+cor] > ð / __ [+son,+cor] 
-[-delrel,+cor] > ð / __ [+nas] 
+$ BASECLEFSTAR CORRECTION: Pope forgets to mention this happens only after non-consonantals
+	$ -- not so interesting a mistake 
+[-delrel,+cor] > ð / [-cons] __ [+son,+cor] 
+[-delrel,+cor] > ð / [-cons] __ [+nas] 
 
 $ s372iii p,b become beta then v before r, halts at b before l
-p > b / [+syl] __ [+son,+cont,-nas]
-b > β / [+syl] __ r
+$ BASECLEFSTAR CORRECTION: after nonconsonantals.
+p > b / [-cons] __ [+son,+cont,-nas]
+b > β / [-cons] __ r
 β > v
 
 $ s365 : elimination of middle velars in three consonant intervocalic clusters
@@ -1429,7 +1442,7 @@ $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Pope does not give an exact date here...
-ˌə > ∅ / {[+cont,-son],[-delrel]} __ [+son,+ant,-nas] [+prim]
+ˌə > ∅ / {[+cont,-son];[-delrel]} __ [+son,+ant,-nas] [+prim]
 
 $~Middle French
 $Middle French covers the 14th to 16th cenuries as per Pope
