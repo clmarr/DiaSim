@@ -988,7 +988,7 @@ public class DerivationSimulation {
 				while(prompt)
 				{	System.out.print("What is your query? Enter the corresponding indicator:\n"
 							+ "0 : get ID of an etymon by input form\n"
-							+ "1 : get input form by ID number\n"
+							+ "1 : get etymon's input form by ID number\n"
 							+ "2 : print all etyma by ID\n"
 							+ "3 : get derivation up to this point for etymon by its ID\n"
 							+ "4 : get rule by time step\n"
@@ -1024,24 +1024,20 @@ public class DerivationSimulation {
 					{
 						System.out.println("Enter the ID to query:");
 						String idstr = inpu.nextLine(); 
-						int theID = -1; 
-						try {
-							theID = Integer.parseInt(idstr); 
-						}
-						catch (Exception e)	{
-							System.out.println("Error -- you need to enter a valid integer. Returning to query menu.");
+						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
+						int theID = getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
+						if (theID == -1){
 							prompt =true;
 						}
-						if(!prompt && resp.equals("4"))
+						else if(queryingRule)
 						{
 							prompt = theID < 0 || theID >= CASCADE.size();
 							if(prompt)	System.out.println("Error -- there are only "+CASCADE.size()+"rules. Returning to query menu."); 
-							else	System.out.println(CASCADE.get(theID));
+							else	printRuleAt(theID); 
 						}
-						else if(!prompt)
+						else
 						{
-							prompt = theID < 0 || theID >= NUM_ETYMA;
-							if(prompt)	System.out.println("Error -- there are only "+NUM_ETYMA+"etyma. Returning to query menu."); 
+							if(prompt)	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
 							else if(resp.equals("1"))	System.out.println(initLexicon.getByID(theID)); 
 							else 	System.out.println(""+wordTrajectories[theID]);
 						}
@@ -1127,21 +1123,55 @@ public class DerivationSimulation {
 			}
 			else if(resp.equals("7")) //forking test
 			{
+				String errorMessage = "Invalid response. Please enter a valid response. Returning to forking test menu."
+				
+				
 				boolean subcont = true; 
 				while(subcont) {
 					System.out.print("At what rule number would you like to modify cascade? Please type the number.\n"
 							+ "You may also enter:\t'quit', to return to the main menu\n"
-							+ "\t\t\t'get rule ind X', to get the index of any rules containing an entered string replacing <X>.\n"
+							+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
 							+ "\t\t\t'get rule at X', to get the rule at the index number <X>.\n" 
-							+ "\t\t\t'get rule effect', to get all changes from a rule by the index <X>.\n"
-							+ "\t\t\t'get cascade', to print all rules with their indices.\n"
+							+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
+							+ "\t\t\t'get cascade', to print all rules with their original indices.\n"
 							+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
 							+ "\t\t\t:'get etym at X', to get the etymon at index <X>.\n"
 							+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 							+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
 					resp = inpu.nextLine().replace("\n",""); 
 					if (resp.equals("quit"))	subcont = false;
-					else if(resp.isNumeric() )
+					else if(isValidInd(resp, CASCADE.size()))
+					{
+						//TODO here. 
+					}
+					else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(errorMessage); 
+					else if(resp.equals("get cascade"))
+					{
+						for(int ci = 0 ; ci < CASCADE.size(); ci++) 
+							System.out.println(""+ci+": "+CASCADE.get(ci)); 
+					}
+					else if(resp.equals("get lexicon"))
+					{
+						System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
+						for (int i = 0 ; i < r.getWordList().length ; i++)
+							System.out.println(""+i+STAGE_PRINT_DELIM+initLexicon.getByID(i)+STAGE_PRINT_DELIM+goldResultLexicon.getByID(i));
+					}
+					else if(resp.substring(0,9).equals("get rule "))
+					{
+						String entry = resp.substring(9); 
+						if(entry.length() >= 4) {
+							if(entry.substring(0,3).equals("at ")) {
+								int theInd = getValidInd(entry.substring(4), CASCADE.size() );
+								if (theInd > -1) printRuleAt(theInd); 
+							}
+						}
+					}
+					else if(resp.substring(0,9).equals("get etym "))
+					{
+						
+					}
+					else	System.out.println(errorMessage); 
+							
 
 					
 				}
@@ -1421,12 +1451,20 @@ public class DerivationSimulation {
 	//to use for checking if an entered etymon or rule id is valid. 
 	// max should be the number of words in the lexicon minus 1 (for an etymon)
 		// or the length of the cascade (for a rule)
-	private static boolean isValidInd(String s, int max)
+	private static int getValidInd(String s, int max)
 	{
-		try 		{	Integer.parseInt(s);	} 
+		int output; 
+		try 		{	output = Integer.parseInt(s);	} 
 		catch (NumberFormatException | NullPointerException nfe) {
-	        return false;	}
-		return Integer.parseInt(s) <= max; 
+	        return -1;	}
+		return output <= max ? output : -1; 
+	}
+	
+	private static void printRuleAt(int theInd)
+	{
+		if (theInd == CASCADE.size())
+			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
+		else System.out.println(CASCADE.get(theInd)); 
 	}
 }
 
