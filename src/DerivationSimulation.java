@@ -47,7 +47,7 @@ public class DerivationSimulation {
 	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
 	private static int[] goldStageTimeInstants, blackStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
-	private static String[] wordTrajectories; //stores trajectory(form at every time step), with stages delimited by line breaks, of each word 
+	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
 	
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
@@ -618,7 +618,7 @@ public class DerivationSimulation {
 		for( int wi =0; wi < NUM_ETYMA; wi ++) 
 		{
 			String filename = new File(runPrefix, new File("trajectories","etym"+wi+".txt").toString()).toString(); 
-			String output = "Trajectory file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
+			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
 				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
 				+ (goldOutput ? " ( Correct : "+goldResultLexicon.getByID(wi)+") :\n"  : ":\n")
 					+wordTrajectories[wi]+"\n";
@@ -823,9 +823,8 @@ public class DerivationSimulation {
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Standard prognosis at evaluation point                                          |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
-					+ "| 6 : Print stats (at evaluation point) (for subset lexicon if specified)             |\n"
-					+ "| 7 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
-					+ "| 8 : Print all mismatched forms (for subset if specified)                            |\n"
+					+ "| 6 : Review results (stats, word forms) at evaluation point (goes to submenu)        |\n"
+					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
 			
@@ -991,7 +990,7 @@ public class DerivationSimulation {
 							+ "0 : get ID of an etymon by input form\n"
 							+ "1 : get input form by ID number\n"
 							+ "2 : print all etyma by ID\n"
-							+ "3 : get trajectory up to this point for etymon by its ID\n"
+							+ "3 : get derivation up to this point for etymon by its ID\n"
 							+ "4 : get rule by time step\n"
 							+ "5 : get time step(s) by rule [BUGGED CURRENTLY]\n"
 							+ "6 : print all rules by time step.\n"
@@ -1017,10 +1016,7 @@ public class DerivationSimulation {
 						if(!prompt)
 						{
 							LexPhon[] wl = initLexicon.getWordList();
-							String inds = ""; 
-							for (int wli = 0; wli < wl.length; wli++)
-								if(wl[wli].toString().equals(query.toString()))
-									inds += inds.equals("") ? ""+wli : ", "+wli;
+							String inds = etymInds(wl, query);
 							System.out.println("Ind(s) with this word as input : "+inds);  
 						}
 					}
@@ -1083,28 +1079,57 @@ public class DerivationSimulation {
 				else if (!ea.isFocSet()) System.out.println("Error: can't do context autopsy without first setting focus point. Use option 1.");
 				else	ea.contextAutopsy();				
 			}
-			else if(resp.equals("7"))
-			{
-				System.out.println("Printing all etyma: Input," + (ea.isFocSet() ? focPtName+"," : "")+"Result, Gold"); 
-				ea.printFourColGraph(initLexicon);				
-			}
-			else if(resp.equals("8"))
-			{
-				System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
-				System.out.println("Res : Gold");
-				List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
-				for (LexPhon[] mm : mms)
-					System.out.println(mm[0].print()+" : "+mm[1].print());
-			}
 			else if(resp.equals("6"))
 			{
-				System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
+				boolean subcont = true; 
 				
-				System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
-				System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
-				System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
-				System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
-				System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+				while(subcont) {
+				
+					System.out.print("What results would you like to check? Please enter the appropriate number:\n"
+						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
+						+ "| 1 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
+						+ "| 2 : Print all mismatched forms at evaluation point (for subset if specified)        |\n"
+						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
+					
+					resp = inpu.nextLine().substring(0,1);
+					
+					if(resp.equals("0"))
+					{
+						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
+						
+						System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
+						System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
+						System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
+						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
+						System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+					}
+					else if(resp.equals("1"))
+					{
+						System.out.println("Printing all etyma: Input," + (ea.isFocSet() ? focPtName+"," : "")+"Result, Gold"); 
+						ea.printFourColGraph(initLexicon);	
+					}
+					else if(resp.equals("2"))
+					{
+						System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
+						System.out.println("Res : Gold");
+						List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
+						for (LexPhon[] mm : mms)
+							System.out.println(mm[0].print()+" : "+mm[1].print());
+					}
+					else if (resp.equals("9"))
+					{
+						System.out.println("Going back to main menu"); 
+						subcont = false;
+					}
+					else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
+				}
+			}
+			else if(resp.equals("7")) //forking test
+			{
+				System.out.println("At what rule number would you like to modify cascade? Please type the number.\n");
+				System.out.println("You may also enter:\t'quit', to return to the main menu\n");
+				System.out.println("\t\t\t'query', to go to the submenu to get rule numbers, derivations, etc.\n"); 
+				System.out.
 			}
 			else if(resp.equals("9")) {
 				System.out.println("Ending"); cont = false; 
@@ -1366,6 +1391,15 @@ public class DerivationSimulation {
 		for (SChange rule : ruleCascade)
 		{	boolean[] etymsAff = out.applyRuleAndGetChangedWords(rule);	} 
 		return out; 
+	}
+	
+	private static String etymInds(LexPhon[] etList, LexPhon etTarg)
+	{
+		String output = ""; 
+		for (int wli = 0; wli < etList.length; wli++)
+			if(etList[wli].toString().equals(etTarg.toString()))
+				output += output.equals("") ? ""+wli : ", "+wli;
+		return output;
 	}
 }
 
