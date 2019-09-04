@@ -992,16 +992,16 @@ public class DerivationSimulation {
 							+ "2 : print all etyma by ID\n"
 							+ "3 : get derivation up to this point for etymon by its ID\n"
 							+ "4 : get rule by time step\n"
-							+ "5 : get time step(s) by rule [BUGGED CURRENTLY]\n"
+							+ "5 : get time step(s) of any rule whose string form contains the submitted string\n"
 							+ "6 : print all rules by time step.\n"
-							+ "7 : return to main menu.\n"); 
+							+ "9 : return to main menu.\n"); 
 					resp = inpu.nextLine().replace("\n",""); 
 					prompt = false;
-					if( !"01234567".contains(resp) || resp.length() > 1 ) {
+					if( !"01234569".contains(resp) || resp.length() > 1 ) {
 						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
 						prompt = true;
 					}
-					else if (resp.equals("7"))	prompt = false;
+					else if (resp.equals("9"))	prompt = false;
 					else if (resp.equals("0")) {
 						System.out.println("Enter the input form, separating phones by "+PH_DELIM);
 						resp = inpu.nextLine().replace("\n",""); 
@@ -1054,15 +1054,16 @@ public class DerivationSimulation {
 					}
 					else if(resp.equals("5"))
 					{
-						System.out.println("Enter the rule you want to query. Illegitimate rules will get no index but not otherwise be flagged.");
+						System.out.println("Enter the string you want to query with.\n");
 						resp = inpu.nextLine().replace("\n", ""); 
 						String out = "";
+						boolean noMatches = true; 
 						for(int ci = 0; ci < CASCADE.size(); ci++)
 						{
-							if (resp.equals(CASCADE.get(ci).toString()))
-								out += out.equals("") ? ""+ci : ", "+ci; 
+							if (CASCADE.get(ci).toString().contains(resp))
+								System.out.println(""+ci+" : "+CASCADE.get(ci).toString()); 
 						}
-						System.out.println(""+out); 
+						if(noMatches)	System.out.println("No matches found."); 
 					}
 					else //"6"
 					{
@@ -1126,10 +1127,24 @@ public class DerivationSimulation {
 			}
 			else if(resp.equals("7")) //forking test
 			{
-				System.out.println("At what rule number would you like to modify cascade? Please type the number.\n");
-				System.out.println("You may also enter:\t'quit', to return to the main menu\n");
-				System.out.println("\t\t\t'query', to go to the submenu to get rule numbers, derivations, etc.\n"); 
-				System.out.
+				boolean subcont = true; 
+				while(subcont) {
+					System.out.print("At what rule number would you like to modify cascade? Please type the number.\n"
+							+ "You may also enter:\t'quit', to return to the main menu\n"
+							+ "\t\t\t'get rule ind X', to get the index of any rules containing an entered string replacing <X>.\n"
+							+ "\t\t\t'get rule at X', to get the rule at the index number <X>.\n" 
+							+ "\t\t\t'get rule effect', to get all changes from a rule by the index <X>.\n"
+							+ "\t\t\t'get cascade', to print all rules with their indices.\n"
+							+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
+							+ "\t\t\t:'get etym at X', to get the etymon at index <X>.\n"
+							+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
+							+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
+					resp = inpu.nextLine().replace("\n",""); 
+					if (resp.equals("quit"))	subcont = false;
+					else if(resp.isNumeric() )
+
+					
+				}
 			}
 			else if(resp.equals("9")) {
 				System.out.println("Ending"); cont = false; 
@@ -1400,6 +1415,18 @@ public class DerivationSimulation {
 			if(etList[wli].toString().equals(etTarg.toString()))
 				output += output.equals("") ? ""+wli : ", "+wli;
 		return output;
+	}
+	
+	
+	//to use for checking if an entered etymon or rule id is valid. 
+	// max should be the number of words in the lexicon minus 1 (for an etymon)
+		// or the length of the cascade (for a rule)
+	private static boolean isValidInd(String s, int max)
+	{
+		try 		{	Integer.parseInt(s);	} 
+		catch (NumberFormatException | NullPointerException nfe) {
+	        return false;	}
+		return Integer.parseInt(s) <= max; 
 	}
 }
 
