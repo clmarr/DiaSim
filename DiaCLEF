@@ -40,15 +40,18 @@ $ we place the marker later as per the FLLAPS table.
 
 $p144 s359 ~ p73 s156iii --- ns > s, with compensatory lengthening of prior vowel -- must have occurred before nature of length changed
 $Pope says "very early" s359
-$CORRECTION: now lengthening occurs in the context of non-stressed following syllable, and the n loss is triggered by being between a specifically long vowel and s.
+$CORRECTION: now lengthening occurs in the context of non-stressed following syllable,
+	$ and the n loss is triggered by being between a specifically long vowel and s.
 [+syl] > [+long] / __ n̪ s ([-syl])* [-stres] 
 n̪ > ∅ / [+syl,+long] __  s
 
 $p144 s359 ~ p73 s156iii --- rs > s after long vowels, > ss after short vowels
 	$must have occurred before nature of length changed
 	$ implicitly consecutive vowels are "long" and second becomes so if not-- case of deorsum
-$ CORRECTION : we only implement the stipulated shifts occurring after long vowels and two vowel sequences,
-$ Because the rs > ss shift after single short vowels seems to only be correct for two lexemes, persica and dorsum.
+$ CORRECTION : we only implement the stipulated shifts occurring 
+	$after long vowels and two vowel sequences, (CORRECTION -- no longer two vowel sequences either.)
+$ Because the rs > ss shift after single short vowels 
+	$ seems to only be correct for two lexemes, persica and dorsum.
 [+cor,+son,-nas,-lat] > ∅ / [+syl,+long] __ s
 $ CORRECTION: two vocalics aspect suppressed - no targets as deorsum was attenuated. 
 $ [+cor,+son,-nas,-lat] > ∅ / [-cons] [-cons] __ s
@@ -87,7 +90,11 @@ $p102 s220 (also p73 s156i)  -- yod and w formation -- gliding of unstressed sho
 $ -- called upon to be this early by p91 s187
 [+syl,-long,-stres,-lo] > [+hi,-syl,+tense] / __ [+syl]
 
-$ CORRECTION: uː unstressed becomes sonus medius -- diachronically equivalent to ɪ -- before a non syllable and not near word boundary -- but does not bleed prior yod formation (see adiu:ta:re) or feed it (manu:opera)
+$ CORRECTION: uː unstressed becomes sonus medius 
+	$-- diachronically equivalent to ɪ 
+	$ -- before a non syllable and not near word boundary 
+	$ -- but does not bleed prior yod formation (see adiu:ta:re)
+		$ or feed it (manu:opera)
 uː > ɪ / __ [-syl] @
 
 $ per s220 : yod is lost between e and p,r
@@ -101,6 +108,7 @@ j > ʝ / __ [+syl] $as per Pope s105c, 106
 $ w, newly from u,o in hiatus is clearly NOT effected by this as per treatment in s374
 
 $ CORRECTION (addition) : ʝ is deleted when coming after # + velar + w (cases of quie:tum etc...)
+	$ this may look like overfitting but the errors that result are of a frankly uninteresting nature and better removed.
 ʝ > ∅ / # [+back,-cont] w __  
 
 $p91 s187iic -- explicitly must come after p102 s220 
@@ -178,9 +186,11 @@ $ it appears that this occurred in all ɑɣʷɪ sequences : navicellam, navicam,
 $ Pope (s187i) says this is due to "slurring" but she nowhere else described the "slurring" phenomenon that would have fed the rule in this way
 $ Doesn't happen when the posterior ɪ is stressed it seems -- see kˌɑwˈɪkulɑm > ʃəvij
 $ Hence this is the most efficient way to represent it...: 
-ɣʷ > w / [+lo] __ ɪ 
+$ CORRECTION : abrogated for now as no effect due to correction @ line 174
+$ ɣʷ > w / [+lo] __ ɪ 
 $ next, to cover the ɑɣʷɑ sequences: bauam, flavam, cavannum. 
-$Doesn't seem to happen for -aːre verbs (lava:re) -- this can be represented by only allowing the posterior ɑ to be short
+$Doesn't seem to happen for -aːre verbs (lava:re) 
+	$ -- this can be represented by only allowing the posterior ɑ to be short
 ɣʷ > w / [+lo] __ [+lo,-long]
 
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
@@ -239,9 +249,6 @@ $ CORRECTION -- Pope fails to explicitly state that this only occurs after nonco
 	$ hence nkt and etc clusters are not effected.
 k > x / [-cons] __ [+cor,-voi] 
 
-$CORRECTION: x sibilantized if after word-initial ˌe
-x > s / # ˌɛ __
-
 $CORRECTION: countertonic /ɛ/ closes back to /e/ before ssʝ (not sj -- see prehensionem > prison)
 ˌɛ > ˌe / __ s s ʝ
 
@@ -285,8 +292,6 @@ $ CORRECTION : also deleted after countertonic ɑ
 [+nas,+cons] > ∅ / [+lo,-prim] __ #
 $ CORRECTION : also deleted after yod then vowel (case of iam > ja, deum > dieu etc), even in monosyllables
 [+nas,+cons] > ∅ / ʝ [+syl] __ #
-
-
 
 $ p185 s488 : o > ɔ before labial consonants 
 $ *** NOTE : This is called a "TENDENCY" by Pope
@@ -505,7 +510,6 @@ $ note that this one will have no targets unless some verb conjugations are adde
 $ Pope ~ p78 s163.7 p139 s343 first effacement of β 
 $ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
 	$ s163:7 says "before labial vowels", as does 343 (though 343 says u or o too) 
-$ note that this won't collide with what was Latin <v> (gamma^w for Pope) because long u: plus <v> never occurs
 $ CORRECTION : Pope neglects to note that this only happens AFTER other vowels -- i.e. not word-initially. 
 $ CORRECTION : w (>βʷ) now not merged into β yet when this rule applies, so it counterfeeds
 β > ∅ / @ __ [+lab,+syl]
