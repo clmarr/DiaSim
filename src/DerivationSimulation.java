@@ -1051,13 +1051,12 @@ public class DerivationSimulation {
 					else if(resp.equals("5"))
 					{
 						System.out.println("Enter the string you want to query with.\n");
-						resp = inpu.nextLine().replace("\n", ""); 
-						String out = "";
+						resp = inpu.nextLine().replace("\n", "");
 						boolean noMatches = true; 
 						for(int ci = 0; ci < CASCADE.size(); ci++)
 						{
 							if (CASCADE.get(ci).toString().contains(resp))
-								System.out.println(""+ci+" : "+CASCADE.get(ci).toString()); 
+								System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
 						}
 						if(noMatches)	System.out.println("No matches found."); 
 					}
@@ -1123,7 +1122,7 @@ public class DerivationSimulation {
 			}
 			else if(resp.equals("7")) //forking test
 			{
-				String errorMessage = "Invalid response. Please enter a valid response. Returning to forking test menu."
+				String errorMessage = "Invalid response. Please enter a valid response. Returning to forking test menu.";
 				
 				
 				boolean subcont = true; 
@@ -1139,8 +1138,10 @@ public class DerivationSimulation {
 							+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 							+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
 					resp = inpu.nextLine().replace("\n",""); 
+					int forkAt = getValidInd(resp, CASCADE.size()) ;
+					
 					if (resp.equals("quit"))	subcont = false;
-					else if(isValidInd(resp, CASCADE.size()))
+					else if(forkAt > -1) 
 					{
 						//TODO here. 
 					}
@@ -1156,22 +1157,59 @@ public class DerivationSimulation {
 						for (int i = 0 ; i < r.getWordList().length ; i++)
 							System.out.println(""+i+STAGE_PRINT_DELIM+initLexicon.getByID(i)+STAGE_PRINT_DELIM+goldResultLexicon.getByID(i));
 					}
-					else if(resp.substring(0,9).equals("get rule "))
+					else
 					{
-						String entry = resp.substring(9); 
-						if(entry.length() >= 4) {
-							if(entry.substring(0,3).equals("at ")) {
-								int theInd = getValidInd(entry.substring(4), CASCADE.size() );
-								if (theInd > -1) printRuleAt(theInd); 
+						String entry = resp.substring(9);
+						
+						if(resp.substring(0,9).equals("get rule ")) {
+							if(entry.length() >= 4) {
+								if(entry.substring(0,4).equals("at ")) {
+									int theInd = getValidInd(entry.substring(4), CASCADE.size() );
+									if (theInd > -1) printRuleAt(theInd); }
+								if(entry.length() >= 8) {
+									if(entry.substring(0,8).equals("effect ")) {
+										//TODO here
+										ERROR ERROR
+									} } } 
+							boolean noMatches = true; 
+							for(int ci = 0; ci < CASCADE.size(); ci++)
+							{
+								if (CASCADE.get(ci).toString().contains(entry))
+									System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
+							}
+							if(noMatches)	System.out.println("No matches found.");
+							
+						}
+						if(resp.substring(0,9).equals("get etym ")) {
+							if(entry.length() >= 4) {
+								if(entry.substring(0,4).equals("at ")) {
+									int theInd = getValidInd(entry.substring(4), NUM_ETYMA - 1 );
+									if (theInd > -1) System.out.println(initLexicon.getByID(theInd)); 
+									else	System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
+								}
+								if(entry.length() >= 12) {
+									if(entry.substring(0,8).equals("derivation ")) {
+										int theInd = getValidInd(entry.substring(11), NUM_ETYMA - 1); 
+										if (theInd > -1)	System.out.println(""+wordTrajectories[theInd]);
+										else
+											System.out.println("Error: invalid etymon index; there are only "
+													+NUM_ETYMA+" etyma.\nReturning to forking test menu.");
+								} } } 
+							LexPhon query = null; boolean validLexPhon = true;
+							try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
+							catch (Exception e){
+								System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
+								validLexPhon = false;
+							}
+							if(validLexPhon)
+							{
+								LexPhon[] wl = initLexicon.getWordList();
+								String inds = etymInds(wl, query);
+								System.out.println("Ind(s) with this word as input : "+inds);  
 							}
 						}
-					}
-					else if(resp.substring(0,9).equals("get etym "))
-					{
-						
-					}
-					else	System.out.println(errorMessage); 
-							
+						else	System.out.println(errorMessage); 
+					}							
 
 					
 				}
