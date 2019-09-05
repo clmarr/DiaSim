@@ -1303,8 +1303,251 @@ public class DerivationSimulation {
 					}
 					
 					boolean toSetBehavior = true;
-					
-					//TODO here.
+					while (toSetBehavior) {
+						System.out.println("Operating on rule "+forkAt+": "+hypCASCADE.get(forkAt).toString()) ;
+						System.out.print("What would you like to do?\n"
+								+ "0: Insertion -- insert a rule at "+forkAt+".\n"
+								+ "1: Deletion -- delete the rule at "+forkAt+".\n"
+								+ "2: Modification -- change the rule at "+forkAt+".\n"
+								+ "3: 'Relocdation' -- move the rule at "+forkAt+" to a different moment in time.\n"
+								+ "8: Go back to previous option (setting fork point, querying options available).\n"
+								+ "9: Cancel entire forking test and return to main menu.\n"); 
+						resp = inpu.nextLine().substring(0,1);
+						
+						if(!"012389".contains(resp))
+							System.out.println("Invalid entry. Please enter the valid number for what you want to do."); 
+						else if(resp.equals("9"))
+							subcont = false; 
+						else if(resp.equals("8"))
+							System.out.println("Returning to prior menu.");
+						else
+						{
+							int deleteAt = -1; 
+							List<String[]> insertions = new ArrayList<String[]>(); 
+							
+							if("123".contains(resp)) // all the operations that involve deletion.
+							{
+								deleteAt = forkAt; 
+								SChange removed = hypCASCADE.remove(deleteAt); 
+								
+								if(resp.equals("3"))
+								{
+									int relocdate = -1; 
+									while(relocdate == -1)
+									{
+										System.out.println("Enter the moment (rule index) would you like to move this rule to:");
+
+										int candiDate = getValidInd(inpu.nextLine().replace("\n",""), hypCASCADE.size());
+										if (candiDate == -1)
+											System.out.println("Invalid rule index entered. There are currently "+hypCASCADE.size()+" rules."); 
+										else
+										{
+											System.out.println("Rule before moment "+candiDate+": "
+													+ (candiDate == 0 ? "BEGINNING" : hypCASCADE.get(candiDate - 1)) );
+											System.out.println("Rule after moment "+candiDate+": "
+													+ (candiDate == hypCASCADE.size() ? "END" : hypCASCADE.get(candiDate)) ); 
+											System.out.println("Are you sure you want to move rule "+forkAt+" to here?"); 
+											char conf = '0';
+											while (!"yn".contains(conf+""))
+											{
+												System.out.println("Please enter 'y' or 'n' to confirm or not."); 
+												conf = inpu.nextLine().toLowerCase().charAt(0); 
+											}
+											if (conf == 'y')	relocdate = candiDate; 
+										}
+									}
+									
+									// unnecessary -- handled implicitly. 
+									//if ( deleteAt > relocdate ) deleteAt--;
+									//else	relocdate--; 
+									
+									insertions.add(new String[] {""+relocdate, removed.toString()} );
+									hypCASCADE.add( relocdate , removed);
+								}
+							}
+							if ("02".contains("resp")) // all the operations that involve insertion of a NEW rule.
+							{
+								
+								List<SChange> propShifts = null;
+								while(toSetBehavior) {
+									System.out.println("Please enter the new rule:");
+									String propRule = inpu.nextLine().replace("\n", ""); 
+									toSetBehavior = false;
+
+									try
+									{	propShifts = fac.generateSoundChangesFromRule(propRule); 	}
+									catch (Error e)
+									{
+										toSetBehavior = true;
+										System.out.println("Preempted error : "+e); 
+										System.out.println("You entered an invalid rule, clearly. All rules must be of form A -> B / X __ Y.");
+										System.out.println("Valid notations include [] () ()* ()+ {;} # @ ,");
+									}
+								}
+																
+								//actual insertions here.
+								// insert "backwards" so that intended order is preserved
+								while(propShifts.size() > 0)
+								{
+									SChange curr = propShifts.remove(propShifts.size()-1); 
+									insertions.add(new String[] {  "" +(forkAt + propShifts.size() ) ,
+											curr.toString() } );
+									hypCASCADE.add(forkAt,curr);
+								}
+								
+							}
+							
+							// data structure manipulation
+							
+							// update RULE_IND_MAP , propGoldLocs and propBlackLocs. 
+							
+							//now handle RULE_IND_MAP
+							// also handle propGoldLocs and propBlackLocs at the same time. 
+
+							if(resp.equals("3")) //relocdation -- handled separately from others. 
+							{
+								int relocdate = Integer.parseInt(insertions.get(0)[0]); 
+								boolean back = forkAt > relocdate;
+
+								RULE_IND_MAP[forkAt] = relocdate; 
+								
+								for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+								{
+									int curm = RULE_IND_MAP[rimi];
+									if (back && rimi != forkAt)
+									{	if ( curm >= relocdate && curm < forkAt )
+											RULE_IND_MAP[rimi] = curm + 1 ; }
+									else if (curm > forkAt && curm <= relocdate )
+										RULE_IND_MAP[rimi] = curm - 1; 
+								}
+								
+								if (NUM_GOLD_STAGES > 0)
+									for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+										if (propGoldLocs[gsi] > Math.min(relocdate, forkAt))
+											if (propGoldLocs[gsi] < Math.max(relocdate, forkAt))
+												propGoldLocs[gsi] = propGoldLocs[gsi] + (back?-1:1); 
+
+								if (NUM_BLACK_STAGES > 0)
+									for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+										if (propBlackLocs[bsi] > Math.min(relocdate, forkAt))
+											if (propBlackLocs[bsi] < Math.max(relocdate, forkAt))
+												propBlackLocs[bsi] = propBlackLocs[bsi] + (back?-1:1); 
+								
+							}
+							else if (resp.equals("2") && insertions.size() == 1) //single replacement modification
+							{	// no change in rule ind map or prop(Gold/Black)Locs. 
+							}
+							else
+							{
+								if(deleteAt != -1)
+								{
+									RULE_IND_MAP[deleteAt] = -1;
+									for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+										if (RULE_IND_MAP[rimi] > deleteAt)
+											RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] - 1; 
+									
+									if (NUM_GOLD_STAGES > 0)
+										for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+											if (propGoldLocs[gsi] >= deleteAt)
+												propGoldLocs[gsi] -= 1; 
+
+									if (NUM_BLACK_STAGES > 0)
+										for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+											if (propBlackLocs[bsi] >= deleteAt)
+												propBlackLocs[bsi] -= 1; 
+								}
+								if (insertions.size() > 0)
+								{
+									int insertLoc = Integer.parseInt(insertions.get(0)[0]),
+											increment = insertions.size(); 
+									for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+										if (RULE_IND_MAP[rimi] > insertLoc)
+											RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] + increment; 
+									
+									if (NUM_GOLD_STAGES > 0)
+										for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+											if (propGoldLocs[gsi] >= insertLoc)
+												propGoldLocs[gsi] += increment; 
+
+									if (NUM_BLACK_STAGES > 0)
+										for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+											if (propBlackLocs[bsi] >= insertLoc)
+												propBlackLocs[bsi] += increment; 
+								}											
+							}
+								
+								
+							
+							
+							// update proposedChanges while keeping it sorted by index of operation
+								// if there is a "tie" in index, we always list deletions first, then insertions.
+							 
+							// only way that an insertion could come before a deletion is in relocdation
+								// if we relocdate to an earlier date. 
+							
+							if("123".contains(resp)) //handling deletion for @varbl proposedChanges
+							{
+								int pcplace = proposedChanges.size(); 
+								boolean foundTargSpot = false; 
+								while (pcplace == 0 ? false : foundTargSpot)
+								{
+									
+									String[] prev = proposedChanges.get(pcplace - 1); 
+									int prevLoc = Integer.parseInt(prev[0]); 
+									if (deleteAt < prevLoc)	foundTargSpot = true; 
+									else if (deleteAt == prevLoc)
+										foundTargSpot = "deletion".equals(prev[1]); 
+									
+									if (!foundTargSpot)
+									{	
+										pcplace--; 
+										proposedChanges.set(pcplace, 
+												new String[] { ""+(prevLoc-1) , prev[1] } );
+									}
+								}
+								
+								if (pcplace == proposedChanges.size())	
+									proposedChanges.add(new String[] {""+deleteAt, "deletion"});
+								else
+									proposedChanges.add(pcplace, new String[] {""+deleteAt, "deletion"});	
+							}
+							
+							if("023".contains(resp))
+							{
+								int insertLoc = Integer.parseInt(insertions.get(0)[0]);
+								int pcplace = proposedChanges.size(); 
+								boolean foundTargSpot = false; 
+								int increment = insertions.size(); 
+								while (pcplace == 0 ? false : foundTargSpot)
+								{
+									String[] prev = proposedChanges.get(pcplace - 1); 
+									int prevLoc = Integer.parseInt(prev[0]); 
+									if (insertLoc <prevLoc ) foundTargSpot = true; 
+									else if (insertLoc == prevLoc)	foundTargSpot = "deletion".equals(prev[1]); 
+									
+									if (!foundTargSpot)
+									{	
+										pcplace--; 
+										proposedChanges.set(pcplace, 
+												new String[] { ""+(prevLoc+increment) , prev[1] } );
+									}
+								}
+								if (pcplace == proposedChanges.size())
+									proposedChanges.addAll(insertions); 
+								else	proposedChanges.addAll(pcplace, insertions);
+							}
+							
+							System.out.println("Would you like to make another change at this time? Enter 'y' or 'n'."); 
+							char conf = inpu.nextLine().toLowerCase().charAt(0); 
+							while (!"yn".contains(conf+""))
+							{
+								System.out.println("Please enter 'y' or 'n' to confirm or not."); 
+								conf = inpu.nextLine().toLowerCase().charAt(0); 
+							}
+							toSetBehavior = (conf == 'y'); 
+						}
+					}
+					//TODO here -- actual forking test simulation... 
 					
 					
 
