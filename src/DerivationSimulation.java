@@ -174,8 +174,6 @@ public class DerivationSimulation {
 		extractSymbDefs(); 
 		String nextLine; 
 		
-		
-		//TODO debugging
 		System.out.println("Now extracting info from feature implications file...");
 		
 		List<String> featImplLines = new ArrayList<String>(); 
@@ -537,10 +535,7 @@ public class DerivationSimulation {
 		//make output graphs file
 		System.out.println("making output graph file in "+dir);
 		makeOutGraphFile(); 
-		
-		System.out.println("Simulation complete!");
-		
-		//TODO fix this here to remove new bug.
+				
 		if(goldOutput)
 		{
 			haltMenu(-1, inp,theFactory);
