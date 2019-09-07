@@ -480,7 +480,7 @@ public class DerivationSimulation {
 				theSimulation.simulateToNextStage();
 				if(theSimulation.justHitGoldStage())
 				{
-					System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
+					System.out.println("Pausing at gold stage "+goldStageInd+": "+goldStageNames[goldStageInd]); 
 					System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
 					resp = inp.nextLine().substring(0,1); 
 					while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
@@ -488,35 +488,43 @@ public class DerivationSimulation {
 						System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
 						resp = inp.nextLine().substring(0,1); 
 					}
+					if(resp.equalsIgnoreCase("y"))	
+						haltMenu(goldStageInd, inp, theFactory);
+					goldStageInd++; 
 				}
 				else //hit black
 				{
-					
-				}
-				
-				
-			}
-			else	theSimulation.simulateToEnd(); 
-			
-			//TODO below in this loop is abrogated. 
-					
-					if (stage_pause)
-					{						
-						
-						if(resp.equalsIgnoreCase("y"))	
-							haltMenu(goldStageInd, inp, theFactory);
+					System.out.println("Hit black stage "+blackStageInd+": "+blackStageNames[blackStageInd]); 
+					System.out.println("Error analysis at black stages is not currently supported."); //TODO make it supported...
+					System.out.println("Print latest developments from last stage? Please enter 'y' or 'n'.");
+					while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
+					{
+						System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
+						resp = inp.nextLine().substring(0,1); 
 					}
-					goldStageInd++;
-				}
-			}
-			if(blackStageInd<NUM_BLACK_STAGES && !goldhere)
-			{
-				if(ri + 1 == blackStageInstants[blackStageInd])
-				{
-					blackStageResultLexica[blackStageInd] = new Lexicon(testResultLexicon.getWordList());
+					if(resp.equalsIgnoreCase("y"))	
+					{
+						Lexicon prevLex = theSimulation.getInput(); 
+						String prstname = "Input";
+						
+						if (goldStageInd + blackStageInd > 0)
+						{
+							boolean lastWasBlack = (goldStageInd > 0 && blackStageInd > 0) ? 
+									(goldStageInstants[goldStageInd-1] < blackStageInstants[blackStageInd-1])
+									: blackStageInd > 0; 
+							prevLex = theSimulation.getStageResult(!lastWasBlack, (lastWasBlack ? blackStageInd : goldStageInd) - 1);
+							prstname = lastWasBlack ? blackStageNames[blackStageInd-1] : goldStageNames[goldStageInd -1]; 
+						}
+						
+						String bd = "\t,\t"; 
+						System.out.println("etymID"+bd+"Input"+bd+"Last stage: "+prstname+""+bd+"Curr stage: "+blackStageNames[blackStageInd]);
+						for (int i = 0 ; i < NUM_ETYMA ; i++)
+							System.out.println(i+bd+inputForms[i]+bd+prevLex.getByID(i)+bd+theSimulation.getCurrentForm(i));
+					}
 					blackStageInd++; 
 				}
 			}
+			else	theSimulation.simulateToEnd(); 
 		}
 		
 		System.out.println("Simulation complete.");

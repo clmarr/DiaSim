@@ -143,6 +143,7 @@ public class Simulation {
 	//accessors follow
 	public Lexicon getInput()	{	return inputLexicon;	}
 	public Lexicon getCurrentResult()	{	return currLexicon;	}
+	public LexPhon getCurrentForm(int id)	{	return currLexicon.getByID(id);	}
 	public Lexicon getGoldOutput()		{	
 		assert goldOutput : "Error: called for gold outputs but none are set"; 
 		return goldOutputLexicon;	}
