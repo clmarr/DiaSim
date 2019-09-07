@@ -566,11 +566,6 @@ public class DerivationSimulation {
 		inp.close();
 	}
 
-	private static String printStageOutsForEtymon( int etymID)
-	{
-		return theSimulation.printStageOutsForEt(etymID); 
-	}
-	
 	private static void makeOutGraphFile()
 	{
 		String toFile = "etymID" + STAGE_PRINT_DELIM + "initial forms" + STAGE_PRINT_DELIM; 
@@ -581,11 +576,8 @@ public class DerivationSimulation {
 		toFile += "result" + (goldOutput ? STAGE_PRINT_DELIM + " gold" : "") ; 	
 		
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
-		{
-			toFile += "\n"+i+STAGE_PRINT_DELIM+initLexicon.getByID(i) ;  
-			if(NUM_GOLD_STAGES > 0 )	toFile += printStageOutsForEtymon(i); 
-			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldOutputLexicon.getByID(i) : "") ;
-		}
+			toFile += "\n"+i+STAGE_PRINT_DELIM
+					+ theSimulation.printStageOutsForEt(i);
 
 		//TODO debugging
 		System.out.println("Out graph...\n"+toFile);

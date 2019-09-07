@@ -189,7 +189,7 @@ public class Simulation {
 		}
 	}
 	
-	public String printStageOutsForEt(int ID)
+	public String stageOutsForEt(int ID)
 	{
 		String toRet = ""; 
 		for (String st : stIndex)
@@ -208,6 +208,25 @@ public class Simulation {
 		}
 		return toRet.substring(0, toRet.length()-3); 
 	}
+	
+	public String stageOutHeader()
+	{
+		String toRet = ""; 
+		for(String st : stIndex)
+		{
+			if (st.equals("in"))	toRet += "Input";
+			else if (st.equals("out"))	toRet += "Output [REFERENCE]";
+			else
+			{
+				boolean isg = st.charAt(0) == 'g'; 
+				int stn = Integer.parseInt(st.substring(1)); 
+				toRet += isg ? goldStageNames[stn] + " [REFERENCE]" : blackStageNames[stn];
+			}
+			toRet += " | "; 
+		}
+		return toRet.substring(0, toRet.length()-3); 
+	}
+	
 	
 
 }
