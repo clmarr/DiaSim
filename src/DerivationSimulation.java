@@ -38,16 +38,18 @@ public class DerivationSimulation {
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
 	private static LexPhon[] inputForms; 
+	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static String[] goldStageNames, blackStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
+	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
-		//TODO abrogate wordTrajectories. 
+	
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
 	private static boolean[] finMissInds; //each index true if the word for this index
@@ -449,7 +451,7 @@ public class DerivationSimulation {
 		
 		//TODO possibly redundant -- remove?
 		if(goldOutput)	
-			goldResultLexicon = new Lexicon(goldResults); 
+			goldOutputLexicon = new Lexicon(goldResults); 
 		
 		System.out.println("Lexicon extracted.");
 
@@ -538,10 +540,10 @@ public class DerivationSimulation {
 			System.out.println("Writing analysis files...");
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
-			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldResultLexicon, featsByIndex, 
+			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 			ea.makeAnalysisFile("testResultAnalysis.txt", false, testResultLexicon);
-			ea.makeAnalysisFile("goldAnalysis.txt",true,goldResultLexicon);
+			ea.makeAnalysisFile("goldAnalysis.txt",true,goldOutputLexicon);
 			
 			if(goldStagesSet)
 			{	
@@ -581,7 +583,7 @@ public class DerivationSimulation {
 		{
 			toFile += "\n"+i+STAGE_PRINT_DELIM+initLexicon.getByID(i) ;  
 			if(NUM_GOLD_STAGES > 0 )	toFile += printStageOutsForEtymon(i); 
-			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldResultLexicon.getByID(i) : "") ;
+			toFile += ""+STAGE_PRINT_DELIM + testResultLexicon.getByID(i) + (goldOutput ? ""+STAGE_PRINT_DELIM+ goldOutputLexicon.getByID(i) : "") ;
 		}
 
 		//TODO debugging
@@ -610,7 +612,7 @@ public class DerivationSimulation {
 			String filename = new File(runPrefix, new File("trajectories","etym"+wi+".txt").toString()).toString(); 
 			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
 				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
-				+ (goldOutput ? " ( Correct : "+goldResultLexicon.getByID(wi)+") :\n"  : ":\n")
+				+ (goldOutput ? " ( Correct : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+wordTrajectories[wi]+"\n";
 			writeToFile(filename, output); 
 		}
@@ -780,7 +782,7 @@ public class DerivationSimulation {
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
 		Lexicon r = theSimulation.getCurrentResult();
-		Lexicon g = (curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt]; 
+		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -849,7 +851,7 @@ public class DerivationSimulation {
 					
 					evalStage = resp.equals("F") ? curSt : Integer.parseInt(resp); 
 					r = resp.equals("F") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
-					g = (curSt == -1 && resp.equals("F") ) ? goldResultLexicon : goldStageGoldLexica[evalStage];
+					g = (curSt == -1 && resp.equals("F") ) ? goldOutputLexicon : goldStageGoldLexica[evalStage];
 					boolean filtered = ea.isFiltSet();
 					boolean focused = ea.isFocSet(); 
 					
@@ -911,7 +913,7 @@ public class DerivationSimulation {
 						else if (resp.charAt(0) == 'R')
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = toyDerivationResults(initLexicon.getWordList(),CASCADE.subList(0, focPtLoc));
+							focPtLex = toyDerivationResults(inputForms,CASCADE.subList(0, focPtLoc));
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -924,9 +926,9 @@ public class DerivationSimulation {
 								focPtName = "";
 								focPtSet = false; 
 							}
-							else	focPtLex = resp.equals("In") ? initLexicon : 
+							else	focPtLex = resp.equals("In") ? theSimulation.getInput() : 
 								resp.equals("Out") ? theSimulation.getCurrentResult() :
-									(curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt];
+									(curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt];
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 							ea.setFocus(focPtLex,focPtName);
@@ -962,7 +964,7 @@ public class DerivationSimulation {
 					
 					if(!fail)
 					{
-						System.out.println("Success: now making subsample with filter "+goldResultLexiconfilterSeq.toString());
+						System.out.println("Success: now making subsample with filter "+filterSeq.toString());
 						System.out.println("(Pivot moment name: "+focPtName+")");
 						
 						//TODO debugging
@@ -1028,15 +1030,15 @@ public class DerivationSimulation {
 						else
 						{
 							if(prompt)	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
-							else if(resp.equals("1"))	System.out.println(initLexicon.getByID(theID)); 
-							else 	System.out.println(""+wordTrajectories[theID]);
+							else if(resp.equals("1"))	System.out.println(inputForms[theID]); 
+							else 	System.out.println(""+theSimulation.getDerivation(theID));
 						}
 					}
 					else if(resp.equals("2"))
 					{
 						System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
 						for (int i = 0 ; i < r.getWordList().length ; i++)
-							System.out.println(""+i+STAGE_PRINT_DELIM+initLexicon.getByID(i)+STAGE_PRINT_DELIM+goldResultLexicon.getByID(i));
+							System.out.println(""+i+STAGE_PRINT_DELIM+inputForms[i]+STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
 					}
 					else if(resp.equals("5"))
 					{
@@ -1092,7 +1094,7 @@ public class DerivationSimulation {
 					else if(resp.equals("1"))
 					{
 						System.out.println("Printing all etyma: Input," + (ea.isFocSet() ? focPtName+"," : "")+"Result, Gold"); 
-						ea.printFourColGraph(initLexicon);	
+						ea.printFourColGraph(theSimulation.getInput());	
 					}
 					else if(resp.equals("2"))
 					{
@@ -1235,57 +1237,58 @@ public class DerivationSimulation {
 						{
 							System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
 							for (int i = 0 ; i < r.getWordList().length ; i++)
-								System.out.println(""+i+STAGE_PRINT_DELIM+initLexicon.getByID(i)+STAGE_PRINT_DELIM+goldResultLexicon.getByID(i));
+								System.out.println(""+i+STAGE_PRINT_DELIM+inputForms[i]+STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
 						}
 						else
 						{
-							String entry = resp.substring(9);
-							
+							int cutPoint = 9; 
 							if(resp.substring(0,9).equals("get rule ")) {
-								if(entry.length() >= 4) {
-									if(entry.substring(0,4).equals("at ")) {
-										int theInd = getValidInd(entry.substring(4), CASCADE.size() );
-										if (theInd > -1) printRuleAt(theInd); }
-									if(entry.length() >= 8) {
-										if(entry.substring(0,8).equals("effect ")) {
-											//TODO here
-											ERROR ERROR
-										} } } 
-								boolean noMatches = true; 
-								for(int ci = 0; ci < CASCADE.size(); ci++)
-								{
-									if (CASCADE.get(ci).toString().contains(entry))
-										System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
+								if (resp.length() >= 13)
+								{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+									else if (resp.length() < 17 ? false : resp.substring(9,16).equals("effect "))
+										cutPoint = 16;
 								}
-								if(noMatches)	System.out.println("No matches found.");
-								
+								String entry = resp.substring(cutPoint); 
+								if (cutPoint > 9)
+								{
+									int theInd = getValidInd(entry, CASCADE.size());
+									if(cutPoint == 12)	printRuleAt(theInd);
+									else /*curPoint == 16*/	if (theInd > -1)	theSimulation.getRuleEffect(theInd); 
+								}
+								else
+								{	boolean noMatches = true; 
+									for(int ci = 0; ci < CASCADE.size(); ci++)
+										if (CASCADE.get(ci).toString().contains(entry))
+											System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
+									if(noMatches)	System.out.println("No matches found.");
+								}
 							}
 							if(resp.substring(0,9).equals("get etym ")) {
-								if(entry.length() >= 4) {
-									if(entry.substring(0,4).equals("at ")) {
-										int theInd = getValidInd(entry.substring(4), NUM_ETYMA - 1 );
-										if (theInd > -1) System.out.println(initLexicon.getByID(theInd)); 
-										else	System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
-									}
-									if(entry.length() >= 12) {
-										if(entry.substring(0,8).equals("derivation ")) {
-											int theInd = getValidInd(entry.substring(11), NUM_ETYMA - 1); 
-											if (theInd > -1)	System.out.println(""+wordTrajectories[theInd]);
-											else
-												System.out.println("Error: invalid etymon index; there are only "
-														+NUM_ETYMA+" etyma.\nReturning to forking test menu.");
-									} } } 
-								LexPhon query = null; boolean validLexPhon = true;
-								try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
-								catch (Exception e){
-									System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
-									validLexPhon = false;
+								if (resp.length() >= 13)
+								{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+									else if (resp.length() < 21 ? false : resp.substring(9,20).equals("derivation "))
+										cutPoint = 20;
 								}
-								if(validLexPhon)
+								String entry = resp.substring(cutPoint); 
+								if (cutPoint > 9)
 								{
-									LexPhon[] wl = initLexicon.getWordList();
-									String inds = etymInds(wl, query);
-									System.out.println("Ind(s) with this word as input : "+inds);  
+									int theInd = getValidInd(entry, NUM_ETYMA - 1); 
+									if (cutPoint == 12 && theInd > -1)	System.out.println(inputForms[theInd]);
+									else /* cutPoint == 20 */ if (theInd > -1)	System.out.println(theSimulation.getDerivation(theInd)); 
+									else System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
+								}
+								else
+								{	LexPhon query = null; boolean validLexPhon = true;
+									try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
+									catch (Exception e){
+										System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
+										validLexPhon = false;
+									}
+									if(validLexPhon)
+									{
+										String inds = etymInds(inputForms, query);
+										System.out.println("Ind(s) with this word as input : "+inds);  
+									}
 								}
 							}
 							else	System.out.println(errorMessage); 
@@ -1605,8 +1608,8 @@ public class DerivationSimulation {
 				if(ph.getType().equals("phone"))
 				{					
 					totalLevenshtein[phonemeIndices.get(ph.print())] += 
-							ErrorAnalysis.levenshteinDistance(testResultLexicon.getByID(li),
-									goldResultLexicon.getByID(li)) / (double)goldResultLexicon.getByID(li).getNumPhones() ;
+							ErrorAnalysis.levenshteinDistance(theSimulation.getCurrentResult().getByID(li),
+									goldOutputLexicon.getByID(li)) / (double)goldOutputLexicon.getByID(li).getNumPhones() ;
 				}
 			}
 		}
@@ -1647,8 +1650,8 @@ public class DerivationSimulation {
 			{
 				if(ph.getType().equals("phone"))
 				{
-					distMeasure.compute(testResultLexicon.getByID(li),
-							goldResultLexicon.getByID(li));
+					distMeasure.compute(theSimulation.getCurrentResult().getByID(li),
+							goldOutputLexicon.getByID(li));
 					totalFED[phonemeIndices.get(ph.print())] += distMeasure.getFED();
 				}
 			}
