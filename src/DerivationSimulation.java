@@ -45,7 +45,7 @@ public class DerivationSimulation {
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
 	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
-	private static int[] goldStageTimeInstants, blackStageTimeInstants; // i.e. the index of custom stages in the ordered rule set
+	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
 	
@@ -82,6 +82,7 @@ public class DerivationSimulation {
 	private static double[] FT_WTS; 
 	
 	private static List<SChange> CASCADE;
+	private static Simulation theSimulation; 
 	
 	private static void extractSymbDefs()
 	{
@@ -305,13 +306,14 @@ public class DerivationSimulation {
 			System.out.println(""); 
 		}
 		
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
-		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES];
-		blackStageResultLexica =new Lexicon[NUM_BLACK_STAGES];
+		LexPhon[][] goldStageGoldFormSets = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; 
+		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES]; 
+		blackStageResultLexica = new Lexicon[NUM_BLACK_STAGES]; 
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		blackStageNames = new String[NUM_BLACK_STAGES];
-		goldStageTimeInstants = new int[NUM_GOLD_STAGES]; 
-		blackStageTimeInstants = new int[NUM_BLACK_STAGES]; 
+		goldStageInstants = new int[NUM_GOLD_STAGES]; 
+		blackStageInstants = new int[NUM_BLACK_STAGES]; 
 		
 		// parse the rules
 		CASCADE = new ArrayList<SChange>();
@@ -337,7 +339,7 @@ public class DerivationSimulation {
 				if (cri == next_gold)
 				{
 					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[0];
-					goldStageTimeInstants[gsgi] = CASCADE.size();		
+					goldStageInstants[gsgi] = CASCADE.size();		
 					gsgi += 1;
 					if ( gsgi < NUM_GOLD_STAGES)
 						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
@@ -349,7 +351,7 @@ public class DerivationSimulation {
 				if (cri == next_black)
 				{
 					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[0];
-					blackStageTimeInstants[bsgi] = CASCADE.size();
+					blackStageInstants[bsgi] = CASCADE.size();
 					bsgi += 1;
 					if (bsgi < NUM_BLACK_STAGES)
 						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
@@ -393,6 +395,8 @@ public class DerivationSimulation {
 			System.out.println("IO Exception!");
 			e.printStackTrace();
 		}
+
+		
 		
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
@@ -403,7 +407,7 @@ public class DerivationSimulation {
 		int numCols = 1; 
 		while (firstlineproxy.contains(""+LEX_DELIM))
 		{	numCols++; 
-			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1);
+			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1); 
 		}
 		goldOutput =false; 
 		if(numCols == NUM_GOLD_STAGES + 2)
@@ -415,8 +419,8 @@ public class DerivationSimulation {
 		boolean justInput = (numCols == 0); 
 		
 		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  //TODO may be unnecessary, if so delete. 
-		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>(); //TODO may be unnecessary, if so delete.
+		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
+		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>(); 
 		if (NUM_GOLD_STAGES >0)
 			for (int gsi = 0 ; gsi<NUM_GOLD_STAGES; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
 		
@@ -441,6 +445,11 @@ public class DerivationSimulation {
 			if(lfli <NUM_ETYMA)
 				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
 		}
+		
+		theSimulation = new Simulation(inputs, CASCADE); 
+		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
+		if (goldOutput)	theSimulation.setGold(goldResults);
+		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
 		
 		initLexicon = new Lexicon(inputs); 
 		testResultLexicon = new Lexicon(inputs); // this one will "evolve" with "time" 
@@ -474,7 +483,7 @@ public class DerivationSimulation {
 			boolean goldhere = false; 
 			if(goldStageInd < NUM_GOLD_STAGES)
 			{
-				if ( ri  + 1 == goldStageTimeInstants[goldStageInd])
+				if ( ri  + 1 == goldStageInstants[goldStageInd])
 				{
 					goldhere = true; 
 					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
@@ -498,7 +507,7 @@ public class DerivationSimulation {
 			}
 			if(blackStageInd<NUM_BLACK_STAGES && !goldhere)
 			{
-				if(ri + 1 == blackStageTimeInstants[blackStageInd])
+				if(ri + 1 == blackStageInstants[blackStageInd])
 				{
 					blackStageResultLexica[blackStageInd] = new Lexicon(testResultLexicon.getWordList());
 					blackStageInd++; 
@@ -753,7 +762,7 @@ public class DerivationSimulation {
 		if(blackStagesSet)
 			for(int bsi = first; bsi < last + 1; bsi++)
 				System.out.println(bsi+": "+(prepend ? "b":"")+
-					blackStageNames[bsi]+" (@rule #: "+blackStageTimeInstants[bsi]+")");
+					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")");
 	}
 	
 	private static void printTheseGoldStages(int firstToPrint, int lastToPrint)
@@ -761,7 +770,7 @@ public class DerivationSimulation {
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
 				System.out.println(gsi+": "+
-					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageTimeInstants[gsi]+")");
+					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageInstants[gsi]+")");
 	}
 	
 	private static List<String> validBlackStageOptions(int first, int last, boolean prepend)
@@ -798,7 +807,7 @@ public class DerivationSimulation {
 		
 		int lastGoldOpt = (curSt == -1 ? NUM_GOLD_STAGES : curSt) - 1;
 		int lastBlkOpt = NUM_BLACK_STAGES - 1;
-		while((lastBlkOpt < 0 || curSt < 0) ? false : blackStageTimeInstants[lastBlkOpt] > goldStageTimeInstants[curSt])
+		while((lastBlkOpt < 0 || curSt < 0) ? false : blackStageInstants[lastBlkOpt] > goldStageInstants[curSt])
 			lastBlkOpt--;
 		
 		boolean cont = true; 
@@ -901,7 +910,7 @@ public class DerivationSimulation {
 						{
 							int si = Integer.parseInt(resp.substring(1));
 							focPtLex = goldStageGoldLexica[si]; 
-							focPtLoc = goldStageTimeInstants[si];
+							focPtLoc = goldStageInstants[si];
 							focPtName = goldStageNames[si]+" [r"+focPtLoc+"]";
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -909,7 +918,7 @@ public class DerivationSimulation {
 						{
 							int si = Integer.parseInt(resp.substring(1));
 							focPtLex = blackStageResultLexica[si]; 
-							focPtLoc = blackStageTimeInstants[si];
+							focPtLoc = blackStageInstants[si];
 							focPtName = blackStageNames[si]+" [r"+focPtLoc+"]";
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -1138,8 +1147,8 @@ public class DerivationSimulation {
 				int overallLastMoment = CASCADE.size(); 
 				
 				for (int i = 0; i < CASCADE.size()+1; i++)	RULE_IND_MAP[i] = i; //initialize each.
-				for (int i = 0; i < NUM_GOLD_STAGES; i++)	propGoldLocs[i] = goldStageTimeInstants[i];
-				for (int i = 0; i < NUM_BLACK_STAGES; i++)	propBlackLocs[i] = blackStageTimeInstants[i];
+				for (int i = 0; i < NUM_GOLD_STAGES; i++)	propGoldLocs[i] = goldStageInstants[i];
+				for (int i = 0; i < NUM_BLACK_STAGES; i++)	propBlackLocs[i] = blackStageInstants[i];
 				
 				boolean subcont = true; 
 				while(subcont) {
