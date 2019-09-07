@@ -15,47 +15,42 @@ public class Simulation {
 	private int NUM_ETYMA; 
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES; 
 	
-	private int instant, stepPrinterval; 
+	private int instant, stepPrinterval, TOTAL_STEPS; 
 	private int goldStageInd, blackStageInd; // default 0
 	
 	private String[][] ruleEffects; 
 	private String[] etDerivations; 
 	
 	private boolean opaque; 
-	private boolean hasGold; 
+	private boolean goldOutput; 
 
-	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations)
+	public void initialize(LexPhon[] inputForms, List<SChange> casc)
 	{
 		inputLexicon = new Lexicon(inputForms); 
 		currLexicon = new Lexicon(inputForms); 
 		CASCADE = new ArrayList<SChange>(casc); 
-		hasGold = false; 
+		TOTAL_STEPS = CASCADE.size(); 
+		goldOutput = false; 
 		NUM_ETYMA = inputLexicon.getWordList().length; 
+		NUM_GOLD_STAGES = 0;
+		NUM_BLACK_STAGES = 0; 
 		stepPrinterval = 0; 
 		opaque = true; 
-		goldStageNames = new String[0]; 
-		blackStageNames = new String[0]; 
-		goldStageInstants = new int[0];
-		blackStageInstants = new int[0];
 		ruleEffects = new String[CASCADE.size()][NUM_ETYMA];
+		instant = 0; 
+		goldStageInd = 0; 
+		blackStageInd = 0; 
+	}
+	
+	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations)
+	{
+		initialize(inputForms, casc); 
 		etDerivations = initializedDerivations; 
 	}
 	
 	public Simulation(LexPhon[] inputForms, List<SChange> casc)
 	{
-		inputLexicon = new Lexicon(inputForms); 
-		currLexicon = new Lexicon(inputForms); 
-		CASCADE = new ArrayList<SChange>(casc); 
-		hasGold = false; 
-		NUM_ETYMA = inputLexicon.getWordList().length; 
-		stepPrinterval = 0; 
-		opaque = true; 
-		goldStageNames = new String[0]; 
-		blackStageNames = new String[0]; 
-		goldStageInstants = new int[0];
-		blackStageInstants = new int[0];
-		ruleEffects = new String[CASCADE.size()][NUM_ETYMA];
-
+		initialize(inputForms,casc);
 		etDerivations = new String[NUM_ETYMA];
 		for (int eti = 0; eti < NUM_ETYMA ; eti++)
 			etDerivations[eti] = inputForms[eti].print(); 
@@ -65,12 +60,11 @@ public class Simulation {
 	public void setGold(LexPhon[] golds)
 	{
 		goldOutputLexicon = new Lexicon(golds); 
-		hasGold = true; 
+		goldOutput = true; 
 	}
 	
 	public void setGoldStages(LexPhon[][] stageForms, String[] names, int[] times)
 	{
-		hasGold = true; 
 		goldStageInstants = times;
 		goldStageNames = names; 
 		goldStageGoldLexica = new Lexicon[stageForms.length] ;
@@ -108,7 +102,8 @@ public class Simulation {
 			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 				if (etChanged[wi])
 					System.out.println("etym "+wi+" is now : "+currLexicon.getByID(wi)
-						+"\t\t[ "+inputLexicon.getByID(wi)+" >>> "+goldOutputLexicon.getByID(wi)+" ]");
+						+"\t\t[ "+inputLexicon.getByID(wi)
+						+ (goldOutput ? " >>> "+goldOutputLexicon.getByID(wi) : "") +" ]");
 		}
 		
 		instant++; 
@@ -131,16 +126,25 @@ public class Simulation {
 		}	
 	}
 	
-	public void simulate()
+	//TODO : method to simulate until manual halting point?
+	
+	public void simulateToNextStage()
 	{
-		while (instant < CASCADE.size())	iterate(); 
+		int prevgsi = goldStageInd + 0 , prevbsi = blackStageInd + 0 ;
+		while(prevgsi == goldStageInd && prevbsi == blackStageInd && instant < TOTAL_STEPS)
+			iterate(); 		
+	}
+	
+	public void simulateToEnd()
+	{
+		while (instant < TOTAL_STEPS)	iterate(); 
 	}
 	
 	//accessors follow
 	public Lexicon getInput()	{	return inputLexicon;	}
 	public Lexicon getCurrentResult()	{	return currLexicon;	}
 	public Lexicon getGoldOutput()		{	
-		assert hasGold : "Error: called for gold outputs but none are set"; 
+		assert goldOutput : "Error: called for gold outputs but none are set"; 
 		return goldOutputLexicon;	}
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
 	{
@@ -154,8 +158,13 @@ public class Simulation {
 	public String[][] getAllRuleEffects()	{	return ruleEffects;	}
 	public String[] getRuleEffect(int instant)	{	return ruleEffects[instant];	}
 	
-	public boolean simulationComplete()
+	public boolean isComplete()
 	{	return instant < CASCADE.size();	}
+	public boolean justHitGoldStage()
+	{
+		//goldStageInd gets incremented upon hitting a stage in simulate() -- if it is 0 there are no gold stages or we haven't hit one yet
+		return goldStageInd == 0 ? false : instant == goldStageInstants[goldStageInd-1]; 
+	}
 	
 
 }

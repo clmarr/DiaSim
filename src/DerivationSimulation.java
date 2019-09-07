@@ -37,18 +37,17 @@ public class DerivationSimulation {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
-	private static Lexicon initLexicon, testResultLexicon, goldResultLexicon;
+	private static LexPhon[] inputForms; 
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static String[] goldStageNames, blackStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
-	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
-	
+		//TODO abrogate wordTrajectories. 
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
 	private static boolean[] finMissInds; //each index true if the word for this index
@@ -465,7 +464,6 @@ public class DerivationSimulation {
 
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
-		int ri = 0, numRules = CASCADE.size(); //for iteration.
 		
 		makeRulesLog(CASCADE);
 		
@@ -474,29 +472,35 @@ public class DerivationSimulation {
 		
 		System.out.println("Now running simulation...");
 
-		while (ri < numRules)
-		{
-			SChange thisShift =  CASCADE.get(ri);
-			
-			boolean goldhere = false; 
-			if(goldStageInd < NUM_GOLD_STAGES)
-			{
-				if ( ri  + 1 == goldStageInstants[goldStageInd])
+		while (!theSimulation.isComplete())
+		{	
+			if(stage_pause){
+				theSimulation.simulateToNextStage();
+				if(theSimulation.justHitGoldStage())
 				{
-					goldhere = true; 
-					testResultLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
-					goldStageResultLexica[goldStageInd] = new Lexicon(testResultLexicon.getWordList());
+					System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
+					System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
+					resp = inp.nextLine().substring(0,1); 
+					while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
+					{
+						System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
+						resp = inp.nextLine().substring(0,1); 
+					}
+				}
+				else //hit black
+				{
+					
+				}
+				
+				
+			}
+			else	theSimulation.simulateToEnd(); 
+			
+			//TODO below in this loop is abrogated. 
 					
 					if (stage_pause)
 					{						
-						System.out.println("Pausing at gold stage "+goldStageInd+", "+goldStageNames[goldStageInd]); 
-						System.out.println("Run accuracy analysis here? Enter 'y' or 'n'"); 
-						resp = inp.nextLine().substring(0,1); 
-						while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
-						{
-							System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
-							resp = inp.nextLine().substring(0,1); 
-						}
+						
 						if(resp.equalsIgnoreCase("y"))	
 							haltMenu(goldStageInd, inp, theFactory);
 					}
@@ -511,22 +515,6 @@ public class DerivationSimulation {
 					blackStageInd++; 
 				}
 			}
-			
-			boolean[] wordsChanged = testResultLexicon.applyRuleAndGetChangedWords(thisShift);
-			for(int wi = 0 ; wi < NUM_ETYMA ; wi++)
-				if (wordsChanged[wi])
-					wordTrajectories[wi]+= "\n"+testResultLexicon.getByID(wi)+" | Rule "+ri+" : "+thisShift;
-			
-			if(print_changes_each_rule)
-			{	
-				System.out.println("Words changed for rule "+ri+" "+thisShift); 
-				for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
-					if (wordsChanged[wi])
-					{	
-						System.out.println("etym "+wi+" is now : "+testResultLexicon.getByID(wi)+"\t\t[ "+initLexicon.getByID(wi)+" >>> "+goldResultLexicon.getByID(wi)+" ]");
-					}
-			}
-			ri++;
 		}
 		
 		System.out.println("Simulation complete.");
@@ -791,7 +779,7 @@ public class DerivationSimulation {
 	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage(Gold/Result)Lexica
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
-		Lexicon r = testResultLexicon;
+		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt]; 
 		
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
@@ -860,7 +848,7 @@ public class DerivationSimulation {
 					}
 					
 					evalStage = resp.equals("F") ? curSt : Integer.parseInt(resp); 
-					r = resp.equals("F") ? testResultLexicon : goldStageResultLexica[evalStage];
+					r = resp.equals("F") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
 					g = (curSt == -1 && resp.equals("F") ) ? goldResultLexicon : goldStageGoldLexica[evalStage];
 					boolean filtered = ea.isFiltSet();
 					boolean focused = ea.isFocSet(); 
@@ -915,7 +903,7 @@ public class DerivationSimulation {
 						else if (resp.charAt(0) == 'b')
 						{
 							int si = Integer.parseInt(resp.substring(1));
-							focPtLex = blackStageResultLexica[si]; 
+							focPtLex = theSimulation.getStageResult(false, si);
 							focPtLoc = blackStageInstants[si];
 							focPtName = blackStageNames[si]+" [r"+focPtLoc+"]";
 							ea.setFocus(focPtLex, focPtName); 
@@ -937,7 +925,7 @@ public class DerivationSimulation {
 								focPtSet = false; 
 							}
 							else	focPtLex = resp.equals("In") ? initLexicon : 
-								resp.equals("Out") ? testResultLexicon :
+								resp.equals("Out") ? theSimulation.getCurrentResult() :
 									(curSt == -1) ? goldResultLexicon : goldStageGoldLexica[curSt];
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -974,7 +962,7 @@ public class DerivationSimulation {
 					
 					if(!fail)
 					{
-						System.out.println("Success: now making subsample with filter "+filterSeq.toString());
+						System.out.println("Success: now making subsample with filter "+goldResultLexiconfilterSeq.toString());
 						System.out.println("(Pivot moment name: "+focPtName+")");
 						
 						//TODO debugging
@@ -1017,7 +1005,7 @@ public class DerivationSimulation {
 						}
 						if(!prompt)
 						{
-							LexPhon[] wl = initLexicon.getWordList();
+							LexPhon[] wl = inputForms;
 							String inds = etymInds(wl, query);
 							System.out.println("Ind(s) with this word as input : "+inds);  
 						}
