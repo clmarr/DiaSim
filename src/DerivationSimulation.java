@@ -84,6 +84,8 @@ public class DerivationSimulation {
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
 	
+	private static final int PRINTERVAL = 100; 
+	
 	private static void extractSymbDefs()
 	{
 
@@ -446,20 +448,22 @@ public class DerivationSimulation {
 				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
 		}
 		
-		theSimulation = new Simulation(inputs, CASCADE); 
-		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
-		if (goldOutput)	theSimulation.setGold(goldResults);
-		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
-		
-		initLexicon = new Lexicon(inputs); 
-		testResultLexicon = new Lexicon(inputs); // this one will "evolve" with "time" 
-		
+
+		//TODO possibly redundant -- remove?
 		if(NUM_GOLD_STAGES > 0)
 			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 				goldStageGoldLexica[gsi] = new Lexicon(goldForms.get(gsi)); 
 		
+		
+		//TODO possibly redundant -- remove?
 		if(goldOutput)	
 			goldResultLexicon = new Lexicon(goldResults); 
+		
+		theSimulation = new Simulation(inputs, CASCADE); 
+		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
+		if (goldOutput)	theSimulation.setGold(goldResults);
+		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
+		theSimulation.setStepPrinterval(PRINTERVAL); 
 		
 		System.out.println("Lexicon extracted.");
 		System.out.println("Now running simulation...");
@@ -476,8 +480,6 @@ public class DerivationSimulation {
 		
 		while (ri < numRules)
 		{
-			if(ri % 100 == 0)	System.out.println("On rule number "+ri);
-				
 			SChange thisShift =  CASCADE.get(ri);
 			
 			boolean goldhere = false; 

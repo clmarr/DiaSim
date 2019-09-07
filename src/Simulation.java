@@ -40,6 +40,7 @@ public class Simulation {
 		goldStageInstants = new int[0];
 		blackStageInstants = new int[0];
 	}
+	public void setOpacity(boolean opa)	{	opaque = opa;	}
 	
 	public void setGold(LexPhon[] golds)
 	{
@@ -65,9 +66,11 @@ public class Simulation {
 		blackStageResultLexica = new Lexicon[names.length];
 	}	
 	
+	public void setStepPrinterval(int newsp)	{	stepPrinterval = newsp;	}
+	
 	public void iterate()
 	{
-		if (instant % stepPrinterval == 0)	System.out.println("On rule number "+instant); 
+		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0)	System.out.println("On rule number "+instant); 
 		SChange thisShift = CASCADE.get(instant); 
 		LexPhon[] prevForms = currLexicon.getWordList(); 
 		
