@@ -590,7 +590,7 @@ public class DerivationSimulation {
 			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
 				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
 				+ (goldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
-					+wordTrajectories[wi]+"\n";
+					+theSimulation.getDerivation(wi)+"\n";
 			writeToFile(filename, output); 
 		}
 	}
@@ -647,7 +647,7 @@ public class DerivationSimulation {
 		return output; 
 	}
 	
-	/**
+	/** auxiliary.
 	 * given String @param toLex
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
@@ -690,6 +690,8 @@ public class DerivationSimulation {
 		return c; 
 	}
 	
+	
+	//TODO remove or use. 
 	private static int numFalse (boolean[] boolarray)
 	{
 		//TODO debugging
@@ -701,6 +703,7 @@ public class DerivationSimulation {
 		return count; 
 	}
 	
+	//auxiliary
 	private static void writeToFile(String filename, String output)
 	{	try 
 		{	FileWriter outFile = new FileWriter(filename); 
@@ -890,7 +893,7 @@ public class DerivationSimulation {
 						else if (resp.charAt(0) == 'R')
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = toyDerivationResults(inputForms,CASCADE.subList(0, focPtLoc));
+							focPtLex = toyDerivation(inputForms,CASCADE.subList(0, focPtLoc)).getCurrentResult();
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -1777,12 +1780,12 @@ public class DerivationSimulation {
 		return out;
 	}
 	
-	public static Lexicon toyDerivationResults(LexPhon[] inps, List<SChange> ruleCascade )
+	//TODO remake this. 
+	public static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade )
 	{
-		Lexicon out = new Lexicon(inps);
-		for (SChange rule : ruleCascade)
-		{	boolean[] etymsAff = out.applyRuleAndGetChangedWords(rule);	} 
-		return out; 
+		Simulation toy = new Simulation(inps, ruleCascade); 
+		toy.simulateToEnd();
+		return toy; 
 	}
 	
 	private static String etymInds(LexPhon[] etList, LexPhon etTarg)
