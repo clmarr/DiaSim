@@ -1523,7 +1523,7 @@ public class DiachronicSimulator {
 					}
 					
 					//TODO here -- actual forking test simulation of CASCADE and hypCASCADE... results, etc. 
-					
+					Simulation hypEmpiricized = new Simulation (theSimulation, hypCASCADE); 
 					
 				}
 			}

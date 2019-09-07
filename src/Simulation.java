@@ -58,6 +58,28 @@ public class Simulation {
 		for (int eti = 0; eti < NUM_ETYMA ; eti++)
 			etDerivations[eti] = inputForms[eti].print(); 
 	}
+	
+	//constructor for differential hypothesis empiricization Simulation object
+	public Simulation(Simulation baseline, List<SChange> propCasc)
+	{
+		LexPhon[] inputForms = baseline.getInput().getWordList();
+		initialize(inputForms, propCasc); 
+		etDerivations = new String[NUM_ETYMA];
+		for (int eti = 0; eti < NUM_ETYMA ; eti++)
+			etDerivations[eti] = inputForms[eti].print(); 
+		if (baseline.hasGoldOutput())	{
+			goldOutputLexicon = baseline.goldOutputLexicon;
+			goldOutput = true; 
+		}
+		if (baseline.hasBlackStages())	setBlackStages(baseline.blackStageNames, baseline.blackStageInstants); 
+		if (baseline.hasGoldStages()) {
+			goldStageGoldLexica = baseline.goldStageGoldLexica;
+			goldStageInstants = baseline.goldStageInstants;
+			goldStageNames = baseline.goldStageNames; 
+			goldStageResultLexica = new Lexicon[goldStageNames.length] ;
+		}		
+	}
+	
 	public void setOpacity(boolean opa)	{	opaque = opa;	}
 	
 	public void setGold(LexPhon[] golds)
@@ -161,6 +183,10 @@ public class Simulation {
 	public String getDerivation (int etID)	{	return etDerivations[etID];	}
 	public String[][] getAllRuleEffects()	{	return ruleEffects;	}
 	public String[] getRuleEffect(int instant)	{	return ruleEffects[instant];	}
+	
+	public boolean hasGoldOutput()	{	return goldOutput;	}
+	public boolean hasGoldStages()	{	return NUM_GOLD_STAGES > 0;	}
+	public boolean hasBlackStages()	{	return NUM_BLACK_STAGES > 0; }
 	
 	public boolean isComplete()
 	{	return instant < CASCADE.size();	}
