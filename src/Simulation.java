@@ -20,6 +20,7 @@ public class Simulation {
 	
 	private String[][] ruleEffects; 
 	private String[] etDerivations; 
+	//stores derivation (form at every time step), with stages delimited by line breaks, of each word 
 	
 	private boolean opaque; 
 	private boolean goldOutput; 

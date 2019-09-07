@@ -47,7 +47,6 @@ public class DerivationSimulation {
 			// in their respective lists.
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
-	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
 	
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
@@ -396,7 +395,7 @@ public class DerivationSimulation {
 
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
-		wordTrajectories = new String[NUM_ETYMA]; 
+		String[] initStrForms = new String[NUM_ETYMA]; 
 		
 		String theLine =lexFileLines.get(0); 
 		String firstlineproxy = ""+theLine; 
@@ -424,8 +423,8 @@ public class DerivationSimulation {
 		{
 			theLine = lexFileLines.get(lfli);
 			
-			wordTrajectories[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
-			inputs[lfli] = parseLexPhon(wordTrajectories[lfli]);
+			initStrForms[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
+			inputs[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+LEX_DELIM); 
@@ -454,7 +453,7 @@ public class DerivationSimulation {
 
 		System.out.println("Now preparing simulation.");
 		
-		theSimulation = new Simulation(inputs, CASCADE, wordTrajectories); 
+		theSimulation = new Simulation(inputs, CASCADE, initStrForms); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
@@ -529,10 +528,10 @@ public class DerivationSimulation {
 		File dir = new File(""+runPrefix); 
 		dir.mkdir(); 
 		
-		System.out.println("making trajectories file in "+dir);
+		System.out.println("making derivation files in "+dir);
 		
 		//make trajectories files.
-		makeTrajectoryFiles(); 	
+		makeDerivationFiles(); 	
 		
 		//make output graphs file
 		System.out.println("making output graph file in "+dir);
@@ -580,17 +579,17 @@ public class DerivationSimulation {
 		writeToFile(filename, output); 
 	}
 
-	private static void makeTrajectoryFiles()
+	private static void makeDerivationFiles()
 	{
-		File trajdir = new File(runPrefix,"trajectories"); 
-		trajdir.mkdir(); 
+		File derdir = new File(runPrefix,"derivations"); 
+		derdir.mkdir(); 
 	
 		for( int wi =0; wi < NUM_ETYMA; wi ++) 
 		{
-			String filename = new File(runPrefix, new File("trajectories","etym"+wi+".txt").toString()).toString(); 
+			String filename = new File(runPrefix, new File("derivation","etym"+wi+".txt").toString()).toString(); 
 			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
-				+	initLexicon.getByID(wi)+" >>> "+testResultLexicon.getByID(wi)
-				+ (goldOutput ? " ( Correct : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
+				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
+				+ (goldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+wordTrajectories[wi]+"\n";
 			writeToFile(filename, output); 
 		}
