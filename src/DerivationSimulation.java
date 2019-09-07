@@ -45,7 +45,6 @@ public class DerivationSimulation {
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
-	private static Lexicon[] goldStageResultLexica, blackStageResultLexica; 
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static String[] wordTrajectories; //stores derivation (form at every time step), with stages delimited by line breaks, of each word 
@@ -309,9 +308,7 @@ public class DerivationSimulation {
 			System.out.println(""); 
 		}
 		
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; //TODO redundant? 
-		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES]; //TODO redundant? 
-		blackStageResultLexica = new Lexicon[NUM_BLACK_STAGES]; //TODO redundant? 
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; 
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -548,6 +545,7 @@ public class DerivationSimulation {
 			System.out.println("Writing analysis files...");
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
+			//TODO figure out what we want to do here...
 			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 			ea.makeAnalysisFile("testResultAnalysis.txt", false, testResultLexicon);
@@ -565,17 +563,12 @@ public class DerivationSimulation {
 			}
 		}
 		System.out.println("Thank you for using DiaSim"); 
-		
 		inp.close();
-		
 	}
 
 	private static String printStageOutsForEtymon( int etymID)
 	{
-		String toRet = ""; 
-		for ( int i = 0 ; i < NUM_GOLD_STAGES ; i++)	
-			toRet += ""+goldStageResultLexica[i].getByID(etymID) + STAGE_PRINT_DELIM; 
-		return toRet.substring(0, (""+STAGE_PRINT_DELIM).length() );
+		return theSimulation.printStageOutsForEt(etymID); 
 	}
 	
 	private static void makeOutGraphFile()

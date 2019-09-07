@@ -23,6 +23,8 @@ public class Simulation {
 	
 	private boolean opaque; 
 	private boolean goldOutput; 
+	
+	private String[] stIndex; 
 
 	public void initialize(LexPhon[] inputForms, List<SChange> casc)
 	{
@@ -165,6 +167,46 @@ public class Simulation {
 	{
 		//goldStageInd gets incremented upon hitting a stage in simulate() -- if it is 0 there are no gold stages or we haven't hit one yet
 		return goldStageInd == 0 ? false : instant == goldStageInstants[goldStageInd-1]; 
+	}
+	
+	private void calcStIndex()
+	{
+		stIndex = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 
+		stIndex[0] = "in";
+		if (goldOutput && isComplete())	stIndex[NUM_GOLD_STAGES+NUM_BLACK_STAGES+1] = "Out"; 
+		int gsi = 0 , bsi = 0 ;
+		while ( gsi < goldStageInd && bsi < blackStageInd)
+		{
+			if ((gsi == goldStageInd) ? 
+					false : (bsi == blackStageInd ? true : goldStageInstants[gsi] <= blackStageInstants[bsi]))
+			{	stIndex[gsi+bsi+1] = "g"+gsi; 
+				gsi++; 
+			}
+			else	{
+				stIndex[gsi+bsi+1] = "b"+bsi;
+				bsi++; 
+			}
+		}
+	}
+	
+	public String printStageOutsForEt(int ID)
+	{
+		String toRet = ""; 
+		for (String st : stIndex)
+		{
+			if (st.equals("in"))	toRet += inputLexicon.getByID(ID); 
+			else if (st.equals("out"))	toRet += currLexicon.getByID(ID) 
+					+ (goldOutput ? " [GOLD: "+goldOutputLexicon.getByID(ID)+"]":""); 
+			else
+			{
+				boolean isg = st.charAt(0) == 'g'; 
+				int stn = Integer.parseInt(st.substring(1)); 
+				toRet += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
+				if (isg)	toRet += " [GOLD: "+goldStageGoldLexica[stn]+"]"; 
+			}
+			toRet += " | "; 
+		}
+		return toRet.substring(0, toRet.length()-3); 
 	}
 	
 
