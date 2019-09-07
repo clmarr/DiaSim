@@ -23,8 +23,8 @@ public class Simulation {
 	
 	private boolean opaque; 
 	private boolean hasGold; 
-	
-	public Simulation(LexPhon[] inputForms, List<SChange> casc) 
+
+	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations)
 	{
 		inputLexicon = new Lexicon(inputForms); 
 		currLexicon = new Lexicon(inputForms); 
@@ -33,12 +33,32 @@ public class Simulation {
 		NUM_ETYMA = inputLexicon.getWordList().length; 
 		stepPrinterval = 0; 
 		opaque = true; 
-		ruleEffects = new String[CASCADE.size()][NUM_ETYMA];
-		etDerivations = new String[NUM_ETYMA];
 		goldStageNames = new String[0]; 
 		blackStageNames = new String[0]; 
 		goldStageInstants = new int[0];
 		blackStageInstants = new int[0];
+		ruleEffects = new String[CASCADE.size()][NUM_ETYMA];
+		etDerivations = initializedDerivations; 
+	}
+	
+	public Simulation(LexPhon[] inputForms, List<SChange> casc)
+	{
+		inputLexicon = new Lexicon(inputForms); 
+		currLexicon = new Lexicon(inputForms); 
+		CASCADE = new ArrayList<SChange>(casc); 
+		hasGold = false; 
+		NUM_ETYMA = inputLexicon.getWordList().length; 
+		stepPrinterval = 0; 
+		opaque = true; 
+		goldStageNames = new String[0]; 
+		blackStageNames = new String[0]; 
+		goldStageInstants = new int[0];
+		blackStageInstants = new int[0];
+		ruleEffects = new String[CASCADE.size()][NUM_ETYMA];
+
+		etDerivations = new String[NUM_ETYMA];
+		for (int eti = 0; eti < NUM_ETYMA ; eti++)
+			etDerivations[eti] = inputForms[eti].print(); 
 	}
 	public void setOpacity(boolean opa)	{	opaque = opa;	}
 	
@@ -48,15 +68,15 @@ public class Simulation {
 		hasGold = true; 
 	}
 	
-	public void setGoldStages(List<LexPhon[]> stageForms, String[] names, int[] times)
+	public void setGoldStages(LexPhon[][] stageForms, String[] names, int[] times)
 	{
 		hasGold = true; 
 		goldStageInstants = times;
 		goldStageNames = names; 
-		goldStageGoldLexica = new Lexicon[stageForms.size()] ;
-		goldStageResultLexica = new Lexicon[stageForms.size()] ;
-		for (int gsfi = 0; gsfi < stageForms.size(); gsfi++)
-			goldStageGoldLexica[gsfi] = new Lexicon(stageForms.get(gsfi)); 
+		goldStageGoldLexica = new Lexicon[stageForms.length] ;
+		for (int gsfi = 0; gsfi < stageForms.length; gsfi++)
+			goldStageGoldLexica[gsfi] = new Lexicon(stageForms[gsfi]); 
+		goldStageResultLexica = new Lexicon[stageForms.length] ;
 	}
 	
 	public void setBlackStages(String[] names, int[] times)
@@ -133,6 +153,9 @@ public class Simulation {
 	public String getDerivation (int etID)	{	return etDerivations[etID];	}
 	public String[][] getAllRuleEffects()	{	return ruleEffects;	}
 	public String[] getRuleEffect(int instant)	{	return ruleEffects[instant];	}
+	
+	public boolean simulationComplete()
+	{	return instant < CASCADE.size();	}
 	
 
 }

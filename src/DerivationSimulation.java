@@ -308,10 +308,9 @@ public class DerivationSimulation {
 			System.out.println(""); 
 		}
 		
-		LexPhon[][] goldStageGoldFormSets = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; 
-		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES]; 
-		blackStageResultLexica = new Lexicon[NUM_BLACK_STAGES]; 
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; //TODO redundant? 
+		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES]; //TODO redundant? 
+		blackStageResultLexica = new Lexicon[NUM_BLACK_STAGES]; //TODO redundant? 
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -326,7 +325,6 @@ public class DerivationSimulation {
 		
 		for(String currRule : rulesByTimeInstant)
 		{
-
 			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
 			
 			if(DEBUG_RULE_PROCESSING)
@@ -398,12 +396,10 @@ public class DerivationSimulation {
 			e.printStackTrace();
 		}
 
-		
-		
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
 		wordTrajectories = new String[NUM_ETYMA]; 
-				
+		
 		String theLine =lexFileLines.get(0); 
 		String firstlineproxy = ""+theLine; 
 		int numCols = 1; 
@@ -422,10 +418,8 @@ public class DerivationSimulation {
 		
 		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
-		List<LexPhon[]> goldForms = new ArrayList<LexPhon[]>(); 
-		if (NUM_GOLD_STAGES >0)
-			for (int gsi = 0 ; gsi<NUM_GOLD_STAGES; gsi++)	goldForms.add(new LexPhon[NUM_ETYMA]);
-		
+		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
+
 		int lfli = 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
@@ -439,7 +433,7 @@ public class DerivationSimulation {
 				String[] forms = theLine.split(""+LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
-						goldForms.get(gsi)[lfli] = parseLexPhon(forms[gsi+1]);
+						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
 				if (goldOutput)
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
@@ -452,21 +446,22 @@ public class DerivationSimulation {
 		//TODO possibly redundant -- remove?
 		if(NUM_GOLD_STAGES > 0)
 			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-				goldStageGoldLexica[gsi] = new Lexicon(goldForms.get(gsi)); 
-		
+				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
 		
 		//TODO possibly redundant -- remove?
 		if(goldOutput)	
 			goldResultLexicon = new Lexicon(goldResults); 
 		
-		theSimulation = new Simulation(inputs, CASCADE); 
+		System.out.println("Lexicon extracted.");
+
+		System.out.println("Now preparing simulation.");
+		
+		theSimulation = new Simulation(inputs, CASCADE, wordTrajectories); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
 		theSimulation.setStepPrinterval(PRINTERVAL); 
-		
-		System.out.println("Lexicon extracted.");
-		System.out.println("Now running simulation...");
+		theSimulation.setOpacity(!print_changes_each_rule);
 
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
@@ -474,10 +469,11 @@ public class DerivationSimulation {
 		
 		makeRulesLog(CASCADE);
 		
-		String resp; 
-		
+		String resp; 		
 		Scanner inp = new Scanner(System.in);
 		
+		System.out.println("Now running simulation...");
+
 		while (ri < numRules)
 		{
 			SChange thisShift =  CASCADE.get(ri);
