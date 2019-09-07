@@ -18,7 +18,7 @@ import java.util.Collections;
  * @author Clayton Marr
  *
  */
-public class DerivationSimulation {
+public class DiachronicSimulator {
 	
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
@@ -723,7 +723,7 @@ public class DerivationSimulation {
 		}
 	}
 	
-	
+	//TODO is this doing what its supposed to? If so rename.
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
 	private static void printTheseBlackStages(int first, int last, boolean prepend)
 	{
@@ -732,7 +732,8 @@ public class DerivationSimulation {
 				System.out.println(bsi+": "+(prepend ? "b":"")+
 					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")");
 	}
-	
+
+	//TODO is this doing what its supposed to? If so rename.
 	private static void printTheseGoldStages(int firstToPrint, int lastToPrint)
 	{
 		if(goldStagesSet)

@@ -1238,7 +1238,7 @@ public class ErrorAnalysis {
 			if (predPhIndexer.containsKey(phs_here.get(0).get(hpi).print()))
 				cand_freqs[0][predPhIndexer.get(phs_here.get(0).get(hpi).print())] = hit_ph_frqs[hpi]; 
 		
-		int unspec = DerivationSimulation.UNSPEC_INT;
+		int unspec = DiachronicSimulator.UNSPEC_INT;
 		
 		// get counts for feature value predictors using phone counts. 
 		for (int phi = 0; phi < phs_here.get(1).size(); phi++)
