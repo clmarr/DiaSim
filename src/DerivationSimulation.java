@@ -567,24 +567,9 @@ public class DerivationSimulation {
 	}
 
 	private static void makeOutGraphFile()
-	{
-		String toFile = "etymID" + STAGE_PRINT_DELIM + "initial forms" + STAGE_PRINT_DELIM; 
-		if(NUM_GOLD_STAGES > 0 )
-		{	for (int i = 0 ; i < NUM_GOLD_STAGES ; i++)
-				toFile += goldStageNames[i] + " RES" +  
-						(goldOutput ? (STAGE_PRINT_DELIM+goldStageNames[i] + " GOLD") : "") +  STAGE_PRINT_DELIM; }
-		toFile += "result" + (goldOutput ? STAGE_PRINT_DELIM + " gold" : "") ; 	
-		
-		for (int i = 0 ; i < NUM_ETYMA ; i++)
-			toFile += "\n"+i+STAGE_PRINT_DELIM
-					+ theSimulation.printStageOutsForEt(i);
-
-		//TODO debugging
-		System.out.println("Out graph...\n"+toFile);
-		
-		
+	{	
 		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
-		writeToFile(filename, toFile); 
+		writeToFile(filename, theSimulation.outgraph()); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {

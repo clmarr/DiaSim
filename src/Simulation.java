@@ -191,7 +191,9 @@ public class Simulation {
 	
 	public String stageOutsForEt(int ID)
 	{
-		String toRet = ""; 
+		String toRet = ""+ID; 
+		while (toRet.length() < 4)	toRet+=" ";
+		toRet += " | "; 
 		for (String st : stIndex)
 		{
 			if (st.equals("in"))	toRet += inputLexicon.getByID(ID); 
@@ -227,6 +229,14 @@ public class Simulation {
 		return toRet.substring(0, toRet.length()-3); 
 	}
 	
+	public String outgraph()
+	{
+		calcStIndex(); 
+		String out = "etID | "+stageOutHeader(); 
+		for (int i = 0 ; i < NUM_ETYMA && i < 10; i++)
+			out += "\n"+stageOutsForEt(i); 
+		return out; 
+	}
 	
 
 }
