@@ -35,7 +35,6 @@ public class DiachronicSimulator {
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
 	private static LexPhon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
@@ -87,8 +86,6 @@ public class DiachronicSimulator {
 	
 	private static void extractSymbDefs()
 	{
-
-		//TODO debugging
 		System.out.println("Collecting symbol definitions...");
 		
 		List<String> symbDefsLines = new ArrayList<String>();
@@ -114,8 +111,6 @@ public class DiachronicSimulator {
 			e.printStackTrace();
 		}
 		
-
-		//TODO debugging
 		System.out.println("Symbol definitions extracted!");
 		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
 		
@@ -156,7 +151,6 @@ public class DiachronicSimulator {
 			}
 			
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
-			phoneFeatsToSymbMap.put(intFeatVals, symb);
 			li++; 
 		}
 
@@ -168,7 +162,6 @@ public class DiachronicSimulator {
 		
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
-		phoneFeatsToSymbMap = new HashMap<String, String>(); 
 		featImplications = new HashMap<String, String[]>(); 
 		
 		//collect task information from symbol definitions file. 
@@ -203,7 +196,6 @@ public class DiachronicSimulator {
 			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
 		}
 		
-		//TODO debugging
 		System.out.println("Done extracting feature implications!");
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
@@ -437,15 +429,13 @@ public class DiachronicSimulator {
 			lfli++;
 			if(lfli <NUM_ETYMA)
 				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
-		}
-		
+		}		
 
-		//TODO possibly redundant -- remove?
+		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
 		if(NUM_GOLD_STAGES > 0)
 			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
 		
-		//TODO possibly redundant -- remove?
 		if(goldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
 		
@@ -1104,7 +1094,7 @@ public class DiachronicSimulator {
 					//TODO important variable here, explanation follows
 					// each indexed String[] is form [curr time step, operation details]
 					// this object is *kept sorted* by current form index
-						// (equivalent to iterator hci, for hypCASCADE later)
+						// (IMPORTANT: equivalent to iterator hci, for hypCASCADE later)
 					// operation may be either deletion or insertion 
 					// both relocdation and modification are handled as deletion then insertion pairs. 
 					// for deletion, the second slot simply holds the string "deletion"
@@ -1112,6 +1102,7 @@ public class DiachronicSimulator {
 						// that is inserted there in hypCASCADE. 
 				
 				int[] RULE_IND_MAP = new int[CASCADE.size()+1], //easy access maps indices of CASCADE to those in hypCASCADE.
+								// -1 -- deleted. 
 						propGoldLocs = new int[NUM_GOLD_STAGES], propBlackLocs = new int[NUM_BLACK_STAGES]; 
 				int overallLastMoment = CASCADE.size(); 
 				
@@ -1145,7 +1136,7 @@ public class DiachronicSimulator {
 						forkAt = getValidInd(resp, CASCADE.size()) ;
 						
 						if (resp.equals("quit"))	subcont = false;
-						else if(forkAt > -1)	subcont = true; //TODO dummy stmt --  do nothing but continue on to next stage. 
+						else if(forkAt > -1)	subcont = true; //NOTE dummy stmt --  do nothing but continue on to next stage. 
 						else if(getValidInd(resp, 99999) > -1)
 							System.out.println(errorMessage+". There are only "+CASCADE.size()+1+" timesteps."); 
 						else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(errorMessage); 
@@ -1409,7 +1400,7 @@ public class DiachronicSimulator {
 								
 							}
 							else if (resp.equals("2") && insertions.size() == 1) //single replacement modification
-							{	// no change in rule ind map or prop(Gold/Black)Locs. 
+							{	// no change in rule ind map or prop(Gold/Black)Locs -- dummy condition.
 							}
 							else
 							{
@@ -1534,7 +1525,7 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	//makes EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param
+	//makes  EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param
 	public static ErrorAnalysis analyze_subset_with_seq (Lexicon ogRes, Lexicon ogGold, List<SequentialPhonic> targSeq, boolean look_in_gold)
 	{
 		if (targSeq.size() == 0)	throw new Error("Can't make subset based on empty sequence"); 

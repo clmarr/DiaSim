@@ -265,5 +265,6 @@ public class Simulation {
 		return out; 
 	}
 	
+	public int getTotalSteps()	{	return TOTAL_STEPS;	}
 
 }
