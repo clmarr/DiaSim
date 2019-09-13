@@ -267,4 +267,6 @@ public class Simulation {
 	
 	public int getTotalSteps()	{	return TOTAL_STEPS;	}
 
+	public int NUM_ETYMA()	{	return NUM_ETYMA;	}
+	
 }

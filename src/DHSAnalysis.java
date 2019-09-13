@@ -1,5 +1,4 @@
-import java.util.List;
-
+import java.util.*; 
 
 public class DHSAnalysis {
 	/**
@@ -12,12 +11,42 @@ public class DHSAnalysis {
 		// -1 in [1][x] -- insertion
 		// [0][same] and [1][same] -- cells contain numbers of
 			//correspondant rules (if neither has -1 as value)
+	 
+	private HashMap<Integer,String> changedDerivations;
+		// Integer type key is the OUTER NESTING INDEX in ruleCorrespondences
+			// only etyma with changed derivations are included here.
+			// String -- the DIFFERENTIAL DERIVATION -- will contain
+				// First line --- <INPUT> \n
+				// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+				// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
+				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
+				// insertion: the reverse.
 	
+	private HashMap<Integer,List<String>[]>	changedRuleEffects; 
+		// Integer type key is the OUTER NESTING INDEX in ruleCorrespondences
+			// only rules with changed effects are included here.
+			// List[]<String> contains (index = 0) strings for changes that are only in the baseline
+				//and likewise with index 1 for hypCasc
+			// these strings are simple X > Y (whole word forms, with changed entities surrounded by {})
+	
+	private int[] baseRuleIndsToGlobal, hypRuleIndsToGlobal; 
+    // indices -- base/hyp rule indices
+    // cells contain the index mapped to in ruleCorrespondences
+            // i.e. the "global" index. 
+
+		
 	public DHSAnalysis(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
+		computeRuleCorrespondences(baseToHypIndMap, propdChanges); 
 		
-		//generate ruleCorrespondences
+		
+	}
+	
+	//generate ruleCorrespondences
+	
+	private void computeRuleCorrespondences(int[] baseToHypIndMap, List<String[]> propdChanges)
+	{
 		//length of ruleCorrespondences should be: 
 			// number of shared rules 
 			// + number of deletions
@@ -58,6 +87,7 @@ public class DHSAnalysis {
 			}
 			else // rules should be corresponding
 			{
+				//TODO debugging
 				assert baseToHypIndMap[bci] == hci : "ERROR: inconsistency about what should be a 1-to-1 rule correspondence"; 
 				
 				ruleCorrespondences[ri][0] = bci;
@@ -67,15 +97,78 @@ public class DHSAnalysis {
 		}
 		
 		assert ri == total_length: "ERROR: some inconsistency in rule mapping operation coverage"; 
+	}
+	
+	/**
+	 * to initialize baseRuleIndsToGlobal, hypRuleIndsToGlobal
+	 * @prerequisite: must have already called computeRuleCorrespondences
+	 */
+	private void makeIndexGlobalizers()
+	{
+		baseRuleIndsToGlobal = new int[baseCascSim.getTotalSteps()];
+		hypRuleIndsToGlobal = new int[hypCascSim.getTotalSteps()];
+		
+		for (int rci = 0; rci < ruleCorrespondences[0].length; rci++)
+		{
+			if (ruleCorrespondences[0][rci] != -1)	
+				baseRuleIndsToGlobal[ruleCorrespondences[0][rci]] = rci; 
+			if (ruleCorrespondences[1][rci] != -1)
+				hypRuleIndsToGlobal[ruleCorrespondences[1][rci]] = rci; 
+		}
+	}
+	
+	private void computeTrajectoryChange() 
+	{
+		//TODO debugging
+		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
+			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
+		int n_ets = baseDerivations.length; 
+		
+		changedDerivations = new HashMap<Integer,String>(); 
+		changedRuleEffects = new HashMap<Integer,List<String>[]>(); 
+		
+		for (int ei = 0 ; ei < n_ets ; ei++)
+		{
+
+		}
+		
+		
+		
+		
+		//TODO here
 		
 	}
 	
-	 
+	
+	/**
+	 * auxiliary for computeTrajectoryChange()
+	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
+	 * @return @default an empty String ""- means there is no difference between the derivations
+	 * 	otherwise: the DIFFERENTIAL DERIVATION, formed as follows: 
+	 * // String will contain
+				// First line --- <INPUT> \n
+				// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+				// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
+				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
+				// insertion: the reverse.
+	 */ 
+	private String getDifferentialDerivation(int et_id)
+	{
+		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
+		if (baseDer.equals(hypDer))	return ""; 
+		// passing here does not exclude the possibility of an identical derivation
+			// -- we will have to use ruleCorrespondences to ascertain that.
+			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
+				// conveniently handled with mapping arrays 
+		
+	}
+	
+	
 	//TODO analysis methods follow
 	// print nothing by default
 	// if there are discrepancies in phonemic inventory, print them
 		// TODO decide if we want to indicate this at stages and if so under what conditions should we do so
-	private String changeInPhInventory() 
+	private String reportChangeInPhInventory() 
 	{
 		
 	}
