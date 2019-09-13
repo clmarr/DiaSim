@@ -38,7 +38,8 @@ public class DHSAnalysis {
 	public DHSAnalysis(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
-		computeRuleCorrespondences(baseToHypIndMap, propdChanges); 
+		computeRuleCorrespondences(baseToHypIndMap, propdChanges); //init ruleCorrespondences
+		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
 		
 	}
@@ -117,12 +118,13 @@ public class DHSAnalysis {
 		}
 	}
 	
+	// fills changedDerivations and changedRuleEffects
 	private void computeTrajectoryChange() 
 	{
 		//TODO debugging
 		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
 			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
-		int n_ets = baseDerivations.length; 
+		int n_ets = baseCascSim.NUM_ETYMA();  
 		
 		changedDerivations = new HashMap<Integer,String>(); 
 		changedRuleEffects = new HashMap<Integer,List<String>[]>(); 
@@ -159,7 +161,11 @@ public class DHSAnalysis {
 		// passing here does not exclude the possibility of an identical derivation
 			// -- we will have to use ruleCorrespondences to ascertain that.
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
-				// conveniently handled with mapping arrays 
+				// conveniently handled with mapping arrays
+		
+		
+		
+		
 		
 	}
 	
@@ -179,6 +185,24 @@ public class DHSAnalysis {
 	// second is the reverse. 
 	private List[]<Phone> getInventoryDiscrepancies()
 	{
+	}
+	
+	private String derivationToGlobalInds(String der, boolean isHyp)
+	{
+		String[] lines = der.split("\n"); 
+		String out = lines[0]; 
+		for (String li : lines)
+		{
+			int br = li.indexOf(" | "),
+					br2 = li.lastIndexOf(" : "); 
+			if (br != -1 && br2 != -1)
+			{
+				out += "\n" + li.substring(0,br+3); 
+				int raw_ind = Integer.parseInt(li.substring(br+3,br2));
+				out += ""+(isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] + li.substring(br2); 
+			}
+		}
+		return out; 
 	}
 	
 
