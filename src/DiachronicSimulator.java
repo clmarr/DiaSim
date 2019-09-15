@@ -1516,6 +1516,8 @@ public class DiachronicSimulator {
 					//TODO here -- actual forking test simulation of CASCADE and hypCASCADE... results, etc. 
 					Simulation hypEmpiricized = new Simulation (theSimulation, hypCASCADE); 
 					
+					DHSAnalysis DHScomp = new DHSAnalysis(theSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
+					
 				}
 			}
 			else if(resp.equals("9")) {

@@ -33,12 +33,14 @@ public class DHSAnalysis {
     // indices -- base/hyp rule indices
     // cells contain the index mapped to in ruleCorrespondences
             // i.e. the "global" index. 
+	
+	private List<String[]> proposedChs; 
 
-		
 	public DHSAnalysis(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
-		computeRuleCorrespondences(baseToHypIndMap, propdChanges); //init ruleCorrespondences
+		proposedChs = propdChanges; 
+		computeRuleCorrespondences(baseToHypIndMap); //init ruleCorrespondences
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 		
@@ -47,7 +49,7 @@ public class DHSAnalysis {
 	
 	//generate ruleCorrespondences
 	
-	private void computeRuleCorrespondences(int[] baseToHypIndMap, List<String[]> propdChanges)
+	private void computeRuleCorrespondences(int[] baseToHypIndMap)
 	{
 		//length of ruleCorrespondences should be: 
 			// number of shared rules 
@@ -68,9 +70,9 @@ public class DHSAnalysis {
 		
 		while (ri < total_length)
 		{
-			if (hci == Integer.parseInt(propdChanges.get(pci)[0]))
+			if (hci == Integer.parseInt(proposedChs.get(pci)[0]))
 			{
-				if( propdChanges.get(pci)[1].equals("deletion"))
+				if( proposedChs.get(pci)[1].equals("deletion"))
 				{
 					//TODO debugging -- commment out when no longer necessary
 					assert baseToHypIndMap[bci] == -1 : "ERROR: inconsistency in stored info about a rule deletion operation"; 
@@ -153,28 +155,26 @@ public class DHSAnalysis {
 				ddHere = ddHere.substring(ddHere.indexOf("\n")+"\n".length());
 				for (String ddl : ddHere.split("\n"))
 				{
-					if(!ddl.contains(" stage form : "))
+					if(ddl.contains(">"))
 					{
 						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("["))); 
 						String[] effs = ddl.substring(ddl.indexOf(": "+2)).split(" | "); 
+						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")}; 
+						if (hit[0] != hit[1])
+						{
+							if(changedRuleEffects.containsKey(globInd))
+							{	//TODO check this.
+								List<String>[] valHere = changedRuleEffects.get(globInd); 
+								if(hit[0])	valHere[0].add(""+ei+": "+effs[0]);
+								else	valHere[1].add(""+ei+": "+effs[1]); 
+								changedRuleEffects.put(globInd, valHere); 
+							}
+							else //TODO check this
+								changedRuleEffects.put(globInd, new List[] {
+										hit[0] ? Arrays.asList(new String[] {""+ei+": "+effs[0]}) : new ArrayList<String>(), 
+												hit[1] ? Arrays.asList(new String[] {""+ei+": "+effs[1]}) : new ArrayList<String>() } );
+						}
 
-						if (changedRuleEffects.containsKey(globInd))
-						{
-							List<String>[] valHere = changedRuleEffects.get(globInd); 
-							if(effs[0].contains(">"))	valHere[0].add(""+ei+": "+effs[0]);
-							if(effs[1].contains(">"))	valHere[1].add(""+ei+": "+effs[1]); 
-							changedRuleEffects.put(globInd, valHere); 
-							//TODO check this.
-						}
-						else
-						{
-							ArrayList<String> bEffs = new ArrayList<String>(),
-									hEffs = new ArrayList<String>(); 
-							if (effs[0].contains(">"))	bEffs.add(""+ei+": "+effs[0]); 
-							if (effs[1].contains(">"))	hEffs.add(""+ei+": "+effs[1]); 
-							changedRuleEffects.put(globInd, new ArrayList[] { bEffs, hEffs});
-							//TODO check this....
-						}
 					}
 				}
 			}
@@ -311,6 +311,13 @@ public class DHSAnalysis {
 			}
 		}
 		return out; 
+	}
+	
+	public void printBasicResults()
+	{
+		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
+		
+		
 	}
 	
 
