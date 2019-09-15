@@ -183,6 +183,11 @@ public class DHSAnalysis {
 		while ( bdli < bdlines.length && hdli < hdlines.length && bdlines[bdli].equals(hdlines[hdli]) )
 		{
 			bdli++; hdli++; 
+			
+			//skip any stage declaration lines -- but only if we don't have a case of deletion/insertion at the end, to avoid an invalid index error.
+			if (bdli < bdlines.length && hdli < hdlines.length)
+			{	if (bdlines[bdli].contains(" stage form : ") && hdlines[hdli].contains(" stage form : ")) {
+					bdli++; hdli++; }	}
 		}
 		
 		String lastBform = "" , lastHform = "";
@@ -194,6 +199,8 @@ public class DHSAnalysis {
 			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" | ")); 
 		}
 
+		// we know next line cannot be gold/black stage announcement as that could not be the first line with divergence. 
+		
 		int nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : "))),
 				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
 		
@@ -211,25 +218,36 @@ public class DHSAnalysis {
 		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
-			nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : ")));
-			nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
+			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form : "), 
+							hdlines[hdli].indexOf(" stage form : ")}; 
+			
+			if (stageHere[0]== -1)
+				nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : ")));
+			if (stageHere[1]== -1)
+				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
 		
-			if (nextGlobalBaseInd == nextGlobalHypInd) { // effects of same rule 
+			if (stageHere[0] > -1 && stageHere[1] > -1)
+			{
+				out += "\n"+bdlines[bdli].substring(0, stageHere[0])+bdlines[bdli].substring(stageHere[0]+12)+" | "
+						+ hdlines[hdli].substring(0, stageHere[1])+hdlines[hdli].substring(stageHere[1]+12); 
+				bdli++; hdli++; 
+			}
+			else if (nextGlobalBaseInd == nextGlobalHypInd) { // effects of same rule 
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")),
 						nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
 				
-				out += "\n"+nextGlobalBaseInd+"["+baseRuleIndsToGlobal[nextGlobalBaseInd]
-						+"|"+hypRuleIndsToGlobal[nextGlobalHypInd]+" : "
+				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
+						+"|"+ruleCorrespondences[1][nextGlobalHypInd]+" : "
 						+lastBform+" > "+nextBform+" | "+lastHform+" > "+nextHform;
 				lastBform = nextBform; 
 				lastHform = nextHform; 
 				bdli++; hdli++; 	
 			}
-			else if (nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
+			else if (stageHere[1] == -1? true : nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
 			{
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | "));
 				
-				out += "\n"+nextGlobalBaseInd+"["+baseRuleIndsToGlobal[nextGlobalBaseInd]
+				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
 						+ "|-1] : "+lastBform+" > "+nextBform+" | bled or deleted"; 
 				bdli++; 
 				lastBform = nextBform; 
@@ -237,22 +255,13 @@ public class DHSAnalysis {
 			else //insertion or feeding
 			{
 				String nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | ")); 
-				out += "\n"+nextGlobalHypInd+"[-1|"+hypRuleIndsToGlobal[nextGlobalHypInd]+"] : "
+				out += "\n"+nextGlobalHypInd+"[-1|"+ruleCorrespondences[1][nextGlobalHypInd]+"] : "
 						+ "fed or inserted | "+lastHform+" > "+nextHform; 
 				hdli++; 
 				lastHform = nextHform; 
 			}
 		}
-		
-		//TODO here. 
-			
-			
-			
-			
-		
-		
-		
-		
+		return out; 
 		
 	}
 	

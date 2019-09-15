@@ -138,7 +138,7 @@ public class Simulation {
 			currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 			goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList()); 
 			for (int ei = 0; ei < NUM_ETYMA; ei++)
-				etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" form : "+currLexicon.getByID(ei); 
+				etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei); 
 			goldStageInd++; 
 		}
 		
@@ -146,7 +146,7 @@ public class Simulation {
 		{
 			blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
 			for (int ei = 0; ei < NUM_ETYMA; ei++)
-				etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" form : "+currLexicon.getByID(ei); 
+				etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei); 
 			blackStageInd++; 
 		}	
 	}
