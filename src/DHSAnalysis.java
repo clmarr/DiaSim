@@ -40,6 +40,7 @@ public class DHSAnalysis {
 		baseCascSim = b; hypCascSim = h ;
 		computeRuleCorrespondences(baseToHypIndMap, propdChanges); //init ruleCorrespondences
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
+		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 		
 		
 	}
@@ -118,9 +119,7 @@ public class DHSAnalysis {
 		}
 	}
 	
-	// fills changedDerivations and changedRuleEffects		
-	
-	/**
+	/**fills changedDerivations and changedRuleEffects	
 	 * auxiliary for computeTrajectoryChange()
 	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
 	 * @return @default an empty String ""- means there is no difference between the derivations
@@ -293,26 +292,9 @@ public class DHSAnalysis {
 		
 	}
 	
+	//TODO plans to report any change in phonemic inventory.
 	
-	//TODO analysis methods follow
-	// print nothing by default
-	// if there are discrepancies in phonemic inventory, print them
-		// TODO decide if we want to indicate this at stages and if so under what conditions should we do so
-	private String reportChangeInPhInventory() 
-	{
-		
-	}
-	
-	//TODO this.
-	//return pair of lists
-	// first is list of all phones in baseCasc's resulting lexicon but not in hypCasc's
-	// second is the reverse. 
-	private List[]<Phone> getInventoryDiscrepancies()
-	{
-	}
-	
-	//TODO need to check that this works properly.
-	
+	//TODO need to check that this works properly
 	private String derivationToGlobalInds(String der, boolean isHyp)
 	{
 		String[] lines = der.split("\n"); 
