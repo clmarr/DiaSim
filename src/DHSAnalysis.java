@@ -13,7 +13,7 @@ public class DHSAnalysis {
 			//correspondant rules (if neither has -1 as value)
 	 
 	private HashMap<Integer,String> changedDerivations;
-		// Integer type key is the OUTER NESTING INDEX in ruleCorrespondences
+		// Integer type key is the GLOBAL RULE INDEX, as used in ruleCorrespondences
 			// only etyma with changed derivations are included here.
 			// String -- the DIFFERENTIAL DERIVATION -- will contain
 				// First line --- <INPUT> \n
@@ -120,30 +120,6 @@ public class DHSAnalysis {
 	
 	// fills changedDerivations and changedRuleEffects		
 	
-	
-	private void computeTrajectoryChange() 
-	{
-		//TODO debugging
-		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
-			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
-		int n_ets = baseCascSim.NUM_ETYMA();  
-		
-		changedDerivations = new HashMap<Integer,String>(); 
-		changedRuleEffects = new HashMap<Integer,List<String>[]>(); 
-		
-		for (int ei = 0 ; ei < n_ets ; ei++)
-		{
-
-		}
-		
-		
-		
-		
-		//TODO here
-		
-	}
-	
-	
 	/**
 	 * auxiliary for computeTrajectoryChange()
 	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
@@ -156,6 +132,58 @@ public class DHSAnalysis {
 				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
 				// insertion: the reverse.
 	 */ 
+	private void computeTrajectoryChange() 
+	{
+		//TODO debugging
+		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
+			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
+		int n_ets = baseCascSim.NUM_ETYMA();  
+		
+		changedDerivations = new HashMap<Integer,String>(); 
+		changedRuleEffects = new HashMap<Integer,List<String>[]>(); 
+		
+		for (int ei = 0 ; ei < n_ets ; ei++)
+		{
+			//TODO will need to debug here...
+			
+			String ddHere = getDifferentialDerivation(ei); 
+			if (!"".contains(ddHere))
+			{
+				changedDerivations.put(ei, ddHere);
+				ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); 
+				ddHere = ddHere.substring(ddHere.indexOf("\n")+"\n".length());
+				for (String ddl : ddHere.split("\n"))
+				{
+					if(!ddl.contains(" stage form : "))
+					{
+						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("["))); 
+						String[] effs = ddl.substring(ddl.indexOf(": "+2)).split(" | "); 
+
+						if (changedRuleEffects.containsKey(globInd))
+						{
+							List<String>[] valHere = changedRuleEffects.get(globInd); 
+							if(effs[0].contains(">"))	valHere[0].add(""+ei+": "+effs[0]);
+							if(effs[1].contains(">"))	valHere[1].add(""+ei+": "+effs[1]); 
+							changedRuleEffects.put(globInd, valHere); 
+							//TODO check this.
+						}
+						else
+						{
+							ArrayList<String> bEffs = new ArrayList<String>(),
+									hEffs = new ArrayList<String>(); 
+							if (effs[0].contains(">"))	bEffs.add(""+ei+": "+effs[0]); 
+							if (effs[1].contains(">"))	hEffs.add(""+ei+": "+effs[1]); 
+							changedRuleEffects.put(globInd, new ArrayList[] { bEffs, hEffs});
+							//TODO check this....
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+
 	private String getDifferentialDerivation(int et_id)
 	{
 		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
