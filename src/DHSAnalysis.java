@@ -118,7 +118,9 @@ public class DHSAnalysis {
 		}
 	}
 	
-	// fills changedDerivations and changedRuleEffects
+	// fills changedDerivations and changedRuleEffects		
+	
+	
 	private void computeTrajectoryChange() 
 	{
 		//TODO debugging
@@ -149,19 +151,104 @@ public class DHSAnalysis {
 	 * 	otherwise: the DIFFERENTIAL DERIVATION, formed as follows: 
 	 * // String will contain
 				// First line --- <INPUT> \n
-				// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
-				// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
+				// CONCORDANT UNTIL : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+				// for 1-to-1 divergent development : <GLOBALRULE#> : [BASERULE#] <OLDFORM> > <NEWFORM> | [HYPRULE#] NEW > OLD \n
 				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
 				// insertion: the reverse.
 	 */ 
 	private String getDifferentialDerivation(int et_id)
 	{
 		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
-		if (baseDer.equals(hypDer))	return ""; 
+		if (baseDer.equals(hypDer))	return "";
 		// passing here does not exclude the possibility of an identical derivation
 			// -- we will have to use ruleCorrespondences to ascertain that.
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
 				// conveniently handled with mapping arrays
+		
+		baseDer= derivationToGlobalInds(baseDer, false); 
+		hypDer = derivationToGlobalInds(hypDer, true); 
+		
+		if(baseDer.equals(hypDer))	return "";
+		//now we know they are indeed different -- so fill in info on how... 
+		
+		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n"); 
+		
+		//TODO debugging
+		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations" ;
+		String out = bdlines[0]; 
+		int bdli = 1, hdli = 1 ; //skip first line as we know it must be identical
+		
+		
+		//determine how long the developments remain concordant 
+		while ( bdli < bdlines.length && hdli < hdlines.length && bdlines[bdli].equals(hdlines[hdli]) )
+		{
+			bdli++; hdli++; 
+		}
+		
+		String lastBform = "" , lastHform = "";
+		
+		if (bdli == 1 ) { //hdli will equal 1 too othen		
+			lastBform = bdlines[0]; lastHform = hdlines[0];	}
+		else	{
+			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" | "));
+			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" | ")); 
+		}
+
+		int nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : "))),
+				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
+		
+		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+" | "+nextGlobalHypInd; 
+		
+		//TODO need to include gold and black stages somehow?
+		
+		// recall -- we have already aligned the numbers in the two derivations using derivationToGlobalInds()
+		// so it is obvious if we are dealing with a deletion or insertion as it is simply absent on the other side.
+		
+		// we now will no longer necessarily be iterating simultaneously on bdlines and hdlines
+		// we only do so when they have hte same rule (same = same global index)
+		// when the index is not shared, we are handling a case of deletion/insertion, 
+			// or bleeding/feeding as a result of the rule change.
+		
+		while ( bdli < bdlines.length && hdli < hdlines.length)
+		{
+			nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : ")));
+			nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
+		
+			if (nextGlobalBaseInd == nextGlobalHypInd) { // effects of same rule 
+				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")),
+						nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
+				
+				out += "\n"+nextGlobalBaseInd+"["+baseRuleIndsToGlobal[nextGlobalBaseInd]
+						+"|"+hypRuleIndsToGlobal[nextGlobalHypInd]+" : "
+						+lastBform+" > "+nextBform+" | "+lastHform+" > "+nextHform;
+				lastBform = nextBform; 
+				lastHform = nextHform; 
+				bdli++; hdli++; 	
+			}
+			else if (nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
+			{
+				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | "));
+				
+				out += "\n"+nextGlobalBaseInd+"["+baseRuleIndsToGlobal[nextGlobalBaseInd]
+						+ "|-1] : "+lastBform+" > "+nextBform+" | bled or deleted"; 
+				bdli++; 
+				lastBform = nextBform; 
+			}
+			else //insertion or feeding
+			{
+				String nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | ")); 
+				out += "\n"+nextGlobalHypInd+"[-1|"+hypRuleIndsToGlobal[nextGlobalHypInd]+"] : "
+						+ "fed or inserted | "+lastHform+" > "+nextHform; 
+				hdli++; 
+				lastHform = nextHform; 
+			}
+		}
+		
+		//TODO here. 
+			
+			
+			
+			
 		
 		
 		
@@ -186,6 +273,8 @@ public class DHSAnalysis {
 	private List[]<Phone> getInventoryDiscrepancies()
 	{
 	}
+	
+	//TODO need to check that this works properly.
 	
 	private String derivationToGlobalInds(String der, boolean isHyp)
 	{
