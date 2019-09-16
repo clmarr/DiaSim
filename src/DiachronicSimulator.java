@@ -535,19 +535,19 @@ public class DiachronicSimulator {
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
 			//TODO figure out what we want to do here...
-			ErrorAnalysis ea = new ErrorAnalysis(testResultLexicon, goldOutputLexicon, featsByIndex, 
+			ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-			ea.makeAnalysisFile("testResultAnalysis.txt", false, testResultLexicon);
+			ea.makeAnalysisFile("testResultAnalysis.txt", false, theSimulation.getCurrentResult());
 			ea.makeAnalysisFile("goldAnalysis.txt",true,goldOutputLexicon);
 			
 			if(goldStagesSet)
 			{	
 				for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 				{	
-					ErrorAnalysis eap = new ErrorAnalysis(goldStageResultLexica[gsi], goldStageGoldLexica[gsi], featsByIndex,
+					ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
-							false, goldStageResultLexica[gsi]);
+							false, theSimulation.getStageResult(true, gsi));
 				}
 			}
 		}
@@ -1441,9 +1441,6 @@ public class DiachronicSimulator {
 								}											
 							}
 								
-								
-							
-							
 							// update proposedChanges while keeping it sorted by index of operation
 								// if there is a "tie" in index, we always list deletions first, then insertions.
 							 
@@ -1516,8 +1513,49 @@ public class DiachronicSimulator {
 					//TODO here -- actual forking test simulation of CASCADE and hypCASCADE... results, etc. 
 					Simulation hypEmpiricized = new Simulation (theSimulation, hypCASCADE); 
 					
+					//TODO iteration of @varbl hypEmpiricized 
+					boolean gsstops; 
+					if (goldStagesSet)
+					{
+						System.out.println("Halt at gold stages? Enter 'y' or 'n'."); 
+						char conf = inpu.nextLine().toLowerCase().charAt(0); 
+						while (!"yn".contains(conf+""))
+						{
+							System.out.println("Please enter 'y' or 'n' to confirm stage stopping or not."); 
+							conf = inpu.nextLine().toLowerCase().charAt(0); 
+						}
+						gsstops = (conf == 'y'); 
+					}
+					else	gsstops = false; 
+					if(gsstops)
+					{
+						int gssi = 0; 
+						while(!hypEmpiricized.isComplete())
+						{
+							hypEmpiricized.simulateToNextStage();
+							while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) //TODO check this. 
+								hypEmpiricized.simulateToNextStage();
+
+							ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), goldStageGoldLexica[gssi], featsByIndex, 
+									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt)),
+									bsea = new ErrorAnalysis(theSimulation.getStageResult(true, gssi), goldStageGoldLexica[gssi], featsByIndex, 
+											feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+							System.out.println("Overall accuracy : "+bsea.getPercentAccuracy()+" >>> "+hsea.getPercentAccuracy());
+							System.out.println("Accuracy within 1 phone: "+bsea.getPct1off()+" >>> "+hsea.getPct1off());
+							System.out.println("Accuracy within 2 phone: "+bsea.getPct2off()+" >>> "+hsea.getPct2off());
+							System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
+							System.out.println("Average feature edit distance from gold: "+bsea.getAvgFED()+" >>> "+hsea.getAvgFED()); 
+							
+							System.out.println("Press anything to continue."); 
+							char dum = inpu.nextLine().charAt(0);
+							//TODO possibly enable further user interaction here? 
+						}
+					}
+					else	hypEmpiricized.simulateToEnd();
+					
 					DHSAnalysis DHScomp = new DHSAnalysis(theSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 					
+					//TODO here. 
 				}
 			}
 			else if(resp.equals("9")) {

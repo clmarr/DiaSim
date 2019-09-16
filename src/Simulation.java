@@ -269,4 +269,6 @@ public class Simulation {
 
 	public int NUM_ETYMA()	{	return NUM_ETYMA;	}
 	
+	public String getRuleAt(int id)	{	return ""+CASCADE.get(id); 	}
+	
 }

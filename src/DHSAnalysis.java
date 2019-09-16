@@ -316,8 +316,98 @@ public class DHSAnalysis {
 	public void printBasicResults()
 	{
 		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
+		System.out.println("Other rules effected:\n"); 
+		for (int globInd : changedRuleEffects.keySet())
+		{
+			if (ruleCorrespondences[1][globInd] != -1)
+			{
+				int baseInd= ruleCorrespondences[0][globInd]; 
+				if (baseInd > -1)
+					System.out.println("Baseline rule "+baseInd+": "+baseCascSim.getRuleAt(baseInd)+"\n\t"
+							+ "bled for "+changedRuleEffects.get(globInd)[0].size()+", fed for "
+									+ changedRuleEffects.get(globInd)[1].size()+"."); 
+			}
+		}
+		
+		boolean prgold = baseCascSim.hasGoldOutput(); 
+		
+		System.out.println("\nEtyma effected: (#: BASE>HYP"+(prgold ? "[GOLD]" : "")+")"); 
+		
+		HashMap<Integer, List<Integer>> classedChdEts = changedEtsClassifiedByFirstDomino(); 
+		
+		for (List<Integer> ets : classedChdEts.values())
+		{
+			for (int et : ets)
+			{
+				System.out.print(""+et+": "); 
+				String thisdd = changedDerivations.get(et); 
+				String lastline = thisdd.substring(thisdd.lastIndexOf("\n")+"\n".length()); 
+				String[] finalForms = new String[] { thisdd.substring(thisdd.indexOf(">")
+			}
+			
+		}
+		
+	}
+	
+	// @ precondition; have called computeTrajectoryChanges()
+	private HashMap<Integer, List<Integer>> changedEtsClassifiedByFirstDomino()
+	{
+		HashMap<Integer, List<Integer>> out = new HashMap<Integer, List<Integer>>(); 
+		for (int ei : changedDerivations.keySet())
+		{
+			int fd = locateFirstDomino(ei); 
+			if (out.containsKey(fd)) 
+			{
+				List<Integer> val = out.get(fd); 
+				val.add(ei); 
+				out.put(fd, val); 
+			}
+			else	out.put(fd, new ArrayList<Integer> (Arrays.asList(Integer.valueOf(ei))));
+		}
+		return out; 
+	}
+	
+	// if there is at least one bleeding or feeding effect on this etID, return global ind for it
+	// if the et has no changes, return -1
+	// otherwise return the global ind of the first effectual proposed change for this etymon.
+	private int locateFirstDomino(int etID)
+	{
+		if (!changedDerivations.containsKey(etID))	return -1; 
+		String dd = changedDerivations.get(etID); 
+		dd = dd.substring(dd.indexOf("CONC"));
+		dd = dd.substring(dd.indexOf("\n")+"\n".length()); 
+
+		//we know the next line must be the proposed change
+		int ogi = Integer.parseInt(dd.substring(0,dd.indexOf("[")));
+		int gi = ogi; 
+		dd = dd.substring(dd.indexOf("\n")+"\n".length()); 
 		
 		
+		while(dd.contains("\n"))
+		{
+			while (dd.contains("\n") ? 
+					!dd.substring(0,dd.indexOf("\n")).contains(">") : false)
+				dd = dd.substring(0, dd.indexOf("\n")+"\n".length()); 
+			if (dd.contains("\n"))
+			{
+				gi =  Integer.parseInt(dd.substring(0,dd.indexOf("[")));
+				String[] effs = dd.substring(dd.indexOf(": ")+2, dd.indexOf("\n")).split(" | "); 
+				if (effs[0].contains(">") != effs[1].contains(">")) //either bleeding/feeding or insertion/deletion
+					if ( ruleCorrespondences[0][gi] != -1 && ruleCorrespondences[1][gi] == -1) 
+						// i.e. if false this is an insertion or deletion, i.e. one of the proposed changes. 
+						return gi; 
+				dd = dd.substring(0, dd.indexOf("\n")+"\n".length()); 
+			}
+		}
+		
+		gi =  Integer.parseInt(dd.substring(0,dd.indexOf("[")));
+		String[] effs = dd.substring(dd.indexOf(": ")+2, dd.indexOf("\n")).split(" | "); 
+		if (effs[0].contains(">") != effs[1].contains(">")) //either bleeding/feeding or insertion/deletion
+			if ( ruleCorrespondences[0][gi] != -1 && ruleCorrespondences[1][gi] == -1) 
+				// i.e. if false this is an insertion or deletion, i.e. one of the proposed changes. 
+				return gi; 
+		
+		return ogi; 
 	}
 	
 
