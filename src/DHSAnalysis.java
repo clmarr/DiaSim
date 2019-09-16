@@ -22,6 +22,13 @@ public class DHSAnalysis {
 				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
 				// insertion: the reverse.
 	
+	private int divergencePoint; 
+		// i.e. first global time step at which at least one word's resultant form is different between the two cascades. 
+		// this is distinct from the first "domino" as returned by locateFirstDomino() because that (a)
+			// pertains to only one word and (b) is specifically the first time the effect of a rule 
+				// that is not one of the ones stipulated by the proposed changes 
+				// is effected -- i.e. a bleeding or feeding effect. 
+	
 	private HashMap<Integer,List<String>[]>	changedRuleEffects; 
 		// Integer type key is the OUTER NESTING INDEX in ruleCorrespondences
 			// only rules with changed effects are included here.
@@ -43,8 +50,6 @@ public class DHSAnalysis {
 		computeRuleCorrespondences(baseToHypIndMap); //init ruleCorrespondences
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
-		
-		
 	}
 	
 	//generate ruleCorrespondences
@@ -121,7 +126,7 @@ public class DHSAnalysis {
 		}
 	}
 	
-	/**fills changedDerivations and changedRuleEffects	
+	/**fills changedDerivations and changedRuleEffects, and sets divergence point. 
 	 * auxiliary for computeTrajectoryChange()
 	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
 	 * @return @default an empty String ""- means there is no difference between the derivations
@@ -135,6 +140,8 @@ public class DHSAnalysis {
 	 */ 
 	private void computeTrajectoryChange() 
 	{
+		divergencePoint = -1; // will remain -1 if two cascades never diverge for a single word.
+		
 		//TODO debugging
 		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
 			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
@@ -152,6 +159,15 @@ public class DHSAnalysis {
 			{
 				changedDerivations.put(ei, ddHere);
 				ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); 
+				
+				//lexical divergence point extract here -- see if it causes the overall initial divergence point to be earlier.
+				int lexDivPt = Math.max(Integer.parseInt(ddHere.substring(ddHere.indexOf(":")+1, ddHere.indexOf("|"))),
+						Integer.parseInt(ddHere.substring(ddHere.indexOf("|")+1,ddHere.indexOf("\n"))));
+						// we're taking the max because one of the two between the global base and hyp inds here
+								// could be -1 (actually, one usually is.)
+				if (divergencePoint == -1)	divergencePoint = lexDivPt; 
+				else	divergencePoint = Math.min(divergencePoint, lexDivPt); 
+				
 				ddHere = ddHere.substring(ddHere.indexOf("\n")+"\n".length());
 				for (String ddl : ddHere.split("\n"))
 				{
@@ -180,8 +196,6 @@ public class DHSAnalysis {
 			}
 		}
 	}
-	
-	
 
 	private String getDifferentialDerivation(int et_id)
 	{
@@ -232,8 +246,7 @@ public class DHSAnalysis {
 				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
 		
 		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+" | "+nextGlobalHypInd; 
-		
-		//TODO need to include gold and black stages somehow?
+			//TODO wait.. aren't these the same? 
 		
 		// recall -- we have already aligned the numbers in the two derivations using derivationToGlobalInds()
 		// so it is obvious if we are dealing with a deletion or insertion as it is simply absent on the other side.
@@ -313,6 +326,10 @@ public class DHSAnalysis {
 		return out; 
 	}
 	
+	//TODO this
+	// prints basic info on changes in words effected 
+		// and rules effected
+		// does not print evaluation statistic change -- that is for DiachronicSimulation and ErrorAnalysis to handle. 
 	public void printBasicResults()
 	{
 		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
@@ -342,7 +359,9 @@ public class DHSAnalysis {
 				System.out.print(""+et+": "); 
 				String thisdd = changedDerivations.get(et); 
 				String lastline = thisdd.substring(thisdd.lastIndexOf("\n")+"\n".length()); 
-				String[] finalForms = new String[] { thisdd.substring(thisdd.indexOf(">")
+				System.out.println(lastline.substring(thisdd.indexOf(">")+2, lastline.indexOf("|")-1)+" >> "
+						+ lastline.substring(lastline.lastIndexOf(">")+2, lastline.length())+"; ");
+					//TODO beautify this?
 			}
 			
 		}
@@ -408,6 +427,12 @@ public class DHSAnalysis {
 				return gi; 
 		
 		return ogi; 
+	}
+	
+	//-1 if they never diverge
+	public int getDivergencePoint()
+	{
+		return divergencePoint; 
 	}
 	
 

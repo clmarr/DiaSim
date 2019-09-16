@@ -1555,7 +1555,13 @@ public class DiachronicSimulator {
 					
 					DHSAnalysis DHScomp = new DHSAnalysis(theSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 					
+					// recall -- ErrorAnalysis ea is the ErrorAnalysis object for the baseline simulation. 
+					ErrorAnalysis hea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), goldOutputLexicon, featsByIndex,
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+
 					//TODO here. 
+					
+					
 				}
 			}
 			else if(resp.equals("9")) {
