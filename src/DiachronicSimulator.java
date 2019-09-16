@@ -1572,8 +1572,14 @@ public class DiachronicSimulator {
 					// recall -- ErrorAnalysis ea is the ErrorAnalysis object for the baseline simulation. 
 					ErrorAnalysis hea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), goldOutputLexicon, featsByIndex,
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-
-					//TODO here. 
+					System.out.println("Final output comparison for hypothesis simulation"); 
+					DHScomp.printBasicResults();
+					System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
+					System.out.println("Accuracy within 1 phone: "+ea.getPct1off()+" >>> "+hea.getPct1off());
+					System.out.println("Accuracy within 2 phone: "+ea.getPct2off()+" >>> "+hea.getPct2off());
+					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
+					System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
+					//TODO here, query for user behavior.
 					
 					
 				}
