@@ -1551,11 +1551,11 @@ public class DiachronicSimulator {
 									avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
 							if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
 							{
-								System.out.println("Overall accuracy : "+bsea.getPercentAccuracy()+" >>> "+hsea.getPercentAccuracy());
-								System.out.println("Accuracy within 1 phone: "+bsea.getPct1off()+" >>> "+hsea.getPct1off());
+								System.out.println("Overall accuracy : "+pctAccs[0]+" >>> "+pctAccs[1]);
+								System.out.println("Accuracy within 1 phone: "+pct1offs[0]+" >>> "+pct1offs[1]);
 								System.out.println("Accuracy within 2 phone: "+bsea.getPct2off()+" >>> "+hsea.getPct2off());
 								System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
-								System.out.println("Average feature edit distance from gold: "+bsea.getAvgFED()+" >>> "+hsea.getAvgFED()); 
+								System.out.println("Average feature edit distance from gold: "+avgFEDs[0]+" >>> "+avgFEDs[1]); 
 								System.out.println("Press anything to continue."); 
 								char dum = inpu.nextLine().charAt(0);
 								//TODO possibly enable further user interaction here? 
@@ -1579,7 +1579,47 @@ public class DiachronicSimulator {
 					System.out.println("Accuracy within 2 phone: "+ea.getPct2off()+" >>> "+hea.getPct2off());
 					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
 					System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
-					//TODO here, query for user behavior.
+
+					System.out.println("What would you like to do? Please enter the appropriate number:"); 
+					char choice = 'a';
+					while (choice != '9')
+					{
+						System.out.println(
+								  "| 0 : Print parallel derivations for one word ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
+								+ "| 1 : Print changes in the effect of one rule                                         |\n"
+								+ "| 2 : Automatically finalize these changes in the cascade [exits interface]           |\n"
+								+ "| 3 : Display results again                                                           |\n"
+								+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
+						choice = inpu.nextLine().charAt(0);
+						//TODO implement options...
+
+						if (choice == '3')
+						{	System.out.println("Final output comparison for hypothesis simulation"); 
+							DHScomp.printBasicResults();
+							System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
+							System.out.println("Accuracy within 1 phone: "+ea.getPct1off()+" >>> "+hea.getPct1off());
+							System.out.println("Accuracy within 2 phone: "+ea.getPct2off()+" >>> "+hea.getPct2off());
+							System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
+							System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
+							System.out.println("Enter anything to continue.");
+							char dum = inpu.nextLine().charAt(0); 
+							System.out.println("\nWould you like to do anything else?"); 
+						}
+						else if (choice == '2')
+						{
+							//TODO this. 
+						}
+						else if (choice == '1')
+						{
+							//TODO this. 
+						}
+						else if (choice == '0')
+						{
+							//TODO this
+						}
+						else if (choice != '9') //must have been not one of the listed numbers. 
+							System.out.println("Invalid entry, please enter one of the listed numbers:"); 
+					}
 					
 					
 				}
