@@ -333,7 +333,8 @@ public class DHSAnalysis {
 	public void printBasicResults()
 	{
 		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
-		System.out.println("Other rules effected:\n"); 
+		System.out.println("Last rule before divergence: "+divergencePoint); //TODO may have to debug this... 
+		System.out.println("Effects on rules other than those explicitly changed:\n"); 
 		for (int globInd : changedRuleEffects.keySet())
 		{
 			if (ruleCorrespondences[1][globInd] != -1)
