@@ -1527,6 +1527,7 @@ public class DiachronicSimulator {
 						gsstops = (conf == 'y'); 
 					}
 					else	gsstops = false; 
+					
 					if(gsstops)
 					{
 						int gssi = 0; 
@@ -1535,20 +1536,33 @@ public class DiachronicSimulator {
 							hypEmpiricized.simulateToNextStage();
 							while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) //TODO check this. 
 								hypEmpiricized.simulateToNextStage();
-
+							
+							
 							ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), goldStageGoldLexica[gssi], featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt)),
 									bsea = new ErrorAnalysis(theSimulation.getStageResult(true, gssi), goldStageGoldLexica[gssi], featsByIndex, 
 											feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-							System.out.println("Overall accuracy : "+bsea.getPercentAccuracy()+" >>> "+hsea.getPercentAccuracy());
-							System.out.println("Accuracy within 1 phone: "+bsea.getPct1off()+" >>> "+hsea.getPct1off());
-							System.out.println("Accuracy within 2 phone: "+bsea.getPct2off()+" >>> "+hsea.getPct2off());
-							System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
-							System.out.println("Average feature edit distance from gold: "+bsea.getAvgFED()+" >>> "+hsea.getAvgFED()); 
 							
-							System.out.println("Press anything to continue."); 
-							char dum = inpu.nextLine().charAt(0);
-							//TODO possibly enable further user interaction here? 
+							System.out.println("Hit gold stage "+gssi+": "+goldStageNames[gssi]); 
+							gssi++; 
+							
+							double[] pctAccs = new double[] { bsea.getPercentAccuracy(), hsea.getPercentAccuracy() },
+									pct1offs = new double[] { bsea.getPct1off(), hsea.getPct1off() },
+									avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
+							if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
+							{
+								System.out.println("Overall accuracy : "+bsea.getPercentAccuracy()+" >>> "+hsea.getPercentAccuracy());
+								System.out.println("Accuracy within 1 phone: "+bsea.getPct1off()+" >>> "+hsea.getPct1off());
+								System.out.println("Accuracy within 2 phone: "+bsea.getPct2off()+" >>> "+hsea.getPct2off());
+								System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
+								System.out.println("Average feature edit distance from gold: "+bsea.getAvgFED()+" >>> "+hsea.getAvgFED()); 
+								System.out.println("Press anything to continue."); 
+								char dum = inpu.nextLine().charAt(0);
+								//TODO possibly enable further user interaction here? 
+
+							}
+							else	System.out.println("No divergence yet."); 
+							
 						}
 					}
 					else	hypEmpiricized.simulateToEnd();
