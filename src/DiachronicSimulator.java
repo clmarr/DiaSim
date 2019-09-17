@@ -1585,8 +1585,8 @@ public class DiachronicSimulator {
 					while (choice != '9')
 					{
 						System.out.println(
-								  "| 0 : Print parallel derivations for one word ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
-								+ "| 1 : Print changes in the effect of one rule                                         |\n"
+								  "| 0 : Print parallel derivations for one word (by index) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
+								+ "| 1 : Print all etyma by index                                                        |\n"
 								+ "| 2 : Automatically finalize these changes in the cascade [exits interface]           |\n"
 								+ "| 3 : Display results again                                                           |\n"
 								+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
@@ -1607,11 +1607,33 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '2')
 						{
+							/** recall structure of @varbl proposedChanges
+							 * List<String[]> 
+							 * each indexed String[] is form [curr time step, operation details]
+							 * this object is *kept sorted* by current form index
+							 * operation may be either deletion or insertion 
+							 * both relocdation and modification are handled as deletion then insertion pairs. 
+							 * for deletion, the second slot simply holds the string "deletion"
+							 * whereas for insertion, the second index holds the string form of the SChange 
+							 * that is inserted there in hypCASCADE. 
+							 */ 
+							
+							//TODO until we have verified that this always works properly, 
+								// we will be saving to a different location
+							
+							
+							
 							//TODO this. 
 						}
 						else if (choice == '1')
 						{
-							//TODO this. 
+							System.out.println("Printing all etyma as ID#, INPUT, BASELINE RESULT, HYP SIM RESULT, GOLD RESULT");
+							for (int eti = 0 ; eti < NUM_ETYMA ; eti++)
+								System.out.println(""+eti+", "+inputForms[eti]+", "+theSimulation.getCurrentForm(eti)+", "
+										+ hypEmpiricized.getCurrentForm(eti)+", "+goldOutputLexicon.getByID(eti)); 
+							System.out.println("Enter anything to continue.");
+							char dum = inpu.nextLine().charAt(0); 
+							System.out.println("\nWould you like to do anything else?"); 
 						}
 						else if (choice == '0')
 						{
