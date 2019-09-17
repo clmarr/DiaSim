@@ -1083,7 +1083,7 @@ public class DiachronicSimulator {
 					else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 				}
 			}
-			else if(resp.equals("7")) //forking test
+			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
 				String errorMessage = "Invalid response. Please enter a valid response. Returning to forking test menu.";
 				
@@ -1101,10 +1101,14 @@ public class DiachronicSimulator {
 					// whereas for insertion, the second index holds the string form of the SChange 
 						// that is inserted there in hypCASCADE. 
 				
+				List<String> propChNotes = new ArrayList<String>(); 
+					// will be used to keep notes on changes that will be used in case they are "finalized" 
+						// i.e. using automatic modification of the cascade file. 
+				
 				int[] RULE_IND_MAP = new int[CASCADE.size()+1], //easy access maps indices of CASCADE to those in hypCASCADE.
 								// -1 -- deleted. 
 						propGoldLocs = new int[NUM_GOLD_STAGES], propBlackLocs = new int[NUM_BLACK_STAGES]; 
-				int overallLastMoment = CASCADE.size(); 
+				int originalLastMoment = CASCADE.size(); 
 				
 				for (int i = 0; i < CASCADE.size()+1; i++)	RULE_IND_MAP[i] = i; //initialize each.
 				for (int i = 0; i < NUM_GOLD_STAGES; i++)	propGoldLocs[i] = goldStageInstants[i];
@@ -1121,6 +1125,7 @@ public class DiachronicSimulator {
 					
 					while(forkAt == -1 && subcont) {
 					
+						//TODO is this confusing? 
 						System.out.print("At what current rule number would you like to modify cascade? Please type the number.\n"
 								+ "You may also enter:\t'quit', to return to the main menu\n"
 								+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
@@ -1144,7 +1149,7 @@ public class DiachronicSimulator {
 						{
 							int ci = 0 , gsi = 0, bsi = 0,
 									firstFork = proposedChanges.size() > 0 ? 
-											overallLastMoment : Integer.parseInt(proposedChanges.get(0)[0]); 
+											originalLastMoment : Integer.parseInt(proposedChanges.get(0)[0]); 
 							
 							while ( ci < firstFork) 
 							{
@@ -1161,7 +1166,7 @@ public class DiachronicSimulator {
 							
 							int pci = 0, hci = ci; 
 							int nextFork = pci < proposedChanges.size() ? 
-									Integer.parseInt(proposedChanges.get(pci)[0]) : overallLastMoment; 
+									Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
 							
 							while (pci < proposedChanges.size())
 							{
@@ -1182,7 +1187,7 @@ public class DiachronicSimulator {
 								//then print all the rest until the next stopping point. 
 								pci++; 
 								nextFork = pci < proposedChanges.size() ? 
-										Integer.parseInt(proposedChanges.get(pci)[0]) : overallLastMoment; 
+										Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
 								
 								while (Math.max(ci, hci) < nextFork)
 								{
@@ -1289,13 +1294,17 @@ public class DiachronicSimulator {
 						{
 							int deleteAt = -1; 
 							List<String[]> insertions = new ArrayList<String[]>(); 
+							List<String> insertionNotes = new ArrayList<String>();
+							String deletionNotes = ""; 
 							
 							if("123".contains(resp)) // all the operations that involve deletion.
 							{
 								deleteAt = forkAt; 
 								SChange removed = hypCASCADE.remove(deleteAt); 
 								
-								if(resp.equals("3"))
+								if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" simply removed."; 
+								else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" modified."; 
+								else if(resp.equals("3"))
 								{
 									int relocdate = -1; 
 									while(relocdate == -1)
@@ -1325,8 +1334,10 @@ public class DiachronicSimulator {
 									// unnecessary -- handled implicitly. 
 									//if ( deleteAt > relocdate ) deleteAt--;
 									//else	relocdate--; 
-									
+									deletionNotes = "Former rule "+deleteAt+" relocdated; moved to "+relocdate; 
+							
 									insertions.add(new String[] {""+relocdate, removed.toString()} );
+									insertionNotes.add("Moved, originally at "+deleteAt); 
 									hypCASCADE.add( relocdate , removed);
 								}
 							}
@@ -1357,6 +1368,7 @@ public class DiachronicSimulator {
 									SChange curr = propShifts.remove(propShifts.size()-1); 
 									insertions.add(new String[] {  "" +(forkAt + propShifts.size() ) ,
 											curr.toString() } );
+									insertionNotes.add(""); //no notes for modification or insertion. 
 									hypCASCADE.add(forkAt,curr);
 								}
 								
@@ -1364,11 +1376,6 @@ public class DiachronicSimulator {
 							
 							// data structure manipulation
 							
-							// update RULE_IND_MAP , propGoldLocs and propBlackLocs. 
-							
-							//now handle RULE_IND_MAP
-							// also handle propGoldLocs and propBlackLocs at the same time. 
-
 							if(resp.equals("3")) //relocdation -- handled separately from others. 
 							{
 								int relocdate = Integer.parseInt(insertions.get(0)[0]); 
@@ -1402,7 +1409,7 @@ public class DiachronicSimulator {
 							else if (resp.equals("2") && insertions.size() == 1) //single replacement modification
 							{	// no change in rule ind map or prop(Gold/Black)Locs -- dummy condition.
 							}
-							else
+							else // simple insertion or deletion, or non one to one replacement modification
 							{
 								if(deleteAt != -1)
 								{
@@ -1469,15 +1476,20 @@ public class DiachronicSimulator {
 								}
 								
 								if (pcplace == proposedChanges.size())	
-									proposedChanges.add(new String[] {""+deleteAt, "deletion"});
+								{	proposedChanges.add(new String[] {""+deleteAt, "deletion"});
+									propChNotes.add(deletionNotes);
+								}
 								else
+								{
 									proposedChanges.add(pcplace, new String[] {""+deleteAt, "deletion"});	
+									propChNotes.add(pcplace, deletionNotes); 
+								}
 							}
 							
 							if("023".contains(resp))
 							{
 								int insertLoc = Integer.parseInt(insertions.get(0)[0]);
-								int pcplace = proposedChanges.size(); 
+								int pcplace = proposedChanges.size(); //because we iterate backwards. 
 								boolean foundTargSpot = false; 
 								int increment = insertions.size(); 
 								while (pcplace == 0 ? false : foundTargSpot)
@@ -1495,8 +1507,15 @@ public class DiachronicSimulator {
 									}
 								}
 								if (pcplace == proposedChanges.size())
+								{
 									proposedChanges.addAll(insertions); 
-								else	proposedChanges.addAll(pcplace, insertions);
+									propChNotes.addAll(insertionNotes); 
+								}
+								else	
+								{
+									proposedChanges.addAll(pcplace, insertions);
+									propChNotes.addAll(pcplace, insertionNotes); 
+								}
 							}
 							
 							System.out.println("Would you like to make another change at this time? Enter 'y' or 'n'."); 
@@ -1510,7 +1529,7 @@ public class DiachronicSimulator {
 						}
 					}
 					
-					//TODO here -- actual forking test simulation of CASCADE and hypCASCADE... results, etc. 
+					//actual hypothesis test simulation of CASCADE and hypCASCADE... results, etc. 
 					Simulation hypEmpiricized = new Simulation (theSimulation, hypCASCADE); 
 					
 					//TODO iteration of @varbl hypEmpiricized 
