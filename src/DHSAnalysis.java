@@ -197,7 +197,7 @@ public class DHSAnalysis {
 		}
 	}
 
-	private String getDifferentialDerivation(int et_id)
+	public String getDifferentialDerivation(int et_id)
 	{
 		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
 		if (baseDer.equals(hypDer))	return "";

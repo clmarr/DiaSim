@@ -1622,6 +1622,9 @@ public class DiachronicSimulator {
 								// we will be saving to a different location
 							
 							
+							//TODO implement method to save locations of places where edits will be placed...
+									// these should be dynamically modified as necessary in the process...
+								//TODO delete this comment. 
 							
 							//TODO this. 
 						}
@@ -1637,7 +1640,19 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '0')
 						{
-							//TODO this
+							int theID = -1; 
+							while(theID == -1)
+							{
+								System.out.println("Please enter the index of the etymon that you would like to query:"); 
+								String idstr = inpu.nextLine(); 
+								theID = getValidInd(idstr, NUM_ETYMA - 1) ; 
+								if (theID == -1)	
+									System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
+							}
+							System.out.println(DHScomp.getDifferentialDerivation(theID)); 
+							System.out.println("Enter anything to continue.");
+							char dum = inpu.nextLine().charAt(0); 
+							System.out.println("\nWould you like to do anything else?"); 
 						}
 						else if (choice != '9') //must have been not one of the listed numbers. 
 							System.out.println("Invalid entry, please enter one of the listed numbers:"); 
