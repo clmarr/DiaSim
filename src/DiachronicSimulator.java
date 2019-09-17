@@ -1666,6 +1666,7 @@ public class DiachronicSimulator {
 							while (proposedChanges.size() > 0)
 							{
 								String[] ipc = proposedChanges.remove(0); 
+								String[] currBatch = splitAtEditPoints.remove(0); 
 								
 								boolean isDelet = ipc[1].equals("deletion"); 
 								
@@ -1683,16 +1684,35 @@ public class DiachronicSimulator {
 										System.out.println("You must enter a comment to describe your change."); 
 								}
 								
+								String[] tokenizedJust = justification.split(" "); 
+								justification = "$";
+								int tji = 0, nchars = 0;
+								while(tji < tokenizedJust.length) {
+									if (justification.substring(justification.lastIndexOf("\n")).length() >= maxAutoCommentWidth)
+										justification += "\n$";
+									justification += tokenizedJust[tji]; 
+									tji++; 
+								}
 								
 								if(isDelet)
 								{
-									
+									toFileOut += "$CORRECTION: "+propChNotes.remove(0)+"\n"+justification; 
+									//first line of current @varbl currBatch 
+										// should be the deleted rule. 
+									currBatch[0] = "$"+currBatch[0]; 
+									for (String ibc : currBatch)	toFileOut += "\n"+ibc;
 								}
+								else
+								{
+									if (propChNotes.get(0).length() == 0)
+										propChNotes.remove(0); 
+									else
+										justification = propChNotes.remove(0)+"\n"+justification; 
 									
-								
-								//TODO implement loop here. 
-								
-								
+									toFileOut += "\n$CORRECTION: "+justification;
+									toFileOut += "\n"+ipc[1]+"\n"; 
+									for (String ibc : currBatch)	toFileOut += "\n"+ibc; 
+								}
 							}
 							
 							assert splitAtEditPoints.size() == 1: "Error: ended up with number other than one of remaining splits"
