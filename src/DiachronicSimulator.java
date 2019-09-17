@@ -31,6 +31,7 @@ public class DiachronicSimulator {
 	private final static char STAGE_PRINT_DELIM = ',';  
 	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
 	private final static String ABSENT_PH_INDIC = "...";
+	private final static int maxAutoCommentWidth = 150;
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
@@ -1302,8 +1303,8 @@ public class DiachronicSimulator {
 								deleteAt = forkAt; 
 								SChange removed = hypCASCADE.remove(deleteAt); 
 								
-								if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" simply removed."; 
-								else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" modified."; 
+								if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] simply removed."; 
+								else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ]"; // will have specific modification appended later.  
 								else if(resp.equals("3"))
 								{
 									int relocdate = -1; 
@@ -1334,20 +1335,21 @@ public class DiachronicSimulator {
 									// unnecessary -- handled implicitly. 
 									//if ( deleteAt > relocdate ) deleteAt--;
 									//else	relocdate--; 
-									deletionNotes = "Former rule "+deleteAt+" relocdated; moved to "+relocdate; 
+									deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] relocdated\n\tmoved to "+relocdate; 
 							
 									insertions.add(new String[] {""+relocdate, removed.toString()} );
 									insertionNotes.add("Moved, originally at "+deleteAt); 
 									hypCASCADE.add( relocdate , removed);
 								}
 							}
-							if ("02".contains("resp")) // all the operations that involve insertion of a NEW rule.
+							if ("02".contains(resp)) // all the operations that involve insertion of a NEW rule.
 							{
 								
 								List<SChange> propShifts = null;
+								String propRule = ""; 
 								while(toSetBehavior) {
 									System.out.println("Please enter the new rule:");
-									String propRule = inpu.nextLine().replace("\n", ""); 
+									propRule = inpu.nextLine().replace("\n", ""); 
 									toSetBehavior = false;
 
 									try
@@ -1368,9 +1370,16 @@ public class DiachronicSimulator {
 									SChange curr = propShifts.remove(propShifts.size()-1); 
 									insertions.add(new String[] {  "" +(forkAt + propShifts.size() ) ,
 											curr.toString() } );
-									insertionNotes.add(""); //no notes for modification or insertion. 
+									if (resp.equals("0"))
+										insertionNotes.add(""); //no notes for simple insertion. 
+									else	//modification
+										insertionNotes.add("Part of replacement of "+deletionNotes.substring(12)); 
 									hypCASCADE.add(forkAt,curr);
 								}
+
+								if(resp.equals("2"))
+									deletionNotes += " modified\nto "+propRule; 
+								
 								
 							}
 							
@@ -1626,16 +1635,6 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '2')
 						{
-							/** recall structure of @varbl proposedChanges
-							 * List<String[]> 
-							 * each indexed String[] is form [curr time step, operation details]
-							 * this object is *kept sorted* by current form index
-							 * operation may be either deletion or insertion 
-							 * both relocdation and modification are handled as deletion then insertion pairs. 
-							 * for deletion, the second slot simply holds the string "deletion"
-							 * whereas for insertion, the second index holds the string form of the SChange 
-							 * that is inserted there in hypCASCADE. 
-							 */ 
 							
 							//TODO until we have verified that this always works properly, 
 								// we will be saving to a different location
@@ -1652,9 +1651,45 @@ public class DiachronicSimulator {
 							
 							String toFileOut = ""; 
 							
+							/** recall structure of @varbl proposedChanges
+							 * List<String[]> 
+							 * each indexed String[] is form [curr time step, operation details]
+							 * this object is *kept sorted* by current form index
+							 * operation may be either deletion or insertion 
+							 * both relocdation and modification are handled as deletion then insertion pairs. 
+							 * for deletion, the second slot simply holds the string "deletion"
+							 * whereas for insertion, the second index holds the string form of the SChange 
+							 * that is inserted there in hypCASCADE. 
+							 * note we also have corresponding propChNotes
+							 */ 
+							
 							while (proposedChanges.size() > 0)
 							{
+								String[] ipc = proposedChanges.remove(0); 
+								
+								boolean isDelet = ipc[1].equals("deletion"); 
+								
+								String justification = ""; 
+								while (justification.equals(""))
+								{
+									System.out.print("Current change being implemented: "); 
+									if(isDelet)
+										System.out.print(propChNotes.get(0)+"\n"); 
+									else if (propChNotes.get(0).length() > 0 ) // part of modification. 
+										
+										
+								}
+								
+								
+								if(isDelet)
+								{
+									
+								}
+									
+								
 								//TODO implement loop here. 
+								
+								
 							}
 							
 							assert splitAtEditPoints.size() == 1: "Error: ended up with number other than one of remaining splits"
