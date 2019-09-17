@@ -67,7 +67,7 @@ public class DiachronicSimulator {
 	private static String runPrefix;
 	private static String symbDefsLoc; 
 	private static String featImplsLoc; 
-	private static String ruleFileLoc; 
+	private static String cascFileLoc; 	
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
@@ -209,7 +209,7 @@ public class DiachronicSimulator {
 		
 		try 
 		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(ruleFileLoc), "UTF-8")); 
+				new FileInputStream(cascFileLoc), "UTF-8")); 
 			
 			while((nextRuleLine = in.readLine()) != null)
 			{
@@ -1645,7 +1645,27 @@ public class DiachronicSimulator {
 									// these should be dynamically modified as necessary in the process...
 								//TODO delete this comment. 
 							
-							//TODO this. 
+							List<String[]> splitAtEditPoints = cascFileSplitAtEditPts(proposedChanges); 
+									//TODO need to implement method called here. 
+								// for consecutive edits i.e. on same spot, only one should return a String[] array wiht any contents
+									// the others return an empty array. 
+							
+							String toFileOut = ""; 
+							
+							while (proposedChanges.size() > 0)
+							{
+								//TODO implement loop here. 
+							}
+							
+							assert splitAtEditPoints.size() == 1: "Error: ended up with number other than one of remaining splits"
+									+ " (if final edit is at end, we should have a remaining empty array)"; 
+							if (splitAtEditPoints.get(0).length != 0)
+								for (String line : splitAtEditPoints.get(0))
+									toFileOut += "\n"+line; 
+							
+							System.out.println("Please enter what you want to save your new cascade as:");
+							String fileDest = inpu.nextLine(); 
+							writeToFile(fileDest, toFileOut); 
 						}
 						else if (choice == '1')
 						{
@@ -1823,7 +1843,7 @@ public class DiachronicSimulator {
 		//defaults
 		symbDefsLoc = "symbolDefs.csv";
 		lexFileLoc = "FLLex.txt";
-		ruleFileLoc = "DiaCLEF"; 
+		cascFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
 		id_wt = 0.5; 
 		
@@ -1868,9 +1888,9 @@ public class DiachronicSimulator {
 			//ruleset file location
 			else if (arg.contains("-rules"))
 			{
-				if (i < args.length)	ruleFileLoc = args[i++];
+				if (i < args.length)	cascFileLoc = args[i++];
 				else	System.err.println("-rules requires a location for ruleset file.");
-				if (vflag)	System.out.println("ruleset file location: "+ruleFileLoc);
+				if (vflag)	System.out.println("ruleset file location: "+cascFileLoc);
 			}
 			
 			//lexicon location
@@ -1969,6 +1989,13 @@ public class DiachronicSimulator {
 		if (theInd == CASCADE.size())
 			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
 		else System.out.println(CASCADE.get(theInd)); 
+	}
+	
+	
+	// uses @param cascFileLoc
+	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs)
+	{
+		//TODO this
 	}
 	
 }
