@@ -1673,11 +1673,14 @@ public class DiachronicSimulator {
 								while (justification.equals(""))
 								{
 									System.out.print("Current change being implemented: "); 
-									if(isDelet)
+									if (propChNotes.get(0).length() > 0) // deletion, or insertion part of modification
 										System.out.print(propChNotes.get(0)+"\n"); 
-									else if (propChNotes.get(0).length() > 0 ) // part of modification. 
-										
-										
+									else
+										System.out.println("Simple insertion of "+ipc[1]); 
+									System.out.println("Please enter an explanatory comment to justify this change"); 
+									justification = inpu.nextLine().replace("\n",""); 
+									if (justification.equals(""))
+										System.out.println("You must enter a comment to describe your change."); 
 								}
 								
 								
@@ -1698,8 +1701,14 @@ public class DiachronicSimulator {
 								for (String line : splitAtEditPoints.get(0))
 									toFileOut += "\n"+line; 
 							
-							System.out.println("Please enter what you want to save your new cascade as:");
-							String fileDest = inpu.nextLine(); 
+							String fileDest = ""; 
+							while (fileDest.equals("")) {
+								System.out.println("Please enter what you want to save your new cascade as:");
+								fileDest = inpu.nextLine().replace("\n",""); 
+								if (fileDest.equals("") || fileDest.equals(cascFileLoc))
+									System.out.println("You must enter a file destination, and it must be distinct from the original cascade's location."); 
+										//TODO once we have finished debugging, allow initial file's location to be used.
+							}
 							writeToFile(fileDest, toFileOut); 
 						}
 						else if (choice == '1')
