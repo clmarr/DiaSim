@@ -1637,6 +1637,50 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '2' || choice == '3')
 						{
+							if(choice == '2')
+								System.out.println("Automatically implementing proposed changes to cascade..."); 
+							else // choice == 3
+								System.out.println("Placing comments to facilitate manual editing of cascade..."); 
+							System.out.println("First, explanatory comments must be entered for the changes..."); 
+							
+							List<String> editComments = new ArrayList<String>();
+							
+							for (int pci = 0; pci < proposedChanges.size(); pci++) {
+								String[] ipc = proposedChanges.get(pci); 
+								
+								
+								//note: no comments are entered for the insertion part of rule modification, 
+									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+								if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
+								{	
+									String justification = ""; 
+									while (justification.equals(""))
+									{
+										System.out.println("Please enter an explanatory comment for this change : ");
+										
+										if(ipc[1].equals("deletion"))
+											System.out.println(propChNotes.get(0)); 
+										else if (propChNotes.get(0).length() == 0)
+											System.out.println("Simple insertion of "+ipc[1]); 
+
+										//TODO here.
+									}
+								}
+								
+								
+								else if (propChNotes.get(0).length() > 0) // insertion part of modification.
+									
+								
+								
+							}
+							
+							//TODO edit here.
+							
+							
+							
+							
+							
+							//TODO area below within this condition is abrogated. 
 							
 							//TODO until we have verified that this always works properly, 
 								// we will be saving to a different location
