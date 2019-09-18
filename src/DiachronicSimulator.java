@@ -2070,8 +2070,9 @@ public class DiachronicSimulator {
 			// because that rule is split into multiple rules in processing here.
 	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs, boolean justPlaceHolders)
 	{
+		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		String SKIPLINESYMBS = ""+CMT_FLAG+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
 		int linesPassed = 0; 
-		
 		String readIn = ""; 
 		
 		try 
@@ -2095,21 +2096,22 @@ public class DiachronicSimulator {
 		}
 		
 		int igs = -1, ibs = -1; 
-		
+		int nextRuleInd = 0 ; 
 		String blockBeforeNextEdit = ""; 
 		List<String[]> out = new ArrayList<String[]>(); 
 		
-		while(out.size() < propChs.size())
+		
+		for(int ipc = 0 ; ipc < propChs.size() ; ipc++)
 		{
-			int nextChInd = Integer.parseInt(propChs.get(0)[0]); 
+			int nextRuleChangeInd = Integer.parseInt(propChs.get(ipc)[0]); 
 			String stagesToSkip = "";
 			int prev_igs = igs, prev_ibs = ibs; 
 			
 			if(goldStagesSet)
-				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextChInd)
+				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextRuleChangeInd)
 					igs++; 
 			if(blackStagesSet)
-				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextChInd)
+				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextRuleChangeInd)
 					ibs++; 
 			
 			if(igs > prev_igs || ibs > prev_ibs)
@@ -2120,10 +2122,40 @@ public class DiachronicSimulator {
 				else	stagesToSkip = "b"+(prev_ibs-ibs); 
 			}
 			
+			if(!stagesToSkip.equals(""))
+			{
+				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); 
+				blockBeforeNextEdit += readIn.substring(0, break_pt); 
+				readIn = readIn.substring(break_pt); 
+				nextRuleInd = (stagesToSkip.charAt(0) == 'g') ? goldStageInstants[igs] : blackStageInstants[ibs]; 
+			}
+			
+			linesPassed = blockBeforeNextEdit.split("\n").length; 
+			if (blockBeforeNextEdit.length() >= 2)
+				if (blockBeforeNextEdit.substring(blockBeforeNextEdit.length() - "\n".length(), blockBeforeNextEdit.length()).equals("\n"))
+					linesPassed--; 
+			
+			while (nextRuleInd < nextRuleChangeInd)
+			{
+				int brkpt = readIn.indexOf("\n") + "\n".length(); 
+				if (SKIPLINESYMBS.contains(readIn.substring(0,1)) 
+						|| readIn.substring(0,brkpt).replace("\n","").trim().equals(""))
+				{
+					blockBeforeNextEdit = readIn.substring(0, brkpt); 
+					readIn = readIn.substring(brkpt); 
+				}
+				else
+				{
+					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(readIn.substring(0, brkpt - "\n".length())); 
+					
+					//TODO this.
+				}
+			}
+			
 			//TODO this
 		}
 		
-		out.add(readIn.split("\n")); 
+		out.add(readIn.split("\n"); 
 		return out; 
 	}
 	 
@@ -2144,8 +2176,13 @@ public class DiachronicSimulator {
 		while (skips_left > 0)
 		{
 			int nextbreak = dummyTxt.indexOf(breaker) + breaker.length(); 
+			
+			//then go to the end of that line, since it will just be the stage declaration
+			nextbreak += dummyTxt.substring(nextbreak).indexOf("\n")+"\n".length(); 
+			
 			brkpt += nextbreak; 
 			dummyTxt = dummyTxt.substring(nextbreak); 
+			
 			skips_left--; 
 		}
 		
