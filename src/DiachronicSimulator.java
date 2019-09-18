@@ -2126,6 +2126,31 @@ public class DiachronicSimulator {
 		out.add(readIn.split("\n")); 
 		return out; 
 	}
+	 
+	
+	// @param skipCode -- "g2" -- i.e. "skip 2 gold stages"
+	// @param aggRemTxt -- aggregrate remaining text
+	// @return break point to skip those stages
+	private static int brkPtForStageSkip(String aggRemTxt, String skipCode)
+	{
+		boolean isGold = skipCode.charAt(0) == 'g'; 
+		char SN = isGold ? GOLD_STAGENAME_FLAG : BLACK_STAGENAME_FLAG; 
+		int skips_left = Integer.parseInt(skipCode.substring(1));  
+		if (aggRemTxt.charAt(0) == SN)	skips_left--; 
+		String dummyTxt = aggRemTxt + "";
+		int brkpt = 0; 
+		String breaker = "\n"+SN; 
+		
+		while (skips_left > 0)
+		{
+			int nextbreak = dummyTxt.indexOf(breaker) + breaker.length(); 
+			brkpt += nextbreak; 
+			dummyTxt = dummyTxt.substring(nextbreak); 
+			skips_left--; 
+		}
+		
+		return brkpt; 
+	}
 	
 }
 
