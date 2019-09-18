@@ -48,6 +48,7 @@ public class DiachronicSimulator {
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	
+	//TODO perhaps abrogate these if they're permanently no longer in use. 
 	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
 	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
 	private static boolean[] finMissInds; //each index true if the word for this index
@@ -1649,7 +1650,14 @@ public class DiachronicSimulator {
 								// for consecutive edits i.e. on same spot, only one should return a String[] array wiht any contents
 									// the others return an empty array. 
 							
+							
+							
 							String toFileOut = ""; 
+							String[] preEditBatch = splitAtEditPoints.remove(0); 
+								// if we edit at literally the first line, this should just be an empty array.
+							if (preEditBatch.length > 0)
+								for (String line : preEditBatch)
+									toFileOut += line + "\n"; 
 							
 							/** recall structure of @varbl proposedChanges
 							 * List<String[]> 
@@ -1685,21 +1693,21 @@ public class DiachronicSimulator {
 								}
 								
 								String[] tokenizedJust = justification.split(" "); 
-								justification = "$";
+								justification = ""+CMT_FLAG;
 								int tji = 0, nchars = 0;
 								while(tji < tokenizedJust.length) {
 									if (justification.substring(justification.lastIndexOf("\n")).length() >= maxAutoCommentWidth)
-										justification += "\n$";
+										justification += "\n"+CMT_FLAG;
 									justification += tokenizedJust[tji]; 
 									tji++; 
 								}
 								
 								if(isDelet)
 								{
-									toFileOut += "$CORRECTION: "+propChNotes.remove(0)+"\n"+justification; 
+									toFileOut += CMT_FLAG+"CORRECTION: "+propChNotes.remove(0)+"\n"+justification; 
 									//first line of current @varbl currBatch 
 										// should be the deleted rule. 
-									currBatch[0] = "$"+currBatch[0]; 
+									currBatch[0] = ""+CMT_FLAG+currBatch[0]; 
 									for (String ibc : currBatch)	toFileOut += "\n"+ibc;
 								}
 								else
@@ -1709,7 +1717,7 @@ public class DiachronicSimulator {
 									else
 										justification = propChNotes.remove(0)+"\n"+justification; 
 									
-									toFileOut += "\n$CORRECTION: "+justification;
+									toFileOut += "\n"+CMT_FLAG+"CORRECTION: "+justification;
 									toFileOut += "\n"+ipc[1]+"\n"; 
 									for (String ibc : currBatch)	toFileOut += "\n"+ibc; 
 								}
@@ -2057,9 +2065,66 @@ public class DiachronicSimulator {
 	
 	
 	// uses @param cascFileLoc
-	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs)
+	// justPlaceHolders -- only places comments indicating to user where and how to edit cascade file.
+		// the only option when we are editing in the middle of a rule with a {} disjunction
+			// because that rule is split into multiple rules in processing here.
+	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs, boolean justPlaceHolders)
 	{
-		//TODO this
+		int linesPassed = 0; 
+		
+		String readIn = ""; 
+		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
+				new FileInputStream(cascFileLoc), "UTF-8")); 
+			String nextLine = ""; 
+		
+			while((nextLine = in.readLine()) != null)
+				readIn += nextLine.replace("\n", "")+"\n"; 
+			in.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		int igs = -1, ibs = -1; 
+		
+		String blockBeforeNextEdit = ""; 
+		List<String[]> out = new ArrayList<String[]>(); 
+		
+		while(out.size() < propChs.size())
+		{
+			int nextChInd = Integer.parseInt(propChs.get(0)[0]); 
+			String stagesToSkip = "";
+			int prev_igs = igs, prev_ibs = ibs; 
+			
+			if(goldStagesSet)
+				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextChInd)
+					igs++; 
+			if(blackStagesSet)
+				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextChInd)
+					ibs++; 
+			
+			if(igs > prev_igs || ibs > prev_ibs)
+			{
+				if ( (goldStagesSet ? goldStageInstants[igs] : -1)
+						> (blackStagesSet ? blackStageInstants[ibs] : -1))
+					stagesToSkip = "g"+(prev_igs-igs); 
+				else	stagesToSkip = "b"+(prev_ibs-ibs); 
+			}
+			
+			//TODO this
+		}
+		
+		out.add(readIn.split("\n")); 
+		return out; 
 	}
 	
 }
