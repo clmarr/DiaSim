@@ -1651,9 +1651,13 @@ public class DiachronicSimulator {
 								
 								//note: no comments are entered for the insertion part of rule modification, 
 									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+									// in this way, the system will be able to recognize such cases due to the explanatory comment 
+											//being empty
+										// in all other cases, empty explanations are strictly forbidden
+								String justification = ""; 
+
 								if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
 								{	
-									String justification = ""; 
 									while (justification.equals(""))
 									{
 										System.out.println("Please enter an explanatory comment for this change : ");
@@ -1668,15 +1672,9 @@ public class DiachronicSimulator {
 									}
 									
 									//now perform line breaks as appropriate for long comments...
-									
-									
+									justification = commentJustify(justification); 
 								}
-								
-								
-								else if (propChNotes.get(0).length() > 0) // insertion part of modification.
-									
-								
-								
+								editComments.add(justification); 
 							}
 							
 							//TODO edit here.
