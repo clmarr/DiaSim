@@ -2071,7 +2071,7 @@ public class DiachronicSimulator {
 	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs, boolean justPlaceHolders)
 	{
 		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
-		String SKIPLINESYMBS = ""+CMT_FLAG+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
+		String STAGEFLAGS = ""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
 		int linesPassed = 0; 
 		String readIn = ""; 
 		
@@ -2097,13 +2097,16 @@ public class DiachronicSimulator {
 		
 		int igs = -1, ibs = -1; 
 		int nextRuleInd = 0 ; 
-		String blockBeforeNextEdit = ""; 
 		List<String[]> out = new ArrayList<String[]>(); 
 		
 		
 		for(int ipc = 0 ; ipc < propChs.size() ; ipc++)
 		{
+			String blockBeforeNextEdit = ""; 
+
 			int nextRuleChangeInd = Integer.parseInt(propChs.get(ipc)[0]); 
+			boolean isDelet = propChs.get(ipc)[1].equals("deletion"); 
+				// will be used to determine where we place new content with respect to comment blocks
 			String stagesToSkip = "";
 			int prev_igs = igs, prev_ibs = ibs; 
 			
@@ -2136,25 +2139,88 @@ public class DiachronicSimulator {
 					linesPassed--; 
 			
 			//TODO should probably incorporate "comment-rule block" -- i.e. put insertions before comments pertaining to hte next rule
-			while (nextRuleInd < nextRuleChangeInd)
+			while (nextRuleInd <= nextRuleChangeInd)
 			{
-				int brkpt = readIn.indexOf("\n") + "\n".length(); 
-				if (SKIPLINESYMBS.contains(readIn.substring(0,1)) 
-						|| readIn.substring(0,brkpt).replace("\n","").trim().equals(""))
+				//first -- skip any leading blank lines or stage declaration lines
+				while (STAGEFLAGS.contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
 				{
-					blockBeforeNextEdit += readIn.substring(0, brkpt); 
+					int brkpt = readIn.indexOf("\n")+"\n".length(); 
+					linesPassed++; 
+					blockBeforeNextEdit += readIn.substring(0, brkpt);
+					readIn = readIn.substring(brkpt); 
+				}
+
+				String commentBlock = ""; 
+				
+				// case of if the next line is headed by the comment flag. 
+				// absorb all consecutive comment lines in @varbl commentBlock
+				while (readIn.charAt(0) == CMT_FLAG) {
+					int brkpt = readIn.indexOf("\n") + "\n".length(); 
+					commentBlock += readIn.substring(0, brkpt) ;
+					readIn = readIn.substring(brkpt);
+					linesPassed++; 
+				}
+					
+				if (!commentBlock.equals("") && isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
+				{
+					int brkpt = readIn.indexOf("\n") + "\n".length(); 
+					commentBlock += readIn.substring(0, brkpt); 
 					readIn = readIn.substring(brkpt); 
 					linesPassed++; 
 				}
+					
+				//if next line is either another blank line, another comment after blank line, 
+					// or a stage, this iteration of loop is over
+				if ((STAGEFLAGS+CMT_FLAG).contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+				{
+					blockBeforeNextEdit += commentBlock;
+				}	
+				else // i.e. we are handling a rule.
+				{
+					//on the other hand, if a rule comes after this block, we consider the comment block to have been
+						// the explanation or justification for the rule, and will then operate on the rule.
+					// if the comment block is empty, nothing explicitly differs in code, so both are handled here. 
+				
+					int brkpt = readIn.indexOf("\n"); 
+					String ruleLine = readIn.substring(0, brkpt); 
+					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(ruleLine.substring(0, brkpt - "\n".length())); 
+					
+					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
+						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
+					
+					if( nextRuleInd - 1 + dummyShifts.size() < nextRuleChangeInd ) // then we can skip as usual. 
+					{
+						blockBeforeNextEdit += commentBlock + ruleLine; 
+						readIn = readIn.substring(brkpt+ "\n".length());
+							// skip next '\n' since we don't want to create an empty line when it splits. 
+						nextRuleInd += dummyShifts.size(); 
+						linesPassed++;
+						
+						out.add(blockBeforeNextEdit.split("\n"));
+						
+					}
+					
+							
+					
+				}
+				
+					
+					
+					
+					
+					//TODO then, skip any comment blocks that are followed by a blank line and then (a) a blank line or (b) a comment. 
+					
+				}
+				
+				
 				else
 				{
 					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(readIn.substring(0, brkpt - "\n".length())); 
 					
-					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
-						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
 					dummyShifts.remove(0); 
 					nextRuleInd++; 
 					//TODO this.
+					//TODO need to throw appropriate error scenario here. 
 				}
 			}
 			
@@ -2193,6 +2259,12 @@ public class DiachronicSimulator {
 		}
 		
 		return brkpt; 
+	}
+	
+	//auxiliary
+	private static boolean isJustSpace(String line)
+	{
+		return line.replace(" ","").length() == 0;
 	}
 	
 }
