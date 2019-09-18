@@ -2112,191 +2112,7 @@ public class DiachronicSimulator {
 	}
 	
 	
-	// uses @param cascFileLoc
-	// justPlaceHolders -- only places comments indicating to user where and how to edit cascade file.
-		// the only option when we are editing in the middle of a rule with a {} disjunction
-			// because that rule is split into multiple rules in processing here.
-	private static List<String[]> cascFileSplitAtEditPts(List<String[]> propChs, boolean justPlaceHolders)
-	{
-		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
-		String STAGEFLAGS = ""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
-		int linesPassed = 0; 
-		String readIn = ""; 
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(cascFileLoc), "UTF-8")); 
-			String nextLine = ""; 
-		
-			while((nextLine = in.readLine()) != null)
-				readIn += nextLine.replace("\n", "")+"\n"; 
-			in.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		int igs = -1, ibs = -1; 
-		int nextRuleInd = 0 ; 
-		List<String[]> out = new ArrayList<String[]>(); 
-		
-		
-		for(int ipc = 0 ; ipc < propChs.size() ; ipc++)
-		{
-			String blockBeforeNextEdit = ""; 
-
-			int nextRuleChangeInd = Integer.parseInt(propChs.get(ipc)[0]); 
-			boolean isDelet = propChs.get(ipc)[1].equals("deletion"); 
-				// will be used to determine where we place new content with respect to comment blocks
-			String stagesToSkip = "";
-			int prev_igs = igs, prev_ibs = ibs; 
-			
-			if(goldStagesSet)
-				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextRuleChangeInd)
-					igs++; 
-			if(blackStagesSet)
-				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextRuleChangeInd)
-					ibs++; 
-			
-			if(igs > prev_igs || ibs > prev_ibs)
-			{
-				if ( (goldStagesSet ? goldStageInstants[igs] : -1)
-						> (blackStagesSet ? blackStageInstants[ibs] : -1))
-					stagesToSkip = "g"+(prev_igs-igs); 
-				else	stagesToSkip = "b"+(prev_ibs-ibs); 
-			}
-			
-			if(!stagesToSkip.equals(""))
-			{
-				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); 
-				blockBeforeNextEdit += readIn.substring(0, break_pt); 
-				readIn = readIn.substring(break_pt); 
-				nextRuleInd = (stagesToSkip.charAt(0) == 'g') ? goldStageInstants[igs] : blackStageInstants[ibs]; 
-			}
-			
-			linesPassed = blockBeforeNextEdit.split("\n").length; 
-			if (blockBeforeNextEdit.length() >= 2)
-				if (blockBeforeNextEdit.substring(blockBeforeNextEdit.length() - "\n".length(), blockBeforeNextEdit.length()).equals("\n"))
-					linesPassed--; 
-			
-			//TODO should probably incorporate "comment-rule block" -- i.e. put insertions before comments pertaining to hte next rule
-			while (nextRuleInd <= nextRuleChangeInd)
-			{
-				//first -- skip any leading blank lines or stage declaration lines
-				while (STAGEFLAGS.contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
-				{
-					int brkpt = readIn.indexOf("\n")+"\n".length(); 
-					linesPassed++; 
-					blockBeforeNextEdit += readIn.substring(0, brkpt);
-					readIn = readIn.substring(brkpt); 
-				}
-
-				String commentBlock = ""; 
-				
-				// case of if the next line is headed by the comment flag. 
-				// absorb all consecutive comment lines in @varbl commentBlock
-				while (readIn.charAt(0) == CMT_FLAG) {
-					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt) ;
-					readIn = readIn.substring(brkpt);
-					linesPassed++; 
-				}
-					
-				if (!commentBlock.equals("") && isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
-				{
-					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt); 
-					readIn = readIn.substring(brkpt); 
-					linesPassed++; 
-				}
-					
-				//if next line is either another blank line, another comment after blank line, 
-					// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS+CMT_FLAG).contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
-				{
-					blockBeforeNextEdit += commentBlock;
-				}	
-				else // i.e. we are handling a rule.
-				{
-					//on the other hand, if a rule comes after this block, we consider the comment block to have been
-						// the explanation or justification for the rule, and will then operate on the rule.
-					// if the comment block is empty, nothing explicitly differs in code, so both are handled here. 
-				
-					int brkpt = readIn.indexOf("\n"); 
-					String ruleLine = readIn.substring(0, brkpt); 
-					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(ruleLine.substring(0, brkpt - "\n".length())); 
-					
-					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
-						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
-					
-					if( nextRuleInd - 1 + dummyShifts.size() < nextRuleChangeInd ) // then we can skip as usual. 
-					{
-						blockBeforeNextEdit += commentBlock + ruleLine; 
-						readIn = readIn.substring(brkpt+ "\n".length());
-							// skip next '\n' since we don't want to create an empty line when it splits. 
-						nextRuleInd += dummyShifts.size(); 
-						linesPassed++;
-						
-						out.add(blockBeforeNextEdit.split("\n"));
-					}
-					else // ensure proper splits here 
-					{
-						//TODO we are assuming all rule indexing is correct as supplied by @param propChs
-							// ... may need to check this. 
-						
-						if (dummyShifts.size() == 1) // i.e. not a disjunction -- so our job is simple
-						{
-							//recall -- isDelet will indicate whether we are handling a deletion or insertion scenario.
-							if(isDelet) // deletion -- so then we split at end of comment block, right before rule. 
-							{
-								out.add()
-							}
-							
-							
-						}
-						else //there is a disjunction here -- if this is a split for actual editing, will have to throw error here. 
-					
-						
-					}
-					
-							
-					
-				}
-				
-					
-					
-					
-					
-					//TODO then, skip any comment blocks that are followed by a blank line and then (a) a blank line or (b) a comment. 
-					
-				}
-				
-				
-				else
-				{
-					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(readIn.substring(0, brkpt - "\n".length())); 
-					
-					dummyShifts.remove(0); 
-					nextRuleInd++; 
-					//TODO this.
-					//TODO need to throw appropriate error scenario here. 
-				}
-			}
-			
-			//TODO this
-		}
-		
-		out.add(readIn.split("\n"); 
-		return out; 
-	}
-	 
+		 
 	
 	// @param skipCode -- "g2" -- i.e. "skip 2 gold stages"
 	// @param aggRemTxt -- aggregrate remaining text
@@ -2364,6 +2180,27 @@ public class DiachronicSimulator {
 		return out; 
 	}
 	
+	
+	/** modCascFileText
+	 * gets text from @global cascFileLoc
+	 * @return casc text as appropriately modified. 
+	 * @param propChs -- proposedChanges, of form [index, description] -- see above in comments about proposedChanges @varbl for more info
+	 * @param comments -- comments to be inserted for each proposed change 
+	 * 		(note that the insertion part of modification is bidirectionally indicated with the lack of such a comment)
+	 * @param justPlaceHolders -- if true, we are only placing comments to indicate where user should edit cascade file
+	 * 		otherwise we are actually carrying out the edits. 
+	 * @return
+	 */
+	
+	private static String modCascFileText( List<String[]> propChs, List<String> comments, boolean justPlaceHolders )
+	{
+		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		String STAGEFLAGS = ""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
+		int linesPassed = 0; 
+		String readIn = ""; 
+		
+		
+	}
 }
 
 
