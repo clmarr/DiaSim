@@ -2346,11 +2346,22 @@ public class DiachronicSimulator {
 	private static String commentJustify(String ogcmt)
 	{
 		String[] tokens = ogcmt.split(" "); 
-		String out = ""+CMT_FLAG; 
-		int ti = 0, currLineWidth = 1; 
-		while (ti < tokens.length)
+		String out = ""+CMT_FLAG, lineStarter = "\n"+CMT_FLAG+HANGING_INDENT; 
+		int currLineWidth = 1; 
+		
+		for (int ti = 0 ; ti < tokens.length ; ti ++)
 		{
-			//TODO here.
+			
+			if (currLineWidth + 1 + tokens[ti].length() < maxAutoCommentWidth)
+			{
+				currLineWidth += 1 + tokens[ti].length(); 
+				out += " " + tokens[ti];
+			}
+			else
+			{
+				out += lineStarter+tokens[ti]; 
+				currLineWidth = lineStarter.length() + tokens[ti].length(); 
+			}
 		}
 		return out; 
 	}
