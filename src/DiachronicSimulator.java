@@ -2135,19 +2135,25 @@ public class DiachronicSimulator {
 				if (blockBeforeNextEdit.substring(blockBeforeNextEdit.length() - "\n".length(), blockBeforeNextEdit.length()).equals("\n"))
 					linesPassed--; 
 			
+			//TODO should probably incorporate "comment-rule block" -- i.e. put insertions before comments pertaining to hte next rule
 			while (nextRuleInd < nextRuleChangeInd)
 			{
 				int brkpt = readIn.indexOf("\n") + "\n".length(); 
 				if (SKIPLINESYMBS.contains(readIn.substring(0,1)) 
 						|| readIn.substring(0,brkpt).replace("\n","").trim().equals(""))
 				{
-					blockBeforeNextEdit = readIn.substring(0, brkpt); 
+					blockBeforeNextEdit += readIn.substring(0, brkpt); 
 					readIn = readIn.substring(brkpt); 
+					linesPassed++; 
 				}
 				else
 				{
 					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(readIn.substring(0, brkpt - "\n".length())); 
 					
+					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
+						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
+					dummyShifts.remove(0); 
+					nextRuleInd++; 
 					//TODO this.
 				}
 			}
