@@ -1662,9 +1662,14 @@ public class DiachronicSimulator {
 											System.out.println(propChNotes.get(0)); 
 										else if (propChNotes.get(0).length() == 0)
 											System.out.println("Simple insertion of "+ipc[1]); 
-
-										//TODO here.
+										justification = inpu.nextLine().replace("\n",""); 
+										if (justification.equals(""))
+											System.out.println("You must enter a comment to describe your change."); 
 									}
+									
+									//now perform line breaks as appropriate for long comments...
+									
+									
 								}
 								
 								
@@ -2328,6 +2333,26 @@ public class DiachronicSimulator {
 	private static boolean isJustSpace(String line)
 	{
 		return line.replace(" ","").length() == 0;
+	}
+	
+	
+	private final static String HANGING_INDENT = "      "; 
+	//auxiliary for use in implementing DHS changes 
+	/** commentJustify
+	 * @return @param ogcmt with line breaks inserted such that no line is longer than maxAutoCommentWidth,
+	 * 		each line starts with CMT_FLAG,
+	 * 		and lines after the first have hanging indentation
+	 */
+	private static String commentJustify(String ogcmt)
+	{
+		String[] tokens = ogcmt.split(" "); 
+		String out = ""+CMT_FLAG; 
+		int ti = 0, currLineWidth = 1; 
+		while (ti < tokens.length)
+		{
+			//TODO here.
+		}
+		return out; 
 	}
 	
 }
