@@ -1617,12 +1617,13 @@ public class DiachronicSimulator {
 								  "| 0 : Print parallel derivations for one word (by index) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
 								+ "| 1 : Print all etyma by index                                                        |\n"
 								+ "| 2 : Automatically finalize these changes in the cascade [exits interface]           |\n"
-								+ "| 3 : Display results again                                                           |\n"
+								+ "| 3 : Automatically comment where changes should be made to assist manual editing.    |\n"
+								+ "| 4 : Display results again                                                           |\n"
 								+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
 						choice = inpu.nextLine().charAt(0);
 						//TODO implement options...
 
-						if (choice == '3')
+						if (choice == '4')
 						{	System.out.println("Final output comparison for hypothesis simulation"); 
 							DHScomp.printBasicResults();
 							System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
@@ -1634,7 +1635,7 @@ public class DiachronicSimulator {
 							char dum = inpu.nextLine().charAt(0); 
 							System.out.println("\nWould you like to do anything else?"); 
 						}
-						else if (choice == '2')
+						else if (choice == '2' || choice == '3')
 						{
 							
 							//TODO until we have verified that this always works properly, 
@@ -2197,6 +2198,24 @@ public class DiachronicSimulator {
 						linesPassed++;
 						
 						out.add(blockBeforeNextEdit.split("\n"));
+					}
+					else // ensure proper splits here 
+					{
+						//TODO we are assuming all rule indexing is correct as supplied by @param propChs
+							// ... may need to check this. 
+						
+						if (dummyShifts.size() == 1) // i.e. not a disjunction -- so our job is simple
+						{
+							//recall -- isDelet will indicate whether we are handling a deletion or insertion scenario.
+							if(isDelet) // deletion -- so then we split at end of comment block, right before rule. 
+							{
+								out.add()
+							}
+							
+							
+						}
+						else //there is a disjunction here -- if this is a split for actual editing, will have to throw error here. 
+					
 						
 					}
 					
