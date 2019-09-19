@@ -2303,6 +2303,13 @@ public class DiachronicSimulator {
 					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
 						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
 					
+					if (nextRuleInd - 1 + dummyShifts.size() < nextChangeRuleInd) // then we can simply absorb it into @varbl out as usual.
+					{
+						out += commentBlock + ruleLine + "\n"; 
+						readIn = readIn.substring(brkpt+"\n".length());
+						nextRuleInd += dummyShifts.size(); 
+						linesPassed++; 
+					}
 					
 				}
 			}
