@@ -2286,6 +2286,25 @@ public class DiachronicSimulator {
 					linesPassed++; 
 				}
 				
+				//if next line is either another blank line, another comment after blank line, 
+				// or a stage, this iteration of loop is over
+				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
+					out += commentBlock; 
+				else // i.e. we are handling a line holding a rule.
+				{
+
+					//on the other hand, if a rule comes after this block, we consider the comment block to have been
+						// the explanation or justification for the rule, and will then operate on the rule.
+					// if the comment block is empty, nothing explicitly differs in code, so both are handled here. 
+					int brkpt = readIn.indexOf("\n"); 
+					String ruleLine = readIn.substring(0, brkpt); 
+					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(ruleLine.substring(0, brkpt - "\n".length())); 
+					
+					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
+						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
+					
+					
+				}
 			}
 			
 		}
