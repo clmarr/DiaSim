@@ -2192,7 +2192,7 @@ public class DiachronicSimulator {
 	 * @return
 	 */
 	
-	private static String modCascFileText( List<String[]> propChs, List<String> comments, boolean justPlaceHolders )
+	private static String modCascFileText( List<String[]> propChs, List<String> comments, boolean justPlaceHolders ) throws MidDisjunctionEditException
 	{
 		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		String STAGEFLAGS = ""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
@@ -2411,7 +2411,23 @@ public class DiachronicSimulator {
 							}
 							else
 							{
-								//TODO will need to throw appropriate error. 
+								String errorMessage = "MidDisjunctionException : Currently, you cannot ";
+								//TODO check for proper error message generation here .... 
+								
+								if (isDelet)
+									errorMessage += "delete only one";
+								else	errorMessage += "insert a rule between two"; 
+								errorMessage += " of the sound changes derived from rule written in the original cascade file "
+											+ "with a {} disjunction in its context stipulations.\n"
+											+ "The disjunct context rule in question was "+ruleLine+"\n"
+											+ "It is on line "+linesPassed+" of the original cascade file, "+cascFileLoc+"\n";
+								
+								if (isDelet) errorMessage +=  "You tried to delete this derived rule : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd);
+								else	errorMessage += "You tried to insert this rule : "+propChs.get(pci)[1]+"\n"
+										+ "between this derived rule : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd - 1)+"\n"
+												+ "and this one : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd); 
+								
+								throw new MidDisjunctionEditException(errorMessage+ "\nInstead, you should manually make this change at the specified line number yourself."); 
 							}
 						}
 					}
@@ -2419,6 +2435,9 @@ public class DiachronicSimulator {
 			}
 			
 		}
+
+		//TODO make sure this final append behavior is carried out correctly.
+		return out + readIn; 
 		
 	}
 }
