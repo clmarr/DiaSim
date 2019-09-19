@@ -485,6 +485,8 @@ public class DiachronicSimulator {
 					System.out.println("Hit black stage "+blackStageInd+": "+blackStageNames[blackStageInd]); 
 					System.out.println("Error analysis at black stages is not currently supported."); //TODO make it supported...
 					System.out.println("Print latest developments from last stage? Please enter 'y' or 'n'.");
+					resp = inp.nextLine().substring(0,1); 
+
 					while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
 					{
 						System.out.println("Invalid response. Do you want to run accuracy analysis here? Please enter 'y' or 'n'.");
