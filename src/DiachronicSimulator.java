@@ -1637,146 +1637,60 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '2' || choice == '3')
 						{
-							if(choice == '2')
-								System.out.println("Automatically implementing proposed changes to cascade..."); 
-							else // choice == 3
-								System.out.println("Placing comments to facilitate manual editing of cascade..."); 
-							System.out.println("First, explanatory comments must be entered for the changes..."); 
-							
-							List<String> editComments = new ArrayList<String>();
-							
-							for (int pci = 0; pci < proposedChanges.size(); pci++) {
-								String[] ipc = proposedChanges.get(pci); 
-								
-								
-								//note: no comments are entered for the insertion part of rule modification, 
-									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
-									// in this way, the system will be able to recognize such cases due to the explanatory comment 
-											//being empty
-										// in all other cases, empty explanations are strictly forbidden
-								String justification = ""; 
-
-								if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
-								{	
-									while (justification.equals(""))
-									{
-										System.out.println("Please enter an explanatory comment for this change : ");
-										
-										if(ipc[1].equals("deletion"))
-											System.out.println(propChNotes.get(0)); 
-										else if (propChNotes.get(0).length() == 0)
-											System.out.println("Simple insertion of "+ipc[1]); 
-										justification = inpu.nextLine().replace("\n",""); 
-										if (justification.equals(""))
-											System.out.println("You must enter a comment to describe your change."); 
-									}
-									
-									//now perform line breaks as appropriate for long comments...
-									justification = commentJustify(justification); 
-								}
-								editComments.add(justification); 
-							}
-							
-							//TODO edit here.
-							
-							
-							
-							
-							
-							//TODO area below within this condition is abrogated. 
-							
-							//TODO until we have verified that this always works properly, 
-								// we will be saving to a different location
-							
-							
-							//TODO implement method to save locations of places where edits will be placed...
-									// these should be dynamically modified as necessary in the process...
-								//TODO delete this comment. 
-							
-							List<String[]> splitAtEditPoints = cascFileSplitAtEditPts(proposedChanges); 
-									//TODO need to implement method called here. 
-								// for consecutive edits i.e. on same spot, only one should return a String[] array wiht any contents
-									// the others return an empty array. 
-							
-							
-							
-							String toFileOut = ""; 
-							String[] preEditBatch = splitAtEditPoints.remove(0); 
-								// if we edit at literally the first line, this should just be an empty array.
-							if (preEditBatch.length > 0)
-								for (String line : preEditBatch)
-									toFileOut += line + "\n"; 
-							
-							/** recall structure of @varbl proposedChanges
-							 * List<String[]> 
-							 * each indexed String[] is form [curr time step, operation details]
-							 * this object is *kept sorted* by current form index
-							 * operation may be either deletion or insertion 
-							 * both relocdation and modification are handled as deletion then insertion pairs. 
-							 * for deletion, the second slot simply holds the string "deletion"
-							 * whereas for insertion, the second index holds the string form of the SChange 
-							 * that is inserted there in hypCASCADE. 
-							 * note we also have corresponding propChNotes
-							 */ 
-							
-							while (proposedChanges.size() > 0)
+							try 
 							{
-								String[] ipc = proposedChanges.remove(0); 
-								String[] currBatch = splitAtEditPoints.remove(0); 
+							
+								if(choice == '2')
+									System.out.println("Automatically implementing proposed changes to cascade..."); 
+								else // choice == 3
+									System.out.println("Placing comments to facilitate manual editing of cascade..."); 
+								System.out.println("First, explanatory comments must be entered for the changes..."); 
 								
-								boolean isDelet = ipc[1].equals("deletion"); 
+								List<String> editComments = new ArrayList<String>();
 								
-								String justification = ""; 
-								while (justification.equals(""))
-								{
-									System.out.print("Current change being implemented: "); 
-									if (propChNotes.get(0).length() > 0) // deletion, or insertion part of modification
-										System.out.print(propChNotes.get(0)+"\n"); 
-									else
-										System.out.println("Simple insertion of "+ipc[1]); 
-									System.out.println("Please enter an explanatory comment to justify this change"); 
-									justification = inpu.nextLine().replace("\n",""); 
-									if (justification.equals(""))
-										System.out.println("You must enter a comment to describe your change."); 
-								}
-								
-								String[] tokenizedJust = justification.split(" "); 
-								justification = ""+CMT_FLAG;
-								int tji = 0, nchars = 0;
-								while(tji < tokenizedJust.length) {
-									if (justification.substring(justification.lastIndexOf("\n")).length() >= maxAutoCommentWidth)
-										justification += "\n"+CMT_FLAG;
-									justification += tokenizedJust[tji]; 
-									tji++; 
-								}
-								
-								if(isDelet)
-								{
-									toFileOut += CMT_FLAG+"CORRECTION: "+propChNotes.remove(0)+"\n"+justification; 
-									//first line of current @varbl currBatch 
-										// should be the deleted rule. 
-									currBatch[0] = ""+CMT_FLAG+currBatch[0]; 
-									for (String ibc : currBatch)	toFileOut += "\n"+ibc;
-								}
-								else
-								{
-									if (propChNotes.get(0).length() == 0)
-										propChNotes.remove(0); 
-									else
-										justification = propChNotes.remove(0)+"\n"+justification; 
+								for (int pci = 0; pci < proposedChanges.size(); pci++) {
+									String[] ipc = proposedChanges.get(pci); 
 									
-									toFileOut += "\n"+CMT_FLAG+"CORRECTION: "+justification;
-									toFileOut += "\n"+ipc[1]+"\n"; 
-									for (String ibc : currBatch)	toFileOut += "\n"+ibc; 
+									
+									//note: no comments are entered for the insertion part of rule modification, 
+										// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+										// in this way, the system will be able to recognize such cases due to the explanatory comment 
+												//being empty
+											// in all other cases, empty explanations are strictly forbidden
+									String justification = ""; 
+	
+									if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
+									{	
+										while (justification.equals(""))
+										{
+											System.out.println("Please enter an explanatory comment for this change : ");
+											
+											if(ipc[1].equals("deletion"))
+												System.out.println(propChNotes.get(0)); 
+											else if (propChNotes.get(0).length() == 0)
+												System.out.println("Simple insertion of "+ipc[1]); 
+											justification = inpu.nextLine().replace("\n",""); 
+											if (justification.equals(""))
+												System.out.println("You must enter a comment to describe your change."); 
+										}
+										
+										//now perform line breaks as appropriate for long comments...
+										justification = commentJustify(justification); 
+									}
+									editComments.add(justification); 
 								}
+								
+								//TODO edit here.
+								
+								String toFileOut = modCascFileText ( proposedChanges, editComments, choice == '3'); 
+							}
+							catch (MidDisjunctionEditException e ) 
+							{
+								//TODO figure out behavior if this gets thrown... 
 							}
 							
-							assert splitAtEditPoints.size() == 1: "Error: ended up with number other than one of remaining splits"
-									+ " (if final edit is at end, we should have a remaining empty array)"; 
-							if (splitAtEditPoints.get(0).length != 0)
-								for (String line : splitAtEditPoints.get(0))
-									toFileOut += "\n"+line; 
 							
+							//TODO figure out how to integrate this region below... 
 							String fileDest = ""; 
 							while (fileDest.equals("")) {
 								System.out.println("Please enter what you want to save your new cascade as:");
