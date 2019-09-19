@@ -2199,6 +2199,96 @@ public class DiachronicSimulator {
 		int linesPassed = 0; 
 		String readIn = ""; 
 		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
+				new FileInputStream(cascFileLoc), "UTF-8")); 
+			String nextLine = ""; 
+		
+			while((nextLine = in.readLine()) != null)
+				readIn += nextLine.replace("\n", "")+"\n"; 
+			in.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		int igs = -1, ibs = -1; 
+		int nextRuleInd = 0 ; 
+		String out = ""; 
+		
+		//iterate over each proposed change. 
+		for (int pci = 0 ; pci < propChs.size() ; pci++)
+		{
+			int nextChangeRuleInd = Integer.parseInt(propChs.get(pci)[0]); 
+			boolean isDelet = propChs.get(pci)[1].equals("deletion"); 
+			// will be used to determine where we place new content with respect to comment blocks
+			String stagesToSkip = ""; 
+			int prev_igs = igs , prev_ibs = ibs; 
+			
+			if(goldStagesSet)
+				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextChangeRuleInd)
+					igs++; 
+			if(blackStagesSet)
+				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextChangeRuleInd)
+					ibs++;
+
+			if(igs > prev_igs || ibs > prev_ibs)
+			{
+				if ( (goldStagesSet ? goldStageInstants[igs] : -1)
+						> (blackStagesSet ? blackStageInstants[ibs] : -1))
+					stagesToSkip = "g"+(prev_igs-igs); 
+				else	stagesToSkip = "b"+(prev_ibs-ibs); 
+			}
+			
+			if(!stagesToSkip.equals(""))
+			{
+				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); // should end in "\n", at least as of September 17 2019 
+				String hop = readIn.substring(0, break_pt); 
+				linesPassed += hop.split("\n").length - 1; //-1 because of the final \n 
+				readIn = readIn.substring(break_pt); 
+				nextRuleInd = (stagesToSkip.charAt(0) == 'g') ? goldStageInstants[igs] : blackStageInstants[ibs]; 
+			}
+			
+			while (nextRuleInd <= nextChangeRuleInd)
+			{
+				// first - skip any leading blankj lines or stage declaration lines
+				while (STAGEFLAGS.contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+				{
+					int brkpt = readIn.indexOf("\n") + "\n".length(); 
+					linesPassed ++; 
+					out += readIn.substring(0, brkpt);
+					readIn = readIn.substring(brkpt); 
+				}
+				
+				String commentBlock = ""; 
+				// case of if the next line is headed by the comment flag. 
+				// absorb all consecutive comment lines in @varbl commentBlock
+				while (readIn.charAt(0) == CMT_FLAG ) {
+					int brkpt = readIn.indexOf("\n") + "\n".length(); 
+					commentBlock += readIn.substring(0, brkpt); 
+					readIn = readIn.substring(brkpt); 
+					linesPassed++; 
+				}
+				
+
+				if (!commentBlock.equals("") && isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
+				{
+					int brkpt = readIn.indexOf("\n") + "\n".length(); 
+					commentBlock += readIn.substring(0, brkpt); 
+					readIn = readIn.substring(brkpt); 
+					linesPassed++; 
+				}
+				
+			}
+			
+		}
 		
 	}
 }
