@@ -1637,60 +1637,64 @@ public class DiachronicSimulator {
 						}
 						else if (choice == '2' || choice == '3')
 						{
-							try 
-							{
+							String toFileOut = ""; 
 							
-								if(choice == '2')
-									System.out.println("Automatically implementing proposed changes to cascade..."); 
-								else // choice == 3
-									System.out.println("Placing comments to facilitate manual editing of cascade..."); 
-								System.out.println("First, explanatory comments must be entered for the changes..."); 
-								
-								List<String> editComments = new ArrayList<String>();
-								
-								for (int pci = 0; pci < proposedChanges.size(); pci++) {
-									String[] ipc = proposedChanges.get(pci); 
+							
+							while (toFileOut.length() == 0) {
+								try 
+								{
+									if(choice == '2')
+										System.out.println("Automatically implementing proposed changes to cascade..."); 
+									else // choice == 3
+										System.out.println("Placing comments to facilitate manual editing of cascade..."); 
+									System.out.println("First, explanatory comments must be entered for the changes..."); 
 									
+									List<String> editComments = new ArrayList<String>();
 									
-									//note: no comments are entered for the insertion part of rule modification, 
-										// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
-										// in this way, the system will be able to recognize such cases due to the explanatory comment 
-												//being empty
-											// in all other cases, empty explanations are strictly forbidden
-									String justification = ""; 
-	
-									if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
-									{	
-										while (justification.equals(""))
-										{
-											System.out.println("Please enter an explanatory comment for this change : ");
-											
-											if(ipc[1].equals("deletion"))
-												System.out.println(propChNotes.get(0)); 
-											else if (propChNotes.get(0).length() == 0)
-												System.out.println("Simple insertion of "+ipc[1]); 
-											justification = inpu.nextLine().replace("\n",""); 
-											if (justification.equals(""))
-												System.out.println("You must enter a comment to describe your change."); 
-										}
+									for (int pci = 0; pci < proposedChanges.size(); pci++) {
+										String[] ipc = proposedChanges.get(pci); 
 										
-										//now perform line breaks as appropriate for long comments...
-										justification = commentJustify(justification); 
+										
+										//note: no comments are entered for the insertion part of rule modification, 
+											// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+											// in this way, the system will be able to recognize such cases due to the explanatory comment 
+													//being empty
+												// in all other cases, empty explanations are strictly forbidden
+										String justification = ""; 
+		
+										if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
+										{	
+											while (justification.equals(""))
+											{
+												System.out.println("Please enter an explanatory comment for this change : ");
+												
+												if(ipc[1].equals("deletion"))
+													System.out.println(propChNotes.get(0)); 
+												else if (propChNotes.get(0).length() == 0)
+													System.out.println("Simple insertion of "+ipc[1]); 
+												justification = inpu.nextLine().replace("\n",""); 
+												if (justification.equals(""))
+													System.out.println("You must enter a comment to describe your change."); 
+											}
+											
+											//now perform line breaks as appropriate for long comments...
+											justification = commentJustify(justification); 
+										}
+										editComments.add(justification); 
 									}
-									editComments.add(justification); 
+									
+									toFileOut = modCascFileText ( proposedChanges, editComments, choice == '3'); 
 								}
-								
-								//TODO edit here.
-								
-								String toFileOut = modCascFileText ( proposedChanges, editComments, choice == '3'); 
-							}
-							catch (MidDisjunctionEditException e ) 
-							{
-								//TODO figure out behavior if this gets thrown... 
+								catch (MidDisjunctionEditException e ) 
+								{
+									System.out.print(e.getMessage());
+									System.out.println("Instead, we are making file with comments of cues for where and how to make these changes."); 
+										//TODO in future, come up with better behavior to handle this situation... 
+									choice = '3'; 
+								}
+							
 							}
 							
-							
-							//TODO figure out how to integrate this region below... 
 							String fileDest = ""; 
 							while (fileDest.equals("")) {
 								System.out.println("Please enter what you want to save your new cascade as:");
