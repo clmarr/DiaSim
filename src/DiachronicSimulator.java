@@ -462,6 +462,10 @@ public class DiachronicSimulator {
 		
 		System.out.println("Now running simulation...");
 
+		//TODO debugging block here: 
+		
+		
+		
 		while (!theSimulation.isComplete())
 		{	
 			if(stage_pause){

@@ -189,7 +189,7 @@ public class Simulation {
 	public boolean hasBlackStages()	{	return NUM_BLACK_STAGES > 0; }
 	
 	public boolean isComplete()
-	{	return instant < CASCADE.size();	}
+	{	return instant >= TOTAL_STEPS;	}
 	public boolean justHitGoldStage()
 	{
 		//goldStageInd gets incremented upon hitting a stage in simulate() -- if it is 0 there are no gold stages or we haven't hit one yet
