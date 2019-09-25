@@ -200,7 +200,7 @@ public class Simulation {
 	{
 		stIndex = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 
 		stIndex[0] = "in";
-		if (goldOutput && isComplete())	stIndex[NUM_GOLD_STAGES+NUM_BLACK_STAGES+1] = "Out"; 
+		if (goldOutput && isComplete())	stIndex[NUM_GOLD_STAGES+NUM_BLACK_STAGES+1] = "out"; 
 		int gsi = 0 , bsi = 0 ;
 		while ( gsi < goldStageInd && bsi < blackStageInd)
 		{
@@ -242,7 +242,7 @@ public class Simulation {
 	{
 		String toRet = ""; 
 		for(String st : stIndex)
-		{
+		{	
 			if (st.equals("in"))	toRet += "Input";
 			else if (st.equals("out"))	toRet += "Output [REFERENCE]";
 			else

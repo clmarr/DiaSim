@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.HashMap; 
 import java.util.Scanner; 
 import java.util.List;
@@ -407,7 +409,7 @@ public class DiachronicSimulator {
 		
 		boolean justInput = (numCols == 0); 
 		
-		LexPhon[] inputs = new LexPhon[NUM_ETYMA];
+		inputForms = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
 		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
 
@@ -418,7 +420,7 @@ public class DiachronicSimulator {
 			theLine = lexFileLines.get(lfli);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
-			inputs[lfli] = parseLexPhon(initStrForms[lfli]);
+			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+LEX_DELIM); 
@@ -445,7 +447,7 @@ public class DiachronicSimulator {
 
 		System.out.println("Now preparing simulation.");
 		
-		theSimulation = new Simulation(inputs, CASCADE, initStrForms); 
+		theSimulation = new Simulation(inputForms, CASCADE, initStrForms); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
@@ -704,8 +706,27 @@ public class DiachronicSimulator {
 	//auxiliary
 	private static void writeToFile(String filename, String output)
 	{	try 
-		{	FileWriter outFile = new FileWriter(filename); 
-			BufferedWriter out = new BufferedWriter(outFile); 
+		{	
+			int dirBreak = filename.indexOf("/");
+
+			while (dirBreak != -1)
+			{
+				//TODO debugging block
+				System.out.println("dirBreak "+dirBreak); 
+				
+				String curDir = filename.substring(0, dirBreak),
+						rem = filename.substring(dirBreak+1); 
+				if (!new File(curDir).exists()) 
+					new File(curDir).mkdirs(); 
+				
+				dirBreak = !rem.contains("/") ? -1 : 
+					dirBreak + 1 + rem.indexOf("/"); 
+			
+			}
+			
+			System.out.println("out loc : "+filename); 
+			
+			BufferedWriter out = new BufferedWriter(new FileWriter(filename)); 
 			out.write(output);
 			out.close();
 		}
