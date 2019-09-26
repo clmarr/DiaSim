@@ -31,35 +31,13 @@ public class SimulationTester {
 	private static double[] FT_WTS; 
 	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-
+	private static HashMap<String, String[]> featImplications; 
+	
+	
 	public static void main(String args[])
 	{
 		extractSymbDefs(); 
-		String nextLine; 
-		List<String> featImplLines = new ArrayList<String>(); 
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(FI_LOC), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		for(String filine : featImplLines)
-		{
-			String[] fisides = filine.split(""+DiachronicSimulator.IMPLICATION_DELIM); 
-			DiachronicSimulator.featImplications.put(fisides[0], fisides[1].split(""+DiachronicSimulator.FEAT_DELIM));
-		}
+		extractFeatImpls();
 	}
 	
 	
@@ -133,6 +111,42 @@ public class SimulationTester {
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
 		}
+	}
+	
+	public static void extractFeatImpls()
+	{
+		featImplications = new HashMap<String, String[]>(); 
+		
+		String nextLine; 
+		
+		System.out.println("Now extracting info from feature implications file...");
+		
+		List<String> featImplLines = new ArrayList<String>(); 
+		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(featImplsLoc), "UTF-8")); 
+			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		for(String filine : featImplLines)
+		{
+			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
+			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
+		}
+		
+		System.out.println("Done extracting feature implications!");	
 	}
 	
 }

@@ -93,6 +93,9 @@ public class DiachronicSimulator {
 	{
 		System.out.println("Collecting symbol definitions...");
 		
+		featIndices = new HashMap<String, Integer>() ; 
+		phoneSymbToFeatsMap = new HashMap<String, String>(); 
+		
 		List<String> symbDefsLines = new ArrayList<String>();
 		String nextLine; 
 		
@@ -160,17 +163,10 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	public static void main(String args[])
+	public static void extractFeatImpls()
 	{
-		parseArgs(args); 
-		
-		featIndices = new HashMap<String, Integer>() ; 
-		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		featImplications = new HashMap<String, String[]>(); 
 		
-		//collect task information from symbol definitions file. 
-		
-		extractSymbDefs(); 
 		String nextLine; 
 		
 		System.out.println("Now extracting info from feature implications file...");
@@ -200,7 +196,18 @@ public class DiachronicSimulator {
 			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
 		}
 		
-		System.out.println("Done extracting feature implications!");
+		System.out.println("Done extracting feature implications!");	
+	}
+	
+	public static void main(String args[])
+	{
+		parseArgs(args); 
+		
+		//collect task information from symbol definitions file. 
+		extractSymbDefs(); 
+		extractFeatImpls(); 
+				
+		
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
@@ -364,6 +371,7 @@ public class DiachronicSimulator {
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 		
 		System.out.println("Now extracting lexicon...");
+		String nextLine; 
 		
 		List<String> lexFileLines = new ArrayList<String>(); 
 		
