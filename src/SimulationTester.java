@@ -33,6 +33,17 @@ public class SimulationTester {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String[]> featImplications; 
 	
+	private static boolean goldStagesSet, blackStagesSet; 
+	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES; 
+
+	private static String[] goldStageNames, blackStageNames; 
+	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
+		//so that each stage has a unique index where its lexicon and its name are stored at 
+			// in their respective lists.
+	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
+
+	private static List<SChange> CASCADE;
+
 	
 	public static void main(String args[])
 	{
@@ -44,8 +55,6 @@ public class SimulationTester {
 		
 		extractCascade(theFactory); 
 	}
-	
-	
 	
 	private static void extractSymbDefs()
 	{
@@ -130,7 +139,7 @@ public class SimulationTester {
 		
 		try 
 		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(featImplsLoc), "UTF-8")); 
+				new FileInputStream(FI_LOC), "UTF-8")); 
 			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
 			in.close(); 
 		}
@@ -147,8 +156,8 @@ public class SimulationTester {
 		
 		for(String filine : featImplLines)
 		{
-			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
+			String[] fisides = filine.split(""+DiachronicSimulator.IMPLICATION_DELIM); 
+			featImplications.put(fisides[0], fisides[1].split(""+DiachronicSimulator.FEAT_DELIM));
 		}
 		
 		System.out.println("Done extracting feature implications!");	
@@ -159,20 +168,20 @@ public class SimulationTester {
 	{
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
-		rulesByTimeInstant = new ArrayList<String>(); 
+		List<String> rulesByTimeInstant = new ArrayList<String>(); 
 
 		String nextRuleLine;
 		
 		try 
 		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(cascFileLoc), "UTF-8")); 
+				new FileInputStream(CASC_LOC), "UTF-8")); 
 			
 			while((nextRuleLine = in.readLine()) != null)
 			{
 				String lineWithoutComments = ""+nextRuleLine; 
-				if (lineWithoutComments.contains(""+CMT_FLAG))
+				if (lineWithoutComments.contains(""+DiachronicSimulator.CMT_FLAG))
 						lineWithoutComments = lineWithoutComments.substring(0,
-								lineWithoutComments.indexOf(""+CMT_FLAG));
+								lineWithoutComments.indexOf(""+DiachronicSimulator.CMT_FLAG));
 				if(!lineWithoutComments.trim().equals(""))	rulesByTimeInstant.add(lineWithoutComments); 
 			}
 			in.close();
@@ -204,29 +213,28 @@ public class SimulationTester {
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
 			
-			if ( (""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
+			if ( (""+DiachronicSimulator.GOLD_STAGENAME_FLAG+DiachronicSimulator.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
 			{
-				if (ignore_stages)	rulesByTimeInstant.remove(rli); 
-				else if ( currRule.charAt(0) == GOLD_STAGENAME_FLAG)
+				if ( currRule.charAt(0) == DiachronicSimulator.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 					
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
-						"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-					goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(""+DiachronicSimulator.GOLD_STAGENAME_FLAG): 
+						"Error: stage name flag <<"+DiachronicSimulator.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+					assert !currRule.contains(DiachronicSimulator.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+DiachronicSimulator.STAGENAME_LOC_DELIM+">>";  
+					goldStageNameAndLocList.add(""+currRule+DiachronicSimulator.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli);  
 				}
-				else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG)
+				else if (currRule.charAt(0) == DiachronicSimulator.BLACK_STAGENAME_FLAG)
 				{
 					blackStagesSet =true;
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-					blackStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(DiachronicSimulator.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+DiachronicSimulator.STAGENAME_LOC_DELIM+">>";  
+					blackStageNameAndLocList.add(""+currRule+DiachronicSimulator.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli); 
 				}
 				else	rulesByTimeInstant.remove(rli); 
@@ -243,7 +251,7 @@ public class SimulationTester {
 		{
 			System.out.print("Gold stages: ");
 			for (String gs : goldStageNameAndLocList)
-				System.out.print(gs.substring(0,gs.indexOf(STAGENAME_LOC_DELIM))+",");
+				System.out.print(gs.substring(0,gs.indexOf(DiachronicSimulator.STAGENAME_LOC_DELIM))+",");
 			System.out.println(""); 
 		}
 		  
@@ -251,7 +259,7 @@ public class SimulationTester {
 		{
 			System.out.print("Black stages:");
 			for (String bs : blackStageNameAndLocList)
-				System.out.print(bs.substring(0,bs.indexOf(STAGENAME_LOC_DELIM))+",");
+				System.out.print(bs.substring(0,bs.indexOf(DiachronicSimulator.STAGENAME_LOC_DELIM))+",");
 			System.out.println(""); 
 		}
 		
@@ -265,29 +273,24 @@ public class SimulationTester {
 		CASCADE = new ArrayList<SChange>();
 		
 		int cri = 0, gsgi =0 , bsgi = 0, next_gold = -1, next_black = -1;
-		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
-		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
+		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
 		
 		for(String currRule : rulesByTimeInstant)
 		{
 			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
 			
-			if(DEBUG_RULE_PROCESSING)
-			{	System.out.println("Generating rules for rule number "+cri+" : "+currRule);
-				for(SChange newShift : newShifts)
-					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
-			}
 			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
 			
 			if(goldStagesSet)
 			{
 				if (cri == next_gold)
 				{
-					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
 					goldStageInstants[gsgi] = CASCADE.size();		
 					gsgi += 1;
 					if ( gsgi < NUM_GOLD_STAGES)
-						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
 				}
 			}
 			
@@ -295,11 +298,11 @@ public class SimulationTester {
 			{
 				if (cri == next_black)
 				{
-					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
 					blackStageInstants[bsgi] = CASCADE.size();
 					bsgi += 1;
 					if (bsgi < NUM_BLACK_STAGES)
-						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
 				}
 			}
 			
