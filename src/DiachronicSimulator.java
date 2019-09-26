@@ -2046,9 +2046,6 @@ public class DiachronicSimulator {
 		else System.out.println(CASCADE.get(theInd)); 
 	}
 	
-	
-		 
-	
 	// @param skipCode -- "g2" -- i.e. "skip 2 gold stages"
 	// @param aggRemTxt -- aggregrate remaining text
 	// @return break point to skip those stages

@@ -18,6 +18,12 @@ import java.util.List;
 
 public class SimulationTester {
 
+	private static final String SYMBS_LOC = "symbolDefs.csv";
+	private static final String LEX_LOC = "DebugDummyLexicon.txt"; 
+	private static final String CASC_LOC = "DumCasc"; 
+	private static final String FI_LOC = "FeatImplications"; 
+	private static double ID_WT = 0.5; 
+	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
 
@@ -26,6 +32,36 @@ public class SimulationTester {
 	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 
+	public static void main(String args[])
+	{
+		extractSymbDefs(); 
+		String nextLine; 
+		List<String> featImplLines = new ArrayList<String>(); 
+		
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(FI_LOC), "UTF-8")); 
+			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		for(String filine : featImplLines)
+		{
+			String[] fisides = filine.split(""+DiachronicSimulator.IMPLICATION_DELIM); 
+			DiachronicSimulator.featImplications.put(fisides[0], fisides[1].split(""+DiachronicSimulator.FEAT_DELIM));
+		}
+	}
+	
 	
 	
 	private static void extractSymbDefs()
@@ -36,7 +72,7 @@ public class SimulationTester {
 		String nextLine; 
 		
 		try 
-		{	File inFile = new File(symbDefsLoc); 
+		{	File inFile = new File(SYMBS_LOC); 
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)	
