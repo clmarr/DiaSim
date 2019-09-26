@@ -25,18 +25,22 @@ public class DiachronicSimulator {
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
-	private final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
-	private final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
-	private final static char STAGENAME_LOC_DELIM = ':'; 
-	private final static char LEX_DELIM =','; 
+	public final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
+	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
+	public final static char STAGENAME_LOC_DELIM = ':'; 
+	public final static char LEX_DELIM =','; 
+	public final static char STAGE_PRINT_DELIM = ',';  
+	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
+	public final static String ABSENT_PH_INDIC = "...";
+	public final static int maxAutoCommentWidth = 150;
+	
 	private static List<String> rulesByTimeInstant;
-	private final static char STAGE_PRINT_DELIM = ',';  
-	private final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
-	private final static String ABSENT_PH_INDIC = "...";
-	private final static int maxAutoCommentWidth = 150;
 	
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
+	private static boolean feats_weighted;
+	private static double[] FT_WTS; 
+	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String[]> featImplications; 
 	private static LexPhon[] inputForms; 
@@ -79,9 +83,6 @@ public class DiachronicSimulator {
 	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
 	
 	private static int goldStageInd, blackStageInd; 
-	
-	private static boolean feats_weighted;
-	private static double[] FT_WTS; 
 	
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
@@ -157,7 +158,6 @@ public class DiachronicSimulator {
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
 		}
-
 	}
 	
 	public static void main(String args[])
