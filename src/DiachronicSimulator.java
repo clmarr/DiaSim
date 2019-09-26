@@ -314,10 +314,11 @@ public class DiachronicSimulator {
 		
 		for(String currRule : rulesByTimeInstant)
 		{
-			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
-			
 			if(DEBUG_RULE_PROCESSING)
-			{	System.out.println("Generating rules for rule number "+cri+" : "+currRule);
+			{	
+				List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
+
+				System.out.println("Generating rules for rule number "+cri+" : "+currRule);
 				for(SChange newShift : newShifts)
 					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
 			}

@@ -374,8 +374,6 @@ public class SimulationTester {
 		
 		for(String currRule : rulesByTimeInstant)
 		{
-			List<SChange> newShifts = theFactory.generateSoundChangesFromRule(currRule); 
-			
 			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
 			
 			if(goldStagesSet)
