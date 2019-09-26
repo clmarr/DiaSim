@@ -199,19 +199,8 @@ public class DiachronicSimulator {
 		System.out.println("Done extracting feature implications!");	
 	}
 	
-	public static void main(String args[])
+	public static void extractCascade(SChangeFactory theFactory)
 	{
-		parseArgs(args); 
-		
-		//collect task information from symbol definitions file. 
-		extractSymbDefs(); 
-		extractFeatImpls(); 
-				
-		
-		System.out.println("Creating SChangeFactory...");
-		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
-		
-		
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
 		rulesByTimeInstant = new ArrayList<String>(); 
@@ -363,6 +352,21 @@ public class DiachronicSimulator {
 		
 		System.out.println("Diachronic rules extracted. "); 
 		
+	}
+	
+	public static void main(String args[])
+	{
+		parseArgs(args); 
+		
+		//collect task information from symbol definitions file. 
+		extractSymbDefs(); 
+		extractFeatImpls(); 
+				
+		System.out.println("Creating SChangeFactory...");
+		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		
+		extractCascade(theFactory);
+
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
