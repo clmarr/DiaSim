@@ -464,10 +464,6 @@ public class DiachronicSimulator {
 		
 		System.out.println("Now running simulation...");
 
-		//TODO debugging block here: 
-		
-		
-		
 		while (!theSimulation.isComplete())
 		{	
 			if(stage_pause){
@@ -694,9 +690,6 @@ public class DiachronicSimulator {
 	//TODO remove or use. 
 	private static int numFalse (boolean[] boolarray)
 	{
-		//TODO debugging
-		System.out.println("bool array len : " + boolarray);
-		
 		int count = 0; 
 		for (int i = 0 ; i < boolarray.length; i++)
 			count += boolarray[i] ? 0 : 1 ;
@@ -711,9 +704,6 @@ public class DiachronicSimulator {
 
 			while (dirBreak != -1)
 			{
-				//TODO debugging block
-				System.out.println("dirBreak "+dirBreak); 
-				
 				String curDir = filename.substring(0, dirBreak),
 						rem = filename.substring(dirBreak+1); 
 				if (!new File(curDir).exists()) 
