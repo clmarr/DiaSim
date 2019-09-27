@@ -73,6 +73,11 @@ public class SimulationTester {
 		
 		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
+		Simulation testSimul = new Simulation (inputForms, CASCADE);
+
+		int errorCount = 0; 
+		
+		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		
 		//TODO check stage forms
 		
@@ -496,5 +501,31 @@ public class SimulationTester {
 			e.printStackTrace();
 		}
 	}
+	
+	private static boolean checkMetric(double correct, double observed, String errMessage)
+	{
+		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
+		return correct == observed; 
+	}
+	
+	private static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
+	{
+		String c = correct.print(), o = observed.print(); 
+		boolean result = c.equals(o); 
+		if (!result)	errorMessage(c,o,errMessage); 
+		return result; 
+	}
+	
+	private static boolean testBoolean(boolean correct, boolean observed, String errMessage)
+	{
+		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
+		return correct == observed; 
+	}
+	
+	private static String errorMessage(String cor, String obs, String msg)
+	{
+		return msg.replace("%c", cor).replace("%o",obs); 
+	}
+	
 	
 }
