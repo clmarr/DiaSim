@@ -2,8 +2,11 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,6 +21,8 @@ import java.util.List;
 
 public class SimulationTester {
 
+	private static final String DBG_WRKG_CASC = "DebugWorkingCasc",
+			DBG_GOLD_CASC = "DebugGoldCasc" , DBG_START_CASC = "DebugStartCasc"; 
 	private static final String SYMBS_LOC = "symbolDefs.csv";
 	private static final String LEX_LOC = "DebugDummyLexicon.txt"; 
 	private static final String CASC_LOC = "DumCasc"; 
@@ -52,6 +57,8 @@ public class SimulationTester {
 	
 	public static void main(String args[])
 	{
+		
+		initWorkingCascFile();
 		extractSymbDefs(); 
 		extractFeatImpls();
 		
@@ -449,6 +456,29 @@ public class SimulationTester {
 		}
 		return c; 
 	}
-
+	
+	/**
+	 * reset DBG_WRKG_CASC to be a copy of DBG_START_CASC
+	 */
+	private static void initWorkingCascFile()
+	{
+		InputStream is = null; 
+		OutputStream os = null; 
+		try {
+			is = new FileInputStream(DBG_START_CASC); 
+			os = new FileOutputStream(DBG_WRKG_CASC); 
+			byte[] buffer = new byte[1024]; 
+			int length;
+			while ((length = is.read(buffer)) > 0 ) { 
+				os.write(buffer, 0 , length);
+			}
+			is.close();
+			os.close(); 
+		}
+		catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+	}
 	
 }
