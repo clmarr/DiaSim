@@ -25,7 +25,6 @@ public class SimulationTester {
 			DBG_GOLD_CASC = "DebugGoldCasc" , DBG_START_CASC = "DebugStartCasc"; 
 	private static final String SYMBS_LOC = "symbolDefs.csv";
 	private static final String LEX_LOC = "DebugDummyLexicon.txt"; 
-	private static final String CASC_LOC = "DumCasc"; 
 	private static final String FI_LOC = "FeatImplications"; 
 	private static double ID_WT = 0.5; 
 	
@@ -57,103 +56,19 @@ public class SimulationTester {
 	
 	public static void main(String args[])
 	{
-		
+		initWorkingCascFile(); 
+
 		extractSymbDefs(); 
 		extractFeatImpls();
 		
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		extractCascade(theFactory); 
+		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
+			// first extracting from gold casc so that we do initial sanity test of the correct cascade leading to correct forms
+				// with all metrics agreeing with this etc etc. 
 		
-		//now input lexicon 
-		//collect init lexicon ( and gold for stages or final output if so specified) 
-		//copy init lexicon to "evolving lexicon" 
-		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
-		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
-		// finally when we reach the end of the rule list, save it as testResultLexicon
-		
-		System.out.println("Now extracting lexicon...");
-		String nextLine; 
-		
-		List<String> lexFileLines = new ArrayList<String>(); 
-		
-		try 
-		{	File inFile = new File(LEX_LOC); 
-			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8"));
-			while((nextLine = in.readLine()) != null)	
-			{	if (nextLine.contains(DiachronicSimulator.CMT_FLAG+""))
-					nextLine = nextLine.substring(0,nextLine.indexOf(DiachronicSimulator.CMT_FLAG)).trim(); 
-				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
-			}
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-
-		// now extract 
-		NUM_ETYMA = lexFileLines.size(); 
-		String[] initStrForms = new String[NUM_ETYMA]; 
-		
-		String theLine =lexFileLines.get(0); 
-		String firstlineproxy = ""+theLine; 
-		int numCols = 1; 
-		while (firstlineproxy.contains(""+DiachronicSimulator.LEX_DELIM))
-		{	numCols++; 
-			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+DiachronicSimulator.LEX_DELIM)+1); 
-		}
-		goldOutput =false; 
-		if(numCols == NUM_GOLD_STAGES + 2)
-			goldOutput = true; 
-		else
-			assert numCols == NUM_GOLD_STAGES + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
-					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
-		
-		boolean justInput = (numCols == 0); 
-		
-		inputForms = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
-		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
-
-		int lfli = 0 ; //"lex file line index"
-		
-		while(lfli < NUM_ETYMA)
-		{
-			theLine = lexFileLines.get(lfli);
-			
-			initStrForms[lfli] = justInput ? theLine : theLine.split(""+DiachronicSimulator.LEX_DELIM)[0]; 
-			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
-			if (!justInput)
-			{
-				String[] forms = theLine.split(""+DiachronicSimulator.LEX_DELIM); 
-				if(NUM_GOLD_STAGES > 0)
-					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
-						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
-				if (goldOutput)
-					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
-			}
-			lfli++;
-			if(lfli <NUM_ETYMA)
-				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
-		}		
-
-		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
-		if(NUM_GOLD_STAGES > 0)
-			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
-		
-		if(goldOutput)	
-			goldOutputLexicon = new Lexicon(goldResults); 
-		
+				
 		System.out.println("Lexicon extracted. Now debugging.");
 		
 		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
@@ -166,6 +81,7 @@ public class SimulationTester {
 		//TODO use working casc now 
 		//TODO and check different diagnostics
 		//TODO including by making edits to the Working casc file. 
+		
 		
 
 	}
@@ -278,7 +194,7 @@ public class SimulationTester {
 	}
 	
 
-	public static void extractCascade(SChangeFactory theFactory)
+	public static void extractCascAndLex(SChangeFactory theFactory, String CASC_LOC)
 	{
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
@@ -422,6 +338,95 @@ public class SimulationTester {
 		}
 		
 		System.out.println("Diachronic rules extracted. "); 
+		
+		//now input lexicon 
+		//collect init lexicon ( and gold for stages or final output if so specified) 
+		//copy init lexicon to "evolving lexicon" 
+		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
+		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
+		// finally when we reach the end of the rule list, save it as testResultLexicon
+		
+		System.out.println("Now extracting lexicon...");
+		String nextLine; 
+		
+		List<String> lexFileLines = new ArrayList<String>(); 
+		
+		try 
+		{	File inFile = new File(LEX_LOC); 
+			BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(inFile), "UTF8"));
+			while((nextLine = in.readLine()) != null)	
+			{	if (nextLine.contains(DiachronicSimulator.CMT_FLAG+""))
+					nextLine = nextLine.substring(0,nextLine.indexOf(DiachronicSimulator.CMT_FLAG)).trim(); 
+				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
+			}
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+
+		// now extract 
+		NUM_ETYMA = lexFileLines.size(); 
+		String[] initStrForms = new String[NUM_ETYMA]; 
+		
+		String theLine =lexFileLines.get(0); 
+		String firstlineproxy = ""+theLine; 
+		int numCols = 1; 
+		while (firstlineproxy.contains(""+DiachronicSimulator.LEX_DELIM))
+		{	numCols++; 
+			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+DiachronicSimulator.LEX_DELIM)+1); 
+		}
+		goldOutput =false; 
+		if(numCols == NUM_GOLD_STAGES + 2)
+			goldOutput = true; 
+		else
+			assert numCols == NUM_GOLD_STAGES + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
+					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
+		
+		boolean justInput = (numCols == 0); 
+		
+		inputForms = new LexPhon[NUM_ETYMA];
+		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
+		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
+
+		int lfli = 0 ; //"lex file line index"
+		
+		while(lfli < NUM_ETYMA)
+		{
+			theLine = lexFileLines.get(lfli);
+			
+			initStrForms[lfli] = justInput ? theLine : theLine.split(""+DiachronicSimulator.LEX_DELIM)[0]; 
+			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
+			if (!justInput)
+			{
+				String[] forms = theLine.split(""+DiachronicSimulator.LEX_DELIM); 
+				if(NUM_GOLD_STAGES > 0)
+					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
+						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
+				if (goldOutput)
+					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
+			}
+			lfli++;
+			if(lfli <NUM_ETYMA)
+				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
+		}		
+
+		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
+		if(NUM_GOLD_STAGES > 0)
+			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
+		
+		if(goldOutput)	
+			goldOutputLexicon = new Lexicon(goldResults); 
+
 		
 	}
 

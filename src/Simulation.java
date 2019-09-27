@@ -190,6 +190,7 @@ public class Simulation {
 	
 	public boolean isComplete()
 	{	return instant >= TOTAL_STEPS;	}
+	
 	public boolean justHitGoldStage()
 	{
 		//goldStageInd gets incremented upon hitting a stage in simulate() -- if it is 0 there are no gold stages or we haven't hit one yet
