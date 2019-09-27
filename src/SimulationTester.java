@@ -58,7 +58,6 @@ public class SimulationTester {
 	public static void main(String args[])
 	{
 		
-		initWorkingCascFile();
 		extractSymbDefs(); 
 		extractFeatImpls();
 		
@@ -155,7 +154,19 @@ public class SimulationTester {
 		if(goldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
 		
-		System.out.println("Lexicon extracted.");
+		System.out.println("Lexicon extracted. Now debugging.");
+		
+		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
+		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
+		
+		//TODO check stage forms
+		
+		//TODO check final forms
+		
+		//TODO use working casc now 
+		//TODO and check different diagnostics
+		//TODO including by making edits to the Working casc file. 
+		
 
 	}
 	

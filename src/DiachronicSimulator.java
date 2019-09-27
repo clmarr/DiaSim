@@ -606,6 +606,7 @@ public class DiachronicSimulator {
 	
 	// missLocations are the indices of words that ultimately resulted in a miss between the testResult and the gold
 	// outputs the scores for each phone in the word in the lexicon
+	/** TODO abrogated -- method currently unused.
 	public static HashMap<Phone,Double> missLikelihoodPerPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
@@ -654,7 +655,7 @@ public class DiachronicSimulator {
 				(double)phoneFreqsByWordInLex.get(phonemicInventory[pi].getFeatString()));
 		
 		return output; 
-	}
+	}**/
 	
 	/** auxiliary.
 	 * given String @param toLex
@@ -697,16 +698,6 @@ public class DiachronicSimulator {
 			i = proxy.indexOf(","); 
 		}
 		return c; 
-	}
-	
-	
-	//TODO remove or use. 
-	private static int numFalse (boolean[] boolarray)
-	{
-		int count = 0; 
-		for (int i = 0 ; i < boolarray.length; i++)
-			count += boolarray[i] ? 0 : 1 ;
-		return count; 
 	}
 	
 	//auxiliary
@@ -1807,7 +1798,8 @@ public class DiachronicSimulator {
 	// is the average Levenshtein distance for words containing that phone 
 	// normalized for length of the word
 	// counted for the number of times the phone actually occurs in that word out of total phones in the word, each time. 
-	public static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
+	/** TODO currently abrogated, as not in use. 
+	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
@@ -1846,9 +1838,11 @@ public class DiachronicSimulator {
 					(double)phoneFreqsByWordInLex.get(phonemicInventory[phi].getFeatString()));
 		}
 		return output;
-	}
+	}**/ 
 	
-	public static HashMap<Phone,Double> avgFEDForWordsWithPhone (Lexicon lexic)
+	
+	/** TODO currently abrogated, as not in use. 
+	private static HashMap<Phone,Double> avgFEDForWordsWithPhone (Lexicon lexic)
 	{
 		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
@@ -1890,7 +1884,7 @@ public class DiachronicSimulator {
 		}
 		return output;
 		
-	}
+	}**/ 
 	
 	// required : runPrefix must be specified 
 	// flags: -r : debug rule processing
@@ -2014,16 +2008,8 @@ public class DiachronicSimulator {
             throw new Error("Usage: DerivationSimulation [-verbose] [-rdphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
 	}
 	
-	private static String append_space_to_x (String in, int x)
-	{
-		if (in.length() >= x)	return in;
-		String out = in + " ";
-		while (out.length() < x)	out += " ";
-		return out;
-	}
-	
 	//TODO remake this. 
-	public static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade )
+	private static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade )
 	{
 		Simulation toy = new Simulation(inps, ruleCascade); 
 		toy.simulateToEnd();
