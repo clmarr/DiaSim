@@ -96,6 +96,7 @@ public class Simulation {
 		for (int gsfi = 0; gsfi < stageForms.length; gsfi++)
 			goldStageGoldLexica[gsfi] = new Lexicon(stageForms[gsfi]); 
 		goldStageResultLexica = new Lexicon[stageForms.length] ;
+		NUM_GOLD_STAGES = names.length;
 	}
 	
 	public void setBlackStages(String[] names, int[] times)
@@ -103,6 +104,7 @@ public class Simulation {
 		blackStageInstants = times;
 		blackStageNames = names;
 		blackStageResultLexica = new Lexicon[names.length];
+		NUM_BLACK_STAGES = names.length; 
 	}	
 	
 	public void setStepPrinterval(int newsp)	{	stepPrinterval = newsp;	}
@@ -269,6 +271,8 @@ public class Simulation {
 	public int getTotalSteps()	{	return TOTAL_STEPS;	}
 
 	public int NUM_ETYMA()	{	return NUM_ETYMA;	}
+	public int NUM_GOLD_STAGES()	{	return NUM_GOLD_STAGES;	}
+	public int NUM_BLACK_STAGES()	{	return NUM_BLACK_STAGES;	}
 	
 	public String getRuleAt(int id)	{	return ""+CASCADE.get(id); 	}
 	

@@ -85,16 +85,20 @@ public class SimulationTester {
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
+		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setStepPrinterval(DiachronicSimulator.PRINTERVAL); 
+		// for debugging purposes opacity is fine. 
 		
-		LexPhon[][] goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
-		for (int gsi = 0 ; gsi <  NUM_GOLD_STAGES; gsi++)
-			goldStageGoldWordLists[gsi] = goldStageGoldLexica[gsi].getWordList();
+		//check these to make sure no initialization mutator function messed with them. 
+		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 1 : 0;
+		// Simulation class should not think it just hit a gold stage
+		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 1 : 0; 
+		// check number of stages
+		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 1 : 0;
+		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 1 : 0;
 		
-		testSimul.setGoldStages(goldStageGoldLexica, goldStageNames, goldStageInstants);
-		theSimulation.setStepPrinterval(PRINTERVAL); 
-		theSimulation.setOpacity(!print_changes_each_rule);
-
-		
+		if (errorCount == 0)	System.out.println("No errors yet at this point."); 
+		else	System.out.println("In all "+errorCount+" errors."); 
 		
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		errorCount = 0; 
@@ -114,8 +118,7 @@ public class SimulationTester {
 		if (errorCount == 0)	System.out.println("No errors yet at this point."); 
 		else	System.out.println("In all "+errorCount+" errors."); 
 		
-		//TODO place this, wehre was it sposed to be? 
-		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
+		System.out.println("First -- checking agreement of results via gold cascade with the gold lexicon."); 
 		
 		
 		//TODO check final forms
@@ -559,6 +562,12 @@ public class SimulationTester {
 	private static String errorMessage(String cor, String obs, String msg)
 	{
 		return msg.replace("%c", cor).replace("%o",obs); 
+	}
+	
+	private static void errorSummary(int ec)
+	{
+		if (ec == 0)	System.out.println("No errors yet at this point."); 
+		else	System.out.println("In all "+ec+" errors.");
 	}
 	
 	

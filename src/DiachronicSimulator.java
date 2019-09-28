@@ -87,7 +87,7 @@ public class DiachronicSimulator {
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
 	
-	private static final int PRINTERVAL = 100; 
+	public static final int PRINTERVAL = 100; 
 	
 	private static void extractSymbDefs()
 	{
