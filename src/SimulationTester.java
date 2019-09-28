@@ -108,6 +108,9 @@ public class SimulationTester {
 	{
 		System.out.println("Collecting symbol definitions...");
 		
+		featIndices = new HashMap<String, Integer>() ; 
+		phoneSymbToFeatsMap = new HashMap<String, String>(); 
+		
 		List<String> symbDefsLines = new ArrayList<String>();
 		String nextLine; 
 		
