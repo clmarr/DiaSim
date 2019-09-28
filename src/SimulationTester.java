@@ -76,10 +76,23 @@ public class SimulationTester {
 		Simulation testSimul = new Simulation (inputForms, CASCADE);
 
 		int errorCount = 0; 
-		
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
+		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 1 : 0;
+		// Simulation class should not think it just hit a gold stage
+		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 1 : 0; 
+		// check number of words
+		errorCount += checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 1 : 0 ; 
 		
-		//TODO check stage forms
+		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
+		ErrorAnalysis identityCheck = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+				
+		//check that average distance metrics are all 0
+		errorCount += checkMetric(0.0, identityCheck.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(0.0, identityCheck.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 1 : 0 ;
+		errorCount += checkMetric(100.0, identityCheck.getPercentAccuracy(), "Error: initial accuracy should be 100% but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(100.0, identityCheck.getPct1off(), "Error: initial accuracy within 1 phone should be 100% but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(100.0, identityCheck.getPct2off(), "Error: initial accuracy within 2 phones should be 100% but it is %o") ? 1 : 0 ;
 		
 		//TODO check final forms
 		
@@ -516,7 +529,7 @@ public class SimulationTester {
 		return result; 
 	}
 	
-	private static boolean testBoolean(boolean correct, boolean observed, String errMessage)
+	private static boolean checkBoolean(boolean correct, boolean observed, String errMessage)
 	{
 		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
 		return correct == observed; 
