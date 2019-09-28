@@ -814,7 +814,7 @@ public class ErrorAnalysis {
 		return out;
 	}
 	
-	public double getPercentAccuracy()
+	public double getAccuracy()
 	{	return pctAcc;	}
 	
 	public double getPctWithin1()
@@ -854,7 +854,7 @@ public class ErrorAnalysis {
 		
 		System.out.println("Average feature edit distance from gold: "+getAvgFED());
 		
-		output += "Overall accuracy : "+getPercentAccuracy()+"\n";
+		output += "Overall accuracy : "+getAccuracy()+"\n";
 		output += "Accuracy within 1 phone: "+getPctWithin1()+"%\n"; 
 		output += "Accuracy within 2 phone: "+getPctWithin2()+"%\n";
 		output += "Average edit distance per from gold phone: "+getAvgPED()+"\n"; 

@@ -781,7 +781,7 @@ public class DiachronicSimulator {
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
-		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
+		System.out.println("Overall accuracy : "+ea.getAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
 		System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
 		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
@@ -1079,7 +1079,7 @@ public class DiachronicSimulator {
 					{
 						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
 						
-						System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
+						System.out.println("Overall accuracy : "+ea.getAccuracy());
 						System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
 						System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
 						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
@@ -1596,7 +1596,7 @@ public class DiachronicSimulator {
 							System.out.println("Hit gold stage "+gssi+": "+goldStageNames[gssi]); 
 							gssi++; 
 							
-							double[] pctAccs = new double[] { bsea.getPercentAccuracy(), hsea.getPercentAccuracy() },
+							double[] pctAccs = new double[] { bsea.getAccuracy(), hsea.getAccuracy() },
 									pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
 									avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
 							if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
@@ -1624,7 +1624,7 @@ public class DiachronicSimulator {
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 					System.out.println("Final output comparison for hypothesis simulation"); 
 					DHScomp.printBasicResults();
-					System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
+					System.out.println("Overall accuracy : "+ea.getAccuracy()+" >>> "+hea.getAccuracy());
 					System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
 					System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
 					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
@@ -1647,7 +1647,7 @@ public class DiachronicSimulator {
 						if (choice == '4')
 						{	System.out.println("Final output comparison for hypothesis simulation"); 
 							DHScomp.printBasicResults();
-							System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
+							System.out.println("Overall accuracy : "+ea.getAccuracy()+" >>> "+hea.getAccuracy());
 							System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
 							System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
 							System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
