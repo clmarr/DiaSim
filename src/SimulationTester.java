@@ -44,7 +44,7 @@ public class SimulationTester {
 
 	private static boolean goldOutput; 
 	private static String[] goldStageNames, blackStageNames; 
-	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
+	private static LexPhon[][] goldStageGoldWordlists; //outer nested indices match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
@@ -71,10 +71,10 @@ public class SimulationTester {
 				
 		System.out.println("Lexicon extracted. Now debugging.");
 		
-		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
-		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		Simulation testSimul = new Simulation (inputForms, CASCADE);
 
+		System.out.println("Sanity check -- proper initialization and comprehension of gold and black stage initialization in Simulation class."); 
+		
 		int errorCount = 0; 
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 1 : 0;
@@ -83,16 +83,40 @@ public class SimulationTester {
 		// check number of words
 		errorCount += checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 1 : 0 ; 
 		
+		testSimul.setBlackStages(blackStageNames, blackStageInstants);
+		testSimul.setGold(goldOutputLexicon.getWordList());
+		
+		LexPhon[][] goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
+		for (int gsi = 0 ; gsi <  NUM_GOLD_STAGES; gsi++)
+			goldStageGoldWordLists[gsi] = goldStageGoldLexica[gsi].getWordList();
+		
+		testSimul.setGoldStages(goldStageGoldLexica, goldStageNames, goldStageInstants);
+		theSimulation.setStepPrinterval(PRINTERVAL); 
+		theSimulation.setOpacity(!print_changes_each_rule);
+
+		
+		
+		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
+		errorCount = 0; 
+		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
 		ErrorAnalysis identityCheck = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
-				
+
+		
 		//check that average distance metrics are all 0
 		errorCount += checkMetric(0.0, identityCheck.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 1 : 0 ; 
 		errorCount += checkMetric(0.0, identityCheck.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 1 : 0 ;
-		errorCount += checkMetric(1.0, identityCheck.getAccuracy(), "Error: initial accuracy should be 100% but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(1.0, identityCheck.getPctWithin1(), "Error: initial accuracy within 1 phone should be 100% but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(1.0, identityCheck.getPctWithin2(), "Error: initial accuracy within 2 phones should be 100% but it is %o") ? 1 : 0 ;
+		errorCount += checkMetric(1.0, identityCheck.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(1.0, identityCheck.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(1.0, identityCheck.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 1 : 0 ;
+		
+		if (errorCount == 0)	System.out.println("No errors yet at this point."); 
+		else	System.out.println("In all "+errorCount+" errors."); 
+		
+		//TODO place this, wehre was it sposed to be? 
+		System.out.println("First -- checking agreement of gold cascade with gold lexicon."); 
+		
 		
 		//TODO check final forms
 		
@@ -314,7 +338,7 @@ public class SimulationTester {
 			System.out.println(""); 
 		}
 		
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; 
+		goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -416,7 +440,6 @@ public class SimulationTester {
 		
 		inputForms = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
-		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
 
 		int lfli = 0 ; //"lex file line index"
 		
@@ -431,7 +454,7 @@ public class SimulationTester {
 				String[] forms = theLine.split(""+DiachronicSimulator.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
-						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
+						goldStageGoldWordlists[gsi][lfli] = parseLexPhon(forms[gsi+1]);
 				if (goldOutput)
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
@@ -440,11 +463,6 @@ public class SimulationTester {
 				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
 		}		
 
-		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
-		if(NUM_GOLD_STAGES > 0)
-			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
-		
 		if(goldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
 
