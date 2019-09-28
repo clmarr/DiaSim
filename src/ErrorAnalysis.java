@@ -15,7 +15,7 @@ public class ErrorAnalysis {
 	private double[] peds, feds;
 	private boolean[] isHit; 
 	private boolean[] IN_SUBSAMP;
-	private double pctAcc, pct1off, pct2off, avgPED, avgFED; 
+	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 	
@@ -155,8 +155,8 @@ public class ErrorAnalysis {
 			else	isHit[i] = true;
 		}
 		pctAcc = numHits / (double) SUBSAMP_SIZE; 
-		pct1off = num1off / (double) SUBSAMP_SIZE;
-		pct2off = num2off / (double) SUBSAMP_SIZE; 
+		pctWithin1 = num1off / (double) SUBSAMP_SIZE;
+		pctWithin2 = num2off / (double) SUBSAMP_SIZE; 
 		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
 		avgFED = totFED / (double) SUBSAMP_SIZE; 
 		TOT_ERRS = (double)NUM_ETYMA - numHits;
@@ -814,11 +814,11 @@ public class ErrorAnalysis {
 	public double getPercentAccuracy()
 	{	return pctAcc;	}
 	
-	public double getPct1off()
-	{	return pct1off;	}
+	public double getPctWithin1()
+	{	return pctWithin1;	}
 	
-	public double getPct2off()
-	{	return pct2off;	}
+	public double getPctWithin2()
+	{	return pctWithin2;	}
 	
 	public double getAvgPED()
 	{	return avgPED;	}
@@ -852,8 +852,8 @@ public class ErrorAnalysis {
 		System.out.println("Average feature edit distance from gold: "+getAvgFED());
 		
 		output += "Overall accuracy : "+getPercentAccuracy()+"\n";
-		output += "Accuracy within 1 phone: "+getPct1off()+"%\n"; 
-		output += "Accuracy within 2 phone: "+getPct2off()+"%\n";
+		output += "Accuracy within 1 phone: "+getPctWithin1()+"%\n"; 
+		output += "Accuracy within 2 phone: "+getPctWithin2()+"%\n";
 		output += "Average edit distance per from gold phone: "+getAvgPED()+"\n"; 
 		output += "Average feature edit distance from gold: "+getAvgFED()+"\n";
 		
@@ -1024,8 +1024,8 @@ public class ErrorAnalysis {
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
 				
 			}
-			pct1off = nSS1off / (double) SUBSAMP_SIZE;
-			pct2off = nSS2off / (double) SUBSAMP_SIZE; 
+			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
+			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
 			avgPED = totPED / (double) SUBSAMP_SIZE; 	
 			avgFED = totFED / (double) SUBSAMP_SIZE; 
 			for (int i = 0 ; i < resPhInventory.length; i++)

@@ -782,8 +782,8 @@ public class DiachronicSimulator {
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
 		System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
-		System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
-		System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
+		System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
+		System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
 		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 		
@@ -1080,8 +1080,8 @@ public class DiachronicSimulator {
 						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
 						
 						System.out.println("Overall accuracy : "+ea.getPercentAccuracy());
-						System.out.println("Accuracy within 1 phone: "+ea.getPct1off());
-						System.out.println("Accuracy within 2 phone: "+ea.getPct2off());
+						System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
+						System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
 						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 						System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 					}
@@ -1597,13 +1597,13 @@ public class DiachronicSimulator {
 							gssi++; 
 							
 							double[] pctAccs = new double[] { bsea.getPercentAccuracy(), hsea.getPercentAccuracy() },
-									pct1offs = new double[] { bsea.getPct1off(), hsea.getPct1off() },
+									pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
 									avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
 							if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
 							{
 								System.out.println("Overall accuracy : "+pctAccs[0]+" >>> "+pctAccs[1]);
 								System.out.println("Accuracy within 1 phone: "+pct1offs[0]+" >>> "+pct1offs[1]);
-								System.out.println("Accuracy within 2 phone: "+bsea.getPct2off()+" >>> "+hsea.getPct2off());
+								System.out.println("Accuracy within 2 phone: "+bsea.getPctWithin2()+" >>> "+hsea.getPctWithin2());
 								System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
 								System.out.println("Average feature edit distance from gold: "+avgFEDs[0]+" >>> "+avgFEDs[1]); 
 								System.out.println("Press anything to continue."); 
@@ -1625,8 +1625,8 @@ public class DiachronicSimulator {
 					System.out.println("Final output comparison for hypothesis simulation"); 
 					DHScomp.printBasicResults();
 					System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
-					System.out.println("Accuracy within 1 phone: "+ea.getPct1off()+" >>> "+hea.getPct1off());
-					System.out.println("Accuracy within 2 phone: "+ea.getPct2off()+" >>> "+hea.getPct2off());
+					System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
+					System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
 					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
 					System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
 
@@ -1648,8 +1648,8 @@ public class DiachronicSimulator {
 						{	System.out.println("Final output comparison for hypothesis simulation"); 
 							DHScomp.printBasicResults();
 							System.out.println("Overall accuracy : "+ea.getPercentAccuracy()+" >>> "+hea.getPercentAccuracy());
-							System.out.println("Accuracy within 1 phone: "+ea.getPct1off()+" >>> "+hea.getPct1off());
-							System.out.println("Accuracy within 2 phone: "+ea.getPct2off()+" >>> "+hea.getPct2off());
+							System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
+							System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
 							System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
 							System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
 							System.out.println("Enter anything to continue.");

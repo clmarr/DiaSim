@@ -91,8 +91,8 @@ public class SimulationTester {
 		errorCount += checkMetric(0.0, identityCheck.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 1 : 0 ; 
 		errorCount += checkMetric(0.0, identityCheck.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 1 : 0 ;
 		errorCount += checkMetric(100.0, identityCheck.getPercentAccuracy(), "Error: initial accuracy should be 100% but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(100.0, identityCheck.getPct1off(), "Error: initial accuracy within 1 phone should be 100% but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(100.0, identityCheck.getPct2off(), "Error: initial accuracy within 2 phones should be 100% but it is %o") ? 1 : 0 ;
+		errorCount += checkMetric(100.0, identityCheck.getPctWithin1(), "Error: initial accuracy within 1 phone should be 100% but it is %o") ? 1 : 0 ; 
+		errorCount += checkMetric(100.0, identityCheck.getPctWithin2(), "Error: initial accuracy within 2 phones should be 100% but it is %o") ? 1 : 0 ;
 		
 		//TODO check final forms
 		
