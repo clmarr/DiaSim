@@ -143,6 +143,9 @@ public class ErrorAnalysis {
 				peds[i] = (double)levDists[i] / (double) theGold.getByID(i).getNumPhones();
 				totLexQuotients += peds[i]; 
 				
+				//TODO debugging
+				System.out.println("Computing: "+theRes.getByID(i).print()); 
+				
 				featDist.compute(theRes.getByID(i), theGold.getByID(i)); 
 				
 				feds[i] = featDist.getFED();
