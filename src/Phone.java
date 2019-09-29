@@ -11,7 +11,6 @@ import java.util.ArrayList;
 public class Phone extends SequentialPhonic implements RestrictPhone {
 
 	private String featString; // string of 0s, 1s and 2s -- 0 is negative, 2 positive, 1 unspecified
-			// TODO note however in practice we are currently using - negative, + positive, 0 unspecified 
 	private HashMap<String, Integer> featIndices; 
 	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa symbol. 
 	private String symb; 

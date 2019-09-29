@@ -96,11 +96,8 @@ public class SimulationTester {
 		// check number of stages
 		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 1 : 0;
 		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 1 : 0;
-		
-		errorSummary(errorCount);
-		
+				
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
-		errorCount = 0; 
 		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
 		ErrorAnalysis checker = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
@@ -132,9 +129,7 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
-		
-		errorSummary(errorCount); 
-		
+				
 		System.out.println("Check that metrics of difference between form after one step and init forms are calculated correctly."); 
 		checker = new ErrorAnalysis(testSimul.getCurrentResult(), testSimul.getInput(), featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
@@ -143,14 +138,12 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
 		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: accuracy within 2 phones after first step should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
+		errorCount += checkMetric(5.0/252.0, checker.getAvgFED(), "Error : avg FED after first step should be "+5.0/252.0+" but it is %o") ? 0 : 1 ; 
 		
 		errorSummary(errorCount); 
 		
-		//TODO check correct calculation of metrics
-		
-		
-		
 		testSimul.simulateToNextStage();
+		errorCount = 0; 
 		//TODO check after going to first gold
 		
 		testSimul.simulateToNextStage();

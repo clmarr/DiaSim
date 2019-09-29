@@ -191,16 +191,19 @@ public class PhoneTester {
 		testPhones.add(testPhone); 
 		testPhones.add(testPhone); 
 		
-		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+cons,"+MARK_UNSPEC+"delrel", featureIndices); 
+		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+son,0delrel", featureIndices); 
 	
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));
 		
 		testPhones= nasalStop.forceTruth(testPhones, 0); 
 		System.out.println("The following should be 'true'"); 
+		nasalStop = new FeatMatrix("+nas,+cont,+son", featureIndices); 
+
 		System.out.println(nasalStop.compare(testPhones, 0));
+		
 		System.out.println("The following should be 'm'");
-		System.out.println(testPhones.get(0)); 
+		System.out.println(testPhones.get(0).print()); 
 		// but it's not -- because delrel is '-' not '0' --- this might be a good case for adding "feature implications"-- ask Mortensen!
 		
 		
