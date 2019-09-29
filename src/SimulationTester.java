@@ -97,33 +97,77 @@ public class SimulationTester {
 		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 1 : 0;
 		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 1 : 0;
 		
-		if (errorCount == 0)	System.out.println("No errors yet at this point."); 
-		else	System.out.println("In all "+errorCount+" errors."); 
+		errorSummary(errorCount);
 		
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		errorCount = 0; 
 		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
-		ErrorAnalysis identityCheck = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
+		ErrorAnalysis checker = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
 
 		
 		//check that average distance metrics are all 0
-		errorCount += checkMetric(0.0, identityCheck.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(0.0, identityCheck.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 1 : 0 ;
-		errorCount += checkMetric(1.0, identityCheck.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(1.0, identityCheck.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 1 : 0 ; 
-		errorCount += checkMetric(1.0, identityCheck.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 1 : 0 ;
+		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
 		
-		if (errorCount == 0)	System.out.println("No errors yet at this point."); 
-		else	System.out.println("In all "+errorCount+" errors."); 
+		errorSummary(errorCount); 
 		
-		System.out.println("First -- checking agreement of results via gold cascade with the gold lexicon."); 
+		System.out.println("Checking after one iteration step."); 
+		errorCount = 0; 
+		
+		testSimul.iterate();
+		
+		System.out.println("Checking integrity of stored input forms after step."); 
+		
+		checker = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getInput(), featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+
+		//check that average distance metrics are all 0
+		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
+		
+		errorSummary(errorCount); 
+		
+		System.out.println("Check that metrics of difference between form after one step and init forms are calculated correctly."); 
+		checker = new ErrorAnalysis(testSimul.getCurrentResult(), testSimul.getInput(), featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		
+		errorCount += checkMetric(0.925, checker.getAccuracy(), "Error: accuracy after the first step should be 0.925 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: accuracy within 2 phones after first step should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
+		
+		errorSummary(errorCount); 
+		
+		//TODO check correct calculation of metrics
+		
+		
+		
+		testSimul.simulateToNextStage();
+		//TODO check after going to first gold
+		
+		testSimul.simulateToNextStage();
+		//TODO check going to first black
+		
+		testSimul.simulateToNextStage();
+		// TODO check after skipping final gold stage before the end
+		
+		testSimul.simulateToEnd();
+		//TODO check final results. 
+		
+		
+		System.out.println("checking agreement of results via gold cascade with the gold lexicon."); 
 		
 		
 		//TODO check final forms
 		
-		//TODO use working casc now 
 		//TODO and check different diagnostics
 		//TODO including by making edits to the Working casc file. 
 		
@@ -341,7 +385,6 @@ public class SimulationTester {
 			System.out.println(""); 
 		}
 		
-		goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -423,6 +466,8 @@ public class SimulationTester {
 
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
+		goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
+
 		String[] initStrForms = new String[NUM_ETYMA]; 
 		
 		String theLine =lexFileLines.get(0); 
@@ -453,7 +498,7 @@ public class SimulationTester {
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+DiachronicSimulator.LEX_DELIM)[0]; 
 			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
-			{
+			{	
 				String[] forms = theLine.split(""+DiachronicSimulator.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
@@ -469,6 +514,7 @@ public class SimulationTester {
 		if(goldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
 
+		
 		
 	}
 
