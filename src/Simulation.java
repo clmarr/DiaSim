@@ -179,7 +179,7 @@ public class Simulation {
 		return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];
 	}
 	
-	public Lexicon getGoldStageGold(int stagenum)	{	return goldStageGoldLexica[stagenum]; 	}
+	public Lexicon getGoldStageGold(int stagenum)	{	return goldStageGoldLexica[stagenum]; 	}	
 	
 	public String[] getAllDerivations()	{	return etDerivations;	}
 	public String getDerivation (int etID)	{	return etDerivations[etID];	}

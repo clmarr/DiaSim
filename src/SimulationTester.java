@@ -77,11 +77,11 @@ public class SimulationTester {
 		
 		int errorCount = 0; 
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
-		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 1 : 0;
+		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
-		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 1 : 0; 
+		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
 		// check number of words
-		errorCount += checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 1 : 0 ; 
+		errorCount += checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 0 : 1;
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
@@ -90,12 +90,12 @@ public class SimulationTester {
 		// for debugging purposes opacity is fine. 
 		
 		//check these to make sure no initialization mutator function messed with them. 
-		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 1 : 0;
+		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
-		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 1 : 0; 
+		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
 		// check number of stages
-		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 1 : 0;
-		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 1 : 0;
+		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 0 : 1;
+		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 0 : 1;
 				
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
@@ -140,10 +140,21 @@ public class SimulationTester {
 		errorCount += checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
 		errorCount += checkMetric(3.0/520.0, checker.getAvgFED(), "Error : avg FED after first step should be "+3.0/520.0+" but it is %o") ? 0 : 1 ; 
 		
+		//TODO check other methods in ErrorAnalysis -- i.e. diagnostics. 
+		
 		errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
 		errorCount = 0; 
+		
+		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
+		checker = new ErrorAnalysis(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0), featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
+		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
+
+		//TODO check modification methods in DiachronicSimulator -- or do this later? 
+		
 		//TODO check after going to first gold
 		
 		testSimul.simulateToNextStage();
@@ -584,11 +595,21 @@ public class SimulationTester {
 		return correct == observed; 
 	}
 	
+	private static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
+	{
+		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
+		
+		int tot = 0; 
+		for (int i = 0 ; i < g.length; i++)
+			tot += checkWord(g[i], obs[i], "Reflex mismatch: %o for %c") ? 0 : 1; 
+		return tot;
+	}
+	
 	private static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
 		boolean result = c.equals(o); 
-		if (!result)	errorMessage(c,o,errMessage); 
+		if (!result)	System.out.println(errorMessage(c,o,errMessage)); 
 		return result; 
 	}
 	

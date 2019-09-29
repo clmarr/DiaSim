@@ -736,18 +736,16 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	//TODO is this doing what its supposed to? If so rename.
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
-	private static void printTheseBlackStages(int first, int last, boolean prepend)
+	private static void printIncludedBlackStages(int first, int last)
 	{
 		if(blackStagesSet)
 			for(int bsi = first; bsi < last + 1; bsi++)
-				System.out.println(bsi+": "+(prepend ? "b":"")+
+				System.out.println(bsi+": b"+
 					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")");
 	}
 
-	//TODO is this doing what its supposed to? If so rename.
-	private static void printTheseGoldStages(int firstToPrint, int lastToPrint)
+	private static void printIncludedGoldStages(int firstToPrint, int lastToPrint)
 	{
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
@@ -835,7 +833,7 @@ public class DiachronicSimulator {
 					while (!chosen)
 					{
 						System.out.println("Available options for evaluation stage: ");
-						printTheseGoldStages(0, lastGoldOpt); 
+						printIncludedGoldStages(0, lastGoldOpt); 
 						System.out.println("F : "+ (curSt == -1 ? "final forms" : "current forms at stage "+curSt));
 						System.out.println("Please enter the indicator for the stage you desire"); 
 						resp = inpu.nextLine().substring(0,1);
@@ -865,7 +863,7 @@ public class DiachronicSimulator {
 				while(!chosen)
 				{
 					System.out.println("Available options for focus point:");
-					printTheseGoldStages(0, lastGoldOpt); printTheseBlackStages(0, lastBlkOpt, true); 
+					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
 					System.out.print("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
 							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#> (you can find rule indices with option 3 to query on the main menu)\n"); 
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
@@ -1766,8 +1764,9 @@ public class DiachronicSimulator {
 		}
 	}
 	
+	//TODO below is abrogated as it is not in use. 
 	//makes  EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param
-	public static ErrorAnalysis analyze_subset_with_seq (Lexicon ogRes, Lexicon ogGold, List<SequentialPhonic> targSeq, boolean look_in_gold)
+	/**public static ErrorAnalysis analyze_subset_with_seq (Lexicon ogRes, Lexicon ogGold, List<SequentialPhonic> targSeq, boolean look_in_gold)
 	{
 		if (targSeq.size() == 0)	throw new Error("Can't make subset based on empty sequence"); 
 		List<Integer> indsInSubset = new ArrayList<Integer>(); 
@@ -1792,6 +1791,7 @@ public class DiachronicSimulator {
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt)); 
 		
 	}
+	**/
 	
 	// for the lexicon of any given stage, passed as parameter, 
 	// outputs hashmap where the value for each key Phone instance
@@ -2075,20 +2075,21 @@ public class DiachronicSimulator {
 	}
 	
 	//auxiliary
-	private static boolean isJustSpace(String line)
+	public static boolean isJustSpace(String line)
 	{
 		return line.replace(" ","").length() == 0;
 	}
 	
 	
-	private final static String HANGING_INDENT = "      "; 
+	public final static String HANGING_INDENT = "      "; 
+	
 	//auxiliary for use in implementing DHS changes 
 	/** commentJustify
 	 * @return @param ogcmt with line breaks inserted such that no line is longer than maxAutoCommentWidth,
 	 * 		each line starts with CMT_FLAG,
 	 * 		and lines after the first have hanging indentation
 	 */
-	private static String commentJustify(String ogcmt)
+	public static String commentJustify(String ogcmt)
 	{
 		String[] tokens = ogcmt.split(" "); 
 		String out = ""+CMT_FLAG, lineStarter = "\n"+CMT_FLAG+HANGING_INDENT; 
