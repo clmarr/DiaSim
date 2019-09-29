@@ -156,14 +156,18 @@ public class FED {
 		else
 		{
 			String prFtStr = fullSeq[loc-1].getFeatString();
-			for (int i = 0; i < n_feats; i++)	sum += isdl_wt * Math.abs(spFtVals[i] - Integer.parseInt(prFtStr.substring(i,i+1)));
+			for (int i = 0; i < n_feats; i++)	
+				sum += isdl_wt * 
+					Math.abs(spFtVals[i] - Integer.parseInt(prFtStr.substring(i,i+1)));
 		}
 		if (loc == fullSeq.length-1)
 		{	for(int i = 0; i < n_feats; i++)	sum += isdl_wt * spFtVals[i]; 	}
 		else
 		{
 			String psFtStr = fullSeq[loc+1].getFeatString();
-			for (int i = 0; i < n_feats; i++)	sum += isdl_wt * Math.abs(spFtVals[i] - Integer.parseInt(psFtStr.substring(i,i+1)));
+			for (int i = 0; i < n_feats; i++)	
+				sum += isdl_wt *
+					Math.abs(spFtVals[i] - Integer.parseInt(psFtStr.substring(i,i+1)));
 		}
 		return sum;
 	}

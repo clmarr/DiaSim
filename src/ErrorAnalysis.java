@@ -148,6 +148,9 @@ public class ErrorAnalysis {
 				feds[i] = featDist.getFED();
 				totFED += feds[i];
 				
+				//TODO debugging
+				System.out.println("feds["+i+"] : "+feds[i]);
+				
 				if(!isHit[i])
 					updateConfusionMatrix(i);
 						//also increments errorsBy(Res/Gold)Phone^ 

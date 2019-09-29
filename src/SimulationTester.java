@@ -138,7 +138,7 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
 		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: accuracy within 2 phones after first step should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(5.0/252.0, checker.getAvgFED(), "Error : avg FED after first step should be "+5.0/252.0+" but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(3.0/520.0, checker.getAvgFED(), "Error : avg FED after first step should be "+3.0/520.0+" but it is %o") ? 0 : 1 ; 
 		
 		errorSummary(errorCount); 
 		
