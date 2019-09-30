@@ -20,7 +20,7 @@ public class DHSWrapper {
 	private List<String[]> proposedChanges; 
 	//TODO important variable here, explanation follows
 	// each indexed String[] is form [curr time step, operation details]
-	// this object is *kept sorted* by current form index
+	// this object is *kept sorted* by current (i.e. baseline)  form index
 		// (IMPORTANT: equivalent to iterator hci, for hypCASC later)
 	// operation may be either deletion or insertion 
 	// both relocdation and modification are handled as deletion then insertion pairs. 
