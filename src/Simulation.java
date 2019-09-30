@@ -284,5 +284,8 @@ public class Simulation {
 	public int getInstant()	{	return instant;	}
 	
 	public List<SChange> CASCADE()	{	return CASCADE;	}
+	public String[] getGoldStageNames()	{	return goldStageNames;	}
+	public String[] getBlackStageNames()	{	return blackStageNames;	}
+	
 	
 }
