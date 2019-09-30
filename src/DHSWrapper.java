@@ -329,11 +329,163 @@ public class DHSWrapper {
 						
 						
 					}
+					
+					// data structure manipulation
+					
+					if(resp.equals("3")) //relocdation -- handled separately from others. 
+					{
+						int relocdate = Integer.parseInt(insertions.get(0)[0]); 
+						boolean back = forkAt > relocdate;
 
+						RULE_IND_MAP[forkAt] = relocdate; 
+						
+						for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+						{
+							int curm = RULE_IND_MAP[rimi];
+							if (back && rimi != forkAt)
+							{	if ( curm >= relocdate && curm < forkAt )
+									RULE_IND_MAP[rimi] = curm + 1 ; }
+							else if (curm > forkAt && curm <= relocdate )
+								RULE_IND_MAP[rimi] = curm - 1; 
+						}
+						
+						if (NUM_GOLD_STAGES > 0)
+							for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+								if (hypGoldLocs[gsi] > Math.min(relocdate, forkAt))
+									if (hypGoldLocs[gsi] < Math.max(relocdate, forkAt))
+										hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back?-1:1); 
+
+						if (NUM_BLACK_STAGES > 0)
+							for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+								if (hypBlackLocs[bsi] > Math.min(relocdate, forkAt))
+									if (hypBlackLocs[bsi] < Math.max(relocdate, forkAt))
+										hypBlackLocs[bsi] = hypBlackLocs[bsi] + (back?-1:1); 
+						
+					}
+					else if (resp.equals("2") && insertions.size() == 1) //single replacement modification
+					{	// no change in rule ind map or prop(Gold/Black)Locs -- dummy condition.
+					}
+					else // simple insertion or deletion, or non one to one replacement modification
+					{
+						if(deleteAt != -1)
+						{
+							RULE_IND_MAP[deleteAt] = -1;
+							for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+								if (RULE_IND_MAP[rimi] > deleteAt)
+									RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] - 1; 
+							
+							if (NUM_GOLD_STAGES > 0)
+								for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+									if (hypGoldLocs[gsi] >= deleteAt)
+										hypGoldLocs[gsi] -= 1; 
+
+							if (NUM_BLACK_STAGES > 0)
+								for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+									if (hypBlackLocs[bsi] >= deleteAt)
+										hypBlackLocs[bsi] -= 1; 
+						}
+						if (insertions.size() > 0)
+						{
+							int insertLoc = Integer.parseInt(insertions.get(0)[0]),
+									increment = insertions.size(); 
+							for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+								if (RULE_IND_MAP[rimi] > insertLoc)
+									RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] + increment; 
+							
+							if (NUM_GOLD_STAGES > 0)
+								for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+									if (hypGoldLocs[gsi] >= insertLoc)
+										hypGoldLocs[gsi] += increment; 
+
+							if (NUM_BLACK_STAGES > 0)
+								for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+									if (hypBlackLocs[bsi] >= insertLoc)
+										hypBlackLocs[bsi] += increment; 
+						}											
+					}
+						
+					// update proposedChanges while keeping it sorted by index of operation
+						// if there is a "tie" in index, we always list deletions first, then insertions.
+					 
+					// only way that an insertion could come before a deletion is in relocdation
+						// if we relocdate to an earlier date. 
+					
+					if("123".contains(resp)) //handling deletion for @varbl proposedChanges
+					{
+						int pcplace = proposedChanges.size(); 
+						boolean foundTargSpot = false; 
+						while (pcplace == 0 ? false : foundTargSpot)
+						{
+							
+							String[] prev = proposedChanges.get(pcplace - 1); 
+							int prevLoc = Integer.parseInt(prev[0]); 
+							if (deleteAt < prevLoc)	foundTargSpot = true; 
+							else if (deleteAt == prevLoc)
+								foundTargSpot = "deletion".equals(prev[1]); 
+							
+							if (!foundTargSpot)
+							{	
+								pcplace--; 
+								proposedChanges.set(pcplace, 
+										new String[] { ""+(prevLoc-1) , prev[1] } );
+							}
+						}
+						
+						if (pcplace == proposedChanges.size())	
+						{	proposedChanges.add(new String[] {""+deleteAt, "deletion"});
+							propChNotes.add(deletionNotes);
+						}
+						else
+						{
+							proposedChanges.add(pcplace, new String[] {""+deleteAt, "deletion"});	
+							propChNotes.add(pcplace, deletionNotes); 
+						}
+					}
+					
+					if("023".contains(resp))
+					{
+						int insertLoc = Integer.parseInt(insertions.get(0)[0]);
+						int pcplace = proposedChanges.size(); //because we iterate backwards. 
+						boolean foundTargSpot = false; 
+						int increment = insertions.size(); 
+						while (pcplace == 0 ? false : foundTargSpot)
+						{
+							String[] prev = proposedChanges.get(pcplace - 1); 
+							int prevLoc = Integer.parseInt(prev[0]); 
+							if (insertLoc <prevLoc ) foundTargSpot = true; 
+							else if (insertLoc == prevLoc)	foundTargSpot = "deletion".equals(prev[1]); 
+							
+							if (!foundTargSpot)
+							{	
+								pcplace--; 
+								proposedChanges.set(pcplace, 
+										new String[] { ""+(prevLoc+increment) , prev[1] } );
+							}
+						}
+						if (pcplace == proposedChanges.size())
+						{
+							proposedChanges.addAll(insertions); 
+							propChNotes.addAll(insertionNotes); 
+						}
+						else	
+						{
+							proposedChanges.addAll(pcplace, insertions);
+							propChNotes.addAll(pcplace, insertionNotes); 
+						}
+					}
+					
+					System.out.println("Would you like to make another change at this time? Enter 'y' or 'n'."); 
+					char conf = inpu.nextLine().toLowerCase().charAt(0); 
+					while (!"yn".contains(conf+""))
+					{
+						System.out.println("Please enter 'y' or 'n' to confirm or not."); 
+						conf = inpu.nextLine().toLowerCase().charAt(0); 
+					}
+					toSetBehavior = (conf == 'y'); 
 				}
-				
-				
 			}
+
+
 			
 		}
 	}
