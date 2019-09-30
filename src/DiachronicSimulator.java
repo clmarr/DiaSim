@@ -1129,7 +1129,7 @@ public class DiachronicSimulator {
 						// i.e. using automatic modification of the cascade file. 
 				
 				int[] RULE_IND_MAP = new int[CASCADE.size()+1], //easy access maps indices of CASCADE to those in hypCASCADE.
-								// -1 -- deleted. 
+								// -1 means deleted. 
 						propGoldLocs = new int[NUM_GOLD_STAGES], propBlackLocs = new int[NUM_BLACK_STAGES]; 
 				int originalLastMoment = CASCADE.size(); 
 				
@@ -2018,7 +2018,7 @@ public class DiachronicSimulator {
 		return toy; 
 	}
 	
-	private static String etymInds(LexPhon[] etList, LexPhon etTarg)
+	public static String etymInds(LexPhon[] etList, LexPhon etTarg)
 	{
 		String output = ""; 
 		for (int wli = 0; wli < etList.length; wli++)

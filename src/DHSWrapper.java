@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class DHSWrapper {
 	
 	public final String INV_RESP_MSG =  "Invalid response. Please enter a valid response. Returning to hypothesis testing menu.";
+	public final char STAGE_PRINT_DELIM = DiachronicSimulator.STAGE_PRINT_DELIM; 
 	
 	private Simulation baseSimulation;
 	private List<SChange> hypCASC, baseCASC; 
@@ -35,7 +36,7 @@ public class DHSWrapper {
 		// -1 means deleted. 
 	private int[] hypGoldLocs, hypBlackLocs; 
 	private int originalLastMoment,
-		NUM_GOLD_STAGES, NUM_BLACK_STAGES;
+		NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA; 
 	private String[] goldStageNames, blackStageNames; 
 		
 	
@@ -48,6 +49,7 @@ public class DHSWrapper {
 		hypCASC = new ArrayList<SChange>(baseSim.CASCADE()); 
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
 		originalLastMoment = baseCASC.size(); 
+		NUM_ETYMA = baseSim.NUM_ETYMA(); 
 		NUM_GOLD_STAGES = baseSim.NUM_GOLD_STAGES();
 		NUM_BLACK_STAGES = baseSim.NUM_BLACK_STAGES(); 
 		RULE_IND_MAP = new int[originalLastMoment + 1]; 
@@ -59,7 +61,7 @@ public class DHSWrapper {
 		blackStageNames = baseSim.getBlackStageNames();	
 	}
 	
-	public void queryProposedChanges(Scanner inpu)
+	public void queryProposedChanges(Scanner inpu, SChangeFactory fac)
 	{
 		boolean queryMore = true; 
 		String resp; 
@@ -152,12 +154,70 @@ public class DHSWrapper {
 							ci++; hci++;
 						}
 						
+						//then must be at last moment. 
+						System.out.println(ci + (ci == hci ? "->"+hci : "")+ ": Last moment, after final rule and before output.") ;	
 					}
-					
-					
-							
 				}
-				
+				else if(resp.equals("get lexicon"))
+				{
+					System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
+					for (int i = 0 ; i < NUM_ETYMA; i++)
+						System.out.println(""+i+STAGE_PRINT_DELIM+baseSimulation.getInputForm(i)+STAGE_PRINT_DELIM+baseSimulation.getGoldOutputForm(i));
+				}
+				else
+				{
+					int cutPoint = 9; 
+					if(resp.substring(0,9).equals("get rule ")) {
+						if (resp.length() >= 13)
+						{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+							else if (resp.length() < 17 ? false : resp.substring(9,16).equals("effect "))
+								cutPoint = 16;
+						}
+						String entry = resp.substring(cutPoint); 
+						if (cutPoint > 9)
+						{
+							int theInd = getValidInd(entry, baseCASC.size());
+							if(cutPoint == 12)	printBaselineRuleAt(theInd);
+							else /*curPoint == 16*/	if (theInd > -1)	baseSimulation.getRuleEffect(theInd); 
+						}
+						else
+						{	boolean noMatches = true; 
+							for(int ci = 0; ci < baseCASC.size(); ci++)
+								if (baseCASC.get(ci).toString().contains(entry))
+									System.out.println(""+ci+" : "+baseCASC.get(ci).toString());
+							if(noMatches)	System.out.println("No matches found.");
+						}
+					}
+					if(resp.substring(0,9).equals("get etym ")) {
+						if (resp.length() >= 13)
+						{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+							else if (resp.length() < 21 ? false : resp.substring(9,20).equals("derivation "))
+								cutPoint = 20;
+						}
+						String entry = resp.substring(cutPoint); 
+						if (cutPoint > 9)
+						{
+							int theInd = getValidInd(entry, NUM_ETYMA - 1); 
+							if (cutPoint == 12 && theInd > -1)	System.out.println(baseSimulation.getInputForm(theInd));
+							else /* cutPoint == 20 */ if (theInd > -1)	System.out.println(baseSimulation.getDerivation(theInd)); 
+							else System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
+						}
+						else
+						{	LexPhon query = null; boolean validLexPhon = true;
+							try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
+							catch (Exception e){
+								System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
+								validLexPhon = false;
+							}
+							if(validLexPhon)
+							{
+								String inds = DiachronicSimulator.etymInds(baseSimulation.getInput().getWordList(), query);
+								System.out.println("Ind(s) with this word as input : "+inds);  
+							}
+						}
+					}
+					else	System.out.println(INV_RESP_MSG);
+				}	
 			}
 			
 			
@@ -167,6 +227,13 @@ public class DHSWrapper {
 	private int getValidInd(String s, int max)
 	{
 		return DiachronicSimulator.getValidInd(s, max); 
+	}
+	
+	private void printBaselineRuleAt(int theInd)
+	{
+		if (theInd == baseCASC.size())
+			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
+		else System.out.println(baseCASC.get(theInd)); 
 	}
 	
 
