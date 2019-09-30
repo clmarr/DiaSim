@@ -37,11 +37,16 @@ public class DHSWrapper {
 	private int[] hypGoldLocs, hypBlackLocs; 
 	private int originalLastMoment,
 		NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA; 
-	private String[] goldStageNames, blackStageNames; 
+	private String[] goldStageNames, blackStageNames;
+	private boolean feats_weighted;
+	private String[] featsByIndex;
+	private double[] FT_WTS;
+	private int id_wt; 
+	public boolean stillQuerying; 
 		
 	
 	
-	public DHSWrapper(Simulation baseSim)
+	public DHSWrapper(Simulation baseSim,boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, int id_wt)
 	{
 		baseSimulation = baseSim;
 		proposedChanges = new ArrayList<String[]>(); 
@@ -59,167 +64,20 @@ public class DHSWrapper {
 		for (int i = 0; i < NUM_BLACK_STAGES; i++)	hypBlackLocs[i] = baseSim.getStageInstant(false, i); 
 		goldStageNames = baseSim.getGoldStageNames(); 
 		blackStageNames = baseSim.getBlackStageNames();	
+		this.feats_weighted = feats_weighted;
+		this.featsByIndex = featsByIndex;
+		this.FT_WTS = FT_WTS; 
+		this.id_wt = id_wt; 
 	}
 	
 	public void queryProposedChanges(Scanner inpu, SChangeFactory fac)
 	{
-		boolean queryMore = true; 
+		stillQuerying = true; 
 		String resp; 
 
-		while (queryMore)
+		while (stillQuerying)
 		{
-			int forkAt = -1; 
-			String currRuleOptions = "\t\t\t'get curr rule X', to get the index of any rules containing an entered string replacing <X>.\n"
-					+ "\t\t\t'get curr rule at X', to get the rule at the original index number <X>.\n" 
-					+ "\t\t\t'get curr rule effect X', to get all changes from a rule by the index <X>.\n";
-			while(forkAt == -1 && queryMore) {
-				
-				//TODO is this confusing? 
-				System.out.print("At what current rule number would you like to modify cascade? Please type the number.\n"
-						+ "You may also enter:\t'quit', to return to the main menu\n"
-						+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
-						+ "\t\t\t'get rule at X', to get the rule at the original index number <X>.\n" 
-						+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
-						+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
-						+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
-						+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
-						+ "\t\t\t:'get etym at X', to get the etymon at index <X>.\n"
-						+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
-						+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
-				resp = inpu.nextLine().replace("\n",""); 
-				forkAt = getValidInd(resp, originalLastMoment) ;
-					//TODO make sure it is correct to use base's last moment as max here...
-				
-				if (resp.equals("quit"))	queryMore = false; 
-				else if(forkAt > -1)	queryMore = true; //NOTE dummy stmt --  do nothing but continue on to next stage. 
-				else if(getValidInd(resp, 99999) > -1)
-					System.out.println(INV_RESP_MSG+". There are only "+(originalLastMoment+1)+" timesteps."); 
-				else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(INV_RESP_MSG);
-				else if(resp.equals("get cascade"))
-				{
-					int ci = 0 , gsi = 0, bsi = 0,
-							firstFork = proposedChanges.size() > 0 ? 
-									originalLastMoment : Integer.parseInt(proposedChanges.get(0)[0]); 
-					while ( ci < firstFork) 
-					{
-						if (gsi < NUM_GOLD_STAGES)
-						{	if (hypGoldLocs[gsi] == ci)
-							{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
-						else if (bsi < NUM_BLACK_STAGES)
-						{	if (hypBlackLocs[bsi] == ci)
-							{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
-						
-						System.out.println(ci+" : "+baseCASC.get(ci)); 
-						ci += 1; 	
-					}
-					
-					int pci = 0, hci = ci; 
-					int nextFork = pci < proposedChanges.size() ? 
-							Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
-							
-					while (pci < proposedChanges.size())
-					{
-						assert hci == nextFork : "Error : should be at next fork moment but we are not"; 
-						
-						String currMod = proposedChanges.get(pci)[1]; 
-						if (currMod.equals("deletion"))	
-						{
-							System.out.println("[DELETED RULE : "+baseCASC.get(ci).toString()); 
-							ci++; 
-						}
-						else //insertion
-						{
-							System.out.println(hci+" [INSERTED] : "+hypCASC.get(hci));
-							hci++; 
-						}
-						
-						//then print all the rest until the next stopping point. 
-						pci++; 
-						nextFork = pci < proposedChanges.size() ? 
-								Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
-						
-						while (Math.max(ci, hci) < nextFork)
-						{
-							if (gsi < NUM_GOLD_STAGES)
-							{	if (hypGoldLocs[gsi] == hci)
-								{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
-							
-							else if (bsi < NUM_BLACK_STAGES)
-							{	if (hypBlackLocs[bsi] == hci)
-								{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
-							
-							System.out.println(ci
-									+(ci==hci ? "" : "->"+hci)
-									+" : "+baseCASC.get(ci)); 
-							ci++; hci++;
-						}
-						
-						//then must be at last moment. 
-						System.out.println(ci + (ci == hci ? "->"+hci : "")+ ": Last moment, after final rule and before output.") ;	
-					}
-				}
-				else if(resp.equals("get lexicon"))
-				{
-					System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
-					for (int i = 0 ; i < NUM_ETYMA; i++)
-						System.out.println(""+i+STAGE_PRINT_DELIM+baseSimulation.getInputForm(i)+STAGE_PRINT_DELIM+baseSimulation.getGoldOutputForm(i));
-				}
-				else
-				{
-					int cutPoint = 9; 
-					if(resp.substring(0,9).equals("get rule ")) {
-						if (resp.length() >= 13)
-						{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
-							else if (resp.length() < 17 ? false : resp.substring(9,16).equals("effect "))
-								cutPoint = 16;
-						}
-						String entry = resp.substring(cutPoint); 
-						if (cutPoint > 9)
-						{
-							int theInd = getValidInd(entry, baseCASC.size());
-							if(cutPoint == 12)	printBaselineRuleAt(theInd);
-							else /*curPoint == 16*/	if (theInd > -1)	baseSimulation.getRuleEffect(theInd); 
-						}
-						else
-						{	boolean noMatches = true; 
-							for(int ci = 0; ci < baseCASC.size(); ci++)
-								if (baseCASC.get(ci).toString().contains(entry))
-									System.out.println(""+ci+" : "+baseCASC.get(ci).toString());
-							if(noMatches)	System.out.println("No matches found.");
-						}
-					}
-					if(resp.substring(0,9).equals("get etym ")) {
-						if (resp.length() >= 13)
-						{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
-							else if (resp.length() < 21 ? false : resp.substring(9,20).equals("derivation "))
-								cutPoint = 20;
-						}
-						String entry = resp.substring(cutPoint); 
-						if (cutPoint > 9)
-						{
-							int theInd = getValidInd(entry, NUM_ETYMA - 1); 
-							if (cutPoint == 12 && theInd > -1)	System.out.println(baseSimulation.getInputForm(theInd));
-							else /* cutPoint == 20 */ if (theInd > -1)	System.out.println(baseSimulation.getDerivation(theInd)); 
-							else System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
-						}
-						else
-						{	LexPhon query = null; boolean validLexPhon = true;
-							try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
-							catch (Exception e){
-								System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
-								validLexPhon = false;
-							}
-							if(validLexPhon)
-							{
-								String inds = DiachronicSimulator.etymInds(baseSimulation.getInput().getWordList(), query);
-								System.out.println("Ind(s) with this word as input : "+inds);  
-							}
-						}
-					}
-					else	System.out.println(INV_RESP_MSG);
-				}	
-			}
-			
+			int forkAt = queryForkPoint(inpu, fac); 
 			boolean toSetBehavior = true;
 			while (toSetBehavior) {
 				System.out.println("Operating on rule "+forkAt+": "+hypCASC.get(forkAt).toString()) ;
@@ -235,7 +93,7 @@ public class DHSWrapper {
 				if(!"012389".contains(resp))
 					System.out.println("Invalid entry. Please enter the valid number for what you want to do."); 
 				else if(resp.equals("9"))
-					queryMore = false; 
+					stillQuerying = false; 
 				else if(resp.equals("8"))
 					System.out.println("Returning to prior menu.");
 				else
@@ -485,6 +343,63 @@ public class DHSWrapper {
 				}
 			}
 
+			//actual hypothesis test simulation of CASCADE and hypCASCADE... results, etc. 
+			Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+			//TODO iteration of @varbl hypEmpiricized 
+			boolean gsstops; 
+			if (NUM_GOLD_STAGES > 0)
+			{
+				System.out.println("Halt at gold stages? Enter 'y' or 'n'."); 
+				char conf = inpu.nextLine().toLowerCase().charAt(0); 
+				while (!"yn".contains(conf+""))
+				{
+					System.out.println("Please enter 'y' or 'n' to confirm stage stopping or not."); 
+					conf = inpu.nextLine().toLowerCase().charAt(0); 
+				}
+				gsstops = (conf == 'y'); 
+			}
+			else	gsstops = false; 
+			
+			if(gsstops)
+			{
+				int gssi = 0; 
+				while(!hypEmpiricized.isComplete())
+				{
+					hypEmpiricized.simulateToNextStage();
+					while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) //TODO check this. 
+						hypEmpiricized.simulateToNextStage();
+					
+					
+					ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+					
+					ErrorAnalysis bsea = new ErrorAnalysis(baseSimulation.getStageResult(true, gssi), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
+									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+					
+					System.out.println("Hit gold stage "+gssi+": "+goldStageNames[gssi]); 
+					gssi++; 
+					
+					double[] pctAccs = new double[] { bsea.getAccuracy(), hsea.getAccuracy() },
+							pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
+							avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
+					if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
+					{
+						System.out.println("Overall accuracy : "+pctAccs[0]+" >>> "+pctAccs[1]);
+						System.out.println("Accuracy within 1 phone: "+pct1offs[0]+" >>> "+pct1offs[1]);
+						System.out.println("Accuracy within 2 phone: "+bsea.getPctWithin2()+" >>> "+hsea.getPctWithin2());
+						System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
+						System.out.println("Average feature edit distance from gold: "+avgFEDs[0]+" >>> "+avgFEDs[1]); 
+						System.out.println("Press anything to continue."); 
+						char dum = inpu.nextLine().charAt(0);
+						//TODO possibly enable further user interaction here? 
+
+					}
+					else	System.out.println("No divergence yet."); 
+					
+				}
+			}
+			else	hypEmpiricized.simulateToEnd();
+
 
 			
 		}
@@ -501,6 +416,163 @@ public class DHSWrapper {
 			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
 		else System.out.println(baseCASC.get(theInd)); 
 	}
-	
+
+	public int queryForkPoint(Scanner inpu, SChangeFactory fac)
+	{
+		String resp;
+		int forkAt = -1; 
+		String currRuleOptions = "\t\t\t'get curr rule X', to get the index of any rules containing an entered string replacing <X>.\n"
+				+ "\t\t\t'get curr rule at X', to get the rule at the original index number <X>.\n" 
+				+ "\t\t\t'get curr rule effect X', to get all changes from a rule by the index <X>.\n";
+		while(forkAt == -1 && stillQuerying) {
+			
+			//TODO is this confusing? 
+			System.out.print("At what current rule number would you like to modify cascade? Please type the number.\n"
+					+ "You may also enter:\t'quit', to return to the main menu\n"
+					+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
+					+ "\t\t\t'get rule at X', to get the rule at the original index number <X>.\n" 
+					+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
+					+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
+					+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
+					+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
+					+ "\t\t\t:'get etym at X', to get the etymon at index <X>.\n"
+					+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
+					+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
+			resp = inpu.nextLine().replace("\n",""); 
+			forkAt = getValidInd(resp, originalLastMoment) ;
+				//TODO make sure it is correct to use base's last moment as max here...
+			
+			if (resp.equals("quit"))		stillQuerying = false; 
+			else if(forkAt > -1)	return forkAt;	
+			else if(getValidInd(resp, 99999) > -1)
+				System.out.println(INV_RESP_MSG+". There are only "+(originalLastMoment+1)+" timesteps."); 
+			else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(INV_RESP_MSG);
+			else if(resp.equals("get cascade"))
+			{
+				int ci = 0 , gsi = 0, bsi = 0,
+						firstFork = proposedChanges.size() > 0 ? 
+								originalLastMoment : Integer.parseInt(proposedChanges.get(0)[0]); 
+				while ( ci < firstFork) 
+				{
+					if (gsi < NUM_GOLD_STAGES)
+					{	if (hypGoldLocs[gsi] == ci)
+						{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
+					else if (bsi < NUM_BLACK_STAGES)
+					{	if (hypBlackLocs[bsi] == ci)
+						{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
+					
+					System.out.println(ci+" : "+baseCASC.get(ci)); 
+					ci += 1; 	
+				}
+				
+				int pci = 0, hci = ci; 
+				int nextFork = pci < proposedChanges.size() ? 
+						Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
+						
+				while (pci < proposedChanges.size())
+				{
+					assert hci == nextFork : "Error : should be at next fork moment but we are not"; 
+					
+					String currMod = proposedChanges.get(pci)[1]; 
+					if (currMod.equals("deletion"))	
+					{
+						System.out.println("[DELETED RULE : "+baseCASC.get(ci).toString()); 
+						ci++; 
+					}
+					else //insertion
+					{
+						System.out.println(hci+" [INSERTED] : "+hypCASC.get(hci));
+						hci++; 
+					}
+					
+					//then print all the rest until the next stopping point. 
+					pci++; 
+					nextFork = pci < proposedChanges.size() ? 
+							Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
+					
+					while (Math.max(ci, hci) < nextFork)
+					{
+						if (gsi < NUM_GOLD_STAGES)
+						{	if (hypGoldLocs[gsi] == hci)
+							{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
+						
+						else if (bsi < NUM_BLACK_STAGES)
+						{	if (hypBlackLocs[bsi] == hci)
+							{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
+						
+						System.out.println(ci
+								+(ci==hci ? "" : "->"+hci)
+								+" : "+baseCASC.get(ci)); 
+						ci++; hci++;
+					}
+					
+					//then must be at last moment. 
+					System.out.println(ci + (ci == hci ? "->"+hci : "")+ ": Last moment, after final rule and before output.") ;	
+				}
+			}
+			else if(resp.equals("get lexicon"))
+			{
+				System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
+				for (int i = 0 ; i < NUM_ETYMA; i++)
+					System.out.println(""+i+STAGE_PRINT_DELIM+baseSimulation.getInputForm(i)+STAGE_PRINT_DELIM+baseSimulation.getGoldOutputForm(i));
+			}
+			else
+			{
+				int cutPoint = 9; 
+				if(resp.substring(0,9).equals("get rule ")) {
+					if (resp.length() >= 13)
+					{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+						else if (resp.length() < 17 ? false : resp.substring(9,16).equals("effect "))
+							cutPoint = 16;
+					}
+					String entry = resp.substring(cutPoint); 
+					if (cutPoint > 9)
+					{
+						int theInd = getValidInd(entry, baseCASC.size());
+						if(cutPoint == 12)	printBaselineRuleAt(theInd);
+						else /*curPoint == 16*/	if (theInd > -1)	baseSimulation.getRuleEffect(theInd); 
+					}
+					else
+					{	boolean noMatches = true; 
+						for(int ci = 0; ci < baseCASC.size(); ci++)
+							if (baseCASC.get(ci).toString().contains(entry))
+								System.out.println(""+ci+" : "+baseCASC.get(ci).toString());
+						if(noMatches)	System.out.println("No matches found.");
+					}
+				}
+				if(resp.substring(0,9).equals("get etym ")) {
+					if (resp.length() >= 13)
+					{	if (resp.substring(9,12).equals("at "))	cutPoint = 12;
+						else if (resp.length() < 21 ? false : resp.substring(9,20).equals("derivation "))
+							cutPoint = 20;
+					}
+					String entry = resp.substring(cutPoint); 
+					if (cutPoint > 9)
+					{
+						int theInd = getValidInd(entry, NUM_ETYMA - 1); 
+						if (cutPoint == 12 && theInd > -1)	System.out.println(baseSimulation.getInputForm(theInd));
+						else /* cutPoint == 20 */ if (theInd > -1)	System.out.println(baseSimulation.getDerivation(theInd)); 
+						else System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
+					}
+					else
+					{	LexPhon query = null; boolean validLexPhon = true;
+						try {	query = new LexPhon(fac.parseSeqPhSeg(resp));	}
+						catch (Exception e){
+							System.out.println("Error: could not parse entered phone string. Returning to forking menu.");
+							validLexPhon = false;
+						}
+						if(validLexPhon)
+						{
+							String inds = DiachronicSimulator.etymInds(baseSimulation.getInput().getWordList(), query);
+							System.out.println("Ind(s) with this word as input : "+inds);  
+						}
+					}
+				}
+				else	System.out.println(INV_RESP_MSG);
+			}	
+		}
+		
+		return forkAt;
+	}
 
 }
