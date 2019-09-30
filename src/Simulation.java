@@ -283,4 +283,6 @@ public class Simulation {
 	
 	public int getInstant()	{	return instant;	}
 	
+	public List<SChange> CASCADE()	{	return CASCADE;	}
+	
 }
