@@ -95,7 +95,67 @@ public class DHSWrapper {
 				else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(INV_RESP_MSG);
 				else if(resp.equals("get cascade"))
 				{
-				
+					int ci = 0 , gsi = 0, bsi = 0,
+							firstFork = proposedChanges.size() > 0 ? 
+									originalLastMoment : Integer.parseInt(proposedChanges.get(0)[0]); 
+					while ( ci < firstFork) 
+					{
+						if (gsi < NUM_GOLD_STAGES)
+						{	if (hypGoldLocs[gsi] == ci)
+							{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
+						else if (bsi < NUM_BLACK_STAGES)
+						{	if (hypBlackLocs[bsi] == ci)
+							{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
+						
+						System.out.println(ci+" : "+baseCASC.get(ci)); 
+						ci += 1; 	
+					}
+					
+					int pci = 0, hci = ci; 
+					int nextFork = pci < proposedChanges.size() ? 
+							Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
+							
+					while (pci < proposedChanges.size())
+					{
+						assert hci == nextFork : "Error : should be at next fork moment but we are not"; 
+						
+						String currMod = proposedChanges.get(pci)[1]; 
+						if (currMod.equals("deletion"))	
+						{
+							System.out.println("[DELETED RULE : "+baseCASC.get(ci).toString()); 
+							ci++; 
+						}
+						else //insertion
+						{
+							System.out.println(hci+" [INSERTED] : "+hypCASC.get(hci));
+							hci++; 
+						}
+						
+						//then print all the rest until the next stopping point. 
+						pci++; 
+						nextFork = pci < proposedChanges.size() ? 
+								Integer.parseInt(proposedChanges.get(pci)[0]) : originalLastMoment; 
+						
+						while (Math.max(ci, hci) < nextFork)
+						{
+							if (gsi < NUM_GOLD_STAGES)
+							{	if (hypGoldLocs[gsi] == hci)
+								{	System.out.println("Gold stage "+gsi+": "+goldStageNames[gsi]); gsi++; }}
+							
+							else if (bsi < NUM_BLACK_STAGES)
+							{	if (hypBlackLocs[bsi] == hci)
+								{	System.out.println("Black stage "+bsi+": "+blackStageNames[bsi]); bsi++; }}
+							
+							System.out.println(ci
+									+(ci==hci ? "" : "->"+hci)
+									+" : "+baseCASC.get(ci)); 
+							ci++; hci++;
+						}
+						
+					}
+					
+					
+							
 				}
 				
 			}
