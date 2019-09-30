@@ -189,78 +189,7 @@ public class DHSWrapper {
 					}
 					
 					// data structure manipulation
-					
-					if(resp.equals("3")) //relocdation -- handled separately from others. 
-					{
-						int relocdate = Integer.parseInt(insertions.get(0)[0]); 
-						boolean back = forkAt > relocdate;
-
-						RULE_IND_MAP[forkAt] = relocdate; 
-						
-						for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-						{
-							int curm = RULE_IND_MAP[rimi];
-							if (back && rimi != forkAt)
-							{	if ( curm >= relocdate && curm < forkAt )
-									RULE_IND_MAP[rimi] = curm + 1 ; }
-							else if (curm > forkAt && curm <= relocdate )
-								RULE_IND_MAP[rimi] = curm - 1; 
-						}
-						
-						if (NUM_GOLD_STAGES > 0)
-							for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-								if (hypGoldLocs[gsi] > Math.min(relocdate, forkAt))
-									if (hypGoldLocs[gsi] < Math.max(relocdate, forkAt))
-										hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back?-1:1); 
-
-						if (NUM_BLACK_STAGES > 0)
-							for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-								if (hypBlackLocs[bsi] > Math.min(relocdate, forkAt))
-									if (hypBlackLocs[bsi] < Math.max(relocdate, forkAt))
-										hypBlackLocs[bsi] = hypBlackLocs[bsi] + (back?-1:1); 
-						
-					}
-					else if (resp.equals("2") && insertions.size() == 1) //single replacement modification
-					{	// no change in rule ind map or prop(Gold/Black)Locs -- dummy condition.
-					}
-					else // simple insertion or deletion, or non one to one replacement modification
-					{
-						if(deleteAt != -1)
-						{
-							RULE_IND_MAP[deleteAt] = -1;
-							for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-								if (RULE_IND_MAP[rimi] > deleteAt)
-									RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] - 1; 
-							
-							if (NUM_GOLD_STAGES > 0)
-								for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-									if (hypGoldLocs[gsi] >= deleteAt)
-										hypGoldLocs[gsi] -= 1; 
-
-							if (NUM_BLACK_STAGES > 0)
-								for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-									if (hypBlackLocs[bsi] >= deleteAt)
-										hypBlackLocs[bsi] -= 1; 
-						}
-						if (insertions.size() > 0)
-						{
-							int insertLoc = Integer.parseInt(insertions.get(0)[0]),
-									increment = insertions.size(); 
-							for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-								if (RULE_IND_MAP[rimi] > insertLoc)
-									RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] + increment; 
-							
-							if (NUM_GOLD_STAGES > 0)
-								for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-									if (hypGoldLocs[gsi] >= insertLoc)
-										hypGoldLocs[gsi] += increment; 
-
-							if (NUM_BLACK_STAGES > 0)
-								for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-									if (hypBlackLocs[bsi] >= insertLoc)
-										hypBlackLocs[bsi] += increment; 
-						}											
-					}
+					updateMappings(forkAt, resp.charAt(0), insertions); 
 						
 					// update proposedChanges while keeping it sorted by index of operation
 						// if there is a "tie" in index, we always list deletions first, then insertions.
@@ -573,6 +502,75 @@ public class DHSWrapper {
 		}
 		
 		return forkAt;
+	}
+	
+	private void updateMappings(int forkAt, char mode, List<String[]> insertions)
+	{
+		if(mode == '3') //relocdation -- handled separately from others. 
+		{
+			int relocdate = Integer.parseInt(insertions.get(0)[0]); 
+			boolean back = forkAt > relocdate;
+			RULE_IND_MAP[forkAt] = relocdate; 
+			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+			{
+				int curm = RULE_IND_MAP[rimi];
+				if (back && rimi != forkAt)
+				{	if ( curm >= relocdate && curm < forkAt )
+						RULE_IND_MAP[rimi] = curm + 1 ; }
+				else if (curm > forkAt && curm <= relocdate )
+					RULE_IND_MAP[rimi] = curm - 1; 
+			}
+			if (NUM_GOLD_STAGES > 0)
+				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+					if (hypGoldLocs[gsi] > Math.min(relocdate, forkAt))
+						if (hypGoldLocs[gsi] < Math.max(relocdate, forkAt))
+							hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back?-1:1); 
+
+			if (NUM_BLACK_STAGES > 0)
+				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+					if (hypBlackLocs[bsi] > Math.min(relocdate, forkAt))
+						if (hypBlackLocs[bsi] < Math.max(relocdate, forkAt))
+							hypBlackLocs[bsi] = hypBlackLocs[bsi] + (back?-1:1); 
+							
+		}
+		else if (mode == '2' && insertions.size() == 1) //single replacement modification
+			return;
+		else if (mode == '1') // deletion
+		{
+			RULE_IND_MAP[forkAt] = -1;
+			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+				if (RULE_IND_MAP[rimi] > forkAt)
+					RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] - 1; 
+			
+			if (NUM_GOLD_STAGES > 0)
+				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+					if (hypGoldLocs[gsi] >= forkAt)
+						hypGoldLocs[gsi] -= 1; 
+
+			if (NUM_BLACK_STAGES > 0)
+				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+					if (hypBlackLocs[bsi] >= forkAt)
+						hypBlackLocs[bsi] -= 1; 
+
+		}
+		else //insertion
+		{
+			int insertLoc = Integer.parseInt(insertions.get(0)[0]),
+					increment = insertions.size(); 
+			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+				if (RULE_IND_MAP[rimi] > insertLoc)
+					RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] + increment; 
+			
+			if (NUM_GOLD_STAGES > 0)
+				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+					if (hypGoldLocs[gsi] >= insertLoc)
+						hypGoldLocs[gsi] += increment; 
+
+			if (NUM_BLACK_STAGES > 0)
+				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+					if (hypBlackLocs[bsi] >= insertLoc)
+						hypBlackLocs[bsi] += increment;
+		}
 	}
 
 }
