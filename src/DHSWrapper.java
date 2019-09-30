@@ -33,6 +33,9 @@ public class DHSWrapper {
 	private int[] RULE_IND_MAP; //easy access maps indices of CASCADE to those in hypCASCADE.
 		// -1 means deleted. 
 	private int[] hypGoldLocs, hypBlackLocs; 
+	private int originalLastMoment,
+		NUM_GOLD_STAGES, NUM_BLACK_STAGES;
+	private String[] goldStageNames, blackStageNames; 
 		
 	
 	
@@ -42,6 +45,16 @@ public class DHSWrapper {
 		propChNotes = new ArrayList<String>(); 
 		hypCASC = new ArrayList<SChange>(baseSim.CASCADE()); 
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
+		originalLastMoment = baseCASC.size(); 
+		NUM_GOLD_STAGES = baseSim.NUM_GOLD_STAGES();
+		NUM_BLACK_STAGES = baseSim.NUM_BLACK_STAGES(); 
+		RULE_IND_MAP = new int[originalLastMoment + 1]; 
+		hypGoldLocs = new int[NUM_GOLD_STAGES]; hypBlackLocs = new int[NUM_BLACK_STAGES]; 
+		for (int i = 0; i < originalLastMoment+1; i++)	RULE_IND_MAP[i] = i; //initialize each.
+		for (int i = 0; i < NUM_GOLD_STAGES; i++)	hypGoldLocs[i] = baseSim.getStageInstant(true, i);
+		for (int i = 0; i < NUM_BLACK_STAGES; i++)	hypBlackLocs[i] = baseSim.getStageInstant(false, i); 
+		
+		
 		
 	}
 
