@@ -1108,6 +1108,7 @@ public class DiachronicSimulator {
 			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
 				String errorMessage = "Invalid response. Please enter a valid response. Returning to Diachronic Hypothesis Simulation test menu.";
+					//TODO renanming op here... 
 				
 				List<SChange> hypCASCADE = new ArrayList<SChange>(CASCADE); 
 					// new cascade that we are comparing against the "baseline", @varbl CASCADE
@@ -1616,7 +1617,7 @@ public class DiachronicSimulator {
 					}
 					else	hypEmpiricized.simulateToEnd();
 					
-					DHSAnalysis DHScomp = new DHSAnalysis(theSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
+					DifferentialHypothesisSimulator DHScomp = new DifferentialHypothesisSimulator(theSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 					
 					// recall -- ErrorAnalysis ea is the ErrorAnalysis object for the baseline simulation. 
 					ErrorAnalysis hea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), goldOutputLexicon, featsByIndex,
@@ -2030,7 +2031,7 @@ public class DiachronicSimulator {
 	//to use for checking if an entered etymon or rule id is valid. 
 	// max should be the number of words in the lexicon minus 1 (for an etymon)
 		// or the length of the cascade (for a rule)
-	private static int getValidInd(String s, int max)
+	public static int getValidInd(String s, int max)
 	{
 		int output; 
 		try 		{	output = Integer.parseInt(s);	} 

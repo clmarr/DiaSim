@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.*; 
 
-public class DHSAnalysis {
+public class DifferentialHypothesisSimulator {
 	/**
 	 * Class for performing analysis operations on two Simulations in order to analyze the effect of a proposed change to the cascade
 	 */
@@ -60,7 +60,7 @@ public class DHSAnalysis {
 		// whereas for insertion, the second index holds the string form of the SChange 
 			// that is inserted there in hypCASCADE. 
 
-	public DHSAnalysis(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
+	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
