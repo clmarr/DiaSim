@@ -220,6 +220,120 @@ public class DHSWrapper {
 				}	
 			}
 			
+			boolean toSetBehavior = true;
+			while (toSetBehavior) {
+				System.out.println("Operating on rule "+forkAt+": "+hypCASC.get(forkAt).toString()) ;
+				System.out.print("What would you like to do?\n"
+						+ "0: Insertion -- insert a rule at "+forkAt+".\n"
+						+ "1: Deletion -- delete the rule at "+forkAt+".\n"
+						+ "2: Modification -- change the rule at "+forkAt+".\n"
+						+ "3: 'Relocdation' -- move the rule at "+forkAt+" to a different moment in time.\n"
+						+ "8: Go back to previous option (setting fork point, querying options available).\n"
+						+ "9: Cancel entire forking test and return to main menu.\n"); 
+				resp = inpu.nextLine().substring(0,1);
+			
+				if(!"012389".contains(resp))
+					System.out.println("Invalid entry. Please enter the valid number for what you want to do."); 
+				else if(resp.equals("9"))
+					queryMore = false; 
+				else if(resp.equals("8"))
+					System.out.println("Returning to prior menu.");
+				else
+				{
+					int deleteAt = -1; 
+					List<String[]> insertions = new ArrayList<String[]>(); 
+					List<String> insertionNotes = new ArrayList<String>();
+					String deletionNotes = ""; 
+					
+					if("123".contains(resp)) // all the operations that involve deletion.
+					{
+						deleteAt = forkAt; 
+						SChange removed = hypCASC.remove(deleteAt); 
+
+						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] simply removed."; 
+						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ]"; // will have specific modification appended later.  
+						else if(resp.equals("3"))
+						{
+							int relocdate = -1; 
+							while(relocdate == -1)
+							{
+								System.out.println("Enter the moment (rule index) would you like to move this rule to:");
+
+								int candiDate = getValidInd(inpu.nextLine().replace("\n",""), hypCASC.size());
+								if (candiDate == -1)
+									System.out.println("Invalid rule index entered. There are currently "+hypCASC.size()+" rules."); 
+								else
+								{
+									System.out.println("Rule before moment "+candiDate+": "
+											+ (candiDate == 0 ? "BEGINNING" : hypCASC.get(candiDate - 1)) );
+									System.out.println("Rule after moment "+candiDate+": "
+											+ (candiDate == hypCASC.size() ? "END" : hypCASC.get(candiDate)) ); 
+									System.out.println("Are you sure you want to move rule "+forkAt+" to here?"); 
+									char conf = '0';
+									while (!"yn".contains(conf+""))
+									{
+										System.out.println("Please enter 'y' or 'n' to confirm or not."); 
+										conf = inpu.nextLine().toLowerCase().charAt(0); 
+									}
+									if (conf == 'y')	relocdate = candiDate; 
+								}
+							}
+							
+							// unnecessary -- handled implicitly. 
+							//if ( deleteAt > relocdate ) deleteAt--;
+							//else	relocdate--; 
+							deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] relocdated\n\tmoved to "+relocdate; 
+					
+							insertions.add(new String[] {""+relocdate, removed.toString()} );
+							insertionNotes.add("Moved, originally at "+deleteAt); 
+							hypCASC.add( relocdate , removed);
+						}
+					}
+					if ("02".contains(resp)) // all the operations that involve insertion of a NEW rule.
+					{
+						
+						List<SChange> propShifts = null;
+						String propRule = ""; 
+						while(toSetBehavior) {
+							System.out.println("Please enter the new rule:");
+							propRule = inpu.nextLine().replace("\n", ""); 
+							toSetBehavior = false;
+
+							try
+							{	propShifts = fac.generateSoundChangesFromRule(propRule); 	}
+							catch (Error e)
+							{
+								toSetBehavior = true;
+								System.out.println("Preempted error : "+e); 
+								System.out.println("You entered an invalid rule, clearly. All rules must be of form A -> B / X __ Y.");
+								System.out.println("Valid notations include [] () ()* ()+ {;} # @ ,");
+							}
+						}
+														
+						//actual insertions here.
+						// insert "backwards" so that intended order is preserved
+						while(propShifts.size() > 0)
+						{
+							SChange curr = propShifts.remove(propShifts.size()-1); 
+							insertions.add(new String[] {  "" +(forkAt + propShifts.size() ) ,
+									curr.toString() } );
+							if (resp.equals("0"))
+								insertionNotes.add(""); //no notes for simple insertion. 
+							else	//modification
+								insertionNotes.add("Part of replacement of "+deletionNotes.substring(12)); 
+							hypCASC.add(forkAt,curr);
+						}
+
+						if(resp.equals("2"))
+							deletionNotes += " modified\nto "+propRule; 
+						
+						
+					}
+
+				}
+				
+				
+			}
 			
 		}
 	}
