@@ -135,7 +135,7 @@ public class Simulation {
 		
 		instant++; 
 		
-		if (goldStageInd < NUM_GOLD_STAGES ? instant == goldStageInstants[goldStageInd] : false)
+		if (goldStageInd < NUM_GOLD_STAGES ? instant == goldStageInstants[goldStageInd] - 1 : false)
 		{
 			currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 			goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList()); 
@@ -144,7 +144,7 @@ public class Simulation {
 			goldStageInd++; 
 		}
 		
-		if(blackStageInd<NUM_BLACK_STAGES ? instant == blackStageInstants[blackStageInd] : false)
+		if(blackStageInd<NUM_BLACK_STAGES ? instant == blackStageInstants[blackStageInd] - 1: false)
 		{
 			blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
 			for (int ei = 0; ei < NUM_ETYMA; ei++)
@@ -275,5 +275,7 @@ public class Simulation {
 	public int NUM_BLACK_STAGES()	{	return NUM_BLACK_STAGES;	}
 	
 	public String getRuleAt(int id)	{	return ""+CASCADE.get(id); 	}
+	
+	public int getInstant()	{	return instant;	}
 	
 }

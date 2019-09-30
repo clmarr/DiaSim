@@ -153,6 +153,7 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
 		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
 
+		
 		//TODO check modification methods in DiachronicSimulator -- or do this later? 
 		
 		//TODO check after going to first gold
