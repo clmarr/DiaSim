@@ -100,10 +100,8 @@ public class SimulationTester {
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
-		ErrorAnalysis checker = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getCurrentResult(), featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		ErrorAnalysis checker = standardChecker(testSimul.getCurrentResult(), new Lexicon(inputForms)); 
 
-		
 		//check that average distance metrics are all 0
 		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
@@ -120,8 +118,7 @@ public class SimulationTester {
 		
 		System.out.println("Checking integrity of stored input forms after step."); 
 		
-		checker = new ErrorAnalysis(new Lexicon(inputForms), testSimul.getInput(), featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		checker = standardChecker(testSimul.getInput(), new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
 		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
@@ -131,8 +128,7 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
 				
 		System.out.println("Check that metrics of difference between form after one step and init forms are calculated correctly."); 
-		checker = new ErrorAnalysis(testSimul.getCurrentResult(), testSimul.getInput(), featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		checker = standardChecker(testSimul.getCurrentResult(), testSimul.getInput()); 
 		
 		errorCount += checkMetric(0.925, checker.getAccuracy(), "Error: accuracy after the first step should be 0.925 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
@@ -141,6 +137,7 @@ public class SimulationTester {
 		errorCount += checkMetric(3.0/520.0, checker.getAvgFED(), "Error : avg FED after first step should be "+3.0/520.0+" but it is %o") ? 0 : 1 ; 
 		
 		//TODO check other methods in ErrorAnalysis -- i.e. diagnostics. 
+			// or do this later? 
 		
 		errorSummary(errorCount); 
 		
@@ -148,33 +145,61 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
-		checker = new ErrorAnalysis(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0), featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		checker = standardChecker(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0)); 
+
 		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
 		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
 
-		
 		//TODO check modification methods in DiachronicSimulator -- or do this later? 
-		
-		//TODO check after going to first gold
-		
+				
 		testSimul.simulateToNextStage();
 		//TODO check going to first black
+		errorCount = 0 ;
+		System.out.println("Checking Waypoint 1 (black box mode)"); 
+		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at point of a black box stage.") ? 0 : 1; 
+		
+		//TODO other shit here... 
+		
+		errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
-		// TODO check after skipping final gold stage before the end
+		errorCount = 0; 
 		
-		testSimul.simulateToEnd();
-		//TODO check final results. 
-		
-		
+		// TODO checks after skipping final gold stage before the end
+		System.out.println("Checking at final waypoint, a gold stage."); 
+		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
+		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1), featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
+		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[1], testSimul.getCurrentResult().getWordList()); 
+
+		errorSummary(errorCount); 
+
 		System.out.println("checking agreement of results via gold cascade with the gold lexicon."); 
 		
+		testSimul.simulateToEnd();
+		
+		errorCount = 0; 
+		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
+		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: final accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
+		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
+		
+		
+		//TODO checks for final results. 
 		
 		//TODO check final forms
 		
-		//TODO and check different diagnostics
-		//TODO including by making edits to the Working casc file. 
+				//TODO and check different diagnostics
+				//TODO including by making edits to the Working casc file. 
+				
+		
+		errorSummary(errorCount); 
+		
+		
+		
 		
 		
 
@@ -631,5 +656,10 @@ public class SimulationTester {
 		else	System.out.println("In all "+ec+" errors.");
 	}
 	
+	private static ErrorAnalysis standardChecker(Lexicon res, Lexicon gold)
+	{
+		return new ErrorAnalysis( res, gold, featsByIndex, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+
+	}
 	
 }
