@@ -324,6 +324,8 @@ public class DiachronicSimulator {
 			}
 			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
 			
+			cri++; 
+			
 			if(goldStagesSet)
 			{
 				if (cri == next_gold)
@@ -348,7 +350,6 @@ public class DiachronicSimulator {
 				}
 			}
 			
-			cri++; 
 		}
 		
 		System.out.println("Diachronic rules extracted. "); 
@@ -807,7 +808,7 @@ public class DiachronicSimulator {
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Standard prognosis at evaluation point                                          |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
-					+ "| 6 : Review results (stats, word forms) at evaluation point (goes to submenu)        |\n"
+					+ "| 6 : Review results (stats, word forms, errors) at evaluation point (goes to submenu)|\n"
 					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
@@ -1106,7 +1107,7 @@ public class DiachronicSimulator {
 			}
 			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
-				String errorMessage = "Invalid response. Please enter a valid response. Returning to forking test menu.";
+				String errorMessage = "Invalid response. Please enter a valid response. Returning to Diachronic Hypothesis Simulation test menu.";
 				
 				List<SChange> hypCASCADE = new ArrayList<SChange>(CASCADE); 
 					// new cascade that we are comparing against the "baseline", @varbl CASCADE
@@ -2043,334 +2044,6 @@ public class DiachronicSimulator {
 		if (theInd == CASCADE.size())
 			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
 		else System.out.println(CASCADE.get(theInd)); 
-	}
-	
-	// @param skipCode -- "g2" -- i.e. "skip 2 gold stages"
-	// @param aggRemTxt -- aggregrate remaining text
-	// @return break point to skip those stages
-	private static int brkPtForStageSkip(String aggRemTxt, String skipCode)
-	{
-		boolean isGold = skipCode.charAt(0) == 'g'; 
-		char SN = isGold ? GOLD_STAGENAME_FLAG : BLACK_STAGENAME_FLAG; 
-		int skips_left = Integer.parseInt(skipCode.substring(1));  
-		if (aggRemTxt.charAt(0) == SN)	skips_left--; 
-		String dummyTxt = aggRemTxt + "";
-		int brkpt = 0; 
-		String breaker = "\n"+SN; 
-		
-		while (skips_left > 0)
-		{
-			int nextbreak = dummyTxt.indexOf(breaker) + breaker.length(); 
-			
-			//then go to the end of that line, since it will just be the stage declaration
-			nextbreak += dummyTxt.substring(nextbreak).indexOf("\n")+"\n".length(); 
-			
-			brkpt += nextbreak; 
-			dummyTxt = dummyTxt.substring(nextbreak); 
-			
-			skips_left--; 
-		}
-		
-		return brkpt; 
-	}
-	
-	//auxiliary
-	public static boolean isJustSpace(String line)
-	{
-		return line.replace(" ","").length() == 0;
-	}
-	
-	
-	public final static String HANGING_INDENT = "      "; 
-	
-	//auxiliary for use in implementing DHS changes 
-	/** commentJustify
-	 * @return @param ogcmt with line breaks inserted such that no line is longer than maxAutoCommentWidth,
-	 * 		each line starts with CMT_FLAG,
-	 * 		and lines after the first have hanging indentation
-	 */
-	public static String commentJustify(String ogcmt)
-	{
-		String[] tokens = ogcmt.split(" "); 
-		String out = ""+CMT_FLAG, lineStarter = "\n"+CMT_FLAG+HANGING_INDENT; 
-		int currLineWidth = 1; 
-		
-		for (int ti = 0 ; ti < tokens.length ; ti ++)
-		{
-			
-			if (currLineWidth + 1 + tokens[ti].length() < maxAutoCommentWidth)
-			{
-				currLineWidth += 1 + tokens[ti].length(); 
-				out += " " + tokens[ti];
-			}
-			else
-			{
-				out += lineStarter+tokens[ti]; 
-				currLineWidth = lineStarter.length() + tokens[ti].length(); 
-			}
-		}
-		return out; 
-	}
-	
-	
-	/** modCascFileText
-	 * gets text from @global cascFileLoc
-	 * @return casc text as appropriately modified. 
-	 * @param propChs -- proposedChanges, of form [index, description] -- see above in comments about proposedChanges @varbl for more info
-	 * @param comments -- comments to be inserted for each proposed change 
-	 * 		(note that the insertion part of modification is bidirectionally indicated with the lack of such a comment)
-	 * @param justPlaceHolders -- if true, we are only placing comments to indicate where user should edit cascade file
-	 * 		otherwise we are actually carrying out the edits. 
-	 * @return
-	 */
-	
-	private static String modCascFileText( List<String[]> propChs, List<String> comments, boolean justPlaceHolders ) throws MidDisjunctionEditException
-	{
-		SChangeFactory tempFac = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
-		String STAGEFLAGS = ""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG;
-		int linesPassed = 0; 
-		String readIn = ""; 
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(cascFileLoc), "UTF-8")); 
-			String nextLine = ""; 
-		
-			while((nextLine = in.readLine()) != null)
-				readIn += nextLine.replace("\n", "")+"\n"; 
-			in.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		int igs = -1, ibs = -1; 
-		int nextRuleInd = 0 ; 
-		String out = ""; 
-		
-		//iterate over each proposed change. 
-		for (int pci = 0 ; pci < propChs.size() ; pci++)
-		{
-			int nextChangeRuleInd = Integer.parseInt(propChs.get(pci)[0]); 
-			boolean isDelet = propChs.get(pci)[1].equals("deletion"); 
-			// will be used to determine where we place new content with respect to comment blocks
-			String stagesToSkip = ""; 
-			int prev_igs = igs , prev_ibs = ibs; 
-			
-			if(goldStagesSet)
-				while(igs == NUM_GOLD_STAGES - 1 ? false : goldStageInstants[igs] < nextChangeRuleInd)
-					igs++; 
-			if(blackStagesSet)
-				while(ibs == NUM_BLACK_STAGES -1 ? false : blackStageInstants[ibs] < nextChangeRuleInd)
-					ibs++;
-
-			if(igs > prev_igs || ibs > prev_ibs)
-			{
-				if ( (goldStagesSet ? goldStageInstants[igs] : -1)
-						> (blackStagesSet ? blackStageInstants[ibs] : -1))
-					stagesToSkip = "g"+(prev_igs-igs); 
-				else	stagesToSkip = "b"+(prev_ibs-ibs); 
-			}
-			
-			if(!stagesToSkip.equals(""))
-			{
-				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); // should end in "\n", at least as of September 17 2019 
-				String hop = readIn.substring(0, break_pt); 
-				linesPassed += hop.split("\n").length - 1; //-1 because of the final \n 
-				readIn = readIn.substring(break_pt); 
-				nextRuleInd = (stagesToSkip.charAt(0) == 'g') ? goldStageInstants[igs] : blackStageInstants[ibs]; 
-			}
-			
-			while (nextRuleInd <= nextChangeRuleInd)
-			{
-				// first - skip any leading blankj lines or stage declaration lines
-				while (STAGEFLAGS.contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
-				{
-					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					linesPassed ++; 
-					out += readIn.substring(0, brkpt);
-					readIn = readIn.substring(brkpt); 
-				}
-				
-				String commentBlock = ""; 
-				// case of if the next line is headed by the comment flag. 
-				// absorb all consecutive comment lines in @varbl commentBlock
-				while (readIn.charAt(0) == CMT_FLAG ) {
-					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt); 
-					readIn = readIn.substring(brkpt); 
-					linesPassed++; 
-				}
-				
-
-				if (!commentBlock.equals("") && isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
-				{
-					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt); 
-					readIn = readIn.substring(brkpt); 
-					linesPassed++; 
-				}
-				
-				//if next line is either another blank line, another comment after blank line, 
-				// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
-					out += commentBlock; 
-				else // i.e. we are handling a line holding a rule.
-				{
-
-					//on the other hand, if a rule comes after this block, we consider the comment block to have been
-						// the explanation or justification for the rule, and will then operate on the rule.
-					// if the comment block is empty, nothing explicitly differs in code, so both are handled here. 
-					int brkpt = readIn.indexOf("\n"); 
-					String ruleLine = readIn.substring(0, brkpt); 
-					List<SChange> dummyShifts = tempFac.generateSoundChangesFromRule(ruleLine.substring(0, brkpt - "\n".length())); 
-					
-					assert dummyShifts.get(0).toString().equals(CASCADE.get(nextRuleInd).toString()) : 
-						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
-					readIn = readIn.substring(brkpt+"\n".length());
-					
-					if (nextRuleInd - 1 + dummyShifts.size() < nextChangeRuleInd) // then we can simply absorb it into @varbl out as usual.
-					{
-						out += commentBlock + ruleLine + "\n"; 
-						nextRuleInd += dummyShifts.size(); 
-						linesPassed++; 
-					}
-					else //perform proper file text modification behavior according to proposed change and whether we are automodification or merely commenting mode. 
-					{
-						//TODO we are assuming all rule indexing is correct as supplied by @param propChs
-						// ... may need to check this. 
-						
-						if (dummyShifts.size() == 1 ) { 
-							if(isDelet) 
-							{	// then we add comments AFTER prior block
-								out += commentBlock; 
-								
-								out += comments.get(pci); 
-								if (!out.substring(out.length() - "\n".length()).equals("\n"))
-									out += "\n"; 
-								
-								if (justPlaceHolders)
-									out += CMT_FLAG+"AUTOGENERATED CORRECTION CUE : delete following rule.\n"
-											+ ruleLine + "\n"; 
-								else//  comment out the rule that we are deleting... 
-									out += CMT_FLAG + ruleLine + "\n"; 
-								linesPassed ++; 
-								nextRuleInd++; 
-							}
-							else // we are dealing with an insertion then.
-							{	
-								// and thus comments and insertion come before next rule's preceding comment block
-								out += comments.get(pci); //will do nothing if this is part of a modification. 
-								if (!out.substring(out.length() - "\n".length()).equals("\n"))
-									out += "\n"; 
-								if (justPlaceHolders)
-									out += CMT_FLAG+"AUTOGENERATED CORRECTION CUE: insert following rule to replace this comment\n"
-											+CMT_FLAG;
-								out += propChs.get(pci)[1] + "\n"; 
-								//nextRuleInd or linesPassed do not increment since we are only inserting new content. 
-							
-								//restore commentBlock and ruleLine to readIn
-									// because later rules may operate on them. 
-								readIn = commentBlock + ruleLine + "\n" + readIn; 
-								//track back on linesPassed as appropriate. 
-								linesPassed -= (commentBlock+ruleLine).split("\n").length; 
-							}
-						}
-						else //then there is a disjunction -- whether we can pass without error determined by value of justPlaceHolders
-						{
-							if(justPlaceHolders)
-							{
-								if (isDelet) {
-									out += commentBlock; 
-									out += comments.get(pci); 
-									if (!out.substring(out.length() - "\n".length()).equals("\n"))
-										out += "\n"; 
-									out += CMT_FLAG+"AUTOGENERATED CORRECTION CUE: note, deletion targets one of many rules generated from "
-											+ "\n"+HANGING_INDENT+CMT_FLAG+"a rule form with a {} disjucntion:\n"
-											+ HANGING_INDENT+"\t"+CMT_FLAG+ruleLine+"\n"+HANGING_INDENT+CMT_FLAG
-											+ "The one targeted for deletion is "+dummyShifts.get(nextChangeRuleInd- nextRuleInd)
-											+ "\n"+HANGING_INDENT+CMT_FLAG+"Manually edit as is appropriate below.\n"
-											+ruleLine+"\n"; 
-									nextRuleInd += dummyShifts.size(); 
-									linesPassed++; 
-								}
-								else // insertion with justPlaceHolders = true and with a disjunction in the rule form. 
-								{
-									// if we are inserting before the first rule generated by the disjunction, this is just like the normal case 
-										// without the issues arising from the disjunction.
-									if( nextRuleInd == nextChangeRuleInd) 
-									{
-										// and thus comments and insertion come before next rule's preceding comment block
-										out += comments.get(pci); //will do nothing if this is part of a modification. 
-										if (!out.substring(out.length() - "\n".length()).equals("\n"))
-											out += "\n"; 
-										out += CMT_FLAG+"AUTOGENERATED CORRECTION CUE: insert following rule to replace this comment\n"
-													+CMT_FLAG+propChs.get(pci)[1] + "\n"; 
-										
-									}
-									else
-									{
-										out += comments.get(pci); 
-										if (!out.substring(out.length() - "\n".length()).equals("\n"))
-											out += "\n"; 
-										out += CMT_FLAG + "AUTOGENERATED CORRECTION CUE: note, an insertion of a new rule was placed here\n"
-												+ HANGING_INDENT+CMT_FLAG+"between two rules that were drawn from a rule form with a {} disjunction:\n"
-														+ HANGING_INDENT+"\t"+CMT_FLAG+ruleLine+"\n"
-												+ HANGING_INDENT+CMT_FLAG+"Specifically between the two generated rules,\n"
-														+ HANGING_INDENT+"\t"+CMT_FLAG+dummyShifts.get(nextChangeRuleInd - nextRuleInd - 1)+"\n"
-																+ HANGING_INDENT+"\t\t\t"+CMT_FLAG+"and\n"
-														+ HANGING_INDENT+"\t"+CMT_FLAG+dummyShifts.get(nextChangeRuleInd - nextRuleInd)+"\n"
-														+CMT_FLAG+"AUTOGENERATED CORRECTION CUE: insert following rule to replace this comment\n"
-														+CMT_FLAG+propChs.get(pci)[1]+"\n"; 
-									}
-
-									//nextRuleInd or linesPassed do not increment since we are only inserting new content. 
-								
-									//restore commentBlock and ruleLine to readIn
-										// because later rules may operate on them. 
-									readIn = commentBlock + ruleLine + "\n" + readIn; 
-									//track back on linesPassed as appropriate. 
-									linesPassed -= (commentBlock+ruleLine).split("\n").length; 
-								}
-									
-							}
-							else
-							{
-								String errorMessage = "MidDisjunctionException : Currently, you cannot ";
-								//TODO check for proper error message generation here .... 
-								
-								if (isDelet)
-									errorMessage += "delete only one";
-								else	errorMessage += "insert a rule between two"; 
-								errorMessage += " of the sound changes derived from rule written in the original cascade file "
-											+ "with a {} disjunction in its context stipulations.\n"
-											+ "The disjunct context rule in question was "+ruleLine+"\n"
-											+ "It is on line "+linesPassed+" of the original cascade file, "+cascFileLoc+"\n";
-								
-								if (isDelet) errorMessage +=  "You tried to delete this derived rule : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd);
-								else	errorMessage += "You tried to insert this rule : "+propChs.get(pci)[1]+"\n"
-										+ "between this derived rule : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd - 1)+"\n"
-												+ "and this one : "+dummyShifts.get(nextChangeRuleInd - nextRuleInd); 
-								
-								throw new MidDisjunctionEditException(errorMessage+ "\nInstead, you should manually make this change at the specified line number yourself."); 
-							}
-						}
-					}
-				}
-			}
-			
-		}
-
-		//TODO make sure this final append behavior is carried out correctly.
-		return out + readIn; 
-		
 	}
 }
 

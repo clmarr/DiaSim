@@ -403,7 +403,7 @@ public class SimulationTester {
 		{
 			System.out.print("Gold stages: ");
 			for (String gs : goldStageNameAndLocList)
-				System.out.print(gs.substring(0,gs.indexOf(DiachronicSimulator.STAGENAME_LOC_DELIM))+",");
+				System.out.print(gs+",");
 			System.out.println(""); 
 		}
 		  
@@ -411,7 +411,7 @@ public class SimulationTester {
 		{
 			System.out.print("Black stages:");
 			for (String bs : blackStageNameAndLocList)
-				System.out.print(bs.substring(0,bs.indexOf(DiachronicSimulator.STAGENAME_LOC_DELIM))+",");
+				System.out.print(bs+",");
 			System.out.println(""); 
 		}
 		
@@ -430,6 +430,8 @@ public class SimulationTester {
 		for(String currRule : rulesByTimeInstant)
 		{
 			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
+
+			cri++; 
 			
 			if(goldStagesSet)
 			{
@@ -455,7 +457,6 @@ public class SimulationTester {
 				}
 			}
 			
-			cri++; 
 		}
 		
 		System.out.println("Diachronic rules extracted. "); 

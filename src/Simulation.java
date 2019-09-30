@@ -135,7 +135,7 @@ public class Simulation {
 		
 		instant++; 
 		
-		if (goldStageInd < NUM_GOLD_STAGES ? instant == goldStageInstants[goldStageInd] - 1 : false)
+		if (goldStageInd < NUM_GOLD_STAGES ? instant == goldStageInstants[goldStageInd] : false)
 		{
 			currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 			goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList()); 
@@ -144,7 +144,7 @@ public class Simulation {
 			goldStageInd++; 
 		}
 		
-		if(blackStageInd<NUM_BLACK_STAGES ? instant == blackStageInstants[blackStageInd] - 1: false)
+		if(blackStageInd<NUM_BLACK_STAGES ? instant == blackStageInstants[blackStageInd] : false)
 		{
 			blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
 			for (int ei = 0; ei < NUM_ETYMA; ei++)
@@ -177,6 +177,11 @@ public class Simulation {
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
 	{
 		return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];
+	}
+	
+	public int getStageInstant(boolean goldnotblack, int stagenum)
+	{
+		return (goldnotblack ? goldStageInstants : blackStageInstants)[stagenum]; 
 	}
 	
 	public Lexicon getGoldStageGold(int stagenum)	{	return goldStageGoldLexica[stagenum]; 	}	
