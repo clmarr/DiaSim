@@ -1638,7 +1638,7 @@ public class DiachronicSimulator {
 								  "| 0 : Print parallel derivations for one word (by index) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
 								+ "| 1 : Print all etyma by index                                                        |\n"
 								+ "| 2 : Automatically finalize these changes in the cascade [exits interface]           |\n"
-								+ "| 3 : Automatically comment where changes should be made to assist manual editing.    |\n"
+								+ "| 3 : Generate cmts at places to change, to help manual editing [exits interface]     |\n"
 								+ "| 4 : Display results again                                                           |\n"
 								+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
 						choice = inpu.nextLine().charAt(0);

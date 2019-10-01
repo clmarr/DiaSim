@@ -186,7 +186,7 @@ public class DHSWrapper {
 				}
 			}
 			
-			boolean gsstops; 
+			boolean gsstops = false; 
 			if (NUM_GOLD_STAGES > 0)
 			{
 				System.out.println("Halt at gold stages? Enter 'y' or 'n'."); 
@@ -198,58 +198,76 @@ public class DHSWrapper {
 				}
 				gsstops = (conf == 'y'); 
 			}
-			else	gsstops = false; 
 			
-			//actual hypothesis test simulation of CASCADE and hypCASCADE... results, etc. 
-			Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
-			//TODO iteration of @varbl hypEmpiricized 
-			
-			
-			if(gsstops)
-			{
-				int gssi = 0; 
-				while(!hypEmpiricized.isComplete())
-				{
-					hypEmpiricized.simulateToNextStage();
-					while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) //TODO check this. 
-						hypEmpiricized.simulateToNextStage();
-					
-					
-					ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
-							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					
-					ErrorAnalysis bsea = new ErrorAnalysis(baseSimulation.getStageResult(true, gssi), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
-									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					
-					System.out.println("Hit gold stage "+gssi+": "+goldStageNames[gssi]); 
-					gssi++; 
-					
-					double[] pctAccs = new double[] { bsea.getAccuracy(), hsea.getAccuracy() },
-							pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
-							avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
-					if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
-					{
-						System.out.println("Overall accuracy : "+pctAccs[0]+" >>> "+pctAccs[1]);
-						System.out.println("Accuracy within 1 phone: "+pct1offs[0]+" >>> "+pct1offs[1]);
-						System.out.println("Accuracy within 2 phone: "+bsea.getPctWithin2()+" >>> "+hsea.getPctWithin2());
-						System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
-						System.out.println("Average feature edit distance from gold: "+avgFEDs[0]+" >>> "+avgFEDs[1]); 
-						System.out.println("Press anything to continue."); 
-						char dum = inpu.nextLine().charAt(0);
-						//TODO possibly enable further user interaction here? 
+			DifferentialHypothesisSimulator DHScomp = gsstops ? generateDHSWithStops(inpu) : generateDHS(); 
 
-					}
-					else	System.out.println("No divergence yet."); 
-					
-				}
-			}
-			else	hypEmpiricized.simulateToEnd();
-
+			ErrorAnalysis ea = new ErrorAnalysis(baseSimulation.getCurrentResult(), baseSimulation.getGoldOutput(), featsByIndex,
+					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+			ErrorAnalysis hea = new ErrorAnalysis(DHScomp.hypCascSim.getCurrentResult(), baseSimulation.getGoldOutput(), featsByIndex,
+					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+			System.out.println("Final output comparison for hypothesis simulation"); 
+			DHScomp.printBasicResults();
+			System.out.println("Overall accuracy : "+ea.getAccuracy()+" >>> "+hea.getAccuracy());
+			System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
+			System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
+			System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
+			System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
 
 			
 		}
 		
 		//TODO ??? here? ??? 
+	}
+	
+	public DifferentialHypothesisSimulator generateDHS()
+	{
+		Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+		hypEmpiricized.simulateToEnd();
+		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
+	}
+
+	
+	public DifferentialHypothesisSimulator generateDHSWithStops(Scanner inpu)
+	{
+		Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+		
+		int gssi = 0; 
+		while(!hypEmpiricized.isComplete())
+		{
+			hypEmpiricized.simulateToNextStage();
+			while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) //TODO check this. 
+				hypEmpiricized.simulateToNextStage();
+			
+			
+			ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
+					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+			
+			ErrorAnalysis bsea = new ErrorAnalysis(baseSimulation.getStageResult(true, gssi), baseSimulation.getGoldStageGold(gssi), featsByIndex, 
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+			
+			System.out.println("Hit gold stage "+gssi+": "+goldStageNames[gssi]); 
+			gssi++; 
+			
+			double[] pctAccs = new double[] { bsea.getAccuracy(), hsea.getAccuracy() },
+					pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
+					avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
+			if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1])
+			{
+				System.out.println("Overall accuracy : "+pctAccs[0]+" >>> "+pctAccs[1]);
+				System.out.println("Accuracy within 1 phone: "+pct1offs[0]+" >>> "+pct1offs[1]);
+				System.out.println("Accuracy within 2 phone: "+bsea.getPctWithin2()+" >>> "+hsea.getPctWithin2());
+				System.out.println("Average edit distance per from gold phone: "+bsea.getAvgPED()+" >>> "+hsea.getAvgPED());
+				System.out.println("Average feature edit distance from gold: "+avgFEDs[0]+" >>> "+avgFEDs[1]); 
+				System.out.println("Press anything to continue."); 
+				char dum = inpu.nextLine().charAt(0);
+				//TODO possibly enable further user interaction here? 
+
+			}
+			else	System.out.println("No divergence yet."); 
+			
+		}
+
+		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges );  
 	}
 		
 	private int getValidInd(String s, int max)

@@ -12,7 +12,7 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public final static String HANGING_INDENT = "      "; 
 	public static final char CMT_FLAG = DiachronicSimulator.CMT_FLAG; 
-	private Simulation baseCascSim, hypCascSim; 
+	public Simulation baseCascSim, hypCascSim; 
 		// "baseline cascade" and "hypothesized cascase"
 	private int[][] ruleCorrespondences; 
 		// -1 in [0][x] -- deletion
