@@ -1630,10 +1630,11 @@ public class DiachronicSimulator {
 					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
 					System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
 
-					System.out.println("What would you like to do? Please enter the appropriate number:"); 
 					char choice = 'a';
 					while (choice != '9')
 					{
+						System.out.println("What would you like to do? Please enter the appropriate number:"); 
+
 						System.out.println(
 								  "| 0 : Print parallel derivations for one word (by index) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
 								+ "| 1 : Print all etyma by index                                                        |\n"
@@ -1642,7 +1643,6 @@ public class DiachronicSimulator {
 								+ "| 4 : Display results again                                                           |\n"
 								+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
 						choice = inpu.nextLine().charAt(0);
-						//TODO implement options...
 
 						if (choice == '4')
 						{	System.out.println("Final output comparison for hypothesis simulation"); 

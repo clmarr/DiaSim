@@ -213,6 +213,132 @@ public class DHSWrapper {
 			System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
 			System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
 
+			char choice = 'a';
+			while (choice != '9')
+			{
+				System.out.println("What would you like to do? Please enter the appropriate number:"); 
+
+				System.out.println(
+						  "| 0 : Print parallel derivations for one word (by index) ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
+						+ "| 1 : Print all etyma by index                                                        |\n"
+						+ "| 2 : Automatically finalize these changes in the cascade [exits interface]           |\n"
+						+ "| 3 : Generate cmts at places to change, to help manual editing [exits interface]     |\n"
+						+ "| 4 : Display results again                                                           |\n"
+						+ "| 9 : Return to main menu.____________________________________________________________|\n"); 
+				choice = inpu.nextLine().charAt(0);
+
+				if (choice == '4')
+				{	System.out.println("Final output comparison for hypothesis simulation"); 
+					DHScomp.printBasicResults();
+					System.out.println("Overall accuracy : "+ea.getAccuracy()+" >>> "+hea.getAccuracy());
+					System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1()+" >>> "+hea.getPctWithin1());
+					System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2()+" >>> "+hea.getPctWithin2());
+					System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED()+" >>> "+hea.getAvgPED());
+					System.out.println("Average feature edit distance from gold: "+ea.getAvgFED()+" >>> "+hea.getAvgFED());
+					System.out.println("Enter anything to continue.");
+					char dum = inpu.nextLine().charAt(0); 
+					System.out.println("\nWould you like to do anything else?"); 
+				}
+				else if (choice == '2' || choice == '3')
+				{
+					String toFileOut = ""; 
+					
+					
+					while (toFileOut.length() == 0) {
+						try 
+						{
+							if(choice == '2')
+								System.out.println("Automatically implementing proposed changes to cascade..."); 
+							else // choice == 3
+								System.out.println("Placing comments to facilitate manual editing of cascade..."); 
+							System.out.println("First, explanatory comments must be entered for the changes..."); 
+							
+							List<String> editComments = new ArrayList<String>();
+							
+							for (int pci = 0; pci < proposedChanges.size(); pci++) {
+								String[] ipc = proposedChanges.get(pci); 
+								
+								
+								//note: no comments are entered for the insertion part of rule modification, 
+									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+									// in this way, the system will be able to recognize such cases due to the explanatory comment 
+											//being empty
+										// in all other cases, empty explanations are strictly forbidden
+								String justification = ""; 
+
+								if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
+								{	
+									while (justification.equals(""))
+									{
+										System.out.println("Please enter an explanatory comment for this change : ");
+										
+										if(ipc[1].equals("deletion"))
+											System.out.println(propChNotes.get(0)); 
+										else if (propChNotes.get(0).length() == 0)
+											System.out.println("Simple insertion of "+ipc[1]); 
+										justification = inpu.nextLine().replace("\n",""); 
+										if (justification.equals(""))
+											System.out.println("You must enter a comment to describe your change."); 
+									}
+									
+									//now perform line breaks as appropriate for long comments...
+									justification = commentJustify(justification); 
+								}
+								editComments.add(justification); 
+							}
+							
+							toFileOut = modCascFileText ( proposedChanges, editComments, choice == '3'); 
+						}
+						catch (MidDisjunctionEditException e ) 
+						{
+							System.out.print(e.getMessage());
+							System.out.println("Instead, we are making file with comments of cues for where and how to make these changes."); 
+								//TODO in future, come up with better behavior to handle this situation... 
+							choice = '3'; 
+						}
+					
+					}
+					
+					String fileDest = ""; 
+					while (fileDest.equals("")) {
+						System.out.println("Please enter what you want to save your new cascade as:");
+						fileDest = inpu.nextLine().replace("\n",""); 
+						if (fileDest.equals("") || fileDest.equals(cascFileLoc))
+							System.out.println("You must enter a file destination, and it must be distinct from the original cascade's location."); 
+								//TODO once we have finished debugging, allow initial file's location to be used.
+					}
+					writeToFile(fileDest, toFileOut); 
+				}
+				else if (choice == '1')
+				{
+					System.out.println("Printing all etyma as ID#, INPUT, BASELINE RESULT, HYP SIM RESULT, GOLD RESULT");
+					for (int eti = 0 ; eti < NUM_ETYMA ; eti++)
+						System.out.println(""+eti+", "+inputForms[eti]+", "+theSimulation.getCurrentForm(eti)+", "
+								+ hypEmpiricized.getCurrentForm(eti)+", "+goldOutputLexicon.getByID(eti)); 
+					System.out.println("Enter anything to continue.");
+					char dum = inpu.nextLine().charAt(0); 
+					System.out.println("\nWould you like to do anything else?"); 
+				}
+				else if (choice == '0')
+				{
+					int theID = -1; 
+					while(theID == -1)
+					{
+						System.out.println("Please enter the index of the etymon that you would like to query:"); 
+						String idstr = inpu.nextLine(); 
+						theID = getValidInd(idstr, NUM_ETYMA - 1) ; 
+						if (theID == -1)	
+							System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
+					}
+					System.out.println(DHScomp.getDifferentialDerivation(theID)); 
+					System.out.println("Enter anything to continue.");
+					char dum = inpu.nextLine().charAt(0); 
+					System.out.println("\nWould you like to do anything else?"); 
+				}
+				else if (choice != '9') //must have been not one of the listed numbers. 
+					System.out.println("Invalid entry, please enter one of the listed numbers:"); 
+			}
+
 			
 		}
 		
