@@ -33,10 +33,14 @@ public class DHSWrapper {
 	private List<String> propChNotes;
 	//sole usage is in manual rule querying, to remind users of what the rule was
 		// to help them when they enter explanatory comments (mandatory) 
+	// reset after modification querying process ends. 
 
 	private int[] RULE_IND_MAP; //easy access maps indices of CASCADE to those in hypCASCADE.
+		// the mapping is kept updated as new changes are added
 		// -1 means deleted. 
 	private int[] hypGoldLocs, hypBlackLocs; 
+		// same as above for the locations of period waypoints. 
+	
 	private int originalLastMoment,
 		NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA; 
 	private String[] goldStageNames, blackStageNames;
@@ -112,7 +116,7 @@ public class DHSWrapper {
 
 						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ] simply removed."; 
 						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ]"; // will have specific modification appended later.  
-						else if(resp.equals("3"))
+						else if(resp.equals("3")) //relocdation
 						{
 							int relocdate = -1; 
 							while(relocdate == -1)
@@ -508,73 +512,137 @@ public class DHSWrapper {
 		return forkAt;
 	}
 	
-	private void updateMappings(int forkAt, char mode, List<String[]> insertions)
+	
+	/** updateProposedChanges
+	 * @param ch -- single proposed deletion or insertion (NOT both simultaneously)
+	 * @param quantity -- number of rules being added, if we are adding; if this is a deletion this should be -1.
+	 */
+	private void updateProposedChanges(String[] ch, int quantity)
 	{
-		if(mode == '3') //relocdation -- handled separately from others. 
+		assert ch[1].equals("deletion") == (quantity == -1) : "Error: @param quantity should be null if and only if we are doing a deletion"; 
+
+		boolean deleteMode = ch[1].equals("deletion"); 
+		boolean foundTargSpot = false; 
+		int target = Integer.parseInt(ch[0]); 
+		int pci = proposedChanges.size(); 
+		while (pci == 0 ? false : foundTargSpot)
 		{
-			int relocdate = Integer.parseInt(insertions.get(0)[0]); 
-			boolean back = forkAt > relocdate;
-			RULE_IND_MAP[forkAt] = relocdate; 
-			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+			String[] prevCh = proposedChanges.get(pci - 1); 
+			int prevLoc = Integer.parseInt(prevCh[0]); 
+			foundTargSpot = target < (prevLoc + (deleteMode ? 1 : 0)); 
+			if (!foundTargSpot)
 			{
-				int curm = RULE_IND_MAP[rimi];
-				if (back && rimi != forkAt)
-				{	if ( curm >= relocdate && curm < forkAt )
-						RULE_IND_MAP[rimi] = curm + 1 ; }
-				else if (curm > forkAt && curm <= relocdate )
-					RULE_IND_MAP[rimi] = curm - 1; 
+				pci--; 
+				proposedChanges.set(pci, new String[] { "" + (prevLoc + quantity ) , prevCh[1], prevCh[2] } ); 
+			} 
+		}
+		if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
+		else	proposedChanges.add(pci, ch); 
+		
+	}
+
+	
+	/** TODO WRITE THIS COMMENT BLOCK 
+	 * 
+	 */
+	public void processSingleCh(int deleteLoc, String deletionNotes, int addLoc, String newLaw, List<SChange> newRules, String insertionNotes)
+	{
+		List<SChange> insertions = (newRules == null) ? new ArrayList<SChange>() : new ArrayList<SChange>(newRules); 
+		if (deleteLoc != -1)
+		{
+			SChange removed = hypCASC.remove(deleteLoc);
+			updateProposedChanges(new String[] {""+deleteLoc, "deletion", deletionNotes }, -1 ); 
+			
+			if(addLoc != -1) //relocdation or modification
+			{
+				if (addLoc == deleteLoc) // modification
+					assert insertions.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
+				
+				
+				else //relocdation 
+				{
+					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation"; 
+					insertions.add(removed);
+				}
+				hypCASC.addAll(addLoc, insertions); 
+				
+				updateProposedChanges(
+					new String[] {""+addLoc, (addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes}, 
+					insertions.size() ) ;	
 			}
-			if (NUM_GOLD_STAGES > 0)
-				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-					if (hypGoldLocs[gsi] > Math.min(relocdate, forkAt))
-						if (hypGoldLocs[gsi] < Math.max(relocdate, forkAt))
-							hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back?-1:1); 
-
-			if (NUM_BLACK_STAGES > 0)
-				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-					if (hypBlackLocs[bsi] > Math.min(relocdate, forkAt))
-						if (hypBlackLocs[bsi] < Math.max(relocdate, forkAt))
-							hypBlackLocs[bsi] = hypBlackLocs[bsi] + (back?-1:1); 
-							
-		}
-		else if (mode == '2' && insertions.size() == 1) //single replacement modification
-			return;
-		else if (mode == '1') // deletion
-		{
-			RULE_IND_MAP[forkAt] = -1;
-			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-				if (RULE_IND_MAP[rimi] > forkAt)
-					RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] - 1; 
 			
-			if (NUM_GOLD_STAGES > 0)
-				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-					if (hypGoldLocs[gsi] >= forkAt)
-						hypGoldLocs[gsi] -= 1; 
+			//now handle the mapping structures.
+			if (insertions.size() == 1) //must be relocdation. 
+			{
+				boolean back = deleteLoc > addLoc;
+				RULE_IND_MAP[deleteLoc] = addLoc; 
+				for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+				{
+					int curm = RULE_IND_MAP[rimi]; 
+					if (curm == deleteLoc)	RULE_IND_MAP[rimi] = -1; 
+					else if (back) 
+						if (curm >= addLoc && curm < deleteLoc)
+							RULE_IND_MAP[rimi] = curm + 1;
+					else /*!back*/ if (curm > deleteLoc && curm <= addLoc)
+						RULE_IND_MAP [rimi] = curm - 1; 
+				}
+				
+				if (NUM_GOLD_STAGES > 0)
+					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+						if (hypGoldLocs[gsi] > Math.min(addLoc, deleteLoc))
+							if (hypGoldLocs[gsi] < Math.max(addLoc, deleteLoc))
+								hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back?-1:1); 
 
-			if (NUM_BLACK_STAGES > 0)
-				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-					if (hypBlackLocs[bsi] >= forkAt)
-						hypBlackLocs[bsi] -= 1; 
-
+				if (NUM_BLACK_STAGES > 0)
+					for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+						if (hypBlackLocs[bsi] > Math.min(addLoc, deleteLoc))
+							if (hypBlackLocs[bsi] < Math.max(addLoc, deleteLoc))
+								hypBlackLocs[bsi] = hypBlackLocs[bsi] + (back?-1:1); 
+			}
+			else //simple deletion or modification 
+			{
+				int increment = insertions.size() -1 ; 
+					
+				if (increment != 1)
+				{
+					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
+					{
+						int curm = RULE_IND_MAP[rimi];
+						if (curm == deleteLoc)	RULE_IND_MAP[rimi] = -1; 
+						else if (curm > deleteLoc)	RULE_IND_MAP[rimi] = curm + increment;
+						// else it is too early to be effected, so do nothing.
+					}
+					if (NUM_GOLD_STAGES > 0)
+						for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+							if (hypGoldLocs[gsi] >= deleteLoc)
+								hypGoldLocs[gsi] += increment;
+					if (NUM_BLACK_STAGES > 0)
+						for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
+							if (hypBlackLocs[bsi] >= deleteLoc)
+								hypBlackLocs[bsi] += increment;			
+				}
+			}	
 		}
-		else //insertion
+		
+		else // must be simple insertion of one or more rules.
 		{
-			int insertLoc = Integer.parseInt(insertions.get(0)[0]),
-					increment = insertions.size(); 
+			hypCASC.addAll(addLoc, insertions); 
+			updateProposedChanges(new String[] { ""+addLoc, newLaw, insertionNotes}, insertions.size()); 
 			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-				if (RULE_IND_MAP[rimi] > insertLoc)
-					RULE_IND_MAP[rimi] = RULE_IND_MAP[rimi] + increment; 
-			
+				if (RULE_IND_MAP[rimi] >= addLoc)
+					RULE_IND_MAP[rimi] += insertions.size(); 
 			if (NUM_GOLD_STAGES > 0)
 				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-					if (hypGoldLocs[gsi] >= insertLoc)
-						hypGoldLocs[gsi] += increment; 
-
+					if (hypGoldLocs[gsi] >= addLoc)
+						hypGoldLocs[gsi] += insertions.size();
 			if (NUM_BLACK_STAGES > 0)
 				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-					if (hypBlackLocs[bsi] >= insertLoc)
-						hypBlackLocs[bsi] += increment;
+					if (hypBlackLocs[bsi] >= addLoc)
+						hypBlackLocs[bsi] += insertions.size();			
+			
 		}
 	}
+	
+	
 
 }
