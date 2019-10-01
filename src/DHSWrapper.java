@@ -84,8 +84,8 @@ public class DHSWrapper {
 		while (stillQuerying)
 		{
 			int forkAt = queryForkPoint(inpu, fac); 
-			boolean toSetBehavior = true;
-			while (toSetBehavior) {
+			boolean toSetBehavior = true; 
+			while(toSetBehavior) {
 				System.out.println("Operating on rule "+forkAt+": "+hypCASC.get(forkAt).toString()) ;
 				System.out.print("What would you like to do?\n"
 						+ "0: Insertion -- insert a rule at "+forkAt+".\n"
@@ -104,25 +104,23 @@ public class DHSWrapper {
 					System.out.println("Returning to prior menu.");
 				else
 				{
-					int deleteAt = -1; 
-					List<String[]> insertions = new ArrayList<String[]>(); 
-					List<String> insertionNotes = new ArrayList<String>();
-					String deletionNotes = ""; 
-					
-					if("123".contains(resp)) // all the operations that involve deletion.
-					{
-						deleteAt = forkAt; 
-						SChange toRemove = hypCASC.remove(deleteAt); 
+					int deleteAt = -1, addAt = -1; 
+					String deletionNotes = "", propLaw = "", insertionNotes = ""; 
+					List<SChange> propShifts = null;
 
-						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ] simply removed."; 
-						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ]"; // will have specific modification appended later.  
-						else if(resp.equals("3")) //relocdation
+					if ("123".contains(resp)) //operation involves deletion.
+					{
+						deleteAt = forkAt;
+						String toRemove = hypCASC.get(deleteAt).toString();
+						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+toRemove+" ] simply removed."; 
+						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+toRemove+" ]"; // will have specific modification appended later.
+						else //resp.equals("3"), relocdation
 						{
-							int relocdate = -1; 
-							while(relocdate == -1)
+							while(addAt == -1)
 							{
 								System.out.println("Enter the moment (rule index) would you like to move this rule to:");
-
+								//TODO may have to standardize jargon here... 
+								
 								int candiDate = getValidInd(inpu.nextLine().replace("\n",""), hypCASC.size());
 								if (candiDate == -1)
 									System.out.println("Invalid rule index entered. There are currently "+hypCASC.size()+" rules."); 
@@ -139,133 +137,43 @@ public class DHSWrapper {
 										System.out.println("Please enter 'y' or 'n' to confirm or not."); 
 										conf = inpu.nextLine().toLowerCase().charAt(0); 
 									}
-									if (conf == 'y')	relocdate = candiDate; 
+									if (conf == 'y')	addAt = candiDate; 
 								}
 							}
 							
 							// unnecessary -- handled implicitly. 
 							//if ( deleteAt > relocdate ) deleteAt--;
 							//else	relocdate--; 
-							deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ] relocdated\n\tmoved to "+relocdate; 
-					
-							insertions.add(new String[] {""+relocdate, toRemove.toString()} );
-							insertionNotes.add("Moved, originally at "+deleteAt); 
-							hypCASC.add( relocdate , toRemove);
+							
+							deletionNotes = "Former rule "+deleteAt+" [ "+toRemove+" ] relocdated\n\tmoved to "+addAt; 
+							propShifts = new ArrayList<SChange>(); 
+							propShifts.add(hypCASC.get(deleteAt)); 
+							insertionNotes = "Moved, originally at "+deleteAt; 	
 						}
 					}
 					if ("02".contains(resp)) // all the operations that involve insertion of a NEW rule.
 					{
-						
-						List<SChange> propShifts = null;
-						String propRule = ""; 
-						while(toSetBehavior) {
-							System.out.println("Please enter the new rule:");
-							propRule = inpu.nextLine().replace("\n", ""); 
-							toSetBehavior = false;
-
-							try
-							{	propShifts = fac.generateSoundChangesFromRule(propRule); 	}
+						propShifts = new ArrayList<SChange>(); 
+						while (propShifts.size() == 0)
+						{
+							System.out.println("Please enter the new law");
+							propLaw = inpu.nextLine().replace("\n",""); 
+							try 
+							{	propShifts = fac.generateSoundChangesFromRule(propLaw);	}
 							catch (Error e)
 							{
-								toSetBehavior = true;
 								System.out.println("Preempted error : "+e); 
 								System.out.println("You entered an invalid rule, clearly. All rules must be of form A -> B / X __ Y.");
-								System.out.println("Valid notations include [] () ()* ()+ {;} # @ ,");
+								System.out.println("Valid notations aside from alpha functions include [] () ()* ()+ {;} # @ ,");
 							}
 						}
-														
-						//actual insertions here.
-						// insert "backwards" so that intended order is preserved
-						while(propShifts.size() > 0)
-						{
-							SChange curr = propShifts.remove(propShifts.size()-1); 
-							insertions.add(new String[] {  "" +(forkAt + propShifts.size() ) ,
-									curr.toString() } );
-							if (resp.equals("0"))
-								insertionNotes.add(""); //no notes for simple insertion. 
-							else	//modification
-								insertionNotes.add("Part of replacement of "+deletionNotes.substring(12)); 
-							hypCASC.add(forkAt,curr);
-						}
-
-						if(resp.equals("2"))
-							deletionNotes += " modified\nto "+propRule; 
-						
-						
-					}
-					
-					// data structure manipulation
-					updateMappings(forkAt, resp.charAt(0), insertions); 
-						
-					// update proposedChanges while keeping it sorted by index of operation
-						// if there is a "tie" in index, we always list deletions first, then insertions.
-					 
-					// only way that an insertion could come before a deletion is in relocdation
-						// if we relocdate to an earlier date. 
-					
-					if("123".contains(resp)) //handling deletion for @varbl proposedChanges
-					{
-						int pcplace = proposedChanges.size(); 
-						boolean foundTargSpot = false; 
-						while (pcplace == 0 ? false : foundTargSpot)
-						{
-							
-							String[] prev = proposedChanges.get(pcplace - 1); 
-							int prevLoc = Integer.parseInt(prev[0]); 
-							if (deleteAt < prevLoc)	foundTargSpot = true; 
-							else if (deleteAt == prevLoc)
-								foundTargSpot = "deletion".equals(prev[1]); 
-							
-							if (!foundTargSpot)
-							{	
-								pcplace--; 
-								proposedChanges.set(pcplace, 
-										new String[] { ""+(prevLoc-1) , prev[1] } );
-							}
-						}
-						
-						if (pcplace == proposedChanges.size())	
-						{	proposedChanges.add(new String[] {""+deleteAt, "deletion"});
-							propChNotes.add(deletionNotes);
-						}
-						else
-						{
-							proposedChanges.add(pcplace, new String[] {""+deleteAt, "deletion"});	
-							propChNotes.add(pcplace, deletionNotes); 
+						if (resp.equals("2"))	{
+							insertionNotes = "Usurping former rule: "+deletionNotes.substring(12);
+							deletionNotes += " modified\nto: "+propLaw; 
 						}
 					}
-					
-					if("023".contains(resp))
-					{
-						int insertLoc = Integer.parseInt(insertions.get(0)[0]);
-						int pcplace = proposedChanges.size(); //because we iterate backwards. 
-						boolean foundTargSpot = false; 
-						int increment = insertions.size(); 
-						while (pcplace == 0 ? false : foundTargSpot)
-						{
-							String[] prev = proposedChanges.get(pcplace - 1); 
-							int prevLoc = Integer.parseInt(prev[0]); 
-							if (insertLoc <prevLoc ) foundTargSpot = true; 
-							else if (insertLoc == prevLoc)	foundTargSpot = "deletion".equals(prev[1]); 
-							
-							if (!foundTargSpot)
-							{	
-								pcplace--; 
-								proposedChanges.set(pcplace, 
-										new String[] { ""+(prevLoc+increment) , prev[1] } );
-							}
-						}
-						if (pcplace == proposedChanges.size())
-						{
-							proposedChanges.addAll(insertions); 
-							propChNotes.addAll(insertionNotes); 
-						}
-						else	
-						{
-							proposedChanges.addAll(pcplace, insertions);
-							propChNotes.addAll(pcplace, insertionNotes); 
-						}
-					}
+				
+					processSingleCh(deleteAt, deletionNotes, addAt, propLaw, propShifts, insertionNotes); 
 					
 					System.out.println("Would you like to make another change at this time? Enter 'y' or 'n'."); 
 					char conf = inpu.nextLine().toLowerCase().charAt(0); 
@@ -277,10 +185,7 @@ public class DHSWrapper {
 					toSetBehavior = (conf == 'y'); 
 				}
 			}
-
-			//actual hypothesis test simulation of CASCADE and hypCASCADE... results, etc. 
-			Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
-			//TODO iteration of @varbl hypEmpiricized 
+			
 			boolean gsstops; 
 			if (NUM_GOLD_STAGES > 0)
 			{
@@ -294,6 +199,11 @@ public class DHSWrapper {
 				gsstops = (conf == 'y'); 
 			}
 			else	gsstops = false; 
+			
+			//actual hypothesis test simulation of CASCADE and hypCASCADE... results, etc. 
+			Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+			//TODO iteration of @varbl hypEmpiricized 
+			
 			
 			if(gsstops)
 			{
@@ -338,6 +248,8 @@ public class DHSWrapper {
 
 			
 		}
+		
+		//TODO ??? here? ??? 
 	}
 		
 	private int getValidInd(String s, int max)
@@ -642,7 +554,5 @@ public class DHSWrapper {
 			
 		}
 	}
-	
-	
 
 }
