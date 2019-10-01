@@ -19,9 +19,11 @@ public class DHSWrapper {
 	
 	private List<String[]> proposedChanges; 
 	//TODO important variable here, explanation follows
-	// each indexed String[] is form [curr time step, operation details]
-	// this object is *kept sorted* by current (i.e. baseline)  form index
+	// each indexed String[] is form [curr time step, operation details, comments to add to file at writing time]
+	// this object is *kept sorted* by current (i.e. baseline) time step
 		// (IMPORTANT: equivalent to iterator hci, for hypCASC later)
+		// and time steps are kept updated as changes are made elsewhere
+	// sorting is from earliest time step, to latest timestep 
 	// operation may be either deletion or insertion 
 	// both relocdation and modification are handled as deletion then insertion pairs. 
 	// for deletion, the second slot simply holds the string "deletion"
@@ -29,8 +31,8 @@ public class DHSWrapper {
 		// that is inserted there in hypCASC. 
 	
 	private List<String> propChNotes;
-	// will be used to keep notes on changes that will be used in case they are "finalized" 
-		// i.e. using automatic modification of the cascade file. 
+	//sole usage is in manual rule querying, to remind users of what the rule was
+		// to help them when they enter explanatory comments (mandatory) 
 
 	private int[] RULE_IND_MAP; //easy access maps indices of CASCADE to those in hypCASCADE.
 		// -1 means deleted. 
@@ -106,10 +108,10 @@ public class DHSWrapper {
 					if("123".contains(resp)) // all the operations that involve deletion.
 					{
 						deleteAt = forkAt; 
-						SChange removed = hypCASC.remove(deleteAt); 
+						SChange toRemove = hypCASC.remove(deleteAt); 
 
-						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] simply removed."; 
-						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ]"; // will have specific modification appended later.  
+						if(resp.equals("1"))	deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ] simply removed."; 
+						else if (resp.equals("2")) deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ]"; // will have specific modification appended later.  
 						else if(resp.equals("3"))
 						{
 							int relocdate = -1; 
@@ -140,11 +142,11 @@ public class DHSWrapper {
 							// unnecessary -- handled implicitly. 
 							//if ( deleteAt > relocdate ) deleteAt--;
 							//else	relocdate--; 
-							deletionNotes = "Former rule "+deleteAt+" [ "+removed.toString()+" ] relocdated\n\tmoved to "+relocdate; 
+							deletionNotes = "Former rule "+deleteAt+" [ "+toRemove.toString()+" ] relocdated\n\tmoved to "+relocdate; 
 					
-							insertions.add(new String[] {""+relocdate, removed.toString()} );
+							insertions.add(new String[] {""+relocdate, toRemove.toString()} );
 							insertionNotes.add("Moved, originally at "+deleteAt); 
-							hypCASC.add( relocdate , removed);
+							hypCASC.add( relocdate , toRemove);
 						}
 					}
 					if ("02".contains(resp)) // all the operations that involve insertion of a NEW rule.
@@ -346,6 +348,8 @@ public class DHSWrapper {
 		else System.out.println(baseCASC.get(theInd)); 
 	}
 
+	
+	//TODO need to fix this so that we are operating on hypCASC.
 	public int queryForkPoint(Scanner inpu, SChangeFactory fac)
 	{
 		String resp;
