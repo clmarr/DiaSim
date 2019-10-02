@@ -32,11 +32,6 @@ public class DHSWrapper {
 	// for deletion, the second slot simply holds the string "deletion"
 	// whereas for insertion, the second index holds the string form of the SChange 
 		// that is inserted there in hypCASC. 
-	
-	private List<String> propChNotes;
-	//sole usage is in manual rule querying, to remind users of what the rule was
-		// to help them when they enter explanatory comments (mandatory) 
-	// reset after modification querying process ends. 
 
 	private int[] RULE_IND_MAP; //easy access maps indices of CASCADE to those in hypCASCADE.
 		// the mapping is kept updated as new changes are added
@@ -59,7 +54,6 @@ public class DHSWrapper {
 	{
 		baseSimulation = baseSim;
 		proposedChanges = new ArrayList<String[]>(); 
-		propChNotes = new ArrayList<String>(); 
 		hypCASC = new ArrayList<SChange>(baseSim.CASCADE()); 
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
 		originalLastMoment = baseCASC.size(); 
@@ -263,21 +257,21 @@ public class DHSWrapper {
 								
 								//TODO check this _v_
 								//note: no comments are entered for the insertion part of rule modification, 
-									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
+									// which, unlike simple deletion, implies a non-empty corresponding entry in index [2]
 									// in this way, the system will be able to recognize such cases due to the explanatory comment 
 											//being empty
 										// in all other cases, empty explanations are strictly forbidden
 								String justification = ""; 
 
-								if(ipc[1].equals("deletion") || propChNotes.get(0).length() == 0)
+								if(ipc[1].equals("deletion") || proposedChanges.get(0)[2].length() == 0)
 								{	
 									while (justification.equals(""))
 									{
 										System.out.println("Please enter an explanatory comment for this change : ");
 										
 										if(ipc[1].equals("deletion"))
-											System.out.println(propChNotes.get(0)); 
-										else if (propChNotes.get(0).length() == 0)
+											System.out.println(proposedChanges.get(0)[2]); 
+										else if (proposedChanges.get(0)[2].length() == 0)
 											System.out.println("Simple insertion of "+ipc[1]); 
 										justification = inpu.nextLine().replace("\n",""); 
 										if (justification.equals(""))
@@ -289,8 +283,6 @@ public class DHSWrapper {
 								}
 								editComments.add(justification); 
 							}
-							
-							
 							
 							toFileOut = DHScomp.newCascText( editComments, choice == '3', origCascLoc, fac);
 						}
