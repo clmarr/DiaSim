@@ -200,6 +200,8 @@ public class SimulationTester {
 		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
 				+ "Now testing cascade editing functionalities..."); 
 		
+		resetWorkingCasc(theFactory); 
+		
 		
 		
 
