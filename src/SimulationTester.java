@@ -202,7 +202,6 @@ public class SimulationTester {
 		
 		
 		
-		
 
 	}
 	
@@ -321,34 +320,7 @@ public class SimulationTester {
 	{
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
-		List<String> rulesByTimeInstant = new ArrayList<String>(); 
-
-		String nextRuleLine;
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(CASC_LOC), "UTF-8")); 
-			
-			while((nextRuleLine = in.readLine()) != null)
-			{
-				String lineWithoutComments = ""+nextRuleLine; 
-				if (lineWithoutComments.contains(""+DiachronicSimulator.CMT_FLAG))
-						lineWithoutComments = lineWithoutComments.substring(0,
-								lineWithoutComments.indexOf(""+DiachronicSimulator.CMT_FLAG));
-				if(!lineWithoutComments.trim().equals(""))	rulesByTimeInstant.add(lineWithoutComments); 
-			}
-			in.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
+		List<String> rulesByTimeInstant = extractCascRulesByStep(theFactory, CASC_LOC); 
 		
 		//now filter out the stage name declaration lines.
 		
@@ -434,28 +406,22 @@ public class SimulationTester {
 
 			cri++; 
 			
-			if(goldStagesSet)
+			if (cri == next_gold)
 			{
-				if (cri == next_gold)
-				{
-					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
-					goldStageInstants[gsgi] = CASCADE.size();		
-					gsgi += 1;
-					if ( gsgi < NUM_GOLD_STAGES)
-						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
-				}
+				goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
+				goldStageInstants[gsgi] = CASCADE.size();		
+				gsgi += 1;
+				if ( gsgi < NUM_GOLD_STAGES)
+					next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
 			}
 			
-			if(blackStagesSet)
+			if (cri == next_black)
 			{
-				if (cri == next_black)
-				{
-					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
-					blackStageInstants[bsgi] = CASCADE.size();
-					bsgi += 1;
-					if (bsgi < NUM_BLACK_STAGES)
-						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
-				}
+				blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
+				blackStageInstants[bsgi] = CASCADE.size();
+				bsgi += 1;
+				if (bsgi < NUM_BLACK_STAGES)
+					next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
 			}
 			
 		}
@@ -663,5 +629,90 @@ public class SimulationTester {
 		return new ErrorAnalysis( res, gold, featsByIndex, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
 
 	}
+	
+	private static List<String> extractCascRulesByStep(SChangeFactory fac, String CASC_FILE_LOC)
+	{
+		List<String> out = new ArrayList<String>(); 
+		String nextRuleLine; 
+		try 
+		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
+				new FileInputStream(DBG_WRKG_CASC), "UTF-8")); 
+			
+			while((nextRuleLine = in.readLine()) != null)
+			{
+				String lineWithoutComments = ""+nextRuleLine; 
+				if (lineWithoutComments.contains(""+DiachronicSimulator.CMT_FLAG))
+						lineWithoutComments = lineWithoutComments.substring(0,
+								lineWithoutComments.indexOf(""+DiachronicSimulator.CMT_FLAG));
+				if(!lineWithoutComments.trim().equals(""))	out.add(lineWithoutComments); 
+			}
+			in.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		return out; 
+	}
+	
+	public static void resetWorkingCasc(SChangeFactory fac)
+	{
+		CASCADE = new ArrayList<SChange>(); 
+		List<String> rulesByStep = extractCascRulesByStep(fac, DBG_WRKG_CASC); 
+		int rli = 0, gsi = 0, bsi = 0; 
+		int[] goldStageTempLocs = new int[NUM_GOLD_STAGES], 
+			blackStageTempLocs = new int[NUM_BLACK_STAGES]; 
+		
+		while(rli < rulesByStep.size())
+		{
+			String currRule = rulesByStep.get(rli); 
+			if ( (""+DiachronicSimulator.GOLD_STAGENAME_FLAG+DiachronicSimulator.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
+			{
+				if  ( currRule.charAt(0) == DiachronicSimulator.GOLD_STAGENAME_FLAG)
+				{
+					goldStageTempLocs[gsi] = rli;
+					gsi++; 
+				}
+				else // black
+				{
+					blackStageTempLocs[bsi] = rli;
+					bsi++; 
+				}
+				rulesByStep.remove(rli);
+			}
+			else	rli++; 
+		}
+		
+		int cri = 0 , gsgi = 0, bsgi = 0,
+			next_gold = goldStagesSet ? goldStageTempLocs[0] : -1,
+			next_black = blackStagesSet ? blackStageTempLocs[0] : -1; 
+		
+		for (String currRule : rulesByStep)
+		{
+			CASCADE.addAll(fac.generateSoundChangesFromRule(currRule)); 
+			
+			cri++; 
+			
+			if(next_gold == cri)
+			{
+				goldStageInstants[gsgi] = CASCADE.size(); 
+				gsgi++; 
+				next_gold = (gsgi == NUM_GOLD_STAGES) ? -1 : goldStageTempLocs[gsgi]; 
+			}
+			if(next_black == cri)
+			{
+				blackStageInstants[bsgi] = CASCADE.size();
+				bsgi++; 
+				next_black = (bsgi == NUM_BLACK_STAGES) ? -1 : blackStageTempLocs[bsgi]; 
+			}
+		}
+	}
+	
 	
 }
