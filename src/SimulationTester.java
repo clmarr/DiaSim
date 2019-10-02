@@ -186,6 +186,7 @@ public class SimulationTester {
 		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
 		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
+		errorCount += aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
 		
 		
 		//TODO checks for final results. 
