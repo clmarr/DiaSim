@@ -752,7 +752,5 @@ public class DifferentialHypothesisSimulator {
 
 		//TODO make sure this final append behavior is carried out correctly.
 		return out + readIn; 
-		
 	}
-
 }

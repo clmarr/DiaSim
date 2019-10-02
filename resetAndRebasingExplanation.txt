@@ -1,0 +1,27 @@
+Variables that must be reset: [reset()]
+
+Functionality of method reset() -- for debugging purposes. 
+
+reset() versus rebase() -- rebase gets new baseline info
+	whereas reset() only changes data structures pertaining (only)
+		to the alternate hypothesis.
+
+rebase() will call reset() however -- so reset is essentially a subset of
+	rebase in terms of what variables it resets. 
+
+usurpBase() -- functionally a specified case of rebase()
+	in which the former alternate hypothesis becomes the new baseline.
+
+
+
+for reset: 
+	proposedChanges
+	hypCASC
+
+
+for rebase:
+	baseCASC
+	baseSimulation
+	
+
+for

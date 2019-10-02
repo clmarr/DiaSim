@@ -711,5 +711,24 @@ public class DHSWrapper {
 		return out; 
 		
 	}
-
+	
+	/** reset
+	 * -- for debugging and initialization purposes
+	 * "resets" all data structures pertaining to the alternate hypothesis or mapping from the baseline to it to their initial forms
+	 * different from rebase() which changes the baseline, although rebase necessarily uses reset() as part of its pipe
+	 */
+	public void reset()
+	{
+        stillQuerying = false; 
+        proposedChanges = new ArrayList<String[]>(); 
+        hypCASC = new ArrayList<SChange>(baseSimulation.CASCADE());
+        RULE_IND_MAP = new int[originalLastMoment + 1]; 
+        hypGoldLocs = new int[NUM_GOLD_STAGES]; hypBlackLocs = new int[NUM_BLACK_STAGES];
+        for (int i = 0; i < originalLastMoment+1; i++)
+                RULE_IND_MAP[i] = i; //initialize each.
+        for (int i = 0; i < NUM_GOLD_STAGES; i++)
+                hypGoldLocs[i] = baseSimulation.getStageInstant(true, i);
+        for (int i = 0; i < NUM_BLACK_STAGES; i++)
+                hypBlackLocs[i] = baseSimulation.getStageInstant(false, i);
+	}
 }
