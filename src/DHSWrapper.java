@@ -290,15 +290,8 @@ public class DHSWrapper {
 					
 					}
 					
-					String fileDest = ""; 
-					while (fileDest.equals("")) {
-						System.out.println("Please enter what you want to save your new cascade as:");
-						fileDest = inpu.nextLine().replace("\n",""); 
-						if (fileDest.equals("") || fileDest.equals(origCascLoc))
-							System.out.println("You must enter a file destination, and it must be distinct from the original cascade's location."); 
-								//TODO once we have finished debugging, allow initial file's location to be used.
-					}
-					DiachronicSimulator.writeToFile(fileDest, toFileOut); 
+					queryHypOutLoc(inpu); 
+					DiachronicSimulator.writeToFile(hypOutLoc, toFileOut); 
 				}
 				else if (choice == '1')
 				{
@@ -724,6 +717,7 @@ public class DHSWrapper {
                 hypGoldLocs[i] = baseSimulation.getStageInstant(true, i);
         for (int i = 0; i < NUM_BLACK_STAGES; i++)
                 hypBlackLocs[i] = baseSimulation.getStageInstant(false, i);
+        hypOutLoc = ""; 
 	}
 	
 	public void rebase(Simulation newBaseSim, String newBaseLoc) 
@@ -732,5 +726,16 @@ public class DHSWrapper {
 		baseCASC = newBaseSim.CASCADE();
 		origCascLoc = newBaseLoc; 
 		reset(); 
+	}
+	
+	public void queryHypOutLoc(Scanner inpu)
+	{
+		while (hypOutLoc.equals("")) {
+			System.out.println("Please enter what you want to save your new cascade as:");
+			hypOutLoc = inpu.nextLine().replace("\n",""); 
+			if (hypOutLoc.equals("") || hypOutLoc.equals(origCascLoc))
+				System.out.println("You must enter a file destination, and it must be distinct from the original cascade's location."); 
+					//TODO once we have finished debugging, allow initial file's location to be used.
+		}
 	}
 }
