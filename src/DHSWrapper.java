@@ -50,12 +50,12 @@ public class DHSWrapper {
 	private boolean feats_weighted;
 	private String[] featsByIndex;
 	private double[] FT_WTS;
-	private int id_wt; 
+	private double id_wt; 
 	public boolean stillQuerying; 
 		
 	private String origCascLoc; 
 	
-	public DHSWrapper(Simulation baseSim,boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, int id_wt, String ogCascLoc)
+	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc)
 	{
 		baseSimulation = baseSim;
 		proposedChanges = new ArrayList<String[]>(); 
