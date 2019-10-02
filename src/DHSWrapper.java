@@ -30,7 +30,7 @@ public class DHSWrapper {
 	// operation may be either deletion or insertion 
 	// both relocdation and modification are handled as deletion then insertion pairs. 
 	// for deletion, the second slot simply holds the string "deletion"
-	// whereas for insertion, the second index holds the string form of the SChange 
+	// whereas for insertion, the second indexarg0arg0arg0arg0 holds the string form of the SChange 
 		// that is inserted there in hypCASC. 
 
 	private int[] RULE_IND_MAP; //easy access maps indices of CASCADE to those in hypCASCADE.
