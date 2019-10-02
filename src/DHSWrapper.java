@@ -48,7 +48,7 @@ public class DHSWrapper {
 	private double id_wt; 
 	public boolean stillQuerying; 
 		
-	private String origCascLoc; 
+	private String origCascLoc, hypOutLoc; 
 	
 	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc)
 	{
@@ -724,5 +724,13 @@ public class DHSWrapper {
                 hypGoldLocs[i] = baseSimulation.getStageInstant(true, i);
         for (int i = 0; i < NUM_BLACK_STAGES; i++)
                 hypBlackLocs[i] = baseSimulation.getStageInstant(false, i);
+	}
+	
+	public void rebase(Simulation newBaseSim, String newBaseLoc) 
+	{
+		this.baseSimulation = newBaseSim; 
+		baseCASC = newBaseSim.CASCADE();
+		origCascLoc = newBaseLoc; 
+		reset(); 
 	}
 }
