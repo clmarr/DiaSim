@@ -16,7 +16,7 @@ public class DHSWrapper {
 	public final int MAX_CMT_WIDTH = 150; 
 	public final String HANGING_INDENT = "      "; 
 	
-	private Simulation baseSimulation; 
+	private Simulation baseSimulation, hypEmpiricized; 
 	private List<SChange> hypCASC, baseCASC; 
 	// hypCASC -- new cascade that we are progressively constructing while continually comparing against the "baseline", @varbl baseCASC
 	
@@ -331,7 +331,7 @@ public class DHSWrapper {
 	
 	public DifferentialHypothesisSimulator generateDHS()
 	{
-		Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+		hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
 		hypEmpiricized.simulateToEnd();
 		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 	}
@@ -728,6 +728,12 @@ public class DHSWrapper {
 		reset(); 
 	}
 	
+	public void acceptHypothesis()
+	{
+		assert !hypOutLoc.equals("") : "Error: @global hypOutLoc must be set before usurping baseline"; 
+		rebase(hypEmpiricized, hypOutLoc); 
+	}
+	
 	public void queryHypOutLoc(Scanner inpu)
 	{
 		while (hypOutLoc.equals("")) {
@@ -738,4 +744,7 @@ public class DHSWrapper {
 					//TODO once we have finished debugging, allow initial file's location to be used.
 		}
 	}
+
+	public void setHypOutLoc(String newLoc)
+	{	hypOutLoc = ""+newLoc;	}
 }
