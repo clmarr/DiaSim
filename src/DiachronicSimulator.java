@@ -702,7 +702,7 @@ public class DiachronicSimulator {
 	}
 	
 	//auxiliary
-	private static void writeToFile(String filename, String output)
+	public static void writeToFile(String filename, String output)
 	{	try 
 		{	
 			int dirBreak = filename.indexOf("/");

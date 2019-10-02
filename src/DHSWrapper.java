@@ -11,9 +11,12 @@ import java.util.Scanner;
 public class DHSWrapper {
 	
 	public final String INV_RESP_MSG =  "Invalid response. Please enter a valid response. Returning to hypothesis testing menu.";
-	public final char STAGE_PRINT_DELIM = DiachronicSimulator.STAGE_PRINT_DELIM; 
+	public final char STAGE_PRINT_DELIM = DiachronicSimulator.STAGE_PRINT_DELIM,
+			CMT_FLAG = DiachronicSimulator.CMT_FLAG;
+	public final int MAX_CMT_WIDTH = 150; 
+	public final String HANGING_INDENT = "      "; 
 	
-	private Simulation baseSimulation;
+	private Simulation baseSimulation; 
 	private List<SChange> hypCASC, baseCASC; 
 	// hypCASC -- new cascade that we are progressively constructing while continually comparing against the "baseline", @varbl baseCASC
 	
@@ -50,9 +53,9 @@ public class DHSWrapper {
 	private int id_wt; 
 	public boolean stillQuerying; 
 		
+	private String origCascLoc; 
 	
-	
-	public DHSWrapper(Simulation baseSim,boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, int id_wt)
+	public DHSWrapper(Simulation baseSim,boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, int id_wt, String ogCascLoc)
 	{
 		baseSimulation = baseSim;
 		proposedChanges = new ArrayList<String[]>(); 
@@ -74,6 +77,7 @@ public class DHSWrapper {
 		this.featsByIndex = featsByIndex;
 		this.FT_WTS = FT_WTS; 
 		this.id_wt = id_wt; 
+		this.origCascLoc = ogCascLoc; 
 	}
 	
 	public void queryProposedChanges(Scanner inpu, SChangeFactory fac)
@@ -243,12 +247,11 @@ public class DHSWrapper {
 				{
 					String toFileOut = ""; 
 					
-					
 					while (toFileOut.length() == 0) {
 						try 
 						{
 							if(choice == '2')
-								System.out.println("Automatically implementing proposed changes to cascade..."); 
+								System.out.println("Preparing to automatically implement proposed changes to cascade..."); 
 							else // choice == 3
 								System.out.println("Placing comments to facilitate manual editing of cascade..."); 
 							System.out.println("First, explanatory comments must be entered for the changes..."); 
@@ -258,7 +261,7 @@ public class DHSWrapper {
 							for (int pci = 0; pci < proposedChanges.size(); pci++) {
 								String[] ipc = proposedChanges.get(pci); 
 								
-								
+								//TODO check this _v_
 								//note: no comments are entered for the insertion part of rule modification, 
 									// which, unlike simple deletion, implies a non-empty corresponding entry in propChNotes
 									// in this way, the system will be able to recognize such cases due to the explanatory comment 
@@ -287,7 +290,9 @@ public class DHSWrapper {
 								editComments.add(justification); 
 							}
 							
-							toFileOut = modCascFileText ( proposedChanges, editComments, choice == '3'); 
+							
+							
+							toFileOut = DHScomp.newCascText( editComments, choice == '3', origCascLoc, fac);
 						}
 						catch (MidDisjunctionEditException e ) 
 						{
@@ -303,18 +308,18 @@ public class DHSWrapper {
 					while (fileDest.equals("")) {
 						System.out.println("Please enter what you want to save your new cascade as:");
 						fileDest = inpu.nextLine().replace("\n",""); 
-						if (fileDest.equals("") || fileDest.equals(cascFileLoc))
+						if (fileDest.equals("") || fileDest.equals(origCascLoc))
 							System.out.println("You must enter a file destination, and it must be distinct from the original cascade's location."); 
 								//TODO once we have finished debugging, allow initial file's location to be used.
 					}
-					writeToFile(fileDest, toFileOut); 
+					DiachronicSimulator.writeToFile(fileDest, toFileOut); 
 				}
 				else if (choice == '1')
 				{
 					System.out.println("Printing all etyma as ID#, INPUT, BASELINE RESULT, HYP SIM RESULT, GOLD RESULT");
 					for (int eti = 0 ; eti < NUM_ETYMA ; eti++)
-						System.out.println(""+eti+", "+inputForms[eti]+", "+theSimulation.getCurrentForm(eti)+", "
-								+ hypEmpiricized.getCurrentForm(eti)+", "+goldOutputLexicon.getByID(eti)); 
+						System.out.println(""+eti+", "+baseSimulation.getInputForm(eti)+", "+baseSimulation.getCurrentForm(eti)+", "
+								+ DHScomp.hypCascSim.getCurrentForm(eti)+", "+baseSimulation.getGoldOutputForm(eti)); 
 					System.out.println("Enter anything to continue.");
 					char dum = inpu.nextLine().charAt(0); 
 					System.out.println("\nWould you like to do anything else?"); 
@@ -697,6 +702,22 @@ public class DHSWrapper {
 						hypBlackLocs[bsi] += insertions.size();			
 			
 		}
+	}
+	
+	private String commentJustify(String cmt)
+	{
+		String[] tokenized = cmt.substring(cmt.indexOf(" ")+1).split(" "); 
+		
+		String out = ""+CMT_FLAG+cmt.substring(0, cmt.indexOf(" ")); 
+		for (String token : tokenized)
+		{
+			if (out.length() + token.length() + 1 > MAX_CMT_WIDTH)
+				out += "\n"+HANGING_INDENT+CMT_FLAG+token; 
+			else	out += " "+token; 
+		}
+		
+		return out; 
+		
 	}
 
 }
