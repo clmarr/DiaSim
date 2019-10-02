@@ -75,7 +75,7 @@ public class SimulationTester {
 
 		System.out.println("Sanity check -- proper initialization and comprehension of gold and black stage initialization in Simulation class."); 
 		
-		int errorCount = 0; 
+		int errorCount = 0, totalErrorCount = 0;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
@@ -112,6 +112,7 @@ public class SimulationTester {
 		errorSummary(errorCount); 
 		
 		System.out.println("Checking after one iteration step."); 
+		totalErrorCount += errorCount;
 		errorCount = 0; 
 		
 		testSimul.iterate();
@@ -142,6 +143,7 @@ public class SimulationTester {
 		errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
+		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
 		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
@@ -154,6 +156,7 @@ public class SimulationTester {
 				
 		testSimul.simulateToNextStage();
 		//TODO check going to first black
+		totalErrorCount += errorCount; 
 		errorCount = 0 ;
 		System.out.println("Checking Waypoint 1 (black box mode)"); 
 		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at point of a black box stage.") ? 0 : 1; 
@@ -163,6 +166,7 @@ public class SimulationTester {
 		errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
+		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
 		// TODO checks after skipping final gold stage before the end
@@ -179,6 +183,7 @@ public class SimulationTester {
 		
 		testSimul.simulateToEnd();
 		
+		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
 		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
@@ -187,18 +192,13 @@ public class SimulationTester {
 		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
 		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
 		errorCount += aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
-		
-		
-		//TODO checks for final results. 
-		
-		//TODO check final forms
-		
-				//TODO and check different diagnostics
-				//TODO including by making edits to the Working casc file. 
-				
-		
+			
 		errorSummary(errorCount); 
 		
+		totalErrorCount += errorCount;
+		errorCount = 0; 
+		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
+				+ "Now testing cascade editing functionalities..."); 
 		
 		
 		
