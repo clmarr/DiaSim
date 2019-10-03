@@ -169,9 +169,6 @@ public class DifferentialHypothesisSimulator {
 			//TODO will need to debug here...
 			
 			int lexDivPt = findLexicalDivergencePoint(ei); 
-			
-			//TODO debugging
-			System.out.println("ldp "+lexDivPt);
 
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
@@ -232,19 +229,11 @@ public class DifferentialHypothesisSimulator {
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
 				// conveniently handled with mapping arrays
 		
-		//TODO debugging
-		System.out.println(" baseDer:\n"+baseDer);
-
-		
 		baseDer= globalizeDerivInds(baseDer, false); 
 		hypDer = globalizeDerivInds(hypDer, true); 
 		
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
-		
-		//TODO debugging
-		System.out.println("globalized baseDer:\n"+baseDer+"\nglobalized hypDer:\n"+hypDer);
-		
 		
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n"); 
 		
