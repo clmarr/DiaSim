@@ -236,6 +236,10 @@ public class DifferentialHypothesisSimulator {
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
 				// conveniently handled with mapping arrays
 		
+		//TODO debuging
+		System.out.println("baseDer\n"+baseDer);
+		System.out.println("hypDer\n"+hypDer);
+		
 		baseDer= derivationToGlobalInds(baseDer, false); 
 		hypDer = derivationToGlobalInds(hypDer, true); 
 		
@@ -356,7 +360,6 @@ public class DifferentialHypothesisSimulator {
 		return out; 
 	}
 	
-	//TODO this
 	// prints basic info on changes in words effected 
 		// and rules effected
 		// does not print evaluation statistic change -- that is for DiachronicSimulation and ErrorAnalysis to handle. 

@@ -47,6 +47,7 @@ public class DHSWrapper {
 	private double[] FT_WTS;
 	private double id_wt; 
 	public boolean stillQuerying; 
+	private boolean goldOutput; 
 		
 	private String origCascLoc, hypOutLoc; 
 	
@@ -58,8 +59,8 @@ public class DHSWrapper {
 		NUM_ETYMA = baseSim.NUM_ETYMA(); 
 		NUM_GOLD_STAGES = baseSim.NUM_GOLD_STAGES();
 		NUM_BLACK_STAGES = baseSim.NUM_BLACK_STAGES(); 
-		goldStageNames = baseSim.getGoldStageNames(); 
-		blackStageNames = baseSim.getBlackStageNames();	
+		if (NUM_GOLD_STAGES > 0)	goldStageNames = baseSim.getGoldStageNames(); 
+		if (NUM_BLACK_STAGES > 0)	blackStageNames = baseSim.getBlackStageNames();	
 		this.feats_weighted = feats_weighted;
 		this.featsByIndex = featsByIndex;
 		this.FT_WTS = FT_WTS; 
@@ -331,7 +332,13 @@ public class DHSWrapper {
 	
 	public DifferentialHypothesisSimulator generateDHS()
 	{
+		//TODO debugging
+		System.out.println("generating DHS...");
+		
 		hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
+		if (NUM_GOLD_STAGES > 0)	hypEmpiricized.setGoldInstants(hypGoldLocs); 
+		if (NUM_BLACK_STAGES > 0)	hypEmpiricized.setBlackInstants(hypBlackLocs);
+		
 		hypEmpiricized.simulateToEnd();
 		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 	}

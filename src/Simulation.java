@@ -71,10 +71,10 @@ public class Simulation {
 			goldOutputLexicon = baseline.goldOutputLexicon;
 			goldOutput = true; 
 		}
-		if (baseline.hasBlackStages())	setBlackStages(baseline.blackStageNames, baseline.blackStageInstants); 
+		if (baseline.hasBlackStages())	
+			blackStageNames = baseline.blackStageNames; 
 		if (baseline.hasGoldStages()) {
 			goldStageGoldLexica = baseline.goldStageGoldLexica;
-			goldStageInstants = baseline.goldStageInstants;
 			goldStageNames = baseline.goldStageNames; 
 			goldStageResultLexica = new Lexicon[goldStageNames.length] ;
 		}		
@@ -106,6 +106,10 @@ public class Simulation {
 		blackStageResultLexica = new Lexicon[names.length];
 		NUM_BLACK_STAGES = names.length; 
 	}	
+	
+	//for use in constructing hypothesis simulations
+	public void setGoldInstants(int[] times)	{	goldStageInstants = times;	}
+	public void setBlackInstants(int[] times)	{	blackStageInstants = times;	}	
 	
 	public void setStepPrinterval(int newsp)	{	stepPrinterval = newsp;	}
 	
