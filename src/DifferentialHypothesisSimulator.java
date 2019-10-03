@@ -353,6 +353,11 @@ public class DifferentialHypothesisSimulator {
 		return out; 
 	}
 	
+	public String getGlobalizedDerivation(int et_id, boolean isHyp)
+	{
+		return derivationToGlobalInds( (isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
+	}
+	
 	// prints basic info on changes in words effected 
 		// and rules effected
 		// does not print evaluation statistic change -- that is for DiachronicSimulation and ErrorAnalysis to handle. 

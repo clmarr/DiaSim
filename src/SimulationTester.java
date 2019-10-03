@@ -277,6 +277,14 @@ public class SimulationTester {
 		errorCount += checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
 				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
 		
+		//checking globalization of derivation
+		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","0[1] :" ).replace("2 :", "2[3] :")), true,
+				"Error : malformation of globalized derivation in baseline for 'bitten'") ? 0 : 1; 
+		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , true).equals(bittenCorrectBaselineDeriv.replace("1 :","1[1] :" ).replace("3 :", "3[3] :")), true,
+				"Error : malformation of globalized derivation in alternate hypothesis for 'bitten'") ? 0 : 1; 
+		
+		
+		
 		String prc = theDHS.printRuleCorrespondences(); 
 		System.out.println("Rule correspondences:\n"+prc+"\n"); 
 		
