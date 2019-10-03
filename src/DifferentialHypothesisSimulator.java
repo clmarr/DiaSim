@@ -172,22 +172,19 @@ public class DifferentialHypothesisSimulator {
 		{
 			//TODO will need to debug here...
 			
-			String ddHere = getDifferentialDerivation(ei); 
-			//recall -- if getDifferentialDerivation() returns "" it means there is no difference 
-			if (!"".equals(ddHere)) 
+			int lexDivPt = findLexicalDivergencePoint(ei); 
+
+			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
+			if(lexDivPt != -1)
 			{
-				changedDerivations.put(ei, ddHere);
-				ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); 
-				
-				//lexical divergence point extract here -- see if it causes the overall initial divergence point to be earlier.
-				int lexDivPt = Math.max(Integer.parseInt(ddHere.substring(ddHere.indexOf(":")+1, ddHere.indexOf("|"))),
-						Integer.parseInt(ddHere.substring(ddHere.indexOf("|")+1,ddHere.indexOf("\n"))));
-						// we're taking the max because one of the two between the global base and hyp inds here
-								// could be -1 (actually, one usually is.)
-				if (divergencePoint == -1)	divergencePoint = lexDivPt; 
-				else	divergencePoint = Math.min(divergencePoint, lexDivPt); 
-				
-				ddHere = ddHere.substring(ddHere.indexOf("\n")+"\n".length());
+		        if(divergencePoint == -1)       divergencePoint = lexDivPt;
+		        else    divergencePoint = Math.min(divergencePoint, lexDivPt); 
+	
+		        String ddHere = getDifferentialDerivation(ei);
+		        changedDerivations.put(ei, ddHere); 
+		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
+		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
+
 				for (String ddl : ddHere.split("\n"))
 				{
 					if(ddl.contains(">"))
@@ -762,4 +759,30 @@ public class DifferentialHypothesisSimulator {
 		return UTILS.stdCols(5, ruleCorrespondences[0]).substring(2)+"\n"
 				+ UTILS.stdCols(5, ruleCorrespondences[1]).substring(2); 
 	}
+	
+	/** findLexicalDivergencePoint 
+	 * @return the earliest point where the derivation of one etyma diverges
+	 * 		between its realization in the baseline and in the hypothesis cascade. 
+	 * @return -1 -- if there is no divergence at all. 
+	 * @param et_id -- index of the etymon
+	 */
+	private int findLexicalDivergencePoint (int et_id) 
+	{
+		String etDD = getDifferentialDerivation(et_id); 
+	
+		//recall -- if getDifferentialDerivation() returns "" it means there is no difference 
+		if ("".equals(etDD))	return -1; 
+		
+		assert etDD.contains("CONCORD") : "Error: malformed differential derivation!"; 
+		
+		//TODO may need to debug this part to make sure behavior -- i.e. taking max between base and hyp global inds of first divergence -- is correct
+		etDD = etDD.substring(etDD.indexOf("CONCORD")); 
+		int pipent = etDD.indexOf("|"); 
+		return Math.max(
+				Integer.parseInt(etDD.substring(etDD.indexOf(":")+1, pipent).trim()), 
+				Integer.parseInt(etDD.substring(pipent + 1, etDD.indexOf("\n")).trim()));
+	}
+	
 }
+	
+	
