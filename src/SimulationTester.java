@@ -195,6 +195,20 @@ public class SimulationTester {
 		
 		errorSummary(errorCount); 
 		
+		System.out.print("\nPerformance of gold cascade ...\n"
+				+ UTILS.stdMetricHeader()+"\n"); 
+		
+		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
+		{
+			System.out.print(goldStageNames[gsi] +"\t\t");
+			
+			checker = standardChecker(testSimul.getStageResult(true, gsi), testSimul.getGoldStageGold(gsi)); 
+			System.out.println(UTILS.stdMetricReport(checker)); 
+		}
+		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
+		System.out.println(UTILS.fillSpaceToN("Output",24)+UTILS.stdMetricReport(checker)); 
+		
+		
 		totalErrorCount += errorCount;
 		errorCount = 0; 
 		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
@@ -202,23 +216,24 @@ public class SimulationTester {
 		
 		resetToWorkingCasc(theFactory); 
 		testSimul.initialize(inputForms, CASCADE);
+		testSimul.setBlackStages(blackStageNames, blackStageInstants);
+		testSimul.setGold(goldOutputLexicon.getWordList());
+		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.simulateToEnd(); 
 
 		System.out.print("\nPerformance of baseline cascade before edits...\n"
-				+ "Stage\t\t\tAccuracy\t\tWithin 1 ph\t\tWithin 2 phs\t\tAverage PED\t\tAverageFED\n"); 
-
+				+ UTILS.stdMetricHeader()+"\n"); 
+		
 		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
 		{
 			System.out.print(goldStageNames[gsi] +"\t\t");
+			
 			checker = standardChecker(testSimul.getStageResult(true, gsi), testSimul.getGoldStageGold(gsi)); 
-			System.out.println(checker.getAccuracy()
-					+"\t\t"+checker.getPctWithin1()+"\t\t"+checker.getPctWithin2()				
-					+"\t\t"+checker.getAvgPED()+"\t\t"+checker.getAvgFED());
+			System.out.println(UTILS.stdMetricReport(checker)); 
 		}
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
-		System.out.println("Output\t\t\t"+checker.getAccuracy()
-			+"\t\t"+checker.getPctWithin1()+"\t\t"+checker.getPctWithin2()				
-			+"\t\t"+checker.getAvgPED()+"\t\t"+checker.getAvgFED());
+		System.out.println(UTILS.fillSpaceToN("Output",24)+UTILS.stdMetricReport(checker)); 
+		
 
 		
 		

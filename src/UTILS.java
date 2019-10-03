@@ -143,4 +143,23 @@ public class UTILS {
 				return false;
 		return true;
 	}
+	
+	public static String stdCols(int width, String[] vals)
+	{
+		String out = ""; 
+		for (String val : vals)	out += "| "+fillSpaceToN(val,width);
+		return out;
+	}
+	
+	public static String stdMetricHeader()
+	{
+		return fillSpaceToN("Stage", 24) + stdCols(24, new String[] {"Accuracy","Accuracy within 1 ph","Accuracy within 2 phs","Average PED","Average FED"});
+	}
+	
+	public static String stdMetricReport(ErrorAnalysis ea)
+	{
+		return stdCols( 24, new String[] {
+			""+ea.getAccuracy(), ""+ea.getPctWithin1(), ""+ea.getPctWithin2(),
+			""+ea.getAvgPED(), ""+ea.getAvgFED() }); 
+	}
 }

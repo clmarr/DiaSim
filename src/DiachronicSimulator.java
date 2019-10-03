@@ -75,7 +75,6 @@ public class DiachronicSimulator {
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
 	
-	public static final int PRINTERVAL = 100; 
 	
 	private static void extractSymbDefs()
 	{
@@ -453,7 +452,7 @@ public class DiachronicSimulator {
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
-		theSimulation.setStepPrinterval(PRINTERVAL); 
+		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
 
 		goldStageInd = 0; blackStageInd=0;
