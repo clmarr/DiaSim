@@ -192,7 +192,7 @@ public class SimulationTester {
 		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
 		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
 		errorCount += aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
-			
+		
 		errorSummary(errorCount); 
 		
 		totalErrorCount += errorCount;
@@ -200,8 +200,26 @@ public class SimulationTester {
 		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
 				+ "Now testing cascade editing functionalities..."); 
 		
-		resetWorkingCasc(theFactory); 
-		
+		resetToWorkingCasc(theFactory); 
+		testSimul.initialize(inputForms, CASCADE);
+		testSimul.simulateToEnd(); 
+
+		System.out.print("\nPerformance of baseline cascade before edits...\n"
+				+ "Stage\t\t\tAccuracy\t\tWithin 1 ph\t\tWithin 2 phs\t\tAverage PED\t\tAverageFED\n"); 
+
+		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
+		{
+			System.out.print(goldStageNames[gsi] +"\t\t");
+			checker = standardChecker(testSimul.getStageResult(true, gsi), testSimul.getGoldStageGold(gsi)); 
+			System.out.println(checker.getAccuracy()
+					+"\t\t"+checker.getPctWithin1()+"\t\t"+checker.getPctWithin2()				
+					+"\t\t"+checker.getAvgPED()+"\t\t"+checker.getAvgFED());
+		}
+		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
+		System.out.println("Output\t\t\t"+checker.getAccuracy()
+			+"\t\t"+checker.getPctWithin1()+"\t\t"+checker.getPctWithin2()				
+			+"\t\t"+checker.getAvgPED()+"\t\t"+checker.getAvgFED());
+
 		
 		
 
@@ -638,7 +656,7 @@ public class SimulationTester {
 		String nextRuleLine; 
 		try 
 		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(DBG_WRKG_CASC), "UTF-8")); 
+				new FileInputStream(CASC_FILE_LOC), "UTF-8")); 
 			
 			while((nextRuleLine = in.readLine()) != null)
 			{
@@ -663,7 +681,7 @@ public class SimulationTester {
 		return out; 
 	}
 	
-	public static void resetWorkingCasc(SChangeFactory fac)
+	public static void resetToWorkingCasc(SChangeFactory fac)
 	{
 		CASCADE = new ArrayList<SChange>(); 
 		List<String> rulesByStep = extractCascRulesByStep(fac, DBG_WRKG_CASC); 

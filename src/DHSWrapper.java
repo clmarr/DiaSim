@@ -113,7 +113,7 @@ public class DHSWrapper {
 								System.out.println("Enter the moment (rule index) would you like to move this rule to:");
 								//TODO may have to standardize jargon here... 
 								
-								int candiDate = getValidInd(inpu.nextLine().replace("\n",""), hypCASC.size());
+								int candiDate =UTILS.getValidInd(inpu.nextLine().replace("\n",""), hypCASC.size());
 								if (candiDate == -1)
 									System.out.println("Invalid rule index entered. There are currently "+hypCASC.size()+" rules."); 
 								else
@@ -291,7 +291,7 @@ public class DHSWrapper {
 					}
 					
 					queryHypOutLoc(inpu); 
-					DiachronicSimulator.writeToFile(hypOutLoc, toFileOut); 
+					UTILS.writeToFile(hypOutLoc, toFileOut); 
 				}
 				else if (choice == '1')
 				{
@@ -310,7 +310,7 @@ public class DHSWrapper {
 					{
 						System.out.println("Please enter the index of the etymon that you would like to query:"); 
 						String idstr = inpu.nextLine(); 
-						theID = getValidInd(idstr, NUM_ETYMA - 1) ; 
+						theID =UTILS.getValidInd(idstr, NUM_ETYMA - 1) ; 
 						if (theID == -1)	
 							System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
 					}
@@ -379,11 +379,7 @@ public class DHSWrapper {
 
 		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges );  
 	}
-		
-	private int getValidInd(String s, int max)
-	{
-		return DiachronicSimulator.getValidInd(s, max); 
-	}
+	
 	
 	private void printBaselineRuleAt(int theInd)
 	{
@@ -416,12 +412,12 @@ public class DHSWrapper {
 					+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 					+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n"); 
 			resp = inpu.nextLine().replace("\n",""); 
-			forkAt = getValidInd(resp, originalLastMoment) ;
+			forkAt = UTILS.getValidInd(resp, originalLastMoment) ;
 				//TODO make sure it is correct to use base's last moment as max here...
 			
 			if (resp.equals("quit"))		stillQuerying = false; 
 			else if(forkAt > -1)	return forkAt;	
-			else if(getValidInd(resp, 99999) > -1)
+			else if(UTILS.getValidInd(resp, 99999) > -1)
 				System.out.println(INV_RESP_MSG+". There are only "+(originalLastMoment+1)+" timesteps."); 
 			else if(!resp.contains("get ") || resp.length() < 10)	System.out.println(INV_RESP_MSG);
 			else if(resp.equals("get cascade"))
@@ -505,7 +501,7 @@ public class DHSWrapper {
 					String entry = resp.substring(cutPoint); 
 					if (cutPoint > 9)
 					{
-						int theInd = getValidInd(entry, baseCASC.size());
+						int theInd =UTILS.getValidInd(entry, baseCASC.size());
 						if(cutPoint == 12)	printBaselineRuleAt(theInd);
 						else /*curPoint == 16*/	if (theInd > -1)	baseSimulation.getRuleEffect(theInd); 
 					}
@@ -526,7 +522,7 @@ public class DHSWrapper {
 					String entry = resp.substring(cutPoint); 
 					if (cutPoint > 9)
 					{
-						int theInd = getValidInd(entry, NUM_ETYMA - 1); 
+						int theInd =UTILS.getValidInd(entry, NUM_ETYMA - 1); 
 						if (cutPoint == 12 && theInd > -1)	System.out.println(baseSimulation.getInputForm(theInd));
 						else /* cutPoint == 20 */ if (theInd > -1)	System.out.println(baseSimulation.getDerivation(theInd)); 
 						else System.out.println("Error: invalid etymon index; there are only "+NUM_ETYMA+" etyma.\nReturning to forking test menu."); 
@@ -540,7 +536,7 @@ public class DHSWrapper {
 						}
 						if(validLexPhon)
 						{
-							String inds = DiachronicSimulator.etymInds(baseSimulation.getInput().getWordList(), query);
+							String inds = UTILS.etymInds(baseSimulation.getInput().getWordList(), query);
 							System.out.println("Ind(s) with this word as input : "+inds);  
 						}
 					}

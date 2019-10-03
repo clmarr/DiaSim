@@ -578,7 +578,7 @@ public class DiachronicSimulator {
 	private static void makeOutGraphFile()
 	{	
 		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
-		writeToFile(filename, theSimulation.outgraph()); 
+		UTILS.writeToFile(filename, theSimulation.outgraph()); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
@@ -586,7 +586,7 @@ public class DiachronicSimulator {
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
-		writeToFile(filename, output); 
+		UTILS.writeToFile(filename, output); 
 	}
 
 	private static void makeDerivationFiles()
@@ -601,7 +601,7 @@ public class DiachronicSimulator {
 				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
 				+ (goldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+theSimulation.getDerivation(wi)+"\n";
-			writeToFile(filename, output); 
+			UTILS.writeToFile(filename, output); 
 		}
 	}
 	
@@ -699,42 +699,6 @@ public class DiachronicSimulator {
 			i = proxy.indexOf(","); 
 		}
 		return c; 
-	}
-	
-	//auxiliary
-	public static void writeToFile(String filename, String output)
-	{	try 
-		{	
-			int dirBreak = filename.indexOf("/");
-
-			while (dirBreak != -1)
-			{
-				String curDir = filename.substring(0, dirBreak),
-						rem = filename.substring(dirBreak+1); 
-				if (!new File(curDir).exists()) 
-					new File(curDir).mkdirs(); 
-				
-				dirBreak = !rem.contains("/") ? -1 : 
-					dirBreak + 1 + rem.indexOf("/"); 
-			
-			}
-			
-			System.out.println("out loc : "+filename); 
-			
-			BufferedWriter out = new BufferedWriter(new FileWriter(filename)); 
-			out.write(output);
-			out.close();
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
 	}
 	
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
@@ -906,7 +870,7 @@ public class DiachronicSimulator {
 						else if (resp.charAt(0) == 'R')
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = toyDerivation(inputForms,CASCADE.subList(0, focPtLoc)).getCurrentResult();
+							focPtLex = UTILS.toyDerivation(inputForms,CASCADE.subList(0, focPtLoc)).getCurrentResult();
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -1001,7 +965,7 @@ public class DiachronicSimulator {
 						if(!prompt)
 						{
 							LexPhon[] wl = inputForms;
-							String inds = etymInds(wl, query);
+							String inds = UTILS.etymInds(wl, query);
 							System.out.println("Ind(s) with this word as input : "+inds);  
 						}
 					}
@@ -1010,7 +974,7 @@ public class DiachronicSimulator {
 						System.out.println("Enter the ID to query:");
 						String idstr = inpu.nextLine(); 
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
-						int theID = getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
+						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
 							prompt =true;
 						}
@@ -1359,36 +1323,6 @@ public class DiachronicSimulator {
 		}
 		if (i != args.length || no_prefix)
             throw new Error("Usage: DerivationSimulation [-verbose] [-rdphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
-	}
-	
-	//TODO remake this. 
-	private static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade )
-	{
-		Simulation toy = new Simulation(inps, ruleCascade); 
-		toy.simulateToEnd();
-		return toy; 
-	}
-	
-	public static String etymInds(LexPhon[] etList, LexPhon etTarg)
-	{
-		String output = ""; 
-		for (int wli = 0; wli < etList.length; wli++)
-			if(etList[wli].toString().equals(etTarg.toString()))
-				output += output.equals("") ? ""+wli : ", "+wli;
-		return output;
-	}
-	
-	
-	//to use for checking if an entered etymon or rule id is valid. 
-	// max should be the number of words in the lexicon minus 1 (for an etymon)
-		// or the length of the cascade (for a rule)
-	public static int getValidInd(String s, int max)
-	{
-		int output; 
-		try 		{	output = Integer.parseInt(s);	} 
-		catch (NumberFormatException | NullPointerException nfe) {
-	        return -1;	}
-		return output <= max ? output : -1; 
 	}
 	
 	private static void printRuleAt(int theInd)
