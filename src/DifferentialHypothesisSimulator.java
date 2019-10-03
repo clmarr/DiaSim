@@ -182,9 +182,14 @@ public class DifferentialHypothesisSimulator {
 	
 		        String ddHere = getDifferentialDerivation(ei);
 		        changedDerivations.put(ei, ddHere); 
+		        
+		        //TODO debugging
+		        System.out.println(ddHere);
+		        
 		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
 		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
 
+		        //TODO debugging -- there is oging to be an error in this loop until getDifferentialDerivation is fixed! 
 				for (String ddl : ddHere.split("\n"))
 				{
 					if(ddl.contains(">"))
@@ -213,6 +218,7 @@ public class DifferentialHypothesisSimulator {
 		}
 	}
 
+	//TODO debugging -- need to fix somewhere in here currently .... 
 	/** getDifferentialDerivation 
 	 * @return the differential derivation for a particular etymon
 	 * 	* the etymon being indexed by @param et_id
@@ -222,7 +228,8 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String getDifferentialDerivation(int et_id)
 	{
-		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
+		String baseDer= baseCascSim.getDerivation(et_id), 
+				hypDer = hypCascSim.getDerivation(et_id); 
 		if (baseDer.equals(hypDer))	return "";
 		// passing here does not exclude the possibility of an identical derivation
 			// -- we will have to use ruleCorrespondences to ascertain that.
