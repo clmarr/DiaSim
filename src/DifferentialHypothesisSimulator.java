@@ -169,6 +169,9 @@ public class DifferentialHypothesisSimulator {
 			//TODO will need to debug here...
 			
 			int lexDivPt = findLexicalDivergencePoint(ei); 
+			
+			//TODO debugging
+			System.out.println("ldp "+lexDivPt);
 
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
@@ -233,14 +236,14 @@ public class DifferentialHypothesisSimulator {
 		System.out.println(" baseDer:\n"+baseDer);
 
 		
-		baseDer= markGlobalInds(baseDer, false); 
-		hypDer = markGlobalInds(hypDer, true); 
+		baseDer= globalizeDerivInds(baseDer, false); 
+		hypDer = globalizeDerivInds(hypDer, true); 
 		
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
 		
 		//TODO debugging
-		System.out.println("globalized baseDer:\n"+baseDer);
+		System.out.println("globalized baseDer:\n"+baseDer+"\nglobalized hypDer:\n"+hypDer);
 		
 		
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n"); 
@@ -327,7 +330,7 @@ public class DifferentialHypothesisSimulator {
 	//TODO plans to report any change in phonemic inventory.
 	
 	//TODO need to check that this works properly
-	private String markGlobalInds(String der, boolean isHyp)
+	private String globalizeDerivInds(String der, boolean isHyp)
 	{
 		int br = der.indexOf("\n");
 		String out = der.substring(0, der.indexOf("\n"));
@@ -339,9 +342,9 @@ public class DifferentialHypothesisSimulator {
 					br2 = li.lastIndexOf(" : "); 
 			if (br1 != -1 && br2 != -1)
 			{
-				out += "\n" + li.substring(0,br2); 
+				out += "\n" + li.substring(0,br1+3); 
 				int raw_ind = Integer.parseInt(li.substring(br1+3,br2).trim());
-				out += "["+(isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] +"]"+ li.substring(br2); 
+				out += (isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] + li.substring(br2); 
 			}
 			else	out += "\n"+li;
 		}
@@ -350,7 +353,7 @@ public class DifferentialHypothesisSimulator {
 	
 	public String getGlobalizedDerivation(int et_id, boolean isHyp)
 	{
-		return markGlobalInds( (isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
+		return globalizeDerivInds( (isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
 	}
 	
 	// prints basic info on changes in words effected 
@@ -771,8 +774,13 @@ public class DifferentialHypothesisSimulator {
 	 */
 	private int findLexicalDivergencePoint (int et_id) 
 	{
-		return globalDivergenceLoc( markGlobalInds(baseCascSim.getDerivation(et_id), false),
-				markGlobalInds(hypCascSim.getDerivation(et_id), true)); 
+		String bd = baseCascSim.getDerivation(et_id), hd = hypCascSim.getDerivation(et_id); 
+		if (bd.equals(hd))	return -1; 
+		bd = globalizeDerivInds(bd, false); 
+		hd = globalizeDerivInds(hd, true); 
+		if (bd.equals(hd))	return -1; 
+		
+		return globalDivergenceLoc(bd, hd); 
 	}
 	
 	
@@ -792,32 +800,12 @@ public class DifferentialHypothesisSimulator {
 		int out = 1, minlen = Math.min(bdlns.length, hdlns.length); 
 
 		//determine how long the derivations remain consistent.
-		while (out >= minlen ? false : globalDerivLinesEqual(bdlns[out],hdlns[out]))
-		{
+		while (out >= minlen ? false : bdlns[out].equals(hdlns[out]))
 			out++;
-			while (out >= minlen ? false : bdlns[out].contains(" form ") && hdlns[out].contains(" form "))
-				out++;
-		}
 
 		return out; 
 	}
 
-	//lines of already globalized derivations...
-	private boolean globalDerivLinesEqual(String gbl, String ghl)
-	{
-		if (!gbl.contains(" form : ") == ghl.contains(" form : "))	return false; 
-		
-		return ggl(gbl).equals(ggl(ghl));
-	}
-
-	//"total" globalization of already globalized derivation line.
-	private String ggl (String gl)
-	{
-		return gl.substring(0, gl.indexOf("|")+2) 
-				+ gl.substring(gl.indexOf("[")+1, gl.indexOf("]"))
-			+ gl.substring(gl.lastIndexOf(":")-1);
-	}
-	
 	// for debugigng purposes...
 	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
