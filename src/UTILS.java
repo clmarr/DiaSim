@@ -178,4 +178,10 @@ public class UTILS {
 				return false;
 		return true;
 	}
+	
+	//should ONLY be called after the derivation has been globalized by means of DifferentialHypothesisSimulator.derivationToGlobalInds()
+	public static int extractGlobalInd(String dl)
+	{
+		return Integer.parseInt( dl.substring( dl.indexOf("[") + 1, dl.indexOf("]"))); 
+	}
 }

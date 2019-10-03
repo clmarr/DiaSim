@@ -340,7 +340,6 @@ public class DHSWrapper {
 		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
 	}
 
-	
 	public DifferentialHypothesisSimulator generateDHSWithStops(Scanner inpu)
 	{
 		Simulation hypEmpiricized = new Simulation (baseSimulation, hypCASC); 

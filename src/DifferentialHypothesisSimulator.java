@@ -244,36 +244,24 @@ public class DifferentialHypothesisSimulator {
 		//TODO debugging
 		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations" ;
 		String out = bdlines[0]; 
-		int bdli = 1, hdli = 1 ; //skip first line as we know it must be identical
-		
-		
-		//determine how long the developments remain concordant 
-		while ( bdli < bdlines.length && hdli < hdlines.length && bdlines[bdli].equals(hdlines[hdli]) )
-		{
-			bdli++; hdli++; 
-			
-			//skip any stage declaration lines -- but only if we don't have a case of deletion/insertion at the end, to avoid an invalid index error.
-			if (bdli < bdlines.length && hdli < hdlines.length)
-			{	if (bdlines[bdli].contains(" stage form : ") && hdlines[hdli].contains(" stage form : ")) {
-					bdli++; hdli++; }	}
-		}
+		int bdli = globalDivergenceLoc(baseDer, hypDer); 
+		int hdli = bdli ;
 		
 		String lastBform = "" , lastHform = "";
 		
-		if (bdli == 1 ) { //hdli will equal 1 too othen		
+		if (bdli == 1 ) {
 			lastBform = bdlines[0]; lastHform = hdlines[0];	}
 		else	{
-			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" | "));
-			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" | ")); 
+			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" |"));
+			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 
 		}
 
 		// we know next line cannot be gold/black stage announcement as that could not be the first line with divergence. 
 		
-		int nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : "))),
-				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
+		int nextGlobalBaseInd = UTILS.extractGlobalInd(bdlines[bdli]),
+				nextGlobalHypInd = UTILS.extractGlobalInd(hdlines[hdli]); 
 		
-		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+" | "+nextGlobalHypInd; 
-			//TODO wait.. aren't these the same? 
+		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+"/"+nextGlobalHypInd; 
 		
 		// recall -- we have already aligned the numbers in the two derivations using derivationToGlobalInds()
 		// so it is obvious if we are dealing with a deletion or insertion as it is simply absent on the other side.
@@ -289,9 +277,9 @@ public class DifferentialHypothesisSimulator {
 							hdlines[hdli].indexOf(" stage form : ")}; 
 			
 			if (stageHere[0]== -1)
-				nextGlobalBaseInd = Integer.parseInt(bdlines[bdli].substring(bdlines[bdli].indexOf(" | ")+3, bdlines[bdli].indexOf(" : ")));
+				nextGlobalBaseInd = UTILS.extractGlobalInd(bdlines[bdli]);
 			if (stageHere[1]== -1)
-				nextGlobalHypInd = Integer.parseInt(hdlines[hdli].substring(hdlines[hdli].indexOf(" | ")+3, hdlines[hdli].indexOf(" : ")));
+				nextGlobalHypInd = UTILS.extractGlobalInd(hdlines[hdli]);
 		
 			if (stageHere[0] > -1 && stageHere[1] > -1)
 			{
@@ -790,6 +778,47 @@ public class DifferentialHypothesisSimulator {
 				Integer.parseInt(etDD.substring(etDD.indexOf(":")+1, pipent).trim()), 
 				Integer.parseInt(etDD.substring(pipent + 1, etDD.indexOf("\n")).trim()));
 	}
+	
+	/**
+	 * find line of divergence between two line-split derivations
+	 *  of the same word
+	 * derivations entered should already be "globalized"
+	 */
+	private int globalDivergenceLoc (String bd, String hd)
+	{
+		assert !bd.equals(hd): "Error: tried to find divergence point for two identical derivations!";
+
+		String[] bdlns = bd.split("\n"), hdlns = hd.split("\n");
+		assert bdlns[0].equals(hdlns[0]) : "Error: tried to find divergence point for derivations with different inputs";
+
+		int out = 1;
+
+		//determine how long the derivations remain consistent.
+		while (out < bdlns.length && out < hdlns.length && globalDerivLinesEqual(bdlns[out],hdlns[out]))
+		{
+			out++;
+			if (out < bdlns.length && out < hdlns.length)
+				while(!(out < bdlns.length && out < hdlns.length) ? false :  
+						bdlns[out].contains(" stage form : ") && hdlns[out].contains(" stage form : "))
+					out++; 
+		}
+
+		return out; 
+	}
+
+	//lines of already globalized derivations...
+	private boolean globalDerivLinesEqual(String gbl, String ghl)
+	{
+		return ggl(gbl).equals(ggl(ghl));
+	}
+
+	//"total" globalization of already globalized derivation line.
+	private String ggl (String gl)
+	{
+		return gl.substring(0, gl.indexOf("|")+2) + gl.substring(gl.indexOf("[")+1, gl.indexOf("]"))
+			+ gl.substring(gl.indexOf(":")-1);
+	}
+
 	
 }
 	
