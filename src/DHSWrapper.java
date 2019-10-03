@@ -332,9 +332,6 @@ public class DHSWrapper {
 	
 	public DifferentialHypothesisSimulator generateDHS()
 	{
-		//TODO debugging
-		System.out.println("generating DHS...");
-		
 		hypEmpiricized = new Simulation (baseSimulation, hypCASC); 
 		if (NUM_GOLD_STAGES > 0)	hypEmpiricized.setGoldInstants(hypGoldLocs); 
 		if (NUM_BLACK_STAGES > 0)	hypEmpiricized.setBlackInstants(hypBlackLocs);

@@ -183,9 +183,6 @@ public class DifferentialHypothesisSimulator {
 		        String ddHere = getDifferentialDerivation(ei);
 		        changedDerivations.put(ei, ddHere); 
 		        
-		        //TODO debugging
-		        System.out.println(ddHere);
-		        
 		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
 		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
 
@@ -235,10 +232,6 @@ public class DifferentialHypothesisSimulator {
 			// -- we will have to use ruleCorrespondences to ascertain that.
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
 				// conveniently handled with mapping arrays
-		
-		//TODO debuging
-		System.out.println("baseDer\n"+baseDer);
-		System.out.println("hypDer\n"+hypDer);
 		
 		baseDer= derivationToGlobalInds(baseDer, false); 
 		hypDer = derivationToGlobalInds(hypDer, true); 
@@ -352,9 +345,9 @@ public class DifferentialHypothesisSimulator {
 					br2 = li.lastIndexOf(" : "); 
 			if (br != -1 && br2 != -1)
 			{
-				out += "\n" + li.substring(0,br+3); 
-				int raw_ind = Integer.parseInt(li.substring(br+3,br2));
-				out += ""+(isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] + li.substring(br2); 
+				out += "\n" + li.substring(0,br2); 
+				int raw_ind = Integer.parseInt(li.substring(br+3,br2).trim());
+				out += "["+(isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] +"]"+ li.substring(br2); 
 			}
 		}
 		return out; 

@@ -160,6 +160,11 @@ public class Simulation {
 				etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei); 
 			blackStageInd++; 
 		}	
+		if (instant == TOTAL_STEPS)
+		{
+			for (int ei = 0 ; ei < NUM_ETYMA; ei++)
+				etDerivations[ei] += "\nFinal form : "+currLexicon.getByID(ei); 
+		}
 	}
 	
 	//TODO : method to simulate until manual halting point?

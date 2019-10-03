@@ -214,13 +214,21 @@ public class SimulationTester {
 		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
 				+ "Now testing cascade editing functionalities..."); 
 		
+		initWorkingCascFile(); 
 		resetToWorkingCasc(theFactory); 
-		testSimul.initialize(inputForms, CASCADE);
+		testSimul = new Simulation(inputForms, CASCADE); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.simulateToEnd(); 
 
+		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n#bˈɪɾən# | 0 ː [-delrel,-voi] > ɾ / [-cons] __ [-stres]\n"
+				+ "#bˈɪɾə̃n# | 2 : [+nas,+son,0delrel] / __ n\n"
+				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
+				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
+				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
+		errorCount += checkBoolean(bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), true, "Error: baseline derivation for 'bitten' not matched.") ? 0: 1; 
+				
 		System.out.print("\nPerformance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
 		
@@ -242,9 +250,10 @@ public class SimulationTester {
 		String nextLaw = "l > lˠ / __ [+cons]"; 
 		String nextCmt = "L-darkening as evidenced by mˈowlˠɾəd, bɨhˈowlˠɾə̃n, mˈowlˠʔə̃n"; 
 		
-		
 		DHSW.processSingleCh(-1, "", 0, nextLaw, theFactory.generateSoundChangesFromRule(nextLaw), nextCmt);
+		
 		List<SChange> curHC = DHSW.getHypCASC();
+
 		errorCount += checkBoolean(curHC.get(0).toString().equals(nextLaw), true, "Error: first instance does not have the correct rule.") ? 0 : 1; 
 		errorCount += checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
 				"Error: 2nd rule onward for hypCASC should be equal to baseCASC, but apparently it is not.") ? 0 : 1;
@@ -255,7 +264,18 @@ public class SimulationTester {
 		String[] thepc = DHSW.getProposedChanges().get(0); 
 		errorCount += checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
 				"Error: update on proposedChanges not carried out properly") ? 0 : 1; 
+		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
+		
+		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
+		
+		int colloc = bcdlines[1].indexOf(":"); 
+		bcdlines[1] = bcdlines[1].substring(colloc-2) + "1"+bcdlines[1].substring(colloc-1); 
+		colloc = bcdlines[2].indexOf(":");
+		bcdlines[2] = bcdlines[2].substring(colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
+		String bittenCorrDerivAfterCh1 = String.join("n", bcdlines); 
+		errorCount += checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
+				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
 		
 		String prc = theDHS.printRuleCorrespondences(); 
 		System.out.println("Rule correspondences:\n"+prc+"\n"); 
