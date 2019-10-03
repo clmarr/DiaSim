@@ -59,6 +59,7 @@ public class DifferentialHypothesisSimulator {
 		// for deletion, the second slot simply holds the string "deletion"
 		// whereas for insertion, the second index holds the string form of the SChange 
 			// that is inserted there in hypCASCADE. 
+	
 
 	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
@@ -276,7 +277,7 @@ public class DifferentialHypothesisSimulator {
 		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
-			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form : "), 
+			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form "), 
 							hdlines[hdli].indexOf(" stage form : ")}; 
 			
 			if (stageHere[0]== -1)
@@ -328,18 +329,21 @@ public class DifferentialHypothesisSimulator {
 	//TODO need to check that this works properly
 	private String markGlobalInds(String der, boolean isHyp)
 	{
-		String[] lines = der.split("\n"); 
-		String out = lines[0]; 
+		int br = der.indexOf("\n");
+		String out = der.substring(0, der.indexOf("\n"));
+		String[] lines = der.substring(br+"\n".length()).split("\n") ;
+		
 		for (String li : lines)
 		{
-			int br = li.indexOf(" | "),
+			int br1 = li.indexOf(" | "),
 					br2 = li.lastIndexOf(" : "); 
-			if (br != -1 && br2 != -1)
+			if (br1 != -1 && br2 != -1)
 			{
 				out += "\n" + li.substring(0,br2); 
-				int raw_ind = Integer.parseInt(li.substring(br+3,br2).trim());
+				int raw_ind = Integer.parseInt(li.substring(br1+3,br2).trim());
 				out += "["+(isHyp ? hypRuleIndsToGlobal : baseRuleIndsToGlobal)[ raw_ind ] +"]"+ li.substring(br2); 
 			}
+			else	out += "\n"+li;
 		}
 		return out; 
 	}
@@ -771,6 +775,8 @@ public class DifferentialHypothesisSimulator {
 				markGlobalInds(hypCascSim.getDerivation(et_id), true)); 
 	}
 	
+	
+	
 	/**
 	 * find line of divergence between two line-split derivations
 	 *  of the same word
@@ -783,16 +789,14 @@ public class DifferentialHypothesisSimulator {
 		String[] bdlns = bd.split("\n"), hdlns = hd.split("\n");
 		assert bdlns[0].equals(hdlns[0]) : "Error: tried to find divergence point for derivations with different inputs";
 
-		int out = 1;
+		int out = 1, minlen = Math.min(bdlns.length, hdlns.length); 
 
 		//determine how long the derivations remain consistent.
-		while (out < bdlns.length && out < hdlns.length && globalDerivLinesEqual(bdlns[out],hdlns[out]))
+		while (out >= minlen ? false : globalDerivLinesEqual(bdlns[out],hdlns[out]))
 		{
 			out++;
-			if (out < bdlns.length && out < hdlns.length)
-				while(!(out < bdlns.length && out < hdlns.length) ? false :  
-						bdlns[out].contains(" stage form : ") && hdlns[out].contains(" stage form : "))
-					out++; 
+			while (out >= minlen ? false : bdlns[out].contains(" form ") && hdlns[out].contains(" form "))
+				out++;
 		}
 
 		return out; 
@@ -801,14 +805,17 @@ public class DifferentialHypothesisSimulator {
 	//lines of already globalized derivations...
 	private boolean globalDerivLinesEqual(String gbl, String ghl)
 	{
+		if (!gbl.contains(" form : ") == ghl.contains(" form : "))	return false; 
+		
 		return ggl(gbl).equals(ggl(ghl));
 	}
 
 	//"total" globalization of already globalized derivation line.
 	private String ggl (String gl)
 	{
-		return gl.substring(0, gl.indexOf("|")+2) + gl.substring(gl.indexOf("[")+1, gl.indexOf("]"))
-			+ gl.substring(gl.indexOf(":")-1);
+		return gl.substring(0, gl.indexOf("|")+2) 
+				+ gl.substring(gl.indexOf("[")+1, gl.indexOf("]"))
+			+ gl.substring(gl.lastIndexOf(":")-1);
 	}
 	
 	// for debugigng purposes...
