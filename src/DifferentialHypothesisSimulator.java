@@ -757,26 +757,15 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	/** findLexicalDivergencePoint 
-	 * @return the earliest point where the derivation of one etyma diverges
+	 * @return the earliest (global) point where the derivation of one etyma diverges
 	 * 		between its realization in the baseline and in the hypothesis cascade. 
 	 * @return -1 -- if there is no divergence at all. 
 	 * @param et_id -- index of the etymon
 	 */
 	private int findLexicalDivergencePoint (int et_id) 
 	{
-		String etDD = getDifferentialDerivation(et_id); 
-	
-		//recall -- if getDifferentialDerivation() returns "" it means there is no difference 
-		if ("".equals(etDD))	return -1; 
-		
-		assert etDD.contains("CONCORD") : "Error: malformed differential derivation!"; 
-		
-		//TODO may need to debug this part to make sure behavior -- i.e. taking max between base and hyp global inds of first divergence -- is correct
-		etDD = etDD.substring(etDD.indexOf("CONCORD")); 
-		int pipent = etDD.indexOf("|"); 
-		return Math.max(
-				Integer.parseInt(etDD.substring(etDD.indexOf(":")+1, pipent).trim()), 
-				Integer.parseInt(etDD.substring(pipent + 1, etDD.indexOf("\n")).trim()));
+		return globalDivergenceLoc( derivationToGlobalInds(baseCascSim.getDerivation(et_id), false),
+				derivationToGlobalInds(hypCascSim.getDerivation(et_id), true)); 
 	}
 	
 	/**
