@@ -66,16 +66,7 @@ public class DifferentialHypothesisSimulator {
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap); //init ruleCorrespondences
 		
-		//TODO debugging
-		System.out.println("Rule corrs\n"+printRuleCorrespondences()); 
-		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
-		
-		//TODO debugging
-		System.out.println("Index globalizers...");
-		for (int bigi = 0 ; bigi < baseRuleIndsToGlobal.length ; bigi++)
-			System.out.println("b"+bigi+": "+baseRuleIndsToGlobal[bigi]); 
-		
 		
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 	}
@@ -123,13 +114,11 @@ public class DifferentialHypothesisSimulator {
 			}
 			while ( ri < total_length)
 			{
+				assert bci < total_length && hci < total_length : "Error in keeping track of indices across hypothesis in computeRuleCorrespondences()"; 
 				ruleCorrespondences[0][ri] = bci; bci++; 
 				ruleCorrespondences[1][ri] = hci; hci++; 
 				ri++; 
-			}
-			
-			
-			assert ri == total_length: "ERROR: some inconsistency in rule mapping operation coverage"; 
+			}			
 		}
 	}
 	
@@ -239,8 +228,12 @@ public class DifferentialHypothesisSimulator {
 			// we do this by changing the rule index numbers in both derivations to their "global" indices in ruleCorrespondences
 				// conveniently handled with mapping arrays
 		
-		baseDer= derivationToGlobalInds(baseDer, false); 
-		hypDer = derivationToGlobalInds(hypDer, true); 
+		//TODO debugging
+		System.out.println(" baseDer:\n"+baseDer);
+
+		
+		baseDer= markGlobalInds(baseDer, false); 
+		hypDer = markGlobalInds(hypDer, true); 
 		
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
@@ -333,7 +326,7 @@ public class DifferentialHypothesisSimulator {
 	//TODO plans to report any change in phonemic inventory.
 	
 	//TODO need to check that this works properly
-	private String derivationToGlobalInds(String der, boolean isHyp)
+	private String markGlobalInds(String der, boolean isHyp)
 	{
 		String[] lines = der.split("\n"); 
 		String out = lines[0]; 
@@ -353,7 +346,7 @@ public class DifferentialHypothesisSimulator {
 	
 	public String getGlobalizedDerivation(int et_id, boolean isHyp)
 	{
-		return derivationToGlobalInds( (isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
+		return markGlobalInds( (isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
 	}
 	
 	// prints basic info on changes in words effected 
@@ -774,8 +767,8 @@ public class DifferentialHypothesisSimulator {
 	 */
 	private int findLexicalDivergencePoint (int et_id) 
 	{
-		return globalDivergenceLoc( derivationToGlobalInds(baseCascSim.getDerivation(et_id), false),
-				derivationToGlobalInds(hypCascSim.getDerivation(et_id), true)); 
+		return globalDivergenceLoc( markGlobalInds(baseCascSim.getDerivation(et_id), false),
+				markGlobalInds(hypCascSim.getDerivation(et_id), true)); 
 	}
 	
 	/**
