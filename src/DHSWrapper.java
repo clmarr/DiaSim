@@ -11,8 +11,8 @@ import java.util.Scanner;
 public class DHSWrapper {
 	
 	public final String INV_RESP_MSG =  "Invalid response. Please enter a valid response. Returning to hypothesis testing menu.";
-	public final char STAGE_PRINT_DELIM = DiachronicSimulator.STAGE_PRINT_DELIM,
-			CMT_FLAG = DiachronicSimulator.CMT_FLAG;
+	public final char STAGE_PRINT_DELIM = UTILS.STAGE_PRINT_DELIM,
+			CMT_FLAG = UTILS.CMT_FLAG;
 	public final int MAX_CMT_WIDTH = 150; 
 	public final String HANGING_INDENT = "      "; 
 	

@@ -8,6 +8,20 @@ import java.util.List;
 
 public class UTILS {
 
+	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
+	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
+	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
+	public final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
+	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
+	public final static char STAGENAME_LOC_DELIM = ':'; 
+	public final static char LEX_DELIM =','; 
+	public final static char STAGE_PRINT_DELIM = ',';  
+	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
+	public final static String ABSENT_PH_INDIC = "...";
+	public final static int maxAutoCommentWidth = 150;
+	public static final int PRINTERVAL = 100; 
+
+
 	public static String fillSpaceToN(String inp, int n)
 	{
 		String out = inp+"";
@@ -81,4 +95,52 @@ public class UTILS {
 		}
 	}
 	
+
+	//auxiliary
+	public static boolean isJustSpace(String line)
+	{
+		return line.replace(" ","").length() == 0;
+	}
+	
+
+	//auxiliary method -- get number of columns in lexicon file. 
+	public static int colCount(String str)
+	{
+		String proxy = str+"";
+		int i = proxy.indexOf(""+UTILS.LEX_DELIM), c = 1 ;
+		while( i > -1)
+		{
+			c++; 
+			proxy = proxy.substring(i+1);
+			i = proxy.indexOf(","); 
+		}
+		return c; 
+	}
+	
+	//TODO for debugging purposes
+	public static String printParenMap(SequentialFilter testCont)
+	{
+		String output = ""; 
+		String[] pm = testCont.getParenMap();
+		for(String p : pm)	output += p + " "; 
+		return output.trim();
+	}
+	
+	public static String printWord(List<SequentialPhonic> word) {
+		String output = "";
+		for (SequentialPhonic ph : word)
+			output += ph.print();
+		return output;
+	}
+	
+
+	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
+		if (sp1.size() != sp2.size())
+			return false;
+		int spn = sp1.size();
+		for (int spi = 0; spi < spn; spi++)
+			if (!sp1.get(spi).equals(sp2.get(spi)))
+				return false;
+		return true;
+	}
 }

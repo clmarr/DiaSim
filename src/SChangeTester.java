@@ -342,33 +342,19 @@ public class SChangeTester {
 		
 	}
 
-	private static String printWord(List<SequentialPhonic> word) {
-		String output = "";
-		for (SequentialPhonic ph : word)
-			output += ph.print();
-		return output;
-	}
+	
 
-	private static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
-		if (sp1.size() != sp2.size())
-			return false;
-		int spn = sp1.size();
-		for (int spi = 0; spi < spn; spi++)
-			if (!sp1.get(spi).equals(sp2.get(spi)))
-				return false;
-		return true;
-	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
 			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
-		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + printWord(input)
-				+ "\n\tExpected result: " + printWord(expected) + "\n\tObserved result:\t\t" + printWord(observed)
+		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + UTILS.printWord(input)
+				+ "\n\tExpected result: " + UTILS.printWord(expected) + "\n\tObserved result:\t\t" + UTILS.printWord(observed)
 				+ "\n";
 	}
 
 	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp) {
 		List<SequentialPhonic> obs = sc.realize(inp);
-		if (phonSeqsEqual(exp, obs))
+		if (UTILS.phonSeqsEqual(exp, obs))
 			return true;
 		System.out.print(generateErrorMessage(sc, inp, exp, obs));
 		return false;

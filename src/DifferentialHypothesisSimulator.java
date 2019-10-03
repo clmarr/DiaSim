@@ -11,7 +11,7 @@ public class DifferentialHypothesisSimulator {
 	 * Class for performing analysis operations on two Simulations in order to analyze the effect of a proposed change to the cascade
 	 */
 	public final static String HANGING_INDENT = "      "; 
-	public static final char CMT_FLAG = DiachronicSimulator.CMT_FLAG; 
+	public static final char CMT_FLAG = UTILS.CMT_FLAG; 
 	public Simulation baseCascSim, hypCascSim; 
 		// "baseline cascade" and "hypothesized cascase"
 	private int[][] ruleCorrespondences; 
@@ -459,7 +459,7 @@ public class DifferentialHypothesisSimulator {
 	private static int brkPtForStageSkip(String aggRemTxt, String skipCode)
 	{
 		boolean isGold = skipCode.charAt(0) == 'g'; 
-		char SN = isGold ? DiachronicSimulator.GOLD_STAGENAME_FLAG : DiachronicSimulator.BLACK_STAGENAME_FLAG; 
+		char SN = isGold ? UTILS.GOLD_STAGENAME_FLAG : UTILS.BLACK_STAGENAME_FLAG; 
 		int skips_left = Integer.parseInt(skipCode.substring(1));  
 		if (aggRemTxt.charAt(0) == SN)	skips_left--; 
 		String dummyTxt = aggRemTxt + "";
@@ -482,13 +482,8 @@ public class DifferentialHypothesisSimulator {
 		return brkpt; 
 	}
 	
+	private String STAGEFLAGS = ""+UTILS.GOLD_STAGENAME_FLAG + UTILS.BLACK_STAGENAME_FLAG; 
 
-	//auxiliary
-	private static boolean isJustSpace(String line)
-	{
-		return line.replace(" ","").length() == 0;
-	}
-	
 	
 	/** newCascText
 	 * gets text from @global cascFileLoc
@@ -505,8 +500,6 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String newCascText(List<String> comments, boolean justPlaceHolders, String targCascLoc, SChangeFactory fac) throws MidDisjunctionEditException
 	{
-		String STAGEFLAGS = ""+DiachronicSimulator.GOLD_STAGENAME_FLAG + DiachronicSimulator.BLACK_STAGENAME_FLAG; 
-		
 		int linesPassed = 0; 
 		String readIn = ""; 
 		
@@ -575,7 +568,7 @@ public class DifferentialHypothesisSimulator {
 			while (nextRuleInd <= nextChangeRuleInd)
 			{
 				// first - skip any leading blankj lines or stage declaration lines
-				while (STAGEFLAGS.contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+				while (STAGEFLAGS.contains(readIn.substring(0,1)) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
 				{
 					int brkpt = readIn.indexOf("\n") + "\n".length(); 
 					linesPassed ++; 
@@ -593,7 +586,7 @@ public class DifferentialHypothesisSimulator {
 					linesPassed++; 
 				}
 				
-				if (!commentBlock.equals("") && isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
+				if (!commentBlock.equals("") && UTILS.isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
 				{
 					int brkpt = readIn.indexOf("\n") + "\n".length(); 
 					commentBlock += readIn.substring(0, brkpt); 
@@ -602,7 +595,7 @@ public class DifferentialHypothesisSimulator {
 				}
 				//if next line is either another blank line, another comment after blank line, 
 				// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
+				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
 					out += commentBlock; 
 				else // i.e. we are handling a line holding a rule.
 				{

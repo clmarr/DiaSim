@@ -184,7 +184,7 @@ public class SChangeContextTester {
 		
 		System.out.println("\nTesting A __ as prior context");
 		System.out.println("Min size should be 1 : "+testContext.generateMinSize()); 
-		System.out.println("Paren map should be i0 : "+printParenMap(testContext));
+		System.out.println("Paren map should be i0 : "+UTILS.printParenMap(testContext));
 		System.out.println("A __ should be TRUE: " + testContext.isPriorMatch(dummyTestList,1));
 		dummyTestList.set(0, Bph);
 		System.out.println("B __ should be FALSE: " + testContext.isPriorMatch(dummyTestList, 1)); 
@@ -197,7 +197,7 @@ public class SChangeContextTester {
 		System.out.println("\nTesting A B __ and __ A B");
 		testContext = testFactory.parseNewSeqFilter(Afm+" "+Bfm, boundsMatter);
 		System.out.println("Min size should be 2 : "+testContext.generateMinSize());
-		System.out.println("Paren map should be i0 i1 : "+printParenMap(testContext));
+		System.out.println("Paren map should be i0 i1 : "+UTILS.printParenMap(testContext));
 		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Bph); dummyTestList.add(Cph); 
 		System.out.println("A B __ should be TRUE for A B __ : "
 				+ testContext.isPriorMatch(dummyTestList, 2));
@@ -228,7 +228,7 @@ public class SChangeContextTester {
 		dummyTestList.remove(2); dummyTestList.remove(0); dummyTestList.add(Cph); 
 		System.out.println("\nTesting A (B) __");
 		System.out.println("Min size should be 1 "+testContext.generateMinSize());
-		System.out.println("Paren map should be i0 (:3,1 i1 ):1,1 --- "+printParenMap(testContext)); 
+		System.out.println("Paren map should be i0 (:3,1 i1 ):1,1 --- "+UTILS.printParenMap(testContext)); 
 		System.out.println("A B __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 2));
 		dummyTestList.remove(1); 
 		System.out.println("A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 1)); 
@@ -239,7 +239,7 @@ public class SChangeContextTester {
 		dummyTestList.set(1, Aph); dummyTestList.set(2, Bph);
 		System.out.println("\nTesting __ (A) B");
 		System.out.println("Min size should be 1 : "+testContext.generateMinSize());
-		System.out.println("ParenMap should be (:2,1 i0 ):0,1 i1 : "+printParenMap(testContext));
+		System.out.println("ParenMap should be (:2,1 i0 ):0,1 i1 : "+UTILS.printParenMap(testContext));
 		System.out.println("__ A B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
 		dummyTestList.remove(1);
 		System.out.println(" __ B should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1)); 
@@ -295,7 +295,7 @@ public class SChangeContextTester {
 		dummyTestList.clear(); dummyTestList.add(Aph); dummyTestList.add(Cph);
 		System.out.println("\nTesting A (B)* __ and __ A (B)* ");
 		System.out.println("Min size should be 1 : "+testContext.generateMinSize());
-		System.out.println("Paren map should be i0 | *(:3,1 | i1 | )*:1,1 : "+printParenMap(testContext));
+		System.out.println("Paren map should be i0 | *(:3,1 | i1 | )*:1,1 : "+UTILS.printParenMap(testContext));
 		System.out.println("A __ should be TRUE : "+testContext.isPriorMatch(dummyTestList, 1));
 		dummyTestList.clear(); dummyTestList.add(Cph); dummyTestList.add(Aph);
 		System.out.println("__ A should be TRUE : "+testContext.isPosteriorMatch(dummyTestList, 1));
@@ -421,13 +421,6 @@ public class SChangeContextTester {
 		 **/
 	}
 	
-	//TODO for debugging purposes
-	private static String printParenMap(SequentialFilter testCont)
-	{
-		String output = ""; 
-		String[] pm = testCont.getParenMap();
-		for(String p : pm)	output += p + " "; 
-		return output.trim();
-	}
+	
 	
 }

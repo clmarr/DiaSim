@@ -86,7 +86,7 @@ public class SimulationTester {
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
-		testSimul.setStepPrinterval(DiachronicSimulator.PRINTERVAL); 
+		testSimul.setStepPrinterval(UTILS.PRINTERVAL); 
 		// for debugging purposes opacity is fine. 
 		
 		//check these to make sure no initialization mutator function messed with them. 
@@ -260,7 +260,7 @@ public class SimulationTester {
 		
 
 		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+DiachronicSimulator.FEAT_DELIM); 
+		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 		
@@ -281,16 +281,16 @@ public class SimulationTester {
 		while (li < symbDefsLines.size()) 
 		{
 			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(DiachronicSimulator.FEAT_DELIM); 
+			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
 			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+DiachronicSimulator.FEAT_DELIM); 		
+			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
 			
 			String intFeatVals = ""; 
 			for(int fvi = 0; fvi < featVals.length; fvi++)
 			{
-				if(featVals[fvi].equals(""+DiachronicSimulator.MARK_POS))	intFeatVals+= DiachronicSimulator.POS_INT; 
-				else if (featVals[fvi].equals(""+DiachronicSimulator.MARK_UNSPEC))	intFeatVals += DiachronicSimulator.UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+DiachronicSimulator.MARK_NEG))	intFeatVals += DiachronicSimulator.NEG_INT; 
+				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
 				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
 			}
 			
@@ -328,8 +328,8 @@ public class SimulationTester {
 		
 		for(String filine : featImplLines)
 		{
-			String[] fisides = filine.split(""+DiachronicSimulator.IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+DiachronicSimulator.FEAT_DELIM));
+			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
+			featImplications.put(fisides[0], fisides[1].split(""+UTILS.FEAT_DELIM));
 		}
 		
 		System.out.println("Done extracting feature implications!");	
@@ -358,28 +358,28 @@ public class SimulationTester {
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
 			
-			if ( (""+DiachronicSimulator.GOLD_STAGENAME_FLAG+DiachronicSimulator.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
+			if ( (""+UTILS.GOLD_STAGENAME_FLAG+UTILS.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
 			{
-				if ( currRule.charAt(0) == DiachronicSimulator.GOLD_STAGENAME_FLAG)
+				if ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 					
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(""+DiachronicSimulator.GOLD_STAGENAME_FLAG): 
-						"Error: stage name flag <<"+DiachronicSimulator.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-					assert !currRule.contains(DiachronicSimulator.STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+DiachronicSimulator.STAGENAME_LOC_DELIM+">>";  
-					goldStageNameAndLocList.add(""+currRule+DiachronicSimulator.STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG): 
+						"Error: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					goldStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli);  
 				}
-				else if (currRule.charAt(0) == DiachronicSimulator.BLACK_STAGENAME_FLAG)
+				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG)
 				{
 					blackStagesSet =true;
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(DiachronicSimulator.STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+DiachronicSimulator.STAGENAME_LOC_DELIM+">>";  
-					blackStageNameAndLocList.add(""+currRule+DiachronicSimulator.STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					blackStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli); 
 				}
 				else	rulesByTimeInstant.remove(rli); 
@@ -417,8 +417,8 @@ public class SimulationTester {
 		CASCADE = new ArrayList<SChange>();
 		
 		int cri = 0, gsgi =0 , bsgi = 0, next_gold = -1, next_black = -1;
-		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
-		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
+		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
+		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		
 		for(String currRule : rulesByTimeInstant)
 		{
@@ -428,20 +428,20 @@ public class SimulationTester {
 			
 			if (cri == next_gold)
 			{
-				goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
+				goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 				goldStageInstants[gsgi] = CASCADE.size();		
 				gsgi += 1;
 				if ( gsgi < NUM_GOLD_STAGES)
-					next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
+					next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 			}
 			
 			if (cri == next_black)
 			{
-				blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[0];
+				blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 				blackStageInstants[bsgi] = CASCADE.size();
 				bsgi += 1;
 				if (bsgi < NUM_BLACK_STAGES)
-					next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+DiachronicSimulator.STAGENAME_LOC_DELIM)[1]);
+					next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 			}
 			
 		}
@@ -465,8 +465,8 @@ public class SimulationTester {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8"));
 			while((nextLine = in.readLine()) != null)	
-			{	if (nextLine.contains(DiachronicSimulator.CMT_FLAG+""))
-					nextLine = nextLine.substring(0,nextLine.indexOf(DiachronicSimulator.CMT_FLAG)).trim(); 
+			{	if (nextLine.contains(UTILS.CMT_FLAG+""))
+					nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
 				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
 			}
 			in.close(); 
@@ -491,9 +491,9 @@ public class SimulationTester {
 		String theLine =lexFileLines.get(0); 
 		String firstlineproxy = ""+theLine; 
 		int numCols = 1; 
-		while (firstlineproxy.contains(""+DiachronicSimulator.LEX_DELIM))
+		while (firstlineproxy.contains(""+UTILS.LEX_DELIM))
 		{	numCols++; 
-			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+DiachronicSimulator.LEX_DELIM)+1); 
+			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+UTILS.LEX_DELIM)+1); 
 		}
 		goldOutput =false; 
 		if(numCols == NUM_GOLD_STAGES + 2)
@@ -513,11 +513,11 @@ public class SimulationTester {
 		{
 			theLine = lexFileLines.get(lfli);
 			
-			initStrForms[lfli] = justInput ? theLine : theLine.split(""+DiachronicSimulator.LEX_DELIM)[0]; 
+			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
 			{	
-				String[] forms = theLine.split(""+DiachronicSimulator.LEX_DELIM); 
+				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
 						goldStageGoldWordlists[gsi][lfli] = parseLexPhon(forms[gsi+1]);
@@ -526,7 +526,7 @@ public class SimulationTester {
 			}
 			lfli++;
 			if(lfli <NUM_ETYMA)
-				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
+				assert numCols == UTILS.colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
 		}		
 
 		if(goldOutput)	
@@ -543,10 +543,10 @@ public class SimulationTester {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
-		if (toLex.contains(DiachronicSimulator.ABSENT_PH_INDIC))
+		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
 		
-		String[] toPhones = toLex.trim().split(""+DiachronicSimulator.PH_DELIM);
+		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
@@ -565,19 +565,6 @@ public class SimulationTester {
 		return new LexPhon(phones);
 	}
 	
-	//auxiliary method -- get number of columns in lexicon file. 
-	private static int colCount(String str)
-	{
-		String proxy = str+"";
-		int i = proxy.indexOf(""+DiachronicSimulator.LEX_DELIM), c = 1 ;
-		while( i > -1)
-		{
-			c++; 
-			proxy = proxy.substring(i+1);
-			i = proxy.indexOf(","); 
-		}
-		return c; 
-	}
 	
 	/**
 	 * reset DBG_WRKG_CASC to be a copy of DBG_START_CASC
@@ -661,9 +648,9 @@ public class SimulationTester {
 			while((nextRuleLine = in.readLine()) != null)
 			{
 				String lineWithoutComments = ""+nextRuleLine; 
-				if (lineWithoutComments.contains(""+DiachronicSimulator.CMT_FLAG))
+				if (lineWithoutComments.contains(""+UTILS.CMT_FLAG))
 						lineWithoutComments = lineWithoutComments.substring(0,
-								lineWithoutComments.indexOf(""+DiachronicSimulator.CMT_FLAG));
+								lineWithoutComments.indexOf(""+UTILS.CMT_FLAG));
 				if(!lineWithoutComments.trim().equals(""))	out.add(lineWithoutComments); 
 			}
 			in.close();
@@ -692,9 +679,9 @@ public class SimulationTester {
 		while(rli < rulesByStep.size())
 		{
 			String currRule = rulesByStep.get(rli); 
-			if ( (""+DiachronicSimulator.GOLD_STAGENAME_FLAG+DiachronicSimulator.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
+			if ( (""+UTILS.GOLD_STAGENAME_FLAG+UTILS.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
 			{
-				if  ( currRule.charAt(0) == DiachronicSimulator.GOLD_STAGENAME_FLAG)
+				if  ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStageTempLocs[gsi] = rli;
 					gsi++; 

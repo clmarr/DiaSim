@@ -17,10 +17,6 @@ import java.util.ArrayList;
 //TODO purge Albanian variable names.
 
 public class PhoneTester {
-
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
-	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1; 
-	private final static char IMPLICATION_DELIM = ':'; 
 	
 	public static void main(String args[]) throws IOException
 	{	
@@ -58,16 +54,16 @@ public class PhoneTester {
 		while (li < lines.size()) 
 		{
 			nextLine = lines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
+			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
 			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
+			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
 			
 			String intFeatVals = ""; 
 			for(int fvi = 0; fvi < featVals.length; fvi++)
 			{
-				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
-				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
+				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
 				else	throw new Error("Error: unrecognized feature value ");
 			}
 			
@@ -93,8 +89,8 @@ public class PhoneTester {
 		
 		for(String line : lines)
 		{
-			String[] sides = line.split(""+IMPLICATION_DELIM); 
-			featImplications.put(sides[0], sides[1].split(""+FEAT_DELIM)); 
+			String[] sides = line.split(""+UTILS.IMPLICATION_DELIM); 
+			featImplications.put(sides[0], sides[1].split(""+UTILS.FEAT_DELIM)); 
 		}
 		
 		System.out.println("feats[0] = "+feats[0]);
@@ -118,7 +114,7 @@ public class PhoneTester {
 		String featIndices = testPhone.getFeatString(); 
 		int randFeatIndex = (int)(Math.random() * testPhone.getFeatIndices().size()); 
 		badProxyFeats = badProxyFeats.substring(0, randFeatIndex) + 
-				((featIndices.charAt(randFeatIndex) == POS_INT) ? NEG_INT : POS_INT) + badProxyFeats.substring(randFeatIndex); 
+				((featIndices.charAt(randFeatIndex) == UTILS.POS_INT) ? UTILS.NEG_INT : UTILS.POS_INT) + badProxyFeats.substring(randFeatIndex); 
 		System.out.println(testPhone.equals(new Phone(badProxyFeats, featureIndices, symbsToFeatures))); 
 		
 		System.out.println("Following output should be 'false'"); 

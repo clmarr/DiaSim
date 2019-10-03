@@ -22,18 +22,6 @@ import java.util.Collections;
  */
 public class DiachronicSimulator {
 	
-	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
-	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
-	public final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
-	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
-	public final static char STAGENAME_LOC_DELIM = ':'; 
-	public final static char LEX_DELIM =','; 
-	public final static char STAGE_PRINT_DELIM = ',';  
-	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
-	public final static String ABSENT_PH_INDIC = "...";
-	public final static int maxAutoCommentWidth = 150;
-	
 	private static List<String> rulesByTimeInstant;
 	
 	private static String[] featsByIndex; 
@@ -124,7 +112,7 @@ public class DiachronicSimulator {
 		
 
 		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
+		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 		
@@ -145,16 +133,16 @@ public class DiachronicSimulator {
 		while (li < symbDefsLines.size()) 
 		{
 			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
+			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
 			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
+			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
 			
 			String intFeatVals = ""; 
 			for(int fvi = 0; fvi < featVals.length; fvi++)
 			{
-				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
-				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
+				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
 				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
 			}
 			
@@ -192,8 +180,8 @@ public class DiachronicSimulator {
 		
 		for(String filine : featImplLines)
 		{
-			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
+			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
+			featImplications.put(fisides[0], fisides[1].split(""+UTILS.FEAT_DELIM));
 		}
 		
 		System.out.println("Done extracting feature implications!");	
@@ -214,9 +202,9 @@ public class DiachronicSimulator {
 			while((nextRuleLine = in.readLine()) != null)
 			{
 				String lineWithoutComments = ""+nextRuleLine; 
-				if (lineWithoutComments.contains(""+CMT_FLAG))
+				if (lineWithoutComments.contains(""+UTILS.CMT_FLAG))
 						lineWithoutComments = lineWithoutComments.substring(0,
-								lineWithoutComments.indexOf(""+CMT_FLAG));
+								lineWithoutComments.indexOf(""+UTILS.CMT_FLAG));
 				if(!lineWithoutComments.trim().equals(""))	rulesByTimeInstant.add(lineWithoutComments); 
 			}
 			in.close();
@@ -248,29 +236,29 @@ public class DiachronicSimulator {
 		{
 			String currRule = rulesByTimeInstant.get(rli); 
 			
-			if ( (""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
+			if ( (""+UTILS.GOLD_STAGENAME_FLAG+UTILS.BLACK_STAGENAME_FLAG).contains(""+currRule.charAt(0)))
 			{
 				if (ignore_stages)	rulesByTimeInstant.remove(rli); 
-				else if ( currRule.charAt(0) == GOLD_STAGENAME_FLAG)
+				else if ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 					
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(""+GOLD_STAGENAME_FLAG): 
-						"Error: stage name flag <<"+GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-					goldStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG): 
+						"Error: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
+					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					goldStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli);  
 				}
-				else if (currRule.charAt(0) == BLACK_STAGENAME_FLAG)
+				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG)
 				{
 					blackStagesSet =true;
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+STAGENAME_LOC_DELIM+">>";  
-					blackStageNameAndLocList.add(""+currRule+STAGENAME_LOC_DELIM+rli);
+					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
+						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					blackStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli); 
 				}
 				else	rulesByTimeInstant.remove(rli); 
@@ -287,7 +275,7 @@ public class DiachronicSimulator {
 		{
 			System.out.print("Gold stages: ");
 			for (String gs : goldStageNameAndLocList)
-				System.out.print(gs.substring(0,gs.indexOf(STAGENAME_LOC_DELIM))+",");
+				System.out.print(gs.substring(0,gs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
 			System.out.println(""); 
 		}
 		  
@@ -295,7 +283,7 @@ public class DiachronicSimulator {
 		{
 			System.out.print("Black stages:");
 			for (String bs : blackStageNameAndLocList)
-				System.out.print(bs.substring(0,bs.indexOf(STAGENAME_LOC_DELIM))+",");
+				System.out.print(bs.substring(0,bs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
 			System.out.println(""); 
 		}
 		
@@ -309,8 +297,8 @@ public class DiachronicSimulator {
 		CASCADE = new ArrayList<SChange>();
 		
 		int cri = 0, gsgi =0 , bsgi = 0, next_gold = -1, next_black = -1;
-		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
-		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
+		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		
 		for(String currRule : rulesByTimeInstant)
 		{
@@ -330,11 +318,11 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_gold)
 				{
-					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					goldStageInstants[gsgi] = CASCADE.size();		
 					gsgi += 1;
 					if ( gsgi < NUM_GOLD_STAGES)
-						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+						next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 				}
 			}
 			
@@ -342,11 +330,11 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_black)
 				{
-					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[0];
+					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					blackStageInstants[bsgi] = CASCADE.size();
 					bsgi += 1;
 					if (bsgi < NUM_BLACK_STAGES)
-						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+STAGENAME_LOC_DELIM)[1]);
+						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 				}
 			}
 			
@@ -386,8 +374,8 @@ public class DiachronicSimulator {
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8"));
 			while((nextLine = in.readLine()) != null)	
-			{	if (nextLine.contains(CMT_FLAG+""))
-					nextLine = nextLine.substring(0,nextLine.indexOf(CMT_FLAG)).trim(); 
+			{	if (nextLine.contains(UTILS.CMT_FLAG+""))
+					nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
 				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
 			}
 			in.close(); 
@@ -410,9 +398,9 @@ public class DiachronicSimulator {
 		String theLine =lexFileLines.get(0); 
 		String firstlineproxy = ""+theLine; 
 		int numCols = 1; 
-		while (firstlineproxy.contains(""+LEX_DELIM))
+		while (firstlineproxy.contains(""+UTILS.LEX_DELIM))
 		{	numCols++; 
-			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+LEX_DELIM)+1); 
+			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+UTILS.LEX_DELIM)+1); 
 		}
 		goldOutput =false; 
 		if(numCols == NUM_GOLD_STAGES + 2)
@@ -433,11 +421,11 @@ public class DiachronicSimulator {
 		{
 			theLine = lexFileLines.get(lfli);
 			
-			initStrForms[lfli] = justInput ? theLine : theLine.split(""+LEX_DELIM)[0]; 
+			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
 			{
-				String[] forms = theLine.split(""+LEX_DELIM); 
+				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
 						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
@@ -577,7 +565,7 @@ public class DiachronicSimulator {
 
 	private static void makeOutGraphFile()
 	{	
-		String filename = runPrefix + "_output_graph"+ OUT_GRAPH_FILE_TYPE; 
+		String filename = runPrefix + "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE; 
 		UTILS.writeToFile(filename, theSimulation.outgraph()); 
 	}
 	
@@ -665,10 +653,10 @@ public class DiachronicSimulator {
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
-		if (toLex.contains(ABSENT_PH_INDIC))
+		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
 		
-		String[] toPhones = toLex.trim().split(""+PH_DELIM);
+		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
@@ -691,7 +679,7 @@ public class DiachronicSimulator {
 	private static int colCount(String str)
 	{
 		String proxy = str+"";
-		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
+		int i = proxy.indexOf(""+UTILS.LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{
 			c++; 
@@ -906,7 +894,7 @@ public class DiachronicSimulator {
 				
 				while(fail)
 				{	
-					System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+PH_DELIM+"'");
+					System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"'");
 					
 					resp = inpu.nextLine().replace("\n",""); 
 					
@@ -952,7 +940,7 @@ public class DiachronicSimulator {
 					}
 					else if (resp.equals("9"))	prompt = false;
 					else if (resp.equals("0")) {
-						System.out.println("Enter the input form, separating phones by "+PH_DELIM);
+						System.out.println("Enter the input form, separating phones by "+UTILS.PH_DELIM);
 						resp = inpu.nextLine().replace("\n",""); 
 						LexPhon query = null;
 						try {
@@ -993,9 +981,9 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("2"))
 					{
-						System.out.println("etymID"+STAGE_PRINT_DELIM+"Input"+STAGE_PRINT_DELIM+"Gold");
+						System.out.println("etymID"+UTILS.STAGE_PRINT_DELIM+"Input"+UTILS.STAGE_PRINT_DELIM+"Gold");
 						for (int i = 0 ; i < r.getWordList().length ; i++)
-							System.out.println(""+i+STAGE_PRINT_DELIM+inputForms[i]+STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
+							System.out.println(""+i+UTILS.STAGE_PRINT_DELIM+inputForms[i]+UTILS.STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
 					}
 					else if(resp.equals("5"))
 					{
