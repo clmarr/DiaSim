@@ -578,8 +578,16 @@ public class DHSWrapper {
 	}
 
 	
-	/** TODO WRITE THIS COMMENT BLOCK 
-	 * 
+	/** processSingleCh 
+	 *  for debugging purposes, adds a single change and modifies internal structures accordingly,
+	 *  	but does not yet make any changes to the text of a cascade file.
+	 *  @param deleteLoc -- -1 if no deletion is involved, otherwise the index that will be deleted
+	 *  @param deletionNotes -- empty if no deletion involved, any pertinent coments otherwise
+	 *  @param addLoc -- -1 if no rule is added, otherwise the index where it will be added 
+	 *  	(will be placed before the rule previously at that index)
+	 *  @param newLaw -- string form of that will be added to file if we are adding a rule 
+	 *  @param newRules -- the one or more rules derived from that law, to be added to hypCASC etc. 
+	 *  @param insertionNOtes -- any notes pertinent to the addition of a rule. 
 	 */
 	public void processSingleCh(int deleteLoc, String deletionNotes, int addLoc, String newLaw, List<SChange> newRules, String insertionNotes)
 	{
@@ -743,4 +751,13 @@ public class DHSWrapper {
 
 	public void setHypOutLoc(String newLoc)
 	{	hypOutLoc = ""+newLoc;	}
+	
+	public List<SChange> getHypCASC()	{	return hypCASC;	}
+	public List<SChange> getBaseCASC()	{	return baseCASC;	}
+	public int[] getRULE_IND_MAP()	{	return RULE_IND_MAP;	}
+	public int[] getHypGoldLocs()	{	return hypGoldLocs;	}
+	public int[] getHypBlackLocs()	{	return hypBlackLocs;	}
+	public List<String[]> getProposedChanges()	{	return proposedChanges;	}
+	
+	
 }

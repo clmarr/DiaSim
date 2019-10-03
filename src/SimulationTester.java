@@ -234,10 +234,33 @@ public class SimulationTester {
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
 		System.out.println(UTILS.fillSpaceToN("Output",24)+UTILS.stdMetricReport(checker)); 
 		
-
+		DHSWrapper DHSW = newDHS(testSimul); 
+		errorCount = totalErrorCount = 0; 
+		System.out.println("First test: insertion at the beginning of the cascade of a lateral darkening rule.\n"
+				+ "\tThis should increase accuracy at each gold stage and the output by 0.075."); 
+		
+		String nextLaw = "l > lˠ / __ [+cons]"; 
+		String nextCmt = "L-darkening as evidenced by mˈowlˠɾəd, bɨhˈowlˠɾə̃n, mˈowlˠʔə̃n"; 
 		
 		
-
+		DHSW.processSingleCh(-1, "", 0, nextLaw, theFactory.generateSoundChangesFromRule(nextLaw), nextCmt);
+		List<SChange> curHC = DHSW.getHypCASC();
+		errorCount += checkBoolean(curHC.get(0).toString().equals(nextLaw), true, "Error: first instance does not have the correct rule.") ? 0 : 1; 
+		errorCount += checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
+				"Error: 2nd rule onward for hypCASC should be equal to baseCASC, but apparently it is not.") ? 0 : 1;
+		errorCount += checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
+				"Error: 2nd rule onward for hypCASC should be equal to SimulationTester.CASCADE, but apparently it is not.") ? 0 : 1;
+		errorCount += checkBoolean(3  == DHSW.getRULE_IND_MAP()[2], true, "Error: increment on RULE_IND_MAP not done properly.") ? 0 : 1; 
+		errorCount += checkBoolean(6 == DHSW.getHypGoldLocs()[0], true, "Error: increment on hypGoldLocs not done correctly.") ? 0 : 1; 
+		String[] thepc = DHSW.getProposedChanges().get(0); 
+		errorCount += checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
+				"Error: update on proposedChanges not carried out properly") ? 0 : 1; 
+		
+		
+	}
+	
+	private static DHSWrapper newDHS(Simulation sim)
+	{	return new DHSWrapper(sim, feats_weighted, featsByIndex, FT_WTS, ID_WT, DBG_WRKG_CASC); 
 	}
 	
 	private static void extractSymbDefs()

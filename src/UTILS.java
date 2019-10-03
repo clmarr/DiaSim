@@ -162,4 +162,13 @@ public class UTILS {
 			""+ea.getAccuracy(), ""+ea.getPctWithin1(), ""+ea.getPctWithin2(),
 			""+ea.getAvgPED(), ""+ea.getAvgFED() }); 
 	}
+	
+	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
+	{
+		assert c1.size() == c2.size() : "Error: tried to compare two cascades of different lengths..."; 
+		for(int ci = 0; ci < c1.size(); ci++)
+			if (!c1.get(ci).toString().equals(""+c2.get(ci)))
+				return false;
+		return true;
+	}
 }
