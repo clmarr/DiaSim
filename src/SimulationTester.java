@@ -255,8 +255,14 @@ public class SimulationTester {
 		String[] thepc = DHSW.getProposedChanges().get(0); 
 		errorCount += checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
 				"Error: update on proposedChanges not carried out properly") ? 0 : 1; 
+		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
+		String prc = theDHS.printRuleCorrespondences(); 
+		System.out.println("Rule correspondences:\n"+prc+"\n"); 
 		
+		errorCount += checkBoolean(prc.equals("1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10\n"
+				+ "-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9"),
+				true, "Error: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
 	}
 	
 	private static DHSWrapper newDHS(Simulation sim)

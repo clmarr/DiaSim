@@ -80,6 +80,7 @@ public class DifferentialHypothesisSimulator {
 			// length of baseCasc = shared + deletions
 			// length of hypCasc = shared + insertions
 			// # of deletions also equals number of -1 values in baseToHypIndMap
+		// we store this value in total_length, computed below. 
 		int total_length = hypCascSim.getTotalSteps(); 
 		for (int bihimi : baseToHypIndMap)
 			if (bihimi == -1)
@@ -92,21 +93,22 @@ public class DifferentialHypothesisSimulator {
 		
 		while (ri < total_length)
 		{
-			if (hci == Integer.parseInt(proposedChs.get(pci)[0]))
+			
+			if (pci < proposedChs.size() ? hci == Integer.parseInt(proposedChs.get(pci)[0]): false)
 			{
 				if( proposedChs.get(pci)[1].equals("deletion"))
 				{
 					//TODO debugging -- commment out when no longer necessary
 					assert baseToHypIndMap[bci] == -1 : "ERROR: inconsistency in stored info about a rule deletion operation"; 
 					
-					ruleCorrespondences[ri][0] = bci; 
-					ruleCorrespondences[ri][1] = -1; 
+					ruleCorrespondences[0][ri] = bci; 
+					ruleCorrespondences[1][ri] = -1; 
 					bci++;
 				}
 				else //insertion
 				{
-					ruleCorrespondences[ri][0] = -1;
-					ruleCorrespondences[ri][1] = hci;
+					ruleCorrespondences[0][ri] = -1;
+					ruleCorrespondences[1][ri] = hci;
 					hci++; 
 				}
 				pci++; 
@@ -116,8 +118,8 @@ public class DifferentialHypothesisSimulator {
 				//TODO debugging
 				assert baseToHypIndMap[bci] == hci : "ERROR: inconsistency about what should be a 1-to-1 rule correspondence"; 
 				
-				ruleCorrespondences[ri][0] = bci;
-				ruleCorrespondences[ri][1] = hci;	
+				ruleCorrespondences[0][ri] = bci;
+				ruleCorrespondences[1][ri] = hci;	
 			}
 			ri++; 
 		}
@@ -144,7 +146,6 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	/**fills changedDerivations and changedRuleEffects, and sets divergence point. 
-	 * auxiliary for computeTrajectoryChange()
 	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
 	 * @return @default an empty String ""- means there is no difference between the derivations
 	 * 	otherwise: the DIFFERENTIAL DERIVATION, formed as follows: 
@@ -172,7 +173,8 @@ public class DifferentialHypothesisSimulator {
 			//TODO will need to debug here...
 			
 			String ddHere = getDifferentialDerivation(ei); 
-			if (!"".contains(ddHere))
+			//recall -- if getDifferentialDerivation() returns "" it means there is no difference 
+			if (!"".equals(ddHere)) 
 			{
 				changedDerivations.put(ei, ddHere);
 				ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); 
@@ -214,6 +216,13 @@ public class DifferentialHypothesisSimulator {
 		}
 	}
 
+	/** getDifferentialDerivation 
+	 * @return the differential derivation for a particular etymon
+	 * 	* the etymon being indexed by @param et_id
+	 * this is the a two-sided derivation which shows the engendered difference between
+	 * 	* the baseline cascade and the hypothesis cascade
+	 * @return the empty string "" if there is no difference. 
+	 */
 	public String getDifferentialDerivation(int et_id)
 	{
 		String baseDer= baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
@@ -745,5 +754,12 @@ public class DifferentialHypothesisSimulator {
 
 		//TODO make sure this final append behavior is carried out correctly.
 		return out + readIn; 
+	}
+	
+	public int[][] getRuleCorrespondences()	{	return ruleCorrespondences;	}
+	
+	public String printRuleCorrespondences()	{
+		return UTILS.stdCols(5, ruleCorrespondences[0]).substring(2)+"\n"
+				+ UTILS.stdCols(5, ruleCorrespondences[1]).substring(2); 
 	}
 }

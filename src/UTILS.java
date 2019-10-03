@@ -144,11 +144,18 @@ public class UTILS {
 		return true;
 	}
 	
+	public static String stdCols(int width, int[] vals)
+	{
+		String[] strvals = new String[vals.length] ;
+		for (int vi = 0; vi < vals.length; vi++)	strvals[vi] = ""+vals[vi];
+		return stdCols(width, strvals); 
+	}
+	
 	public static String stdCols(int width, String[] vals)
 	{
 		String out = ""; 
 		for (String val : vals)	out += "| "+fillSpaceToN(val,width);
-		return out;
+		return out.trim();
 	}
 	
 	public static String stdMetricHeader()
