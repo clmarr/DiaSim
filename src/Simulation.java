@@ -72,11 +72,16 @@ public class Simulation {
 			goldOutput = true; 
 		}
 		if (baseline.hasBlackStages())	
-			blackStageNames = baseline.blackStageNames; 
+		{
+			blackStageNames = baseline.blackStageNames;
+			blackStageResultLexica = new Lexicon[blackStageNames.length];
+			NUM_BLACK_STAGES = blackStageNames.length; 		}
+		
 		if (baseline.hasGoldStages()) {
 			goldStageGoldLexica = baseline.goldStageGoldLexica;
 			goldStageNames = baseline.goldStageNames; 
 			goldStageResultLexica = new Lexicon[goldStageNames.length] ;
+			NUM_GOLD_STAGES = goldStageNames.length;
 		}		
 	}
 	
