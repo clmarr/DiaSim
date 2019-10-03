@@ -222,14 +222,15 @@ public class SimulationTester {
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.simulateToEnd(); 
 
-		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n#bˈɪɾən# | 0 ː [-delrel,-voi] > ɾ / [-cons] __ [-stres]\n"
-				+ "#bˈɪɾə̃n# | 2 : [+nas,+son,0delrel] / __ n\n"
+		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n#bˈɪɾən# | 0 : [-delrel,+cor] > ɾ / [-cons] __ [-stres]\n"
+				+ "#bˈɪɾə̃n# | 2 : [-cons] > [+nas,+son,0delrel] / __ n\n"
 				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
-		errorCount += checkBoolean(bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), true, "Error: baseline derivation for 'bitten' not matched.") ? 0: 1; 
+		errorCount += checkBoolean(bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), true, "Error: baseline derivation for 'bitten' not matched."
+				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+testSimul.getDerivation(0)) ? 0: 1; 
 				
-		System.out.print("\nPerformance of baseline cascade before edits...\n"
+		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
 		
 		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
@@ -266,6 +267,14 @@ public class SimulationTester {
 				"Error: update on proposedChanges not carried out properly") ? 0 : 1; 
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
+		
+		int[] btg = theDHS.getBaseIndsToGlobal(), htg = theDHS.getHypIndsToGlobal(); 
+		
+		errorCount += checkBoolean(btg.length == 10 , true, "Error : base to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += checkBoolean(htg.length == 11 , true, "Error : hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += checkBoolean(btg[0] == 1 && btg[2] == 3, true, "Error : base to global ind mapper is malformed") ? 0 : 1 ; 
+		errorCount += checkBoolean(htg[0] == 0 && htg[2] == 2, true, "Error : hyp to global ind mapper is malformed") ? 0 : 1 ; 
+		
 		
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
 		

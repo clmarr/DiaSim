@@ -65,7 +65,18 @@ public class DifferentialHypothesisSimulator {
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap); //init ruleCorrespondences
+		
+		//TODO debugging
+		System.out.println("Rule corrs\n"+printRuleCorrespondences()); 
+		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
+		
+		//TODO debugging
+		System.out.println("Index globalizers...");
+		for (int bigi = 0 ; bigi < baseRuleIndsToGlobal.length ; bigi++)
+			System.out.println("b"+bigi+": "+baseRuleIndsToGlobal[bigi]); 
+		
+		
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 	}
 	
@@ -73,58 +84,53 @@ public class DifferentialHypothesisSimulator {
 	
 	private void computeRuleCorrespondences(int[] baseToHypIndMap)
 	{
-		//length of ruleCorrespondences should be: 
-			// number of shared rules 
-			// + number of deletions
-			// + number of insertions
-			// length of baseCasc = shared + deletions
-			// length of hypCasc = shared + insertions
-			// # of deletions also equals number of -1 values in baseToHypIndMap
-		// we store this value in total_length, computed below. 
-		int total_length = hypCascSim.getTotalSteps(); 
-		for (int bihimi : baseToHypIndMap)
-			if (bihimi == -1)
-				total_length += 1; 
-		
-		//TODO will probably have to debug around here...
-		
-		ruleCorrespondences = new int[2][total_length]; 
-		int ri = 0 , bci = 0, hci = 0, pci = 0;
-		
-		while (ri < total_length)
-		{
+		if (proposedChs.size() == 0)
+			ruleCorrespondences = new int[][] { baseToHypIndMap, baseToHypIndMap}; 
+		else	{	
+			//length of ruleCorrespondences should be: 
+				// number of shared rules 
+				// + number of deletions
+				// + number of insertions
+				// length of baseCasc = shared + deletions
+				// length of hypCasc = shared + insertions
+				// # of deletions also equals number of -1 values in baseToHypIndMap
+			// we store this value in total_length, computed below. 
+			int total_length = hypCascSim.getTotalSteps(); 
+			for (int bihimi : baseToHypIndMap)
+				if (bihimi == -1)
+					total_length += 1; 
 			
-			if (pci < proposedChs.size() ? hci == Integer.parseInt(proposedChs.get(pci)[0]): false)
+			//TODO will probably have to debug around here...
+			
+			ruleCorrespondences = new int[2][total_length]; 
+			int ri = 0 , bci = 0, hci = 0, pci = 0;
+			
+			while( pci < proposedChs.size())
 			{
-				if( proposedChs.get(pci)[1].equals("deletion"))
-				{
-					//TODO debugging -- commment out when no longer necessary
-					assert baseToHypIndMap[bci] == -1 : "ERROR: inconsistency in stored info about a rule deletion operation"; 
-					
-					ruleCorrespondences[0][ri] = bci; 
-					ruleCorrespondences[1][ri] = -1; 
-					bci++;
+				int chLoc = Integer.parseInt(proposedChs.get(pci)[0]); 
+				while (ri < chLoc)	{
+					ruleCorrespondences[0][ri] = bci; bci++; 
+					ruleCorrespondences[1][ri] = hci; hci++; 
+					ri++; 
 				}
-				else //insertion
-				{
-					ruleCorrespondences[0][ri] = -1;
-					ruleCorrespondences[1][ri] = hci;
-					hci++; 
-				}
+				boolean deletion = proposedChs.get(pci)[1].equals("deletion"); 
+				ruleCorrespondences[0][ri] = deletion ? bci : -1; 
+				bci += deletion ? 1 : 0; 
+				ruleCorrespondences[1][ri] = deletion ? -1 : hci; 
+				hci += deletion ? 0 : 1; 
+				ri++; 
 				pci++; 
 			}
-			else // rules should be corresponding
+			while ( ri < total_length)
 			{
-				//TODO debugging
-				assert baseToHypIndMap[bci] == hci : "ERROR: inconsistency about what should be a 1-to-1 rule correspondence"; 
-				
-				ruleCorrespondences[0][ri] = bci;
-				ruleCorrespondences[1][ri] = hci;	
+				ruleCorrespondences[0][ri] = bci; bci++; 
+				ruleCorrespondences[1][ri] = hci; hci++; 
+				ri++; 
 			}
-			ri++; 
+			
+			
+			assert ri == total_length: "ERROR: some inconsistency in rule mapping operation coverage"; 
 		}
-		
-		assert ri == total_length: "ERROR: some inconsistency in rule mapping operation coverage"; 
 	}
 	
 	/**
@@ -238,6 +244,10 @@ public class DifferentialHypothesisSimulator {
 		
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
+		
+		//TODO debugging
+		System.out.println("globalized baseDer:\n"+baseDer);
+		
 		
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n"); 
 		
@@ -807,6 +817,10 @@ public class DifferentialHypothesisSimulator {
 		return gl.substring(0, gl.indexOf("|")+2) + gl.substring(gl.indexOf("[")+1, gl.indexOf("]"))
 			+ gl.substring(gl.indexOf(":")-1);
 	}
+	
+	// for debugigng purposes...
+	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
+	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
 
 	
 }
