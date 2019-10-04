@@ -37,12 +37,18 @@ public class DifferentialHypothesisSimulator {
 				// that is not one of the ones stipulated by the proposed changes 
 				// is effected -- i.e. a bleeding or feeding effect. 
 	
-	private HashMap<Integer,List<String>[]>	changedRuleEffects; 
-		// Integer type key is the OUTER NESTING INDEX in ruleCorrespondences
+	//TODO need to reform this...
+	private HashMap<Integer,String[][]>	changedRuleEffects; 
+		// Integer type key is ruleCorrespondences's OUTER NESTING INDEX (i.e. the "global index") 
 			// only rules with changed effects are included here.
-			// List[]<String> contains (index = 0) strings for changes that are only in the baseline
-				//and likewise with index 1 for hypCasc
-			// these strings are simple X > Y (whole word forms, with changed entities surrounded by {})
+		// String[2][NUM_ETYMA] value has all empty cells by default.
+			// outer nesting 0 is for the baseline , 1 is for alt hyp
+			//inner nesting is by global etymon index
+		// cells are filled when and only when we find 
+			// changes that are only in the baseline/hyp are found
+		// these strings are simple X > Y 
+		// (whole word forms)
+			//TODO : enclose changed phonemes with {} 
 	
 	private int[] baseRuleIndsToGlobal, hypRuleIndsToGlobal; 
     // indices -- base/hyp rule indices
@@ -162,7 +168,7 @@ public class DifferentialHypothesisSimulator {
 		int n_ets = baseCascSim.NUM_ETYMA();  
 		
 		changedDerivations = new HashMap<Integer,String>(); 
-		changedRuleEffects = new HashMap<Integer,List<String>[]>(); 
+		changedRuleEffects = new HashMap<Integer,String[][]>(); 
 		
 		for (int ei = 0 ; ei < n_ets ; ei++)
 		{
@@ -179,6 +185,7 @@ public class DifferentialHypothesisSimulator {
 		        String ddHere = getDifferentialDerivation(ei);
 		        changedDerivations.put(ei, ddHere); 
 		        
+		        // now adding effects for changedRuleEffects 
 		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
 		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
 
@@ -186,14 +193,31 @@ public class DifferentialHypothesisSimulator {
 				{
 					if(ddl.contains(">"))
 					{
-						//TODO debugging
-						System.out.println(" ddl "+ddl); 
-						
 						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("["))); 
 						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" | "); 
 						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")}; 
+						
+						// since modification is stored here as a deletion and an insertion,
+							// it will not be represented as a single rule in a differential derivation
+						// therefore, there is a bidirectional implication between non-equivalence of 
+							// rule effects "hitting" words
+								// and changes in rule effects, 
+							// so hit[0] != hit[1] is a perfect proxy.
 						if (hit[0] != hit[1])
 						{
+							if(changedRuleEffects.containsKey(globInd))
+							{
+								// differences detected thus far that we are adding the latest to
+								String[][] diffEffsHere = changedRuleEffects.get(globInd); 
+								if (hit[0])	diffEffsHere[0][ei] = effs[0] ; 
+								else /*hit[1]*/	diffEffsHere[1][ei] = effs[1] ; 
+							}
+							else
+							{
+								
+							}
+							
+							//TODO below is abrogated . 
 							if(changedRuleEffects.containsKey(globInd))
 							{	//TODO check this.
 								List<String>[] valHere = changedRuleEffects.get(globInd); 
@@ -201,10 +225,18 @@ public class DifferentialHypothesisSimulator {
 								else	valHere[1].add(""+ei+": "+effs[1]); 
 								changedRuleEffects.put(globInd, valHere); 
 							}
-							else //TODO check this
-								changedRuleEffects.put(globInd, new List[] {
-										hit[0] ? Arrays.asList(new String[] {""+ei+": "+effs[0]}) : new ArrayList<String>(), 
+							else
+							{
+								List<String>[] valHere = new List<String>[2];
+							}
+							
+							
+							/**else //TODO check this
+								changedRuleEffects.put(globInd, 
+										new List[] { hit[0] ? Arrays.asList(new String[] {""+ei+": "+effs[0]}) 
+													: new ArrayList<String>(), 
 												hit[1] ? Arrays.asList(new String[] {""+ei+": "+effs[1]}) : new ArrayList<String>() } );
+					**/
 						}
 
 					}
@@ -305,7 +337,7 @@ public class DifferentialHypothesisSimulator {
 					nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
 						
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
-						+"|"+ruleCorrespondences[1][nextGlobalHypInd]+" : "
+						+"|"+ruleCorrespondences[1][nextGlobalHypInd]+"] : "
 						+lastBform+" > "+nextBform+" | "+lastHform+" > "+nextHform;
 				lastBform = nextBform; 
 				lastHform = nextHform; 
@@ -343,6 +375,10 @@ public class DifferentialHypothesisSimulator {
 				lastHform = nextHform; 
 			}
 		}
+		
+		//TODO debugging
+		System.out.println(out);
+		
 		return out; 
 		
 	}
