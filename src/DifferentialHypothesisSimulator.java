@@ -275,50 +275,26 @@ public class DifferentialHypothesisSimulator {
 		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
+			//TODO debugging
+			System.out.println("bdlines["+bdli+"] "+bdlines[bdli]+"\nhdlines["+hdli+"] "+hdlines[hdli]); 
+			
+			
 			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form "), 
 							hdlines[hdli].indexOf(" stage form : ")}; 
 			
 			boolean[] isFin = new boolean[] { bdlines[bdli].substring(0,5).equals("Final"), hdlines[hdli].substring(0,5).equals("Final")} ; 
 			
-			if (stageHere[0]== -1)
-				nextGlobalBaseInd = isFin[0] ? -1 : UTILS.extractInd(bdlines[bdli]);
-			if (stageHere[1]== -1)
-				nextGlobalHypInd = isFin[1] ? -1 : UTILS.extractInd(hdlines[hdli]);
-		
-			if (stageHere[0] > -1 && stageHere[1] > -1)
-			{
-				out += "\n"+bdlines[bdli].substring(0, stageHere[0])+bdlines[bdli].substring(stageHere[0]+12)+" | "
-						+ hdlines[hdli].substring(0, stageHere[1])+hdlines[hdli].substring(stageHere[1]+12); 
-				bdli++; hdli++; 
-			}
-			else if (isFin[0] || isFin[1])
-			{
-				if (isFin[0] == isFin[1]) out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].lastIndexOf(":")+1) + " | "+
-						hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+1);
-				else if (isFin[0]) //feeding or insertion
-				{
-					String nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | ")); 
+			nextGlobalBaseInd = (isFin[0] || stageHere[0] > -1) ? -1 : UTILS.extractInd(bdlines[bdli]); 
+			nextGlobalHypInd = (isFin[1] || stageHere[1] > -1) ? -1 : UTILS.extractInd(hdlines[hdli]); 
 
-					out += "\n"+nextGlobalHypInd+"[-1|"+ruleCorrespondences[1][nextGlobalHypInd]+"] : "
-							+ "fed or inserted | "+lastHform+" > "+nextHform; 
-					hdli++;
-					lastHform = nextHform; 
-				}
-				else //bleeding or deletion
-				{
-					String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | "));
-					
-					out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
-							+ "|-1] : "+lastBform+" > "+nextBform+" | bled or deleted"; 
-					bdli++; 
-					lastBform = nextBform; 
-				}
-			}
-			else if (nextGlobalBaseInd == nextGlobalHypInd) { 
-				// effects of same rule 
-				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")),
-						nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
-				
+			//TODO debugging
+			System.out.println("nextGlobalBaseInd "+nextGlobalBaseInd+" nextGlobalHypInd "+nextGlobalHypInd);
+			
+			if (nextGlobalBaseInd == nextGlobalHypInd && nextGlobalBaseInd != -1)
+			{
+				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")), 
+					nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
+						
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
 						+"|"+ruleCorrespondences[1][nextGlobalHypInd]+" : "
 						+lastBform+" > "+nextBform+" | "+lastHform+" > "+nextHform;
@@ -326,11 +302,19 @@ public class DifferentialHypothesisSimulator {
 				lastHform = nextHform; 
 				bdli++; hdli++; 	
 			}
-			else if (stageHere[1] == -1? true : nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
+			else if(stageHere[0] > -1 && stageHere[1] > -1)
 			{
-				//TODO debugging
-				System.out.println( bdlines[bdli]);
-				//TODO tjehre is an error here... 
+				out += "\n"+bdlines[bdli].substring(0, stageHere[0])+bdlines[bdli].substring(stageHere[0]+12)+" | "
+						+ hdlines[hdli].substring(0, stageHere[1])+hdlines[hdli].substring(stageHere[1]+12); 
+				bdli++; hdli++; 
+			}
+			else if(isFin[0] && isFin[1])
+			{	out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].lastIndexOf(":")+1) + " | "+
+									hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+1);
+				hdli++; bdli++;	}
+			else if (nextGlobalBaseInd == -1 ? true : nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
+			{
+
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf("|")-1);
 				
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]

@@ -182,6 +182,8 @@ public class UTILS {
 	// extracts in from a line in derivation. 
 	public static int extractInd(String dl)
 	{
+		//TODO debuggin
+		System.out.println("extracted "+Integer.parseInt( dl.substring( dl.indexOf(" | ") + 3, dl.lastIndexOf(" :")).trim()));
 		return Integer.parseInt( dl.substring( dl.indexOf(" | ") + 3, dl.lastIndexOf(" :")).trim());
 	}
 }
