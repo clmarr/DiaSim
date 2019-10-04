@@ -179,9 +179,9 @@ public class UTILS {
 		return true;
 	}
 	
-	//should ONLY be called after the derivation has been globalized by means of DifferentialHypothesisSimulator.derivationToGlobalInds()
-	public static int extractGlobalInd(String dl)
+	// extracts in from a line in derivation. 
+	public static int extractInd(String dl)
 	{
-		return Integer.parseInt( dl.substring( dl.indexOf("[") + 1, dl.indexOf("]"))); 
+		return Integer.parseInt( dl.substring( dl.indexOf(" | ") + 3, dl.lastIndexOf(" :")).trim());
 	}
 }

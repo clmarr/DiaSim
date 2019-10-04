@@ -221,6 +221,10 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String getDifferentialDerivation(int et_id)
 	{
+		//TODO debugging
+		System.out.println("for "+et_id+": "+baseCascSim.getInputForm(et_id)); 
+		
+		
 		String baseDer= baseCascSim.getDerivation(et_id), 
 				hypDer = hypCascSim.getDerivation(et_id); 
 		if (baseDer.equals(hypDer))	return "";
@@ -254,8 +258,8 @@ public class DifferentialHypothesisSimulator {
 
 		// we know next line cannot be gold/black stage announcement as that could not be the first line with divergence. 
 		
-		int nextGlobalBaseInd = UTILS.extractGlobalInd(bdlines[bdli]),
-				nextGlobalHypInd = UTILS.extractGlobalInd(hdlines[hdli]); 
+		int nextGlobalBaseInd = UTILS.extractInd(bdlines[bdli]),
+				nextGlobalHypInd = UTILS.extractInd(hdlines[hdli]); 
 		
 		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+"/"+nextGlobalHypInd; 
 		
@@ -267,15 +271,19 @@ public class DifferentialHypothesisSimulator {
 		// when the index is not shared, we are handling a case of deletion/insertion, 
 			// or bleeding/feeding as a result of the rule change.
 		
+		
+		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
 			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form "), 
 							hdlines[hdli].indexOf(" stage form : ")}; 
 			
+			boolean[] isFin = new boolean[] { bdlines[bdli].substring(0,5).equals("Final"), hdlines[hdli].substring(0,5).equals("Final")} ; 
+			
 			if (stageHere[0]== -1)
-				nextGlobalBaseInd = UTILS.extractGlobalInd(bdlines[bdli]);
+				nextGlobalBaseInd = isFin[0] ? -1 : UTILS.extractInd(bdlines[bdli]);
 			if (stageHere[1]== -1)
-				nextGlobalHypInd = UTILS.extractGlobalInd(hdlines[hdli]);
+				nextGlobalHypInd = isFin[1] ? -1 : UTILS.extractInd(hdlines[hdli]);
 		
 			if (stageHere[0] > -1 && stageHere[1] > -1)
 			{
@@ -283,7 +291,31 @@ public class DifferentialHypothesisSimulator {
 						+ hdlines[hdli].substring(0, stageHere[1])+hdlines[hdli].substring(stageHere[1]+12); 
 				bdli++; hdli++; 
 			}
-			else if (nextGlobalBaseInd == nextGlobalHypInd) { // effects of same rule 
+			else if (isFin[0] || isFin[1])
+			{
+				if (isFin[0] == isFin[1]) out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].lastIndexOf(":")+1) + " | "+
+						hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+1);
+				else if (isFin[0]) //feeding or insertion
+				{
+					String nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | ")); 
+
+					out += "\n"+nextGlobalHypInd+"[-1|"+ruleCorrespondences[1][nextGlobalHypInd]+"] : "
+							+ "fed or inserted | "+lastHform+" > "+nextHform; 
+					hdli++;
+					lastHform = nextHform; 
+				}
+				else //bleeding or deletion
+				{
+					String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | "));
+					
+					out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
+							+ "|-1] : "+lastBform+" > "+nextBform+" | bled or deleted"; 
+					bdli++; 
+					lastBform = nextBform; 
+				}
+			}
+			else if (nextGlobalBaseInd == nextGlobalHypInd) { 
+				// effects of same rule 
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")),
 						nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
 				
@@ -296,7 +328,10 @@ public class DifferentialHypothesisSimulator {
 			}
 			else if (stageHere[1] == -1? true : nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
 			{
-				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | "));
+				//TODO debugging
+				System.out.println( bdlines[bdli]);
+				//TODO tjehre is an error here... 
+				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf("|")-1);
 				
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
 						+ "|-1] : "+lastBform+" > "+nextBform+" | bled or deleted"; 
