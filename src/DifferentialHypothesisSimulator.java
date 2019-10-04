@@ -168,7 +168,7 @@ public class DifferentialHypothesisSimulator {
 		{
 			//TODO will need to debug here...
 			
-			int lexDivPt = findLexicalDivergencePoint(ei); 
+			int lexDivPt = findEtymonDivergence(ei); 
 
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
@@ -182,13 +182,15 @@ public class DifferentialHypothesisSimulator {
 		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
 		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
 
-		        //TODO debugging -- there is oging to be an error in this loop until getDifferentialDerivation is fixed! 
 				for (String ddl : ddHere.split("\n"))
 				{
 					if(ddl.contains(">"))
 					{
+						//TODO debugging
+						System.out.println(" ddl "+ddl); 
+						
 						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("["))); 
-						String[] effs = ddl.substring(ddl.indexOf(": "+2)).split(" | "); 
+						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" | "); 
 						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")}; 
 						if (hit[0] != hit[1])
 						{
@@ -241,11 +243,13 @@ public class DifferentialHypothesisSimulator {
 		
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n"); 
 		
-		//TODO debugging
 		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations" ;
 		String out = bdlines[0]; 
-		int bdli = globalDivergenceLoc(baseDer, hypDer); 
+		int bdli = globalDivergenceLine(baseDer, hypDer); 
 		int hdli = bdli ;
+		
+		//TODO debugging
+		System.out.println("divergence at bdli "+bdli);
 		
 		String lastBform = "" , lastHform = "";
 		
@@ -256,12 +260,17 @@ public class DifferentialHypothesisSimulator {
 			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 
 		}
 
-		// we know next line cannot be gold/black stage announcement as that could not be the first line with divergence. 
 		
-		int nextGlobalBaseInd = UTILS.extractInd(bdlines[bdli]),
+		int nextGlobalBaseInd = UTILS.extractInd(bdlines[bdli]), 
 				nextGlobalHypInd = UTILS.extractInd(hdlines[hdli]); 
 		
-		out += "\nCONCORDANT UNTIL RULE : "+nextGlobalBaseInd+"/"+nextGlobalHypInd; 
+		// we know next line cannot be gold/black stage announcement as that could not be the first line with divergence. 
+		//cannot allow divergence to be at something other than a rule realization -- throw AssertionError if so
+		assert nextGlobalBaseInd != -1 || nextGlobalBaseInd != nextGlobalHypInd : 
+			"Error : cannot have divergence occur due to something other than a difference in sound rules."; 
+		
+		int concordantUntil = Math.min(nextGlobalBaseInd, nextGlobalHypInd) == -1 ? Math.max(nextGlobalBaseInd, nextGlobalHypInd) : Math.min(nextGlobalBaseInd, nextGlobalHypInd); 
+		out += "\nCONCORDANT UNTIL RULE : "+ concordantUntil;
 		
 		// recall -- we have already aligned the numbers in the two derivations using derivationToGlobalInds()
 		// so it is obvious if we are dealing with a deletion or insertion as it is simply absent on the other side.
@@ -284,7 +293,7 @@ public class DifferentialHypothesisSimulator {
 			
 			boolean[] isFin = new boolean[] { bdlines[bdli].substring(0,5).equals("Final"), hdlines[hdli].substring(0,5).equals("Final")} ; 
 			
-			nextGlobalBaseInd = (isFin[0] || stageHere[0] > -1) ? -1 : UTILS.extractInd(bdlines[bdli]); 
+			nextGlobalBaseInd = (isFin[0] || stageHere[0] > -1) ? -1 : UTILS.extractInd(bdlines[bdli]);
 			nextGlobalHypInd = (isFin[1] || stageHere[1] > -1) ? -1 : UTILS.extractInd(hdlines[hdli]); 
 
 			//TODO debugging
@@ -312,9 +321,12 @@ public class DifferentialHypothesisSimulator {
 			{	out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].lastIndexOf(":")+1) + " | "+
 									hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+1);
 				hdli++; bdli++;	}
-			else if (nextGlobalBaseInd == -1 ? true : nextGlobalBaseInd < nextGlobalHypInd) //deletion or bleeding
+			else if (nextGlobalHypInd == -1 ? true : nextGlobalBaseInd < nextGlobalHypInd && nextGlobalBaseInd != -1) //deletion or bleeding
 			{
-
+				//TODO debugging
+				System.out.println("bdlines["+bdli+"] : "+bdlines[bdli]); 
+				System.out.println("hdlines["+hdli+"] : "+hdlines[hdli]);
+				
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf("|")-1);
 				
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
@@ -775,12 +787,11 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	/** findLexicalDivergencePoint 
-	 * @return the earliest (global) point where the derivation of one etyma diverges
-	 * 		between its realization in the baseline and in the hypothesis cascade. 
+	 * @return the earliest line where the baseline and hypothesis derivations for one etyma diverge
 	 * @return -1 -- if there is no divergence at all. 
 	 * @param et_id -- index of the etymon
 	 */
-	private int findLexicalDivergencePoint (int et_id) 
+	private int findEtymonDivergence (int et_id) 
 	{
 		String bd = baseCascSim.getDerivation(et_id), hd = hypCascSim.getDerivation(et_id); 
 		if (bd.equals(hd))	return -1; 
@@ -788,17 +799,15 @@ public class DifferentialHypothesisSimulator {
 		hd = globalizeDerivInds(hd, true); 
 		if (bd.equals(hd))	return -1; 
 		
-		return globalDivergenceLoc(bd, hd); 
+		return globalDivergenceLine(bd, hd); 
 	}
 	
-	
-	
 	/**
-	 * find line of divergence between two line-split derivations
+	 * find the line of divergence between two line-split derivations
 	 *  of the same word
 	 * derivations entered should already be "globalized"
 	 */
-	private int globalDivergenceLoc (String bd, String hd)
+	private int globalDivergenceLine (String bd, String hd)
 	{
 		assert !bd.equals(hd): "Error: tried to find divergence point for two identical derivations!";
 
