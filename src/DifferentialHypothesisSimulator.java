@@ -271,7 +271,7 @@ public class DifferentialHypothesisSimulator {
 		String lastBform = "" , lastHform = "";
 		
 		if (bdli == 1 ) {
-			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0].replace("/", "#");	}
+			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0];	}
 		else	{
 			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" |"));
 			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 
@@ -858,6 +858,19 @@ public class DifferentialHypothesisSimulator {
 	public boolean[] getPrChLocs()	{	return prChLocs; 	}
 	public int getDivergencePoint()	{	return divergencePoint;	}
 		//-1 if they never diverge
+	public HashMap<Integer,String> getChangedDerivations()	{	return changedDerivations;	}
+	public int[] getEtsWithChangedDerivations()	{
+		Set<Integer> keys = changedDerivations.keySet();
+		int N = keys.size(); 
+		int[] out = new int[N]; 
+		while (!keys.isEmpty())
+		{
+			Integer min = Collections.min(keys); 
+			out[N-keys.size()] = min.intValue();
+			keys.remove(min); 
+		}
+		return out;
+	}
 	
 	
 	//TODO expl here.
