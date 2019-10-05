@@ -859,8 +859,10 @@ public class DifferentialHypothesisSimulator {
 	public int getDivergencePoint()	{	return divergencePoint;	}
 	public HashMap<Integer,String[][]> getChangedRuleEffects()	{	return changedRuleEffects;	}
 	public String[][] getRuleEffectChanges(int global_id)	{	return changedRuleEffects.get(global_id); 	}
-	public String[] getEffectsBlocked(int global_id)	{	return changedRuleEffects.get(global_id)[0]; 	}
-	public String[] getEffectsCaused(int global_id)	{	return changedRuleEffects.get(global_id)[1]; 	}
+	public String[] getEffectsBlocked(int global_id)	
+	{	return changedRuleEffects.containsKey(global_id) ? changedRuleEffects.get(global_id)[0] : new String[baseCascSim.NUM_ETYMA()]; 	}
+	public String[] getEffectsCaused(int global_id)	
+	{	return changedRuleEffects.containsKey(global_id) ? changedRuleEffects.get(global_id)[1] : new String[baseCascSim.NUM_ETYMA()];	}
 	
 	public HashMap<Integer,String> getChangedDerivations()	{	return changedDerivations;	}
 	public int[] getEtsWithChangedDerivations()	{

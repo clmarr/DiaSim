@@ -364,6 +364,11 @@ public class SimulationTester {
 			// for this rule there is no feeding or bleeding, so the HashMap DHS.changedRuleEffects should have only one key, 0. 
 			// and it should contain three specific feedings, for molten, molded and beholden (et ids 15,26,28)
 		HashMap<Integer,String[][]> CREs = theDHS.getChangedRuleEffects(); 
+		
+		//TODO debugging
+		System.out.println("CREs key set size "+CREs.keySet().size()) ;
+		System.out.println("CREs keys : "+CREs.keySet().toString()); 
+		
 		errorCount += UTILS.checkBoolean(true, 
 				CREs.keySet().size() == 1 && CREs.containsKey(0),
 				"ERROR: incorrect comprehension effects of insertion of l-darkening rule ") ? 0 : 1;
