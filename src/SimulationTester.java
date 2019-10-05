@@ -283,8 +283,8 @@ public class SimulationTester {
 		errorCount +=UTILS.checkBoolean(true, htg[0] == 0 && htg[2] == 2, "ERROR: hyp to global ind mapper is malformed") ? 0 : 1 ; 
 		
 		//test DifferentialHypothesisSimulator.divergencePoint 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 0, 
-				"ERROR: divergence point should be zero but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 1, 
+				"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
 		
 		// testing lexical effects. 'bitten' should not be effected, 'molted' should.
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 

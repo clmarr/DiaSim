@@ -815,7 +815,7 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	/** findLexicalDivergencePoint 
-	 * @return the earliest line where the baseline and hypothesis derivations for one etyma diverge
+	 * @return the earliest *line* where the baseline and hypothesis derivations for one etyma diverge
 	 * @return -1 -- if there is no divergence at all. 
 	 * @param et_id -- index of the etymon
 	 */
@@ -839,6 +839,7 @@ public class DifferentialHypothesisSimulator {
 	{
 		assert !bd.equals(hd): "Error: tried to find divergence point for two identical derivations!";
 
+		// recall that the first line indicates the input form -- hence etymon identity
 		String[] bdlns = bd.split("\n"), hdlns = hd.split("\n");
 		assert bdlns[0].equals(hdlns[0]) : "Error: tried to find divergence point for derivations with different inputs";
 
