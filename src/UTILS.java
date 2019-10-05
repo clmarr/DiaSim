@@ -237,4 +237,28 @@ public class UTILS {
 		return tot;
 	}
 	
+	public static boolean compare1dBoolArrs(boolean[] a1, boolean[] a2)
+	{
+		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
+		for (int ai = 0; ai < a1.length; ai++)	
+			if (a1[ai] != a2[ai])	return false;
+		return true;
+	}
+	
+	public static boolean compare1dIntArrs (int[] a1, int[] a2)
+	{
+		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
+		for (int ai = 0; ai < a1.length; ai++)	
+			if (a1[ai] != a2[ai])	return false;
+		return true;
+	}
+	
+	public static boolean compare2dIntArrs(int[][] aa1, int[][] aa2)
+	{
+		assert aa1.length == aa2.length : "Tried to compare structures of different length"; 
+		for (int aai = 0 ; aai < aa1.length; aai++)
+			if (!compare1dIntArrs(aa1[aai],aa2[aai]))	return false;
+		return true;
+	}
+	
 }
