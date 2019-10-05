@@ -10,8 +10,12 @@ public class DifferentialHypothesisSimulator {
 	/**
 	 * Class for performing analysis operations on two Simulations in order to analyze the effect of a proposed change to the cascade
 	 */
+	
+	//finals
 	public final static String HANGING_INDENT = "      "; 
 	public static final char CMT_FLAG = UTILS.CMT_FLAG; 
+	
+	//target variables needing tracked for any thorough debugging procedure
 	public Simulation baseCascSim, hypCascSim; 
 		// "baseline cascade" and "hypothesized cascase"
 	private int[][] ruleCorrespondences; 
@@ -316,9 +320,6 @@ public class DifferentialHypothesisSimulator {
 			nextGlobalBaseInd = (isFin[0] || stageHere[0] > -1) ? -1 : UTILS.extractInd(bdlines[bdli]);
 			nextGlobalHypInd = (isFin[1] || stageHere[1] > -1) ? -1 : UTILS.extractInd(hdlines[hdli]); 
 
-			//TODO debugging
-			System.out.println("nextGlobalBaseInd "+nextGlobalBaseInd+" nextGlobalHypInd "+nextGlobalHypInd);
-			
 			if (nextGlobalBaseInd == nextGlobalHypInd && nextGlobalBaseInd != -1)
 			{
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")), 
@@ -439,7 +440,7 @@ public class DifferentialHypothesisSimulator {
 						feedings = changedRuleEffects.get(globInd)[1] ; 
 				
 				System.out.println("Baseline rule "+baseInd+" (global: "+globInd+")\n\tbled for "
-						+ bleedings.length+" etyma, fed for "+feedings.length+"."); 
+						+ UTILS.numFilled(bleedings)+" etyma, fed for "+UTILS.numFilled(feedings)+"."); 
 				
 				System.out.println("Bled: "+strEffects(bleedings)); 
 				System.out.println("Fed: "+strEffects(feedings)); 
@@ -449,7 +450,7 @@ public class DifferentialHypothesisSimulator {
 		
 		boolean prgold = baseCascSim.hasGoldOutput(); 
 		
-		System.out.println("\nEtyma effected: (#: BASE>HYP"+(prgold ? "[GOLD]" : "")+")"); 
+		System.out.println("\nEtymon effected: (#: BASE>HYP"+(prgold ? "[GOLD]" : "")+")"); 
 		
 		HashMap<Integer, List<Integer>> classedChdEts = changedEtsClassifiedByFirstDomino(); 
 		

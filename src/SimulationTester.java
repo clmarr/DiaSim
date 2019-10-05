@@ -21,38 +21,34 @@ import java.util.List;
 
 public class SimulationTester {
 
+	//finals
 	private static final String DBG_WRKG_CASC = "DebugWorkingCasc",
 			DBG_GOLD_CASC = "DebugGoldCasc" , DBG_START_CASC = "DebugStartCasc"; 
 	private static final String SYMBS_LOC = "symbolDefs.csv";
 	private static final String LEX_LOC = "DebugDummyLexicon.txt"; 
 	private static final String FI_LOC = "FeatImplications"; 
-	private static double ID_WT = 0.5; 
+	private static final double ID_WT = 0.5; 
 	
+	//constant once set.
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
-
 	private static boolean feats_weighted;
 	private static double[] FT_WTS; 
-	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String[]> featImplications; 
-	
 	private static boolean goldStagesSet, blackStagesSet; 
-	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES; 
+	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static LexPhon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
-
 	private static boolean goldOutput; 
 	private static String[] goldStageNames, blackStageNames; 
 	private static LexPhon[][] goldStageGoldWordlists; //outer nested indices match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
+	
+	//track
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
-
-	
-	
 	private static List<SChange> CASCADE;
-
 	
 	public static void main(String args[])
 	{
@@ -286,8 +282,6 @@ public class SimulationTester {
 		
 		errorCount += checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
 				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
-		
-		//TODO need to fix here.
 		
 		//checking globalization of derivation
 		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")), true,

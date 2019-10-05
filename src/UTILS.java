@@ -186,4 +186,14 @@ public class UTILS {
 		
 		return Integer.parseInt( dl.substring( dl.indexOf(" | ") + 3, dl.lastIndexOf(" :")).trim());
 	}
+	
+	// auxiliary for String[] objects where etyma with different effects between alt-hyp and baseline 
+		// are stored in the cell of etymon index and others are empty
+	// functions to count how many etyma have been effected. 
+	public static int numFilled (String[] effs)
+	{
+		int c = 0; 
+		for (String eff : effs)	c += (!effs.equals("")) ? 1 : 0; 
+		return c;
+	}
 }

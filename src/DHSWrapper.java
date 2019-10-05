@@ -10,12 +10,30 @@ import java.util.Scanner;
 
 public class DHSWrapper {
 	
+	//finals 
 	public final String INV_RESP_MSG =  "Invalid response. Please enter a valid response. Returning to hypothesis testing menu.";
 	public final char STAGE_PRINT_DELIM = UTILS.STAGE_PRINT_DELIM,
 			CMT_FLAG = UTILS.CMT_FLAG;
 	public final int MAX_CMT_WIDTH = 150; 
 	public final String HANGING_INDENT = "      "; 
 	
+	//constant once set
+	private double id_wt; 
+	private String[] goldStageNames, blackStageNames;
+	private boolean feats_weighted;
+	private String[] featsByIndex;
+	private double[] FT_WTS;
+	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA; 
+
+	//long-term dynamic but not of interest in tracking
+	private String origCascLoc, hypOutLoc; 
+	
+	//dynamic non-target variables that may need to be tracked in case they are the source of error, but are not priority to track
+	private int originalLastMoment;
+	public boolean stillQuerying; 
+	
+	//those remaining below are priority variables will need to be tracked for a thorough debugging process. 
+
 	private Simulation baseSimulation, hypEmpiricized; 
 	private List<SChange> hypCASC, baseCASC; 
 	// hypCASC -- new cascade that we are progressively constructing while continually comparing against the "baseline", @varbl baseCASC
@@ -39,17 +57,7 @@ public class DHSWrapper {
 	private int[] hypGoldLocs, hypBlackLocs; 
 		// same as above for the locations of period waypoints. 
 	
-	private int originalLastMoment,
-		NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA; 
-	private String[] goldStageNames, blackStageNames;
-	private boolean feats_weighted;
-	private String[] featsByIndex;
-	private double[] FT_WTS;
-	private double id_wt; 
-	public boolean stillQuerying; 
-	private boolean goldOutput; 
 		
-	private String origCascLoc, hypOutLoc; 
 	
 	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc)
 	{
