@@ -298,7 +298,20 @@ public class SimulationTester {
 		
 		errorCount += checkBoolean(prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
 				true, "Error: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+	
+		//TODO add rule processing and debug comprehension of the following
+		// simple deletion of rule : ə˞ > ə 
+		// relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1
+		// complex modification: change t > ʔ / __ ə to : 
+				// t > ʔ / [+son] __ {# ; [-cons,-lo,-strees]}
+		// gaian relocate the flapping rule to after waypoint 2 
+		// copmlex inserton to rihgt before s > ts / n__ : 
+				// n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
+		// finally all things between waypoitns 2 and 3 insert
+		// and then check that results are all correct.
+	
 	}
+	
 	
 	private static DHSWrapper newDHS(Simulation sim)
 	{	return new DHSWrapper(sim, feats_weighted, featsByIndex, FT_WTS, ID_WT, DBG_WRKG_CASC); 
