@@ -263,4 +263,21 @@ public class UTILS {
 		return true;
 	}
 	
+	public static boolean compare1dStrArrs(String[] a1, String[] a2)
+	{
+		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
+		for (int ai = 0; ai < a1.length; ai++)	
+			if (!a1[ai].equals(a2[ai]))	return false;
+		return true;
+	}
+	
+	public static boolean compare2dStrArrs(String[][] aa1, String[][] aa2)
+	{
+		assert aa1.length == aa2.length : "Tried to compare structures of different length"; 
+		for (int aai = 0 ; aai < aa1.length; aai++)
+			if (!compare1dStrArrs(aa1[aai],aa2[aai]))	return false;
+		return true;
+	}
+	
+	
 }
