@@ -131,7 +131,6 @@ public class UTILS {
 			output += ph.print();
 		return output;
 	}
-	
 
 	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
 		if (sp1.size() != sp2.size())
@@ -169,15 +168,6 @@ public class UTILS {
 			""+ea.getAvgPED(), ""+ea.getAvgFED() }); 
 	}
 	
-	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
-	{
-		assert c1.size() == c2.size() : "Error: tried to compare two cascades of different lengths..."; 
-		for(int ci = 0; ci < c1.size(); ci++)
-			if (!c1.get(ci).toString().equals(""+c2.get(ci)))
-				return false;
-		return true;
-	}
-	
 	// extracts in from a line in derivation. 
 	public static int extractInd(String dl)
 	{
@@ -195,4 +185,56 @@ public class UTILS {
 		for (String eff : effs)	c += (!effs.equals("")) ? 1 : 0; 
 		return c;
 	}
+	
+	//checker methods
+	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
+	{
+		assert c1.size() == c2.size() : "Error: tried to compare two cascades of different lengths..."; 
+		for(int ci = 0; ci < c1.size(); ci++)
+			if (!c1.get(ci).toString().equals(""+c2.get(ci)))
+				return false;
+		return true;
+	}
+	
+	public static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
+	{
+		String c = correct.print(), o = observed.print(); 
+		boolean result = c.equals(o); 
+		if (!result)	System.out.println(errorMessage(c,o,errMessage)); 
+		return result; 
+	}
+	
+	public static boolean checkBoolean(boolean correct, boolean observed, String errMessage)
+	{
+		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
+		return correct == observed; 
+	}
+	
+	public static String errorMessage(String cor, String obs, String msg)
+	{
+		return msg.replace("%c", cor).replace("%o",obs); 
+	}
+	
+	public static void errorSummary(int ec)
+	{
+		if (ec == 0)	System.out.println("No errors yet at this point."); 
+		else	System.out.println("In all "+ec+" errors.");
+	}
+	
+	public static boolean checkMetric(double correct, double observed, String errMessage)
+	{
+		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
+		return correct == observed; 
+	}
+	
+	public static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
+	{
+		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
+		
+		int tot = 0; 
+		for (int i = 0 ; i < g.length; i++)
+			tot += checkWord(g[i], obs[i], "Reflex mismatch: %o for %c") ? 0 : 1; 
+		return tot;
+	}
+	
 }

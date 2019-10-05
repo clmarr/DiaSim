@@ -73,11 +73,11 @@ public class SimulationTester {
 		
 		int errorCount = 0, totalErrorCount = 0;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
-		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
-		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
 		// check number of words
-		errorCount += checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "Error : number of input forms not consistent after initialization") ? 0 : 1;
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
@@ -86,12 +86,12 @@ public class SimulationTester {
 		// for debugging purposes opacity is fine. 
 		
 		//check these to make sure no initialization mutator function messed with them. 
-		errorCount += checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(false, testSimul.isComplete(), "Error: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
-		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
 		// check number of stages
-		errorCount += checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 0 : 1;
-		errorCount += checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "Error: inconsistent calculation of number of gold stages") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "Error: inconsistent calculation of number of black stages") ? 0 : 1;
 				
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
@@ -99,13 +99,13 @@ public class SimulationTester {
 		ErrorAnalysis checker = standardChecker(testSimul.getCurrentResult(), new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
-		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1; 
-		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
 		
-		errorSummary(errorCount); 
+		UTILS.errorSummary(errorCount); 
 		
 		System.out.println("Checking after one iteration step."); 
 		totalErrorCount += errorCount;
@@ -118,35 +118,35 @@ public class SimulationTester {
 		checker = standardChecker(testSimul.getInput(), new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
-		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "Error: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgPED(), "Error: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "Error: initial accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "Error: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "Error: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
 				
 		System.out.println("Check that metrics of difference between form after one step and init forms are calculated correctly."); 
 		checker = standardChecker(testSimul.getCurrentResult(), testSimul.getInput()); 
 		
-		errorCount += checkMetric(0.925, checker.getAccuracy(), "Error: accuracy after the first step should be 0.925 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
-		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: accuracy within 2 phones after first step should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(3.0/520.0, checker.getAvgFED(), "Error : avg FED after first step should be "+3.0/520.0+" but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(0.925, checker.getAccuracy(), "Error: accuracy after the first step should be 0.925 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "Error: accuracy within 1 phone after first step should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "Error: accuracy within 2 phones after first step should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(5.0/504.0, checker.getAvgPED(), "Error: avg PED after first step should be "+5.0/504.0+" but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(3.0/520.0, checker.getAvgFED(), "Error : avg FED after first step should be "+3.0/520.0+" but it is %o") ? 0 : 1 ; 
 		
 		//TODO check other methods in ErrorAnalysis -- i.e. diagnostics. 
 			// or do this later? 
 		
-		errorSummary(errorCount); 
+		UTILS.errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
-		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
 		checker = standardChecker(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0)); 
 
-		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
-		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
+		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
 
 		//TODO check modification methods in DiachronicSimulator -- or do this later? 
 				
@@ -155,11 +155,11 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0 ;
 		System.out.println("Checking Waypoint 1 (black box mode)"); 
-		errorCount += checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at point of a black box stage.") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "Error: gold stage erroneously detected at point of a black box stage.") ? 0 : 1; 
 		
 		//TODO other shit here... 
 		
-		errorSummary(errorCount); 
+		UTILS.errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
 		totalErrorCount += errorCount; 
@@ -167,13 +167,13 @@ public class SimulationTester {
 		
 		// TODO checks after skipping final gold stage before the end
 		System.out.println("Checking at final waypoint, a gold stage."); 
-		errorCount += checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "Error: gold stage erroneously not detected") ? 0 : 1; 
 		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1), featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
-		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
-		errorCount += aggregateErrorsCheckWordLists(goldStageGoldWordlists[1], testSimul.getCurrentResult().getWordList()); 
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "Error: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
+		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldStageGoldWordlists[1], testSimul.getCurrentResult().getWordList()); 
 
-		errorSummary(errorCount); 
+		UTILS.errorSummary(errorCount); 
 
 		System.out.println("checking agreement of results via gold cascade with the gold lexicon."); 
 		
@@ -182,14 +182,14 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
-		errorCount += checkMetric(1.0, checker.getAccuracy(), "Error: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(1.0, checker.getPctWithin1(), "Error: final accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1; 
-		errorCount += checkMetric(1.0, checker.getPctWithin2(), "Error: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount += checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
-		errorCount += checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
-		errorCount += aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "Error: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "Error: final accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "Error: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgPED(), "Error: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
+		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "Error : final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
+		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
 		
-		errorSummary(errorCount); 
+		UTILS.errorSummary(errorCount); 
 		
 		System.out.print("\nPerformance of gold cascade ...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
@@ -223,7 +223,7 @@ public class SimulationTester {
 				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
-		errorCount += checkBoolean(bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), true, "Error: baseline derivation for 'bitten' not matched."
+		errorCount +=UTILS.checkBoolean(bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), true, "Error: baseline derivation for 'bitten' not matched."
 				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+testSimul.getDerivation(0)) ? 0: 1; 
 				
 		System.out.print("Performance of baseline cascade before edits...\n"
@@ -251,25 +251,25 @@ public class SimulationTester {
 		
 		List<SChange> curHC = DHSW.getHypCASC();
 
-		errorCount += checkBoolean(curHC.get(0).toString().equals(nextLaw), true, "Error: first instance does not have the correct rule.") ? 0 : 1; 
-		errorCount += checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
+		errorCount +=UTILS.checkBoolean(curHC.get(0).toString().equals(nextLaw), true, "Error: first instance does not have the correct rule.") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
 				"Error: 2nd rule onward for hypCASC should be equal to baseCASC, but apparently it is not.") ? 0 : 1;
-		errorCount += checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
+		errorCount +=UTILS.checkBoolean(UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()), true, 
 				"Error: 2nd rule onward for hypCASC should be equal to SimulationTester.CASCADE, but apparently it is not.") ? 0 : 1;
-		errorCount += checkBoolean(3  == DHSW.getRULE_IND_MAP()[2], true, "Error: increment on RULE_IND_MAP not done properly.") ? 0 : 1; 
-		errorCount += checkBoolean(6 == DHSW.getHypGoldLocs()[0], true, "Error: increment on hypGoldLocs not done correctly.") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(3  == DHSW.getRULE_IND_MAP()[2], true, "Error: increment on RULE_IND_MAP not done properly.") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(6 == DHSW.getHypGoldLocs()[0], true, "Error: increment on hypGoldLocs not done correctly.") ? 0 : 1; 
 		String[] thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
+		errorCount +=UTILS.checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
 				"Error: update on proposedChanges not carried out properly") ? 0 : 1; 
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
 		int[] btg = theDHS.getBaseIndsToGlobal(), htg = theDHS.getHypIndsToGlobal(); 
 		
-		errorCount += checkBoolean(btg.length == 10 , true, "Error : base to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += checkBoolean(htg.length == 11 , true, "Error : hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += checkBoolean(btg[0] == 1 && btg[2] == 3, true, "Error : base to global ind mapper is malformed") ? 0 : 1 ; 
-		errorCount += checkBoolean(htg[0] == 0 && htg[2] == 2, true, "Error : hyp to global ind mapper is malformed") ? 0 : 1 ; 
+		errorCount +=UTILS.checkBoolean(btg.length == 10 , true, "Error : base to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(htg.length == 11 , true, "Error : hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(btg[0] == 1 && btg[2] == 3, true, "Error : base to global ind mapper is malformed") ? 0 : 1 ; 
+		errorCount +=UTILS.checkBoolean(htg[0] == 0 && htg[2] == 2, true, "Error : hyp to global ind mapper is malformed") ? 0 : 1 ; 
 		
 		
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
@@ -280,17 +280,17 @@ public class SimulationTester {
 		bcdlines[2] = bcdlines[2].substring(0, colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
 		String bittenCorrDerivAfterCh1 = String.join("\n", bcdlines); 
 		
-		errorCount += checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
+		errorCount +=UTILS.checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
 				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
 		
 		//checking globalization of derivation
-		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")), true,
+		errorCount +=UTILS.checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")), true,
 				"Error : malformation of globalized derivation in baseline for 'bitten'") ? 0 : 1; 
 		
 		String prc = theDHS.printRuleCorrespondences(); 
 		System.out.println("Rule correspondences:\n"+prc+"\n"); 
 		
-		errorCount += checkBoolean(prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
+		errorCount +=UTILS.checkBoolean(prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
 				true, "Error: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
 	
 		//TODO add rule processing and debug comprehension of the following
@@ -674,47 +674,6 @@ public class SimulationTester {
 			System.out.println("IO Exception!");
 			e.printStackTrace();
 		}
-	}
-	
-	private static boolean checkMetric(double correct, double observed, String errMessage)
-	{
-		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
-		return correct == observed; 
-	}
-	
-	private static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
-	{
-		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
-		
-		int tot = 0; 
-		for (int i = 0 ; i < g.length; i++)
-			tot += checkWord(g[i], obs[i], "Reflex mismatch: %o for %c") ? 0 : 1; 
-		return tot;
-	}
-	
-	private static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
-	{
-		String c = correct.print(), o = observed.print(); 
-		boolean result = c.equals(o); 
-		if (!result)	System.out.println(errorMessage(c,o,errMessage)); 
-		return result; 
-	}
-	
-	private static boolean checkBoolean(boolean correct, boolean observed, String errMessage)
-	{
-		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
-		return correct == observed; 
-	}
-	
-	private static String errorMessage(String cor, String obs, String msg)
-	{
-		return msg.replace("%c", cor).replace("%o",obs); 
-	}
-	
-	private static void errorSummary(int ec)
-	{
-		if (ec == 0)	System.out.println("No errors yet at this point."); 
-		else	System.out.println("In all "+ec+" errors.");
 	}
 	
 	private static ErrorAnalysis standardChecker(Lexicon res, Lexicon gold)
