@@ -271,7 +271,7 @@ public class DifferentialHypothesisSimulator {
 		String lastBform = "" , lastHform = "";
 		
 		if (bdli == 1 ) {
-			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0];	}
+			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0].replace("/", "#");	}
 		else	{
 			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" |"));
 			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 

@@ -351,7 +351,7 @@ public class SimulationTester {
 				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
 		
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed:\n") ? 0 : 1; 
+				"ERROR: differential derivation for 'molted' is malformed:\n"+theDHS.getDifferentialDerivation(26)) ? 0 : 1; 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
