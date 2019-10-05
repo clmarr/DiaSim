@@ -288,17 +288,15 @@ public class SimulationTester {
 				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
 		
 		//TODO need to fix here.
+		
 		//checking globalization of derivation
-		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","0[1] :" ).replace("2 :", "2[3] :")), true,
+		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")), true,
 				"Error : malformation of globalized derivation in baseline for 'bitten'") ? 0 : 1; 
-		errorCount += checkBoolean(theDHS.getGlobalizedDerivation(0 , true).equals(bittenCorrectBaselineDeriv.replace("1 :","1[1] :" ).replace("3 :", "3[3] :")), true,
-				"Error : malformation of globalized derivation in alternate hypothesis for 'bitten'") ? 0 : 1; 
 		
 		String prc = theDHS.printRuleCorrespondences(); 
 		System.out.println("Rule correspondences:\n"+prc+"\n"); 
 		
-		errorCount += checkBoolean(prc.equals("1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10\n"
-				+ "-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9"),
+		errorCount += checkBoolean(prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
 				true, "Error: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
 	}
 	
