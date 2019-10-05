@@ -39,7 +39,7 @@ public class DifferentialHypothesisSimulator {
 	
 	//TODO need to reform this...
 	private HashMap<Integer,String[][]>	changedRuleEffects; 
-		// Integer type key is ruleCorrespondences's OUTER NESTING INDEX (i.e. the "global index") 
+		// Integer type key is ruleCorrespondences's inner nesting index (i.e. the "global index") 
 			// only rules with changed effects are included here.
 		// String[2][NUM_ETYMA] value has all empty cells by default.
 			// outer nesting 0 is for the baseline , 1 is for alt hyp
@@ -66,11 +66,17 @@ public class DifferentialHypothesisSimulator {
 		// whereas for insertion, the second index holds the string form of the SChange 
 			// that is inserted there in hypCASCADE. 
 	
-
+	private boolean[] prChLocs;
+		// one cell for each *global* rule index -- i.e. the inner nesting in ruleCorrespondences
+		// by default, false
+		// true only for those indices of those operations which are either deleted or added 
+			//as part of the transformation of the baseline cascade to the hypothesis cascade. 
+	
 	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
+
 		computeRuleCorrespondences(baseToHypIndMap); //init ruleCorrespondences
 		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
@@ -78,8 +84,7 @@ public class DifferentialHypothesisSimulator {
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 	}
 	
-	//generate ruleCorrespondences
-	
+	//generate ruleCorrespondences and prChLocs
 	private void computeRuleCorrespondences(int[] baseToHypIndMap)
 	{
 		if (proposedChs.size() == 0)
@@ -98,6 +103,7 @@ public class DifferentialHypothesisSimulator {
 				if (bihimi == -1)
 					total_length += 1; 
 			
+			prChLocs = new boolean[total_length];
 			//TODO will probably have to debug around here...
 			
 			ruleCorrespondences = new int[2][total_length]; 
@@ -111,6 +117,7 @@ public class DifferentialHypothesisSimulator {
 					ruleCorrespondences[1][ri] = hci; hci++; 
 					ri++; 
 				}
+				prChLocs[ri] = true;
 				boolean deletion = proposedChs.get(pci)[1].equals("deletion"); 
 				ruleCorrespondences[0][ri] = deletion ? bci : -1; 
 				bci += deletion ? 1 : 0; 
@@ -214,29 +221,10 @@ public class DifferentialHypothesisSimulator {
 							}
 							else
 							{
-								
+								String[][] newDiffEffs = new String[2][baseCascSim.NUM_ETYMA()]; 
+								if (hit[0])	newDiffEffs[0][ei] = effs[0]; 
+								else /*hit[1]*/	newDiffEffs[1][ei] = effs[1];
 							}
-							
-							//TODO below is abrogated . 
-							if(changedRuleEffects.containsKey(globInd))
-							{	//TODO check this.
-								List<String>[] valHere = changedRuleEffects.get(globInd); 
-								if(hit[0])	valHere[0].add(""+ei+": "+effs[0]);
-								else	valHere[1].add(""+ei+": "+effs[1]); 
-								changedRuleEffects.put(globInd, valHere); 
-							}
-							else
-							{
-								List<String>[] valHere = new List<String>[2];
-							}
-							
-							
-							/**else //TODO check this
-								changedRuleEffects.put(globInd, 
-										new List[] { hit[0] ? Arrays.asList(new String[] {""+ei+": "+effs[0]}) 
-													: new ArrayList<String>(), 
-												hit[1] ? Arrays.asList(new String[] {""+ei+": "+effs[1]}) : new ArrayList<String>() } );
-					**/
 						}
 
 					}
@@ -417,18 +405,45 @@ public class DifferentialHypothesisSimulator {
 		// does not print evaluation statistic change -- that is for DiachronicSimulation and ErrorAnalysis to handle. 
 	public void printBasicResults()
 	{
+		//TODO need to fix this. 
+		
+		//Analysis of changes transforming base -> hyp upon the effects of rules. 
 		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
 		System.out.println("Last rule before divergence: "+divergencePoint); //TODO may have to debug this... 
-		System.out.println("Effects on rules other than those explicitly changed:\n"); 
-		for (int globInd : changedRuleEffects.keySet())
-		{
-			if (ruleCorrespondences[1][globInd] != -1)
+		System.out.println("Effects of specific changes between baseline and proposed cascade."); 
+		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
+		{	
+			if (prChLocs[globInd]) // true -- implies this was one of the rules that are specific changes. 
 			{
-				int baseInd= ruleCorrespondences[0][globInd]; 
-				if (baseInd > -1)
-					System.out.println("Baseline rule "+baseInd+": "+baseCascSim.getRuleAt(baseInd)+"\n\t"
-							+ "bled for "+changedRuleEffects.get(globInd)[0].size()+", fed for "
-									+ changedRuleEffects.get(globInd)[1].size()+"."); 
+				if(ruleCorrespondences[0][globInd] == -1)
+				{
+					System.out.println("Developments directly caused by a proposed change:"); // i.e. in hyp but not baseline.
+					System.out.println(strEffects(changedRuleEffects.get(globInd)[1]));
+				}
+				else
+				{
+					assert ruleCorrespondences[1][globInd] == -1 : "Error: comprehension of which rules were added is malformed"; //TOOD reword?
+					System.out.println("Developments directly aborted by proposed change:"); 
+					System.out.println(strEffects(changedRuleEffects.get(globInd)[0])); 
+				}
+			}
+		}
+		
+		System.out.println("Effects on rules other than those explicitly changed:\n"); 
+		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
+		{	
+			if (!prChLocs[globInd]) // false -- implies this was not one of the rules that are specific changes, so changes must be bleeding or feeding effects.
+			{
+				int baseInd = ruleCorrespondences[0][globInd] ; 
+				String[] bleedings = changedRuleEffects.get(globInd)[0],
+						feedings = changedRuleEffects.get(globInd)[1] ; 
+				
+				System.out.println("Baseline rule "+baseInd+" (global: "+globInd+")\n\tbled for "
+						+ bleedings.length+" etyma, fed for "+feedings.length+"."); 
+				
+				System.out.println("Bled: "+strEffects(bleedings)); 
+				System.out.println("Fed: "+strEffects(feedings)); 
+							
 			}
 		}
 		
@@ -862,6 +877,18 @@ public class DifferentialHypothesisSimulator {
 	// for debugigng purposes...
 	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
+	public boolean[] getPrChLocs()	{	return prChLocs; 	}
+	
+	//TODO expl here.
+	private String strEffects (String[] effsOverEts)
+	{
+		String out = ""; 
+		for (String eoei : effsOverEts)
+			if (!eoei.equals(""))
+				out += "; "+eoei; 
+		
+		return out.substring(2); 
+	}
 
 	
 }
