@@ -279,10 +279,16 @@ public class SimulationTester {
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
 		
 		int colloc = bcdlines[1].indexOf(":"); 
-		bcdlines[1] = bcdlines[1].substring(colloc-2) + "1"+bcdlines[1].substring(colloc-1); 
+		bcdlines[1] = bcdlines[1].substring(0, colloc-2) + "1"+bcdlines[1].substring(colloc-1); 
 		colloc = bcdlines[2].indexOf(":");
-		bcdlines[2] = bcdlines[2].substring(colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
-		String bittenCorrDerivAfterCh1 = String.join("n", bcdlines); 
+		bcdlines[2] = bcdlines[2].substring(0, colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
+		String bittenCorrDerivAfterCh1 = String.join("\n", bcdlines); 
+		
+		//TODO debugging
+		System.out.println("corr: "+bittenCorrDerivAfterCh1); 
+		System.out.println("hyp gen : "+theDHS.hypCascSim.getDerivation(0));
+		
+		
 		errorCount += checkBoolean(theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1), true,
 				"Error: derivation of 'bitten' for hypothesis cascade after 1 change is malformed") ? 0 : 1;  
 		
