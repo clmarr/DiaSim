@@ -512,11 +512,6 @@ public class DifferentialHypothesisSimulator {
 		return ogi; 
 	}
 	
-	//-1 if they never diverge
-	public int getDivergencePoint()
-	{
-		return divergencePoint; 
-	}
 	
 	// @param skipCode -- "g2" -- i.e. "skip 2 gold stages"
 	// @param aggRemTxt -- aggregrate remaining text
@@ -856,10 +851,13 @@ public class DifferentialHypothesisSimulator {
 		return out; 
 	}
 
-	// for debugigng purposes...
+	// accessors.
 	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
 	public boolean[] getPrChLocs()	{	return prChLocs; 	}
+	public int getDivergencePoint()	{	return divergencePoint;	}
+		//-1 if they never diverge
+	
 	
 	//TODO expl here.
 	private String strEffects (String[] effsOverEts)
