@@ -310,8 +310,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(26).equals(mhdCor), 
 				"ERROR: malformed derivation of 'molted' for hypothesis cascade after 1 change") ? 0 : 1;  
 		
-		
-		
 		String mbdGlobCor = "/mˈowltəd/\n" + 
 				"Waypoint 1 Gold stage form : #mˈowltəd#\n" + 
 				"#mˈowlʔəd# | 6 : t > ʔ / __ ə\n" + 
@@ -336,6 +334,15 @@ public class SimulationTester {
 		corrPCLs[0] = true; 
 		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
 				"ERROR: DifferentialHypothesisSImulator.prChLocs is malformed") ? 0 : 1; 
+		
+		//first check syntax of differential derivations, before separately checking DHS.changedDerivations 
+		//ensure that words with no difference should have a differential derivation of "". 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""), 
+				"ERROR: differential derivation for unaffected lexeme 'bitten' should be an empty string, but it is:\n"
+				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+		
+		//checking DHS.changedDerivations
+			// we don't need to check the exact syntax
 		
 		
 		//TODO add rule processing and debug comprehension of the following
