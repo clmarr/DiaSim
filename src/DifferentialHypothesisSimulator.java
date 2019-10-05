@@ -271,7 +271,7 @@ public class DifferentialHypothesisSimulator {
 		String lastBform = "" , lastHform = "";
 		
 		if (bdli == 1 ) {
-			lastBform = bdlines[0]; lastHform = hdlines[0];	}
+			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0].replace("/", "#");	}
 		else	{
 			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" |"));
 			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 
@@ -301,8 +301,8 @@ public class DifferentialHypothesisSimulator {
 		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
-			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form "), 
-							hdlines[hdli].indexOf(" stage form : ")}; 
+			int[] stageHere = new int[] { bdlines[bdli].indexOf("stage form "), 
+							hdlines[hdli].indexOf("stage form : ")}; 
 			
 			boolean[] isFin = new boolean[] { bdlines[bdli].substring(0,5).equals("Final"), hdlines[hdli].substring(0,5).equals("Final")} ; 
 			
@@ -323,13 +323,13 @@ public class DifferentialHypothesisSimulator {
 			}
 			else if(stageHere[0] > -1 && stageHere[1] > -1)
 			{
-				out += "\n"+bdlines[bdli].substring(0, stageHere[0])+bdlines[bdli].substring(stageHere[0]+12)+" | "
-						+ hdlines[hdli].substring(0, stageHere[1])+hdlines[hdli].substring(stageHere[1]+12); 
+				out += "\n"+bdlines[bdli].substring(0, stageHere[0])+bdlines[bdli].substring(stageHere[0]+11)+" | "
+						+ hdlines[hdli].substring(stageHere[1]+13); 
 				bdli++; hdli++; 
 			}
 			else if(isFin[0] && isFin[1])
-			{	out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].lastIndexOf(":")+1) + " | "+
-									hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+1);
+			{	out += "\nFinal forms : "+bdlines[bdli].substring(bdlines[bdli].indexOf(":")+2) + " | "+
+									hdlines[hdli].substring(hdlines[hdli].lastIndexOf(":")+2);
 				hdli++; bdli++;	}
 			else if (nextGlobalHypInd == -1 ? true : nextGlobalBaseInd < nextGlobalHypInd && nextGlobalBaseInd != -1) //deletion or bleeding
 			{

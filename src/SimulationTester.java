@@ -337,9 +337,21 @@ public class SimulationTester {
 		
 		//first check syntax of differential derivations, before separately checking DHS.changedDerivations 
 		//ensure that words with no difference should have a differential derivation of "". 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""), 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'bitten' should be an empty string, but it is:\n"
 				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+		//now check syntax of differential derivation of a word that was indeed changed. 
+		String corDD = "/mˈowltəd/\n" 
+				+ "CONCORDANT UNTIL RULE : 0\n"
+				+ "0[-1|0] : fed or inserted | #mˈowltəd# > #mˈowlˠtəd#\n"
+				+ "Waypoint 1 Gold : #mˈowltəd# | #mˈowlˠtəd#\n"
+				+ "6[5|6] : #mˈowltəd# > #mˈowlʔəd# | #mˈowlˠtəd# > #mˈowlˠʔəd#\n"
+				+ "Waypoint 2 Black : #mˈowlʔəd# | #mˈowlˠʔəd#\n"
+				+ "Waypoint 3 Gold : #mˈowlʔəd# | #mˈowlˠʔəd#\n"
+				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
+		
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(26).equals(corDD), 
+				"ERROR: differential derivation for 'molted' is malformed:\n") ? 0 : 1; 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax
