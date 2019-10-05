@@ -247,10 +247,6 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String getDifferentialDerivation(int et_id)
 	{
-		//TODO debugging
-		System.out.println("for "+et_id+": "+baseCascSim.getInputForm(et_id)); 
-		
-		
 		String baseDer= baseCascSim.getDerivation(et_id), 
 				hypDer = hypCascSim.getDerivation(et_id); 
 		if (baseDer.equals(hypDer))	return "";
@@ -271,9 +267,6 @@ public class DifferentialHypothesisSimulator {
 		String out = bdlines[0]; 
 		int bdli = globalDivergenceLine(baseDer, hypDer); 
 		int hdli = bdli ;
-		
-		//TODO debugging
-		System.out.println("divergence at bdli "+bdli);
 		
 		String lastBform = "" , lastHform = "";
 		
@@ -308,10 +301,6 @@ public class DifferentialHypothesisSimulator {
 		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
-			//TODO debugging
-			System.out.println("bdlines["+bdli+"] "+bdlines[bdli]+"\nhdlines["+hdli+"] "+hdlines[hdli]); 
-			
-			
 			int[] stageHere = new int[] { bdlines[bdli].indexOf(" stage form "), 
 							hdlines[hdli].indexOf(" stage form : ")}; 
 			
@@ -344,10 +333,6 @@ public class DifferentialHypothesisSimulator {
 				hdli++; bdli++;	}
 			else if (nextGlobalHypInd == -1 ? true : nextGlobalBaseInd < nextGlobalHypInd && nextGlobalBaseInd != -1) //deletion or bleeding
 			{
-				//TODO debugging
-				System.out.println("bdlines["+bdli+"] : "+bdlines[bdli]); 
-				System.out.println("hdlines["+hdli+"] : "+hdlines[hdli]);
-				
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf("|")-1);
 				
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
@@ -365,11 +350,7 @@ public class DifferentialHypothesisSimulator {
 			}
 		}
 		
-		//TODO debugging
-		System.out.println(out);
-		
 		return out; 
-		
 	}
 	
 	//TODO plans to report any change in phonemic inventory.

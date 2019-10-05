@@ -117,7 +117,6 @@ public class UTILS {
 		return c; 
 	}
 	
-	//TODO for debugging purposes
 	public static String printParenMap(SequentialFilter testCont)
 	{
 		String output = ""; 
