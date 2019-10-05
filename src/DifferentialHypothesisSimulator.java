@@ -857,7 +857,11 @@ public class DifferentialHypothesisSimulator {
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
 	public boolean[] getPrChLocs()	{	return prChLocs; 	}
 	public int getDivergencePoint()	{	return divergencePoint;	}
-		//-1 if they never diverge
+	public HashMap<Integer,String[][]> getChangedRuleEffects()	{	return changedRuleEffects;	}
+	public String[][] getRuleEffectChanges(int global_id)	{	return changedRuleEffects.get(global_id); 	}
+	public String[] getEffectsBlocked(int global_id)	{	return changedRuleEffects.get(global_id)[0]; 	}
+	public String[] getEffectsCaused(int global_id)	{	return changedRuleEffects.get(global_id)[1]; 	}
+	
 	public HashMap<Integer,String> getChangedDerivations()	{	return changedDerivations;	}
 	public int[] getEtsWithChangedDerivations()	{
 		Set<Integer> keys = changedDerivations.keySet();

@@ -351,7 +351,7 @@ public class SimulationTester {
 				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
 		
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed:\n"+theDHS.getDifferentialDerivation(26)) ? 0 : 1; 
+				"ERROR: differential derivation for 'molted' is malformed:\n") ? 0 : 1; 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
@@ -359,6 +359,12 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, 
 				UTILS.compare1dIntArrs(theDHS.getEtsWithChangedDerivations(), new int[] {15, 26, 28}), 
 				"ERROR: wrong etyma effected by l darkening change...") ? 0 : 1; 
+		
+		//now finally checking DHS.changedRuleEffects
+			// for this rule there is no feeding or bleeding, so the HashMap DHS.changedRuleEffects should have only one key, 0. 
+			// and it should contain three specific feedings, for molten, molded and beholden (et ids 15,26,28)
+		
+		
 		
 		
 		//TODO add rule processing and debug comprehension of the following
