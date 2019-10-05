@@ -298,15 +298,19 @@ public class SimulationTester {
 		errorCount +=UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
 				"ERROR: malformed derivation of 'bitten' for hypothesis cascade after 1 change") ? 0 : 1;  
 		
-		String mhdCor = "/mˈowltəd/\n" + 
-				"#mˈowlˠtəd# | 0 ː l > lˠ / __ [+cons]\n" + 
+		String mhdCor = 
+				"/mˈowltəd/\n" + 
+				"#mˈowlˠtəd# | 0 : l > lˠ / __ [+cons]\n" + 
 				"Waypoint 1 Gold stage form : #mˈowlˠtəd#\n" + 
 				"#mˈowlˠʔəd# | 6 : t > ʔ / __ ə\n" + 
 				"Waypoint 2 Black stage form : #mˈowlˠʔəd#\n" + 
 				"Waypoint 3 Gold stage form : #mˈowlˠʔəd#\n" + 
 				"Final form : #mˈowlˠʔəd#";
+
 		errorCount += UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(26).equals(mhdCor), 
 				"ERROR: malformed derivation of 'molted' for hypothesis cascade after 1 change") ? 0 : 1;  
+		
+		
 		
 		String mbdGlobCor = "/mˈowltəd/\n" + 
 				"Waypoint 1 Gold stage form : #mˈowltəd#\n" + 
@@ -314,7 +318,6 @@ public class SimulationTester {
 				"Waypoint 2 Black stage form : #mˈowlʔəd#\n" + 
 				"Waypoint 3 Gold stage form : #mˈowlʔəd#\n" + 
 				"Final form : #mˈowlʔəd#";
-		
 		//checking globalization of derivation
 		errorCount +=UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")),
 				"ERROR: malformation of globalized derivation in baseline for 'bitten'") ? 0 : 1; 
@@ -323,15 +326,18 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(26 , true).equals(mhdCor), 
 				"ERROR: malformation of proposed hypothesis' predicted derivation in baseline for 'molted'") ? 0 : 1; 
 		
-		
-		
-		// 
-		String prc = theDHS.printRuleCorrespondences(); 
-		System.out.println("Rule correspondences:\n"+prc+"\n"); 
-		
-		errorCount +=UTILS.checkBoolean(prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
-				true, "ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+		//checking DHS.ruleCorrespondences
+		String prc = theDHS.printRuleCorrespondences(); 		
+		errorCount +=UTILS.checkBoolean(true, prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
+				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
 	
+		//checking DHS.prChLocs
+		boolean[] corrPCLs = new boolean[11];
+		corrPCLs[0] = true; 
+		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+				"ERROR: DifferentialHypothesisSImulator.prChLocs is malformed") ? 0 : 1; 
+		
+		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
 		// relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1
