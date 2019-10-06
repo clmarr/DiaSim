@@ -381,6 +381,16 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
+		//do hypothesis acceptance after each rule so that we can test them discretely if deeper debugging is necessary in the future.
+		DHSW.acceptHypothesis(); 
+		
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
+		//i.e. rebasing and usurpation occurs -- now, just this one time, we need to test that all major variables are intact.
+		System.out.println("Now testing integrity of DHSW after usurpation of baseline for hypothesis acceptance."); 
+		
 		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 

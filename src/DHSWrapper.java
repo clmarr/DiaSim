@@ -721,13 +721,16 @@ public class DHSWrapper {
 	 */
 	public void reset()
 	{
-        stillQuerying = false; 
+		stillQuerying = false; 
         proposedChanges = new ArrayList<String[]>(); 
         hypCASC = new ArrayList<SChange>(baseSimulation.CASCADE());
+        originalLastMoment = baseCASC.size();
+        
+        //reinitializations of structure variables
         RULE_IND_MAP = new int[originalLastMoment + 1]; 
+        for (int i = 0; i < originalLastMoment+1; i++)	RULE_IND_MAP[i] = i; //initialize each.
+        
         hypGoldLocs = new int[NUM_GOLD_STAGES]; hypBlackLocs = new int[NUM_BLACK_STAGES];
-        for (int i = 0; i < originalLastMoment+1; i++)
-                RULE_IND_MAP[i] = i; //initialize each.
         for (int i = 0; i < NUM_GOLD_STAGES; i++)
                 hypGoldLocs[i] = baseSimulation.getStageInstant(true, i);
         for (int i = 0; i < NUM_BLACK_STAGES; i++)
