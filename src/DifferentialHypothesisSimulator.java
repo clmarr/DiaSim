@@ -686,6 +686,11 @@ public class DifferentialHypothesisSimulator {
 					}
 					else //perform proper file text modification behavior according to proposed change and whether we are automodification or merely commenting mode. 
 					{
+						String newCmt = comments.get(pci); 
+						if (newCmt.length() > 0)
+							if (!UTILS.cmtIsStandardized(newCmt))
+								newCmt = UTILS.standardizeCmt(newCmt);
+						
 						//TODO we are assuming all rule indexing is correct as supplied by @param propChs
 						// ... may need to check this. 
 						
@@ -694,7 +699,7 @@ public class DifferentialHypothesisSimulator {
 							{	// then we add comments AFTER prior block
 								out += cmtBlock; 
 								
-								out += comments.get(pci); 
+								out += newCmt;
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
 									out += "\n"; 
 								
@@ -710,10 +715,7 @@ public class DifferentialHypothesisSimulator {
 							{	
 								// and thus comments and insertion come before next rule's preceding comment block
 								
-								String nextCmt = comments.get(pci); 
-								if (nextCmt.charAt(0) != CMT_FLAG)	nextCmt = CMT_FLAG+nextCmt; 
-								
-								out += comments.get(pci); 
+								out += newCmt; 
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
 									out += "\n"; 
 								if (justPlaceHolders)
@@ -722,6 +724,10 @@ public class DifferentialHypothesisSimulator {
 								out += proposedChs.get(pci)[1] + "\n"; 
 								//nextRuleInd or linesPassed do not increment since we are only inserting new content. 
 							
+								//if we are inserting before the former first rule, insert a space. 
+								if (nxRuleInd == 0)
+									out += "\n";
+								
 								//restore commentBlock and ruleLine to readIn
 									// because later rules may operate on them. 
 								readIn = cmtBlock + ruleLine + "\n" + readIn; 
