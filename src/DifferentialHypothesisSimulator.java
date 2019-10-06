@@ -544,8 +544,8 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	private String STAGEFLAGS = ""+UTILS.GOLD_STAGENAME_FLAG + UTILS.BLACK_STAGENAME_FLAG; 
+	private boolean flagged(String str)	{	return STAGEFLAGS.contains(""+str.charAt(0));	}
 
-	
 	/** newCascText
 	 * gets text from @global cascFileLoc
 	 * @return casc text as appropriately modified. 
@@ -618,18 +618,19 @@ public class DifferentialHypothesisSimulator {
 			if(!stagesToSkip.equals(""))
 			{
 				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); 
-					// should end in "\n", at least as of September 17 2019 
+					// should end in "\n"
 				String hop = readIn.substring(0, break_pt); 
-				linesPassed += hop.split("\n").length - 1; //-1 because of the final \n 
+				linesPassed += hop.split("\n").length - 1; //minus 1 because of the final \n 
 				readIn = readIn.substring(break_pt); 
 				nxRuleInd = (stagesToSkip.charAt(0) == 'g') ? 
 						baseCascSim.getStageInstant(true,igs) : baseCascSim.getStageInstant(false, ibs); 
 			}
 			
+			
 			while (nxRuleInd <= nxChRuleInd)
 			{
-				// first - skip any leading blankj lines or stage declaration lines
-				while (STAGEFLAGS.contains(readIn.substring(0,1)) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+				// first - skip any leading blank lines or stage declaration lines
+				while (flagged(readIn) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
 				{
 					int brkpt = readIn.indexOf("\n") + "\n".length(); 
 					linesPassed ++; 
@@ -637,44 +638,45 @@ public class DifferentialHypothesisSimulator {
 					readIn = readIn.substring(brkpt); 
 				}
 				
-				String commentBlock = ""; 
+				String cmtBlock = ""; 
 				// case of if the next line is headed by the comment flag. 
 				// absorb all consecutive comment lines in @varbl commentBlock
 				while (readIn.charAt(0) == CMT_FLAG ) {
 					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt); 
+					cmtBlock += readIn.substring(0, brkpt); 
 					readIn = readIn.substring(brkpt); 
 					linesPassed++; 
 				}
 				
-				if (!commentBlock.equals("") && UTILS.isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
+				if (!cmtBlock.equals("") && UTILS.isJustSpace(readIn.substring(0,readIn.indexOf("\n"))))
 				{
 					int brkpt = readIn.indexOf("\n") + "\n".length(); 
-					commentBlock += readIn.substring(0, brkpt); 
+					cmtBlock += readIn.substring(0, brkpt); 
 					readIn = readIn.substring(brkpt); 
 					linesPassed++; 
 				}
 				//if next line is either another blank line, another comment after blank line, 
 				// or a stage, this iteration of loop is over
 				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
-					out += commentBlock; 
+					out += cmtBlock; 
 				else // i.e. we are handling a line holding a rule.
 				{
-
 					//on the other hand, if a rule comes after this block, we consider the comment block to have been
 						// the explanation or justification for the rule, and will then operate on the rule.
 					// if the comment block is empty, nothing explicitly differs in code, so both are handled here. 
 					int brkpt = readIn.indexOf("\n"); 
 					String ruleLine = readIn.substring(0, brkpt); 
-					List<SChange> dummyShifts = fac.generateSoundChangesFromRule(ruleLine.substring(0, brkpt - "\n".length())); 
+					
+					List<SChange> dummyShifts = fac.generateSoundChangesFromRule(ruleLine); 
 					
 					assert dummyShifts.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd).toString()) : 
 						"Error : misalignment in saved CASCADE and its source file"; //TODO debugging likely necessary 
+					
 					readIn = readIn.substring(brkpt+"\n".length());
 					
 					if (nxRuleInd - 1 + dummyShifts.size() < nxChRuleInd) // then we can simply absorb it into @varbl out as usual.
 					{
-						out += commentBlock + ruleLine + "\n"; 
+						out += cmtBlock + ruleLine + "\n"; 
 						nxRuleInd += dummyShifts.size(); 
 						linesPassed++; 
 					}
@@ -686,7 +688,7 @@ public class DifferentialHypothesisSimulator {
 						if (dummyShifts.size() == 1 ) { 
 							if(isDelet) 
 							{	// then we add comments AFTER prior block
-								out += commentBlock; 
+								out += cmtBlock; 
 								
 								out += comments.get(pci); 
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
@@ -703,7 +705,7 @@ public class DifferentialHypothesisSimulator {
 							else // we are dealing with an insertion then.
 							{	
 								// and thus comments and insertion come before next rule's preceding comment block
-								out += comments.get(pci); //will do nothing if this is part of a modification. 
+								out += comments.get(pci); 
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
 									out += "\n"; 
 								if (justPlaceHolders)
@@ -714,9 +716,10 @@ public class DifferentialHypothesisSimulator {
 							
 								//restore commentBlock and ruleLine to readIn
 									// because later rules may operate on them. 
-								readIn = commentBlock + ruleLine + "\n" + readIn; 
+								readIn = cmtBlock + ruleLine + "\n" + readIn; 
 								//track back on linesPassed as appropriate. 
-								linesPassed -= (commentBlock+ruleLine).split("\n").length; 
+								linesPassed -= (cmtBlock+ruleLine).split("\n").length; 
+								nxRuleInd++;
 							}
 						}
 						else //then there is a disjunction -- whether we can pass without error determined by value of justPlaceHolders
@@ -724,7 +727,7 @@ public class DifferentialHypothesisSimulator {
 							if(justPlaceHolders)
 							{
 								if (isDelet) {
-									out += commentBlock; 
+									out += cmtBlock; 
 									out += comments.get(pci); 
 									if (!out.substring(out.length() - "\n".length()).equals("\n"))
 										out += "\n"; 
@@ -771,9 +774,9 @@ public class DifferentialHypothesisSimulator {
 								
 									//restore commentBlock and ruleLine to readIn
 										// because later rules may operate on them. 
-									readIn = commentBlock + ruleLine + "\n" + readIn; 
+									readIn = cmtBlock + ruleLine + "\n" + readIn; 
 									//track back on linesPassed as appropriate. 
-									linesPassed -= (commentBlock+ruleLine).split("\n").length; 
+									linesPassed -= (cmtBlock+ruleLine).split("\n").length; 
 								}
 									
 							}
