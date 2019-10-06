@@ -310,7 +310,12 @@ public class UTILS {
 	
 	public static boolean compareFiles(String loc1, String loc2)
 	{
-		//TODO this.
+		List<String> f1lns = readFileLines(loc1), 
+				f2lns = readFileLines(loc2); 
+		if (f1lns.size() != f2lns.size())	return false; 
+		for (int li = 0 ; li < f1lns.size(); li++)
+			if(!f1lns.get(li).equals(f2lns.get(li)))	return false;
+		return true;
 	}
 	
 	public static boolean strcmp (String x, String y)
