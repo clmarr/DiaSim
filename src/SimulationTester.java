@@ -391,7 +391,7 @@ public class SimulationTester {
 		// complex modification: change t > ʔ / __ ə to : 
 				// t > ʔ / [+son] __ {# ; [-cons,-lo,-strees]}
 		// gaian relocate the flapping rule to after waypoint 2 
-		// copmlex inserton to rihgt before s > ts / n__ : 
+		// copmlex inserton to right before s > ts / n__ : 
 				// n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// finally all things between waypoitns 2 and 3 insert
 		// and then check that results are all correct.

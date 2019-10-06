@@ -185,8 +185,8 @@ public class DifferentialHypothesisSimulator {
 		{
 			//TODO will need to debug here...
 			
-			int lexDivPt = findEtymonDivergence(ei); 
-
+			int lexDivPt = findEtymonDivergence(ei);
+			
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
 			{
@@ -197,16 +197,26 @@ public class DifferentialHypothesisSimulator {
 		        changedDerivations.put(ei, ddHere); 
 		        
 		        // now adding effects for changedRuleEffects 
-		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); //error of lacking this will have already been caught by findLexicalDerivationPoint(). 
+		        ddHere = ddHere.substring(ddHere.indexOf("CONCORD")); 
+		        	//error of lacking this will have already been caught by findLexicalDerivationPoint(). 
 		        ddHere = ddHere.substring(ddHere.indexOf("\n") +"\n".length()); 
 
 				for (String ddl : ddHere.split("\n"))
 				{
 					if(ddl.contains(">"))
 					{
-						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("["))); 
-						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" | "); 
-						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")}; 
+						
+						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("[")));
+						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" \\| "); 
+						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")};  
+						
+						//TODO debugging
+						System.out.println("ddl : "+ddl);
+						System.out.println("globInd : "+globInd); 
+						System.out.println("effs "+effs[0]+" | "+effs[1]); 
+						System.out.println("hits "+hit[0]+" | "+hit[1]); 
+						
+						
 						
 						// since modification is stored here as a deletion and an insertion,
 							// it will not be represented as a single rule in a differential derivation
@@ -216,19 +226,24 @@ public class DifferentialHypothesisSimulator {
 							// so hit[0] != hit[1] is a perfect proxy.
 						if (hit[0] != hit[1])
 						{
+							//TODO debugging
+							System.out.println("Effect of proposed change detected"); 
+							
+							String[][] diffEffsHere;
 							if(changedRuleEffects.containsKey(globInd))
 							{
 								// differences detected thus far that we are adding the latest to
-								String[][] diffEffsHere = changedRuleEffects.get(globInd); 
+								diffEffsHere = changedRuleEffects.get(globInd); 
 								if (hit[0])	diffEffsHere[0][ei] = effs[0] ; 
 								else /*hit[1]*/	diffEffsHere[1][ei] = effs[1] ; 
 							}
 							else
 							{
-								String[][] newDiffEffs = new String[2][baseCascSim.NUM_ETYMA()]; 
-								if (hit[0])	newDiffEffs[0][ei] = effs[0]; 
-								else /*hit[1]*/	newDiffEffs[1][ei] = effs[1];
+								diffEffsHere = new String[2][baseCascSim.NUM_ETYMA()]; 
+								if (hit[0])	diffEffsHere[0][ei] = effs[0]; 
+								else /*hit[1]*/	diffEffsHere[1][ei] = effs[1];
 							}
+							changedRuleEffects.put(globInd, diffEffsHere);
 						}
 
 					}
