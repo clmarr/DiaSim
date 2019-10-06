@@ -383,6 +383,7 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
+		DHSW.setHypOutLoc(DBG_WRKG_CASC);
 		//do hypothesis acceptance after each rule so that we can test them discretely if deeper debugging is necessary in the future.
 		DHSW.acceptHypothesis(false); 
 		
