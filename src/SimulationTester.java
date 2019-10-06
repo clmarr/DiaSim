@@ -408,16 +408,8 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, DHSW.getProposedChanges().size() == 0,
 				"ERROR: hypothesis acceptance did not reinitialize proposedChanges correctly") ? 0 : 1; 
 		
-		System.out.println("Testing that file modification is executed properly...");
-		resetToWorkingCasc(theFactory); 
-		testSimul = new Simulation(inputForms, CASCADE); 
-		testSimul.setBlackStages(blackStageNames, blackStageInstants);
-		testSimul.setGold(goldOutputLexicon.getWordList());
-		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
-		testSimul.simulateToEnd(); 
-		DHSW = newDHS(testSimul); 
-		DHSW.processSingleCh(-1, "", 0, nextLaw, theFactory.generateSoundChangesFromRule(nextLaw), nextCmt); 
-		
+		errorCount += UTILS.checkBoolean(true, UTILS.compareFiles("DebugCheckerCascAfterDarkening",DBG_WRKG_CASC),
+				"ERROR: modification of DBG_WRKG_CASC not carried out properly during hypothesis acceptance.")? 0 : 1;
 		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
@@ -444,33 +436,8 @@ public class SimulationTester {
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		
-		List<String> symbDefsLines = new ArrayList<String>();
-		String nextLine; 
+		List<String> symbDefsLines = UTILS.readFileLines(SYMBS_LOC);
 		
-		try 
-		{	File inFile = new File(SYMBS_LOC); 
-			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8")); 
-			while((nextLine = in.readLine()) != null)	
-				symbDefsLines.add(nextLine); 		
-			
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		System.out.println("Symbol definitions extracted!");
-		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
-		
-
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
 		
@@ -489,7 +456,7 @@ public class SimulationTester {
 		else	feats_weighted = false;
 		
 		//from the rest-- extract the symbol def each represents
-		int li = 1; 
+		int li = 1; String nextLine; 
 		while (li < symbDefsLines.size()) 
 		{
 			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
@@ -515,28 +482,7 @@ public class SimulationTester {
 	{
 		featImplications = new HashMap<String, String[]>(); 
 		
-		String nextLine; 
-		
-		System.out.println("Now extracting info from feature implications file...");
-		
-		List<String> featImplLines = new ArrayList<String>(); 
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(FI_LOC), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
+		List<String> featImplLines = UTILS.readFileLines(FI_LOC);
 		
 		for(String filine : featImplLines)
 		{

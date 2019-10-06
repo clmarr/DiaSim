@@ -1058,8 +1058,8 @@ public class DiachronicSimulator {
 			}
 			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
-				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, feats_weighted, featsByIndex, FT_WTS, id_wt, cascFileLoc); 
-				DHSinterface.queryProposedChanges(inpu,fac); 
+				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, feats_weighted, featsByIndex, FT_WTS, id_wt, cascFileLoc, fac); 
+				DHSinterface.queryProposedChanges(inpu); 
 			}
 			else if(resp.equals("9")) {
 				System.out.println("Ending"); cont = false; 
