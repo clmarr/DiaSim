@@ -30,6 +30,7 @@ public class SimulationTester {
 	private static final double ID_WT = 0.5; 
 	
 	//constant once set.
+	private static SChangeFactory theFactory; 
 	private static String[] featsByIndex; 
 	private static HashMap<String, Integer> featIndices;
 	private static boolean feats_weighted;
@@ -50,7 +51,7 @@ public class SimulationTester {
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static List<SChange> CASCADE;
 	
-	public static void main(String args[])
+	public static void main(String args[]) throws MidDisjunctionEditException
 	{
 		initWorkingCascFile(); 
 
@@ -58,7 +59,7 @@ public class SimulationTester {
 		extractFeatImpls();
 		
 		System.out.println("Creating SChangeFactory...");
-		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
 			// first extracting from gold casc so that we do initial sanity test of the correct cascade leading to correct forms
@@ -247,7 +248,8 @@ public class SimulationTester {
 		String nextLaw = "l > lˠ / __ [+cons]"; 
 		String nextCmt = "L-darkening as evidenced by mˈowlˠɾəd, bɨhˈowlˠɾə̃n, mˈowlˠʔə̃n"; 
 		
-		DHSW.processSingleCh(-1, "", 0, nextLaw, theFactory.generateSoundChangesFromRule(nextLaw), nextCmt);
+		DHSW.processSingleCh(-1, "", 0, nextLaw, 
+				theFactory.generateSoundChangesFromRule(nextLaw), nextCmt);
 		
 		List<SChange> curHC = DHSW.getHypCASC(),
 				dumCasc = new ArrayList<SChange>(CASCADE);
@@ -382,7 +384,7 @@ public class SimulationTester {
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
 		//do hypothesis acceptance after each rule so that we can test them discretely if deeper debugging is necessary in the future.
-		DHSW.acceptHypothesis(); 
+		DHSW.acceptHypothesis(false); 
 		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
@@ -391,7 +393,30 @@ public class SimulationTester {
 		//i.e. rebasing and usurpation occurs -- now, just this one time, we need to test that all major variables are intact.
 		System.out.println("Now testing integrity of DHSW after usurpation of baseline for hypothesis acceptance."); 
 		
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(DHSW.getBaseCASC(), curHC),
+				"ERROR: hypothesis acceptance did not usurp the baseline correctly.") ? 0 : 1;
+		CASCADE = curHC; 
 		
+		int[] RIM = new int[curHC.size()+1];
+		curHC = null; dumCasc = null;
+		
+		for (int rimi = 0 ; rimi < RIM.length; rimi++)	RIM[rimi] = rimi;
+		errorCount += UTILS.checkBoolean(true, 
+				UTILS.compare1dIntArrs(DHSW.getRULE_IND_MAP(), RIM),
+				"ERROR: hypothesis acceptance did not reinitialize RULE_IND_MAP correctly") ? 0 : 1; 
+		
+		errorCount += UTILS.checkBoolean(true, DHSW.getProposedChanges().size() == 0,
+				"ERROR: hypothesis acceptance did not reinitialize proposedChanges correctly") ? 0 : 1; 
+		
+		System.out.println("Testing that file modification is executed properly...");
+		resetToWorkingCasc(theFactory); 
+		testSimul = new Simulation(inputForms, CASCADE); 
+		testSimul.setBlackStages(blackStageNames, blackStageInstants);
+		testSimul.setGold(goldOutputLexicon.getWordList());
+		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.simulateToEnd(); 
+		DHSW = newDHS(testSimul); 
+		DHSW.processSingleCh(-1, "", 0, nextLaw, theFactory.generateSoundChangesFromRule(nextLaw), nextCmt); 
 		
 		
 		//TODO add rule processing and debug comprehension of the following
@@ -409,7 +434,7 @@ public class SimulationTester {
 	
 	
 	private static DHSWrapper newDHS(Simulation sim)
-	{	return new DHSWrapper(sim, feats_weighted, featsByIndex, FT_WTS, ID_WT, DBG_WRKG_CASC); 
+	{	return new DHSWrapper(sim, feats_weighted, featsByIndex, FT_WTS, ID_WT, DBG_WRKG_CASC,theFactory); 
 	}
 	
 	private static void extractSymbDefs()

@@ -57,9 +57,9 @@ public class DHSWrapper {
 	private int[] hypGoldLocs, hypBlackLocs; 
 		// same as above for the locations of period waypoints. 
 	
-		
+	private SChangeFactory FAC; 
 	
-	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc)
+	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc, SChangeFactory theFac)
 	{
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
@@ -73,17 +73,18 @@ public class DHSWrapper {
 		this.FT_WTS = FT_WTS; 
 		this.id_wt = id_wt; 
 		this.origCascLoc = ogCascLoc; 
+		this.FAC = theFac; 
 		reset(); 
 	}
 	
-	public void queryProposedChanges(Scanner inpu, SChangeFactory fac)
+	public void queryProposedChanges(Scanner inpu)
 	{
 		stillQuerying = true; 
 		String resp; 
 
 		while (stillQuerying)
 		{
-			int forkAt = queryForkPoint(inpu, fac); 
+			int forkAt = queryForkPoint(inpu, FAC); 
 			boolean toSetBehavior = true; 
 			while(toSetBehavior) {
 				System.out.println("Operating on rule "+forkAt+": "+hypCASC.get(forkAt).toString()) ;
@@ -159,7 +160,7 @@ public class DHSWrapper {
 							System.out.println("Please enter the new law");
 							propLaw = inpu.nextLine().replace("\n",""); 
 							try 
-							{	propShifts = fac.generateSoundChangesFromRule(propLaw);	}
+							{	propShifts = FAC.generateSoundChangesFromRule(propLaw);	}
 							catch (Error e)
 							{
 								System.out.println("Preempted error : "+e); 
@@ -250,6 +251,7 @@ public class DHSWrapper {
 								System.out.println("Preparing to automatically implement proposed changes to cascade..."); 
 							else // choice == 3
 								System.out.println("Placing comments to facilitate manual editing of cascade..."); 
+							
 							System.out.println("First, explanatory comments must be entered for the changes..."); 
 							
 							List<String> editComments = new ArrayList<String>();
@@ -286,7 +288,7 @@ public class DHSWrapper {
 								editComments.add(justification); 
 							}
 							
-							toFileOut = DHScomp.newCascText( editComments, choice == '3', origCascLoc, fac);
+							toFileOut = DHScomp.newCascText( editComments, choice == '3', origCascLoc, FAC);
 						}
 						catch (MidDisjunctionEditException e ) 
 						{
@@ -745,9 +747,20 @@ public class DHSWrapper {
 		reset(); 
 	}
 	
-	public void acceptHypothesis()
+	public void writeModifiedFile(boolean cmtMode) throws MidDisjunctionEditException
 	{
+		DifferentialHypothesisSimulator cDHS = generateDHS(); 
+		UTILS.writeToFile(hypOutLoc, 
+				cDHS.newCascText(defaultCmtList(), cmtMode, origCascLoc, FAC)); 
+	}
+	
+	
+	//also writes to file automatically -- must have set hypOutLoc for this to be used.
+	public void acceptHypothesis(boolean promptsOnly) throws MidDisjunctionEditException
+	{
+		assert !hypOutLoc.equals("") : "ERROR: hypOutLoc must be set before hypothesis acceptance can be carried out.";
 		assert hypEmpiricized != null && !hypOutLoc.equals("") : "Error: @global hypOutLoc must be set before usurping baseline"; 
+		writeModifiedFile(promptsOnly);
 		rebase(hypEmpiricized, hypOutLoc); 
 	}
 	
@@ -780,5 +793,11 @@ public class DHSWrapper {
         int[] out = new int[originalLastMoment + 1]; 
         for (int i = 0; i < originalLastMoment+1; i++)	out[i] = i; //initialize each.
         return out; 
+	}
+	
+	private List<String> defaultCmtList() {
+		List<String> out = new ArrayList<String>(); 
+		for (String[] pc : proposedChanges)	out.add(pc[2]);
+		return out; 
 	}
 }

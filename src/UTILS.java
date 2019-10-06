@@ -1,8 +1,11 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.ArrayList;
@@ -277,6 +280,37 @@ public class UTILS {
 		for (int aai = 0 ; aai < aa1.length; aai++)
 			if (!compare1dStrArrs(aa1[aai],aa2[aai]))	return false;
 		return true;
+	}
+	
+	public static List<String> readFileLines(String loc) 
+	{
+		List<String> lns = new ArrayList<String>();
+		String nextLine; 
+		
+		try 
+		{
+			File inFile = new File(loc); 
+			BufferedReader in = new BufferedReader ( new InputStreamReader ( new FileInputStream(inFile), "UTF8")); 
+			while((nextLine = in.readLine()) != null)		lns.add(nextLine);
+			in.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		return lns;
+	}
+	
+	public static boolean compareFiles(String loc1, String loc2)
+	{
+		//TODO this.
 	}
 	
 	public static boolean strcmp (String x, String y)
