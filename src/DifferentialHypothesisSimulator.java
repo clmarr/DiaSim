@@ -624,6 +624,7 @@ public class DifferentialHypothesisSimulator {
 				readIn = readIn.substring(break_pt); 
 				nxRuleInd = (stagesToSkip.charAt(0) == 'g') ? 
 						baseCascSim.getStageInstant(true,igs) : baseCascSim.getStageInstant(false, ibs); 
+				out += hop; 
 			}
 			
 			
@@ -657,8 +658,11 @@ public class DifferentialHypothesisSimulator {
 				}
 				//if next line is either another blank line, another comment after blank line, 
 				// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1)) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) )
+				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0,1))
+						|| UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) ) {
 					out += cmtBlock; 
+					cmtBlock = "";
+				}
 				else // i.e. we are handling a line holding a rule.
 				{
 					//on the other hand, if a rule comes after this block, we consider the comment block to have been
@@ -705,6 +709,10 @@ public class DifferentialHypothesisSimulator {
 							else // we are dealing with an insertion then.
 							{	
 								// and thus comments and insertion come before next rule's preceding comment block
+								
+								String nextCmt = comments.get(pci); 
+								if (nextCmt.charAt(0) != CMT_FLAG)	nextCmt = CMT_FLAG+nextCmt; 
+								
 								out += comments.get(pci); 
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
 									out += "\n"; 

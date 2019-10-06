@@ -191,6 +191,43 @@ public class UTILS {
 		return c;
 	}
 	
+	
+	public static boolean cmtIsStandardized(String cmt)
+	{
+		if(cmt.charAt(0) != CMT_FLAG)	return false; 
+		
+		if (!cmt.contains("\n"))
+			return true; // since we now know it must start with hte proper char.
+		String[] spl = cmt.split("\n"); 
+		if(spl[0].length() > DHSWrapper.MAX_CMT_WIDTH)	return false; 
+		
+		int cli = 1; 
+		String hangLnPrfx = DHSWrapper.HANGING_INDENT + CMT_FLAG; 
+		int hlpLen = hangLnPrfx.length(); 
+		
+		while (cli < spl.length) {
+			if (spl[cli].length() <= hlpLen)	return false; 
+			if(!spl[cli].substring(0, hlpLen).equals(hangLnPrfx))	return false; 
+			cli++;
+		}
+		return true; 
+	}
+	
+	public static String standardizeCmt(String cmt)
+	{
+		String[] tokenized = cmt.substring(cmt.indexOf(" ")+1).split(" "); 
+		
+		String out = ""+CMT_FLAG+cmt.substring(0, cmt.indexOf(" ")); 
+		for (String token : tokenized)
+		{
+			if (out.length() + token.length() + 1 > DHSWrapper.MAX_CMT_WIDTH)
+				out += "\n"+DHSWrapper.HANGING_INDENT+CMT_FLAG+token; 
+			else	out += " "+token; 
+		}
+		
+		return out; 
+		
+	}
 	//checker methods
 	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
 	{

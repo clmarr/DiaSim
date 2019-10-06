@@ -14,8 +14,8 @@ public class DHSWrapper {
 	public final String INV_RESP_MSG =  "Invalid response. Please enter a valid response. Returning to hypothesis testing menu.";
 	public final char STAGE_PRINT_DELIM = UTILS.STAGE_PRINT_DELIM,
 			CMT_FLAG = UTILS.CMT_FLAG;
-	public final int MAX_CMT_WIDTH = 150; 
-	public final String HANGING_INDENT = "      "; 
+	public static final int MAX_CMT_WIDTH = 150; 
+	public static final String HANGING_INDENT = "      "; 
 	
 	//constant once set
 	private double id_wt; 
@@ -283,7 +283,7 @@ public class DHSWrapper {
 									}
 									
 									//now perform line breaks as appropriate for long comments...
-									justification = commentJustify(justification); 
+									justification = UTILS.standardizeCmt(justification); 
 								}
 								editComments.add(justification); 
 							}
@@ -696,22 +696,6 @@ public class DHSWrapper {
 						hypBlackLocs[bsi] += insertions.size();			
 			
 		}
-	}
-	
-	private String commentJustify(String cmt)
-	{
-		String[] tokenized = cmt.substring(cmt.indexOf(" ")+1).split(" "); 
-		
-		String out = ""+CMT_FLAG+cmt.substring(0, cmt.indexOf(" ")); 
-		for (String token : tokenized)
-		{
-			if (out.length() + token.length() + 1 > MAX_CMT_WIDTH)
-				out += "\n"+HANGING_INDENT+CMT_FLAG+token; 
-			else	out += " "+token; 
-		}
-		
-		return out; 
-		
 	}
 	
 	/** reset
