@@ -184,7 +184,7 @@ public class UTILS {
 	public static int numFilled (String[] effs)
 	{
 		int c = 0; 
-		for (String eff : effs)	c += (!effs.equals("")) ? 1 : 0; 
+		for (String eff : effs)	c += (eff != null) ? 1 : 0; 
 		return c;
 	}
 	
@@ -267,7 +267,7 @@ public class UTILS {
 	{
 		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
 		for (int ai = 0; ai < a1.length; ai++)	
-			if (!a1[ai].equals(a2[ai]))	return false;
+			if (strcmp(a1[ai],a2[ai]))	return false;
 		return true;
 	}
 	
@@ -279,5 +279,10 @@ public class UTILS {
 		return true;
 	}
 	
+	public static boolean strcmp (String x, String y)
+	{
+		if (x == null || y == null)	return (x == null) == (y == null); 
+		else return x.equals(y);
+	}
 	
 }

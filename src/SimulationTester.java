@@ -365,21 +365,24 @@ public class SimulationTester {
 			// and it should contain three specific feedings, for molten, molded and beholden (et ids 15,26,28)
 		HashMap<Integer,String[][]> CREs = theDHS.getChangedRuleEffects(); 
 		
-		//TODO debugging
-		System.out.println("CREs key set size "+CREs.keySet().size()) ;
-		System.out.println("CREs keys : "+CREs.keySet().toString()); 
-		
 		errorCount += UTILS.checkBoolean(true, 
 				CREs.keySet().size() == 1 && CREs.containsKey(0),
 				"ERROR: incorrect comprehension effects of insertion of l-darkening rule ") ? 0 : 1;
+		
+		
 		errorCount += UTILS.checkBoolean(true,
 				UTILS.numFilled(theDHS.getEffectsBlocked(0)) == 0,
 				"ERROR: false positive detection of blocking effects of l-darkening when there are none.") ? 0 : 1; 
-		String[] effs = new String[40]; 
-		effs[15] = "#mˈowltən# > #mˈowlˠtən#"; 
-		effs[26] = "#mˈowltəd# > #mˈowlˠtəd#";
-		effs[28] = "#bihˈowldən# > #bihˈowlˠdən#"; 
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], effs),
+		
+		//TODO debugging
+		System.out.println("CREs @0 : dims "+CREs.get(0).length+" x "+CREs.get(0)[1].length);
+		
+		
+		String[] darkened = new String[40]; 
+		darkened[15] = "#mˈowltən# > #mˈowlˠtən#"; 
+		darkened[26] = "#mˈowltəd# > #mˈowlˠtəd#";
+		darkened[28] = "#bihˈowldən# > #bihˈowlˠdən#"; 
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
 		

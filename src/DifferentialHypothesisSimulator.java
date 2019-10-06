@@ -209,15 +209,6 @@ public class DifferentialHypothesisSimulator {
 						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("[")));
 						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" \\| "); 
 						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")};  
-						
-						//TODO debugging
-						System.out.println("ddl : "+ddl);
-						System.out.println("globInd : "+globInd); 
-						System.out.println("effs "+effs[0]+" | "+effs[1]); 
-						System.out.println("hits "+hit[0]+" | "+hit[1]); 
-						
-						
-						
 						// since modification is stored here as a deletion and an insertion,
 							// it will not be represented as a single rule in a differential derivation
 						// therefore, there is a bidirectional implication between non-equivalence of 
@@ -228,6 +219,11 @@ public class DifferentialHypothesisSimulator {
 						{
 							//TODO debugging
 							System.out.println("Effect of proposed change detected"); 
+							System.out.println("ddl : "+ddl);
+							System.out.println("globInd : "+globInd); 
+							System.out.println("effs "+effs[0]+" | "+effs[1]); 
+							System.out.println("hits "+hit[0]+" | "+hit[1]); 
+							
 							
 							String[][] diffEffsHere;
 							if(changedRuleEffects.containsKey(globInd))
