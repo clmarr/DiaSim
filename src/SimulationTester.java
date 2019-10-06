@@ -392,6 +392,8 @@ public class SimulationTester {
 		System.out.println("Now testing integrity of DHSW after usurpation of baseline for hypothesis acceptance."); 
 		
 		
+		
+		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
 		// relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1

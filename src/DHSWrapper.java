@@ -63,7 +63,6 @@ public class DHSWrapper {
 	{
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
-		originalLastMoment = baseCASC.size(); 
 		NUM_ETYMA = baseSim.NUM_ETYMA(); 
 		NUM_GOLD_STAGES = baseSim.NUM_GOLD_STAGES();
 		NUM_BLACK_STAGES = baseSim.NUM_BLACK_STAGES(); 
@@ -736,6 +735,8 @@ public class DHSWrapper {
         for (int i = 0; i < NUM_BLACK_STAGES; i++)
                 hypBlackLocs[i] = baseSimulation.getStageInstant(false, i);
         hypOutLoc = ""; 
+        
+        hypEmpiricized = null;
 	}
 	
 	public void rebase(Simulation newBaseSim, String newBaseLoc) 
@@ -748,7 +749,7 @@ public class DHSWrapper {
 	
 	public void acceptHypothesis()
 	{
-		assert !hypOutLoc.equals("") : "Error: @global hypOutLoc must be set before usurping baseline"; 
+		assert hypEmpiricized != null && !hypOutLoc.equals("") : "Error: @global hypOutLoc must be set before usurping baseline"; 
 		rebase(hypEmpiricized, hypOutLoc); 
 	}
 	

@@ -217,14 +217,6 @@ public class DifferentialHypothesisSimulator {
 							// so hit[0] != hit[1] is a perfect proxy.
 						if (hit[0] != hit[1])
 						{
-							//TODO debugging
-							System.out.println("Effect of proposed change detected"); 
-							System.out.println("ddl : "+ddl);
-							System.out.println("globInd : "+globInd); 
-							System.out.println("effs "+effs[0]+" | "+effs[1]); 
-							System.out.println("hits "+hit[0]+" | "+hit[1]); 
-							
-							
 							String[][] diffEffsHere;
 							if(changedRuleEffects.containsKey(globInd))
 							{
