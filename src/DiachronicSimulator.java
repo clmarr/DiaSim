@@ -1,19 +1,14 @@
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.HashMap; 
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Collections; 
 
 /**
  * main class for diachronic derivation system
@@ -83,29 +78,7 @@ public class DiachronicSimulator {
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		
-		List<String> symbDefsLines = new ArrayList<String>();
-		String nextLine; 
-		
-		try 
-		{	File inFile = new File(symbDefsLoc); 
-			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8")); 
-			while((nextLine = in.readLine()) != null)	
-				symbDefsLines.add(nextLine); 		
-			
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
+		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
 		System.out.println("Symbol definitions extracted!");
 		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
 		
@@ -128,7 +101,7 @@ public class DiachronicSimulator {
 		else	feats_weighted = false;
 		
 		//from the rest-- extract the symbol def each represents
-		int li = 1; 
+		int li = 1; String nextLine;
 		while (li < symbDefsLines.size()) 
 		{
 			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
@@ -158,25 +131,8 @@ public class DiachronicSimulator {
 		
 		System.out.println("Now extracting info from feature implications file...");
 		
-		List<String> featImplLines = new ArrayList<String>(); 
-		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(featImplsLoc), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
+		List<String> featImplLines = UTILS.readFileLines(featImplsLoc);
+				
 		for(String filine : featImplLines)
 		{
 			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
