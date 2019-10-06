@@ -29,7 +29,7 @@ public class DHSWrapper {
 	private String origCascLoc, hypOutLoc; 
 	
 	//dynamic non-target variables that may need to be tracked in case they are the source of error, but are not priority to track
-	private int originalLastMoment;
+	private static int originalLastMoment;
 	public boolean stillQuerying; 
 	
 	//those remaining below are priority variables will need to be tracked for a thorough debugging process. 
@@ -333,8 +333,7 @@ public class DHSWrapper {
 
 			
 		}
-		
-		//TODO ??? here? ??? 
+		//TODO can only remove this once we have adequately tested this...
 	}
 	
 	public DifferentialHypothesisSimulator generateDHS()
@@ -726,8 +725,7 @@ public class DHSWrapper {
         originalLastMoment = baseCASC.size();
         
         //reinitializations of structure variables
-        RULE_IND_MAP = new int[originalLastMoment + 1]; 
-        for (int i = 0; i < originalLastMoment+1; i++)	RULE_IND_MAP[i] = i; //initialize each.
+        RULE_IND_MAP = getStandardInitRIM();
         
         hypGoldLocs = new int[NUM_GOLD_STAGES]; hypBlackLocs = new int[NUM_BLACK_STAGES];
         for (int i = 0; i < NUM_GOLD_STAGES; i++)
@@ -774,5 +772,13 @@ public class DHSWrapper {
 	public int[] getHypBlackLocs()	{	return hypBlackLocs;	}
 	public List<String[]> getProposedChanges()	{	return proposedChanges;	}
 	
-	
+	//width usually equals originalLastMoment
+	//made public static for use in debugging suite class SimulationTester
+	public static int[] getStandardInitRIM() 
+	{
+		//reinitializations of structure variables
+        int[] out = new int[originalLastMoment + 1]; 
+        for (int i = 0; i < originalLastMoment+1; i++)	out[i] = i; //initialize each.
+        return out; 
+	}
 }

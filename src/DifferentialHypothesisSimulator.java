@@ -233,14 +233,12 @@ public class DifferentialHypothesisSimulator {
 							}
 							changedRuleEffects.put(globInd, diffEffsHere);
 						}
-
 					}
 				}
 			}
 		}
 	}
 
-	//TODO debugging -- need to fix somewhere in here currently .... 
 	/** getDifferentialDerivation 
 	 * @return the differential derivation for a particular etymon
 	 * 	* the etymon being indexed by @param et_id
@@ -885,7 +883,7 @@ public class DifferentialHypothesisSimulator {
 	//TODO expl here.
 	private String strEffects (String[] effsOverEts)
 	{
-		String out = ""; 
+		String out = "";
 		for (String eoei : effsOverEts)
 			if (!eoei.equals(""))
 				out += "; "+eoei; 
