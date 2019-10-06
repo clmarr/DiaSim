@@ -374,10 +374,6 @@ public class SimulationTester {
 				UTILS.numFilled(theDHS.getEffectsBlocked(0)) == 0,
 				"ERROR: false positive detection of blocking effects of l-darkening when there are none.") ? 0 : 1; 
 		
-		//TODO debugging
-		System.out.println("CREs @0 : dims "+CREs.get(0).length+" x "+CREs.get(0)[1].length);
-		
-		
 		String[] darkened = new String[40]; 
 		darkened[15] = "#mˈowltən# > #mˈowlˠtən#"; 
 		darkened[26] = "#mˈowltəd# > #mˈowlˠtəd#";
@@ -385,8 +381,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
-		
-		
 		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 

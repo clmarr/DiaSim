@@ -267,7 +267,7 @@ public class UTILS {
 	{
 		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
 		for (int ai = 0; ai < a1.length; ai++)	
-			if (strcmp(a1[ai],a2[ai]))	return false;
+			if (!strcmp(a1[ai],a2[ai]))	return false;
 		return true;
 	}
 	
