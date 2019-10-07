@@ -503,9 +503,13 @@ public class SimulationTester {
 			
 		//check DHS.changedRuleEffects
 		String[] rhota = new String[NUM_ETYMA];
-		//TODO this...
-		gseg
-
+		for (int efdi : efds)	rhota[efdi] = getRegRuleEffect(theDHS.getDifferentialDerivation(efdi), 7, 7, -1); 
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(rhota, theDHS.getChangedRuleEffects().get(7)[0]), 
+				"ERROR: construction of changedRuleEffects after simple deletion of derhotacization rule did not represent lost effects properly") ? 0 : 1;  
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(new String[NUM_ETYMA], theDHS.getChangedRuleEffects().get(7)[1]),
+				"ERROR: construction of changedRuleEffects after deletion of derhotacization rule thought there were gained effects when there were none") ? 0 : 1 ; 
+		
+		
 		CREs = theDHS.getChangedRuleEffects(); 
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
@@ -944,6 +948,24 @@ public class SimulationTester {
 			}
 		}
 	}
+	
+	
+	/** 
+	 * @param dd -- differential derivation
+	 * @param gi -- global ind
+	 * @param bi -- base casc ind 
+	 * @param hi -- hyp casc ind
+	 * @return
+	 */
+	private static String getRegRuleEffect(String dd, int gi, int bi, int hi)
+	{
+		String breaker = ""+gi+"["+bi+"|"+hi+"] : "; 
+		String targ = dd.substring(dd.indexOf(breaker)+breaker.length()); 
+		targ = targ.substring(0, targ.indexOf("\n")); 
+		int splint = targ.indexOf(" \\| ");
+		return bi == -1 ? targ.substring(splint).trim() : targ.substring(0,splint).trim(); 
+	}
+
 	
 	
 }
