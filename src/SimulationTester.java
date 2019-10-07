@@ -271,8 +271,8 @@ public class SimulationTester {
 		
 		//test DHSWrapper.proposedChanges
 		String[] thepc = DHSW.getProposedChanges().get(0); 
-		errorCount +=UTILS.checkBoolean("0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]), true, 
-				"ERROR: update on proposedChanges not carried out properly") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(true, "0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]),  
+				"ERROR: update on proposedChanges for simple insertion not carried out properly") ? 0 : 1; 
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
@@ -353,7 +353,7 @@ public class SimulationTester {
 				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
 		
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed:\n") ? 0 : 1; 
+				"ERROR: differential derivation for 'molted' is malformed") ? 0 : 1; 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
@@ -411,6 +411,112 @@ public class SimulationTester {
 		
 		errorCount += UTILS.checkBoolean(true, UTILS.compareFiles("DebugCheckerCascAfterDarkening",DBG_WRKG_CASC),
 				"ERROR: modification of DBG_WRKG_CASC not carried out properly during hypothesis acceptance.")? 0 : 1;
+	
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
+		
+		//now we will do two changes before accepting the hypothesis. 
+		System.out.println("Testing comprehension of simple deletion (in this case, of a derhotacization rule)"); 
+
+		DHSW.processSingleCh(1,"we're Yankees", -1, "", null, "");
+		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
+
+		//testing realization in the cascade structures. 
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
+			"ERROR: base cascade appears to have been corrupted during comprehension of a deletion operation.")
+			? 0 : 1 ; 
+			
+		dumCasc.remove(1); 
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
+			"ERROR: malformed comprehension of simple deletion operation.") ? 0 : 1; 
+			
+		//testing DHSWrapper.RULE_IND_MAP -- before this operation there were 11 rules, and we are deleting the 8th. 
+		int[] corrRIM = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, -1, 9, 10, 11} ;
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
+			"ERROR: Handling of a simple deletion in RULE_IND_MAP not executed correctly.") ? 0 : 1; 
+			
+		//testDHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
+			"ERROR: simple deletion not handled by correct update in DHSW.hypGoldLocs -- should have changed second gold stage from spot 8 to 7.") ? 0 : 1; 
+			
+		//test DHSWrapper.proposedChanges
+		thepc = DHSW.getProposedChanges().get(0); 
+		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+			"ERROR: update on proposedChanges for simple deletion not executed properly") ? 0 : 1 ; 
+
+		theDHS = DHSW.generateDHS(); 
+
+		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
+
+		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true,
+			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
+			"ERROR: base to global ind mapper is malformed") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true,
+			UTILS.compare1dIntArrs( htg, new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10}),
+			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
+
+		//test divergence point.
+		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 8,
+			"ERROR: divergence point should be 8 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+			
+		//test lexical effects -- 'bitten' (et0) should be unaffected, but butter (et22) should be effected
+			// also testing differential derivation generation for case of a deletion in this block.
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""),
+			"ERROR: differential derivation for unaffected lexeme 'bitten' should be an empty string, but it is:\n"
+			+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+		corDD = "/bˈʌtə˞/\n" 
+			+ "CONCORDANT UNTIL RULE : 7\n"
+			+ "7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n"
+			+ "Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n"
+			+ "Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
+			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
+			
+		//checking DHS.ruleCorrespondences
+		errorCount += UTILS.checkBoolean ( true, 
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
+				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 8, 9, 10 } }),
+			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+			
+		//checking DHS.prChLocs
+		corrPCLs = new boolean[11];
+		corrPCLs[7] = true; 
+		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+			"ERROR: DifferentialHypothesisSImulator.prChLocs is malformed") ? 0 : 1; 
+
+		//check DHS.changedDerivations
+		Phone er = new Phone(phoneSymbToFeatsMap.get("ə˞"), featIndices, phoneSymbToFeatsMap); 
+		int nFs = 0; 
+		for (LexPhon ifi : inputForms)	nFs += ifi.findPhone(er) == -1 ? 0 : 1 ; 
+		int[] efds = new int[nFs] ; int nfi = 0; 
+		for(int ifii = 0; nfi < nFs ; ifii++)
+			if (inputForms[ifii].findPhone(er) != -1)	efds[nfi++] = ifii; 
+
+		errorCount += UTILS.checkBoolean( true, 
+			UTILS.compare1dIntArrs(efds, theDHS.getEtsWithChangedDerivations()),
+			"ERROR: wrong etyma effected by deletion of derhotacization") ? 0 : 1; 
+			
+		//check DHS.changedRuleEffects
+		String[] rhota = new String[NUM_ETYMA];
+		//TODO this...
+		gseg
+
+		CREs = theDHS.getChangedRuleEffects(); 
+		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
+
+
+
+
+
+			
+			
+
 		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
