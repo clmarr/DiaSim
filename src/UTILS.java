@@ -361,4 +361,12 @@ public class UTILS {
 		else return x.equals(y);
 	}
 	
+	//debugging auxiliary...
+	public static String printIndexedRules(List<SChange> theCasc)
+	{
+		int ci = 0; String out = ""; 
+		for (SChange sci : theCasc)	out += ""+(ci++)+": "+sci+"\n"; 
+		return out.substring(0, out.length() - "\n".length()) ;
+	}
+	
 }

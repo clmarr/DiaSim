@@ -259,9 +259,6 @@ public class DifferentialHypothesisSimulator {
 		baseDer= globalizeDerivInds(baseDer, false); 
 		hypDer = globalizeDerivInds(hypDer, true); 
 		
-		//TODO debugging
-		System.out.println("baseDer : "+baseDer+"\nhypDer: "+hypDer);
-				
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
 		
