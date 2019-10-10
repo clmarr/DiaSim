@@ -259,6 +259,9 @@ public class DifferentialHypothesisSimulator {
 		baseDer= globalizeDerivInds(baseDer, false); 
 		hypDer = globalizeDerivInds(hypDer, true); 
 		
+		//TODO debugging
+		System.out.println("baseDer : "+baseDer+"\nhypDer: "+hypDer);
+				
 		if(baseDer.equals(hypDer))	return "";
 		//now we know they are indeed different -- so fill in info on how... 
 		
@@ -269,15 +272,14 @@ public class DifferentialHypothesisSimulator {
 		int bdli = globalDivergenceLine(baseDer, hypDer); 
 		int hdli = bdli ;
 		
-		String lastBform = "" , lastHform = "";
-		
+		String lastBform = "", lastHform = ""; 
 		if (bdli == 1 ) {
 			lastBform = bdlines[0].replace("/", "#"); lastHform = hdlines[0].replace("/", "#");	}
 		else	{
-			lastBform = bdlines[bdli-1].substring(0, bdlines[bdli-1].indexOf(" |"));
-			lastHform = hdlines[hdli-1].substring(0, hdlines[hdli-1].indexOf(" |")); 
+			//note that at this point bdli and hdli are essentially interchangeable. 
+			lastBform = (bdlines[bdli - 1].contains(" \\|") ? bdlines : hdlines)[bdli-1].split(" \\|")[0];  
+			lastHform = (hdlines[hdli - 1].contains(" \\|") ? hdlines : bdlines)[bdli-1].split(" \\|")[0]; 
 		}
-
 		
 		int nextGlobalBaseInd = UTILS.extractInd(bdlines[bdli]), 
 				nextGlobalHypInd = UTILS.extractInd(hdlines[hdli]); 
