@@ -419,8 +419,8 @@ public class SimulationTester {
 		
 		//now we will do two changes before accepting the hypothesis. 
 		System.out.println("Testing comprehension of simple deletion (in this case, of a derhotacization rule)"); 
-
-		DHSW.processSingleCh(1,"we're Yankees", -1, "", null, "");
+			
+		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");
 		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
 
 		//testing realization in the cascade structures. 
@@ -428,22 +428,22 @@ public class SimulationTester {
 			"ERROR: base cascade appears to have been corrupted during comprehension of a deletion operation.")
 			? 0 : 1 ; 
 			
-		dumCasc.remove(1); 
+		dumCasc.remove(7); 
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 			"ERROR: malformed comprehension of simple deletion operation.") ? 0 : 1; 
-			
+		
 		//testing DHSWrapper.RULE_IND_MAP -- before this operation there were 11 rules, and we are deleting the 8th. 
-		int[] corrRIM = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, -1, 9, 10, 11} ;
+		int[] corrRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
-			"ERROR: Handling of a simple deletion in RULE_IND_MAP not executed correctly.") ? 0 : 1; 
-			
+			"ERROR: Handling of simple deletion in RULE_IND_MAP not executed correctly.") ? 0 : 1; 
+		
 		//testDHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
 			"ERROR: simple deletion not handled by correct update in DHSW.hypGoldLocs -- should have changed second gold stage from spot 8 to 7.") ? 0 : 1; 
 			
 		//test DHSWrapper.proposedChanges
 		thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+		errorCount += UTILS.checkBoolean(true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
 			"ERROR: update on proposedChanges for simple deletion not executed properly") ? 0 : 1 ; 
 
 		theDHS = DHSW.generateDHS(); 
@@ -509,18 +509,11 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(new String[NUM_ETYMA], theDHS.getChangedRuleEffects().get(7)[1]),
 				"ERROR: construction of changedRuleEffects after deletion of derhotacization rule thought there were gained effects when there were none") ? 0 : 1 ; 
 		
-		
 		CREs = theDHS.getChangedRuleEffects(); 
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
-
-
-
-
-
-			
-			
-
+	
+		
 		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
