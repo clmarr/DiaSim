@@ -158,13 +158,13 @@ public class DifferentialHypothesisSimulator {
 		}
 	}
 	
-	/**fills changedDerivations and changedRuleEffects, and sets divergence point. 
+	/**fills changedDerivations and changedRuleEffects, and sets divergencePoint. 
 	 * @param et_id -- etymon index, which should be consistent between the two Simulations. 
 	 * @return @default an empty String ""- means there is no difference between the derivations
 	 * 	otherwise: the DIFFERENTIAL DERIVATION, formed as follows: 
 	 * // String will contain
 				// First line --- <INPUT> \n
-				// CONCORDANT UNTIL : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+				// CONCORDANT UNTIL : <INDEX AFTER LAST CONCORDANT RULE> \n
 				// for 1-to-1 divergent development : <GLOBALRULE#> : [BASERULE#] <OLDFORM> > <NEWFORM> | [HYPRULE#] NEW > OLD \n
 				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
 				// insertion: the reverse.
@@ -183,13 +183,17 @@ public class DifferentialHypothesisSimulator {
 		
 		for (int ei = 0 ; ei < n_ets ; ei++)
 		{
-			//TODO will need to debug here...
-			
-			int lexDivPt = findEtymonDivergence(ei);
+			int lexDivPt = findEtDivergenceMoment(ei);
 			
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
 			{
+				//TODO debugging
+				if(divergencePoint > lexDivPt)
+					System.out.println("new divergence at "+lexDivPt+" for et "+ei+", "+baseCascSim.getInputForm(ei)+"\n"
+							+ getDifferentialDerivation(ei) +"\n\nbaseDer: "+baseCascSim.getDerivation(ei)+
+							"\n\nhypDer: "+hypCascSim.getDerivation(ei)); 
+				
 		        if(divergencePoint == -1)       divergencePoint = lexDivPt;
 		        else    divergencePoint = Math.min(divergencePoint, lexDivPt); 
 	
@@ -266,8 +270,8 @@ public class DifferentialHypothesisSimulator {
 		
 		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations" ;
 		String out = bdlines[0]; 
-		int bdli = globalDivergenceLine(baseDer, hypDer); 
-		int hdli = bdli ;
+		int bdli = globalDivergenceLine(baseDer, hypDer),
+				hdli = bdli ;
 		
 		String lastBform = "", lastHform = ""; 
 		if (bdli == 1 ) {
@@ -831,12 +835,12 @@ public class DifferentialHypothesisSimulator {
 				+ UTILS.stdCols(5, ruleCorrespondences[1]).substring(2); 
 	}
 	
-	/** findLexicalDivergencePoint 
+	/** findEtDivergenceLine
 	 * @return the earliest *line* where the baseline and hypothesis derivations for one etyma diverge
 	 * @return -1 -- if there is no divergence at all. 
 	 * @param et_id -- index of the etymon
 	 */
-	private int findEtymonDivergence (int et_id) 
+	private int findEtDivergenceLine (int et_id) 
 	{
 		String bd = baseCascSim.getDerivation(et_id), hd = hypCascSim.getDerivation(et_id); 
 		if (bd.equals(hd))	return -1; 
@@ -845,6 +849,20 @@ public class DifferentialHypothesisSimulator {
 		if (bd.equals(hd))	return -1; 
 		
 		return globalDivergenceLine(bd, hd); 
+	}
+	
+	/**
+	 * @return earliest (global) *moment* that the baseline and hyp derivs diverge for one etyma
+	 * @return -1 -- if there is no divergence at all
+	 * @param et_id -- index of the etymon.
+	 */
+	private int findEtDivergenceMoment (int et_id)
+	{
+		String dd = getDifferentialDerivation(et_id);
+		if(dd.equals(""))	return -1;
+		dd = dd.substring(dd.indexOf("CONCORDANT UNTIL RULE : ")); 
+		dd = dd.substring(dd.indexOf(":")+2, dd.indexOf("\n"));
+		return Integer.parseInt(dd); 
 	}
 	
 	/**

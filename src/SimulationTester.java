@@ -285,8 +285,8 @@ public class SimulationTester {
 		errorCount +=UTILS.checkBoolean(true, htg[0] == 0 && htg[2] == 2, "ERROR: hyp to global ind mapper is malformed") ? 0 : 1 ; 
 		
 		//test DifferentialHypothesisSimulator.divergencePoint 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 1, 
-				"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 0, 
+				"ERROR: divergence point should be 0 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
 		
 		// testing lexical effects. 'bitten' should not be effected, 'molted' should.
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
@@ -463,6 +463,12 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 8,
 			"ERROR: divergence point should be 8 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
 			
+		//TODO debugging
+		System.out.println(theDHS.getDifferentialDerivation(26));
+		System.out.println(theDHS.baseCascSim.getDerivation(26)); 
+		System.out.println(theDHS.hypCascSim.getDerivation(26)); 
+		
+		
 		//test lexical effects -- 'bitten' (et0) should be unaffected, but butter (et22) should be effected
 			// also testing differential derivation generation for case of a deletion in this block.
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""),
@@ -513,8 +519,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
 	
-		
-		
 		//TODO add rule processing and debug comprehension of the following
 		// simple deletion of rule : ə˞ > ə 
 		// relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1

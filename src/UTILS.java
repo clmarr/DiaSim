@@ -45,7 +45,6 @@ public class UTILS {
 	        return -1;	}
 		return output <= max ? output : -1; 
 	}
-	
 
 	public static String etymInds(LexPhon[] etList, LexPhon etTarg)
 	{
@@ -367,6 +366,27 @@ public class UTILS {
 		int ci = 0; String out = ""; 
 		for (SChange sci : theCasc)	out += ""+(ci++)+": "+sci+"\n"; 
 		return out.substring(0, out.length() - "\n".length()) ;
+	}
+	
+	//extract order of stages so that we don't end up wiht switches in the case that they end up in the same
+		// "moment" between rule operation steps 
+	public static String[] extractStageOrder(String cascLoc)
+	{
+		List<String> lines = readFileLines(cascLoc); 
+		int li = 0; 
+		while(li < lines.size())
+		{
+			char flag = lines.get(li).charAt(0); 
+			if (flag != GOLD_STAGENAME_FLAG && flag != BLACK_STAGENAME_FLAG)
+				lines.remove(li); 
+			else	li++; 
+		}
+		String[] out = new String[lines.size()]; 
+		li = 0;
+		int ngi = 0, nbi = 0;
+		while (li < out.length)
+			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "g"+(ngi++) : "b"+(nbi++);
+		return out; 
 	}
 	
 }

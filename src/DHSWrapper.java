@@ -59,6 +59,11 @@ public class DHSWrapper {
 	private int[] hypGoldLocs, hypBlackLocs; 
 		// same as above for the locations of period waypoints. 
 	
+	private String[] stagesOrdered; 
+		// g# -- gold stage number <#>
+		// b# -- black stage number <#> 
+		// for preventintg de facto switches when stages exist in the same "moment" between urles in the editing process
+	
 	private SChangeFactory FAC; 
 	
 	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc, SChangeFactory theFac)
@@ -659,8 +664,10 @@ public class DHSWrapper {
 			else //simple deletion or modification 
 			{
 				int increment = insertions.size() -1 ; 
-					
-				if (increment != 1)
+					// i.e. -1 in the case of simple deletion,
+						// net change in case of modification
+					 
+				if (increment != 0) //i.e. 1-to-1 replacement modification
 				{
 					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
 					{
@@ -669,13 +676,14 @@ public class DHSWrapper {
 						else if (curm > deleteLoc)	RULE_IND_MAP[rimi] = curm + increment;
 						// else it is too early to be effected, so do nothing.
 					}
+					//NOTE: it's > rather than >= because deleteLoc refers to the moment *before* the rule to be deleted!
 					if (NUM_GOLD_STAGES > 0)
 						for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-							if (hypGoldLocs[gsi] >= deleteLoc)
+							if (hypGoldLocs[gsi] > deleteLoc) 
 								hypGoldLocs[gsi] += increment;
 					if (NUM_BLACK_STAGES > 0)
 						for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
-							if (hypBlackLocs[bsi] >= deleteLoc)
+							if (hypBlackLocs[bsi] > deleteLoc)
 								hypBlackLocs[bsi] += increment;			
 				}
 			}	
