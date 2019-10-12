@@ -160,16 +160,15 @@ public class Simulation {
 			"Error: illegal construction of class variable Simulation.stagesOrdered";
 		if( currStageInd < NUM_GOLD_STAGES + NUM_BLACK_STAGES)
 		{
-        	char type = stagesOrdered[currStageInd].charAt(0);
-        	int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1)); 
-        	int nextStageInst = (type == 'g' ? goldStageInstants : blackStageInstants)[si]; 
-  
-        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
-        		" in stagesOrdered : '"+type+"'";
-        	
+			
 	        //while not if for scenario that two stages are at same moment-- but ordered within that.
-	        while (instant == Integer.parseInt(stagesOrdered[currStageInd].substring(1)))
+	        while (instant == getNextStageInd())
 	        {
+	        	char type = stagesOrdered[currStageInd].charAt(0); 
+	        	
+	        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
+	        		" in stagesOrdered : '"+type+"'";
+		
 	        	if ( type == 'g') //it's a gold stage.
 	        	{
 	        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
