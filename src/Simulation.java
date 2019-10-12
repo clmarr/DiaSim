@@ -158,36 +158,30 @@ public class Simulation {
 		
 		assert NUM_GOLD_STAGES + NUM_BLACK_STAGES == stagesOrdered.length : 
 			"Error: illegal construction of class variable Simulation.stagesOrdered";
-		if( currStageInd < NUM_GOLD_STAGES + NUM_BLACK_STAGES)
-		{
-			
-	        //while not if for scenario that two stages are at same moment-- but ordered within that.
-	        while (instant == getNextStageInd())
-	        {
-	        	char type = stagesOrdered[currStageInd].charAt(0); 
-	        	
-	        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
-	        		" in stagesOrdered : '"+type+"'";
 		
-	        	if ( type == 'g') //it's a gold stage.
-	        	{
-	        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
-	        		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
-	        		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
-	        			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
-	        		goldStageInd++;
-	        	}
-	        	else //black stage
-	        	{
-	        		blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
-	        		for (int ei = 0; ei < NUM_ETYMA; ei++)
-	        			etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei);
-	        		blackStageInd++;
-	        	}
-	        	currStageInd++; 
-	        }
-		}
-
+		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     //while not if for scenario that two stages are at same moment-- but ordered within that.
+		{
+			char type = stagesOrdered[currStageInd].charAt(0); 
+			assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
+	        		" in stagesOrdered : '"+type+"'";
+			if ( type == 'g') //it's a gold stage.
+        	{
+        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
+        		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
+        		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
+        			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
+        		goldStageInd++;
+        	}
+        	else //black stage
+        	{
+        		blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
+        		for (int ei = 0; ei < NUM_ETYMA; ei++)
+        			etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei);
+        		blackStageInd++;
+        	}
+        	currStageInd++; 
+        }
+		
 		if (instant == TOTAL_STEPS)
 		{
 			for (int ei = 0 ; ei < NUM_ETYMA; ei++)
