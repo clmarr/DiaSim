@@ -274,6 +274,9 @@ public class DifferentialHypothesisSimulator {
 			//note that at this point bdli and hdli are essentially interchangeable. 
 			lastBform = (bdlines[bdli - 1].contains(" \\|") ? bdlines : hdlines)[bdli-1].split(" \\|")[0];  
 			lastHform = (hdlines[hdli - 1].contains(" \\|") ? hdlines : bdlines)[bdli-1].split(" \\|")[0]; 
+			
+			if (lastBform.contains("stage form : "))	lastBform = lastBform.split("stage form : ")[1];
+			if (lastHform.contains("stage form : "))	lastHform = lastHform.split("stage form : ")[1];
 		}
 		
 		int nextGlobalBaseInd = UTILS.extractInd(bdlines[bdli]), 
@@ -296,8 +299,6 @@ public class DifferentialHypothesisSimulator {
 		// when the index is not shared, we are handling a case of deletion/insertion, 
 			// or bleeding/feeding as a result of the rule change.
 		
-		
-		
 		while ( bdli < bdlines.length && hdli < hdlines.length)
 		{
 			int[] stageHere = new int[] { bdlines[bdli].indexOf("stage form "), 
@@ -312,7 +313,7 @@ public class DifferentialHypothesisSimulator {
 			{
 				String nextBform = bdlines[bdli].substring(0, bdlines[bdli].indexOf(" | ")), 
 					nextHform = hdlines[hdli].substring(0, hdlines[hdli].indexOf(" | "));
-						
+				
 				out += "\n"+nextGlobalBaseInd+"["+ruleCorrespondences[0][nextGlobalBaseInd]
 						+"|"+ruleCorrespondences[1][nextGlobalHypInd]+"] : "
 						+lastBform+" > "+nextBform+" | "+lastHform+" > "+nextHform;

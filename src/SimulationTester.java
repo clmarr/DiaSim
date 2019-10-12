@@ -304,12 +304,6 @@ public class SimulationTester {
 		
 		errorCount +=UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
 				"ERROR: malformed derivation of 'bitten' for hypothesis cascade after 1 change") ? 0 : 1;  
-		//TODO debugging
-		System.out.println("Derivations for bitten that should be matched:");
-		System.out.println("theDHS.hypCascSim... : "+theDHS.hypCascSim.getDerivation(0)); 
-		System.out.println("SAVED: "+bittenCorrDerivAfterCh1);
-		
-		
 		
 		String mhdCor = 
 				"/mˈowltəd/\n" + 
@@ -487,6 +481,12 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
 			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
 			
+		System.out.println("Current dd for butter:\n"+theDHS.getDifferentialDerivation(22)); 
+		System.out.println("base : "+theDHS.baseCascSim.getDerivation((22))); 
+		System.out.println("hyp : "+theDHS.hypCascSim.getDerivation((22))); 
+		
+		
+		
 		//checking DHS.ruleCorrespondences
 		errorCount += UTILS.checkBoolean ( true, 
 			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 

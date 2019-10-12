@@ -401,18 +401,19 @@ public class UTILS {
 	 * @return the string forms after the first point where there is a difference between them. 
 	 * if there is no difference, return null 
 	 */
-	public static String[] printStringStartingWithMismatch(String s1, String s2)
+	public static String printCommonPrefix(String s1, String s2)
 	{
 		int i = 1;  
 		int minlen = Math.min(s1.length(), s2.length());
 		while (i < minlen)
 		{
 			if (!s1.substring(0,i).equals(s2.substring(0,i)))
-				return new String[] {	s1.substring(i-1), s2.substring(i-1)}	;
+				return s1.substring(0,i-1);
 			i++;
 		}
 		if(s1.length() == s2.length())	return null;
-		else	return new String[] {	s1.substring(minlen), s2.substring(minlen)}; 
+		else	return s1.substring(0,i-1);
+
 	}
 	
 }
