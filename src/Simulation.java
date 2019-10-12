@@ -160,19 +160,24 @@ public class Simulation {
 			"Error: illegal construction of class variable Simulation.stagesOrdered";
 		if( currStageInd < NUM_GOLD_STAGES + NUM_BLACK_STAGES)
 		{
+        	char type = stagesOrdered[currStageInd].charAt(0);
+        	int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1)); 
+        	int nextStageInst = (type == 'g' ? goldStageInstants : blackStageInstants)[si]; 
+  
+        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
+        		" in stagesOrdered : '"+type+"'";
+        	
 	        //while not if for scenario that two stages are at same moment-- but ordered within that.
 	        while (instant == Integer.parseInt(stagesOrdered[currStageInd].substring(1)))
 	        {
-	        	char type = stagesOrdered[currStageInd].charAt(0);
-	        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
-	                        " in stagesOrdered : '"+type+"'";
 	        	if ( type == 'g') //it's a gold stage.
 	        	{
 	        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
 	        		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
 	        		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
 	        			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
-	        		goldStageInd++;}
+	        		goldStageInd++;
+	        	}
 	        	else //black stage
 	        	{
 	        		blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
@@ -180,6 +185,7 @@ public class Simulation {
 	        			etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei);
 	        		blackStageInd++;
 	        	}
+	        	currStageInd++; 
 	        }
 		}
 
@@ -314,6 +320,14 @@ public class Simulation {
 		return out; 
 	}
 	
+	public int getNextStageInd()
+	{
+		int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
+		return (stagesOrdered[currStageInd].charAt(0) == 'g'?
+	                goldStageInstants : blackStageInstants)[si]; 
+	}
+
+	
 	public int getTotalSteps()	{	return TOTAL_STEPS;	}
 
 	public int NUM_ETYMA()	{	return NUM_ETYMA;	}
@@ -327,6 +341,8 @@ public class Simulation {
 	public List<SChange> CASCADE()	{	return CASCADE;	}
 	public String[] getGoldStageNames()	{	return goldStageNames;	}
 	public String[] getBlackStageNames()	{	return blackStageNames;	}
-	
+	public int getGoldStageInd()	{	return goldStageInd;	}
+	public int getBlackStageInd()	{	return blackStageInd;	}
+	public String[] getStagesOrdered()	{	return stagesOrdered;	}
 	
 }

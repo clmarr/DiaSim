@@ -75,6 +75,9 @@ public class SimulationTester {
 		System.out.println("Sanity check -- proper initialization and comprehension of gold and black stage initialization in Simulation class."); 
 		
 		int errorCount = 0, totalErrorCount = 0;
+		
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"g0","b0","g1"} ), 
+				"ERROR: Simulation.stagesOrdered not constructed properly.") ? 0 : 1;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		errorCount += UTILS.checkBoolean(false, testSimul.isComplete(), "ERROR: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
 		// Simulation class should not think it just hit a gold stage
@@ -145,6 +148,12 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
+		//TODO debugging
+		System.out.println("instant " + testSimul.getInstant() +"\ngoldStageInd : "+testSimul.getGoldStageInd());
+		System.out.println("just hit gold stage? "+testSimul.justHitGoldStage()); 
+		System.out.println("Simulation.stagesOrdered : ");
+		
+		
 		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected") ? 0 : 1; 
 		checker = standardChecker(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0)); 
 
@@ -167,6 +176,10 @@ public class SimulationTester {
 		testSimul.simulateToNextStage();
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
+		
+		//TODO debugging
+		System.out.println("instant " + testSimul.getInstant() +"\ngoldStageInd : "+testSimul.getGoldStageInd());
+				
 		
 		// TODO checks after skipping final gold stage before the end
 		System.out.println("Checking at final waypoint, a gold stage."); 
@@ -860,7 +873,6 @@ public class SimulationTester {
 	private static ErrorAnalysis standardChecker(Lexicon res, Lexicon gold)
 	{
 		return new ErrorAnalysis( res, gold, featsByIndex, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
-
 	}
 	
 	private static List<String> extractCascRulesByStep(SChangeFactory fac, String CASC_FILE_LOC)
