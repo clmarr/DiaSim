@@ -956,8 +956,10 @@ public class SimulationTester {
 	{
 		String breaker = ""+gi+"["+bi+"|"+hi+"] : "; 
 		String targ = dd.substring(dd.indexOf(breaker)+breaker.length()); 
+		
 		targ = targ.substring(0, targ.indexOf("\n")); 
-		int splint = targ.indexOf(" \\| ");
+		int splint = targ.indexOf("|");
+		
 		return bi == -1 ? targ.substring(splint).trim() : targ.substring(0,splint).trim(); 
 	}
 
