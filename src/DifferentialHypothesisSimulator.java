@@ -188,12 +188,6 @@ public class DifferentialHypothesisSimulator {
 			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
 			{
-				//TODO debugging
-				if(divergencePoint > lexDivPt)
-					System.out.println("new divergence at "+lexDivPt+" for et "+ei+", "+baseCascSim.getInputForm(ei)+"\n"
-							+ getDifferentialDerivation(ei) +"\n\nbaseDer: "+baseCascSim.getDerivation(ei)+
-							"\n\nhypDer: "+hypCascSim.getDerivation(ei)); 
-				
 		        if(divergencePoint == -1)       divergencePoint = lexDivPt;
 		        else    divergencePoint = Math.min(divergencePoint, lexDivPt); 
 	
@@ -290,7 +284,8 @@ public class DifferentialHypothesisSimulator {
 		assert nextGlobalBaseInd != -1 || nextGlobalBaseInd != nextGlobalHypInd : 
 			"Error : cannot have divergence occur due to something other than a difference in sound rules."; 
 		
-		int concordantUntil = Math.min(nextGlobalBaseInd, nextGlobalHypInd) == -1 ? Math.max(nextGlobalBaseInd, nextGlobalHypInd) : Math.min(nextGlobalBaseInd, nextGlobalHypInd); 
+		int concordantUntil = Math.min(nextGlobalBaseInd, nextGlobalHypInd);
+		concordantUntil = concordantUntil != -1 ? concordantUntil : Math.max(nextGlobalBaseInd, nextGlobalHypInd);
 		out += "\nCONCORDANT UNTIL RULE : "+ concordantUntil;
 		
 		// recall -- we have already aligned the numbers in the two derivations using derivationToGlobalInds()

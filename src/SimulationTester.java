@@ -148,12 +148,6 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
-		//TODO debugging
-		System.out.println("instant " + testSimul.getInstant() +"\ngoldStageInd : "+testSimul.getGoldStageInd());
-		System.out.println("just hit gold stage? "+testSimul.justHitGoldStage()); 
-		System.out.println("Simulation.stagesOrdered : ");
-		
-		
 		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected") ? 0 : 1; 
 		checker = standardChecker(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0)); 
 
@@ -176,10 +170,6 @@ public class SimulationTester {
 		testSimul.simulateToNextStage();
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
-		
-		//TODO debugging
-		System.out.println("instant " + testSimul.getInstant() +"\ngoldStageInd : "+testSimul.getGoldStageInd());
-				
 		
 		// TODO checks after skipping final gold stage before the end
 		System.out.println("Checking at final waypoint, a gold stage."); 
@@ -475,13 +465,8 @@ public class SimulationTester {
 			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
 
 		//test divergence point.
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 8,
-			"ERROR: divergence point should be 8 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
-			
-		//TODO debugging
-		System.out.println(theDHS.getDifferentialDerivation(26));
-		System.out.println(theDHS.baseCascSim.getDerivation(26)); 
-		System.out.println(theDHS.hypCascSim.getDerivation(26)); 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 7,
+			"ERROR: divergence point should be 7 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
 		
 		//test lexical effects -- 'bitten' (et0) should be unaffected, but butter (et22) should be effected
 			// also testing differential derivation generation for case of a deletion in this block.
