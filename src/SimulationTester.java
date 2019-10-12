@@ -304,6 +304,12 @@ public class SimulationTester {
 		
 		errorCount +=UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
 				"ERROR: malformed derivation of 'bitten' for hypothesis cascade after 1 change") ? 0 : 1;  
+		//TODO debugging
+		System.out.println("Derivations for bitten that should be matched:");
+		System.out.println("theDHS.hypCascSim... : "+theDHS.hypCascSim.getDerivation(0)); 
+		System.out.println("SAVED: "+bittenCorrDerivAfterCh1);
+		
+		
 		
 		String mhdCor = 
 				"/mˈowltəd/\n" + 
