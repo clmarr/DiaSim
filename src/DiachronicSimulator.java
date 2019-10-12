@@ -37,22 +37,7 @@ public class DiachronicSimulator {
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet; 
 	
-	//TODO perhaps abrogate these if they're permanently no longer in use. 
-	private static int[] finLexLD; //if gold is input: Levenshtein distance between gold and testResult for each word.
-	private static double[] finLexLak; //Lev distance between gold and testResult for each etymon divided by init form phone length for that etymon
-	private static boolean[] finMissInds; //each index true if the word for this index
-		// resulted in a missmatch between the gold and the test result
-	
-	private static List<int[]> stageLexLDs; //lexical Levenshtein Distance per stage.
-	private static List<double[]> stageLexLaks;
-	private static List<boolean[]> stageMissInds; 
-	
 	private static boolean goldOutput; 
-	
-	private static double PERFORMANCE; // for the final score of Levenshtein Distance / #phones, avgd over words = "Lakation" for now. 
-	private static double ACCURACY; 
-	private static double NEAR_ACCURACY; 
-	private static int numCorrectEtyma; //number of words in final result correct.
 	
 	//to be set in command line...
 	private static String runPrefix;
@@ -63,13 +48,13 @@ public class DiachronicSimulator {
 	
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages; 
-	private static int num_prob_phones_displayed = 10; //the top n phones most associated with errors... 
 	
 	private static int goldStageInd, blackStageInd; 
 	
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
 	
+	private static String[] stageOrdering; 
 	
 	private static void extractSymbDefs()
 	{
@@ -296,6 +281,8 @@ public class DiachronicSimulator {
 		}
 		
 		System.out.println("Diachronic rules extracted. "); 
+		
+		stageOrdering = UTILS.extractStageOrder(cascFileLoc); 
 		
 	}
 	
@@ -813,7 +800,7 @@ public class DiachronicSimulator {
 						else if (resp.charAt(0) == 'R')
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = UTILS.toyDerivation(inputForms,CASCADE.subList(0, focPtLoc)).getCurrentResult();
+							focPtLex = UTILS.toyDerivation(inputForms,CASCADE.subList(0, focPtLoc), stageOrdering).getCurrentResult();
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}

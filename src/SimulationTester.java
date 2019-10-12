@@ -51,6 +51,8 @@ public class SimulationTester {
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static List<SChange> CASCADE;
 	
+	private static String[] SO; //ordering of stages. 
+	
 	public static void main(String args[]) throws MidDisjunctionEditException
 	{
 		initWorkingCascFile(); 
@@ -61,14 +63,14 @@ public class SimulationTester {
 		System.out.println("Creating SChangeFactory...");
 		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
+		SO = UTILS.extractStageOrder(DBG_START_CASC); 
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
 			// first extracting from gold casc so that we do initial sanity test of the correct cascade leading to correct forms
 				// with all metrics agreeing with this etc etc. 
 		
-				
 		System.out.println("Lexicon extracted. Now debugging.");
 		
-		Simulation testSimul = new Simulation (inputForms, CASCADE);
+		Simulation testSimul = new Simulation (inputForms, CASCADE, SO);
 
 		System.out.println("Sanity check -- proper initialization and comprehension of gold and black stage initialization in Simulation class."); 
 		
@@ -213,7 +215,7 @@ public class SimulationTester {
 		
 		initWorkingCascFile(); 
 		resetToWorkingCasc(theFactory); 
-		testSimul = new Simulation(inputForms, CASCADE); 
+		testSimul = new Simulation(inputForms, CASCADE, SO); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
@@ -467,7 +469,6 @@ public class SimulationTester {
 		System.out.println(theDHS.getDifferentialDerivation(26));
 		System.out.println(theDHS.baseCascSim.getDerivation(26)); 
 		System.out.println(theDHS.hypCascSim.getDerivation(26)); 
-		
 		
 		//test lexical effects -- 'bitten' (et0) should be unaffected, but butter (et22) should be effected
 			// also testing differential derivation generation for case of a deletion in this block.

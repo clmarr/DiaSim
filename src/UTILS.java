@@ -55,9 +55,9 @@ public class UTILS {
 		return output;
 	}
 	
-	public static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade )
+	public static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade, String[] stageOrdering)
 	{
-		Simulation toy = new Simulation(inps, ruleCascade); 
+		Simulation toy = new Simulation(inps, ruleCascade,stageOrdering); 
 		toy.simulateToEnd();
 		return toy; 
 	}
@@ -376,16 +376,23 @@ public class UTILS {
 		int li = 0; 
 		while(li < lines.size())
 		{
-			char flag = lines.get(li).charAt(0); 
-			if (flag != GOLD_STAGENAME_FLAG && flag != BLACK_STAGENAME_FLAG)
-				lines.remove(li); 
-			else	li++; 
+			String ln = lines.get(li); 
+			
+			if (ln.equals("") == false) {
+				char flag = ln.charAt(0); 
+				if (flag != GOLD_STAGENAME_FLAG && flag != BLACK_STAGENAME_FLAG)
+					lines.remove(li); 
+				else	li++; 
+			}
+			else lines.remove(li);
 		}
 		String[] out = new String[lines.size()]; 
 		li = 0;
 		int ngi = 0, nbi = 0;
-		while (li < out.length)
+		while (li < out.length) {
 			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "g"+(ngi++) : "b"+(nbi++);
+			li++;
+		}
 		return out; 
 	}
 	

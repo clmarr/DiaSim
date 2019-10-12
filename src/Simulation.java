@@ -16,7 +16,14 @@ public class Simulation {
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES; 
 	
 	private int instant, stepPrinterval, TOTAL_STEPS; 
+	
 	private int goldStageInd, blackStageInd; // default 0
+	
+	private String[] stagesOrdered; 
+	private int currStageInd;
+		// use stagesOrdered to get current stage in a way that prevents flipping if
+			// ever two stages at the same moment (point between rule steps)
+	
 	
 	private String[][] ruleEffects; 
 	private String[] etDerivations; 
@@ -27,6 +34,7 @@ public class Simulation {
 	
 	private String[] stIndex; 
 
+	
 	public void initialize(LexPhon[] inputForms, List<SChange> casc)
 	{
 		inputLexicon = new Lexicon(inputForms); 
@@ -43,26 +51,30 @@ public class Simulation {
 		instant = 0; 
 		goldStageInd = 0; 
 		blackStageInd = 0; 
+		currStageInd = 0; 
 	}
 	
-	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations)
+	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations, String[] orderedStages)
 	{
 		initialize(inputForms, casc); 
 		etDerivations = initializedDerivations; 
+		stagesOrdered = orderedStages;
 	}
 	
-	public Simulation(LexPhon[] inputForms, List<SChange> casc)
+	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] orderedStages)
 	{
 		initialize(inputForms,casc);
 		etDerivations = new String[NUM_ETYMA];
 		for (int eti = 0; eti < NUM_ETYMA ; eti++)
 			etDerivations[eti] = inputForms[eti].print(); 
+		stagesOrdered = orderedStages; 
 	}
 	
 	//constructor for differential hypothesis empiricization Simulation object
 	public Simulation(Simulation baseline, List<SChange> propCasc)
 	{
 		LexPhon[] inputForms = baseline.getInput().getWordList();
+		this.stagesOrdered = baseline.stagesOrdered; 
 		initialize(inputForms, propCasc); 
 		etDerivations = new String[NUM_ETYMA];
 		for (int eti = 0; eti < NUM_ETYMA ; eti++)
@@ -144,22 +156,33 @@ public class Simulation {
 		
 		instant++; 
 		
-		if (goldStageInd < NUM_GOLD_STAGES ? instant == goldStageInstants[goldStageInd] : false)
+		assert NUM_GOLD_STAGES + NUM_BLACK_STAGES == stagesOrdered.length : 
+			"Error: illegal construction of class variable Simulation.stagesOrdered";
+		if( currStageInd < NUM_GOLD_STAGES + NUM_BLACK_STAGES)
 		{
-			currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
-			goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList()); 
-			for (int ei = 0; ei < NUM_ETYMA; ei++)
-				etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei); 
-			goldStageInd++; 
+	        //while not if for scenario that two stages are at same moment-- but ordered within that.
+	        while (instant == Integer.parseInt(stagesOrdered[currStageInd].substring(1)))
+	        {
+	        	char type = stagesOrdered[currStageInd].charAt(0);
+	        	assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
+	                        " in stagesOrdered : '"+type+"'";
+	        	if ( type == 'g') //it's a gold stage.
+	        	{
+	        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
+	        		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
+	        		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
+	        			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
+	        		goldStageInd++;}
+	        	else //black stage
+	        	{
+	        		blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
+	        		for (int ei = 0; ei < NUM_ETYMA; ei++)
+	        			etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei);
+	        		blackStageInd++;
+	        	}
+	        }
 		}
-		
-		if(blackStageInd<NUM_BLACK_STAGES ? instant == blackStageInstants[blackStageInd] : false)
-		{
-			blackStageResultLexica[blackStageInd] = new Lexicon(currLexicon.getWordList());
-			for (int ei = 0; ei < NUM_ETYMA; ei++)
-				etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei); 
-			blackStageInd++; 
-		}	
+
 		if (instant == TOTAL_STEPS)
 		{
 			for (int ei = 0 ; ei < NUM_ETYMA; ei++)
@@ -229,7 +252,9 @@ public class Simulation {
 		while ( gsi < goldStageInd && bsi < blackStageInd)
 		{
 			if ((gsi == goldStageInd) ? 
-					false : (bsi == blackStageInd ? true : goldStageInstants[gsi] <= blackStageInstants[bsi]))
+					false :
+						(bsi == blackStageInd ? true :
+							goldStageInstants[gsi] <= blackStageInstants[bsi]))
 			{	stIndex[gsi+bsi+1] = "g"+gsi; 
 				gsi++; 
 			}

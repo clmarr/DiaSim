@@ -63,7 +63,7 @@ public class DHSWrapper {
 		// g# -- gold stage number <#>
 		// b# -- black stage number <#> 
 		// for preventintg de facto switches when stages exist in the same "moment" between urles in the editing process
-	
+
 	private SChangeFactory FAC; 
 	
 	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc, SChangeFactory theFac)
@@ -81,6 +81,7 @@ public class DHSWrapper {
 		this.id_wt = id_wt; 
 		this.origCascLoc = ogCascLoc; 
 		this.FAC = theFac; 
+		stagesOrdered = UTILS.extractStageOrder(origCascLoc);
 		reset(); 
 	}
 	
