@@ -481,12 +481,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
 			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
 			
-		System.out.println("Current dd for butter:\n"+theDHS.getDifferentialDerivation(22)); 
-		System.out.println("base : "+theDHS.baseCascSim.getDerivation((22))); 
-		System.out.println("hyp : "+theDHS.hypCascSim.getDerivation((22))); 
-		
-		
-		
 		//checking DHS.ruleCorrespondences
 		errorCount += UTILS.checkBoolean ( true, 
 			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
