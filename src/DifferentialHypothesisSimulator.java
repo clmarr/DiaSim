@@ -122,6 +122,7 @@ public class DifferentialHypothesisSimulator {
 					ri++; 
 				}
 				prChLocs[ri] = true;
+				
 				boolean deletion = proposedChs.get(pci)[1].equals("deletion"); 
 				ruleCorrespondences[0][ri] = deletion ? bci : -1; 
 				bci += deletion ? 1 : 0; 

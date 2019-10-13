@@ -485,9 +485,9 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean ( true, 
 			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
 				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
-					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 8, 9, 10 } }),
+					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9 }}),
 			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
-			
+		
 		//checking DHS.prChLocs
 		corrPCLs = new boolean[11];
 		corrPCLs[7] = true; 
