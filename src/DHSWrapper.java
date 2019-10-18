@@ -580,7 +580,7 @@ public class DHSWrapper {
 		boolean foundTargSpot = false; 
 		int target = Integer.parseInt(ch[0]); 
 		int pci = proposedChanges.size(); 
-		while (pci == 0 ? false : foundTargSpot) // TODO err here? 
+		while (pci == 0 ? false : !foundTargSpot) 
 		{
 			String[] prevCh = proposedChanges.get(pci - 1); 
 			int prevLoc = Integer.parseInt(prevCh[0]); 
@@ -621,13 +621,12 @@ public class DHSWrapper {
 				if (addLoc == deleteLoc) // modification
 					assert insertions.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
 				
-				
 				else //relocdation 
 				{
 					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation"; 
 					insertions.add(removed);
 				}
-				hypCASC.addAll(addLoc, insertions); 
+				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions); 
 				
 				updateProposedChanges(
 					new String[] {""+addLoc, (addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes}, 

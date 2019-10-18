@@ -517,31 +517,24 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
 	
-		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
 		System.out.println("Testing comprehension of forward relocdation"); 
-				
+		
 		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocated from former step 1");
 		
 		//testing realization in the cascade structures. 
-		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
-		
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
+		curHC = DHSW.getHypCASC();
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(CASCADE, DHSW.getBaseCASC()),
 			"ERROR: base cascade appears to have been corrupted during comprehension of a forward relocdation operation.")
 			? 0 : 1 ; 
 
 		dumCasc.add(5,dumCasc.remove(1)); 
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
-		
-		//TODO debugging:
-		System.out.println("correct hyp casc : "+UTILS.printIndexedRules(dumCasc)); 
-		System.out.println("----");
-		System.out.println("generated, however: "+UTILS.printIndexedRules(curHC));
 		
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
