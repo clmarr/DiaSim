@@ -376,7 +376,6 @@ public class SimulationTester {
 				CREs.keySet().size() == 1 && CREs.containsKey(0),
 				"ERROR: incorrect comprehension effects of insertion of l-darkening rule ") ? 0 : 1;
 		
-		
 		errorCount += UTILS.checkBoolean(true,
 				UTILS.numFilled(theDHS.getEffectsBlocked(0)) == 0,
 				"ERROR: false positive detection of blocking effects of l-darkening when there are none.") ? 0 : 1; 
@@ -424,7 +423,7 @@ public class SimulationTester {
 		
 		//now we will do two changes before accepting the hypothesis. 
 		System.out.println("Testing comprehension of simple deletion (in this case, of a derhotacization rule)"); 
-			
+
 		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");
 		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
 
@@ -518,9 +517,36 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
 	
+		
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
+		//relocdation of flapping rule to after first waypoint
+		System.out.println("Testing comprehension of forward relocdation"); 
+				
+		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocated from former step 1");
+		
+		//testing realization in the cascade structures. 
+		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
+		
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
+			"ERROR: base cascade appears to have been corrupted during comprehension of a forward relocdation operation.")
+			? 0 : 1 ; 
+
+		dumCasc.add(5,dumCasc.remove(1)); 
+		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
+				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
+		
+		
+
+		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
+
+		
+		
+		//TODO finish necessary checkings for effect of deleting ə˞ > ə
+		
 		//TODO add rule processing and debug comprehension of the following
-		// simple deletion of rule : ə˞ > ə 
-		// relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1
 		// complex modification: change t > ʔ / __ ə to : 
 				// t > ʔ / [+son] __ {# ; [-cons,-lo,-strees]}
 		// gaian relocate the flapping rule to after waypoint 2 
