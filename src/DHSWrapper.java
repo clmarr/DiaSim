@@ -580,7 +580,7 @@ public class DHSWrapper {
 		boolean foundTargSpot = false; 
 		int target = Integer.parseInt(ch[0]); 
 		int pci = proposedChanges.size(); 
-		while (pci == 0 ? false : foundTargSpot)
+		while (pci == 0 ? false : foundTargSpot) // TODO err here? 
 		{
 			String[] prevCh = proposedChanges.get(pci - 1); 
 			int prevLoc = Integer.parseInt(prevCh[0]); 

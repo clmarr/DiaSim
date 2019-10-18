@@ -538,6 +538,10 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
 		
+		//TODO debugging:
+		System.out.println("correct hyp casc : "+UTILS.printIndexedRules(dumCasc)); 
+		System.out.println("----");
+		System.out.println("generated, however: "+UTILS.printIndexedRules(curHC));
 		
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
