@@ -416,4 +416,12 @@ public class UTILS {
 
 	}
 	
+	// auxiliary
+	public static String print1dIntArr(int[] a)
+	{
+		String out = ""; 
+		for (int ai : a)	out += ""+ai+","; 
+		return out.substring(0, out.length()-1);
+	}
+	
 }
