@@ -541,11 +541,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
 			"ERROR: forward relocdation is not handled correctly in RULE_IND_MAP." ) ? 0 : 1; 
 	
-		//TODO debugging
-		System.out.println("correct RIM : "+UTILS.print1dIntArr(corrRIM)); 
-		System.out.println("generated : "+UTILS.print1dIntArr(DHSW.getRULE_IND_MAP()));
-		
-		
 		//test DHSWrapper.hypGoldLocs
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
 			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
