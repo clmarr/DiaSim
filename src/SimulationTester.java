@@ -420,7 +420,6 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
-		
 		//now we will do two changes before accepting the hypothesis. 
 		System.out.println("Testing comprehension of simple deletion (in this case, of a derhotacization rule)"); 
 
@@ -441,7 +440,7 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
 			"ERROR: Handling of simple deletion in RULE_IND_MAP not executed correctly.") ? 0 : 1; 
 		
-		//testDHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
+		//test DHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
 			"ERROR: simple deletion not handled by correct update in DHSW.hypGoldLocs -- should have changed second gold stage from spot 8 to 7.") ? 0 : 1; 
 			
@@ -535,6 +534,33 @@ public class SimulationTester {
 		dumCasc.add(5,dumCasc.remove(1)); 
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
+		
+		//testing DHSWrapper.RULE_IND_MAP
+		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
+		corrRIM = new int[]{0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9, 10};
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
+			"ERROR: forward relocdation is not handled correctly in RULE_IND_MAP." ) ? 0 : 1; 
+
+		//test DHSWrapper.hypGoldLocs
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
+			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
+
+		//test DHSW.proposedChanges
+		thepc = DHSW.getProposedChanges().get(0); 
+			// should still be as before. 
+		errorCount += UTILS.checkBoolean(true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+			"ERROR: earlier not-yet-accepted hypothesis change is corrupted by processing of a new change!") ? 0 : 1 ; 
+		//now test processing of the second change, which should consist of one deletion and one insertion.
+		// first test the deletion.
+		thepc = DHSW.getProposedChanges().get(1); 
+		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocated to after first waypoint".equals(thepc[2]) ,
+			"ERROR: deletion part of update on proposedChanges for forward relocdation handled incorrectly!") ? 0:1;
+		// and then the insertion phase
+		thepc = DHSW.getProposedChanges().get(2);
+		errorCount += UTILS.checkBoolean( true , "5".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
+			"Relocated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
+				+"executed incorrectly!") ? 0 : 1; 
+
 		
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
