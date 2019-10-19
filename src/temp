@@ -4,47 +4,14 @@ generated : 0,6,2,3,4,5,6,-1,7,8,9,10
 		v
 		
 correct RIM : 0,6,1,2,3,4,5,-1,7,8,9,10
-generated : 0,6,2,3,4,5,-1,-1,7,8,9,10	
+generated : 0,6,2,3,4,5,1,-1,7,8,9,10
+	-----
+	
+else if (back) 
+	if (curm > addLoc && curm < deleteLoc)	RULE_IND_MAP[rimi] = curm + 1; 
+else if (curm > deleteLoc && curm < addLoc) 
+	
 	
 	-----
-// we fix by current position, allowing the possibility of handling 
-	// multiple unaccepted rules mapping baseline to hypothesis cascade
-boolean back = deleteLoc > addLoc; 
-boolean deleteLocFound = false, addLocFound = false; 
-for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-{
-	int curm  = RULE_IND_MAP [ rimi ]; 
-	if ( curm == deleteLoc )
-	{	
-		assert !deleteLocFound:
-			"Error: duplication of deletion loc "+deleteLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
-		RULE_IND_MAP[rimi] = addLoc;
-		deleteLocFound = true; 
-	}
-	else if (curm == addLoc)
-	{
-		assert !addLocFound:
-			"Error: duplication of add loc "+addLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
-		RULE_IND_MAP[rimi] = deleteLoc; 
-		addLocFound = true; 
-	}
-	else if (back)
-		if (curm > addLoc && curm < deleteLoc) 	RULE_IND_MAP[rimi] = curm + 1 ; 
-	else /*back*/ if (curm > deleteLoc && curm < addLoc)	RULE_IND_MAP[rimi] = curm - 1; 
-		
-		 
-	
-
-}
-
-		
-		
-	
-	
-	
-	
-	
-		RULE_IND_MAP[addLoc] =  deleteLoc // ??? 
-	----
 		
 TODO - jargon file. 

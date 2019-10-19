@@ -659,7 +659,7 @@ public class DHSWrapper {
 					}
 					else if (back)
 						if (curm > addLoc && curm < deleteLoc) 	RULE_IND_MAP[rimi] = curm + 1 ; 
-					else /*back*/ if (curm > deleteLoc && curm < addLoc)	RULE_IND_MAP[rimi] = curm - 1; 
+					else /*!back*/ if (curm > deleteLoc && curm < addLoc)	RULE_IND_MAP[rimi] = curm - 1; 
 				}
 
 				if (NUM_GOLD_STAGES > 0)

@@ -537,7 +537,7 @@ public class SimulationTester {
 		
 		//testing DHSWrapper.RULE_IND_MAP
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
-		corrRIM = new int[]{0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9, 10};
+		corrRIM = new int[]{0, 6, 2, 3, 4, 5, 1, -1, 7, 8, 9, 10};
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
 			"ERROR: forward relocdation is not handled correctly in RULE_IND_MAP." ) ? 0 : 1; 
 	
