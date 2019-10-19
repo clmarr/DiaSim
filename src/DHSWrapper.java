@@ -636,19 +636,32 @@ public class DHSWrapper {
 			//now handle the mapping structures.
 			if (insertions.size() == 1) //must be relocdation. 
 			{
-				boolean back = deleteLoc > addLoc;
-				RULE_IND_MAP[deleteLoc] = addLoc; 
+				// we fix by current position, allowing the possibility of handling 
+				// multiple unaccepted rules mapping baseline to hypothesis cascade
+				boolean back = deleteLoc > addLoc; 
+				boolean deleteLocFound = false, addLocFound = false; 
 				for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
 				{
-					int curm = RULE_IND_MAP[rimi]; 
-					if (curm == deleteLoc)	RULE_IND_MAP[rimi] = -1; 
-					else if (back) 
-						if (curm >= addLoc && curm < deleteLoc)
-							RULE_IND_MAP[rimi] = curm + 1;
-					else /*!back*/ if (curm > deleteLoc && curm <= addLoc)
-						RULE_IND_MAP [rimi] = curm - 1; 
+					int curm  = RULE_IND_MAP [ rimi ]; 
+					if ( curm == deleteLoc )
+					{	
+						assert !deleteLocFound:
+							"Error: duplication of deletion loc "+deleteLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
+						RULE_IND_MAP[rimi] = addLoc;
+						deleteLocFound = true; 
+					}
+					else if (curm == addLoc)
+					{
+						assert !addLocFound:
+							"Error: duplication of add loc "+addLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
+						RULE_IND_MAP[rimi] = deleteLoc; 
+						addLocFound = true; 
+					}
+					else if (back)
+						if (curm > addLoc && curm < deleteLoc) 	RULE_IND_MAP[rimi] = curm + 1 ; 
+					else /*back*/ if (curm > deleteLoc && curm < addLoc)	RULE_IND_MAP[rimi] = curm - 1; 
 				}
-				
+
 				if (NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 						if (hypGoldLocs[gsi] > Math.min(addLoc, deleteLoc))
