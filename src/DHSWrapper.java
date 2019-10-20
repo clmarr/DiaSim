@@ -685,10 +685,6 @@ public class DHSWrapper {
 				 *			meaning the net effect is +1 over [addLoc, deleteLoc)
 				 */
 				
-				//TODO debugging
-				System.out.println("addLoc "+addLoc+"\tdeleteLoc "+deleteLoc); 
-				
-				
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi ++ )
 						if ( hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc) 
