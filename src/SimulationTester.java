@@ -545,6 +545,10 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
 			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
 
+		//TODO debugging
+		System.out.println("correct hypGoldLocs : 5, 7\n generated : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
+		
+		
 		//test DHSW.proposedChanges
 		thepc = DHSW.getProposedChanges().get(0); 
 			// should still be as before. 

@@ -1,5 +1,12 @@
 
-	
+if (NUM_GOLD_STAGES > 0)
+	for ( int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi ++ )
+		if (hypGoldLocs[gsi] > Math.min(addLoc, deleteLoc) 
+			hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back ? -1 : 1); 
+
 	-----
 		
 TODO - jargon file. 
+
+instant -- spots between rules
+
