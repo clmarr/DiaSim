@@ -515,7 +515,10 @@ public class SimulationTester {
 		CREs = theDHS.getChangedRuleEffects(); 
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
-	
+
+		//TODO finish necessary checkings for effect of deleting ə˞ > ə ?
+			//TODO are we done with this?
+		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
@@ -571,9 +574,6 @@ public class SimulationTester {
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 
-		
-		
-		//TODO finish necessary checkings for effect of deleting ə˞ > ə
 		
 		//TODO add rule processing and debug comprehension of the following
 		// complex modification: change t > ʔ / __ ə to : 

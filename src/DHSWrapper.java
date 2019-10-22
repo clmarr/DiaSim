@@ -593,13 +593,6 @@ public class DHSWrapper {
 		}
 		if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
 		else	proposedChanges.add(pci == 0 ? 0 : pci - 1, ch); 
-		
-		
-		//TODO debugging
-		System.out.println("proposed changes updated, is now : ");
-		for (int pcii = 0 ; pcii < proposedChanges.size(); pcii++)
-			System.out.println(pcii+":\t"+String.join("\t",proposedChanges.get(pcii)));
-		
 	}
 
 	
