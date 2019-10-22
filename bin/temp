@@ -1,10 +1,56 @@
 
-if (NUM_GOLD_STAGES > 0)
-	for ( int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi ++ )
-		if (hypGoldLocs[gsi] > Math.min(addLoc, deleteLoc) 
-			hypGoldLocs[gsi] = hypGoldLocs[gsi] + (back ? -1 : 1); 
+boolean foundTargSpot = false;
+int target = Integer.parseInt(ch[0]); 
+int pci = proposedChanges.size(); 
+while (pci == 0 ? false : !foundTargSpot)
+{
+	String[] prevCh = proposedChanges.get(pci - 1);
+	int prevLoc = Integer.parseInt (prevCh[0]); // will be 7 initially -- but this should be moved back
+	foundTargSpot = target < prevLoc; 
+	
+	if(!foundTargSpot)
+	{
+		proposedChanges.set(pci, new String[] { ""+(prevLoc + quantity),
+			prevCh[1], prevCh[2] } ) ; 
+		pci--;
+	}
+}
+if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
+else	proposedChanges.add(Math.min(0,pci), ch);
+
 
 	-----
+first case
+
+foundTargSpot = false
+target = 1
+pci = 1
+while TRUE
+	prevCh = ["7", "deletion", "~~"] 
+	prevLoc = 7
+	foundTargSpot = false
+	if TRUE
+		proposedChanges.set(0, ["6", "deletion", "~~~"])
+		pci = 0
+while FALSE
+if FALSE
+else TRUE
+	
+
+		
+		---
+		initial 
+		
+7,deletion,~~
+
+---
+
+after deletion should be: 
+
+1, deletion, ~~
+6, deletion, ~~ 
+6, insertion, ~~ 
+		
 		
 TODO - jargon file. 
 

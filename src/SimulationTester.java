@@ -523,7 +523,7 @@ public class SimulationTester {
 		//relocdation of flapping rule to after first waypoint
 		System.out.println("Testing comprehension of forward relocdation"); 
 		
-		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocated from former step 1");
+		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocdated from former step 1");
 		
 		//testing realization in the cascade structures. 
 		curHC = DHSW.getHypCASC();
@@ -546,22 +546,28 @@ public class SimulationTester {
 			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
 		
 		//test DHSW.proposedChanges
-		thepc = DHSW.getProposedChanges().get(0); 
+		// second to last -- is clearly after the deletion @ index 1
+			// since deletion is processed first, this moves the previous propCh to index 6
+			// meaning it ties with the insertion
+			// in case of a tie we add the new proposed change after the old
+				// so index is 1
+		thepc = DHSW.getProposedChanges().get(1); 
 			// should still be as before. 
-		errorCount += UTILS.checkBoolean(true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+		errorCount += UTILS.checkBoolean(true, "6".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
 			"ERROR: earlier not-yet-accepted hypothesis change is corrupted by processing of a new change!") ? 0 : 1 ; 
+		
 		//now test processing of the second change, which should consist of one deletion and one insertion.
 		// first test the deletion.
-		thepc = DHSW.getProposedChanges().get(1); 
-		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocated to after first waypoint".equals(thepc[2]) ,
+		thepc = DHSW.getProposedChanges().get(0); 
+		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocdated to after first waypoint".equals(thepc[2]) ,
 			"ERROR: deletion part of update on proposedChanges for forward relocdation handled incorrectly!") ? 0:1;
 		// and then the insertion phase
-		thepc = DHSW.getProposedChanges().get(2);
-		errorCount += UTILS.checkBoolean( true , "5".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
-			"Relocated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
-				+"executed incorrectly!") ? 0 : 1; 
-
 		
+		thepc = DHSW.getProposedChanges().get(2);
+		errorCount += UTILS.checkBoolean( true , "6".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
+			"Relocdated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
+				+"executed incorrectly!") ? 0 : 1; 
+				
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 

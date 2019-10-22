@@ -576,7 +576,7 @@ public class DHSWrapper {
 	{
 		assert ch[1].equals("deletion") == (quantity == -1) : "Error: @param quantity should be null if and only if we are doing a deletion"; 
 
-		boolean deleteMode = ch[1].equals("deletion"); 
+		///boolean deleteMode = ch[1].equals("deletion"); 
 		boolean foundTargSpot = false; 
 		int target = Integer.parseInt(ch[0]); 
 		int pci = proposedChanges.size(); 
@@ -584,15 +584,21 @@ public class DHSWrapper {
 		{
 			String[] prevCh = proposedChanges.get(pci - 1); 
 			int prevLoc = Integer.parseInt(prevCh[0]); 
-			foundTargSpot = target < (prevLoc + (deleteMode ? 1 : 0)); 
+			foundTargSpot = target >= prevLoc; //+ (deleteMode ? 1 : 0)); //TODO this may be erroneous
 			if (!foundTargSpot)
 			{
+				proposedChanges.set(pci-1, new String[] { "" + (prevLoc + quantity ) , prevCh[1], prevCh[2] } ); 
 				pci--; 
-				proposedChanges.set(pci, new String[] { "" + (prevLoc + quantity ) , prevCh[1], prevCh[2] } ); 
 			} 
 		}
 		if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
-		else	proposedChanges.add(pci, ch); 
+		else	proposedChanges.add(pci == 0 ? 0 : pci - 1, ch); 
+		
+		
+		//TODO debugging
+		System.out.println("proposed changes updated, is now : ");
+		for (int pcii = 0 ; pcii < proposedChanges.size(); pcii++)
+			System.out.println(pcii+":\t"+String.join("\t",proposedChanges.get(pcii)));
 		
 	}
 
