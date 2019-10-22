@@ -1,56 +1,16 @@
+theDHS = DHSW.generateDHS(); 
+btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
+errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
+errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
+errorCount += UTILS.checkBoolean(true,
+	UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
+	"ERROR: base to global ind mapper is malformed") ? 0 : 1;
+errorCount += UTILS.checkBoolean(true,
+	UTILS.compare1dIntArrs( htg, new int[] {0, 6, 1, 2, 3, 4, 5, 8, 9, 10}),
+	"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
 
-boolean foundTargSpot = false;
-int target = Integer.parseInt(ch[0]); 
-int pci = proposedChanges.size(); 
-while (pci == 0 ? false : !foundTargSpot)
-{
-	String[] prevCh = proposedChanges.get(pci - 1);
-	int prevLoc = Integer.parseInt (prevCh[0]); // will be 7 initially -- but this should be moved back
-	foundTargSpot = target < prevLoc; 
-	
-	if(!foundTargSpot)
-	{
-		proposedChanges.set(pci, new String[] { ""+(prevLoc + quantity),
-			prevCh[1], prevCh[2] } ) ; 
-		pci--;
-	}
-}
-if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
-else	proposedChanges.add(Math.min(0,pci), ch);
-
-
-	-----
-first case
-
-foundTargSpot = false
-target = 1
-pci = 1
-while TRUE
-	prevCh = ["7", "deletion", "~~"] 
-	prevLoc = 7
-	foundTargSpot = false
-	if TRUE
-		proposedChanges.set(0, ["6", "deletion", "~~~"])
-		pci = 0
-while FALSE
-if FALSE
-else TRUE
-	
-
-		
-		---
-		initial 
-		
-7,deletion,~~
 
 ---
-
-after deletion should be: 
-
-1, deletion, ~~
-6, deletion, ~~ 
-6, insertion, ~~ 
-		
 		
 TODO - jargon file. 
 

@@ -571,6 +571,18 @@ public class SimulationTester {
 			"Relocdated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
 				+"executed incorrectly!") ? 0 : 1; 
 				
+		theDHS = DHSW.generateDHS(); 
+		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
+		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true,
+			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
+			"ERROR: base to global ind mapper is malformed") ? 0 : 1;
+		errorCount += UTILS.checkBoolean(true,
+			UTILS.compare1dIntArrs( htg, new int[] {0, 6, 1, 2, 3, 4, 5, 8, 9, 10}),
+			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
+
+		
 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 
