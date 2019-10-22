@@ -188,12 +188,12 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
-		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "ERROR: final accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1; 
-		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "ERROR: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
-		errorCount +=UTILS.checkMetric(0.0, checker.getAvgPED(), "ERROR: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
-		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
-		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
+		errorCount += UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: final accuracy should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += UTILS.checkMetric(1.0, checker.getPctWithin1(), "ERROR: final accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount += UTILS.checkMetric(1.0, checker.getPctWithin2(), "ERROR: final accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ; 
+		errorCount += UTILS.checkMetric(0.0, checker.getAvgPED(), "ERROR: final avg PED should be "+0.0+" but it is %o") ? 0 : 1 ;
+		errorCount += UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: final avg FED should be "+0.0+" but it is %o") ? 0 : 1 ; 
+		errorCount += UTILS.aggregateErrorsCheckWordLists(goldOutputLexicon.getWordList(), testSimul.getCurrentResult().getWordList()); 
 		
 		UTILS.errorSummary(errorCount); 
 		
@@ -281,6 +281,11 @@ public class SimulationTester {
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
+		//checking DHS.ruleCorrespondences
+		String prc = theDHS.printRuleCorrespondences(); 		
+		errorCount +=UTILS.checkBoolean(true, prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
+				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+		
 		//test DifferentialHypothesisSimulator.baseRuleIndsToGlobal and ~.hypRuleIndsToGlobal
 		int[] btg = theDHS.getBaseIndsToGlobal(), htg = theDHS.getHypIndsToGlobal(); 
 		
@@ -330,11 +335,6 @@ public class SimulationTester {
 				"ERROR: malformation of globalized derivation in baseline for 'molted'") ? 0 : 1; 
 		errorCount += UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(26 , true).equals(mhdCor), 
 				"ERROR: malformation of proposed hypothesis' predicted derivation in baseline for 'molted'") ? 0 : 1; 
-		
-		//checking DHS.ruleCorrespondences
-		String prc = theDHS.printRuleCorrespondences(); 		
-		errorCount +=UTILS.checkBoolean(true, prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
-				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
 	
 		//checking DHS.prChLocs
 		boolean[] corrPCLs = new boolean[11];
@@ -450,7 +450,14 @@ public class SimulationTester {
 			"ERROR: update on proposedChanges for simple deletion not executed properly") ? 0 : 1 ; 
 
 		theDHS = DHSW.generateDHS(); 
-
+		
+		//checking DHS.ruleCorrespondences
+		errorCount += UTILS.checkBoolean ( true, 
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
+				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9 }}),
+			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+						
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
 
 		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
@@ -479,13 +486,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
 			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
 			
-		//checking DHS.ruleCorrespondences
-		errorCount += UTILS.checkBoolean ( true, 
-			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
-				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
-					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9 }}),
-			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
-		
 		//checking DHS.prChLocs
 		corrPCLs = new boolean[11];
 		corrPCLs[7] = true; 
@@ -538,6 +538,10 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
 		
+		//test lengths
+		errorCount += UTILS.checkBoolean(true, DHSW.getBaseCASC().size() == 11, "ERROR: wrong length assigned to baseline CASCADE.") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, DHSW.getHypCASC().size() == 10, "ERROR: wrong length assigned to hypothesis CASCADE.") ? 0 : 1; 
+		
 		//testing DHSWrapper.RULE_IND_MAP
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
 		corrRIM = new int[]{0, 6, 2, 3, 4, 5, 1, -1, 7, 8, 9, 10};
@@ -572,6 +576,19 @@ public class SimulationTester {
 				+"executed incorrectly!") ? 0 : 1; 
 				
 		theDHS = DHSW.generateDHS(); 
+		
+		//checking DHS.ruleCorrespondences
+		errorCount += UTILS.checkBoolean ( true, 
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
+				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
+					new int[] {0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9 }}),
+			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+			
+		//TODO debugging
+		System.out.println("Rule correspondences:\n"
+				+ UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0]) +"\n"
+						+ UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])); 
+		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
 		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
 		errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
@@ -582,10 +599,10 @@ public class SimulationTester {
 			UTILS.compare1dIntArrs( htg, new int[] {0, 6, 1, 2, 3, 4, 5, 8, 9, 10}),
 			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
 
-		
-
+		//TODO debugging
+		System.out.println("btg " +UTILS.print1dIntArr(btg));
+		System.out.println("htg " + UTILS.print1dIntArr(htg)); 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
-
 		
 		//TODO add rule processing and debug comprehension of the following
 		// complex modification: change t > ʔ / __ ə to : 
