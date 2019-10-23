@@ -65,6 +65,7 @@ public class DHSWrapper {
 		// for preventintg de facto switches when stages exist in the same "moment" between urles in the editing process
 	//TODO currently not used-- abrogate?
 	
+	//neither of these are sorted at the moment.
 	private List<int[]> relocdations; 
 	private List<Integer> modifications; 
 	
@@ -732,8 +733,9 @@ public class DHSWrapper {
 					// i.e. -1 in the case of simple deletion,
 						// net change in case of modification
 					 
-				if (increment != 0) //i.e. it's NOT a 1-to-1 replacement modification
+				if (increment != 0) //i.e. it's NOT a 1-to-1 replacement modification 
 				{
+					//must be simple deletion or a modification that is not 1-to-1
 					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
 					{
 						int curm = RULE_IND_MAP[rimi];
@@ -750,6 +752,25 @@ public class DHSWrapper {
 						for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
 							if (hypBlackLocs[bsi] > deleteLoc)
 								hypBlackLocs[bsi] += increment;			
+					
+					//update the arraylists <relocdations> and <modifications>
+						// or rather any instances in them other than the one immediately being added. 
+					int relocdi = 0;
+					while( relocdi < relocdations.size() - 1 )
+					{
+						int[] delLocAddLoc = relocdations.get(relocdi); 
+						assert delLocAddLoc.length == 2:
+							"ERROR: invalid entry in ArrayList<int[]> relocdations at ["+relocdi+"] : "
+									+ UTILS.print1dIntArr(relocdations.get(relocdi)); 
+						for (int dai = 0 ; dai < 2 ; dai ++)
+							if (delLocAddLoc[dai] > deleteLoc)
+								delLocAddLoc[dai] += increment; 
+						relocdations.set(relocdi, delLocAddLoc); 
+					}
+					int modi = 0;
+					while (modi < modifications.size() - 1)
+						if (modifications.get(modi) > deleteLoc)
+							modifications.set(modi, modifications.get(modi)+1); 
 				}
 			}	
 		}
