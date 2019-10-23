@@ -770,7 +770,7 @@ public class DHSWrapper {
 					int modi = 0;
 					while (modi < modifications.size() - 1)
 						if (modifications.get(modi) > deleteLoc)
-							modifications.set(modi, modifications.get(modi)+1); 
+							modifications.set(modi, modifications.get(modi)+increment); 
 				}
 			}	
 		}
@@ -789,8 +789,23 @@ public class DHSWrapper {
 			if (NUM_BLACK_STAGES > 0)
 				for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi++)
 					if (hypBlackLocs[bsi] >= addLoc)
-						hypBlackLocs[bsi] += insertions.size();			
+						hypBlackLocs[bsi] += insertions.size();		
 			
+			//insertion update to arraylist variables relocdation and modification
+				// for any that would be affected except for the one currently being added
+			int relocdi = 0;
+			while (relocdi < relocdations.size() - 1) 
+			{
+				int[] delLocAddLoc = relocdations.get(relocdi);
+				for (int dai = 0 ; dai < 2 ; dai ++ )
+					if (delLocAddLoc[dai] >= addLoc)
+						delLocAddLoc[dai] += insertions.size(); 
+				relocdations.set(relocdi, delLocAddLoc);
+			}
+			int modi = 0; 
+			while (modi < modifications.size() - 1)
+				if (modifications.get(modi) >= addLoc)
+					modifications.set(modi, modifications.get(modi)+insertions.size()) ;
 		}
 	}
 	
