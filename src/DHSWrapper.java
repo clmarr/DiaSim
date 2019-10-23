@@ -68,6 +68,12 @@ public class DHSWrapper {
 	//neither of these are sorted at the moment.
 	private List<int[]> relocdations; 
 	private List<Integer> modifications; 
+		//cannot simply use RULE_IND_MAP to induce either relocdations or modifications, 
+			// because if any proposedChange that has an uneven effect on mapping 
+				// i.e. anything but a relocdation or bijective relocdation
+			// is before one or both of the baseline and hyp indices
+				//then the original mapping that woudl be used to identify (hi == bi for modif, map[hi] == bi && map[bi] == hi for relocdation)
+					//... will be disturbed.
 	
 	
 	private SChangeFactory FAC; 

@@ -1,3 +1,15 @@
+TODO implement 3rd way:
+
+link specific proposed changes that are the 
+	deletion and insertion aspects of  
+	a relocation (one object)
+	
+for bijective modification -- unnecessary as they
+	are adjacent.
+
+
+---
+NO
 solution:
 
 List<int[]> relocdations
@@ -5,6 +17,9 @@ List<int> modifications
 
 -- this seems to be the only way to handle this issue. 
 
+--- make this apply where it needs to...
+---- decide where it needs to apply...?
+--- 
 
 ---
 
@@ -33,7 +48,6 @@ corrRIM = {0,6,2,3,4,5,1,-1,7,8,9,10}
 
 so, then computeRuleCorrespondences(corrRIM):
 
-
 --
 
 total_length = 11
@@ -53,6 +67,18 @@ while TRUE
 	relocdation = true 
 
 
+---
+
+prChLocs = new boolean[total_length]
+ri = 0 
+bci = 0 
+hci = 0
+pci = 0
+
+while ( pci < proposedChs.size())
+	int chLoc = Integer.parseInt(proposedChs.get(pci)[0]);
+	while (ri < chLoc)	{	~	}
+	prChLocs[ri] = true; 
 
 
 ---
