@@ -123,12 +123,19 @@ public class DifferentialHypothesisSimulator {
 				}
 				prChLocs[ri] = true;
 				
+				// relocdation -- detected iff baseToHypIndMap[x] = y and baseToHypIndMap[y] =x 
+				int chi = baseToHypIndMap[ri]; // current hyp ind-- for testing for relocdation 
+				boolean relocdation = (chi == -1) ? false : (baseToHypIndMap[chi] == ri); 
+					// can be with deletion or insertion 
+				
 				boolean deletion = proposedChs.get(pci)[1].equals("deletion"); 
 				ruleCorrespondences[0][ri] = deletion ? bci : -1; 
 				bci += deletion ? 1 : 0; 
-				ruleCorrespondences[1][ri] = deletion ? -1 : hci; 
-				hci += deletion ? 0 : 1; 
-				ri++; 
+				ruleCorrespondences[1][ri] = deletion ? chi : hci;
+					// note that chi is -1 if it's normal deletion but hte targ if its' relocdation,
+						// so this is elegant. 
+				hci += deletion ? (relocdation ? 1 : 0) : 1; 
+				ri++;
 				pci++; 
 			}
 			while ( ri < total_length)

@@ -63,7 +63,12 @@ public class DHSWrapper {
 		// g# -- gold stage number <#>
 		// b# -- black stage number <#> 
 		// for preventintg de facto switches when stages exist in the same "moment" between urles in the editing process
-
+	//TODO currently not used-- abrogate?
+	
+	private List<int[]> relocdations; 
+	private List<Integer> modifications; 
+	
+	
 	private SChangeFactory FAC; 
 	
 	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt, String ogCascLoc, SChangeFactory theFac)
@@ -589,7 +594,7 @@ public class DHSWrapper {
 			{
 				proposedChanges.set(pci-1, new String[] { "" + (prevLoc + quantity ) , prevCh[1], prevCh[2] } ); 
 				pci--; 
-			} 
+			}
 		}
 		if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
 		else	proposedChanges.add(pci == 0 ? 0 : pci - 1, ch); 
@@ -618,12 +623,15 @@ public class DHSWrapper {
 			if(addLoc != -1) //relocdation or modification
 			{
 				if (addLoc == deleteLoc) // modification
+				{
 					assert insertions.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
-				
+					modifications.add(deleteLoc); 
+				}
 				else //relocdation 
 				{
 					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation"; 
 					insertions.add(removed);
+					relocdations.add(new int[] {addLoc, deleteLoc});
 				}
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions); 
 				
@@ -633,6 +641,7 @@ public class DHSWrapper {
 			}
 			
 			//now handle the mapping structures.
+			//including relocdations and modifications
 			if (insertions.size() == 1) //must be relocdation. 
 			{
 				// we fix by current position, allowing the possibility of handling 
@@ -693,7 +702,29 @@ public class DHSWrapper {
 					for (int bsi = 0 ; bsi < NUM_BLACK_STAGES; bsi ++ )
 						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc) 
 								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 1) )
-							hypBlackLocs[bsi] += (back ? 1 : -1);  
+							hypBlackLocs[bsi] += (back ? 1 : -1);
+				
+				//handle any indices in relocdations and modifications that 
+					// are not the one currently being added.
+				int relocdi = 0; 
+				while (relocdi < relocdations.size() -1 )
+				{
+					int[] delLocAddLoc = relocdations.get(relocdi); 
+					assert delLocAddLoc.length == 2:
+						"ERROR: invalid entry in ArrayList<int[]> relocdations at ["+relocdi+"] : "
+								+ UTILS.print1dIntArr(relocdations.get(relocdi)); 
+					for (int dai = 0 ; dai < 2 ; dai ++)
+						if (delLocAddLoc[dai] >= (back ? addLoc : deleteLoc ) 
+								&& delLocAddLoc[dai] < (back ? deleteLoc : addLoc + 1 ) )
+							delLocAddLoc[dai] += (back ? 1 : -1 ); 
+					relocdations.set(relocdi, delLocAddLoc); 
+				}
+				
+				int modi = 0; 
+				while (modi < modifications.size() - 1)
+					if (modifications.get(modi) >= (back ? addLoc : deleteLoc ) 
+						&& modifications.get(modi) < (back ? deleteLoc : addLoc + 1) )
+						modifications.set(modi, modifications.get(modi) + (back ? 1 : -1));
 			}
 			else //simple deletion or modification 
 			{
@@ -701,7 +732,7 @@ public class DHSWrapper {
 					// i.e. -1 in the case of simple deletion,
 						// net change in case of modification
 					 
-				if (increment != 0) //i.e. 1-to-1 replacement modification
+				if (increment != 0) //i.e. it's NOT a 1-to-1 replacement modification
 				{
 					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
 					{
@@ -765,6 +796,8 @@ public class DHSWrapper {
         hypOutLoc = ""; 
         
         hypEmpiricized = null;
+        relocdations = new ArrayList<int[]>(); 
+        modifications = new ArrayList<Integer>();
 	}
 	
 	public void rebase(Simulation newBaseSim, String newBaseLoc) 

@@ -1,8 +1,23 @@
+solution:
+
+List<int[]> relocdations
+List<int> modifications
+
+-- this seems to be the only way to handle this issue. 
+
+
+
+-- make sure relocdations is updated when necessary
+-- make sure modifications is updated when necessary
+
+
+---
+
 Current error in rule correspondences: 
 
 Rule correspondences:
 0,1,2,3,4,5,6,-1,7,8,9
-0,-1,1,2,3,4,-1,5,6,7,8
+0,6,1,2,3,4,1,5,6,7,8
 
 second row should be 
 0,6,1,2,3,4,5,-1,7,8,9
@@ -21,31 +36,27 @@ RULE_IND_MAP Has been confirmed.
 
 corrRIM = {0,6,2,3,4,5,1,-1,7,8,9,10}
 
-so, then computeRuleCorrespondences(corrRIM)
-:
+so, then computeRuleCorrespondences(corrRIM):
 
-if FALSE
-else TRUE
-	total_length = hypCascSim.getTotalSteps()
-		> 10, I think
-	for (int bihimi : corrRIM)
-		if (bihimi == -1)
-			total_length ++
-	> total_length = 11
+
+--
+
+total_length = 11
+prChLocs = new boolean[11]; 
+etc
+
+while TRUE
+	chLoc = 1
+	while TRUE
+		rC[0][0] = 0
+		bci = 1 
+		etc
+	while FALSE
+	prChLocs[1] = false
 	
-	
+	chi = 6
+	relocdation = true 
 
-
----
-
-current errors
-btg: should be0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 
-	... I think?
-generated: 0,1,2,3,4,5,6,8,9,10,0
-
-error in : DifferentialHypothesisSimulator.baseRuleIndsToGlobal
-
-generated in : DHS.makeIndexGlobalizers()
 
 
 
@@ -54,4 +65,6 @@ generated in : DHS.makeIndexGlobalizers()
 TODO - jargon file. 
 
 instant -- spots between rules
+
+---
 
