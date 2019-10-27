@@ -640,7 +640,6 @@ public class DHSWrapper {
 				{
 					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation"; 
 					insertions.add(removed);
-					relocdations.add(new int[] {addLoc, deleteLoc});
 				}
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions); 
 				
@@ -744,12 +743,19 @@ public class DHSWrapper {
 					
 					RIM_HB = new int[oldLen + increment]; 
 					
-					for(int rimi = 0 ; rimi < addLoc; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi];
-					for(int riai = addLoc; riai < addLoc + increment; riai++)	RIM_HB[riai] = -1; //as it is insertion.
-					for(int rimi = addLoc; rimi < oldLen ; rimi++)
+					for(int rimi = 0 ; rimi < deleteLoc; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi];
+					int ridi = deleteLoc;
+					while ( ridi < deleteLoc + increment) // i.e. must be non bijective modification. 
+						RIM_HB[ridi++] = -1; 
+					
+					int oldLoc = deleteLoc + 1, newLoc = deleteLoc + Math.max(increment, 0); 
+					
+					while (oldLoc < oldLen) 
 					{
-						RIM_HB[rimi+increment] = oldRIM_HB[rimi]; 
-						if (oldRIM_HB[rimi] != -1)	RIM_BH[ oldRIM_HB[rimi]] = rimi+increment; 
+						int baseLoc = oldRIM_HB[oldLoc];
+						if (baseLoc != -1)	RIM_BH[baseLoc] = newLoc; 
+						RIM_HB[newLoc] = baseLoc; 
+						oldLoc++; newLoc++; 
 					}
 					
 					//NOTE: it's > rather than >= because deleteLoc refers to the moment *before* the rule to be deleted!
