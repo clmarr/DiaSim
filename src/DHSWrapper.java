@@ -660,8 +660,6 @@ public class DHSWrapper {
 
 				//structure skeleton -- modification of RIM_HB
 						// RIM_BH meanwhile is modified if/when any still-tracked indices in it are -- which we determine using mappingLocinRIMBH(int)
-				int[] oldRIM_HB = new int[RIM_HB.length]; 
-				
 				int rimi = 0;
 				while (!deleteLocFound && !addLocFound)
 				{
@@ -680,10 +678,12 @@ public class DHSWrapper {
 						RIM_HB[rimi] = deleteLoc; 
 						addLocFound = true; 
 					}
-					else rimi++; 
+					else rimi++;  // no change.
 				}
-				while (rimi < RIM_HB.length) {
-					
+				while (rimi < (back ? deleteLoc : addLoc ))
+				{
+					int mappedFromBase = mappingLocInRIMBH(rimi); 
+					int curm = RIM_HB[rimi]; 
 					//TODO here. 
 					
 					
@@ -692,7 +692,7 @@ public class DHSWrapper {
 					
 				
 				//TODO loop below -- abrogated
-				for (int rimi = 0 ; rimi < RIM_BH.length; rimi++)
+				for (int rimi = 0 ; rimi < back ? deleteLoc : addLoc; rimi++)
 				{
 					int curm  = RIM_BH [ rimi ]; 
 					if ( curm == deleteLoc )
