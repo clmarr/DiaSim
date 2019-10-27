@@ -51,11 +51,13 @@ public class DHSWrapper {
 	// whereas for insertion, the second indexarg0arg0arg0arg0 holds the string form of the SChange 
 		// that is inserted there in hypCASC. 
 
-	private int[] RULE_IND_MAP; //easy access maps spaces BETWEEN rule steps of baseCASC to those in hypCASC.
+	private int[] RIM_BH; //easy access maps spaces BETWEEN rule steps of baseCASC to those in hypCASC.
 		// the mapping is kept updated as new changes are added
 		// -1 means deleted. 
 		// can think of all but hte last index as referring to the next rule's spot since that is how operatiosn will call that rule
 		// and the final "index" as referring to the end state. 
+	private int[] RIM_HB; //like above, but operating the otherway (so -1 means inserted etc etc)
+	
 	private int[] hypGoldLocs, hypBlackLocs; 
 		// same as above for the locations of period waypoints. 
 	

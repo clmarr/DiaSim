@@ -76,7 +76,7 @@ public class DifferentialHypothesisSimulator {
 		// true only for those indices of those operations which are either deleted or added 
 			//as part of the transformation of the baseline cascade to the hypothesis cascade. 
 	
-	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges, List<int[]> relocdations, List<Integer> modifications)
+	public DifferentialHypothesisSimulator(Simulation b, int ppop, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges, List<int[]> relocdations, List<Integer> modifications)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
