@@ -793,10 +793,26 @@ public class DHSWrapper {
 		else // must be simple insertion of one or more rules.
 		{
 			hypCASC.addAll(addLoc, insertions); 
-			updateProposedChanges(new String[] { ""+addLoc, newLaw, insertionNotes}, insertions.size()); 
-			for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
-				if (RULE_IND_MAP[rimi] >= addLoc)
-					RULE_IND_MAP[rimi] += insertions.size(); 
+			int increment = insertions.size(); 
+			updateProposedChanges(new String[] { ""+addLoc, newLaw, insertionNotes}, increment); 
+			
+			int oldLen = RIM_HB.length;
+			int[] oldRIM_HB = new int[oldLen];
+			for(int mi = 0; mi < oldLen; mi++)	oldRIM_HB[mi] = RIM_HB[mi]; 
+			
+			int[] RIM_HB = new int[oldLen + increment] ;
+			for(int rimi = 0 ; rimi < addLoc ; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi]; 
+			
+			for(int rimi = addLoc ; rimi < addLoc + increment ; rimi++)
+				RIM_HB[rimi] = -1; 
+			
+			for(int rimi = addLoc ; rimi < oldLen ; rimi++)
+			{
+				int baseLoc = oldRIM_HB[rimi];
+				if (baseLoc != -1)	RIM_BH[baseLoc] = rimi + increment ; 
+				RIM_HB[rimi + increment] = oldRIM_HB[rimi]; 
+			}
+			
 			if (NUM_GOLD_STAGES > 0)
 				for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 					if (hypGoldLocs[gsi] >= addLoc)
