@@ -656,65 +656,23 @@ public class DHSWrapper {
 				// we fix by current position, allowing the possibility of handling 
 				// multiple unaccepted rules mapping baseline to hypothesis cascade
 				boolean back = deleteLoc > addLoc; 
-				boolean deleteLocFound = false, addLocFound = false; 
 
-				//structure skeleton -- modification of RIM_HB
-						// RIM_BH meanwhile is modified if/when any still-tracked indices in it are -- which we determine using mappingLocinRIMBH(int)
-				int rimi = 0;
-				while (!deleteLocFound && !addLocFound)
-				{
-					int curm = RIM_HB[rimi];
-					if ( curm == deleteLoc )
-					{	
-						assert !deleteLocFound:
-							"Error: duplication of deletion loc "+deleteLoc+" detected in current RIM_HB, " +UTILS.print1dIntArr(RIM_HB);
-						RIM_HB[rimi] = addLoc;
-						deleteLocFound = true; 
-					}
-					else if (curm == addLoc)
-					{
-						assert !addLocFound:
-							"Error: duplication of add loc "+addLoc+" detected in current RIM_HB " +UTILS.print1dIntArr(RIM_HB);
-						RIM_HB[rimi] = deleteLoc; 
-						addLocFound = true; 
-					}
-					else rimi++;  // no change.
-				}
-				while (rimi < (back ? deleteLoc : addLoc ))
-				{
-					int mappedFromBase = mappingLocInRIMBH(rimi); 
-					int curm = RIM_HB[rimi]; 
-					//TODO here. 
-					
-					
-					rimi++;
-				}
-					
+				int[] oldRIM_HB = new int[RIM_HB.length]; 
+				for (int mi = 0 ; mi < RIM_HB.length; mi ++ )	oldRIM_HB[mi] = RIM_HB[mi];
 				
-				//TODO loop below -- abrogated
-				for (int rimi = 0 ; rimi < back ? deleteLoc : addLoc; rimi++)
+				//structure skeleton -- modification of RIM_HB
+						// RIM_BH meanwhile is modified if/when any still-tracked indices in it are -- which we determine using mappingLocinRIMBH(int);
+				
+				int baseLoc = RIM_HB[deleteLoc], movingTo = addLoc;
+				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc))
 				{
-					int curm  = RIM_BH [ rimi ]; 
-					if ( curm == deleteLoc )
-					{	
-						assert !deleteLocFound:
-							"Error: duplication of deletion loc "+deleteLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RIM_BH);
-						RIM_BH[rimi] = addLoc;
-						deleteLocFound = true; 
-					}
-					else if (curm == addLoc)
-					{
-						assert !addLocFound:
-							"Error: duplication of add loc "+addLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RIM_BH);
-						RIM_BH[rimi] = deleteLoc; 
-						addLocFound = true; 
-					}
-					else if (back)
-						if (curm > addLoc && curm < deleteLoc) 	RIM_BH[rimi] = curm + 1 ; 
-					else /*!back*/ if (curm > deleteLoc && curm < addLoc)	RIM_BH[rimi] = curm - 1; 
+					if(baseLoc != -1)	RIM_BH[baseLoc] = movingTo; 
+					int temp = RIM_HB[movingTo]; 
+					RIM_HB[movingTo] = baseLoc; 
+					baseLoc = temp;
+					movingTo += back ? 1 : -1; 
 				}
-
-				/** 
+								/** 
 				 * note -- since in a relocdation shift, deletion operates before insertion, this has implications here
 				 * 	because after deletion, all instants numbered greater than the deleted rule
 				 * 			(recall: instant 0 is before rule 0, 1 before r 1 etc... until n+1 is after final rule n) 
@@ -779,6 +737,7 @@ public class DHSWrapper {
 				if (increment != 0) //i.e. it's NOT a 1-to-1 replacement modification 
 				{
 					//must be simple deletion or a modification that is not 1-to-1
+					//TODO for-loop below is abrogated!
 					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
 					{
 						int curm = RULE_IND_MAP[rimi];
