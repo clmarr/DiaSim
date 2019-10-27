@@ -657,26 +657,61 @@ public class DHSWrapper {
 				// multiple unaccepted rules mapping baseline to hypothesis cascade
 				boolean back = deleteLoc > addLoc; 
 				boolean deleteLocFound = false, addLocFound = false; 
-				for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++)
+
+				//structure skeleton -- modification of RIM_HB
+						// RIM_BH meanwhile is modified if/when any still-tracked indices in it are -- which we determine using mappingLocinRIMBH(int)
+				int[] oldRIM_HB = new int[RIM_HB.length]; 
+				
+				int rimi = 0;
+				while (!deleteLocFound && !addLocFound)
 				{
-					int curm  = RULE_IND_MAP [ rimi ]; 
+					int curm = RIM_HB[rimi];
 					if ( curm == deleteLoc )
 					{	
 						assert !deleteLocFound:
-							"Error: duplication of deletion loc "+deleteLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
-						RULE_IND_MAP[rimi] = addLoc;
+							"Error: duplication of deletion loc "+deleteLoc+" detected in current RIM_HB, " +UTILS.print1dIntArr(RIM_HB);
+						RIM_HB[rimi] = addLoc;
 						deleteLocFound = true; 
 					}
 					else if (curm == addLoc)
 					{
 						assert !addLocFound:
-							"Error: duplication of add loc "+addLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RULE_IND_MAP);
-						RULE_IND_MAP[rimi] = deleteLoc; 
+							"Error: duplication of add loc "+addLoc+" detected in current RIM_HB " +UTILS.print1dIntArr(RIM_HB);
+						RIM_HB[rimi] = deleteLoc; 
+						addLocFound = true; 
+					}
+					else rimi++; 
+				}
+				while (rimi < RIM_HB.length) {
+					
+					//TODO here. 
+					
+					
+					rimi++;
+				}
+					
+				
+				//TODO loop below -- abrogated
+				for (int rimi = 0 ; rimi < RIM_BH.length; rimi++)
+				{
+					int curm  = RIM_BH [ rimi ]; 
+					if ( curm == deleteLoc )
+					{	
+						assert !deleteLocFound:
+							"Error: duplication of deletion loc "+deleteLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RIM_BH);
+						RIM_BH[rimi] = addLoc;
+						deleteLocFound = true; 
+					}
+					else if (curm == addLoc)
+					{
+						assert !addLocFound:
+							"Error: duplication of add loc "+addLoc+" detected in current RULE_IND_MAP, " +UTILS.print1dIntArr(RIM_BH);
+						RIM_BH[rimi] = deleteLoc; 
 						addLocFound = true; 
 					}
 					else if (back)
-						if (curm > addLoc && curm < deleteLoc) 	RULE_IND_MAP[rimi] = curm + 1 ; 
-					else /*!back*/ if (curm > deleteLoc && curm < addLoc)	RULE_IND_MAP[rimi] = curm - 1; 
+						if (curm > addLoc && curm < deleteLoc) 	RIM_BH[rimi] = curm + 1 ; 
+					else /*!back*/ if (curm > deleteLoc && curm < addLoc)	RIM_BH[rimi] = curm - 1; 
 				}
 
 				/** 
@@ -830,7 +865,8 @@ public class DHSWrapper {
         originalLastMoment = baseCASC.size();
         
         //reinitializations of structure variables
-        RULE_IND_MAP = getStandardInitRIM();
+        RIM_BH = getStandardInitRIM();
+        RIM_HB = getStandardInitRIM(); 
         
         hypGoldLocs = new int[NUM_GOLD_STAGES]; hypBlackLocs = new int[NUM_BLACK_STAGES];
         for (int i = 0; i < NUM_GOLD_STAGES; i++)
@@ -885,7 +921,8 @@ public class DHSWrapper {
 	
 	public List<SChange> getHypCASC()	{	return hypCASC;	}
 	public List<SChange> getBaseCASC()	{	return baseCASC;	}
-	public int[] getRULE_IND_MAP()	{	return RULE_IND_MAP;	}
+	public int[] getBaseHypRuleIndMap()	{	return RIM_BH;	}
+	public int[] getHypBaseRuleIndMap()	{	return RIM_HB;	}
 	public int[] getHypGoldLocs()	{	return hypGoldLocs;	}
 	public int[] getHypBlackLocs()	{	return hypBlackLocs;	}
 	public List<String[]> getProposedChanges()	{	return proposedChanges;	}
@@ -905,4 +942,15 @@ public class DHSWrapper {
 		for (String[] pc : proposedChanges)	out.add(pc[2]);
 		return out; 
 	}
+	
+	//aux for retrieving loc or absence (in which case @return -1) of a mapping in RIM_BH 
+	private int mappingLocInRIMBH(int hbtarg) 
+	{
+		for (int rimi = 0 ; rimi < RIM_BH.length ; rimi++)
+			if (RIM_BH[rimi] == hbtarg)     return rimi; 
+		return -1; 
+	}
+
+
+	
 }
