@@ -736,15 +736,22 @@ public class DHSWrapper {
 					 
 				if (increment != 0) //i.e. it's NOT a 1-to-1 replacement modification 
 				{
-					//must be simple deletion or a modification that is not 1-to-1
-					//TODO for-loop below is abrogated!
-					for (int rimi = 0 ; rimi < RULE_IND_MAP.length; rimi++) 
+					if (RIM_HB[deleteLoc] != -1)	RIM_BH[ RIM_HB[deleteLoc]] = -1; 
+					
+					int oldLen = RIM_HB.length;
+					int[] oldRIM_HB = new int[oldLen]; 
+					for (int mi = 0; mi < oldLen; mi++)	oldRIM_HB[mi] = RIM_HB[mi];
+					
+					RIM_HB = new int[oldLen + increment]; 
+					
+					for(int rimi = 0 ; rimi < addLoc; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi];
+					for(int riai = addLoc; riai < addLoc + increment; riai++)	RIM_HB[riai] = -1; //as it is insertion.
+					for(int rimi = addLoc; rimi < oldLen ; rimi++)
 					{
-						int curm = RULE_IND_MAP[rimi];
-						if (curm == deleteLoc)	RULE_IND_MAP[rimi] = -1; 
-						else if (curm > deleteLoc)	RULE_IND_MAP[rimi] = curm + increment;
-						// else it is too early to be effected, so do nothing.
+						RIM_HB[rimi+increment] = oldRIM_HB[rimi]; 
+						if (oldRIM_HB[rimi] != -1)	RIM_BH[ oldRIM_HB[rimi]] = rimi+increment; 
 					}
+					
 					//NOTE: it's > rather than >= because deleteLoc refers to the moment *before* the rule to be deleted!
 					if (NUM_GOLD_STAGES > 0)
 						for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
