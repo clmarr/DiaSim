@@ -367,7 +367,7 @@ public class DHSWrapper {
 		if (NUM_BLACK_STAGES > 0)	hypEmpiricized.setBlackInstants(hypBlackLocs);
 		
 		hypEmpiricized.simulateToEnd();
-		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges ); 
+		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RIM_BH, RIM_HB , proposedChanges ); 
 	}
 
 	public DifferentialHypothesisSimulator generateDHSWithStops(Scanner inpu)
@@ -410,7 +410,7 @@ public class DHSWrapper {
 			
 		}
 
-		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RULE_IND_MAP , proposedChanges );  
+		return new DifferentialHypothesisSimulator(baseSimulation, hypEmpiricized, RIM_BH, RIM_HB, proposedChanges );  
 	}
 	
 	
@@ -930,15 +930,5 @@ public class DHSWrapper {
 		for (String[] pc : proposedChanges)	out.add(pc[2]);
 		return out; 
 	}
-	
-	//aux for retrieving loc or absence (in which case @return -1) of a mapping in RIM_BH 
-	private int mappingLocInRIMBH(int hbtarg) 
-	{
-		for (int rimi = 0 ; rimi < RIM_BH.length ; rimi++)
-			if (RIM_BH[rimi] == hbtarg)     return rimi; 
-		return -1; 
-	}
 
-
-	
 }

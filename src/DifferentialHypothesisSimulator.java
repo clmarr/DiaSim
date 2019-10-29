@@ -76,12 +76,12 @@ public class DifferentialHypothesisSimulator {
 		// true only for those indices of those operations which are either deleted or added 
 			//as part of the transformation of the baseline cascade to the hypothesis cascade. 
 	
-	public DifferentialHypothesisSimulator(Simulation b, int ppop, Simulation h, int[] baseToHypIndMap, List<String[]> propdChanges, List<int[]> relocdations, List<Integer> modifications)
+	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
 
-		computeRuleCorrespondences(baseToHypIndMap, relocdations, modifications); //init ruleCorrespondences
+		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
@@ -89,25 +89,32 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	//generate ruleCorrespondences and prChLocs
-	//RELOCDS and MODIFS are currently necessary because these functions must be tracked for the sake of reporting changes in induced lexical effects to users
-		// however necessary patterns by which they would be identified within @param baseToHypIndMap
-			//can be disturbed if there is any non 1-to-1 rule operating before one or both of the indices or a relocdation, or the index of a modification
-		// so for the moment they have to be separately tracked
-	// each int[] (length = 2) instance in RELOCDS is [deleteLoc, addLoc)
-	private void computeRuleCorrespondences(int[] baseToHypIndMap, List<int[]> RELOCDS, List<Integer> MODIFS)
+	// ruleCorrespondences -- each int[] (length = 2) instance in RELOCDS is [deleteLoc, addLoc)
+	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) 
 	{
-		if (proposedChs.size() == 0)
-			ruleCorrespondences = new int[][] { baseToHypIndMap, baseToHypIndMap}; 
-		else	{	
-			//length of ruleCorrespondences should be: 
-				// number of shared rules 
-				// + number of deletions
-				// + number of insertions
-				// length of baseCasc = shared + deletions
-				// length of hypCasc = shared + insertions
-				// # of deletions also equals number of -1 values in baseToHypIndMap
-			// we store this value in total_length, computed below. 
-			int total_length = hypCascSim.getTotalSteps();
+		if ( proposedChs.size() == 0 )	
+		{
+			assert UTILS.compare1dIntArrs(baseToHypIndMap, hypToBaseIndMap): 
+				"ERROR: no proposed changes detected, but baseToHypIndMap and hypToBaseIndMap differ"; 
+			ruleCorrespondences = new int[][] { baseToHypIndMap, hypToBaseIndMap};  
+		}
+		else
+		{
+			/**
+			 * ruleCorrespondences -- tracked rule pairs in hyp and base cascs share the same INNER index
+			 * 		a rule in baseCasc is tracked unless it is deleted or non-bijectively modified
+			 * 			likewise one in hypCasc is unless it was inserted, or the result of non-bijective modification.
+			 * ordering of the "global indices" of ruleCorrespondences is primarily built off of the base side of things
+			 * 		with additions every place there was an insertion
+			 * (so, where there is relocdation, it will always agree once effective insertions are accounted for wiht the base index)
+			 * length of ruleCorrespondences should be : 
+			 * 	#shared rules + #deletions + #insertions (baseCasc : shared + deletions; hypCasc: shared + insertions)
+			 */
+		
+			int baseLen = baseCascSim.getTotalSteps(), 
+					hypLen = hypCascSim.getTotalSteps();
+			
+			int total_length = hypLen;
 				// get it from the hypothesis cascade, because this is the only we to capture the case of modifications or insertions that add multiple rules at once, 
 				//or single insertions for that matter.
 			for (int bihimi : baseToHypIndMap)
@@ -115,77 +122,33 @@ public class DifferentialHypothesisSimulator {
 					total_length += 1; 
 			
 			prChLocs = new boolean[total_length];
-			//TODO will probably have to debug around here...
 			
 			ruleCorrespondences = new int[2][total_length]; 
-			int ri = 0 , bci = 0, hci = 0, pci = 0;
 			
-			while( pci < proposedChs.size())
+			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
+			
+			for (int gri = 0 ; gri < sameUntil; gri++)
 			{
-				//recall proposedChs is sorted by index of operation, ascendingly.
-				int chLoc = Integer.parseInt(proposedChs.get(pci)[0]); 
-				while (ri < chLoc)	{
-					ruleCorrespondences[0][ri] = bci; bci++; 
-					ruleCorrespondences[1][ri] = hci; hci++; 
-					ri++; 
-				}
-				prChLocs[ri] = true;
-				
-				//TODO abrogated within this loop below. 
-				
-				// relocdation -- detected iff baseToHypIndMap[x] = y and baseToHypIndMap[y] =x 
-					// this should hold constant even if there are later reorderings. 
-				int chi = baseToHypIndMap[ri]; // current hyp ind-- for testing for relocdation 
-				boolean relocdation = (chi == -1) ? false : (baseToHypIndMap[chi] == ri); 
-					// can be with deletion or insertion ^ v (both)
-				boolean bijectiveModification = (chi == ri); 
-				boolean deletion = proposedChs.get(pci)[1].equals("deletion"); 
-				
-				if(!deletion) // simple insertion -- can be part of a larger insertion (or 1-to-many modification)
-				{
-					ruleCorrespondences[0][ri] = -1; 
-					ruleCorrespondences[1][ri] = hci; hci++; 
-				}
-				else if(relocdation)
-				{
-					if(ri < chi)
-					{
-						 // so we don't do this twice -- note this does not imply whether it is backward or forward,
-							//since there is a switch with respect to both the hyp and base cascades
-						ruleCorrespondences[ ]
-					}
-					
-					
-					//TODO
-				}
-				else if(bijectiveModification)
-				{
-					ruleCorrespondences[0][ri] = bci; bci++;
-					ruleCorrespondences[1][ri] = hci; hci++;
-				}
-				else //simple deletion 
-				{
-					ruleCorrespondences[0][ri] = bci; bci++;
-					ruleCorrespondences[1][ri] = -1; 
-				}
-				pci++;
-				
-				ruleCorrespondences[0][ri] = deletion ? bci : -1; 
-				bci += deletion ? 1 : 0; 
-				ruleCorrespondences[1][ri] = deletion ? chi : hci;
-					// note that chi is -1 if it's normal deletion but hte targ if its' relocdation,
-						// so this is elegant. 
-				hci += deletion ? (relocdation ? 1 : 0) : 1; 
-				ri++;
-				pci++; 
+				ruleCorrespondences[0][gri] = gri ; 
+				ruleCorrespondences[1][gri] = gri ;
 			}
-			while ( ri < total_length)
+			
+			int gi = sameUntil, bi = sameUntil, hi = sameUntil; 
+				// global, base, and hyp instant iterators
+			
+			while (gi < total_length)
 			{
-				assert bci < total_length && hci < total_length : "Error in keeping track of indices across hypothesis in computeRuleCorrespondences()"; 
-				ruleCorrespondences[0][ri] = bci; bci++; 
-				ruleCorrespondences[1][ri] = hci; hci++; 
-				ri++; 
-			}			
+				int ilbi = (bi < baseLen) ? baseToHypIndMap[bi] : -1, 
+						ilhi = (hi < hypLen) ? hypToBaseIndMap[hi] : -1; 
+					//indices linked to base instant and to hyp instant
+				assert ilbi != ilhi || ilbi != -1: 
+					"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+				ruleCorrespondences[0][gi] = ilbi;
+				ruleCorrespondences[1][gi] = ilhi;
+				gi++;
+				if (ilbi != -1)	bi++; 
+				if (ilhi != -1) hi++; 
+			}  			
 		}
 	}
 	
