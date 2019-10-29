@@ -268,8 +268,9 @@ public class SimulationTester {
 		errorCount +=UTILS.checkBoolean(true, UTILS.compareCascades(curHC.subList(1, curHC.size()), CASCADE), 
 				"ERROR: 2nd rule onward for hypCASC should be equal to SimulationTester.CASCADE, but apparently it is not.") ? 0 : 1;
 		
-		//test DHSWrapper.RULE_IND_MAP
-		errorCount +=UTILS.checkBoolean(true, 3  == DHSW.getRULE_IND_MAP()[2], "ERROR: increment on RULE_IND_MAP not done properly.") ? 0 : 1; 
+		//test DHSWrapper's rule ind maps.
+		errorCount += UTILS.checkBoolean(true, 3  == DHSW.getBaseHypRuleIndMap()[2], "ERROR: increment not realized in baseHypRuleIndMap properly.") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, 1 == DHSW.getHypBaseRuleIndMap()[2] , "ERROR: increment not realized in hypBaseRuleIndMap properly.") ? 0 : 1; 
 		
 		//test DHSWrapper.hypGoldLocs
 		errorCount +=UTILS.checkBoolean(true, 6 == DHSW.getHypGoldLocs()[0], "ERROR: increment on hypGoldLocs not done correctly.") ? 0 : 1; 
@@ -402,13 +403,18 @@ public class SimulationTester {
 				"ERROR: hypothesis acceptance did not usurp the baseline correctly.") ? 0 : 1;
 		CASCADE = curHC; 
 		
-		int[] RIM = new int[curHC.size()+1];
+		int[] bhRIM = new int[curHC.size()+1];
 		curHC = null; dumCasc = null;
 		
-		for (int rimi = 0 ; rimi < RIM.length; rimi++)	RIM[rimi] = rimi;
+		for (int rimi = 0 ; rimi < bhRIM.length; rimi++)	bhRIM[rimi] = rimi;
 		errorCount += UTILS.checkBoolean(true, 
-				UTILS.compare1dIntArrs(DHSW.getRULE_IND_MAP(), RIM),
-				"ERROR: hypothesis acceptance did not reinitialize RULE_IND_MAP correctly") ? 0 : 1; 
+				UTILS.compare1dIntArrs(DHSW.getBaseHypRuleIndMap(), bhRIM),
+				"ERROR: hypothesis acceptance did not reinitialize base to hyp rule in correctly") ? 0 : 1; 
+		
+		//at this point the base and hyp rule maps should still be identical... 
+		errorCount += UTILS.checkBoolean(true, 
+				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), bhRIM),
+				"ERROR: hypothesis acceptance did not reinitialize hyp to base rule in correctly") ? 0 : 1; 
 		
 		errorCount += UTILS.checkBoolean(true, DHSW.getProposedChanges().size() == 0,
 				"ERROR: hypothesis acceptance did not reinitialize proposedChanges correctly") ? 0 : 1; 
@@ -435,10 +441,16 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
 			"ERROR: malformed comprehension of simple deletion operation.") ? 0 : 1; 
 		
-		//testing DHSWrapper.RULE_IND_MAP -- before this operation there were 11 rules, and we are deleting the 8th. 
-		int[] corrRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
-			"ERROR: Handling of simple deletion in RULE_IND_MAP not executed correctly.") ? 0 : 1; 
+		//testing base to hyp rule in map in DHSWrapper 
+			// -- before this operation there were 11 rules, and we are deleting the 8th. 
+		int[] corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly.") ? 0 : 1; 
+		
+		// and the same for hyp to base
+		errorCount += UTILS.checkBoolean(true, 
+				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10}),
+				"ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly.") ? 0 : 1 ; 
 		
 		//test DHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
@@ -542,12 +554,18 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, DHSW.getBaseCASC().size() == 11, "ERROR: wrong length assigned to baseline CASCADE.") ? 0 : 1; 
 		errorCount += UTILS.checkBoolean(true, DHSW.getHypCASC().size() == 10, "ERROR: wrong length assigned to hypothesis CASCADE.") ? 0 : 1; 
 		
-		//testing DHSWrapper.RULE_IND_MAP
+		//testing DHSWrapper's base to hyp rule ind map 
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
-		corrRIM = new int[]{0, 6, 2, 3, 4, 5, 1, -1, 7, 8, 9, 10};
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrRIM, DHSW.getRULE_IND_MAP()),
-			"ERROR: forward relocdation is not handled correctly in RULE_IND_MAP." ) ? 0 : 1; 
+		corrBhRIM = new int[]{0, 6, 2, 3, 4, 5, 1, -1, 7, 8, 9, 10};
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+			"ERROR: forward relocdation is not handled correctly in base-hyp rule ind map." ) ? 0 : 1; 
 	
+		//and same for hyp to base
+		errorCount += UTILS.checkBoolean(true, 
+				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), 
+						new int[] {0, 6, 2, 3, 4, 5, 1, 8, 9, 10}), 
+				"ERROR: forward relocdation not handled correctly in hyp-base rule ind map ") ? 0 : 1; 
+		
 		//test DHSWrapper.hypGoldLocs
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
 			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
