@@ -143,11 +143,11 @@ public class DifferentialHypothesisSimulator {
 					//indices linked to base instant and to hyp instant
 				assert ilbi != ilhi || ilbi != -1: 
 					"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
-				ruleCorrespondences[0][gi] = ilbi;
-				ruleCorrespondences[1][gi] = ilhi;
+				if (ilhi == -1)	ruleCorrespondences[0][gi] = -1; 
+				else	ruleCorrespondences[0][gi] = bi++;
+				if (ilbi == -1)	ruleCorrespondences[1][gi] = -1; 
+				else	ruleCorrespondences[1][gi] = hi++; 
 				gi++;
-				if (ilbi != -1)	bi++; 
-				if (ilhi != -1) hi++; 
 			}  			
 		}
 	}
