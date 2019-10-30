@@ -670,9 +670,6 @@ public class DHSWrapper {
 					if(baseLoc != -1)	RIM_BH[baseLoc] = movingTo; 
 							//if it is mapped, keep mapping intact
 					
-					//TODO debugging
-					if (baseLoc != -1)	System.out.println("RIM_BH is now : "+UTILS.print1dIntArr(RIM_BH));
-					
 					int temp = RIM_HB[movingTo]; 
 					RIM_HB[movingTo] = baseLoc; 
 					baseLoc = temp;

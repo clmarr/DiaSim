@@ -572,10 +572,11 @@ public class SimulationTester {
 			"\nObserved : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()) ) ? 0 : 1; 
 	
 		//and same for hyp to base
+		int[] corrHbRIM = new int[] {0, 2, 3, 4, 5, 6 , 1, 8, 9, 10, 11}; 
 		errorCount += UTILS.checkBoolean(true, 
-				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), 
-						new int[] {0, 2, 3, 4, 5, 6, 1, 8, 9, 10}), 
-				"ERROR: forward relocdation not handled correctly in hyp-base rule ind map ") ? 0 : 1; 
+				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), corrHbRIM), 
+				"ERROR: forward relocdation not handled correctly in hyp-base rule ind map\n"
+				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ? 0 : 1; 
 		
 		//test DHSWrapper.hypGoldLocs
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
