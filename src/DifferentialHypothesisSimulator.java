@@ -70,7 +70,7 @@ public class DifferentialHypothesisSimulator {
 		// whereas for insertion, the second index holds the string form of the SChange 
 			// that is inserted there in hypCASCADE. 
 	
-	private boolean[] locHasPropCh;
+	private boolean[] locHasPrCh;
 		// one cell for each *global* rule index -- i.e. the inner nesting in ruleCorrespondences
 		// by default, false
 		// true only for those indices of those operations which are either deleted or added 
@@ -121,7 +121,7 @@ public class DifferentialHypothesisSimulator {
 				if (bihimi == -1)
 					total_length += 1; 
 			
-			locHasPropCh = new boolean[total_length];
+			locHasPrCh = new boolean[total_length];
 			
 			ruleCorrespondences = new int[2][total_length]; 
 			
@@ -141,8 +141,12 @@ public class DifferentialHypothesisSimulator {
 				int ilbi = (bi < baseLen) ? baseToHypIndMap[bi] : -1, 
 						ilhi = (hi < hypLen) ? hypToBaseIndMap[hi] : -1; 
 					//indices linked to base instant and to hyp instant
-				assert ilbi != ilhi || ilbi != -1: 
-					"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+				if (ilbi == -1 || ilhi == -1)
+				{	
+					locHasPrCh[gi] = true; 
+					assert ilbi != ilhi || ilbi != -1: 
+						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+				}
 				if (ilhi == -1)	ruleCorrespondences[0][gi] = -1; 
 				else	ruleCorrespondences[0][gi] = bi++;
 				if (ilbi == -1)	ruleCorrespondences[1][gi] = -1; 
@@ -407,7 +411,7 @@ public class DifferentialHypothesisSimulator {
 		System.out.println("Effects of specific changes between baseline and proposed cascade."); 
 		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
 		{	
-			if (locHasPropCh[globInd]) // true -- implies this was one of the rules that are specific changes. 
+			if (locHasPrCh[globInd]) // true -- implies this was one of the rules that are specific changes. 
 			{
 				if(ruleCorrespondences[0][globInd] == -1)
 				{
@@ -426,7 +430,7 @@ public class DifferentialHypothesisSimulator {
 		System.out.println("Effects on rules other than those explicitly changed:\n"); 
 		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
 		{	
-			if (!locHasPropCh[globInd]) // false -- implies this was not one of the rules that are specific changes, so changes must be bleeding or feeding effects.
+			if (!locHasPrCh[globInd]) // false -- implies this was not one of the rules that are specific changes, so changes must be bleeding or feeding effects.
 			{
 				int baseInd = ruleCorrespondences[0][globInd] ; 
 				String[] bleedings = changedRuleEffects.get(globInd)[0],
@@ -898,7 +902,7 @@ public class DifferentialHypothesisSimulator {
 	// accessors.
 	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
-	public boolean[] getPrChLocs()	{	return locHasPropCh; 	}
+	public boolean[] getPrChLocs()	{	return locHasPrCh; 	}
 	public int getDivergencePoint()	{	return divergencePoint;	}
 	public HashMap<Integer,String[][]> getChangedRuleEffects()	{	return changedRuleEffects;	}
 	public String[][] getRuleEffectChanges(int global_id)	{	return changedRuleEffects.get(global_id); 	}

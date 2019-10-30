@@ -427,7 +427,7 @@ public class UTILS {
 	public static String print1dBoolArrAsIntArr(boolean[] b)
 	{
 		String out = "";
-		for (boolean bi : b)	out += ""+(bi ? 0 : 1)+",";
+		for (boolean bi : b)	out += bi ? "1," : "0,"; 
 		return out.substring(0, out.length() - 1 ); 
 	}
 	
