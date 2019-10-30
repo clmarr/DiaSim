@@ -161,6 +161,13 @@ public class DifferentialHypothesisSimulator {
 		baseRuleIndsToGlobal = new int[baseCascSim.getTotalSteps()];
 		hypRuleIndsToGlobal = new int[hypCascSim.getTotalSteps()];
 		
+		//TODO debugging
+		System.out.println("baseLen : "+baseCascSim.getTotalSteps());
+		System.out.println("hypLen : "+hypCascSim.getTotalSteps());
+		System.out.println("ruleCorrespondences[0] "+UTILS.print1dIntArr(ruleCorrespondences[0])); 
+		System.out.println("ruleCorrespondences[1] "+UTILS.print1dIntArr(ruleCorrespondences[1])); 
+		
+		
 		for (int rci = 0; rci < ruleCorrespondences[0].length; rci++)
 		{
 			if (ruleCorrespondences[0][rci] != -1)	
