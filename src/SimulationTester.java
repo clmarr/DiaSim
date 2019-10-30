@@ -343,7 +343,9 @@ public class SimulationTester {
 		boolean[] corrPCLs = new boolean[11];
 		corrPCLs[0] = true; 
 		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
-				"ERROR: DifferentialHypothesisSImulator.prChLocs is malformed") ? 0 : 1; 
+				"ERROR: DifferentialHypothesisSimulator.prChLocs is malformed") ? 0 : 1; 
+		
+		//TODO error here.
 		
 		//first check syntax of differential derivations, before separately checking DHS.changedDerivations 
 		//ensure that words with no difference should have a differential derivation of "". 
