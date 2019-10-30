@@ -662,10 +662,17 @@ public class DHSWrapper {
 				//structure skeleton -- modification of RIM_HB
 						// RIM_BH meanwhile is modified if/when any still-tracked indices in it are -- which we determine using mappingLocinRIMBH(int);
 				
-				int baseLoc = RIM_HB[deleteLoc], movingTo = addLoc;
-				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc))
+				int baseLoc = RIM_HB[deleteLoc], //corresponding loc in base for content in hyp that is being relocated
+						movingTo = addLoc; //in hyp casc.
+				//TODO need to redo this block.
+				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc)) 
 				{
 					if(baseLoc != -1)	RIM_BH[baseLoc] = movingTo; 
+							//if it is mapped, keep mapping intact
+					
+					//TODO debugging
+					if (baseLoc != -1)	System.out.println("RIM_BH is now : "+UTILS.print1dIntArr(RIM_BH));
+					
 					int temp = RIM_HB[movingTo]; 
 					RIM_HB[movingTo] = baseLoc; 
 					baseLoc = temp;
