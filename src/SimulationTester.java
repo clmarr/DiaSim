@@ -247,8 +247,8 @@ public class SimulationTester {
 		
 		DHSWrapper DHSW = newDHS(testSimul); 
 		errorCount = totalErrorCount = 0; 
-		System.out.println("First test: insertion at the beginning of the cascade of a lateral darkening rule.\n"
-				+ "\tThis should increase accuracy at each gold stage and the output by 0.075."); 
+		System.out.println("----------------\n\nFirst test: insertion of l-darkening rule at the beginning of the cascade\n"
+				+ "\tThis should increase accuracy at each gold stage and the output by 0.075\n---------\n."); 
 		
 		String nextLaw = "l > lˠ / __ [+cons]"; 
 		String nextCmt = "L-darkening as evidenced by mˈowlˠɾəd, bɨhˈowlˠɾə̃n, mˈowlˠʔə̃n"; 
@@ -285,10 +285,14 @@ public class SimulationTester {
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
-		String prc = theDHS.printRuleCorrespondences(); 		
-		errorCount +=UTILS.checkBoolean(true, prc.equals("-1   | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9\n0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10"),
-				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+		int[][] corrRC = new int[][] { {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10} }; 
 		
+		errorCount += UTILS.checkBoolean(true, 
+				UTILS.compare2dIntArrs(theDHS.getRuleCorrespondences(), corrRC),
+				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
+						+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
+						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1; 
+					
 		//test DifferentialHypothesisSimulator.baseRuleIndsToGlobal and ~.hypRuleIndsToGlobal
 		int[] btg = theDHS.getBaseIndsToGlobal(), htg = theDHS.getHypIndsToGlobal(); 
 		
@@ -431,7 +435,8 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//now we will do two changes before accepting the hypothesis. 
-		System.out.println("Testing comprehension of simple deletion (in this case, of a derhotacization rule)"); 
+		System.out.println("-----------------\nTesting comprehension of simple deletion (in this case, of a derhotacization rule).");
+		System.out.println("Deleting derhotacization rule at index 7.\n----------------\n");
 
 		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");
 		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
@@ -471,11 +476,13 @@ public class SimulationTester {
 		theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
+		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9}}; 
+		
 		errorCount += UTILS.checkBoolean ( true, 
-			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
-				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
-					new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9 }}),
-			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
+			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
+			+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
+			"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1; 
 						
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
 

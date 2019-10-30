@@ -842,10 +842,6 @@ public class DifferentialHypothesisSimulator {
 	
 	public int[][] getRuleCorrespondences()	{	return ruleCorrespondences;	}
 	
-	public String printRuleCorrespondences()	{
-		return UTILS.stdCols(5, ruleCorrespondences[0]).substring(2)+"\n"
-				+ UTILS.stdCols(5, ruleCorrespondences[1]).substring(2); 
-	}
 	
 	/** findEtDivergenceLine
 	 * @return the earliest *line* where the baseline and hypothesis derivations for one etyma diverge
