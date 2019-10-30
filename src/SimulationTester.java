@@ -270,10 +270,12 @@ public class SimulationTester {
 		
 		//test DHSWrapper's rule ind maps.
 		errorCount += UTILS.checkBoolean(true, 3  == DHSW.getBaseHypRuleIndMap()[2], "ERROR: increment not realized in baseHypRuleIndMap properly.") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, 1 == DHSW.getHypBaseRuleIndMap()[2] , "ERROR: increment not realized in hypBaseRuleIndMap properly.") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, 1 == DHSW.getHypBaseRuleIndMap()[2] , "ERROR: increment not realized in hypBaseRuleIndMap properly.\n"
+				+ "Correct: "+UTILS.print1dIntArr(new int[] { -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10})+"\n"
+						+ "Observed: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ? 0 : 1; 
 		
 		//test DHSWrapper.hypGoldLocs
-		errorCount +=UTILS.checkBoolean(true, 6 == DHSW.getHypGoldLocs()[0], "ERROR: increment on hypGoldLocs not done correctly.") ? 0 : 1; 
+		errorCount +=UTILS.checkBoolean(true, 6 == DHSW.getHypGoldLocs()[0], "ERROR: increment on hypGoldLocs not done correctly") ? 0 : 1; 
 		
 		//test DHSWrapper.proposedChanges
 		String[] thepc = DHSW.getProposedChanges().get(0); 

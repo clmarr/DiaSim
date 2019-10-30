@@ -800,17 +800,20 @@ public class DHSWrapper {
 			int[] oldRIM_HB = new int[oldLen];
 			for(int mi = 0; mi < oldLen; mi++)	oldRIM_HB[mi] = RIM_HB[mi]; 
 			
-			int[] RIM_HB = new int[oldLen + increment] ;
-			for(int rimi = 0 ; rimi < addLoc ; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi]; 
+			RIM_HB = new int[oldLen + increment] ;
+			int rimi = 0; 
 			
-			for(int rimi = addLoc ; rimi < addLoc + increment ; rimi++)
-				RIM_HB[rimi] = -1; 
+			while (rimi < addLoc)
+			{	RIM_HB[rimi] = oldRIM_HB[rimi]; rimi++;	}
 			
-			for(int rimi = addLoc ; rimi < oldLen ; rimi++)
+			while (rimi < addLoc + increment)
+				RIM_HB[rimi++] = -1; 
+
+			for (int raimi = addLoc ; raimi < oldLen ; raimi++)
 			{
-				int baseLoc = oldRIM_HB[rimi];
-				if (baseLoc != -1)	RIM_BH[baseLoc] = rimi + increment ; 
-				RIM_HB[rimi + increment] = oldRIM_HB[rimi]; 
+				int baseLoc = oldRIM_HB[raimi]; 
+				if (baseLoc != -1)	RIM_BH[baseLoc] = raimi + increment; 
+				RIM_HB[raimi+increment] = baseLoc; 
 			}
 			
 			if (NUM_GOLD_STAGES > 0)
@@ -836,7 +839,7 @@ public class DHSWrapper {
 			int modi = 0; 
 			while (modi < modifications.size() - 1)
 				if (modifications.get(modi) >= addLoc)
-					modifications.set(modi, modifications.get(modi)+insertions.size()) ;
+					modifications.set(modi, modifications.get(modi)+insertions.size()) ;	
 		}
 	}
 	
