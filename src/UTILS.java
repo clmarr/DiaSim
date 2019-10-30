@@ -288,7 +288,7 @@ public class UTILS {
 	
 	public static boolean compare1dIntArrs (int[] a1, int[] a2)
 	{
-		assert a1.length == a2.length : "Tried to compare two int arrays of different length"; 
+		if (a1.length != a2.length )	return false; 
 		for (int ai = 0; ai < a1.length; ai++)	
 			if (a1[ai] != a2[ai])	return false;
 		return true;

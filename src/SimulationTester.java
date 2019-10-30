@@ -451,9 +451,12 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
 			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly.") ? 0 : 1; 
 		
+		//TODO debugging
+		System.out.println("DHSW.getHypBaseRuleIndMap() : "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())); 
+		
 		// and the same for hyp to base
 		errorCount += UTILS.checkBoolean(true, 
-				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10}),
+				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11}),
 				"ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly.") ? 0 : 1 ; 
 		
 		//test DHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
