@@ -424,4 +424,11 @@ public class UTILS {
 		return out.substring(0, out.length()-1);
 	}
 	
+	public static String print1dBoolArrAsIntArr(boolean[] b)
+	{
+		String out = "";
+		for (boolean bi : b)	out += ""+(bi ? 0 : 1)+",";
+		return out.substring(0, out.length() - 1 ); 
+	}
+	
 }

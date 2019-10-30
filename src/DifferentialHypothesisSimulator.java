@@ -70,7 +70,7 @@ public class DifferentialHypothesisSimulator {
 		// whereas for insertion, the second index holds the string form of the SChange 
 			// that is inserted there in hypCASCADE. 
 	
-	private boolean[] prChLocs;
+	private boolean[] locHasPropCh;
 		// one cell for each *global* rule index -- i.e. the inner nesting in ruleCorrespondences
 		// by default, false
 		// true only for those indices of those operations which are either deleted or added 
@@ -121,7 +121,7 @@ public class DifferentialHypothesisSimulator {
 				if (bihimi == -1)
 					total_length += 1; 
 			
-			prChLocs = new boolean[total_length];
+			locHasPropCh = new boolean[total_length];
 			
 			ruleCorrespondences = new int[2][total_length]; 
 			
@@ -407,7 +407,7 @@ public class DifferentialHypothesisSimulator {
 		System.out.println("Effects of specific changes between baseline and proposed cascade."); 
 		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
 		{	
-			if (prChLocs[globInd]) // true -- implies this was one of the rules that are specific changes. 
+			if (locHasPropCh[globInd]) // true -- implies this was one of the rules that are specific changes. 
 			{
 				if(ruleCorrespondences[0][globInd] == -1)
 				{
@@ -426,7 +426,7 @@ public class DifferentialHypothesisSimulator {
 		System.out.println("Effects on rules other than those explicitly changed:\n"); 
 		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++)
 		{	
-			if (!prChLocs[globInd]) // false -- implies this was not one of the rules that are specific changes, so changes must be bleeding or feeding effects.
+			if (!locHasPropCh[globInd]) // false -- implies this was not one of the rules that are specific changes, so changes must be bleeding or feeding effects.
 			{
 				int baseInd = ruleCorrespondences[0][globInd] ; 
 				String[] bleedings = changedRuleEffects.get(globInd)[0],
@@ -898,7 +898,7 @@ public class DifferentialHypothesisSimulator {
 	// accessors.
 	public int[] getBaseIndsToGlobal()	{	return baseRuleIndsToGlobal;	}
 	public int[] getHypIndsToGlobal()	{	return hypRuleIndsToGlobal;	}
-	public boolean[] getPrChLocs()	{	return prChLocs; 	}
+	public boolean[] getPrChLocs()	{	return locHasPropCh; 	}
 	public int getDivergencePoint()	{	return divergencePoint;	}
 	public HashMap<Integer,String[][]> getChangedRuleEffects()	{	return changedRuleEffects;	}
 	public String[][] getRuleEffectChanges(int global_id)	{	return changedRuleEffects.get(global_id); 	}
