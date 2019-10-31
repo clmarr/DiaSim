@@ -76,13 +76,14 @@ public class DifferentialHypothesisSimulator {
 		// true only for those indices of those operations which are either deleted or added 
 			//as part of the transformation of the baseline cascade to the hypothesis cascade. 
 	
-	private List<int[]> relocdations; // each: [origin in HYP, dest in HYP] 
-	
 	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
+		
+		//TODO debugging
+		System.out.println("Rule correspondences:\n"+UTILS.print1dIntArr(ruleCorrespondences[0])+"\n"+UTILS.print1dIntArr(ruleCorrespondences[1]));
 		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
@@ -96,7 +97,7 @@ public class DifferentialHypothesisSimulator {
 		// dummy versions that we will modify by placing -2 as a way of "crossing out" cells we have operated upon. 
 		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
 		for (int bhi = 0 ; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
-		for (int hbi = 0 ; hbi < dumRIMBH.length; hbi++)	dumRIMHB[hbi] = baseToHypIndMap[hbi];
+		for (int hbi = 0 ; hbi < dumRIMBH.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 		
 		
 		if ( proposedChs.size() == 0 )	
