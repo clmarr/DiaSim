@@ -82,9 +82,6 @@ public class DifferentialHypothesisSimulator {
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
-		//TODO debugging
-		System.out.println("Rule correspondences:\n"+UTILS.print1dIntArr(ruleCorrespondences[0])+"\n"+UTILS.print1dIntArr(ruleCorrespondences[1]));
-		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
@@ -251,7 +248,6 @@ public class DifferentialHypothesisSimulator {
 	{
 		divergencePoint = -1; // will remain -1 if two cascades never diverge for a single word.
 		
-		//TODO debugging
 		assert baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() :
 			"ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"; 
 		int n_ets = baseCascSim.NUM_ETYMA();  
