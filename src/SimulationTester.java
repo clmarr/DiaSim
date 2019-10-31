@@ -637,17 +637,18 @@ public class SimulationTester {
 		//test lexical effects -- butter (et22) should be effected
 		// fountain (et4) should not be effected
 		// also testing differential derivation generation for case of a forward relocdation in this block.
-		corDD = "/bˈʌtə˞/\n"
-			  + "CONCORDANT UNTIL RULE ː 1\n"
-			  + "1[1|6] ː #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n"
-			  + "Waypoint 1 Gold ː #bˈʌɾə˞# | #bˈʌtə˞#\n"
-			  + "6[6|5] ː fed or inserted | #bˈʌtə˞# > #bˈʌʔə˞#\n"
-			  //+ "RLCD 1[|6] : fed or inserted | bled or deleted\n"
-			  + "Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌʔə˞#\n"
-			  + "Waypoint 3 Gold : #bˈʌɾə˞# | #bˈʌʔə˞#\n"
-			  + "Final forms : #bˈʌɾə˞# | #bˈʌʔə˞#\n";
+		corDD = "/bˈʌtə˞/\n" + 
+				"CONCORDANT UNTIL RULE : 1\n" + 
+				"1[1|-1] : #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n" + 
+				"Waypoint 1 Gold : #bˈʌɾə˞# | #bˈʌtə˞#\n" + 
+				"6[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
+				"Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌɾə˞#\n" + 
+				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
+				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
+				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
-				"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
+				"ERRORː differential derivation for 'butter' is malformed\n"
+				+ "Correct : "+corDD+"\nObserved : "+theDHS.getDifferentialDerivation(22)) ? 0 : 1; 
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(4).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'fountain' should be an empty string, but it is:\n"
 				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
