@@ -400,8 +400,8 @@ public class SimulationTester {
 		DHSW.acceptHypothesis(false); 
 		
 		UTILS.errorSummary(errorCount);
-		totalErrorCount += errorCount; 
-		errorCount = 0; 
+		totalErrorCount += errorCount;
+		errorCount = 0;
 		
 		//i.e. rebasing and usurpation occurs -- now, just this one time, we need to test that all major variables are intact.
 		System.out.println("Now testing integrity of DHSW after usurpation of baseline for hypothesis acceptance."); 
@@ -678,12 +678,14 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
+		//now we we will do the next three rules before usurping
+		
+		//TODO // complex modification: change t > ʔ / __ ə to : 
+			// t > ʔ / [+son] __ {# ; [-cons,-lo,-stres]}
 		
 		
 		
 		//TODO add rule processing and debug comprehension of the following
-		// complex modification: change t > ʔ / __ ə to : 
-				// t > ʔ / [+son] __ {# ; [-cons,-lo,-strees]}
 		// again relocate the flapping rule to after waypoint 2 
 		// copmlex inserton to right before s > ts / n__ : 
 				// n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}

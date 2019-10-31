@@ -657,8 +657,8 @@ public class DifferentialHypothesisSimulator {
 			e.printStackTrace();
 		}
 		
-		int igs = -1, ibs = -1; 
-		int nxRuleInd = 0 ; 
+		int igs = -1, ibs = -1; //these indicate curent place among gold and black stages respectively
+		int nxRuleInd = 0 ; // next rule index
 		String out = ""; 
 		
 		int nGSt = baseCascSim.NUM_GOLD_STAGES(), nBSt = baseCascSim.NUM_BLACK_STAGES(); 
@@ -670,23 +670,34 @@ public class DifferentialHypothesisSimulator {
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion"); 
 			// will be used to determine where we place new content with respect to comment blocks
 			
+			//TODO debugging
+			System.out.println("proposedChs.get("+pci+")[0] : "+proposedChs.get(pci)[0]);
+			System.out.println("nxChRuleInd : "+nxChRuleInd); 
+			System.out.println("stage locs : "+baseCascSim.getStageInstant(true, 0)+" "+baseCascSim.getStageInstant(false, 0)+" "+baseCascSim.getStageInstant(true, 1)); 
+			
 			String stagesToSkip = ""; 
 			int prev_igs = igs , prev_ibs = ibs; 		
 			
 			if(nGSt > 0)
-				while(igs == nGSt - 1 ? false : baseCascSim.getStageInstant(true,igs + 1) < nxChRuleInd)
+				while(igs == nGSt - 1 ? false : baseCascSim.getStageInstant(true,igs + 1) <= nxChRuleInd)
 					igs++; 
 			if(nBSt > 0)
-				while(ibs == nBSt -1 ? false : baseCascSim.getStageInstant(false, ibs + 1) < nxChRuleInd)
+				while(ibs == nBSt -1 ? false : baseCascSim.getStageInstant(false, ibs + 1) <= nxChRuleInd)
 					ibs++;
 
-			if(igs > prev_igs || ibs > prev_ibs)
+			if(igs > prev_igs && ibs > prev_ibs)
 			{
-				if ( ((nGSt > 0) ? baseCascSim.getStageInstant(true,igs) : -1)
-						> ((nBSt > 0) ? baseCascSim.getStageInstant(false, ibs) : -1))
-					stagesToSkip = "g"+(igs-prev_igs);
-				else	stagesToSkip = "b"+(ibs-prev_ibs); 
+				if(baseCascSim.getStageInstant(false,ibs) < baseCascSim.getStageInstant(true, igs))
+					stagesToSkip = "b"+(ibs-prev_ibs); 
+				else	stagesToSkip = "g"+(igs-prev_igs); 
 			}
+			else if (igs > prev_igs)
+				stagesToSkip = "g"+(igs-prev_igs);
+			else	stagesToSkip = "b"+(ibs-prev_ibs); 
+				
+			
+			//TODO debugging
+			System.out.println("stagesToSkip : "+stagesToSkip);
 			
 			if(!stagesToSkip.equals(""))
 			{
