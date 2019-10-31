@@ -680,10 +680,10 @@ public class DifferentialHypothesisSimulator {
 			
 			if(nGSt > 0)
 				while(igs == nGSt - 1 ? false : baseCascSim.getStageInstant(true,igs + 1) <= nxChRuleInd)
-					igs++; 
+					igs+=1; 
 			if(nBSt > 0)
 				while(ibs == nBSt -1 ? false : baseCascSim.getStageInstant(false, ibs + 1) <= nxChRuleInd)
-					ibs++;
+					ibs+=1;
 
 			if(igs > prev_igs && ibs > prev_ibs)
 			{
@@ -691,26 +691,24 @@ public class DifferentialHypothesisSimulator {
 					stagesToSkip = "b"+(ibs-prev_ibs); 
 				else	stagesToSkip = "g"+(igs-prev_igs); 
 			}
-			else if (igs > prev_igs)
-				stagesToSkip = "g"+(igs-prev_igs);
-			else	stagesToSkip = "b"+(ibs-prev_ibs); 
-				
-			
-			//TODO debugging
-			System.out.println("stagesToSkip : "+stagesToSkip);
+			else if (igs > prev_igs)	stagesToSkip = "g"+(igs-prev_igs);
+			else if (ibs > prev_ibs)	stagesToSkip = "b"+(ibs-prev_ibs); 
 			
 			if(!stagesToSkip.equals(""))
 			{
+				//TODO debugging
+				System.out.println("stagesToSkip : "+stagesToSkip);
+				System.out.println("igs "+igs+"; ibs "+ibs+"; prev_igs "+prev_igs+"; prev_ibs "+prev_ibs); 
+								
 				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); 
 					// should end in "\n"
 				String hop = readIn.substring(0, break_pt); 
 				linesPassed += hop.split("\n").length - 1; //minus 1 because of the final \n 
 				readIn = readIn.substring(break_pt); 
-				nxRuleInd = (stagesToSkip.charAt(0) == 'g') ? 
-						baseCascSim.getStageInstant(true,igs) : baseCascSim.getStageInstant(false, ibs); 
+				boolean sg = stagesToSkip.charAt(0) == 'g'; 
+				nxRuleInd = baseCascSim.getStageInstant(sg, sg ? igs : ibs); 
 				out += hop; 
 			}
-			
 			
 			while (nxRuleInd <= nxChRuleInd)
 			{
