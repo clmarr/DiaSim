@@ -94,7 +94,7 @@ public class DifferentialHypothesisSimulator {
 		// dummy versions that we will modify by placing -2 as a way of "crossing out" cells we have operated upon. 
 		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
 		for (int bhi = 0 ; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
-		for (int hbi = 0 ; hbi < dumRIMBH.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
+		for (int hbi = 0 ; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 		
 		
 		if ( proposedChs.size() == 0 )	
