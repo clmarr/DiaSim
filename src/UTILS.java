@@ -81,7 +81,7 @@ public class UTILS {
 			
 			}
 			
-			System.out.println("out loc : "+filename); 
+			System.out.println("writing file; out loc : "+filename); 
 			
 			BufferedWriter out = new BufferedWriter(new FileWriter(filename)); 
 			out.write(output);

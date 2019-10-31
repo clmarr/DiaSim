@@ -625,13 +625,11 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true,
 			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
 			"ERROR: base to global ind mapper is malformed") ? 0 : 1;
-		errorCount += UTILS.checkBoolean(true,
-			UTILS.compare1dIntArrs( htg, new int[] {0, 6, 1, 2, 3, 4, 5, 8, 9, 10}),
-			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
+		int[] corHTG = new int[] {0, 2, 3, 4, 5, 6, 1, 8, 9, 10 }; 
+		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs( htg, corHTG),
+			"ERROR: hyp to global ind mapper is malformed\nCorrect: "+UTILS.print1dIntArr(corHTG)+"\n"+UTILS.print1dIntArr(htg)) 
+				? 0 : 1; 
 
-		//TODO debugging
-		System.out.println("btg " +UTILS.print1dIntArr(btg));
-		System.out.println("htg " + UTILS.print1dIntArr(htg)); 
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 		
 		//TODO add rule processing and debug comprehension of the following
