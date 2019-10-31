@@ -397,7 +397,6 @@ public class SimulationTester {
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
 				
 		DHSW.setHypOutLoc(DBG_WRKG_CASC);
-		//do hypothesis acceptance after each rule so that we can test them discretely if deeper debugging is necessary in the future.
 		DHSW.acceptHypothesis(false); 
 		
 		UTILS.errorSummary(errorCount);
@@ -662,13 +661,25 @@ public class SimulationTester {
 		//TODO when have time, find good way to test theDHS.changedDerivations here. 
 		
 		//checking DHS.changedRuleEffects
+		//TODO may need to expand coverage to match what we have for previous tests... 
 		CREs = theDHS.getChangedRuleEffects();
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 4, 
 				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ? 0 : 1; 
 		for (int ri : new int[] {1,2,6,7})
 			errorCount += UTILS.checkBoolean(true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri) ? 0 : 1;
 		
-		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
+		//usurp. 
+		DHSW.setHypOutLoc(DBG_WRKG_CASC); 
+		DHSW.acceptHypothesis(false);
+		CASCADE = curHC; 
+		curHC = null; dumCasc = null;
+		
+		
+		
 		
 		//TODO add rule processing and debug comprehension of the following
 		// complex modification: change t > ʔ / __ ə to : 
