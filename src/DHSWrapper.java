@@ -70,6 +70,7 @@ public class DHSWrapper {
 	//neither of these are sorted at the moment.
 	private List<int[]> relocdations; 
 	private List<Integer> modifications; 
+		//TODO -- check this comment block... 
 		//cannot simply use RULE_IND_MAP to induce either relocdations or modifications, 
 			// because if any proposedChange that has an uneven effect on mapping 
 				// i.e. anything but a relocdation or bijective relocdation
@@ -666,12 +667,7 @@ public class DHSWrapper {
 						movingTo = addLoc; //in hyp casc.
 				
 				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc)) 
-				{
-
-					//TODO debugging
-					System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo); 
-					
-					
+				{	
 					if(baseLoc != -1)	RIM_BH[baseLoc] = movingTo; 
 							//if it is mapped, keep mapping intact
 					
@@ -714,6 +710,8 @@ public class DHSWrapper {
 								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 1) )
 							hypBlackLocs[bsi] += (back ? 1 : -1);
 				
+				
+				//TODO check this... 
 				//handle any indices in relocdations and modifications that 
 					// are not the one currently being added.
 				int relocdi = 0; 

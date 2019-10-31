@@ -78,14 +78,10 @@ public class DifferentialHypothesisSimulator {
 	
 	private List<int[]> relocdations; // each: [origin in HYP, dest in HYP] 
 	
-	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges, List<int[]> RELOCS)
+	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
-		relocdations = new ArrayList<int[]>(); 
-		for (int[] relocdi : RELOCS)
-			relocdations.add(new int[] {relocdi[0], relocdi[1]}); 
-
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
@@ -97,6 +93,12 @@ public class DifferentialHypothesisSimulator {
 	// ruleCorrespondences -- each int[] (length = 2) instance in RELOCDS is [deleteLoc, addLoc)
 	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) 
 	{
+		// dummy versions that we will modify by placing -2 as a way of "crossing out" cells we have operated upon. 
+		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
+		for (int bhi = 0 ; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
+		for (int hbi = 0 ; hbi < dumRIMBH.length; hbi++)	dumRIMHB[hbi] = baseToHypIndMap[hbi];
+		
+		
 		if ( proposedChs.size() == 0 )	
 		{
 			assert UTILS.compare1dIntArrs(baseToHypIndMap, hypToBaseIndMap): 
@@ -146,8 +148,8 @@ public class DifferentialHypothesisSimulator {
 			
 			while (gi < total_length)
 			{
-				int ilbi = (bi < baseLen) ? baseToHypIndMap[bi] : -1, 
-						ilhi = (hi < hypLen) ? hypToBaseIndMap[hi] : -1; 
+				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, 
+						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
 					//indices linked to base instant and to hyp instant
 				
 				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
@@ -180,26 +182,34 @@ public class DifferentialHypothesisSimulator {
 					 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
 					 * 		
 					 */
+					//TODO curate cmt block
 					
-					
-					//TODO below abrogated
-					
-					if(ilhi < hi && ilhi > 0 && UTILS.findInt(ruleCorrespondences[1], hi) != -1) // unresolved relocdation effect in hyp -- must be handled first
-						hi++; 	// just catch it up, because this information has already been processed... 
-					else if (ilbi == -1) // possible case 2 -- insertion of some sort
+					//first -- ensure that stumbling upon indices effected by already handled relocdation operations
+						// do not cause redundant or erroneous behaviors
+					// when we come upon a "crossed out" cell (i.e. wiht -2 in it) we know this must have been from an already handled relocdation.
+					// due to how we iterate through this algorithm, this will only ever happen for ilhi -- i.e. only on the hyp side of things
+					if(ilhi==-2)	hi++;
+					else
 					{
-						ruleCorrespondences[0][gi] = -1; 
-						ruleCorrespondences[1][gi] = hi++; 
-					}
-					else if (ilhi == -1) // deletion of some sort.
-					{
-						ruleCorrespondences[0][gi] = bi++; 
-						ruleCorrespondences[1][gi] = -1; 
-					}
-					else // relocdation
-					{
-						ruleCorrespondences[0][gi] = bi++; 
-						ruleCorrespondences[1][gi] = ilbi ; 
+						if(ilhi == -1) // insertion of some sort (including from a non-bijective modification)
+						{
+							ruleCorrespondences[0][gi] = -1; 
+							ruleCorrespondences[1][gi] = hi++; 
+						}
+						else if (ilbi == -1) //deletion of some sort including from a non-bijective modification
+						{
+							ruleCorrespondences[0][gi] = bi++; 
+							ruleCorrespondences[1][gi] = -1; 
+						}
+						else 
+						{
+							//now must be some sort of relocdation -- whatever the case, we base our behavior on the base line side of things
+							int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
+							assert (mapped_to_bi == -1) == (ilhi == -1) : "ERROR: baseline index "+bi+" is never mapped to..."; 
+							ruleCorrespondences[0][gi] = bi++; 
+							ruleCorrespondences[1][gi] = mapped_to_bi; 
+							dumRIMHB[mapped_to_bi] = -2; //cross-out. 
+						}
 					}
 				}
 				gi++;
