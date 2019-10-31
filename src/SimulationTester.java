@@ -509,7 +509,7 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
 			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
 			
-		//checking DHS.prChLocs
+		//checking DHS.locHasPrCh
 		corrPCLs = new boolean[11];
 		corrPCLs[7] = true; 
 		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
@@ -541,9 +541,6 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
 		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
 
-		//TODO finish necessary checkings for effect of deleting ə˞ > ə ?
-			//TODO are we done with this?
-		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
@@ -662,6 +659,14 @@ public class SimulationTester {
 				+ "Correct : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved : "
 						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ? 0 : 1; 
 
+		//TODO when have time, find good way to test theDHS.changedDerivations here. 
+		
+		//checking DHS.changedRuleEffects
+		CREs = theDHS.getChangedRuleEffects();
+		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 4, 
+				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ? 0 : 1; 
+		for (int ri : new int[] {1,2,6,7})
+			errorCount += UTILS.checkBoolean(true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri) ? 0 : 1;
 		
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 		
@@ -1095,7 +1100,7 @@ public class SimulationTester {
 	 * @param gi -- global ind
 	 * @param bi -- base casc ind 
 	 * @param hi -- hyp casc ind
-	 * @return
+	 * @return form resulting from the rule
 	 */
 	private static String getRegRuleEffect(String dd, int gi, int bi, int hi)
 	{
@@ -1105,7 +1110,7 @@ public class SimulationTester {
 		targ = targ.substring(0, targ.indexOf("\n")); 
 		int splint = targ.indexOf("|");
 		
-		return bi == -1 ? targ.substring(splint).trim() : targ.substring(0,splint).trim(); 
+		return (bi == -1 ? targ.substring(splint) : targ.substring(0,splint)).trim(); 
 	}
 
 	
