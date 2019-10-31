@@ -76,10 +76,15 @@ public class DifferentialHypothesisSimulator {
 		// true only for those indices of those operations which are either deleted or added 
 			//as part of the transformation of the baseline cascade to the hypothesis cascade. 
 	
-	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges)
+	private List<int[]> relocdations; // each: [origin in HYP, dest in HYP] 
+	
+	public DifferentialHypothesisSimulator(Simulation b, Simulation h, int[] baseToHypIndMap, int[] hypToBaseIndMap, List<String[]> propdChanges, List<int[]> RELOCS)
 	{
 		baseCascSim = b; hypCascSim = h ;
 		proposedChs = propdChanges; 
+		relocdations = new ArrayList<int[]>(); 
+		for (int[] relocdi : RELOCS)
+			relocdations.add(new int[] {relocdi[0], relocdi[1]}); 
 
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
@@ -124,6 +129,9 @@ public class DifferentialHypothesisSimulator {
 			locHasPrCh = new boolean[total_length];
 			
 			ruleCorrespondences = new int[2][total_length]; 
+			//init ruleCorrespondences with -2 so we know for sure which cells have been operated upon ([0] could be the result of an operation)
+			for (int rci = 0 ; rci < total_length; rci++)	{	
+				ruleCorrespondences[0][rci] = -2; ruleCorrespondences[1][rci] = -2;				}
 			
 			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
 			
@@ -146,7 +154,7 @@ public class DifferentialHypothesisSimulator {
 					// i.e. the current spots in the base and hyp share the same global index
 				if (bihiAligned)
 				{	ruleCorrespondences[0][gi] = bi++; 
-					ruleCorrespondences[0][gi] = hi++; 
+					ruleCorrespondences[1][gi] = hi++; 
 				}
 				else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
 				{
@@ -155,7 +163,28 @@ public class DifferentialHypothesisSimulator {
 						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
 					// recall: global mapping scheme is always built off the base cascade by default
 					
-					if(ilhi < hi && ilhi >= 0 && UTILS.findInt(ruleCorrespondences[1], hi) != -1) // unresolved relocdation effect in hyp -- must be handled first
+					/**
+					 * There are six possible cases here 
+					 * (1) deletion of some sort including as part of non-bijective modification:
+					 * 			ilbi == -1
+					 * (2) insertion of some sort including as part of a non-bijective modification
+					 * 			ilhi == -1
+					 * (3) forward relocdation that has not yet been handled/realized in ruleCorrespondences
+					 * 			ilbi > hi  
+					 * 				note that forward relocdation from X to Y can be reinterpeted as Y-X backward relocdations each by one place instead 
+					 * 					to avoid this problem we are forced to use the HashMap relocdations 
+					 * (4) forward relocdation that has already been handled/realized in ruleCorrespondences
+					 * 			ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1
+					 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
+					 * 			ilhi > bi 
+					 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
+					 * 		
+					 */
+					
+					
+					//TODO below abrogated
+					
+					if(ilhi < hi && ilhi > 0 && UTILS.findInt(ruleCorrespondences[1], hi) != -1) // unresolved relocdation effect in hyp -- must be handled first
 						hi++; 	// just catch it up, because this information has already been processed... 
 					else if (ilbi == -1) // possible case 2 -- insertion of some sort
 					{
