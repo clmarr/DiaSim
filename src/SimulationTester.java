@@ -651,7 +651,16 @@ public class SimulationTester {
 		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(4).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'fountain' should be an empty string, but it is:\n"
 				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
-			
+		
+		//checking DHS.prChLocs
+		corrPCLs = new boolean[11];
+		corrPCLs[7] = true; 
+		corrPCLs[1] = true; 
+		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+				"ERROR: DifferentialHypothesisSimulator.prChLocs is malformed\n"
+				+ "Correct : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved : "
+						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ? 0 : 1; 
+
 		
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 		
