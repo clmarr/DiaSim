@@ -664,9 +664,14 @@ public class DHSWrapper {
 				
 				int baseLoc = RIM_HB[deleteLoc], //corresponding loc in base for content in hyp that is being relocated
 						movingTo = addLoc; //in hyp casc.
-				//TODO need to redo this block.
+				
 				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc)) 
 				{
+
+					//TODO debugging
+					System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo); 
+					
+					
 					if(baseLoc != -1)	RIM_BH[baseLoc] = movingTo; 
 							//if it is mapped, keep mapping intact
 					

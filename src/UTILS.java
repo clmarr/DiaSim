@@ -431,4 +431,10 @@ public class UTILS {
 		return out.substring(0, out.length() - 1 ); 
 	}
 	
+	public static int findInt (int[] arr, int targ)
+	{
+		for(int i = 0 ; i < arr.length; i++)	if (arr[i] == targ)	return i;
+		return -1; 
+	}
+	
 }

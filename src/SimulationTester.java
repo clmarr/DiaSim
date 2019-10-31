@@ -248,7 +248,7 @@ public class SimulationTester {
 		DHSWrapper DHSW = newDHS(testSimul); 
 		errorCount = totalErrorCount = 0; 
 		System.out.println("----------------\n\nFirst test: insertion of l-darkening rule at the beginning of the cascade\n"
-				+ "\tThis should increase accuracy at each gold stage and the output by 0.075\n---------\n."); 
+				+ "\tThis should increase accuracy at each gold stage and the output by 0.075\n---------\n"); 
 		
 		String nextLaw = "l > lˠ / __ [+cons]"; 
 		String nextCmt = "L-darkening as evidenced by mˈowlˠɾəd, bɨhˈowlˠɾə̃n, mˈowlˠʔə̃n"; 
@@ -435,7 +435,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//now we will do two changes before accepting the hypothesis. 
-		System.out.println("-----------------\nTesting comprehension of simple deletion (in this case, of a derhotacization rule).");
+		System.out.println("-----------------\nSecond: Testing comprehension of simple deletion (in this case, of a derhotacization rule).");
 		System.out.println("Deleting derhotacization rule at index 7.\n----------------\n");
 
 		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");
@@ -455,9 +455,6 @@ public class SimulationTester {
 		int[] corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
 		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
 			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly.") ? 0 : 1; 
-		
-		//TODO debugging
-		System.out.println("DHSW.getHypBaseRuleIndMap() : "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())); 
 		
 		// and the same for hyp to base
 		errorCount += UTILS.checkBoolean(true, 
@@ -552,7 +549,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
-		System.out.println("Testing comprehension of forward relocdation"); 
+		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving rule at index 1 to index 6.\n----------------\n"); 
 		
 		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocdated from former step 1");
 		
@@ -615,16 +612,12 @@ public class SimulationTester {
 		theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
+		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, {0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9}} ; 
 		errorCount += UTILS.checkBoolean ( true, 
-			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), 
-				new int[][] { new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 },
-					new int[] {0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9 }}),
-			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed") ? 0 : 1; 
-			
-		//TODO debugging
-		System.out.println("Rule correspondences:\n"
-				+ UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0]) +"\n"
-						+ UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])); 
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
+			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed"
+			+ "\nCorrect:\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1]) + "\n"
+			+ "Observed:\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1; 
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
 		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 

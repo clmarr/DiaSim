@@ -141,16 +141,38 @@ public class DifferentialHypothesisSimulator {
 				int ilbi = (bi < baseLen) ? baseToHypIndMap[bi] : -1, 
 						ilhi = (hi < hypLen) ? hypToBaseIndMap[hi] : -1; 
 					//indices linked to base instant and to hyp instant
-				if (ilbi == -1 || ilhi == -1)
-				{	
+				
+				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
+					// i.e. the current spots in the base and hyp share the same global index
+				if (bihiAligned)
+				{	ruleCorrespondences[0][gi] = bi++; 
+					ruleCorrespondences[0][gi] = hi++; 
+				}
+				else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
+				{
 					locHasPrCh[gi] = true; 
 					assert ilbi != ilhi || ilbi != -1: 
 						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+					// recall: global mapping scheme is always built off the base cascade by default
+					
+					if(ilhi < hi && ilhi >= 0 && UTILS.findInt(ruleCorrespondences[1], hi) != -1) // unresolved relocdation effect in hyp -- must be handled first
+						hi++; 	// just catch it up, because this information has already been processed... 
+					else if (ilbi == -1) // possible case 2 -- insertion of some sort
+					{
+						ruleCorrespondences[0][gi] = -1; 
+						ruleCorrespondences[1][gi] = hi++; 
+					}
+					else if (ilhi == -1) // deletion of some sort.
+					{
+						ruleCorrespondences[0][gi] = bi++; 
+						ruleCorrespondences[1][gi] = -1; 
+					}
+					else // relocdation
+					{
+						ruleCorrespondences[0][gi] = bi++; 
+						ruleCorrespondences[1][gi] = ilbi ; 
+					}
 				}
-				if (ilhi == -1)	ruleCorrespondences[0][gi] = -1; 
-				else	ruleCorrespondences[0][gi] = bi++;
-				if (ilbi == -1)	ruleCorrespondences[1][gi] = -1; 
-				else	ruleCorrespondences[1][gi] = hi++; 
 				gi++;
 			}  			
 		}
