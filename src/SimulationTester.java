@@ -549,7 +549,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
-		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving rule at index 1 to index 6.\n----------------\n"); 
+		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving the flapping rule that is at index 1 to index 6.\n----------------\n"); 
 		
 		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocdated from former step 1");
 		
@@ -630,12 +630,35 @@ public class SimulationTester {
 			"ERROR: hyp to global ind mapper is malformed\nCorrect: "+UTILS.print1dIntArr(corHTG)+"\n"+UTILS.print1dIntArr(htg)) 
 				? 0 : 1; 
 
+		//test divergence point.
+		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 1,
+			"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		
+		//test lexical effects -- butter (et22) should be effected
+		// fountain (et4) should not be effected
+		// also testing differential derivation generation for case of a forward relocdation in this block.
+		corDD = "/bˈʌtə˞/\n"
+			  + "CONCORDANT UNTIL RULE ː 1\n"
+			  + "1[1|6] ː #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n"
+			  + "Waypoint 1 Gold ː #bˈʌɾə˞# | #bˈʌtə˞#\n"
+			  + "6[6|5] ː fed or inserted | #bˈʌtə˞# > #bˈʌʔə˞#\n"
+			  //+ "RLCD 1[|6] : fed or inserted | bled or deleted\n"
+			  + "Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌʔə˞#\n"
+			  + "Waypoint 3 Gold : #bˈʌɾə˞# | #bˈʌʔə˞#\n"
+			  + "Final forms : #bˈʌɾə˞# | #bˈʌʔə˞#\n";
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
+				"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
+		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(4).equals(""),
+				"ERROR: differential derivation for unaffected lexeme 'fountain' should be an empty string, but it is:\n"
+				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+			
+		
 		//TODO in process -- relocdation -> later ː move [-delrel,-cor] > ɾ / [-cons] __ [-stres] to after waypoint 1 (first gold)
 		
 		//TODO add rule processing and debug comprehension of the following
 		// complex modification: change t > ʔ / __ ə to : 
 				// t > ʔ / [+son] __ {# ; [-cons,-lo,-strees]}
-		// gaian relocate the flapping rule to after waypoint 2 
+		// again relocate the flapping rule to after waypoint 2 
 		// copmlex inserton to right before s > ts / n__ : 
 				// n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// finally all things between waypoitns 2 and 3 insert
