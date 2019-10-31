@@ -82,9 +82,6 @@ public class DifferentialHypothesisSimulator {
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
-		//TODO debugging
-		System.out.println("Rule correspondences:\n"+UTILS.print1dIntArr(ruleCorrespondences[0])+"\n"+UTILS.print1dIntArr(ruleCorrespondences[1])); 
-
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
@@ -214,9 +211,6 @@ public class DifferentialHypothesisSimulator {
 					}
 				}
 				if (ilhi != -2)	gi++;
-				//TODO debugging
-				System.out.println("Rule correspondences at gi "+gi+":\n"+UTILS.print1dIntArr(ruleCorrespondences[0])+"\n"+UTILS.print1dIntArr(ruleCorrespondences[1])); 
-				System.out.println("dumRIMBH "+UTILS.print1dIntArr(dumRIMBH)+"\ndumRIMHB "+UTILS.print1dIntArr(dumRIMHB));
 			}  			
 		}
 	}
