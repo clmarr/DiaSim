@@ -336,12 +336,12 @@ public class DiachronicSimulator {
 
 		// now extract 
 		
+		String firstlineproxy = ""+lexFileLines.get(0); 
+		
 		//TODO beginning of abrogated block here. 
-		NUM_ETYMA = lexFileLines.size(); 
+		NUM_ETYMA = lexFileLines.size() - firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0; 
 		initStrForms = new String[NUM_ETYMA]; 
 		
-		String theLine =lexFileLines.get(0); 
-		String firstlineproxy = ""+theLine; 
 		int numCols = 1; 
 		while (firstlineproxy.contains(""+UTILS.LEX_DELIM))
 		{	numCols++; 
@@ -353,20 +353,20 @@ public class DiachronicSimulator {
 		else
 			assert numCols == NUM_GOLD_STAGES + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
 					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
+
+		//TODO end of abrogated block here.
 		
-		boolean justInput = (numCols == 0); 
+		boolean justInput = !goldOutput && !goldStagesSet; 
 		
 		inputForms = new LexPhon[NUM_ETYMA];
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
 		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
 
-		//TODO end of abrogated block here.
-		
 		int lfli = 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
 		{
-			theLine = lexFileLines.get(lfli);
+			String theLine = lexFileLines.get(lfli);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);

@@ -1,0 +1,53 @@
+// extract GOLD stages as defined in lexicon. 
+// from extractCascade: 
+	// goldStagesSet, blackStagesSet
+	// NUM_GOLD_STAGES, NUM_BLACK_STAGES
+	
+	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
+	// if there is no lexicon header : count number of columns
+		// if there is only one column, obviously it is just the input
+		// otherwise -- first is input, last is output, any in between are gold stages
+	// if there is a lexicon header 
+		// lexicon header is identified by being flagged by ~ 
+			// i.e. UTILS.GOLD_STAGENAME_FLAG
+				// (delimiter is still , i.e. LEX_DELIM )
+		// first stage regardless of name is still "in(put)" 
+		// for the others the names are saved,
+			// and need to be matched...
+				// if any are not matched -- throw errro 
+				// if last is "Out(put)" or "Res(ult)" it does not need to be matched
+					// and is interpreted to be the output gold stage.
+	// to be called AFTER extractCascade is. 
+	// global variables modified as part of this process:
+		// stageOrdering
+		// goldOutput -- determined here. 
+		// potentially blackStagesSet -- if there were none but some gold stages get "blackened"
+			// because they were not matched
+		// goldStageNames
+		// goldStageInstants
+		// blackStageNames
+		// blackStageInstants
+		// NUM_GOLD_STAGES
+		// NUM_BLACK_STAGES
+		// goldStageGoldLexica			
+	private static void processLexFileHeader(String firstlineproxy)
+	{
+		System.out.println("Processing lexicon stipulations for gold stages..."); 
+
+		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? 
+			firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1	;
+		
+	}
+	
+	// changes one gold stage to a black stage.
+	// gsi -- index of that gold stage in terms of the data structures.
+	private static void blackenGoldStage(int gsi)
+	{
+	
+	
+		NUM_GOLD_STAGES--;
+		NUM_BLACK_STAGES++;
+		if (NUM_BLACK_STAGES == 1)	blackStagesSet = true;
+		if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
+	}
+	
