@@ -55,6 +55,7 @@ public class DiachronicSimulator {
 	private static Simulation theSimulation; 
 	
 	private static String[] stageOrdering; 
+	private static String[] initStrForms; 
 	
 	private static void extractSymbDefs()
 	{
@@ -165,7 +166,7 @@ public class DiachronicSimulator {
 		List<String> goldStageNameAndLocList = new ArrayList<String>(); //to be collected 
 		//until the end of collection, at which point the appropriate arrays for the custom
 		// stages will be created using this List. These ones will be compared to gold.
-		List<String>blackStageNameAndLocList = new ArrayList<String>();
+		List<String> blackStageNameAndLocList = new ArrayList<String>();
 			// same as above, but will not be compared to gold. 
 		
 		goldStagesSet = false; blackStagesSet=false;  
@@ -334,8 +335,10 @@ public class DiachronicSimulator {
 		}
 
 		// now extract 
+		
+		//TODO beginning of abrogated block here. 
 		NUM_ETYMA = lexFileLines.size(); 
-		String[] initStrForms = new String[NUM_ETYMA]; 
+		initStrForms = new String[NUM_ETYMA]; 
 		
 		String theLine =lexFileLines.get(0); 
 		String firstlineproxy = ""+theLine; 
@@ -357,6 +360,8 @@ public class DiachronicSimulator {
 		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
 		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
 
+		//TODO end of abrogated block here.
+		
 		int lfli = 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
@@ -391,7 +396,11 @@ public class DiachronicSimulator {
 
 		System.out.println("Now preparing simulation.");
 		
-		theSimulation = new Simulation(inputForms, CASCADE, initStrForms); 
+		//TODO debugging
+		System.out.println("stageOrdering.length : "+stageOrdering.length); 
+		for(String stoi : stageOrdering)	System.out.println(""+stoi);
+		
+		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
@@ -426,7 +435,7 @@ public class DiachronicSimulator {
 						haltMenu(goldStageInd, inp, theFactory);
 					goldStageInd++; 
 				}
-				else //hit black
+				else if (!theSimulation.isComplete())//hit black
 				{
 					System.out.println("Hit black stage "+blackStageInd+": "+blackStageNames[blackStageInd]); 
 					System.out.println("Error analysis at black stages is not currently supported."); //TODO make it supported...
@@ -664,7 +673,6 @@ public class DiachronicSimulator {
 		return out;
 	}
 	
-	//TODO fix this ! 
 	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage(Gold/Result)Lexica
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
