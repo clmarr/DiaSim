@@ -516,24 +516,10 @@ public class DiachronicSimulator {
 		// now extract 
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
+		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
 		NUM_ETYMA = lexFileLines.size() - firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0; 
 		initStrForms = new String[NUM_ETYMA]; 
-		
-		//TODO beginning of abrogated block here. 
-		
-		int numCols = 1; 
-		while (firstlineproxy.contains(""+UTILS.LEX_DELIM))
-		{	numCols++; 
-			firstlineproxy = firstlineproxy.substring(firstlineproxy.indexOf(""+UTILS.LEX_DELIM)+1); 
-		}
-		goldOutput =false; 
-		if(numCols == NUM_GOLD_STAGES + 2)
-			goldOutput = true; 
-		else
-			assert numCols == NUM_GOLD_STAGES + 1: "Error: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
-					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
-
-		//TODO end of abrogated block here.
+		processLexFileHeader(firstlineproxy); 
 		
 		boolean justInput = !goldOutput && !goldStagesSet; 
 		
