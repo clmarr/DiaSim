@@ -287,6 +287,185 @@ public class DiachronicSimulator {
 		
 	}
 	
+	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
+		// if there is no lexicon header : count number of columns
+			// if there is only one column, obviously it is just the input
+			// otherwise -- first is input, last is output, any in between are gold stages
+		// if there is a lexicon header 
+			// lexicon header is identified by being flagged by ~ 
+				// i.e. UTILS.GOLD_STAGENAME_FLAG
+					// (delimiter is still , i.e. LEX_DELIM )
+			// first stage regardless of name is still "in(put)" 
+			// for the others the names are saved,
+				// and need to be matched...
+					// if any are not matched -- throw errro 
+					// if last is "Out(put)" or "Res(ult)" it does not need to be matched
+						// and is interpreted to be the output gold stage.
+		// to be called AFTER extractCascade is. 
+			// goldOutput -- determined here. 
+		private static void processLexFileHeader(String firstlineproxy)
+		{
+			System.out.println("Processing lexicon stipulations for gold stages..."); 
+
+			int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? 
+				firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1	;
+			System.out.println("Lexicon file has "+numCols+" columns!"); 
+			System.out.println("First column assumed to be input."); 
+				
+			boolean lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG; 
+			if(lexiconHasHeader)
+			{
+				int coli = 1;
+				int numGoldStagesConfirmed = 0; 
+				while (coli < numCols - 1)
+				{
+					String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
+					int curgs = numGoldStagesConfirmed; 
+					while ( coli == NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
+						blackenGoldStage(coli); 
+					assert coli < NUM_GOLD_STAGES : "Failed to find gold stage that was stipulated in lexicon file header : "+stipName;
+					numGoldStagesConfirmed++; 
+					coli++; 
+				}
+				// coli == numCols - 1 here.
+				String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
+				
+				if (stipName.equalsIgnoreCase("output") && stipName.equalsIgnoreCase("out") && stipName.equalsIgnoreCase("res") && stipName.equalsIgnoreCase("result"))
+				{
+					System.out.println("Final column stipulated as gold output.");
+					goldOutput = true; 
+				}
+				else
+				{
+					System.out.println("Final column is a gold stage, not the result column!"); 
+					goldOutput = false; 
+					int curgs = numGoldStagesConfirmed; 
+					while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
+						blackenGoldStage(coli); 
+					assert coli <= NUM_GOLD_STAGES : "Failed to find gold stage that was stipulated in lexicon file header : "+stipName;
+					numGoldStagesConfirmed++; 	
+				}
+				if (numGoldStagesConfirmed < NUM_GOLD_STAGES)
+				{
+					System.out.println("Blackening remaining uncorfirmed gold stages that were declared in cascade file!"); 
+					while (numGoldStagesConfirmed < NUM_GOLD_STAGES)
+						blackenGoldStage(numGoldStagesConfirmed);
+				}
+			}
+			else
+			{
+				System.out.println("No explicit header declared in lexicon file."); 
+				if(numCols == NUM_GOLD_STAGES + 1)
+				{
+					System.out.println("Each gold stage properly identified if we assume no output!"); 
+					goldOutput = false; 
+				}
+				else if(numCols == NUM_GOLD_STAGES + 2)
+				{
+					System.out.println("Each gold stage properly identified if we assume last is output!"); 
+					goldOutput = true; 
+				}
+				else 
+				{
+					assert numCols == 2 : "ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"; 
+					goldOutput = true; 
+					System.out.println("Last column assumed to be output!"); 
+					if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
+					while(NUM_GOLD_STAGES == 0)	blackenGoldStage(0); 
+				}
+			}
+			
+		}
+		
+		// changes one gold stage to a black stage
+			// modifying global variables and data structures as appropriate. 
+		// int gsi -- the index in data structures of the stage we are blackening. 
+		private static void blackenGoldStage(int gsi)
+		{
+			System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
+		
+			int[] oldGoldStageInstants, oldBlackStageInstants; 
+			String[] oldGoldStageNames, oldBlackStageNames; 
+			
+			
+			oldGoldStageInstants =  new int[NUM_GOLD_STAGES];
+			oldGoldStageNames = new String[NUM_GOLD_STAGES];
+			oldBlackStageInstants = new int[NUM_BLACK_STAGES]; 
+			oldBlackStageNames = new String[NUM_BLACK_STAGES];
+			if (goldStagesSet)
+			{
+				
+				for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
+				{
+					oldGoldStageInstants[gi] = goldStageInstants[gi]; 
+					oldGoldStageNames[gi] = goldStageNames[gi]; 	
+				}
+			}
+			if (blackStagesSet)
+			{ 	
+				for (int bi = 0; bi < NUM_BLACK_STAGES; bi++)
+				{
+					oldBlackStageInstants[bi] = blackStageInstants[bi];
+					oldBlackStageNames[bi] = blackStageNames[bi];
+				}
+			}
+			
+			int instantToBlacken = goldStageInstants[gsi];
+			String nameToBlacken = goldStageNames[gsi];
+			
+			NUM_GOLD_STAGES--;
+			NUM_BLACK_STAGES++;
+			if (NUM_BLACK_STAGES == 1)	blackStagesSet = true;
+			if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
+			goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
+			
+			goldStageNames = new String[NUM_GOLD_STAGES];
+			goldStageInstants = new int[NUM_GOLD_STAGES]; 
+			blackStageNames = new String[NUM_BLACK_STAGES];
+			blackStageInstants = new int[NUM_BLACK_STAGES]; 
+			
+			int soi = 0, bsloc = 0; 
+			while ( !stageOrdering[soi].equals("g"+gsi) ) 
+			{
+				if(stageOrdering[soi].charAt(0) == 'g')
+				{
+					int curgi = Integer.parseInt(stageOrdering[soi].substring(1)); 
+					goldStageNames[curgi] = oldGoldStageNames[curgi];
+					goldStageInstants[curgi] = oldGoldStageInstants[curgi];  
+				}
+				else
+				{
+					assert stageOrdering[soi].charAt(0) == 'b' : "Global variable stageOrdering misconstructed!"; 
+					int curbi = Integer.parseInt(stageOrdering[soi].substring(1)); 
+					assert curbi == bsloc : "Error: a black stage was skipped in stageOrdering!"; 
+					blackStageNames[curbi] = oldBlackStageNames[curbi]; 
+					blackStageInstants[curbi] = oldBlackStageInstants[curbi]; 
+					bsloc++; 
+				}
+				soi++; 
+				assert soi < stageOrdering.length : "ERROR: stage we are blackening was never found in stageOrdering!" ;
+			}
+			blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
+			blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
+			stageOrdering[soi] = "b"+bsloc; 
+			int isg = gsi; 
+			while(isg < NUM_GOLD_STAGES)
+			{
+				goldStageNames[isg] = oldGoldStageNames[isg+1]; 
+				goldStageInstants[isg] = oldGoldStageInstants[isg+1]; 
+				isg++; 
+			}
+			bsloc++;		
+			while(bsloc < NUM_BLACK_STAGES)
+			{ 
+				blackStageNames[bsloc] = oldBlackStageNames[bsloc-1];
+				blackStageInstants[bsloc] = oldBlackStageInstants[bsloc-1];
+				bsloc++; 
+			}
+			
+		}
+		
+	
 	public static void main(String args[])
 	{
 		parseArgs(args); 
@@ -337,10 +516,10 @@ public class DiachronicSimulator {
 		// now extract 
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
-		
-		//TODO beginning of abrogated block here. 
 		NUM_ETYMA = lexFileLines.size() - firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0; 
 		initStrForms = new String[NUM_ETYMA]; 
+		
+		//TODO beginning of abrogated block here. 
 		
 		int numCols = 1; 
 		while (firstlineproxy.contains(""+UTILS.LEX_DELIM))
