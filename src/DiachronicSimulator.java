@@ -477,7 +477,7 @@ public class DiachronicSimulator {
 		while (soi < stageOrdering.length)
 		{
 			if (stageOrdering[soi].charAt(0) == 'g')
-				stageOrdering[soi] = "g"+(Integer.parseInt(stageOrdering[soi].substring(1))+1);
+				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			soi++; 
 		}
 	}
