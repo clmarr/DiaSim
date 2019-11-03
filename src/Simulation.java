@@ -32,8 +32,6 @@ public class Simulation {
 	private boolean opaque; 
 	private boolean goldOutput; 
 	
-	private String[] stIndex; 
-
 	
 	public void initialize(LexPhon[] inputForms, List<SChange> casc)
 	{
@@ -242,11 +240,11 @@ public class Simulation {
 		return goldStageInd == 0 ? false : instant == goldStageInstants[goldStageInd-1]; 
 	}
 	
-	private void calcStIndex()
+	private void calcStagesOrdered()
 	{
-		stIndex = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 
-		stIndex[0] = "in";
-		if (goldOutput && isComplete())	stIndex[NUM_GOLD_STAGES+NUM_BLACK_STAGES+1] = "out"; 
+		stagesOrdered = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 
+		stagesOrdered[0] = "in";
+		if (goldOutput && isComplete())	stagesOrdered[NUM_GOLD_STAGES+NUM_BLACK_STAGES+1] = "out"; 
 		int gsi = 0 , bsi = 0 ;
 		while ( gsi < goldStageInd && bsi < blackStageInd)
 		{
@@ -254,11 +252,11 @@ public class Simulation {
 					false :
 						(bsi == blackStageInd ? true :
 							goldStageInstants[gsi] <= blackStageInstants[bsi]))
-			{	stIndex[gsi+bsi+1] = "g"+gsi; 
+			{	stagesOrdered[gsi+bsi+1] = "g"+gsi; 
 				gsi++; 
 			}
 			else	{
-				stIndex[gsi+bsi+1] = "b"+bsi;
+				stagesOrdered[gsi+bsi+1] = "b"+bsi;
 				bsi++; 
 			}
 		}
@@ -269,7 +267,7 @@ public class Simulation {
 		String toRet = ""+ID; 
 		while (toRet.length() < 4)	toRet+=" ";
 		toRet += " | "; 
-		for (String st : stIndex)
+		for (String st : stagesOrdered)
 		{
 			if (st.equals("in"))	toRet += inputLexicon.getByID(ID); 
 			else if (st.equals("out"))	toRet += currLexicon.getByID(ID) 
@@ -289,7 +287,7 @@ public class Simulation {
 	public String stageOutHeader()
 	{
 		String toRet = ""; 
-		for(String st : stIndex)
+		for(String st : stagesOrdered)
 		{	
 			if (st.equals("in"))	toRet += "Input";
 			else if (st.equals("out"))	toRet += "Output [REFERENCE]";
@@ -306,7 +304,7 @@ public class Simulation {
 	
 	public String outgraph()
 	{
-		calcStIndex(); 
+		// calcStagesOrdered(); 
 		String out = "etID | "+stageOutHeader(); 
 		for (int i = 0 ; i < NUM_ETYMA && i < 10; i++)
 			out += "\n"+stageOutsForEt(i); 
