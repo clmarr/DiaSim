@@ -81,7 +81,7 @@ public class ErrorAnalysis {
 				
 		NUM_ETYMA = theRes.getWordList().length;
 		SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
-	
+		
 		FILTER = new int[SUBSAMP_SIZE];
 		PRESENT_ETS = new int[SUBSAMP_SIZE];
 		int fi = 0;

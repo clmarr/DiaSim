@@ -535,9 +535,12 @@ public class DiachronicSimulator {
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
-		NUM_ETYMA = lexFileLines.size() - firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0; 
+		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		processLexFileHeader(firstlineproxy); 
+		
+		//TODO debugging
+		System.out.println("N ET "+NUM_ETYMA);
 		
 		boolean justInput = !goldOutput && !goldStagesSet; 
 		
