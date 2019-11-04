@@ -314,10 +314,6 @@ public class Simulation {
 	
 	public int getNextStageInd()
 	{
-		//TODO debugging
-		System.out.println("currStageInd : "+currStageInd);
-		System.out.println("stagesOrdered["+currStageInd+"] "+stagesOrdered[currStageInd]); 
-		
 		int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
 		return (stagesOrdered[currStageInd].charAt(0) == 'g' ?
 	                goldStageInstants : blackStageInstants)[si]; 
