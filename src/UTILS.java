@@ -55,14 +55,18 @@ public class UTILS {
 		return output;
 	}
 	
-	public static Simulation toyDerivation(LexPhon[] inps, List<SChange> ruleCascade, String[] stageOrdering)
+	public static Simulation toyDerivation(Simulation ogs, List<SChange> jur)
 	{
-		Simulation toy = new Simulation(inps, ruleCascade,stageOrdering); 
+		Simulation toy = new Simulation(ogs.getInput().getWordList(), jur, ogs.getStagesOrdered()); 
+		if (ogs.hasBlackStages())	toy.setBlackStages(ogs.getBlackStageNames(), ogs.getBlackStageInstants());
+		if (ogs.hasGoldOutput()) toy.setGold(ogs.getGoldOutput().getWordList()); 
+		if (ogs.hasGoldStages()) toy.setGoldStages(ogs.getGoldStageGoldForms(), ogs.getGoldStageNames(), ogs.getGoldStageInstants());
+		toy.setOpacity(true);
+		toy.setStepPrinterval(PRINTERVAL); 
 		toy.simulateToEnd();
 		return toy; 
 	}
 	
-
 	//auxiliary
 	public static void writeToFile(String filename, String output)
 	{	try 

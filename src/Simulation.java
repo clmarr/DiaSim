@@ -157,7 +157,8 @@ public class Simulation {
 		assert NUM_GOLD_STAGES + NUM_BLACK_STAGES == stagesOrdered.length : 
 			"Error: illegal construction of class variable Simulation.stagesOrdered";
 		
-		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     //while not if for scenario that two stages are at same moment-- but ordered within that.
+		//while not if for scenario that two stages are at same moment-- but ordered within that.
+		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     
 		{
 			char type = stagesOrdered[currStageInd].charAt(0); 
 			assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
@@ -313,8 +314,12 @@ public class Simulation {
 	
 	public int getNextStageInd()
 	{
+		//TODO debugging
+		System.out.println("currStageInd : "+currStageInd);
+		System.out.println("stagesOrdered["+currStageInd+"] "+stagesOrdered[currStageInd]); 
+		
 		int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
-		return (stagesOrdered[currStageInd].charAt(0) == 'g'?
+		return (stagesOrdered[currStageInd].charAt(0) == 'g' ?
 	                goldStageInstants : blackStageInstants)[si]; 
 	}
 
@@ -331,9 +336,17 @@ public class Simulation {
 	
 	public List<SChange> CASCADE()	{	return CASCADE;	}
 	public String[] getGoldStageNames()	{	return goldStageNames;	}
+	public int[] getGoldStageInstants()	{	return goldStageInstants;	}
 	public String[] getBlackStageNames()	{	return blackStageNames;	}
+	public int[] getBlackStageInstants()	{	return blackStageInstants;	}
 	public int getGoldStageInd()	{	return goldStageInd;	}
 	public int getBlackStageInd()	{	return blackStageInd;	}
 	public String[] getStagesOrdered()	{	return stagesOrdered;	}
+	public LexPhon[][] getGoldStageGoldForms()	{
+		LexPhon[][] out = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
+		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
+			out[gsi] = goldStageGoldLexica[gsi].getWordList();
+		return out;
+	}
 	
 }

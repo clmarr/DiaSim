@@ -625,7 +625,7 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Hit black stage "+blackStageInd+": "+blackStageNames[blackStageInd]); 
 					System.out.println("Error analysis at black stages is not currently supported."); //TODO make it supported...
-					System.out.println("Print latest developments from last stage? Please enter 'y' or 'n'.");
+					System.out.println("Print latest developments from latest stage? Please enter 'y' or 'n'.");
 					resp = inp.nextLine().substring(0,1); 
 
 					while(!resp.equalsIgnoreCase("y") && !resp.equalsIgnoreCase("n"))
@@ -665,7 +665,7 @@ public class DiachronicSimulator {
 		
 		System.out.println("making derivation files in "+dir);
 		
-		//make trajectories files.
+		//make derivation files.
 		makeDerivationFiles(); 	
 		
 		//make output graphs file
@@ -831,7 +831,7 @@ public class DiachronicSimulator {
 	{
 		if(blackStagesSet)
 			for(int bsi = first; bsi < last + 1; bsi++)
-				System.out.println(bsi+": b"+
+				System.out.println("b"+bsi+": "+
 					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")");
 	}
 
@@ -839,7 +839,7 @@ public class DiachronicSimulator {
 	{
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
-				System.out.println(gsi+": "+
+				System.out.println("g"+gsi+": "+
 					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageInstants[gsi]+")");
 	}
 	
@@ -847,7 +847,7 @@ public class DiachronicSimulator {
 	{
 		List<String> out = new ArrayList<String>();
 		if (blackStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "b":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "(black) ":"")+oi);
 		return out;
 	}
 	
@@ -855,7 +855,7 @@ public class DiachronicSimulator {
 	{
 		List<String> out = new ArrayList<String>();
 		if (goldStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "(gold) ":"")+oi);
 		return out;
 	}
 	
@@ -894,7 +894,7 @@ public class DiachronicSimulator {
 					+ "| 1 : Set focus point                                                                 |\n"
 					+ "| 2 : Set filter sequence                                                             |\n"
 					+ "| 3 : Query                                                                           |\n"
-					+ "| 4 : Standard prognosis at evaluation point                                          |\n"
+					+ "| 4 : Confusion prognosis at evaluation point                                         |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
 					+ "| 6 : Review results (stats, word forms, errors) at evaluation point (goes to submenu)|\n"
 					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
@@ -953,10 +953,13 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Available options for focus point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.print("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
-							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#> (you can find rule indices with option 3 to query on the main menu)\n"); 
+					System.out.println("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
+							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#>"
+							+ "(you can find rule indices with option 3 to query on the main menu)\n"
+							+ "Please enter the appropriate indicator."); 
+					
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
-					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
+					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,false));
 					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold");
 					
 					for(int ri = 1; ri < CASCADE.size(); ri++)	
@@ -994,7 +997,7 @@ public class DiachronicSimulator {
 						else if (resp.charAt(0) == 'R')
 						{
 							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = UTILS.toyDerivation(inputForms,CASCADE.subList(0, focPtLoc), stageOrdering).getCurrentResult();
+							focPtLex = UTILS.toyDerivation(theSimulation,CASCADE.subList(0, focPtLoc)).getCurrentResult();
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
@@ -1014,10 +1017,8 @@ public class DiachronicSimulator {
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 							ea.setFocus(focPtLex,focPtName);
 						}
-					}
-							
+					}	
 				}
-				
 			}
 			else if (resp.equals("2") && !focPtSet)
 				System.out.println("Error: cannot set a filter sequence without first setting a focus point.\nUse option '1' on the menu.");
@@ -1076,7 +1077,7 @@ public class DiachronicSimulator {
 					}
 					else if (resp.equals("9"))	prompt = false;
 					else if (resp.equals("0")) {
-						System.out.println("Enter the input form, separating phones by "+UTILS.PH_DELIM);
+						System.out.println("Enter the input form, separating phones by '"+UTILS.PH_DELIM+"'");
 						resp = inpu.nextLine().replace("\n",""); 
 						LexPhon query = null;
 						try {
