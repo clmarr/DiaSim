@@ -281,27 +281,27 @@ public class ErrorAnalysis {
 		}
 		else	System.out.println("No particular phones especially associated with error.");
 			
-		System.out.println("---\nMost common distortions: "); 
-		int[][] topDistortions = arr2dLocNMax(confusionMatrix, 5); 
+		System.out.println("---\nMost common confusions: "); 
+		int[][] topConfusions = arr2dLocNMax(confusionMatrix, 5); 
 		
-		for(int i = 0 ; i < topDistortions.length; i++)
+		for(int i = 0 ; i < topConfusions.length; i++)
 		{
-			SequentialPhonic rTarget = topDistortions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topDistortions[i][0]],
-					gTarget = topDistortions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topDistortions[i][1]];
+			SequentialPhonic rTarget = topConfusions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topConfusions[i][0]],
+					gTarget = topConfusions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topConfusions[i][1]];
 			
-			System.out.println("----\nDistortion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
+			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
 			
-			double wordsWithDistortion = (double)confusionMatrix[topDistortions[i][0]][topDistortions[i][1]];
+			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
 					
-			double errorShare = wordsWithDistortion / (double)mismatches.size() * 100.0; 
-			System.out.println("% of errant words with this distortion : "+
+			double errorShare = wordsWithConfusion / (double)mismatches.size() * 100.0; 
+			System.out.println("% of errant words with this confusion : "+
 					(""+errorShare).substring(0,6)+"%"); 
 			
 			//parse contexts
 			if (get_contexts)
 			{
-				List<String> probCtxts = identifyProblemContextsForDistortion(topDistortions[i][0], topDistortions[i][1]);
-				System.out.println("Most common predictors of this distortion: "); 
+				List<String> probCtxts = identifyProblemContextsForConfusion(topConfusions[i][0], topConfusions[i][1]);
+				System.out.println("Most common predictors of this confusion : "); 
 				for (String obs : probCtxts)	System.out.println(""+obs); 
 			}	 
 		}
@@ -339,14 +339,14 @@ public class ErrorAnalysis {
 	
 
 	//@prerequisite: indexedCts should have one more index than inventory, for storing instances of the word bound
-	private List<String> ctxtPrognose (String ctxtName, int[] indexedCts, SequentialPhonic[] inventory, int total_distort_instances, double thresh)
+	private List<String> ctxtPrognose (String ctxtName, int[] indexedCts, SequentialPhonic[] inventory, int total_confusion_instances, double thresh)
 	{ 
 		List<String> out = new ArrayList<String>();
 		int n_wdbd = indexedCts[inventory.length];
 		
-		if (n_wdbd > (double)total_distort_instances * 0.2)
-			out.add("Percent word bound for "+ctxtName+": " + 100.0 * (double)n_wdbd / (double)total_distort_instances); 
-		if(n_wdbd == total_distort_instances)	return out;
+		if (n_wdbd > (double)total_confusion_instances * 0.2)
+			out.add("Percent word bound for "+ctxtName+": " + 100.0 * (double)n_wdbd / (double)total_confusion_instances); 
+		if(n_wdbd == total_confusion_instances)	return out;
 
 		String[] candFeats = new String[featsByIndex.length * 2];
 		for (int fti = 0 ; fti < featsByIndex.length; fti++)
@@ -363,7 +363,7 @@ public class ErrorAnalysis {
 			if (indexedCts[cti] > 0)
 			{
 				SequentialPhonic curPh = inventory[cti];
-				double phShare = (double)indexedCts[cti] / (double)total_distort_instances;
+				double phShare = (double)indexedCts[cti] / (double)total_confusion_instances;
 				
 				if (phShare > thresh)
 					commonPhs += "/"+curPh.print()+"/ ("+(""+100.0*phShare).substring(0,4)+"%) ";
@@ -460,15 +460,15 @@ public class ErrorAnalysis {
 		
 	}
 	
-	// report which contexts tend to surround distortion frequently enough that it becomes 
+	// report which contexts tend to surround confusion frequently enough that it becomes 
 		// suspicious and deemed worth displaying
 	// this method is frequently modified at current state of the project 
-	// NOTE: context info for distortions now disabled! 
-	private List<String> identifyProblemContextsForDistortion(int resPhInd, int goldPhInd)
+	// NOTE: context info for confusions now disabled! 
+	private List<String> identifyProblemContextsForConfusion(int resPhInd, int goldPhInd)
 	{
 		List<String> out = new ArrayList<String>(); 
 
-		List<LexPhon[]> pairsWithDistortion = mismatchesWithDistortion(resPhInd, goldPhInd); 
+		List<LexPhon[]> pairsWithConfusion = mismatchesWithConfusion(resPhInd, goldPhInd); 
 		
 		//NOTE: By default this is done for gold. may need to change that.
 		
@@ -477,14 +477,14 @@ public class ErrorAnalysis {
 		int[] priorPhoneCounts = new int[goldPhInventory.length + 1]; 
 		int[] posteriorPhoneCounts = new int[goldPhInventory.length + 1]; 
 				
-		int total_distortion_instances = 0; 
+		int total_confusion_instances = 0; 
 
-		for (int i = 0 ; i < pairsWithDistortion.size(); i++)
+		for (int i = 0 ; i < pairsWithConfusion.size(); i++)
 		{
 			
 			//TODO need to fix error here. 
 			
-			LexPhon[] curPair = pairsWithDistortion.get(i); 
+			LexPhon[] curPair = pairsWithConfusion.get(i); 
 			
 			featDist.compute(curPair[0],curPair[1]); 
 			int[][] alignment = featDist.get_min_alignment(); 
@@ -493,7 +493,7 @@ public class ErrorAnalysis {
 				// -1 -- aligned to null phone
 				// -2 -- aligned to null phone at word boundary
 			
-			List<Integer> distortLocs = new ArrayList<Integer>();
+			List<Integer> confuseLocs = new ArrayList<Integer>();
 			//will be based on location in the gold form, unless it is a res phone aligned to gold null,
 				// in which case it will be in the res form. 
 
@@ -505,7 +505,7 @@ public class ErrorAnalysis {
 				for(int rpi = 0 ; rpi == resPhs.length ? false : alignment[rpi][0] != -2 ; rpi++)
 					if(resPhs[rpi].print().equals(resPhInventory[resPhInd].print()))
 						if(alignment[rpi][0] < 0)
-							distortLocs.add(rpi); 
+							confuseLocs.add(rpi); 
 			}
 			else {
 				for(int gpi = 0 ; gpi < goldPhs.length; gpi++)
@@ -513,13 +513,13 @@ public class ErrorAnalysis {
 					if(goldPhs[gpi].print().equals(goldPhInventory[goldPhInd].print())) 
 						if(alignment[gpi][1] >= 0)
 							if(resPhs[alignment[gpi][1]].print().equals(resPhInventory[resPhInd].print()))
-								distortLocs.add(gpi); 
+								confuseLocs.add(gpi); 
 				}
 			}
-			total_distortion_instances += distortLocs.size(); 
+			total_confusion_instances += confuseLocs.size(); 
 
-			//now retrieve context IN GOLD of distortion.
-			for (Integer dloc : distortLocs)
+			//now retrieve context IN GOLD of confusion.
+			for (Integer dloc : confuseLocs)
 			{
 				int opLocBefore = getPrevAlignedGoldPos(alignment, dloc, nullGold); 
 				
@@ -555,19 +555,19 @@ public class ErrorAnalysis {
 		
 		
 		
-		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_distortion_instances,0.2)); 
-		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_distortion_instances,0.2));
-		out.addAll(ctxtPrognose("posterior",posteriorPhoneCounts,goldPhInventory,total_distortion_instances,0.2));
-		out.addAll(ctxtPrognose("post posterior",postPostrCounts,goldPhInventory,total_distortion_instances,0.2));
+		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_confusion_instances,0.2)); 
+		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
+		out.addAll(ctxtPrognose("posterior",posteriorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
+		out.addAll(ctxtPrognose("post posterior",postPostrCounts,goldPhInventory,total_confusion_instances,0.2));
 		
 		return out; 
 	}
 	
-	// return list of word pairs with a particular distorition,
+	// return list of word pairs with a particular confusion,
 	// as indicated by the pairing of the uniquely indexed result phone
 	// and the different uniquely indexed gold phone.
 	// if either resPhInd or goldPhInd are -1, they are the null phone. 
-	private List<LexPhon[]> mismatchesWithDistortion (int resPhInd, int goldPhInd)
+	private List<LexPhon[]> mismatchesWithConfusion (int resPhInd, int goldPhInd)
 	{
 		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
 		boolean is_insert_or_delete = (resPhInd == resPhInventory.length) ||  (goldPhInd == goldPhInventory.length); 
@@ -582,8 +582,8 @@ public class ErrorAnalysis {
 		return out; 
 	}
 	
-	//check if specific mismatch has a specific distortion
-	// we assume either the distortion involves a null phone (i.e. it's insertion or deletion)
+	//check if specific mismatch has a specific confusion
+	// we assume either the confusion involves a null phone (i.e. it's insertion or deletion)
 	// or we have already checked that both phones involve are in fact present in both words
 	private boolean hasMismatch(int rphi, int gphi, LexPhon rlex, LexPhon glex)
 	{
@@ -1169,10 +1169,10 @@ public class ErrorAnalysis {
 	
 	/**
 	 * 
-	 * @param rel_ind -- index of analysis relative to first phone of distortion/focus
+	 * @param rel_ind -- index of analysis relative to first phone of confusion/focus
 	 * @param ids -- etymon ids 
 	 * @param phs -- phs to analyzie (typically optained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
-	 * @param theBounds -- bounds of the distortion/focus in those ids. 
+	 * @param theBounds -- bounds of the confusion/focus in those ids. 
 	 * @return
 	 */
 	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
