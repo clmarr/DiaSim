@@ -373,6 +373,28 @@ public class UTILS {
 		return true;
 	}
 	
+	public static String printFileDiff(String loc1, String loc2)
+	{
+		if (compareFiles(loc1, loc2))	return "identical."; 
+		
+		List<String> f1lns = readFileLines(loc1), 
+				f2lns = readFileLines(loc2); 
+		int len1 = f1lns.size(), len2 = f2lns.size(); 
+		
+		int li = 0 ;
+		
+		boolean firstLonger = len1 > len2; 
+
+		while( f1lns.get(li).equals(f2lns.get(li)))
+		{
+			li++; 
+			if (li == Math.min(len1, len2))
+				return (firstLonger ? "First" : "Second") + " with extra rules after number "+li; 
+		}
+		
+		return "Congruent until rule "+li+":\n"+outset(longVertDisjunction(f1lns.get(li), f2lns.get(li)))+"\n"; 
+	}
+	
 	public static boolean strcmp (String x, String y)
 	{
 		if (x == null || y == null)	return (x == null) == (y == null); 
