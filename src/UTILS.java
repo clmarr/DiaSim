@@ -241,6 +241,21 @@ public class UTILS {
 		return true;
 	}
 	
+	public static String printCascDiff(List<SChange> c1, List<SChange> c2)
+	{
+		if (c1.size() != c2.size())	return "Different sizes!";
+		
+		int i = 0 ;
+		while ( c1.get(i).toString().equals(""+c2.get(i)))
+		{
+			i++; 
+			if (i == c1.size())	return "No difference!"; 
+		}
+		
+		return "First diff at rule "+i+":\n"
+				+ c1.get(i) + "\nVS\n" + c2.get(i);
+	}
+	
 	public static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
@@ -512,5 +527,7 @@ public class UTILS {
 	{
 		return "{[ "+s+" ]}"; 
 	}
+	
+	
 	
 }
