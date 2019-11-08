@@ -604,7 +604,7 @@ public class SimulationTester {
 		// and then the insertion phase
 		
 		thepc = DHSW.getProposedChanges().get(2);
-		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "6".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "6".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
 			"Relocdated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
 				+"executed incorrectly!"); 
 				
