@@ -433,7 +433,7 @@ public class SimulationTester {
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareFiles("DebugCheckerCascAfterDarkening",DBG_WRKG_CASC),
 				"ERROR: modification of DBG_WRKG_CASC not carried out properly during hypothesis acceptance.");
-	
+		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
