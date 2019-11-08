@@ -636,6 +636,10 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String newCascText(List<String> comments, boolean justPlaceHolders, String targCascLoc, SChangeFactory fac) throws MidDisjunctionEditException
 	{
+		//TODO debugging
+		System.out.println("\n\n\n\nInitiating new casc generation operation!"); 
+		
+		
 		int linesPassed = 0; 
 		String readIn = ""; 
 		
@@ -679,13 +683,13 @@ public class DifferentialHypothesisSimulator {
 			bi++; 
 		}**/
 		
-		int effectiveLocationModifier = 0; // add +1 after a deletion, -1 after insertion etc... 
+		int effLocModifier = 0; // add +1 after a deletion, -1 after insertion etc... 
 			// to normalize for cahnges in place within data structures since they favor the hyp side of the equation.
 		
 		//iterate over each proposed change
 		for (int pci = 0; pci < proposedChs.size(); pci++)
 		{
-			int nxChRuleInd = Integer.parseInt(proposedChs.get(pci)[0]) + effectiveLocationModifier ; 
+			int nxChRuleInd = Integer.parseInt(proposedChs.get(pci)[0]) + effLocModifier ; 
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion"); 
 			// will be used to determine where we place new content with respect to comment blocks
 			
@@ -819,7 +823,7 @@ public class DifferentialHypothesisSimulator {
 								linesPassed ++; 
 								nxRuleInd++; 
 								
-								effectiveLocationModifier += 1; 
+								effLocModifier += 1; 
 								
 							}
 							else // we are dealing with an insertion then.
@@ -846,7 +850,7 @@ public class DifferentialHypothesisSimulator {
 								linesPassed -= (cmtBlock+ruleLine).split("\n").length; 
 								nxRuleInd++;
 								
-								effectiveLocationModifier += -1 * fac.generateSoundChangesFromRule(proposedChs.get(pci)[1]).size(); 
+								effLocModifier += -1 * fac.generateSoundChangesFromRule(proposedChs.get(pci)[1]).size(); 
 							}
 						}
 						else //then there is a disjunction -- whether we can pass without error is determined by value of justPlaceHolders
@@ -1030,6 +1034,15 @@ public class DifferentialHypothesisSimulator {
 		return out.substring(2); 
 	}
 
+	
+	/** Get the current line number.
+	 * @return int - Current line number.
+	 */
+	public static int getLineNumber() {
+	    return Thread.currentThread().getStackTrace()[2].getLineNumber();
+	}
+	
+	
 	
 }
 	

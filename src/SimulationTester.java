@@ -76,14 +76,15 @@ public class SimulationTester {
 		
 		int errorCount = 0, totalErrorCount = 0;
 		
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"g0","b0","g1"} ), 
-				"ERROR: Simulation.stagesOrdered not constructed properly.") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"g0","b0","g1"} ), 
+				"ERROR: Simulation.stagesOrdered not constructed properly.") ;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
-		errorCount += UTILS.checkBoolean(false, testSimul.isComplete(), "ERROR: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), false, testSimul.isComplete(), "ERROR: simulation with non empty cascade considered complete before any steps");
 		// Simulation class should not think it just hit a gold stage
-		errorCount += UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at beginning of simulation.");
 		// check number of words
-		errorCount += UTILS.checkBoolean(true, NUM_ETYMA == testSimul.NUM_ETYMA(), "ERROR: number of input forms not consistent after initialization") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, NUM_ETYMA == testSimul.NUM_ETYMA(), "ERROR: number of input forms not consistent after initialization");
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
@@ -92,12 +93,12 @@ public class SimulationTester {
 		// for debugging purposes opacity is fine. 
 		
 		//check these to make sure no initialization mutator function messed with them. 
-		errorCount += UTILS.checkBoolean(false, testSimul.isComplete(), "ERROR: simulation with non empty cascade considered complete before any steps") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), false, testSimul.isComplete(), "ERROR: simulation with non empty cascade considered complete before any steps");
 		// Simulation class should not think it just hit a gold stage
-		errorCount += UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at beginning of simulation.") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at beginning of simulation.");
 		// check number of stages
-		errorCount += UTILS.checkBoolean(true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "ERROR: inconsistent calculation of number of gold stages") ? 0 : 1;
-		errorCount += UTILS.checkBoolean(true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "ERROR: inconsistent calculation of number of black stages") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, NUM_GOLD_STAGES == testSimul.NUM_GOLD_STAGES(), "ERROR: inconsistent calculation of number of gold stages");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, NUM_BLACK_STAGES == testSimul.NUM_BLACK_STAGES(), "ERROR: inconsistent calculation of number of black stages");
 				
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
@@ -107,7 +108,7 @@ public class SimulationTester {
 		//check that average distance metrics are all 0
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgPED(), "ERROR: avg PED should be 0.0 but it is %o") ? 0 : 1 ;
-		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: initial accuracy should be 1.0 but it is %o") ? 0 : 1; 
+		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: initial accuracy should be 1.0 but it is %o") ? 0 : 1;
 		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin1(), "ERROR: initial accuracy within 1 phone should be 1.0 but it is %o") ? 0 : 1 ; 
 		errorCount +=UTILS.checkMetric(1.0, checker.getPctWithin2(), "ERROR: initial accuracy within 2 phones should be 1.0 but it is %o") ? 0 : 1 ;
 		
@@ -148,7 +149,7 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
-		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected"); 
 		checker = standardChecker(testSimul.getStageResult(true, 0), testSimul.getGoldStageGold(0)); 
 
 		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: accuracy of only %o at first gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
@@ -161,7 +162,7 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0 ;
 		System.out.println("Checking Waypoint 1 (black box mode)"); 
-		errorCount +=UTILS.checkBoolean(false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at point of a black box stage.") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at point of a black box stage."); 
 		
 		//TODO other shit here... 
 		
@@ -173,7 +174,7 @@ public class SimulationTester {
 		
 		// TODO checks after skipping final gold stage before the end
 		System.out.println("Checking at final waypoint, a gold stage."); 
-		errorCount +=UTILS.checkBoolean(true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected"); 
 		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1), featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
 		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
@@ -229,8 +230,8 @@ public class SimulationTester {
 				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
-		errorCount +=UTILS.checkBoolean(true, bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), "ERROR: baseline derivation for 'bitten' not matched."
-				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+testSimul.getDerivation(0)) ? 0: 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), "ERROR: baseline derivation for 'bitten' not matched."
+				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+testSimul.getDerivation(0)) ;
 				
 		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
@@ -262,48 +263,48 @@ public class SimulationTester {
 		dumCasc.addAll(0, theFactory.generateSoundChangesFromRule(nextLaw)); 
 
 		//test DHSWrapper.hypCASC (and ~.baseCASC)  
-		errorCount +=UTILS.checkBoolean(true , curHC.get(0).toString().equals(nextLaw), "ERROR: first instance does not have the correct rule.") ? 0 : 1; 
-		errorCount +=UTILS.checkBoolean(true, UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()),
-				"ERROR: 2nd rule onward for hypCASC should be equal to baseCASC, but apparently it is not.") ? 0 : 1;
-		errorCount +=UTILS.checkBoolean(true, UTILS.compareCascades(curHC.subList(1, curHC.size()), CASCADE), 
-				"ERROR: 2nd rule onward for hypCASC should be equal to SimulationTester.CASCADE, but apparently it is not.") ? 0 : 1;
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true , curHC.get(0).toString().equals(nextLaw), "ERROR: first instance does not have the correct rule."); 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(curHC.subList(1, curHC.size()), DHSW.getBaseCASC()),
+				"ERROR: 2nd rule onward for hypCASC should be equal to baseCASC, but apparently it is not.");
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(curHC.subList(1, curHC.size()), CASCADE), 
+				"ERROR: 2nd rule onward for hypCASC should be equal to SimulationTester.CASCADE, but apparently it is not.");
 		
 		//test DHSWrapper's rule ind maps.
-		errorCount += UTILS.checkBoolean(true, 3  == DHSW.getBaseHypRuleIndMap()[2], "ERROR: increment not realized in baseHypRuleIndMap properly.") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, 1 == DHSW.getHypBaseRuleIndMap()[2] , "ERROR: increment not realized in hypBaseRuleIndMap properly.\n"
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 3  == DHSW.getBaseHypRuleIndMap()[2], "ERROR: increment not realized in baseHypRuleIndMap properly."); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 1 == DHSW.getHypBaseRuleIndMap()[2] , "ERROR: increment not realized in hypBaseRuleIndMap properly.\n"
 				+ "Correct: "+UTILS.print1dIntArr(new int[] { -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10})+"\n"
-						+ "Observed: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ? 0 : 1; 
+						+ "Observed: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())); 
 		
 		//test DHSWrapper.hypGoldLocs
-		errorCount +=UTILS.checkBoolean(true, 6 == DHSW.getHypGoldLocs()[0], "ERROR: increment on hypGoldLocs not done correctly") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, 6 == DHSW.getHypGoldLocs()[0], "ERROR: increment on hypGoldLocs not done correctly"); 
 		
 		//test DHSWrapper.proposedChanges
 		String[] thepc = DHSW.getProposedChanges().get(0); 
-		errorCount +=UTILS.checkBoolean(true, "0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]),  
-				"ERROR: update on proposedChanges for simple insertion not carried out properly") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, "0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]),  
+				"ERROR: update on proposedChanges for simple insertion not carried out properly"); 
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
 		int[][] corrRC = new int[][] { {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10} }; 
 		
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare2dIntArrs(theDHS.getRuleCorrespondences(), corrRC),
 				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
 						+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
-						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1; 
+						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])); 
 					
 		//test DifferentialHypothesisSimulator.baseRuleIndsToGlobal and ~.hypRuleIndsToGlobal
 		int[] btg = theDHS.getBaseIndsToGlobal(), htg = theDHS.getHypIndsToGlobal(); 
 		
-		errorCount +=UTILS.checkBoolean(true, btg.length == 10 , "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount +=UTILS.checkBoolean(true, htg.length == 11 , "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount +=UTILS.checkBoolean(true, btg[0] == 1 && btg[2] == 3, "ERROR: base to global ind mapper is malformed") ? 0 : 1 ; 
-		errorCount +=UTILS.checkBoolean(true, htg[0] == 0 && htg[2] == 2, "ERROR: hyp to global ind mapper is malformed") ? 0 : 1 ; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, btg.length == 10 , "ERROR: base to global ind mapper has wrong dimensions"); 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, htg.length == 11 , "ERROR: hyp to global ind mapper has wrong dimensions"); 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, btg[0] == 1 && btg[2] == 3, "ERROR: base to global ind mapper is malformed"); 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, htg[0] == 0 && htg[2] == 2, "ERROR: hyp to global ind mapper is malformed"); 
 		
 		//test DifferentialHypothesisSimulator.divergencePoint 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 0, 
-				"ERROR: divergence point should be 0 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 0, 
+				"ERROR: divergence point should be 0 but it is "+theDHS.getDivergencePoint()); 
 		
 		// testing lexical effects. 'bitten' should not be effected, 'molted' should.
 		String[] bcdlines = bittenCorrectBaselineDeriv.split("\n"); 
@@ -314,8 +315,8 @@ public class SimulationTester {
 		bcdlines[2] = bcdlines[2].substring(0, colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
 		String bittenCorrDerivAfterCh1 = String.join("\n", bcdlines); 
 		
-		errorCount +=UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
-				"ERROR: malformed derivation of 'bitten' for hypothesis cascade after 1 change") ? 0 : 1;  
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
+				"ERROR: malformed derivation of 'bitten' for hypothesis cascade after 1 change");  
 		
 		String mhdCor = 
 				"/mˈowltəd/\n" + 
@@ -326,8 +327,8 @@ public class SimulationTester {
 				"Waypoint 3 Gold stage form : #mˈowlˠʔəd#\n" + 
 				"Final form : #mˈowlˠʔəd#";
 
-		errorCount += UTILS.checkBoolean(true, theDHS.hypCascSim.getDerivation(26).equals(mhdCor), 
-				"ERROR: malformed derivation of 'molted' for hypothesis cascade after 1 change") ? 0 : 1;  
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.hypCascSim.getDerivation(26).equals(mhdCor), 
+				"ERROR: malformed derivation of 'molted' for hypothesis cascade after 1 change");  
 		
 		String mbdGlobCor = "/mˈowltəd/\n" + 
 				"Waypoint 1 Gold stage form : #mˈowltəd#\n" + 
@@ -336,26 +337,26 @@ public class SimulationTester {
 				"Waypoint 3 Gold stage form : #mˈowlʔəd#\n" + 
 				"Final form : #mˈowlʔəd#";
 		//checking globalization of derivation
-		errorCount +=UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")),
-				"ERROR: malformation of globalized derivation in baseline for 'bitten'") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(26 , false).equals(mbdGlobCor), 
-				"ERROR: malformation of globalized derivation in baseline for 'molted'") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, theDHS.getGlobalizedDerivation(26 , true).equals(mhdCor), 
-				"ERROR: malformation of proposed hypothesis' predicted derivation in baseline for 'molted'") ? 0 : 1; 
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")),
+				"ERROR: malformation of globalized derivation in baseline for 'bitten'"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(26 , false).equals(mbdGlobCor), 
+				"ERROR: malformation of globalized derivation in baseline for 'molted'"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(26 , true).equals(mhdCor), 
+				"ERROR: malformation of proposed hypothesis' predicted derivation in baseline for 'molted'"); 
 	
 		//checking DHS.prChLocs
 		boolean[] corrPCLs = new boolean[11];
 		corrPCLs[0] = true; 
-		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
 				"ERROR: DifferentialHypothesisSimulator.prChLocs is malformed\n"
 				+ "Correct : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved : "
-						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ? 0 : 1; 
+						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())); 
 
 		//first check syntax of differential derivations, before separately checking DHS.changedDerivations 
 		//ensure that words with no difference should have a differential derivation of "". 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(0).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'bitten' should be an empty string, but it is:\n"
-				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+				+ theDHS.getDifferentialDerivation(0)); 
 		//now check syntax of differential derivation of a word that was indeed changed. 
 		String corDD = "/mˈowltəd/\n" 
 				+ "CONCORDANT UNTIL RULE : 0\n"
@@ -366,35 +367,35 @@ public class SimulationTester {
 				+ "Waypoint 3 Gold : #mˈowlʔəd# | #mˈowlˠʔəd#\n"
 				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
 		
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(26).equals(corDD), 
+				"ERROR: differential derivation for 'molted' is malformed"); 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
 			// instead we only need to check the specific keys.
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(theDHS.getEtsWithChangedDerivations(), new int[] {15, 26, 28}), 
-				"ERROR: wrong etyma effected by l darkening change...") ? 0 : 1; 
+				"ERROR: wrong etyma effected by l darkening change..."); 
 		
 		//now finally checking DHS.changedRuleEffects
 			// for this rule there is no feeding or bleeding, so the HashMap DHS.changedRuleEffects should have only one key, 0. 
 			// and it should contain three specific feedings, for molten, molded and beholden (et ids 15,26,28)
 		HashMap<Integer,String[][]> CREs = theDHS.getChangedRuleEffects(); 
 		
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				CREs.keySet().size() == 1 && CREs.containsKey(0),
-				"ERROR: incorrect comprehension effects of insertion of l-darkening rule ") ? 0 : 1;
+				"ERROR: incorrect comprehension effects of insertion of l-darkening rule ");
 		
-		errorCount += UTILS.checkBoolean(true,
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 				UTILS.numFilled(theDHS.getEffectsBlocked(0)) == 0,
-				"ERROR: false positive detection of blocking effects of l-darkening when there are none.") ? 0 : 1; 
+				"ERROR: false positive detection of blocking effects of l-darkening when there are none."); 
 		
 		String[] darkened = new String[40]; 
 		darkened[15] = "#mˈowltən# > #mˈowlˠtən#"; 
 		darkened[26] = "#mˈowltəd# > #mˈowlˠtəd#";
 		darkened[28] = "#bihˈowldən# > #bihˈowlˠdən#"; 
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
-				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
+				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening");
 				
 		DHSW.setHypOutLoc(DBG_WRKG_CASC);
 		DHSW.acceptHypothesis(false); 
@@ -406,28 +407,28 @@ public class SimulationTester {
 		//i.e. rebasing and usurpation occurs -- now, just this one time, we need to test that all major variables are intact.
 		System.out.println("Now testing integrity of DHSW after usurpation of baseline for hypothesis acceptance."); 
 		
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(DHSW.getBaseCASC(), curHC),
-				"ERROR: hypothesis acceptance did not usurp the baseline correctly.") ? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(DHSW.getBaseCASC(), curHC),
+				"ERROR: hypothesis acceptance did not usurp the baseline correctly.");
 		CASCADE = curHC; 
 		
 		int[] bhRIM = new int[curHC.size()+1];
 		curHC = null; dumCasc = null;
 		
 		for (int rimi = 0 ; rimi < bhRIM.length; rimi++)	bhRIM[rimi] = rimi;
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getBaseHypRuleIndMap(), bhRIM),
-				"ERROR: hypothesis acceptance did not reinitialize base to hyp rule in correctly") ? 0 : 1; 
+				"ERROR: hypothesis acceptance did not reinitialize base to hyp rule in correctly"); 
 		
 		//at this point the base and hyp rule maps should still be identical... 
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), bhRIM),
-				"ERROR: hypothesis acceptance did not reinitialize hyp to base rule in correctly") ? 0 : 1; 
+				"ERROR: hypothesis acceptance did not reinitialize hyp to base rule in correctly"); 
 		
-		errorCount += UTILS.checkBoolean(true, DHSW.getProposedChanges().size() == 0,
-				"ERROR: hypothesis acceptance did not reinitialize proposedChanges correctly") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, DHSW.getProposedChanges().size() == 0,
+				"ERROR: hypothesis acceptance did not reinitialize proposedChanges correctly"); 
 		
-		errorCount += UTILS.checkBoolean(true, UTILS.compareFiles("DebugCheckerCascAfterDarkening",DBG_WRKG_CASC),
-				"ERROR: modification of DBG_WRKG_CASC not carried out properly during hypothesis acceptance.")? 0 : 1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareFiles("DebugCheckerCascAfterDarkening",DBG_WRKG_CASC),
+				"ERROR: modification of DBG_WRKG_CASC not carried out properly during hypothesis acceptance.");
 	
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
@@ -441,33 +442,32 @@ public class SimulationTester {
 		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE); 
 
 		//testing realization in the cascade structures. 
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
-			"ERROR: base cascade appears to have been corrupted during comprehension of a deletion operation.")
-			? 0 : 1 ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
+			"ERROR: base cascade appears to have been corrupted during comprehension of a deletion operation."); 
 			
 		dumCasc.remove(7); 
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
-			"ERROR: malformed comprehension of simple deletion operation.") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC),
+			"ERROR: malformed comprehension of simple deletion operation."); 
 		
 		//testing base to hyp rule in map in DHSWrapper 
 			// -- before this operation there were 11 rules, and we are deleting the 8th. 
 		int[] corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
-			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly.") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly."); 
 		
 		// and the same for hyp to base
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11}),
-				"ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly.") ? 0 : 1 ; 
+				"ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly."); 
 		
 		//test DHSWrapper.hypGoldLocs -- since hypBlackLocs is updated the same way so it is implicitly also being checked.
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
-			"ERROR: simple deletion not handled by correct update in DHSW.hypGoldLocs -- should have changed second gold stage from spot 8 to 7.") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{6,7}, DHSW.getHypGoldLocs()), 
+			"ERROR: simple deletion not handled by correct update in DHSW.hypGoldLocs -- should have changed second gold stage from spot 8 to 7."); 
 			
 		//test DHSWrapper.proposedChanges
 		thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += UTILS.checkBoolean(true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
-			"ERROR: update on proposedChanges for simple deletion not executed properly") ? 0 : 1 ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+			"ERROR: update on proposedChanges for simple deletion not executed properly") ; 
 
 		theDHS = DHSW.generateDHS(); 
 		
@@ -482,39 +482,39 @@ public class SimulationTester {
 						
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
 
-		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true,
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
-			"ERROR: base to global ind mapper is malformed") ? 0 : 1;
-		errorCount += UTILS.checkBoolean(true,
+			"ERROR: base to global ind mapper is malformed");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 			UTILS.compare1dIntArrs( htg, new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10}),
-			"ERROR: hyp to global ind mapper is malformed") ? 0 : 1; 
+			"ERROR: hyp to global ind mapper is malformed"); 
 
 		//test divergence point.
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 7,
-			"ERROR: divergence point should be 7 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 7,
+			"ERROR: divergence point should be 7 but it is "+theDHS.getDivergencePoint()) ; 
 		
 		//test lexical effects -- 'bitten' (et0) should be unaffected, but butter (et22) should be effected
 			// also testing differential derivation generation for case of a deletion in this block.
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(0).equals(""),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(0).equals(""),
 			"ERROR: differential derivation for unaffected lexeme 'bitten' should be an empty string, but it is:\n"
-			+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+			+ theDHS.getDifferentialDerivation(0)) ;
 		corDD = "/bˈʌtə˞/\n" 
 			+ "CONCORDANT UNTIL RULE : 7\n"
 			+ "7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n"
 			+ "Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n"
 			+ "Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
-			"ERRORː differential derivation for 'butter' is malformed") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
+			"ERRORː differential derivation for 'butter' is malformed"); 
 			
 		//checking DHS.locHasPrCh
 		corrPCLs = new boolean[11];
 		corrPCLs[7] = true; 
-		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
 				"ERROR: DifferentialHypothesisSimulator.prChLocs is malformed\n"
 				+ "Correct : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved : "
-						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ? 0 : 1; 
+						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ;
 
 		//check DHS.changedDerivations
 		Phone er = new Phone(phoneSymbToFeatsMap.get("ə˞"), featIndices, phoneSymbToFeatsMap); 
@@ -524,21 +524,21 @@ public class SimulationTester {
 		for(int ifii = 0; nfi < nFs ; ifii++)
 			if (inputForms[ifii].findPhone(er) != -1)	efds[nfi++] = ifii; 
 
-		errorCount += UTILS.checkBoolean( true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true, 
 			UTILS.compare1dIntArrs(efds, theDHS.getEtsWithChangedDerivations()),
-			"ERROR: wrong etyma effected by deletion of derhotacization") ? 0 : 1; 
+			"ERROR: wrong etyma effected by deletion of derhotacization"); 
 			
 		//check DHS.changedRuleEffects
 		String[] rhota = new String[NUM_ETYMA];
 		for (int efdi : efds)	rhota[efdi] = getRegRuleEffect(theDHS.getDifferentialDerivation(efdi), 7, 7, -1); 
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(rhota, theDHS.getChangedRuleEffects().get(7)[0]), 
-				"ERROR: construction of changedRuleEffects after simple deletion of derhotacization rule did not represent lost effects properly") ? 0 : 1;  
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dStrArrs(new String[NUM_ETYMA], theDHS.getChangedRuleEffects().get(7)[1]),
-				"ERROR: construction of changedRuleEffects after deletion of derhotacization rule thought there were gained effects when there were none") ? 0 : 1 ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(rhota, theDHS.getChangedRuleEffects().get(7)[0]), 
+				"ERROR: construction of changedRuleEffects after simple deletion of derhotacization rule did not represent lost effects properly");  
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(new String[NUM_ETYMA], theDHS.getChangedRuleEffects().get(7)[1]),
+				"ERROR: construction of changedRuleEffects after deletion of derhotacization rule thought there were gained effects when there were none");
 		
 		CREs = theDHS.getChangedRuleEffects(); 
-		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism") ? 0 : 1;
-		errorCount += UTILS.checkBoolean(true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of removing derhotacism");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect construction of changedRuleEffects after removing derhotacism"); 
 
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
@@ -551,36 +551,35 @@ public class SimulationTester {
 		
 		//testing realization in the cascade structures. 
 		curHC = DHSW.getHypCASC();
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(CASCADE, DHSW.getBaseCASC()),
-			"ERROR: base cascade appears to have been corrupted during comprehension of a forward relocdation operation.")
-			? 0 : 1 ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(CASCADE, DHSW.getBaseCASC()),
+			"ERROR: base cascade appears to have been corrupted during comprehension of a forward relocdation operation.");
 
 		dumCasc.add(5,dumCasc.remove(1)); 
-		errorCount += UTILS.checkBoolean(true, UTILS.compareCascades(dumCasc, curHC),
-				"ERROR: malformed comprehension of forward relocdation operation.") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC),
+				"ERROR: malformed comprehension of forward relocdation operation."); 
 		
 		//test lengths
-		errorCount += UTILS.checkBoolean(true, DHSW.getBaseCASC().size() == 11, "ERROR: wrong length assigned to baseline CASCADE.") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, DHSW.getHypCASC().size() == 10, "ERROR: wrong length assigned to hypothesis CASCADE.") ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, DHSW.getBaseCASC().size() == 11, "ERROR: wrong length assigned to baseline CASCADE."); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, DHSW.getHypCASC().size() == 10, "ERROR: wrong length assigned to hypothesis CASCADE."); 
 		
 		//testing DHSWrapper's base to hyp rule ind map 
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
 		corrBhRIM = new int[]{0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9, 10};
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
 			"ERROR: forward relocdation is not handled correctly in base-hyp rule ind map.\n"
 			+ "Correct : "+UTILS.print1dIntArr(corrBhRIM)+
-			"\nObserved : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()) ) ? 0 : 1; 
+			"\nObserved : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()) ) ;
 	
 		//and same for hyp to base
 		int[] corrHbRIM = new int[] {0, 2, 3, 4, 5, 6 , 1, 8, 9, 10, 11}; 
-		errorCount += UTILS.checkBoolean(true, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), corrHbRIM), 
 				"ERROR: forward relocdation not handled correctly in hyp-base rule ind map\n"
-				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ? 0 : 1; 
+				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ;
 		
 		//test DHSWrapper.hypGoldLocs
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
-			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
+			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ; 
 		
 		//test DHSW.proposedChanges
 		// second to last -- is clearly after the deletion @ index 1
@@ -590,20 +589,20 @@ public class SimulationTester {
 				// so index is 1
 		thepc = DHSW.getProposedChanges().get(1); 
 			// should still be as before. 
-		errorCount += UTILS.checkBoolean(true, "6".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
-			"ERROR: earlier not-yet-accepted hypothesis change is corrupted by processing of a new change!") ? 0 : 1 ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "6".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+			"ERROR: earlier not-yet-accepted hypothesis change is corrupted by processing of a new change!") ;
 		
 		//now test processing of the second change, which should consist of one deletion and one insertion.
 		// first test the deletion.
 		thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += UTILS.checkBoolean(true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocdated to after first waypoint".equals(thepc[2]) ,
-			"ERROR: deletion part of update on proposedChanges for forward relocdation handled incorrectly!") ? 0:1;
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocdated to after first waypoint".equals(thepc[2]) ,
+			"ERROR: deletion part of update on proposedChanges for forward relocdation handled incorrectly!") ;
 		// and then the insertion phase
 		
 		thepc = DHSW.getProposedChanges().get(2);
-		errorCount += UTILS.checkBoolean( true , "6".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "6".equals(thepc[0]) && "[-delrel,+cor] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
 			"Relocdated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
-				+"executed incorrectly!") ? 0 : 1; 
+				+"executed incorrectly!"); 
 				
 		theDHS = DHSW.generateDHS(); 
 		
@@ -616,19 +615,18 @@ public class SimulationTester {
 			+ "Observed:\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1; 
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal(); 
-		errorCount += UTILS.checkBoolean(true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions") ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true,
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
-			"ERROR: base to global ind mapper is malformed") ? 0 : 1;
+			"ERROR: base to global ind mapper is malformed");
 		int[] corHTG = new int[] {0, 2, 3, 4, 5, 6, 1, 8, 9, 10 }; 
-		errorCount += UTILS.checkBoolean(true, UTILS.compare1dIntArrs( htg, corHTG),
-			"ERROR: hyp to global ind mapper is malformed\nCorrect: "+UTILS.print1dIntArr(corHTG)+"\n"+UTILS.print1dIntArr(htg)) 
-				? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs( htg, corHTG),
+			"ERROR: hyp to global ind mapper is malformed\nCorrect: "+UTILS.print1dIntArr(corHTG)+"\n"+UTILS.print1dIntArr(htg)) ;
 
 		//test divergence point.
-		errorCount += UTILS.checkBoolean(true, theDHS.getDivergencePoint() == 1,
-			"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 1,
+			"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ;
 		
 		//test lexical effects -- butter (et22) should be effected
 		// fountain (et4) should not be effected
@@ -642,31 +640,31 @@ public class SimulationTester {
 				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
 				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
 				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(22).equals(corDD),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 				"ERRORː differential derivation for 'butter' is malformed\n"
-				+ "Correct : "+corDD+"\nObserved : "+theDHS.getDifferentialDerivation(22)) ? 0 : 1; 
-		errorCount += UTILS.checkBoolean(true, theDHS.getDifferentialDerivation(4).equals(""),
+				+ "Correct : "+corDD+"\nObserved : "+theDHS.getDifferentialDerivation(22)); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'fountain' should be an empty string, but it is:\n"
-				+ theDHS.getDifferentialDerivation(0)) ? 0 : 1; 
+				+ theDHS.getDifferentialDerivation(0)) ;
 		
 		//checking DHS.prChLocs
 		corrPCLs = new boolean[11];
 		corrPCLs[7] = true; 
 		corrPCLs[1] = true; 
-		errorCount += UTILS.checkBoolean( true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
 				"ERROR: DifferentialHypothesisSimulator.prChLocs is malformed\n"
 				+ "Correct : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved : "
-						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ? 0 : 1; 
+						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ;
 
 		//TODO when have time, find good way to test theDHS.changedDerivations here. 
 		
 		//checking DHS.changedRuleEffects
 		//TODO may need to expand coverage to match what we have for previous tests... 
 		CREs = theDHS.getChangedRuleEffects();
-		errorCount += UTILS.checkBoolean(true, CREs.keySet().size() == 4, 
-				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ? 0 : 1; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4, 
+				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ;
 		for (int ri : new int[] {1,2,6,7})
-			errorCount += UTILS.checkBoolean(true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri) ? 0 : 1;
+			errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri); 
 		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
@@ -1126,6 +1124,13 @@ public class SimulationTester {
 		return (bi == -1 ? targ.substring(splint) : targ.substring(0,splint)).trim(); 
 	}
 
+
+	private static int chBoolPrIncIfError(int lnNum, boolean targ, boolean obs, String bareErrMsg)
+	{
+		return UTILS.checkBoolean(targ, obs, "@l"+lnNum+": "+bareErrMsg) ? 0 : 1; 
+	}
 	
-	
+	public static int getLineNumber() {
+	    return Thread.currentThread().getStackTrace()[2].getLineNumber();
+	}
 }
