@@ -441,4 +441,76 @@ public class UTILS {
 		return -1; 
 	}
 	
+	//for debugging purposes mainly in SimulationTester
+	public static String stringDiff(String a, String b)
+	{
+		int lenA = a.length(), lenB = b.length(); 
+		// handle case where one is empty. 
+		if(lenA == 0 || lenB == 0)
+			return lenA == lenB ? "No difference" : 
+					"total difference (one string is empty) : "+ 
+						(lenA == 0 ? lenB : lenA); 
+		
+		String out = "";
+		String commonPrefix = "", commonSuffix = "" ;
+		
+		//fill commonPrefix as a starting part of string that is shared. 
+		int i = 1; 
+		while ( a.substring(0, i).equals(b.substring(0, i)))
+		{
+			i++;
+			if ( i == Math.min(lenA, lenB))
+			{
+				String diffSuffix = lenA > lenB ? a.substring(i) : b.substring(i); 
+				return a.substring(0, i-1) + outset(diffSuffix);
+			}
+		}
+		
+		commonPrefix = a.substring(0, i-1); 
+		
+		//fill commonSuffix
+		int j = 0 ; 
+		while (a.substring(lenA-1-j).equals(b.substring(lenB-1-j)))
+		{
+			j++; 
+			if ( j == -1 + Math.min(lenA,lenB));
+			{
+				if (lenA > lenB)
+					return outset(a.substring(0, lenA - lenB)) + b; 
+				else	return outset(b.substring(0, lenB - lenA)) + a; 
+			}
+		}
+		
+		
+		if (i < (Math.min(lenA, lenB) - 1 - j) )
+		{
+			String disjunction = longVertDisjunction ( a.substring(i, lenA - j), b.substring(i, lenB - j));
+			return commonPrefix + outset(disjunction) + commonSuffix;
+		}
+		else
+		{
+			if (i < j) // suffix longer than prefix
+			{
+				String disjunction = longVertDisjunction(a.substring(0, lenA-j) , b.substring(0, lenB - j));
+				return outset(disjunction) + commonSuffix; 
+			}
+			else
+			{
+				String disjunction = longVertDisjunction(a.substring(i), b.substring(i));
+				return commonPrefix + outset(disjunction); 
+			}
+		}
+		
+	}
+	
+	public static String longVertDisjunction(String a , String b) 
+	{
+		return a +"\n----------------------------------------------\n "+b; 
+	}
+	
+	public static String outset(String s)
+	{
+		return "{[ "+s+" ]}"; 
+	}
+	
 }

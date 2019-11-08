@@ -230,8 +230,9 @@ public class SimulationTester {
 				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
 				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
-		errorCount +=chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(testSimul.getDerivation(0)), "ERROR: baseline derivation for 'bitten' not matched."
-				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+testSimul.getDerivation(0)) ;
+		String observedDerBitten = testSimul.getDerivation(0); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(observedDerBitten), "ERROR: baseline derivation for 'bitten' not matched."
+				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+observedDerBitten) ;
 				
 		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
@@ -1133,4 +1134,5 @@ public class SimulationTester {
 	public static int getLineNumber() {
 	    return Thread.currentThread().getStackTrace()[2].getLineNumber();
 	}
+	
 }
