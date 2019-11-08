@@ -462,7 +462,7 @@ public class UTILS {
 			if ( i == Math.min(lenA, lenB))
 			{
 				String diffSuffix = lenA > lenB ? a.substring(i) : b.substring(i); 
-				return a.substring(0, i-1) + outset(diffSuffix);
+				return a.substring(0, i-1) +" [+"+ outset(diffSuffix);
 			}
 		}
 		
@@ -476,8 +476,8 @@ public class UTILS {
 			if ( j == -1 + Math.min(lenA,lenB));
 			{
 				if (lenA > lenB)
-					return outset(a.substring(0, lenA - lenB)) + b; 
-				else	return outset(b.substring(0, lenB - lenA)) + a; 
+					return outset(a.substring(0, lenA - lenB)) + "+] "+ b; 
+				else	return outset(b.substring(0, lenB - lenA)) + "+] " + a; 
 			}
 		}
 		

@@ -225,15 +225,18 @@ public class SimulationTester {
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.simulateToEnd(); 
 
-		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n#bˈɪɾən# | 0 : [-delrel,+cor] > ɾ / [-cons] __ [-stres]\n"
-				+ "#bˈɪɾə̃n# | 2 : [-cons] > [+nas,+son,0delrel] / __ n\n"
-				+ "Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n"
-				+ "Waypoint 2 Black stage form : #bˈɪɾə̃n#\n"
-				+ "Waypoint 3 Gold stage form : #bˈɪɾə̃n#\nFinal form : #bˈɪɾə̃n#";
+		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n" + 
+				"#bˈɪɾən# | 0 : [+cor,-delrel] > ɾ / [-cons] __ [-stres]\n" + 
+				"#bˈɪɾə̃n# | 2 : [-cons] > [+nas,+son,0delrel] / __ n\n" + 
+				"Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n" + 
+				"Waypoint 2 Black stage form : #bˈɪɾə̃n#\n" + 
+				"Waypoint 3 Gold stage form : #bˈɪɾə̃n#\n" + 
+				"Final form : #bˈɪɾə̃n#";
 		String observedDerBitten = testSimul.getDerivation(0); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(observedDerBitten), "ERROR: baseline derivation for 'bitten' not matched."
 				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+observedDerBitten) ;
 				
+		
 		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
 		
