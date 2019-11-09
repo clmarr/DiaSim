@@ -734,13 +734,17 @@ public class SimulationTester {
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
 		
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions");
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 12, "ERROR: hyp to global ind mapper has wrong dimensions");
+		//TODO debugging
+		System.out.println("btg: "+UTILS.print1dIntArr(btg)+"\nhtg: "+UTILS.print1dIntArr(htg)); 
+		
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 10, "ERROR: base to global ind mapper has wrong dimensions");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 11, "ERROR: hyp to global ind mapper has wrong dimensions");
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
-				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11, 12}),
+				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11}),
 				"ERROR: base to global ind mapper is malformed");
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-				UTILS.compare1dIntArrs( htg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12}),
+				UTILS.compare1dIntArrs( htg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11}),
 				"ERROR: hyp to global ind mapper is malformed");
 		
 		//test divergence point.
