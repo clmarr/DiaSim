@@ -678,9 +678,9 @@ public class SimulationTester {
 		System.out.println("Now processing three changes for hypothesis, before usurping baseline."); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
                         + "\t\tfrom __ ə\n"
-                        + "\tto [+son] __ {# ; [-cons,-lo,-stres]}\n");
+                        + "\tto [+son] __ {# ; [-stres,-back,+nas]}\n");
 
-		nextLaw =  "t > ʔ / [+son] __ {# ; [-cons,-lo,-stres]}";
+		nextLaw =  "t > ʔ / [+son] __ {# ; [-stres,-back,+nas]}";
 		
 		String[] ch4InsPCform = new String[] {"6", nextLaw, "Insertion of T-glottalization with refined contexts"},
 		ch4DelPCform = new String[] {"8", "deletion", "T-glottalization contexts refined, old form here removed"};
@@ -734,10 +734,6 @@ public class SimulationTester {
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
 		
-		//TODO debugging
-		System.out.println("btg: "+UTILS.print1dIntArr(btg)+"\nhtg: "+UTILS.print1dIntArr(htg)); 
-		
-		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 10, "ERROR: base to global ind mapper has wrong dimensions");
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 11, "ERROR: hyp to global ind mapper has wrong dimensions");
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
@@ -751,7 +747,25 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 6,
 				"ERROR: divergence point should be 6 but it is "+theDHS.getDivergencePoint()) ;
 		
-		//TODO need to test lexical effects
+		//test lexical effects. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(""),
+				"ERROR: differential derivation for unaffected lexeme 'bidden' should be an empty string, but it is:\n"
+				+ theDHS.getDifferentialDerivation(29)); 
+		//now check syntaxes for cases that were changed.
+		// case of word 0 bitten -- bleeding should mean that there is (erroneously) no change in differential derivation -- yet. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(0).equals(""),
+				"ERROR: differential derivation for lexeme 'bitten' should be an empty string\n"+
+				"because at this point the correction is being bled but it is:\n" + theDHS.getDifferentialDerivation(0)); 
+		//case of word 4 fountain -- here we see a real change. 
+		corDD = "/fˈæ̃w̃ntən/\n"
+			+ "CONCORDANT UNTIL RULE : 7\n"
+			+ "7[-1|7] : fed or inserted | #fˈæ̃w̃ntə̃n# > #fˈæ̃w̃nʔə̃n#\n"
+			+ "Waypoint 2 Black : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
+			+ "Waypoint 3 Gold : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
+			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
+				"ERROR: derivation of fountain is malformed"); 
+		
 		
 		//TODO need to test DHS.locHasPrCh
 		
