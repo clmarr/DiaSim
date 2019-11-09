@@ -145,10 +145,16 @@ public class DifferentialHypothesisSimulator {
 			
 			while (gi < total_length)
 			{
+				//TODO debugging
+				System.out.println("bi "+bi+" hi "+hi);
+				
 				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, 
 						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
 					//indices linked to base instant and to hyp instant
 				
+				System.out.println("ilbi "+ilbi+" ilhi "+ilhi);
+						
+						
 				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
 					// i.e. the current spots in the base and hyp share the same global index
 				if (bihiAligned)
@@ -186,6 +192,7 @@ public class DifferentialHypothesisSimulator {
 					// when we come upon a "crossed out" cell (i.e. wiht -2 in it) we know this must have been from an already handled relocdation.
 					// due to how we iterate through this algorithm, this will only ever happen for ilhi -- i.e. only on the hyp side of things
 					if(ilhi==-2)	hi++;
+					else if(ilbi==-2) bi++; 
 					else
 					{
 						if(ilhi == -1) // insertion of some sort (including from a non-bijective modification)
@@ -201,10 +208,6 @@ public class DifferentialHypothesisSimulator {
 						else 
 						{
 							//now must be some sort of relocdation 
-							//TODO debugging 
-							System.out.println("Testing forwardness : ");
-							System.out.println("gi "+gi+" hi "+hi+" ilbi "+ilbi+" ilhi "+ilhi); 
-							
 							
 							if(relocdIsForward(gi, hi, ilbi, ilhi))
 							{
@@ -216,10 +219,13 @@ public class DifferentialHypothesisSimulator {
 							}
 							else
 							{
+								System.out.println("hi "+hi); //TODO debuggin
+								
 								int mapped_to_hi = UTILS.findInt(dumRIMBH, hi); 
 								assert (mapped_to_hi == -1) == (ilbi == -1) : "ERROR: hyp index "+hi+" is never mapped to..."; 
-								ruleCorrespondences[0][gi] = mapped_to_hi; 
-								ruleCorrespondences[1][gi] = hi++; 
+								ruleCorrespondences[0][gi] = hi++; 
+								ruleCorrespondences[1][gi] = ilhi; 
+								dumRIMBH[ilhi] = -2; //cross-out. 
 							}
 							
 							
