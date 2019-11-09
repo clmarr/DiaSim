@@ -345,7 +345,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(26 , true).equals(mhdCor), 
 				"ERROR: malformation of proposed hypothesis' predicted derivation in baseline for 'molted'"); 
 	
-		//checking DHS.prChLocs
+		//checking DHS.locHasPrCh
 		boolean[] corrPCLs = new boolean[11];
 		corrPCLs[0] = true; 
 		errorCount += chBoolPrIncIfError(getLineNumber(),  true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), 
@@ -765,13 +765,33 @@ public class SimulationTester {
 			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
 				"ERROR: derivation of fountain is malformed"); 
-		//TODO debugging
-		System.out.println("obs: "+theDHS.getDifferentialDerivation(4)); 
 		
-		//TODO need to test DHS.locHasPrCh
+		//test DHS.locHasPrCh
+		corrPCLs = new boolean[12]; 
+		for (int cpi = 6; cpi < 9;cpi++) corrPCLs[cpi] = true; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()),
+				"ERROR: locHasPrCh malformed."); 
 		
-		//TODO need to check DHS.changedRuleEffets
+		//check DHS.changedDerivations
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+			UTILS.compare1dIntArrs(new int[] {4, 13, 15},
+				theDHS.getEtsWithChangedDerivations()),
+			"ERROR: wrong etyma effected by complex modification of t-glottalization"); 
+
+		//check DHS.changedRuleEffects
+		CREs = theDHS.getChangedRuleEffects();
+		// there should only be one global rule with changed effects -- number 7 
+			// this is because there is a total bleedinng of both 6 (hyp) and 8 (base) by prior flapping rule 5
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
 		
+		String[] lambda = new String[NUM_ETYMA]; 
+		for (int ldi : new int[] {4,13,15} )	
+			lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 7, -1, 7);
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+			UTILS.compare1dStrArrs(lambda, CREs.get(7)[1]),
+			"ERROR: changes from second rule in disjunction of t-glottalization context reform not properly processed"); 
+
 		//TODO move on to second and third rules in this set...
 		
 		//TODO add rule processing and debug comprehension of the following
@@ -1212,7 +1232,7 @@ public class SimulationTester {
 		targ = targ.substring(0, targ.indexOf("\n")); 
 		int splint = targ.indexOf("|");
 		
-		return (bi == -1 ? targ.substring(splint) : targ.substring(0,splint)).trim(); 
+		return (bi == -1 ? targ.substring(splint+1) : targ.substring(0,splint)).trim(); 
 	}
 
 

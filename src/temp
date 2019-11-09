@@ -1,20 +1,28 @@
-		//test lexical effects. 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(""),
-				"ERROR: differential derivation for unaffected lexeme 'bidden' should be an empty string, but it is:\n"
-				+ theDHS.getDifferentialDerivation(29)); 
-		//now check syntaxes for cases that were changed.
-		// case of word 0 bitten -- bleeding should mean that there is (erroneously) no change in differential derivation -- yet. 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(0).equals(""),
-				"ERROR: differential derivation for lexeme 'bitten' should be an empty string\n"+
-				"because at this point the correction is being bled but it is:\n" + theDHS.getDifferentialDerivation(0)); 
-		//case of word 4 fountain -- here we see a real change. 
-		corDD = "/fˈæ̃w̃ntən/\n"
-			+ "CONCORDANT UNTIL RULE : 7\n"
-			+ "7[-1|7] : fed or inserted | #fˈæ̃w̃ntə̃n# > #fˈæ̃w̃nʔə̃n#\n"
-			+ "Waypoint 2 Black : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
-			+ "Waypoint 3 Gold : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
-			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
+		//check DHS.changedDerivations
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+			UTILS.compare1dIntArrs(new int[] {4, 13, 15},
+				theDHS.getEtsWithChangedDerivations()),
+			"ERROR: wrong etyma effected by complex modification of t-glottalization"); 
+
+		//check DHS.changedRuleEffects
+		CREs = theDHS.getChangedRuleEffects();
+		// there should only be one global rule with changed effects -- number 7 
+			// this is because there is a total bleedinng of both 6 (hyp) and 8 (base) by prior flapping rule 5
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
 		
+		String[] lambda = new String[NUM_ETYMA]; 
+		for (int ldi : new int[] {4,13,15} )	
+			lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 7, -1, 7);
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+			UTILS.compare1dStrArrs(lambda, theDHS.getChangedDerivations().get(7)[1]),
+			"ERROR: changes from second rule in disjunction of t-glottalization context reform not properly processed"); 
+
+
+-----
+
+
+		 
 TODO - jargon file. 
 
 instant -- spots between rules
