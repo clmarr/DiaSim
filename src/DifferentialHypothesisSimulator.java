@@ -96,7 +96,6 @@ public class DifferentialHypothesisSimulator {
 		for (int bhi = 0 ; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
 		for (int hbi = 0 ; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 		
-		
 		if ( proposedChs.size() == 0 )	
 		{
 			assert UTILS.compare1dIntArrs(baseToHypIndMap, hypToBaseIndMap): 
