@@ -164,8 +164,6 @@ public class SimulationTester {
 		System.out.println("Checking Waypoint 1 (black box mode)"); 
 		errorCount +=chBoolPrIncIfError(getLineNumber(), false, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously detected at point of a black box stage."); 
 		
-		//TODO other shit here... 
-		
 		UTILS.errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
@@ -454,7 +452,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC),
 			"ERROR: malformed comprehension of simple deletion operation."); 
 		
-		//testing base to hyp rule in map in DHSWrapper 
+		//testing base to hyp rule ind map in DHSWrapper 
 			// -- before this operation there were 11 rules, and we are deleting the 8th. 
 		int[] corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
@@ -677,12 +675,86 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
-		//now we we will do the next three rules before usurping
+		System.out.println("Now processing three changes for hypothesis, before usurping baseline."); 
+		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
+				+ "from __ ə\n"
+				+ "to [+son] __ {# ; [-cons,-lo,-stres]}"); 
+        System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
+                        + "from __ ə\n"
+                        + "to [+son] __ {# ; [-cons,-lo,-stres]}");
+
+		nextLaw =  "t > ʔ / [+son] __ {# ; [-cons,-lo,-stres]}";
 		
-		//TODO // complex modification: change t > ʔ / __ ə to : 
-			// t > ʔ / [+son] __ {# ; [-cons,-lo,-stres]}
+		String[] ch4InsPCform = new String[] {"6", nextLaw, "Insertion of T-glottalization with refined contexts"},
+		ch4DelPCform = new String[] {"8", "deletion", "T-glottalization contexts refined, old form here removed"};
+		DHSW.processSingleCh( 6, ch4DelPCform[2], 6, nextLaw,
+		theFactory.generateSoundChangesFromRule(nextLaw), ch4InsPCform[2]);
 		
+		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE);
 		
+		//test realization in cascade structures
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, DHSW.getBaseCASC()),
+		                "ERROR: base cascade appears to have been corrupted during comprehension of a complex modification operation.");
+		dumCasc.remove(6);
+		dumCasc.addAll(6, theFactory.generateSoundChangesFromRule(nextLaw));
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC),
+		"ERROR: malformed comprehension of complex modification operation");
+		
+		//testing base to hyp rule ind map
+		corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, -1, 8, 9, 10};
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+		"ERROR: Handling of complex modification in base to hyp rule ind map not realized correctly.");
+		
+		//and hyp to base
+		corrHbRIM = new int[] {0, 1, 2, 3, 4, 5, -1, -1, 7, 8 ,9};
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
+		"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
+		
+		//test hypGoldLocs -- hypBlackLocs functionality is implied this way
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{4,7}, DHSW.getHypGoldLocs()),
+		"ERROR: complex modification not handled by correct update in DHSW.hypGoldLocs -- second gold change should have been moved from instant 6 to 7.");
+		
+		//test DHSWrapper.proposedChanges
+		//first should be the insertion.
+		errorCount += calcPCerrs(getLineNumber(), 0, ch4InsPCform, DHSW.getProposedChanges().get(0),
+		"insertion stage of complex modification of T-glottalization rule");
+		errorCount += calcPCerrs(getLineNumber(), 1, ch4DelPCform, DHSW.getProposedChanges().get(1),
+		"deletion of stage of complex modification of T-glottalization rule");
+		
+		theDHS = DHSW.generateDHS();
+		
+		//checking DHS.ruleCorrespondences...
+		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9},
+			{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}};
+		errorCount += UTILS.checkBoolean ( true,
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
+				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
+						+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
+						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"
+						+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1;
+		
+		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 10, "ERROR: hyp to global ind mapper has wrong dimensions");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
+				"ERROR: base to global ind mapper is malformed");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs( htg, new int[] {0, 1, 2, 3, 4, 5, 6, 8, 9, 10}),
+				"ERROR: hyp to global ind mapper is malformed");
+		
+		//test divergence point.
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 6,
+				"ERROR: divergence point should be 6 but it is "+theDHS.getDivergencePoint()) ;
+		
+		//TODO need to test lexical effects
+		
+		//TODO need to test DHS.locHasPrCh
+		
+		//TODO need to check DHS.changedRuleEffets
+		
+		//TODO move on to second and third rules in this set...
 		
 		//TODO add rule processing and debug comprehension of the following
 		// again relocate the flapping rule to after waypoint 2 
@@ -1134,5 +1206,20 @@ public class SimulationTester {
 	public static int getLineNumber() {
 	    return Thread.currentThread().getStackTrace()[2].getLineNumber();
 	}
+	
+	//for error printing and counting of errors regarding DHSW.proposedChanges
+	private static int calcPCerrs(int lineNum, int index, String[] corrPC, String[] obsPC, String description)
+	{
+	        int errs = 0; 
+	        String prefix = "@"+lineNum+" ERROR: at pc index "+index+" we should have "+description;
+	        errs += chBoolPrIncIfError(lineNum, true, corrPC[0].equals(obsPC[0]),
+	                prefix+" indexed to "+corrPC[0]+" but instead we see it is indexed to "+obsPC[0]);
+	        errs += chBoolPrIncIfError(lineNum, true, corrPC[1].equals(obsPC[1]),
+	                prefix+" described as "+corrPC[1]+" but instead we observe description: "+obsPC[1]); 
+	        errs += chBoolPrIncIfError(lineNum, true, corrPC[2].equals(obsPC[2]),
+	                prefix+" commented with "+corrPC[2]+" but instead comment is "+obsPC[2]); 
+	        return errs; 
+	}
+
 	
 }

@@ -584,7 +584,8 @@ public class DHSWrapper {
 	
 	
 	/** updateProposedChanges
-	 * @param ch -- single proposed deletion or insertion (NOT both simultaneously)
+	 * @param ch -- proposed deletion or insertion (NOT both simultaneously)
+	 * 			insertion of multiple rules at once in the context of modification or insertion -- allowed. 
 	 * @param quantity -- number of rules being added, if we are adding; if this is a deletion this should be -1.
 	 */
 	private void updateProposedChanges(String[] ch, int quantity)
@@ -635,7 +636,7 @@ public class DHSWrapper {
 				if (addLoc == deleteLoc) // modification
 				{
 					assert insertions.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
-					modifications.add(deleteLoc); 
+					modifications.add(deleteLoc);
 				}
 				else //relocdation 
 				{
