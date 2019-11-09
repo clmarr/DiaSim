@@ -235,7 +235,6 @@ public class SimulationTester {
 		String observedDerBitten = testSimul.getDerivation(0); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(observedDerBitten), "ERROR: baseline derivation for 'bitten' not matched."
 				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+observedDerBitten) ;
-				
 		
 		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
@@ -440,6 +439,8 @@ public class SimulationTester {
 		
 		//now we will do two changes before accepting the hypothesis. 
 		System.out.println("-----------------\nSecond: Testing comprehension of simple deletion (in this case, of a derhotacization rule).");
+		
+		
 		System.out.println("Deleting derhotacization rule at index 7.\n----------------\n");
 
 		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");

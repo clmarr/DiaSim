@@ -599,7 +599,7 @@ public class DHSWrapper {
 		{
 			String[] prevCh = proposedChanges.get(pci - 1); 
 			int prevLoc = Integer.parseInt(prevCh[0]); 
-			foundTargSpot = target >= prevLoc; //+ (deleteMode ? 1 : 0)); //TODO this may be erroneous
+			foundTargSpot = target > prevLoc; 
 			if (!foundTargSpot)
 			{
 				proposedChanges.set(pci-1, new String[] { "" + (prevLoc + quantity ) , prevCh[1], prevCh[2] } ); 
