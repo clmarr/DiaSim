@@ -225,7 +225,7 @@ public class SimulationTester {
 
 		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n" + 
 				"#bˈɪɾən# | 0 : [+cor,-delrel] > ɾ / [-cons] __ [-stres]\n" + 
-				"#bˈɪɾə̃n# | 2 : [-cons] > [+nas,+son,0delrel] / __ n\n" + 
+				"#bˈɪɾə̃n# | 1 : [-cons] > [+nas,+son,0delrel] / __ n\n" + 
 				"Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n" + 
 				"Waypoint 2 Black stage form : #bˈɪɾə̃n#\n" + 
 				"Waypoint 3 Gold stage form : #bˈɪɾə̃n#\n" + 
@@ -313,7 +313,7 @@ public class SimulationTester {
 		int colloc = bcdlines[1].indexOf(":"); 
 		bcdlines[1] = bcdlines[1].substring(0, colloc-2) + "1"+bcdlines[1].substring(colloc-1); 
 		colloc = bcdlines[2].indexOf(":");
-		bcdlines[2] = bcdlines[2].substring(0, colloc-2) + "3"+bcdlines[2].substring(colloc-1); 
+		bcdlines[2] = bcdlines[2].substring(0, colloc-2) + "2"+bcdlines[2].substring(colloc-1); 
 		String bittenCorrDerivAfterCh1 = String.join("\n", bcdlines); 
 		
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.hypCascSim.getDerivation(0).equals(bittenCorrDerivAfterCh1),
@@ -338,7 +338,7 @@ public class SimulationTester {
 				"Waypoint 3 Gold stage form : #mˈowlʔəd#\n" + 
 				"Final form : #mˈowlʔəd#";
 		//checking globalization of derivation
-		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("0 :","1 :" ).replace("2 :", "3 :")),
+		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("1 :","2 :" ).replace("0 :", "1 :")),
 				"ERROR: malformation of globalized derivation in baseline for 'bitten'"); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(26 , false).equals(mbdGlobCor), 
 				"ERROR: malformation of globalized derivation in baseline for 'molted'"); 
@@ -662,7 +662,7 @@ public class SimulationTester {
 		CREs = theDHS.getChangedRuleEffects();
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4, 
 				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ;
-		for (int ri : new int[] {1,2,6,7})
+		for (int ri : new int[] {1,5,6,7})
 			errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri); 
 		
 		UTILS.errorSummary(errorCount);
@@ -806,13 +806,17 @@ public class SimulationTester {
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
 		
-	
+		
+		
 		//TODO move on to second and third rules in this set...
+		//TODO we need a backward relocdation.
 		
 		//TODO add rule processing and debug comprehension of the following
-		// again relocate the flapping rule to after waypoint 2 
+		// relocdation of canadian raising to being second rule 
 		// copmlex inserton to right before s > ts / n__ : 
-				 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
+		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
+		// again relocate the flapping rule to after waypoint 2 
+		
 		// finally all things between waypoitns 2 and 3 insert
 		// and then check that results are all correct.
 	
