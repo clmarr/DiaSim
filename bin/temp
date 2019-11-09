@@ -51,55 +51,7 @@
 			}
 			// if reached this point must be an insertion, i.e. backward
 			return false; 
-			
-			List<String[]> opsHere = new ArrayList<String[]>(); 
-			
-			String[] thisOp = proposedChs.get(pci - 1); 
-			
-			// if thisOp is a deletion:	then the next proposedCh could also have [0] = hi,
-				// and that could instead be the op we are interested in, will need to disambiguate. 
-			// otherwise -- we can end this here and now iff the next rule is not a deletion of the exact same spot, [hi]
-			// either way we can end it immediately if the next rule's [0] is not == hi. 
-			
-			if ( !proposedChs.get(pci)[0].equals(""+hi) )	return thisOp[1].equalsIgnoreCase("deletion"); 
-			if ( !thisOp[1].equalsIgnoreCase("deletion") ) // if we have an insertion and the next does not have same index of operation, we know next must be deletion
-			{	assert proposedChs.get(pci)[1].equalsIgnoreCase("deletion") : "ERROR: indexing on proposedChs"; 
-				//-- so we must return to the beginning of this loop...
-				pci++;
-				assert proposedChs.get(pci)[0].equals(""+hi): 
-					"ERROR: could not find current target of operation in proposedChanges!";
-			}
-			else //we have a case of a deletion with further operation on this index
-			{
-				// we know that the deletion must be for the present rule as any others would be processed by PRIOR DELETION SKIPPING
-				
-			}			
-			
-			
-			----
-			//TODO abrogated below.
-			opsHere.add(proposedChs.get(pci-1)); 
-			
-			boolean passed = false; 
-			while (!passed)
-			{
-				assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
-				if( proposedChs.get(pci)[0].equals(""+hi) )	opsHere.add(proposedChs.get(pci++));
-				else	passed = true; 
-			}
-			
-			
-			// ... otherwise we have to hunt down the corresponding op of the relocdation... 
-			
-			boolean reached = false; 
-			while (!reached) 
-			{
-				assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
-			
-			}
-			
-			
-			
+						
 		
 		}
 	

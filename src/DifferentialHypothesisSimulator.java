@@ -201,7 +201,11 @@ public class DifferentialHypothesisSimulator {
 						else 
 						{
 							//now must be some sort of relocdation 
-
+							//TODO debugging 
+							System.out.println("Testing forwardness : ");
+							System.out.println("gi "+gi+" hi "+hi+" ilbi "+ilbi+" ilhi "+ilhi); 
+							
+							
 							if(relocdIsForward(gi, hi, ilbi, ilhi))
 							{
 								int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
@@ -1058,7 +1062,7 @@ public class DifferentialHypothesisSimulator {
 		
 		//PRIOR DELETION SKIPPING pass any prior deletions we have already processed wiht operations at this hyp index.
 		int deletionsToPass = 0; 
-		for (int pdgi = gi - 1 ; pdgi <= 0 ? true : ruleCorrespondences[1][pdgi] == -1 ; pdgi-- )
+		for (int pdgi = gi - 1 ; pdgi < 0 ? false : ruleCorrespondences[1][pdgi] == -1 ; pdgi-- )
 			deletionsToPass++; 
 			
 		pci += deletionsToPass ; 

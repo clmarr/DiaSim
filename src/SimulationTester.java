@@ -806,6 +806,10 @@ public class SimulationTester {
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
 		
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
 		System.out.println("--------------\nSecond rule in group, fifth overall: backward relocdation of American raising to become second rule."); 
 		String[] backRlcIns = new String[] {"1", ""+CASCADE.get(4), "Relocdated from former step 4"},
 				backRlcDel = new String[] {"5", "deletion", "Relocdated backward to become second rule"};
