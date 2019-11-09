@@ -757,7 +757,7 @@ public class SimulationTester {
 				"ERROR: differential derivation for lexeme 'bitten' should be an empty string\n"+
 				"because at this point the correction is being bled but it is:\n" + theDHS.getDifferentialDerivation(0)); 
 		//case of word 4 fountain -- here we see a real change. 
-		corDD = "/fˈæ̃w̃ntən/\n"
+		corDD = "/fˈæwntən/\n"
 			+ "CONCORDANT UNTIL RULE : 7\n"
 			+ "7[-1|7] : fed or inserted | #fˈæ̃w̃ntə̃n# > #fˈæ̃w̃nʔə̃n#\n"
 			+ "Waypoint 2 Black : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
@@ -765,7 +765,8 @@ public class SimulationTester {
 			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
 				"ERROR: derivation of fountain is malformed"); 
-		
+		//TODO debugging
+		System.out.println("obs: "+theDHS.getDifferentialDerivation(4)); 
 		
 		//TODO need to test DHS.locHasPrCh
 		
