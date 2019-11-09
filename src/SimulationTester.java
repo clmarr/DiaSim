@@ -587,28 +587,30 @@ public class SimulationTester {
 			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ; 
 		
 		//test DHSW.proposedChanges
-		// second to last -- is clearly after the deletion @ index 1
-			// since deletion is processed first, this moves the previous propCh to index 6
-			// meaning it ties with the insertion
-			// in case of a tie we add the new proposed change after the old
-				// so index is 1
-		thepc = DHSW.getProposedChanges().get(1); 
+		thepc = DHSW.getProposedChanges().get(2); 
 			// should still be as before. 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, "6".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "7".equals(thepc[0]) && "deletion".equals(thepc[1]) && "we're Yankees".equals(thepc[2]),
 			"ERROR: earlier not-yet-accepted hypothesis change is corrupted by processing of a new change!") ;
 		
 		//now test processing of the second change, which should consist of one deletion and one insertion.
 		// first test the deletion.
 		thepc = DHSW.getProposedChanges().get(0); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocdated to after first waypoint".equals(thepc[2]) ,
-			"ERROR: deletion part of update on proposedChanges for forward relocdation handled incorrectly!") ;
-		// and then the insertion phase
+			"ERROR: at index 0 should be deletion part of update on proposedChanges for forward relocdation;\n"
+			+ "construction of proposedChs handled incorrectly!") ;
 		
-		thepc = DHSW.getProposedChanges().get(2);
-		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "6".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
-			"Relocdated from former step 1".equals(thepc[2]), "ERROR: processing of insertion phase of update on proposedChanges for forward relocdation "
-				+"executed incorrectly!"); 
-				
+		//TODO debugging
+		System.out.println("thepc "+thepc[0]+" ; "+thepc[1]+" ; "+thepc[2]); 
+		
+		// and then the insertion phase
+		thepc = DHSW.getProposedChanges().get(1);
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
+			"Relocdated from former step 1".equals(thepc[2]), "ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation "
+				+", building of proposedChs executed incorrectly!"); 
+		
+		//TODO debugging
+		System.out.println("thepc "+thepc[0]+" ; "+thepc[1]+" ; "+thepc[2]); 
+		
 		theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences

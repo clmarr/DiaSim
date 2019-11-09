@@ -607,7 +607,7 @@ public class DHSWrapper {
 			}
 		}
 		if (pci == proposedChanges.size() )	proposedChanges.add(ch); 
-		else	proposedChanges.add(pci == 0 ? 0 : pci - 1, ch); 
+		else	proposedChanges.add(pci == -1 ? 0 : pci, ch); 
 	}
 
 	
@@ -645,7 +645,8 @@ public class DHSWrapper {
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions); 
 				
 				updateProposedChanges(
-					new String[] {""+addLoc, (addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes}, 
+					new String[] {""+(addLoc > deleteLoc ? addLoc-1 : addLoc), 
+							(addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes}, 
 					insertions.size() ) ;	
 			}
 			
