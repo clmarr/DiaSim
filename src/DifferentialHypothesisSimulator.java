@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 
-import jdk.internal.joptsimple.internal.Strings; 
-
 public class DifferentialHypothesisSimulator {
 	/**
 	 * Class for performing analysis operations on two Simulations in order to analyze the effect of a proposed change to the cascade
@@ -261,7 +259,7 @@ public class DifferentialHypothesisSimulator {
 		{
 			int lexDivPt = findEtDivergenceMoment(ei);
 			
-			//recall -- if findLexicalDerivation() returns -1 it means there is no difference. 
+			//recall -- if findEtDivergenceMoment() returns -1 it means there is no difference. 
 			if(lexDivPt != -1)
 			{
 		        if(divergencePoint == -1)       divergencePoint = lexDivPt;

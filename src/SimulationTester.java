@@ -780,22 +780,41 @@ public class SimulationTester {
 
 		//TODO debugging
 		System.out.println("ets affd : "+UTILS.print1dIntArr(theDHS.getEtsWithChangedDerivations())); 
-		
+		System.out.println("... : "+theDHS.getChangedDerivations().keySet().size()); 
 		
 		//check DHS.changedRuleEffects
 		CREs = theDHS.getChangedRuleEffects();
-		// there should only be one global rule with changed effects -- number 7 
-			// this is because there is a total bleedinng of both 6 (hyp) and 8 (base) by prior flapping rule 5
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
 		
-		String[] lambda = new String[NUM_ETYMA]; 
-		for (int ldi : new int[] {4,13,15} )	
-			lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 7, -1, 7);
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-			UTILS.compare1dStrArrs(lambda, CREs.get(7)[1]),
-			"ERROR: changes from second rule in disjunction of t-glottalization context reform not properly processed"); 
+		//TODO debugging
+		System.out.println("CREs size : "+ CREs.keySet().size() ) ;
+		System.out.println("which?"); 
+		for (Integer crei : CREs.keySet())	System.out.println(crei);
+		
+		// all three rules added or subtracted should have changes associated--
+			// 6: important[8], cadet[30], mitigate[31]
+			// 7: fountain[4], mountain[13], molten[15]
+			// 8: molted [26] 
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3 , "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(6), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(8), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
+		
+		int[][] corrEffs = new int[][] { {8,30,31}, {4,13,15}, {26}}; 
+		String[] descrs = new String[] { "first insertion", "second insertion", "deletion"};
+		
+		for (int cei = 0 ; cei < 3; cei++)
+		{
+			String[] lambda = new String[NUM_ETYMA]; 
+			for (int ldi : corrEffs[cei])
+				lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 
+						6+cei, cei < 2 ? -1 : 6, cei < 2 ? 6+cei : -1); 
+			errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+					UTILS.compare1dStrArrs(lambda, CREs.get(cei+6)[1]),
+					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
+		}
+	
 		//TODO move on to second and third rules in this set...
 		
 		//TODO add rule processing and debug comprehension of the following
@@ -1232,10 +1251,8 @@ public class SimulationTester {
 	{
 		String breaker = ""+gi+"["+bi+"|"+hi+"] : "; 
 		String targ = dd.substring(dd.indexOf(breaker)+breaker.length()); 
-		
 		targ = targ.substring(0, targ.indexOf("\n")); 
 		int splint = targ.indexOf("|");
-		
 		return (bi == -1 ? targ.substring(splint+1) : targ.substring(0,splint)).trim(); 
 	}
 

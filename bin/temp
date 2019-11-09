@@ -1,26 +1,61 @@
-		//check DHS.changedDerivations
-		errorCount += chBoolPrIncIfError(getLineNumber(), true,
-			UTILS.compare1dIntArrs(new int[] {4, 13, 15},
-				theDHS.getEtsWithChangedDerivations()),
-			"ERROR: wrong etyma effected by complex modification of t-glottalization"); 
-
-		//check DHS.changedRuleEffects
-		CREs = theDHS.getChangedRuleEffects();
-		// there should only be one global rule with changed effects -- number 7 
-			// this is because there is a total bleedinng of both 6 (hyp) and 8 (base) by prior flapping rule 5
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 1 , "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(7), "ERROR: incorrect comprehension of effects of fixing contexts for /t/-glottalization");
-		
-		String[] lambda = new String[NUM_ETYMA]; 
-		for (int ldi : new int[] {4,13,15} )	
-			lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 7, -1, 7);
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-			UTILS.compare1dStrArrs(lambda, theDHS.getChangedDerivations().get(7)[1]),
-			"ERROR: changes from second rule in disjunction of t-glottalization context reform not properly processed"); 
+issue : changedDerivations is empty but changedRuleEffects is not
+and we KNOW there are words that were ultimately changed (fountain, mountain..." )
+	in the case of fountain we have confirmed its accurate differentialDerivation....
+	
+additionally @line 776-9 : no etyma effected
+	likely a cascading error from the one with derivations
+	
+changedRuleEffects -- expected only 7, but found 6,7,8 as well. 	
+	
+	
+how can we have changedRuleEffects but not changedDerivations????
+	
+---
+Set<Integer> keys = changedDerivations.keySet();
+int N = keys.size() ; 
+int[] out = new int[N
 
 
 -----
 
+CASE OF FOUNTAIN [ et # 4]
+
+computeTrajectoyChange() :
+
+divergencePonit = -1; 
+int n_ets = 40
+
+changedDerivations = new~
+changedRuleEffects = new ~ 
+
+for (int ei = 0; ei < n_ets; ei++) 
+{
+	int lexDivPt = findEtDivergenceMoment(ei);  {7}
+	
+	if (lexDivPt != -1)							{TRUE}
+		~
+		ddHere = getDifferentialDerivation(ei); {~~~}
+		changedDerivation.put(ei, ddHere); 		
+		
+		ddHere = ~~
+		
+---
+
+
+		
+		
+		
+
+
+----
+
+findEtDivergenceMoment(et_id):
+	String dd = getDifferentialDer~(et~);
+	if (dd.equals(""))	return -1; 
+	
+
+
+---
 
 		 
 TODO - jargon file. 
