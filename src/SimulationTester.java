@@ -774,7 +774,7 @@ public class SimulationTester {
 		
 		//check DHS.changedDerivations
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
-			UTILS.compare1dIntArrs(new int[] {4, 13, 15},
+			UTILS.compare1dIntArrs(new int[] {4, 8, 13, 15, 26, 30, 31},
 				theDHS.getEtsWithChangedDerivations()),
 			"ERROR: wrong etyma effected by complex modification of t-glottalization"); 
 
@@ -814,13 +814,17 @@ public class SimulationTester {
 					UTILS.compare1dStrArrs(lambda, CREs.get(cei+6)[1]),
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
+		
+		//TODO
+		System.out.println("Deletion aspect : "); 
+		for(String eighti : CREs.get(8)[1])	System.out.println(eighti);
 	
 		//TODO move on to second and third rules in this set...
 		
 		//TODO add rule processing and debug comprehension of the following
 		// again relocate the flapping rule to after waypoint 2 
 		// copmlex inserton to right before s > ts / n__ : 
-				// n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
+				 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// finally all things between waypoitns 2 and 3 insert
 		// and then check that results are all correct.
 	

@@ -277,7 +277,6 @@ public class DifferentialHypothesisSimulator {
 				{
 					if(ddl.contains(">"))
 					{
-						
 						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("[")));
 						String[] effs = ddl.substring(ddl.indexOf(": ")+2).split(" \\| "); 
 						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")};  
