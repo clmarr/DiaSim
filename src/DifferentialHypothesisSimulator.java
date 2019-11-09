@@ -200,12 +200,35 @@ public class DifferentialHypothesisSimulator {
 						}
 						else 
 						{
-							//now must be some sort of relocdation -- whatever the case, we base our behavior on the base line side of things
+							//now must be some sort of relocdation 
+
+							if(relocdIsForward(gi, hi, ilbi, ilhi))
+							{
+								int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
+								assert (mapped_to_bi == -1) == (ilhi == -1) : "ERROR: baseline index "+bi+" is never mapped to..."; 
+								ruleCorrespondences[0][gi] = bi++; 
+								ruleCorrespondences[1][gi] = mapped_to_bi; 
+								dumRIMHB[mapped_to_bi] = -2; //cross-out. 
+							}
+							else
+							{
+								int mapped_to_hi = UTILS.findInt(dumRIMBH, hi); 
+								assert (mapped_to_hi == -1) == (ilbi == -1) : "ERROR: hyp index "+hi+" is never mapped to..."; 
+								ruleCorrespondences[0][gi] = mapped_to_hi; 
+								ruleCorrespondences[1][gi] = hi++; 
+							}
+							
+							
+							//TODO below is abrogated 
+							/**
+							// note that if bi == hi, it doesn't matter which way we consider this except for debugging purposes
+							// for simplicity purposes -- go with whatever
 							int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
 							assert (mapped_to_bi == -1) == (ilhi == -1) : "ERROR: baseline index "+bi+" is never mapped to..."; 
 							ruleCorrespondences[0][gi] = bi++; 
 							ruleCorrespondences[1][gi] = mapped_to_bi; 
 							dumRIMHB[mapped_to_bi] = -2; //cross-out. 
+							*/
 						}
 					}
 				}
@@ -1011,6 +1034,60 @@ public class DifferentialHypothesisSimulator {
 		return out.substring(2); 
 	}
 	
+	//auxiliary for compareRuleCorrespondences, 
+	// recruits proposedChs to disambiguate if a relocdation is forward or backward 
+	//recall : indices in proposedChs[][0] are always the current (at point of operation) index in hypCASC -- so hi is used not bi
+	private boolean relocdIsForward(int gi, int hi, int ilbi, int ilhi)
+	{
+		assert ilbi != -1 || ilbi != ilhi : "ERROR: called relocdIsForward() for something that cannot be a relocdation as both ilhi and ilbi are -1."; 
+		if (Math.min(ilbi, ilhi) == -1)
+			return ilbi == -1; 
+	
+		//int candBackSrc = ilbi, candForwDest = ilhi;
+	
+		int pci = 0, lenpc = proposedChs.size(); 
+		boolean reached = false; 
+		while (!reached)
+		{
+			assert pci < lenpc : "ERROR: reached of end of proposedChanges without finding current target of operation."; 
+			int curhi = Integer.parseInt(proposedChs.get(pci)[0]); 
+			assert curhi <= hi : "ERROR: could not find current target of operation in proposedChanges!";
+			reached = (curhi == hi); 
+			pci ++; 
+		}
+		
+		//PRIOR DELETION SKIPPING pass any prior deletions we have already processed wiht operations at this hyp index.
+		int deletionsToPass = 0; 
+		for (int pdgi = gi - 1 ; pdgi <= 0 ? true : ruleCorrespondences[1][pdgi] == -1 ; pdgi-- )
+			deletionsToPass++; 
+			
+		pci += deletionsToPass ; 
+		assert proposedChs.get(pci-1)[0].equals(""+hi) : "Error in ruleCorrespondences[1] in placement of -1 for deletion rules"; 
+		assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
+		
+		boolean passed = false; 
+		
+		while(!passed)
+		{
+			// if this a deletion we then know it is forward
+			if (proposedChs.get(pci-1)[1].equalsIgnoreCase("deletion"))	return true; 
+			
+			// now we know this is an insertion 
+			// we have to make sure it isn't immediately deleted by dumb users.
+			passed = !proposedChs.get(pci)[0].equals(""+hi);
+			if (!passed) //it's a stupid user deleting the rule they just added, and we haven't explicitly added support on the rule processing side for this annoyance yet...
+			{
+				assert proposedChs.get(pci)[1].equalsIgnoreCase("deletion") : "index processing error."; 
+				pci += 2;
+				assert proposedChs.get(pci-1)[0].equals(""+hi) : "Error in ruleCorrespondences[1] in placement of -1 for deletion rules"; 
+				assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
+			}
+		}
+		// if reached this point must be an insertion, i.e. backward
+		return false; 
+					
+	
+	}
 }
 	
 	
