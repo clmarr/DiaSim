@@ -754,10 +754,10 @@ public class DHSWrapper {
 					
 					for(int rimi = 0 ; rimi < deleteLoc; rimi++)	RIM_HB[rimi] = oldRIM_HB[rimi];
 					int ridi = deleteLoc;
-					while ( ridi < deleteLoc + increment) // i.e. must be non bijective modification. 
+					while ( ridi <= deleteLoc + increment) // i.e. must be non bijective modification. 
 						RIM_HB[ridi++] = -1; 
 					
-					int oldLoc = deleteLoc + 1, newLoc = deleteLoc + Math.max(increment, 0); 
+					int oldLoc = deleteLoc + 1, newLoc = oldLoc + increment;
 					
 					while (oldLoc < oldLen) 
 					{

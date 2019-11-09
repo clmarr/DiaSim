@@ -1,88 +1,38 @@
-TODO implement 3rd way:
-
-link specific proposed changes that are the 
-	deletion and insertion aspects of  
-	a relocation (one object)
+DHSW.processSingleCh( 6, ch4DelPCform[2], 6, nextLaw,
+				theFactory.generateSoundChangesFromRule(nextLaw), ch4InsPCform[2]);
 	
-for bijective modification -- unnecessary as they
-	are adjacent.
+...
 
-
----
-NO,
-
-solution:
-
-List<int[]> relocdations
-List<int> modifications
-
--- this seems to be the only way to handle this issue. 
-
---- make this apply where it needs to...
----- decide where it needs to apply...?
---- 
-
----
-
-Current error in rule correspondences: 
-
-Rule correspondences:
-0,1,2,3,4,5,6,-1,7,8,9
-0,6,1,2,3,4,1,5,6,7,8
-
-second row should be 
-0,6,1,2,3,4,5,-1,7,8,9
-
-> variable : DHS.ruleCorrespondences
-DHS.computeRuleCorrespondences 
-
-	call : DifferentialHypothesisSimulator: [constructor]
-		computeRuleCorrespondences(baseToHypIndMap)
+if (insertions.size() == 1 ) // relocdation 
+	false
+> ELSE // simple deletion or modification 
+	increment = 1
+	if (increment != 0 ) TRUE
+		if (RIM_HB[deleteLoc] != -1)
+					(RIM_HB[6] != -1) TRUE
+			RIM_BH [ RIM_HB[deleteLoc] ] = -1; 						good
+				{[ RIM_BH[6] = -1 ]}
+		oldLen = 12
+		oldRIM_HB = ~~~
+		RIM_HB = new int[oldLen + increment] 
+		RIM_HB = [0,1,2,3,4,5,0,0,0...]
+		ridi = 6
+		RIM_HB = [0,1,2,3,4,5,-1,-1,....]
 		
-call is from:
-DHSW.generateDHS() [SimulationTester:574]
+		oldLoc = 7, newLoc = 7
+		while(oldLoc < oldLen) TRUE
+			baseLoc = oldRIM_HB[7]    {[7]}
+			RIM_BH[7] = 
 
-RIM > baseToHypIndMap
-RULE_IND_MAP Has been confirmed. 
+---
 
-corrRIM = {0,6,2,3,4,5,1,-1,7,8,9,10}
+int oldLoc = deleteLoc + 1, newLoc = oldLoc + increment;
 
-so, then computeRuleCorrespondences(corrRIM):
 
---
-
-total_length = 11
-prChLocs = new boolean[11]; 
-etc
-
-while TRUE
-	chLoc = 1
-	while TRUE
-		rC[0][0] = 0
-		bci = 1 
-		etc
-	while FALSE
-	prChLocs[1] = false
-	
-	chi = 6
-	relocdation = true 
 
 
 ---
 
-prChLocs = new boolean[total_length]
-ri = 0 
-bci = 0 
-hci = 0
-pci = 0
-
-while ( pci < proposedChs.size())
-	int chLoc = Integer.parseInt(proposedChs.get(pci)[0]);
-	while (ri < chLoc)	{	~	}
-	prChLocs[ri] = true; 
-
-
----
 		
 TODO - jargon file. 
 

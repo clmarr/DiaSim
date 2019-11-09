@@ -677,18 +677,15 @@ public class SimulationTester {
 		
 		System.out.println("Now processing three changes for hypothesis, before usurping baseline."); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
-				+ "from __ ə\n"
-				+ "to [+son] __ {# ; [-cons,-lo,-stres]}"); 
-        System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
-                        + "from __ ə\n"
-                        + "to [+son] __ {# ; [-cons,-lo,-stres]}");
+                        + "\t\tfrom __ ə\n"
+                        + "\tto [+son] __ {# ; [-cons,-lo,-stres]}");
 
 		nextLaw =  "t > ʔ / [+son] __ {# ; [-cons,-lo,-stres]}";
 		
 		String[] ch4InsPCform = new String[] {"6", nextLaw, "Insertion of T-glottalization with refined contexts"},
 		ch4DelPCform = new String[] {"8", "deletion", "T-glottalization contexts refined, old form here removed"};
 		DHSW.processSingleCh( 6, ch4DelPCform[2], 6, nextLaw,
-		theFactory.generateSoundChangesFromRule(nextLaw), ch4InsPCform[2]);
+				theFactory.generateSoundChangesFromRule(nextLaw), ch4InsPCform[2]);
 		
 		curHC = DHSW.getHypCASC(); dumCasc = new ArrayList<SChange>(CASCADE);
 		
@@ -701,12 +698,13 @@ public class SimulationTester {
 		"ERROR: malformed comprehension of complex modification operation");
 		
 		//testing base to hyp rule ind map
-		corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, -1, 8, 9, 10};
+		corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, -1, 8, 9, 10, 11};
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
-		"ERROR: Handling of complex modification in base to hyp rule ind map not realized correctly.");
+				"ERROR: Handling of complex modification in base to hyp rule ind map not realized correctly.\n"
+				+ "correct : "+UTILS.print1dIntArr(corrBhRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));
 		
 		//and hyp to base
-		corrHbRIM = new int[] {0, 1, 2, 3, 4, 5, -1, -1, 7, 8 ,9};
+		corrHbRIM = new int[] {0, 1, 2, 3, 4, 5, -1, -1, 7, 8 ,9, 10};
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
 		"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
 		
