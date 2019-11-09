@@ -723,14 +723,14 @@ public class SimulationTester {
 		theDHS = DHSW.generateDHS();
 		
 		//checking DHS.ruleCorrespondences...
-		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9},
-			{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}};
-		errorCount += UTILS.checkBoolean ( true,
+		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, -1, -1, 6, 7, 8, 9},
+			{0, 1, 2, 3, 4, 5, 6, 7, -1, 8, 9, 10}};
+		errorCount += chBoolPrIncIfError ( getLineNumber(), true,
 			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
 				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
 						+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
 						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"
-						+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ? 0 : 1;
+						+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ;
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
 		
@@ -1199,7 +1199,7 @@ public class SimulationTester {
 
 	private static int chBoolPrIncIfError(int lnNum, boolean targ, boolean obs, String bareErrMsg)
 	{
-		return UTILS.checkBoolean(targ, obs, "@l"+lnNum+": "+bareErrMsg) ? 0 : 1; 
+		return UTILS.checkBoolean(targ, obs, "@line"+lnNum+": "+bareErrMsg) ? 0 : 1; 
 	}
 	
 	public static int getLineNumber() {
