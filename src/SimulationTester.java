@@ -706,7 +706,7 @@ public class SimulationTester {
 		//and hyp to base
 		corrHbRIM = new int[] {0, 1, 2, 3, 4, 5, -1, -1, 7, 8 ,9, 10};
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
-		"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
+				"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
 		
 		//test hypGoldLocs -- hypBlackLocs functionality is implied this way
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{5,8}, DHSW.getHypGoldLocs()),
@@ -716,9 +716,9 @@ public class SimulationTester {
 		//test DHSWrapper.proposedChanges
 		//first should be the insertion.
 		errorCount += calcPCerrs(getLineNumber(), 0, ch4InsPCform, DHSW.getProposedChanges().get(0),
-		"insertion stage of complex modification of T-glottalization rule");
+				"insertion aspect of complex modification of T-glottalization rule");
 		errorCount += calcPCerrs(getLineNumber(), 1, ch4DelPCform, DHSW.getProposedChanges().get(1),
-		"deletion of stage of complex modification of T-glottalization rule");
+				"deletion aspect of complex modification of T-glottalization rule");
 		
 		theDHS = DHSW.generateDHS();
 		
@@ -806,7 +806,76 @@ public class SimulationTester {
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
 		
+		System.out.println("--------------\nSecond rule in group, fifth overall: backward relocdation of American raising to become second rule."); 
+		String[] backRlcIns = new String[] {"1", ""+CASCADE.get(4), "Relocdated from former step 4"},
+				backRlcDel = new String[] {"5", "deletion", "Relocdated backward to become second rule"};
+		DHSW.processSingleCh(4, backRlcDel[2], 1, "", null, backRlcIns[2]); 
 		
+		//test realization in cascade structures.
+		curHC = DHSW.getHypCASC(); 
+		dumCasc.add(1,dumCasc.remove(4)); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC), 
+			"ERROR: bugged comprehension of backward relocdation operation."); 
+		
+		//can skip testing lengths at this point, as well as making sure baseCASC was uncorrupted. If no error appeared before it won't happen here.  
+		
+		//update checker structures concerning mappings
+		for(int ri = 1; ri < 4; ri++)	
+		{	
+			corrBhRIM[ri]++; 
+			corrHbRIM[ri+1]--;	
+			corrRC[1][ri+1]--;
+		}
+		corrBhRIM[4] = 1;  corrHbRIM[1] = 4; corrRC[1][1] = 4; 
+		
+		//testing DHSW's rule maps
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+						"ERROR: Handling of backward relocdation in base to hyp rule ind map not realized correctly.\n"
+						+ "correct : "+UTILS.print1dIntArr(corrBhRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
+				"ERROR: Handling of backward relocdation in hyp to base rule ind map not realized correctly.");
+
+		//test DHSW.proposedChanges
+
+		errorCount += calcPCerrs(getLineNumber(), 0, backRlcIns, DHSW.getProposedChanges().get(0), 
+			"insertion aspect of backward relocdation of American raising.");
+		errorCount += calcPCerrs(getLineNumber(), 1, backRlcDel, DHSW.getProposedChanges().get(1), 
+			"deletion aspect of backward relocdation of American raising.");
+		errorCount += calcPCerrs(getLineNumber(), 2, ch4InsPCform, DHSW.getProposedChanges().get(2),
+				"insertion aspect of complex modification of T-glottalization rule");
+		errorCount += calcPCerrs(getLineNumber(), 3, ch4DelPCform, DHSW.getProposedChanges().get(3),
+				"deletion aspect of complex modification of T-glottalization rule");
+
+		theDHS = DHSW.generateDHS(); 
+
+		//checking DHS.ruleCorrespondences
+
+		errorCount += chBoolPrIncIfError ( getLineNumber(), true,
+			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
+				"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
+						+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
+						"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"
+						+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ;
+		
+		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
+		
+		// can skip checking dimensions. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11}),
+				"ERROR: base to global ind mapper is malformed");
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs( htg, new int[] {0, 2, 3, 4, 1, 5, 6, 7, 9, 10, 11}),
+				"ERROR: hyp to global ind mapper is malformed");
+				
+		//test divergence point
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 1,
+				"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ;
+		
+		//test lexical effects
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
+				"ERROR: derivation of fountain is malformed after backward relocdation of American raising, which should have had no effect."); 
+					
 		
 		//TODO move on to second and third rules in this set...
 		//TODO we need a backward relocdation.
