@@ -778,17 +778,8 @@ public class SimulationTester {
 				theDHS.getEtsWithChangedDerivations()),
 			"ERROR: wrong etyma effected by complex modification of t-glottalization"); 
 
-		//TODO debugging
-		System.out.println("ets affd : "+UTILS.print1dIntArr(theDHS.getEtsWithChangedDerivations())); 
-		System.out.println("... : "+theDHS.getChangedDerivations().keySet().size()); 
-		
 		//check DHS.changedRuleEffects
 		CREs = theDHS.getChangedRuleEffects();
-		
-		//TODO debugging
-		System.out.println("CREs size : "+ CREs.keySet().size() ) ;
-		System.out.println("which?"); 
-		for (Integer crei : CREs.keySet())	System.out.println(crei);
 		
 		// all three rules added or subtracted should have changes associated--
 			// 6: important[8], cadet[30], mitigate[31]

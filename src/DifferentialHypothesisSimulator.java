@@ -988,7 +988,7 @@ public class DifferentialHypothesisSimulator {
 	
 	public HashMap<Integer,String> getChangedDerivations()	{	return changedDerivations;	}
 	public int[] getEtsWithChangedDerivations()	{
-		Set<Integer> keys = changedDerivations.keySet();
+		List<Integer> keys = new ArrayList<Integer>(changedDerivations.keySet());
 		int N = keys.size(); 
 		int[] out = new int[N]; 
 		while (!keys.isEmpty())
