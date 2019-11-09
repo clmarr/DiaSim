@@ -811,13 +811,10 @@ public class SimulationTester {
 				lambda[ldi] = getRegRuleEffect(theDHS.getDifferentialDerivation(ldi), 
 						6+cei, cei < 2 ? -1 : 6, cei < 2 ? 6+cei : -1); 
 			errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-					UTILS.compare1dStrArrs(lambda, CREs.get(cei+6)[1]),
+					UTILS.compare1dStrArrs(lambda, CREs.get(cei+6)[cei < 2 ? 1 : 0]),
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
 		
-		//TODO
-		System.out.println("Deletion aspect : "); 
-		for(String eighti : CREs.get(8)[1])	System.out.println(eighti);
 	
 		//TODO move on to second and third rules in this set...
 		
