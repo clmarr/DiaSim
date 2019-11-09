@@ -599,17 +599,11 @@ public class SimulationTester {
 			"ERROR: at index 0 should be deletion part of update on proposedChanges for forward relocdation;\n"
 			+ "construction of proposedChs handled incorrectly!") ;
 		
-		//TODO debugging
-		System.out.println("thepc "+thepc[0]+" ; "+thepc[1]+" ; "+thepc[2]); 
-		
 		// and then the insertion phase
 		thepc = DHSW.getProposedChanges().get(1);
 		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
 			"Relocdated from former step 1".equals(thepc[2]), "ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation "
 				+", building of proposedChs executed incorrectly!"); 
-		
-		//TODO debugging
-		System.out.println("thepc "+thepc[0]+" ; "+thepc[1]+" ; "+thepc[2]); 
 		
 		theDHS = DHSW.generateDHS(); 
 		

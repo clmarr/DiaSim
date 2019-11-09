@@ -636,10 +636,6 @@ public class DifferentialHypothesisSimulator {
 	 */
 	public String newCascText(List<String> comments, boolean justPlaceHolders, String targCascLoc, SChangeFactory fac) throws MidDisjunctionEditException
 	{
-		//TODO debugging
-		System.out.println("\n\n\n\nInitiating new casc generation operation!"); 
-		
-		
 		int linesPassed = 0; 
 		String readIn = ""; 
 		
@@ -693,11 +689,6 @@ public class DifferentialHypothesisSimulator {
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion"); 
 			// will be used to determine where we place new content with respect to comment blocks
 			
-			//TODO debugging
-			System.out.println("proposedChs.get("+pci+")[0] : "+proposedChs.get(pci)[0]);
-			System.out.println("nxChRuleInd : "+nxChRuleInd); 
-			System.out.println("stage locs : "+baseCascSim.getStageInstant(true, 0)+" "+baseCascSim.getStageInstant(false, 0)+" "+baseCascSim.getStageInstant(true, 1)); 
-			
 			String stagesToSkip = ""; 
 			int prev_igs = igs , prev_ibs = ibs; 		
 			
@@ -721,22 +712,11 @@ public class DifferentialHypothesisSimulator {
 			// else: there is no stage to skip, and stagesToSkip remains ""; 
 			
 			if(!stagesToSkip.equals(""))
-			{
-				//TODO debugging
-				System.out.println("stagesToSkip : "+stagesToSkip);
-				System.out.println("igs "+igs+"; ibs "+ibs+"; prev_igs "+prev_igs+"; prev_ibs "+prev_ibs); 
-								
+			{		
 				int break_pt = brkPtForStageSkip(readIn, stagesToSkip); 
 					// should end in "\n"
 				
-				//TODO debugging
-				System.out.println("break point at : "+break_pt); 
-				
 				String hop = readIn.substring(0, break_pt); 
-				
-				//TODO debugging
-				System.out.println("\nHOP " + hop+"\n\n"); 
-				
 				linesPassed += hop.split("\n").length - 1; //minus 1 because of the final \n 
 				readIn = readIn.substring(break_pt); 
 				boolean sg = stagesToSkip.charAt(0) == 'g'; 
@@ -802,12 +782,6 @@ public class DifferentialHypothesisSimulator {
 					}
 					else //perform proper file text modification behavior according to proposed change and whether we are automodification or merely commenting mode. 
 					{
-						//TODO debugging
-						System.out.println("Will perform cascade edit operation here : ");
-						System.out.println("proposedChs.get("+pci+") : ["+proposedChs.get(pci)[0]+";"+proposedChs.get(pci)[1]+";"+proposedChs.get(pci)[2]+"]"); 
-						System.out.println("nxChRuleInd "+nxChRuleInd+"; nxRuleInd "+nxRuleInd); 
-						System.out.println("StagesToSkip : "+stagesToSkip);
-						
 						String newCmt = comments.get(pci); 
 						if (newCmt.length() > 0)
 							if (!UTILS.cmtIsStandardized(newCmt))
