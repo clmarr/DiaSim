@@ -460,6 +460,8 @@ public class UTILS {
 	// auxiliary
 	public static String print1dIntArr(int[] a)
 	{
+		if (a.length == 0)	return "[empty array]"; 
+		
 		String out = ""; 
 		for (int ai : a)	out += ""+ai+","; 
 		return out.substring(0, out.length()-1);
@@ -467,6 +469,8 @@ public class UTILS {
 	
 	public static String print1dBoolArrAsIntArr(boolean[] b)
 	{
+		if (b.length == 0)	return "[empty array]"; 
+		
 		String out = "";
 		for (boolean bi : b)	out += bi ? "1," : "0,"; 
 		return out.substring(0, out.length() - 1 ); 
