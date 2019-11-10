@@ -82,6 +82,11 @@ public class DifferentialHypothesisSimulator {
 		proposedChs = propdChanges; 
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); //init ruleCorrespondences
 		
+		//TODO debugging
+		System.out.println("RCs[0] : "+UTILS.print1dIntArr(ruleCorrespondences[0]));
+		System.out.println("RCs[1] : "+UTILS.print1dIntArr(ruleCorrespondences[1]));
+		
+		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
@@ -143,24 +148,50 @@ public class DifferentialHypothesisSimulator {
 			int gi = sameUntil, bi = sameUntil, hi = sameUntil; 
 				// global, base, and hyp instant iterators
 			
+			//TODO debugging
+			System.out.println("tot len "+total_length);
+			
 			while (gi < total_length)
 			{
-				//TODO debugging
-				System.out.println("bi "+bi+" hi "+hi);
-				
 				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, 
 						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
 					//indices linked to base instant and to hyp instant
+
+				List<Integer> brSrcHis = new ArrayList<Integer>(); 
+					// any his that are the source of a back relocdation and need to be handled in order to resolve it within ruleCorrespondences
+					// note that the indices should not get corrupted since it is mapping onto hi spots, i.e. rules hit in hypCASC, not the global 
+						
+						
+				// TODO abrogated below. 
+				boolean borrowForHI= false, advance1OnBoth= false;
 				
-				System.out.println("ilbi "+ilbi+" ilhi "+ilhi);
-						
-						
+				if (ilhi == -2)
+				{
+					borrowForHI = true; 
+					hi++;
+					int mapped = UTILS.findInt(ruleCorrespondences[1], hi);
+					
+					if (mapped == -1)	{
+						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
+						dumRIMHB[hi] = -2; 
+					}
+					else
+					{
+						ilhi = hi+1;
+						advance1OnBoth = true;
+					}
+					
+				}
+				
 				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
 					// i.e. the current spots in the base and hyp share the same global index
+				if(borrowForHI)	hi--;
+				
 				if (bihiAligned)
-				{	ruleCorrespondences[0][gi] = bi++; 
-					ruleCorrespondences[1][gi] = hi++; 
+				{	ruleCorrespondences[0][gi] = ilbi; bi++;
+					ruleCorrespondences[1][gi] = ilhi; hi++;
 				}
+				if(advance1OnBoth)	{	bi++;	hi++;	}
 				else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
 				{
 					locHasPrCh[gi] = true; 
@@ -191,8 +222,10 @@ public class DifferentialHypothesisSimulator {
 						// do not cause redundant or erroneous behaviors
 					// when we come upon a "crossed out" cell (i.e. wiht -2 in it) we know this must have been from an already handled relocdation.
 					// due to how we iterate through this algorithm, this will only ever happen for ilhi -- i.e. only on the hyp side of things
-					if(ilhi==-2)	hi++;
-					else if(ilbi==-2) bi++; 
+					
+					
+					
+					if(ilbi==-2) bi++; 
 					else
 					{
 						if(ilhi == -1) // insertion of some sort (including from a non-bijective modification)
@@ -223,9 +256,10 @@ public class DifferentialHypothesisSimulator {
 								
 								int mapped_to_hi = UTILS.findInt(dumRIMBH, hi); 
 								assert (mapped_to_hi == -1) == (ilbi == -1) : "ERROR: hyp index "+hi+" is never mapped to..."; 
-								ruleCorrespondences[0][gi] = hi++; 
+								ruleCorrespondences[0][gi] = bi; 
 								ruleCorrespondences[1][gi] = ilhi; 
 								dumRIMBH[ilhi] = -2; //cross-out. 
+								dumRIMHB[hi] = -2; //cross-out
 							}
 							
 							
@@ -242,7 +276,6 @@ public class DifferentialHypothesisSimulator {
 						}
 					}
 				}
-				if (ilhi != -2)	gi++;
 			}  			
 		}
 	}

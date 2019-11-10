@@ -1,59 +1,118 @@
 	
-		//auxiliary for compareRuleCorrespondences, 
-			// recruits proposedChs to disambiguate if a relocdation is forward or backward 
-		//recall : indices in proposedChs[][0] are always the current (at point of operation) index in hypCASC -- so hi is used not bi
-		private boolean relocdIsForward(int gi, int hi, int ilbi, int ilhi)
+		while (gi < total_length)
 		{
-			assert ilbi != -1 || ilbi != ilhi : "ERROR: called relocdIsForward() for something that cannot be a relocdation as both ilhi and ilbi are -1."; 
-			if (Math.min(ilbi, ilhi) == -1)
-				return ilbi == -1; 
-		
-			int candBackSrc = ilbi, candForwDest = ilhi;
 			
-			
-			int pci = 0, lenpc = proposedChs.size(); 
-			boolean reached = false; 
-			while (!reached)
+			if (ilhi == -2)
 			{
-				assert pci < lenpc : "ERROR: reached of end of proposedChanges without finding current target of operation."; 
-				int curhi = Integer.parseInt(proposedChs.get(pci)[0]); 
-				assert curhi <= hi : "ERROR: could not find current target of operation in proposedChanges!";
-				reached = (curhi == hi); 
-				pci ++; 
+				borrowForHI = true; 
+				hi++;
+				int mapped = UTILS.findInt(ruleCorrespondences[1], hi);
+				
+				if (mapped == -1)	{
+					ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
+					dumRIMHB[hi] = -2; 
+				}
+				else
+				{
+					ilhi = hi+1;
+					advance1OnBoth = true;
+				}
+				
 			}
 			
-			//PRIOR DELETION SKIPPING pass any prior deletions we have already processed wiht operations at this hyp index.
-			int deletionsToPass = 0; 
-			for (int pdgi = gi - 1 ; pdgi <= 0 ? true : ruleCorrespondences[1][pdgi] == -1 ; pdgi-- )
-				deletionsToPass++; 
-				
-			pci += deletionsToPass ; 
-			assert proposedChs.get(pci-1)[0].equals(""+hi) : "Error in ruleCorrespondences[1] in placement of -1 for deletion rules"; 
-			assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
+			boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
+				// i.e. the current spots in the base and hyp share the same global index
+			if(borrowForHI)	hi--;
 			
-			boolean passed = false; 
-			
-			while(!passed)
+			if (bihiAligned)
+			{	ruleCorrespondences[0][gi] = ilbi; bi++;
+				ruleCorrespondences[1][gi] = ilhi; hi++;
+			}
+			if(advance1OnBoth)	{	bi++;	hi++;	}
+			else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
 			{
-				// if this a deletion we then know it is forward
-				if (proposedChs.get(pci-1)[1].equalsIgnoreCase("deletion"))	return true; 
+				locHasPrCh[gi] = true; 
+				assert ilbi != ilhi || ilbi != -1: 
+					"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+				// recall: global mapping scheme is always built off the base cascade by default
 				
-				// now we know this is an insertion 
-				// we have to make sure it isn't immediately deleted by dumb users.
-				passed = !proposedChs.get(pci)[0].equals(""+hi);
-				if (!passed) //it's a stupid user deleting the rule they just added, and we haven't explicitly added support on the rule processing side for this annoyance yet...
+				/**
+				 * There are six possible cases here 
+				 * (1) deletion of some sort including as part of non-bijective modification:
+				 * 			ilbi == -1
+				 * (2) insertion of some sort including as part of a non-bijective modification
+				 * 			ilhi == -1
+				 * (3) forward relocdation that has not yet been handled/realized in ruleCorrespondences
+				 * 			ilbi > hi  
+				 * 				note that forward relocdation from X to Y can be reinterpeted as Y-X backward relocdations each by one place instead 
+				 * 					to avoid this problem we are forced to use the HashMap relocdations 
+				 * (4) forward relocdation that has already been handled/realized in ruleCorrespondences
+				 * 			ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1
+				 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
+				 * 			ilhi > bi 
+				 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
+				 * 		
+				 */
+				//TODO curate cmt block
+				
+				//first -- ensure that stumbling upon indices effected by already handled relocdation operations
+					// do not cause redundant or erroneous behaviors
+				// when we come upon a "crossed out" cell (i.e. wiht -2 in it) we know this must have been from an already handled relocdation.
+				// due to how we iterate through this algorithm, this will only ever happen for ilhi -- i.e. only on the hyp side of things
+				
+				
+				
+				if(ilbi==-2) bi++; 
+				else
 				{
-					assert proposedChs.get(pci)[1].equalsIgnoreCase("deletion") : "index processing error."; 
-					pci += 2;
-					assert proposedChs.get(pci-1)[0].equals(""+hi) : "Error in ruleCorrespondences[1] in placement of -1 for deletion rules"; 
-					assert pci < lenpc : "ERROR: reached end of proposedChanges without finding later index of relocdation operation.";
+					if(ilhi == -1) // insertion of some sort (including from a non-bijective modification)
+					{
+						ruleCorrespondences[0][gi] = -1; 
+						ruleCorrespondences[1][gi] = hi++; 
+					}
+					else if (ilbi == -1) //deletion of some sort including from a non-bijective modification
+					{
+						ruleCorrespondences[0][gi] = bi++; 
+						ruleCorrespondences[1][gi] = -1; 
+					}
+					else 
+					{
+						//now must be some sort of relocdation 
+						
+						if(relocdIsForward(gi, hi, ilbi, ilhi))
+						{
+							int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
+							assert (mapped_to_bi == -1) == (ilhi == -1) : "ERROR: baseline index "+bi+" is never mapped to..."; 
+							ruleCorrespondences[0][gi] = bi++; 
+							ruleCorrespondences[1][gi] = mapped_to_bi; 
+							dumRIMHB[mapped_to_bi] = -2; //cross-out. 
+						}
+						else
+						{
+							System.out.println("hi "+hi); //TODO debuggin
+							
+							int mapped_to_hi = UTILS.findInt(dumRIMBH, hi); 
+							assert (mapped_to_hi == -1) == (ilbi == -1) : "ERROR: hyp index "+hi+" is never mapped to..."; 
+							ruleCorrespondences[0][gi] = bi; 
+							ruleCorrespondences[1][gi] = ilhi; 
+							dumRIMBH[ilhi] = -2; //cross-out. 
+							dumRIMHB[hi] = -2; //cross-out
+						}
+						
+						
+						//TODO below is abrogated 
+						/**
+						// note that if bi == hi, it doesn't matter which way we consider this except for debugging purposes
+						// for simplicity purposes -- go with whatever
+						int mapped_to_bi = UTILS.findInt(dumRIMHB, bi); 
+						assert (mapped_to_bi == -1) == (ilhi == -1) : "ERROR: baseline index "+bi+" is never mapped to..."; 
+						ruleCorrespondences[0][gi] = bi++; 
+						ruleCorrespondences[1][gi] = mapped_to_bi; 
+						dumRIMHB[mapped_to_bi] = -2; //cross-out. 
+						*/
+					}
 				}
 			}
-			// if reached this point must be an insertion, i.e. backward
-			return false; 
-						
-		
-		}
 	
 		
 		
