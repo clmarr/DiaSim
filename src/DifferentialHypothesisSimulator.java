@@ -160,7 +160,42 @@ public class DifferentialHypothesisSimulator {
 				List<Integer> brSrcHis = new ArrayList<Integer>(); 
 					// any his that are the source of a back relocdation and need to be handled in order to resolve it within ruleCorrespondences
 					// note that the indices should not get corrupted since it is mapping onto hi spots, i.e. rules hit in hypCASC, not the global 
-						
+				
+				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
+				// i.e. the current spots in the base and hyp share the same global index
+			
+				if (bihiAligned)
+				{	ruleCorrespondences[0][gi] = ilhi; bi++;
+					ruleCorrespondences[1][gi] = ilbi; hi++;
+				}
+				else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
+				{
+					locHasPrCh[gi] = true; 
+					assert ilbi != ilhi || ilbi != -1: 
+						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
+					/**
+					 * There are six possible cases here 
+					 * (1) deletion of some sort including as part of non-bijective modification:
+					 * 			ilbi == -1
+					 * (2) insertion of some sort including as part of a non-bijective modification
+					 * 			ilhi == -1
+					 * (3) forward relocdation that has not yet been handled/realized in ruleCorrespondences
+					 * 			ilbi > hi  
+					 * 				note that forward relocdation from X to Y can be reinterpeted as Y-X backward relocdations each by one place instead 
+					 * 					this is handled by auxiliary. 
+					 * (4) forward relocdation that has already been handled/realized in ruleCorrespondences
+					 * 			ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1
+					 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
+					 * 			ilhi > bi 
+					 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
+					 */
+					
+					//first -- ensure that stumbling upon indices effected by already handled relocdation operations
+						// do not cause redundant or erroneous behaviors
+					// when we come upon a "crossed out" cell for ilhi e know this must have been from an already handled forward relocdation.
+					if (ilhi == -2)	hi++;	// already handled forward relocdation. 
+					
+				}
 						
 				// TODO abrogated below. 
 				boolean borrowForHI= false, advance1OnBoth= false;

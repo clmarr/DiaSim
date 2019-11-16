@@ -1,25 +1,6 @@
 	
 		while (gi < total_length)
 		{
-			
-			if (ilhi == -2)
-			{
-				borrowForHI = true; 
-				hi++;
-				int mapped = UTILS.findInt(ruleCorrespondences[1], hi);
-				
-				if (mapped == -1)	{
-					ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
-					dumRIMHB[hi] = -2; 
-				}
-				else
-				{
-					ilhi = hi+1;
-					advance1OnBoth = true;
-				}
-				
-			}
-			
 			boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
 				// i.e. the current spots in the base and hyp share the same global index
 			if(borrowForHI)	hi--;
