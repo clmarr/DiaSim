@@ -294,8 +294,12 @@ public class ErrorAnalysis {
 			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
 					
 			double errorShare = wordsWithConfusion / (double)mismatches.size() * 100.0; 
+			String strErrShare = ""+errorShare; 
+			if (strErrShare.length() > 6)
+				strErrShare = strErrShare.substring(0,6); 
+			
 			System.out.println("% of errant words with this confusion : "+
-					(""+errorShare).substring(0,6)+"%"); 
+					strErrShare		+"%"); 
 			
 			//parse contexts
 			if (get_contexts)
