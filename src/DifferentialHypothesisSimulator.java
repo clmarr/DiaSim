@@ -218,7 +218,8 @@ public class DifferentialHypothesisSimulator {
 					
 				}
 				
-				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
+				bihiAligned = (ilbi == hi) && (ilhi == bi); 
+						//TODO is placement here erroneous?? -- determine.
 					// i.e. the current spots in the base and hyp share the same global index
 				if(borrowForHI)	hi--;
 				

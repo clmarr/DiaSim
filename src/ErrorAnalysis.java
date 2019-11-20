@@ -1346,11 +1346,11 @@ public class ErrorAnalysis {
 		return focSet;
 	}
 	
-	public void printFourColGraph(Lexicon inpLex)
+	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
 	{
 		LexPhon[] inpWds = inpLex.getWordList(); 
 		for(int i = 0; i < inpWds.length; i++) {
-			if (IN_SUBSAMP[i])
+			if (errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				System.out.print(append_space_to_x(inpWds[i].toString(), 19) + "| ");

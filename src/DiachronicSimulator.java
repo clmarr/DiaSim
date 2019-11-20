@@ -1158,7 +1158,8 @@ public class DiachronicSimulator {
 					System.out.print("What results would you like to check? Please enter the appropriate number:\n"
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
 						+ "| 1 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
-						+ "| 2 : Print all mismatched forms at evaluation point (for subset if specified)        |\n"
+						+ "| 2 : Print all corersponding forms as above for all mismatched etyma                 |\n"
+						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)        |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
 					
 					resp = inpu.nextLine().substring(0,1);
@@ -1173,12 +1174,15 @@ public class DiachronicSimulator {
 						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 						System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 					}
-					else if(resp.equals("1"))
+					else if("12".contains(resp))
 					{
-						System.out.println("Printing all etyma: Input," + (ea.isFocSet() ? focPtName+"," : "")+"Result, Gold"); 
-						ea.printFourColGraph(theSimulation.getInput());	
+						boolean is2 = "2".equals(resp); 
+						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
+								" etyma: Input, " + (ea.isFocSet() ? "FOC: "+focPtName+"," : "")
+								+"Result, Gold"); 
+						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}
-					else if(resp.equals("2"))
+					else if(resp.equals("3"))
 					{
 						System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
 						System.out.println("Res : Gold");
