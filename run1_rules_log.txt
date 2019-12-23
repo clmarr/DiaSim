@@ -124,7 +124,6 @@ s > ∅ / # __ s
 ɣ > ∅ / __ [+tense,+round,+syl]
 ɣ > ∅ / [+hi,+round,+syl] __ [+lo]
 ɣ > βʷ / [+round,-hi,+back,+syl] __ [+lo]
-ɣ > ∅ / [+front,-hi,-lo,+syl] __ r [+prim]
 β > w / __ w
 β > ∅ / @ __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ 
@@ -275,14 +274,13 @@ a > ə / __ [-syl] ( [-syl] )* [+syl] ( [-syl] )* #
 [+cons,+lab] > ∅ / [+cons] __ [+nas,+cons]
 [+son,+cor] > ɾ / [-son,-lab,-strid,-front] ə __ ə ( s ) #
 n̪ > ɾ / r ( ə ) __ ə ( s ) #
-[+cor,+son,-hi] [+syl,-stres] > ɾ ə/ [+syl] __ [+cons,+cont,-cor,-front] [+son,-lat,-hi]
+[+cor,+son,-hi] [+syl,-stres] > ɾ ə/ [+syl] __ [+cons,+cont,-cor] [+son,-lat,-hi]
 ɾ ə > z / [+cont,+lab] __ [+cont,+lab]
 ə > ə̯ 
 ɾ ə̯ > r / [+front,-lo,+syl] __ 
-ɾ ə̯ > l ə / __ ( [+cont,-strid,-son] ə̯ ) r
-ɾ > ɫ / __ ə̯ [+cons,+voi]
-β ə̯ > f / ə __ r
+ɾ > l / __ ə̯ [+cons,+voi]
 {ə̯ r;ə̯ ɾ} > {r ə̯;ɾ ə̯} / __ #
+ə̯ > ə / [+lat] __ ( [-son] ) ( ə̯ ) [+son,+cor,-nas]
 ə̯ > ə / [+stres] ( [-syl] )* [+cons,-ant] [-distr,+son] __ 
 ə̯ > ə / [+stres] ( [-syl] )* [+distr] [-distr,+son] __ 
 ə̯ > ə / __ [+front,+cons,+son]
@@ -595,6 +593,7 @@ lʲ > ∅
 ˌe > ˌɛ / __ r [+syl]
 t͡s > s / __ [-cor,+cons]
 [-distr,+strid,-voi] > x / [-cons] __ [+cons]
+ˈu > ˈʌ / __ j [+ant,+voi,+distr] ( r ) ə
 ˈʌ > ˈu / [+lab] ( r )* __ 
 {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r #

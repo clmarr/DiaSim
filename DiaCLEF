@@ -1071,7 +1071,7 @@ $ CORRECTION: nə,ra,rə (əna never will be generated)
 	$  all become ɾə before bilabials
 	$before intervocalic/pre-rhotic continuant, 
 	$ as long as neither of hte next two segs are hi
-[+cor,+son,-hi] [+syl,-stres] > ɾ ə / [+syl] __ [+cons,+cont,-cor,-front] [+son,-lat,-hi]
+[+cor,+son,-hi] [+syl,-stres] > ɾ ə / [+syl] __ [+cons,+cont,-cor] [+son,-lat,-hi]
 
 $ CORRECTION: tap is whistled between labial continuants
 ɾ ə > z / [+cont,+lab] __ [+cont,+lab]
@@ -1082,18 +1082,19 @@ $ s256 : ə effaced before unstressed a becomes the new ə, but retained in spec
 $ CORRECTION: ɾə immediately collapses to trill if after non-low front vowel (derree, merme)
 ɾ ə̯ > r / [+front,-lo,+syl] __
 
-$ becomes l with schwa retention if before r (allowing for non strident continuant and ə̯ in between)
-ɾ ə̯ > l ə / __ ([+cont,-strid,-son] ə̯) r
-
 $ CORRECTION: lambdacism of remaining tap before ə̯ then voiced consonantal (palefroi, aume, aumaille, pele(gh)rin...)
 	$ as long as 
-ɾ > ɫ / __ ə̯ [+cons,+voi]
+ɾ > l / __ ə̯ [+cons,+voi]
 
-$ CORRECTION: beta between voied schwa and whispered schwa then r absorbs the following voiceless schwa and devoices (palefroi)
-β ə̯ > f / ə __ r
+$ CORRECTION: beta between voiced schwa and whispered schwa then r absorbs the following voiceless schwa and devoices (palefroi)
+$ PRUNED OUT: this is lexically specific. 
+$ ̩β ə̯ > f / ə __ r
 
 $ CORRECTION : final ə̯ r > r ə̯
 {ə̯ r;ə̯ ɾ} > {r ə̯;ɾ ə̯} / __ #
+
+$ CORRECTION: schwa retention after l to block formation of new clusters of shape l (obstruent) r
+ə̯ > ə / [+lat] __ ([-son]) (ə̯) [+son,+cor,-nas]
 
 $ s257ia : ə intertonic retained when after cons + r or l but not rr or ll 
 $ CORRECTION: extended to include word final scenarios
@@ -2286,7 +2287,7 @@ $ CORRECTION: countertonic ˌɛ goes to ˌa
 $ CORRECTION: before ð is effaced, countertonic ˌu to ˌə if followed by a tonic a (rable)
 ˌu > ˌə / __ ð [+lo,+prim]
 
-$ s172a ~s346-7~ᵴ372 : th-effacement  – finalized in middle of twelth century. 
+$ s172a ~s346-7~s372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
 	$ CORRECTION: moved to during changes to countertonic e, because it appears that some of these are being driven by ð, 
 $ CORRECTION: moved to late twelth century because of data Pope missed. There are attestations of the beginning of a oj > aj 
