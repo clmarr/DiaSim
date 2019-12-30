@@ -1,4 +1,4 @@
-# anonymousTACLDiaSim
+# DiaSim
 
 For a run with default configurations, in command line call: bash std_derive.sh
 
