@@ -956,7 +956,7 @@ $ note : this technically will incorrectly make cases like
 	$ in reality the latter ejected a final schwa but the former did not
 		$ but there is no way yet to formalize this without massive overfitting to small data. 
 		$ this only occurred word-finally: see lacrima > lairme (>larme), not laireme
-		$ also it did not effet gr clusters : agrum > air, nigrum > noir (however tragere> traire ... analogy?)
+		$ also it did not effect gr clusters : agrum > air, nigrum > noir (however tragere> traire ... analogy?)
 		$ TODO work on this case
 [+hi,+front,-lat,-syl] > ∅ / __ {ʎ;rʲ}
 
@@ -1055,17 +1055,18 @@ $ this is going to be recurrent...
 
 $ Pope dismisses n-flapping phenomena as characteristic only of loan words (s642) 
 	$ but it can be modeled regularly. 
-$ CORRECTION: nrl become flap when after velar or dental (NOT alveolar) occlusives and between two schwas then (s)#
+$ CORRECTION: n,r,l become flap when after velar or dental (NOT alveolar) occlusives 
+	$ and between two schwas then (s)#
 [+son,+cor] > ɾ / [-son,-lab,-strid,-front] ə __ ə (s) # 
 
-$ CORRECTION: specifically after /r/ in positions two rules above, /n/ will flap without the possibility of renasalizatoin
+$ CORRECTION: specifically after /r (ə)/, /n/ will flap (and in no case be renasalized)
 $ Dating as per TLFi : appears to complete around 1100-- 1050 jorn > 1100 jor
 	$ 1100 sujurn > 1150 sejor 
 $ However it is essentially impossible to get a correct rule cascade if we do that
 	$ perhaps there was some distinct sequence for a time,
 		$ or the written form was just conservative? 
-	$ or perhpas the written -rn (wiht no e) ending indicated -rr in fact...?
-n̪ > ɾ / r (ə) __ ə (s) # 
+	$ or perhaps the written -rn (wiht no e) ending indicated -rr in fact...?
+n̪ > ɾ / r (ə) __ ə
 
 $ CORRECTION: nə,ra,rə (əna never will be generated)
 	$  all become ɾə before bilabials
@@ -1079,16 +1080,12 @@ $ CORRECTION: tap is whistled between labial continuants
 $ s256 : ə effaced before unstressed a becomes the new ə, but retained in specific places (s256-259):  
 ə > ə̯
 
-$ CORRECTION: ɾə immediately collapses to trill if after non-low front vowel (derree, merme)
-ɾ ə̯ > r / [+front,-lo,+syl] __
+$ CORRECTION: ɾə immediately collapses to trill if after non-low front vowel (derree, merme, cerveau, cervelle). Allow a /r/ in between which can coalesce with ɾ > r
+ɾ ə̯ > r / [+front,-lo,+syl] (r) __
 
 $ CORRECTION: lambdacism of remaining tap before ə̯ then voiced consonantal (palefroi, aume, aumaille, pele(gh)rin...)
 	$ as long as 
 ɾ > l / __ ə̯ [+cons,+voi]
-
-$ CORRECTION: beta between voiced schwa and whispered schwa then r absorbs the following voiceless schwa and devoices (palefroi)
-$ PRUNED OUT: this is lexically specific. 
-$ ̩β ə̯ > f / ə __ r
 
 $ CORRECTION : final ə̯ r > r ə̯
 {ə̯ r;ə̯ ɾ} > {r ə̯;ɾ ə̯} / __ #
@@ -1650,7 +1647,7 @@ w > v / [+lo] e̯ __ [-cons]
 
 $ CORRECTION: Old length distinction lost at this point, to be replaced by new one where
 	$ length arises from compensatory lengthening due to the deletion of praeconsonantal fricatives
-$ TODO discuss placement of this (in absence of any explication by Pope)
+$ TODO: may want to discuss placement of this (in absence of any explication by Pope)
 [+syl] > [-long]
 
 $ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj before nasals, but what she settles on is this:
@@ -1660,7 +1657,6 @@ $ Buckley criticizes this paradigm from Pope.
 $ CORRECTION: moved miuch later as it feeds other phenomena like aqua > eau after eː becomes diphthongized and thus is no longer productive, 
 	$ else a e̯ becomes oj > wa 
 $ CORRECTION: but it needs to be before ae > aj / __ N
- $ -- TODO DISCUSS THIS !!!!!
 {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}
  
 $ CORRECTION : deletion of w internal in remaining cons clusters
@@ -2250,8 +2246,9 @@ $			roie become raie and voirre became vairre [1200], but did not become widespr
 			$ labial elements 
 $ Like above, it is likely this sound, which saw delayed entrance into the written language except for a few words (raie, verre)
 	$ was neither really an a or an o for about a century-- hence ʌ is a good guess, with Canadian raising being a good analog
-$TODO: drastically revise and trim this reasoning here...
-ˈu > ˈʌ / __ j [+ant,+voi,+distr] (r) ə 
+$NOTE: in later review with FranTEXT, this looks very dubious. 
+$TODO: currently suppressed per demo
+$ ˈu > ˈʌ / __ j [+ant,+voi,+distr] (r) ə 
 
 $ CORRECTION: rerounding of ʌ when after a labial (possibly separated by r) #
 	$ cases: via, korrigia, froide
@@ -2285,7 +2282,8 @@ $ CORRECTION: countertonic ˌɛ goes to ˌa
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r {#;p;t͡ʃ}
 
 $ CORRECTION: before ð is effaced, countertonic ˌu to ˌə if followed by a tonic a (rable)
-ˌu > ˌə / __ ð [+lo,+prim]
+$ PRUNED: lexically specific. 
+$ ˌu > ˌə / __ ð [+lo,+prim]
 
 $ s172a ~s346-7~s372 : th-effacement  – finalized in middle of twelth century. 
 	$began dialectally in North and East in 9th century. 
@@ -2456,10 +2454,11 @@ $ NOTE: suppress for ts/s demo
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts 
 	$ (thus this must come before deaffrication -- moved earlier) 
 	$ CORRECTION: actually we move all of s565-7 here
-$ NOTE: suppress lo for ts/s demo, move s565-7 back to where it is in baseclef.
+$ NOTE: suppress for ts/s demo, move s565-7 back to where it is in baseclef.
 [+prim] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
+$ NOTE: suppress for ts/s demo. 
 t͡s > ∅ / __ [+cons] 
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
