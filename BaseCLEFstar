@@ -66,6 +66,11 @@ $p144 s359 ~ p73 s156iii --- rs > s after long vowels, > ss after short vowels
 [+cor,+son,-nas,-lat] > ∅ / [+syl] [+syl] __ s
 [+cor,+son,-nas,-lat] > s / [+syl,-long] __ s
 
+$ CORRECTION: stressed i + e > iː x (pietatem type lexemes affected)
+	$ needs to bleed any detensing that occurs via Pope s154i
+	$ may have appearance of overfitting but Pope explicitly notes case of pitie' as pixt- thus implying this.
+[+hi,+front,+stres] e > [+long] x / __ [-nas]
+
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
 [+syl,-lo,-long] > [-tense]
@@ -266,6 +271,11 @@ k > c / __ c
 $p127 s296ii : palatalization of k blocked if coming after secondarily stressed velar vowel
 $ ... and before intertonic unstressed e when coming from /ɪ/ (< /i/)  
 c > k / [+back,+stres,-prim] __ e ([-syl])* [+prim] 
+
+$ CORRECTION : l deleted when immediately before ɲ 
+$ she actually has the effects of this in her citation forms for Late Latin (s686) 
+ $ -- but she doesn't explicitly state it. 
+[+lat] > ∅ / __ [+nas] ʝ
 
 $CORRECTION: opening of voiced velar and palatal stops intervocalically occurs early enough to get into Pope's sound tables.
 [-cont,+hi,+voi] > [+cont] / [-cons] __ {[+son,-lat,-nas];ʝ}
@@ -751,6 +761,10 @@ $ Pope s351 : affricate tsj voices and depalatalizes when it is about to comes i
 	$ Pope attributes it technically to the "consonant group"
 d̪ t͡sʲ > d͡z / __ ə 
 
+$ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
+$ exemplified but not explained in forms in s669
+ð > d̪ / [+lat] __
+
 $ s350 -- ... and t "immediately" voices if it comes into contact (by the previous rule) 
 $ with a PRECEDING b, β or ʝ
 t̪ > d̪ / [+lab,+voi,-hi,+cons,-nas] __ 
@@ -775,7 +789,7 @@ $ appears to resolve in EARLY OLD FRENCH, concurrent with degemination
 [+lab,-nas,-round,+cons] > d̪ / __ [-cont,+cor,+voi] 
 [+lab,-nas,-round,+cons] > s / __ s
 
-$s371 nasal cluster assimilation 
+$s371 nasal cluster assimilation recurrence
 {m n̪;n̪ m;m b} > {m m;m m;m m}
 
 $removal of geminates resulting from assimilations in 3+ consonant clusters
@@ -800,7 +814,8 @@ $ as per s197-198 -- not "blocked", including word final, followed by vowel, fol
 $ followed by cons + vowel, or followed by plosive + l/r
 $ note as per p53 s100, note that Pope does not consider glides to be consonants 
 	$ but to be fair she specifies  "in hiatus with a following vowel" -- and all her examples feature
-		$ hiatus with syllabic vowels, not semivowels$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
+		$ hiatus with syllabic vowels, not semivowels
+$ CORRECTION : shortening function operates before [-syl] rather [+cons] (and then # or non-sonorant [+cons] )	
 [+syl] > [-long] / __ [-syl] # 
 [+syl] > [-long] / __ [-syl] [+cons]
 [-prim] > [-long]
