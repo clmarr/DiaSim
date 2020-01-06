@@ -1617,7 +1617,7 @@ $CORRECTION: s256 moved much earlier.
 $s355-357 open word finals again if unsupported 
 [-delrel] > [+cont] / [-cons] __ # 
 
-$ CORRECTION : ɸ > f
+$ CORRECTION : ɸ > f (also in BaseCLEFstar)
 ɸ > f
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
@@ -1641,25 +1641,20 @@ $ s165-3 ~ s206 : devoicing of all final consonants that have become final -- op
 $ she says "all consonants but doesn't list the sonorants -- so we say non-sonorants
 [-son] > [-voi] / __ #
 
-$ CORRECTION: ɣw emits a following v when before r (sequere >>>>> suiVre)
-∅ > v / ɣ w __ r
-
-$ CORRECTION: ˈi e̯ ɣ w > ˈʉ e̯ j / @ __ (suit, sui(s), suie...) 
-ˈi e̯ ɣ w > ˈʉ e̯ j / @ __
-
-$ CORRECTION: ɣ > e̯ / ˌa __ (ˌaɣwˈie̯r > ˌae̯wˈie̯r >> e'vier)
-ɣ > e̯ / ˌa __
-
-$ CORRECTION: ˈa e̯ ɣ > ˈaː j / __ w (case of aqua >>> aiue >>> eaue, aquas >>> aiues >>> eaues >>> eaux) 
-	$ CORRECTION: remove __ w context and change to generic velar fric to handle also vera:cum > vrai (not vrec--- tho this yields the same ultimate modern result)
-ˈa e̯ [+back,-round,-son] > ˈa j
-
-$ CORRECTION: ɣ w > j v (ive, antif, antive)
+$ CORRECTION: Least overfit interpretation possible for how to get Pope's akwa>iaue>eaue thing to work with the data
+$ First:  ˈa e̯ ɣ > ˈa j / __ w (case of aqua >>> aiue >>> eaue, aquas >>> aiues >>> eaues >>> eaux) 
+$ (this also handles vera:cum > vrai (not vrec)
+e̯ [+back,-round,-son] > j / ˈa __
+$ Second: w, possibly with following schwa, is nullified before on an obstruent and after gamma
+	$ (suis, suit)
+{w ə;w} > {∅;∅} / ɣ __ [-son]
+$ Third: 'i (probably via ɯ) becomes ʉ before e̯ɣC, under assimilative influence of ɣ (> ɯ, then to nearest phoneme at that time, ʉ) 
+$ this one may have to be suppressed as although it is highly predictive, it could also be explained by analogy
+	$ cases: suivre, suis, suie, suit...
+ˈi > ˈʉ / __ e̯ ɣ [+cons] 
+$ Fourth: remaining ɣw > jv (e'vier, ive, antive, antif, suivre, sive)
 ɣ w > j v 
-
-$ CORRECTION : w > v / [+lo] e̯ __ [-cons] ( case of aquarium > ˌae̯wˈie̯r > ˌae̯vˈie̯r > evje) 
-$ does not happen for ie̯ which ends up forming ie̯w > jew > j
-w > v / [+lo] e̯ __ [-cons]
+$ (rule for e'vier not e`vier deleted for overfitting) 
 
 $ CORRECTION: Old length distinction lost at this point, to be replaced by new one where
 	$ length arises from compensatory lengthening due to the deletion of praeconsonantal fricatives
@@ -1670,12 +1665,12 @@ $ s231-3 : Pope is very unsure of the fate of a e̯ when it did not become aj be
 $ a e̯ >"e e̯ " (we interpret as long eː) except various places it was bled (after palatal cons, before palatal cons, before nasals, before /w/) 
 $ syllable length rules of Gallo-Roman (open and stressed =long, else =short) must no longer be effective after this point. 
 $ Buckley criticizes this paradigm from Pope.
-$ CORRECTION: moved miuch later as it feeds other phenomena like aqua > eau after eː becomes diphthongized and thus is no longer productive, 
+$ CORRECTION: moved much later as it counterfeeds other phenomena like aqua > eau after eː becomes diphthongized and thus is no longer productive, 
 	$ else a e̯ becomes oj > wa 
 $ CORRECTION: but it needs to be before ae > aj / __ N
 {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː}
  
-$ CORRECTION : deletion of w internal in remaining cons clusters
+$ CORRECTION : deletion of w internal in remaining cons clusters (fits with general cluster rules)
 w > ∅ / [+cons] __ [+cons] 
  
 $ CORRECTION: s327 deleted from here as entire set of rules pertaining to 
@@ -1684,20 +1679,21 @@ $ CORRECTION: s327 deleted from here as entire set of rules pertaining to
 $ CORRECTION s328 unnecessary -- deleted
 $  {ɛ;ˌɛ;ˈɛ;ˈɛː} > {i e̯;ˌi e̯;ˈi e̯;ˈi e̯} / __ ʝ w
  
-$ CORRECTION: s329 deleted as entire set of rules handling  ɣʷ reformulated
+$ CORRECTION: s329 deleted as entire set of rules handling  ɣʷ moved earlier.
 
 $ s 192ii :  ɣʷ at beginning of word to ɡ if this is still around.. 
 ɣʷ > ɡ / # __  
 
 $s355-357 close if became supported
-$ CORRECTION: this is moved down to come after the -xw- handling phenomena
+$ CORRECTION: this is moved later to come after the -xw- handling phenomena
 [+cont,-son,-strid] > [-delrel] / [+cons] __ #
 
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
 
 $ s357 x palatalizes after tonic a, i. However, neither is raised. 
-$ CORRECTION: x also palatalizes after ae̯, aj and ie̯ -- so allow one front glide in between
+$ CORRECTION: x also palatalizes after ae̯, aj and ie̯ \
+	$ -- so allow one front glide in between
 x > ç / [+lo,+front,+prim] ([-cons,-syl,+front]) __ #
 x > ç / [+hi,+front,+prim] ([-cons,-syl,+front]) __ #
 
@@ -1708,8 +1704,8 @@ $ s357, s359, s324, s325: ç merges into ʝ
 ç > ʝ
 
 $ s372ii t,d become edh before r,l,n,m
-$ CORRECTED -- Pope missed that this only happens after vowels
-$ CORRECTED -- moved back so that this can be blocked in former post velar enviroments (i.e. pictorina > poitrine not poirine) 
+$ CORRECTED -- Pope missed that this only happens after vowels (so restrict context)
+$ CORRECTED -- moved later so that this can be blocked in former post velar enviroments (i.e. pictorina > poitrine not poirine) 
 [-delrel,+cor] > ð / [-cons] __ [+son,+cor] 
 [-delrel,+cor] > ð / [-cons] __ [+nas] 
 
@@ -1799,7 +1795,7 @@ $ CORRECTION: dental fricative edh is also deleted before non sonorants
 [+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ ð [-cont]
 ð > ∅ / __ [-cont]
 
-$ CORRECTION: ɣ devoices next to voiceless segments
+$ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
 ɣ > x / __ [-voi]
 
 $ s366 degemination 
@@ -1839,13 +1835,13 @@ $she doesn't seem to mention this being effected by former o,
 ˌe > ˌo / __ [+hi,+round,+prim] 
 
 $ s422 e "intertonic" (i.e. stress-less) moves up to i before palatal consonants (ɲ,ʎ)
-$ CORRECTION : this is moved back, originally in LOF
+$ CORRECTION : this is moved earlier, originally in LOF
 e > i / __ [+hi,+son,+front,+cons]
 
 $s166.9 ~ s383-391 -- "beginnings" of l-vocalization praeconsonantal. 
 $As per Pope s167, "unclear" how much and if the vocalization aspect was present during this period.
 $First attested in 9th century -- s390. 
-$semi-CORRECTION: for simplicity sake, let's not deal wiht lambda- gamma, and just use /ɫ/
+$semi-correction: for simplicity sake, let's not deal wiht lambda- gamma, and just use /ɫ/
 [+lat] > ɫ / __ [+cons]
 
 $s382iv and s384 : but back l becomes ʎ after i (originally Pope has this as lʲ, but Occam's razor as
@@ -1861,7 +1857,8 @@ $ s166.6 ~ s434 ~ s441.1,441.3: first nasalization, effects a and aj, in the 10t
 j > [+nas] / [+lo] __ [+nas,-syl]
 [+lo] > [+nas] / __ [+nas,-syl]
 
-$ CORRECTION: countertonic ˌe to ˌə can bleed second nasalization -- moved before it. 
+$ CORRECTION: countertonic ˌe to ˌə can bleed second nasalization 
+	$ -- moved earlier to before it. 
 $ s166.5 ~ ~s223 ~ s234-235 reduction of ˌe > schwa when free. 
 $ Due to increasing weight of stressed syllables. 
 $ Attributed in the late 11th century via a letter of Anne of Russia, see s235
@@ -1875,7 +1872,7 @@ $ CORRECTION: reversals include ə > ˌɛ before lə (pelerin, celle, celles... 
 	$ s684 -- Pope definitely does not accomodate this, and has an explicitly different view of the development of pelerin 
 		$ which she cites as pˌələri:n in Old French and only getting /ˌɛ/ in Middle French 
 			$ -- yet she never explains anywhere this purported ˌə > ˌɛ shift. 
-		$ CORRECTION: expand to all non-round syllabics
+		$ CORRECTION: expand post-post-context to all non-round syllabics
 ˌə > ˌɛ / __ l [+syl,-round]
 
 $ CORRECTION: ˌə > ˌe before r then anything but a : peril, derriere, Jerome, paresse
@@ -1899,7 +1896,7 @@ $ CORRECTION : but only if it is not the final syllable
 	$ (hence all the verb -ent endings remain non-nasalized schwas)
 ə > e / __ [+nas] [-nas,+cons] ([-syl])* [+syl]
 
-$ CORRECTION: rounding of ˈe to ˈo before j is early when preceded by a voiced labial consonant
+$ CORRECTION: rounding of ˈe to ˈo before j is *early* when preceded by a voiced labial consonant
 ˈe > ˈo / [+lab,+voi] __ j
 
 $s405-406 ɲ final > j ɲ when after a e (not ɛ or ie) u (<o) or y.
@@ -1907,7 +1904,7 @@ $ called "Early Old French" by Pope (s406)
 ∅ > j̃ / [+tense,+syl] __ ɲ # 
 
 $s407i : glide develops between e tonic or countertonic and ɲ intervocalic  
-$ CORRECTION: /ɛ/ to also be included in this
+$ CORRECTION: /ɛ/ as prior context also sees this happen
 $ that it is here can be evidenced by Pope's tables. 
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 
@@ -1941,7 +1938,7 @@ $ CORRECTION: this doesn't happen when ow is also preceded by a voiced labial co
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
-$ CORRECTED -- seems to happen immediately before u>y, 
+$ CORRECTED -- seems to happen immediately before (u>y) [speaking in terms of context, not date]
 	$ and for u>y and o>u seems to happen before alveopalatal affricates, and nasals.
 ˌo >ˌə / __ [+prim,+hi,+round,-back]
 ˌo >ˌə / __ [-syl,+nas,+cons] [+tense,+prim,+round]
@@ -1997,6 +1994,7 @@ $ Pope s372 : ð occasionally assimilated to r but when it did and didnˌt was
 $ CORRECTION: moved from Later Old French to here so it is before effacement of z 
 $ CORRECTION: ð goes to z before n specifically when r is on otherside of syllable, and is followed by n 
 $ CORRECTION: ð is simply deleted without going to z if between non-primary stressed vowel and m
+$ (borne one looks like overfitting -- but is unchanged from the baseline.)
 ð > ∅ / [-prim] __ m
 ð > z / __ m
 ð > z / r [+syl] __ n̪
