@@ -870,7 +870,7 @@ public class DiachronicSimulator {
 
 		System.out.println("Overall accuracy : "+ea.getAccuracy());
 		System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
-		System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
+		System.out.println("Accuracy within 2 phones: "+ea.getPctWithin2());
 		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 		
@@ -1170,7 +1170,7 @@ public class DiachronicSimulator {
 						
 						System.out.println("Overall accuracy : "+ea.getAccuracy());
 						System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
-						System.out.println("Accuracy within 2 phone: "+ea.getPctWithin2());
+						System.out.println("Accuracy within 2 phones: "+ea.getPctWithin2());
 						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
 						System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
 					}

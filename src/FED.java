@@ -27,13 +27,19 @@ public class FED {
 	
 	public void compute(LexPhon l1, LexPhon l2)
 	{
-		SequentialPhonic[] s1 = l1.getPhOnlySeq(), s2 = l2.getPhOnlySeq();
+		SequentialPhonic[] s1 = l1.getPhOnlySeq(), s2 = l2.getPhOnlySeq ();
 		len1 = s1.length; len2= s2.length; 
 		
+		// dynamic programming 
 		double[][] matr = new double[len1+1][len2+1];
+			//matr -- each row corresponds to a spot between phones in l1, advancing past it means aligning (or inserting/deleting) that phone
+			// likewise each column has the same relationship to its respective phone in l2
 		String[][] backtraces = new String[len1+1][len2+1]; 
+			//with the same correspondences as in matr
+			// each cell contains the coordinates of the previous cell in the path of minimum cost to that cell
+					//from the origin
 		
-		//i-1 in s1/s2 corresponds to i in the matrix indices and etc
+		//i-1 in s1/s2 corresponds to matrix index i and etc
 		
 		// initialize
 		for(int i = 1; i < len1 + 1; i++)
@@ -52,17 +58,17 @@ public class FED {
 				double[] cands = new double[]{matr[i-1][j-1] + subst_cost(s1[i-1],s2[j-1]),  
 						matr[i-1][j] + isdl_cost(s1,i-1),
 								matr[i][j-1] + isdl_cost(s2,j-1)};
-				if (cands[0] < cands[1] && cands[0] < cands[2])
+				if (cands[0] < cands[1] && cands[0] < cands[2]) //alignment i.e. "substitution"
 				{
 					matr[i][j] = cands[0];
-					backtraces[i][j] = ""+(i-1)+","+(j-1);
+					backtraces[i][j] = ""+(i-1)+","+(j-1); 
 				}
-				else if (cands[1] < cands[2])	
+				else if (cands[1] < cands[2])	//insertion/deletion
 				{
 					matr[i][j] = cands[1];
 					backtraces[i][j] = ""+(i-1)+","+j;
 				}
-				else
+				else //deletion/insertion
 				{
 					matr[i][j] = cands[2];
 					backtraces[i][j] = ""+i+","+(j-1);
@@ -78,6 +84,7 @@ public class FED {
 		
 		if (ib != jb)
 		{
+			// reformulate this...
 			if (ib < jb)
 				for(int ip = jb; ip > ib; ip--)	last_min_alignment[ip-1][0] = -2;
 			else
@@ -87,7 +94,9 @@ public class FED {
 		while (ib > 0 && jb > 0)
 		{
 			int i = Integer.parseInt(backtraces[ib][jb].split(",")[0]),
-					j = Integer.parseInt(backtraces[ib][jb].split(",")[1]); 
+					j = Integer.parseInt(backtraces[ib][jb].split(",")[1]);
+			// i, j -- coordinates of previous cell on path of least cost. 
+			
 			if (i == ib - 1 && j == jb - 1)
 			{
 				last_min_alignment[ib-1][0] = j; 
@@ -117,7 +126,7 @@ public class FED {
 	{	return last_min_dist;	}
 	
 	// returns minimum FED alignment array 
-		// whereby each place indicates what hte aligned index of that place in the seq1 (usually res)
+		// whereby each place indicates what the aligned index of that place in the seq1 (usually res)
 		// is for the seq2 (usually gold)
 		// and vice versa
 		// -1 means aligned to null phone

@@ -292,7 +292,6 @@ n̪ > ɾ / r ( ə ) __ ə
 ə̯ > ə / [-cont] r __ [+cons]
 ə̯ > ə / [-lat,+cons] l __ [+cons]
 ə̯ > ∅ 
-ˈʉ o̯ > ˈoː / __ [+ant,+distr] [+son,+cons]
 d̪ t͡sʲ > d͡z / __ ə
 ð > d̪ / [+lat] __ 
 ð > d̪ / [-cont,+lab] __ 
@@ -304,8 +303,6 @@ k > ∅ / __ t͡sʲ
 [+cor,+ant,+front] > [+voi] / [+back,+syl] ʝ __ [-cons]
 [+cor,+ant,+front] > [+voi] / [+lo] ʝ __ [-cons]
 ʝ > j / __ ( [-syl] )* #
-ə > t̪ / r __ [+delrel,-voi]
-t̪ > ∅ / __ r t̪ [+delrel]
 ∅ > ə / [+cons,-son] [+son,-syl] __ #
 ∅ > ə / [+cons,-nas] [+nas] __ #
 ∅ > ə / [+cons] ɲ __ #
@@ -441,12 +438,10 @@ a > ə / [+syl] ( [-syl] )* __
 ɲ > ∅ / __ ɲ
 ɲ > j̃ n̪ / __ [+cons]
 [-son] > [-voi] / __ #
-∅ > v / ɣ w __ r
-ˈi e̯ ɣ w > ˈʉ e̯ j / @ __ 
-ɣ > e̯ / ˌa __ 
-ˈa e̯ [+back,-round,-son] > ˈa j
+e̯ [+back,-round,-son] > j/ ˈa __ 
+{w ə;w} > {∅;∅} / ɣ __ [-son]
+ˈi > ˈʉ / __ e̯ ɣ [+cons]
 ɣ w > j v 
-w > v / [+lo] e̯ __ [-cons]
 [+syl] > [-long,-splng] 
 {a e̯;ˌa e̯;ˈa e̯} > {eː;ˌeː;ˈeː} 
 w > ∅ / [+cons] __ [+cons]
@@ -550,7 +545,6 @@ z > ∅ / __ d̪
 z > ∅ / __ [+cons]
 ˈo > ˈe / __ w
 [+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
-ˌo > ˌe / d͡ʒ __ w
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
 ˌo > ˌɔ / __ [+cons,+cor,+son] ˈa
 ˌo > ˌɔ / __ [+cons,+cor,+son] ˈɛ
@@ -565,7 +559,6 @@ j > ɛ̯ / [+syl,+back,+round] __ r
 ∅ > j̃ / [-hi,-lo,-round,+stres] __ ɲ [+syl]
 ∅ > j / [+hi,+front,+round,+stres] __ ʎ [+syl]
 ∅ > j̃ / [+hi,+front,+round,+stres] __ ɲ [+syl]
-ˈi e̯ [-cons,-syl,+hi,-round] > ˈiː/ [+cons,+hi,+front] __ 
 [+front,-hi,-lo,+syl,+nas] > [-tense,-cons,-lat,+cont,0delrel] 
 e̯ > ø̯ / [+hi,+round] __ [+son,+back]
 k > ɡ / # __ [+cor,+son] [+lo]
@@ -585,6 +578,7 @@ lʲ > ∅
 ˌe > ˌɛ / __ r [+syl]
 t͡s > s / __ [-cor,+cons]
 [-distr,+strid,-voi] > x / [-cons] __ [+cons]
+ˈu > ˈʌ / __ j [+ant,+voi,+distr] ( r ) ə
 ˈʌ > ˈu / [+lab] ( r )* __ 
 {ˈi e̯;ˌɛ a̯;ˈɛ a̯;ˈy ø̯} > {j ˈe;e̯ ˌa;e̯ ˈa;ɥ ˈø} 
 ˌɛ > ˌa / [+lab,-strid,+cons] __ r #
@@ -596,7 +590,6 @@ t͡s > s / __ [-cor,+cons]
 ˌe > ˌə / __ ( [+cons,+son] ) [+syl]
 r r > r 
 ˌɛ > ˌe / __ [+cont,-lat,-nas,+voi] [+syl]
-ˌe > ˌə / __ [+cont] [+prim,+front,-hi,-lo]
 ˈʌ > ˈa 
 [+syl,-round,-hi] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j [+cons]
 [+lo] > [-lo,-tense,-cons,-lat,+cont,0delrel] / __ j #

@@ -132,9 +132,8 @@ public class ErrorAnalysis {
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
-			if (!theRes.getByID(i).print().equals(ABS_PR))
-			{
-				
+			if (!theRes.getByID(i).print().equals(ABS_PR) && !theGold.getByID(i).print().equals(ABS_PR))
+			{	
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
 				numHits += (levDists[i] == 0) ? 1 : 0; 
@@ -606,8 +605,18 @@ public class ErrorAnalysis {
 	//TODO replace with actual alignment algorithm
 	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
 	{
+		//TODO debugging
+		System.out.println("r: "+r+"; g "+g);
+		
+		
 		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
-		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this.. 
+		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this..
+		
+		//TODO debugging
+		System.out.println("align_stipul: "); 
+		for (int asi = 0; asi < align_stipul.length ; asi++)
+			System.out.println(UTILS.print1dIntArr(align_stipul[asi])); 
+		
 		SequentialPhonic[] rphs = r.getPhOnlySeq(), gphs = g.getPhOnlySeq(); 
 
 		int al_len = rphs.length;
@@ -853,7 +862,7 @@ public class ErrorAnalysis {
 	{
 		String output = "Analysis for "+(use_gold ? "Gold" : "Result")+"/n";
 		
-		System.out.println("Average feature edit distance from gold: "+getAvgFED());
+		// System.out.println("Average feature edit distance from gold: "+getAvgFED());
 		
 		output += "Overall accuracy : "+getAccuracy()+"\n";
 		output += "Accuracy within 1 phone: "+getPctWithin1()+"%\n"; 
