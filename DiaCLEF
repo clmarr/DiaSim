@@ -1082,8 +1082,9 @@ $ CORRECTION: nə,ra,rə (əna never will be generated)
 	$ as long as neither of hte next two segs are hi
 [+cor,+son,-hi] [+syl,-stres] > ɾ ə / [+syl] __ [+cons,+cont,-cor] [+son,-lat,-hi]
 
-$ CORRECTION: tap is whistled between labial continuants
-ɾ ə > z / [+cont,+lab] __ [+cont,+lab]
+$ CORRECTION: recurrence of tap whistling as dissimilation from prior r at prior syllable onset
+$ PRUNED: appears to have only one example at the moment, Jero^me. 
+$ ɾ ə > z / r [+syl] __ 
 
 $ s256 : ə effaced before unstressed a becomes the new ə, but retained in specific places (s256-259):  
 ə > ə̯
@@ -2465,17 +2466,17 @@ $ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss)
 	$ as there are clearly different results
 	$ as there is no length where the affricate formerly followed. 
 $ NOTE: suppress for ts/s demo
-[+front,-round,+syl] > [+long] / __ s ə #
+$ [+front,-round,+syl] > [+long] / __ s ə #
 
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts 
 	$ (thus this must come before deaffrication -- moved earlier) 
 	$ CORRECTION: actually we move all of s565-7 (earlier to) here
 $ NOTE: suppress for ts/s demo, move s565-7 back to where it is in baseclef.
-[+prim] > [+long] / __ s #
+$ [+prim] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
 $ NOTE: suppress for ts/s demo. 
-t͡s > ∅ / __ [+cons] 
+$ t͡s > ∅ / __ [+cons] 
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
@@ -2816,7 +2817,7 @@ $ CORRECTION: lengthening before final s moved earlier.
 $NOTE: original rule of Pope here following used only for ts/s demo, 
 	$otherwise suppress. 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
-$ [+front,-round,+syl] > [+long] / __ s ə #
+[+front,-round,+syl] > [+long] / __ s ə #
 
 $ s173.1b ~ 576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
 $ not accepted by Peletier, Lanoue oscilates, Baif oscilates

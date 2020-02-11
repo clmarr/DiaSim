@@ -324,7 +324,13 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < alignedForms.length ; i++)
 		{
-			String r = alignedForms[i][0].print(), g = alignedForms[i][1].print(); 
+			//TODO debugging
+			System.out.println("i "+i+" ( len = "+alignedForms.length+")");
+			
+			String r = alignedForms[i][0].print(), g = alignedForms[i][1].print();
+			
+			//TODO debugging
+			System.out.println("r "+r+", g "+g);
 			
 			if(!"#∅".contains(r))	errorsByResPhone[resPhInds.get(r)] += 1; 
 			if(!"#∅".contains(g))	errorsByGoldPhone[goldPhInds.get(g)] += 1;
@@ -556,8 +562,6 @@ public class ErrorAnalysis {
 			}
 		} 
 		
-		
-		
 		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_confusion_instances,0.2)); 
 		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
 		out.addAll(ctxtPrognose("posterior",posteriorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
@@ -607,10 +611,65 @@ public class ErrorAnalysis {
 	{
 		//TODO debugging
 		System.out.println("r: "+r+"; g "+g);
+
+		featDist.compute(r,g); //TODO may need to change insertion/deletion weight here!
+		int[][] trace = featDist.get_last_backtrace();
+		        // goes "forward" from onset to coda -- unlike direction of backtrace!!
+
+		SequentialPhonic[] rphs = r.getPhOnlySeq(), gphs = g.getPhOnlySeq();
+
+		int rlen = rphs.length , glen = gphs.length;
+
+		SequentialPhonic[][] out = new SequentialPhonic[trace.length][2];
+
+		int ari = trace[0][0], agi = trace[0][1];
+
+		assert ari == 0 && agi == 0:    "ERROR: ari and agi should both start as 0 but ari is "+ari+" and agi is "+agi;
+
+		//TODO debugging
+		System.out.println("Trace length : "+trace.length);
 		
+		for (int tri = 1; tri <= trace.length ; tri++)
+		{	
+			//tri == trace.length for the special case of the last step.
+			int rtri = (tri == trace.length) ? rlen : trace[tri][0], 
+					gtri = (tri == trace.length) ? glen : trace[tri][1];
+			
+			//TODO debugging
+			System.out.println("ari "+ari+"; rtri "+rtri+"; agi "+agi+"; gtri "+gtri+"; tri "+tri);
+			
+			assert rtri != ari || gtri != agi : "Two null phones matched to each other at trace index "+tri;
+			if (rtri == ari)	out[tri-1][0] = new NullPhone();
+			else {
+			    assert rtri == ari + 1 : "error in trace: rtri = "+rtri+" coming after ari = "+ari;
+			    out[tri-1][0] = rphs[ari]; ari++;
+			}
+			if (gtri == agi)	out[tri-1][1] = new NullPhone(); 
+			else {
+				assert gtri == agi + 1 : "error in trace : gtri = "+gtri+" coming after agi = "+agi;
+				out[tri-1][1] = gphs[agi] ; agi++; 
+			}
+		}
+
+		//handle the last step. 
+		
+		assert ari == rlen : "Error: failed to reach res end at "+rlen+" of rphs (at ari = "+ari+")";
+		assert agi == glen : "Error: failed to reach gold end at "+glen+" of gphs (at agi = "+agi+")";
+
+		//TODO debugging
+		System.out.println("Returning... ");
+		
+		return out;
+	}
+	/** obselete version of above class -- unnecessary and excessive. 
+	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
+	{
+		//TODO debugging
+		System.out.println("r: "+r+"; g "+g);
 		
 		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
 		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this..
+			// nested index [0] -- location (or non-location for -1, -2)
 		
 		//TODO debugging
 		System.out.println("align_stipul: "); 
@@ -624,31 +683,36 @@ public class ErrorAnalysis {
 			if (align_stipul[a][1] == -1)	al_len++; 
 		
 		SequentialPhonic[][] out = new SequentialPhonic[al_len][2]; 
-		int ari = 0, agi = 0;
+		int ari = 0, agi = 0; 
+		
+		//comments conceptualize the alignment relationship as a "transformation of the result to the gold" 
 		
 		for(int oi = 0 ; oi < al_len; oi++)
 		{
-			if (align_stipul[ari][0] == -1)
+			//TODO debugging
+			System.out.println("ari "+ari+"; agi "+agi+"; oi "+oi);
+			
+			if (align_stipul[ari][0] == -1) // deletion of phone at place <ari> in result
 			{
 				out[oi][0] = rphs[ari]; ari++;
 				out[oi][1] = new NullPhone(); 
 			}
-			else if (align_stipul[ari][0] == -2)
+			else if (align_stipul[ari][0] == -2) //deletion of result phone next to word boundary
 			{
 				out[oi][0] = new NullPhone(); ari++; 
 				out[oi][1] = gphs[agi]; agi++; 
 			}
-			else if (align_stipul[agi][1] == -1)
+			else if (align_stipul[agi][1] == -1) //insertion of phone at place <agi> in gold
 			{
 				out[oi][0] = new NullPhone(); 
 				out[oi][1] = gphs[agi]; agi++;
 			}
-			else if (align_stipul[agi][1] == -2)
+			else if (align_stipul[agi][1] == -2) // insertion at boundary for gold 
 			{
 				out[oi][0] = rphs[ari]; ari++; 
 				out[oi][1] = new NullPhone(); agi++; 
 			}
-			else //backtrace must be diagonal -- meaning a substitution occurred, or they are identical
+			else //this means backtrace must be diagonal -- meaning a substitution occurred, or they are identical
 			{
 				out[oi][0] = rphs[ari]; ari++; //this should be true before ari is incremented : ari == align_stipul[agi]
 				out[oi][1] = gphs[agi]; agi++; // same for agi == align_stipul[ari]
@@ -656,7 +720,7 @@ public class ErrorAnalysis {
 		}
 		
 		return out;
-	}
+	}*/ 
 
 	//auxiliary
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm

@@ -7,7 +7,8 @@ public class FED {
 	
 	public static double last_min_dist, isdl_wt;
 	
-	private static int[][] last_min_alignment; 
+	private static int[][] last_min_alignment;
+	private static int[][] last_backtrace; 
 	private static int n_feats;
 	
 	private static final boolean CONTEXTUALIZE_ISDL = true; 
@@ -39,7 +40,9 @@ public class FED {
 			// each cell contains the coordinates of the previous cell in the path of minimum cost to that cell
 					//from the origin
 		
-		//i-1 in s1/s2 corresponds to matrix index i and etc
+		//IMPORTANT: 
+		//i-1 in s1/s2 (the SequentialPhonic arrays as declared at the top)
+			// corresponds to matrix index i and etc
 		
 		// initialize
 		for(int i = 1; i < len1 + 1; i++)
@@ -77,8 +80,10 @@ public class FED {
 		}
 		last_min_dist = matr[len1][len2] / (double)n_feats; 
 		
-		//backtrace to get the alignment
+		last_backtrace = last_backtrace_array(backtraces); 
+		
 		last_min_alignment = new int[Math.max(len1,len2)][2]; 
+		
 		
 		int ib = len1, jb= len2 ; //effectively -1+1 because an extra entry row and col were added
 		
@@ -93,7 +98,7 @@ public class FED {
 		
 		while (ib > 0 && jb > 0)
 		{
-			int i = Integer.parseInt(backtraces[ib][jb].split(",")[0]),
+			int i = Integer.parseInt(backtraces[ib][jb].split(",")[0]), 
 					j = Integer.parseInt(backtraces[ib][jb].split(",")[1]);
 			// i, j -- coordinates of previous cell on path of least cost. 
 			
@@ -134,6 +139,11 @@ public class FED {
 	public int[][] get_min_alignment()
 	{
 		return last_min_alignment;
+	}
+	
+	public int[][] get_last_backtrace()
+	{
+		return last_backtrace;
 	}
 	
 	// @param(isdl_wt) : insertion/deletion weight
@@ -189,6 +199,45 @@ public class FED {
 			sum += (double)Math.abs(Integer.parseInt(p1fts[i]+"") - Integer.parseInt(""+p2fts[i])) / 2.0
 				* (weighted ? weights[i] : 1.0 );
 		return sum;
+	}
+	
+	
+	//auxiliary.
+	// backtrace steps are returned "forwards" (i.e. form word onset to word coda)
+		// this is actually "backwards" with respect to the actual backtrace though!)
+	private int[][] last_backtrace_array(String[][] btm) // btm -- back trace matrix
+	{
+		int bsteps_left = number_backtrace_steps(btm); 
+		int[][] out = new int[bsteps_left][2] ; 
+		
+		String[] source = btm[btm.length-1][btm[0].length-1].split(","); 
+		out[bsteps_left-1][0] = Integer.parseInt(source[0]); 
+		out[bsteps_left-1][1] = Integer.parseInt(source[1]); 
+		bsteps_left--;
+		
+		while (bsteps_left > 0)
+		{
+			source = btm[out[bsteps_left][0]][out[bsteps_left][1]].split(",");
+			out[bsteps_left-1][0] = Integer.parseInt(source[0]); 
+			out[bsteps_left-1][1] = Integer.parseInt(source[1]); 
+			bsteps_left--; 
+		}
+		return out; 
+	}
+	
+	//auxiliary. 
+	private int number_backtrace_steps(String[][] backtraceMatrix)
+	{
+		int iback = backtraceMatrix.length - 1, jback = backtraceMatrix[0].length - 1; 
+		int output = 0;
+		while (iback > 0 || jback > 0) 
+		{
+			String[] source = backtraceMatrix[iback][jback].split(","); 
+			iback = Integer.parseInt(source[0]); 
+			jback = Integer.parseInt(source[1]); 
+			output++;
+		}
+		return output; 
 	}
 	
 	
