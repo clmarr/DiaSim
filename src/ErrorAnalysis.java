@@ -324,13 +324,7 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < alignedForms.length ; i++)
 		{
-			//TODO debugging
-			System.out.println("i "+i+" ( len = "+alignedForms.length+")");
-			
 			String r = alignedForms[i][0].print(), g = alignedForms[i][1].print();
-			
-			//TODO debugging
-			System.out.println("r "+r+", g "+g);
 			
 			if(!"#∅".contains(r))	errorsByResPhone[resPhInds.get(r)] += 1; 
 			if(!"#∅".contains(g))	errorsByGoldPhone[goldPhInds.get(g)] += 1;
@@ -609,9 +603,6 @@ public class ErrorAnalysis {
 	//TODO replace with actual alignment algorithm
 	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
 	{
-		//TODO debugging
-		System.out.println("r: "+r+"; g "+g);
-
 		featDist.compute(r,g); //TODO may need to change insertion/deletion weight here!
 		int[][] trace = featDist.get_last_backtrace();
 		        // goes "forward" from onset to coda -- unlike direction of backtrace!!
@@ -626,17 +617,11 @@ public class ErrorAnalysis {
 
 		assert ari == 0 && agi == 0:    "ERROR: ari and agi should both start as 0 but ari is "+ari+" and agi is "+agi;
 
-		//TODO debugging
-		System.out.println("Trace length : "+trace.length);
-		
 		for (int tri = 1; tri <= trace.length ; tri++)
 		{	
 			//tri == trace.length for the special case of the last step.
 			int rtri = (tri == trace.length) ? rlen : trace[tri][0], 
 					gtri = (tri == trace.length) ? glen : trace[tri][1];
-			
-			//TODO debugging
-			System.out.println("ari "+ari+"; rtri "+rtri+"; agi "+agi+"; gtri "+gtri+"; tri "+tri);
 			
 			assert rtri != ari || gtri != agi : "Two null phones matched to each other at trace index "+tri;
 			if (rtri == ari)	out[tri-1][0] = new NullPhone();
@@ -656,9 +641,6 @@ public class ErrorAnalysis {
 		assert ari == rlen : "Error: failed to reach res end at "+rlen+" of rphs (at ari = "+ari+")";
 		assert agi == glen : "Error: failed to reach gold end at "+glen+" of gphs (at agi = "+agi+")";
 
-		//TODO debugging
-		System.out.println("Returning... ");
-		
 		return out;
 	}
 	/** obselete version of above class -- unnecessary and excessive. 
