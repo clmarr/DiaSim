@@ -1,3 +1,5 @@
+TODO finish this!
+
 Variables that must be reset: [reset()]
 
 Functionality of method reset() -- for debugging purposes. 
@@ -12,12 +14,9 @@ rebase() will call reset() however -- so reset is essentially a subset of
 usurpBase() -- functionally a specified case of rebase()
 	in which the former alternate hypothesis becomes the new baseline.
 
-
-
 for reset: 
 	proposedChanges
 	hypCASC
-
 
 for rebase:
 	baseCASC

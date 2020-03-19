@@ -359,7 +359,7 @@ public class DHSWrapper {
 			
 		}
 		//TODO can only remove this once we have adequately tested this...
-	}
+	
 	
 	public DifferentialHypothesisSimulator generateDHS()
 	{

@@ -1129,6 +1129,10 @@ public class DifferentialHypothesisSimulator {
 		while (!reached)
 		{
 			assert pci < lenpc : "ERROR: reached of end of proposedChanges without finding current target of operation."; 
+			
+			//TODO debugging
+			System.out.println("pci : "+pci);
+			
 			int curhi = Integer.parseInt(proposedChs.get(pci)[0]); 
 			assert curhi <= hi : "ERROR: could not find current target of operation in proposedChanges!";
 			reached = (curhi == hi); 
