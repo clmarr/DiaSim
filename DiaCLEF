@@ -195,7 +195,8 @@ $Doesn't seem to happen for -aːre verbs (lava:re)
 $p91 s186: w>beta. Occurred during the 1st and 2nd century ("Nerβa")
 $ CORRECTION : as evidenced by Pope s343 causing errors for 10 words that became β from ɣʷ,
 $ they did not merge this early, and must have merged AFTER that -- instead we send ɣʷ to βʷ 
-ɣʷ > βʷ
+$ NOTE: delete and reinsert the <ʷ> to turn off/on the demo
+ɣʷ > β
 
 $p73 s155iia and pp136-137 ss332-336 and p6 s9 : b > β intervocalically or between vowel and r (s372)
 $According to s336 this occurred very early at least for the bilabial, 2nd century AD 
@@ -510,9 +511,9 @@ $ note that this one will have no targets unless some verb conjugations are adde
 $ Pope ~ p78 s163.7 p139 s343 first effacement of β 
 $ "when it was derived from classic Latin intervocalic b and stood before the vowels u or o or after tonic u" 
 	$ s163:7 says "before labial vowels", as does 343 (though 343 says u or o too) 
-$ CORRECTION : Pope neglects to note that this only happens AFTER other vowels -- i.e. not word-initially. 
+$ (PSEUDO-)CORRECTION : Pope neglects to note that this only happens AFTER other vowels -- i.e. not word-initially. 
 	$ ( w (>βʷ) now not merged into β yet when this rule applies, so it counterfeeds)
-β > ∅ / @ __ [+lab,+syl]
+β > ∅ / __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
 $ CORRECTION: ɸ, ɸʷ deleted if in between consonants.
@@ -578,12 +579,13 @@ $ but BEFORE regressive palatalization of r !
 ɛ > ∅ / __ [+cor,+son,-nas] ([-syl])* [+syl] ([-syl])* #
 
 $ s189 : nβl > mbl -- only relevant for inwolare>embler, an obselete word, it seems though. 
-n β > m b / __ [+lat] 
+$ (PSEUDO-)CORRECTION: modified to hit also βʷ
+n [+cont,+voi,-son,+lab] > m b / __ [+lat] 
 
 $ CORRECTION : β and w are deleted elsewhere when in middle of cluster not following a labial or velar 
 $ (we can use -hi since we assume a palatal cons would not emerge here - -back won't work because of ɫ) 
 $ would appear to be overfitting but this is a mere replication of existing phenomena with other interobstruent consonants
-[+cont,+voi,-syl,+lab] > ∅ / [+cons,-lab,-hi] __ r
+[+cont,+voi,-son,+lab] > ∅ / [+cons,-lab,-hi] __ r
 
 $ action resulting on clusters as formed from this previous rule (s163-3) and from proparoxyton deletion in Late Latin (s262) 
 $ Denasalization -- s369, and glide development s370
@@ -2466,17 +2468,17 @@ $ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss)
 	$ as there are clearly different results
 	$ as there is no length where the affricate formerly followed. 
 $ NOTE: suppress for ts/s demo
-[+front,-round,+syl] > [+long] / __ s ə #
+$ [+front,-round,+syl] > [+long] / __ s ə #
 
 $ CORRECTION: tonic a become long before a pre-coda s but NOT a pre-coda ts 
 	$ (thus this must come before deaffrication -- moved earlier) 
-	$ CORRECTION: actually we move all of s565-7 (earlier to) here
+	$ CORRECTION: actually we move all of s565-7 (earlier to) here 
 $ NOTE: suppress for ts/s demo, move s565-7 back to where it is in baseclef.
 $ [+prim] > [+long] / __ s #
 
 $CORRECTION: t͡s effaced before consonants where it remains (pre-coronal) WITHOUT lengthening.
 $ NOTE: suppress for ts/s demo. 
-t͡s > ∅ / __ [+cons] 
+$ t͡s > ∅ / __ [+cons] 
 
 $ s172b ~ s194 : before end of 13th century, all affricates become sibilants
 [+delrel] > [+cont]
@@ -2817,7 +2819,7 @@ $ CORRECTION: lengthening before final s moved earlier.
 $NOTE: original rule of Pope here following used only for ts/s demo, 
 	$otherwise suppress. 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings (Pope says this happens when /s/ was originally a geminate "ss" --- but ts and ss had merged into s centuries ago as per her chronology)
-$ [+front,-round,+syl] > [+long] / __ s ə #
+[+front,-round,+syl] > [+long] / __ s ə #
 
 $ s173.1b ~ 576 e:, je: >ɛ:, jɛ: before single consonant then ə, or single cons then word coda
 $ not accepted by Peletier, Lanoue oscilates, Baif oscilates

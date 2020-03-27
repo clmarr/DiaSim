@@ -703,7 +703,7 @@ public class DiachronicSimulator {
 	private static void makeOutGraphFile()
 	{	
 		String filename = runPrefix + "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE; 
-		UTILS.writeToFile(filename, theSimulation.outgraph()); 
+		UTILS.writeToFile(filename, theSimulation.outgraph(),true); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
@@ -711,7 +711,7 @@ public class DiachronicSimulator {
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
-		UTILS.writeToFile(filename, output); 
+		UTILS.writeToFile(filename, output,false); 
 	}
 
 	private static void makeDerivationFiles()
@@ -726,7 +726,7 @@ public class DiachronicSimulator {
 				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
 				+ (goldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+theSimulation.getDerivation(wi)+"\n";
-			UTILS.writeToFile(filename, output); 
+			UTILS.writeToFile(filename, output, false); 
 		}
 	}
 	
@@ -1158,7 +1158,7 @@ public class DiachronicSimulator {
 					System.out.print("What results would you like to check? Please enter the appropriate number:\n"
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
 						+ "| 1 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
-						+ "| 2 : Print all corersponding forms as above for all mismatched etyma                 |\n"
+						+ "| 2 : Print all corresponding forms as above for all mismatched etyma                 |\n"
 						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)        |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
 					

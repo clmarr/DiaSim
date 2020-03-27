@@ -68,7 +68,7 @@ public class UTILS {
 	}
 	
 	//auxiliary
-	public static void writeToFile(String filename, String output)
+	public static void writeToFile(String filename, String output, boolean print)
 	{	try 
 		{	
 			int dirBreak = filename.indexOf("/");
