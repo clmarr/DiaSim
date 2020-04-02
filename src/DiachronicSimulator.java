@@ -847,7 +847,7 @@ public class DiachronicSimulator {
 	{
 		List<String> out = new ArrayList<String>();
 		if (blackStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "(black) ":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "b":"")+oi);
 		return out;
 	}
 	
@@ -855,7 +855,7 @@ public class DiachronicSimulator {
 	{
 		List<String> out = new ArrayList<String>();
 		if (goldStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "(gold) ":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
 		return out;
 	}
 	
@@ -1178,7 +1178,7 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								" etyma: Input, " + (ea.isFocSet() ? "FOC: "+focPtName+"," : "")
+								"etyma: Input, " + (ea.isFocSet() ? "FOC: "+focPtName+"," : "")
 								+"Result, Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}

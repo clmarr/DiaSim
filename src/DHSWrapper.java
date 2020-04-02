@@ -324,7 +324,7 @@ public class DHSWrapper {
 					}
 					
 					queryHypOutLoc(inpu); 
-					UTILS.writeToFile(hypOutLoc, toFileOut); 
+					UTILS.writeToFile(hypOutLoc, toFileOut,true); 
 				}
 				else if (choice == '1')
 				{
@@ -893,7 +893,7 @@ public class DHSWrapper {
 	{
 		DifferentialHypothesisSimulator cDHS = generateDHS(); 
 		UTILS.writeToFile(hypOutLoc, 
-				cDHS.newCascText(defaultCmtList(), cmtMode, origCascLoc, FAC)); 
+				cDHS.newCascText(defaultCmtList(), cmtMode, origCascLoc, FAC), true); 
 	}
 	
 	
