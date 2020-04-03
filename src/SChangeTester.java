@@ -197,8 +197,8 @@ public class SChangeTester {
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
 				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə"), "DEBUG"); 
 		scftpTest.setPostContext(testFactory.parseNewSeqFilter("#", true)); 
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j 'u #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t͡ʃ j ə #")) ? 1 : 0 ; 
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ # j 'u #"), testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ j ə #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈu #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t͡ʃ j ə #")) ? 1 : 0 ; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ # j ˈu #"), testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ j ə #")) ? 1 : 0; 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #")) ? 1 : 0; 
 		
 		scftpTest = new SChangeFeatToPhone(featIndices,
