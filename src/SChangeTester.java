@@ -323,12 +323,12 @@ public class SChangeTester {
 		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
 
 		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
-		System.out.println("Trying to forceTruth without initializing the alpha value should result in a caught assertion error"); 
+		System.out.println("Trying to forceTruth without initializing the alpha value should result in a caught UnsetAlphaError"); 
 		
 		boolean caught = false; 
 		try {	fmtest.forceTruth(actOn,0); 		}
-		catch(Throwable e)	{	System.out.println("Assertion caught"); 		}
-		if (!caught)	System.out.println("Uh oh: forceTruth failed to trigger an assertion error!");
+		catch(UnsetAlphaError e)	{	System.out.println("UnsetAlphaError caught"); caught = true;		}
+		if (!caught)	System.out.println("Uh oh: forceTruth failed to trigger an error!");
 		
 		System.out.println("\nNow extract from : "+pfm); 
 		HashMap<String,String> toApply = fmtest.extract_alpha_values(pfm); 

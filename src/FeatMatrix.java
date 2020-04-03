@@ -146,7 +146,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{
 		char nonSet = first_unset_alpha();
-		if( nonSet == '0')
+		if( nonSet != '0')
 			throw new UnsetAlphaError(""+nonSet); 
 		
 		SequentialPhonic patient = patientSeq.get(ind); 
