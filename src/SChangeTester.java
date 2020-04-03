@@ -305,7 +305,7 @@ public class SChangeTester {
 		System.out.println("Default -- no alpha features"); 
 		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",featIndices); 
 		
-		System.out.println("init_charr : "+fmtest.getStrInitChArr()); 
+		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
 		System.out.println("specs : "+fmtest); 
 		System.out.println("has alpha specs? Should be false: "+fmtest.has_alpha_specs());
@@ -315,7 +315,7 @@ public class SChangeTester {
 		
 		System.out.println("\nNow for a feat matrix with one alpha value...");
 		fmtest = new FeatMatrix("ɑstres,+syl",featIndices); 
-		System.out.println("init_char : "+fmtest.getStrInitChArr()); 
+		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
 		System.out.println("specs : "+fmtest); 
 		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());
@@ -334,7 +334,7 @@ public class SChangeTester {
 		HashMap<String,String> toApply = fmtest.extract_alpha_values(pfm); 
 		fmtest.applyAlphaValues(toApply);
 		
-		System.out.println("init_charr : "+fmtest.getStrInitChArr()); 
+		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
 		System.out.println("specs : "+fmtest); 
 		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());

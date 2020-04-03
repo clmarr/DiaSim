@@ -297,15 +297,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	public char first_unset_alpha()
 	{
-		//TODO debugging
-		if (LOCAL_ALPHABET.contains("0"))	System.out.println("'0' in local alphabet!") ; 
-		
 		if (LOCAL_ALPHABET.length() > 0)
 			for (char c : LOCAL_ALPHABET.toCharArray())
 				if(featVect.contains(""+c))	return c; 
-		
-		//TODO debugging
-		System.out.println("no unset alphas!"); 
 		
 		return '0';
 	}
