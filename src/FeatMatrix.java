@@ -44,7 +44,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		init_chArr = new char[ftInds.size()];
 		Arrays.fill(init_chArr, '1');
 		
-		String[] spArr = specs.split(""+FEAT_DELIM); 
+		String[] spArr = specs.split(""+FEAT_DELIM); // one cell each for +delrel (1), -cont (2) etc... 
 		
 		for (int i = 0; i < spArr.length; i++)
 		{	
@@ -63,6 +63,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			int spInd= Integer.parseInt(""+featInds.get(feat)); 
 			init_chArr[spInd] = is_alph ? indic.charAt(0) : 
 				("+".equals(indic) ? '2' : ("0".equals(indic) ? '9' : '0' ));  
+			// thus, after this init_chArr will have 0 for neg specd features, 2 for pos specd features, 9 for despecd features
+			// for alpha specified features, the alpha (or whatever other dummy symbol is used) is left in the vector
+				// until we despecify it later. 
+				//... and meanwhile, we have 1 for those that were untouched. 
+			
 		}
 		featVect = new String(init_chArr); 
 		hasAlphSpecs = LOCAL_ALPHABET.length() > 0; 
@@ -109,6 +114,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public Phone forceTruth(Phone patient)
 	{
 		char nonSet = first_unset_alpha();
+		
 		assert nonSet == '0' :"ERROR: tried to force truth when alpha style symbol '"+nonSet+"' remains uninitialized"; 			
 		
 		Phone output = new Phone(patient); 
@@ -140,7 +146,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{
 		char nonSet = first_unset_alpha();
-		assert nonSet == '0' :"ERROR: tried to force truth when alpha style symbol '"+nonSet+"' remains uninitialized"; 			
+		if( nonSet == '0')
+			throw new UnsetAlphaError(""+nonSet); 
 		
 		SequentialPhonic patient = patientSeq.get(ind); 
 		assert patient.getType().equals("phone"): "ERROR: trying to force cand restrictions on non-phone!";
@@ -285,14 +292,21 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public boolean has_alpha_specs()	{	return hasAlphSpecs;	} 
 	public boolean has_multispec_alph() {	return hasMultispecAlpha;	}
 	
-	// returns '0' if not 
+	// returns '1' if not set
 	// otherwise the first alpha value detected that has not become a number, in featVect
 	@Override
 	public char first_unset_alpha()
 	{
+		//TODO debugging
+		if (LOCAL_ALPHABET.contains("0"))	System.out.println("'0' in local alphabet!") ; 
+		
 		if (LOCAL_ALPHABET.length() > 0)
 			for (char c : LOCAL_ALPHABET.toCharArray())
 				if(featVect.contains(""+c))	return c; 
+		
+		//TODO debugging
+		System.out.println("no unset alphas!"); 
+		
 		return '0';
 	}
 	
