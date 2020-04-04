@@ -22,7 +22,7 @@ public class SChangeFactory {
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String[]> featImplications; 
 	private static Set<String> featsWithImplications; 
-	private static Set<String> featNames; 
+	private static List<String> ordFeatNames; 
 	
 	private final char ARROW = '>'; //separates source target from destination 
 	private final char contextFlag = '/'; //signals the beginning of context specification
@@ -56,10 +56,20 @@ public class SChangeFactory {
 		symbToFeatVects = new HashMap<String, String>(stf);
 		checkForIllegalPhoneSymbols(); 
 		
-		featNames = featInds.keySet();
+		Set<String> featNames = featInds.keySet();
+		ordFeatNames = new ArrayList<String>(featNames); 
 		featIndices = new HashMap<String, Integer>();
-		for(String feat : featNames)
-			featIndices.put(feat, featInds.get(feat)); 
+		for(String feat : featNames) {
+			int ind = featInds.get(feat); 
+			featIndices.put(feat, ind); 
+			while (ind != ordFeatNames.indexOf(feat))
+			{
+				String misplaced_feat = ordFeatNames.remove(ind);
+				ordFeatNames.add(ind, feat); 
+				ind = featInds.get(misplaced_feat); 
+				feat = misplaced_feat; 
+			}
+		}
 		
 		featImplications = new HashMap<String, String[]>(featImpls); 
 		featsWithImplications = featImplications.keySet(); 
@@ -578,7 +588,7 @@ public class SChangeFactory {
 		String[] specs = input.split(""+restrDelim); 
 		
 		for(int si = 0; si < specs.length; si++)	
-			if (!featNames.contains(specs[si].substring(1)))	return false;
+			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
 		return true; 
 	}
 	
@@ -633,11 +643,11 @@ public class SChangeFactory {
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, featIndices, featImplications); 
+			return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
 				
 		assert(!theFeatSpecs.contains("0") || isInputDest): 
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
-		return new FeatMatrix(theFeatSpecs, featIndices, featImplications); 
+		return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
 	}
 	
 	/**	applyImplications
