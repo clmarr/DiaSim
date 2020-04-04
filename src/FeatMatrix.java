@@ -14,12 +14,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private final char FEAT_DELIM = ','; 
 	private String featSpecs, initSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
 		// will always return to initSpecs after alphas are reset. 
-	private HashMap<String,Integer> featInds;
+	private HashMap<String, Integer> featInds;
+	private HashMap<String, String[]> featImpls; 
+	
 	private String LOCAL_ALPHABET; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
-	private boolean hasMultispecAlpha; 
-	
+	private boolean hasMultispecAlpha; 	
 	// DESPECIFICATION -- 
 		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
 		// example: if a vowel goes from -cont to +cont, the feature delrel should be despecified
@@ -30,7 +31,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * version of constructor with featSpecs passed directly
 	 * should be passed with , delimiters and +/- indicators 
 	 */
-	public FeatMatrix(String specs, HashMap<String,Integer> ftInds)
+	// 
+	public FeatMatrix(String specs, HashMap<String,Integer> ftInds, HashMap<String, String[]> ftImpls)
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 		LOCAL_ALPHABET = "";
@@ -40,6 +42,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		initSpecs=specs+""; 
 
 		featInds = new HashMap<String,Integer>(ftInds); 
+		featImpls = ftImpls;
 		
 		init_chArr = new char[ftInds.size()];
 		Arrays.fill(init_chArr, '1');

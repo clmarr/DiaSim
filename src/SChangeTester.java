@@ -133,7 +133,7 @@ public class SChangeTester {
 		
 		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		SChangeFeat scfTest = new SChangeFeat(featIndices, "-voi", "+voi","DEBUG"); 
+		SChangeFeat scfTest = new SChangeFeat(featIndices, "-voi", "+voi","DEBUG",featImplications); 
 		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
 		int numCorrect = 0 ; 
@@ -141,32 +141,32 @@ public class SChangeTester {
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"t"+PH_DELIM+"a"), 
 				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"d"+PH_DELIM+"a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(featIndices, "-nas", "+nas", "DEBUG");
+		scfTest = new SChangeFeat(featIndices, "-nas", "+nas", "DEBUG", featImplications);
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+nas", false)); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("n a b a n a"),
 				testFactory.parseSeqPhSeg("n ã b a n ã")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", featIndices), new NullPhone(), "DEBUG");
+		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", featIndices, featImplications), new NullPhone(), "DEBUG");
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+son", false));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r a l a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl", featIndices), new NullPhone(), "DEBUG"); 
+		scfTest = new SChangeFeat(new FeatMatrix("+syl", featIndices, featImplications), new NullPhone(), "DEBUG"); 
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+syl", boundsMatter));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r e l e")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(featIndices, "-cont,-nas,-lat,-delrel","-voi","DEBUG"); 
+		scfTest = new SChangeFeat(featIndices, "-cont,-nas,-lat,-delrel","-voi","DEBUG", featImplications); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("t i t e ð l a t t o n u r")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", featIndices),
+		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", featIndices, featImplications),
 				new Phone(phoneSymbToFeatsMap.get("q"), featIndices, phoneSymbToFeatsMap),"DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("q i q e ð l a q q o n u r")) ? 1 : 0 ;
 		
 		scfTest = new SChangeFeat(featIndices, "-cont", "+nas,+son,.delrel,+cont",
-				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG");
+				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG", featImplications);
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("b i m b d e n n o"),
 				testFactory.parseSeqPhSeg("b i m b d e n n o")) ? 1 : 0; 
 		
@@ -303,7 +303,7 @@ public class SChangeTester {
 		System.out.println("\nNow testing alpha variable functionality."); 
 		System.out.println("First : testing alpha variable functionality of FeatMatrices."); 
 		System.out.println("Default -- no alpha features"); 
-		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",featIndices); 
+		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",featIndices,featImplications); 
 		
 		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
@@ -314,7 +314,7 @@ public class SChangeTester {
 		System.out.println("features extracted should be 0 : "+fmtest.extract_alpha_values(pfm).keySet().size()); 
 		
 		System.out.println("\nNow for a feat matrix with one alpha value...");
-		fmtest = new FeatMatrix("ɑstres,+syl",featIndices); 
+		fmtest = new FeatMatrix("ɑstres,+syl",featIndices,featImplications); 
 		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
 		System.out.println("specs : "+fmtest); 

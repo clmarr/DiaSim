@@ -6,28 +6,30 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	
 	private boolean need_to_reset;
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm)
-	{	super(ftInds, targSpecs, destSpecs, origForm);	
+	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm, 
+			HashMap<String,String[]> featImpls)
+	{	super(ftInds, targSpecs, destSpecs, origForm, featImpls);	
 		ALPH_VARS = new HashMap<String, String>(); 
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm)
-	{	super(ftInds, targSpecs, destSpecs, bm, origForm);
+	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm,
+			HashMap<String,String[]> featImpls)
+	{	super(ftInds, targSpecs, destSpecs, bm, origForm, featImpls);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			SequentialFilter priors, SequentialFilter postrs, String origForm)
-	{	super(ftInds, targSpecs, destSpecs, priors, postrs,  origForm); 
+			SequentialFilter priors, SequentialFilter postrs, String origForm, HashMap<String,String[]> featImpls)
+	{	super(ftInds, targSpecs, destSpecs, priors, postrs,  origForm, featImpls); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
-	{	super(ftInds, targSpecs, destSpecs, bm, priorContxt, postContxt,  origForm);
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm, HashMap<String,String[]> featImpls)
+	{	super(ftInds, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm, featImpls);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}

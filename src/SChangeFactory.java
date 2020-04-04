@@ -633,11 +633,11 @@ public class SChangeFactory {
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, featIndices); 
+			return new FeatMatrix(theFeatSpecs, featIndices, featImplications); 
 				
 		assert(!theFeatSpecs.contains("0") || isInputDest): 
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
-		return new FeatMatrix(theFeatSpecs, featIndices); 
+		return new FeatMatrix(theFeatSpecs, featIndices, featImplications); 
 	}
 	
 	/**	applyImplications

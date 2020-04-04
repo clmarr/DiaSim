@@ -174,10 +174,10 @@ public class SChangeContextTester {
 		String ft1 = featsByIndex[0], ft2 = featsByIndex[1];
 		Aph.set(ft1,2); Bph.set(ft1, 2); Cph.set(ft1, 0); Dph.set(ft1, 0);
 		Aph.set(ft2, 2); Bph.set(ft2, 0); Cph.set(ft2,2); Dph.set(ft2,0);
-		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featIndices),
-				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featIndices),
-				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featIndices), 
-				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featIndices); 
+		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featIndices, featImplications),
+				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featIndices, featImplications),
+				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featIndices, featImplications), 
+				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featIndices, featImplications); 
 		
 		SequentialFilter testContext = testFactory.parseNewSeqFilter(Afm+"", boundsMatter);
 		dummyTestList.add(Aph); dummyTestList.add(Cph); 

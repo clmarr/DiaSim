@@ -6,18 +6,18 @@ public class SChangeFeat extends SChange {
 	protected RestrictPhone targSource, destination; 
 	
 	//auxiliary for constructors
-	public void initialize(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs)
+	public void initialize(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, HashMap<String,String[]> featImplications)
 	{
 		if(!targSpecs.equals("") && !targSpecs.equals("∅"))
 		{
-			targSource = new FeatMatrix(targSpecs, ftInds); 
+			targSource = new FeatMatrix(targSpecs, ftInds, featImplications); 
 			minTargSize = 1; 
 		}
 		else //i.e. we know source-targ is null if this is reachedpint. 
 			throw new Error("Insertion is not allowed for SChangeFeats -- please use an SChangePhone instead."); 
 		if(!destSpecs.equals("") && !destSpecs.equals("∅"))
 		{	
-			destination = new FeatMatrix(destSpecs, ftInds);
+			destination = new FeatMatrix(destSpecs, ftInds, featImplications);
 		}
 		else	destination = new NullPhone(); 
 	}
@@ -34,21 +34,23 @@ public class SChangeFeat extends SChange {
 	}
 	
 	//constructors follow
-	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm)
-	{	super(origForm); initialize(ftInds, targSpecs, destSpecs); 	}
+	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm,
+			HashMap<String, String[]> featImpls)
+	{	super(origForm); initialize(ftInds, targSpecs, destSpecs, featImpls); 	}
 	
-	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm)
+	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm, 
+			HashMap<String, String[]> featImpls)
 	{
-		super(bm, origForm); initialize(ftInds, targSpecs, destSpecs); 
+		super(bm, origForm); initialize(ftInds, targSpecs, destSpecs, featImpls); 
 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			SequentialFilter priors, SequentialFilter postrs, String origForm)
-	{	super(priors,postrs, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
+			SequentialFilter priors, SequentialFilter postrs, String origForm, HashMap<String,String[]> featImpls)
+	{	super(priors,postrs, origForm); initialize(ftInds, targSpecs, destSpecs, featImpls); 	}
 	
 	public SChangeFeat(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
-			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
-	{	super(priorContxt,postContxt,bm, origForm); initialize(ftInds, targSpecs, destSpecs); 	}
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm, HashMap<String,String[]> featImpls)
+	{	super(priorContxt,postContxt,bm, origForm); initialize(ftInds, targSpecs, destSpecs, featImpls); 	}
 	
 	public SChangeFeat(RestrictPhone source, RestrictPhone dest, String origForm)
 	{	super(origForm); initialize(source,dest); 	}
