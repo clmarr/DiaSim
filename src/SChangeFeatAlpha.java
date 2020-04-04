@@ -6,30 +6,30 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	
 	private boolean need_to_reset;
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, String origForm, 
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, String origForm, 
 			HashMap<String,String[]> featImpls)
-	{	super(ftInds, targSpecs, destSpecs, origForm, featImpls);	
+	{	super(ordFts, targSpecs, destSpecs, origForm, featImpls);	
 		ALPH_VARS = new HashMap<String, String>(); 
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, boolean bm, String origForm,
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, boolean bm, String origForm,
 			HashMap<String,String[]> featImpls)
-	{	super(ftInds, targSpecs, destSpecs, bm, origForm, featImpls);
+	{	super(ordFts, targSpecs, destSpecs, bm, origForm, featImpls);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			SequentialFilter priors, SequentialFilter postrs, String origForm, HashMap<String,String[]> featImpls)
-	{	super(ftInds, targSpecs, destSpecs, priors, postrs,  origForm, featImpls); 
+	{	super(ordFts, targSpecs, destSpecs, priors, postrs,  origForm, featImpls); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(HashMap<String,Integer> ftInds, String targSpecs, String destSpecs, 
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm, HashMap<String,String[]> featImpls)
-	{	super(ftInds, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm, featImpls);
+	{	super(ordFts, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm, featImpls);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}
