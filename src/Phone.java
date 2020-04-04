@@ -102,6 +102,11 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		featString = featString.substring(0, ind) + newVal + featString.substring(ind+1); 
 		regenerateSymb();
 	}
+	public void setFeats(String newFeatVect)
+	{
+		featString = "" + newFeatVect; 
+	}
+	
 	
 	@Override
 	public String print() {

@@ -24,7 +24,6 @@ public class SChangeTester {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap;
 	private static HashMap<String, String[]> featImplications;
-	private static Set<String> featNames;
 	private static String featImplsLoc = "FeatImplications";
 
 	public static void main(String args[])
@@ -73,8 +72,6 @@ public class SChangeTester {
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) 
 			featIndices.put(featsByIndex[fi], fi);
-		
-		featNames = featIndices.keySet();
 
 		//from the rest-- extract the symbol def each represents
 		int li = 1; 
@@ -324,7 +321,7 @@ public class SChangeTester {
 		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
 
 		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
-		System.out.println("Trying to forceTruth without initializing the alpha value should result in a caught UnsetAlphaError"); 
+		System.out.println("Trying to forceTruth without initializing the alpha value should cause an UnsetAlphaError"); 
 		
 		boolean caught = false; 
 		try {	fmtest.forceTruth(actOn,0); 		}

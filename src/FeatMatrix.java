@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.ArrayList;
 
 public class FeatMatrix extends Phonic implements RestrictPhone {
@@ -20,7 +19,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private List<String> ordFeats; 
 	
 	private HashMap<String, String[]> featImpls; 
-	private Set<String> fSpecsWithImpls; 
 	
 	private String LOCAL_ALPHABET; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
@@ -130,18 +128,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			"ERROR: trying to forceTruths on phone with different length feat vector";
 			// technically it could still function if this wasn't the case, but for security best to call it out anyways
 		
-		//iterate over featSpecs, not the feat vector for now 
-			// -- easier to change and check them this way, and also fewer iterations
-		String[] specArr = featSpecs.split(""+FEAT_DELIM); 
-		for (int spi = 0 ; spi < specArr.length; spi++)
+		for (int fvi = 0; fvi < featVect.length() ; fvi++)
 		{
-			int targVal = (specArr[spi].substring(0, 1).equals("+")) ? 2 : 
-				( (specArr[spi].substring(0, 1).equals("0")) ? 1 : 0);
-			String feat = specArr[spi].substring(1);
-			
-			if(output.get(feat) != targVal)// if it is not already the acceptable value: 
-				output.set(feat, targVal);
-		}	
+			char ch = featVect.charAt(fvi); 
+			if (ch != '1')
+				patFeats = patFeats.substring(0, fvi) + 
+					(ch == '9' ? '1' : ch) + patFeats.substring(fvi+1); 
+		}
+		
+		output.setFeats(patFeats);
+		
 		return output; 
 	}
 	
@@ -212,13 +208,44 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		return "-0+0".charAt("0129".indexOf(i)); 
 	}
 	
+	private char fromSurfVal(char i)
+	{
+		if (!"-+.0".contains(""+i))	throw new Error("Error: invalid specification value.");
+		return "0299".charAt("-+.0".indexOf(i)); 
+	}
+	
 	@Override
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		for (String s : alphVals.keySet())
 		{
-			featVect = featVect.replaceAll(s, ""+alphVals.get(s)); 
-			featSpecs = featSpecs.replaceAll(s, ""+toSurfVal(alphVals.get(s).charAt(0)));
+			char val = alphVals.get(s).charAt(0); //alphVals.get(s) be just one character -- may need to throw an Error if this is not the case.  
+			
+			//TODO debugging
+			System.out.println("alph "+s+" val "+val);
+			
+			while(featVect.contains(s))
+			{
+				int nxind = featVect.indexOf(s); 
+				
+				//TODO debugging
+				System.out.println("nxind "+nxind);
+				
+				featVect = featVect.substring(0, nxind) + val + featVect.substring(nxind+1); 
+				String currSpec = toSurfVal(val)+ordFeats.get(nxind);
+				
+				if (featImpls.containsKey(currSpec))
+				{
+					String[] impls = featImpls.get(currSpec);
+					for (String impc : impls)
+					{
+						int aff_ind = ordFeats.indexOf(impc.substring(1));
+						
+						if (featVect.charAt(aff_ind) == '1')
+							featVect = featVect.substring(0, aff_ind) + fromSurfVal(impc.charAt(0)) + featVect.substring(aff_ind+1); 
+					}
+				}
+			}
 		}
 	}
 	
@@ -293,8 +320,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			}
 			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] )
 				return new HashMap<String,String>(); 
-			
 		}
+		applyAlphaValues(currReqs);
+		
 		return currReqs; 
 	}
 	
