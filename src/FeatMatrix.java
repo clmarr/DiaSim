@@ -1,6 +1,7 @@
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List; 
+import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
 
 public class FeatMatrix extends Phonic implements RestrictPhone {
@@ -14,8 +15,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private final char FEAT_DELIM = ','; 
 	private String featSpecs, initSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
 		// will always return to initSpecs after alphas are reset. 
-	private HashMap<String, Integer> featInds;
+		// initSpecs, once set, must not under any circumstance be changed.
+	
+	private List<String> ordFeats; 
+	
 	private HashMap<String, String[]> featImpls; 
+	private Set<String> fSpecsWithImpls; 
 	
 	private String LOCAL_ALPHABET; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
@@ -32,7 +37,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * should be passed with , delimiters and +/- indicators 
 	 */
 	// 
-	public FeatMatrix(String specs, HashMap<String,Integer> ftInds, HashMap<String, String[]> ftImpls)
+	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String, String[]> ftImpls)
 	{
 		assert specs.length() > 1 : "Invalid string entered for specs"; 
 		LOCAL_ALPHABET = "";
@@ -41,10 +46,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		featSpecs=specs+""; 
 		initSpecs=specs+""; 
 
-		featInds = new HashMap<String,Integer>(ftInds); 
+		ordFeats = orderedFeats; 
 		featImpls = ftImpls;
 		
-		init_chArr = new char[ftInds.size()];
+		init_chArr = new char[ordFeats.size()];
 		Arrays.fill(init_chArr, '1');
 		
 		String[] spArr = specs.split(""+FEAT_DELIM); // one cell each for +delrel (1), -cont (2) etc... 
@@ -61,9 +66,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				else	hasMultispecAlpha = true;
 			}
 			String feat = sp.substring(1); 
-			assert featInds.containsKey(feat): "ERROR: tried to add invalid feature : '"+feat+"'";
+			assert ordFeats.contains(feat): "ERROR: tried to add invalid feature : '"+feat+"'";
 			
-			int spInd= Integer.parseInt(""+featInds.get(feat)); 
+			int spInd= Integer.parseInt(""+ordFeats.indexOf(feat)); 
 			init_chArr[spInd] = is_alph ? indic.charAt(0) : 
 				("+".equals(indic) ? '2' : ("0".equals(indic) ? '9' : '0' ));  
 			// thus, after this init_chArr will have 0 for neg specd features, 2 for pos specd features, 9 for despecd features
@@ -74,7 +79,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		}
 		featVect = new String(init_chArr); 
 		hasAlphSpecs = LOCAL_ALPHABET.length() > 0; 
-		
 	}
 		
 	/**
@@ -126,7 +130,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			"ERROR: trying to forceTruths on phone with different length feat vector";
 			// technically it could still function if this wasn't the case, but for security best to call it out anyways
 		
-		//iterate over featSpecs, not the feat vector for now -- easier to change and check them this way, and also fewer iterations
+		//iterate over featSpecs, not the feat vector for now 
+			// -- easier to change and check them this way, and also fewer iterations
 		String[] specArr = featSpecs.split(""+FEAT_DELIM); 
 		for (int spi = 0 ; spi < specArr.length; spi++)
 		{
@@ -184,7 +189,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			for(int ti = 0; ti < this.featVect.length() ; ti++)	othersVect+="1"; //fill with default 1s  
 			for(int ki = 0; ki < othersSpecs.length; ki++)
 			{
-				int othFtInd = featInds.get(othersSpecs[ki].substring(1));
+				int othFtInd = ordFeats.indexOf(othersSpecs[ki].substring(1));
 				char othFtSpecVal = othersSpecs[ki].charAt(0); 
 				othersVect = othersVect.substring(0, othFtInd) + 
 						(othFtSpecVal == '0' ? 9 : (othFtSpecVal == '+' ? 2 : 0)) 
@@ -272,14 +277,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			char fvspec = featVect.charAt(c); 
-			if (!"0192".contains(""+fvspec))
+			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
+				//String currInpSpec = cand_feat_vect[c] + 
 				if (currReqs.containsKey(""+fvspec))
-				{
+				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
-					if (currspec.equals("9"))
-						assert '1'==cand_feat_vect[c]: "Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
-					else	assert currspec.equals(cand_feat_vect[c]+""): "Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
+					if (currspec.equals("9"))	assert '1'==cand_feat_vect[c]: 
+							"Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
+					else	assert currspec.equals(cand_feat_vect[c]+""): 
+						"Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
 				}
 				else if (cand_feat_vect[c] == '1')	currReqs.put(""+fvspec, "9"); 
 				else	currReqs.put(""+fvspec, cand_feat_vect[c]+""); 

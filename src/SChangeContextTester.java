@@ -19,11 +19,11 @@ public class SChangeContextTester {
 	private final static char restrDelim = ',';
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private static String[] featsByIndex; 
+	private static List<String> featNames; 
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
 	private static HashMap<String, String[]> featImplications; 
-	private static Set<String> featNames; 
 	private static String featImplsLoc = "FeatImplications"; 
 	private static Phone dummiePhone; 
 	public static void main(String args[])
