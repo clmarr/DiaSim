@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List; 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /** PhoneTester -- class for testing the functionality of the class Phone
  * @date 8 June 2018
@@ -151,9 +152,9 @@ public class PhoneTester {
 		
 		System.out.println("Testing class FeatMatrix"); 
 		System.out.println("The following should be 'true'"); 
-		System.out.println((new FeatMatrix("+lab,-cont,-delrel", featureIndices, featImplications)).compare(testPhone));
+		System.out.println((new FeatMatrix("+lab,-cont,-delrel", Arrays.asList(feats), featImplications)).compare(testPhone));
 		
-		FeatMatrix voicedStop = new FeatMatrix("-cont,-delrel,+voi", featureIndices, featImplications); 
+		FeatMatrix voicedStop = new FeatMatrix("-cont,-delrel,+voi", Arrays.asList(feats), featImplications); 
 		System.out.println("The following should be 'false'");
 		System.out.println(voicedStop.compare(testPhone)); 
 		
@@ -187,14 +188,14 @@ public class PhoneTester {
 		testPhones.add(testPhone); 
 		testPhones.add(testPhone); 
 		
-		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+son,0delrel", featureIndices, featImplications); 
+		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+son,0delrel", Arrays.asList(feats), featImplications); 
 	
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));
 		
 		testPhones= nasalStop.forceTruth(testPhones, 0); 
 		System.out.println("The following should be 'true'"); 
-		nasalStop = new FeatMatrix("+nas,+cont,+son", featureIndices, featImplications); 
+		nasalStop = new FeatMatrix("+nas,+cont,+son", Arrays.asList(feats), featImplications); 
 
 		System.out.println(nasalStop.compare(testPhones, 0));
 		
