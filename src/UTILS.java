@@ -553,11 +553,4 @@ public class UTILS {
 	{
 		return "{[ "+s+" ]}"; 
 	}
-	
-	/**	applyImplications 
-	 * 
-	 */
-	
-	
-	
 }
