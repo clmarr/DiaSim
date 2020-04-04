@@ -135,8 +135,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				patFeats = patFeats.substring(0, fvi) + 
 					(ch == '9' ? '1' : ch) + patFeats.substring(fvi+1); 
 		}
-		
 		output.setFeats(patFeats);
+		
 		
 		return output; 
 	}
