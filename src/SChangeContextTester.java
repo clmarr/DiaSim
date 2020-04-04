@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -58,17 +59,13 @@ public class SChangeContextTester {
 			e.printStackTrace();
 		}
 		
-		//TODO debugging
-		System.out.println("Symbol definitions extracted!");
-		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
-		
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) 
 			featIndices.put(featsByIndex[fi], fi);
 		
-		featNames = featIndices.keySet();
+		featNames = Arrays.asList(featsByIndex);
 		
 		//from the rest-- extract the symbol def each represents
 		int li = 1; 
@@ -174,10 +171,10 @@ public class SChangeContextTester {
 		String ft1 = featsByIndex[0], ft2 = featsByIndex[1];
 		Aph.set(ft1,2); Bph.set(ft1, 2); Cph.set(ft1, 0); Dph.set(ft1, 0);
 		Aph.set(ft2, 2); Bph.set(ft2, 0); Cph.set(ft2,2); Dph.set(ft2,0);
-		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featIndices, featImplications),
-				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featIndices, featImplications),
-				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featIndices, featImplications), 
-				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featIndices, featImplications); 
+		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featNames, featImplications),
+				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featNames, featImplications),
+				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featNames, featImplications), 
+				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featNames, featImplications); 
 		
 		SequentialFilter testContext = testFactory.parseNewSeqFilter(Afm+"", boundsMatter);
 		dummyTestList.add(Aph); dummyTestList.add(Cph); 
