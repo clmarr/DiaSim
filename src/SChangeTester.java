@@ -299,51 +299,75 @@ public class SChangeTester {
 		
 		numCorrect = 0; 
 		System.out.println("\nNow testing alpha variable functionality."); 
-		System.out.println("First : testing alpha variable functionality of FeatMatrices."); 
-		System.out.println("Default -- no alpha features"); 
+		System.out.println("First : testing alpha variable functionality of FeatMatrices and no alpha feats specified"); 
 		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(featsByIndex),featImplications); 
 		
+		/**TODO debugging block
 		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest); 
-		System.out.println("has alpha specs? Should be false: "+fmtest.has_alpha_specs());
-		System.out.println("first unset alpha should be '0': "+fmtest.first_unset_alpha()); 
+		System.out.println("specs : "+fmtest);*/ 
+		
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_alpha_specs(), 
+				"Error: system believes there to be alpha specs when there are none.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: first_unset_alpha() should return '0' but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		
 		SequentialPhonic pfm = testFactory.parseSeqPh("e"); 
-		System.out.println("features extracted should be 0 : "+fmtest.extract_alpha_values(pfm).keySet().size()); 
+		
+		int feats_extracted = fmtest.extract_alpha_values(pfm).keySet().size(); 
+		numCorrect += UTILS.checkBoolean(true, 
+				feats_extracted == 0, 
+				"Error: there should be zero features extracted since there are no alpha feats specified to begin with, "
+				+ "but "+feats_extracted+" were extracted!" ) ? 1 : 0; 
 		
 		System.out.println("\nNow for a feat matrix with one alpha value...");
 		fmtest = new FeatMatrix("ɑstres,+syl",Arrays.asList(featsByIndex),featImplications); 
+		/** TODO debugging block
 		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest); 
-		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());
-		System.out.println("first unset alpha should be 'ɑ': "+fmtest.first_unset_alpha()); 
-		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
-
+		System.out.println("specs : "+fmtest);*/ 
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
+		char fua = fmtest.first_unset_alpha(); 
+		numCorrect += UTILS.checkBoolean(true, fua == 'ɑ',
+				"Error: first unset alpha should be 'ɑ', but it is '"+fua+"'") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alph(), 
+				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
+		
 		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
-		System.out.println("Trying to forceTruth without initializing the alpha value should cause an UnsetAlphaError"); 
 		
 		boolean caught = false; 
 		try {	fmtest.forceTruth(actOn,0); 		}
-		catch(UnsetAlphaError e)	{	System.out.println("UnsetAlphaError caught"); caught = true;		}
-		if (!caught)	System.out.println("Uh oh: forceTruth failed to trigger an error!");
+		catch(UnsetAlphaError e)	{	caught = true;		}
+		numCorrect += UTILS.checkBoolean(true, caught, "Error: Trying to forceTruth"
+				+ " without initializing the alpha value should cause an UnsetAlphaError,"
+				+ " but none was detected!") ? 1 : 0;
 		
-		System.out.println("\nNow extract from : "+pfm); 
+		
+		System.out.println("\nNow extracting from... "+pfm); 
 		HashMap<String,String> toApply = fmtest.extract_alpha_values(pfm); 
 		fmtest.applyAlphaValues(toApply);
 		
+		/** TODO debugging block
 		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
 		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest); 
-		System.out.println("has alpha specs? Should be true: "+fmtest.has_alpha_specs());
-		System.out.println("first unset alpha should be '0': "+fmtest.first_unset_alpha()); 
-		System.out.println("Has multi-used alpha symbol? Should be false: "+fmtest.has_multispec_alph()); 
-		System.out.println("Action on "+actOn.get(0)+" ...\n\t"+fmtest.forceTruth(actOn,0).get(0)); 
+		System.out.println("specs : "+fmtest);  **/
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: first_unset_alpha() should return '0' (we just set the last unset one),"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alph(), 
+				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
+		//System.out.println("Action on "+actOn.get(0)+" ...\n\t"+fmtest.forceTruth(actOn,0).get(0));
+		List<SequentialPhonic> result = fmtest.forceTruth(actOn,0); 
 		
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
+				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' but it is "
+						+ UTILS.printWord(result)) ? 1 : 0; 
+		System.out.println("Done testing alpha feature comprehension. Got "+numCorrect+" correcr out of 11."); 
 	}
-
-	
-
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
 			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
@@ -352,6 +376,12 @@ public class SChangeTester {
 				+ "\n";
 	}
 
+	/**
+	 * @param sc: sound change being tested
+	 * @param inp: input
+	 * @param exp: expected output
+	 * @return whether expected output was produced (true, false)
+	 */
 	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp) {
 		List<SequentialPhonic> obs = sc.realize(inp);
 		if (UTILS.phonSeqsEqual(exp, obs))

@@ -139,16 +139,6 @@ public class UTILS {
 			output += ph.print();
 		return output;
 	}
-
-	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
-		if (sp1.size() != sp2.size())
-			return false;
-		int spn = sp1.size();
-		for (int spi = 0; spi < spn; spi++)
-			if (!sp1.get(spi).equals(sp2.get(spi)))
-				return false;
-		return true;
-	}
 	
 	public static String stdCols(int width, int[] vals)
 	{
@@ -232,6 +222,17 @@ public class UTILS {
 		
 	}
 	//checker methods
+
+	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
+		if (sp1.size() != sp2.size())
+			return false;
+		int spn = sp1.size();
+		for (int spi = 0; spi < spn; spi++)
+			if (!sp1.get(spi).equals(sp2.get(spi)))
+				return false;
+		return true;
+	}
+	
 	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
 	{
 		assert c1.size() == c2.size() : "Error: tried to compare two cascades of different lengths..."; 
@@ -275,6 +276,7 @@ public class UTILS {
 		return msg.replace("%c", cor).replace("%o",obs); 
 	}
 	
+	// @param ec -- error count
 	public static void errorSummary(int ec)
 	{
 		if (ec == 0)	System.out.println("No errors yet at this point."); 
@@ -287,6 +289,10 @@ public class UTILS {
 		return correct == observed; 
 	}
 	
+	/**
+	 * @param g -- gold words
+	 * @param obs -- observed words
+	 */
 	public static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
 	{
 		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
@@ -492,7 +498,6 @@ public class UTILS {
 					"total difference (one string is empty) : "+ 
 						(lenA == 0 ? lenB : lenA); 
 		
-		String out = "";
 		String commonPrefix = "", commonSuffix = "" ;
 		
 		//fill commonPrefix as a starting part of string that is shared. 

@@ -221,15 +221,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		{
 			char val = alphVals.get(s).charAt(0); //alphVals.get(s) be just one character -- may need to throw an Error if this is not the case.  
 			
-			//TODO debugging
-			System.out.println("alph "+s+" val "+val);
-			
 			while(featVect.contains(s))
 			{
 				int nxind = featVect.indexOf(s); 
-				
-				//TODO debugging
-				System.out.println("nxind "+nxind);
 				
 				featVect = featVect.substring(0, nxind) + val + featVect.substring(nxind+1); 
 				String currSpec = toSurfVal(val)+ordFeats.get(nxind);
