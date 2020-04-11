@@ -18,29 +18,36 @@ public class DifferentialHypothesisSimulator {
 	//target variables needing tracked for any thorough debugging procedure
 	public Simulation baseCascSim, hypCascSim; 
 		// "baseline cascade" and "hypothesized cascase"
+	private List<String[]> proposedChs; 
+	//TODO important variable here, explanation follows
+	// each indexed String[] is form [curr time step, operation details]
+	// this object is *kept sorted* by current form index
+		// (IMPORTANT: equivalent to iterator hci, for hypCASCADE later)
+	// operation may be either deletion or insertion 
+	// both relocdation and modification are handled as deletion then insertion pairs. 
+	// for deletion, the second slot simply holds the string "deletion"
+	// whereas for insertion, the second index holds the string form of the SChange 
+		// that is inserted there in hypCASCADE. 
+
+	private HashMap<Integer,String> changedDerivations;
+	// Integer type key is the GLOBAL RULE INDEX, as used in ruleCorrespondences
+		// only etyma with changed derivations are included here.
+		// String -- the DIFFERENTIAL DERIVATION -- will contain
+			// First line --- <INPUT> \n
+			// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+			// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
+			// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
+			// insertion: the reverse.
+
+	private int[] baseRuleIndsToGlobal, hypRuleIndsToGlobal; 
+    // indices -- base/hyp rule indices
+    // cells contain the index mapped to in ruleCorrespondences
+            // i.e. the "global" index. 	
 	private int[][] ruleCorrespondences; 
 		// -1 in [0][x] -- deletion
 		// -1 in [1][x] -- insertion
 		// [0][same] and [1][same] -- cells contain numbers of
-			//correspondant rules (if neither has -1 as value)
-	 
-	private HashMap<Integer,String> changedDerivations;
-		// Integer type key is the GLOBAL RULE INDEX, as used in ruleCorrespondences
-			// only etyma with changed derivations are included here.
-			// String -- the DIFFERENTIAL DERIVATION -- will contain
-				// First line --- <INPUT> \n
-				// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
-				// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
-				// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
-				// insertion: the reverse.
-	
-	private int divergencePoint; 
-		// i.e. first global time step at which at least one word's resultant form is different between the two cascades. 
-		// this is distinct from the first "domino" as returned by locateFirstDomino() because that (a)
-			// pertains to only one word and (b) is specifically the first time the effect of a rule 
-				// that is not one of the ones stipulated by the proposed changes 
-				// is effected -- i.e. a bleeding or feeding effect. 
-	
+			//correspondent rules (if neither has -1 as value)
 	//TODO need to reform this...
 	private HashMap<Integer,String[][]>	changedRuleEffects; 
 		// Integer type key is ruleCorrespondences's inner nesting index (i.e. the "global index") 
@@ -53,23 +60,14 @@ public class DifferentialHypothesisSimulator {
 		// these strings are simple X > Y 
 		// (whole word forms)
 			//TODO : enclose changed phonemes with {} 
+	private int divergencePoint; 
+		// i.e. first global time step at which at least one word's resultant form is different between the two cascades. 
+		// this is distinct from the first "domino" as returned by locateFirstDomino() because that (a)
+			// pertains to only one word and (b) is specifically the first time the effect of a rule 
+				// that is not one of the ones stipulated by the proposed changes 
+				// is effected -- i.e. a bleeding or feeding effect. 
 	
-	private int[] baseRuleIndsToGlobal, hypRuleIndsToGlobal; 
-    // indices -- base/hyp rule indices
-    // cells contain the index mapped to in ruleCorrespondences
-            // i.e. the "global" index. 
-	
-	private List<String[]> proposedChs; 
-		//TODO important variable here, explanation follows
-		// each indexed String[] is form [curr time step, operation details]
-		// this object is *kept sorted* by current form index
-			// (IMPORTANT: equivalent to iterator hci, for hypCASCADE later)
-		// operation may be either deletion or insertion 
-		// both relocdation and modification are handled as deletion then insertion pairs. 
-		// for deletion, the second slot simply holds the string "deletion"
-		// whereas for insertion, the second index holds the string form of the SChange 
-			// that is inserted there in hypCASCADE. 
-	
+		
 	private boolean[] locHasPrCh;
 		// one cell for each *global* rule index -- i.e. the inner nesting in ruleCorrespondences
 		// by default, false
@@ -85,7 +83,6 @@ public class DifferentialHypothesisSimulator {
 		//TODO debugging
 		System.out.println("RCs[0] : "+UTILS.print1dIntArr(ruleCorrespondences[0]));
 		System.out.println("RCs[1] : "+UTILS.print1dIntArr(ruleCorrespondences[1]));
-		
 		
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 		
@@ -124,8 +121,11 @@ public class DifferentialHypothesisSimulator {
 					hypLen = hypCascSim.getTotalSteps();
 			
 			int total_length = hypLen;
-				// get it from the hypothesis cascade, because this is the only we to capture the case of modifications or insertions that add multiple rules at once, 
+				// get it from the hypothesis cascade, 
+				// because this is the only we to capture the case of modifications or insertions
+				// that add multiple rules at once, 
 				//or single insertions for that matter.
+			// increment total_length for each time there is a deleted index from the baseline 
 			for (int bihimi : baseToHypIndMap)
 				if (bihimi == -1)
 					total_length += 1; 
@@ -133,11 +133,15 @@ public class DifferentialHypothesisSimulator {
 			locHasPrCh = new boolean[total_length];
 			
 			ruleCorrespondences = new int[2][total_length]; 
-			//init ruleCorrespondences with -2 so we know for sure which cells have been operated upon ([0] could be the result of an operation)
+			//init ruleCorrespondences with -2 so we know for sure which cells have been operated upon 
+				// ([0] could be the result of an operation)
 			for (int rci = 0 ; rci < total_length; rci++)	{	
 				ruleCorrespondences[0][rci] = -2; ruleCorrespondences[1][rci] = -2;				}
 			
 			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
+			
+			//TODO debugging
+			System.out.println("sameUntil "+sameUntil); 
 			
 			for (int gri = 0 ; gri < sameUntil; gri++)
 			{
@@ -235,31 +239,10 @@ public class DifferentialHypothesisSimulator {
 						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
 					// recall: global mapping scheme is always built off the base cascade by default
 					
-					/**
-					 * There are six possible cases here 
-					 * (1) deletion of some sort including as part of non-bijective modification:
-					 * 			ilbi == -1
-					 * (2) insertion of some sort including as part of a non-bijective modification
-					 * 			ilhi == -1
-					 * (3) forward relocdation that has not yet been handled/realized in ruleCorrespondences
-					 * 			ilbi > hi  
-					 * 				note that forward relocdation from X to Y can be reinterpeted as Y-X backward relocdations each by one place instead 
-					 * 					to avoid this problem we are forced to use the HashMap relocdations 
-					 * (4) forward relocdation that has already been handled/realized in ruleCorrespondences
-					 * 			ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1
-					 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
-					 * 			ilhi > bi 
-					 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
-					 * 		
-					 */
-					//TODO curate cmt block
-					
 					//first -- ensure that stumbling upon indices effected by already handled relocdation operations
 						// do not cause redundant or erroneous behaviors
 					// when we come upon a "crossed out" cell (i.e. wiht -2 in it) we know this must have been from an already handled relocdation.
 					// due to how we iterate through this algorithm, this will only ever happen for ilhi -- i.e. only on the hyp side of things
-					
-					
 					
 					if(ilbi==-2) bi++; 
 					else
@@ -411,6 +394,20 @@ public class DifferentialHypothesisSimulator {
 		}
 	}
 
+	/**
+	 * @return earliest (global) *moment* that the baseline and hyp derivs diverge for one etyma
+	 * @return -1 -- if there is no divergence at all
+	 * @param et_id -- index of the etymon.
+	 */
+	private int findEtDivergenceMoment (int et_id)
+	{
+		String dd = getDifferentialDerivation(et_id);
+		if(dd.equals(""))	return -1;
+		dd = dd.substring(dd.indexOf("CONCORDANT UNTIL RULE : ")); 
+		dd = dd.substring(dd.indexOf(":")+2, dd.indexOf("\n"));
+		return Integer.parseInt(dd); 
+	}
+	
 	/** getDifferentialDerivation 
 	 * @return the differential derivation for a particular etymon
 	 * 	* the etymon being indexed by @param et_id
@@ -1039,19 +1036,6 @@ public class DifferentialHypothesisSimulator {
 		return globalDivergenceLine(bd, hd); 
 	}
 	
-	/**
-	 * @return earliest (global) *moment* that the baseline and hyp derivs diverge for one etyma
-	 * @return -1 -- if there is no divergence at all
-	 * @param et_id -- index of the etymon.
-	 */
-	private int findEtDivergenceMoment (int et_id)
-	{
-		String dd = getDifferentialDerivation(et_id);
-		if(dd.equals(""))	return -1;
-		dd = dd.substring(dd.indexOf("CONCORDANT UNTIL RULE : ")); 
-		dd = dd.substring(dd.indexOf(":")+2, dd.indexOf("\n"));
-		return Integer.parseInt(dd); 
-	}
 	
 	/**
 	 * find the line of divergence between two line-split derivations
@@ -1126,12 +1110,18 @@ public class DifferentialHypothesisSimulator {
 	
 		int pci = 0, lenpc = proposedChs.size(); 
 		boolean reached = false; 
+		
+		//TODO debugging
+		System.out.println("gi "+gi+" hi "+hi+" ilbi "+ilbi+" ilhi "+ilhi); 
+		
 		while (!reached)
 		{
-			assert pci < lenpc : "ERROR: reached of end of proposedChanges without finding current target of operation."; 
+			assert pci < proposedChs.size() : "ERROR: reached of end of proposedChanges without finding current target of operation."; 
 			
 			//TODO debugging
 			System.out.println("pci : "+pci);
+			System.out.println("proposedChs len "+proposedChs.size());
+			System.out.println(proposedChs.get(pci)[0] + " | " + proposedChs.get(pci)[1] + " | " + proposedChs.get(pci)[2]); 
 			
 			int curhi = Integer.parseInt(proposedChs.get(pci)[0]); 
 			assert curhi <= hi : "ERROR: could not find current target of operation in proposedChanges!";

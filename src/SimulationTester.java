@@ -51,7 +51,7 @@ public class SimulationTester {
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static List<SChange> CASCADE;
 	
-	private static String[] SO; //ordering of stages. 
+	private static String[] STAGE_ORDER; //ordering of stages. 
 	
 	public static void main(String args[]) throws MidDisjunctionEditException
 	{
@@ -63,14 +63,14 @@ public class SimulationTester {
 		System.out.println("Creating SChangeFactory...");
 		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		SO = UTILS.extractStageOrder(DBG_START_CASC); 
+		STAGE_ORDER = UTILS.extractStageOrder(DBG_START_CASC); 
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
 			// first extracting from gold casc so that we do initial sanity test of the correct cascade leading to correct forms
 				// with all metrics agreeing with this etc etc. 
 		
 		System.out.println("Lexicon extracted. Now debugging.");
 		
-		Simulation testSimul = new Simulation (inputForms, CASCADE, SO);
+		Simulation testSimul = new Simulation (inputForms, CASCADE, STAGE_ORDER);
 
 		System.out.println("Sanity check -- proper initialization and comprehension of gold and black stage initialization in Simulation class."); 
 		
@@ -209,7 +209,6 @@ public class SimulationTester {
 		checker = standardChecker(testSimul.getCurrentResult(), goldOutputLexicon); 
 		System.out.println(UTILS.fillSpaceToN("Output",24)+UTILS.stdMetricReport(checker)); 
 		
-		
 		totalErrorCount += errorCount;
 		errorCount = 0; 
 		System.out.println("In all, there were "+totalErrorCount+" errors checking the debugging set using the debugging gold cascade\n"
@@ -217,10 +216,11 @@ public class SimulationTester {
 		
 		initWorkingCascFile(); 
 		resetToWorkingCasc(theFactory); 
-		testSimul = new Simulation(inputForms, CASCADE, SO); 
+		testSimul = new Simulation(inputForms, CASCADE, STAGE_ORDER); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGold(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setStepPrinterval(UTILS.PRINTERVAL); //reinserted. Necessary? Not sure.  
 		testSimul.simulateToEnd(); 
 
 		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n" + 
@@ -1075,7 +1075,7 @@ public class SimulationTester {
 			
 		}
 		
-		System.out.println("Diachronic rules extracted. "); 
+		System.out.println(CASCADE.size()+" diachronic rules extracted. "); 
 		
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
