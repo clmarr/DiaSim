@@ -105,7 +105,7 @@ public class DHSWrapper {
 		stillQuerying = true; 
 		String resp; 
 
-		while (stillQuerying)
+		while (stillQuerying) //each pass processes a change. 
 		{
 			int forkAt = queryForkPoint(inpu, FAC); 
 			boolean toSetBehavior = true; 
@@ -115,7 +115,7 @@ public class DHSWrapper {
 						+ "0: Insertion -- insert a rule at "+forkAt+".\n"
 						+ "1: Deletion -- delete the rule at "+forkAt+".\n"
 						+ "2: Modification -- change the rule at "+forkAt+".\n"
-						+ "3: 'Relocdation' -- move the rule at "+forkAt+" to a different moment in time.\n"
+						+ "3: 'Relocdation' -- move the rule at "+forkAt+" to a different moment in time.\n" // portmanteau of relocation and date
 						+ "8: Go back to previous option (setting fork point, querying options available).\n"
 						+ "9: Cancel entire forking test and return to main menu.\n"); 
 				resp = inpu.nextLine().substring(0,1);
@@ -614,7 +614,7 @@ public class DHSWrapper {
 
 	
 	/** processSingleCh 
-	 *  for debugging purposes, adds a single change and modifies internal structures accordingly,
+	 *  exists for checking/debugging purposes, adds a single change and modifies internal structures accordingly,
 	 *  	but does not yet make any changes to the text of a cascade file.
 	 *  @param deleteLoc -- -1 if no deletion is involved, otherwise the index that will be deleted
 	 *  @param deletionNotes -- empty if no deletion involved, any pertinent coments otherwise

@@ -17,12 +17,14 @@ public class DifferentialHypothesisSimulator {
 	
 	//target variables needing tracked for any thorough debugging procedure
 	public Simulation baseCascSim, hypCascSim; 
-		// "baseline cascade" and "hypothesized cascase"
+		// "baseline cascade" and "hypothesized cascade"
+	
 	private List<String[]> proposedChs; 
-	//TODO important variable here, explanation follows
+	// TODO important variable here, explanation follows
 	// each indexed String[] is form [curr time step, operation details]
-	// this object is *kept sorted* by current form index
-		// (IMPORTANT: equivalent to iterator hci, for hypCASCADE later)
+	// this object is *kept sorted* by index in the cascade as ordered at time of operation!! 
+		// thus it never descends: Value at each cell indexed i + 1 must be >= than that at cell indexed i. 
+			// (deletion is considered to be indexed before the item being deleted) 
 	// operation may be either deletion or insertion 
 	// both relocdation and modification are handled as deletion then insertion pairs. 
 	// for deletion, the second slot simply holds the string "deletion"
@@ -34,7 +36,7 @@ public class DifferentialHypothesisSimulator {
 		// only etyma with changed derivations are included here.
 		// String -- the DIFFERENTIAL DERIVATION -- will contain
 			// First line --- <INPUT> \n
-			// CONCORDANT DEVELOPMENT THROUUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
+			// CONCORDANT DEVELOPMENT THROUGH TO : <LAST CONCORDANT BASE RULE> | <LAST CONCORDANT HYP RULE> \n
 			// for 1-to-1 divergent development : <BASERULE#>: <OLDFORM> > <NEWFORM> | <HYPRULE#>: NEW > OLD \n
 			// deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n
 			// insertion: the reverse.
@@ -43,12 +45,13 @@ public class DifferentialHypothesisSimulator {
     // indices -- base/hyp rule indices
     // cells contain the index mapped to in ruleCorrespondences
             // i.e. the "global" index. 	
+	
 	private int[][] ruleCorrespondences; 
 		// -1 in [0][x] -- deletion
 		// -1 in [1][x] -- insertion
 		// [0][same] and [1][same] -- cells contain numbers of
 			//correspondent rules (if neither has -1 as value)
-	//TODO need to reform this...
+	//TODO may need to reform this...
 	private HashMap<Integer,String[][]>	changedRuleEffects; 
 		// Integer type key is ruleCorrespondences's inner nesting index (i.e. the "global index") 
 			// only rules with changed effects are included here.
@@ -89,15 +92,23 @@ public class DifferentialHypothesisSimulator {
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations. 
 	}
 	
-	//generate ruleCorrespondences and prChLocs
+	// generate class variables ruleCorrespondences and locHasPrCh
 	// ruleCorrespondences -- each int[] (length = 2) instance in RELOCDS is [deleteLoc, addLoc)
+	// @prerequisite: class variables baseCascSim, hypCascSim and proposedChs are already set
+	// format of @param baseToHypIndMap: index -- cell number in base
+	//																-- contains: corresponding cell number in hyp
+	// @param hypToBaseIndMap -- is the reverse
 	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) 
 	{
-		// dummy versions that we will modify by placing -2 as a way of "crossing out" cells we have operated upon. 
-		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
+		// initialize dummy versions of the mappings
+			// that we will modify by placing -2 as a way of "crossing out" cells we have operated upon. 
+		
+		int[] dumRIMBH = new int[baseToHypIndMap.length], 
+				dumRIMHB = new int[hypToBaseIndMap.length];
 		for (int bhi = 0 ; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
 		for (int hbi = 0 ; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 		
+		// initializing class variable ruleCorrespondences... 
 		if ( proposedChs.size() == 0 )	
 		{
 			assert UTILS.compare1dIntArrs(baseToHypIndMap, hypToBaseIndMap): 
@@ -112,7 +123,7 @@ public class DifferentialHypothesisSimulator {
 			 * 			likewise one in hypCasc is unless it was inserted, or the result of non-bijective modification.
 			 * ordering of the "global indices" of ruleCorrespondences is primarily built off of the base side of things
 			 * 		with additions every place there was an insertion
-			 * (so, where there is relocdation, it will always agree once effective insertions are accounted for wiht the base index)
+			 * (so, where there is relocdation, it will always agree once effective insertions are accounted for with the base index)
 			 * length of ruleCorrespondences should be : 
 			 * 	#shared rules + #deletions + #insertions (baseCasc : shared + deletions; hypCasc: shared + insertions)
 			 */
@@ -121,7 +132,7 @@ public class DifferentialHypothesisSimulator {
 					hypLen = hypCascSim.getTotalSteps();
 			
 			int total_length = hypLen;
-				// get it from the hypothesis cascade, 
+				// get the total length value from the hypothesis cascade, 
 				// because this is the only we to capture the case of modifications or insertions
 				// that add multiple rules at once, 
 				//or single insertions for that matter.
@@ -131,10 +142,14 @@ public class DifferentialHypothesisSimulator {
 					total_length += 1; 
 			
 			locHasPrCh = new boolean[total_length];
+				// the indices of locHasPrCh are the GLOBAL indices. 
 			
 			ruleCorrespondences = new int[2][total_length]; 
 			//init ruleCorrespondences with -2 so we know for sure which cells have been operated upon 
+					// -2 thus means the cell is untouched. 
 				// ([0] could be the result of an operation)
+				// indices for this are also global. 
+			
 			for (int rci = 0 ; rci < total_length; rci++)	{	
 				ruleCorrespondences[0][rci] = -2; ruleCorrespondences[1][rci] = -2;				}
 			
@@ -157,19 +172,26 @@ public class DifferentialHypothesisSimulator {
 			
 			while (gi < total_length)
 			{
-				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, 
-						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; 
-					//indices linked to base instant and to hyp instant
-
-				List<Integer> brSrcHis = new ArrayList<Integer>(); 
-					// any his that are the source of a back relocdation and need to be handled in order to resolve it within ruleCorrespondences
-					// note that the indices should not get corrupted since it is mapping onto hi spots, i.e. rules hit in hypCASC, not the global 
-				
-				boolean bihiAligned = (ilbi == hi) && (ilhi == bi); 
-				// i.e. the current spots in the base and hyp share the same global index
+				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, //index linked to current base instant
+						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; // index linked to current hyp instant 
+						
+					// recall that a value of [-2] for ilbi or ilhi implies it is "crossed out" --
+							// i.e. not iterated past yet
+							// but already operated upon
 			
-				if (bihiAligned)
-				{	ruleCorrespondences[0][gi] = ilhi; bi++;
+				List<Integer> backRelocdSrceHis = new ArrayList<Integer>(); 
+					// values stored are GLOBAL indices.
+					// any hi-s that are the source of a back relocdation 
+					// and need to be handled 
+					// in order to resolve it within ruleCorrespondences
+					// note that the indices should not get corrupted 
+					// since it is mapping onto hi spots, 
+						//i.e. rules hit in hypCASC, not the global 
+							
+				if (ilbi == hi && ilhi == bi) 
+				{	// i.e. the current spots in the base and hyp share the same global index
+					
+					ruleCorrespondences[0][gi] = ilhi; bi++;
 					ruleCorrespondences[1][gi] = ilbi; hi++;
 				}
 				else // we will have to do some asymmetrical operation -- and there must have been a propCh here 
@@ -179,25 +201,55 @@ public class DifferentialHypothesisSimulator {
 						"ERROR: cannot have a rule that exists neither that has neither a base nor hyp index"; 
 					/**
 					 * There are six possible cases here 
-					 * (1) deletion of some sort including as part of non-bijective modification:
+					 * (1) a deletion of some sort including as part of non-bijective modification:
 					 * 			ilbi == -1
-					 * (2) insertion of some sort including as part of a non-bijective modification
+					 * (2) a  insertion of some sort including as part of a non-bijective modification
 					 * 			ilhi == -1
-					 * (3) forward relocdation that has not yet been handled/realized in ruleCorrespondences
+					 * (3) a forward relocdation that has not yet been handled/realized in ruleCorrespondences
 					 * 			ilbi > hi  
-					 * 				note that forward relocdation from X to Y can be reinterpeted as Y-X backward relocdations each by one place instead 
+					 * 				note that forward relocdation from X to Y can be reinterpeted as |Y-X| backward relocdations
+					 * 							each by one place instead 
 					 * 					this is handled by auxiliary. 
-					 * (4) forward relocdation that has already been handled/realized in ruleCorrespondences
+					 * (4) a forward relocdation that has already been handled/realized in ruleCorrespondences
 					 * 			ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1
+					 * 				* we are now indicating this by placing -2 at in dumRIMHB[<destination>] 
 					 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
 					 * 			ilhi > bi 
 					 * (6) backward relocdation that has already been handled/realized in ruleCorrespondences
 					 */
 					
-					//first -- ensure that stumbling upon indices effected by already handled relocdation operations
+					// -2 placement and detection -- to ensure that stumbling upon indices effected by already handled relocdation operations
 						// do not cause redundant or erroneous behaviors
 					// when we come upon a "crossed out" cell for ilhi e know this must have been from an already handled forward relocdation.
-					if (ilhi == -2)	hi++;	// already handled forward relocdation. 
+					if (ilhi == -2)		// already handled forward relocdation.
+					{
+						assert backRelocdSrceHis.contains(gi) : "ERROR: -2 found at dumRIM["+hi+"] for global index "+gi+", but it is not stored "
+								+ "as an index for which a forward relocdation was performed"; 
+						backRelocdSrceHis.remove(backRelocdSrceHis.indexOf(gi)); 
+						assert !backRelocdSrceHis.contains(gi) : "ERROR : global index "+gi+" was counted in backRelocdSrceHis twice!" ; 
+						
+						hi++; 
+					}
+					else if (ilbi == -2)	//already handled backward relocdation. As of currently, this should NEVER be true when checked here.
+						assert ilbi!=2 : "ERROR: -2 should not be used for a resolved backward relocdation. No storage should be necessary.";
+					else if (ilhi == -1)	//insertion.
+					{
+						ruleCorrespondences[0][gi] = -1; 
+						ruleCorrespondences[1][gi] = hi++; 
+					}
+					else if(ilbi > hi) // currently unhandled forward relocdation
+					{
+						
+					}
+					else 
+					{
+						// should be ilhi > bi
+						
+					}
+					
+					
+					//TODO FIGURE THIS OUT
+					assert 1!=1 : "Need to figure out code on line 252 !!! "; 
 					
 				}
 						
@@ -271,7 +323,7 @@ public class DifferentialHypothesisSimulator {
 							}
 							else
 							{
-								System.out.println("hi "+hi); //TODO debuggin
+								System.out.println("hi "+hi); //TODO debugging
 								
 								int mapped_to_hi = UTILS.findInt(dumRIMBH, hi); 
 								assert (mapped_to_hi == -1) == (ilbi == -1) : "ERROR: hyp index "+hi+" is never mapped to..."; 
@@ -558,7 +610,8 @@ public class DifferentialHypothesisSimulator {
 		// does not print evaluation statistic change -- that is for DiachronicSimulation and ErrorAnalysis to handle. 
 	public void printBasicResults()
 	{
-		//TODO need to fix this. 
+		//TODO need to fix this
+		//TODO but what was the error...? 
 		
 		//Analysis of changes transforming base -> hyp upon the effects of rules. 
 		System.out.println("ANALYSIS OF EFFECT OF PROPOSED CHANGES:\n");
@@ -1086,7 +1139,7 @@ public class DifferentialHypothesisSimulator {
 	}
 	
 	
-	//TODO expl here.
+	// print all etyma changed by the proposed changes. 
 	private String strEffects (String[] effsOverEts)
 	{
 		String out = "";
@@ -1129,7 +1182,8 @@ public class DifferentialHypothesisSimulator {
 			pci ++; 
 		}
 		
-		//PRIOR DELETION SKIPPING pass any prior deletions we have already processed wiht operations at this hyp index.
+		//PRIOR DELETION SKIPPING pass any prior deletions we have already processed 
+			// with operations at this hyp index.
 		int deletionsToPass = 0; 
 		for (int pdgi = gi - 1 ; pdgi < 0 ? false : ruleCorrespondences[1][pdgi] == -1 ; pdgi-- )
 			deletionsToPass++; 
