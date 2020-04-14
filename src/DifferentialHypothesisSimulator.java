@@ -1084,6 +1084,46 @@ public class DifferentialHypothesisSimulator {
 
 		return out.substring(2);
 	}
+	
+	/** relocdIsBackward
+	 * auxiliary for computeRuleCorrespondences
+	 * for purposes of determining if a relocdation detected (on grounds of ilhi > bi) 
+	 * is a future backward relocdation 
+	 * 	or, alternatively, a current future relocdation that that method
+	 * 		treats as a series of one-step backward relocdations 
+	 * 		except when it comes to computing locHasPrChs (i.e. where this class comes into play)
+	 * we know it is in fact a future backward relocdation
+	 * if we can find an insertion row in proposedChs that has: 
+	 * 	* @param <hi> (hypothesis cascade index) at index [0]
+	 * 	* <string form of hypothesis rule at hi> at index [1]
+	 * 			* if it is at that spot, it MUST represent rule located at <hi> in the hypothesis cascade. 
+	 * with just these two, there are possible edge cases here: :
+	 * 	* we could instead have found the insertion of another instance of a rule identical to the hyp rule at <hi>
+	 * 	* we could even have a relocdation of a thus identical rule
+	 * 			(the latter case really shouldn't happen, but it could with a bug) 
+	 * to avoid these, we locate the row with x[0] = <hi> 
+	 * 	* and determine that is in fact an insertion of this rule,
+	 * 	* and also a backward relocdation 
+	 * 	* using the format enforced by DHSWrapper.validRelocdationNotes.
+	* @return whether this is in fact a future backward relocdation ( @true )
+	* 		rather than a current forward relocdation ( @false )
+	 */
+	private boolean relocdIsBackward(int hi)
+	{
+		String hypRuleStr = hypCascSim.getRuleAt(hi); 
+		int pci = proposedChs.size() - 1; 
+		while (pci < 0 ? false : hi < Integer.parseInt(proposedChs.get(pci)[0]))	pci--;
+		if (pci < 0 ? true : hi < Integer.parseInt(proposedChs.get(pci)[0]))	return false; 
+		if (!hypRuleStr.equals(proposedChs.get(pci)[1]))	return false;
+		
+		String hnotes = proposedChs.get(pci)[2]; 
+		if (!DHSWrapper.validRelocdationNotes(hnotes))	return false;
+		
+		int src_step = UTILS.getIntPrefix(hnotes.substring(16)),
+				dest_step = UTILS.getIntPrefix(hnotes.substring(hnotes.substring(16).indexOf(" ")+4));
+		return src_step > dest_step;
+	}
+	
 
 	// auxiliary for compareRuleCorrespondences,
 	// recruits proposedChs to disambiguate if a relocdation is forward or backward

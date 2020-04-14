@@ -561,9 +561,15 @@ public class UTILS {
 	
 	public static boolean isInt(String s)
 	{
-		int sLen = s.length(); 
-		for (int si = 0 ; si < sLen; si++)
+		for (int si = 0 ; si < s.length(); si++)
 			if (!"0123456789".contains(s.substring(si,si+1)))	return false; 
 		return true;
+	}
+	
+	public static int getIntPrefix(String s)
+	{
+		for (int si = 1 ; si < s.length(); si++ )
+			if (!isInt(""+s.charAt(si)))		return Integer.parseInt(s.substring(0,si));
+		return Integer.parseInt(s); 
 	}
 }

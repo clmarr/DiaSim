@@ -669,6 +669,8 @@ public class DHSWrapper {
 				else // relocdation
 				{
 					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation";
+					assert validRelocdationNotes(deletionNotes) : "ERROR: invalid relocdation notes on deletion side: '"+deletionNotes+"'"; 
+					assert validRelocdationNotes(insertionNotes) : "ERROR: invalid relocdation notes on insertion side: '"+insertionNotes+"'"; 
 					insertions.add(removed);
 				}
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions);
@@ -1007,14 +1009,18 @@ public class DHSWrapper {
 	 * the utility of this is for the purposes of determining relocdation direction
 	 * for the calculation of locHasPrChs in DifferentialHypothesisSimulator. 
 	 */
-	private boolean validRelocdationNotes(String inp)
+	public static boolean validRelocdationNotes(String inp)
 	{
 		if (!inp.substring(0,16).equals("relocdated from "))	return false; 
 		String dummy = inp.substring(16); 
 		if(!dummy.contains(" to "))	return false; 
 		int sploc = dummy.indexOf(" "); 
 		if(!UTILS.isInt(dummy.substring(0,sploc)))	return false; 
-		return !UTILS.isInt(""+dummy.charAt(sploc+4)); 
+		int src_loc = UTILS.getIntPrefix(dummy);
+		if(!UTILS.isInt(""+dummy.charAt(sploc+4)))	return false;
+		int dest_loc = UTILS.getIntPrefix(dummy.substring(sploc+4)); 
+		
+		return src_loc != dest_loc; //cannot have relocdation where source and destination are the same.
 	}
 			
 
