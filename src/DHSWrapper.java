@@ -708,6 +708,7 @@ public class DHSWrapper {
 					baseLoc = temp;
 					movingTo += back ? 1 : -1;
 				}
+				
 				/**
 				 * note -- since in a relocdation shift, deletion operates before insertion,
 				 * this has implications here because after deletion, 

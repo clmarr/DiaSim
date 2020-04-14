@@ -115,10 +115,8 @@ public class DifferentialHypothesisSimulator {
 		// operated upon.
 
 		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
-		for (int bhi = 0; bhi < dumRIMBH.length; bhi++)
-			dumRIMBH[bhi] = baseToHypIndMap[bhi];
-		for (int hbi = 0; hbi < dumRIMHB.length; hbi++)
-			dumRIMHB[hbi] = hypToBaseIndMap[hbi];
+		for (int bhi = 0; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
+		for (int hbi = 0; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 
 		// initializing class variable ruleCorrespondences...
 		if (proposedChs.size() == 0) {
@@ -169,10 +167,6 @@ public class DifferentialHypothesisSimulator {
 			}
 
 			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
-
-			// TODO debugging
-			System.out.println("sameUntil " + sameUntil);
-			
 			int gi = 0, bi = 0, hi = 0; 
 				// global, base, and hyp instant iterators
 			
@@ -194,7 +188,6 @@ public class DifferentialHypothesisSimulator {
 				} 
 				else // we will have to do some asymmetrical operation -- and there must have been a non-bijective propCh here
 				{
-					locHasPrCh[gi] = true;
 					/**
 					 * There are six possible cases here 
 					 * (1) a deletion of some sort including as  part of non-bijective modification: ilbi == -1 
@@ -221,23 +214,28 @@ public class DifferentialHypothesisSimulator {
 					 * 					and only gi and bi are incremented in this case. 
 					 */
 					
-					if ( ilhi == -2) // resolution of relocdation 
+					if ( ilbi == -2) // resolution of relocdation 
 					{
 						assert fut_sources_left.containsKey(bi) : "ERROR: found flag for backward relocdation resolution (ilhi == -2)\n "
 								+ "but the current base index (bi = "+bi+") is not in fut_sources_left!"; 
 						ruleCorrespondences[1][gi] = fut_sources_left.remove(bi); 
-						ruleCorrespondences[0][gi++] = bi++; 
+						ruleCorrespondences[0][gi] = bi++; 
+						locHasPrCh[gi++] = true; 
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
 						assert ilbi != ilhi : "ERROR: cannot have a rule that exists neither that has neither a base nor hyp index";
 						ruleCorrespondences[0][gi] = (ilhi == -1) ? ilhi : bi++; 		//if condition is true, case is insertion, else it's deletion
 						ruleCorrespondences[1][gi] = (ilbi == -1) ? ilbi : hi++; 		// reverse of the above. 
-						gi++; 
+						locHasPrCh[gi++] = true;
 					}
 					else if (ilhi > bi) // future backwards relocdation. 
 					{
 						fut_sources_left.put(ilhi, hi++);
+						
+						//TODO debugging 
+						System.out.println("fsl["+ilhi+"]: "+fut_sources_left.get(ilhi)); 
+						
 						dumRIMBH[ilhi] = -2; 
 					}
 					else		throw new Error("ERROR: should not never have ilhi < bi but ilhi = "+ilhi+" and bi = "+bi); 
