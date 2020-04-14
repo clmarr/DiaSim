@@ -558,4 +558,12 @@ public class UTILS {
 	{
 		return "{[ "+s+" ]}"; 
 	}
+	
+	public static boolean isInt(String s)
+	{
+		int sLen = s.length(); 
+		for (int si = 0 ; si < sLen; si++)
+			if (!"0123456789".contains(s.substring(si,si+1)))	return false; 
+		return true;
+	}
 }

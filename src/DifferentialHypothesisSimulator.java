@@ -23,17 +23,15 @@ public class DifferentialHypothesisSimulator {
 	private List<String[]> proposedChs;
 	// TODO important variable here, explanation follows
 	// each indexed String[] is form [curr time step, operation details]
-	// this object is *kept sorted* by index in the cascade as ordered at time of
-	// operation!!
-	// thus it never descends: Value at each cell indexed i + 1 must be >= than that
-	// at cell indexed i.
-	// (deletion is considered to be indexed before the item being deleted)
+	// this object is *kept sorted* by index in the cascade as ordered at time of operation!!
+	// thus it never descends: 
+	//	Value at each cell indexed i + 1 must be >= than that at cell indexed i.
+	// (deletion is considered to be indexed at the spot before the item being deleted)
 	// operation may be either deletion or insertion
-	// both relocdation and modification are handled as deletion then insertion
-	// pairs.
+	// both relocdation and modification are handled as deletion then insertion pairs.
 	// for deletion, the second slot simply holds the string "deletion"
-	// whereas for insertion, the second index holds the string form of the SChange
-	// that is inserted there in hypCASCADE.
+	// whereas for insertion, 
+		// the second index holds the string form of the SChange that is inserted in hypCASCADE.
 
 	private HashMap<Integer, String> changedDerivations;
 	// Integer type key is the GLOBAL RULE INDEX, as used in ruleCorrespondences
@@ -212,6 +210,8 @@ public class DifferentialHypothesisSimulator {
 					 * 							and set dumRIMBH[ilhi] = -2 
 					 * a current backward relocdation is detected when ilbi hits that -2
 					 * 					and only gi and bi are incremented in this case. 
+					 * 
+					 * HOWEVER, the computation of locHasPrChs will still treat this as a single change. 
 					 */
 					
 					if ( ilbi == -2) // resolution of relocdation 
@@ -518,7 +518,7 @@ public class DifferentialHypothesisSimulator {
 		System.out.println("Last rule before divergence: " + divergencePoint); // TODO may have to debug this...
 		System.out.println("Effects of specific changes between baseline and proposed cascade.");
 		for (int globInd = 0; globInd < ruleCorrespondences[0].length; globInd++) {
-			if (locHasPrCh[globInd]) // true -- implies this was one of the rules that are specific changes.
+			if (locHasPrCh[globInd]) // true -- implies this was one of the rules that are specifically modified between the hyp and baseline 
 			{
 				if (ruleCorrespondences[0][globInd] == -1) {
 					System.out.println("Developments directly caused by a proposed change:"); // i.e. in hyp but not

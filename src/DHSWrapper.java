@@ -665,10 +665,10 @@ public class DHSWrapper {
 					assert insertions
 							.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
 					modifications.add(deleteLoc);
-				} else // relocdation
+				} 
+				else // relocdation
 				{
-					assert insertions
-							.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation";
+					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation";
 					insertions.add(removed);
 				}
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions);
@@ -997,5 +997,25 @@ public class DHSWrapper {
 			out.add(pc[2]);
 		return out;
 	}
+	
+	/** validRelocdationNotes
+	 * @return whether the input string @param inp
+	 * is valid for the "notes" (second index of a row in proposedChs)
+	 * 	of a component of a relocdation shift (whether deletion or insertion)
+	 * it must say "relocdated", "from ## " and "to ## "
+	 * the exact values of the numbers do not matter
+	 * the utility of this is for the purposes of determining relocdation direction
+	 * for the calculation of locHasPrChs in DifferentialHypothesisSimulator. 
+	 */
+	private boolean validRelocdationNotes(String inp)
+	{
+		if (!inp.substring(0,16).equals("relocdated from "))	return false; 
+		String dummy = inp.substring(16); 
+		if(!dummy.contains(" to "))	return false; 
+		int sploc = dummy.indexOf(" "); 
+		if(!UTILS.isInt(dummy.substring(0,sploc)))	return false; 
+		return !UTILS.isInt(""+dummy.charAt(sploc+4)); 
+	}
+			
 
 }
