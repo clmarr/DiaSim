@@ -105,12 +105,9 @@ public class DifferentialHypothesisSimulator {
 	}
 
 	// generate class variables ruleCorrespondences and locHasPrCh
-	// ruleCorrespondences -- each int[] (length = 2) instance in RELOCDS is
-	// [deleteLoc, addLoc)
-	// @prerequisite: class variables baseCascSim, hypCascSim and proposedChs are
-	// already set
-	// format of @param baseToHypIndMap: index -- cell number in base
-	// -- contains: corresponding cell number in hyp
+	// ruleCorrespondences -- each int[] (inner length = 2) instance in RELOCDS is [deleteLoc, addLoc)
+	// @prerequisite: class variables baseCascSim, hypCascSim and proposedChs are already set
+	// format of @param baseToHypIndMap: index -- cell number in base -- contains: corresponding cell number in hyp
 	// @param hypToBaseIndMap -- is the reverse
 	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) {
 		// initialize dummy versions of the mappings
@@ -128,7 +125,9 @@ public class DifferentialHypothesisSimulator {
 			assert UTILS.compare1dIntArrs(baseToHypIndMap,
 					hypToBaseIndMap) : "ERROR: no proposed changes detected, but baseToHypIndMap and hypToBaseIndMap differ";
 			ruleCorrespondences = new int[][] { baseToHypIndMap, hypToBaseIndMap };
-		} else {
+		} 
+		else {
+			
 			/**
 			 * ruleCorrespondences -- tracked rule pairs in hyp and base cascs share the
 			 *		 same INNER index a rule in baseCasc is tracked 
@@ -147,26 +146,24 @@ public class DifferentialHypothesisSimulator {
 			int baseLen = baseCascSim.getTotalSteps(), 
 					hypLen = hypCascSim.getTotalSteps();
 
-			int total_length = hypLen;
+			int globLen = hypLen;
 			// get the total length value from the hypothesis cascade,
 			// 	because this is the only we to capture the case of modifications or insertions
 			// 		that add multiple rules at once,  or single insertions for that matter.
 			// increment total_length for each time there is a deleted index from the baseline
-			for (int bihimi : baseToHypIndMap)
-				if (bihimi == -1)
-					total_length += 1;
+			for (int bihimi : baseToHypIndMap)	if (bihimi == -1)		globLen += 1;
 
-			locHasPrCh = new boolean[total_length];
+			locHasPrCh = new boolean[globLen];
 			// the indices of locHasPrCh are the GLOBAL indices.
 
-			ruleCorrespondences = new int[2][total_length];
+			ruleCorrespondences = new int[2][globLen];
 			// init ruleCorrespondences with -2 so we know for sure which cells have been
 			// operated upon
 			// -2 thus means the cell is untouched.
 			// ([0] could be the result of an operation)
 			// indices for this are also global.
 
-			for (int rci = 0; rci < total_length; rci++) {
+			for (int rci = 0; rci < globLen; rci++) {
 				ruleCorrespondences[0][rci] = -2;
 				ruleCorrespondences[1][rci] = -2;
 			}
@@ -175,21 +172,18 @@ public class DifferentialHypothesisSimulator {
 
 			// TODO debugging
 			System.out.println("sameUntil " + sameUntil);
-
-			for (int gri = 0; gri < sameUntil; gri++) {
-				ruleCorrespondences[0][gri] = gri;
-				ruleCorrespondences[1][gri] = gri;
+			
+			int gi = 0, bi = 0, hi = 0; 
+				// global, base, and hyp instant iterators
+			
+			while (gi < sameUntil) 	{
+				ruleCorrespondences[0][gi] = bi++; 
+				ruleCorrespondences[1][gi++] = hi++;
 			}
-
-			int gi = sameUntil, bi = sameUntil, hi = sameUntil;
-			// global, base, and hyp instant iterators
-
-			// TODO debugging
-			System.out.println("tot len " + total_length);
-
+			
 			HashMap<Integer,Integer> fut_sources_left = new HashMap<Integer,Integer>(); 
 			
-			while (gi < total_length) {
+			while (gi < globLen) {
 				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, // index linked to current base instant
 						ilhi = (hi < hypLen) ? dumRIMHB[hi] : -1; // index linked to current hyp instant
 				
@@ -237,8 +231,8 @@ public class DifferentialHypothesisSimulator {
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
 						assert ilbi != ilhi : "ERROR: cannot have a rule that exists neither that has neither a base nor hyp index";
-						ruleCorrespondences[0][gi] = (ilbi == -1) ? ilbi : bi++; 		//if condition is true, case is insertion, else it's deletion
-						ruleCorrespondences[1][gi] = (ilhi == -1) ? ilhi : hi++; 		// reverse of the above. 
+						ruleCorrespondences[0][gi] = (ilhi == -1) ? ilhi : bi++; 		//if condition is true, case is insertion, else it's deletion
+						ruleCorrespondences[1][gi] = (ilbi == -1) ? ilbi : hi++; 		// reverse of the above. 
 						gi++; 
 					}
 					else if (ilhi > bi) // future backwards relocdation. 

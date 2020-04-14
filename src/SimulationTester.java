@@ -284,6 +284,17 @@ public class SimulationTester {
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, "0".equals(thepc[0]) && nextLaw.equals(thepc[1]) && nextCmt.equals(thepc[2]),  
 				"ERROR: update on proposedChanges for simple insertion not carried out properly"); 
 		
+		//test RIM_BH and RIM_HB
+		int[] corrRIM_BH = new int[] {1,2,3,4,5,6,7,8,9,10,11}, corrRIM_HB = new int[] {-1,0,1,2,3,4,5,6,7,8,9,10},
+				obsRIM_BH = DHSW.getBaseHypRuleIndMap(), obsRIM_HB = DHSW.getHypBaseRuleIndMap();
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs(corrRIM_BH, obsRIM_BH),
+				"ERROR: RIM_BH should be "+UTILS.print1dIntArr(corrRIM_BH)+"\nbut it is : "+UTILS.print1dIntArr(obsRIM_BH)); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+				UTILS.compare1dIntArrs(corrRIM_HB, obsRIM_HB),
+				"ERROR: RIM_HB should be "+UTILS.print1dIntArr(corrRIM_HB)+"\nbut it is : "+UTILS.print1dIntArr(obsRIM_HB)); 
+		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
