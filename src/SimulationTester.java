@@ -285,15 +285,15 @@ public class SimulationTester {
 				"ERROR: update on proposedChanges for simple insertion not carried out properly"); 
 		
 		//test RIM_BH and RIM_HB
-		int[] corrRIM_BH = new int[] {1,2,3,4,5,6,7,8,9,10,11}, corrRIM_HB = new int[] {-1,0,1,2,3,4,5,6,7,8,9,10},
-				obsRIM_BH = DHSW.getBaseHypRuleIndMap(), obsRIM_HB = DHSW.getHypBaseRuleIndMap();
+		int[] corrBhRIM = new int[] {1,2,3,4,5,6,7,8,9,10,11}, corrHbRIM = new int[] {-1,0,1,2,3,4,5,6,7,8,9,10},
+				obsBhRIM = DHSW.getBaseHypRuleIndMap(), obsHbRIM = DHSW.getHypBaseRuleIndMap();
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-				UTILS.compare1dIntArrs(corrRIM_BH, obsRIM_BH),
-				"ERROR: RIM_BH should be "+UTILS.print1dIntArr(corrRIM_BH)+"\nbut it is : "+UTILS.print1dIntArr(obsRIM_BH)); 
+				UTILS.compare1dIntArrs(corrBhRIM, obsBhRIM),
+				"ERROR: RIM_BH should be "+UTILS.print1dIntArr(corrBhRIM)+"\nbut it is : "+UTILS.print1dIntArr(obsBhRIM)); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
-				UTILS.compare1dIntArrs(corrRIM_HB, obsRIM_HB),
-				"ERROR: RIM_HB should be "+UTILS.print1dIntArr(corrRIM_HB)+"\nbut it is : "+UTILS.print1dIntArr(obsRIM_HB)); 
+				UTILS.compare1dIntArrs(corrHbRIM, obsHbRIM),
+				"ERROR: RIM_HB should be "+UTILS.print1dIntArr(corrHbRIM)+"\nbut it is : "+UTILS.print1dIntArr(obsHbRIM)); 
 		
 		DifferentialHypothesisSimulator theDHS = DHSW.generateDHS(); 
 		
@@ -465,7 +465,7 @@ public class SimulationTester {
 		
 		//testing base to hyp rule ind map in DHSWrapper 
 			// -- before this operation there were 11 rules, and we are deleting the 8th. 
-		int[] corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
+		corrBhRIM = new int[] {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} ;
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
 			"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly."); 
 		
@@ -580,15 +580,15 @@ public class SimulationTester {
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
 		corrBhRIM = new int[]{0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9, 10};
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
-			"ERROR: forward relocdation is not handled correctly in base-hyp rule ind map.\n"
+			"ERROR: forward (originally) relocdation is not handled correctly in base-hyp rule ind map.\n"
 			+ "Correct : "+UTILS.print1dIntArr(corrBhRIM)+
 			"\nObserved : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()) ) ;
 	
 		//and same for hyp to base
-		int[] corrHbRIM = new int[] {0, 2, 3, 4, 5, 6 , 1, 8, 9, 10, 11}; 
+		corrHbRIM = new int[] {0, 2, 3, 4, 5, 6 , 1, 8, 9, 10, 11}; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), corrHbRIM), 
-				"ERROR: forward relocdation not handled correctly in hyp-base rule ind map\n"
+				"ERROR: forward (originally) relocdation not handled correctly in hyp-base rule ind map\n"
 				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ;
 		
 		//test DHSWrapper.hypGoldLocs
