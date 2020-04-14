@@ -43,19 +43,16 @@ public class DHSWrapper {
 
 	private List<String[]> proposedChanges;
 	// TODO important variable here, explanation follows
-	// each indexed String[] is form [curr time step, operation details, comments to
-	// add to file at writing time]
+	// each indexed String[] is form [curr time step, operation details, comments to add to file at writing time]
 	// this object is *kept sorted* by current (i.e. baseline) time step
 	// (IMPORTANT: equivalent to iterator hci, for hypCASC later)
-	// and time steps are kept updated as changes are made elsewhere
+	// 		... and time steps are kept updated as changes are made elsewhere
 	// sorting is from earliest time step, to latest timestep
 	// operation may be either deletion or insertion
-	// both relocdation and modification are handled as deletion then insertion
-	// pairs.
+	// 		both relocdation and modification are handled as deletion then insertion pairs.
 	// for deletion, the second slot simply holds the string "deletion"
-	// whereas for insertion, the second indexarg0arg0arg0arg0 holds the string form
-	// of the SChange
-	// that is inserted there in hypCASC.
+	// whereas for insertion, the second index holds the string form
+	// 	of the SChange that is inserted there in hypCASC.
 
 	private int[] RIM_BH; // easy access maps spaces BETWEEN rule steps of baseCASC to those in hypCASC.
 	// the mapping is kept updated as new changes are added
