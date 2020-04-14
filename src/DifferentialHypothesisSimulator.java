@@ -174,6 +174,10 @@ public class DifferentialHypothesisSimulator {
 			}
 			
 			HashMap<Integer,Integer> fut_sources_left = new HashMap<Integer,Integer>(); 
+			List<Integer> unresolved_past_sources = new ArrayList<Integer>(); 
+				// for purposes of locHasPrCh, so that all the one-step back relocdations used 
+					// as proxies for a single forward relocdations are not counted as genuine changes
+						// between the baseline and hypothesis cascades.
 			
 			while (gi < globLen) {
 				int ilbi = (bi < baseLen) ? dumRIMBH[bi] : -1, // index linked to current base instant
@@ -218,9 +222,14 @@ public class DifferentialHypothesisSimulator {
 					{
 						assert fut_sources_left.containsKey(bi) : "ERROR: found flag for backward relocdation resolution (ilhi == -2)\n "
 								+ "but the current base index (bi = "+bi+") is not in fut_sources_left!"; 
-						ruleCorrespondences[1][gi] = fut_sources_left.remove(bi); 
+						int past_corr = fut_sources_left.remove(bi); 
+						ruleCorrespondences[1][gi] = past_corr;
 						ruleCorrespondences[0][gi] = bi++; 
-						locHasPrCh[gi++] = true; 
+						
+						if(unresolved_past_sources.contains(past_corr))
+							unresolved_past_sources.remove(past_corr); 
+						else	locHasPrCh[gi] = true; 
+						gi++; 
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
@@ -231,11 +240,11 @@ public class DifferentialHypothesisSimulator {
 					}
 					else if (ilhi > bi) // future backwards relocdation. 
 					{
+						if (!relocdIsBackward(hi)) {
+							unresolved_past_sources.add(hi);  
+							locHasPrCh[gi] = true; 
+						}
 						fut_sources_left.put(ilhi, hi++);
-						
-						//TODO debugging 
-						System.out.println("fsl["+ilhi+"]: "+fut_sources_left.get(ilhi)); 
-						
 						dumRIMBH[ilhi] = -2; 
 					}
 					else		throw new Error("ERROR: should not never have ilhi < bi but ilhi = "+ilhi+" and bi = "+bi); 
@@ -1124,7 +1133,6 @@ public class DifferentialHypothesisSimulator {
 		return src_step > dest_step;
 	}
 	
-
 	// auxiliary for compareRuleCorrespondences,
 	// recruits proposedChs to disambiguate if a relocdation is forward or backward
 	// recall : indices in proposedChs[][0] are always the current (at point of
