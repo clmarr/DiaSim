@@ -710,21 +710,27 @@ public class DHSWrapper {
 				}
 				/**
 				 * note -- since in a relocdation shift, deletion operates before insertion,
-				 * this has implications here because after deletion, all instants numbered
-				 * greater than the deleted rule (recall: instant 0 is before rule 0, 1 before r
-				 * 1 etc... until n+1 is after final rule n) ... are effectively moved back one
-				 * spot. while the instant formerly before the deleted rule merges with the one
-				 * formerly after it But what does this mean for if and how In the case where
-				 * deleteLoc < addLoc all instants from deleteLoc+1 to the end are moved back
-				 * one effectively but then after the following insertion operation at addLoc
-				 * i.e. operationally at addLoc - 1 ... but it inserts the step right AFTER
-				 * instant addLoc - 1 ... all instants that are at what was originally addLoc +
-				 * 1 ... are moved one step forward, cancelling out the effect of deletion ...
-				 * this means that a stage taht was originally addLoc, right before hte spot
-				 * where ... the rule is being inserted ... WILL be moved back one place. In the
-				 * case where deleteLoc > addLoc: places at deleteLoc and onwards are first
-				 * effected by -1 then all places at or after addLoc are effected by +1 meaning
-				 * the net effect is +1 over [addLoc, deleteLoc)
+				 * this has implications here because after deletion, 
+				 * 	all instants numbered greater than the deleted rule 
+				 * 			(recall: instant 0 is before rule 0, 1 before r 1 etc... until n+1 is after final rule n) 
+				 * ... are effectively moved back one spot. 
+				 * 	meanwhile the instant formerly before the deleted rule merges with the one formerly after it 
+				 * But what does this mean for if and how? 
+				 * In the case where deleteLoc < addLoc 
+				 * 	all instants from deleteLoc+1 to the end 
+				 * 		are moved back one spot effectively
+				 * 	 but then after the following insertion operation at addLoc
+				 *				 i.e. operationally at <addLoc - 1> ...
+				 *						 but it inserts the step right AFTER instant <addLoc - 1> ... 
+				 *		all instants that are at what was originally <addLoc +1> ... 
+				 *				are moved one step forward, cancelling out the effect of deletion ...
+				 * 			this means that a stage that was originally addLoc, 
+				 * 					right before the spot where the rule is being inserted ... 
+				 * 				WILL be moved back one place. 
+				 * In the case where deleteLoc > addLoc: 
+				 * 	places at deleteLoc and onwards are first effected by -1 
+				 * 		then all places at or after addLoc are effected by +1 
+				 * 	meaning the net effect is +1 over [addLoc, deleteLoc)
 				 */
 
 				if (NUM_GOLD_STAGES > 0)

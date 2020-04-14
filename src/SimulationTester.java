@@ -561,7 +561,8 @@ public class SimulationTester {
 		//relocdation of flapping rule to after first waypoint
 		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving the flapping rule that is at index 1 to index 6.\n----------------\n"); 
 		
-		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,"Relocdated from former step 1");
+		DHSW.processSingleCh(1,"Relocdated to after first waypoint",6,"",null,
+				"Relocdated from former step 1");
 		
 		//testing realization in the cascade structures. 
 		curHC = DHSW.getHypCASC();
