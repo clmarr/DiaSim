@@ -226,9 +226,8 @@ public class DifferentialHypothesisSimulator {
 						ruleCorrespondences[1][gi] = past_corr;
 						ruleCorrespondences[0][gi] = bi++; 
 						
-						if(unresolved_past_sources.contains(past_corr))
-							unresolved_past_sources.remove(past_corr); 
-						else	locHasPrCh[gi] = true; 
+						if(!unresolved_past_sources.contains(past_corr))	// if it wasn't actually a forward relocdation then. 
+							locHasPrCh[gi] = true; 
 						gi++; 
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
