@@ -232,9 +232,12 @@ public class DifferentialHypothesisSimulator {
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
-						assert ilbi != ilhi : "ERROR: cannot have a rule that exists neither that has neither a base nor hyp index";
-						ruleCorrespondences[0][gi] = (ilhi == -1) ? ilhi : bi++; 		//if condition is true, case is insertion, else it's deletion
-						ruleCorrespondences[1][gi] = (ilbi == -1) ? ilbi : hi++; 		// reverse of the above. 
+						//assert ilbi != ilhi : "ERROR: cannot have a rule that exists neither that has neither a base nor hyp index";
+						
+						//insertion comes first, deletion is considered to happen to LATER inds (ind numbers are adjusted to avoid errors)
+						boolean isInsertion = (ilhi == -1); 
+						ruleCorrespondences[0][gi] = isInsertion ? ilhi : bi++; 
+						ruleCorrespondences[1][gi] = isInsertion ? hi++ : ilbi; 
 						locHasPrCh[gi++] = true;
 					}
 					else if (ilhi > bi) // future backwards relocdation. 
