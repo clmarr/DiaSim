@@ -146,6 +146,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * @param patientSeq
 	 * @param ind
 	 * @return
+	 * @throws UnsetAlphaException 
 	 */
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{

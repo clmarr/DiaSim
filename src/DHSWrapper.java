@@ -433,7 +433,9 @@ public class DHSWrapper {
 	}
 
 	// TODO need to fix this so that we are operating on hypCASC.
-	public int queryForkPoint(Scanner inpu, SChangeFactory fac) {
+		// TODO is this good now... or no? 
+	public int queryForkPoint(Scanner inpu, SChangeFactory fac) 
+	{
 		String resp;
 		int forkAt = -1;
 		String currRuleOptions = "\t\t\t'get curr rule X', to get the index of any rules containing an entered string replacing <X>.\n"
@@ -441,7 +443,7 @@ public class DHSWrapper {
 				+ "\t\t\t'get curr rule effect X', to get all changes from a rule by the index <X>.\n";
 		while (forkAt == -1 && stillQuerying) {
 
-			// TODO is this confusing?
+			// TODO is this confusing? reword? 
 			System.out.print("At what current rule number would you like to modify cascade? Please type the number.\n"
 					+ "You may also enter:\t'quit', to return to the main menu\n"
 					+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
@@ -490,8 +492,8 @@ public class DHSWrapper {
 						: originalLastMoment;
 
 				while (pci < proposedChanges.size()) {
-					assert hci == nextFork : "Error : should be at next fork moment but we are not";
-
+					if (hci == nextFork)	throw new RuntimeException("Error: should be at the next fork at this point in the differential hypothesis, but we are not."); 
+					
 					String currMod = proposedChanges.get(pci)[1];
 					if (currMod.equals("deletion")) {
 						System.out.println("[DELETED RULE : " + baseCASC.get(ci).toString());
@@ -662,15 +664,16 @@ public class DHSWrapper {
 			{
 				if (addLoc == deleteLoc) // modification
 				{
-					assert insertions
-							.size() > 0 : "Error: @param newRules cannot be null or empty if we are doing a modification operation";
+					if (insertions.size() == 0)	throw new RuntimeException("@param newRules cannot be null or empty if we are doing a modification operation... but it is");
 					modifications.add(deleteLoc);
 				} 
 				else // relocdation
 				{
-					assert insertions.size() == 0 : "Error: @param newRules must be null or empty if we are doing a relocdation operation";
-					assert validRelocdationNotes(deletionNotes) : "ERROR: invalid relocdation notes on deletion side: '"+deletionNotes+"'"; 
-					assert validRelocdationNotes(insertionNotes) : "ERROR: invalid relocdation notes on insertion side: '"+insertionNotes+"'"; 
+					if (insertions.size() != 0)	throw new RuntimeException("@param newRules must be null or empty if we are doing a relocdation operation... but it is not.");
+					if (!validRelocdationNotes(deletionNotes))	
+						throw new RuntimeException("ERROR: invalid relocdation notes on deletion side: '"+deletionNotes+"'"); 
+					if (!validRelocdationNotes(insertionNotes))
+						throw new RuntimeException("ERROR: invalid relocdation notes on insertion side: '"+insertionNotes+"'");  
 					insertions.add(removed);
 				}
 				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions);
@@ -753,8 +756,9 @@ public class DHSWrapper {
 				int relocdi = 0;
 				while (relocdi < relocdations.size() - 1) {
 					int[] delLocAddLoc = relocdations.get(relocdi);
-					assert delLocAddLoc.length == 2 : "ERROR: invalid entry in ArrayList<int[]> relocdations at ["
-							+ relocdi + "] : " + UTILS.print1dIntArr(relocdations.get(relocdi));
+					
+					if (delLocAddLoc.length != 2)	throw new RuntimeException("ERROR: invalid entry in ArrayList<int[]> relocdations at ["
+							+ relocdi + "] : " + UTILS.print1dIntArr(relocdations.get(relocdi)));
 					for (int dai = 0; dai < 2; dai++)
 						if (delLocAddLoc[dai] >= (back ? addLoc : deleteLoc)
 								&& delLocAddLoc[dai] < (back ? deleteLoc : addLoc + 1))
@@ -818,8 +822,9 @@ public class DHSWrapper {
 					int relocdi = 0;
 					while (relocdi < relocdations.size() - 1) {
 						int[] delLocAddLoc = relocdations.get(relocdi);
-						assert delLocAddLoc.length == 2 : "ERROR: invalid entry in ArrayList<int[]> relocdations at ["
-								+ relocdi + "] : " + UTILS.print1dIntArr(relocdations.get(relocdi));
+						if (delLocAddLoc.length != 2)
+							throw new RuntimeException("ERROR: invalid entry in ArrayList<int[]> relocdations at ["
+								+ relocdi + "] : " + UTILS.print1dIntArr(relocdations.get(relocdi)));
 						for (int dai = 0; dai < 2; dai++)
 							if (delLocAddLoc[dai] > deleteLoc)
 								delLocAddLoc[dai] += increment;
@@ -932,9 +937,9 @@ public class DHSWrapper {
 	// also writes to file automatically -- must have set hypOutLoc for this to be
 	// used.
 	public void acceptHypothesis(boolean promptsOnly) throws MidDisjunctionEditException {
-		assert !hypOutLoc.equals("") : "ERROR: hypOutLoc must be set before hypothesis acceptance can be carried out.";
-		assert hypEmpiricized != null
-				&& !hypOutLoc.equals("") : "Error: @global hypOutLoc must be set before usurping baseline";
+		if(hypOutLoc.equals(""))	throw new RuntimeException(
+				"ERROR: hypOutLoc must be set before hypothesis acceptance can be carried out.");
+		if (hypEmpiricized == null) throw new RuntimeException("Error: @global hypOutLoc must be set before usurping baseline");
 		writeModifiedFile(promptsOnly);
 		rebase(hypEmpiricized, hypOutLoc);
 	}
