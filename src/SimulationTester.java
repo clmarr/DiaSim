@@ -687,7 +687,7 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
-		System.out.println("Now processing three changes for hypothesis, before usurping baseline."); 
+		System.out.println("\n-------------\nFourth: Now processing three changes for hypothesis, before usurping baseline.\n---------------\n"); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
                         + "\t\tfrom __ ə\n"
                         + "\tto [+son] __ {# ; [-stres,-back,+nas]}\n");
