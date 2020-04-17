@@ -183,13 +183,18 @@ public class DiachronicSimulator {
 				else if ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
+					
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
+						// this assertion can stay as it does actually fulfill the role of an assertion... 
 					
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG): 
-						"Error: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					
+					if (currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG))
+						throw new RuntimeException("Error: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> "
+								+ "occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule);
+					if (currRule.contains(UTILS.STAGENAME_LOC_DELIM+""))
+						throw new RuntimeException("Error: illegal character found in name for custom stage -- <<"
+								+UTILS.STAGENAME_LOC_DELIM+">>");  
 					goldStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli);  
 				}
@@ -197,8 +202,8 @@ public class DiachronicSimulator {
 				{
 					blackStagesSet =true;
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
-						"Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					if (currRule.contains(UTILS.STAGENAME_LOC_DELIM+""))
+						throw new RuntimeException("Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>");  
 					blackStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli); 
 				}
@@ -278,7 +283,6 @@ public class DiachronicSimulator {
 						next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 				}
 			}
-			
 		}
 		
 		System.out.println("Diachronic rules extracted. "); 
@@ -323,7 +327,8 @@ public class DiachronicSimulator {
 				int curgs = numGoldStagesConfirmed; 
 				while ( coli == NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
-				assert coli < NUM_GOLD_STAGES : "Failed to find gold stage that was stipulated in lexicon file header : "+stipName;
+				if (coli >= NUM_GOLD_STAGES)
+					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
 				numGoldStagesConfirmed++; 
 				coli++; 
 			}
@@ -342,7 +347,8 @@ public class DiachronicSimulator {
 				int curgs = numGoldStagesConfirmed; 
 				while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
-				assert coli <= NUM_GOLD_STAGES : "Failed to find gold stage that was stipulated in lexicon file header : "+stipName;
+				if (coli > NUM_GOLD_STAGES)
+					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
 				numGoldStagesConfirmed++; 	
 			}
 			if (numGoldStagesConfirmed < NUM_GOLD_STAGES)
@@ -376,7 +382,8 @@ public class DiachronicSimulator {
 			}
 			else 
 			{
-				assert numCols == 2 : "ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"; 
+				if (numCols != 2) 
+					throw new RuntimeException("ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"); 
 				goldOutput = true; 
 				System.out.println("Last column assumed to be output!"); 
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
@@ -444,15 +451,16 @@ public class DiachronicSimulator {
 			}
 			else
 			{
-				assert stageOrdering[soi].charAt(0) == 'b' : "Global variable stageOrdering misconstructed!"; 
+				if (stageOrdering[soi].charAt(0) != 'b')	throw new RuntimeException("Global variable stageOrdering misconstructed!"); 
 				int curbi = Integer.parseInt(stageOrdering[soi].substring(1)); 
-				assert curbi == bsloc : "Error: a black stage was skipped in stageOrdering!"; 
+				if (curbi != bsloc) throw new RuntimeException("Error: a black stage was skipped in stageOrdering!"); 
 				blackStageNames[curbi] = oldBlackStageNames[curbi]; 
 				blackStageInstants[curbi] = oldBlackStageInstants[curbi]; 
 				bsloc++; 
 			}
 			soi++; 
-			assert soi < stageOrdering.length : "ERROR: stage we are blackening was never found in stageOrdering!" ;
+			if (soi >= stageOrdering.length)	
+				throw new RuntimeException("ERROR: the stage we are blackening was never found in stageOrdering!") ;
 		}
 		blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
 		blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
@@ -480,9 +488,7 @@ public class DiachronicSimulator {
 				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			soi++; 
 		}
-	}
-
-		
+	}		
 	
 	public static void main(String args[])
 	{
@@ -566,8 +572,8 @@ public class DiachronicSimulator {
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
-			if(lfli <NUM_ETYMA)
-				assert numCols == colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
+			if(lfli <NUM_ETYMA && numCols != colCount(theLine))
+				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 
 		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
@@ -804,8 +810,9 @@ public class DiachronicSimulator {
 				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
 			else
 			{
-				assert phoneSymbToFeatsMap.containsKey(toPhone): 
-					"Error: tried to declare a phone in a word in the lexicon using an invalid symbol.\nSymbol is : '"+toPhone+"', length = "+toPhone.length(); 
+				if (!phoneSymbToFeatsMap.containsKey(toPhone))
+					throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
+					+ "Symbol is : '"+toPhone+"', length = "+toPhone.length());
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
