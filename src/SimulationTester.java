@@ -839,10 +839,11 @@ public class SimulationTester {
 		for(int ri = 1; ri < 4; ri++)	
 		{	
 			corrBhRIM[ri]++; 
-			corrHbRIM[ri+1]--;	
-			corrRC[1][ri+1]--;
+			corrHbRIM[ri+1]--;
+			corrRC[1][ri]++;
 		}
-		corrBhRIM[4] = 1;  corrHbRIM[1] = 4; corrRC[1][1] = 4; 
+		corrBhRIM[4] = 1;  corrHbRIM[1] = 4; 
+		corrRC[1][4] = 1; 
 		
 		//testing DHSW's rule maps
 		
