@@ -11,7 +11,7 @@ import java.util.Set;
 	* depending on appropriate types for the parameters
 	* 
 	* all phonological rules are of form : 
-	* 	Target Source -> Destination / Prior Context __ Posterior COntext
+	* 	Target Source -> Destination / Prior Context __ Posterior Context
 	*	this class will appropriately react to optionality (..), disjunction {..;..;...},
 	*	and recursive optional windows such as (..)* and (..)+
 */
@@ -79,8 +79,9 @@ public class SChangeFactory {
 		for (String key : stfKeys)
 		{
 			String featdef = stf.get(key); 
-			assert featVectsToSymb.containsKey(featdef) == false :  
-				"ERROR: duplicate phone definition in symbMap! Duplicate key : " +featdef+", redundant hit for "+key+" with original as "+featVectsToSymb.get(featdef);
+			if (featVectsToSymb.containsKey(featdef))
+				throw new RuntimeException("ERROR: duplicate phone definition in symbMap! Duplicate key :"
+						+ " " +featdef+", redundant hit for "+key+" with original as "+featVectsToSymb.get(featdef));
 			featVectsToSymb.put(featdef, key); 
 		}
 	}
@@ -125,7 +126,7 @@ public class SChangeFactory {
 		boolean priorSpecified = false, postrSpecified = false; 
 		if(contextSpecified)
 		{
-			assert inputParse.contains(LOCUS): "Error: Context flag seen but locus not seen!"; 
+			if(!inputParse.contains(LOCUS)) throw new RuntimeException("Error: Context flag seen but locus not seen!"); 
 			inputSplit = inputParse.split(""+contextFlag); 
 			inputDest = inputSplit[0].trim(); 
 			inputParse = inputSplit[1].trim();
@@ -139,31 +140,34 @@ public class SChangeFactory {
 			inputPrior = inputSplit[0].trim(); 
 			priorSpecified = inputPrior.equals("") == false; 
 			
-			assert priorSpecified || postrSpecified : 
-				"Error : Context flag and locus marker seen, but no specification of either prior or posterior"
-				+ "on either side of the locus!"; 
+			if( !priorSpecified && !postrSpecified)
+				throw new RuntimeException("Error : Context flag and locus marker seen, but no specification of either prior or posterior"
+						+ "on either side of the locus!");
 
 			// in case of disjunction {..,..,..} in the context, use recursion to get all the possibilities
 			if(inputPrior.contains("{"))
 			{
-				assert inputPrior.contains("}") :
-					"Error: disjunction opener found but disjunction closer not found";
-				assert inputPrior.contains(""+segDelim) :
-					"Error: disjunction opener found but disjunction delimiter not found"; 
+				if(! inputPrior.contains("}"))
+					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found");
+				if(! inputPrior.contains(""+segDelim) )
+					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found"); 
 				int openerInd = inputPrior.indexOf("{"); 
 				int braceDepth = 1; 
 				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
 					// FeatMatrices could have in it : +hi;+lo -- but 3 is the minimum for two phones a;b
 
-				assert closerInd < inputPrior.length() : "Error: reached end of inputPrior without finding"
-						+ " the corresponding closer of the disjunction which was opened." ; 
+				if (closerInd >= inputPrior.length())
+					throw new RuntimeException("Error: reached end of inputPrior without finding"
+						+ " the corresponding closer of the disjunction which was opened."); 
 				while(! (inputPrior.charAt(closerInd) == '}' && braceDepth == 1))
 				{
 					if(inputPrior.charAt(closerInd) == '{')	braceDepth++; 
 					else if(inputPrior.charAt(closerInd) == '}')	braceDepth--;
 					closerInd++;
-					assert closerInd < inputPrior.length() : "Error: reached end of inputPrior without finding"
-							+ "the corresponding closer of the disjunction which was opened." ; 
+					
+					if (closerInd >= inputPrior.length()) 
+						throw new RuntimeException("Error: reached end of inputPrior without finding"
+							+ "the corresponding closer of the disjunction which was opened." ); 
 				}
 				
 				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+segDelim); 
@@ -178,17 +182,17 @@ public class SChangeFactory {
 			}
 			if (inputPostr.contains("{"))
 			{
-				assert inputPostr.contains("}") :
-					"Error: disjunction opener found but disjunction closer not found";
-				assert inputPostr.contains(""+segDelim) :
-					"Error: disjunction opener found but disjunction delimiter not found"; 
+				if(! inputPostr.contains("}") )
+					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found");
+				if(! inputPostr.contains(""+segDelim) )
+					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found"); 
 				int openerInd = inputPostr.indexOf("{"); 
 				int braceDepth = 1; 
 				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
 					// FeatMatrices could have in it : +hi;+lo-- but with phones it is 3
 
-				assert closerInd < inputPostr.length() : "Error: reached end of inputPrior without finding"
-						+ "the corresponding closer of the disjunction which was opened." ; 
+				if( closerInd >= inputPostr.length() ) throw new RuntimeException( "Error: reached end of inputPrior without finding"
+						+ "the corresponding closer of the disjunction which was opened.") ; 
 				
 				while(! (inputPostr.charAt(closerInd) == '}' && braceDepth == 1))
 				{
@@ -196,8 +200,8 @@ public class SChangeFactory {
 					else if(inputPostr.charAt(closerInd) == '}')	braceDepth--;
 					closerInd++;
 					
-					assert closerInd < inputPostr.length() : "Error: reached end of inputPrior without finding"
-							+ "the corresponding closer of the disjunction which was opened." ;
+					if( closerInd >= inputPostr.length() ) throw new RuntimeException( "Error: reached end of inputPrior without finding"
+							+ "the corresponding closer of the disjunction which was opened.") ; 
 				}
 				
 				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+segDelim); 
@@ -211,20 +215,20 @@ public class SChangeFactory {
 			}
 		}
 		
-		assert !inputSource.contains("(") && !inputSource.contains(")"): "Error: tried to use optionality"
-				+ " features for defining source -- this is forbidden."; 
-		assert !inputDest.contains("(") && !inputDest.contains(")") : "Error: tried to use optionality "
-				+ "features for defining destination -- this is forbidden.";
+		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
+				+ " features for defining source -- this is forbidden."); 
+		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
+				+ "features for defining destination -- this is forbidden.");
 		
 		//TODO note [ and ] can ONLY be used to surround feature specifications for FeatMatrix
 				// otherwise there will be very problematic errors
 		boolean srcHasFeatMatrices = inputSource.contains("["); 
-		assert srcHasFeatMatrices == inputSource.contains("]"): 
-			"Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
+		if (srcHasFeatMatrices != inputSource.contains("]")) 
+			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"); 
 		if(srcHasFeatMatrices)
 		{
 			usingAlphFeats = alphCheck(inputSource); 
-			assert hasValidFeatSpecList(inputSource): "Error: usage of brackets without valid feature spec list : "+inputSource; 
+			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource); 
 		}
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
@@ -253,7 +257,7 @@ public class SChangeFactory {
 			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha(featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp) : new SChangeFeatToPhone(featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp); 
-				//errors will be caught by assertions in parsePhoneSequenceForDest
+				//errors will be caught by exceptions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(thisShift); 
@@ -266,7 +270,8 @@ public class SChangeFactory {
 		{
 			if(inputDest.contains("[")) // SChangeSeqToSeq
 			{
-				assert inputDest.contains("]"):  "Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"; 
+				if (! inputDest.contains("]")) throw new RuntimeException("Error: mismatch in presence "
+						+ "of [ and ], which are correctly used to mark a FeatMatrix specification"); 
 				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, 
 						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp) : 
 							new SChangeSeqToSeq(featIndices, symbToFeatVects, parseRestrictPhoneSequence(inputSource),
@@ -306,9 +311,9 @@ public class SChangeFactory {
 				return output;
 			}
 			
-			assert !inputDest.contains("{") && !inputDest.contains("}") : 
+			if( inputDest.contains("{") || inputDest.contains("}") ) throw new RuntimeException(
 				"Error: cannot have disjunction braces in the destination for a SChangePhone with feature specified destination -- "
-				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"; 
+				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"); 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
 			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
@@ -318,8 +323,8 @@ public class SChangeFactory {
 		}
 		
 		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
-		assert sourceSegs.size() == destSegs.size() : 
-			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!";
+		if( sourceSegs.size() != destSegs.size() ) throw new RuntimeException(
+			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!");
 		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
@@ -377,21 +382,21 @@ public class SChangeFactory {
 			else if(inputLeft.indexOf(phDelim) > 0)
 			{
 				String toDelim = inputLeft.substring(0, inputLeft.indexOf(phDelim)); 
-				assert symbToFeatVects.containsKey(toDelim) :
-					"Tried to declare phone with illegitimate symbol : "+toDelim; 
+				if(! symbToFeatVects.containsKey(toDelim) )	throw new RuntimeException(
+					"Tried to declare phone with illegitimate symbol : "+toDelim); 
 				output.add(new Phone(symbToFeatVects.get(toDelim), featIndices, symbToFeatVects));
 				inputLeft = inputLeft.substring(inputLeft.indexOf(phDelim)+1);
 			}
 			else if(inputLeft.indexOf('[') > 0)
 			{
 				String toPhone = inputLeft.substring(0, inputLeft.indexOf('['));
-				assert symbToFeatVects.containsKey(toPhone) : 
-					"Tried to declare phone with illegitimate symbol : "+toPhone;
+				if(! symbToFeatVects.containsKey(toPhone) )	throw new RuntimeException(
+						"Tried to declare phone with illegitimate symbol : "+toPhone); 
 				output.add(new Phone(symbToFeatVects.get(toPhone), featIndices, symbToFeatVects));
 				inputLeft = inputLeft.substring(inputLeft.indexOf('['));
 			}
 			else
-				assert 1==2 : "Tried to parse illegitimate unit : "+inputLeft; 
+				throw new RuntimeException( "Tried to parse illegitimate unit : "+inputLeft); 
 		}
 		
 		return output; 
@@ -422,8 +427,9 @@ public class SChangeFactory {
 		String[] toPhones = inp.split(""+phDelim); 
 		List<Phone> output = new ArrayList<Phone>(); 
 		for(String toPhone : toPhones)
-		{
-			assert symbToFeatVects.containsKey(toPhone): "tried to parse illegitimate phone symbol : "+toPhone;
+		{			
+			if(! symbToFeatVects.containsKey(toPhone) )	throw new RuntimeException(
+					"Tried to parse illegitimate phone symbol : "+toPhone); 
 			output.add(new Phone(symbToFeatVects.get(toPhone), featIndices, symbToFeatVects));
 		}
 		return output; 
@@ -447,9 +453,9 @@ public class SChangeFactory {
 			return output;
 		}
 		
-		assert (inp.charAt(0) == '{') == (inp.charAt(inp.length() - 1) == '}') : 
+		if( (inp.charAt(0) == '{') != (inp.charAt(inp.length() - 1) == '}') )	throw new RuntimeException( 
 			"Mismatch between presence of disjunction opener and closer for parsing "
-			+ "the sequentional phonic segs to make a SChangehPhone"; 
+			+ "the sequentional phonic segs to make a SChangehPhone"); 
 		if(inp.charAt(0) == '{')
 			inp = input.substring(1, inp.length() - 1).trim(); 
 		if(inp.contains(segDelim+""))
@@ -481,7 +487,8 @@ public class SChangeFactory {
 	{
 		if("+#".contains(curtp))
 			return new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"); 
-		assert symbToFeatVects.containsKey(curtp) : "Error: tried to parse invalid symbol! Symbol : "+curtp; 
+		if(! symbToFeatVects.containsKey(curtp) ) throw new RuntimeException( "Error: tried to parse invalid symbol!"
+				+ " Symbol : "+curtp);
 		return new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects); 
 	}
 	
@@ -530,8 +537,9 @@ public class SChangeFactory {
 			{
 				boolean rec = false; 
 				if(!curtp.equals(")"))
-				{	rec =true ;	assert curtp.equals(")*") || curtp.equals(")+"): 
-						"Error: illegitimate use of closing bracket : "+curtp; }
+				{	rec =true ;	
+					if(!curtp.equals(")*") && !curtp.equals(")+")) 
+						throw new RuntimeException("Error: illegitimate use of closing bracket : "+curtp); }
 				int corrOpenIndex = parenMapInProgress.lastIndexOf("(");
 					//index of corresponding opening paren. 
 				
@@ -543,12 +551,12 @@ public class SChangeFactory {
 			{
 				if(curtp.charAt(0) == '[')
 				{
-					assert curtp.charAt(curtp.length() - 1) == ']' || curtp.length() > 3 : 
-						"Error : illegitimate use of FeatMatrix brackets : "+curtp;
+					if ( curtp.charAt(curtp.length() - 1) != ']' && curtp.length() <= 3)
+						throw new RuntimeException("Error : illegitimate use of FeatMatrix brackets : "+curtp);
 					curtp = curtp.substring(1, curtp.length() - 1);
 				}
-				assert !curtp.contains("[") || !curtp.contains("]") : 
-					"Error : illegitimate usage of brackets " + curtp; 
+				if (curtp.contains("[") && curtp.contains("]"))  throw new RuntimeException( 
+					"Error : illegitimate usage of brackets " + curtp); 
 				
 				parenMapInProgress.add("i"+thePlaceRestrs.size()) ;
 				if(symbToFeatVects.containsKey(curtp))
@@ -559,14 +567,14 @@ public class SChangeFactory {
 					thePlaceRestrs.add(new Boundary("non word bound"));
 				else
 				{
-					assert (curtp.charAt(0) == '[') == (curtp.charAt(curtp.length() - 1) == ']'): 
+					if ((curtp.charAt(0) == '[') != (curtp.charAt(curtp.length() - 1) == ']')) throw new RuntimeException( 
 						"Error : mismatch between presenced of opening bracket and presence "
-						+ "of closing bracket --- curtp is "+curtp; 
+						+ "of closing bracket --- curtp is "+curtp); 
 					if(curtp.charAt(0) == '[')
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
-					assert isValidFeatSpecList(curtp): 
+					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
-						+ "with an invalid entrace for the list of feature specifications.";
+						+ "with an invalid entrace for the list of feature specifications.");
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
@@ -638,15 +646,17 @@ public class SChangeFactory {
 	//derives FeatMatrix object instance from String of featSpec instances
 	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
-		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications" ; 
+		if(! isValidFeatSpecList(featSpecs) )
+			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications"); 
 		
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
 			return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
 				
-		assert(!theFeatSpecs.contains("0") || isInputDest): 
-			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."; 
+		if(theFeatSpecs.contains("0") && !isInputDest)
+			throw new RuntimeException(
+			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
 		return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
 	}
 	
@@ -657,7 +667,8 @@ public class SChangeFactory {
 	 */
 	public String applyImplications (String featSpecs) 
 	{
-		assert isValidFeatSpecList(featSpecs) : "Error : preempted attempt to apply implications to an invalid list of feature specifications" ; 
+		if (! isValidFeatSpecList(featSpecs) )
+			throw new RuntimeException("Error : preempted attempt to apply implications to an invalid list of feature specifications"); 
 		String[] theFeatSpecs = featSpecs.trim().split(""+restrDelim); 
 		String output = ""+featSpecs; 
 		
@@ -701,8 +712,8 @@ public class SChangeFactory {
 	 */
 	public String parseBoundaryType(String inp)
 	{
-		assert Arrays.asList(new String[]{"+","#","@"}).contains(inp) : 
-			"Error: String inp is not a valid boundary symbol"; 
+		if (!Arrays.asList(new String[]{"+","#","@"}).contains(inp))
+			throw new RuntimeException("Error: String inp is not a valid boundary symbol"); 
 		if(inp.equals("#"))	return "word bound"; 
 		if(inp.equals("+"))	return "morph bound";
 		else /*inp.equals("@"))*/  return "non word bound"; 
@@ -765,9 +776,11 @@ public class SChangeFactory {
 	 */
 	public int findClosingInd (String s, int openInd)
 	{
-		assert openInd < s.length() - 2 : "Error : findClosingInd called with openInd set to value too high";
-		assert s.charAt(openInd) == '(' : "Error : findClosingInd called with openInd set to an index where a '(' does not lie!";
-		assert s.charAt(openInd + 1) != ')' : "Error: closing paren found immediately after opening paren-- this is useless to write";
+		if( openInd >= s.length() - 2 ) throw new RuntimeException("Error : findClosingInd called with openInd set to value too high");
+		if( s.charAt(openInd) != '(') throw new RuntimeException("Error : findClosingInd called with openInd set to an index where a"
+				+ " '(' does not lie!");
+		if( s.charAt(openInd + 1) == ')') throw new RuntimeException("Error: closing "
+				+ "paren found immediately after opening paren-- this is useless to write");
 		int checkInd = openInd + 2;  
 		int parenDepth = 1; 
 		
@@ -793,8 +806,8 @@ public class SChangeFactory {
 	 */
 	public int findOpenInd(String s, int closInd)
 	{
-		assert closInd > 1 : "Error: closing ind too low"; 
-		assert s.charAt(closInd) == ')' : "Error : closing paren ) does not lie at closing ind";
+		if (closInd <= 1) throw new RuntimeException("Error: closing ind too low"); 
+		if(s.charAt(closInd) != ')')	throw new RuntimeException("Error : closing paren ) does not lie at closing ind");
 		assert s.charAt(closInd - 1) != '(' : "Error : opening paren immediately before closer () -- this is useless to write"; 
 		
 		int checkInd = closInd - 2 ; 
