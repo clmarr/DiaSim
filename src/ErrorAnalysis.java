@@ -615,7 +615,8 @@ public class ErrorAnalysis {
 
 		int ari = trace[0][0], agi = trace[0][1];
 
-		assert ari == 0 && agi == 0:    "ERROR: ari and agi should both start as 0 but ari is "+ari+" and agi is "+agi;
+		if (ari != 0 || agi != 0 )
+			throw new RuntimeException("ERROR: ari and agi should both start as 0 but ari is "+ari+" and agi is "+agi);
 
 		for (int tri = 1; tri <= trace.length ; tri++)
 		{	
@@ -638,8 +639,10 @@ public class ErrorAnalysis {
 
 		//handle the last step. 
 		
-		assert ari == rlen : "Error: failed to reach res end at "+rlen+" of rphs (at ari = "+ari+")";
-		assert agi == glen : "Error: failed to reach gold end at "+glen+" of gphs (at agi = "+agi+")";
+		if (ari != rlen)
+			throw new RuntimeException("Error: failed to reach res end at "+rlen+" of rphs (at ari = "+ari+")");
+		if (agi != glen) 
+			throw new RuntimeException("Error: failed to reach gold end at "+glen+" of gphs (at agi = "+agi+")");
 
 		return out;
 	}
@@ -1255,7 +1258,8 @@ public class ErrorAnalysis {
 	
 	public String[] topNPredictorsForRelInd(int n, int rel_ind)
 	{
-		assert SS_MISS_IDS.length > 0 : "Error: tried to predict feats for a sequence subset that has no misses!";
+		if (SS_MISS_IDS.length == 0)
+			throw new RuntimeException("Error: tried to predict feats for a sequence subset that has no misses!");
 		
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
@@ -1264,8 +1268,10 @@ public class ErrorAnalysis {
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
 		
-		assert hit_ph_frqs.length == phs_here.get(0).size() : "Error : mismatch in size for hit_ph_frqs"; 
-		assert miss_ph_frqs.length == phs_here.get(1).size() : "Error : mismatch in size for miss_ph_frqs";
+		if (hit_ph_frqs.length != phs_here.get(0).size() )
+			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs");
+		if (miss_ph_frqs.length == phs_here.get(1).size() )
+			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs");
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
 		
