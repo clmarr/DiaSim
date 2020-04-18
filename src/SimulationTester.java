@@ -882,7 +882,7 @@ public class SimulationTester {
 				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11}),
 				"ERROR: base to global ind mapper is malformed");
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
-				UTILS.compare1dIntArrs( htg, new int[] {0, 2, 3, 4, 1, 5, 6, 7, 9, 10, 11}),
+				UTILS.compare1dIntArrs( htg, new int[] {0, 4, 1, 2, 3, 5, 6, 7, 9, 10, 11}),
 				"ERROR: hyp to global ind mapper is malformed");
 				
 		//test divergence point
@@ -903,7 +903,7 @@ public class SimulationTester {
 		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// again relocate the flapping rule to after waypoint 2 
 		
-		// finally all things between waypoitns 2 and 3 insert
+		// finally all things between waypoints 2 and 3 insert
 		// and then check that results are all correct.
 	
 	}
