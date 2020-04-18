@@ -37,7 +37,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	// 
 	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String, String[]> ftImpls)
 	{
-		assert specs.length() > 1 : "Invalid string entered for specs"; 
+		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
 		LOCAL_ALPHABET = "";
 		hasMultispecAlpha = false;
 		type = "feat matrix";
@@ -64,7 +64,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				else	hasMultispecAlpha = true;
 			}
 			String feat = sp.substring(1); 
-			assert ordFeats.contains(feat): "ERROR: tried to add invalid feature : '"+feat+"'";
+			if (!ordFeats.contains(feat))	throw new RuntimeException("ERROR: tried to add invalid feature : '"+feat+"'");
 			
 			int spInd= Integer.parseInt(""+ordFeats.indexOf(feat)); 
 			init_chArr[spInd] = is_alph ? indic.charAt(0) : 
@@ -88,11 +88,14 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			return false; 
 		
 		char nonSet = first_unset_alpha();
-		assert nonSet == '0': "ERROR: tried to compare when alpha style symbol '"+nonSet+"' remains uninitialized";
+		if (nonSet != '0')	throw new RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet
+				+"' remains uninitialized");
 		
 		String candFeats = cand.toString().split(":")[1]; 
-		assert candFeats.length() == featVect.length(): 
-			"ERROR: comparing with feature vects of unequal length"; 
+		
+		if (candFeats.length() != featVect.length())
+			throw new RuntimeException("ERROR: comparing with feature vects of unequal length");
+		
 		for (int i = 0 ; i < candFeats.length(); i++)
 		{
 			String restr = featVect.substring(i,i+1); 
@@ -119,13 +122,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public Phone forceTruth(Phone patient)
 	{
 		char nonSet = first_unset_alpha();
-		
-		assert nonSet == '0' :"ERROR: tried to force truth when alpha style symbol '"+nonSet+"' remains uninitialized"; 			
+	
+		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet);
 		
 		Phone output = new Phone(patient); 
 		String patFeats = patient.getFeatString();
-		assert patFeats.length() == featVect.length():
-			"ERROR: trying to forceTruths on phone with different length feat vector";
+		if (patFeats.length() != featVect.length())
+			throw new UnsetAlphaError("ERROR: cannot forceTruths on phone with different length feat vector");
 			// technically it could still function if this wasn't the case, but for security best to call it out anyways
 		
 		for (int fvi = 0; fvi < featVect.length() ; fvi++)
@@ -154,8 +157,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if( nonSet != '0')
 			throw new UnsetAlphaError(""+nonSet); 
 		
-		SequentialPhonic patient = patientSeq.get(ind); 
-		assert patient.getType().equals("phone"): "ERROR: trying to force cand restrictions on non-phone!";
+		SequentialPhonic patient = patientSeq.get(ind);
+		if (!patient.getType().equals("phone"))
+			throw new RuntimeException("ERROR: trying to force cand restrictions on non-phone!");
 		List<SequentialPhonic> outSeq = new ArrayList<SequentialPhonic>(patientSeq); 
 		outSeq.set(ind, forceTruth(new Phone(patient)));
 		return outSeq;
@@ -249,13 +253,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
-		assert inp.getType().equals("phone") : "Error: tried to check for alpha value impossibility of a juncture phone!";
+		if (!inp.getType().equals("phone"))
+			throw new RuntimeException("Error: tried to check for alpha value impossibility of a juncture phone!");
 		if (!hasMultispecAlpha)	return false;	
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 		
-		assert cand_feat_vect.length == init_chArr.length : "Error: apparently inconsistent length";
+		if (cand_feat_vect.length != init_chArr.length)	throw new RuntimeException("tried to check for alpha value impossibility "
+				+ "for feat vects of differing length"); 
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			String deepSpec = init_chArr[c] + "";
@@ -294,7 +300,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 		
-		assert cand_feat_vect.length == featVect.length() : "Error: apparently inconsistent length";
+		if (cand_feat_vect.length != featVect.length()) 	throw new RuntimeException("cannot extract alpha values for feat vectors of inconsistent length"); 
 		
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
@@ -305,10 +311,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				if (currReqs.containsKey(""+fvspec))
 				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
-					if (currspec.equals("9"))	assert '1'==cand_feat_vect[c]: 
-							"Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
-					else	assert currspec.equals(cand_feat_vect[c]+""): 
-						"Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"; 
+					if (currspec.equals("9")  && '1'!=cand_feat_vect[c])
+							throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
+					else	if (!currspec.equals(cand_feat_vect[c]+""))
+						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
 				}
 				else if (cand_feat_vect[c] == '1')	currReqs.put(""+fvspec, "9"); 
 				else	currReqs.put(""+fvspec, cand_feat_vect[c]+""); 
