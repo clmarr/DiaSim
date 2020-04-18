@@ -119,7 +119,8 @@ public class DifferentialHypothesisSimulator {
 		// initializing class variable ruleCorrespondences...
 		if (proposedChs.size() == 0) {
 			assert UTILS.compare1dIntArrs(baseToHypIndMap,
-					hypToBaseIndMap) : "ERROR: no proposed changes detected, but baseToHypIndMap and hypToBaseIndMap differ";
+					hypToBaseIndMap) : "ERROR: no proposed changes detected, "
+							+ "but baseToHypIndMap and hypToBaseIndMap differ";
 			ruleCorrespondences = new int[][] { baseToHypIndMap, hypToBaseIndMap };
 		} 
 		else {
@@ -220,8 +221,8 @@ public class DifferentialHypothesisSimulator {
 					
 					if ( ilbi == -2) // resolution of relocdation 
 					{
-						assert fut_sources_left.containsKey(bi) : "ERROR: found flag for backward relocdation resolution (ilhi == -2)\n "
-								+ "but the current base index (bi = "+bi+") is not in fut_sources_left!"; 
+						if(!fut_sources_left.containsKey(bi))	throw new RuntimeException("ERROR: found flag for backward relocdation resolution (ilhi == -2)\n "
+								+ "but the current base index (bi = "+bi+") is not in fut_sources_left!"); 
 						int past_corr = fut_sources_left.remove(bi); 
 						ruleCorrespondences[1][gi] = past_corr;
 						ruleCorrespondences[0][gi] = bi++; 
@@ -289,8 +290,8 @@ public class DifferentialHypothesisSimulator {
 	private void computeTrajectoryChange() {
 		divergencePoint = -1; // will remain -1 if two cascades never diverge for a single word.
 
-		assert baseCascSim.NUM_ETYMA() == hypCascSim
-				.NUM_ETYMA() : "ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects";
+		if (baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() )
+			throw new RuntimeException("ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"); 
 		int n_ets = baseCascSim.NUM_ETYMA();
 
 		changedDerivations = new HashMap<Integer, String>();
@@ -394,8 +395,8 @@ public class DifferentialHypothesisSimulator {
 
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n");
 
-		assert bdlines[0]
-				.equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations";
+		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations";
+			// this one kept; although in a public method, it makes sense as an assertion. 
 		String out = bdlines[0];
 		int bdli = globalDivergenceLine(baseDer, hypDer), hdli = bdli;
 
@@ -419,9 +420,9 @@ public class DifferentialHypothesisSimulator {
 		// we know next line cannot be gold/black stage announcement as that could not
 		// be the first line with divergence.
 		// cannot allow divergence to be at something other than a rule realization --
-		// throw AssertionError if so
-		assert nextGlobalBaseInd != -1
-				|| nextGlobalBaseInd != nextGlobalHypInd : "Error : cannot have divergence occur due to something other than a difference in sound rules.";
+		// throw RuntimeException if so
+		if (nextGlobalBaseInd == -1 && nextGlobalBaseInd == nextGlobalHypInd) 
+			throw new RuntimeException("Error : cannot have divergence occur due to something other than a difference in sound rules.");
 
 		int concordantUntil = Math.min(nextGlobalBaseInd, nextGlobalHypInd);
 		concordantUntil = concordantUntil != -1 ? concordantUntil : Math.max(nextGlobalBaseInd, nextGlobalHypInd);
@@ -535,9 +536,10 @@ public class DifferentialHypothesisSimulator {
 					System.out.println("Developments directly caused by a proposed change:"); // i.e. in hyp but not
 																								// baseline.
 					System.out.println(strEffects(changedRuleEffects.get(globInd)[1]));
-				} else {
-					assert ruleCorrespondences[1][globInd] == -1 : "Error: comprehension of which rules were added is malformed"; // TOOD
-																																	// reword?
+				} 
+				else {
+					assert ruleCorrespondences[1][globInd] == -1 : "Error: comprehension of which rules were added is malformed"; 
+										// assertion in public method, but makes sense as such. 
 					System.out.println("Developments directly aborted by proposed change:");
 					System.out.println(strEffects(changedRuleEffects.get(globInd)[0]));
 				}
@@ -822,11 +824,9 @@ public class DifferentialHypothesisSimulator {
 
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
 
-					assert shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)
-							.toString()) : "Error : misalignment in saved CASCADE and its source file"; // TODO
-																										// debugging
-																										// likely
-																										// necessary
+					if (!shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)))
+							throw new RuntimeException("Error : misalignmnet in saved CASCADE and its source file"); 
+					// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
 
 					readIn = readIn.substring(brkpt + "\n".length());
 
@@ -1019,13 +1019,13 @@ public class DifferentialHypothesisSimulator {
 	 * word derivations entered should already be "globalized"
 	 */
 	private int globalDivergenceLine(String bd, String hd) {
-		assert !bd.equals(hd) : "Error: tried to find divergence point for two identical derivations!";
+		if (bd.equals(hd))		throw new RuntimeException("ERROR: tried to find divergence point for two identical derivations!");
 
 		// recall that the first line indicates the input form -- hence etymon identity
 		String[] bdlns = bd.split("\n"), hdlns = hd.split("\n");
-		assert bdlns[0]
-				.equals(hdlns[0]) : "Error: tried to find divergence point for derivations with different inputs";
-
+		if (!bdlns[0].equals(hdlns[0]))	
+			throw new RuntimeException("ERROR: tried to find divergence point for derivations with different inputs");
+		
 		int out = 1, minlen = Math.min(bdlns.length, hdlns.length);
 
 		// determine how long the derivations remain consistent.
