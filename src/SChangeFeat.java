@@ -28,8 +28,8 @@ public class SChangeFeat extends SChange {
 		else	minTargSize = 1; 
 		targSource = source; 
 		
-		if(dest.getClass().toString().contains("NullPhone"))	
-			assert minTargSize > 0 : "Error: both target and destination are null!";  
+		if(dest.getClass().toString().contains("NullPhone") && minTargSize <= 0) 
+			throw new RuntimeException("Error: both target and destination are null!");  
 		destination = dest; 
 	}
 	

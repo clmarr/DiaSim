@@ -161,8 +161,8 @@ public class Simulation {
 		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     
 		{
 			char type = stagesOrdered[currStageInd].charAt(0); 
-			assert "gb".contains(""+type) : "Error: illegal typing of stage number "+currStageInd+
-	        		" in stagesOrdered : '"+type+"'";
+			if (!"gb".contains(""+type)) throw new RuntimeException( "Error: illegal typing of stage number "+currStageInd+
+	        		" in stagesOrdered : '"+type+"'");
 			if ( type == 'g') //it's a gold stage.
         	{
         		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
@@ -209,7 +209,7 @@ public class Simulation {
 	public LexPhon getInputForm(int id)	{	return inputLexicon.getByID(id);	}
 	public LexPhon getGoldOutputForm(int id)	{	return goldOutputLexicon.getByID(id);	}
 	public Lexicon getGoldOutput()		{	
-		assert goldOutput : "Error: called for gold outputs but none are set"; 
+		if (!goldOutput) throw new RuntimeException( "called for gold outputs but none are set"); 
 		return goldOutputLexicon;	}
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
 	{

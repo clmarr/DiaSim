@@ -235,7 +235,6 @@ public class UTILS {
 	
 	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
 	{
-		assert c1.size() == c2.size() : "Error: tried to compare two cascades of different lengths..."; 
 		for(int ci = 0; ci < c1.size(); ci++)
 			if (!c1.get(ci).toString().equals(""+c2.get(ci)))
 				return false;

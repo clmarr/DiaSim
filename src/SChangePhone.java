@@ -204,8 +204,8 @@ public class SChangePhone extends SChange {
 	//@precondition: targets.size() == destinations.size() or one of them is empty (i.e. representing either insertion or deletion)
 	public String toString()
 	{
-		assert (targSources.size() == 0 || destinations.size() == 0 || targSources.size() == destinations.size()) :
-			"fatal error in toString: diff number destinations than targets";
+		if (targSources.size() != 0 && destinations.size() != 0 && targSources.size() != destinations.size())
+			throw new RuntimeException("fatal error in toString: diff number destinations than targets");
 		int numTargets = targSources.size(); 
 		String output= ""; 
 		if (numTargets == 0)	output += "∅"; 

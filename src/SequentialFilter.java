@@ -104,7 +104,7 @@ public class SequentialFilter {
 				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
 			else	
 			{
-				assert !currMapCell.contains(")"): "Error: unopened ')' found"; 
+				if (currMapCell.contains(")")) throw new RuntimeException( "Error: unopened ')' found"); 
 				count++;
 				i++;
 			}
@@ -432,7 +432,7 @@ public class SequentialFilter {
 	{
 		int mapSpotPostCloser = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) + 1 ;
 		
-		assert mapSpotPostCloser <= parenMap.length : "Error: illegitimate closing index recorded!"; 
+		if( mapSpotPostCloser > parenMap.length) throw new RuntimeException("Error: illegitimate closing index recorded!"); 
 		if (mapSpotPostCloser == parenMap.length)	
 			return true; 	
 		
@@ -458,8 +458,8 @@ public class SequentialFilter {
 		// --they should both be parentheses
 	private int minPlacesInParenWindow (int first, int last)
 	{
-		assert first + 1 < last && first >= 0 && last < parenMap.length : 
-			"Error: Invalid bounds of window entered for minPlacesInParenWindow()"; 
+		if( first + 1 >= last || first < 0 || last >= parenMap.length )	throw new RuntimeException(
+			"Error: Invalid bounds of window entered for minPlacesInParenWindow()"); 
 		
 		assert parenMap[first].contains("(") && parenMap[last].contains(")") : 
 			"Error: in minPlacesInParenWindow, window specified should be a parenthetical"; 

@@ -1007,10 +1007,11 @@ public class SimulationTester {
 					assert rli != 0: "ERROR: Stage set at the first line -- this is useless, redundant with the initial stage ";
 					
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG): 
-						"ERROR: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> occuring in a place besides the first character in the rule line -- this is illegal: \n"+currRule; 
-					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
-						"ERROR: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					if (currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG)) throw new RuntimeException(
+						"ERROR: stage name flag <<"+UTILS.GOLD_STAGENAME_FLAG+">> occuring "
+								+ "in a place besides the first character in the rule line -- this is illegal: \n"+currRule); 
+					if(currRule.contains(UTILS.STAGENAME_LOC_DELIM+"")) throw new RuntimeException(
+						"ERROR: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>");  
 					goldStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli);  
 				}
@@ -1018,8 +1019,8 @@ public class SimulationTester {
 				{
 					blackStagesSet =true;
 					currRule = currRule.substring(1); 
-					assert !currRule.contains(UTILS.STAGENAME_LOC_DELIM+""):
-						"ERROR: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>";  
+					if(currRule.contains(UTILS.STAGENAME_LOC_DELIM+""))	throw new RuntimeException(
+						"ERROR: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>"); 
 					blackStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
 					rulesByTimeInstant.remove(rli); 
 				}
@@ -1139,9 +1140,9 @@ public class SimulationTester {
 		goldOutput =false; 
 		if(numCols == NUM_GOLD_STAGES + 2)
 			goldOutput = true; 
-		else
-			assert numCols == NUM_GOLD_STAGES + 1: "ERROR: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
-					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols;
+		else if (numCols != NUM_GOLD_STAGES + 1) 
+			throw new RuntimeException("ERROR: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
+					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols); 
 		
 		boolean justInput = (numCols == 0); 
 		
@@ -1166,8 +1167,8 @@ public class SimulationTester {
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
-			if(lfli <NUM_ETYMA)
-				assert numCols == UTILS.colCount(theLine): "ERROR: incorrect number of columns in line "+lfli;
+			if(lfli <NUM_ETYMA && numCols != UTILS.colCount(theLine))
+				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 
 		if(goldOutput)	
@@ -1198,8 +1199,9 @@ public class SimulationTester {
 				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
 			else
 			{
-				assert phoneSymbToFeatsMap.containsKey(toPhone): 
-					"ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\nSymbol is : '"+toPhone+"', length = "+toPhone.length(); 
+				if(! phoneSymbToFeatsMap.containsKey(toPhone))	throw new RuntimeException(
+					"ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
+					+ "Symbol is : '"+toPhone+"', length = "+toPhone.length()); 
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}

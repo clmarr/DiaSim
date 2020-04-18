@@ -21,7 +21,7 @@ public class SChangeSeqToSeq  extends SChange
 	
 	private void initialize(HashMap<String,Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstspcs)
 	{
-		assert trgsrc.size() == dstspcs.size(): "Error: lengths off lists entered into SChangeSeqToSeq are not the same length.";
+		assert trgsrc.size() == dstspcs.size(): "Error: lengths of lists entered into SChangeSeqToSeq are not the same length.";
 		
 		targSource = new ArrayList<RestrictPhone>(trgsrc);
 		targSeqSize = targSource.size();
