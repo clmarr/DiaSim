@@ -33,7 +33,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		for ( String key : sMKeys)
 		{
 			String featdef = symbMap.get(key); 
-			if (mapToSymb.containsKey(featdef) == true) )
+			if (mapToSymb.containsKey(featdef) == true) 
 				throw new RuntimeException("ERROR: duplicate phone definition in symbMap!");
 			mapToSymb.put(featdef, key); 
 		}
@@ -107,7 +107,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		featString = "" + newFeatVect; 
 		regenerateSymb();
 	}
-	
 	
 	@Override
 	public String print() {

@@ -142,9 +142,7 @@ public class SChangeContextTester {
 		System.out.println(W+" ( "+X+" ( "+Y+" ) "+Z+" ( "+Z+" )* ( "+W+" "+Y+" )* )");
 		
 		System.out.println("And it is ...\n"+testFactory.expandOutAllPlusses(testFactory.forceParenSpaceConsistency(testString0)));
-		
-		assert 1 == 1 : "Blabla";
-		
+				
 		SequentialFilter testInstance0 = testFactory.parseNewSeqFilter(
 				testFactory.forceParenSpaceConsistency(testString0), false); 
 		System.out.println("Testing parseNewContext and associated methods");
