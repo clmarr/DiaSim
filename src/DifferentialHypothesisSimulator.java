@@ -1130,8 +1130,8 @@ public class DifferentialHypothesisSimulator {
 		String hnotes = proposedChs.get(pci)[2]; 
 		if (!DHSWrapper.validRelocdationNotes(hnotes))	return false;
 		
-		int src_step = UTILS.getIntPrefix(hnotes.substring(16)),
-				dest_step = UTILS.getIntPrefix(hnotes.substring(hnotes.substring(16).indexOf(" ")+4));
+		int src_step = UTILS.getIntPrefix(hnotes.substring(16));
+		int dest_step = UTILS.getIntPrefix(16+hnotes.substring(hnotes.substring(16).indexOf(" ")+4));
 		return src_step > dest_step;
 	}
 }
