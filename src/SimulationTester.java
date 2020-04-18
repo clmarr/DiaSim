@@ -823,8 +823,8 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		System.out.println("--------------\nSecond rule in group, fifth overall: backward relocdation of American raising to become second rule."); 
-		String[] backRlcIns = new String[] {"1", ""+CASCADE.get(4), "Relocdated from former step 4"},
-				backRlcDel = new String[] {"5", "deletion", "Relocdated backward to become second rule"};
+		String[] backRlcIns = new String[] {"1", ""+CASCADE.get(4), "relocdated from 4 to 1"},
+				backRlcDel = new String[] {"5", "deletion", "relocdated from 4 to 1"};
 		DHSW.processSingleCh(4, backRlcDel[2], 1, "", null, backRlcIns[2]); 
 		
 		//test realization in cascade structures.
