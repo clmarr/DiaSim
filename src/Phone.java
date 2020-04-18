@@ -23,8 +23,8 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	 */
 	public Phone(String featVals, HashMap<String, Integer> featInds, HashMap<String, String> symbMap)
 	{
-		assert featVals.length() == featInds.size() :
-			"ERROR: violated precondition, featVals' size is not the same as featInds hashmap";
+		if( featVals.length() != featInds.size() )
+			throw new RuntimeException("ERROR: featVals' size is not the same as featInds hashmap");
 		type = "phone";
 		featString = ""+featVals; 
 		featIndices = new HashMap<String, Integer>(featInds);
@@ -33,8 +33,8 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		for ( String key : sMKeys)
 		{
 			String featdef = symbMap.get(key); 
-			assert mapToSymb.containsKey(featdef) == false : 
-				"ERROR: duplicate phone definition in symbMap!";
+			if (mapToSymb.containsKey(featdef) == true) )
+				throw new RuntimeException("ERROR: duplicate phone definition in symbMap!");
 			mapToSymb.put(featdef, key); 
 		}
 		regenerateSymb(); 
@@ -57,7 +57,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	 */
 	public Phone(SequentialPhonic dolly)
 	{
-		assert dolly.getType().equals("phone"): "Type error in constructing phone clone!"; 
+		if( !dolly.getType().equals("phone"))	throw new RuntimeException("Type error in constructing phone clone!"); 
 		type="phone";
 		featString = dolly.getFeatString();
 		featIndices = dolly.getFeatIndices();
@@ -86,7 +86,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	 * */
 	public int get(String featName)
 	{	
-		assert featExists(featName): "Violated precondition: featExists(featName) is false! ";
+		if (!featExists(featName))	throw new RuntimeException( "Violated precondition: featName is not a valid feature! ");
 		int index = featIndices.get(featName); 
 		return Integer.parseInt(featString.substring(index, index+1)); 	}
 	
@@ -96,8 +96,8 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	 * */
 	public void set(String featName, int newVal)
 	{
-		assert featExists(featName): "ERROR: tried to set to inexistant feature";
-		assert (newVal >= 0 && newVal <= 2) : "ERROR: invalid number for feature";
+		if (!featExists(featName))	throw new RuntimeException("ERROR: tried to set to inexistant feature");
+		if (newVal < 0 || newVal > 2)	throw new RuntimeException("ERROR: invalid number for feature");
 		int ind = featIndices.get(featName); 
 		featString = featString.substring(0, ind) + newVal + featString.substring(ind+1); 
 		regenerateSymb();

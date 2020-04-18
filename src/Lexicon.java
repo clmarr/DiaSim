@@ -175,7 +175,8 @@ public class Lexicon {
 	public void updateAbsence(LexPhon[] stageGold)
 	{
 		int theLen = stageGold.length;
-		assert theLen == theWordList.length : "ERROR: mismatch on vocab size of new gold stage and lexicon!";
+		if (theLen != theWordList.length)
+			throw new RuntimeException("ERROR: mismatch on vocab size of new gold stage and lexicon!");
 		for (int wi = 0 ; wi < theLen ; wi++)
 		{	
 			if(theWordList[wi].print().equals(ABS_PR))
