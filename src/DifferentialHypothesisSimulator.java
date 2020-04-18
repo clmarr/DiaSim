@@ -290,7 +290,7 @@ public class DifferentialHypothesisSimulator {
 	private void computeTrajectoryChange() {
 		divergencePoint = -1; // will remain -1 if two cascades never diverge for a single word.
 
-		if (baseCascSim.NUM_ETYMA() == hypCascSim.NUM_ETYMA() )
+		if (baseCascSim.NUM_ETYMA() != hypCascSim.NUM_ETYMA() )
 			throw new RuntimeException("ERROR: Inconsistent number of etyma between base and hypothesis cascade simulation objects"); 
 		int n_ets = baseCascSim.NUM_ETYMA();
 
