@@ -604,15 +604,14 @@ public class SimulationTester {
 		//now test processing of the second change, which should consist of one deletion and one insertion.
 		// first test the deletion.
 		thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "Relocdated to after first waypoint".equals(thepc[2]) ,
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "relocdated from 1 to 6".equals(thepc[2]) ,
 			"ERROR: at index 0 should be deletion part of update on proposedChanges for forward relocdation;\n"
 			+ "construction of proposedChs handled incorrectly!") ;
 		
 		// and then the insertion phase
 		thepc = DHSW.getProposedChanges().get(1);
-		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && 
-			"Relocdated from former step 1".equals(thepc[2]), "ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation "
-				+", building of proposedChs executed incorrectly!"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && "relocdated from 1 to 6".equals(thepc[2]), 
+				"ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation, building of proposedChs executed incorrectly!"); 
 		
 		theDHS = DHSW.generateDHS(); 
 		

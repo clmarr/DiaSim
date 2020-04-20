@@ -308,7 +308,7 @@ public class DifferentialHypothesisSimulator {
 					String[] effsHere = lexChRuleEffs.get(gi); 
 					int i = effsHere[1].contains(">") ? 1 : 0; 
 					diffEffsHere[i][ei] = effsHere[i]; 
-					changedRuleEffects.put(gi, diffEffsHere); 
+					changedRuleEffects.put(gi, diffEffsHere);
 				}
 			}
 		}
