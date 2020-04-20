@@ -449,7 +449,6 @@ public class SimulationTester {
 		//now we will do two changes before accepting the hypothesis. 
 		System.out.println("-----------------\nSecond: Testing comprehension of simple deletion (in this case, of a derhotacization rule).");
 		
-		
 		System.out.println("Deleting derhotacization rule at index 7.\n----------------\n");
 
 		DHSW.processSingleCh(7,"we're Yankees", -1, "", null, "");
@@ -817,7 +816,7 @@ public class SimulationTester {
 					UTILS.compare1dStrArrs(lambda, CREs.get(cei+6)[cei < 2 ? 1 : 0]),
 					"ERROR: changes from "+descrs[cei]+" aspect of t-glottalization context reform not properly processed!") ;
 		}
-		
+
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
@@ -831,7 +830,7 @@ public class SimulationTester {
 		curHC = DHSW.getHypCASC(); 
 		dumCasc.add(1,dumCasc.remove(4)); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compareCascades(dumCasc, curHC), 
-			"ERROR: bugged comprehension of backward relocdation operation."); 
+			"ERROR: malformed comprehension of backward relocdation operation."); 
 		
 		//can skip testing lengths at this point, as well as making sure baseCASC was uncorrupted. If no error appeared before it won't happen here.  
 		
@@ -853,8 +852,9 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
 				"ERROR: Handling of backward relocdation in hyp to base rule ind map not realized correctly.");
 
+		//skip testing hypGoldLocs -- should be unchanged
+		
 		//test DHSW.proposedChanges
-
 		errorCount += calcPCerrs(getLineNumber(), 0, backRlcIns, DHSW.getProposedChanges().get(0), 
 			"insertion aspect of backward relocdation of American raising.");
 		errorCount += calcPCerrs(getLineNumber(), 1, backRlcDel, DHSW.getProposedChanges().get(1), 
@@ -877,7 +877,7 @@ public class SimulationTester {
 		
 		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
 		
-		// can skip checking dimensions. 
+		// can skip checking btg and htg dimensions -- should be unchanged. 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 				UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11}),
 				"ERROR: base to global ind mapper is malformed");
@@ -890,16 +890,58 @@ public class SimulationTester {
 				"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ;
 		
 		//test lexical effects
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(""),
+				"ERROR: differential derivation for unaffected lexeme 'bidden' should be an empty string, but it is:\n"
+				+ theDHS.getDifferentialDerivation(29)); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
-				"ERROR: derivation of fountain is malformed after backward relocdation of American raising, which should have had no effect."); 
-					
+				"ERROR: derivation of fountain is malformed after backward relocdation of American raising, which should have "
+				+ "had no effect beyond that of the previous rule (which appears to have been correctly formed)."); 
+		corDD = "/hˈajtən/\n" + 
+				"CONCORDANT UNTIL RULE : 1\n" + 
+				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
+				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
+				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
+				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
+				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" + 
+				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
+				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
+				"Final forms : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
+				"ERROR: derivation of 'heighten' is malformed"); 
+
+		//test DHS.locHasPrCh
+		corrPCLs[1] = true; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dBoolArrs(corrPCLs,  theDHS.getPrChLocs()),
+				"ERROR: locHasPrCh malformed."); 
 		
-		//TODO move on to second and third rules in this set...
-		//TODO we need a backward relocdation.
+		//check DHS.changedDerivations
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {2, 3, 4, 7, 8, 13, 15, 19, 26, 30, 31},
+				theDHS.getEtsWithChangedDerivations()), "ERROR: wrong etyma effected by the last rule plus the movement of Canadian raising"); 
+			// case of number 21, "item" -- although the exact number for Canadian raising has changed
+				// the ordering of different forms has not
+				// nor has the alignment
+				// so this is not included
+				// for enlighten(er) and heighten, Canadian raising now newly precedes nasalization of the /ə/
+				// that is the difference.
+
+		//check DHS.changedRuleEffects
+		CREs = theDHS.getChangedRuleEffects();
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 5, 
+				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 		
+		//TODO test 
+		
+		System.out.println("1: "+UTILS.print2dStrArray(CREs.get(1))); 
+		System.out.println("3: "+UTILS.print2dStrArray(CREs.get(3)));
+		System.out.println("et 2 : " + theDHS.getDifferentialDerivation(2));
+		
+		
+		//TODO complete second rule of set here... 
+		
+		//TODO move on to third rule in this set...
+	
 		//TODO add rule processing and debug comprehension of the following
-		// relocdation of canadian raising to being second rule 
-		// copmlex inserton to right before s > ts / n__ : 
+		// complex insertion to right before s > ts / n__ : 
 		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// again relocate the flapping rule to after waypoint 2 
 		

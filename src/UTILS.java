@@ -472,6 +472,19 @@ public class UTILS {
 		return out.substring(0, out.length()-1);
 	}
 	
+	public static String print2dStrArray(String[][] a)
+	{
+		String out="\n"; 
+		String DELIM = "\t"; 
+		for (int i = 0 ; i < a.length; i++)
+		{
+			for (int j = 0 ; j < a[i].length; j++)
+				out += (j == 0 ? "" : DELIM) + a[i][j];
+			out += "\n";
+		}
+		return out; 
+	}
+	
 	public static String print1dBoolArrAsIntArr(boolean[] b)
 	{
 		if (b.length == 0)	return "[empty array]"; 

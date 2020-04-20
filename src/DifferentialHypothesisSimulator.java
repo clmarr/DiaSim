@@ -275,17 +275,6 @@ public class DifferentialHypothesisSimulator {
 
 	/**
 	 * fills changedDerivations and changedRuleEffects, and sets divergencePoint.
-	 * 
-	 * @param et_id -- etymon index, which should be consistent between the two
-	 *              Simulations.
-	 * @return @default an empty String ""- means there is no difference between the
-	 *         derivations otherwise: the DIFFERENTIAL DERIVATION, formed as
-	 *         follows: // String will contain // First line --- <INPUT> \n //
-	 *         CONCORDANT UNTIL : <INDEX AFTER LAST CONCORDANT RULE> \n // for
-	 *         1-to-1 divergent development : <GLOBALRULE#> : [BASERULE#] <OLDFORM>
-	 *         > <NEWFORM> | [HYPRULE#] NEW > OLD \n // deletion (i.e. occurs only
-	 *         in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n // insertion:
-	 *         the reverse.
 	 */
 	private void computeTrajectoryChange() {
 		divergencePoint = -1; // will remain -1 if two cascades never diverge for a single word.
@@ -316,6 +305,8 @@ public class DifferentialHypothesisSimulator {
 				// error of lacking this will have already been caught by
 				// findLexicalDerivationPoint().
 				ddHere = ddHere.substring(ddHere.indexOf("\n") + "\n".length());
+				
+				List<Integer> globIndsHit = new ArrayList<Integer>(); 
 
 				for (String ddl : ddHere.split("\n")) {
 					if (ddl.contains(">")) {
@@ -328,6 +319,13 @@ public class DifferentialHypothesisSimulator {
 						// rule effects "hitting" words
 						// and changes in rule effects,
 						// so hit[0] != hit[1] is a perfect proxy.
+							/* EXCEPT in one case: where, due to a relocdation, the same (non-relocdated)
+							 * 	rule is realized before the relocdated rule in one of base/hyp 
+							 * 			and after in the other
+							 * 	thus we have to check for this case, 
+							 *				by storing which inds have already been hit. 
+							 *			with the local variable < globIndsHit > 
+							 */
 						if (hit[0] != hit[1]) {
 							String[][] diffEffsHere;
 							if (changedRuleEffects.containsKey(globInd)) {
@@ -337,13 +335,15 @@ public class DifferentialHypothesisSimulator {
 									diffEffsHere[0][ei] = effs[0];
 								else
 									/* hit[1] */ diffEffsHere[1][ei] = effs[1];
-							} else {
+							} 
+							else {
 								diffEffsHere = new String[2][baseCascSim.NUM_ETYMA()];
 								if (hit[0])
 									diffEffsHere[0][ei] = effs[0];
 								else
 									/* hit[1] */ diffEffsHere[1][ei] = effs[1];
 							}
+							
 							changedRuleEffects.put(globInd, diffEffsHere);
 						}
 					}
@@ -352,6 +352,39 @@ public class DifferentialHypothesisSimulator {
 		}
 	}
 
+	/**	fedOrBledRulesInDD
+	 * auxiliary for making changeRuleEffects in computeTrajectoryChange
+	 * in such a way that non-changed rules that are now realized on opposite sides 
+	 * 		of a relocdated rule are no longer counted as "changes".
+	 * @return hashmap instance where keys are the global inds, and the values are the effects
+	 * 		in String[] form
+	 * 	will be empty (no keys) if there are no changes.
+	 */
+	private HashMap<Integer,String[]> fedOrBledRuleLinesInDD (int et_id) {
+		HashMap<Integer, String[]> output = new HashMap<Integer, String[]> (); 
+		int lexDivPt = findEtDivergenceMoment(et_id); 
+		if (lexDivPt == -1)	return output; 
+		
+		String dd = getDifferentialDerivation(et_id); 
+		String[] lines = dd.substring(dd.indexOf("CONCORD")).split("\n"); 
+		for (int li = 1; li < lines.length; li++) // starting at li = 1 to skip "CONCORDANT UNTIL..." line.
+		{
+			String cur = lines[li]; 
+			if (cur.contains(">"))	{
+				int globInd = Integer.parseInt(cur.substring(0, cur.indexOf("[")));
+				if (output.containsKey(globInd))	output.remove(globInd); 
+				else
+				{
+					String[] effs = cur.substring(cur.indexOf(": ")+2).split(" \\| ");
+					boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">")};
+					if ( hit[0] != hit[1] )	output.put(globInd, effs); 
+				}
+			}
+		}
+		
+		return output;
+	}
+	
 	/**
 	 * @return earliest (global) *moment* that the baseline and hyp derivs diverge
 	 *         for one etyma
@@ -370,9 +403,9 @@ public class DifferentialHypothesisSimulator {
 	/**
 	 * getDifferentialDerivation
 	 * 
-	 * @return the differential derivation for a particular etymon * the etymon
-	 *         being indexed by @param et_id this is the a two-sided derivation
-	 *         which shows the engendered difference between * the baseline cascade
+	 * @return the differential derivation for a particular etymon 
+	 *	 the etymon being indexed by @param et_id this is the a two-sided derivation
+	 *         which shows the engendered difference between the baseline cascade
 	 *         and the hypothesis cascade
 	 * @return the empty string "" if there is no difference.
 	 */
@@ -433,9 +466,8 @@ public class DifferentialHypothesisSimulator {
 		// so it is obvious if we are dealing with a deletion or insertion as it is
 		// simply absent on the other side.
 
-		// we now will no longer necessarily be iterating simultaneously on bdlines and
-		// hdlines
-		// we only do so when they have hte same rule (same = same global index)
+		// we now will no longer necessarily be iterating simultaneously on bdlines and hdlines
+		// we only do so when they have the same rule (same = same global index)
 		// when the index is not shared, we are handling a case of deletion/insertion,
 		// or bleeding/feeding as a result of the rule change.
 
@@ -513,6 +545,19 @@ public class DifferentialHypothesisSimulator {
 		return out;
 	}
 
+	/* This comment block may be misplaced. But I don't think so?
+	 * @param et_id -- etymon index, which should be consistent between the two
+	 *              Simulations.
+	 * @return @default an empty String ""- means there is no difference between the derivations
+	 * 		 otherwise: the DIFFERENTIAL DERIVATION, formed as follows: 
+	 * 		// String will contain 
+	 * 		// First line --- <INPUT> \n //
+	 *      CONCORDANT UNTIL : <INDEX AFTER LAST CONCORDANT RULE> \n 
+	 *      		// for 1-to-1 divergent development : 
+	 *      				<GLOBALRULE#> : [BASERULE#] <OLDFORM> > <NEWFORM> | [HYPRULE#] NEW > OLD \n 
+	 *      // deletion (i.e. occurs only in baseline: <BASERULE#>: <OLDFORM> > <NEWFORM> | -- \n 
+	 *      // insertion: the reverse.
+	*/ 
 	public String getGlobalizedDerivation(int et_id, boolean isHyp) {
 		return globalizeDerivInds((isHyp ? hypCascSim : baseCascSim).getDerivation(et_id), isHyp);
 	}
