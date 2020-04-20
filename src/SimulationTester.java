@@ -925,14 +925,8 @@ public class SimulationTester {
 
 		//check DHS.changedRuleEffects
 		CREs = theDHS.getChangedRuleEffects();
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 5, 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3, 
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
-		
-		//TODO test 
-		
-		System.out.println("1: "+UTILS.print2dStrArray(CREs.get(1))); 
-		System.out.println("3: "+UTILS.print2dStrArray(CREs.get(3)));
-		System.out.println("et 2 : " + theDHS.getDifferentialDerivation(2));
 		
 		
 		//TODO complete second rule of set here... 
