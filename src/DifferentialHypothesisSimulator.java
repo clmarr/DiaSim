@@ -300,53 +300,15 @@ public class DifferentialHypothesisSimulator {
 				String ddHere = getDifferentialDerivation(ei);
 				changedDerivations.put(ei, ddHere);
 
-				// now adding effects for changedRuleEffects
-				ddHere = ddHere.substring(ddHere.indexOf("CONCORD"));
-				// error of lacking this will have already been caught by
-				// findLexicalDerivationPoint().
-				ddHere = ddHere.substring(ddHere.indexOf("\n") + "\n".length());
-				
-				List<Integer> globIndsHit = new ArrayList<Integer>(); 
-
-				for (String ddl : ddHere.split("\n")) {
-					if (ddl.contains(">")) {
-						int globInd = Integer.parseInt(ddl.substring(0, ddl.indexOf("[")));
-						String[] effs = ddl.substring(ddl.indexOf(": ") + 2).split(" \\| ");
-						boolean[] hit = new boolean[] { effs[0].contains(">"), effs[1].contains(">") };
-						// since modification is stored here as a deletion and an insertion,
-						// it will not be represented as a single rule in a differential derivation
-						// therefore, there is a bidirectional implication between non-equivalence of
-						// rule effects "hitting" words
-						// and changes in rule effects,
-						// so hit[0] != hit[1] is a perfect proxy.
-							/* EXCEPT in one case: where, due to a relocdation, the same (non-relocdated)
-							 * 	rule is realized before the relocdated rule in one of base/hyp 
-							 * 			and after in the other
-							 * 	thus we have to check for this case, 
-							 *				by storing which inds have already been hit. 
-							 *			with the local variable < globIndsHit > 
-							 */
-						if (hit[0] != hit[1]) {
-							String[][] diffEffsHere;
-							if (changedRuleEffects.containsKey(globInd)) {
-								// differences detected thus far that we are adding the latest to
-								diffEffsHere = changedRuleEffects.get(globInd);
-								if (hit[0])
-									diffEffsHere[0][ei] = effs[0];
-								else
-									/* hit[1] */ diffEffsHere[1][ei] = effs[1];
-							} 
-							else {
-								diffEffsHere = new String[2][baseCascSim.NUM_ETYMA()];
-								if (hit[0])
-									diffEffsHere[0][ei] = effs[0];
-								else
-									/* hit[1] */ diffEffsHere[1][ei] = effs[1];
-							}
-							
-							changedRuleEffects.put(globInd, diffEffsHere);
-						}
-					}
+				HashMap<Integer, String[]> lexChRuleEffs = fedOrBledRuleLinesInDD(ei);
+				for (int gi : lexChRuleEffs.keySet())
+				{
+					String[][] diffEffsHere = changedRuleEffects.containsKey(gi) ? 
+							changedRuleEffects.get(gi) : new String[2][baseCascSim.NUM_ETYMA()];
+					String[] effsHere = lexChRuleEffs.get(gi); 
+					int i = effsHere[1].contains(">") ? 1 : 0; 
+					diffEffsHere[i][ei] = effsHere[i]; 
+					changedRuleEffects.put(gi, diffEffsHere); 
 				}
 			}
 		}
@@ -359,7 +321,19 @@ public class DifferentialHypothesisSimulator {
 	 * @return hashmap instance where keys are the global inds, and the values are the effects
 	 * 		in String[] form
 	 * 	will be empty (no keys) if there are no changes.
-	 */
+	 * 
+	 * // since modification is stored here as a deletion and an insertion,
+						// it will not be represented as a single rule in a differential derivation
+						// therefore, there is a bidirectional implication between non-equivalence of
+						// rule effects "hitting" words
+						// and changes in rule effects,
+						// so hit[0] != hit[1] is a perfect proxy.
+							/* EXCEPT in one case: where, due to a relocdation, the same (non-relocdated)
+							 * 	rule is realized before the relocdated rule in one of base/hyp 
+							 * 			and after in the other
+							 * 	thus we have to check for this case, 
+							 *				by removing inds which have already been hit. 
+							 */
 	private HashMap<Integer,String[]> fedOrBledRuleLinesInDD (int et_id) {
 		HashMap<Integer, String[]> output = new HashMap<Integer, String[]> (); 
 		int lexDivPt = findEtDivergenceMoment(et_id); 
