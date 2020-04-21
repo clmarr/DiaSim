@@ -19,7 +19,8 @@ public class DHSWrapper {
 
 	// constant once set
 	private double id_wt;
-	private String[] goldStageNames, blackStageNames;
+	private static String[] goldStageNames;
+	private static String[] blackStageNames;
 	private boolean feats_weighted;
 	private String[] featsByIndex;
 	private double[] FT_WTS;
@@ -62,7 +63,8 @@ public class DHSWrapper {
 	// and the final "index" as referring to the end state.
 	private int[] RIM_HB; // like above, but operating the otherway (so -1 means inserted etc etc)
 
-	private int[] hypGoldLocs, hypBlackLocs;
+	private static int[] hypGoldLocs;
+	private static int[] hypBlackLocs;
 	// same as above for the locations of period waypoints.
 
 	private String[] stagesOrdered;
@@ -644,7 +646,7 @@ public class DHSWrapper {
 	 *                       that will be deleted
 	 * @param deletionNotes  -- empty if no deletion involved, any pertinent coments
 	 *                       otherwise
-	 * @param addLoc         -- -1 if no rule is added, otherwise the index where it
+	 * @param addLoc         -- -1 if no rule is added, otherwise the (hypothesis...?) index where it
 	 *                       will be added (will be placed before the rule
 	 *                       previously at that index)
 	 * @param newLaw         -- string form of that will be added to file if we are
@@ -1027,6 +1029,58 @@ public class DHSWrapper {
 		
 		return src_loc != dest_loc; //cannot have relocdation where source and destination are the same.
 	}
+		
+	/** processChWithAddNearWaypoint
+	 *  usage: in the specific case where we want to add a rule or relocdate a rule 
+	 *  		to a spot specifically before or after a waypoint
+	 *  	serves as a wrapper for the method processSingleCh()
+	 *  first: determines the correct addLoc 
+	 *  second: corrects default behavior of processSingleCh() so that the new rule(s) will be on the appropriate side
+	 *  		(i.e. before or after)
+	 *  			of the waypoint
+	 *  @param beforeNotAfter -- @true if we are adding before the waypoint indicated by @param targ, @false if after  
+	 	*  @param targ -- should be of form "(g/b)#" if it is in the #th (gold/black) stage. 
+	 *  @params deleteLoc, deletionNotes -- same as in processSingleCh  -- if these are not null forms, then it is a relocdation
+	 *  @params newLaw, newRules, insertionNotes -- as in processSingleCh -- must be filled as this is only for operations with an insertion aspect.
+	 */
+	public static void processChWithAddNearWaypoint(boolean beforeNotAfter, String targ, 
+			int deleteLoc, String deletionNotes, String newLaw, List<SChange> newRules, String insertionNotes)
+	{
+		// catch possible errors.  
+		if (targ.length() < 2 ? true : !("gb".contains(targ.charAt(0)+"") && UTILS.isInt(targ.substring(1)) ) )
+			throw new RuntimeException("ERROR: <targ> for processChWithAddNearWaypoint invalid. "
+					+ "\nForm must be g# or b# to target the #th gold or black stage.");
+		if(deleteLoc == -1 || deletionNotes.equals("")) // must be simple insertion. 
+			if ((newRules == null ? true : newRules.size() == 0 ) || newLaw.equals(""))
+				throw new RuntimeException("ERROR: processChWithAddNearWaypoint called for what is clearly a simple insertion, yet insertion parameters are missing."); 
+		
+		// first part -- determine correct add loc. 
+		boolean isGold = targ.charAt(0) == 'g'; 
+		int si = Integer.parseInt(targ.substring(1)) ; 
+		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si]; 
+		
+		//"first and a half" -- fix deletionNotes and/or insertionNotes if they are "" but it's a relocdation
+		if (deleteLoc != -1)
+		{
+			if (deletionNotes.equals("") )
+				deletionNotes = "relocdated from "+deleteLoc+" to "+addLoc+", just "
+					+ (beforeNotAfter ? "before" : "after" ) + " " + (isGold ? "gold" : "black" ) + " waypoint "
+					+ si + " " + (isGold ? goldStageNames : blackStageNames)[si];
+			if (insertionNotes.equals("") )
+				insertionNotes = "relocdated from "+deleteLoc+" to "+addLoc+", just "
+						+ (beforeNotAfter ? "before" : "after" ) + " " + (isGold ? "gold" : "black" ) + " waypoint "
+						+ si + " " + (isGold ? goldStageNames : blackStageNames)[si];
+		}
 			
+		//second part -- determine corrective behavior. 
+		// current defaults in processSingleCh: 
+			// backward relocdation to stage loc -- placed before, stage loc is moved later to realize this
+			// forward relocdation to stage loc -- placed after, stage loc is moved earlier to realize this
+			// simple insertion -- placed before, stage loc is moved earlier to realize this. 
+		// if it is one of the defaults, we don't need to do anything. 
+		
+		
+			
+	}
 
 }

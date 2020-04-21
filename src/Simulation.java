@@ -17,7 +17,7 @@ public class Simulation {
 	
 	private int instant, stepPrinterval, TOTAL_STEPS; 
 	
-	private int goldStageInd, blackStageInd; // default 0
+	private int goldStageInd, blackStageInd; // default 0 -- current next stage's index.
 	
 	private String[] stagesOrdered; 
 	private int currStageInd;
