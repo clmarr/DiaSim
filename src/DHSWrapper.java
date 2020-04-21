@@ -19,8 +19,8 @@ public class DHSWrapper {
 
 	// constant once set
 	private double id_wt;
-	private static String[] goldStageNames;
-	private static String[] blackStageNames;
+	private String[] goldStageNames;
+	private String[] blackStageNames;
 	private boolean feats_weighted;
 	private String[] featsByIndex;
 	private double[] FT_WTS;
@@ -63,8 +63,8 @@ public class DHSWrapper {
 	// and the final "index" as referring to the end state.
 	private int[] RIM_HB; // like above, but operating the otherway (so -1 means inserted etc etc)
 
-	private static int[] hypGoldLocs;
-	private static int[] hypBlackLocs;
+	private int[] hypGoldLocs;
+	private int[] hypBlackLocs;
 	// same as above for the locations of period waypoints.
 
 	private String[] stagesOrdered;
@@ -1043,7 +1043,7 @@ public class DHSWrapper {
 	 *  @params deleteLoc, deletionNotes -- same as in processSingleCh  -- if these are not null forms, then it is a relocdation
 	 *  @params newLaw, newRules, insertionNotes -- as in processSingleCh -- must be filled as this is only for operations with an insertion aspect.
 	 */
-	public static void processChWithAddNearWaypoint(boolean beforeNotAfter, String targ, 
+	public void processChWithAddNearWaypoint(boolean beforeNotAfter, String targ, 
 			int deleteLoc, String deletionNotes, String newLaw, List<SChange> newRules, String insertionNotes)
 	{
 		// catch possible errors.  
@@ -1074,13 +1074,15 @@ public class DHSWrapper {
 			
 		//second part -- determine corrective behavior. 
 		// current defaults in processSingleCh: 
-			// backward relocdation to stage loc -- placed before, stage loc is moved later to realize this
-			// forward relocdation to stage loc -- placed after, stage loc is moved earlier to realize this
-			// simple insertion -- placed before, stage loc is moved earlier to realize this. 
+			// backward relocdation to stage loc -- placed before, stage loc is moved LATER to realize this
+			// forward relocdation to stage loc -- placed after, stage loc is moved EARLIER to realize this
+			// simple insertion -- placed before, stage loc is moved LATER to realize this. 
 		// if it is one of the defaults, we don't need to do anything. 
-		
-		
-			
+		boolean isForwardRelocdation = addLoc > deleteLoc && deleteLoc != -1; 
+		processSingleCh(deleteLoc, deletionNotes, addLoc, newLaw, newRules, insertionNotes); 
+
+		if (isForwardRelocdation == beforeNotAfter ) // ie. any case where the desired behavior is not what is happening anyways.
+			(isGold? hypGoldLocs : hypBlackLocs)[si] += (isForwardRelocdation ? 1 : -1 ) * newRules.size(); 
 	}
 
 }
