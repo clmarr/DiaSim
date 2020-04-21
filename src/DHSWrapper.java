@@ -69,7 +69,7 @@ public class DHSWrapper {
 	// g# -- gold stage number <#>
 	// b# -- black stage number <#>
 	// for preventintg de facto switches when stages exist in the same "moment"
-	// between urles in the editing process
+	// between rules in the editing process
 	// TODO currently not used-- abrogate?
 
 	// neither of these are sorted at the moment.

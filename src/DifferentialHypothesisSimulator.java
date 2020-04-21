@@ -71,7 +71,7 @@ public class DifferentialHypothesisSimulator {
 	// changes that are only in the baseline/hyp are found
 	// these strings are simple X > Y
 	// (whole word forms)
-	// TODO : enclose changed phonemes with {}
+	// TODO : enclose changed phonemes with {} -- but at present this doesn't seem worth the work necessary to realize it. 
 	
 	private int divergencePoint;
 	// the first global time step at which at least one word's resultant form is different between the two cascades.
@@ -301,7 +301,7 @@ public class DifferentialHypothesisSimulator {
 				changedDerivations.put(ei, ddHere);
 
 				HashMap<Integer, String[]> lexChRuleEffs = fedOrBledRuleLinesInDD(ei);
-				for (int gi : lexChRuleEffs.keySet())
+				for (int gi : lexChRuleEffs.keySet()) // gi -- global index. Can access base and hyp inds via <ruleCorrespondences> 
 				{
 					String[][] diffEffsHere = changedRuleEffects.containsKey(gi) ? 
 							changedRuleEffects.get(gi) : new String[2][baseCascSim.NUM_ETYMA()];

@@ -923,13 +923,11 @@ public class SimulationTester {
 				// for enlighten(er) and heighten, Canadian raising now newly precedes nasalization of the /ə/
 				// that is the difference.
 
-		//check DHS.changedRuleEffects
+		//check DHS.changedRuleEffects -- should be unchanged, as we simply moved when the effect happened. 
 		CREs = theDHS.getChangedRuleEffects();
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3, 
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 		
-		
-		//TODO complete second rule of set here... 
 		
 		//TODO move on to third rule in this set...
 	
