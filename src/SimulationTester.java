@@ -558,10 +558,13 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
-		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving the flapping rule that is at index 1 to index 6.\n----------------\n"); 
+		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving the flapping rule that is at index 1 to index 6, after the first waypoint.\n----------------\n"); 
 		
-		DHSW.processSingleCh(1,"relocdated from 1 to 6",6,"",null,
-				"relocdated from 1 to 6");
+		DHSW.processChWithAddNearWaypoint(false, "g1", 
+				1, "relocdated from 1 to 6, after first waypoint", "", null, "relocdated from 1 to 6, after first waypoint");; 
+		
+		//DHSW.processSingleCh(1,"relocdated from 1 to 6",6,"",null,
+		//		"relocdated from 1 to 6");
 		
 		//testing realization in the cascade structures. 
 		curHC = DHSW.getHypCASC();

@@ -1056,7 +1056,7 @@ public class DHSWrapper {
 		
 		// first part -- determine correct add loc. 
 		boolean isGold = targ.charAt(0) == 'g'; 
-		int si = Integer.parseInt(targ.substring(1)) ; 
+		int si = Integer.parseInt(targ.substring(1)) - 1 ; 
 		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si]; 
 		
 		//"first and a half" -- fix deletionNotes and/or insertionNotes if they are "" but it's a relocdation
