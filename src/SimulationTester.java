@@ -931,8 +931,38 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3, 
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 		
+		System.out.println("-------------\nThird rule in group, sixth overall: relocating flapping rule to just before third waypoint.");
 		
-		//TODO move on to third rule in this set...
+		String currNote = "relocdated from 5 to 7, just before third waypoint";
+		
+		DHSW.processChWithAddNearWaypoint(true, "g2", 
+				5, currNote, "", null, currNote);
+		 
+		//test realization in cascade structures
+		curHC = DHSW.getHypCASC(); 
+		dumCasc.add(7, dumCasc.remove(5)); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compareCascades(dumCasc, curHC),
+				"ERROR: malformed comprehension of forward relocdation operation targeting spot just before a waypoint."); 
+		
+		//can skip testing lengths at this point, as well as making sure baseCASC was uncorrupted. If no error appeared before it won't happen here.  
+		//update checker structures concerning mappings
+		corrBhRIM[5] = 7; 
+		corrHbRIM[5] = -1; //[6] already is -1.
+		corrHbRIM[7] = 5; 
+		//testing DHSW's rule maps. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+				"ERROR: Handling of backward relocdation in base to hyp rule ind map not realized correctly.\n"
+						+ "correct : "+UTILS.print1dIntArr(corrBhRIM)+"\nObserved: "  
+								+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));	
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
+				"ERROR: Handling of backward relocdation in hyp to base rule ind map not realized correctly.");
+		
+		//testing hypGoldLocs and hypBlackLocs
+		
+		
+		//TODO finish third rule in this set...
 	
 		//TODO add rule processing and debug comprehension of the following
 		// complex insertion to right before s > ts / n__ : 
