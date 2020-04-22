@@ -962,6 +962,13 @@ public class SimulationTester {
 		//testing hypGoldLocs and hypBlackLocs
 		
 		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs(new int[] {5, 8}, DHSW.getHypGoldLocs()),
+				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypGoldLocs (which shouldn't change)");  
+		errorCount += chBoolPrIncIfError(getLineNumber(), true,
+				UTILS.compare1dIntArrs(new int[] {6}, DHSW.getHypBlackLocs()), 
+				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypBlackLocs (should remain 7)"); 
+		
 		//TODO finish third rule in this set...
 	
 		//TODO add rule processing and debug comprehension of the following

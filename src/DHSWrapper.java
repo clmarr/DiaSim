@@ -1082,7 +1082,7 @@ public class DHSWrapper {
 		processSingleCh(deleteLoc, deletionNotes, addLoc, newLaw, newRules, insertionNotes); 
 
 		if (isForwardRelocdation == beforeNotAfter ) // ie. any case where the desired behavior is not what is happening anyways.
-			(isGold? hypGoldLocs : hypBlackLocs)[si] += (isForwardRelocdation ? 1 : -1 ) * newRules.size(); 
+			(isGold? hypGoldLocs : hypBlackLocs)[si] += (isForwardRelocdation ? 1 : -1 ) * (newRules == null ? 1 : newRules.size()); 
 	}
 
 }
