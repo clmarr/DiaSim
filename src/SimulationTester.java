@@ -558,7 +558,9 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
-		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: moving the flapping rule that is at index 1 to index 6, after the first waypoint.\n----------------\n"); 
+		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: "
+				+ "moving the flapping rule that is at index 1 to index 6,"
+				+ " after the first waypoint.\n----------------\n"); 
 		
 		DHSW.processChWithAddNearWaypoint(false, "g1", 
 				1, "relocdated from 1 to 6, after first waypoint", "", null, "relocdated from 1 to 6, after first waypoint");; 
@@ -581,14 +583,14 @@ public class SimulationTester {
 		
 		//testing DHSWrapper's base to hyp rule ind map 
 		// prev RIM :  {0, 1, 2, 3, 4, 5, 6, -1, 7, 8, 9, 10} 
-		corrBhRIM = new int[]{0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9, 10};
+		corrBhRIM = new int[]{0, 5, 1, 2, 3, 4, 6, -1, 7, 8, 9, 10};
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
 			"ERROR: forward (originally) relocdation is not handled correctly in base-hyp rule ind map.\n"
 			+ "Correct : "+UTILS.print1dIntArr(corrBhRIM)+
 			"\nObserved : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()) ) ;
 	
 		//and same for hyp to base
-		corrHbRIM = new int[] {0, 2, 3, 4, 5, 6 , 1, 8, 9, 10, 11}; 
+		corrHbRIM = new int[] {0, 2, 3, 4, 5, 1 , 6, 8, 9, 10, 11}; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), corrHbRIM), 
 				"ERROR: forward (originally) relocdation not handled correctly in hyp-base rule ind map\n"
@@ -614,12 +616,13 @@ public class SimulationTester {
 		// and then the insertion phase
 		thepc = DHSW.getProposedChanges().get(1);
 		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && "relocdated from 1 to 6, after first waypoint".equals(thepc[2]), 
-				"ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation, building of proposedChs executed incorrectly!"); 
+				"ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation, building of proposedChs executed incorrectly!\n"
+				+ "thepc[0] = "+thepc[0]); 
 		
 		theDHS = DHSW.generateDHS(); 
 		
 		//checking DHS.ruleCorrespondences
-		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, {0, 6, 1, 2, 3, 4, 5, -1, 7, 8, 9}} ; 
+		corrRC = new int[][] { {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, {0, 5, 1, 2, 3, 4, 6, -1, 7, 8, 9}} ; 
 		errorCount += UTILS.checkBoolean ( true, 
 			UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
 			"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed"
@@ -632,7 +635,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 			UTILS.compare1dIntArrs( btg, new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}),
 			"ERROR: base to global ind mapper is malformed");
-		int[] corHTG = new int[] {0, 2, 3, 4, 5, 6, 1, 8, 9, 10 }; 
+		int[] corHTG = new int[] {0, 2, 3, 4, 5, 1, 6, 8, 9, 10 }; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs( htg, corHTG),
 			"ERROR: hyp to global ind mapper is malformed\nCorrect: "+UTILS.print1dIntArr(corHTG)+"\n"+UTILS.print1dIntArr(htg)) ;
 
@@ -647,11 +650,15 @@ public class SimulationTester {
 				"CONCORDANT UNTIL RULE : 1\n" + 
 				"1[1|-1] : #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n" + 
 				"Waypoint 1 Gold : #bˈʌɾə˞# | #bˈʌtə˞#\n" + 
-				"6[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
+				"1[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
 				"Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌɾə˞#\n" + 
 				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
 				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
 				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
+			//TODO may need to reform this so that in cases such as these, it is in fact considered concordant until 7
+					// since there is no actual difference in the outcome of the flapping rule
+					// i.e. the inputs to rule 6 are both [bˈʌɾə˞]
+		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 				"ERRORː differential derivation for 'butter' is malformed\n"
 				+ "Correct : "+corDD+"\nObserved : "+theDHS.getDifferentialDerivation(22)); 
@@ -673,9 +680,9 @@ public class SimulationTester {
 		//checking DHS.changedRuleEffects
 		//TODO may need to expand coverage to match what we have for previous tests... 
 		CREs = theDHS.getChangedRuleEffects();
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4, 
-				"ERROR : size of hashmap changedRuleEffects should be 4 but it is"+CREs.keySet().size()) ;
-		for (int ri : new int[] {1,5,6,7})
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 2,  
+				"ERROR : size of hashmap changedRuleEffects should be 2 but it is"+CREs.keySet().size()) ;
+		for (int ri : new int[] {5,7})
 			errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.containsKey(ri), "ERROR: changedRuleEffects should have a key for global rule "+ri); 
 		
 		UTILS.errorSummary(errorCount);
@@ -935,6 +942,10 @@ public class SimulationTester {
 		
 		String currNote = "relocdated from 5 to 7, just before third waypoint";
 		
+		//TODO debugging
+		System.out.println("Bh : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));
+		System.out.println("Hb : "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap()));
+		
 		DHSW.processChWithAddNearWaypoint(true, "g2", 
 				5, currNote, "", null, currNote);
 		 
@@ -945,6 +956,13 @@ public class SimulationTester {
 				UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation targeting spot just before a waypoint."); 
 		
+		//TODO debugging
+		for (int ri = 6; ri < 8 ; ri ++)
+		{
+			System.out.println(ri+":\n"+
+					curHC.get(ri).toString()+"\n"+dumCasc.get(ri).toString()+"\n----------\n"); 
+		}
+		
 		//can skip testing lengths at this point, as well as making sure baseCASC was uncorrupted. If no error appeared before it won't happen here.  
 		//update checker structures concerning mappings
 		corrBhRIM[5] = 7; 
@@ -952,27 +970,28 @@ public class SimulationTester {
 		corrHbRIM[7] = 5; 
 		//testing DHSW's rule maps. 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
-				"ERROR: Handling of backward relocdation in base to hyp rule ind map not realized correctly.\n"
+				"ERROR: Handling of forward relocdation in base to hyp rule ind map not realized correctly.\n"
 						+ "correct : "+UTILS.print1dIntArr(corrBhRIM)+"\nObserved: "  
 								+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));	
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrHbRIM, DHSW.getHypBaseRuleIndMap()),
-				"ERROR: Handling of backward relocdation in hyp to base rule ind map not realized correctly.");
+				"ERROR: Handling of forward relocdation in hyp to base rule ind map not realized correctly.\n"
+						+ "correct : "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "  
+						+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap()));	
 		
 		//testing hypGoldLocs and hypBlackLocs
-		
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(new int[] {5, 8}, DHSW.getHypGoldLocs()),
 				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypGoldLocs (which shouldn't change)");  
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
-				UTILS.compare1dIntArrs(new int[] {6}, DHSW.getHypBlackLocs()), 
-				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypBlackLocs (should remain 7)"); 
+				UTILS.compare1dIntArrs(new int[] {7}, DHSW.getHypBlackLocs()), 
+				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypBlackLocs (should now be 7)"); 
 		
 		//TODO finish third rule in this set...
 	
 		//TODO add rule processing and debug comprehension of the following
-		// complex insertion to right before s > ts / n__ : 
+		// complex insertion to right before s > ts / n __ : 
 		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
 		// again relocate the flapping rule to after waypoint 2 
 		

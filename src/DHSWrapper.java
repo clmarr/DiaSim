@@ -642,24 +642,23 @@ public class DHSWrapper {
 	 * and modifies internal structures accordingly, but does not yet make any
 	 * changes to the text of a cascade file.
 	 * 
-	 * @param deleteLoc      -- -1 if no deletion is involved, otherwise the index
-	 *                       that will be deleted
-	 * @param deletionNotes  -- empty if no deletion involved, any pertinent coments
-	 *                       otherwise
+	 * @param deleteLoc      -- -1 if no deletion is involved, otherwise the index that will be deleted
+	 * @param deletionNotes  -- empty if no deletion involved, any pertinent comments otherwise
 	 * @param addLoc         -- -1 if no rule is added, otherwise the (hypothesis...?) index where it
-	 *                       will be added (will be placed before the rule
-	 *                       previously at that index)
-	 * @param newLaw         -- string form of that will be added to file if we are
-	 *                       adding a rule
-	 * @param newRules       -- the one or more rules derived from that law, to be
-	 *                       added to hypCASC etc.
-	 * @param insertionNOtes -- any notes pertinent to the addition of a rule.
+	 *                       will be added (will be placed before the rule previously at that index)
+	 * @param newLaw         -- string form of that will be added to file if we are adding a rule
+	 * @param newRules       -- the one or more rules derived from that law, to be added to hypCASC etc.
+	 * @param insertionNotes -- any notes pertinent to the addition of a rule.
 	 */
 	public void processSingleCh(int deleteLoc, String deletionNotes, int addLoc, String newLaw, List<SChange> newRules,
 			String insertionNotes) {
 		List<SChange> insertions = (newRules == null) ? new ArrayList<SChange>() : new ArrayList<SChange>(newRules);
 		if (deleteLoc != -1) {
 			SChange removed = hypCASC.remove(deleteLoc);
+			
+			//TODO debugging
+			System.out.println("Removed from former index "+deleteLoc+" in hyp : "+ removed);
+			
 			updateProposedChanges(new String[] { "" + deleteLoc, "deletion", deletionNotes }, -1);
 
 			if (addLoc != -1) // relocdation or modification
@@ -678,10 +677,28 @@ public class DHSWrapper {
 						throw new RuntimeException("ERROR: invalid relocdation notes on insertion side: '"+insertionNotes+"'");  
 					insertions.add(removed);
 				}
-				hypCASC.addAll((addLoc <= deleteLoc) ? addLoc : addLoc - 1, insertions);
+				
+				//TODO debugging
+				System.out.println("Addition phase for a relocdation, addLoc = "+addLoc);
+				if (addLoc > 0 )
+					System.out.println("hyp["+(addLoc-1)+"] : "+hypCASC.get(addLoc-1)); 
+				System.out.println("hyp["+addLoc+"] : "+hypCASC.get(addLoc)); 
+				if (addLoc + 1 < hypCASC.size())
+					System.out.println("hyp["+(addLoc+1)+"] : "+hypCASC.get(addLoc+1));
+				
+				addLoc = (addLoc <= deleteLoc) ? addLoc : addLoc - 1; 
+				hypCASC.addAll(addLoc, insertions);
+
+				//TODO debugging
+				System.out.println("after, addLoc = "+addLoc);
+				if (addLoc > 0 )
+					System.out.println("hyp["+(addLoc-1)+"] : "+hypCASC.get(addLoc-1)); 
+				System.out.println("hyp["+addLoc+"] : "+hypCASC.get(addLoc)); 
+				if (addLoc + 1 < hypCASC.size())
+					System.out.println("hyp["+(addLoc+1)+"] : "+hypCASC.get(addLoc+1));
 
 				updateProposedChanges(
-						new String[] { "" + (addLoc > deleteLoc ? addLoc - 1 : addLoc),
+						new String[] { "" + addLoc, 
 								(addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes },
 						insertions.size());
 			}
@@ -698,12 +715,18 @@ public class DHSWrapper {
 				for (int mi = 0; mi < RIM_HB.length; mi++)
 					oldRIM_HB[mi] = RIM_HB[mi];
 
+				//TODO debugging
+				System.out.println("RIMs:\nBH : "+UTILS.print1dIntArr(RIM_BH)+"\nHB: "+UTILS.print1dIntArr(RIM_HB)); 				
+				
 				// structure skeleton -- modification of RIM_HB
 				// RIM_BH meanwhile is modified if/when any still-tracked indices in it are --
 				// which we determine using mappingLocinRIMBH(int);
 
 				int baseLoc = RIM_HB[deleteLoc], // corresponding loc in base for content in hyp that is being relocated
 						movingTo = addLoc; // in hyp casc.
+				
+				//TODO debugging
+				System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo);
 
 				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc)) {
 					if (baseLoc != -1)
@@ -712,8 +735,17 @@ public class DHSWrapper {
 
 					int temp = RIM_HB[movingTo];
 					RIM_HB[movingTo] = baseLoc;
+					
+
+					//TODO debugging
+					System.out.println("RIM_HB ["+movingTo+"] = "+RIM_HB[movingTo]); 
+					
 					baseLoc = temp;
 					movingTo += back ? 1 : -1;
+					
+					//TODO debugging
+					System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo);
+					
 				}
 				
 				/**
@@ -744,12 +776,12 @@ public class DHSWrapper {
 				if (NUM_GOLD_STAGES > 0)
 					for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
 						if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc)
-								&& hypGoldLocs[gsi] < (back ? deleteLoc : addLoc + 1))
+								&& hypGoldLocs[gsi] < (back ? deleteLoc : addLoc + 2))
 							hypGoldLocs[gsi] += (back ? 1 : -1);
 				if (NUM_BLACK_STAGES > 0)
 					for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
 						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc)
-								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 1))
+								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 2))
 							hypBlackLocs[bsi] += (back ? 1 : -1);
 
 				// TODO check this...
@@ -763,7 +795,7 @@ public class DHSWrapper {
 							+ relocdi + "] : " + UTILS.print1dIntArr(relocdations.get(relocdi)));
 					for (int dai = 0; dai < 2; dai++)
 						if (delLocAddLoc[dai] >= (back ? addLoc : deleteLoc)
-								&& delLocAddLoc[dai] < (back ? deleteLoc : addLoc + 1))
+								&& delLocAddLoc[dai] < (back ? deleteLoc : addLoc + 2))
 							delLocAddLoc[dai] += (back ? 1 : -1);
 					relocdations.set(relocdi, delLocAddLoc);
 				}
@@ -771,7 +803,7 @@ public class DHSWrapper {
 				int modi = 0;
 				while (modi < modifications.size() - 1)
 					if (modifications.get(modi) >= (back ? addLoc : deleteLoc)
-							&& modifications.get(modi) < (back ? deleteLoc : addLoc + 1))
+							&& modifications.get(modi) < (back ? deleteLoc : addLoc + 2))
 						modifications.set(modi, modifications.get(modi) + (back ? 1 : -1));
 			} else // simple deletion or modification
 			{
@@ -1057,7 +1089,11 @@ public class DHSWrapper {
 		// first part -- determine correct add loc. 
 		boolean isGold = targ.charAt(0) == 'g'; 
 		int si = Integer.parseInt(targ.substring(1)) - 1 ; 
-		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si]; 
+		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si] ;
+		
+		//TODO debugging
+		System.out.println("addLoc "+addLoc);
+		System.out.println("isGold "+isGold);
 		
 		//"first and a half" -- fix deletionNotes and/or insertionNotes if they are "" but it's a relocdation
 		if (deleteLoc != -1)
