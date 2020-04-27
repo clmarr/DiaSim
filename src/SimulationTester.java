@@ -940,10 +940,6 @@ public class SimulationTester {
 		
 		String currNote = "relocdated from 5 to 7, just before third waypoint";
 		
-		//TODO debugging
-		System.out.println("Bh : "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap()));
-		System.out.println("Hb : "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap()));
-		
 		DHSW.processChWithAddNearWaypoint(true, "g2", 
 				5, currNote, "", null, currNote);
 		 
@@ -953,14 +949,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compareCascades(dumCasc, curHC),
 				"ERROR: malformed comprehension of forward relocdation operation targeting spot just before a waypoint."); 
-		
-		//TODO debugging
-		for (int ri = 6; ri < 8 ; ri ++)
-		{
-			System.out.println(ri+":\n"+
-					curHC.get(ri).toString()+"\n"+dumCasc.get(ri).toString()+"\n----------\n"); 
-		}
-		
+
 		//can skip testing lengths at this point, as well as making sure baseCASC was uncorrupted. If no error appeared before it won't happen here.  
 		//update checker structures concerning mappings
 		corrBhRIM[5] = 7; 

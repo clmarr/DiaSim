@@ -93,10 +93,6 @@ public class DifferentialHypothesisSimulator {
 		proposedChs = propdChanges;
 		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); // init ruleCorrespondences
 
-		// TODO debugging
-		System.out.println("RCs[0] : " + UTILS.print1dIntArr(ruleCorrespondences[0]));
-		System.out.println("RCs[1] : " + UTILS.print1dIntArr(ruleCorrespondences[1]));
-
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations.

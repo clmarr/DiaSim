@@ -658,9 +658,6 @@ public class DHSWrapper {
 		if (deleteLoc != -1) {
 			SChange removed = hypCASC.remove(deleteLoc);
 			
-			//TODO debugging
-			System.out.println("Removed from former index "+deleteLoc+" in hyp : "+ removed);
-			
 			updateProposedChanges(new String[] { "" + deleteLoc, "deletion", deletionNotes }, -1);
 
 			if (addLoc != -1) // relocdation or modification
@@ -680,24 +677,8 @@ public class DHSWrapper {
 					insertions.add(removed);
 				}
 				
-				//TODO debugging
-				System.out.println("Addition phase for a relocdation, addLoc = "+addLoc);
-				if (addLoc > 0 )
-					System.out.println("hyp["+(addLoc-1)+"] : "+hypCASC.get(addLoc-1)); 
-				System.out.println("hyp["+addLoc+"] : "+hypCASC.get(addLoc)); 
-				if (addLoc + 1 < hypCASC.size())
-					System.out.println("hyp["+(addLoc+1)+"] : "+hypCASC.get(addLoc+1));
-				
 				addLoc = (addLoc <= deleteLoc) ? addLoc : addLoc - 1; 
 				hypCASC.addAll(addLoc, insertions);
-
-				//TODO debugging
-				System.out.println("after, addLoc = "+addLoc);
-				if (addLoc > 0 )
-					System.out.println("hyp["+(addLoc-1)+"] : "+hypCASC.get(addLoc-1)); 
-				System.out.println("hyp["+addLoc+"] : "+hypCASC.get(addLoc)); 
-				if (addLoc + 1 < hypCASC.size())
-					System.out.println("hyp["+(addLoc+1)+"] : "+hypCASC.get(addLoc+1));
 
 				updateProposedChanges(
 						new String[] { "" + addLoc, 
@@ -717,9 +698,6 @@ public class DHSWrapper {
 				for (int mi = 0; mi < RIM_HB.length; mi++)
 					oldRIM_HB[mi] = RIM_HB[mi];
 
-				//TODO debugging
-				System.out.println("RIMs:\nBH : "+UTILS.print1dIntArr(RIM_BH)+"\nHB: "+UTILS.print1dIntArr(RIM_HB)); 				
-				
 				// structure skeleton -- modification of RIM_HB
 				// RIM_BH meanwhile is modified if/when any still-tracked indices in it are --
 				// which we determine using mappingLocinRIMBH(int);
@@ -727,9 +705,6 @@ public class DHSWrapper {
 				int baseLoc = RIM_HB[deleteLoc], // corresponding loc in base for content in hyp that is being relocated
 						movingTo = addLoc; // in hyp casc.
 				
-				//TODO debugging
-				System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo);
-
 				while (back ? (movingTo <= deleteLoc) : (movingTo >= deleteLoc)) {
 					if (baseLoc != -1)
 						RIM_BH[baseLoc] = movingTo;
@@ -737,17 +712,8 @@ public class DHSWrapper {
 
 					int temp = RIM_HB[movingTo];
 					RIM_HB[movingTo] = baseLoc;
-					
-
-					//TODO debugging
-					System.out.println("RIM_HB ["+movingTo+"] = "+RIM_HB[movingTo]); 
-					
 					baseLoc = temp;
 					movingTo += back ? 1 : -1;
-					
-					//TODO debugging
-					System.out.println("baseLoc "+baseLoc+"; movingTo "+movingTo);
-					
 				}
 				
 				/**
@@ -1092,10 +1058,6 @@ public class DHSWrapper {
 		boolean isGold = targ.charAt(0) == 'g'; 
 		int si = Integer.parseInt(targ.substring(1)) - 1 ; 
 		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si] ;
-		
-		//TODO debugging
-		System.out.println("addLoc "+addLoc);
-		System.out.println("isGold "+isGold);
 		
 		//"first and a half" -- fix deletionNotes and/or insertionNotes if they are "" but it's a relocdation
 		if (deleteLoc != -1)
