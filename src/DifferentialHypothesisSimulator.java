@@ -500,8 +500,8 @@ public class DifferentialHypothesisSimulator {
 	}
 
 	// TODO plans to report any change in phonemic inventory.
-
-	// TODO need to check that this works properly
+	// isHyp -- hypothesis not baseline
+	// der -- a derivation. 
 	private String globalizeDerivInds(String der, boolean isHyp) {
 		int br = der.indexOf("\n");
 		String out = der.substring(0, der.indexOf("\n"));

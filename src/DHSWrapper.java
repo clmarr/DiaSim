@@ -646,6 +646,8 @@ public class DHSWrapper {
 	 * @param deletionNotes  -- empty if no deletion involved, any pertinent comments otherwise
 	 * @param addLoc         -- -1 if no rule is added, otherwise the (hypothesis...?) index where it
 	 *                       will be added (will be placed before the rule previously at that index)
+	 *          NOTE that this means in the specific case of forward relocdation
+	 *          			one should enter the final index + 1 
 	 * @param newLaw         -- string form of that will be added to file if we are adding a rule
 	 * @param newRules       -- the one or more rules derived from that law, to be added to hypCASC etc.
 	 * @param insertionNotes -- any notes pertinent to the addition of a rule.
@@ -776,12 +778,12 @@ public class DHSWrapper {
 				if (NUM_GOLD_STAGES > 0)
 					for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
 						if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc)
-								&& hypGoldLocs[gsi] < (back ? deleteLoc : addLoc + 2))
+								&& hypGoldLocs[gsi] < (back ? deleteLoc : addLoc + 1))
 							hypGoldLocs[gsi] += (back ? 1 : -1);
 				if (NUM_BLACK_STAGES > 0)
 					for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
 						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc)
-								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 2))
+								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 1))
 							hypBlackLocs[bsi] += (back ? 1 : -1);
 
 				// TODO check this...

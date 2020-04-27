@@ -559,11 +559,11 @@ public class SimulationTester {
 		
 		//relocdation of flapping rule to after first waypoint
 		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: "
-				+ "moving the flapping rule that is at index 1 to index 6,"
+				+ "moving the flapping rule that is at index 1 to index 5,"
 				+ " after the first waypoint.\n----------------\n"); 
 		
 		DHSW.processChWithAddNearWaypoint(false, "g1", 
-				1, "relocdated from 1 to 6, after first waypoint", "", null, "relocdated from 1 to 6, after first waypoint");; 
+				1, "relocdated from 1 to 5, after first waypoint", "", null, "relocdated from 1 to 5, after first waypoint");; 
 		
 		//DHSW.processSingleCh(1,"relocdated from 1 to 6",6,"",null,
 		//		"relocdated from 1 to 6");
@@ -597,8 +597,9 @@ public class SimulationTester {
 				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ;
 		
 		//test DHSWrapper.hypGoldLocs
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
-			"ERROR: update on hypGoldLocs for forward relocdation following a not-yet-accepted simple deletion hyp not executed properly." ) ; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {6, 7}, DHSW.getHypGoldLocs()),
+			"ERROR: update on hypGoldLocs for forward relocdation (following a not-yet-accepted simple deletion hyp) not executed properly."
+			+ "\nGold locs detected as "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()) ) ; 
 		
 		//test DHSW.proposedChanges
 		thepc = DHSW.getProposedChanges().get(2); 
@@ -609,13 +610,13 @@ public class SimulationTester {
 		//now test processing of the second change, which should consist of one deletion and one insertion.
 		// first test the deletion.
 		thepc = DHSW.getProposedChanges().get(0); 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "relocdated from 1 to 6, after first waypoint".equals(thepc[2]) ,
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, "1".equals(thepc[0]) && "deletion".equals(thepc[1]) && "relocdated from 1 to 5, after first waypoint".equals(thepc[2]) ,
 			"ERROR: at index 0 should be deletion part of update on proposedChanges for forward relocdation;\n"
 			+ "construction of proposedChs handled incorrectly!") ;
 		
 		// and then the insertion phase
 		thepc = DHSW.getProposedChanges().get(1);
-		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && "relocdated from 1 to 6, after first waypoint".equals(thepc[2]), 
+		errorCount += chBoolPrIncIfError(getLineNumber(),  true , "5".equals(thepc[0]) && "[+cor,-delrel] > ɾ / [-cons] __ [-stres]".equals(thepc[1]) && "relocdated from 1 to 5, after first waypoint".equals(thepc[2]), 
 				"ERROR: at index 1 should be processing of insertion phase of update on proposedChanges for forward relocdation, building of proposedChs executed incorrectly!\n"
 				+ "thepc[0] = "+thepc[0]); 
 		
@@ -647,17 +648,14 @@ public class SimulationTester {
 		// fountain (et4) should not be effected
 		// also testing differential derivation generation for case of a forward relocdation in this block.
 		corDD = "/bˈʌtə˞/\n" + 
-				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n" + 
-				"Waypoint 1 Gold : #bˈʌɾə˞# | #bˈʌtə˞#\n" + 
-				"1[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
-				"Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌɾə˞#\n" + 
+				"CONCORDANT UNTIL RULE : 7\n" + 
 				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
 				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
 				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
 			//TODO may need to reform this so that in cases such as these, it is in fact considered concordant until 7
 					// since there is no actual difference in the outcome of the flapping rule
 					// i.e. the inputs to rule 6 are both [bˈʌɾə˞]
+				// on the other hand, this could cause some errors... 
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 				"ERRORː differential derivation for 'butter' is malformed\n"
