@@ -908,13 +908,17 @@ public class SimulationTester {
 				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
 				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
 				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
-				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
-				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" + 
+				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" +
+				"Waypoint 1 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" +
 				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
 				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
 				"Final forms : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#";
+			// TODO maybe this one should not really be different between the basline and hyp at all... 
+					// since there is no material differencec really, just the same things happening in a different order
+						// to obtain the same results by the next waypoint... 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
-				"ERROR: derivation of 'heighten' is malformed"); 
+				"ERROR: derivation of 'heighten' is malformed:"
+				+ theDHS.getDifferentialDerivation(7)); 
 
 		//test DHS.locHasPrCh
 		corrPCLs[1] = true; 
