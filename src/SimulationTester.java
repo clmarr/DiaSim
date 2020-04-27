@@ -727,9 +727,10 @@ public class SimulationTester {
 				"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
 		
 		//test hypGoldLocs -- hypBlackLocs functionality is implied this way
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{5,8}, DHSW.getHypGoldLocs()),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{6,8}, DHSW.getHypGoldLocs()),
 				"ERROR: complex modification not handled by correct update in DHSW.hypGoldLocs\n\t"
-				+ "-- second gold change should have been moved from instant 7 to 8.");
+				+ "-- second gold change should have been moved from instant 7 to 8.\n"
+				+ "hyp gold locs observed : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
 		
 		//test DHSWrapper.proposedChanges
 		//first should be the insertion.
