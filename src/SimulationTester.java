@@ -954,8 +954,8 @@ public class SimulationTester {
 		
 		String currNote = "relocdated from 5 to 7, just before third waypoint";
 		
-		String[] ch6InsPCform = new String[] {"5", "[+cor,-delrel] > ɾ / [-cons] __ [-stres]", currNote},
-				ch6DelPCform = new String[] {"7", "deletion", currNote}; 
+		String[] ch6DelPCform = new String[] {"5", "deletion", currNote},
+				ch6InsPCform = new String[] {"7", "[+cor,-delrel] > ɾ / [-cons] __ [-stres]", currNote}; 
 		
 		DHSW.processChWithAddNearWaypoint(true, "g2", 
 				5, currNote, "", null, currNote);
@@ -1000,6 +1000,9 @@ public class SimulationTester {
 			for (String pcii : pci)	System.out.print(pcii+";\t"); 
 			System.out.print("\n");
 		}
+		
+		ch4InsPCform[0] = ""+(Integer.parseInt(ch4InsPCform[0])-1); 
+		ch4DelPCform[0] = ""+(Integer.parseInt(ch4DelPCform[0])-1);
 		
 		// testing DHSW.proposedChanges
 		errorCount += calcPCerrs(getLineNumber(), 0, backRlcIns, DHSW.getProposedChanges().get(0), 
