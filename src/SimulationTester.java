@@ -940,15 +940,6 @@ public class SimulationTester {
 		CREs = theDHS.getChangedRuleEffects();
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3, 
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
-		
-		
-		//TODO debugging
-			System.out.println("Proposed changes contains ...");
-			List<String[]> obsPC = DHSW.getProposedChanges(); 
-			for (String[] pci : obsPC) {
-				for (String pcii : pci)	System.out.print(pcii+";\t"); 
-				System.out.print("\n");
-			}
 				
 		System.out.println("-------------\nThird rule in group, sixth overall (line "+getLineNumber()+"): relocating flapping rule to just before third waypoint.");
 		
@@ -992,14 +983,6 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 				UTILS.compare1dIntArrs(new int[] {7}, DHSW.getHypBlackLocs()), 
 				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypBlackLocs (should now be 7)"); 
-		 
-		//TODO debugging
-		System.out.println("Proposed changes contains ...");
-		obsPC = DHSW.getProposedChanges(); 
-		for (String[] pci : obsPC) {
-			for (String pcii : pci)	System.out.print(pcii+";\t"); 
-			System.out.print("\n");
-		}
 		
 		ch4InsPCform[0] = ""+(Integer.parseInt(ch4InsPCform[0])-1); 
 		ch4DelPCform[0] = ""+(Integer.parseInt(ch4DelPCform[0])-1);
