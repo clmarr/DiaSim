@@ -615,6 +615,8 @@ public class DHSWrapper {
 	 *                 modification or insertion -- allowed.
 	 * @param quantity -- number of rules being added, if we are adding; if this is
 	 *                 a deletion this should be -1.
+	 *     TODO may need to handle dleetion of backward relocdated rules by simply removing the insertion part and modifying the notes on the deletion part, 
+	 *     		... to avoid errors. Of course users should never use such bad form (instead should accept hypothesis first, then delete to test -- or just abort that part change. )
 	 */
 	private void updateProposedChanges(String[] ch, int quantity) {
 		assert ch[1].equals(
@@ -628,7 +630,7 @@ public class DHSWrapper {
 			String[] prevCh = proposedChanges.get(pci - 1);
 			int prevLoc = Integer.parseInt(prevCh[0]);
 			foundTargSpot = target > prevLoc || (target == prevLoc && ch[1].equals("deletion") && prevCh[1].equals("deletion")); 
-				// if prevCh[1] is a deletion, we don't want ot confuse the effects of the two deletions, 
+				// if prevCh[1] is a deletion, we don't want to confuse the effects of the two deletions, 
 						// which would occur if we put the new one after the old
 				// whereas if the deletion is pegged to a hypLoc that at the time represents a rule that was inserted and not present in the baseline
 						// this is bad form, but in order to properly execute the orders of the user, it must be placed *after* the rule was just inserted
@@ -689,6 +691,7 @@ public class DHSWrapper {
 				updateProposedChanges(new String[] { "" + addLoc, strForm, insertionNotes },
 								insertions.size());
 				
+				//boolean relocdeletionBandaid = false; 
 				if (addLoc > deleteLoc) // have to correct for deletion phase if it came before.   
 				{
 					// fix updateProposedChanges. 
@@ -700,6 +703,7 @@ public class DHSWrapper {
 					
 					//and make the necessary fix.
 					// This is will ALSO be necessary in this case for the proper operation on hypCASC beneath this block. 
+															// -- hence relocdeletionBandaid.... now abrogated though
 					addLoc = addLoc - 1;
 					proposedChanges.set(pci, new String[] {""+addLoc, strForm, insertionNotes}); 
 				}

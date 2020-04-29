@@ -111,6 +111,11 @@ public class DifferentialHypothesisSimulator {
 		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
 		for (int bhi = 0; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
 		for (int hbi = 0; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
+		
+		//TODO debugging
+		System.out.println("bh : "+UTILS.print1dIntArr(baseToHypIndMap)); 
+		System.out.println("hb : "+UTILS.print1dIntArr(hypToBaseIndMap)); 
+		
 
 		// initializing class variable ruleCorrespondences...
 		if (proposedChs.size() == 0) {
@@ -226,6 +231,14 @@ public class DifferentialHypothesisSimulator {
 						if(!unresolved_past_sources.contains(past_corr))	// if it wasn't actually a forward relocdation then. 
 							locHasPrCh[gi] = true; 
 						gi++; 
+					} 
+					else if (ilhi == -1 && ilbi > hi) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
+					{
+						// we know this cannot be a backward relocdation, as ilhi = -1. 
+						unresolved_past_sources.add(hi); 
+						locHasPrCh[gi] = true; 
+						fut_sources_left.put(ilbi+1, hi++); // ilbi + 1 is what ilhi would be in this scenario if not for the insertion.; it is still aligns to the change in global ind that it will correspond to. 
+						dumRIMBH[5] = -2;
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
@@ -237,7 +250,7 @@ public class DifferentialHypothesisSimulator {
 						ruleCorrespondences[1][gi] = isInsertion ? hi++ : ilbi; 
 						locHasPrCh[gi++] = true;
 					}
-					else if (ilhi > bi) // future backwards relocdation. 
+					else if (ilhi > bi) // future backwards relocdation (or current forward relocdation?)
 					{
 						if (!relocdIsBackward(hi)) {
 							unresolved_past_sources.add(hi);  
@@ -1139,14 +1152,16 @@ public class DifferentialHypothesisSimulator {
 		String hypRuleStr = hypCascSim.getRuleAt(hi); 
 		int pci = proposedChs.size() - 1; 
 		while (pci < 0 ? false : hi < Integer.parseInt(proposedChs.get(pci)[0]))	pci--;
-		if (pci < 0 ? true : hi < Integer.parseInt(proposedChs.get(pci)[0]))	return false; 
+		if (pci < 0 ? true : hi > Integer.parseInt(proposedChs.get(pci)[0]))		return false;
+		
 		if (!hypRuleStr.equals(proposedChs.get(pci)[1]))	return false;
 		
 		String hnotes = proposedChs.get(pci)[2]; 
 		if (!DHSWrapper.validRelocdationNotes(hnotes))	return false;
 		
 		int src_step = UTILS.getIntPrefix(hnotes.substring(16));
-		int dest_step = UTILS.getIntPrefix(16+hnotes.substring(hnotes.substring(16).indexOf(" ")+4));
+		int dest_step = UTILS.getIntPrefix(hnotes.substring(16+hnotes.substring(16).indexOf(" ")+4));
+		
 		return src_step > dest_step;
 	}
 }

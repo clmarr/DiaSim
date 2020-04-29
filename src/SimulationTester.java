@@ -922,7 +922,7 @@ public class SimulationTester {
 				+ theDHS.getDifferentialDerivation(7)); 
 
 		//test DHS.locHasPrCh
-		corrPCLs[1] = true; 
+		corrPCLs[4] = true; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dBoolArrs(corrPCLs,  theDHS.getPrChLocs()),
 				"ERROR: locHasPrCh malformed."); 
 		
@@ -1000,6 +1000,33 @@ public class SimulationTester {
 				"deletion aspect of complex modification of T-glottalization rule");
 		errorCount += calcPCerrs(getLineNumber(), 5, ch6InsPCform, DHSW.getProposedChanges().get(5),
 				"insertion aspect of forward relocdation of flapping"); 
+		
+		theDHS = DHSW.generateDHS(); 
+		//checking DHS.ruleCorrespondences
+
+		corrRC[1][5] = 7;
+		corrRC[1][6] = 5; 
+		corrRC[1][7] = 6; 
+		
+		errorCount += chBoolPrIncIfError ( getLineNumber(), true,
+				UTILS.compare2dIntArrs( theDHS.getRuleCorrespondences(), corrRC),
+					"ERROR: DifferentialHypothesisSimulator.ruleCorrespondences appears to have been malformed.\n"
+							+ "Correct :\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+
+							"\nObserved : \n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])+"\n"
+							+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])) ;
+		
+		btg = theDHS.getBaseIndsToGlobal(); htg = theDHS.getHypIndsToGlobal();
+		// can skip checking btg and htg dimensions -- should be unchanged. 
+		
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs(btg, new int[] {0, 1, 2, 3, 4, 5, 8, 9, 10, 11}), 
+				"ERROR: base to global ind mapper is malformed"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dIntArrs(htg, new int[] {0, 4, 1, 2, 3, 6, 7, 5, 9, 10, 11 }),
+				"ERROR: hyp to global ind mapper is malformed"); 
+		
+		
+		
 		
 		//TODO finish third rule in this set...
 	
