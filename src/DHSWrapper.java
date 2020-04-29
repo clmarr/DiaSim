@@ -45,7 +45,9 @@ public class DHSWrapper {
 	private List<String[]> proposedChanges;
 	// TODO important variable here, explanation follows
 	// each indexed String[] is form [curr time step, operation details, comments to add to file at writing time]
-	// this object is *kept sorted* by current (i.e. baseline) time step
+	// this object is *kept sorted* by current time step
+		// with "current" here meaning the step in the process of starting with low indices and modifying, change by change in proposed changes, 
+				// ... the baseline into the hypothesis cascade. 
 	// (IMPORTANT: equivalent to iterator hci, for hypCASC later)
 	// 		... and time steps are kept updated as changes are made elsewhere
 	// sorting is from earliest time step, to latest timestep
@@ -625,7 +627,12 @@ public class DHSWrapper {
 		while (pci == 0 ? false : !foundTargSpot) {
 			String[] prevCh = proposedChanges.get(pci - 1);
 			int prevLoc = Integer.parseInt(prevCh[0]);
-			foundTargSpot = target > prevLoc;
+			foundTargSpot = target > prevLoc || (target == prevLoc && ch[1].equals("deletion") && prevCh[1].equals("deletion")); 
+				// if prevCh[1] is a deletion, we don't want ot confuse the effects of the two deletions, 
+						// which would occur if we put the new one after the old
+				// whereas if the deletion is pegged to a hypLoc that at the time represents a rule that was inserted and not present in the baseline
+						// this is bad form, but in order to properly execute the orders of the user, it must be placed *after* the rule was just inserted
+				// if the new rule is an insertion, meanwhile, it is unambiguously one that should be placed after any other with the same index at time of operation. 
 			if (!foundTargSpot) {
 				proposedChanges.set(pci - 1, new String[] { "" + (prevLoc + quantity), prevCh[1], prevCh[2] });
 				pci--;
@@ -677,13 +684,26 @@ public class DHSWrapper {
 					insertions.add(removed);
 				}
 				
-				addLoc = (addLoc <= deleteLoc) ? addLoc : addLoc - 1; 
+				String strForm = (addLoc == deleteLoc)  ? newLaw : removed.toString(); 
+				
+				updateProposedChanges(new String[] { "" + addLoc, strForm, insertionNotes },
+								insertions.size());
+				
+				if (addLoc > deleteLoc) // have to correct for deletion phase if it came before.   
+				{
+					// fix updateProposedChanges. 
+					//We did have to call updateProposedChanges with the "wrong" index so it would be added the right way though -- i.e. after a previous deletion, for example (example 6 in SimulationTester).
+					//first find the right cell... 
+					int pci = 0; 
+					while (!proposedChanges.get(pci)[0].equals(""+addLoc) || !proposedChanges.get(pci)[1].equals(strForm) || !proposedChanges.get(pci)[2].equals(insertionNotes))
+						pci++; 
+					
+					//and make the necessary fix.
+					// This is will ALSO be necessary in this case for the proper operation on hypCASC beneath this block. 
+					addLoc = addLoc - 1;
+					proposedChanges.set(pci, new String[] {""+addLoc, strForm, insertionNotes}); 
+				}
 				hypCASC.addAll(addLoc, insertions);
-
-				updateProposedChanges(
-						new String[] { "" + addLoc, 
-								(addLoc == deleteLoc) ? newLaw : removed.toString(), insertionNotes },
-						insertions.size());
 			}
 
 			// now handle the mapping structures.
@@ -719,37 +739,39 @@ public class DHSWrapper {
 				/**
 				 * note -- since in a relocdation shift, deletion operates before insertion,
 				 * this has implications here because after deletion, 
-				 * 	all instants numbered greater than the deleted rule 
+				 * 	all instants (the "places" on which gold or black stages are pinned to, in between rules) 
+				 * 				.... numbered greater than the deleted rule 
 				 * 			(recall: instant 0 is before rule 0, 1 before r 1 etc... until n+1 is after final rule n) 
 				 * ... are effectively moved back one spot. 
-				 * 	meanwhile the instant formerly before the deleted rule merges with the one formerly after it 
+				 * 	meanwhile the instant formerly before the deleted rule merges with the instant formerly after it 
 				 * But what does this mean for if and how? 
 				 * In the case where deleteLoc < addLoc 
 				 * 	all instants from deleteLoc+1 to the end 
 				 * 		are moved back one spot effectively
-				 * 	 but then after the following insertion operation at addLoc
-				 *				 i.e. operationally at <addLoc - 1> ...
-				 *						 but it inserts the step right AFTER instant <addLoc - 1> ... 
-				 *		all instants that are at what was originally <addLoc +1> ... 
+				 * 	 but then after the following insertion operation at <addLoc>
+				 * 						which is realized at <addLoc-1> since that was <addLoc> before the deletion phase
+				 * 							(note, we keep it this way for consistency in the principle that addLoc adds whatever rules *before* the loc) 
+				 * 			all instants originally <addLoc+1> onword are moved  
 				 *				are moved one step forward, cancelling out the effect of deletion ...
-				 * 			this means that a stage that was originally addLoc, 
-				 * 					right before the spot where the rule is being inserted ... 
+				 * 			this means that a stage that was originally at the instant <addLoc>, 
+				 * 					i.e. right before the spot where the rule is being inserted ... 
 				 * 				WILL be moved back one place. 
+				 * 		thus forward relocdation has an effect of moving instants -1 space that effects [deleteLoc + 1, addLoc (+ 1)]
 				 * In the case where deleteLoc > addLoc: 
 				 * 	places at deleteLoc and onwards are first effected by -1 
 				 * 		then all places at or after addLoc are effected by +1 
-				 * 	meaning the net effect is +1 over [addLoc, deleteLoc)
+				 * 	meaning the net effect is +1 over [addLoc+1, deleteLoc] for backward relocdations
 				 */
-
+				
 				if (NUM_GOLD_STAGES > 0)
 					for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
-						if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc)
-								&& hypGoldLocs[gsi] < (back ? deleteLoc : addLoc + 1))
+						if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc + 1 )
+								&& hypGoldLocs[gsi] <= (back ? deleteLoc : addLoc + 1 ))
 							hypGoldLocs[gsi] += (back ? 1 : -1);
 				if (NUM_BLACK_STAGES > 0)
 					for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
-						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc)
-								&& hypBlackLocs[bsi] < (back ? deleteLoc : addLoc + 1))
+						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc + 1  )
+								&& hypBlackLocs[bsi] <= (back ? deleteLoc : addLoc + 1 ))
 							hypBlackLocs[bsi] += (back ? 1 : -1);
 
 				// TODO check this...

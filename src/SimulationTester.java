@@ -249,7 +249,7 @@ public class SimulationTester {
 		
 		DHSWrapper DHSW = newDHS(testSimul); 
 		errorCount = totalErrorCount = 0; 
-		System.out.println("----------------\n\nFirst test: insertion of l-darkening rule at the beginning of the cascade\n"
+		System.out.println("----------------\n\nFirst test (line "+getLineNumber()+"): insertion of l-darkening rule at the beginning of the cascade\n"
 				+ "\tThis should increase accuracy at each gold stage and the output by 0.075\n---------\n"); 
 		
 		String nextLaw = "l > lˠ / __ [+cons]"; 
@@ -447,7 +447,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//now we will do two changes before accepting the hypothesis. 
-		System.out.println("-----------------\nSecond: Testing comprehension of simple deletion (in this case, of a derhotacization rule).");
+		System.out.println("-----------------\nSecond (at line "+getLineNumber()+"): Testing comprehension of simple deletion (in this case, of a derhotacization rule).");
 		
 		System.out.println("Deleting derhotacization rule at index 7.\n----------------\n");
 
@@ -558,7 +558,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		//relocdation of flapping rule to after first waypoint
-		System.out.println("\n-------------\nThird: Testing comprehension of forward relocdation: "
+		System.out.println("\n-------------\nThird (line "+getLineNumber()+"): Testing comprehension of forward relocdation: "
 				+ "moving the flapping rule that is at index 1 to index 5,"
 				+ " after the first waypoint.\n----------------\n"); 
 		
@@ -597,7 +597,7 @@ public class SimulationTester {
 				+ "Correct: "+UTILS.print1dIntArr(corrHbRIM)+"\nObserved: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())) ;
 		
 		//test DHSWrapper.hypGoldLocs
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {6, 7}, DHSW.getHypGoldLocs()),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {5, 7}, DHSW.getHypGoldLocs()),
 			"ERROR: update on hypGoldLocs for forward relocdation (following a not-yet-accepted simple deletion hyp) not executed properly."
 			+ "\nGold locs detected as "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()) ) ; 
 		
@@ -648,14 +648,14 @@ public class SimulationTester {
 		// fountain (et4) should not be effected
 		// also testing differential derivation generation for case of a forward relocdation in this block.
 		corDD = "/bˈʌtə˞/\n" + 
-				"CONCORDANT UNTIL RULE : 7\n" + 
+				"CONCORDANT UNTIL RULE : 1\n" + 
+				"1[1|-1] : #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n" + 
+				"Waypoint 1 Gold : #bˈʌɾə˞# | #bˈʌtə˞#\n" + 
+				"1[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
+				"Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌɾə˞#\n" + 
 				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
 				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
-				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
-			//TODO may need to reform this so that in cases such as these, it is in fact considered concordant until 7
-					// since there is no actual difference in the outcome of the flapping rule
-					// i.e. the inputs to rule 6 are both [bˈʌɾə˞]
-				// on the other hand, this could cause some errors... 
+				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#"; 
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 				"ERRORː differential derivation for 'butter' is malformed\n"
@@ -693,7 +693,7 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
-		System.out.println("\n-------------\nFourth: Now processing three changes for hypothesis, before usurping baseline.\n---------------\n"); 
+		System.out.println("\n-------------\nFourth (line "+getLineNumber()+"): Now processing three changes for hypothesis, before usurping baseline.\n---------------\n"); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
                         + "\t\tfrom __ ə\n"
                         + "\tto [+son] __ {# ; [-stres,-back,+nas]}\n");
@@ -727,9 +727,9 @@ public class SimulationTester {
 				"ERROR: Handling of complex modification in hyp to base rule ind map not realized correctly.");
 		
 		//test hypGoldLocs -- hypBlackLocs functionality is implied this way
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{6,8}, DHSW.getHypGoldLocs()),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[]{5,8}, DHSW.getHypGoldLocs()),
 				"ERROR: complex modification not handled by correct update in DHSW.hypGoldLocs\n\t"
-				+ "-- second gold change should have been moved from instant 7 to 8.\n"
+				+ "-- second gold stage should have been moved from instant 7 to 8.\n"
 				+ "hyp gold locs observed : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
 		
 		//test DHSWrapper.proposedChanges
@@ -829,7 +829,7 @@ public class SimulationTester {
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
 		
-		System.out.println("--------------\nSecond rule in group, fifth overall: backward relocdation of American raising to become second rule."); 
+		System.out.println("--------------\nSecond rule in group, fifth overall (line "+getLineNumber()+"): backward relocdation of American raising to become second rule."); 
 		String[] backRlcIns = new String[] {"1", ""+CASCADE.get(4), "relocdated from 4 to 1"},
 				backRlcDel = new String[] {"5", "deletion", "relocdated from 4 to 1"};
 		DHSW.processSingleCh(4, backRlcDel[2], 1, "", null, backRlcIns[2]); 
@@ -909,8 +909,8 @@ public class SimulationTester {
 				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
 				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
 				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
-				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" +
-				"Waypoint 1 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" +
+				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
+				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" + 
 				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
 				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
 				"Final forms : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#";
@@ -941,9 +941,21 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 3, 
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 		
-		System.out.println("-------------\nThird rule in group, sixth overall: relocating flapping rule to just before third waypoint.");
+		
+		//TODO debugging
+			System.out.println("Proposed changes contains ...");
+			List<String[]> obsPC = DHSW.getProposedChanges(); 
+			for (String[] pci : obsPC) {
+				for (String pcii : pci)	System.out.print(pcii+";\t"); 
+				System.out.print("\n");
+			}
+				
+		System.out.println("-------------\nThird rule in group, sixth overall (line "+getLineNumber()+"): relocating flapping rule to just before third waypoint.");
 		
 		String currNote = "relocdated from 5 to 7, just before third waypoint";
+		
+		String[] ch6InsPCform = new String[] {"5", "[+cor,-delrel] > ɾ / [-cons] __ [-stres]", currNote},
+				ch6DelPCform = new String[] {"7", "deletion", currNote}; 
 		
 		DHSW.processChWithAddNearWaypoint(true, "g2", 
 				5, currNote, "", null, currNote);
@@ -975,10 +987,33 @@ public class SimulationTester {
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
 				UTILS.compare1dIntArrs(new int[] {5, 8}, DHSW.getHypGoldLocs()),
-				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypGoldLocs (which shouldn't change)");  
+				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypGoldLocs (which shouldn't change)."
+				+ "\nObserved hyp gold locs "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));  
 		errorCount += chBoolPrIncIfError(getLineNumber(), true,
 				UTILS.compare1dIntArrs(new int[] {7}, DHSW.getHypBlackLocs()), 
 				"ERROR: forward relocdation to before waypoint not handled correctly in DHSW.hypBlackLocs (should now be 7)"); 
+		 
+		//TODO debugging
+		System.out.println("Proposed changes contains ...");
+		obsPC = DHSW.getProposedChanges(); 
+		for (String[] pci : obsPC) {
+			for (String pcii : pci)	System.out.print(pcii+";\t"); 
+			System.out.print("\n");
+		}
+		
+		// testing DHSW.proposedChanges
+		errorCount += calcPCerrs(getLineNumber(), 0, backRlcIns, DHSW.getProposedChanges().get(0), 
+				"insertion aspect of backward relocdation of American raising.");
+		errorCount += calcPCerrs(getLineNumber(), 1, backRlcDel, DHSW.getProposedChanges().get(1), 
+			"deletion aspect of backward relocdation of American raising.");
+		errorCount += calcPCerrs(getLineNumber(), 2, ch6DelPCform, DHSW.getProposedChanges().get(2),
+				"deletion aspect of forward relocdation of flapping."); 
+		errorCount += calcPCerrs(getLineNumber(), 3, ch4InsPCform, DHSW.getProposedChanges().get(3),
+				"insertion aspect of complex modification of T-glottalization rule");
+		errorCount += calcPCerrs(getLineNumber(), 4, ch4DelPCform, DHSW.getProposedChanges().get(4),
+				"deletion aspect of complex modification of T-glottalization rule");
+		errorCount += calcPCerrs(getLineNumber(), 5, ch6InsPCform, DHSW.getProposedChanges().get(5),
+				"insertion aspect of forward relocdation of flapping"); 
 		
 		//TODO finish third rule in this set...
 	
