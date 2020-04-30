@@ -232,12 +232,15 @@ public class DifferentialHypothesisSimulator {
 							locHasPrCh[gi] = true; 
 						gi++; 
 					} 
-					else if (ilhi == -1 && ilbi > hi) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
+					else if (ilhi == -1 && ilbi > hi && isForwardRelocd(hi,ilbi)) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
 					{
+						//TODO debugging
+						System.out.println("Bandaid at bi "+bi+" hi "+hi+" ilbi "+ilbi); 
+						
 						// we know this cannot be a backward relocdation, as ilhi = -1. 
-						unresolved_past_sources.add(hi); 
-						locHasPrCh[gi] = true; 
-						fut_sources_left.put(ilbi+1, hi++); // ilbi + 1 is what ilhi would be in this scenario if not for the insertion.; it is still aligns to the change in global ind that it will correspond to. 
+						unresolved_past_sources.add(hi++); 
+						locHasPrCh[gi++] = true; 
+						fut_sources_left.put(bi, ilbi); 
 						dumRIMBH[5] = -2;
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
@@ -1124,6 +1127,16 @@ public class DifferentialHypothesisSimulator {
 		return out.substring(2);
 	}
 	
+	/** from standard description of a relocdation, return @true if it is forward, @false if backward
+	 */
+	private boolean relocd_notes_forward(String notes)
+	{
+		if (!DHSWrapper.validRelocdationNotes(notes))	throw new RuntimeException("Cannot determine forward or backward for invalid notes for relocdation"); 
+		int src_step = UTILS.getIntPrefix(notes.substring(16));
+		int dest_step = UTILS.getIntPrefix(notes.substring(16+notes.substring(16).indexOf(" ")+4));
+		return src_step > dest_step;
+	}
+	
 	/** relocdIsBackward
 	 * auxiliary for computeRuleCorrespondences
 	 * for purposes of determining if a relocdation detected (on grounds of ilhi > bi) 
@@ -1158,10 +1171,37 @@ public class DifferentialHypothesisSimulator {
 		
 		String hnotes = proposedChs.get(pci)[2]; 
 		if (!DHSWrapper.validRelocdationNotes(hnotes))	return false;
+		return !relocd_notes_forward(hnotes); 
+	}
+	
+	private boolean isForwardRelocd(int hi, int ilbi)
+	{
+		if (proposedChs.size() < 2)	return false;
+		int pci = 0 , last_spot = proposedChs.size() - 1; 
 		
-		int src_step = UTILS.getIntPrefix(hnotes.substring(16));
-		int dest_step = UTILS.getIntPrefix(hnotes.substring(16+hnotes.substring(16).indexOf(" ")+4));
+		boolean advance = true ;
 		
-		return src_step > dest_step;
+		do {
+			if (pci >= last_spot)	return false; 
+			String[] pc = proposedChs.get(pci++);
+			int pc_hi = Integer.parseInt(pc[0]); 
+			if (pc_hi > hi )	return false; 
+			if (pc_hi == hi && "deletion".equals(pc[1]))
+				if(DHSWrapper.validRelocdationNotes(pc[2]))
+					if(relocd_notes_forward(pc[2]))	return true; 
+		} while (advance);
+		
+		// if we reach this point the deletion is correct... but is the corresponding later insertion?
+		String hypInsStr = hypCascSim.getRuleAt(ilbi); 
+		
+		do {
+			String[] pc = proposedChs.get(pci++); 
+			if (ilbi < Integer.parseInt(pc[0]))	return false; 
+			if (pc[1].equals(hypInsStr))
+				if (DHSWrapper.validRelocdationNotes(pc[2]))
+					if(relocd_notes_forward(pc[2]))	return true; 
+		} while (pci <= last_spot);
+		// if reached this point, failed to find it. 
+		return false; 
 	}
 }

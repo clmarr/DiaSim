@@ -924,7 +924,7 @@ public class SimulationTester {
 		//test DHS.locHasPrCh
 		corrPCLs[4] = true; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dBoolArrs(corrPCLs,  theDHS.getPrChLocs()),
-				"ERROR: locHasPrCh malformed."); 
+				"ERROR: locHasPrCh malformed.\nCorr : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\n"+UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs()));
 		
 		//check DHS.changedDerivations
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {2, 3, 4, 7, 8, 13, 15, 19, 26, 30, 31},
