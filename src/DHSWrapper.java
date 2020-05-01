@@ -615,8 +615,9 @@ public class DHSWrapper {
 	 *                 modification or insertion -- allowed.
 	 * @param quantity -- number of rules being added, if we are adding; if this is
 	 *                 a deletion this should be -1.
-	 *     TODO may need to handle dleetion of backward relocdated rules by simply removing the insertion part and modifying the notes on the deletion part, 
-	 *     		... to avoid errors. Of course users should never use such bad form (instead should accept hypothesis first, then delete to test -- or just abort that part change. )
+	 *     TODO may need to handle "overwrites" of proposed insertions, modifications, or relocdations 
+	 *     		for now, bandaid: simply throw an error. 
+	 *     		detection method should be separate so this error can be circumvented when querying. 
 	 */
 	private void updateProposedChanges(String[] ch, int quantity) {
 		assert ch[1].equals(
@@ -1109,6 +1110,27 @@ public class DHSWrapper {
 
 		if (isForwardRelocdation == beforeNotAfter ) // ie. any case where the desired behavior is not what is happening anyways.
 			(isGold? hypGoldLocs : hypBlackLocs)[si] += (isForwardRelocdation ? 1 : -1 ) * (newRules == null ? 1 : newRules.size()); 
+	}
+	
+	/** 
+	 * for detecting attempts to delete (including modify or relocdate) rules that are already affected by relocdations, insertions, or modifications
+	 * support will eventually be added for this, but it is nevertheless bad form
+	 * for now, we will use this method so as to throw errors, or to preempt it. 
+	 * @param del_loc location being deleted. 
+	 */
+	public boolean detectProposalOverwrite(int del_loc)
+	{
+		if (del_loc == -1)	return false; 
+		for (String[] pch : proposedChanges)	{
+			int curr_loc = Integer.parseInt(pch[0]); 
+			if (curr_loc > del_loc)	return false; 
+			if (!pch[1].equals("deletion")) {
+				String law = pch[1];
+				int quant = FAC.generateSoundChangesFromRule(law).size(); // number of sound changes that were inserted. 
+				if (curr_loc + quant > del_loc)	return true; 
+			}
+		}
+		return false; 
 	}
 
 }

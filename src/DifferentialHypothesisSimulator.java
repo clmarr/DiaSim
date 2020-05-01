@@ -230,6 +230,7 @@ public class DifferentialHypothesisSimulator {
 						
 						if(!unresolved_past_sources.contains(past_corr))	// if it wasn't actually a forward relocdation then. 
 							locHasPrCh[gi] = true; 
+						else	unresolved_past_sources.remove(unresolved_past_sources.indexOf(past_corr));
 						gi++; 
 					} 
 					else if (ilhi == -1 && ilbi > hi && isForwardRelocd(hi,ilbi)) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
@@ -238,10 +239,10 @@ public class DifferentialHypothesisSimulator {
 						System.out.println("Bandaid at bi "+bi+" hi "+hi+" ilbi "+ilbi); 
 						
 						// we know this cannot be a backward relocdation, as ilhi = -1. 
-						unresolved_past_sources.add(hi++); 
-						locHasPrCh[gi++] = true; 
+						unresolved_past_sources.add(ilbi); 
+						locHasPrCh[gi] = true; 
 						fut_sources_left.put(bi, ilbi); 
-						dumRIMBH[5] = -2;
+						dumRIMBH[bi] = -2;
 					}
 					else if (ilbi == -1 || ilhi == -1) // insertion or deletion  
 					{
