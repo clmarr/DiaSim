@@ -199,7 +199,8 @@ public class DifferentialHypothesisSimulator {
 					 * (3) a forward relocdation that has not yet been handled/realized in ruleCorrespondences
 					 * 						ilbi > hi 
 					 * 			note that forward relocdation from X to Y can be reinterpeted as |Y-X| backward relocdations each by one place
-					 * (4) a forward relocdation that has already been handled/realized in ruleCorrespondences ilhi: < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1 
+					 * (4) a forward relocdation that has already been handled/realized in ruleCorrespondences 
+					 * 								ilhi < bi && ilhi != -1 && findInt(ruleCorrespondences[1], hi) != -1 
 					 * 			* we are now indicating this by placing -2 at in dumRIMHB[<destination>] 
 					 * (5) backward relocdation that has not yet been handled/realized in ruleCorrespondences -- detectable on HB side
 					 * 					ilhi > bi 
@@ -235,7 +236,7 @@ public class DifferentialHypothesisSimulator {
 					} 
 					else if (ilhi == -1 && ilbi > hi && isForwardRelocd(hi,ilbi)) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
 					{
-						//TODO debugging
+						//TODO debuggingt 
 						System.out.println("Bandaid at bi "+bi+" hi "+hi+" ilbi "+ilbi); 
 						
 						// we know this cannot be a backward relocdation, as ilhi = -1. 

@@ -664,6 +664,11 @@ public class DHSWrapper {
 	 */
 	public void processSingleCh(int deleteLoc, String deletionNotes, int addLoc, String newLaw, List<SChange> newRules,
 			String insertionNotes) {
+		
+		if (deleteLoc != -1)
+			if (detectProposalOverwrite(deleteLoc))	
+				throw new RuntimeException("ERROR: attempted to overwrite an existing proposed change. This is not supported at this time. Please either accept the present hypothesis or discard it and again construct your desired hypothesis cascade without modifying proposed hypothesis rules after inserting them."); 
+		
 		List<SChange> insertions = (newRules == null) ? new ArrayList<SChange>() : new ArrayList<SChange>(newRules);
 		if (deleteLoc != -1) {
 			SChange removed = hypCASC.remove(deleteLoc);
