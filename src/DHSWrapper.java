@@ -615,9 +615,6 @@ public class DHSWrapper {
 	 *                 modification or insertion -- allowed.
 	 * @param quantity -- number of rules being added, if we are adding; if this is
 	 *                 a deletion this should be -1.
-	 *     TODO may need to handle "overwrites" of proposed insertions, modifications, or relocdations 
-	 *     		for now, bandaid: simply throw an error. 
-	 *     		detection method should be separate so this error can be circumvented when querying. 
 	 */
 	private void updateProposedChanges(String[] ch, int quantity) {
 		assert ch[1].equals(
