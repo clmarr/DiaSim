@@ -34,7 +34,7 @@ public class SChangeFactory {
 	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	
 	private static final char phDelim = ' '; // delimits phones that are in the same sequence
-	private final char segDelim = ';'; // delimits segments that are in disjunctio
+	public static final char segDelim = ';'; // delimits segments that are in disjunctio
 	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]

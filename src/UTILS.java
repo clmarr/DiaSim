@@ -584,4 +584,124 @@ public class UTILS {
 			if (!isInt(""+s.charAt(si)))		return Integer.parseInt(s.substring(0,si));
 		return Integer.parseInt(s); 
 	}
+	
+	public static List<String> getDisjunctContexts(String impCtxt) {
+		String CF = SChangeFactory.contextFlag+"", LOC = SChangeFactory.LOCUS; 
+		if(impCtxt.contains(CF))	throw new RuntimeException("Error: cannot have context flag within context"); 
+		if(!impCtxt.contains(LOC))	throw new RuntimeException("Error: context specification must contain a locus "+LOC);
+		if(impCtxt.contains(CMT_FLAG+""))	impCtxt = impCtxt.substring(0, impCtxt.indexOf(CMT_FLAG));
+		
+		//check for improper brace placement with regard to locus, and other incorrect formations. 
+		String[] inpSplit = impCtxt.split(LOC); 
+		String inputPrior = inpSplit[0];
+		boolean priorSpecified = inputPrior.strip().length() > 0, 
+				postrSpecified = inpSplit.length == 1 ? false : inpSplit[1].strip().length() > 0;
+		if (inpSplit.length > 2)	throw new RuntimeException("Context specification cannot have multiple locuses!");
+		String inputPostr = inpSplit.length == 2 ? inpSplit[1] : ""; 
+		
+		if(priorSpecified)
+			if (checkForBracingError(inputPrior))
+				throw new RuntimeException("Invalid input for prior context stipulation: "+inputPrior); 
+		if(postrSpecified)
+			if(checkForBracingError(inputPostr))
+				throw new RuntimeException("Invalid input for posterior context stipulation: "+inputPostr); 
+		
+		return getBraceDisjunctions(impCtxt); 
+	}
+	
+	//error if any opener { braces are not closed by a closer } brace or vice versa.
+	// @true if erroneous usage. 
+	public static boolean checkForBracingError(String s) 
+	{
+		String SD = SChangeFactory.segDelim + ""; 
+		if (s.contains("{") != s.contains("}") )	return true; 
+		if(!s.contains("{"))	return false; 
+		int openerInd = s.indexOf("{"), lastCloserInd = s.lastIndexOf("}"); 
+		int checkInd = openerInd;
+		List<int[]> subDisjunctions = new ArrayList<int[]> (); // for braces delimiting the area where braceDepth == 2; 
+		String singleDepthText = "";
+		int braceDepth = 0; 
+		do 
+		{
+			char curr = s.charAt(checkInd); 
+			if (curr == '{') {
+				if(braceDepth++ == 1)	
+					subDisjunctions.add(new int[] {checkInd, -1}); 
+				// next three indices cannot have }, and next one cannot have {
+				if (checkInd+3 >= lastCloserInd)	return true; 
+				if (s.substring(checkInd+1, checkInd+4).contains("}")) return true; 
+			}
+			if (curr == '}')
+			{
+				if(braceDepth-- == 2)
+				{
+					int[] last_subdisj = subDisjunctions.get(subDisjunctions.size() - 1); 
+					if (last_subdisj[1] != -1)	return true; 
+					last_subdisj[1] = checkInd;
+					subDisjunctions.set(subDisjunctions.size()-1, last_subdisj); 
+				}
+			}
+			else if(braceDepth == 1)	singleDepthText += curr; 
+			checkInd++; 
+		} while (braceDepth > 0 && checkInd < lastCloserInd);
+		
+		if (checkInd == lastCloserInd && braceDepth != 1)	return true; 
+		
+		if (subDisjunctions.size() > 0)
+			for (int[] sub_disj : subDisjunctions)
+				if (checkForBracingError(s.substring(sub_disj[0], sub_disj[1])))
+					return true;  
+		if(!singleDepthText.substring(openerInd, checkInd).contains(SD))
+			return true; 
+		if(checkInd < lastCloserInd)
+			return checkForBracingError(s.substring(checkInd, lastCloserInd+1)); 
+		return false; 
+	}
+	
+	public static List<String> getBraceDisjunctions(String inp)
+	{
+		if(checkForBracingError(inp))	
+			throw new RuntimeException("Invalid bracing in string: "+inp);
+		List<String> out = new ArrayList<String>(); 
+		if (!inp.contains("{"))
+		{	out.add(inp); return out;	}
+		
+		int openerInd = inp.indexOf("{"); 
+		int checkInd = openerInd + 1, braceDepth = 1;
+		List<int[]> lvl2disjunctSpans = new ArrayList<int[]> (); 
+		List<Integer> ddelims = new ArrayList<Integer>(); 
+		while (braceDepth > 1 || inp.charAt(checkInd) != '}')
+		{
+			char curr = inp.charAt(checkInd); 
+			if (curr == SChangeFactory.segDelim && braceDepth == 1) 
+				ddelims.add(checkInd); 
+			if(curr == '{' && braceDepth == 1)
+				lvl2disjunctSpans.add(new int[] {checkInd, -1}); 
+			if (curr == '{')	{
+				if(braceDepth++ == 1)
+					lvl2disjunctSpans.add(new int[] {checkInd, -1});  }
+			if (curr == '}') {
+				if (braceDepth-- == 2) {
+					int[] l2last = lvl2disjunctSpans.get(lvl2disjunctSpans.size()-1); 
+					l2last[1] = checkInd; 
+					lvl2disjunctSpans.set(lvl2disjunctSpans.size()-1, l2last); 
+				}
+			}
+			checkInd++; 
+		}
+		
+		List<String> lvl1disjuncts = new ArrayList<String>(); 
+		for (int di = 0; di <= ddelims.size(); di++)
+			lvl1disjuncts.add( 
+					inp.substring( 
+							1 + (di == 0 ? openerInd : ddelims.get(di-1)) ,
+							di == ddelims.size() ? checkInd : ddelims.get(di)));
+		
+		// will recurse if necessary.
+		for (String disj : lvl1disjuncts)
+			out.addAll( 
+					getBraceDisjunctions(inp.substring(0, openerInd) + disj + inp.substring(checkInd+1)));
+		
+		return out; 
+	}
 }
