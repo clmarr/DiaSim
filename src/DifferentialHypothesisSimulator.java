@@ -104,19 +104,12 @@ public class DifferentialHypothesisSimulator {
 	// format of @param baseToHypIndMap: index -- cell number in base -- contains: corresponding cell number in hyp
 	// @param hypToBaseIndMap -- is the reverse
 	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) {
-		// initialize dummy versions of the mappings
-		// that we will modify by placing -2 as a way of "crossing out" cells we have
-		// operated upon.
 
+		// initialize dummy versions of the mappings
 		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
 		for (int bhi = 0; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
 		for (int hbi = 0; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
 		
-		//TODO debugging
-		System.out.println("bh : "+UTILS.print1dIntArr(baseToHypIndMap)); 
-		System.out.println("hb : "+UTILS.print1dIntArr(hypToBaseIndMap)); 
-		
-
 		// initializing class variable ruleCorrespondences...
 		if (proposedChs.size() == 0) {
 			assert UTILS.compare1dIntArrs(baseToHypIndMap,
@@ -125,7 +118,6 @@ public class DifferentialHypothesisSimulator {
 			ruleCorrespondences = new int[][] { baseToHypIndMap, hypToBaseIndMap };
 		} 
 		else {
-			
 			/**
 			 * ruleCorrespondences -- tracked rule pairs in hyp and base cascs share the
 			 *		 same INNER index a rule in baseCasc is tracked 
@@ -169,6 +161,7 @@ public class DifferentialHypothesisSimulator {
 			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
 			int gi = 0, bi = 0, hi = 0; 
 				// global, base, and hyp instant iterators
+			int pci = 0; //iterator for proposedChs. 
 			
 			while (gi < sameUntil) 	{
 				ruleCorrespondences[0][gi] = bi++; 

@@ -25,10 +25,10 @@ public class SChangeFactory {
 	private static List<String> ordFeatNames; 
 	
 	private final char ARROW = '>'; //separates source target from destination 
-	private final char contextFlag = '/'; //signals the beginning of context specification
+	public static final char contextFlag = '/'; //signals the beginning of context specification
 	// may shift to pipe if the fact that this is used to mark phonemic status in synchronic phonology
 	// ... becomes problematic
-	private final String LOCUS = "__"; //marks place of the source target relative to the contexts
+	public static final String LOCUS = "__"; //marks place of the source target relative to the contexts
 	// of the shift 
 	
 	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
