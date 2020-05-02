@@ -115,7 +115,7 @@ public class UTILS {
 	public static int colCount(String str)
 	{
 		String proxy = str+"";
-		int i = proxy.indexOf(""+UTILS.LEX_DELIM), c = 1 ;
+		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{
 			c++; 

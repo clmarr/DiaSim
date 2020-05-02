@@ -147,12 +147,11 @@ public class DifferentialHypothesisSimulator {
 			// the indices of locHasPrCh are the GLOBAL indices.
 
 			ruleCorrespondences = new int[2][globLen];
-			// init ruleCorrespondences with -2 so we know for sure which cells have been
-			// operated upon
+			
+			// init ruleCorrespondences with -2 
 			// -2 thus means the cell is untouched.
 			// ([0] could be the result of an operation)
 			// indices for this are also global.
-
 			for (int rci = 0; rci < globLen; rci++) {
 				ruleCorrespondences[0][rci] = -2;
 				ruleCorrespondences[1][rci] = -2;
@@ -229,7 +228,7 @@ public class DifferentialHypothesisSimulator {
 					} 
 					else if (ilhi == -1 && ilbi > hi && isForwardRelocd(hi,ilbi)) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
 					{
-						//TODO debuggingt 
+						//TODO debugging
 						System.out.println("Bandaid at bi "+bi+" hi "+hi+" ilbi "+ilbi); 
 						
 						// we know this cannot be a backward relocdation, as ilhi = -1. 
