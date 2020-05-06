@@ -1084,8 +1084,11 @@ public class SimulationTester {
 				UTILS.compare1dIntArrs(theDHS.getEtsWithChangedDerivations() ,
 						new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,29,30,31,33,35,36}), 
 				"ERROR: wrong etyma effected by last three rules in aggregate") ; 
-		
-		//TODO finish third rule in this set...
+
+		//check DHS.changedRuleEffects -- should be unchanged, as we simply moved when the effect happened. 
+		CREs = theDHS.getChangedRuleEffects();
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4,
+				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 	
 		//TODO add rule processing and debug comprehension of the following
 		// complex insertion to right before s > ts / n __ : 
