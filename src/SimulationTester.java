@@ -784,6 +784,7 @@ public class SimulationTester {
 			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
 				"ERROR: derivation of fountain is malformed"); 
+		String fountainDDr4 = ""+corDD; 
 		
 		//test DHS.locHasPrCh
 		corrPCLs = new boolean[12]; 
@@ -901,7 +902,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(""),
 				"ERROR: differential derivation for unaffected lexeme 'bidden' should be an empty string, but it is:\n"
 				+ theDHS.getDifferentialDerivation(29)); 
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(fountainDDr4),
 				"ERROR: derivation of fountain is malformed after backward relocdation of American raising, which should have "
 				+ "had no effect beyond that of the previous rule (which appears to have been correctly formed)."); 
 		corDD = "/hˈajtən/\n" + 
@@ -1002,8 +1003,8 @@ public class SimulationTester {
 				"insertion aspect of forward relocdation of flapping"); 
 		
 		theDHS = DHSW.generateDHS(); 
+		
 		//checking DHS.ruleCorrespondences
-
 		corrRC[1][5] = 7;
 		corrRC[1][6] = 5; 
 		corrRC[1][7] = 6; 
@@ -1025,7 +1026,58 @@ public class SimulationTester {
 				UTILS.compare1dIntArrs(htg, new int[] {0, 4, 1, 2, 3, 6, 7, 5, 9, 10, 11 }),
 				"ERROR: hyp to global ind mapper is malformed"); 
 		
+		//test divergence point
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 1,
+				"ERROR: divergence point should be 1 but it is "+theDHS.getDivergencePoint()) ;
 		
+		//test lexical effects
+		
+		// 25 | maintain -- not affected by any of the added rules. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(25).equals(""),
+				"ERROR: differential derivation for unaffected lexeme 'maintain' should be an empty string, but it is:\n"
+				+ theDHS.getDifferentialDerivation(25)); 
+		// 8 | heighten -- affected by all three test rules. 
+		corDD = "/hˈajtən/\n" + 
+				"CONCORDANT UNTIL RULE : 1\n" + 
+				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
+				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
+				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
+				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
+				"5[5|-1] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | bled or deleted\n" +
+				"7[-1|6] : fed or inserted | #hˈʌjtə̃n# > #hˈʌjʔə̃n#\n" +
+				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#\n" + 
+				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#\n" + 
+				"Final forms : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
+				"ERROR: differential derivation for 'heighten' is malformed:\n"+theDHS.getDifferentialDerivation(7)); 
+		// 29 | bidden -- affected only by test rule 6 (moving flapping across a waypoint) 
+		corDD = "/bˈɪdən/\n" + 
+				"CONCORDANT UNTIL RULE : 5\n" + 
+				"5[5|-1] : #bˈɪdə̃n# > #bˈɪɾə̃n# | bled or deleted\n" + 
+				"Waypoint 2 Black : #bˈɪɾə̃n# | #bˈɪdə̃n#\n" + 
+				"5[-1|7] : fed or inserted | #bˈɪdə̃n# > #bˈɪɾə̃n#\n" + 
+				"Waypoint 3 Gold : #bˈɪɾə̃n# | #bˈɪɾə̃n#\n" + 
+				"Final forms : #bˈɪɾə̃n# | #bˈɪɾə̃n#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(corDD),
+				"ERROR: differential derivation for 'bidden' is malformed:\n"
+				+ theDHS.getDifferentialDerivation(29)); 
+		// 31 | mitigate -- affected by test rules 4 and 6 specifically
+		corDD = "/mˈɪtɪɡɛjt/\n"
+				+ "CONCORDANT UNTIL RULE : 5\n" 
+				+ "5[5|-1] : #mˈɪtɪɡɛjt# > #mˈɪɾɪɡɛjt# | bled or deleted\n"
+				+ "6[-1|5] : fed or inserted | #mˈɪtɪɡɛjt# > #mˈɪtɪɡɛjʔ#\n"
+				+ "Waypoint 2 Black : #mˈɪɾɪɡɛjt# | #mˈɪtɪɡɛjʔ#\n"
+				+ "5[-1|7] : fed or inserted | #mˈɪtɪɡɛjʔ# > #mˈɪɾɪɡɛjʔ#\n"
+				+ "Waypoint 3 Gold : #mˈɪɾɪɡɛjt# | #mˈɪɾɪɡɛjʔ#\n"
+				+ "10[8|9] : #mˈɪɾɪɡɛjt# > #mˈɪɾɨɡɛjt# | #mˈɪɾɪɡɛjʔ# > #mˈɪɾɨɡɛjʔ#\n"
+				+ "Final forms : #mˈɪɾɨɡɛjt# | #mˈɪɾɨɡɛjʔ#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(31).contentEquals(corDD), 
+				"ERROR: differential derivation for 'mitigate' is malformed:\n" + theDHS.getDifferentialDerivation(31));
+		
+		// test DHS.locHasPrCh
+		corrPCLs[5] = true; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dBoolArrs(corrPCLs,  theDHS.getPrChLocs()),
+				"ERROR: locHasPrCh malformed.\nCorr : "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\n"+UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs()));
 		
 		
 		//TODO finish third rule in this set...
