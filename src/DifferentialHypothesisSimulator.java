@@ -200,7 +200,7 @@ public class DifferentialHypothesisSimulator {
 							
 							if (bwd_srcs_left.remove(bi) != dumRIMBH[bi])	throw new RuntimeException("Destination for backward relocdation is wrong!"); 
 								// ... is bwd_srcs_left really necessary though? 
-							ruleCorrespondences[1][gi] = dumRIMHB[hi]; 
+							ruleCorrespondences[1][gi] = dumRIMBH[bi];
 							ruleCorrespondences[0][gi++] = bi++;
 							// mark in locHasPrCh however is done at the destination.  
 						}
