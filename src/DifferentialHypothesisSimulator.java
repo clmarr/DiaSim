@@ -98,6 +98,169 @@ public class DifferentialHypothesisSimulator {
 		computeTrajectoryChange(); // changedRuleEffects, changedDerivations.
 	}
 
+	
+	// generate class variables ruleCorrespondences and locHasPrCh
+	// ruleCorrespondences -- each int[] (inner length = 2) instance in RELOCDS is [deleteLoc, addLoc)
+	// @prerequisite: class variables baseCascSim, hypCascSim and proposedChs are already set
+	// format of @param baseToHypIndMap: index -- cell number in base -- contains: corresponding cell number in hyp
+	// @param hypToBaseIndMap -- is the reverse
+	private void computeRuleCorrespondences(int[] baseToHypIndMap, int[] hypToBaseIndMap) {
+	
+		// initialize dummy versions of the mappings
+		int[] dumRIMBH = new int[baseToHypIndMap.length], dumRIMHB = new int[hypToBaseIndMap.length];
+		for (int bhi = 0; bhi < dumRIMBH.length; bhi++)	dumRIMBH[bhi] = baseToHypIndMap[bhi];
+		for (int hbi = 0; hbi < dumRIMHB.length; hbi++)	dumRIMHB[hbi] = hypToBaseIndMap[hbi];
+	
+		// initializing class variable ruleCorrespondences...
+		if (proposedChs.size() == 0) {
+			assert UTILS.compare1dIntArrs(baseToHypIndMap,
+					hypToBaseIndMap) : "ERROR: no proposed changes detected, "
+							+ "but baseToHypIndMap and hypToBaseIndMap differ";
+			ruleCorrespondences = new int[][] { baseToHypIndMap, hypToBaseIndMap };
+		} 
+		else {
+			/**
+			 * ruleCorrespondences -- tracked rule pairs in hyp and base cascs share the same GLOBAL index 
+			 * a rule in baseCasc is tracked unless it is deleted or non-bijectively modified 
+			 *			likewise one in hypCasc is unless it was inserted 	or  the result of non-bijective modification. 
+			 * ordering of the "global indices" of ruleCorrespondences is primarily built off of the baseline side of things 
+			 * 			with	additions every place there was an insertion 
+			 * 					(so, where there is relocdation,
+			 * 							it will always agree once effective insertions are accounted for with the base index) 
+			 * 	length of ruleCorrespondences should be : 
+			 * 			#shared rules + #deletions + #insertions 
+			 * 				(baseCasc : shared + deletions; hypCasc: shared + insertions)
+			 */
+			 
+			 int baseLen = baseCascSim.getTotalSteps(), hypLen = hypCascSim.getTotalSteps(); 
+			 int globLen = hypLen; 
+			// get the total length value from the hypothesis cascade,
+			// 	because this is the only we to capture the case of modifications or insertions
+			// 		that add multiple rules at once,  or single insertions for that matter.
+			// increment total_length for each time there is a deleted index from the baseline
+			for (int bihimi : baseToHypIndMap)	if (bihimi == -1)		globLen += 1;
+			
+			locHasPrCh = new boolean[globLen]; //indices are global
+			
+			ruleCorrespondences = new int[2][globLen];
+			// init ruleCorrespondences with -2 
+			// -2 thus means the cell is untouched.
+			// ([0] could be the result of an operation)
+			// indices for this are also global.
+			for (int rci = 0; rci < globLen; rci++) {
+				ruleCorrespondences[0][rci] = -2; ruleCorrespondences[1][rci] = -2;
+			}
+			
+			List<Integer> fwd_dests_left = new ArrayList<Integer>(); 
+				// new entries added when we encounter current sources in baseline for forward relocdation
+				// deleted when the corresponding destination in the hyp cascade is reached
+				// as confirmed by the presence of the index in this list. 
+			HashMap<Integer,Integer> bwd_srcs_left = new HashMap<Integer,Integer>();
+				// key -- src, value -- dest
+				// new entries added when we encounter current destinations in hyp cascade for backward relocdation.
+				// removed when corresponding source in the baseline cascade is reached
+				// as confirmed by presence of the baseline index as a key. 
+							
+			int gi = 0, bi = 0, hi = 0, pci = 0; 
+				//as of May 2020, new version of this algorithm will use proposedChs as the prime method of iteration, rather than RIMBH and RIMHB... 
+				//pci -- index in proposedChs
+				//gi, bi, hi -- current (global, baseline cascade, hypothesis cascade) indices
+			
+			while (pci < proposedChs.size()) 
+			{
+				String[] nextPC = proposedChs.get(pci++); 
+				int sameUntil = Integer.parseInt(nextPC[0]); 
+				
+				while (hi < sameUntil) { // simply pass any spots that were not modified.
+					ruleCorrespondences[0][gi] = bi++; 
+					ruleCorrespondences[1][gi++] = hi++; } 
+				
+				//now we should be on an index of operation. 
+				
+				int ilbi = dumRIMBH[bi]; 
+				
+				if ("deletion".equals(nextPC[1]) ) 
+				{
+					if(DHSWrapper.validRelocdationNotes(nextPC[2])) // this is the deletion aspect of a relocdation.
+					{
+						String inds = nextPC[2].substring(16); 
+						int src_loc = UTILS.getIntPrefix(inds);
+						int dest_loc = UTILS.getIntPrefix(inds.substring(inds.indexOf(" ")+4)) ;
+						
+						if (dest_loc > src_loc) { //i.e. current source for forward relocdation that will be done
+							if (ilbi <= hi)	throw new RuntimeException("Error: detected forward relocdation, but dumRIMBH[bi] (= "+dumRIMBH[bi]+" ) is greater than hi (= "+hi+")!");
+							fwd_dests_left.add(ilbi);
+							ruleCorrespondences[1][gi] = ilbi;
+							ruleCorrespondences[0][gi] = bi++; 
+							locHasPrCh[gi++] = true;  
+						}
+						else // current source for backward relocdation that has been done
+						{
+							if (!bwd_srcs_left.containsKey(bi))	throw new RuntimeException("Detected a backward relocdation source, but current base index "+bi+" is not a key in bwd_srcs_left!"); 
+							
+							if (bwd_srcs_left.remove(bi) != dumRIMBH[bi])	throw new RuntimeException("Destination for backward relocdation is wrong!"); 
+								// ... is bwd_srcs_left really necessary though? 
+							ruleCorrespondences[1][gi] = dumRIMHB[hi]; 
+							ruleCorrespondences[0][gi++] = bi++;
+							// mark in locHasPrCh however is done at the destination.  
+						}
+					}
+					else	//simple deletion or deletion aspect of modification.  
+					{
+						if (ilbi != -1)	throw new RuntimeException("Detected a simple deletion operation, but ilbi != -1 (ilbi = "+ilbi+")\n"
+								+ "bi "+bi+", hi "+hi);
+						ruleCorrespondences[0][gi] = bi++; 
+						ruleCorrespondences[1][gi] = -1; 
+						locHasPrCh[gi++] = true; 
+					}
+				}
+				else // insertion type operation 
+				{
+					if ( DHSWrapper.validRelocdationNotes(nextPC[2]))	//insertion aspect of relocdation
+					{
+						String inds = nextPC[2].substring(16); 
+						int src_loc = UTILS.getIntPrefix(inds); 
+						int dest_loc = UTILS.getIntPrefix(inds.substring(inds.indexOf(" ")+4)); 
+						
+						if (dest_loc > src_loc) // resolution of a forward relocdation. 
+						{
+							if (!fwd_dests_left.contains(hi))	throw new RuntimeException("Error: detected the resolution (destination) of a forward relocdation, but hi (= "+hi+") is not in fwd_dests_left!");
+							// no need to do anything with ruleCorrespondences or locHasPrCh -- these were handled at the source. 
+							fwd_dests_left.remove(fwd_dests_left.indexOf(hi++)); //call this way to avoid errors in case where hi < fwd_dests_left.size().  
+						}  
+						else // current destination. for backward relocdation. 
+						{
+							locHasPrCh[gi] = true;  // do not count up global index though.
+							bwd_srcs_left.put(dumRIMHB[hi], hi); 
+							hi++; 
+						} 
+					}
+					else // simple insertion or insertion aspect of modification
+					{
+						if (dumRIMHB[hi] != -1)	throw new RuntimeException("Detected insertion in proposedChs, but ilhi is not -1! (hi = "+hi+")"); 
+
+						//modify necessary structures for each...
+						for (int quant = UTILS.countDisjunctContexts(nextPC[1]); quant > 0; quant--) {
+							ruleCorrespondences[0][gi] = -1; 
+							ruleCorrespondences[1][gi] = hi++;
+							locHasPrCh[gi++] = true;
+						}
+					}
+				}
+			}
+			
+			if (globLen - gi != baseLen - bi || globLen - gi!= hypLen - hi)
+				throw new RuntimeException("Error: misalignment after last proposed change accounted for in computeRuleCorrespondences...\n"
+						+ "gi "+gi+"  bi "+bi+"  hi "+hi+"  globLen "+globLen+"  hypLen "+hypLen+"  baseLen "+baseLen); 
+			while (gi < globLen) {
+				ruleCorrespondences[0][gi] = bi++; 
+				ruleCorrespondences[1][gi++] = hi++; 
+			}
+		}
+	}
+			
+	
+	/** old version: 
 	// generate class variables ruleCorrespondences and locHasPrCh
 	// ruleCorrespondences -- each int[] (inner length = 2) instance in RELOCDS is [deleteLoc, addLoc)
 	// @prerequisite: class variables baseCascSim, hypCascSim and proposedChs are already set
@@ -132,7 +295,7 @@ public class DifferentialHypothesisSimulator {
 			 * 			#shared rules + #deletions + #insertions 
 			 * 				(baseCasc : shared + deletions; hypCasc: shared + insertions)
 			 */
-
+/**
 			int baseLen = baseCascSim.getTotalSteps(), 
 					hypLen = hypCascSim.getTotalSteps();
 
@@ -153,8 +316,7 @@ public class DifferentialHypothesisSimulator {
 			// ([0] could be the result of an operation)
 			// indices for this are also global.
 			for (int rci = 0; rci < globLen; rci++) {
-				ruleCorrespondences[0][rci] = -2;
-				ruleCorrespondences[1][rci] = -2;
+				ruleCorrespondences[0][rci] = -2; ruleCorrespondences[1][rci] = -2;
 			}
 
 			int sameUntil = Integer.parseInt(proposedChs.get(0)[0]);
@@ -211,7 +373,7 @@ public class DifferentialHypothesisSimulator {
 					 * 					and only gi and bi are incremented in this case. 
 					 * 
 					 * HOWEVER, the computation of locHasPrChs will still treat this as a single change. 
-					 */
+					 *//**
 					
 					if ( ilbi == -2) // resolution of relocdation 
 					{
@@ -260,7 +422,7 @@ public class DifferentialHypothesisSimulator {
 				}
 			}
 		}
-	}
+	}**/
 
 	/**
 	 * to initialize baseRuleIndsToGlobal, hypRuleIndsToGlobal

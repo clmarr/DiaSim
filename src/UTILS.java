@@ -585,6 +585,11 @@ public class UTILS {
 		return Integer.parseInt(s); 
 	}
 	
+	public static int countDisjunctContexts(String rule) {
+		return !rule.contains(SChangeFactory.contextFlag+"") ? 1 : 
+			getDisjunctContexts(rule.substring(rule.indexOf(SChangeFactory.contextFlag+"")+1)).size(); 
+	}
+	
 	public static List<String> getDisjunctContexts(String impCtxt) {
 		String CF = SChangeFactory.contextFlag+"", LOC = SChangeFactory.LOCUS; 
 		if(impCtxt.contains(CF))	throw new RuntimeException("Error: cannot have context flag within context"); 
@@ -627,7 +632,8 @@ public class UTILS {
 			if (curr == '{') {
 				if(braceDepth++ == 1)	
 					subDisjunctions.add(new int[] {checkInd, -1}); 
-				// next three indices cannot have }, and next one cannot have {
+				
+				// next three indices cannot have }
 				if (checkInd+3 >= lastCloserInd)	return true; 
 				if (s.substring(checkInd+1, checkInd+4).contains("}")) return true; 
 			}
@@ -651,7 +657,7 @@ public class UTILS {
 			for (int[] sub_disj : subDisjunctions)
 				if (checkForBracingError(s.substring(sub_disj[0], sub_disj[1])))
 					return true;  
-		if(!singleDepthText.substring(openerInd, checkInd).contains(SD))
+		if(!singleDepthText.contains(SD))
 			return true; 
 		if(checkInd < lastCloserInd)
 			return checkForBracingError(s.substring(checkInd, lastCloserInd+1)); 

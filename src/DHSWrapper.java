@@ -1047,6 +1047,8 @@ public class DHSWrapper {
 	 */
 	public static boolean validRelocdationNotes(String inp)
 	{
+		if (inp.length() < 22)	return false;
+		
 		if (!inp.substring(0,16).equals("relocdated from "))	return false; 
 		String dummy = inp.substring(16); 
 		if(!dummy.contains(" to "))	return false; 
