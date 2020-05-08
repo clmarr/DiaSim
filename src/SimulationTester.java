@@ -1090,6 +1090,18 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4,
 				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
 	
+		UTILS.errorSummary(errorCount);
+		totalErrorCount += errorCount; 
+		errorCount = 0; 
+		
+		//usurp. 
+		DHSW.setHypOutLoc(DBG_WRKG_CASC); 
+		DHSW.acceptHypothesis(false);
+		CASCADE = curHC; 
+		curHC = null; dumCasc = null;
+		
+		
+		
 		//TODO add rule processing and debug comprehension of the following
 		// complex insertion to right before s > ts / n __ : 
 		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}

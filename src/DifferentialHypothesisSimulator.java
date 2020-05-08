@@ -907,29 +907,29 @@ public class DifferentialHypothesisSimulator {
 			e.printStackTrace();
 		}
 
-		int igs = -1, ibs = -1; // these indicate curent place among gold and black stages respectively
+		int igs = -1, ibs = -1; // these indicate current place among gold and black stages respectively
 		int nxRuleInd = 0; // next rule index
 		String out = "";
 
 		int nGSt = baseCascSim.NUM_GOLD_STAGES(), nBSt = baseCascSim.NUM_BLACK_STAGES();
 
 		/**
-		 * int[] opGoldStages = new int[nGSt], opBlackStages = new int[nBSt] ; //
-		 * operational lists. int gi = 0, bi = 0; while (gi < nGSt) { opGoldStages[gi] =
-		 * baseCascSim.getStageInstant(true, gi); gi++; } while (bi < nBSt) {
-		 * opBlackStages[bi] = baseCascSim.getStageInstant(false, bi); bi++; }
+		 * int[] opGoldStages = new int[nGSt], opBlackStages = new int[nBSt] ; 
+		 * //operational lists. 
+		 * int gi = 0, bi = 0; 
+		 * while (gi < nGSt) { opGoldStages[gi] = baseCascSim.getStageInstant(true, gi); gi++; } 
+		 * while (bi < nBSt) {	opBlackStages[bi] = baseCascSim.getStageInstant(false, bi); bi++; }
 		 **/
 
 		int effLocModifier = 0; // add +1 after a deletion, -1 after insertion etc...
-		// to normalize for cahnges in place within data structures since they favor the
+		// to normalize for changes in place within data structures since they favor the
 		// hyp side of the equation.
 
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChs.size(); pci++) {
 			int nxChRuleInd = Integer.parseInt(proposedChs.get(pci)[0]) + effLocModifier;
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion");
-			// will be used to determine where we place new content with respect to comment
-			// blocks
+			// will be used to determine where we place new content with respect to comment blocks
 
 			String stagesToSkip = "";
 			int prev_igs = igs, prev_ibs = ibs;
@@ -1000,19 +1000,21 @@ public class DifferentialHypothesisSimulator {
 					cmtBlock = "";
 				} else // i.e. we are handling a line holding a rule.
 				{
-					// on the other hand, if a rule comes after this block, we consider the comment
-					// block to have been
-					// the explanation or justification for the rule, and will then operate on the
-					// rule.
-					// if the comment block is empty, nothing explicitly differs in code, so both
-					// are handled here.
+					// on the other hand, if a rule comes after this block,
+							// we consider the comment block to have been the explanation or justification for the rule, '
+					// and will then operate on the rule.
+					// if the comment block is empty, nothing explicitly differs in code, so both are handled here.
 					int brkpt = readIn.indexOf("\n");
 					String ruleLine = readIn.substring(0, brkpt);
 
+					//TODO debugging
+					System.out.println("rule : "+ruleLine); 
+					
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
 
 					if (!shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)))
-							throw new RuntimeException("Error : misalignmnet in saved CASCADE and its source file"); 
+							throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
+									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseCascSim.getRuleAt(nxRuleInd)); 
 					// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
 
 					readIn = readIn.substring(brkpt + "\n".length());
