@@ -858,8 +858,9 @@ public class DifferentialHypothesisSimulator {
 
 	private String STAGEFLAGS = "" + UTILS.GOLD_STAGENAME_FLAG + UTILS.BLACK_STAGENAME_FLAG;
 
-	private boolean flagged(String str) {
-		return STAGEFLAGS.contains("" + str.charAt(0));
+	// for checking if a line is flagged as a stage
+	private boolean stageFlagged(String str) {
+		return STAGEFLAGS.contains("" + str.stripLeading().charAt(0));
 	}
 
 	/**
@@ -908,7 +909,7 @@ public class DifferentialHypothesisSimulator {
 		}
 
 		int igs = -1, ibs = -1; // these indicate current place among gold and black stages respectively
-		int nxRuleInd = 0; // next rule index
+		int nxRuleInd = 0; // next rule index IN THE BASELINE.
 		String out = "";
 
 		int nGSt = baseCascSim.NUM_GOLD_STAGES(), nBSt = baseCascSim.NUM_BLACK_STAGES();
@@ -928,6 +929,10 @@ public class DifferentialHypothesisSimulator {
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChs.size(); pci++) {
 			int nxChRuleInd = Integer.parseInt(proposedChs.get(pci)[0]) + effLocModifier;
+			
+			//TODO debugging
+			System.out.println("nxChRuleInd : "+nxChRuleInd); 
+			
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
 
@@ -940,7 +945,7 @@ public class DifferentialHypothesisSimulator {
 			if (nBSt > 0)
 				while (ibs == nBSt - 1 ? false : baseCascSim.getStageInstant(false, ibs + 1) <= nxChRuleInd)
 					ibs += 1;
-
+			
 			if (igs > prev_igs && ibs > prev_ibs) {
 				int nxBsInstant = baseCascSim.getStageInstant(false, ibs),
 						nxGsInstant = baseCascSim.getStageInstant(true, igs);
@@ -968,34 +973,43 @@ public class DifferentialHypothesisSimulator {
 			}
 
 			while (nxRuleInd <= nxChRuleInd) {
+				
+				//TODO debugging
+				System.out.println("nxRuleInd : "+nxRuleInd); 				
+				System.out.println("next line : "+readIn.substring(0,readIn.indexOf("\n"))); 
+				
 				// first - skip any leading blank lines or stage declaration lines
-				while (flagged(readIn) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
+				while (stageFlagged(readIn) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					linesPassed++;
 					out += readIn.substring(0, brkpt);
 					readIn = readIn.substring(brkpt);
 				}
+				
+				//TODO debugging
+				System.out.println("next line : "+readIn.substring(0,readIn.indexOf("\n"))); 
 
 				String cmtBlock = "";
 				// case of if the next line is headed by the comment flag.
 				// absorb all consecutive comment lines in @varbl commentBlock
-				while (readIn.charAt(0) == CMT_FLAG) {
+				while (readIn.stripLeading().charAt(0) == CMT_FLAG) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					cmtBlock += readIn.substring(0, brkpt);
 					readIn = readIn.substring(brkpt);
 					linesPassed++;
 				}
+				
+				//TODO debugging
+				System.out.println("next line : "+readIn.substring(0,readIn.indexOf("\n"))); 
 
-				if (!cmtBlock.equals("") && UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
-					int brkpt = readIn.indexOf("\n") + "\n".length();
-					cmtBlock += readIn.substring(0, brkpt);
-					readIn = readIn.substring(brkpt);
-					linesPassed++;
-				}
 				// if next line is either another blank line, another comment after blank line,
 				// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.substring(0, 1))
+				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.stripLeading().substring(0, 1))
 						|| UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
+					
+					//TODO debugging
+					System.out.println("merge comment block...");
+					
 					out += cmtBlock;
 					cmtBlock = "";
 				} else // i.e. we are handling a line holding a rule.
@@ -1007,25 +1021,30 @@ public class DifferentialHypothesisSimulator {
 					int brkpt = readIn.indexOf("\n");
 					String ruleLine = readIn.substring(0, brkpt);
 
-					//TODO debugging
-					System.out.println("rule : "+ruleLine); 
-					
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
-
-					if (!shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)))
-							throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
-									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseCascSim.getRuleAt(nxRuleInd)); 
-					// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
-
 					readIn = readIn.substring(brkpt + "\n".length());
 
+					//TODO debugging
+					System.out.println("rule : "+ruleLine); 
+					System.out.println("source : "+shiftsHere.get(0)+"\nbaseCasc : "
+							+baseCascSim.getRuleAt(nxRuleInd));
+					System.out.println("readIn next ln : "+readIn.substring(0, readIn.indexOf("\n"))); 
+					System.out.println("nextChRuleInd : "+nxChRuleInd); 
+					
+					
+					if (!shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)+""))
+					{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
+									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseCascSim.getRuleAt(nxRuleInd)); 	}
+					// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
+					
 					if (nxRuleInd - 1 + shiftsHere.size() < nxChRuleInd) // then we can simply absorb it into
 																			// @varbl[out] as usual.
 					{
 						out += cmtBlock + ruleLine + "\n";
 						nxRuleInd += shiftsHere.size();
 						linesPassed++;
-					} else // perform proper file text modification behavior according to proposed change
+					} 
+					else // perform proper file text modification behavior according to proposed change
 							// and whether we are automodification or merely commenting mode.
 					{
 						String newCmt = comments.get(pci);
@@ -1063,9 +1082,10 @@ public class DifferentialHypothesisSimulator {
 								// block
 
 								out += newCmt;
+								
 								if (!out.substring(out.length() - "\n".length()).equals("\n"))
 									out += "\n";
-								if (justPlaceHolders)
+								if (justPlaceHolders) //if in mode where we are just telling the user what to modify in newly added comments
 									out += CMT_FLAG
 											+ "AUTOGENERATED CORRECTION CUE: insert following rule to replace this comment\n"
 											+ CMT_FLAG;
