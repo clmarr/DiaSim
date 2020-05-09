@@ -929,10 +929,6 @@ public class DifferentialHypothesisSimulator {
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChs.size(); pci++) {
 			int nxChRuleInd = Integer.parseInt(proposedChs.get(pci)[0]) + effLocModifier;
-			
-			//TODO debugging
-			System.out.println("nxChRuleInd : "+nxChRuleInd); 
-			
 			boolean isDelet = proposedChs.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
 
@@ -972,12 +968,8 @@ public class DifferentialHypothesisSimulator {
 				out += hop;
 			}
 
-			while (nxRuleInd <= nxChRuleInd) {
-				
-				//TODO debugging
-				System.out.println("nxRuleInd : "+nxRuleInd); 				
-				System.out.println("next line : "+readIn.substring(0,readIn.indexOf("\n"))); 
-				
+			boolean realization_complete = false; 
+			while (!realization_complete) {
 				// first - skip any leading blank lines or stage declaration lines
 				while (stageFlagged(readIn) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
@@ -1006,10 +998,6 @@ public class DifferentialHypothesisSimulator {
 				// or a stage, this iteration of loop is over
 				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.stripLeading().substring(0, 1))
 						|| UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
-					
-					//TODO debugging
-					System.out.println("merge comment block...");
-					
 					out += cmtBlock;
 					cmtBlock = "";
 				} else // i.e. we are handling a line holding a rule.
@@ -1024,14 +1012,6 @@ public class DifferentialHypothesisSimulator {
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
 					readIn = readIn.substring(brkpt + "\n".length());
 
-					//TODO debugging
-					System.out.println("rule : "+ruleLine); 
-					System.out.println("source : "+shiftsHere.get(0)+"\nbaseCasc : "
-							+baseCascSim.getRuleAt(nxRuleInd));
-					System.out.println("readIn next ln : "+readIn.substring(0, readIn.indexOf("\n"))); 
-					System.out.println("nextChRuleInd : "+nxChRuleInd); 
-					
-					
 					if (!shiftsHere.get(0).toString().equals(baseCascSim.getRuleAt(nxRuleInd)+""))
 					{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
 									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseCascSim.getRuleAt(nxRuleInd)); 	}
@@ -1047,6 +1027,7 @@ public class DifferentialHypothesisSimulator {
 					else // perform proper file text modification behavior according to proposed change
 							// and whether we are automodification or merely commenting mode.
 					{
+						realization_complete= true; 
 						String newCmt = comments.get(pci);
 						if (newCmt.length() > 0)
 							if (!UTILS.cmtIsStandardized(newCmt))
@@ -1097,12 +1078,12 @@ public class DifferentialHypothesisSimulator {
 								// because later rules may operate on them.
 								readIn = cmtBlock + ruleLine + "\n" + readIn;
 								// track back on linesPassed as appropriate.
-								linesPassed -= (cmtBlock + ruleLine).split("\n").length;
-								nxRuleInd++;
+								linesPassed -= (cmtBlock + ruleLine.substring(0, ruleLine.length()-"\n".length())).split("\n").length;
 
 								effLocModifier += -1 * fac.generateSoundChangesFromRule(proposedChs.get(pci)[1]).size();
 							}
-						} else // then there is a disjunction -- whether we can pass without error is
+						} 
+						else // then there is a disjunction -- whether we can pass without error is
 								// determined by value of justPlaceHolders
 						{
 							if (justPlaceHolders) {
