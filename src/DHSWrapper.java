@@ -1215,24 +1215,18 @@ public class DHSWrapper {
 			int prev_igs = igs, prev_ibs = ibs;
 
 			if (nGSt > 0)
-				while (igs == nGSt - 1 ? false : baseSimulation.getStageInstant(true, igs + 1) <= nxChRuleInd)
+				while (igs == nGSt - 1 ? false : hypGoldLocs[igs+1] < nxChRuleInd)
 					igs += 1;
 			if (nBSt > 0)
-				while (ibs == nBSt - 1 ? false : baseSimulation.getStageInstant(false, ibs + 1) <= nxChRuleInd)
+				while (ibs == nBSt - 1 ? false : hypBlackLocs[ibs+1] < nxChRuleInd)
 					ibs += 1;
 			
 			if (igs > prev_igs && ibs > prev_ibs) {
-				int nxBsInstant = baseSimulation.getStageInstant(false, ibs),
-						nxGsInstant = baseSimulation.getStageInstant(true, igs);
-
-				if (nxBsInstant < nxGsInstant)
-					stagesToSkip = "b" + (ibs - prev_ibs);
-				else
-					stagesToSkip = "g" + (igs - prev_igs);
-			} else if (igs > prev_igs)
-				stagesToSkip = "g" + (igs - prev_igs);
-			else if (ibs > prev_ibs)
-				stagesToSkip = "b" + (ibs - prev_ibs);
+				stagesToSkip = hypGoldLocs[igs] > hypBlackLocs[ibs] ? 
+						"g" + (igs - prev_igs) : "b" + (ibs-prev_ibs); 
+			} 
+			else if (igs > prev_igs)	stagesToSkip = "g" + (igs - prev_igs);
+			else if (ibs > prev_ibs)	stagesToSkip = "b" + (ibs - prev_ibs);
 			// else: there is no stage to skip, and stagesToSkip remains "";
 
 			if (!stagesToSkip.equals("")) {
