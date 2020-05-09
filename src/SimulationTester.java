@@ -1100,6 +1100,7 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
+		//make sure new cascade is correct where it should be now... 
 		
 		
 		//TODO add rule processing and debug comprehension of the following
