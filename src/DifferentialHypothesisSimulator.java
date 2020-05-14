@@ -936,7 +936,7 @@ public class DifferentialHypothesisSimulator {
 	
 	/** from standard description of a relocdation, return @true if it is forward, @false if backward
 	 */
-	private boolean relocd_notes_forward(String notes)
+	public static boolean relocd_notes_forward(String notes)
 	{
 		if (!DHSWrapper.validRelocdationNotes(notes))	throw new RuntimeException("Cannot determine forward or backward for invalid notes for relocdation"); 
 		int src_step = UTILS.getIntPrefix(notes.substring(16));

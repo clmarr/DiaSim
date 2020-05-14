@@ -1168,6 +1168,11 @@ public class DHSWrapper {
 			throws MidDisjunctionEditException {
 		int linesPassed = 0;
 		String readIn = "";
+		
+		//TODO debugging
+		System.out.println("proposed changes... ") ; 
+		for (String[] pc : proposedChanges)
+			System.out.println(pc[0]+"|"+pc[1]+"|"+pc[2]+"\n"); 
 
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(targCascLoc), "UTF-8"));
@@ -1188,10 +1193,9 @@ public class DHSWrapper {
 		}
 
 		int igs = -1, ibs = -1; // these indicate current place among gold and black stages respectively
+		int soi = 0 ; // next place in stagesOrdered.
 		int nxRuleInd = 0; // next rule index IN THE BASELINE.
 		String out = "";
-
-		int nGSt = baseSimulation.NUM_GOLD_STAGES(), nBSt = baseSimulation.NUM_BLACK_STAGES();
 
 		/**
 		 * int[] opGoldStages = new int[nGSt], opBlackStages = new int[nBSt] ; 
@@ -1211,24 +1215,24 @@ public class DHSWrapper {
 			boolean isDelet = proposedChanges.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
 
-			String stagesToSkip = "";
-			int prev_igs = igs, prev_ibs = ibs;
-
-			if (nGSt > 0)
-				while (igs == nGSt - 1 ? false : hypGoldLocs[igs+1] < nxChRuleInd)
-					igs += 1;
-			if (nBSt > 0)
-				while (ibs == nBSt - 1 ? false : hypBlackLocs[ibs+1] < nxChRuleInd)
-					ibs += 1;
-			
-			if (igs > prev_igs && ibs > prev_ibs) {
-				stagesToSkip = hypGoldLocs[igs] > hypBlackLocs[ibs] ? 
-						"g" + (igs - prev_igs) : "b" + (ibs-prev_ibs); 
-			} 
-			else if (igs > prev_igs)	stagesToSkip = "g" + (igs - prev_igs);
-			else if (ibs > prev_ibs)	stagesToSkip = "b" + (ibs - prev_ibs);
+			/**String stagesToSkip = "";
+			int prev_soi = soi, prev_igs = igs, prev_ibs = ibs ; 
+			int nSO = stagesOrdered.length; 
+			while (soi >= nSO ? false : nxChRuleInd > strToHypStageLoc(stagesOrdered[soi])) 
+			{
+				if(stagesOrdered[soi++].charAt(0) == 'g') igs++;
+				else ibs++ ; 
+			}
+			if (soi > prev_soi)
+			{
+				String last = stagesOrdered[soi-1];
+				stagesToSkip = last.charAt(0) == 'g' ? "g" + (igs - prev_igs) : "b" + (ibs - prev_ibs) ;
+			}**/
 			// else: there is no stage to skip, and stagesToSkip remains "";
-
+			
+			//TODO debugging
+			System.out.println("nextChRuleInd: "+nxChRuleInd+", "+proposedChanges.get(pci)[1]);
+			/**
 			if (!stagesToSkip.equals("")) {
 				int break_pt = brkPtForStageSkip(readIn, stagesToSkip);
 				// should end in "\n"
@@ -1237,9 +1241,14 @@ public class DHSWrapper {
 				linesPassed += hop.split("\n").length - 1; // minus 1 because of the final \n
 				readIn = readIn.substring(break_pt);
 				boolean sg = stagesToSkip.charAt(0) == 'g';
+				//TODO debugging
+				System.out.println("nxRuleInd for skipping stage, from "+nxRuleInd+"...");
 				nxRuleInd = baseSimulation.getStageInstant(sg, sg ? igs : ibs);
+				
+				//TODO debugging
+				System.out.println("to ... "+nxRuleInd);  
 				out += hop;
-			}
+			}**/
 
 			boolean realization_complete = false; 
 			while (!realization_complete) {
@@ -1279,6 +1288,9 @@ public class DHSWrapper {
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
 					readIn = readIn.substring(brkpt + "\n".length());
 
+					//TODO debugging
+					System.out.println("nxRuleInd: "+nxRuleInd); 
+					
 					if (!shiftsHere.get(0).toString().equals(baseSimulation.getRuleAt(nxRuleInd)+""))
 					{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
 									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseSimulation.getRuleAt(nxRuleInd)); 	}
@@ -1294,6 +1306,16 @@ public class DHSWrapper {
 					else // perform proper file text modification behavior according to proposed change
 							// and whether we are automodification or merely commenting mode.
 					{
+						//TODO debugging
+						System.out.println("realizing: "+proposedChanges.get(pci)[0]+"\t"+proposedChanges.get(pci)[1]+"\t"+proposedChanges.get(pci)[2]);
+						System.out.println("pci = "+pci); 
+						System.out.println("nxRuleInd = "+nxRuleInd); 
+						System.out.println("soi = "+soi); 
+						System.out.println("ibs = "+ibs);
+						System.out.println("igs = "+igs);
+						System.out.println("operating upon... "+ruleLine); 
+						
+						
 						realization_complete= true; 
 						String newCmt = comments.get(pci);
 						if (newCmt.length() > 0)
@@ -1321,9 +1343,7 @@ public class DHSWrapper {
 									out += CMT_FLAG + ruleLine + "\n";
 								linesPassed++;
 								nxRuleInd++;
-
 								effLocModifier += 1;
-
 							} else // we are dealing with an insertion then.
 							{
 								// and thus comments and insertion come before next rule's preceding comment
@@ -1347,7 +1367,7 @@ public class DHSWrapper {
 								// track back on linesPassed as appropriate.
 								linesPassed -= (cmtBlock + ruleLine.substring(0, ruleLine.length()-"\n".length())).split("\n").length;
 
-								effLocModifier += -1 * fac.generateSoundChangesFromRule(proposedChanges.get(pci)[1]).size();
+								effLocModifier += -1 * fac.generateSoundChangesFromRule(proposedChanges.get(pci)[1]).size();		
 							}
 						} 
 						else // then there is a disjunction -- whether we can pass without error is
@@ -1368,15 +1388,14 @@ public class DHSWrapper {
 											+ "Manually edit as is appropriate below.\n" + ruleLine + "\n";
 									nxRuleInd += shiftsHere.size();
 									linesPassed++;
-								} else // insertion with justPlaceHolders = true and with a disjunction in the rule
-										// form.
+								} 
+								else // insertion with justPlaceHolders = true and with a disjunction in the rule form.
 								{
 									// if we are inserting before the first rule generated by the disjunction, this
 									// is just like the normal case
 									// without the issues arising from the disjunction.
 									if (nxRuleInd == nxChRuleInd) {
-										// and thus comments and insertion come before next rule's preceding comment
-										// block
+										// and thus comments and insertion come before next rule's preceding comment block
 										out += comments.get(pci); // will do nothing if this is part of a modification.
 										if (!out.substring(out.length() - "\n".length()).equals("\n"))
 											out += "\n";
@@ -1384,7 +1403,8 @@ public class DHSWrapper {
 												+ "AUTOGENERATED CORRECTION CUE: insert following rule to replace this comment\n"
 												+ CMT_FLAG + proposedChanges.get(pci)[1] + "\n";
 
-									} else {
+									} 
+									else {
 										out += comments.get(pci);
 										if (!out.substring(out.length() - "\n".length()).equals("\n"))
 											out += "\n";
@@ -1410,6 +1430,7 @@ public class DHSWrapper {
 									readIn = cmtBlock + ruleLine + "\n" + readIn;
 									// track back on linesPassed as appropriate.
 									linesPassed -= (cmtBlock + ruleLine).split("\n").length;
+									
 								}
 
 							} else {
@@ -1440,7 +1461,6 @@ public class DHSWrapper {
 					}
 				}
 			}
-
 		}
 
 		// TODO make sure this final append behavior is carried out correctly.
@@ -1482,6 +1502,12 @@ public class DHSWrapper {
 
 		return brkpt;
 	}
-
+ 
+	private int strToHypStageLoc (String s)
+	{
+		if (s.length() < 2 ? true : (!"gb".contains(s.charAt(0)+"") || !UTILS.isInt(s.substring(1))) )
+			throw new RuntimeException("Invalid string form for stage"); 
+		return (s.charAt(0) == 'g' ? hypGoldLocs : hypBlackLocs)[Integer.parseInt(s.substring(1))]; 
+	}
 	
 }
