@@ -78,7 +78,7 @@ public class DHSWrapper {
 	private String[] stagesOrdered;
 	// g# -- gold stage number <#>
 	// b# -- black stage number <#>
-	// for preventintg de facto switches when stages exist in the same "moment"
+	// for preventing de facto switches when stages exist in the same "moment"
 	// between rules in the editing process
 	// TODO currently not used-- abrogate?
 
@@ -1193,7 +1193,7 @@ public class DHSWrapper {
 		}
 
 		int igs = -1, ibs = -1; // these indicate current place among gold and black stages respectively
-		int soi = 0 ; // next place in stagesOrdered.
+		int nx_base_st = 0 ; // next place in stagesOrdered.
 		int nxRuleInd = 0; // next rule index IN THE BASELINE.
 		String out = "";
 
@@ -1272,11 +1272,29 @@ public class DHSWrapper {
 
 				// if next line is either another blank line, another comment after blank line,
 				// or a stage, this iteration of loop is over
-				if ((STAGEFLAGS + CMT_FLAG).contains(readIn.stripLeading().substring(0, 1))
-						|| UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
-					out += cmtBlock;
-					cmtBlock = "";
-				} else // i.e. we are handling a line holding a rule.
+				// handle stages (essentially: baseline stages) as troubleshooting
+				
+				char ch1 = readIn.stripLeading().charAt(0); 
+				if(STAGEFLAGS.contains(""+ ch1)) 
+				{
+					boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
+					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
+							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
+						throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
+					if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
+						throw new RuntimeException("Error: stage counting error."); 
+					if (nxRuleInd - 1 != baseSimulation.getStageInstant(isgold,  isgold ? igs : ibs))
+						throw new RuntimeException("Error : baseline stage location mismatch between stored data and stored baseline file.") ; 
+					if (isgold) igs++; 
+					else	ibs++; 
+					nx_base_st++;
+				}
+				else if (CMT_FLAG == ch1 || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+				{
+					out += cmtBlock; 
+					cmtBlock = ""; 
+				}
+				else // i.e. we are handling a line holding a rule.
 				{
 					// on the other hand, if a rule comes after this block,
 							// we consider the comment block to have been the explanation or justification for the rule, '
@@ -1310,7 +1328,7 @@ public class DHSWrapper {
 						System.out.println("realizing: "+proposedChanges.get(pci)[0]+"\t"+proposedChanges.get(pci)[1]+"\t"+proposedChanges.get(pci)[2]);
 						System.out.println("pci = "+pci); 
 						System.out.println("nxRuleInd = "+nxRuleInd); 
-						System.out.println("soi = "+soi); 
+						System.out.println("soi = "+nx_base_st); 
 						System.out.println("ibs = "+ibs);
 						System.out.println("igs = "+igs);
 						System.out.println("operating upon... "+ruleLine); 
