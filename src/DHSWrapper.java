@@ -1168,11 +1168,6 @@ public class DHSWrapper {
 			throws MidDisjunctionEditException {
 		int linesPassed = 0;
 		String readIn = "";
-		
-		//TODO debugging
-		System.out.println("proposed changes... ") ; 
-		for (String[] pc : proposedChanges)
-			System.out.println(pc[0]+"|"+pc[1]+"|"+pc[2]+"\n"); 
 
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(targCascLoc), "UTF-8"));
@@ -1193,7 +1188,9 @@ public class DHSWrapper {
 		}
 
 		int igs = -1, ibs = -1; // these indicate current place among gold and black stages respectively
-		int nx_base_st = 0 ; // next place in stagesOrdered.
+		int nx_base_st = 0 ; // next place in stagesOrdered with regards to the input from the (old) baseline cascade file
+		int nx_hyp_st = 0; // next place in stagesOrdered wrt the output, the accepted hypothesis cascade. 
+		int nSO = stagesOrdered.length; 
 		int nxRuleInd = 0; // next rule index IN THE BASELINE.
 		String out = "";
 
@@ -1230,8 +1227,6 @@ public class DHSWrapper {
 			}**/
 			// else: there is no stage to skip, and stagesToSkip remains "";
 			
-			//TODO debugging
-			System.out.println("nextChRuleInd: "+nxChRuleInd+", "+proposedChanges.get(pci)[1]);
 			/**
 			if (!stagesToSkip.equals("")) {
 				int break_pt = brkPtForStageSkip(readIn, stagesToSkip);
@@ -1268,6 +1263,16 @@ public class DHSWrapper {
 					cmtBlock += readIn.substring(0, brkpt);
 					readIn = readIn.substring(brkpt);
 					linesPassed++;
+				}
+				
+				//handle stage declarations as they should be placed PER THE ACCEPTED HYP CASC here
+				while (nx_hyp_st >= nSO ? false : 
+						strToHypStageLoc(stagesOrdered[nx_hyp_st]) < nxRuleInd) 
+				{
+					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+					out += "\n" + STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
+						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
+					nx_hyp_st++; 
 				}
 
 				// if next line is either another blank line, another comment after blank line,
@@ -1306,9 +1311,6 @@ public class DHSWrapper {
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
 					readIn = readIn.substring(brkpt + "\n".length());
 
-					//TODO debugging
-					System.out.println("nxRuleInd: "+nxRuleInd); 
-					
 					if (!shiftsHere.get(0).toString().equals(baseSimulation.getRuleAt(nxRuleInd)+""))
 					{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
 									+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseSimulation.getRuleAt(nxRuleInd)); 	}
@@ -1324,16 +1326,6 @@ public class DHSWrapper {
 					else // perform proper file text modification behavior according to proposed change
 							// and whether we are automodification or merely commenting mode.
 					{
-						//TODO debugging
-						System.out.println("realizing: "+proposedChanges.get(pci)[0]+"\t"+proposedChanges.get(pci)[1]+"\t"+proposedChanges.get(pci)[2]);
-						System.out.println("pci = "+pci); 
-						System.out.println("nxRuleInd = "+nxRuleInd); 
-						System.out.println("soi = "+nx_base_st); 
-						System.out.println("ibs = "+ibs);
-						System.out.println("igs = "+igs);
-						System.out.println("operating upon... "+ruleLine); 
-						
-						
 						realization_complete= true; 
 						String newCmt = comments.get(pci);
 						if (newCmt.length() > 0)
