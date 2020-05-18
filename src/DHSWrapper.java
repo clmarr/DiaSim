@@ -1191,7 +1191,7 @@ public class DHSWrapper {
 		int nx_base_st = 0 ; // next place in stagesOrdered with regards to the input from the (old) baseline cascade file
 		int nx_hyp_st = 0; // next place in stagesOrdered wrt the output, the accepted hypothesis cascade. 
 		int nSO = stagesOrdered.length; 
-		int nxRuleInd = 0; // next rule index IN THE BASELINE.
+		int nxRuleInd = 0; // next rule index IN THE BASELINE (as it is transformed into the hyp)
 		String out = "";
 
 		/**
@@ -1248,7 +1248,7 @@ public class DHSWrapper {
 			boolean realization_complete = false; 
 			while (!realization_complete) {
 				// first - skip any leading blank lines or stage declaration lines
-				while (stageFlagged(readIn) || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
+				while (UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					linesPassed++;
 					out += readIn.substring(0, brkpt);
@@ -1270,6 +1270,11 @@ public class DHSWrapper {
 						strToHypStageLoc(stagesOrdered[nx_hyp_st]) < nxRuleInd) 
 				{
 					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+
+					//TODO debugging
+					System.out.println("hyp stage : "+
+							(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
+					
 					out += "\n" + STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
 					nx_hyp_st++; 
@@ -1281,18 +1286,25 @@ public class DHSWrapper {
 				
 				char ch1 = readIn.stripLeading().charAt(0); 
 				if(STAGEFLAGS.contains(""+ ch1)) 
-				{
+				{					
 					boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
+
+					//TODO debugging
+					System.out.println("nxRuleInd " +nxRuleInd); 
+					System.out.println("in baseline... "+baseSimulation.getStageInstant(isgold,  isgold ? igs + 1 : ibs + 1));
+					
 					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
 							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
 						throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
 					if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
 						throw new RuntimeException("Error: stage counting error."); 
-					if (nxRuleInd - 1 != baseSimulation.getStageInstant(isgold,  isgold ? igs : ibs))
+					if (nxRuleInd  != baseSimulation.getStageInstant(isgold,  isgold ? igs + 1 : ibs + 1 ))
 						throw new RuntimeException("Error : baseline stage location mismatch between stored data and stored baseline file.") ; 
 					if (isgold) igs++; 
 					else	ibs++; 
 					nx_base_st++;
+					readIn = readIn.substring(readIn.indexOf("\n")+"\n".length());
+					linesPassed++; 
 				}
 				else if (CMT_FLAG == ch1 || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
 				{
