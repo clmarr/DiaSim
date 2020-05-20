@@ -693,6 +693,11 @@ public class SimulationTester {
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
 		
+
+		//TODO debugging
+		if (1 == 1 ) 		throw new RuntimeException("poop");
+		
+		
 		System.out.println("\n-------------\nFourth (line "+getLineNumber()+"): Now processing three changes for hypothesis, before usurping baseline.\n---------------\n"); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
                         + "\t\tfrom __ ə\n"

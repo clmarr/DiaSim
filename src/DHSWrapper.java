@@ -1205,9 +1205,13 @@ public class DHSWrapper {
 		int effLocModifier = 0; // add +1 after a deletion, -1 after insertion etc...
 		// to normalize for changes in place within data structures since they favor the
 		// hyp side of the equation.
+		
 
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChanges.size(); pci++) {
+			//TODO debugging -- print prCh
+			System.out.println("pr ch : "+proposedChanges.get(pci)[0] +" | "+proposedChanges.get(pci)[1] + " | " + proposedChanges.get(pci)[2] ); 
+
 			int nxChRuleInd = Integer.parseInt(proposedChanges.get(pci)[0]) + effLocModifier;
 			boolean isDelet = proposedChanges.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
@@ -1247,7 +1251,7 @@ public class DHSWrapper {
 
 			boolean realization_complete = false; 
 			while (!realization_complete) {
-				// first - skip any leading blank lines or stage declaration lines
+				// first - skip any leading blank lines or stage declaration lines that were read in... 
 				while (UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					linesPassed++;
@@ -1256,8 +1260,8 @@ public class DHSWrapper {
 				}
 
 				String cmtBlock = "";
-				// case of if the next line is headed by the comment flag.
-				// absorb all consecutive comment lines in @varbl commentBlock
+				// if the next line is headed by the comment flag:
+				// 	absorb all consecutive comment lines in @varbl commentBlock
 				while (readIn.stripLeading().charAt(0) == CMT_FLAG) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					cmtBlock += readIn.substring(0, brkpt);
@@ -1265,7 +1269,7 @@ public class DHSWrapper {
 					linesPassed++;
 				}
 				
-				//handle stage declarations as they should be placed PER THE ACCEPTED HYP CASC here
+				//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
 				while (nx_hyp_st >= nSO ? false : 
 						strToHypStageLoc(stagesOrdered[nx_hyp_st]) < nxRuleInd) 
 				{
@@ -1274,7 +1278,6 @@ public class DHSWrapper {
 					//TODO debugging
 					System.out.println("hyp stage : "+
 							(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
-					
 					out += "\n" + STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
 					nx_hyp_st++; 
@@ -1292,6 +1295,9 @@ public class DHSWrapper {
 					//TODO debugging
 					System.out.println("nxRuleInd " +nxRuleInd); 
 					System.out.println("in baseline... "+baseSimulation.getStageInstant(isgold,  isgold ? igs + 1 : ibs + 1));
+					System.out.println("nx_base_st : "+nx_base_st); 
+					System.out.println("stage...  : "+stagesOrdered[nx_base_st]); 
+					System.out.println("isGold : "+isgold); 
 					
 					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
 							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
@@ -1311,9 +1317,9 @@ public class DHSWrapper {
 					out += cmtBlock; 
 					cmtBlock = ""; 
 				}
-				else // i.e. we are handling a line holding a rule.
+				else // i.e. we are handling a line holding a rule (in the baseline)
 				{
-					// on the other hand, if a rule comes after this block,
+					// on the other hand, if a rule comes after the comment block,
 							// we consider the comment block to have been the explanation or justification for the rule, '
 					// and will then operate on the rule.
 					// if the comment block is empty, nothing explicitly differs in code, so both are handled here.
