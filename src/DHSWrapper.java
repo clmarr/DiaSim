@@ -1279,9 +1279,16 @@ public class DHSWrapper {
 					linesPassed++;
 				}
 				
+				//TODO debugging
+				if (nx_hyp_st < nSO) {
+					System.out.println("nxRuleInd " +nxRuleInd); 
+					System.out.println("next hyp st at " + strToHypStageLoc(stagesOrdered[nx_hyp_st])); 
+					System.out.println("effLocModifier " + effLocModifier); 
+				}
+				
 				//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
 				while (nx_hyp_st >= nSO ? false : 
-						strToHypStageLoc(stagesOrdered[nx_hyp_st]) < nxRuleInd) 
+						strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier) 
 				{
 					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
 
