@@ -23,8 +23,7 @@ public class Simulation {
 	private int currStageInd;
 		// use stagesOrdered to get current stage in a way that prevents flipping if
 			// ever two stages at the same moment (point between rule steps)
-	
-	
+
 	private String[][] ruleEffects; 
 	private String[] etDerivations; 
 	//stores derivation (form at every time step), with stages delimited by line breaks, of each word 

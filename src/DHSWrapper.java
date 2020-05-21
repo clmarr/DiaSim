@@ -1616,4 +1616,31 @@ public class DHSWrapper {
 		return (s.charAt(0) == 'g' ? hypGoldLocs : hypBlackLocs)[Integer.parseInt(s.substring(1))]; 
 	}
 	
+	private int getHypStageLoc(int sn)
+	{
+		return strToHypStageLoc(stagesOrdered[sn]);
+	}
+	
+	private int getBaseStageLoc (int sn) {
+		return baseSimulation.getStageInstant(
+				stagesOrdered[sn].charAt(0) == 'g', 
+				Integer.parseInt(stagesOrdered[sn].substring(1)) );
+	}
+	
+	/** catchInterStageDeletionBug
+	 * to preempt movement of stages markers across deleted rules.
+	 * to be called when nxRuleInd + effLocModifier == getHypStageLoc(sn) 
+	 * @param sn -- current stage number
+	 * @param pci -- current proposedChanges index. 
+	 * @return @true iff the error is about to occur. 
+	 */ 
+	private boolean catchinterStageDeletionBug(int sn , int pci) 
+	{
+		if (sn > stagesOrdered.length - 2)	return false; 
+		if (!proposedChanges.get(pci)[1].equals("deletion"))	return false;
+		if (getHypStageLoc(sn) != Integer.parseInt(proposedChanges.get(pci)[0]))	return false; 
+		if (getHypStageLoc(sn) != getHypStageLoc(sn+1))
+			return false; 
+		return getBaseStageLoc(sn) == getBaseStageLoc(sn+1); 
+	}
 }
