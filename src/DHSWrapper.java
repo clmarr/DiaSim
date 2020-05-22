@@ -1288,7 +1288,9 @@ public class DHSWrapper {
 				
 				//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
 				while (nx_hyp_st >= nSO ? false : 
-						strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier) 
+						strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier
+						 && ! (nxRuleInd + effLocModifier != getHypStageLoc(nx_hyp_st) ? 
+								 false : catchInterStageDeletionBug(nx_hyp_st, pci))) 
 				{
 					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
 
@@ -1634,13 +1636,21 @@ public class DHSWrapper {
 	 * @param pci -- current proposedChanges index. 
 	 * @return @true iff the error is about to occur. 
 	 */ 
-	private boolean catchinterStageDeletionBug(int sn , int pci) 
+	private boolean catchInterStageDeletionBug(int sn , int pci) 
 	{
-		if (sn > stagesOrdered.length - 2)	return false; 
+		//TODO debugging
+		System.out.println("sn "+sn); 
+		System.out.println("pci "+pci); 
+		
+		if (sn == 0)	return false; 
 		if (!proposedChanges.get(pci)[1].equals("deletion"))	return false;
 		if (getHypStageLoc(sn) != Integer.parseInt(proposedChanges.get(pci)[0]))	return false; 
-		if (getHypStageLoc(sn) != getHypStageLoc(sn+1))
+		if (getHypStageLoc(sn) != getHypStageLoc(sn-1))
 			return false; 
-		return getBaseStageLoc(sn) == getBaseStageLoc(sn+1); 
+		
+		//TODO debugging
+		System.out.println("caught? : "+(getBaseStageLoc(sn) == getBaseStageLoc(sn-1)));
+		
+		return getBaseStageLoc(sn) != getBaseStageLoc(sn-1); 
 	}
 }
