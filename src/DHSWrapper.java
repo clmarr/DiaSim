@@ -1168,17 +1168,6 @@ public class DHSWrapper {
 			throws MidDisjunctionEditException {
 		int linesPassed = 0;
 		String readIn = "";
-		
-		//TODO debugging
-		System.out.println("Hyp stage locs ... "); 
-		for (String si : stagesOrdered)
-		{
-			boolean isgold = si.charAt(0) == 'g'; 
-			int n = Integer.parseInt(si.substring(1)) ; 
-			System.out.println(si +" : "+
-					(isgold ? goldStageNames : blackStageNames)[n] + " : "+
-					strToHypStageLoc(si)); 
-		}
 
 		try {
 			BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream(targCascLoc), "UTF-8"));
@@ -1220,9 +1209,6 @@ public class DHSWrapper {
 
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChanges.size(); pci++) {
-			//TODO debugging -- print prCh
-			System.out.println("pr ch : "+proposedChanges.get(pci)[0] +" | "+proposedChanges.get(pci)[1] + " | " + proposedChanges.get(pci)[2] ); 
-
 			int nxChRuleInd = Integer.parseInt(proposedChanges.get(pci)[0]) + effLocModifier;
 			boolean isDelet = proposedChanges.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
@@ -1251,12 +1237,8 @@ public class DHSWrapper {
 				linesPassed += hop.split("\n").length - 1; // minus 1 because of the final \n
 				readIn = readIn.substring(break_pt);
 				boolean sg = stagesToSkip.charAt(0) == 'g';
-				//TODO debugging
-				System.out.println("nxRuleInd for skipping stage, from "+nxRuleInd+"...");
 				nxRuleInd = baseSimulation.getStageInstant(sg, sg ? igs : ibs);
 				
-				//TODO debugging
-				System.out.println("to ... "+nxRuleInd);  
 				out += hop;
 			}**/
 
@@ -1278,14 +1260,7 @@ public class DHSWrapper {
 					readIn = readIn.substring(brkpt);
 					linesPassed++;
 				}
-				
-				//TODO debugging
-				if (nx_hyp_st < nSO) {
-					System.out.println("nxRuleInd " +nxRuleInd); 
-					System.out.println("next hyp st at " + strToHypStageLoc(stagesOrdered[nx_hyp_st])); 
-					System.out.println("effLocModifier " + effLocModifier); 
-				}
-				
+			
 				//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
 				while (nx_hyp_st >= nSO ? false : 
 						strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier
@@ -1294,9 +1269,6 @@ public class DHSWrapper {
 				{
 					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
 
-					//TODO debugging
-					System.out.println("hyp stage : "+
-							(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
 					out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
 					nx_hyp_st++; 
@@ -1358,10 +1330,6 @@ public class DHSWrapper {
 						if (newCmt.length() > 0)
 							if (!UTILS.cmtIsStandardized(newCmt))
 								newCmt = UTILS.standardizeCmt(newCmt);
-						
-						//TODO debugging
-						System.out.println(". "+cmtBlock+" -- cmtBlock");
-						System.out.println(". "+newCmt + "-- newCmt");
 						
 						if (shiftsHere.size() == 1) // current rule written is NOT a disjunction that is internally
 													// represented as multiple rules.
@@ -1523,9 +1491,6 @@ public class DHSWrapper {
 			{
 				boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
 	
-				//TODO debugging
-				System.out.println("hyp stage : "+
-						(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
 				out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 					+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
 				nx_hyp_st++; 
@@ -1639,19 +1604,12 @@ public class DHSWrapper {
 	 * @return @true iff the error is about to occur. 
 	 */ 
 	private boolean catchInterStageDeletionBug(int sn , int pci) 
-	{
-		//TODO debugging
-		System.out.println("sn "+sn); 
-		System.out.println("pci "+pci); 
-		
+	{	
 		if (sn == 0)	return false; 
 		if (!proposedChanges.get(pci)[1].equals("deletion"))	return false;
 		if (getHypStageLoc(sn) != Integer.parseInt(proposedChanges.get(pci)[0]))	return false; 
 		if (getHypStageLoc(sn) != getHypStageLoc(sn-1))
 			return false; 
-		
-		//TODO debugging
-		System.out.println("caught? : "+(getBaseStageLoc(sn) == getBaseStageLoc(sn-1)));
 		
 		return getBaseStageLoc(sn) != getBaseStageLoc(sn-1); 
 	}
