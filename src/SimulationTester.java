@@ -411,7 +411,10 @@ public class SimulationTester {
 				
 		DHSW.setHypOutLoc(DBG_WRKG_CASC);
 		DHSW.acceptHypothesis(false); 
-		
+
+		//TODO debugging
+		if (1 == 1 ) 		throw new RuntimeException("poop");
+
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount;
 		errorCount = 0;
@@ -692,12 +695,7 @@ public class SimulationTester {
 		DHSW.acceptHypothesis(false);
 		CASCADE = curHC; 
 		curHC = null; dumCasc = null;
-		
-
-		//TODO debugging
-		if (1 == 1 ) 		throw new RuntimeException("poop");
-		
-		
+				
 		System.out.println("\n-------------\nFourth (line "+getLineNumber()+"): Now processing three changes for hypothesis, before usurping baseline.\n---------------\n"); 
 		System.out.println("First in group, fourth overall -- complex modification of contexts of glottalization\n"
                         + "\t\tfrom __ ə\n"

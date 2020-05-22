@@ -1500,76 +1500,78 @@ public class DHSWrapper {
 			}
 		}
 		
-		while (UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
-			int brkpt = readIn.indexOf("\n") + "\n".length();
-			linesPassed++;
-			out += readIn.substring(0, brkpt);
-			readIn = readIn.substring(brkpt);
-		}
-
-		String cmtBlock = "";
-		// if the next line is headed by the comment flag: absorb all consecutive comment lines in @varbl commentBlock
-		while (readIn.stripLeading().charAt(0) == CMT_FLAG) {
-			int brkpt = readIn.indexOf("\n") + "\n".length();
-			cmtBlock += readIn.substring(0, brkpt);
-			readIn = readIn.substring(brkpt);
-			linesPassed++;
-		}
-
-		//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
-		while (nx_hyp_st >= nSO ? false : 
-				strToHypStageLoc(stagesOrdered[nx_hyp_st]) < nxRuleInd) 
-		{
-			boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
-
-			//TODO debugging
-			System.out.println("hyp stage : "+
-					(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
-			out += "\n" + STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
-				+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
-			nx_hyp_st++; 
-		}
-
-		// if next line is either another blank line, another comment after blank line,
-		// or a stage, this iteration of loop is over
-		// handle stages (essentially: baseline stages) as troubleshooting
-		char ch1 = readIn.stripLeading().charAt(0); 
-		if(STAGEFLAGS.contains(""+ ch1))  //baseline stage flag
-		{					
-			boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
-
-			if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
-					|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
-				throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
-			if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
-				throw new RuntimeException("Error: stage counting error."); 
-			if (nxRuleInd  != baseSimulation.getStageInstant(isgold,  isgold ? igs + 1 : ibs + 1 ))
-				throw new RuntimeException("Error : baseline stage location mismatch between stored data and stored baseline file.") ; 
-			if (isgold) igs++; 
-			else	ibs++; 
-			nx_base_st++;
-			readIn = readIn.substring(readIn.indexOf("\n")+"\n".length());
-			linesPassed++; 
-		}
-		else if (CMT_FLAG == ch1 || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
-		{
-			out += cmtBlock; 
-			cmtBlock = ""; 
-		}
-		else // handling a line with a rule 
-		{
-			int brkpt = readIn.indexOf("\n"); 
-			String ruleLine = readIn.substring(0, brkpt); 
-			List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine); 
-			readIn = readIn.substring(brkpt + "\n".length());
-
-			if (!shiftsHere.get(0).toString().equals(baseSimulation.getRuleAt(nxRuleInd)+""))
-			{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
-							+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseSimulation.getRuleAt(nxRuleInd)); 	}
-			// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
-			out += cmtBlock + ruleLine + "\n";
-			nxRuleInd += shiftsHere.size();
-			linesPassed++;
+		while(nx_hyp_st < nSO) { 
+			while (UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
+				int brkpt = readIn.indexOf("\n") + "\n".length();
+				linesPassed++;
+				out += readIn.substring(0, brkpt);
+				readIn = readIn.substring(brkpt);
+			}
+	
+			String cmtBlock = "";
+			// if the next line is headed by the comment flag: absorb all consecutive comment lines in @varbl commentBlock
+			while (readIn.stripLeading().charAt(0) == CMT_FLAG) {
+				int brkpt = readIn.indexOf("\n") + "\n".length();
+				cmtBlock += readIn.substring(0, brkpt);
+				readIn = readIn.substring(brkpt);
+				linesPassed++;
+			}
+			
+			//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
+			while (nx_hyp_st >= nSO ? false : 
+				strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier)
+			{
+				boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+	
+				//TODO debugging
+				System.out.println("hyp stage : "+
+						(nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))]);
+				out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
+					+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
+				nx_hyp_st++; 
+			}
+	
+			// if next line is either another blank line, another comment after blank line,
+			// or a stage, this iteration of loop is over
+			// handle stages (essentially: baseline stages) as troubleshooting
+			char ch1 = readIn.stripLeading().charAt(0); 
+			if(STAGEFLAGS.contains(""+ ch1))  //baseline stage flag
+			{					
+				boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
+	
+				if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
+						|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
+					throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
+				if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
+					throw new RuntimeException("Error: stage counting error."); 
+				if (nxRuleInd  != baseSimulation.getStageInstant(isgold,  isgold ? igs + 1 : ibs + 1 ))
+					throw new RuntimeException("Error : baseline stage location mismatch between stored data and stored baseline file.") ; 
+				if (isgold) igs++; 
+				else	ibs++; 
+				nx_base_st++;
+				readIn = readIn.substring(readIn.indexOf("\n")+"\n".length());
+				linesPassed++; 
+			}
+			else if (CMT_FLAG == ch1 || UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))))
+			{
+				out += cmtBlock; 
+				cmtBlock = ""; 
+			}
+			else // handling a line with a rule 
+			{
+				int brkpt = readIn.indexOf("\n"); 
+				String ruleLine = readIn.substring(0, brkpt); 
+				List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine); 
+				readIn = readIn.substring(brkpt + "\n".length());
+	
+				if (!shiftsHere.get(0).toString().equals(baseSimulation.getRuleAt(nxRuleInd)+""))
+				{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
+								+ "source : "+shiftsHere.get(0)+"\nbaseCasc : "+baseSimulation.getRuleAt(nxRuleInd)); 	}
+				// TODO  debugging  likely necessary if this is triggered. Maybe should be an assertion however?
+				out += cmtBlock + ruleLine + "\n";
+				nxRuleInd += shiftsHere.size();
+				linesPassed++;
+			}
 		}
 		// TODO make sure this final append behavior is carried out correctly.
 		return out + readIn;
