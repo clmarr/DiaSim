@@ -1278,11 +1278,17 @@ public class DHSWrapper {
 				// or a stage, this iteration of loop is over
 				// handle stages (essentially: baseline stages) as troubleshooting
 				
-				char ch1 = readIn.stripLeading().charAt(0); 
+				char ch1 = readIn.indexOf("\n") == 0 ? '.' : 
+						readIn.stripLeading().charAt(0); 
 				if(STAGEFLAGS.contains(""+ ch1))  //baseline stage flag
 				{					
 					boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
 
+					//TODO debugging
+					System.out.println("next base st: "+nx_base_st); 
+					System.out.println("line : "+readIn.substring(0, readIn.indexOf("\n")));  
+					System.out.println("ch1 : "+ch1); 
+					
 					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
 							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
 						throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
