@@ -673,10 +673,14 @@ public class DHSWrapper {
 				throw new RuntimeException("ERROR: attempted to overwrite an existing proposed change. This is not supported at this time. Please either accept the present hypothesis or discard it and again construct your desired hypothesis cascade without modifying proposed hypothesis rules after inserting them."); 
 		
 		List<SChange> insertions = (newRules == null) ? new ArrayList<SChange>() : new ArrayList<SChange>(newRules);
+
+		boolean bijmod = (addLoc == deleteLoc) && (insertions.size() == 1); 
+		
 		if (deleteLoc != -1) {
 			SChange removed = hypCASC.remove(deleteLoc);
 			
-			updateProposedChanges(new String[] { "" + deleteLoc, "deletion", deletionNotes }, -1);
+			updateProposedChanges(new String[] { "" + deleteLoc, "deletion", 
+					bijmod ? ":bijective modification: "+deletionNotes : deletionNotes }, -1);
 
 			if (addLoc != -1) // relocdation or modification
 			{
@@ -697,7 +701,7 @@ public class DHSWrapper {
 				
 				String strForm = (addLoc == deleteLoc)  ? newLaw : removed.toString(); 
 				
-				updateProposedChanges(new String[] { "" + addLoc, strForm, insertionNotes },
+				updateProposedChanges(new String[] { "" + addLoc, strForm, bijmod ? ":bijective modfication: "+ insertionNotes : insertionNotes },
 								insertions.size());
 				
 				//boolean relocdeletionBandaid = false; 
@@ -714,7 +718,7 @@ public class DHSWrapper {
 					// This is will ALSO be necessary in this case for the proper operation on hypCASC beneath this block. 
 															// -- hence relocdeletionBandaid.... now abrogated though
 					addLoc = addLoc - 1;
-					proposedChanges.set(pci, new String[] {""+addLoc, strForm, insertionNotes}); 
+					proposedChanges.set(pci, new String[] {""+addLoc, strForm, bijmod ? ":bijective modfication: "+insertionNotes : insertionNotes}); 
 				}
 				hypCASC.addAll(addLoc, insertions);
 			}

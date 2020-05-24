@@ -166,6 +166,14 @@ public class DifferentialHypothesisSimulator {
 				//pci -- index in proposedChs
 				//gi, bi, hi -- current (global, baseline cascade, hypothesis cascade) indices
 			
+			List<String[]> propChs = new ArrayList<String[]> (proposedChs); 
+			while(pci < propChs.size())  // trim out 1-1 modifications, which are basically non-changes from the perspective of rule correspondences. 
+			{
+				if(propChs.get(pci)[2].contains(":bijective modification:")) propChs.remove(pci);
+				else	pci++; 
+			}
+			pci = 0; 
+			
 			while (pci < proposedChs.size()) 
 			{
 				String[] nextPC = proposedChs.get(pci++); 
@@ -237,7 +245,7 @@ public class DifferentialHypothesisSimulator {
 					}
 					else // simple insertion or insertion aspect of modification
 					{
-						if (dumRIMHB[hi] != -1)	throw new RuntimeException("Detected insertion in proposedChs, but ilhi is not -1! (hi = "+hi+")"); 
+						if (dumRIMHB[hi] != -1)	throw new RuntimeException("Detected insertion in proposedChs, but ilhi is not -1! (hi = "+hi+", ilhi = "+dumRIMHB[hi]+")");  
 
 						//modify necessary structures for each...
 						for (int quant = UTILS.countDisjunctContexts(nextPC[1]); quant > 0; quant--) {

@@ -1105,24 +1105,12 @@ public class SimulationTester {
 		
 		String nx_law = "[+cor,-delrel] > ɾ / [-cons] __ [-cons,-lo,-stres]";
 		
-		//TODO debugging 
-		System.out.println("hyp gold locs : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
-		
 		DHSW.processSingleCh(7, "Flapping contexts revised", 7, nx_law, 
 				theFactory.generateSoundChangesFromRule(nx_law), "Flapping contexts revised");
-	
-		//TODO debugging
-		System.out.println("hyp gold locs : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs())); 
 		
 		nx_law = "d > ɾ / [-cons] __ [-cons]";
 		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
 				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between nonconsonantals.");
-	
-		//TODO debugging
-		System.out.println("hyp rules : "); 
-		for (SChange hri : DHSW.getHypCASC())
-			System.out.println(""+hri); 
-		
 		
 		nx_law = "d > ɾ / [+son] __ [+syl,-stres]"; 
 		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
@@ -1146,11 +1134,6 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), 
 				new int[] {0,1,2,3,4,5,6,7,-1,-1,-1,8,9,10,-1,-1,11}), "ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly..."
 						+ "got: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())); 
-		
-		//TODO debugging
-		System.out.println("hyp rules : "); 
-		for (SChange hri : DHSW.getHypCASC())
-			System.out.println(""+hri); 
 		
 		// test DHSWrapper.hypGoldLocs
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {5, 10}, DHSW.getHypGoldLocs() ),
