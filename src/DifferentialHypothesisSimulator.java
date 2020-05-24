@@ -169,14 +169,14 @@ public class DifferentialHypothesisSimulator {
 			List<String[]> propChs = new ArrayList<String[]> (proposedChs); 
 			while(pci < propChs.size())  // trim out 1-1 modifications, which are basically non-changes from the perspective of rule correspondences. 
 			{
-				if(propChs.get(pci)[2].contains(":bijective modification:")) propChs.remove(pci);
+				if(propChs.get(pci)[2].contains("bijective modification")) propChs.remove(pci);
 				else	pci++; 
 			}
 			pci = 0; 
 			
-			while (pci < proposedChs.size()) 
+			while (pci < propChs.size()) 
 			{
-				String[] nextPC = proposedChs.get(pci++); 
+				String[] nextPC = propChs.get(pci++); 
 				int sameUntil = Integer.parseInt(nextPC[0]); 
 				
 				while (hi < sameUntil) { // simply pass any spots that were not modified.

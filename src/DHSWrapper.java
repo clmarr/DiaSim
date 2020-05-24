@@ -701,7 +701,7 @@ public class DHSWrapper {
 				
 				String strForm = (addLoc == deleteLoc)  ? newLaw : removed.toString(); 
 				
-				updateProposedChanges(new String[] { "" + addLoc, strForm, bijmod ? ":bijective modfication: "+ insertionNotes : insertionNotes },
+				updateProposedChanges(new String[] { "" + addLoc, strForm, bijmod ? ":bijective modification: "+ insertionNotes : insertionNotes },
 								insertions.size());
 				
 				//boolean relocdeletionBandaid = false; 
@@ -718,7 +718,7 @@ public class DHSWrapper {
 					// This is will ALSO be necessary in this case for the proper operation on hypCASC beneath this block. 
 															// -- hence relocdeletionBandaid.... now abrogated though
 					addLoc = addLoc - 1;
-					proposedChanges.set(pci, new String[] {""+addLoc, strForm, bijmod ? ":bijective modfication: "+insertionNotes : insertionNotes}); 
+					proposedChanges.set(pci, new String[] {""+addLoc, strForm, bijmod ? ":bijective modification: "+insertionNotes : insertionNotes}); 
 				}
 				hypCASC.addAll(addLoc, insertions);
 			}
