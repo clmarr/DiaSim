@@ -1145,9 +1145,12 @@ public class SimulationTester {
 		theDHS = DHSW.generateDHS(); 
 		
 		//check DHSW.ruleCorrespondences
-		corrRC = new int[][] {{0, 1, 2, 3, 4, 5, 6, 7, -1, -1, -1, 8, 9, 10, -1, -1, 11}, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}};
+		corrRC = new int[][] {{0, 1, 2, 3, 4, 5, 6, 7, -1, -1, -1, 8, 9, 10, -1, -1}, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}};
 		errorCount += UTILS.checkBoolean (true, UTILS.compare2dIntArrs(theDHS.getRuleCorrespondences(),corrRC),
-				"ERROR: ruleCorrespondences malformed.") ? 0 : 1; 
+				"ERROR: ruleCorrespondences malformed:\n"
+				+ "Observed:\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[0])
+				+ "\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])
+				+ "\nCorrect:\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+"\n") ? 0 : 1; 
 		
 	}
 	
