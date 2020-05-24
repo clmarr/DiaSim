@@ -66,8 +66,8 @@ public class DHSWrapper {
 	private int[] RIM_BH; // easy access maps spaces BETWEEN rule steps of baseCASC to those in hypCASC.
 	// the mapping is kept updated as new changes are added
 	// -1 means deleted.
-	// can think of all but hte last index as referring to the next rule's spot
-	// since that is how operatiosn will call that rule
+	// can think of all but the last index as referring to the next rule's spot
+	// since that is how operations will call that rule
 	// and the final "index" as referring to the end state.
 	private int[] RIM_HB; // like above, but operating the otherway (so -1 means inserted etc etc)
 
@@ -776,17 +776,30 @@ public class DHSWrapper {
 				 * 	meaning the net effect is +1 over [addLoc+1, deleteLoc] for backward relocdations
 				 */
 				
-				if (NUM_GOLD_STAGES > 0)
-					for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
-						if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc + 1 )
-								&& hypGoldLocs[gsi] <= (back ? deleteLoc : addLoc + 1 ))
-							hypGoldLocs[gsi] += (back ? 1 : -1);
-				if (NUM_BLACK_STAGES > 0)
-					for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
-						if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc + 1  )
-								&& hypBlackLocs[bsi] <= (back ? deleteLoc : addLoc + 1 ))
-							hypBlackLocs[bsi] += (back ? 1 : -1);
-
+				if(addLoc != deleteLoc) {
+					if (NUM_GOLD_STAGES > 0)
+						for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
+							if (hypGoldLocs[gsi] >= (back ? addLoc : deleteLoc + 1 )
+									&& hypGoldLocs[gsi] <= (back ? deleteLoc : addLoc + 1 ))
+								hypGoldLocs[gsi] += (back ? 1 : -1);
+					if (NUM_BLACK_STAGES > 0)
+						for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
+							if (hypBlackLocs[bsi] >= (back ? addLoc : deleteLoc + 1  )
+									&& hypBlackLocs[bsi] <= (back ? deleteLoc : addLoc + 1 ))
+								hypBlackLocs[bsi] += (back ? 1 : -1);
+				}
+				else if (insertions.size() > 1 ) // modification with disjunction inserted. 
+				{
+					if (NUM_GOLD_STAGES  > 0 )
+						for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
+							if (hypGoldLocs[gsi] > addLoc)
+								hypGoldLocs[gsi] += insertions.size() - 1; 
+					if (NUM_BLACK_STAGES > 0)
+						for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
+							if(hypBlackLocs[bsi] > addLoc) 
+								hypBlackLocs[bsi] += insertions.size() -1 ; 
+				}
+					
 				// TODO check this...
 				// handle any indices in relocdations and modifications that
 				// are not the one currently being added.
@@ -1283,11 +1296,6 @@ public class DHSWrapper {
 				if(STAGEFLAGS.contains(""+ ch1))  //baseline stage flag
 				{					
 					boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
-
-					//TODO debugging
-					System.out.println("next base st: "+nx_base_st); 
-					System.out.println("line : "+readIn.substring(0, readIn.indexOf("\n")));  
-					System.out.println("ch1 : "+ch1); 
 					
 					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
 							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )

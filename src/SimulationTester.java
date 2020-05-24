@@ -1093,24 +1093,79 @@ public class SimulationTester {
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
-		
+	
 		//usurp. 
 		DHSW.setHypOutLoc(DBG_WRKG_CASC); 
 		DHSW.acceptHypothesis(false);
 		CASCADE = curHC; 
-		curHC = null; dumCasc = null;
+		curHC = null; dumCasc = null;		
 		
-		//make sure new cascade is correct where it should be now... 
+		//remaining fixes bundled into one hypothesis. 
+		System.out.println("-----------------\nRemaining fixes bundled into one hypothesis....\n-----------------------");
 		
+		String nx_law = "[+cor,-delrel] > ɾ / [-cons] __ [-cons,-lo,-stres]";
 		
-		//TODO add rule processing and debug comprehension of the following
-		// complex insertion to right before s > ts / n __ : 
-		 // n > null / [-cons,+nas] __ {[-son,-cor],[+cons,+son]}
-		// again relocate the flapping rule to after waypoint 2 
+		//TODO debugging 
+		System.out.println("hyp gold locs : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
 		
-		// finally all things between waypoints 2 and 3 insert
-		// and then check that results are all correct.
+		DHSW.processSingleCh(7, "Flapping contexts revised", 7, nx_law, 
+				theFactory.generateSoundChangesFromRule(nx_law), "Flapping contexts revised");
 	
+		//TODO debugging
+		System.out.println("hyp gold locs : "+UTILS.print1dIntArr(DHSW.getHypGoldLocs())); 
+		
+		nx_law = "d > ɾ / [-cons] __ [-cons]";
+		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between nonconsonantals.");
+	
+		//TODO debugging
+		System.out.println("hyp rules : "); 
+		for (SChange hri : DHSW.getHypCASC())
+			System.out.println(""+hri); 
+		
+		
+		nx_law = "d > ɾ / [+son] __ [+syl,-stres]"; 
+		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between sonorant cons and unstressed vowel.");
+		
+		nx_law = "[+syl,-stres] > [-nas] / __ n [+syl]"; 
+		DHSW.processChWithAddNearWaypoint(false, "g2", -1, "", nx_law, theFactory.generateSoundChangesFromRule(nx_law), "denasalization before intervocalic /n/");
+		
+		nx_law = "n > ∅ / [-cons,+nas] __ [-son,-cor]";
+		DHSW.processSingleCh(-1, "", 14, nx_law, theFactory.generateSoundChangesFromRule(nx_law), "/n/ effaced between nasal vowel and non-coronal obstruent.");
+
+		nx_law = "n > ∅ / [-cons,+nas] __ [+cons,+son]"; 
+		DHSW.processSingleCh(-1, "", 15, nx_law, theFactory.generateSoundChangesFromRule(nx_law), "presonorant /n/ effaced after nasal vowel");
+
+		//testing base to hyp rule ind map in DHSWrapper. 
+		corrBhRIM = new int[] {0,1,2,3,4,5,6,7,11,12,13,16}; //recall each index is about the spot *before* rules, the last being the end state. 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(corrBhRIM, DHSW.getBaseHypRuleIndMap()),
+				"ERROR: Handling of simple deletion in base-hyp rule ind map not realized correctly... \ngot: "+UTILS.print1dIntArr(DHSW.getBaseHypRuleIndMap())); 
+		
+		//likewise for hyp to base
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(DHSW.getHypBaseRuleIndMap(), 
+				new int[] {0,1,2,3,4,5,6,7,-1,-1,-1,8,9,10,-1,-1,11}), "ERROR: Handling of simple deletion in hyp-base rule ind map not realized correctly..."
+						+ "got: "+UTILS.print1dIntArr(DHSW.getHypBaseRuleIndMap())); 
+		
+		//TODO debugging
+		System.out.println("hyp rules : "); 
+		for (SChange hri : DHSW.getHypCASC())
+			System.out.println(""+hri); 
+		
+		// test DHSWrapper.hypGoldLocs
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(new int[] {5, 10}, DHSW.getHypGoldLocs() ),
+				"ERROR: hyp gold locs are wrong: "+UTILS.print1dIntArr(DHSW.getHypGoldLocs()));
+		// we can induce hypBlackLocs is fine if this is.
+		
+		//not necessary to test DHSWrapper.proposedChanges here. 
+		
+		theDHS = DHSW.generateDHS(); 
+		
+		//check DHSW.ruleCorrespondences
+		corrRC = new int[][] {{0, 1, 2, 3, 4, 5, 6, 7, -1, -1, -1, 8, 9, 10, -1, -1, 11}, {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16}};
+		errorCount += UTILS.checkBoolean (true, UTILS.compare2dIntArrs(theDHS.getRuleCorrespondences(),corrRC),
+				"ERROR: ruleCorrespondences malformed.") ? 0 : 1; 
+		
 	}
 	
 	
