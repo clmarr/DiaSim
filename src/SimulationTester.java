@@ -1152,6 +1152,13 @@ public class SimulationTester {
 				+ "\n"+UTILS.print1dIntArr(theDHS.getRuleCorrespondences()[1])
 				+ "\nCorrect:\n"+UTILS.print1dIntArr(corrRC[0])+"\n"+UTILS.print1dIntArr(corrRC[1])+"\n") ? 0 : 1; 
 		
+		btg = theDHS.getBaseIndsToGlobal(); htg= theDHS.getHypIndsToGlobal(); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, btg.length == 11, "ERROR: base to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, htg.length == 16, "ERROR: hyp to global ind mapper has wrong dimensions"); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(btg, new int[] {0,1,2,3,4,5,6,7,11,12,13}), "ERROR: base to global ind mapper is malformed. Observed: "+UTILS.print1dIntArr(btg)); 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(htg, new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}), "ERROR: hyp to global ind mapper is malformed. Observed: "+UTILS.print1dIntArr(htg)); 
+		
+	
 	}
 	
 	
