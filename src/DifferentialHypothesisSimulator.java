@@ -564,18 +564,12 @@ public class DifferentialHypothesisSimulator {
 	 * @return the empty string "" if there is no difference.
 	 */
 	public String getDifferentialDerivation(int et_id) {
-		String baseDer = baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id);
-		if (baseDer.equals(hypDer))
-			return "";
-		
-
-		baseDer = globalizeDerivInds(baseDer, false);
-		hypDer = globalizeDerivInds(hypDer, true);
-
-		if (baseDer.equals(hypDer))
-			return "";
+		if(equivDerivsForEt(et_id))	return ""; 
 		// now we know they are indeed different -- so fill in info on how...
 
+		String baseDer = globalizeDerivInds(baseCascSim.getDerivation(et_id), false), 
+				hypDer = globalizeDerivInds(hypCascSim.getDerivation(et_id), true) ; 
+		
 		String[] bdlines = baseDer.split("\n"), hdlines = hypDer.split("\n");
 
 		assert bdlines[0].equals(hdlines[0]) : "Error: inconsistent initial line between two corresponding lexical derivations";
