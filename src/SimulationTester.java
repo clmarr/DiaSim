@@ -1234,30 +1234,18 @@ public class SimulationTester {
 						new int[] {2, 3, 4, 5, 8, 13, 14, 16, 17, 19, 24, 28, 30, 32, 33, 34, 39}), 
 				"ERROR : wrong etyma affected by last rule bundle...\nObserved: "+UTILS.print1dIntArr(theDHS.getEtsWithChangedDerivations()));
 		
-		
-		/** 
-		//TODO remaining stuff below. 
-		
-		//check DHS.changedDerivations
-		errorCount += chBoolPrIncIfError( getLineNumber(), true, 
-				UTILS.compare1dIntArrs(theDHS.getEtsWithChangedDerivations() ,
-						new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,26,29,30,31,33,35,36}), 
-				"ERROR: wrong etyma effected by last three rules in aggregate") ; 
-
-		//check DHS.changedRuleEffects -- should be unchanged, as we simply moved when the effect happened. 
 		CREs = theDHS.getChangedRuleEffects();
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 4,
-				"ERROR: incorrect comprehension of t-glot change plus Canadian raising for changedRuleEffects"); 
-	
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 8,
+				"ERROR: incorrect comprehension of changedRuleEffects"); 
+		
 		UTILS.errorSummary(errorCount);
 		totalErrorCount += errorCount; 
 		errorCount = 0; 
-	
-		//usurp. 
+		
 		DHSW.setHypOutLoc(DBG_WRKG_CASC); 
 		DHSW.acceptHypothesis(false);
 		CASCADE = curHC; 
-		curHC = null; dumCasc = null;		**/ 
+		curHC = null; dumCasc = null;
 	}
 	
 	
