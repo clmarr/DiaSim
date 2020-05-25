@@ -1215,7 +1215,23 @@ public class SimulationTester {
 				+ "14[-1|14] : fed or inserted | #fˈæ̃w̃nʔə̃n# > #fˈæ̃w̃ʔə̃n#\n" 
 				+ "Final forms : #fˈæ̃w̃nʔə̃n# | #fˈæ̃w̃ʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD), 
-				"ERROR: differential derivation for 'fountain' is malformed:\n"+theDHS.getDifferentialDerivation(4)); 
+				"ERROR: differential derivation for 'fountain' is malformed:\n"+theDHS.getDifferentialDerivation(4));
+		
+		// check DHS.locHasPrCh
+		corrPCLs = new boolean[16]; 
+		corrPCLs[7] = true;
+		corrPCLs[8] = true; 
+		corrPCLs[9] = true; 
+		corrPCLs[10] = true; 
+		corrPCLs[14] = true; 
+		corrPCLs[15] = true; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, 
+				UTILS.compare1dBoolArrs(corrPCLs, theDHS.getPrChLocs()), "ERROR: prCHLcos is malformed:\n"
+						+ "Correct: "+UTILS.print1dBoolArrAsIntArr(corrPCLs)+"\nObserved: "+UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())); 
+		
+		//TODO debugging
+		for(String[] pc : DHSW.getProposedChanges())
+			System.out.println(pc[0]+" : "+pc[1]+" : "+pc[2]); 
 	}
 	
 	

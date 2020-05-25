@@ -91,7 +91,7 @@ public class DifferentialHypothesisSimulator {
 		baseCascSim = b;
 		hypCascSim = h;
 		proposedChs = propdChanges;
-		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); // init ruleCorrespondences
+		computeRuleCorrespondences(baseToHypIndMap, hypToBaseIndMap); // init ruleCorrespondences and locHasPrCh
 
 		makeIndexGlobalizers(); // init baseRuleIndsToGlobal, hypRuleIndsToGlobal
 
@@ -169,7 +169,14 @@ public class DifferentialHypothesisSimulator {
 			List<String[]> propChs = new ArrayList<String[]> (proposedChs); 
 			while(pci < propChs.size())  // trim out 1-1 modifications, which are basically non-changes from the perspective of rule correspondences. 
 			{
-				if(propChs.get(pci)[2].contains("bijective modification")) propChs.remove(pci);
+				if(propChs.get(pci)[2].contains("bijective modification")) 
+				{
+					locHasPrCh[Integer.parseInt(propChs.get(pci)[0])] = true; 
+					System.out.println("locPrCh true at "+propChs.get(pci)[0]); 
+					System.out.println(propChs.get(pci)[1]); 
+					System.out.println(propChs.get(pci)[2]);
+					propChs.remove(pci);
+				}
 				else	pci++; 
 			}
 			pci = 0; 

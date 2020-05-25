@@ -633,12 +633,15 @@ public class DHSWrapper {
 		while (pci == 0 ? false : !foundTargSpot) {
 			String[] prevCh = proposedChanges.get(pci - 1);
 			int prevLoc = Integer.parseInt(prevCh[0]);
-			foundTargSpot = target > prevLoc || (target == prevLoc && ch[1].equals("deletion") && prevCh[1].equals("deletion")); 
+			foundTargSpot = target > prevLoc || 
+					(target == prevLoc  && prevCh[1].equals("deletion") 
+							&& (ch[1].equals("deletion") || prevCh[2].contains("bijective modification"))); 
 				// if prevCh[1] is a deletion, we don't want to confuse the effects of the two deletions, 
 						// which would occur if we put the new one after the old
 				// whereas if the deletion is pegged to a hypLoc that at the time represents a rule that was inserted and not present in the baseline
 						// this is bad form, but in order to properly execute the orders of the user, it must be placed *after* the rule was just inserted
 				// if the new rule is an insertion, meanwhile, it is unambiguously one that should be placed after any other with the same index at time of operation. 
+				// if the previous rule is a deletion that is part of a bijective modification, we also will place the new rule after it. 
 			if (!foundTargSpot) {
 				proposedChanges.set(pci - 1, new String[] { "" + (prevLoc + quantity), prevCh[1], prevCh[2] });
 				pci--;
