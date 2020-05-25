@@ -172,9 +172,6 @@ public class DifferentialHypothesisSimulator {
 				if(propChs.get(pci)[2].contains("bijective modification")) 
 				{
 					locHasPrCh[Integer.parseInt(propChs.get(pci)[0])] = true; 
-					System.out.println("locPrCh true at "+propChs.get(pci)[0]); 
-					System.out.println(propChs.get(pci)[1]); 
-					System.out.println(propChs.get(pci)[2]);
 					propChs.remove(pci);
 				}
 				else	pci++; 
@@ -570,11 +567,7 @@ public class DifferentialHypothesisSimulator {
 		String baseDer = baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id);
 		if (baseDer.equals(hypDer))
 			return "";
-		// passing here does not exclude the possibility of an identical derivation
-		// -- we will have to use ruleCorrespondences to ascertain that.
-		// we do this by changing the rule index numbers in both derivations to their
-		// "global" indices in ruleCorrespondences
-		// conveniently handled with mapping arrays
+		
 
 		baseDer = globalizeDerivInds(baseDer, false);
 		hypDer = globalizeDerivInds(hypDer, true);
@@ -685,7 +678,7 @@ public class DifferentialHypothesisSimulator {
 	// TODO plans to report any change in phonemic inventory.
 	// isHyp -- hypothesis not baseline
 	// der -- a derivation. 
-	private String globalizeDerivInds(String der, boolean isHyp) {
+	public String globalizeDerivInds(String der, boolean isHyp) {
 		int br = der.indexOf("\n");
 		String out = der.substring(0, der.indexOf("\n"));
 		String[] lines = der.substring(br + "\n".length()).split("\n");
@@ -1025,5 +1018,49 @@ public class DifferentialHypothesisSimulator {
 		} while (pci <= last_spot);
 		// if reached this point, failed to find it. 
 		return false; 
+	}
+	 
+	/**
+	 * auxiliary to getDifferentialDerivation etc. 
+	 * @return if there is a meaningful difference between the hyp and baseline cascades
+	 * 		it is not meaningful if the only difference is a bijective modification of a rule that did change the outcome 
+	 * 			for this etymon. 
+	 */
+	private boolean equivDerivsForEt(int et_id)
+	{
+		String baseDer = baseCascSim.getDerivation(et_id), hypDer = hypCascSim.getDerivation(et_id); 
+		if (baseDer.equals(hypDer))	return true; 
+		
+		// passing here does not exclude the possibility of an identical derivation
+				// -- we will have to use ruleCorrespondences to ascertain that.
+				// we do this by changing the rule index numbers in both derivations to their
+				// "global" indices in ruleCorrespondences
+				// conveniently handled with mapping arrays
+			// and afterwards we check for superficial differences that indicate a bijective modification (thus change in rule form)
+					// without any change in effect for this etymon .
+		baseDer = globalizeDerivInds(baseDer, false); 
+		hypDer = globalizeDerivInds(hypDer, true); 
+		if (baseDer.equals(hypDer))		return true; 
+		String[] hlns = hypDer.split("\n"), blns = baseDer.split("\n"); 
+		if(hlns.length != blns.length)	return false; 
+		
+		for (int li = 1; li < hlns.length; li++) {
+			String hli = hlns[li], bli = blns[li]; 
+			if (!hli.equals(bli)) {
+				if (hli.charAt(0) == '#' || bli.charAt(0) == '#') {
+					if (hli.charAt(0) != bli.charAt(0))	return false; 
+					String hfi = hli.substring(1, hli.substring(1).indexOf("#")) ,
+							bfi = bli.substring(1,bli.substring(1).indexOf("#"));
+					if(!hfi.equals(bfi))	return false; 
+					
+					int dlm = hli.indexOf("# | ") + 4; 
+					int h_glind = Integer.parseInt(hli.substring(dlm, dlm+hli.substring(dlm).indexOf(" : "))),
+							b_glind = Integer.parseInt(bli.substring(dlm, dlm+bli.substring(dlm).indexOf(" : "))) ;
+					if (h_glind != b_glind)	return false; 
+					//otherwise it is a case where a bijective modification did not change the rule in question's effect on this etymon
+				}
+			}
+		}
+		return true; 
 	}
 }
