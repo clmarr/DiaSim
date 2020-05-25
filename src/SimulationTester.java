@@ -1231,17 +1231,10 @@ public class SimulationTester {
 		
 		errorCount += chBoolPrIncIfError( getLineNumber(), true, 
 				UTILS.compare1dIntArrs(theDHS.getEtsWithChangedDerivations(),
-						new int[] {2, 3, 4, 5, 8, 13, 14, 16, 17, 19, 24, 28, 30, 32, 33, 34, 35, 39}), 
+						new int[] {2, 3, 4, 5, 8, 13, 14, 16, 17, 19, 24, 28, 30, 32, 33, 34, 39}), 
 				"ERROR : wrong etyma affected by last rule bundle...\nObserved: "+UTILS.print1dIntArr(theDHS.getEtsWithChangedDerivations()));
 		
-		//TODO debugging
-		System.out.println("base : "+theDHS.globalizeDerivInds(theDHS.baseCascSim.getDerivation(20), false)); 
-		System.out.println("\nhyp : "+theDHS.globalizeDerivInds(theDHS.hypCascSim.getDerivation(20), false));  
 		
-		System.out.println("base : "+theDHS.baseCascSim.getDerivation(2));
-
-		System.out.println("base : "+theDHS.globalizeDerivInds(theDHS.baseCascSim.getDerivation(2), false)); 
-
 		/** 
 		//TODO remaining stuff below. 
 		
