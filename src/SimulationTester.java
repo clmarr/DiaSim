@@ -1158,7 +1158,64 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(btg, new int[] {0,1,2,3,4,5,6,7,11,12,13}), "ERROR: base to global ind mapper is malformed. Observed: "+UTILS.print1dIntArr(btg)); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dIntArrs(htg, new int[] {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15}), "ERROR: hyp to global ind mapper is malformed. Observed: "+UTILS.print1dIntArr(htg)); 
 		
-	
+		//test divergence point.
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDivergencePoint() == 7,
+			"ERROR: divergence point should be 7 but it is "+theDHS.getDivergencePoint()) ; 
+
+		// testing lexical effects
+		// butter (et22) should be unaffected.
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(0).equals(""),
+				"ERROR: differential derivation for unaffected lexeme 'butter' should be an empty string but it is:\n"+theDHS.getDifferentialDerivation(22));
+		
+		corDD = "/fˈutɑn/\n" + 
+				"CONCORDANT UNTIL RULE : 7\n" + 
+				"7[7|-1] : #fˈutɑ̃n# > #fˈuɾɑ̃n# | bled or deleted\n" + 
+				"Waypoint 3 Gold : #fˈuɾɑ̃n# | #fˈutɑ̃n#\n" + 
+				"Final forms : #fˈuɾɑ̃n# | #fˈutɑ̃n#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(24).equals(corDD),
+				"ERROR: differential derivation of 'futan' is malformed:\n"+theDHS.getDifferentialDerivation(24)) ;
+		corDD = "/ɹˈɛjdɑn/\n" + 
+				"CONCORDANT UNTIL RULE : 7\n" + 
+				"7[7|-1] : #ɹˈɛjdɑ̃n# > #ɹˈɛjɾɑ̃n# | bled or deleted\n" + 
+				"8[-1|8] : fed or inserted | #ɹˈɛjdɑ̃n# > #ɹˈɛjɾɑ̃n#\n" + 
+				"Waypoint 3 Gold : #ɹˈɛjɾɑ̃n# | #ɹˈɛjɾɑ̃n#\n" + 
+				"Final forms : #ɹˈɛjɾɑ̃n# | #ɹˈɛjɾɑ̃n#"; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(33).equals(corDD),
+				"ERROR: differential derivation for 'radon' is malformed:\n"+theDHS.getDifferentialDerivation(33)); 
+		corDD = "/bihˈowldən/\n" + 
+				"CONCORDANT UNTIL RULE : 9\n" + 
+				"9[-1|9] : fed or inserted | #bihˈowlˠdə̃n# > #bihˈowlˠɾə̃n#\n" + 
+				"Waypoint 3 Gold : #bihˈowlˠdə̃n# | #bihˈowlˠɾə̃n#\n" + 
+				"12[9|12] : #bihˈowlˠdə̃n# > #bɨhˈowlˠdə̃n# | #bihˈowlˠɾə̃n# > #bɨhˈowlˠɾə̃n#\n" + 
+				"Final forms : #bɨhˈowlˠdə̃n# | #bɨhˈowlˠɾə̃n#"; 
+
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(28).equals(corDD),
+				"ERROR: differential derivation for 'beholden' is malformed:\n"+theDHS.getDifferentialDerivation(28));
+		
+		corDD = "/pˈændə˞/\n" + 
+				"CONCORDANT UNTIL RULE : 9\n" + 
+				"9[-1|9] : fed or inserted | #pʰˈæ̃ndə˞# > #pʰˈæ̃nɾə˞#\n" + 
+				"Waypoint 3 Gold : #pʰˈæ̃ndə˞# | #pʰˈæ̃nɾə˞#\n" + 
+				"15[-1|15] : fed or inserted | #pʰˈæ̃nɾə˞# > #pʰˈæ̃ɾə˞#\n" + 
+				"Final forms : #pʰˈæ̃ndə˞# | #pʰˈæ̃ɾə˞#"; 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(32).equals(corDD), 
+				"ERROR: differential derivation for 'pander' is malformed:\n" + theDHS.getDifferentialDerivation(32)); 
+		
+		corDD = "/mjˈutɪni/\n" + 
+				"CONCORDANT UNTIL RULE : 10\n" + 
+				"10[-1|10] : fed or inserted | #mjˈuʔɪ̃ni# > #mjˈuʔɪni#\n" + 
+				"11[8|-1] : #mjˈuʔɪ̃ni# > #mjˈuʔə̃ni# | bled or deleted\n" + 
+				"12[-1|12] : fed or inserted | #mjˈuʔɪni# > #mjˈuʔɨni#\n" + 
+				"Final forms : #mjˈuʔə̃ni# | #mjˈuʔɨni#";
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(14).equals(corDD), 
+				"ERROR: differential derivation for 'mutiny' is malformed:\n" + theDHS.getDifferentialDerivation(14)); 
+		
+		corDD = "/fˈæwntən/\n"
+				+ "CONCORDANT UNTIL RULE : 14\n"
+				+ "14[-1|14] : fed or inserted | #fˈæ̃w̃nʔə̃n# > #fˈæ̃w̃ʔə̃n#\n" 
+				+ "Final forms : #fˈæ̃w̃nʔə̃n# | #fˈæ̃w̃ʔə̃n#";			
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD), 
+				"ERROR: differential derivation for 'fountain' is malformed:\n"+theDHS.getDifferentialDerivation(4)); 
 	}
 	
 	
