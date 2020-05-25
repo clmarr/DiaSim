@@ -1265,7 +1265,7 @@ public class DHSWrapper {
 			boolean realization_complete = false; 
 			while (!realization_complete) {
 				// first - handle any leading blank lines or baseline stage declaration lines that were read in... 
-				while (UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n")))) {
+				while (UTILS.isJustSpace(readIn.contains("\n") ? readIn.substring(0, readIn.indexOf("\n") ): readIn )) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					linesPassed++;
 					out += readIn.substring(0, brkpt);
