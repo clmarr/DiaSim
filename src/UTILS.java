@@ -710,4 +710,9 @@ public class UTILS {
 		
 		return out; 
 	}
+	
+	public static boolean suffixIs(String str, String cand)
+	{
+		return str.substring(str.length()-cand.length()).equals(cand); 
+	}
 }
