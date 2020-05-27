@@ -1229,56 +1229,48 @@ public class DHSWrapper {
 
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChanges.size(); pci++) {
+			//TODO debugging
+			System.out.println("currPC:: "+proposedChanges.get(pci)[0] + " | " + proposedChanges.get(pci)[1] + " | " + proposedChanges.get(pci)[2]);
+			
 			int nxChRuleInd = Integer.parseInt(proposedChanges.get(pci)[0]) + effLocModifier;
 			boolean isDelet = proposedChanges.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
 
-			/**String stagesToSkip = "";
-			int prev_soi = soi, prev_igs = igs, prev_ibs = ibs ; 
-			int nSO = stagesOrdered.length; 
-			while (soi >= nSO ? false : nxChRuleInd > strToHypStageLoc(stagesOrdered[soi])) 
-			{
-				if(stagesOrdered[soi++].charAt(0) == 'g') igs++;
-				else ibs++ ; 
-			}
-			if (soi > prev_soi)
-			{
-				String last = stagesOrdered[soi-1];
-				stagesToSkip = last.charAt(0) == 'g' ? "g" + (igs - prev_igs) : "b" + (ibs - prev_ibs) ;
-			}**/
-			// else: there is no stage to skip, and stagesToSkip remains "";
-			
-			/**
-			if (!stagesToSkip.equals("")) {
-				int break_pt = brkPtForStageSkip(readIn, stagesToSkip);
-				// should end in "\n"
-
-				String hop = readIn.substring(0, break_pt);
-				linesPassed += hop.split("\n").length - 1; // minus 1 because of the final \n
-				readIn = readIn.substring(break_pt);
-				boolean sg = stagesToSkip.charAt(0) == 'g';
-				nxRuleInd = baseSimulation.getStageInstant(sg, sg ? igs : ibs);
-				
-				out += hop;
-			}**/
-
 			boolean realization_complete = false; 
 			while (!realization_complete) {
 				// first - handle any leading blank lines or baseline stage declaration lines that were read in... 
-				while (UTILS.isJustSpace(readIn.contains("\n") ? readIn.substring(0, readIn.indexOf("\n") ): readIn )) {
+				if (readIn.equals(""))	break;
+				
+				boolean lastLine = !readIn.contains("\n"); 
+				while (lastLine ? false : UTILS.isJustSpace(readIn.substring(0, readIn.indexOf("\n"))) ) {
 					int brkpt = readIn.indexOf("\n") + "\n".length();
 					linesPassed++;
 					out += readIn.substring(0, brkpt);
 					readIn = readIn.substring(brkpt);
+					lastLine = !readIn.contains("\n"); 
+				}
+				if(lastLine && UTILS.isJustSpace(readIn)) {
+					linesPassed++; 
+					out += readIn;
+					readIn = ""; 
+					break; 
 				}
 
 				String cmtBlock = "";
 				// if the next line is headed by the comment flag: absorb all consecutive comment lines in @varbl commentBlock
-				while (readIn.stripLeading().charAt(0) == CMT_FLAG) {
-					int brkpt = readIn.indexOf("\n") + "\n".length();
-					cmtBlock += readIn.substring(0, brkpt);
-					readIn = readIn.substring(brkpt);
+				while (readIn.equals("") ? false : readIn.stripLeading().charAt(0) == CMT_FLAG) {
 					linesPassed++;
+					if(!lastLine) {
+						int brkpt = readIn.indexOf("\n") + "\n".length();
+						cmtBlock += readIn.substring(0, brkpt);
+						readIn = readIn.substring(brkpt);
+						lastLine = !readIn.contains("\n"); 
+					}
+					else {
+						out += cmtBlock + readIn; 
+						readIn = ""; 
+						break; 
+					}
 				}
 			
 				//handle stage declarations as they should be placed as per the hyp casc that is getting accepted as the new baseline.
@@ -1290,10 +1282,15 @@ public class DHSWrapper {
 					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
 
 					out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
-						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
+						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] 
+								+ "\n";
 					nx_hyp_st++; 
 				}
 
+				if (lastLine)
+					if (STAGEFLAGS.contains(""+readIn.stripLeading().charAt(0)))
+						throw new RuntimeException("ERROR: cannot have stage on last line of cascade file."); 
+				
 				// if next line is either another blank line, another comment after blank line,
 				// or a stage, this iteration of loop is over
 				// handle stages (essentially: baseline stages) as troubleshooting
