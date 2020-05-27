@@ -1321,11 +1321,9 @@ public class DHSWrapper {
 				}
 				else // i.e. we are handling a line holding a rule (in the baseline)
 				{
-					int brkpt = readIn.indexOf("\n");
-					String ruleLine = readIn.substring(0, brkpt);
-
+					String ruleLine = lastLine ? readIn : readIn.substring(0, readIn.indexOf("\n"));
 					List<SChange> shiftsHere = fac.generateSoundChangesFromRule(ruleLine);
-					readIn = readIn.substring(brkpt + "\n".length());
+					readIn = lastLine ? "" : readIn.substring(readIn.indexOf("\n") + "\n".length());
 
 					if (!shiftsHere.get(0).toString().equals(baseSimulation.getRuleAt(nxRuleInd)+""))
 					{		throw new RuntimeException("Error : misalignment in saved CASCADE and its source file:\n"
@@ -1343,8 +1341,8 @@ public class DHSWrapper {
 							// and whether we are automodification or merely commenting mode.
 					{
 						realization_complete= true; 
-						String newCmt = comments.get(pci);
 						
+						String newCmt = comments.get(pci);
 						if (newCmt.length() > 0)
 							if (!UTILS.cmtIsStandardized(newCmt))
 								newCmt = UTILS.standardizeCmt(newCmt);
