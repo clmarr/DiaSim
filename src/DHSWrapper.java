@@ -1229,9 +1229,6 @@ public class DHSWrapper {
 
 		// iterate over each proposed change
 		for (int pci = 0; pci < proposedChanges.size(); pci++) {
-			//TODO debugging
-			System.out.println("currPC:: "+proposedChanges.get(pci)[0] + " | " + proposedChanges.get(pci)[1] + " | " + proposedChanges.get(pci)[2]);
-			
 			int nxChRuleInd = Integer.parseInt(proposedChanges.get(pci)[0]) + effLocModifier;
 			boolean isDelet = proposedChanges.get(pci)[1].equals("deletion");
 			// will be used to determine where we place new content with respect to comment blocks
