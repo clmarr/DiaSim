@@ -901,7 +901,7 @@ public class DiachronicSimulator {
 					+ "| 1 : Set focus point                                                                 |\n"
 					+ "| 2 : Set filter sequence                                                             |\n"
 					+ "| 3 : Query                                                                           |\n"
-					+ "| 4 : Confusion prognosis at evaluation point                                         |\n"
+					+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
 					+ "| 6 : Review results (stats, word forms, errors) at evaluation point (goes to submenu)|\n"
 					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
@@ -1148,7 +1148,7 @@ public class DiachronicSimulator {
 					}
 				}
 			}
-			else if(resp.equals("4"))	ea.confusionPrognosis(true);
+			else if(resp.equals("4"))	ea.confusionDiagnosis(true);
 			else if(resp.equals("5"))
 			{
 				if(!ea.isFiltSet())

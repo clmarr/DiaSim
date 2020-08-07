@@ -230,7 +230,7 @@ public class ErrorAnalysis {
 	}
 	
 	//@param get_contexts -- determine if we want to list the most problematic context info
-	public void confusionPrognosis(boolean get_contexts)
+	public void confusionDiagnosis(boolean get_contexts)
 	{
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
