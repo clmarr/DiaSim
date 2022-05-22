@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class FeatMatrix extends Phonic implements RestrictPhone {
 	
-	private char[] init_chArr; //retains mark of alpha values-- whereas they assume there functional values in featVect.
+	private char[] init_chArr; //retains mark of alpha values-- whereas they assume their functional values in featVect.
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
 		// despecification -- i.e. arising only because of feature implications,
@@ -331,7 +331,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public boolean has_alpha_specs()	{	return hasAlphSpecs;	} 
 	public boolean has_multispec_alph() {	return hasMultispecAlpha;	}
 	
-	// returns '1' if not set
+	// returns '0' if not set
 	// otherwise the first alpha value detected that has not become a number, in featVect
 	@Override
 	public char first_unset_alpha()
