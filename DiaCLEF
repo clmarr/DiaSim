@@ -2127,26 +2127,20 @@ $ CORRECTION: f > v has no effect here deleted  currently this rule has no effec
 $s > z / [-cons] __ [-cons]
 $f > v / [-cons] __ [-cons]
 
+$Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
+$ BASECLEF* CORRECTION: doesn't happen before j̃
+[+nas,-hi,+syl] > [+lo,+tense] / __ {#;[+cons]}
+
 $ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (regardless of stress)
 	$ Pope does notice this but she (likely incorrectly) attributes this to a "tendency" in Gallo-Roman 
 		$ and only conditions it on the following l or r
 	$ However if we condition it on a following a AFTER aw becomes round, and open a > ae̯ > eː 
 	$ then we hit every occurrence except irregular caveola > geole
-		$ -- i.e. craticula > grille, cranucula > grenouille, crappa > grappe, crassum > gras,
-		$ crassia > graisse, cladebos > glaive, classum > glas. 
+		$ -- i.e. craticula > gr(a>e>null)ille,  crassum > gras, crassia > graisse, classum > glas. 
 	$ by placing it here, we also do not accidentally hit as that become o later, and do not trigger the shift:
 		$ i.e. clavem > clef, clavum > clou
 	$ ... or those that become ae̯ : clarum > cler, etc. 
-	$ attestation info from TLFi:
-		$ the following were never attested with "c" --
-			$ glas 1140, grappe 1121, grasse 1170 ("crasse" only as rare form in 1300s later), grenouille 1225 etc
-		$ graisse -- "craisse" around 1100, but by 1150 was graisse
-	$ We know it must come before ɛ̃>ã, however, so it doesn't get feed overgeneralization
 k > ɡ / # __ [+cor,+son] [+lo]
-
-$Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
-$ BASECLEF* CORRECTION: doesn't happen before j̃
-[+nas,-hi,+syl] > [+lo,+tense] / __ {#;[+cons]}
 
 $ Pope s500 -- ir > ie̯r when stressed and before consonants. 
 $ feeds ie̯ >je shift in 12th century, must precede it.
@@ -2347,6 +2341,7 @@ $ Place this before Pope s528-529 because of cases of verre and tonnerre (aj > �
 
 $Pope s528-529: aj > ɛj when praeconsonantal
 $Pope does not give a specific date. Makes sense to be here, given spellings ˌai" for wɛ >ɛ later...
+$ note post facto-- Rheinfelder 1976 (:s272- 279, pp 105-108) also attributes this to 12th-13th cents.  
 $ CORRECTION: include also cases of ˌej 
 [+syl,-round,-hi] > [-lo,-tense] / __ j [+cons] 
 
@@ -2362,7 +2357,8 @@ $ currently suppressed as has no targets anymore.
 $ {y j;ˌy j;ˈy j} > {ɥ i;ɥ ˌi;ɥ ˈi} / [+cons,+back] __ #
 
 $ s166.8 ~ s192 : deletion of w in kw,gw. 
-$ ɥ also deleted after k,g at this time (s516) As per s192, late 12th century.
+$ ɥ also deleted after k,g at this time (s516) 
+$ As per s192, late 12th century.
 [-syl,+round] > ∅ / [+back,-cont] __ 
 
 $ s556  ɥø > jø is bled after labials and velars. Velars have already been covered by the rule above.
@@ -2421,12 +2417,12 @@ $ s518-521 : uɛ̯,ɔɛ̯ > wɛ
 $ s519: late 12th and 13th centuries. 
 {u ɛ̯;ˌu ɛ̯;ˈu ɛ̯;ɔ ɛ̯;ˌɔ ɛ̯;ˈɔ ɛ̯} > {w ɛ;w ˌɛ;w ˈɛ;w ɛ;w ˌɛ;w ˈɛ} 
 
-$ CORRECTION: depalatalization of tj after a syllabic elemnnt
+$ CORRECTION: depalatalization of tj after a syllabic element
 t̪ʲ > t̪ / [+syl] __
 
 $s409ii ~ s239 : y emits j before non-high unrounded palatal vowels with at least some stress (stress part inferred from s239, which is cited by Pope)
 $ CORRECTION: this does not appear to be useful and in fact seems harmful
-	$ Pope's only example is the verb exsucare going to essuyer -- but hte j there could have been from ɣ
+	$ Pope's only example is the verb exsucare going to essuyer -- but the j there could have been from ɣ
 $ ∅ > j / [+hi,+front,+round,+syl] __ [+stres,+front,-hi,-round]
 
 $s503 ~ s514-517: yj >ɥi everywhere not already mutated.

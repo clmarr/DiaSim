@@ -1,6 +1,6 @@
 # README.rules :
 
-This file details how to properly construct a ruleset file so that it can be read by DiaSym.
+This file details how to properly construct a cascade file so that it can be read by DiaSym.
 
 The file should be a ".txt" file, with each non-blank and non-commented line consisting of either a rule or a stage flag. 
 
@@ -11,11 +11,13 @@ The set is ordered in that each of its rules operates after the one before it an
 This fact is of special importance where bleeding, feeding, counterbleeding, and counterfeeding phenomena are concerned.
 Each of these diachronic rules is considered by the Neogrammarian tradition (and thus DiaSim) to be regular.
 This means that they effect a distinct segment in a predictable way, perhaps operating only in a certain context. 
-When "rules" are not regular in ways not "regularizable" by specifying context, they are held to be due to various non-phonetic motivations, including syntactic interference, analogy, sociolinguistic prestige, restoration, hypercorrection, folk analogy, morphoological interference, and so forth.
+When "rules" are not regular in ways not "regularizable" by specifying context, they are held to be due to various non-phonetic motivations, including syntactic interference, analogy, sociolinguistic prestige, restoration, hypercorrection, folk analogy, morphological interference, and so forth.
 These exceptional cases are not of interest for the use of DiaSim and are (unfortunately) impossible to model using only phonological means; DiaSim is a purely phonological model. 
 The ruleset file is precisely this ordered set of rules, additionally with ordered declarations of "stages" where they exist among the rules optionally in use, if the user so desires.
 
 # STAGE FLAGGING: 
+
+(fill...) 
 
 # COMMENTING:
 One flags a comment by using the dollar sign "$", just like in the lexicon file.

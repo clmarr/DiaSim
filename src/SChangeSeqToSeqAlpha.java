@@ -50,6 +50,10 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 			// i -- place in targ source abstraction. 
 			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
 			{
+				//TODO debugging
+				System.out.println("cand : "+input.get(p+i));
+				System.out.println("test : "+targSource.get(i));
+				
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
 				
@@ -60,7 +64,14 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
 					else
 					{
+						//TODO debugging
+						System.out.println("no alpha conflict detected.");
+						
 						HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
+						//TODO debugging
+						System.out.println("type of test : "+test.getClass());
+						System.out.println("length of alphHere "+alphHere.size());
+						
 						for (String alph: alphHere.keySet())  //there will be no replacements since check_for_alpha_conflict was false.
 							ALPH_VARS.put(alph,alphHere.get(alph)); 
 						need_to_reset = true;
@@ -68,6 +79,8 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						mapAlphVals(); 
 					}
 				}
+				//TODO debugging
+				System.out.println("TargMatchFail: "+targMatchFail); 
 				targMatchFail = targMatchFail ? true : !test.compare(cand); 
 			}
 			if (!targMatchFail) //target matched
