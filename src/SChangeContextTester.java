@@ -125,7 +125,7 @@ public class SChangeContextTester {
 		//TODO debugging
 		System.out.println("Done extracting feature implications!");
 		
-		System.out.println("Beginning test of context functions");
+		System.out.println("\nBeginning test of context functions...");
 		
 		String W = "[-"+featsByIndex[0]+"]", X = "[+"+featsByIndex[0]+"]";
 		String Y = "[-"+featsByIndex[1]+"]", Z = "[+"+featsByIndex[1]+"]";
@@ -138,25 +138,26 @@ public class SChangeContextTester {
 		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		System.out.println("And it is ...\n"+testFactory.forceParenSpaceConsistency(testString0));
 		
-		System.out.println("After expanding the plus parens, it should now be : "); 
+		System.out.println("\nAfter expanding the plus parens, it should now be : "); 
 		System.out.println(W+" ( "+X+" ( "+Y+" ) "+Z+" ( "+Z+" )* ( "+W+" "+Y+" )* )");
 		
 		System.out.println("And it is ...\n"+testFactory.expandOutAllPlusses(testFactory.forceParenSpaceConsistency(testString0)));
 				
 		SequentialFilter testInstance0 = testFactory.parseNewSeqFilter(
 				testFactory.forceParenSpaceConsistency(testString0), false); 
-		System.out.println("Testing parseNewContext and associated methods");
+		System.out.println("\nTesting parseNewContext and associated methods");
 		System.out.println("The following should be 1: "+testInstance0.generateMinSize()); 
 				
 		System.out.println("The following should be : ");
 		System.out.println(W+" "+X+" "+Y+" "+Z+" "+W+" "+Y+" ");
+		System.out.println("And it is... "); 
 		List<RestrictPhone> prstrs = testInstance0.getPlaceRestrs(); 
 		for (RestrictPhone prstr : prstrs)
 			System.out.print(prstr+" ");
 		
-		System.out.println("The following should be ...");
+		System.out.println("\nThe following should be ...");
 		System.out.println("i0 (:14,2 i1 (:5,1 i2 ):3,1 i3 *(:9,1 i4 )*:7,1 *(:13,2 i5 i6 )*:10,2 ):1,2 ");
-		
+		System.out.println("And it is... ");
 		String[] parenMap = testInstance0.getParenMap();
 		for(String pl : parenMap)	System.out.print(pl+" ");
 		System.out.println("");
