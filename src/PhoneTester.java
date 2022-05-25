@@ -15,8 +15,6 @@ import java.util.Arrays;
  *
  */
 
-//TODO purge Albanian variable names.
-
 public class PhoneTester {
 	
 	public static void main(String args[]) throws IOException
@@ -159,22 +157,22 @@ public class PhoneTester {
 		System.out.println(voicedStop.compare(testPhone)); 
 		
 		//testing whether featSpecs is stored properly in the FeatMatrix object instance 
-		String marreveshjet = ""; 
-		for(int i = 0; i < feats.length; i++)	marreveshjet += "1";
+		String agreements = ""; 
+		for(int i = 0; i < feats.length; i++)	agreements += "1";
 		
-		String[] kushtetETipareve = new String[]{"-cont","-delrel","+voi"}; 
+		String[] feature_stipulations = new String[]{"-cont","-delrel","+voi"}; 
 		
-		for(int indeksKushti = 0; indeksKushti < kushtetETipareve.length; indeksKushti++)
+		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
 		{
-			String kushti = kushtetETipareve[indeksKushti]; 
-			String tipari = kushti.substring(1); 
-			boolean ndershmeria = kushti.charAt(0) == '+'; 
-			int vendTipari = featureIndices.get(tipari);
-			marreveshjet = marreveshjet.substring(0, vendTipari) + 
-					(ndershmeria ? 2 : 0) + marreveshjet.substring(vendTipari); 
+			String curr_stip = feature_stipulations[fsi]; 
+			String curr_feat = curr_stip.substring(1); 
+			boolean integrity = curr_stip.charAt(0) == '+'; 
+			int featLoc = featureIndices.get(curr_feat);
+			agreements = agreements.substring(0, featLoc) + 
+					(integrity ? 2 : 0) + agreements.substring(featLoc); 
 		}
 		
-		System.out.println("The following should be '"+marreveshjet+"'");
+		System.out.println("The following should be '"+agreements+"'");
 		System.out.println(voicedStop.getFeatVect());
 		
 		System.out.println("The following should be 'b'");
