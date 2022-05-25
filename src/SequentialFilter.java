@@ -144,7 +144,7 @@ public class SequentialFilter {
 	 * 3) We have a disjunctive parenthetical statement ending here -- see subcases
 	 * 		3a) If the min number of places in the paren is more than the remaining possible length
 	 * 			3a1) If we are dealing with a plussed paren -- immediately return false
-	 *			PLUSSED PARENS NO LONGER SUPPORTED  --- 3a2) Else return whehter we can reach a true value if we hop to before beginning of this paren structure
+	 *			PLUSSED PARENS NO LONGER SUPPORTED  --- 3a2) Else return whether we can reach a true value if we hop to before beginning of this paren structure
 	 *		3b) else 
 	 *			3b1) If the paren is a normal paren or a starred paren,
 	 *					 first check if we can get a true value by excluding it (i.e. hop to be before the opening

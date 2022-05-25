@@ -142,14 +142,15 @@ public class SChangeContextTester {
 		System.out.println(W+" ( "+X+" ( "+Y+" ) "+Z+" ( "+Z+" )* ( "+W+" "+Y+" )* )");
 		
 		System.out.println("And it is ...\n"+testFactory.expandOutAllPlusses(testFactory.forceParenSpaceConsistency(testString0)));
-				
+		
 		SequentialFilter testInstance0 = testFactory.parseNewSeqFilter(
 				testFactory.forceParenSpaceConsistency(testString0), false); 
 		System.out.println("\nTesting parseNewContext and associated methods");
 		System.out.println("The following should be 1: "+testInstance0.generateMinSize()); 
 				
 		System.out.println("The following should be : ");
-		System.out.println(W+" "+X+" "+Y+" "+Z+" "+W+" "+Y+" ");
+		System.out.println(W+" "+X+" "+Y+" "+Z+" "+Z+" "+W+" "+Y+" ");
+		System.out.println("("+Z+" will be repeated iff we are internally converting plussed parens to sequences of raw place restriction + starred paren, which is currently the case as of May 2022.)");
 		System.out.println("And it is... "); 
 		List<RestrictPhone> prstrs = testInstance0.getPlaceRestrs(); 
 		for (RestrictPhone prstr : prstrs)
