@@ -1,5 +1,12 @@
 import java.util.List;
 
+/** 
+ * 
+ * @author Clayton Marr
+ * used originally for debugging purposes, to ensure that the reading of all three original cascades
+ * 	included comprehension of at least one rule with both prior and posterior context stipulations. 
+ * TODO: possibly remove from public ready version. 
+ */
 
 public class ContextTester {
 	

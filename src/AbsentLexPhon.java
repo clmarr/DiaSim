@@ -14,7 +14,6 @@ public class AbsentLexPhon extends LexPhon {
 	public List<SequentialPhonic> getPhonologicalRepresentation()	{	return null;	}
 	
 	public int findPhone(Phone ph)	{	return -1;	}
-
 	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
