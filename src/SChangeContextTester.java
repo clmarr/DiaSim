@@ -383,6 +383,7 @@ public class SChangeContextTester {
 		dummyTestList.add(new Boundary("word bound")); 
 		System.out.println("__ C B D D # should be FALSE : "+testContext.isPosteriorMatch(dummyTestList, 1));
 		
+		//TODO but ... what was I doing here? 
 		//TODO below is abrogated
 		//TODO finish this 
 		/**
