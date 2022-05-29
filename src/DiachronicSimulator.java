@@ -47,7 +47,8 @@ public class DiachronicSimulator {
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
-	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages; 
+	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages, 
+		no_feat_impls; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -112,6 +113,8 @@ public class DiachronicSimulator {
 	public static void extractFeatImpls()
 	{
 		featImplications = new HashMap<String, String[]>(); 
+		
+		if (no_feat_impls)	return; 
 		
 		String nextLine; 
 		
@@ -1343,7 +1346,7 @@ public class DiachronicSimulator {
 	// flags: -r : debug rule processing
 	//		  -d : debugging mode -- TODO implement
 	//		  -p : print words every time they are changed by a rule
-	//		  -e : (explicit) do not use feature implications -- TODO implement
+	//		  -e : (explicit) do not use feature implications
 	//		  -h : halt at stage checkpoints
 	//		  -i : ignore stages
 	private static void parseArgs(String[] args)
@@ -1365,6 +1368,7 @@ public class DiachronicSimulator {
 		DEBUG_RULE_PROCESSING = false; 
 		DEBUG_MODE = false; 
 		print_changes_each_rule = false;
+		no_feat_impls = false; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1433,6 +1437,10 @@ public class DiachronicSimulator {
 						case 'r':
 							DEBUG_RULE_PROCESSING = true;
 							if (vflag)	System.out.println("Debugging rule processing.");
+							break; 
+						case 'e': 
+							no_feat_impls = true; 
+							if (vflag)	System.out.println("Ignoring any feature implications.");
 							break; 
 						case 'd':
 							DEBUG_MODE = true;
