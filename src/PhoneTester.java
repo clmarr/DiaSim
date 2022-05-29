@@ -163,15 +163,16 @@ public class PhoneTester {
 		for(int i = 0; i < feats.length; i++)	agreements += "1";
 		
 		String[] feature_stipulations = new String[]{"-cont","-delrel","+voi"}; 
+			// i.e. the stipulations of a voiced stop. 
 		
 		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
 		{
 			String curr_stip = feature_stipulations[fsi]; 
 			String curr_feat = curr_stip.substring(1); 
-			boolean integrity = curr_stip.charAt(0) == '+'; 
+			boolean positivity = curr_stip.charAt(0) == '+'; 
 			int featLoc = featureIndices.get(curr_feat);
 			agreements = agreements.substring(0, featLoc) + 
-					(integrity ? 2 : 0) + agreements.substring(featLoc); 
+					(positivity ? 2 : 0) + agreements.substring(featLoc+1); 
 		}
 		
 		System.out.println("The following should be '"+agreements+"'");
