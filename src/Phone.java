@@ -4,7 +4,8 @@ import java.util.Set;
 import java.util.ArrayList;
 
 
-// as of May 25, this class is now implementing the RestrictPhone interface, so that Phones can be used along with 
+// as of May 25 (I'm pretty sure this was 2018, if this note is still relevant), 
+	// this class is now implementing the RestrictPhone interface, so that Phones can be used along with 
 // FeatMatrixes in otherwise feature-specified structures-- in practice the only place it seems to make sense
 // to use this capability seems for context specification. 
 

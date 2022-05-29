@@ -42,6 +42,7 @@ public class PhoneTester {
 			e.printStackTrace();
 		}
 		
+		// feats -- feature names as defined in input file 
 		feats = lines.get(0).replace("SYMB,","").split(","); 
 		firstFeat = feats[0];
 		
@@ -111,9 +112,11 @@ public class PhoneTester {
 		Phone badProxyP = new Phone(symbsToFeatures.get("p"), featureIndices, symbsToFeatures); 
 		String badProxyFeats = badProxyP.getFeatString(); 
 		String featIndices = testPhone.getFeatString(); 
+		// recall that testPhone is in fact /p/ -- so we are simply zeroing a single featureb below. 
 		int randFeatIndex = (int)(Math.random() * testPhone.getFeatIndices().size()); 
-		badProxyFeats = badProxyFeats.substring(0, randFeatIndex) + 
-				((featIndices.charAt(randFeatIndex) == UTILS.POS_INT) ? UTILS.NEG_INT : UTILS.POS_INT) + badProxyFeats.substring(randFeatIndex); 
+		badProxyFeats = badProxyFeats.substring(0, randFeatIndex) 
+				+ ((featIndices.charAt(randFeatIndex) == UTILS.POS_INT) ? UTILS.NEG_INT : UTILS.POS_INT) 
+				+ badProxyFeats.substring(randFeatIndex+1); 
 		System.out.println(testPhone.equals(new Phone(badProxyFeats, featureIndices, symbsToFeatures))); 
 		
 		System.out.println("Following output should be 'false'"); 
@@ -127,7 +130,6 @@ public class PhoneTester {
 		List<SequentialPhonic> listylist = new ArrayList<SequentialPhonic>(); 
 		listylist.add(proxy2);
 		listylist = testPhone.forceTruth(listylist, 0);
-		System.out.println(""+listylist.get(0));
 		System.out.println("Following should be 'true'"); 
 		System.out.println(testPhone.equals(listylist.get(0)));
 		
