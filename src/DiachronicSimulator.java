@@ -1466,7 +1466,7 @@ public class DiachronicSimulator {
 			}
 		}
 		if (i != args.length || no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-rdphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
 	}
 	
 	private static void printRuleAt(int theInd)
