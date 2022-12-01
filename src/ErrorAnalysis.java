@@ -486,6 +486,7 @@ public class ErrorAnalysis {
 		{
 			
 			//TODO need to fix error here. 
+				//TODO what was the error? 
 			
 			LexPhon[] curPair = pairsWithConfusion.get(i); 
 			

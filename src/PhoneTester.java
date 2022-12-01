@@ -208,6 +208,7 @@ public class PhoneTester {
 		//TODO will need to add in many more testing statements 
 		// if feature implications and feature translations are ever implemented
 		// ... in order to ensure that these are working properly 
+		// ... TODO I think these were done in the end? Check? 
 	
 	}
 }

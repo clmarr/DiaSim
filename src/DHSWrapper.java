@@ -58,7 +58,7 @@ public class DHSWrapper {
 	// 		... and time steps are kept updated as changes are made elsewhere
 	// sorting is from earliest time step, to latest timestep
 	// operation may be either deletion or insertion
-	// 		both relocdation and modification are handled as deletion then insertion pairs.
+	// 		both relocdation (i.e. relocation to a different "date", in the relative chronology) and modification are handled as deletion then insertion pairs.
 	// for deletion, the second slot simply holds the string "deletion"
 	// whereas for insertion, the second index holds the string form
 	// 	of the SChange that is inserted there in hypCASC.
