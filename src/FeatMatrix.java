@@ -15,12 +15,14 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private String featSpecs, initSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
 		// will always return to initSpecs after alphas are reset. 
 		// initSpecs, once set, must not under any circumstance be changed.
+		// featSpecs, meanwhile, changes when an alpha value is set... 
+			//TODO need to ascertain this actually works... 
 	
 	private List<String> ordFeats; 
 	
 	private HashMap<String, String[]> featImpls; 
 	
-	private String LOCAL_ALPHABET; // for handling alpha notation 
+	private String localAlphabet; // for handling alpha notation 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultispecAlpha; 	
@@ -38,7 +40,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String, String[]> ftImpls)
 	{
 		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
-		LOCAL_ALPHABET = "";
+		localAlphabet = "";
 		hasMultispecAlpha = false;
 		type = "feat matrix";
 		featSpecs=specs+""; 
@@ -60,7 +62,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			boolean is_alph = !"-+0".contains(indic); 
 		
 			if (is_alph)
-			{	if (!LOCAL_ALPHABET.contains(indic))	LOCAL_ALPHABET += indic; 
+			{	if (!localAlphabet.contains(indic))	localAlphabet += indic; 
 				else	hasMultispecAlpha = true;
 			}
 			String feat = sp.substring(1); 
@@ -76,7 +78,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			
 		}
 		featVect = new String(init_chArr); 
-		hasAlphSpecs = LOCAL_ALPHABET.length() > 0; 
+		hasAlphSpecs = localAlphabet.length() > 0; 
 	}
 		
 	/**
@@ -249,7 +251,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	// should always be called before extract_alpha_values
-	// bounds do not matter for our purposes here -- checking for alpha impossibility in multiphone itmes should skip over juncture phones. 
+	// bounds do not matter for our purposes here -- checking for alpha impossibility in multiphone itmes should skip over juncture phones (i.e. word bounds etc) 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
@@ -336,8 +338,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	public char first_unset_alpha()
 	{
-		if (LOCAL_ALPHABET.length() > 0)
-			for (char c : LOCAL_ALPHABET.toCharArray())
+		if (localAlphabet.length() > 0)
+			for (char c : localAlphabet.toCharArray())
 				if(featVect.contains(""+c))	return c; 
 		
 		return '0';
@@ -345,4 +347,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	public String getStrInitChArr()
 	{	return String.copyValueOf(init_chArr);	}
+	
+	public String getLocalAlphabet()
+	{	return localAlphabet;	}
+	
 }

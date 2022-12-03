@@ -364,7 +364,7 @@ public class SChangeTester {
 				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
 				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' but it is "
 						+ UTILS.printWord(result)) ? 1 : 0; 
-		System.out.println("Done testing alpha feature comprehension. Got "+numCorrect+" correcr out of 11."); 
+		System.out.println("Done testing alpha feature comprehension. Got "+numCorrect+" correct out of 11."); 
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
