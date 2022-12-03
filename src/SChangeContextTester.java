@@ -123,6 +123,7 @@ public class SChangeContextTester {
 		}
 		
 		//TODO debugging
+		//TODO wait -- is this "debugging" i.e. that should be deleted once errors are fixed, or is this part of the permanent code for the debugger class? 
 		System.out.println("Done extracting feature implications!");
 		
 		System.out.println("\nBeginning test of context functions...");

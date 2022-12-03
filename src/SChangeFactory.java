@@ -38,9 +38,10 @@ public class SChangeFactory {
 	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]
+	
 	//private final char featVectDelim = ','; //delimiter between features in a FeatMatrix's internal feature vector
 		// or a Phone class' feature Vector
-		//TODO currently abrogated
+		//TODO featVectDelim is currently abrogated
 	
 	private final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~","0"};
 	

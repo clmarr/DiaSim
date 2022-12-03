@@ -69,7 +69,7 @@ public class DHSWrapper {
 	// can think of all but the last index as referring to the next rule's spot
 	// since that is how operations will call that rule
 	// and the final "index" as referring to the end state.
-	private int[] RIM_HB; // like above, but operating the otherway (so -1 means inserted etc etc)
+	private int[] RIM_HB; // like above, but operating the other way (so -1 means inserted etc etc)
 
 	private int[] hypGoldLocs;
 	private int[] hypBlackLocs;
@@ -90,7 +90,7 @@ public class DHSWrapper {
 	// because if any proposedChange that has an uneven effect on mapping
 	// i.e. anything but a relocdation or bijective relocdation
 	// is before one or both of the baseline and hyp indices
-	// then the original mapping that woudl be used to identify (hi == bi for modif,
+	// then the original mapping that would be used to identify (hi == bi for modif,
 	// map[hi] == bi && map[bi] == hi for relocdation)
 	// ... will be disturbed.
 

@@ -43,7 +43,7 @@ public class Lexicon {
 	public HashMap<String, Integer> getPhoneFrequenciesByWord()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
-		for (LexPhon lex : theWordList) //TODO make sure this way of iterating is legit through an array
+		for (LexPhon lex : theWordList)
 		{
 			List<SequentialPhonic> lexPhonRep = lex.getPhonologicalRepresentation();
 			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 

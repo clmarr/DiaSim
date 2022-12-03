@@ -602,6 +602,7 @@ public class ErrorAnalysis {
 	}
 	
 	//TODO replace with actual alignment algorithm
+		//TODO (Dec 3 2022) in what capacity was this done? 
 	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
 	{
 		featDist.compute(r,g); //TODO may need to change insertion/deletion weight here!
