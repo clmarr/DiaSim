@@ -24,9 +24,9 @@ public class SequentialFilter {
 	 * 		in placeRestrs
 	 * cells with paren markers { (, ), *(, )*, } indicate where parens open and close
 	 * 		relative to those indices in parenMap
-	 * 		the number on the inside of hte paren indicates which index IN PARENMAP 
+	 * 		the number on the inside of the paren(thesis) indicates which index IN PARENMAP 
 	 * 			is where the corresponding opening or closing paren lies. 
-	 * TODO Note as of July 12
+	 * TODO Note as of July 12 2018
 	 * when this is entered, in order to save time, the min number of places within each paren window
 	 * 		are calculated using the auxiliary method 
 	 * 
@@ -514,7 +514,7 @@ public class SequentialFilter {
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
 	
-	//TODO keep around for possible debugging purposes
+	//TODO abrogated, but kept around for possible debugging purposes
 	/**
 	private static String printParenMap(SChangeContext testCont)
 	{

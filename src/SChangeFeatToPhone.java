@@ -2,7 +2,8 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap; 
 
-//TODO Note: is assumed when using this class, that bounds matter
+//TODO Note: it is assumed when using this class, that bounds matter 
+	// (i.e. word bound #, potentially also a morpheme boundary if that is coded in to the input...)
 // this is necessary for pragmatic purposes. 
 public class SChangeFeatToPhone extends SChange{
 	

@@ -188,7 +188,7 @@ public class Simulation {
 	}
 	
 	//TODO : method to simulate until manual halting point?
-	
+		// TODO did I do this? I think so... 
 	public void simulateToNextStage()
 	{
 		int prevgsi = goldStageInd + 0 , prevbsi = blackStageInd + 0 ;

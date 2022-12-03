@@ -17,7 +17,7 @@ The ruleset file is precisely this ordered set of rules, additionally with order
 
 # STAGE FLAGGING: 
 
-(fill...) 
+(fill... usage of ~, interaction with the lexicon file, cf FLLAPS versus FLLex...) 
 
 # COMMENTING:
 One flags a comment by using the dollar sign "$", just like in the lexicon file.
@@ -101,7 +101,7 @@ Only a posterior context will be specified for a sound change conditioned only o
 [+lat] > ɫ / __ [+cons]
 ```
 
-Another example would be the cluster simplification of /skl/ to /sl/ in the predecessor to French -- hence why Latin MASCVLVS became Early Old French *masle*, whence *mâle* "male". This happened at the same time as /rgl/ > /rl/ cluster simplification as per Pope 1934, so they are placed in a single disjunctive rule, making use of the curly braces as supported for this by DiaSim, and used elsewhere in the field (see the appropriate subsections of *Supported notation for phonetic information*): 
+Another example would be the cluster simplification of /skl/ to /sl/ in the predecessor to French -- hence why Latin MASCVLVS became Early Old French *masle* (and not *mascle*, as it would have otherwise...), whence *mâle* "male". This happened at the same time as /rgl/ > /rl/ cluster simplification as per Pope 1934, so they are placed in a single disjunctive rule, making use of the curly braces as supported for this by DiaSim, and used elsewhere in the field (see the appropriate subsections of *Supported notation for phonetic information*): 
 
 ```
 {s k;r ɡ} > {s;r} / __ l
@@ -125,7 +125,9 @@ Likewise, the opening of final voiceless velar stops [k] to fricatives [x] word-
 
 ```
 k > x / [+syl] __ # 
-``` 
+```
+
+
 
 ## SUPPORTED NOTATION FOR PHONETIC INFORMATION: 
 
@@ -135,6 +137,9 @@ k > x / [+syl] __ #
 ### SYMBOLS FOR PHONES
 
 (elaborate...) 
+
+
+SymbolDefs.csv... 
 
 BROADLY IPA, BUT ... NOTE MARKER OF STRESS ON THE VOWEL IN THIS SYSTEM
 
@@ -147,14 +152,18 @@ BROADLY IPA, BUT ... NOTE MARKER OF STRESS ON THE VOWEL IN THIS SYSTEM
 
 (elaborate...) 
 
-#TODO MAKE REMARK ~ don't confuse ∅ and ø
+TODO don't confuse ∅ and ø
 
 (elaborate...) 
 
 ### PHONETIC FEATURE NOTATION:
 
-
 (elaborate...) 
+
+
+SymbolDefs.csv
+FeatTranslations
+FeatImplications
 
 ### ALPHA FEATURE NOTATION:
 

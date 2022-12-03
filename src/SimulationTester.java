@@ -142,7 +142,7 @@ public class SimulationTester {
 		
 		//TODO check other methods in ErrorAnalysis -- i.e. diagnostics. 
 			// or do this later? 
-		
+			// TODO make sure this was done... (Dec 2022) 
 		UTILS.errorSummary(errorCount); 
 		
 		testSimul.simulateToNextStage();
@@ -156,9 +156,9 @@ public class SimulationTester {
 		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldStageGoldWordlists[0], testSimul.getCurrentResult().getWordList()); 
 
 		//TODO check modification methods in DiachronicSimulator -- or do this later? 
-				
+				//TODO make sure this was/is done. (Dec 2022) 
 		testSimul.simulateToNextStage();
-		//TODO check going to first black
+		//TODO check going to first black // TODO check this was/is done (Dec 2022) 
 		totalErrorCount += errorCount; 
 		errorCount = 0 ;
 		System.out.println("Checking Waypoint 1 (black box mode)"); 
@@ -171,6 +171,7 @@ public class SimulationTester {
 		errorCount = 0; 
 		
 		// TODO checks after skipping final gold stage before the end
+			//TODO check this was/is implemented (Dec 2022) 
 		System.out.println("Checking at final waypoint, a gold stage."); 
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected"); 
 		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1), featsByIndex, 
@@ -674,9 +675,11 @@ public class SimulationTester {
 						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ;
 
 		//TODO when have time, find good way to test theDHS.changedDerivations here. 
+			//TODO check this was/is done (Dec 2022) 
 		
 		//checking DHS.changedRuleEffects
 		//TODO may need to expand coverage to match what we have for previous tests... 
+			//TODO check this was/is done (Dec 2022) 
 		CREs = theDHS.getChangedRuleEffects();
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, CREs.keySet().size() == 2,  
 				"ERROR : size of hashmap changedRuleEffects should be 2 but it is"+CREs.keySet().size()) ;
@@ -916,7 +919,7 @@ public class SimulationTester {
 				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
 				"Final forms : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#";
 			// TODO maybe this one should not really be different between the basline and hyp at all... 
-					// since there is no material differencec really, just the same things happening in a different order
+					// since there is no material difference really, just the same things happening in a different order
 						// to obtain the same results by the next waypoint... 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
 				"ERROR: derivation of 'heighten' is malformed:"

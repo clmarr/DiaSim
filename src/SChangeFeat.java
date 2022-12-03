@@ -159,6 +159,7 @@ public class SChangeFeat extends SChange {
 			output += "∅";
 		else	output += destination.print().equals(" @%@ ") ?  destination.toString() : destination.print(); 
 			//TODO above line will need to be changed if the standard print of the FeatMatrix class is ever changed
+				//TODO check version control on Git to determine if it was ever changed... 
 		
 		return output + " " + super.toString(); 
 	}

@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
 
-//TODO figure out how to get the console to support IPA symbols 
-
 public class SChangeTester {
 
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
