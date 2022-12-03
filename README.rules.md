@@ -1,6 +1,6 @@
 # README.rules :
 
-This file details how to properly construct a cascade file so that it can be read by DiaSym.
+This file details how to properly construct a cascade file so that it can be read by DiaSim.
 
 The file should be a ".txt" file, with each non-blank and non-commented line consisting of either a rule or a stage flag. 
 

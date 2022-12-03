@@ -80,7 +80,6 @@ public class DHSWrapper {
 	// b# -- black stage number <#>
 	// for preventing de facto switches when stages exist in the same "moment"
 	// between rules in the editing process
-	// TODO currently not used-- abrogate?
 
 	// neither of these are sorted at the moment.
 	private List<int[]> relocdations;
@@ -772,7 +771,7 @@ public class DHSWrapper {
 				 * 						which is realized at <addLoc-1> since that was <addLoc> before the deletion phase
 				 * 							(note, we keep it this way for consistency in the principle that addLoc adds whatever rules *before* the loc) 
 				 * 			all instants originally <addLoc+1> onword are moved  
-				 *				are moved one step forward, cancelling out the effect of deletion ...
+				 *				are moved one step forward, canceling out the effect of deletion ...
 				 * 			this means that a stage that was originally at the instant <addLoc>, 
 				 * 					i.e. right before the spot where the rule is being inserted ... 
 				 * 				WILL be moved back one place. 
