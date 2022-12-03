@@ -200,8 +200,8 @@ public class SChangeTester {
 		scftpTest = new SChangeFeatToPhone(featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor] # [+syl,-prim]"),
 				testFactory.parsePhoneSequenceForDest("ɾ ə"), "DEBUG");
-		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ t # ə b 'a w t # ɪ t #"),
-				testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ ɾ ə b 'a w ɾ ə t #")) ? 1 : 0; 
+		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ t # ə b ˈa w t # ɪ t #"),
+				testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ ɾ ə b ˈa w ɾ ə t #")) ? 1 : 0; 
 		
 		System.out.println("Done testing SChangeFeatToPhone. Got "+numCorrect+" out of 8 tests correct. Now testing SChangePhone"); 
 		numCorrect = 0; 
