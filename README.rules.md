@@ -31,10 +31,137 @@ All rules (to reiterate -- each being exactly one line) should be of the followi
 Target Source > Destination / Prior Context __ Posterior Context
 ```
 
+There are seven elements to note here: the input or *target source*, the *arrow* ">", the output or *destination*, the conditioning flag "/", the *prior context*, the *locus* ("__"), and the *posterior context*. 
+Each of these elements should be delimited by from the following or preceding one by a space. 
+
+This notation for a diachronic sound change is that which is most commonly used in historical phonology, and, in most of its aspects, agrees also in form with the format of synchronic phonological rules as well. 
+The material before (but not including) the */* is the **transformation**, which stipulates what is changed, and what it changes into.
+The transformation is mandatory for all sound changes; it is further described in the section below. 
+
+After the "/" lies the **conditioning context**, which stipulates where the sound change happens, in terms of nearby phonetic material. 
+This only, and only this, flags the beginning of the conditioning context specifications, which indicate where the rule operates, in terms of the neighboring phonetic material, in terms of exact phone symbols or their broad phonetic properties, in terms of features (as will be discussed below in *Supported notation for phonetic information*). 
+Whether to include information on a conditioning context depends on whether or not the phonetic context matters: that is to say, whether the sound change you want to write is *conditioned*, or *unconditioned*. 
+Some sound changes are *unconditioned*: for example, the ultimate reflex of Latin R in French, which was originally coronal, ultimately became uvular everywhere it occurred, irrespective of what was or was not nearby (that is to say, it was **unconditioned*). 
+For such *unconditioned sound changes*, no conditioning context is to be specified, and the "/" is not to be used. 
+On the other hand, for those sound changes that do indeed only occur in certain phonetic contexts (the majority of sound changes), the conditioning context must be explicitly specified, and must be flagged with "/". 
+Another example of an unconditioned sound change -- h-deletion -- is shown below. 
+
+```
+h > ∅
+```
+
+The loss of phonemic vowel length is also an unconditioned sound change, as seen below, in terms of *phonetic features* (see respective section. 
+
+```
+[+syl] > [-long] 
+```
+
+A coalescence of a sequence of two sounds to a single one, like the sound law forming the palatal lateral [ʎ] shown below, is also often (though far from *always*) unconditioned... 
+
+```
+l ʝ > ʎ
+```
+
+One important thing to note is that the "/" can be used *exclusively* to delimit the transformation from its conditioning context.
+While in (especially synchronic) phonological analyses, a pair of "/" may surround a symbol (typically in IPA) to denote that it is a *phoneme*, this notation is not to be used here.
+Similarly, for reasons elaborated below (*Symbol and feature notation notes*), the square brackets *[* and *]* are not to be used to denote *phonetic realizations* (*phones*); this is a diachronic system, and those symbols are used by the system to identify notation in terms of *phonetic features*, as will be described below (*Phonetic feature notation*). 
+
+
+## THE TRANSFORMATION, AND USAGE OF ">":
+
+Before the ">" lies the input *source* material: the earlier form or set of forms which the sound change will cause to mutate. 
+After the ">" lies the output *destination* material, which determines how the input will be mutated.
+As will be discussed below (*Supported notation for phonetic information*), DiaSim supports not only "phone symbol to phone symbol" transformations, but also ones that transform sequences of phones, ones that map multiple options of inputs onto their respective outputs, as well as ones written in terms of *phonetic features* as well as *alpha notation*, and all of these are also supported as well in the *conditioning context*. 
+The ">" is the *arrow* which signifies diachronic transformation from the input *source* form (before it) to the output *destination* form.
+DiaSim is a diachronic system, and one where all steps must be explicated. 
+Thus, only ">" is to be used here: not the synchronic "->" for phonological rules mapping "*underlying*" forms to surface realizations, or the *long distance* (with intermediate steps implicit) diachronic "> ... >" notation introduced by Janda and Joseph 2003. 
+ 
+
+## THE CONDITIONING CONTEXT, AND USAGE OF "__": 
+
+As noted before, a conditioning context must be used if and only if the rule you are writing is *conditioned*. 
+Use "/" if and only if the rule is *conditioned*; all of the *transformation* must lie before it, and all of the *conditioning context* must lie *after* it. 
+The one element of the notation for the conditioning context that must always be present is the *locus*, which must be written with **two underscores** ("__"). 
+
+Beyond this there must be either a prior context specified (i.e. phonetic information about what comes *before* the sound or sounds being mutated), a posterior context specified (i.e. about what comes *afterward*), or both, but *never neither* (which would be either errant underspecification of a conditioned sound change, or errant notation of an unconditioned sound change). 
+
+Only a prior context will specified for a sound change conditioned only on earlier material, such as the closure of the reflex of *w*- sounds loaned into Proto-Gallo-Romance ([ɣʷ]) to the voiced velar stop [ɡ] word-initially except in some dialects like Norman, which led to minimal pairs in English like *warranty* and *guarantee*, etc. (here, phone symbols are used, and "#" marks the word boundary -- see *Supported notation for phonetic information*): 
+
+```
+ɣʷ > ɡ / # __
+```
+
+Only a posterior context will be specified for a sound change conditioned only on later material, such as the regressive nasalization rule affecting low vowels of 10th century Early Old French displayed below, or the darkening of L before consonants beginning in the 9th century (with phonetic feature notation used -- see *Supported notation for phonetic information*): 
+
+```
+[+lo] > [+nas] / __ [+nas,-syl]
+```
+
+```
+[+lat] > ɫ / __ [+cons]
+```
+
+Another example would be the cluster simplification of /skl/ to /sl/ in the predecessor to French -- hence why Latin MASCVLVS became Early Old French *masle*, whence *mâle* "male". This happened at the same time as /rgl/ > /rl/ cluster simplification as per Pope 1934, so they are placed in a single disjunctive rule, making use of the curly braces as supported for this by DiaSim, and used elsewhere in the field (see the appropriate subsections of *Supported notation for phonetic information*): 
+
+```
+{s k;r ɡ} > {s;r} / __ l
+```
+
+
+Many sound changes, however, will have both prior and posterior conditioning. 
+For example, the early loss of /w/ between /k/ and a non-low front vowel at word beginnings, early enough to allow palalatalization of the earlier /k/ (hence Latin QUINQUE > French *cinq* /sɛ̃k/), as seen below, with the null (∅) symbol used as per *Symbols for non-phones*...: 
+
+```
+w > ∅ / k __ [+front,-lo]
+```
+
+Another example would be the earliest stages of the first Western Romance lenition, which could be attested as early as the 2nd century AD, and likely saw Latin B become (at first) a bilabial fricative [β] when after a vowel and before a vowel or R, as seen below... 
+
+```
+b > β / [+syl] __ [+son,-lat,-nas]
+```
+
+Likewise, the opening of final voiceless velar stops [k] to fricatives [x] word-finally (i.e. the posterior context being a word bound) when ``unsupported'', i.e. after vowels (i.e. the prior context being a syllabic element in this case)... 
+
+```
+k > x / [+syl] __ # 
+``` 
+
+## SUPPORTED NOTATION FOR PHONETIC INFORMATION: 
+
+
 (elaborate...) 
 
-## TRANSFORMATION FORMAT:
+### SYMBOLS FOR PHONES
 
-## CONTEXT FORMAT:
+(elaborate...) 
 
-# TO MODIFY SYMBOLS USED:
+BROADLY IPA, BUT ... NOTE MARKER OF STRESS ON THE VOWEL IN THIS SYSTEM
+
+### HOW TO MODIFY SYMBOLS USED: 
+
+(elaborate...) 
+
+### SYMBOLS FOR NON-PHONES (BOUNDARY MARKERS, NULL, ETC):
+
+
+(elaborate...) 
+
+#TODO MAKE REMARK ~ don't confuse ∅ and ø
+
+(elaborate...) 
+
+### PHONETIC FEATURE NOTATION:
+
+
+(elaborate...) 
+
+### ALPHA FEATURE NOTATION:
+
+
+### MARKING SEQUENCES
+
+
+### MARKING DISJUNCTIONS WITH CURLY BRACES: 
+
+(elaborate...) 
