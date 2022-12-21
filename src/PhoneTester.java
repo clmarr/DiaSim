@@ -158,13 +158,13 @@ public class PhoneTester {
 		System.out.println("The following should be 'false'");
 		System.out.println(voicedStop.compare(testPhone)); 
 		
-		//testing whether featSpecs is stored properly in the FeatMatrix object instance 
+		//testing whether featVect is stored properly in the FeatMatrix object instance 
 		String agreements = ""; 
 		for(int i = 0; i < feats.length; i++)	agreements += "1";
 		
 		String[] feature_stipulations = new String[]{"-cont","-delrel","+voi"}; 
-			// i.e. the stipulations of a voiced stop. 
-		
+			
+		// now we give feature_stipulations the feature vector a voiced stop should have... 
 		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
 		{
 			String curr_stip = feature_stipulations[fsi]; 
@@ -192,7 +192,28 @@ public class PhoneTester {
 		testPhones.add(testPhone); 
 		
 		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+son,0delrel", Arrays.asList(feats), featImplications); 
-	
+
+		// now, we test the feature vector of FeatMatrix in a case where DESPECIFICATION has occurred. 
+		feature_stipulations = new String[]{"+nas","+cont","+son","0delrel"}; 
+		for(int i = 0; i < feats.length; i++)	if (agreements.charAt(i) != '1')	agreements = agreements.substring(0,i)+"1"+agreements.substring(i+1); 
+		
+		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
+		{
+			String curr_stip = feature_stipulations[fsi]; 
+			String curr_feat = curr_stip.substring(1); 
+			char stip_val = curr_stip.charAt(0); 
+			int featLoc = featureIndices.get(curr_feat);
+			agreements = agreements.substring(0, featLoc) + 
+					(stip_val == '+' ? 2 : (stip_val == '-' ? 0 : 9)) 
+					+ agreements.substring(featLoc+1); 
+		}
+		
+		currfeatvect = nasalStop.getFeatVect(); 
+		System.out.println("Is the feature vector correctly '"+agreements+"'?");
+		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
+		else	System.out.println("no, it is instead... "+currfeatvect); 
+		
+		
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));
 		
@@ -205,23 +226,6 @@ public class PhoneTester {
 		System.out.println("The following should be 'm'");
 		System.out.println(testPhones.get(0).print()); 
 		
-		feature_stipulations = new String[]{"+nas","+cont","+son","0delrel"}; 
-		// i.e. the stipulations of a voiced stop. 
-	
-		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
-		{
-			String curr_stip = feature_stipulations[fsi]; 
-			String curr_feat = curr_stip.substring(1); 
-			boolean positivity = curr_stip.charAt(0) == '+'; 
-			int featLoc = featureIndices.get(curr_feat);
-			agreements = agreements.substring(0, featLoc) + 
-					(positivity ? 2 : 0) + agreements.substring(featLoc+1); 
-		}
-		
-		currfeatvect = nasalStop.getFeatVect(); 
-		System.out.println("Is the feature vector correctly '"+agreements+"'?");
-		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
-		else	System.out.println("no, it is instead... "+currfeatvect); 
 		
 		//TODO will need to add in many more testing statements 
 		// if feature implications and feature translations are ever implemented
