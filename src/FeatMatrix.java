@@ -173,7 +173,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	//TODO currently used for testing only
 	public String getFeatVect() 
-	{	return featVect; 	}
+	{	return ""+featVect; 	}
 	
 	@Override
 	public String print() {
@@ -349,6 +349,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{	return String.copyValueOf(init_chArr);	}
 	
 	public String getLocalAlphabet()
-	{	return localAlphabet;	}
+	{	return ""+localAlphabet;	}
+	
 	
 }

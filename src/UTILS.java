@@ -104,7 +104,7 @@ public class UTILS {
 	}
 	
 
-	//auxiliary
+	//auxiliary method -- check if the line consists of only spaces. 
 	public static boolean isJustSpace(String line)
 	{
 		return line.replace(" ","").length() == 0;
@@ -147,6 +147,7 @@ public class UTILS {
 		return stdCols(width, strvals); 
 	}
 	
+	// produce columns of a certain width (= first input argument)  
 	public static String stdCols(int width, String[] vals)
 	{
 		String out = ""; 
@@ -190,7 +191,7 @@ public class UTILS {
 		if(cmt.charAt(0) != CMT_FLAG)	return false; 
 		
 		if (!cmt.contains("\n"))
-			return true; // since we now know it must start with hte proper char.
+			return true; // since we now know it must start with the proper character
 		String[] spl = cmt.split("\n"); 
 		if(spl[0].length() > DHSWrapper.MAX_CMT_WIDTH)	return false; 
 		
@@ -206,6 +207,7 @@ public class UTILS {
 		return true; 
 	}
 	
+	// impost standard format conventions on comment for a cascade~cascade file
 	public static String standardizeCmt(String cmt)
 	{
 		String[] tokenized = cmt.substring(cmt.indexOf(" ")+1).split(" "); 
@@ -221,8 +223,11 @@ public class UTILS {
 		return out; 
 		
 	}
-	//checker methods
-
+	
+	
+	//checker methods follow: 
+	
+	//true if two sequences of SequentialPhonic instances are functionally equal
 	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
 		if (sp1.size() != sp2.size())
 			return false;
@@ -233,6 +238,7 @@ public class UTILS {
 		return true;
 	}
 	
+	// check if two cascades, i.e. lists of sound changes, are equivalent
 	public static boolean compareCascades(List<SChange> c1, List<SChange> c2)
 	{
 		for(int ci = 0; ci < c1.size(); ci++)
@@ -241,6 +247,7 @@ public class UTILS {
 		return true;
 	}
 	
+	// print the difference between two cascades, if there is one. 
 	public static String printCascDiff(List<SChange> c1, List<SChange> c2)
 	{
 		if (c1.size() != c2.size())	return "Different sizes!";
@@ -256,6 +263,8 @@ public class UTILS {
 				+ c1.get(i) + "\nVS\n" + c2.get(i);
 	}
 	
+	// check if an observed word, the second argument (in current usage, the observed predicted outcome based on a cascade)...
+		// is equivalent to the correct form of the word, the second argument (in current usage, the actual reflex word 
 	public static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
@@ -264,6 +273,7 @@ public class UTILS {
 		return result; 
 	}
 	
+	// same as above, but for booleans, not words -- used as auxiliary method for various debugging purposes. 
 	public static boolean checkBoolean(boolean correct, boolean observed, String errMessage)
 	{
 		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
@@ -342,6 +352,7 @@ public class UTILS {
 		return true;
 	}
 	
+	// return all lines of a file as a list of each as a string
 	public static List<String> readFileLines(String loc) 
 	{
 		List<String> lns = new ArrayList<String>();
@@ -368,6 +379,7 @@ public class UTILS {
 		return lns;
 	}
 	
+	// check if two files (i.e. cascade files) have the exact same contents
 	public static boolean compareFiles(String loc1, String loc2)
 	{
 		List<String> f1lns = readFileLines(loc1), 
@@ -414,8 +426,8 @@ public class UTILS {
 		return out.substring(0, out.length() - "\n".length()) ;
 	}
 	
-	//extract order of stages so that we don't end up wiht switches in the case that they end up in the same
-		// "moment" between rule operation steps 
+	//extract order of stages so that we don't end up with switches in the case that they end up in the same
+		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
 	public static String[] extractStageOrder(String cascLoc)
 	{
 		List<String> lines = readFileLines(cascLoc); 
@@ -442,6 +454,8 @@ public class UTILS {
 		return out; 
 	}
 	
+	// printer methods follow: 
+	
 	/**
 	 * s1, s2  -- two strings we are comparing
 	 * @return the string forms after the first point where there is a difference between them. 
@@ -462,7 +476,6 @@ public class UTILS {
 
 	}
 	
-	// auxiliary
 	public static String print1dIntArr(int[] a)
 	{
 		if (a.length == 0)	return "[empty array]"; 
@@ -504,7 +517,7 @@ public class UTILS {
 	public static String stringDiff(String a, String b)
 	{
 		int lenA = a.length(), lenB = b.length(); 
-		// handle case where one is empty. 
+		// handle case where one of the input arguments is empty. 
 		if(lenA == 0 || lenB == 0)
 			return lenA == lenB ? "No difference" : 
 					"total difference (one string is empty) : "+ 
@@ -615,7 +628,7 @@ public class UTILS {
 	}
 	
 	//error if any opener { braces are not closed by a closer } brace or vice versa.
-	// @true if erroneous usage. 
+	// @true if there is such erroneous usage. 
 	public static boolean checkForBracingError(String s) 
 	{
 		String SD = SChangeFactory.segDelim + ""; 
