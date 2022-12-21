@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/** PhoneTester -- class for testing the functionality of the class Phone
+/** PhoneTester -- class for testing the functionality of the classes Phone and FeatMatrix
  * @date 8 June 2018
  * @author Clayton Marr
  *
@@ -202,7 +202,6 @@ public class PhoneTester {
 		
 		System.out.println("The following should be 'm'");
 		System.out.println(testPhones.get(0).print()); 
-		// but it's not -- because delrel is '-' not '0' --- this might be a good case for adding "feature implications"-- ask Mortensen!
 		
 		
 		//TODO will need to add in many more testing statements 

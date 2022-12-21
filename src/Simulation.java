@@ -21,7 +21,7 @@ public class Simulation {
 	
 	private String[] stagesOrdered; 
 	private int currStageInd;
-		// use stagesOrdered to get current stage in a way that prevents flipping if
+		// use stagesOrdered to get current stage in a way that prevents flipping of the order between the two if
 			// ever two stages at the same moment (point between rule steps)
 
 	private String[][] ruleEffects; 
@@ -188,7 +188,7 @@ public class Simulation {
 	}
 	
 	//TODO : method to simulate until manual halting point?
-		// TODO did I do this? I think so... 
+		// TODO did I realize this through? I think so, but best to make sure it works again 
 	public void simulateToNextStage()
 	{
 		int prevgsi = goldStageInd + 0 , prevbsi = blackStageInd + 0 ;
@@ -262,6 +262,7 @@ public class Simulation {
 		}
 	}
 	
+	// get the forms a certain etymon, accessed by its ID, has at each stage
 	public String stageOutsForEt(int ID)
 	{
 		String toRet = ""+ID; 

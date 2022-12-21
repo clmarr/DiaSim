@@ -37,6 +37,8 @@ public class UTILS {
 	//to use for checking if an entered etymon or rule id is valid. 
 	// max should be the number of words in the lexicon minus 1 (for an etymon)
 		// or the length of the cascade (for a rule)
+	// input argument is (String form of) the index (String because pulled from cascade files, or etc.)
+		// @return either (int) form of input, if it's valid, or -1 if it isn't (for usage downstream)
 	public static int getValidInd(String s, int max)
 	{
 		int output; 
@@ -426,7 +428,8 @@ public class UTILS {
 		return out.substring(0, out.length() - "\n".length()) ;
 	}
 	
-	//extract order of stages so that we don't end up with switches in the case that they end up in the same
+	//extract order of stages so that we don't end up with ``flips'' in the relative ordering between stages
+		// in the case that they end up in the same
 		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
 	public static String[] extractStageOrder(String cascLoc)
 	{

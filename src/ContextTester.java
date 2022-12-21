@@ -8,7 +8,7 @@ import java.util.List;
  * currently it should be true for BaseCLEF and BaseCLEFstar because their last line is 
  * 		ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
  * but false for DiaCLEF because, in DiaCLEF, that line has been commented out. 
- * TODO: possibly remove from public ready version. (@Dec 3: why remove it though?) 
+ * TODO: possibly remove from public ready version. (@Dec 3: why remove it though? @Dec20: well presumably, it's not necessary for anyone else's purposes...)
  */
 
 public class ContextTester {

@@ -119,6 +119,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	/**
 	 *  makes all the restrictions specified in this FeatMatrix true for @param patient
+	 *  patient -- patient as in object of modification necessary to impose the truth of the values encoded in this FeatMatrix
 	 * by changing any necessary feature values in patient 
 	 * @precondition: they have the same length feature vectors*/
 	public Phone forceTruth(Phone patient)
@@ -128,7 +129,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet);
 		
 		Phone output = new Phone(patient); 
-		String patFeats = patient.getFeatString();
+		String patFeats = patient.getFeatString(); //i.e. feature values of the patient, the phone undergoing modification
 		if (patFeats.length() != featVect.length())
 			throw new UnsetAlphaError("ERROR: cannot forceTruths on phone with different length feat vector");
 			// technically it could still function if this wasn't the case, but for security best to call it out anyways
@@ -142,12 +143,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		}
 		output.setFeats(patFeats);
 		
-		
 		return output; 
 	}
 	
 	/**
-	 * 
 	 * @param patientSeq
 	 * @param ind
 	 * @return

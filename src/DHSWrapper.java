@@ -806,7 +806,7 @@ public class DHSWrapper {
 								hypBlackLocs[bsi] += insertions.size() -1 ; 
 				}
 					
-				// TODO check this...
+				// TODO check that this behaves as intended ...! 
 				// handle any indices in relocdations and modifications that
 				// are not the one currently being added.
 				int relocdi = 0;
