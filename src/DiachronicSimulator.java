@@ -116,8 +116,6 @@ public class DiachronicSimulator {
 		
 		if (no_feat_impls)	return; 
 		
-		String nextLine; 
-		
 		System.out.println("Now extracting info from feature implications file...");
 		
 		List<String> featImplLines = UTILS.readFileLines(featImplsLoc);

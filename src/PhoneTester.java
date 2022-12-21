@@ -272,6 +272,12 @@ public class PhoneTester {
 		System.out.println("Is the feature vector correctly '"+agreements+"'?");
 		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
 		else	System.out.println("No, instead it is : "+currfeatvect); 
+		
+		System.out.println("First unset alpha should be 'β'...");
+		System.out.println("It isː "+ laxv_alphahigh.first_unset_alpha()); 
+		
+		
+		
 		//test with u and o, ʊ and ɔ
 		
 		

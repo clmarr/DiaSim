@@ -22,7 +22,7 @@ public class DifferentialHypothesisSimulator {
 
 	private List<String[]> proposedChs;
 	// TODO important variable here, explanation follows
-	// each indexed String[] is form [curr time step, operation details]
+	// each indexed String[] is form [current time step, operation details]
 	// this object is *kept sorted* by index in the cascade as ordered at time of operation!!
 	// thus it never descends: 
 	//	Value at each cell indexed i + 1 must be >= than that at cell indexed i.
@@ -47,7 +47,7 @@ public class DifferentialHypothesisSimulator {
 	// insertion: the reverse.
 
 	private int[] baseRuleIndsToGlobal, hypRuleIndsToGlobal;
-	// indices -- base/hyp rule indices
+	// indices -- base/hyp rule indices (hyp = hypothesized) 
 	// cells contain the index mapped to in ruleCorrespondences
 	// i.e. the "global" index.
 

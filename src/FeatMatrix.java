@@ -91,15 +91,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 	/**
 	 * checks if candidate phone adheres to the restrictiosn
-	 */
+	 * @precondition: they have the same length feature vectors
+	 * @throws UnsetAlphaError */
 	public boolean compare(SequentialPhonic cand)
 	{
 		if (!cand.getType().equals("phone"))
 			return false; 
 		
 		char nonSet = first_unset_alpha();
-		if (nonSet != '0')	throw new RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet
-				+"' remains uninitialized");
+		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet); 
+			//formerly -- throw new	RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet"' remains uninitialized");
 		
 		String candFeats = cand.toString().split(":")[1]; 
 		
@@ -121,7 +122,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * 		we need to implement this method so this class implements interface RestrictPhone
 	 * @param index -- index of the phone of interest. See above.
 	 * @return whether the phone at the index @index of @candPhonSeq adheres to the restrictions embedded in this FeatMatrix instance. 
-	 */
+	 * @precondition: they have the same length feature vectors
+	 * @throws UnsetAlphaError */
 	public boolean compare(List<SequentialPhonic> candPhonSeq, int index)
 	{	return compare(candPhonSeq.get(index));		}
 	
@@ -129,7 +131,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 *  makes all the restrictions specified in this FeatMatrix true for @param patient
 	 *  patient -- patient as in object of modification necessary to impose the truth of the values encoded in this FeatMatrix
 	 * by changing any necessary feature values in patient 
-	 * @precondition: they have the same length feature vectors*/
+	 * @precondition: they have the same length feature vectors
+	 * @throws UnsetAlphaError */
 	public Phone forceTruth(Phone patient)
 	{
 		char nonSet = first_unset_alpha();
@@ -160,7 +163,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * @param patientSeq
 	 * @param ind
 	 * @return
-	 * @throws UnsetAlphaException 
+	 * @throws UnsetAlphaError 
 	 */
 	public List<SequentialPhonic> forceTruth (List<SequentialPhonic> patientSeq, int ind)
 	{
@@ -231,12 +234,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
+	//TODO need to replace values also in featSpecs here. 
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		for (String s : alphVals.keySet())
 		{
-			char val = alphVals.get(s).charAt(0); //alphVals.get(s) be just one character -- may need to throw an Error if this is not the case.  
+			char val = alphVals.get(s).charAt(0); //alphVals.get(s) must be just one character -- may need to throw an Error if this is not the case.  
+				// s must also be one character, but that is for reasons external to this class. 
 			
+			//s is the current alpha symbol, every instance of it in the featVect is being changed to the extracted value, val.  
 			while(featVect.contains(s))
 			{
 				int nxind = featVect.indexOf(s); 
@@ -258,6 +264,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			}
 		}
 	}
+	
+	
 	
 	// should always be called before extract_alpha_values
 	// bounds do not matter for our purposes here -- checking for alpha impossibility in multiphone itmes should skip over juncture phones (i.e. word bounds etc) 
@@ -302,9 +310,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
-	// for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, returns empty HashMap. 
-	// also returns an empty HashMap if specifications that are not unspecified alpha specs are inconsistent with @param inp
-	// otherwise returns the values that alpha specs have in SequentialPhonic @param inp. 
+	/**
+	 *  for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, returns empty HashMap. 
+	 * also returns an empty HashMap if specifications that are not unspecified alpha specs are inconsistent with @param inp 
+	 * - because if these requirements are not met, the extraction alpha values for a context phone or input phone cannot occur in the first place
+	 * 	* as it won't be a valid situation for the operation of the sound change in question 
+	* otherwise returns the value specifications that alpha-valued features have in the SequentialPhonic @param inp
+	*/
 	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
 	{
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 

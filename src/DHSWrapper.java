@@ -1178,7 +1178,7 @@ public class DHSWrapper {
 	 *                         making a modified version of.
 	 * @param fac              -- SChangeFactory for cascade comprehension, should
 	 *                         be declared with consistent structures for
-	 *                         phoneSYmbToFeatsMap, featIndices and featImplications
+	 *                         phoneSymbToFeatsMap, featIndices and featImplications
 	 *                         as used in DiachronicSimulator/SimulationTester/any
 	 *                         other classes concurrently in use.
 	 * @return
