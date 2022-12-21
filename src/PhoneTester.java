@@ -98,12 +98,18 @@ public class PhoneTester {
 		
 		//test with /p/ -- this is almost certainly represents the same phone in every paradigm
 		Phone testPhone = new Phone(symbsToFeatures.get("p"), featureIndices, symbsToFeatures); 
+		System.out.println("(testing Phone default constructor method with IPA symbol provided)");
 		System.out.println("Following output should be 'phone'");
 		System.out.println(testPhone.getType());
 		System.out.println("Following output should be 'p'");
 		System.out.println(testPhone.print());
-		System.out.println("Following output should be 'p: "+symbsToFeatures.get("p")+"'");
-		System.out.println(testPhone);
+		System.out.println("(Testing phone's feature vector via its toString method)\n"
+				+ "Is the following correctly 'p:"+symbsToFeatures.get("p")+"'?");
+		if(testPhone.toString().equals("p:"+symbsToFeatures.get("p")))
+			System.out.println("Yes."); 
+		else	System.out.println("No, it is "+testPhone); 
+		
+		System.out.println("(Additionally testing Phone.equals(Phone))");
 		System.out.println("Following output should be 'true'");
 		System.out.println(testPhone.equals(new Phone(symbsToFeatures.get("p"), 
 				featureIndices, symbsToFeatures))); 
@@ -130,32 +136,38 @@ public class PhoneTester {
 		List<SequentialPhonic> listylist = new ArrayList<SequentialPhonic>(); 
 		listylist.add(proxy2);
 		listylist = testPhone.forceTruth(listylist, 0);
-		System.out.println("Following should be 'true'"); 
+		System.out.println("(testing Phone.forceTruth(SequentialPhonic))\nThe following should be 'true'"); 
 		System.out.println(testPhone.equals(listylist.get(0)));
 		
-		System.out.println("The following should be '"+symbsToFeatures.get("p").charAt(0)+"'");
+		System.out.println("The following should be '"+symbsToFeatures.get("p").charAt(0)+"'  ");
 		System.out.println(""+testPhone.get(firstFeat)); 
 		
-		System.out.println("The following should be true");
+		System.out.println("The following should be true ");
 		System.out.println(testPhone.featExists(firstFeat));
 		
 		Phone proxy3 = new Phone(testPhone); 
-		System.out.println("The following should be true");
+		System.out.println("The following should be true (testing Phone.compare(Phone) and new Phone(Phone))");
 		System.out.println(testPhone.compare(proxy3));
 		
 		SequentialPhonic proxy4 = new Phone(testPhone); 
 		Phone proxy5 = new Phone(proxy4); 
-		System.out.println("The following should be true");
+		System.out.println("The following should be true (testing Phone.compare(Phone) and new Phone(SequentialPhonic)) ");
 		System.out.println(testPhone.compare(proxy5));
 		
 		System.out.println("----------------------");
+		
+		//TODO will need to add in many more testing statements 
+				// if feature implications and feature translations are ever implemented
+				// ... in order to ensure that these are working properly 
+				// TODO in practice these worked with the current featImplications.txt file at least for BaseCLEF, DiaCLEF etc... but need to check for general case!
+				// unless these are already tested in effect in one of the other debugger classes.
 		
 		System.out.println("Testing class FeatMatrix"); 
 		System.out.println("The following should be 'true'"); 
 		System.out.println((new FeatMatrix("+lab,-cont,-delrel", Arrays.asList(feats), featImplications)).compare(testPhone));
 		
 		FeatMatrix voicedStop = new FeatMatrix("-cont,-delrel,+voi", Arrays.asList(feats), featImplications); 
-		System.out.println("The following should be 'false'");
+		System.out.println("The following should be 'false' (testing FeatMatrix.compare(Phone))");
 		System.out.println(voicedStop.compare(testPhone)); 
 		
 		//testing whether featVect is stored properly in the FeatMatrix object instance 
@@ -180,11 +192,11 @@ public class PhoneTester {
 		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
 		else	System.out.println("no, it is instead... "+currfeatvect); 
 		
-		System.out.println("The following should be 'b'"); // recall the testPhone is currently [b].
+		System.out.println("The following should be 'b' (testing FeatMatrix.forceTruth(phone))"); // recall the testPhone is currently [b].
 		System.out.println(voicedStop.forceTruth(testPhone).print()); 
 		
 		testPhone=voicedStop.forceTruth(testPhone); 
-		System.out.println("The following should be 'true'"); 
+		System.out.println("The following should be 'true' (testing FeatMatrix.forceTruth(phone))"); 
 		System.out.println(voicedStop.compare(testPhone));
 		
 		List<SequentialPhonic> testPhones = new ArrayList<SequentialPhonic>(); 
@@ -213,7 +225,6 @@ public class PhoneTester {
 		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
 		else	System.out.println("no, it is instead... "+currfeatvect); 
 		
-		
 		System.out.println("The following should be 'false'"); 
 		System.out.println(nasalStop.compare(testPhones, 0));
 		
@@ -226,11 +237,9 @@ public class PhoneTester {
 		System.out.println("The following should be 'm'");
 		System.out.println(testPhones.get(0).print()); 
 		
+		System.out.println("----------------------");
 		
-		//TODO will need to add in many more testing statements 
-		// if feature implications and feature translations are ever implemented
-		// ... in order to ensure that these are working properly 
-		// TODO in practice these worked with the current featImplications.txt file at least for BaseCLEF, DiaCLEF etc... but need to check for general case!
+		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix...");
 		
 		
 		// TODO expansion to handle FeatMatrix's alpha features. 
