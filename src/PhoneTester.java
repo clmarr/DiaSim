@@ -240,7 +240,7 @@ public class PhoneTester {
 		System.out.println("----------------------");
 		
 		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix...");
-		
+
 		System.out.println("(single alpha feature, no feature implications in play.") ;
 		System.out.println("(testing FeatMatrix constructor in this condition)"); 
 		FeatMatrix laxv_alphahigh = new FeatMatrix("-tense,βhi", Arrays.asList(feats), featImplications); 
@@ -255,9 +255,17 @@ public class PhoneTester {
 		System.out.println("Were multiple alpha features (incorrectly) detected?"); 
 		System.out.println( laxv_alphahigh.has_multispec_alph()? "Yes." : "No.") ; 
 		
-		// use alpha-hi  with u and o 
-		
-		
+		//testing the feature vector... 
+		for(int i = 0; i < feats.length; i++)	if (agreements.charAt(i) != '1')	agreements = agreements.substring(0,i)+"1"+agreements.substring(i+1); 
+		int fii = featureIndices.get("tense"); 
+		agreements = agreements.substring(0,fii)+"0"+agreements.substring(fii+1); 
+		fii = featureIndices.get("hi"); 
+		agreements = agreements.substring(0,fii)+"β"+agreements.substring(fii+1); 
+		currfeatvect = laxv_alphahigh.getFeatVect(); 
+		System.out.println("Is the feature vector correctly '"+agreements+"'?");
+		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
+		else	System.out.println("No, instead it is : "+currfeatvect); 
+		//test with u and o, ʊ and ɔ
 		
 		
 		System.out.println("(single alpha feature, with a feature implication in play...)") ; 
