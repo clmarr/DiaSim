@@ -329,7 +329,7 @@ public class SChangeTester {
 		char fua = fmtest.first_unset_alpha(); 
 		numCorrect += UTILS.checkBoolean(true, fua == 'ɑ',
 				"Error: first unset alpha should be 'ɑ', but it is '"+fua+"'") ? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alph(), 
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alpha(), 
 				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
 		
 		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
@@ -355,7 +355,7 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
 				"Error: first_unset_alpha() should return '0' (we just set the last unset one),"
 				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
-		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alph(), 
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multispec_alpha(), 
 				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
 		//System.out.println("Action on "+actOn.get(0)+" ...\n\t"+fmtest.forceTruth(actOn,0).get(0));
 		List<SequentialPhonic> result = fmtest.forceTruth(actOn,0); 

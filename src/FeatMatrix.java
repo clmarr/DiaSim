@@ -27,12 +27,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultispecAlpha; 	
+	
 	// DESPECIFICATION -- 
 		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
 		// example: if a vowel goes from -cont to +cont, the feature delrel should be despecified
 		// this case is the only time we will ever make use of the List<String> despecifications
 		// which is what is stored in the featVect for this case. 
 		// 
+	
+	// TODO may need to add variables or methods to handle situation where has different alpha symbols for different features. 
+	
 	/**
 	 * version of constructor with featSpecs passed directly
 	 * should be passed with , delimiters and +/- indicators 
@@ -183,7 +187,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	public String print() {
 		return FEAT_MATRIX_PRINT_STMT; //this can be changed for stylistic purposes as long as it is unique with respect to the print outputs of parallel classes
-		//TODO however it is changed it will be necessary to modify various classes that rely on the stability of this symbol, 
+		//TODO however it is changed, it will be necessary to modify various classes that rely on the stability of this symbol, 
 			// such as SChangeFeat
 	}
 
@@ -336,7 +340,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	@Override
 	public boolean has_alpha_specs()	{	return hasAlphSpecs;	} 
-	public boolean has_multispec_alph() {	return hasMultispecAlpha;	}
+	public boolean has_multispec_alpha() {	return hasMultispecAlpha;	}
 	
 	// returns '0' if not set
 	// otherwise the first alpha value detected that has not become a number, in featVect
