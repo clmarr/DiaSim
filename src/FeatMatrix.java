@@ -26,7 +26,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private String localAlphabet; // for handling all features functioning as alpha values within the feature specifications... 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
-	private boolean hasMultispecAlpha; 	
+	private boolean hasMultifeatAlpha; 	
 	
 	// DESPECIFICATION -- 
 		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
@@ -46,7 +46,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
 		localAlphabet = "";
-		hasMultispecAlpha = false;
+		hasMultifeatAlpha = false;
 		type = "feat matrix";
 		featSpecs=specs+""; 
 		initSpecs=specs+""; 
@@ -68,7 +68,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 			if (is_alph)
 			{	if (!localAlphabet.contains(indic))	localAlphabet += indic; 
-				else	hasMultispecAlpha = true;
+				else	hasMultifeatAlpha = true;
 			}
 			String feat = sp.substring(1); 
 			if (!ordFeats.contains(feat))	throw new RuntimeException("ERROR: tried to add invalid feature : '"+feat+"'");
@@ -233,16 +233,44 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		return "0299".charAt("-+.0".indexOf(i)); 
 	}
 	
+	/**
+	 * apply a value to the feature vector, and to featSpecs if it is originally specified therein(i.e. not via a feat implication)
+	 * in practice, used as auxiliary to applyAlphaValues
+	 * @param value to apply, should be surface value i.e. ( + positive , - negative , 0 despecify)  
+	 * @param feature to apply it to, should be standard feature name as seen in symbolDefs (or replacement file) and featImplications (likewise)
+	 * as this class does not use feature translations 
+	 * @param via_impl -- whether or not this feature is being applied via a feature implication
+	 * 		i.e. if so, featVect won't be modified. 
+	 */
+	private void apply_value(String value, String feature, boolean via_impl)
+	{
+		
+	}
+	
 	@Override
 	//TODO need to replace values also in featSpecs here. 
+	// alphVals should be HashMap with keys of the original alpha symbol set, and values of the surface form of the specification being imposed (+,-)
+		// this class should probably not be used for despecification of alpha values 
+	// the values in alphVals should be in their 'deep' values with 0 meaning negative, 2 positive, 1 unspecified, 9 despecified
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		for (String s : alphVals.keySet())
 		{
-			char val = alphVals.get(s).charAt(0); //alphVals.get(s) must be just one character -- may need to throw an Error if this is not the case.  
+			char val = alphVals.get(s).charAt(0); 
+				//alphVals.get(s) must be just one character -- may need to throw an Error if this is not the case.  
 				// s must also be one character, but that is for reasons external to this class. 
 			
 			//s is the current alpha symbol, every instance of it in the featVect is being changed to the extracted value, val.  
+			
+			List<String> featuresModified = new ArrayList<String>(); 
+				// to store which features were modified 
+				// so that feature implications can be triggered AFTER they each are modified
+					// preempting a possible error in the case where an alpha symbol specified for multiple features 
+						// is specified for both a feature and one it has an implication for
+					// (in practice that would never cause a serious error unless there was something weird in a custom feature implications file, 
+					//  ... but in that case it would create a very subtle error!) 
+				// entries in this list will be of form "+son,-cont,0delrel" etc -- i.e. value symbol followed by the feature's abbreviated name
+			
 			while(featVect.contains(s))
 			{
 				int nxind = featVect.indexOf(s); 
@@ -250,7 +278,28 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				featVect = featVect.substring(0, nxind) + val + featVect.substring(nxind+1); 
 				String currSpec = toSurfVal(val)+ordFeats.get(nxind);
 				
-				if (featImpls.containsKey(currSpec))
+				// handle first the case of an any-specification implication, relevant if the value is + or -
+					// and then the case of a specific-specification implication, where it has to either be + or be - for the feature implication to be present.
+				// these have to be handled separately but NOT disjunctively, because there can be features 
+					// that have both any-specification implications, and specific specification implications
+					// for example, "stres" in the standard FeatImplications file. 
+				if("+-".contains(currSpec.substring(0,1)))
+				{
+					if(featImpls.keySet().contains(currSpec.substring(1)))
+					{
+						String[] implications = featImplications.get(currSpec.substring(1)); 
+						for (int ii=0; ii < implications.length; ii++)
+						{	if(output.contains(implications[ii]) == false)
+							{
+								output += restrDelim + implications[ii]; 
+								theFeatSpecs = output.trim().split(""+restrDelim); 
+							}
+						}
+					}
+				}
+				
+				// now, handling the specific-valued specification feature implication scenario... 
+				if (featImpls.containsKey(currSpec)) 
 				{
 					String[] impls = featImpls.get(currSpec);
 					for (String impc : impls)
@@ -261,9 +310,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 							featVect = featVect.substring(0, aff_ind) + fromSurfVal(impc.charAt(0)) + featVect.substring(aff_ind+1); 
 					}
 				}
+				
 			}
 		}
 	}
+	
 	
 	
 	
@@ -274,7 +325,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		if (!inp.getType().equals("phone"))
 			throw new RuntimeException("Error: tried to check for alpha value impossibility of a juncture phone!");
-		if (!hasMultispecAlpha)	return false;	
+		if (!hasMultifeatAlpha)	return false;	
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
@@ -315,7 +366,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * also returns an empty HashMap if specifications that are not unspecified alpha specs are inconsistent with @param inp 
 	 * - because if these requirements are not met, the extraction alpha values for a context phone or input phone cannot occur in the first place
 	 * 	* as it won't be a valid situation for the operation of the sound change in question 
-	* otherwise returns the value specifications that alpha-valued features have in the SequentialPhonic @param inp
+	* otherwise APPLIES the value specifications that alpha-valued features have in the SequentialPhonic @param inp
+	* 	and then returns those exact value specifications that were applied
+	* TODO  may not want this to apply internally to the class here, or do we? Is this redundant? 
 	*/
 	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
 	{
@@ -330,7 +383,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			char fvspec = featVect.charAt(c); 
 			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
-				//String currInpSpec = cand_feat_vect[c] + 
 				if (currReqs.containsKey(""+fvspec))
 				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
@@ -339,11 +391,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					else	if (!currspec.equals(cand_feat_vect[c]+""))
 						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
 				}
-				else if (cand_feat_vect[c] == '1')	currReqs.put(""+fvspec, "9"); 
-				else	currReqs.put(""+fvspec, cand_feat_vect[c]+""); 
+				else if (cand_feat_vect[c] == '1')	currReqs.put(""+fvspec, "9"); // i.e. alpha-symbol, 9 (despecification)
+				else	currReqs.put(""+fvspec, cand_feat_vect[c]+""); // i.e. alpha symbol, and 0 or 2 (negative, positive)
 			}
-			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] )
-				return new HashMap<String,String>(); 
+			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
+				return new HashMap<String,String>(); //i.e. this is not a valid input in the first place, nothing to extract -- return empty HashMap
 		}
 		applyAlphaValues(currReqs);
 		
@@ -352,7 +404,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	@Override
 	public boolean has_alpha_specs()	{	return hasAlphSpecs;	} 
-	public boolean has_multispec_alpha() {	return hasMultispecAlpha;	}
+	public boolean has_multifeat_alpha() {	return hasMultifeatAlpha;	}
 	
 	// returns '0' if not set
 	// otherwise the first alpha value detected that has not become a number, in featVect

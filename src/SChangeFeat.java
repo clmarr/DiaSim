@@ -13,7 +13,7 @@ public class SChangeFeat extends SChange {
 			targSource = new FeatMatrix(targSpecs, orderedFeats, featImplications); 
 			minTargSize = 1; 
 		}
-		else //i.e. we know source-targ is null if this is reachedpint. 
+		else //i.e. we know source-target is null if this is reachedpint. 
 			throw new Error("Insertion is not allowed for SChangeFeats -- please use an SChangePhone instead."); 
 		if(!destSpecs.equals("") && !destSpecs.equals("∅"))
 		{	

@@ -244,7 +244,7 @@ public class PhoneTester {
 		System.out.println("(no alpha feature specification, testing for errant detection thereof)"); 
 		System.out.println("The following should all be 'false':");
 		System.out.println("(has_alpha_specs()) "+nasalStop.has_alpha_specs());
-		System.out.println("(has_multispec_alpha()) "+nasalStop.has_multispec_alpha()); 
+		System.out.println("(has_multispec_alpha()) "+nasalStop.has_multifeat_alpha()); 
 		System.out.println("The following should be '0': (first_unset_alpha())");
 		System.out.println(""+nasalStop.first_unset_alpha()); 
 		
@@ -260,7 +260,7 @@ public class PhoneTester {
 		System.out.println( laxv_alphahigh.has_alpha_specs() ? "Yes." : "No.") ; 
 		
 		System.out.println("Were multiple specifications on a single alpha feature (incorrectly) detected?"); 
-		System.out.println( laxv_alphahigh.has_multispec_alpha()? "Yes." : "No.") ; 
+		System.out.println( laxv_alphahigh.has_multifeat_alpha()? "Yes." : "No.") ; 
 		
 		//testing the feature vector... 
 		for(int i = 0; i < feats.length; i++)	if (agreements.charAt(i) != '1')	agreements = agreements.substring(0,i)+"1"+agreements.substring(i+1); 
