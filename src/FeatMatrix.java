@@ -18,7 +18,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// featSpecs, meanwhile, changes when an alpha value is set... 
 			//TODO need to ascertain this actually works... 
 	
-	private List<String> ordFeats; 
+	private List<String> ordFeats; // for retrieving feature indices 
 	
 	private HashMap<String, String[]> featImpls; 
 	
@@ -68,10 +68,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			String feat = sp.substring(1); 
 			if (!ordFeats.contains(feat))	throw new RuntimeException("ERROR: tried to add invalid feature : '"+feat+"'");
 			
-			int spInd= Integer.parseInt(""+ordFeats.indexOf(feat)); 
+			int spInd = ordFeats.indexOf(feat); 
+			//originally: int spInd= Integer.parseInt(""+ordFeats.indexOf(feat)); 
+				// unclear why that double transformation was necessary but if this causes new errors, best to restore it. 
 			init_chArr[spInd] = is_alph ? indic.charAt(0) : 
 				("+".equals(indic) ? '2' : ("0".equals(indic) ? '9' : '0' ));  
-			// thus, after this init_chArr will have 0 for neg specd features, 2 for pos specd features, 9 for despecd features
+			// thus, after this init_chArr will have 0 for negatively specified features,
+				// 2 for positively specified features, 9 for despecified features
 			// for alpha specified features, the alpha (or whatever other dummy symbol is used) is left in the vector
 				// until we despecify it later. 
 				//... and meanwhile, we have 1 for those that were untouched. 
@@ -109,10 +112,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	/**
-	 * @param candPhonSeq -- whole segment we are testing. This is only really necessary because
+	 * @param candPhonSeq -- whole sequence of phones we are testing. This is only really necessary because
 	 * 		we need to implement this method so this class implements interface RestrictPhone
-	 * @param index -- index of interest. See above.
-	 * @return
+	 * @param index -- index of the phone of interest. See above.
+	 * @return whether the phone at the index @index of @candPhonSeq adheres to the restrictions embedded in this FeatMatrix instance. 
 	 */
 	public boolean compare(List<SequentialPhonic> candPhonSeq, int index)
 	{	return compare(candPhonSeq.get(index));		}
@@ -131,8 +134,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		Phone output = new Phone(patient); 
 		String patFeats = patient.getFeatString(); //i.e. feature values of the patient, the phone undergoing modification
 		if (patFeats.length() != featVect.length())
-			throw new UnsetAlphaError("ERROR: cannot forceTruths on phone with different length feat vector");
-			// technically it could still function if this wasn't the case, but for security best to call it out anyways
+			throw new Error("ERROR: cannot forceTruths on phone with different length feat vector");
+			// technically it could still function if they aren't the same length, 
+			// but for security best to call it out, as obscure errors could easily ensue
+			// prior to Dec 20 2022, this was throwing an UnsetAlphaError-- unclear why. 
 		
 		for (int fvi = 0; fvi < featVect.length() ; fvi++)
 		{

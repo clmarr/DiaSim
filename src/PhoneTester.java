@@ -75,7 +75,7 @@ public class PhoneTester {
 		try
 		{
 			BufferedReader in =  new BufferedReader ( new InputStreamReader (
-				new FileInputStream("FeatImplications.txt"), "UTF-8")); 
+				new FileInputStream("FeatImplications"), "UTF-8")); 
 			while((nextLine = in.readLine()) != null)	lines.add(nextLine); 		
 			in.close(); 
 		}
@@ -175,10 +175,12 @@ public class PhoneTester {
 					(positivity ? 2 : 0) + agreements.substring(featLoc+1); 
 		}
 		
-		System.out.println("The following should be '"+agreements+"'");
-		System.out.println(voicedStop.getFeatVect());
+		String currfeatvect = voicedStop.getFeatVect(); 
+		System.out.println("Is the feature vector correctly '"+agreements+"'?");
+		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
+		else	System.out.println("no, it is instead... "+currfeatvect); 
 		
-		System.out.println("The following should be 'b'");
+		System.out.println("The following should be 'b'"); // recall the testPhone is currently [b].
 		System.out.println(voicedStop.forceTruth(testPhone).print()); 
 		
 		testPhone=voicedStop.forceTruth(testPhone); 
@@ -203,11 +205,30 @@ public class PhoneTester {
 		System.out.println("The following should be 'm'");
 		System.out.println(testPhones.get(0).print()); 
 		
+		feature_stipulations = new String[]{"+nas","+cont","+son","0delrel"}; 
+		// i.e. the stipulations of a voiced stop. 
+	
+		for(int fsi = 0; fsi < feature_stipulations.length; fsi++)
+		{
+			String curr_stip = feature_stipulations[fsi]; 
+			String curr_feat = curr_stip.substring(1); 
+			boolean positivity = curr_stip.charAt(0) == '+'; 
+			int featLoc = featureIndices.get(curr_feat);
+			agreements = agreements.substring(0, featLoc) + 
+					(positivity ? 2 : 0) + agreements.substring(featLoc+1); 
+		}
+		
+		currfeatvect = nasalStop.getFeatVect(); 
+		System.out.println("Is the feature vector correctly '"+agreements+"'?");
+		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
+		else	System.out.println("no, it is instead... "+currfeatvect); 
 		
 		//TODO will need to add in many more testing statements 
 		// if feature implications and feature translations are ever implemented
 		// ... in order to ensure that these are working properly 
-		// ... TODO I think these were done in the end? Check? 
-	
+		// TODO in practice these worked with the current featImplications.txt file at least for BaseCLEF, DiaCLEF etc... but need to check for general case!
+		
+		
+		// TODO expansion to handle FeatMatrix's alpha features. 
 	}
 }
