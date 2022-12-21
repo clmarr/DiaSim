@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 public class FeatMatrix extends Phonic implements RestrictPhone {
 	
-	private char[] init_chArr; //retains mark of alpha values-- whereas they assume their functional values in featVect.
+	private char[] init_chArr; //retains mark of alpha values given to constructor class
+		// whereas they assume their functional numerical values in featVect as they become specified
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
 		// despecification -- i.e. arising only because of feature implications,
@@ -22,7 +23,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private HashMap<String, String[]> featImpls; 
 	
-	private String localAlphabet; // for handling alpha notation 
+	private String localAlphabet; // for handling all features functioning as alpha values within the feature specifications... 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultispecAlpha; 	

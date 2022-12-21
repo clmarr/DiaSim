@@ -241,6 +241,26 @@ public class PhoneTester {
 		
 		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix...");
 		
+		System.out.println("(single alpha feature, no feature implications in play.") ;
+		System.out.println("(testing FeatMatrix constructor in this condition)"); 
+		FeatMatrix laxv_alphahigh = new FeatMatrix("-tense,βhi", Arrays.asList(feats), featImplications); 
+		
+		System.out.println("Is the local alphabet correctly 'β'?"); 
+		if (laxv_alphahigh.getLocalAlphabet().equals("β"))	System.out.println("Yes.");
+		else	System.out.println("No, instead it isː "+laxv_alphahigh.getLocalAlphabet()); 
+		
+		System.out.println("Was the alpha feature's presence correctly detected?"); 
+		System.out.println( laxv_alphahigh.has_alpha_specs() ? "Yes." : "No.") ; 
+		
+		System.out.println("Were multiple alpha features (incorrectly) detected?"); 
+		System.out.println( laxv_alphahigh.has_multispec_alph()? "Yes." : "No.") ; 
+		
+		// use alpha-hi  with u and o 
+		
+		
+		
+		
+		System.out.println("(single alpha feature, with a feature implication in play...)") ; 
 		
 		// TODO expansion to handle FeatMatrix's alpha features. 
 	}
