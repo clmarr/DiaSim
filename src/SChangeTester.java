@@ -306,23 +306,50 @@ public class SChangeTester {
 		
 		SequentialPhonic pfm = testFactory.parseSeqPh("e"); 
 		
+		String prevFeatVect = fmtest.getFeatVect(); 
 		
 		int feats_extracted = fmtest.extractAndApplyAlphaValues(pfm).keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
 				feats_extracted == 0, 
 				"Error: there should be zero features extracted since there are no alpha feats specified to begin with, "
 				+ "but "+feats_extracted+" were extracted!" ) ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, 
+				prevFeatVect.equals(fmtest.getFeatVect()),
+				"Error: the feat vect should have been unchanged but it has changed from\n"+prevFeatVect+"\nto\n"+fmtest.getFeatVect()) 
+				? 1 : 0; 
 		
-		System.out.println("\nNow for a feat matrix with one alpha value...");
+		System.out.println("\nNow for a feature matrix with one alpha value, without any feature implications..."); 
+		fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(featsByIndex), featImplications); 
+		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("β"), "Error: the local alphabet should be 'β' but instead it is '"+fmtest.getLocalAlphabet()+"'") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
+		char fua = fmtest.first_unset_alpha(); 
+		numCorrect += UTILS.checkBoolean(true, fua == 'β',
+				"Error: first unset alpha should be 'β', but it is '"+fua+"'") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
+				"Error: system detects an alpha variable specified for multiple features, but there is none") ? 1 : 0; 
+		
+		//testing whether featVect is stored properly in the FeatMatrix object instance 
+		String corrFeatVect = ""; 
+		for(int i = 0; i < featsByIndex.length; i++)	corrFeatVect += "1";
+		int featLoc = featIndices.get("tense"); 
+		corrFeatVect = corrFeatVect.substring(0, featLoc) + "β" + corrFeatVect.substring(featLoc+1); 
+		featLoc = featIndices.get("hi"); 
+		corrFeatVect = corrFeatVect.substring(0, featLoc) + "0" + corrFeatVect.substring(featLoc+1);
+		numCorrect = UTILS.checkBoolean(true, corrFeatVect.equals(fmtest.getFeatVect()), 
+				"Error: the feature vector should be\n"+corrFeatVect+"\nbut it is\n"+fmtest.getFeatVect()) ? 1 : 0 ; 
+		
+		
+		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication...");
 		fmtest = new FeatMatrix("ɑstres,+syl",Arrays.asList(featsByIndex),featImplications); 
 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
-		char fua = fmtest.first_unset_alpha(); 
+		fua = fmtest.first_unset_alpha(); 
 		numCorrect += UTILS.checkBoolean(true, fua == 'ɑ',
 				"Error: first unset alpha should be 'ɑ', but it is '"+fua+"'") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
-				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
+				"Error: system detects an alpha variable specified for multiple features, but there is none") ? 1 : 0; 
 		
 		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
 		
@@ -351,7 +378,7 @@ public class SChangeTester {
 				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
 				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' but it is "
 						+ UTILS.printWord(result)) ? 1 : 0; 
-		System.out.println("Done testing alpha feature comprehension. Got "+numCorrect+" correct out of 11."); 
+		System.out.println("Done testing alpha feature comprehension. Got "+numCorrect+" correct out of 17."); 
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,

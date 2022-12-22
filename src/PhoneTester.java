@@ -239,7 +239,7 @@ public class PhoneTester {
 		
 		System.out.println("----------------------");
 		
-		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix...");
+		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix, without any alpha feature specification...");
 
 		System.out.println("(no alpha feature specification, testing for errant detection thereof)"); 
 		System.out.println("The following should all be 'false':");
@@ -248,41 +248,6 @@ public class PhoneTester {
 		System.out.println("The following should be '0': (first_unset_alpha())");
 		System.out.println(""+nasalStop.first_unset_alpha()); 
 		
-		System.out.println("(single alpha feature, no feature implications in play.") ;
-		System.out.println("(testing FeatMatrix constructor in this condition)"); 
-		FeatMatrix laxv_alphahigh = new FeatMatrix("-tense,βhi", Arrays.asList(feats), featImplications); 
-		
-		System.out.println("Is the local alphabet correctly 'β'?"); 
-		if (laxv_alphahigh.getLocalAlphabet().equals("β"))	System.out.println("Yes.");
-		else	System.out.println("No, instead it isː "+laxv_alphahigh.getLocalAlphabet()); 
-		
-		System.out.println("Was the alpha feature's presence correctly detected?"); 
-		System.out.println( laxv_alphahigh.has_alpha_specs() ? "Yes." : "No.") ; 
-		
-		System.out.println("Were multiple specifications on a single alpha feature (incorrectly) detected?"); 
-		System.out.println( laxv_alphahigh.has_multifeat_alpha()? "Yes." : "No.") ; 
-		
-		//testing the feature vector... 
-		for(int i = 0; i < feats.length; i++)	if (agreements.charAt(i) != '1')	agreements = agreements.substring(0,i)+"1"+agreements.substring(i+1); 
-		int fii = featureIndices.get("tense"); 
-		agreements = agreements.substring(0,fii)+"0"+agreements.substring(fii+1); 
-		fii = featureIndices.get("hi"); 
-		agreements = agreements.substring(0,fii)+"β"+agreements.substring(fii+1); 
-		currfeatvect = laxv_alphahigh.getFeatVect(); 
-		System.out.println("Is the feature vector correctly '"+agreements+"'?");
-		if(currfeatvect.equals(agreements))		System.out.println("Yes."); 
-		else	System.out.println("No, instead it is : "+currfeatvect); 
-		
-		System.out.println("First unset alpha should be 'β'...");
-		System.out.println("It isː "+ laxv_alphahigh.first_unset_alpha()); 
-		
-		
-		
-		//test with u and o, ʊ and ɔ
-		
-		
-		System.out.println("(single alpha feature, with a feature implication in play...)") ; 
-		
-		// TODO expansion to handle FeatMatrix's alpha features. 
+		System.out.println("For further testing of FeatMatrix with alpha features, use SChangeTester");
 	}
 }
