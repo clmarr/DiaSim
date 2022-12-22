@@ -507,11 +507,34 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("-tense"))), 
 				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
 		
+		// now testing effect on feature matrix with two different alpha symbols, each specifying one feature: 
+			//  β for hi, and ɸ for tense... 
+		dummyFM = newFM("βhi,ɸtense"); 
+		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
 		
-		// one with β for hi, and ɑ for tense... 
-				
-		// one with β for hi and for nas
-				
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == 'ɸ', 
+				"Error: after application of filling alpha value β to feat matrix with β and ɸ in its alphabet, "
+				+ "the first (and only) unset alpha should be 'ɸ' but it is "+dummyFM.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, dummyFM.first_unset_alpha() == '0', 
+				"Error: after application of filling alpha value β to feat matrix with β and ɸ in its alphabet, "
+				+ "the system erroneously believes all alpha symbols are now set!") ? 1 : 0 ;
+		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0hi"); 
+		numCorrect += UTILS.checkBoolean(false, 
+				dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
+				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
+				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("-hi,ɸtense"))), 
+				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
+
+		// one with β for hi AND for nas (multifeature alpha symbol!) 
+		//TODO finish testing here! 
+
+						
 		
 		/*
 		 * now checking force truth methods 
@@ -584,7 +607,7 @@ public class SChangeTester {
 						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
-				+ "out of 53"); 
+				+ "out of 59"); 
 		
 		//TODO finish testing here... 
 		
