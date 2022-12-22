@@ -408,16 +408,50 @@ public class SChangeTester {
 		n_feats_extracted = alph_feats_extrd.keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
 				n_feats_extracted == 1, 
-				"Error: there should be one feature extracted from ["+dummyPhone.print()+"] as schwa is [-tense] and [-hi], "
+				"Error: there should be one feature extracted from ["+dummyPhone.print()+"] as it is [-tense] and [-hi], "
 				+ "but "+n_feats_extracted+" features were extracted!" ) ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
 				"Error: first_unset_alpha() should return '0' (we just set the only unset one),"
 				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		 
+		numCorrect += UTILS.checkBoolean(false, prevFeatVect.equals(fmtest.getFeatVect()), 
+				"Error: the feature vector should have changed after alpha value extraction, yet it hasn't!") ? 1 : 0 ; 
+		featLoc = featIndices.get("hi"); 
+		corrFeatVect = corrFeatVect.substring(0, featLoc) + "0" // because wedge is not hi
+				+ corrFeatVect.substring(featLoc+1); 
+		numCorrect += UTILS.checkBoolean(true, corrFeatVect.equals(fmtest.getFeatVect()), 
+				"Error: the feature vector should be\n"+corrFeatVect+"\nbut it is\n"+fmtest.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, initSpecs.equals(""+fmtest), 
+				"Error: feat specs has erroneously not been changed after alpha value extraction!") ? 1 : 0; 
+		
+		String corrSpecs = ""+initSpecs; corrSpecs = corrSpecs.replace('β', '-'); 
+		numCorrect += UTILS.checkBoolean(true, corrSpecs.equals(""+fmtest), 
+				"Error: feat specs should be\n"+corrSpecs+"\nbut it is\n"+fmtest) ? 1 : 0; 
+		
+		//testing the compare methods now that the feature is extracted
+		numCorrect += UTILS.checkBoolean(false, fmtest.compare(e_tense), 
+				"Error: [e] should be false for [-tense,(β=-)hi].compare() but it is trueǃ") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, fmtest.compare(testFactory.parseSeqPh("h")), 
+				"Error: [h] should be false for [-tense,(β=-)hi].compare() but it is trueǃ") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, fmtest.compare(testFactory.parseSeqPh("k")), 
+				"Error: [k] should be false for [-tense,(β=-)hi].compare() but it is trueǃ") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, fmtest.compare(testFactory.parseSeqPh("u")), 
+				"Error: [u] should be false for [-tense,(β=-)hi].compare() but it is trueǃ") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.compare(testFactory.parseSeqPh("æ")), 
+				"Error: [œ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.compare(testFactory.parseSeqPh("ɔ")), 
+				"Error: [œ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
+		
+				
+		//TODO check forceTruth methods
+
+		//TODO check that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
 		
 		//once this is done, check for [ʊ] 
 		
 		
-		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct out of 20"); 
+		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
+				+ "out of 30"); 
 		
 		//TODO finish testing here... 
 		
