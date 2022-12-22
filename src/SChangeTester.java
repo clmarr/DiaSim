@@ -299,17 +299,13 @@ public class SChangeTester {
 		System.out.println("First : testing alpha variable functionality of FeatMatrices and no alpha feats specified"); 
 		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(featsByIndex),featImplications); 
 		
-		/**TODO debugging block
-		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
-		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest);*/ 
-		
 		numCorrect += UTILS.checkBoolean(false, fmtest.has_alpha_specs(), 
 				"Error: system believes there to be alpha specs when there are none.") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
 				"Error: first_unset_alpha() should return '0' but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
 		
 		SequentialPhonic pfm = testFactory.parseSeqPh("e"); 
+		
 		
 		int feats_extracted = fmtest.extractAndApplyAlphaValues(pfm).keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
@@ -319,10 +315,7 @@ public class SChangeTester {
 		
 		System.out.println("\nNow for a feat matrix with one alpha value...");
 		fmtest = new FeatMatrix("ɑstres,+syl",Arrays.asList(featsByIndex),featImplications); 
-		/** TODO debugging block
-		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
-		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest);*/ 
+
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
 		char fua = fmtest.first_unset_alpha(); 
@@ -340,15 +333,10 @@ public class SChangeTester {
 				+ " without initializing the alpha value should cause an UnsetAlphaError,"
 				+ " but none was detected!") ? 1 : 0;
 		
-		
 		System.out.println("\nNow extracting from... "+pfm); 
 		HashMap<String,String> toApply = fmtest.extractAndApplyAlphaValues(pfm); 
 		fmtest.applyAlphaValues(toApply);
 		
-		/** TODO debugging block
-		System.out.println("init_chArr : "+fmtest.getStrInitChArr()); 
-		System.out.println("feat vect : "+fmtest.getFeatVect()); 
-		System.out.println("specs : "+fmtest);  **/
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 

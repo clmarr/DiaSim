@@ -180,21 +180,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		outSeq.set(ind, forceTruth(new Phone(patient)));
 		return outSeq;
 	}
-	
-	@Override
-	public String toString() 
-	{	return "["+featSpecs+"]";		}
-	
-	//TODO currently used for testing only
-	public String getFeatVect() 
-	{	return ""+featVect; 	}
-	
-	@Override
-	public String print() {
-		return FEAT_MATRIX_PRINT_STMT; //this can be changed for stylistic purposes as long as it is unique with respect to the print outputs of parallel classes
-		//TODO however it is changed, it will be necessary to modify various classes that rely on the stability of this symbol, 
-			// such as SChangeFeat
-	}
 
 	@Override
 	public boolean equals(Object other) {
@@ -467,5 +452,19 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public String getLocalAlphabet()
 	{	return ""+localAlphabet;	}
 	
+	@Override
+	public String toString() 
+	{	return "["+featSpecs+"]";		}
 	
+	//TODO currently used for testing only
+	public String getFeatVect() 
+	{	return ""+featVect; 	}
+	
+	@Override
+	public String print() {
+		return FEAT_MATRIX_PRINT_STMT; //this can be changed for stylistic purposes as long as it is unique with respect to the print outputs of parallel classes
+		//TODO however it is changed, it will be necessary to modify various classes that rely on the stability of this symbol, 
+			// such as SChangeFeat
+	}
+
 }
