@@ -275,6 +275,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		if (alphVals.keySet().size() == 0)	return; 
+		if (! hasAlphSpecs )	return; 	// don't apply alpha value filling if there's no values to fill! 
 		
 		List<String> alphFeatsWImpls = new ArrayList<String>(); 
 			// to store which features were modified 

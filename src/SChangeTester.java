@@ -442,13 +442,17 @@ public class SChangeTester {
 		
 		//checking application of these feature values to different matrices 
 		// i.e. that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
-		// first one with +tense (vs. -tense as fmtest currently has), +front, and β hi
+		// application to a FeatMatrix instance without any alpha values isn't necessary as this is caught at the beginning of the method applyAlphaValues
+			// and triggers the end of the method with a blank return statement. 
+		
+		
+		// testing application to a FeatMatrix with +tense (vs. -tense as fmtest currently has), +front, and β hi
 		FeatMatrix dummyFM = newFM("+tense,+front,βhi"); 
 		String dfm_og_vect = dummyFM.getFeatVect(), dfm_og_specs = ""+dummyFM; 
 		dummyFM.applyAlphaValues(alph_feats_extrd);
 		
 		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == '0', 
-				"Error: after application of alpha values to only alpha value, it does not count as unset") ? 1 : 0; 
+				"Error: after application of alpha values to only alpha value, it erroneously does not count as unset") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false, 
 				dfm_og_vect.equals(dummyFM.getFeatVect()), 
 				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
@@ -463,13 +467,27 @@ public class SChangeTester {
 				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("+tense,+front,-hi"))), 
 				"Error: feature specs should be [+tense,+front,-hi], but it is "+dummyFM) ? 1 : 0 ; 
-
-		
-		//numCorrect += UTILS.checkBoolean(boundsMatter, boundsMatter, dfm_og_specs)
 				
+		// check for application to case where ɣ is specified for [hi] and it is matchingly [-tense]
+		// applyAlphaValues should not fill any alpha values, as they're different ones... test here is to see if this is truly the case. 
+		dummyFM = newFM("-tense,ɣhi"); 
+		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
+		
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == 'ɣ', 
+				"Error: after application of alpha value β to a FeatMatrix with only ɣ as an alpha value, β"
+				+ " is now erroneously detected as set, or detected as erroneously set") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs should be unchanged after attempt to fill value for the wrong alpha symbol, yet it has changed from\n"
+				+ dfm_og_specs +"\nto: "+dummyFM) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector should be unchanged after attempt to fill value for the wrong alpha symbol, yet it has changed from\n"
+				+ dfm_og_vect +"\nto: "+dummyFM.getFeatVect()) ? 1 : 0 ;
+		
+		
+		
 		// one with β for tense, which will show handling of downstream feature implications 
 				
-		// one with ɑ for hi and no other alpha specifications
 				
 		// one with β for hi, and ɑ for tense... 
 				
@@ -547,7 +565,7 @@ public class SChangeTester {
 						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
-				+ "out of 45"); 
+				+ "out of 48"); 
 		
 		//TODO finish testing here... 
 		
