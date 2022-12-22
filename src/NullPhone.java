@@ -33,7 +33,7 @@ public class NullPhone extends PseudoPhone {
 	{	return new NullPhone();	}
 	
 	@Override
-	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
+	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{
 		return null;
 	}

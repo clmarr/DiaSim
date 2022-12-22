@@ -130,7 +130,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				if(!phHere.print().equals(targSource.print()))	return false;
 			else if (!targSource.check_for_alpha_conflict(phHere))
 			{
-				ALPH_VARS.putAll(targSource.extract_alpha_values(phHere));
+				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
 				targSource.applyAlphaValues(ALPH_VARS);
 				need_to_reset = true;
 			}
@@ -164,7 +164,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
-							ALPH_VARS.putAll(pri.extract_alpha_values(input.get(cpic)));
+							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
 							priorContext.applyAlphaValues(ALPH_VARS);
 							pripr = priorContext.getPlaceRestrs();
@@ -205,7 +205,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
-							ALPH_VARS.putAll(poi.extract_alpha_values(input.get(cpic)));
+							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
 							postContext.applyAlphaValues(ALPH_VARS);
 							popr = postContext.getPlaceRestrs();

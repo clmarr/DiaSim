@@ -168,7 +168,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{	return false;	}
 	
 	@Override
-	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp)
+	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{	return null;	}
 	
 	@Override

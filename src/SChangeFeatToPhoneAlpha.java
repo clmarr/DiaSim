@@ -44,7 +44,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 						if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
 						else
 						{
-							HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
+							HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
 							need_to_reset = true;
 							test.applyAlphaValues(alphHere);
 							if (priorSpecd)
@@ -83,7 +83,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 									}
 									else
 									{
-										HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
+										HashMap<String,String> alphHere = pri.extractAndApplyAlphaValues(input.get(cpic));
 										need_to_reset = true;
 										priorContext.applyAlphaValues(alphHere);
 										postContext.applyAlphaValues(alphHere);
@@ -126,7 +126,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 										}
 										else
 										{
-											HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
+											HashMap<String,String> alphHere = poi.extractAndApplyAlphaValues(cpi);
 											poi.applyAlphaValues(alphHere);
 											if(poi.compare(cpi))
 											{

@@ -47,7 +47,7 @@ public class Boundary extends PseudoPhone {
 	}
 
 	@Override
-	public HashMap<String, String> extract_alpha_values(SequentialPhonic inp) {
+	public HashMap<String, String> extractAndApplyAlphaValues(SequentialPhonic inp) {
 		return null;
 	}
 

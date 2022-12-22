@@ -311,7 +311,7 @@ public class SChangeTester {
 		
 		SequentialPhonic pfm = testFactory.parseSeqPh("e"); 
 		
-		int feats_extracted = fmtest.extract_alpha_values(pfm).keySet().size(); 
+		int feats_extracted = fmtest.extractAndApplyAlphaValues(pfm).keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
 				feats_extracted == 0, 
 				"Error: there should be zero features extracted since there are no alpha feats specified to begin with, "
@@ -342,7 +342,7 @@ public class SChangeTester {
 		
 		
 		System.out.println("\nNow extracting from... "+pfm); 
-		HashMap<String,String> toApply = fmtest.extract_alpha_values(pfm); 
+		HashMap<String,String> toApply = fmtest.extractAndApplyAlphaValues(pfm); 
 		fmtest.applyAlphaValues(toApply);
 		
 		/** TODO debugging block

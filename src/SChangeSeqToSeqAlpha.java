@@ -67,7 +67,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						//TODO debugging
 						System.out.println("no alpha conflict detected.");
 						
-						HashMap<String,String> alphHere = test.extract_alpha_values(cand); 
+						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
 						//TODO debugging
 						System.out.println("type of test : "+test.getClass());
 						System.out.println("length of alphHere "+alphHere.size());
@@ -110,11 +110,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 									}
 									else
 									{
-										HashMap<String,String> alphHere = pri.extract_alpha_values(input.get(cpic));
+										HashMap<String,String> alphHere = pri.extractAndApplyAlphaValues(input.get(cpic));
 										need_to_reset = true;
 										priorContext.applyAlphaValues(alphHere);
 										if (postSpecd)	postContext.applyAlphaValues(alphHere);
-										for (int k = 0; k < destSpecs.size(); k++)	destSpecs.get(k).applyAlphaValues(alphHere);
+										for (int k = 0; k < destSpecs.size(); k++)	
+											destSpecs.get(k).applyAlphaValues(alphHere); //TODO need to check that this works here, I have suspicions it won't.
 										pripr = priorContext.getPlaceRestrs();
 									}
 								}
@@ -154,7 +155,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 										}
 										else
 										{
-											HashMap<String,String> alphHere = poi.extract_alpha_values(cpi);
+											HashMap<String,String> alphHere = poi.extractAndApplyAlphaValues(cpi);
 											poi.applyAlphaValues(alphHere);
 											if(poi.compare(cpi))
 											{

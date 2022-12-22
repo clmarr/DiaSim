@@ -74,7 +74,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 									}
 									else
 									{
-										ALPH_VARS.putAll(pri.extract_alpha_values(input.get(cpic)));
+										ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
 										need_to_reset = true;
 										priorContext.applyAlphaValues(ALPH_VARS);
 										pripr = priorContext.getPlaceRestrs();
@@ -152,7 +152,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 							}
 							else
 							{
-								temp_alph_vals.putAll(poi.extract_alpha_values(cpi));
+								temp_alph_vals.putAll(poi.extractAndApplyAlphaValues(cpi));
 								postContext.applyAlphaValues(temp_alph_vals);
 								popr = postContext.getPlaceRestrs();
 								popm = postContext.getParenMap(); 

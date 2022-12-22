@@ -8,7 +8,7 @@ public interface RestrictPhone{
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind); 
 	
 	public void applyAlphaValues(HashMap<String,String> alphVals);
-	public HashMap<String,String> extract_alpha_values(SequentialPhonic inp);
+	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp);
 	public boolean check_for_alpha_conflict(SequentialPhonic inp); 
 	//public SequentialPhonic forceTruth(SequentialPhonic patient); 
 	public void resetAlphaValues();
