@@ -325,7 +325,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				
 				//now the specific specification for implications downstream. 
 				currSpec = toSurfVal(val)+currSpec; 
-				alphFeatsWImpls.add(currSpec); 
+				if (featImpls.keySet().contains(currSpec))
+					alphFeatsWImpls.add(currSpec); 
 			}
 		}
 		
