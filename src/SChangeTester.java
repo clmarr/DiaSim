@@ -386,7 +386,6 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(""+fmtest), 
 				"Error: feat specs should have been unchanged but it was changed from\n"+initSpecs+"\nto\n"+fmtest) ? 1 : 0; 
 		
-		
 		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(e_tense); 
 		n_feats_extracted = alph_feats_extrd.keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
@@ -405,36 +404,12 @@ public class SChangeTester {
 		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(dummyPhone); 
 		n_feats_extracted = alph_feats_extrd.keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
-				n_feats_extracted == 0, 
-				"Error: there should be zero features extracted from ["+dummyPhone.print()+"] since [e] is not tense, "
-				+ "but "+n_feats_extracted+" were extracted!" ) ? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(true, 
-				prevFeatVect.equals(fmtest.getFeatVect()),
-				"Error: the feat vect should have been unchanged but it has changed from\n"+prevFeatVect+"\nto\n"+fmtest.getFeatVect()) 
-				? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(""+fmtest), 
-				"Error: feat specs should have been unchanged but it was changed from\n"+initSpecs+"\nto\n"+fmtest) ? 1 : 0; 
+				n_feats_extracted == 1, 
+				"Error: there should be one feature extracted from ["+dummyPhone.print()+"] as schwa is [-tense] and [-hi], "
+				+ "but "+n_feats_extracted+" features were extracted!" ) ? 1 : 0; 
 		
-		//TODO massive bugs occurring here, does the IPA keyboard work? 
 		
-		dummyPhone = testFactory.parseSeqPh("ɪ"); //+hi, -tense 
-		
-		//TODO debugging
-		System.out.println("Extracting from ... "+dummyPhone);
-		
-		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(dummyPhone); 
-		n_feats_extracted = alph_feats_extrd.keySet().size(); 
-		numCorrect += UTILS.checkBoolean(true, 
-				n_feats_extracted == 0, 
-				"Error: there should be zero features extracted from ["+dummyPhone.print()+"] since it is not tense, "
-				+ "but "+n_feats_extracted+" were extracted!" ) ? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(true, 
-				prevFeatVect.equals(fmtest.getFeatVect()),
-				"Error: the feat vect should have been unchanged but it has changed from\n"+prevFeatVect+"\nto\n"+fmtest.getFeatVect()) 
-				? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(""+fmtest), 
-				"Error: feat specs should have been unchanged but it was changed from\n"+initSpecs+"\nto\n"+fmtest) ? 1 : 0; 
-		
+		//once this is done, check for [ʊ] 
 		
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct out of 17"); 
