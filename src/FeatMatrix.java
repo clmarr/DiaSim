@@ -41,7 +41,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	/**
 	 * version of constructor with featSpecs passed directly
-	 * should be passed with , delimiters and +/- indicators 
+	 * should be passed with ',' as  delimiters, and '+/-' as indicators (or '0', for despecification if the result of upstream application of feature implications)
 	 */
 	// 
 	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String, String[]> ftImpls)
