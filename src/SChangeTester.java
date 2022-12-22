@@ -509,8 +509,18 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDummyList.get(1)), 
 				"Error: ["+dummyList.get(1).print()+"], after forceTruth() by FeatMatrix "+fmtest+", should become\n"
 						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
-					
+		
 		//TODO check that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
+		// one with β also for tense, and something else irrelevant
+		FeatMatrix dummyFM = newFM("βtense,+front"); 
+		
+				
+				
+		// one with ɑ for tense and no other alpha specifications
+				
+		// one with β for hi, and ɑ for tense... 
+				
+		// one with β for hi and for nas
 		
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
@@ -576,6 +586,11 @@ public class SChangeTester {
 			return true;
 		System.out.print(generateErrorMessage(sc, inp, exp, obs));
 		return false;
+	}
+	
+	private static FeatMatrix newFM(String specs)
+	{
+		return new FeatMatrix(specs, Arrays.asList(featsByIndex),featImplications);
 	}
 
 }
