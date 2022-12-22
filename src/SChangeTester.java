@@ -335,10 +335,9 @@ public class SChangeTester {
 		//testing whether featVect is stored properly in the FeatMatrix object instance 
 		String corrFeatVect = ""; 
 		for(int i = 0; i < featsByIndex.length; i++)	corrFeatVect += "1";
-		int featLoc = featIndices.get("hi"); 
-		corrFeatVect = corrFeatVect.substring(0, featLoc) + "β" + corrFeatVect.substring(featLoc+1); 
-		featLoc = featIndices.get("tense"); 
-		corrFeatVect = corrFeatVect.substring(0, featLoc) + "0" + corrFeatVect.substring(featLoc+1);
+		int hi_loc = featIndices.get("hi"), tense_loc = featIndices.get("tense"); 
+		corrFeatVect = corrFeatVect.substring(0, hi_loc) + "β" + corrFeatVect.substring(hi_loc+1); 
+		corrFeatVect = corrFeatVect.substring(0, tense_loc) + "0" + corrFeatVect.substring(tense_loc+1);
 		prevFeatVect = fmtest.getFeatVect(); 
 		numCorrect += UTILS.checkBoolean(true, corrFeatVect.equals(prevFeatVect), 
 				"Error: the feature vector should be\n"+corrFeatVect+"\nbut it is\n"+fmtest.getFeatVect()) ? 1 : 0 ; 
@@ -416,9 +415,8 @@ public class SChangeTester {
 		 
 		numCorrect += UTILS.checkBoolean(false, prevFeatVect.equals(fmtest.getFeatVect()), 
 				"Error: the feature vector should have changed after alpha value extraction, yet it hasn't!") ? 1 : 0 ; 
-		featLoc = featIndices.get("hi"); 
-		corrFeatVect = corrFeatVect.substring(0, featLoc) + "0" // because wedge is not hi
-				+ corrFeatVect.substring(featLoc+1); 
+		corrFeatVect = corrFeatVect.substring(0, hi_loc) + "0" // because wedge is not hi
+				+ corrFeatVect.substring(hi_loc+1); 
 		numCorrect += UTILS.checkBoolean(true, corrFeatVect.equals(fmtest.getFeatVect()), 
 				"Error: the feature vector should be\n"+corrFeatVect+"\nbut it is\n"+fmtest.getFeatVect()) ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(false, initSpecs.equals(""+fmtest), 
@@ -438,20 +436,85 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(false, fmtest.compare(testFactory.parseSeqPh("u")), 
 				"Error: [u] should be false for [-tense,(β=-)hi].compare() but it is trueǃ") ? 1 : 0 ;
 		numCorrect += UTILS.checkBoolean(true, fmtest.compare(testFactory.parseSeqPh("æ")), 
-				"Error: [œ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
+				"Error: [æ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
 		numCorrect += UTILS.checkBoolean(true, fmtest.compare(testFactory.parseSeqPh("ɔ")), 
-				"Error: [œ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
+				"Error: [ɔ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
 		
-				
-		//TODO check forceTruth methods
+		/*
+		 * now checking force truth methods 
+		 *for now, not dealing with implications not already stored -- for example, that fmtest forcing a value on something should 
+		* make it non-consonantal, given that it is specified for tense
+		* those should really be given to the FeatMatrix constructor
+		* and in practice, it is done when the FeatMatrix constructor is made via SChangeFactory
+		* ... though (TODO) it might be a good idea to check this. 
+		* 
+		* anyhow, recall that fmtest should now be [-tense, [β=-]hi]
+		*/ 
+		SequentialPhonic dummyPhone2 = testFactory.parseSeqPh("y"); //initially +tense, +hi
+		Phone modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		String correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "œ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 
-		//TODO check that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
+		dummyPhone2 = testFactory.parseSeqPh("ə"); //initially 0tense, -hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "ɜ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
 		
-		//once this is done, check for [ʊ] 
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+
+		dummyPhone2 = testFactory.parseSeqPh("ʊ"); //initially -tense, +hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "ɔ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+
+		dummyPhone2 = testFactory.parseSeqPh("ˈʌ"); //initially -tense, -hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = ""+dummyPhone2;
+		numCorrect += UTILS.checkBoolean(true, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() should not effect any change upon a phone that already adheres to its stipulations, yet it does!") ? 1 :0; 
+
+		//testing with the List<SequentialPhonic> version of forceTruth()
+		List<SequentialPhonic> dummyList = testFactory.parseSeqPhSeg("ø ˈɯ"); 
+		// correct_modified_dp2_str will not change, as it should become [ˈʌ] 
+		
+		List<SequentialPhonic> modDummyList = fmtest.forceTruth(dummyList, 1); 
+		
+		numCorrect += UTILS.checkBoolean(true, dummyList.get(0).equals(modDummyList.get(0)), 
+				"Error: FeatMatrix.forceTruth(List<SequentialPhonic>) seems to have changed a phone at the wrong index!") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dummyList.get(1).equals(modDummyList.get(1)), 
+				"Error: FeatMatrix.forceTruth(List<SequentialPhonic>) does not effect any change upon a valid phone to operate on, "
+				+ "or failed to access the index of the list!") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDummyList.get(1)), 
+				"Error: ["+dummyList.get(1).print()+"], after forceTruth() by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+					
+		//TODO check that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
 		
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
-				+ "out of 30"); 
+				+ "out of 40"); 
 		
 		//TODO finish testing here... 
 		
