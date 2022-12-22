@@ -484,11 +484,30 @@ public class SChangeTester {
 				"Error: feature vector should be unchanged after attempt to fill value for the wrong alpha symbol, yet it has changed from\n"
 				+ dfm_og_vect +"\nto: "+dummyFM.getFeatVect()) ? 1 : 0 ;
 		
+		// now testing application of alpha feature filling to a FeatMatrix with [βtense], which will show handling of downstream feature implications 
+			// namely: tense:-cons (an any-specification scenario)
+				// [-cons] has downstream implications: -lat,+cont
+					// [+cont] itself has a downstream implication: [0delrel]
+		dummyFM = newFM("βtense"); 
+		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
+
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == '0', 
+				"Error: after application of alpha values to only alpha value, it erroneously does not count as unset") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, 
+				dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
+
+		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0tense,0cons,0lat,2cont,9delrel"); 
+		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
+				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
+				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("-tense"))), 
+				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
 		
 		
-		// one with β for tense, which will show handling of downstream feature implications 
-				
-				
 		// one with β for hi, and ɑ for tense... 
 				
 		// one with β for hi and for nas
@@ -565,7 +584,7 @@ public class SChangeTester {
 						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
-				+ "out of 48"); 
+				+ "out of 53"); 
 		
 		//TODO finish testing here... 
 		
@@ -590,7 +609,6 @@ public class SChangeTester {
 				+ " but none was detected!") ? 1 : 0;
 		
 		HashMap<String,String> toApply = fmtest.extractAndApplyAlphaValues(e_tense); 
-		fmtest.applyAlphaValues(toApply);
 		
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
@@ -606,6 +624,8 @@ public class SChangeTester {
 				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
 				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' but it is "
 						+ UTILS.printWord(result)) ? 1 : 0; 
+		
+		//TODO continue testing, with toApply here... 
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
@@ -632,6 +652,27 @@ public class SChangeTester {
 	private static FeatMatrix newFM(String specs)
 	{
 		return new FeatMatrix(specs, Arrays.asList(featsByIndex),featImplications);
+	}
+	
+	/** for simulating the change of one feature in a feature vector as used in FeatMatrix
+	 * 
+	 * @param fv_inp -- input feature vector
+	 * @param deep_feat_ch_specs -- specifications of what to change
+	 * 			use the UNDERLYING ("deep"), format 2 = positive, 0 = negative, 9 = despecified
+	 * 				sorry if this is confusing! 
+	 * 			separate specifications with ',', or whatever restrDelim is set as 
+	 * @return
+	 */
+	
+	private static String featVectChange(String fv_inp, String deep_feat_ch_specs)
+	{
+		String output = ""+fv_inp;
+		for (String ch : deep_feat_ch_specs.split(""+restrDelim))
+		{
+			int floc = featIndices.get(ch.substring(1)); 
+			output = output.substring(0,floc) + ch.substring(0,1) + output.substring(floc+1); 
+		}
+		return output;		
 	}
 
 }
