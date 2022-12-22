@@ -238,29 +238,40 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	/**
 	 * apply a value to the feature vector
 	 * in practice, used as auxiliary to applyAlphaValues
-	 * @param value to apply, should be surface value i.e. ( + positive , - negative , 0 despecify... in pratice 0/despecify should never really happen. 
+	 * @param value to apply, should be surface value i.e. ( + positive , - negative , 0 despecify... 
+	 * 		// ... in practice 0/despecify should never really happen except via a feature implication 
 	 * @param feature to apply it to, should be standard feature name as seen in symbolDefs (or replacement file) and featImplications (likewise)
 	 * 		as this class does not use feature translations; i.e. "stres", "cor", etc. 
 	 * @param via_impl -- whether or not this feature is being applied via a feature implication
-	 * 		i.e. if so, featVect won't be modified. 
+	 * 		i.e. if so, featSpecs won't be modified, though the feat vect will be
+	 * 		and downstream implications will still be triggered either way
+	 * 		in practice, as of December 2022, via_impl is always true.
 	 */
 	private void apply_value(String value, String feature, boolean via_impl)
 	{
 		int aff_ind = ordFeats.indexOf(feature);
 			
-		if (featVect.charAt(aff_ind) != '1')	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored... may need to put more guard rails here if issues with the feature vector arise		
-		else
-		{
-			featVect = featVect.substring(0, aff_ind) + fromSurfVal(value.charAt(0)) + featVect.substring(aff_ind+1); 
-			if (!via_impl)
-			{
-				//TODO here, need to decide about alpha behavior ...! 
-			}
+		if (featVect.charAt(aff_ind) != '1')	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
+		featVect = featVect.substring(0, aff_ind) + fromSurfVal(value.charAt(0)) + featVect.substring(aff_ind+1); 
+		
+		if (!via_impl) // if it's not via implication 
+		{	
+			if (featSpecs.contains(feature))
+				System.out.println("Likely error: tried to modify featSpecs for specification of feature "+feature+", but it was already there. Continuing, but you may wish to examine this..."); 
+			else	featSpecs += FEAT_DELIM + value + feature;  
 		}
-			
 		
+		//for handling any downstream specifications, 
+		List<String> impls = new ArrayList<String>(); 
 		
+		// first any implications contingent to both + and - specification 
+		if("+-".contains(""+value) && featImpls.keySet().contains(feature))
+			impls.addAll(Arrays.asList(featImpls.get(feature))); 
+		// then any implications contingent to the specific case observed, with + or with - 
+		if(featImpls.keySet().contains(value+feature))
+			impls.addAll(Arrays.asList(featImpls.get(value+feature))); 
 		
+		for (String ii: impls)	apply_value(ii.substring(0,1), ii.substring(1), true); 
 	}
 	
 	@Override
@@ -275,7 +286,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				// of the same functional load as negative or positive feature values.
 				// to change this behavior, set the class parameter DESPEC_VIA_ALPHA to true. 
 	// @precondition both the keys and the values in alphVals should be one character strings
-	// this class should be called using the outputs of extract_alpha_values
+	// this class should be called using the outputs of extractAndApplyAlphaValues
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		if (alphVals.keySet().size() == 0)	return; 
@@ -334,23 +345,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		}
 		
 		//now handling any feature implications. 
+		//this has to be done here, because it is not done in the forceTruth methods. 
+		/**don't need to explicitly handle the possibility that alpha-valued features are going to be affected by feature implications
+		 * -- as long as this class is accessed by alpha values previously extracted via .extractAndApplyAlphaValues(SequentialPhonic)
+		 * as that class interacts with the entire feature vector of the SequentialPhonic (in practice, a Phone.) 
+		 */
 		for (String afii : alphFeatsWImpls)	
 		{
 			String[] impls = featImpls.get(afii); 
 			for (String impc : impls)	
 				apply_value(impc.substring(0,1), // although this looks potentially bugged, it won't be, because the second column of implications must always have a specific value associated with the feature (otherwise, the feature implication would be vacuous)
 						impc.substring(1), true); 
-			/**don't need to explicitly handle the possibility that alpha-valued features are going to be affected by feature implications
-			 * -- as long as this class is accessed by alpha values previously extracted via .extract_alpha_values(SequentialPhonic)
-			 * as that class interacts with the entire feature vector of the SequentialPhonic (in practice, a Phone.) 
-			 */
 		}
 	}
 	
 	
-	
-	
-	// should always be called before extract_alpha_values
+	// should always be called before extractAndApplyAlphaValues
 	// bounds do not matter for our purposes here -- checking for alpha impossibility in multiphone itmes should skip over juncture phones (i.e. word bounds etc) 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
