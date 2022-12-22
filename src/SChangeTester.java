@@ -440,6 +440,42 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.compare(testFactory.parseSeqPh("ɔ")), 
 				"Error: [ɔ] should be true for [-tense,(β=-)hi].compare() but it is falseǃ") ? 1 : 0 ;
 		
+		//checking application of these feature values to different matrices 
+		// i.e. that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
+		// first one with +tense (vs. -tense as fmtest currently has), +front, and β hi
+		FeatMatrix dummyFM = newFM("+tense,+front,βhi"); 
+		String dfm_og_vect = dummyFM.getFeatVect(), dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
+		
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == '0', 
+				"Error: after application of alpha values to only alpha value, it does not count as unset") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, 
+				dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
+		String corr_dfm_vect = ""+dfm_og_vect; 
+		
+		corr_dfm_vect = corr_dfm_vect.substring(0, hi_loc) + "0" + corr_dfm_vect.substring(hi_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
+				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
+				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("+tense,+front,-hi"))), 
+				"Error: feature specs should be [+tense,+front,-hi], but it is "+dummyFM) ? 1 : 0 ; 
+
+		
+		//numCorrect += UTILS.checkBoolean(boundsMatter, boundsMatter, dfm_og_specs)
+				
+		// one with β for tense, which will show handling of downstream feature implications 
+				
+		// one with ɑ for hi and no other alpha specifications
+				
+		// one with β for hi, and ɑ for tense... 
+				
+		// one with β for hi and for nas
+				
+		
 		/*
 		 * now checking force truth methods 
 		 *for now, not dealing with implications not already stored -- for example, that fmtest forcing a value on something should 
@@ -510,21 +546,8 @@ public class SChangeTester {
 				"Error: ["+dummyList.get(1).print()+"], after forceTruth() by FeatMatrix "+fmtest+", should become\n"
 						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 		
-		//TODO check that the alph_feats_extrd apply to another FeatMatrix well via its own applyAlphaFeats method
-		// one with β also for tense, and something else irrelevant
-		FeatMatrix dummyFM = newFM("βtense,+front"); 
-		
-				
-				
-		// one with ɑ for tense and no other alpha specifications
-				
-		// one with β for hi, and ɑ for tense... 
-				
-		// one with β for hi and for nas
-		
-		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
-				+ "out of 40"); 
+				+ "out of 45"); 
 		
 		//TODO finish testing here... 
 		
