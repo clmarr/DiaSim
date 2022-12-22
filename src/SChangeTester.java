@@ -399,20 +399,25 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(""+fmtest), 
 				"Error: feat specs should have been unchanged but it was changed from\n"+initSpecs+"\nto\n"+fmtest) ? 1 : 0; 
 		
-		//TODO There is an error here; it should compute completely fine, because this is -tenseǃǃǃ 
-		dummyPhone = testFactory.parseSeqPh("ə"); //-hi, -tense 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
+				"Error: first_unset_alpha() should return 'β' (it still isn't set),"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		
+		dummyPhone = testFactory.parseSeqPh("ʌ"); //-hi, -tense 
 		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(dummyPhone); 
 		n_feats_extracted = alph_feats_extrd.keySet().size(); 
 		numCorrect += UTILS.checkBoolean(true, 
 				n_feats_extracted == 1, 
 				"Error: there should be one feature extracted from ["+dummyPhone.print()+"] as schwa is [-tense] and [-hi], "
 				+ "but "+n_feats_extracted+" features were extracted!" ) ? 1 : 0; 
-		
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: first_unset_alpha() should return '0' (we just set the only unset one),"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
 		
 		//once this is done, check for [ʊ] 
 		
 		
-		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct out of 17"); 
+		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct out of 20"); 
 		
 		//TODO finish testing here... 
 		

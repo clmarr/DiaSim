@@ -403,11 +403,19 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 		
+		//TODO debugging 
+		System.out.println("inp = "+inp);
+		
+		
 		if (cand_feat_vect.length != featVect.length()) 	throw new RuntimeException("cannot extract alpha values for feat vectors of inconsistent length"); 
 		
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			char fvspec = featVect.charAt(c); 
+			
+			//TODO debugging
+			System.out.println("feat "+ordFeats.get(c)+", fvspec "+fvspec+", value found = "+cand_feat_vect[c]);
+			
 			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
 				if (currReqs.containsKey(""+fvspec))
@@ -422,10 +430,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					currReqs.put(""+fvspec, "9"); // TODO NOTE this is extracted but at present it will NOT be applied. 
 				else	
 					currReqs.put(""+fvspec, cand_feat_vect[c]+""); // i.e. alpha symbol, and 0 or 2 (negative, positive)
+				
+				
+
+				//TODO debugging
+				System.out.println("located alpha value "+fvspec+" at index "+c+", likely feature "+ordFeats.get(c)+", value found: "+cand_feat_vect[c]); 
+				System.out.println("Size of currReqs "+currReqs.size()) ;
+				System.out.println("currReqs(fvspec) = "+currReqs.get(""+fvspec)); 
+				
 			}
 			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
 				return new HashMap<String,String>(); //i.e. this is not a valid input in the first place, nothing to extract -- return empty HashMap
 		}
+		
+		//TODO debugging
+		System.out.println("made it to the end of the for loop...");
+		
 		applyAlphaValues(currReqs); //this appears to often be redundantly called in practice  
 	
 		return currReqs; 
