@@ -589,9 +589,10 @@ public class DiachronicSimulator {
 
 		System.out.println("Now preparing simulation.");
 		
-		//TODO debugging
-		System.out.println("stageOrdering.length : "+stageOrdering.length); 
-		for(String stoi : stageOrdering)	System.out.println(""+stoi);
+		/** former debugging
+		*System.out.println("stageOrdering.length : "+stageOrdering.length); 
+		*for(String stoi : stageOrdering)	System.out.println(""+stoi);
+		*/ 
 		
 		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);

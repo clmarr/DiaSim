@@ -733,6 +733,8 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("m")), 
 				"Error: [m] should have an alpha conflicts for both β and ɣ, but none are detected") ? 1 : 0; 
 		
+		//TODO finish debugging here...
+		
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 13"); 
 		numCorrect = 0 ; 
 		
