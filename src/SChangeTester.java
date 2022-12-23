@@ -686,8 +686,19 @@ public class SChangeTester {
 				"Error: result of fm.forceTruth  on [j] using "+fmtest+" with stress (but not primary stress) feature extracted from [ˌʌ] "
 						+ "should be\n"+testFactory.parseSeqPh("ˌi")+"\nbut it is\n"
 						+ result.get(1)) ? 1 : 0; 
+		
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 10."); 
 		numCorrect = 0 ; 
+		
+		//now testing a condition where the FeatMatrix has two alpha variable symbols, each with multiple features, and one non-alpha symbol
+			// the non alpha symbol is +hi 
+			// one pair with no implications -- lab, back, round
+			// and the other with a potential shared implication -- nas and syl 
+				// i.e. in this theoretical scenario, all +hi syllabic things are nasalized -- i.e. like some dialects of American English? though not the whole language, just this feature marix 
+					// (though also, all +back things are round, and all -back things aren't) 
+		fmtest = newFM("+hi,βlab,βback,βround,ɣnas,ɣsyl");
+		
+		//TODO test basic values
 		
 		
 	}
