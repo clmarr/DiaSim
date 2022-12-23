@@ -733,7 +733,22 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("m")), 
 				"Error: [m] should have an alpha conflicts for both β and ɣ, but none are detected") ? 1 : 0; 
 		
-		//TODO finish debugging here...
+		prevFeatVect = fmtest.getFeatVect(); initSpecs = fmtest.toString();
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(e_tense); 
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.isEmpty(), 
+				"Error: nothing should bbe extracted for [e] since it violates [+hi], but something was...") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(prevFeatVect), 
+				"Error: nothing should be extracted for [e] since it violates [+hi], but the feature vector has somehow changed!") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(fmtest.toString()), 
+				"Error: nothing should be extracted for [e] as it violates [+hi], but the feature specifications have somehow changed!") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
+				"Error: first_unset_alpha() should still return 'β' as no extraction should happen from [e],"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;		
+		
+		
+		//TODO finish debugging here... applications to test --  w ; ʊ̃ 
+
+		
 		
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 13"); 
 		numCorrect = 0 ; 
