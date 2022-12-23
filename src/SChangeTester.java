@@ -687,18 +687,35 @@ public class SChangeTester {
 						+ "should be\n"+testFactory.parseSeqPh("ˌi")+"\nbut it is\n"
 						+ result.get(1)) ? 1 : 0; 
 		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 10."); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 11."); 
 		numCorrect = 0 ; 
 		
+		
+		System.out.println("\nNow testing a scenario where two alpha symbols specify five features, and the two specified by the latter have potential mutual feature implications"); 
 		//now testing a condition where the FeatMatrix has two alpha variable symbols, each with multiple features, and one non-alpha symbol
 			// the non alpha symbol is +hi 
 			// one pair with no implications -- lab, back, round
 			// and the other with a potential shared implication -- nas and syl 
-				// i.e. in this theoretical scenario, all +hi syllabic things are nasalized -- i.e. like some dialects of American English? though not the whole language, just this feature marix 
+				// i.e. in this theoretical scenario, all +hi syllabic things are nasalized -- i.e. like some dialects of American English? though not the whole language, just this feature matrix 
 					// (though also, all +back things are round, and all -back things aren't) 
 		fmtest = newFM("+hi,βlab,βback,βround,ɣnas,ɣsyl");
 		
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha symbol specifications used, but there are two, specifying five features.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
+				"Error: first_unset_alpha() should return 'β',"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_multifeat_alpha(), 
+				"Error: system fails to detects a multispecified alpha variable but there are twoǃ") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("βɣ"), 
+				"Error: local alphabet should be 'βɣ', but it is "+fmtest.getLocalAlphabet()) ? 1 : 0 ; 
+		
 		//TODO test basic values
+		
+		
+		
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct"); 
+		numCorrect = 0 ; 
 		
 		
 	}
