@@ -50,10 +50,6 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 			// i -- place in targ source abstraction. 
 			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
 			{
-				//TODO debugging
-				System.out.println("cand : "+input.get(p+i));
-				System.out.println("test : "+targSource.get(i));
-				
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
 				
@@ -64,19 +60,36 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
 					else
 					{
+						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
+						// if there is no alpha conflict, and there is an unset alpha,
+						// the only case where the return of extractAndApplyAlphaValues() is empty
+							// is when there is a failure to meet a NON-alpha specified value. 
+							// so this is a targ match fail. 
+						if (alphHere.size() == 0 )	targMatchFail = true; 
+						else
+						{
+							for (String alph: alphHere.keySet())  //there will be no replacements since check_for_alpha_conflict was false.
+								ALPH_VARS.put(alph,alphHere.get(alph)); 
+							need_to_reset = true;
+							test.applyAlphaValues(ALPH_VARS);
+							mapAlphVals(); 
+						}
+						
 						//TODO debugging
 						System.out.println("no alpha conflict detected.");
 						
-						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
+						//TODO debugging
+						System.out.println("cand : "+input.get(p+i));
+						System.out.println("test : "+targSource.get(i));
+						
 						//TODO debugging
 						System.out.println("type of test : "+test.getClass());
-						System.out.println("length of alphHere "+alphHere.size());
+						System.out.println("length of alphHere :  "+alphHere.size());		//TODO this should not be zero! 
+						System.out.println("cand stres and prim ...? stres: "+cand.getFeatString().charAt(cand.getFeatIndices().get("stres"))
+								+", prim: "+cand.getFeatString().charAt(cand.getFeatIndices().get("prim"))+"..."); 
+						System.out.println("first unset alpha..? "+test.first_unset_alpha());
 						
-						for (String alph: alphHere.keySet())  //there will be no replacements since check_for_alpha_conflict was false.
-							ALPH_VARS.put(alph,alphHere.get(alph)); 
-						need_to_reset = true;
-						test.applyAlphaValues(ALPH_VARS);
-						mapAlphVals(); 
+						
 					}
 				}
 				//TODO debugging

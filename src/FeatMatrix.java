@@ -366,7 +366,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			String deepSpec = init_chArr[c] + "";
-			if (!"0192".contains(deepSpec))
+			if (!"0192".contains(deepSpec)) // alpha symbol detected. 
 			{
 				if (currReqs.containsKey(deepSpec))
 				{
@@ -387,8 +387,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				{	currReqs.put(deepSpec, cand_feat_vect[c]+""); }
 			}
 		}
-		return false; 
-		
+		return false; 	
 	}
 	
 	@Override
@@ -403,6 +402,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
+		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 		

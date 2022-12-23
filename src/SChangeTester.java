@@ -710,7 +710,8 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("βɣ"), 
 				"Error: local alphabet should be 'βɣ', but it is "+fmtest.getLocalAlphabet()) ? 1 : 0 ; 
 		
-		//now testing functionality of check_for_alpha_conflict... 
+		//now testing functionality of FeatMatrix.check_for_alpha_conflict()... 
+		
 		
 		
 		
