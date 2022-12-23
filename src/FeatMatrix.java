@@ -353,7 +353,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
 		if (!inp.getType().equals("phone"))
-			throw new RuntimeException("Error: tried to check for alpha value impossibility of a juncture phone!");
+		{	System.out.println("Warning -- potential error: tried to check for alpha value impossibility of a juncture phone!");
+			return false; 
+		}
 		if (!hasMultifeatAlpha)	return false;	
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
