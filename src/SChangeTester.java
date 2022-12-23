@@ -627,11 +627,10 @@ public class SChangeTester {
 		
 		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
 				+ "out of 65"); 
+		numCorrect = 0; 
 		
-		//TODO finish testing here... 
-		
-		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication...");
-		fmtest = new FeatMatrix("ɑstres,+syl",Arrays.asList(featsByIndex),featImplications); 
+		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication; also testing UnsetAlphaError and the reset function here...");
+		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(featsByIndex),featImplications); 
 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
@@ -650,8 +649,10 @@ public class SChangeTester {
 				+ " without initializing the alpha value should cause an UnsetAlphaError,"
 				+ " but none was detected!") ? 1 : 0;
 		
-		HashMap<String,String> toApply = fmtest.extractAndApplyAlphaValues(e_tense); 
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(e_tense); // i.e. -stres
 		
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.keySet().size() == 1, 
+				"Error: one alpha variable was extracted, but "+alph_feats_extrd.keySet().size()+" were detected.") ? 1 :0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
@@ -664,10 +665,31 @@ public class SChangeTester {
 		
 		numCorrect += UTILS.checkBoolean(true,
 				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
-				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' but it is "
+				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' (unstressed) but it is "
 						+ UTILS.printWord(result)) ? 1 : 0; 
 		
-		//TODO continue testing, with toApply here... 
+		// after resetting, does it behave like a new feat matrix? 
+		fmtest.resetAlphaValues(); 
+		caught = false; 
+		try {	fmtest.forceTruth(actOn,0); 		}
+		catch(UnsetAlphaError e)	{	caught = true;		}
+		numCorrect += UTILS.checkBoolean(true, caught, "Error: Trying to forceTruth"
+				+ " without initializing the alpha value should cause an UnsetAlphaError,"
+				+ " but none was detected!") ? 1 : 0;
+		
+		actOn.add(testFactory.parseSeqPh("j")); 
+		
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("ˌʌ")); // i.e. +stres, primary in fact. 
+		result = fmtest.forceTruth(actOn, 1); 
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.phonSeqsEqual(result.subList(1, 2), testFactory.parseSeqPhSeg("ˌi")),
+				"Error: result of fm.forceTruth  on [j] using "+fmtest+" with stress (but not primary stress) feature extracted from [ˌʌ] "
+						+ "should be\n"+testFactory.parseSeqPh("ˌi")+"\nbut it is\n"
+						+ result.get(1)) ? 1 : 0; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 10."); 
+		numCorrect = 0 ; 
+		
+		
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
