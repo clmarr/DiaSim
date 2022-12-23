@@ -74,26 +74,8 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 							test.applyAlphaValues(ALPH_VARS);
 							mapAlphVals(); 
 						}
-						
-						//TODO debugging
-						System.out.println("no alpha conflict detected.");
-						
-						//TODO debugging
-						System.out.println("cand : "+input.get(p+i));
-						System.out.println("test : "+targSource.get(i));
-						
-						//TODO debugging
-						System.out.println("type of test : "+test.getClass());
-						System.out.println("length of alphHere :  "+alphHere.size());		//TODO this should not be zero! 
-						System.out.println("cand stres and prim ...? stres: "+cand.getFeatString().charAt(cand.getFeatIndices().get("stres"))
-								+", prim: "+cand.getFeatString().charAt(cand.getFeatIndices().get("prim"))+"..."); 
-						System.out.println("first unset alpha..? "+test.first_unset_alpha());
-						
-						
 					}
 				}
-				//TODO debugging
-				System.out.println("TargMatchFail: "+targMatchFail); 
 				targMatchFail = targMatchFail ? true : !test.compare(cand); 
 			}
 			if (!targMatchFail) //target matched

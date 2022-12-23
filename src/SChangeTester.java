@@ -711,11 +711,29 @@ public class SChangeTester {
 				"Error: local alphabet should be 'βɣ', but it is "+fmtest.getLocalAlphabet()) ? 1 : 0 ; 
 		
 		//now testing functionality of FeatMatrix.check_for_alpha_conflict()... 
+		//should have no conflict -- w ; c ; ã; õ
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("w")),
+				"Error: [w] should have no alpha conflict but one is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("c")),
+				"Error: [c] should have no alpha conflict but one is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ã")), 
+				"Error: [ã] should have no alpha conflict but one is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("õ")), 
+				"Error: [õ] should have no alpha conflict but one is detected") ? 1 : 0; 
 		
+		// should have alpha conflicts -- b ; ɥ ; u ; n ; m
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("b")), 
+				"Error: [b] should have an alpha conflict between βlab vs. (βround & βback), but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ɥ")), 
+				"Error: [ɥ] should have an alpha conflict between (βlab & βround) vs. (βback), but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("u")), 
+				"Error: [u] should have an alpha conflict between ɣnas and ɣsyl, but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("n")), 
+				"Error: [n] should have an alpha conflict between ɣnas and ɣsyl, but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("m")), 
+				"Error: [m] should have an alpha conflicts for both β and ɣ, but none are detected") ? 1 : 0; 
 		
-		
-		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct"); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 13"); 
 		numCorrect = 0 ; 
 		
 		
