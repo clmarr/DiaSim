@@ -718,7 +718,8 @@ public class SChangeTester {
 				"Error: [c] should have no alpha conflict but one is detected") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ã")), 
 				"Error: [ã] should have no alpha conflict but one is detected") ? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("õ")), 
+		SequentialPhonic o_tense_nas = testFactory.parseSeqPh("õ"); 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(o_tense_nas), 
 				"Error: [õ] should have no alpha conflict but one is detected") ? 1 : 0; 
 		
 		// should have alpha conflicts -- b ; ɥ ; u ; n ; m
@@ -734,7 +735,7 @@ public class SChangeTester {
 				"Error: [m] should have an alpha conflicts for both β and ɣ, but none are detected") ? 1 : 0; 
 		
 		prevFeatVect = fmtest.getFeatVect(); initSpecs = fmtest.toString();
-		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(e_tense); 
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(o_tense_nas); 
 		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.isEmpty(), 
 				"Error: nothing should bbe extracted for [e] since it violates [+hi], but something was...") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(prevFeatVect), 
@@ -746,11 +747,12 @@ public class SChangeTester {
 				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;		
 		
 		
+		
 		//TODO finish debugging here... applications to test --  w ; ʊ̃ 
 
 		
 		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 13"); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 17"); 
 		numCorrect = 0 ; 
 		
 		
