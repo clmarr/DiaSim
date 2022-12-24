@@ -84,8 +84,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				// 2 for positively specified features, 9 for despecified features
 			// for alpha specified features, the alpha (or whatever other dummy symbol is used) is left in the vector
 				// until we despecify it later. 
-				//... and meanwhile, we have 1 for those that were untouched. 
-			
+				//... and meanwhile, we have 1 for those that were untouched. 	
 		}
 		featVect = new String(init_chArr); 
 		hasAlphSpecs = localAlphabet.length() > 0; 

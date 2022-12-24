@@ -29,9 +29,11 @@ When and if other columns are specified, they should contain the phonological fo
 The forms entered in these columns will be the gold standard phonological forms to which the forms obtained by the diachronic simulation at those stages will be compared. 
 In order for simulation results at any point to be compared to a gold set, that set must be associated with a stage in the rules file and a column in the lexicon file, with its gold forms for each etymon in the lexicon file. 
 Without exception, each column specified must uniquely correspond to a diachronic stage that is declared in the rules file (see rules.README.txt -- a stage should be on a line declared immediately after the last rule that applied to its forms). In the rules file, a proper diachronic stage that will be compared to gold must be flagged with a '~' character, as demonstrated below: 
+
 ```
 ~Middle French
 ```
+
 Stages where the forms of etyma are just to be recorded, not compared, are instead flagged with a "=" character.
 
 DiaSim will automatically associate stages in the rules file, in the order they are declared, to columns other than the input column, from left to right. 
@@ -42,7 +44,7 @@ Likewise, if there are too few columns so that not every stage declared in the r
 Here is a sample row, showing the diachronic trajectory of Classical Latin *sagmarium* into French *sommier*, via Popular Latin, Old French, Later Old French, Middle French and Modern French. 
 
 ```
-s ˌɑ ɡ m ˈɑː r i u m	s ˌɑ w m ˈɑ r ʝ o	s ˌo m ˈi ɛ̯ r	s ˌũ m j ˈe r	s ˌũ m j ˈe	s ɔ m j e $sommier. Pope 674. 	
+s ˌɑ ɡ m ˈɑː r i u m	s ˌɑ w m ˈɑ r ʝ o	s ˌo m ˈi ɛ̯ r	s ˌũ m j ˈe r	s ˌũ m j ˈe	s ɔ m j e $sommier. Pope s674. 	
 ```
 
 Any questions or requests for clarification on how to use this system can be emailed to: marr.54@buckeyemail.osu.edu, or (after 2025) cl.st.marr@gmail.com.

@@ -737,25 +737,47 @@ public class SChangeTester {
 		prevFeatVect = fmtest.getFeatVect(); initSpecs = fmtest.toString();
 		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(o_tense_nas); 
 		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.isEmpty(), 
-				"Error: nothing should bbe extracted for [e] since it violates [+hi], but something was...") ? 1 : 0 ; 
+				"Error: nothing should bbe extracted for [õ] since it violates [+hi], but something was...") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(prevFeatVect), 
-				"Error: nothing should be extracted for [e] since it violates [+hi], but the feature vector has somehow changed!") ? 1 : 0 ; 
+				"Error: nothing should be extracted for [õ] since it violates [+hi], but the feature vector has somehow changed!") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(fmtest.toString()), 
-				"Error: nothing should be extracted for [e] as it violates [+hi], but the feature specifications have somehow changed!") ? 1 : 0; 
+				"Error: nothing should be extracted for [õ] as it violates [+hi], but the feature specifications have somehow changed!") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
-				"Error: first_unset_alpha() should still return 'β' as no extraction should happen from [e],"
+				"Error: first_unset_alpha() should still return 'β' as no extraction should happen from [õ],"
 				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;		
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_multifeat_alpha(), 
+				"Error: after (non-)extraction, system fails to detects a multispecified alpha variable but there are twoǃ") ? 1 : 0; 
+		fmtest.resetAlphaValues(); 
 		
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("ɪ̃")); 
 		
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.size() == 2, "Error: two alpha symbol values should be extracted for [ɪ̃], "
+				+ "but "+alph_feats_extrd.size()+" were.") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: now that all alpha symbol features should have been extracted, there should be no unset alpha, "
+				+ "but the first unset alpha symbol is detected to be "+fmtest.first_unset_alpha()) ? 1 : 0 ; 
+		//TODO finish testing [ɪ̃] -- should pass β=- and ɣ=+
 		
-		//TODO finish debugging here... applications to test --  w ; ʊ̃ 
+		//TODO testing with [w] -- should pass β=+ and ɣ = -
+		
+		//TODO 
+		
+		//TODO finish debugging here... applications to test -- w ; ũ
 
 		
 		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 17"); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
 		numCorrect = 0 ; 
 		
+		//TODO final debugging mode for featmatrix, with two alpha symbols, the latter for a feature that is often unspecified 
+			// -- only one should be extracted, and not the other. 
 		
+		System.out.println("Now testing with two alpha symbols -- ðnas, ðvoi, and ɛtense. The latter, tense, is often unspecified and should not be extracted in such cases..."); 
+		//TODO test
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
+		numCorrect = 0 ; 
+		
+		//TODO debugging testers for SChange subclasses that handle alpha valued features... 
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
