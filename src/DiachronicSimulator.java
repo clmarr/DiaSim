@@ -724,7 +724,7 @@ public class DiachronicSimulator {
 
 	private static void makeDerivationFiles()
 	{
-		File derdir = new File(runPrefix,"derivations"); 
+		File derdir = new File(runPrefix,"derivation"); 
 		derdir.mkdir(); 
 	
 		for( int wi =0; wi < NUM_ETYMA; wi ++) 
