@@ -6,4 +6,4 @@ To specify run name, ruleset, and lexicon file: bash derive.sh <RUN_NAME> <RULES
 
 You may also edit derive.sh and std_derive.sh to designate targets of your choosing.
 
-This file will be expanded with a directory for various guides on usage in early 2023. 
+This file will be expanded with a directory for various guides on usage in 2023. 
