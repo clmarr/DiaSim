@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Simulation {
@@ -240,6 +241,7 @@ public class Simulation {
 		return goldStageInd == 0 ? false : instant == goldStageInstants[goldStageInd-1]; 
 	}
 	
+	// sometimes used for outgraph production. 
 	private void calcStagesOrdered()
 	{
 		stagesOrdered = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 
@@ -264,33 +266,37 @@ public class Simulation {
 	
 	// get the forms a certain etymon, accessed by its ID, has at each stage
 	// in practice, this is currently an auxiliary for making the run's output_graph. 
-	public String stageOutsForEt(int ID)
+	
+	public String stageOutsForEt(int ID, String[] ordered_stages)
 	{
 		String to_return = ""+ID; 
 		while (to_return.length() < 6)	to_return+=" "; //add spaces to make sure etyma in output graph have same indentation
 			//  6 spaces to be safe in case we (hopefully?) end up with lexica > 10k in size... :)  
 		to_return += " | "; 
-		for (String st : stagesOrdered)
+		for (String st : ordered_stages)
 		{
 			if (st.equals("in"))	to_return += inputLexicon.getByID(ID); 
 			else if (st.equals("out"))	to_return += currLexicon.getByID(ID) 
-					+ (goldOutput ? " [GOLD: "+goldOutputLexicon.getByID(ID)+"]":""); 
+					+ (goldOutput ? " {GOLD: "+goldOutputLexicon.getByID(ID)+"}":""); 
 			else
 			{
 				boolean isg = st.charAt(0) == 'g'; 
 				int stn = Integer.parseInt(st.substring(1)); 
 				to_return += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
-				if (isg)	to_return += " [GOLD: "+goldStageGoldLexica[stn]+"]"; 
+				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn]+"}"; 
 			}
 			to_return += " | "; 
 		}
 		return to_return.substring(0, to_return.length()-3); 
 	}
+	public String stageOutsForEt(int ID)	
+	{	return stageOutsForEt(ID, stagesOrdered);	} 
 	
-	public String stageOutHeader()
+	
+	public String stageOutHeader(String[] ordered_stages)
 	{
 		String toRet = ""; 
-		for(String st : stagesOrdered)
+		for(String st : ordered_stages)
 		{	
 			if (st.equals("in"))	toRet += "Input";
 			else if (st.equals("out"))	toRet += "Output [REFERENCE]";
@@ -304,13 +310,20 @@ public class Simulation {
 		}
 		return toRet.substring(0, toRet.length()-3); 
 	}
+	public String stageOutHeader()
+	{	return stageOutHeader(stagesOrdered);	}
 	
 	public String outgraph()
 	{
 		// calcStagesOrdered(); 
-		String out = "etID | "+stageOutHeader(); 
+		/** currently using slightly modified stage string array 
+		 * to include output without possibly causing errors by modifying a frequently used class variable. */
+		String[] graph_stages = Arrays.copyOf(stagesOrdered, stagesOrdered.length+1);
+		graph_stages[graph_stages.length-1] = "out"; 
+		
+		String out = "etID  | "+stageOutHeader(graph_stages); 
 		for (int i = 0 ; i < NUM_ETYMA ; i++)
-			out += "\n"+stageOutsForEt(i); 
+			out += "\n"+stageOutsForEt(i, graph_stages); 
 		return out; 
 	}
 	
