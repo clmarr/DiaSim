@@ -900,7 +900,7 @@ public class DiachronicSimulator {
 		{
 			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
 					+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
-					+ "| 1 : Set focus point                                                                 |\n"
+					+ "| 1 : Set focus point (upon which actions are conditioned, incl. filtering [2])       |\n"
 					+ "| 2 : Set filter sequence                                                             |\n"
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
@@ -954,8 +954,8 @@ public class DiachronicSimulator {
 			else if (resp.equals("1"))
 			{
 				System.out.println("Setting focus point -- extra stage printed for word list, and point at which we filter to make subsets."); 
-				System.out.println("Current focus point lexicon: "+(focPtSet ? focPtName : "undefined"));
-				System.out.println("Current filter : "+(filterIsSet ? filterSeq.toString() : "undefined")); 
+				System.out.println("Current focus point lexicon: "+(focPtSet ? focPtName : "not (yet) defined"));
+				System.out.println("Current filter : "+(filterIsSet ? filterSeq.toString() : "not (yet) defined")); 
 				
 				boolean chosen = false; 
 				while(!chosen)
@@ -1000,7 +1000,7 @@ public class DiachronicSimulator {
 					else
 					{
 						focPtSet = true;
-						if(resp.substring(0,4).toLowerCase().equals("gold")) 
+						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
 							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds. 
 						if(resp.charAt(0) == 'g')
 						{
@@ -1028,18 +1028,22 @@ public class DiachronicSimulator {
 						else
 						{
 							focPtLoc = -1; focPtLex = null; focPtName = ""+resp;
+							ea = new ErrorAnalysis(r, g, featsByIndex, 
+									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
 								filterIsSet = false; 
 								focPtName = "";
 								focPtSet = false; 
 							}
-							else	focPtLex = resp.equals("In") ? theSimulation.getInput() : 
+							else
+							{	
+								focPtLex = resp.equals("In") ? theSimulation.getInput() : 
 								resp.equals("Out") ? theSimulation.getCurrentResult() : 
 									(curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt];
-							ea = new ErrorAnalysis(r, g, featsByIndex, 
-									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-							ea.setFocus(focPtLex,focPtName);
+								ea.setFocus(focPtLex,focPtName);
+							}
 						}
 					}	
 				}
