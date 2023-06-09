@@ -263,26 +263,28 @@ public class Simulation {
 	}
 	
 	// get the forms a certain etymon, accessed by its ID, has at each stage
+	// in practice, this is currently an auxiliary for making the run's output_graph. 
 	public String stageOutsForEt(int ID)
 	{
-		String toRet = ""+ID; 
-		while (toRet.length() < 4)	toRet+=" ";
-		toRet += " | "; 
+		String to_return = ""+ID; 
+		while (to_return.length() < 6)	to_return+=" "; //add spaces to make sure etyma in output graph have same indentation
+			//  6 spaces to be safe in case we (hopefully?) end up with lexica > 10k in size... :)  
+		to_return += " | "; 
 		for (String st : stagesOrdered)
 		{
-			if (st.equals("in"))	toRet += inputLexicon.getByID(ID); 
-			else if (st.equals("out"))	toRet += currLexicon.getByID(ID) 
+			if (st.equals("in"))	to_return += inputLexicon.getByID(ID); 
+			else if (st.equals("out"))	to_return += currLexicon.getByID(ID) 
 					+ (goldOutput ? " [GOLD: "+goldOutputLexicon.getByID(ID)+"]":""); 
 			else
 			{
 				boolean isg = st.charAt(0) == 'g'; 
 				int stn = Integer.parseInt(st.substring(1)); 
-				toRet += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
-				if (isg)	toRet += " [GOLD: "+goldStageGoldLexica[stn]+"]"; 
+				to_return += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
+				if (isg)	to_return += " [GOLD: "+goldStageGoldLexica[stn]+"]"; 
 			}
-			toRet += " | "; 
+			to_return += " | "; 
 		}
-		return toRet.substring(0, toRet.length()-3); 
+		return to_return.substring(0, to_return.length()-3); 
 	}
 	
 	public String stageOutHeader()
@@ -307,7 +309,7 @@ public class Simulation {
 	{
 		// calcStagesOrdered(); 
 		String out = "etID | "+stageOutHeader(); 
-		for (int i = 0 ; i < NUM_ETYMA && i < 10; i++)
+		for (int i = 0 ; i < NUM_ETYMA ; i++)
 			out += "\n"+stageOutsForEt(i); 
 		return out; 
 	}
