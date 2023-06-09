@@ -968,7 +968,7 @@ public class DiachronicSimulator {
 							+ "Please enter the appropriate indicator."); 
 					
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
-					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,false));
+					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
 					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold");
 					
 					for(int ri = 1; ri < CASCADE.size(); ri++)	
@@ -978,10 +978,20 @@ public class DiachronicSimulator {
 					chosen = validOptions.contains(resp); 
 					if(!chosen)
 					{
-						if(resp.equals("R0"))	System.out.println("'R0' is not a valid option -- instead choose 'In' "
+						if(resp.equals("R0"))	System.out.println("Invalid input: 'R0' is not a valid option -- instead choose 'In' "
 								+ "to delete focus point and use the input for filtering");
+						else if (resp.charAt(0) == 'g' && !goldStagesSet)
+							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
+						else if (resp.charAt(0) == 'b' && !blackStagesSet)
+							System.out.println("Invalid input: cannot use 'g' when no b stages are set!"); 
+						else if ("bgR".contains(""+resp.charAt(0)) && !UTILS.isInt(resp.substring(1)))
+							System.out.println("Invalid input: 'R', 'g', and 'b' require a valid integer after them, but '"+resp.substring(1)+"' is not!"); 
 						else if (resp.charAt(0) == 'R')
 							System.out.println("'"+resp+"' is not a valid option: the last rule is number "+(CASCADE.size()-1));
+						else if (resp.charAt(0) == 'g')
+							System.out.println("'"+resp+"' is not a valid option, the last computed gold stage is number "+lastGoldOpt); 
+						else if (resp.charAt(0) == 'b')
+							System.out.println("'"+resp+"' is not a valid option, the last computed black stage is number "+lastBlkOpt); 
 						else	System.out.println("Invalid input : '"+resp+"'\nPlease select a valid option listed below:");
 					}
 					else
