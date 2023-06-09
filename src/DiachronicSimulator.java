@@ -962,8 +962,11 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Available options for focus point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.println("In: delete & filter by input\nOut: delete & filter at current output\nGold: delete & filter by current gold"
-							+ "\nU: delete and also delete filter\nR#: right before rule with index number <#>"
+					System.out.println("In: delete focus pt & filter by input forms"
+							+ "\nOut: delete it & filter by generated output forms"
+							+ "\nGold: delete it & filter by correct (gold) output forms"
+							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
+							+ "\nR#: right before rule with index number <#>"
 							+ "(you can find rule indices with option 3 to query on the main menu)\n"
 							+ "Please enter the appropriate indicator."); 
 					
@@ -997,6 +1000,8 @@ public class DiachronicSimulator {
 					else
 					{
 						focPtSet = true;
+						if(resp.substring(0,4).toLowerCase().equals("gold")) 
+							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds. 
 						if(resp.charAt(0) == 'g')
 						{
 							int si = Integer.parseInt(resp.substring(1));
