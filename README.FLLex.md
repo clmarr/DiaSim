@@ -1,8 +1,8 @@
-Readme for dataset policies. 
+Readme for FLLex dataset policies. 
 
 
 Rationale: 
-The FFLex dataset is meant to be used for the simulation of diachronic phonological rules 
+The FLLex dataset is meant to be used for the simulation of diachronic phonological rules 
 which collectively constitute the diachronic transformation of (popular) Latin to French. For the purposes of the
 initial paper introducing the DiaSim system, it is used for demonstrating how DiaSim can be used to "test" a "hypothesis"
 rule set, namely the example of the Latin-to-French diachronic transformational rule set as described by Mildred K Pope
@@ -124,3 +124,5 @@ French forms:
 	are widely varied, including ʀ, r, ɾ, χ, ɣ and x. It is represented as a voiced fricative, not an approximant or a trill,
 	but one may note that according to some analysis it nevertheless has "sonorant" syllabic properties (i.e. in words
 	like "quatre" /kat̪ʁ/) 
+	
+This dataset does not claim to be (and is not) an exclusive list of inherited French etyma from Latin... yet, at least. As of present, no morphological info has been included in entries for this, despite the ongoing expansion of DiaSim as of June 2023 to include paradigmatic info in lexicon entries for later calculations of regularity rates by cell and other adjacent/related purposes. 
