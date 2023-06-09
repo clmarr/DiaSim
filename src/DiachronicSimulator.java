@@ -964,7 +964,7 @@ public class DiachronicSimulator {
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
 					System.out.println("In: delete focus pt & filter by input forms"
 							+ "\nOut: delete it & filter by generated output forms"
-							+ "\nGold: delete it & filter by correct (gold) output forms"
+							+ "\nGold: delete it & filter by correct (gold) forms for output (last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
 							+ "\nR#: right before rule with index number <#>"
 							+ "(you can find rule indices with option 3 to query on the main menu)\n"
@@ -1035,7 +1035,7 @@ public class DiachronicSimulator {
 								focPtSet = false; 
 							}
 							else	focPtLex = resp.equals("In") ? theSimulation.getInput() : 
-								resp.equals("Out") ? theSimulation.getCurrentResult() :
+								resp.equals("Out") ? theSimulation.getCurrentResult() : 
 									(curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt];
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
