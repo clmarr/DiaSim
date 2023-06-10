@@ -16,7 +16,7 @@ public class UTILS {
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' '; 
-	public final static char CMT_FLAG = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
+	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	public final static char STAGENAME_LOC_DELIM = ':'; 
 	public final static char LEX_DELIM =','; 

@@ -47,4 +47,38 @@ Here is a sample row, showing the diachronic trajectory of Classical Latin *sagm
 s ˌɑ ɡ m ˈɑː r i u m	s ˌɑ w m ˈɑ r ʝ o	s ˌo m ˈi ɛ̯ r	s ˌũ m j ˈe r	s ˌũ m j ˈe	s ɔ m j e $sommier. Pope s674. 	
 ```
 
+# MORPHOLOGICAL PARADIGM INFORMATION 
+
+As of June 2023, expansion of DiaSim to handle paradigmatic relations is underway. (TODO update when complete) 
+
+For how to access automated paradigm based analyses making use of this info, this is handled in the *Paradigmatic analysis* section of README.suite.md. Note that inclusion of paradigmatic info in a line of the lexicon file is optional, and that the statistical analyses performed after and during a CFR run will only take into account items for which paradigmatic information is marked. 
+
+Once the expansion of DiaSim to handle such paradigmatic info is completed and released, morphological info will be marked in lexicon files as follows: 
+
+* '%' will be the flag for paradigmatic info within a line in the lexicon. Inclusion will be optional. The paradigmatic information will be placed between the diachronic phonology part of the line (i.e. input and then gold forms for stages and final output if applicable), and the comment clause flagged by '$'. Thus it will look as follows: 
+
+```
+d̪ ˈo r m i t̪ , d̪ ɔ ʁ %<DORMIRE> {CLASS=VERB | PERSON=3 | NUMBER=SG} $dort.
+ˈo k u l u m , œ j %<OCULUM> {CLASS=NOUN | GENDER=MASC} $œil.  
+ˈo k u l oː s , j ø %<OCULUM> {CLASS=NOUN | GENDER=MASC | NUMBER=PL} $yeux.  
+```
+
+In each line above, again, paradigmatic info is found after the paradigm flag '%' and before the comment flag '$'. 
+The paradigmatic info here consists of two components, in the following order: (1) the *lemma ID*, placed between '<' and '>" and (2) the *morphosyntactic feature-value clause*. 
+
+## LEMMA ID 
+The *lemma ID*, found between '<' and '>', contains a string that is a unique lemma for all forms that are considered to belong to the same paradigm -- those that are to be considered forms of the "same word" by DiaSim. Thus, as seen above, the second line (for *œil*) ad the third (*yeux*) share the same lemma ID, but this ID is not shared with the first line (*dort*), as that is not a form of the same word; instead the lemma ID of *dort* would probably be shared with lines for *dormir*, *dors*, et cetera. 
+
+Note: it is advisable to avoid giving to give homophonous lemmata the same lemma ID -- for example, Latin liber "free" and liber "book" are best given different lemma IDs like "LIBER1" and "LIBER2" (for the same reason, Latin based lemma IDs are preferred for Romance CFRs, because sound change can  regularly create new homophony, but homophone splits do not regularly occur). This is important because otherwise it will lead to unintended sidde effects in how paradigmatic stats are calculated: the erroneously conflated paradigms with homophonous lemma will be considered the same, so all cells specified for both paradigms (see below, *morphosyntactic feature-value clause*) will be treated as *overabundant* cells within the same paradigm (erroneously increasing cell-wise rates of overabundance) and  furthermore, the two paradigms together will only contribute with a weight of one paradigm to calculations of cell-wise matching between observed and forward-reconstructed inherited forms and the edit distance between them. 
+
+## MORPHOSYNTACTIC FEATURE-VALUE CLAUSE
+The *
+
+   	 
+TODO 'unmarked values' 
+TODO define input file and discuss
+
+
+# CONTACT FOR ANY QUESTIONS 
+
 Any questions or requests for clarification on how to use this system can be emailed to: marr.54@buckeyemail.osu.edu, or (after 2025) cl.st.marr@gmail.com.
