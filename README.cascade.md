@@ -23,6 +23,11 @@ The ruleset file is precisely this ordered set of rules, additionally with order
 ~Middle French
 ```
 
+If a stage with the same name is in the column header of the lexicon file (see README.lexicon.md), this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
+Technically '~' is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
+The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
+
+
 # COMMENTING:
 One flags a comment by using the dollar sign "$", just like in the lexicon file.
 After seeing this flag, the system erases from its memory the character and everything on the same line to the right of it.

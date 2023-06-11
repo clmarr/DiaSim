@@ -14,7 +14,7 @@ Each row should represent the development, over the different diachronic stages,
 Any and all comments can only be placed in the final column and must be flagged with a "$". Typically they are used to cite the phonological forms and etymology of a word. For example, from our demonstration simulation for Classical Latin going to French: 
 
 ```
-s ˌɑ ɡ m ˈɑː r i u m	s ɔ m j e $sommier. Pope s674.
+s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 ```
 
 
@@ -42,16 +42,22 @@ Without exception, each column specified must uniquely correspond to a diachroni
 ```
 
 Stages where the forms of etyma are just to be recorded, not compared, are instead flagged with a "=" character.
+These are called "black stages", short for "black box stages". 
+
+If a stage flagged with "~" has the same name as a column header of the lexicon file, this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
+Technically '~' is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
+The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
 
 DiaSim will automatically associate stages in the rules file, in the order they are declared, to columns other than the input column, from left to right. 
 If there is exactly one more column in use after all declared stages are associated with columns to its left, then the system will assume that this is the specification of the final output.
 If there are still columns to the right of this final column, then DiaSim will throw an error. 
 Likewise, if there are too few columns so that not every stage declared in the rules file is associated with a column, then DiaSim will also throw an error. 
 
-Here is a sample row, showing the diachronic trajectory of Classical Latin *sagmarium* into French *sommier*, via Popular Latin, Old French, Later Old French, Middle French and Modern French. 
+Here is a sample, showing the diachronic trajectory of Classical Latin *sagmarium* into French *sommier*, via Latin, Gallo-Romance, Old French, Later Old French, Middle French and Modern French. 
 
 ```
-s ˌɑ ɡ m ˈɑː r i u m	s ˌɑ w m ˈɑ r ʝ o	s ˌo m ˈi ɛ̯ r	s ˌũ m j ˈe r	s ˌũ m j ˈe	s ɔ m j e $sommier. Pope s674. 	
+Latin , Gallo-Romance , Early Old French , Later Old French , Middle French , Modern French
+s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌũ m j ˈe r , s ˌũ m j ˈe r , s ɔ m j e $sommier. 
 ```
 
 # MORPHOLOGICAL PARADIGM INFORMATION 
@@ -166,6 +172,7 @@ POS is not a declared feature here, but it is automatically associated to the pa
 Note that in the AlbanianParadigmShape file, MODIFIER is declared as a morpholexical category with subcategories of ADV and PREP -- this means that unlike INF in French, MODIFIER in Albanian will be treated as specified for POS, by default with the value ADV.
 It will be treated retaining its status as only morpholexically and morphosyntactically MODIFIER if the value of POS is ADV or PREP, but as  morphosyntactically NOMINAL (while morpholexically MODIFIER) if given teh value ADJ for POS. 
 INF in French, on the other hand, is morpholexically always VERB, and morphosyntactically INF, which has no features to specify.
+
 # CONTACT FOR ANY QUESTIONS 
 
 Any questions or requests for clarification on how to use this system can be emailed to: marr.54@buckeyemail.osu.edu, or (after 2025) cl.st.marr@gmail.com.
