@@ -1,0 +1,54 @@
+ABBREVS
+	N = NOMINAL
+	$ PRN = PRONOUN -- now just treated as nouns
+	ADV = ADVERB
+	ADJ = ADJECTIVE $ includes also participles. 
+	PREP = PREPOSITION
+	A = AD = MODIFIER 
+	V = VERB
+	M = MASC = MASCULINE
+	F = FEM = FEMININE
+	N = NEUT = NEUTER
+	SG = SING = SINGULAR
+	PL = PLUR = PLURAL
+	NOM = NOMINATIVE $emerore
+	ACC = ACCUSATIVE $kafshore
+	DAT = DATIVE $dhanore. GEN = GENITIVE $gjinore, but this is now treated as dative, with POS=ADJ marked for the pronouns as this sufficiently seems to handle the genitive formally. 
+	ABL = ABLATIVE
+	VOC = VOCATIVE
+	DEF = DEFINITITE $shquar
+	INDF = INDEFINITE $pashquar
+	PRS = PRES = PRESENT
+	PST = PAST
+	FT = FUT = FUTURE
+	IMPF = IMPERFECTIVE
+	PERF = PERFECTIVE
+	IND = INDIC = INDICATIVE
+	ADM = ADMIR = ADMIRATIVE
+	OPT = OPTATIVE
+	SUBJ = SUBJUNCTIVE
+	IMPR = IMPERATIVE
+	ACT = ACTIVE
+	MPASS = MEDIOPASSIVE
+	
+MORPHLEX 
+	NOMINAL {NOUN, ADJ}
+	MODIFIER {ADV, PREP} $Adjective not listed here as it has a nominal paradigm. 
+	VERB $Adjective/participle not listed here, for its nominal paradigm
+	
+MORPHSYN
+	NOMINAL
+		POS: NOUN, ADJ
+		NUMBER: SG, PL
+		GENDER: M, F, N $N limited to NW Gheg. N is not to be used for the ambigjen nouns, which are just M in SG and F in PL. 
+		CASE: NOM, ACC, DAT, ABL, VOC
+		DEFNESS: DEF, INDF
+	MODIFIER
+		POS: ADV, ADJ, PREP
+	VERB
+		POS: VERB, ADJ
+		NUMBER: SG, PL
+		TENSE: PRS, PST, FUT
+		ASPECT: PERF, IMPF
+		MOOD: IND, ADM, OPT, SUBJ, IMPR
+		VOICE: ACT, MPASS

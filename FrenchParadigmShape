@@ -1,0 +1,47 @@
+ABBREVS
+	N = NOMN = NOMINAL
+	ADJ = ADJECTIVE $Adj is also used for past participles and present participles (gerunds)
+	V = VERB
+	M = MASC = MASCULINE
+	F = FEM = FEMININE
+	N = NEUT = NEUTER
+	SG = SING = SINGULAR
+	PL = PLUR = PLURAL
+	DIR = DIRECT $Old French direct case is also called nominative or subject(ive). 
+	OBL = OBLIQUE $Old French oblique is also called accusative, object(ive), or cas regime.
+	PRS = PRES = PRESENT
+	PST = PAST
+	FT = FUT = FUTURE
+	IMPF = IMPERFECTIVE
+	PERF = PERFECTIVE
+	IND = INDIC = INDICATIVE
+	SUBJ = SUBJUNCTIVE $Conditionial is to be treated as future subjunctive. 
+	IMPR = IMPERATIVE
+	INF = INFINITIVE
+	
+MORPHLEX: $ format : CLASS {SYNTACTIC (SUB)CLASSES, DEFAULT LISTED FIRST}
+	NOMINAL {NOUN, ADJ} 
+	VERB
+		$ note how although adjectives (participles) and infinitives are part of verbal paradigm,
+		$... they are not listed as syntactic (sub)classes
+		$ because infinitives do not have their own paradigms
+		$ while the adjectival paradigm is a nominal paradigm
+		$ conversely, ADJ and NOUN are listed as subclasses of NOMINAL
+		$ to encode that items of a different morpholexical paradigm (verbs in this case)
+		$ that are specified for POS as NOUN or ADJ 
+		$ should have the features of a NOMINAL to specify
+		
+MORPHSYN: $This file uses some Old French distinctions lost in modern French: the neuter, nominal case etc. 
+	NOMINAL
+		POS: NOUN, ADJ
+		NUMBER: SG, PL
+		GENDER: M, F, N
+		CASE: DIR, OBJ
+	VERB
+		POS: VERB, INF(INFINITIVE), ADJ(ADJECTIVE)
+		NUMBER: SG(SINGULAR), PL(PLURAL)
+		PERSON: 1, 2, 3
+		TENSE: PRS, PST, FUT
+		ASPECT: IMPF, PERF
+		MOOD: IND, SUBJ, IMPR
+	INF $ here this is essentially specifying the infinitive as having no paradigm. 
