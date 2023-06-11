@@ -18,5 +18,8 @@ This file (as of summer 2023, in progress) covers how to use the debugging capac
 
 (TODO elaborate...)
 
+## Paradigmatic analysis
+
+(TODO elaborate...) 
 
 

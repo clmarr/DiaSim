@@ -76,27 +76,36 @@ Thus, as seen above, the second line (for *œil*) ad the third (*yeux*) share th
 
 Note: it is advisable to avoid giving to give homophonous lemmata with the same morpholexical category the same lemma ID -- for example, Latin liber "free" and liber "book" are best given different lemma IDs like "LIBER1" and "LIBER2" (for the same reason, Latin based lemma IDs are preferred for Romance CFRs, because sound change can regularly create new homophony, but homophone splits do not regularly occur). This important because otherwise it will lead to unintended side effects in how paradigmatic stats are calculated: the erroneously conflated paradigms with homophonous lemmata will be considered the same, so any items with the same morphosyntactic feature specifications will be treated as being in *overabundant* cells within the same paradigm (erroneously increasing cell-wise rates of overabundance) and the two paradigms together with all their cells) will only contribute with a weight of one paradigm to statistical calculations performed for automated analyses by DiaSim. It is preferable to avoid giving the same lemma ID to distinct lemmata with different morpholexical categories but homophonous citation forms, but DiaSim will still handle it differently since it internally appends each lemma ID with its morpholexical category. 
 
-A lemma's morpholexical category describes the lexical category of its root, and thus the shape of its paradigm. This is usually equivalent to its morphosyntactic category, which governs the word's syntactic distribution and agreement behavior, but there are cases where the two are not equivalent. For example, the French (morpholexical) verb paradigm is generally considered to include past participles and infinitives, but past participles are morphosyntactically most like adjectives (inflecting as such as well), while the morphosyntactic behavior of infinitives is rather distinct. 
-In terms of how DiaSim treats this distinction, a form having a different morphosyntactic behavior from its morpholexical class is considered *marked*-- it must be specified as the value for the feature "POS" (*part of speech*) in the morphosyntactic feature-value clause (see below). 
-Meanwhile, having behavior falling within that which is typical of the lemma's morpholexical class is treated as having the same morphosyntactic and morpholexical classes, and is essentially *unmarked* -- it *can* be specified if desirable for notational reasons (as in the first and second lines of the example), but it can also be omitted (as i nthe third and fifth).
+A lemma's morpholexical category describes the lexical category of its root, and thus the shape of its paradigm. This is usually equivalent to its morphosyntactic category, which governs the word's syntactic distribution and agreement behavior, but there are cases where the two are not equivalent. For example, the French (morpholexical) verb paradigm is generally considered to include past participles (like *sues*, the last line) and infinitives (*dormir*, the fourth line), but past participles are morphosyntactically most like adjectives (inflecting as such as well), while the morphosyntactic behavior of infinitives is rather distinct and lacks the agreement marking (person, number) seen on morphosyntactic verbal items, as well as lacking other features present in other verbal forms like tense. As will be explained in the following section, the calculation of stats for feature value combinations will take such factors of morphosyntactically distinct parts of morpholexical paradigms into account.  
+
 
 
 ## MORPHOSYNTACTIC FEATURE-VALUE CLAUSE
-TODO -- handle lemma lexical class versus morphosyntactic class
 TODO -- features defined wrt morphosyntactic classes? 
 
-The *morphosyntactic feature-value clause* is placed between the lemma ID and the comment clause (if present, otherwise the end of the line).
-It consists of two parts: first 
+The *morphosyntactic feature-value clause*, bounded by '{' and '}', is placed between the lemma ID and the comment clause (if present, otherwise the end of the line), and consists of assignments of morphosyntactic values to morphosyntactic feature.
+Each morphosyntactic feature is delimited from its value by '='; different feature-value assignments are delimited by '|'. The features here are morphosyntactic features, not semantic ones (i.e. a grammatically singular collective noun is thus singular, not plural; German *mädchen" is neuter, not feminine). 
 
+The examples from the top of this section are reiterated here for easier reading: 
 
+```
+d̪ ˈo r m i t̪ , d̪ ɔ ʁ %VERB<DORMIRE> {POS=VERB | PERSON=3 | NUMBER=SG} $dort.
+ˈo k u l u m , œ j %NOUN<OCVLVM> {POS=NOUN | GENDER=MASC} $œil.  
+ˈo k u l oː s , j ø %NOUN<OCVLVM> {GENDER=MASC | NUMBER=PL} $yeux.  
+d̪ ˌo r m ˈiː r e , d̪ ɔ ʁ m i ʁ %VERB<DORMIRE> {POS=INF} $dort.
+s ˌɑ p i ˈɑː t i s , s a ʃ j e %VERB<SAPERE> {MOOD=SUBJ | PERSON=2 | NUMBER=PL} $sachiez 
+s ˌɑ p ˈuː t ɑː s , s y %VERB<SAPERE> {POS=ADJ | GENDER=FEM | NUMBER=PL} $sues. 
+```
 
-found between '{' and '}', and  Each morphosyntactic feature is delimited from its value by '='; different feature-value assignments are delimited by '|'. The features here are morphosyntactic features, not semantic ones (i.e. a grammatically singular collecctive noun is thus singular, not plural; German *mädchen" is neuter, not feminine). 
+As can be seen for the first line of the example above, *dort* is marked as having the value "VERB" for the feature "POS", "3" for "PERSON", and "SG" for "NUMBER". There is no marking for the fact that it is also present tense, and indicative mood: these are unnecessary as they are the default values for the features 'TENSE' and 'MOOD', which are assigned by default if they are not marked within the line of the lexicon file. Furthermore, note that in the second line of the example given at the top of this section, notice that *œil* is not marked as SG -- SG is actually the default for NUMBER, and doesn't need to be marked, though it *can* be if seen as desirable, as it is above for *dort*. However, the PL value for NUMBER must always be marked for this is a marked (non-default) value for the feature NUMBER. The usage of marked and unmarked here does not reflect a theoretical position, but rather a computational description of the behavior of DiaSim, not the behavior of language:  features that are computationally treated as default are thus functionally treated as *unmarked* by DiaSim not needing to be *marked*, and the rest thus need to be "*marked*" in the lexicon. 
 
-As can be seen for the first line of the example above, *dort* is marked as having the value "VERB" for the feature "CLASS", "3" for "PERSON", and "SG" for "NUMBER". There is no marking for the fact that it is also present tense, and indicative mood: these are unnecessary as they are the default values for the features 'TENSE' and 'MOOD', which are assigned by default if they are not marked within the line of the lexicon file. Furthermore, note that in the second line of the example given at the top of this section, notice that *œil* is not marked as SG -- SG is actually the default for NUMBER, and doesn't need to be marked, though it *can* be if seen as desirable, as it is above for *dort*. However, the PL value for NUMBER must always be marked for this is a marked (non-default) value for the feature NUMBER. The usage of marked and unmarked here does not reflect a theoretical position, but rather a computational description of the behavior of DiaSim, not the behavior of language:  features that are computationally treated as default are thus functionally treated as *unmarked* by DiaSim not needing to be *marked*, and the rest thus need to be "*marked*" in the lexicon. 
-   	 
-   	 
-TODO define input file and discuss
-TODO language specific-ness... 
+Regarding "POS" (for *part of speech*), as noted in the section above, this is part of how DiaSim treats cells that differ morphosyntactically from their lemma's morpholexical class.
+A form having a different morphosyntactic behavior from its morpholexical class is considered *marked*-- it must be specified as the value for the feature "POS" in the morphosyntactic feature-value clause. 
+For example, this is necessary for French past participles (as in *sues*, last line of the examples) as they are morphosyntactically (most like) adjectives, and for infinitives (*dormir*, fourth line) which are morphosyntactically distinct. 
+Meanwhile, having behavior falling within that which is typical of the lemma's morpholexical class is treated as having the same morphosyntactic and morpholexical classes, and is essentially *unmarked* -- it *can* be specified if desirable for notational reasons (as in the first and second lines of the example), but it can also be omitted (as in the third and fifth), as a morphosyntactic class identical to morpholexical class will be assigned by default. 
+Although notated like a morphosyntactic feature, morphosyntactic class stands out among other features in that it changes how other features are treated for purposes of paradigmatic analyses (see README.suite.md): for example, past participles and infinitives will *not* contribute to stats in terms of tense and person. 
+Furthermore (as explained at greater length in README.suite.md), the user can filter their analysis in terms of POS or morpholexical category (as well as specifying a narrower scope by setting other features). 
+ ## PARADIGM SHAPE INPUT FILE
 
 # CONTACT FOR ANY QUESTIONS 
 
