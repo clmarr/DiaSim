@@ -17,7 +17,8 @@ The ruleset file is precisely this ordered set of rules, additionally with order
 
 # STAGE FLAGGING: 
 
-(fill... usage of ~, interaction with the lexicon file, cf FLLAPS versus FLLex...) 
+Stages are flagged on their own line, between rules, in the cascade file, to indicate at what point the phonological forms of each etyma are to be treated as those at a "stage", a certain point in diachronic "time" relative to the chronolgoy of different rules. 
+
 
 ```
 ~Middle French
