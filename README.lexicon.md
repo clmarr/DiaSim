@@ -17,6 +17,13 @@ Any and all comments can only be placed in the final column and must be flagged 
 s ˌɑ ɡ m ˈɑː r i u m	s ɔ m j e $sommier. Pope s674.
 ```
 
+
+### THE IMPORTANCE OF SPACING
+
+Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
+This applies to the cascade files as well. 
+
+
 # THE COLUMNS
 
 Each column represents a different diachronic stage. 
@@ -28,7 +35,7 @@ Specifically, in the case of our French demonstration set, this is the Classical
 When and if other columns are specified, they should contain the phonological forms each etymon has at the stage corresponding to the column.
 The forms entered in these columns will be the gold standard phonological forms to which the forms obtained by the diachronic simulation at those stages will be compared. 
 In order for simulation results at any point to be compared to a gold set, that set must be associated with a stage in the rules file and a column in the lexicon file, with its gold forms for each etymon in the lexicon file. 
-Without exception, each column specified must uniquely correspond to a diachronic stage that is declared in the rules file (see rules.README.txt -- a stage should be on a line declared immediately after the last rule that applied to its forms). In the rules file, a proper diachronic stage that will be compared to gold must be flagged with a '~' character, as demonstrated below: 
+Without exception, each column specified must uniquely correspond to a diachronic stage that is declared in the rules file (see rules.README.txt -- a stage should be on a line declared immediately after the last rule that applied to its forms). In the cascade file, a proper diachronic stage that will be compared to gold must be flagged with a '~' character, as demonstrated below: 
 
 ```
 ~Middle French

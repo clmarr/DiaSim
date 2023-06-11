@@ -1,4 +1,4 @@
-# README.rules :
+# README.cascade :
 
 This file details how to properly construct a cascade file so that it can be read by DiaSim.
 
@@ -18,6 +18,10 @@ The ruleset file is precisely this ordered set of rules, additionally with order
 # STAGE FLAGGING: 
 
 (fill... usage of ~, interaction with the lexicon file, cf FLLAPS versus FLLex...) 
+
+```
+~Middle French
+```
 
 # COMMENTING:
 One flags a comment by using the dollar sign "$", just like in the lexicon file.
@@ -127,50 +131,51 @@ Likewise, the opening of final voiceless velar stops [k] to fricatives [x] word-
 k > x / [+syl] __ # 
 ```
 
+### THE IMPORTANCE OF SPACING
+
+Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
+This applies to the lexicon files as well. 
 
 
-## SUPPORTED NOTATION FOR PHONETIC INFORMATION: 
-
-
-(elaborate...) 
-
-### SYMBOLS FOR PHONES
-
-(elaborate...) 
-
-
-SymbolDefs.csv... 
-
-BROADLY IPA, BUT ... NOTE MARKER OF STRESS ON THE VOWEL IN THIS SYSTEM
-
-### HOW TO MODIFY SYMBOLS USED: 
+### PHONETIC SYMBOLS AND FEATURES:
 
 (elaborate...) 
 
-### SYMBOLS FOR NON-PHONES (BOUNDARY MARKERS, NULL, ETC):
-
-
-(elaborate...) 
-
-TODO don't confuse ∅ and ø
-
-(elaborate...) 
-
-### PHONETIC FEATURE NOTATION:
-
-(elaborate...) 
-
+how to modify... 
 
 SymbolDefs.csv
 FeatTranslations
 FeatImplications
 
+
+### SYMBOLS FOR NON-PHONES (BOUNDARY MARKERS, NULL, ETC):
+
+
+Non-phonetic symbols used include the following: 
+
+* '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
+
+* '#' is used to mark a word boundary 
+
+* '+' is used to mark a morphemic boundary (as of June 2023 is currently not in use and may be subject to change).
+
+* '@' is used to mean 'anything except a word boundary'. 
+
+* '[' and ']' enclose a feature matrix. Features therein are written in terms of '+' or '-' and then the feature (abbreviated) name as used in SymbolDefs.csv (or a file used in its stead, declared in the functional call), and are delimited by ','. For more info, see the section above ("PHONETIC SYMBOLS and FEATURES").
+
+* items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
+
+* items or sequences between '(' and ')*' can optionally never or any number of times
+
+* items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
+
+* '{' and '}' enclose a *disjunction*. A disjunction consists of two or more items or item sequences, delimited by ';'. 
+
+
+(TODO make this its own section) 
+
 ### ALPHA FEATURE NOTATION:
 
+Alpha features are used to ... 
+(TODO elaborate...) 
 
-### MARKING SEQUENCES OF PHONES
-
-
-### MARKING DISJUNCTIONS WITH CURLY BRACES: 
-
-(elaborate...) 
