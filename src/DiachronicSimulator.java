@@ -303,7 +303,7 @@ public class DiachronicSimulator {
 		// first stage regardless of name is still "in(put)" 
 		// for the others the names are saved,
 			// and need to be matched...
-				// if any are not matched -- throw errro 
+				// if any are not matched -- throw error
 				// if last is "Out(put)" or "Res(ult)" it does not need to be matched
 					// and is interpreted to be the output gold stage.
 	// to be called AFTER extractCascade is. 
@@ -325,7 +325,7 @@ public class DiachronicSimulator {
 			while (coli < numCols - 1)
 			{
 				String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
-				int curgs = numGoldStagesConfirmed; 
+				int curgs = numGoldStagesConfirmed; // current gold stage. 
 				while ( coli == NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
 				if (coli >= NUM_GOLD_STAGES)
@@ -333,10 +333,10 @@ public class DiachronicSimulator {
 				numGoldStagesConfirmed++; 
 				coli++; 
 			}
-			// coli == numCols - 1 here.
+			// coli == numCols - 1 here -- we have reached the last column.
 			String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
 			
-			if (stipName.equalsIgnoreCase("output") && stipName.equalsIgnoreCase("out") && stipName.equalsIgnoreCase("res") && stipName.equalsIgnoreCase("result"))
+			if (stipName.substring(1,6).equalsIgnoreCase("modern") || stipName.equalsIgnoreCase("output") || stipName.equalsIgnoreCase("out") || stipName.equalsIgnoreCase("res") || stipName.equalsIgnoreCase("result"))
 			{
 				System.out.println("Final column stipulated as gold output.");
 				goldOutput = true; 
@@ -354,7 +354,7 @@ public class DiachronicSimulator {
 			}
 			if (numGoldStagesConfirmed < NUM_GOLD_STAGES)
 			{
-				System.out.println("Blackening remaining uncorfirmed gold stages that were declared in cascade file!"); 
+				System.out.println("Blackening remaining unconfirmed gold stages that were declared in cascade file!"); 
 				while (numGoldStagesConfirmed < NUM_GOLD_STAGES)
 					blackenGoldStage(numGoldStagesConfirmed);
 			}

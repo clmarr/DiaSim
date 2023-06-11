@@ -28,6 +28,9 @@ If a stage with the same name is in the column header of the lexicon file (see R
 Technically '~' is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
 The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
 
+Do not flag the first stage name as this will cause issues as this is the name for the input, not a gold stage. In this way, in the CLEF cascades, there is no flag anywhere for Classical Latin, which is the input stage, before any rules are applied. 
+Similarly, do not flag the name of the last stage in the lexicon if it is also the output stage (using a last stage in the lexicon that is not the output stage may be confusing, but you an do so: in this case, it should be flagged at a point such that at least one rule remains below it). 
+
 
 # COMMENTING:
 One flags a comment by using the dollar sign "$", just like in the lexicon file.

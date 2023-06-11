@@ -18,7 +18,7 @@ s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 ```
 
 
-### THE IMPORTANCE OF SPACING
+# THE IMPORTANCE OF SPACING
 
 Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
 This applies to the cascade files as well. 
@@ -53,12 +53,14 @@ If there is exactly one more column in use after all declared stages are associa
 If there are still columns to the right of this final column, then DiaSim will throw an error. 
 Likewise, if there are too few columns so that not every stage declared in the rules file is associated with a column, then DiaSim will also throw an error. 
 
-Here is a sample, showing the diachronic trajectory of Classical Latin *sagmarium* into French *sommier*, via Latin, Gallo-Romance, Old French, Later Old French, Middle French and Modern French. 
+Here is a sample, showing the diachronic trajectory of Classical Latin *sagmarium* into French *sommier*, via the stages (from Pope's tables) of Classical Latin, Late Latin, Old French I (i.e. Early Old French), Old French II (i.e. Later Old French), Middle French and Modern French. 
 
 ```
-Latin , Gallo-Romance , Early Old French , Later Old French , Middle French , Modern French
+Classical Latin , Late Latin , Old French I , Old French II , Middle French , Modern French
 s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌũ m j ˈe r , s ˌũ m j ˈe r , s ɔ m j e $sommier. 
 ```
+
+Note that a final stage starting with the string "Modern" or "modern", or otherwise (without regard to upper/lower case) "output", "res", "result", or "out", will be treated as equivalent to the final output of forward reconstruction, i.e. the results after executing the last rule in the cascade. 
 
 # MORPHOLOGICAL PARADIGM INFORMATION 
 
