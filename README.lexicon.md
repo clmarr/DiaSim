@@ -107,14 +107,58 @@ Meanwhile, having behavior falling within that which is typical of the lemma's m
 
 Although notated like a morphosyntactic feature, morphosyntactic class stands out among other features in that it changes how other features are treated for purposes of paradigmatic analyses (see README.suite.md): for example, infinitives will *not* contribute to stats in terms of tense and person. 
 They *can* however, contribute to such stats, if explicitly specified, as seen in the sixth line where *sues*, with POS set as ADJ, is still specified as PAST for TENSE. 
-While the ordering of other feature specifications does not matter, here it does: feature specificitions placed before the marking of a (different) morphosyntactic category are counted for the paradigm of the morpholexical category, whereas those placed after are counted for the paradigm of hte morphosyntactic category. 
+While the ordering of other feature specifications does not matter, here it does: feature specifications placed before the marking of a (different) morphosyntactic category are counted for the paradigm of the morpholexical category, whereas those placed after are counted for the paradigm of hte morphosyntactic category. 
 This prevents calculations for tense on French nouns, and also allows different treatment for cases where the same feature is being marked in different paradigms (e.g. Albanian *ynë*, a genitive (pro)noun, which is plural as a noun but singular as an adjective). 
 Furthermore (as explained at greater length in README.suite.md), the user can filter their analysis in terms of POS or morpholexical category (as well as specifying a narrower scope by setting other features). 
 
 ## PARADIGM SHAPE INPUT FILE
  
- TODO example with French... (in which Old French paradigm shape used, not modern nor Latin) 
+As languages differ in their paradigms and how they are shaped, a file is input at the function call to handle this. While using paradigm info is optional, if it is to be used, such a file must be input. Two sample files are in this directory: one for French ("FrenchParadigmShape") and one for "AlbanianParadigmShape"). Note that the former largely represents the paradigms of Old French, not modern French, nor Latin, for empirical reasons that are not relevant to this file. 
 
+As with the lexicon files, '$' is the comment flag, and text on any line of a paradigm shape input file after '$' will be ignored by DiaSim. Comments on the "FrenchParadigmShape" file serve to explain some aspects of the file.
+Furthermore, spaces within these files are only for aesthetic reasons, and will also be automatically stripped and ignored by DiaSim.
+Tabs and line breaks, however, are very important as they govern section inclusion and section boundaries respectively.
+
+A paradigm shape input file has three major parts, each separated by two line breaks. 
+
+The first part defines abbreviations, and is headed by "ABBREVS", and has a number of lines following that all must be indented with a tab ("\t"). 
+Each line equates two or more strings, and by convention (though not necessity), the shorter variant is placed first, and the longest is placed last. The longest is the one that will be used internally within DiaSim.
+
+The next part, separated by a line break, is headed by "MORPHLEX" and enumerates the morpholexical classes to be used. 
+Any of the names equated in the ABBREVS section above may be used, by convention the longer one is cited (DiaSim will automatically equate text equated in the ABBREVS section above). 
+Each morpholexical class is declared on its own line. 
+Like in the previous section, each line must be indented with a tab. 
+If the morpholexical class introduced by a is not homonymous with its default morphosyntactic class, a second part of the line is necessary; this is also necessary if the morpholexical class has any *subclasses* (as will be explained below). 
+If there are no subclasses, all that is necessary is that the default morphosyntactic class is stated between '{' and '}', placed after the declaration of the morpholexical class. See the example below for a hypothetical language with the morpholexical class `nominals' including only 'nouns': 
+
+```
+MORPHLEX
+	NOMINAL {NOUN}
+```
+
+However, this is not the case with French or Albanian as treated in the sample paradigm shape files provided. 
+Instead, these are both cases where the morpholexical class in question (NOMINAL) has multiple morphosyntactic classes associated to it: namely, NOUN and ADJ. NOUN is the default, so it is placed first with in the '{}' clause, delimited from ADJ by a ',', as seen below:
+
+```
+	NOMINAL {NOUN, ADJ}
+	VERB
+```
+
+What this is indicates is that NOUN and ADJ items have the inflection/agreement patterns of NOMINALS, and that the default NOMINAL is a NOUN. 
+Note that ADJ is placed under NOMINAL, but, as seen below, it is *not* a morphosyntactic class of VERB, even though there are adjective-treated forms that are part of a verbal paradigm (participles). 
+This is because the listing of morphosyntactic categories for morpholexical categories in this section is for the purposes of what their paradigm values are. 
+Furthermore note that INF (infinitive), a morphosyntactic category of a cell in the verbal paradigm, is not listed next to VERB, nor is it listed at all: this is because it lacks a paradigm, and thus it is handled in the next section with an empty branching. 
+
+The third and final section is headed by MORPHSYN.
+This section will list each morphosyntactic category in terms of the features it has, and the values for those features: essentially, the shape of its paradigm. 
+Each *morphosyntactic* category heads its own subsection of this section, and is declared on a line indented by a single tab ('\t'). 
+Each of it features will be declared on a double-indented (two tabs) line beneath this subsection header, in which each feature is declared, delimited from its possible values by ':', which are given in a list delimited by ','. 
+In the FrenchParadigmShape file, there are three morphosyntactic categories declared: NOMINAL, VERB, and INF. 
+The last, INF, is for infinitive, and does not have any features declared -- because an infinitive does not have its own paradigm in French. 
+POS is not a declared feature here, but it is automatically associated to the paradigm of any morphosyntactic category with other features declared, and in the lexicon file, again, the default (as resulting from the previous section's input) will be applied if it is not explicitly specified. 
+Note that in the AlbanianParadigmShape file, MODIFIER is declared as a morpholexical category with subcategories of ADV and PREP -- this means that unlike INF in French, MODIFIER in Albanian will be treated as specified for POS, by default with the value ADV.
+It will be treated retaining its status as only morpholexically and morphosyntactically MODIFIER if the value of POS is ADV or PREP, but as  morphosyntactically NOMINAL (while morpholexically MODIFIER) if given teh value ADJ for POS. 
+INF in French, on the other hand, is morpholexically always VERB, and morphosyntactically INF, which has no features to specify.
 # CONTACT FOR ANY QUESTIONS 
 
 Any questions or requests for clarification on how to use this system can be emailed to: marr.54@buckeyemail.osu.edu, or (after 2025) cl.st.marr@gmail.com.

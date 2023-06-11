@@ -15,11 +15,11 @@ ABBREVS
 	IMPF = IMPERFECTIVE
 	PERF = PERFECTIVE
 	IND = INDIC = INDICATIVE
-	SUBJ = SUBJUNCTIVE $Conditionial is to be treated as future subjunctive. 
+	SUBJ = SUBJUNCTIVE $Conditional is to be treated as future subjunctive. 
 	IMPR = IMPERATIVE
 	INF = INFINITIVE
 	
-MORPHLEX: $ format : CLASS {SYNTACTIC (SUB)CLASSES, DEFAULT LISTED FIRST}
+MORPHLEX $ format : CLASS {SYNTACTIC (SUB)CLASSES, DEFAULT LISTED FIRST}
 	NOMINAL {NOUN, ADJ} 
 	VERB
 		$ note how although adjectives (participles) and infinitives are part of verbal paradigm,
@@ -31,15 +31,13 @@ MORPHLEX: $ format : CLASS {SYNTACTIC (SUB)CLASSES, DEFAULT LISTED FIRST}
 		$ that are specified for POS as NOUN or ADJ 
 		$ should have the features of a NOMINAL to specify
 		
-MORPHSYN: $This file uses some Old French distinctions lost in modern French: the neuter, nominal case etc. 
+MORPHSYN $This file uses some Old French distinctions lost in modern French: the neuter, nominal case etc. 
 	NOMINAL
-		POS: NOUN, ADJ
 		NUMBER: SG, PL
 		GENDER: M, F, N
 		CASE: DIR, OBJ
 	VERB
-		POS: VERB, INF(INFINITIVE), ADJ(ADJECTIVE)
-		NUMBER: SG(SINGULAR), PL(PLURAL)
+		NUMBER: SG, PL
 		PERSON: 1, 2, 3
 		TENSE: PRS, PST, FUT
 		ASPECT: IMPF, PERF

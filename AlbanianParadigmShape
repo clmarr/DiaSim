@@ -38,15 +38,12 @@ MORPHLEX
 	
 MORPHSYN
 	NOMINAL
-		POS: NOUN, ADJ
 		NUMBER: SG, PL
 		GENDER: M, F, N $N limited to NW Gheg. N is not to be used for the ambigjen nouns, which are just M in SG and F in PL. 
 		CASE: NOM, ACC, DAT, ABL, VOC
-		DEFNESS: DEF, INDF
+		DEFNESS: DEF, INDF $ DEFNESS is definiteness
 	MODIFIER
-		POS: ADV, ADJ, PREP
 	VERB
-		POS: VERB, ADJ
 		NUMBER: SG, PL
 		TENSE: PRS, PST, FUT
 		ASPECT: PERF, IMPF
