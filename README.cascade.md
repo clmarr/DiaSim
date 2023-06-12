@@ -185,6 +185,15 @@ Non-phonetic symbols used include the following:
 
 ### ALPHA FEATURE NOTATION:
 
-Alpha features are used to ... 
+Alpha features are a device used by phonologists to express feature spreading phenomena that occurs regardless of the specific features that are being spread. 
+Assimilatory phenomena (both contact and long distance) often such patterns.
+This is economic, as otherwise separate rules for the spreading of the '+' and '-' values respectively would be necessary.  
+
+(TODO examples...) 
+
+(TODO also used for feature preservation in movementː y(βstres) j > ɥ i(βstres) case from 13th century French from CLEF 
+
+(TODO negative alpha notation as in Akan example -- p34 from that Scachter and Fromkin) 
+
 (TODO elaborate...) 
 
