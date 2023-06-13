@@ -28,7 +28,7 @@ This applies to the cascade files as well.
 
 Each column represents a different diachronic stage. 
 If any form is given for a particular diachronic stage, a form must be given for every etymon at that stage.
-In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this feature is not supported by the current release of DiaSim. 
+In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this functionality is not yet supported by the current release of DiaSim. 
 
 The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
 Specifically, in the case of our French demonstration set, this is the Classical Latin form. 
@@ -167,7 +167,7 @@ Furthermore note that INF (infinitive), a morphosyntactic category of a cell in 
 The third and final section is headed by MORPHSYN.
 This section will list each morphosyntactic category in terms of the features it has, and the values for those features: essentially, the shape of its paradigm. 
 Each *morphosyntactic* category heads its own subsection of this section, and is declared on a line indented by a single tab ('\t'). 
-Each of it features will be declared on a double-indented (two tabs) line beneath this subsection header, in which each feature is declared, delimited from its possible values by ':', which are given in a list delimited by ','. 
+Each of its features will be declared on a double-indented (two tabs) line beneath this subsection header, in which each feature is declared, delimited from its possible values by ':', which are given in a list delimited by ','. 
 In the FrenchParadigmShape file, there are three morphosyntactic categories declared: NOMINAL, VERB, and INF. 
 The last, INF, is for infinitive, and does not have any features declared -- because an infinitive does not have its own paradigm in French. 
 POS is not a declared feature here, but it is automatically associated to the paradigm of any morphosyntactic category with other features declared, and in the lexicon file, again, the default (as resulting from the previous section's input) will be applied if it is not explicitly specified. 

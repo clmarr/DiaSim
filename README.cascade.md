@@ -63,7 +63,7 @@ Another example of an unconditioned sound change -- h-deletion -- is shown below
 h > ∅
 ```
 
-The loss of phonemic vowel length is also an unconditioned sound change, as seen below, in terms of *phonetic features* (see respective section. 
+The loss of phonemic vowel length is also an unconditioned sound change, as seen below, in terms of *phonetic features* (see respective section -- TODO identify section) 
 
 ```
 [+syl] > [-long] 
@@ -121,7 +121,7 @@ Another example would be the cluster simplification of /skl/ to /sl/ in the pred
 ```
 
 Many sound changes, however, will have both prior and posterior conditioning. 
-For example, the early loss of /w/ between /k/ and a non-low front vowel at word beginnings, early enough to allow palalatalization of the earlier /k/ (hence Latin QUINQUE > French *cinq* /sɛ̃k/), as seen below, with the null (∅) symbol used as per *Symbols for non-phones*...: 
+For example, the early loss of /w/ between /k/ and a non-low front vowel at word beginnings, early enough to allow palatalization of the earlier /k/ (hence Latin QUINQUE > French *cinq* /sɛ̃k/), as seen below, with the null (∅) symbol used as per *Symbols for non-phones*...: 
 
 ```
 w > ∅ / k __ [+front,-lo]
@@ -139,13 +139,52 @@ Likewise, the opening of final voiceless velar stops [k] to fricatives [x] word-
 k > x / [+syl] __ # 
 ```
 
-### THE IMPORTANCE OF SPACING
+## THE IMPORTANCE OF SPACING
 
 Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
 This applies to the lexicon files as well. 
 
+## SYMBOLS FOR NON-PHONES:
 
-### PHONETIC SYMBOLS AND FEATURES:
+
+Non-phonetic symbols used include the following: 
+
+* '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
+
+(TODO example) 
+
+* '#' is used to mark a word boundary 
+
+(TODO example) 
+
+* '+' is used to mark a morphemic boundary.
+
+(TODO example) 
+(TODO make sure this is debugged!) 
+
+* '@' is used to mean 'anything except a word boundary'. 
+
+(TODO example) 
+
+* items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
+
+(TODO examples)
+
+* items or sequences between '(' and ')*' can optionally never or any number of times
+
+(TODO examples)
+
+* items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
+
+(TODO examples) 
+
+* '{' and '}' enclose a *disjunction*. A disjunction consists of two or more items or item sequences, delimited by ';'.  (TODO difference in disjunction behavior in input/output, vs. conditioning context.)
+	(TODO make this its own section? ) 
+
+* '[' and ']' enclose a *feature matrix*. Features therein are written in terms of '+' or '-' and then the feature (abbreviated) name as used in SymbolDefs.csv (or a file used in its stead, declared in the functional call), and are delimited by ','. For more info, see the section "PHONETIC SYMBOLS AND FEATURES" and its subsection "FEATURE MATRICES".
+
+
+## PHONETIC SYMBOLS AND FEATURES:
 
 (TODO elaborate...) 
 
@@ -155,37 +194,44 @@ SymbolDefs.csv
 FeatTranslations
 FeatImplications
 
+(TODO need to explain feature matrices???)
 
-### SYMBOLS FOR NON-PHONES (BOUNDARY MARKERS, NULL, ETC):
+(not committing to features as innate despite the choice of features favored as innate by some nativists -- not a theoretical stance)
 
-(TODO populate with relevant examples) 
+(citations on features? )
 
-Non-phonetic symbols used include the following: 
+(user can use their own) 
 
-* '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
+### FEATURE MATRICES: 
 
-* '#' is used to mark a word boundary 
-
-* '+' is used to mark a morphemic boundary (as of June 2023 is currently not in use and may be subject to change).
-
-* '@' is used to mean 'anything except a word boundary'. 
-
-* '[' and ']' enclose a feature matrix. Features therein are written in terms of '+' or '-' and then the feature (abbreviated) name as used in SymbolDefs.csv (or a file used in its stead, declared in the functional call), and are delimited by ','. For more info, see the section above ("PHONETIC SYMBOLS and FEATURES").
-
-* items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
-
-* items or sequences between '(' and ')*' can optionally never or any number of times
-
-* items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
-
-* '{' and '}' enclose a *disjunction*. A disjunction consists of two or more items or item sequences, delimited by ';'.  (TODO difference in disjunction behavior in input/output, vs. conditioning context.)
-	(TODO make this its own section? ) 
 
 ### ALPHA FEATURE NOTATION:
+While in the default 
 
-(TODO it's not just feature spreading!)
+The use of features valued with 
 
-Alpha features are a device used by phonologists to express feature spreading phenomena that occurs regardless of the specific features that are being spread. 
+
+Alpha features are a notation device used by phonologists to indicate a linkage between different feature-value mapping. 
+
+
+(TODO rework 
+(TODO 1 explain alpha features)
+	(1a alpha features within the same feature matrix -- agreement -- Surselvan example -- alas the author there finds it awkward) 
+	(1b alpha features across between feature matrices)
+		(1b between output and context -- assimilaton)
+		(1c between input and output -- French case from DiaCLEF )
+		
+	multiple alpha features... 
+		
+	(negative alpha values...) 
+	(TODO need to ensure coverage of negated alpha values works)
+		(negated alpha values in debugging suite...) 
+		
+	
+Alpha features are a device used by phonologists to indicate that the multiple feature 
+
+
+express feature spreading phenomena that occurs regardless of the specific features that are being spread. 
 Assimilatory phenomena (both contact and long distance) often such patterns.
 This is economic, as otherwise separate rules for the spreading of the '+' and '-' values respectively would be necessary.  
 
@@ -195,7 +241,10 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 
 (TODO Surselvan example p37 for example of alpha features only input expressing "same value of round as for back" -- if round has to be back, if unround cannot be back, for it to be a valid target of the rule) 
 
-(TODO negative alpha notation as in Akan example -- p34 from that Scachter and Fromkin) 
+(TODO negative alpha notation as in Akan example -- p34 from that Schachter and Fromkin) 
 
+(2 as in DiaSim -
+
+	
 (TODO elaborate...) 
 
