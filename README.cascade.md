@@ -120,7 +120,6 @@ Another example would be the cluster simplification of /skl/ to /sl/ in the pred
 {s k;r ɡ} > {s;r} / __ l
 ```
 
-
 Many sound changes, however, will have both prior and posterior conditioning. 
 For example, the early loss of /w/ between /k/ and a non-low front vowel at word beginnings, early enough to allow palalatalization of the earlier /k/ (hence Latin QUINQUE > French *cinq* /sɛ̃k/), as seen below, with the null (∅) symbol used as per *Symbols for non-phones*...: 
 
@@ -148,7 +147,7 @@ This applies to the lexicon files as well.
 
 ### PHONETIC SYMBOLS AND FEATURES:
 
-(elaborate...) 
+(TODO elaborate...) 
 
 how to modify... 
 
@@ -159,6 +158,7 @@ FeatImplications
 
 ### SYMBOLS FOR NON-PHONES (BOUNDARY MARKERS, NULL, ETC):
 
+(TODO populate with relevant examples) 
 
 Non-phonetic symbols used include the following: 
 
@@ -178,12 +178,12 @@ Non-phonetic symbols used include the following:
 
 * items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
 
-* '{' and '}' enclose a *disjunction*. A disjunction consists of two or more items or item sequences, delimited by ';'. 
-
-
-(TODO make this its own section) 
+* '{' and '}' enclose a *disjunction*. A disjunction consists of two or more items or item sequences, delimited by ';'.  (TODO difference in disjunction behavior in input/output, vs. conditioning context.)
+	(TODO make this its own section? ) 
 
 ### ALPHA FEATURE NOTATION:
+
+(TODO it's not just feature spreading!)
 
 Alpha features are a device used by phonologists to express feature spreading phenomena that occurs regardless of the specific features that are being spread. 
 Assimilatory phenomena (both contact and long distance) often such patterns.
@@ -192,6 +192,8 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 (TODO examples...) 
 
 (TODO also used for feature preservation in movementː y(βstres) j > ɥ i(βstres) case from 13th century French from CLEF 
+
+(TODO Surselvan example p37 for example of alpha features only input expressing "same value of round as for back" -- if round has to be back, if unround cannot be back, for it to be a valid target of the rule) 
 
 (TODO negative alpha notation as in Akan example -- p34 from that Scachter and Fromkin) 
 
