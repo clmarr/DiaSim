@@ -147,7 +147,7 @@ This applies to the lexicon files as well.
 ## SYMBOLS FOR NON-PHONES:
 
 
-Non-phonetic symbols used are each explained in their respective sections below. 
+Non-phonetic symbols used are each explained in their respective sections below. Some example rules here use feature matrices (e.g. "[+syl,+front]" -- a front vowel). See the respective section if this notation is unclear. 
 
 ### Null symbol '∅' 
 
@@ -218,11 +218,31 @@ For example, the outcome of French /v/ for Latin "v", which is /w/ in many accou
 
 Essentially "@" means "there is something, anythign, segmental between this spot and the nearest word boundary". A rule conditioned on it will still operate if a word boundary is immediately at its specified location. As thus it is not usable for expressing proposed morphological boundary conditioning as '+' is (see above). At present there is no way in DiaSim to express conditioning in "anything other than a morpheme boundary (or word boundary)", but should this become necessary, please request it, as it is expected to be quite easy to add.  
 
-### Optionality parenthesis (...) 
+### Optionality parentheses (...) 
 
-Items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
+Items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once. 
+This can be used in the input, or in the conditioning context, but cannot be used for the output side of the arrow as rules in DiaSim are deterministic. 
 
-(TODO examples)
+Usage on the input side of the arrow will mean that the material enclosed will be absorbed into the scope of the segment *sequence* that is replaced (deterministically) with the material on the output side. 
+An example in a k-palatalization process that absorbs a prior /j/: is shown below: 
+
+```
+(j) k > c / __ [+syl,+front]
+```
+
+Usage in the conditioning context, the more frequent usage, means the rule can "see through" the parenthesized material so that it will still operate if the necessary conditioning elements are on the other side of it. 
+This is seen in the centralization of countertonic /e/ in Early Old French, which occurred before either another vowel, or a consonant then another vowel, as shown below:
+
+```
+ˌe > ˌə / __ ([+cons]) [+syl]
+```
+
+A classic example would be West Romance/Brythonic intervocalic lenition, which "saw through" posterior liquids so that -VCRV- segments were still treated as between vowels. While this process involved both voicing and spirantization, the former alone is demonstrated below:  
+
+``` 
+[-voi] > [+voi] / [-cons] __ ({r;l}) [-cons]  
+```
+
 
 * items or sequences between '(' and ')*' can optionally never or any number of times
 
