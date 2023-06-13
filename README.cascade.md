@@ -98,7 +98,7 @@ The one element of the notation for the conditioning context that must always be
 
 Beyond this there must be either a prior context specified (i.e. phonetic information about what comes *before* the sound or sounds being mutated), a posterior context specified (i.e. about what comes *afterward*), or both, but *never neither* (which would be either errant underspecification of a conditioned sound change, or errant notation of an unconditioned sound change). 
 
-Only a prior context will specified for a sound change conditioned only on earlier material, such as the closure of the reflex of *w*- sounds loaned into Proto-Gallo-Romance ([ɣʷ]) to the voiced velar stop [ɡ] word-initially except in some dialects like Norman, which led to minimal pairs in English like *warranty* and *guarantee*, etc. (here, phone symbols are used, and "#" marks the word boundary -- see *Supported notation for phonetic information*): 
+Only a prior context will specified for a sound change conditioned only on earlier material, such as the closure of the reflex of *w*- sounds loaned into Proto-Gallo-Romance ([ɣʷ]) to the voiced velar stop [ɡ] word-initially except in some dialects like Norman, which led to minimal pairs in English like *warranty* and *guarantee*, etc. (here, phone symbols are used, and "#" marks the word boundary -- see the following section on non-phonetic notation): 
 
 ```
 ɣʷ > ɡ / # __
@@ -114,7 +114,7 @@ Only a posterior context will be specified for a sound change conditioned only o
 [+lat] > ɫ / __ [+cons]
 ```
 
-Another example would be the cluster simplification of /skl/ to /sl/ in the predecessor to French -- hence why Latin MASCVLVS became Early Old French *masle* (and not *mascle*, as it would have otherwise...), whence *mâle* "male". This happened at the same time as /rgl/ > /rl/ cluster simplification as per Pope 1934, so they are placed in a single disjunctive rule, making use of the curly braces as supported for this by DiaSim, and used elsewhere in the field (see the appropriate subsections of *Supported notation for phonetic information*): 
+Another example would be the cluster simplification of /skl/ to /sl/ in the predecessor to French -- hence why Latin MASCVLVS became Early Old French *masle* (and not *mascle*, as it would have otherwise), whence *mâle* "male". This happened at the same time as /rgl/ > /rl/ cluster simplification as per Pope 1934, so they are placed in a single disjunctive rule, making use of the curly braces as supported for this by DiaSim, and used elsewhere in the field (see the appropriate subsections of *Supported notation for phonetic information*): 
 
 ```
 {s k;r ɡ} > {s;r} / __ l
@@ -147,24 +147,75 @@ This applies to the lexicon files as well.
 ## SYMBOLS FOR NON-PHONES:
 
 
-Non-phonetic symbols used include the following: 
+Non-phonetic symbols used are each explained in their respective sections below. 
+
+### Null symbol '∅' 
 
 * '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
+Usage in the input signifies insertion, and in the output it is used for deletion.
+It has no usage in the conditioning context. 
+Its usage for a hypothetical unconditioned deletion of /h/ and a hypothetical insertion of schwa between consecutive consonantals are shown below: 
 
-(TODO example) 
+```
+h > ∅ 
+∅ > ə / [+cons] __ [+cons] 
+```
 
-* '#' is used to mark a word boundary 
+### Word boundary '#'
+* '#' is used to mark a word boundary. For example, a rule to express word-final obstruent devoicing would be as follows: 
 
-(TODO example) 
+```
+[-son] > [-voi] / __ #
+```
 
-* '+' is used to mark a morphemic boundary.
+Likewise, a word initial hardening rule making /j/ into a palatal stop /ɟ/ is demonstrated below: 
 
-(TODO example) 
-(TODO make sure this is debugged!) 
+```
+j > ɟ / # __ 
+```
+
+### Morpheme boundary '+' 
+* '+' is used to mark a morphemic boundary. This symbol is not used in any of the -CLEF cascades as Pope 1934 did not assert any sound changes that were conditioned in terms of a morpheme boundary (unlike a word boundary) and it did not seem necessary for the debugging process in making DiaCLEF. Unlike processes conditioned on word boundaries, that sound changes have ever been or could ever be conditioned on morpheme boundaries is contentious ; this is part of a broader debate concerning the possibility of grammatically conditioned sound change. 
+Both reports of such morpheme-boundary conditioned phenomena and competing analyses that offer other explanations for these abound (see Hill 2014; Enger 2013; Anttila 1972; Hock 1976). 
+In addition to views that the possibility of morpheme-boundary-conditioned sound change is either impossible (Kiparsky 1973) or necessarily possible (Hyman & Moxley 1996; Anttila 1972), another view asserts that sound change necessarily originates in exclusively phonetically-motivated (synchronic) processes that cannot be morphologically conditioned *at first* but can acquire such extra-phonological conditioning (including in morphology) as it passes from synchrony into diachrony (Janda & Joseph 2003). 
+
+DiaSim is built in the Neogrammarian tradition but is not intended to be restricted to those who adhere to any side of this debate: the user can opt to use or not use the morpheme bound. 
+For how to use it correctly, we will refer to one well-known proposal of a morpheme-bound conditioned sound change in a branch of Bantu, whereby /k/ palatalized before /i/, across a morpheme boundary (Hyman & Moxley 1996: 274). This would be expressed as follows ([c] being a voiceless palatal stop): 
+
+```
+k > c / + __ i
+```
+
+Further examples in this section will use synchronic processes, whose conditioning on morphological factors is less controversial as they are not claimed to constitute proper sound changes, but they are intended to illustrate how to express morphological conditioning in the same environments *diachronically* should it be deemed necessarily. 
+
+Note that some processes that are described as operating at the morpheme boundary in fact operate at the morpheme boundary *and* the word boundary. 
+Although we are not aware of any cases where this became diachronically relevant, in case such a case arises, this must be explicitly specified using a bracketed disjunction. 
+For example, many English varieties are analyzed as having a *synchronic* rule that inserts a glide before a morpheme boundary *or* a word boundary; typically this occurs after vowels that are high (or underlyingly high -- see Uffmann 2010), but in non-rhotic dialects [ɹ] may be inserted after non-high vowels (in many dialects, especially /ɔ/ and/or /ə/), leading to [ɹ]-insertion both before a morpheme boundary ("draw-[ɹ]-ing") and at a word boundary ("law-[ɹ]-and order"). Thus, to capture this behavior, should it for some reason become necessary for a diachronic system for reasons unclear at present but not impossible, the following rule formulation would be necessary, with a *bracketed disjunction* (see below) clarifying that this sandhi process operates across either a word boundary or a morpheme boundary. 
+
+```
+∅ > ɹ / [+syl,-hi] __ {+;#} [+syl] 
+```
+
+This bracketed disjunction is likewise the way to express analyses that treat Spanish e-prosthesis as both word-initial and morpheme-initial given cases like *Checoeslovaquia* (Janda & Joseph 2003): 
+
+```
+∅ > e / {+;#} __ s [+cons] 
+```
+
+Note also that '+' notation is not to be used for processes that, while perhaps initially phonetically motivated, are conditioned on specific morphemes and not others in a way that is no longer phonetically or even phonologically predictable. 
+For example, consider the case of the (synchronic) Jita rhotic assibiliation process (Downing 2007). This process changes /ɾ/ into /s/ before a set of morphemes starting in /i/ or /j/ cannot actually be represented by a (synchronic) rule "ɾ -> s / __ + [+hi,+front]", because there are other morphemes starting in /i/ or /j/ that do not trigger assibilation. In this case, the process clearly involves morphological knowledge of which affixes (don't) trigger the process, (Hamann 2014) and thus it lies outside the purview of DiaSim, a diachronic phonological system. 
+
+### Non-word bound '@' 
 
 * '@' is used to mean 'anything except a word boundary'. 
 
-(TODO example) 
+For example, the outcome of French /v/ for Latin "v", which is /w/ in many accounts but /ɣ̬ʷ/ for Pope 1934(:s192ii), is demonstrated below: 
+
+```
+ɣʷ > v / @ __ 
+```
+
+Essentially "@" means "there is something, anythign, segmental between this spot and the nearest word boundary". A rule conditioned on it will still operate if a word boundary is immediately at its spe
 
 * items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
 
@@ -248,3 +299,23 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 	
 (TODO elaborate...) 
 
+
+# Cited works
+
+Anttila 1972 = Anttila, R. 1972. "An introduction to historical and comparative linguistics". New York: MacMillan. 
+
+Downing 2007 = Downing, L. 2007. "Explaining the role of the morphological continuum in Bantu spirantization". *Africana Linguistica* 13: 53-78. 
+
+Enger 2013 = Enger, H-O. 2013 "Inflectiona chagne, 'sound laws' and the autonomy of morphology: the case of Scandinavian case and gender reduction". *Diachronica* 30(1): 1-26. 
+
+Hamann 2014 = Hamann, S. 2014. "Phonological changes". In Bowern, C. and Evans, B. (eds.), *The Routledge Handbook of Historical Linguistics*. 
+
+Hill 2014 = Hill, N. W. 2014. "Grammatically conditioned sound change". *Language and Linguistics Compass* 8(6): 211-229.
+
+Hock 1976 = Hock, H. H. 1976. Review of An introducction to historical and comparative linguiistics by Raimo Anttila. *Language* 52(1): 202-220. 
+
+Janda & Joseph 2003 = Janda, R. & Joseph, B. D. 2003. "Reconsidering the Canons of Sound CHange: Towards a 'Big Bang' Theory". In Blake, B. and Burridge, K. (eds), *Selected Papers from the 15th International Conference on Historical Linguistics, Melbourne, 13--17 August 2001*. Amsterdam: John Benjamins  Publishing Co. Pp205-219. 
+
+Kiparsky 1973 = Kiparsky, P. "Abstractness, opacity and global rules. Three dimensions of linguistic theory". Ed. by Fujimura, O. Tokyo: TEC. 57-86. 
+
+Uffmann 2010 = Uffmann, C. 2010. "The non-trivialness of segmental representations". Paper presented at *Old World Conference on Phonology (OCP) 7*, Nice. 
