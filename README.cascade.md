@@ -218,7 +218,7 @@ For example, the outcome of French /v/ for Latin "v", which is /w/ in many accou
 
 Essentially "@" means "there is something, anythign, segmental between this spot and the nearest word boundary". A rule conditioned on it will still operate if a word boundary is immediately at its specified location. As thus it is not usable for expressing proposed morphological boundary conditioning as '+' is (see above). At present there is no way in DiaSim to express conditioning in "anything other than a morpheme boundary (or word boundary)", but should this become necessary, please request it, as it is expected to be quite easy to add.  
 
-### Optionality parentheses (...) 
+### Optionality parentheses for once or never: (...) 
 
 Items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once. 
 This can be used in the input, or in the conditioning context, but cannot be used for the output side of the arrow as rules in DiaSim are deterministic. 
@@ -243,12 +243,19 @@ A classic example would be West Romance/Brythonic intervocalic lenition, which "
 [-voi] > [+voi] / [-cons] __ ({r;l}) [-cons]  
 ```
 
+### Optionality parentheses for never or any number of repeats: (...)*
 
-* items or sequences between '(' and ')*' can optionally never or any number of times
+Items or sequences between '(' and ')*' can optionally never, once, or any number of times. 
+For a usage example, regressive vowel harmony is a process whereby vowels change under the influence of the next vowel, "seeing through" any number of consonantals in the process. 
+This can be expressed, using an example of fronting harmony (i.e. "umlaut", "i-mutation", seen historically in Germanic, Turkic, Finnic, etc. in different ways), as follows: 
 
-(TODO examples)
+```
+[+syl] > [+front] / __ ([+cons])* [-cons,+front] 
+```
 
-* items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
+### "Any number of repeats" clause (...)+
+
+Items or sequences between '(' and ')+' can optionally occur any number of times, but not never. This is a case where the (non-)use of a space (' ') is critical, as ') +' means the close of optional never or once clause followed by a morpheme boundary, whereas ')+' closes an "any positive number of times" clause as stipulated in this bulleted explanation. 
 
 (TODO examples) 
 

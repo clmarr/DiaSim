@@ -907,7 +907,7 @@ public class DiachronicSimulator {
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
-					+ "| 6 : Review results (stats, word forms, errors) at evaluation point (goes to submenu)|\n"
+					+ "| 6 : Review filtered results (stats, word forms, errors) at eval point (submenu)     |\n"
 					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
@@ -1161,6 +1161,7 @@ public class DiachronicSimulator {
 						{
 							if (CASCADE.get(ci).toString().contains(resp))
 								System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
+							noMatches = false;
 						}
 						if(noMatches)	System.out.println("No matches found."); 
 					}
@@ -1189,7 +1190,7 @@ public class DiachronicSimulator {
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
 						+ "| 1 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
 						+ "| 2 : Print all corresponding forms as above for all mismatched etyma                 |\n"
-						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)        |\n"
+						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)         |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
 					
 					resp = inpu.nextLine().substring(0,1);
