@@ -690,8 +690,9 @@ public class DiachronicSimulator {
 			//TODO figure out what we want to do here...
 			ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-			ea.makeAnalysisFile("testResultAnalysis.txt", false, theSimulation.getCurrentResult());
-			ea.makeAnalysisFile("goldAnalysis.txt",true,goldOutputLexicon);
+			ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
+					false, theSimulation.getCurrentResult());
+			ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
 			
 			if(goldStagesSet)
 			{	
@@ -699,8 +700,9 @@ public class DiachronicSimulator {
 				{	
 					ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					eap.makeAnalysisFile(goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt",
-							false, theSimulation.getStageResult(true, gsi));
+					String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
+							).toString();
+					eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
 				}
 			}
 		}
