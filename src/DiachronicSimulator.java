@@ -604,6 +604,9 @@ public class DiachronicSimulator {
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		
+		File dir = new File(""+runPrefix); 
+		dir.mkdir(); 
+		
 		makeRulesLog(CASCADE);
 		
 		String resp; 		
@@ -667,9 +670,6 @@ public class DiachronicSimulator {
 		}
 		
 		System.out.println("Simulation complete.");
-			
-		File dir = new File(""+runPrefix); 
-		dir.mkdir(); 
 		
 		System.out.println("making derivation files in "+dir);
 		
@@ -710,12 +710,12 @@ public class DiachronicSimulator {
 
 	private static void makeOutGraphFile()
 	{	
-		String filename = runPrefix + "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE; 
+		String filename = new File(runPrefix, runPrefix+ "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
 		UTILS.writeToFile(filename, theSimulation.outgraph(),true); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
-		String filename = runPrefix + "_rules_log.txt"; 
+		String filename = new File(runPrefix, runPrefix + "_rules_log.txt").toString(); 
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 
