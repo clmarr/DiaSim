@@ -151,7 +151,7 @@ Non-phonetic symbols used are each explained in their respective sections below.
 
 ### Null symbol '∅' 
 
-* '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
+The symbol '∅' ("null") is used to indicate deletion if after the arrow ('>') or insertion if before it. It is important not to confuse this with 'ø', which, in IPA and SymbolDefs.csv (the provided default symbol definitions file) is used for the mid-high front rounded vowel. 
 Usage in the input signifies insertion, and in the output it is used for deletion.
 It has no usage in the conditioning context. 
 Its usage for a hypothetical unconditioned deletion of /h/ and a hypothetical insertion of schwa between consecutive consonantals are shown below: 
@@ -162,7 +162,7 @@ h > ∅
 ```
 
 ### Word boundary '#'
-* '#' is used to mark a word boundary. For example, a rule to express word-final obstruent devoicing would be as follows: 
+The symbol '#' is used to mark a word boundary. For example, a rule to express word-final obstruent devoicing would be as follows: 
 
 ```
 [-son] > [-voi] / __ #
@@ -175,7 +175,8 @@ j > ɟ / # __
 ```
 
 ### Morpheme boundary '+' 
-* '+' is used to mark a morphemic boundary. This symbol is not used in any of the -CLEF cascades as Pope 1934 did not assert any sound changes that were conditioned in terms of a morpheme boundary (unlike a word boundary) and it did not seem necessary for the debugging process in making DiaCLEF. Unlike processes conditioned on word boundaries, that sound changes have ever been or could ever be conditioned on morpheme boundaries is contentious ; this is part of a broader debate concerning the possibility of grammatically conditioned sound change. 
+
+The symbol '+' is used to mark a morphemic boundary. This symbol is not used in any of the -CLEF cascades as Pope 1934 did not assert any sound changes that were conditioned in terms of a morpheme boundary (unlike a word boundary) and it did not seem necessary for the debugging process in making DiaCLEF. Unlike processes conditioned on word boundaries, that sound changes have ever been or could ever be conditioned on morpheme boundaries is contentious ; this is part of a broader debate concerning the possibility of grammatically conditioned sound change. 
 Both reports of such morpheme-boundary conditioned phenomena and competing analyses that offer other explanations for these abound (see Hill 2014; Enger 2013; Anttila 1972; Hock 1976). 
 In addition to views that the possibility of morpheme-boundary-conditioned sound change is either impossible (Kiparsky 1973) or necessarily possible (Hyman & Moxley 1996; Anttila 1972), another view asserts that sound change necessarily originates in exclusively phonetically-motivated (synchronic) processes that cannot be morphologically conditioned *at first* but can acquire such extra-phonological conditioning (including in morphology) as it passes from synchrony into diachrony (Janda & Joseph 2003). 
 
@@ -205,9 +206,9 @@ This bracketed disjunction is likewise the way to express analyses that treat Sp
 Note also that '+' notation is not to be used for processes that, while perhaps initially phonetically motivated, are conditioned on specific morphemes and not others in a way that is no longer phonetically or even phonologically predictable. 
 For example, consider the case of the (synchronic) Jita rhotic assibiliation process (Downing 2007). This process changes /ɾ/ into /s/ before a set of morphemes starting in /i/ or /j/ cannot actually be represented by a (synchronic) rule "ɾ -> s / __ + [+hi,+front]", because there are other morphemes starting in /i/ or /j/ that do not trigger assibilation. In this case, the process clearly involves morphological knowledge of which affixes (don't) trigger the process, (Hamann 2014) and thus it lies outside the purview of DiaSim, a diachronic phonological system. 
 
-### Non-word bound '@' 
+### Amorphous segmental '@' 
 
-* '@' is used to mean 'anything except a word boundary'. 
+The symbol '@' ("segment") is used to mean 'anything except a word boundary'. 
 
 For example, the outcome of French /v/ for Latin "v", which is /w/ in many accounts but /ɣ̬ʷ/ for Pope 1934(:s192ii), is demonstrated below: 
 
@@ -215,9 +216,11 @@ For example, the outcome of French /v/ for Latin "v", which is /w/ in many accou
 ɣʷ > v / @ __ 
 ```
 
-Essentially "@" means "there is something, anythign, segmental between this spot and the nearest word boundary". A rule conditioned on it will still operate if a word boundary is immediately at its spe
+Essentially "@" means "there is something, anythign, segmental between this spot and the nearest word boundary". A rule conditioned on it will still operate if a word boundary is immediately at its specified location. As thus it is not usable for expressing proposed morphological boundary conditioning as '+' is (see above). At present there is no way in DiaSim to express conditioning in "anything other than a morpheme boundary (or word boundary)", but should this become necessary, please request it, as it is expected to be quite easy to add.  
 
-* items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
+### Optionality parenthesis (...) 
+
+Items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once (this can be used in the input, or the context)
 
 (TODO examples)
 
