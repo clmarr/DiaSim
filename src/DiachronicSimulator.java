@@ -907,7 +907,7 @@ public class DiachronicSimulator {
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
 					+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
-					+ "| 6 : Review filtered results (stats, word forms, errors) at eval point (submenu)     |\n"
+					+ "| 6 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n"
 					+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 					+ "| 9 : End this analysis.______________________________________________________________|\n");
 			String resp = inpu.nextLine().substring(0,1);
@@ -969,17 +969,19 @@ public class DiachronicSimulator {
 							+ "\nGold: delete it & filter by correct (gold) forms for output (last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
 							+ "\nR#: right before rule with index number <#>"
-							+ "(you can find rule indices with option 3 to query on the main menu)\n"
-							+ "Please enter the appropriate indicator."); 
+							+ "(you can find rule indices with option 3 to query on the main menu)"
+							+ "\nKeep: keep the current focus pt and return"
+							+ "\nPlease enter the appropriate indicator."); 
 					
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
 					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
-					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold");
+					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold"); validOptions.add("Keep");
 					
 					for(int ri = 1; ri < CASCADE.size(); ri++)	
 						validOptions.add("R"+ri);
 					resp = inpu.nextLine();
 					resp.replace("\n", ""); 
+					if (resp.toLowerCase().equals("keep"))	resp = "Keep"; 
 					chosen = validOptions.contains(resp); 
 					if(!chosen)
 					{
@@ -1000,10 +1002,9 @@ public class DiachronicSimulator {
 						else	System.out.println("Invalid input : '"+resp+"'\nPlease select a valid option listed below:");
 					}
 					else
-					{
-						focPtSet = true;
+					{	
 						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
-							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds. 
+							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds.
 						if(resp.charAt(0) == 'g')
 						{
 							int si = Integer.parseInt(resp.substring(1));
@@ -1027,8 +1028,9 @@ public class DiachronicSimulator {
 							focPtName = "pivot@R"+focPtLoc; 
 							ea.setFocus(focPtLex, focPtName); 
 						}
-						else
+						else if (!resp.equals("Keep"))
 						{
+							focPtSet = true;
 							focPtLoc = -1; focPtLex = null; focPtName = ""+resp;
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -1154,14 +1156,19 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("5"))
 					{
-						System.out.println("Enter the string you want to query with.\n");
-						resp = inpu.nextLine().replace("\n", "");
+						System.out.println("Note that '(...)+' notation has been converted to '(...) (...)*' internally, "
+								+ "so inputs of ')+' will not return any results.\nEnter the string you want to query with: \n");
+						
+						resp = inpu.nextLine().replace("\n", "").replace("([","( [").replace("])", "] )"); 
+						
 						boolean noMatches = true; 
+						
 						for(int ci = 0; ci < CASCADE.size(); ci++)
 						{
 							if (CASCADE.get(ci).toString().contains(resp))
-								System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
-							noMatches = false;
+							{	System.out.println(""+ci+" : "+CASCADE.get(ci).toString());
+								noMatches = false;
+							}
 						}
 						if(noMatches)	System.out.println("No matches found."); 
 					}
