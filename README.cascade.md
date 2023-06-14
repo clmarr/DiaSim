@@ -344,7 +344,9 @@ Hill 2014 = Hill, N. W. 2014. "Grammatically conditioned sound change". *Languag
 
 Hock 1976 = Hock, H. H. 1976. Review of An introducction to historical and comparative linguiistics by Raimo Anttila. *Language* 52(1): 202-220. 
 
-Janda & Joseph 2003 = Janda, R. & Joseph, B. D. 2003. "Reconsidering the Canons of Sound CHange: Towards a 'Big Bang' Theory". In Blake, B. and Burridge, K. (eds), *Selected Papers from the 15th International Conference on Historical Linguistics, Melbourne, 13--17 August 2001*. Amsterdam: John Benjamins  Publishing Co. Pp205-219. 
+Hyman & Moxley 1996 = Hyman, L. and Moxley, J. 1996. "The morpheme in phonological change: velar palatalization in Bantu." *Diachronica* 13(2): 259-82.  
+
+Janda & Joseph 2003 = Janda, R. & Joseph, B. D. 2003. "Reconsidering the Canons of Sound CHange: Towards a 'Big Bang' Theory". In Blake, B. and Burridge, K. (eds), *Selected Papers from the 15th International Conference on Historical Linguistics, Melbourne, 13--17 August 2001*. Amsterdam: John Benjamins Co. Pp205-219. 
 
 Kiparsky 1973 = Kiparsky, P. "Abstractness, opacity and global rules. Three dimensions of linguistic theory". Ed. by Fujimura, O. Tokyo: TEC. 57-86. 
 
