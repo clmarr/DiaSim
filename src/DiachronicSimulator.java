@@ -25,6 +25,7 @@ public class DiachronicSimulator {
 	private static double[] FT_WTS; 
 	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
+	private static HashMap<String, String[]> diacriticMap; 
 	private static HashMap<String, String[]> featImplications; 
 	private static LexPhon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
@@ -43,12 +44,13 @@ public class DiachronicSimulator {
 	private static String runPrefix;
 	private static String symbDefsLoc; 
 	private static String featImplsLoc; 
+	private static String symbDiacriticsLoc; 
 	private static String cascFileLoc; 	
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls; 
+		no_feat_impls, no_symb_diacritics; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -127,6 +129,26 @@ public class DiachronicSimulator {
 		}
 		
 		System.out.println("Done extracting feature implications!");	
+	}
+	
+	public static void extractDiacriticDefs()
+	{
+		if (no_symb_diacritics)	return;
+		diacriticMap = new HashMap<String, String[]>(); 
+		System.out.println("Now extracting info diacritics for segmental symbols...");
+
+		List<String> diacriticsLines = UTILS.readFileLines(symbDiacriticsLoc); 
+		
+		for(String sdline : diacriticsLines)
+		{
+			String[] sdsides = sdline.split(""+UTILS.DIACRITICS_DELIM);
+			sdsides[0] = sdsides[0].replace(" ",""); 
+			if (sdsides[1].contains(""+UTILS.CMT_FLAG))
+				sdsides[1] = sdsides[1].substring(0, sdsides[1].indexOf(""+UTILS.CMT_FLAG));
+			diacriticMap.put(sdsides[0], sdsides[1].split(",")); 
+		}
+		
+		System.out.println("Done extracting symbol diacritics!");	
 	}
 	
 	public static void extractCascade(SChangeFactory theFactory)
@@ -1391,12 +1413,14 @@ public class DiachronicSimulator {
 		lexFileLoc = "FLLex.txt";
 		cascFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
+		symbDiacriticsLoc = "currentSymbolDiacriticDefs";
 		id_wt = 0.5; 
 		
 		DEBUG_RULE_PROCESSING = false; 
 		DEBUG_MODE = false; 
 		print_changes_each_rule = false;
-		no_feat_impls = false; 
+		no_feat_impls = false;
+		no_symb_diacritics = true; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1438,6 +1462,20 @@ public class DiachronicSimulator {
 				if (i < args.length)	cascFileLoc = args[i++];
 				else	System.err.println("-rules requires a location for ruleset file.");
 				if (vflag)	System.out.println("ruleset file location: "+cascFileLoc);
+			}
+			
+			//flag to use diacritics, and the location of the diacritics file. 
+			//user can just flag this with no file to use the default location. 
+			//otherwise they should place the location afterward. 
+			else if (arg.contains("-diacrit"))
+			{
+				no_symb_diacritics = false; 
+				
+				if (i < args.length) 
+				{
+					i++; 
+					if (args[i].charAt(0) != '-')	symbDiacriticsLoc=args[i]; 
+				}
 			}
 			
 			//lexicon location
@@ -1494,7 +1532,7 @@ public class DiachronicSimulator {
 			}
 		}
 		if (i != args.length || no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] -out prefix"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] -out prefix"); 	
 	}
 	
 	private static void printRuleAt(int theInd)
