@@ -14,6 +14,7 @@ import java.util.Iterator;
 public class UTILS {
 
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
+	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
@@ -26,6 +27,15 @@ public class UTILS {
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 
+	public static int getFeatspecIntFromMark (char mark) 
+	{
+		if (!FEATSPEC_MARKS.contains(""+mark))
+			throw new RuntimeException("Invalid feature specification mark :"+mark+"; allowed marks are :"+FEATSPEC_MARKS); 
+		if (mark == MARK_POS)	return POS_INT; 
+		if (mark == MARK_NEG)	return NEG_INT; 
+		return UNSPEC_INT; // this last line shouldn't ever really happen. Diacritics should not be used to unspecify features. 
+	}
+	
 
 	public static String fillSpaceToN(String inp, int n)
 	{

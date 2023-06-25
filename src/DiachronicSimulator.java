@@ -145,6 +145,16 @@ public class DiachronicSimulator {
 			sdsides[0] = sdsides[0].replace(" ",""); 
 			if (sdsides[1].contains(""+UTILS.CMT_FLAG))
 				sdsides[1] = sdsides[1].substring(0, sdsides[1].indexOf(""+UTILS.CMT_FLAG));
+			sdsides[1] = sdsides[1].replace(" ","");
+			String[] diacritFeats = sdsides[1].split(","); 
+			for (String df : diacritFeats) 
+			{
+				if (!UTILS.FEATSPEC_MARKS.contains(""+df.charAt(0)))
+					throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
+							+ "but instead this one has :"+df.charAt(0)); 
+				if (!featIndices.containsKey(df.substring(1)))
+					throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
+			}
 			diacriticMap.put(sdsides[0], sdsides[1].split(",")); 
 		}
 		
@@ -520,6 +530,7 @@ public class DiachronicSimulator {
 		//collect task information from symbol definitions file. 
 		extractSymbDefs(); 
 		extractFeatImpls(); 
+		extractDiacriticDefs(); 
 				
 		System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
@@ -819,6 +830,7 @@ public class DiachronicSimulator {
 	 * given String @param toLex
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
+	 * TODO still need to debug the use of diacritics here. 
 	 */
 	private static LexPhon parseLexPhon(String toLex)
 	{
@@ -837,8 +849,49 @@ public class DiachronicSimulator {
 			else
 			{
 				if (!phoneSymbToFeatsMap.containsKey(toPhone))
-					throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
-					+ "Symbol is : '"+toPhone+"', length = "+toPhone.length());
+				{
+					boolean invalid_phone_error = true; 
+					
+					/**
+					 * if the symbol isn't present in symbolDefs but it is a diacritic-marked variant of a symbol in it, 
+					 * it will be rescued here, by adding a new symbol to phoneSymbToFeatsMap
+					 * 	with feats a modified version of the basis according to the feature specifications
+					 * 	that are associated to that diacritic in diacriticMap
+					 * at present it can only have one diacritic added onto it here. 
+					*/
+					if (!no_symb_diacritics)
+					{
+						List<String> diacritsLeft = new ArrayList<String>(diacriticMap.keySet()); 
+						while (diacritsLeft.size()>0)
+						{
+							String diacrit = diacritsLeft.remove(0); 
+							if (toPhone.contains(diacrit))
+							{
+								String rest_of_phone = toPhone+""; 
+								rest_of_phone = toPhone.replace(diacrit,""); 
+								if(phoneSymbToFeatsMap.containsKey(rest_of_phone))
+								{
+									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
+									for (String feat_spec : diacriticMap.get(diacrit)) 
+									{
+										String feat_here = feat_spec.substring(1); 
+										if (featIndices.containsKey(feat_here.substring(1)))
+										{
+											int featIndex = featIndices.get(feat_here); 
+											String insertion = ""+UTILS.getFeatspecIntFromMark(feat_spec.charAt(0)); 
+											int_feats = int_feats.substring(0,featIndex) + insertion + int_feats.substring(featIndex+1); 
+										}
+										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
+									}
+									phoneSymbToFeatsMap.put(toPhone, int_feats); 
+								}
+							}
+						}
+					}
+					if (invalid_phone_error)
+						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
+								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length());
+				}
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
