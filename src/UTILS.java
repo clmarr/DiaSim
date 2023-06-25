@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class UTILS {
@@ -36,6 +37,16 @@ public class UTILS {
 		return UNSPEC_INT; // this last line shouldn't ever really happen. Diacritics should not be used to unspecify features. 
 	}
 	
+	// recent auxiliary as of summer 2023 
+	public static String getKeyFromValue(HashMap<String,String> map, String val)
+	{
+		for (String k : map.keySet()) {
+	        if (val.equals(map.get(k))) {
+	            return k;
+	        }
+	    }
+	    return null;
+	}
 
 	public static String fillSpaceToN(String inp, int n)
 	{

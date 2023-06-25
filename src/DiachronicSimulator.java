@@ -857,6 +857,7 @@ public class DiachronicSimulator {
 					 * it will be rescued here, by adding a new symbol to phoneSymbToFeatsMap
 					 * 	with feats a modified version of the basis according to the feature specifications
 					 * 	that are associated to that diacritic in diacriticMap
+					 *  if a phone already exists with that feature set, it will simply be replaced with that one. 
 					 * at present it can only have one diacritic added onto it here. 
 					*/
 					if (!no_symb_diacritics)
@@ -871,6 +872,7 @@ public class DiachronicSimulator {
 								rest_of_phone = toPhone.replace(diacrit,""); 
 								if(phoneSymbToFeatsMap.containsKey(rest_of_phone))
 								{
+									invalid_phone_error = false; 
 									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
 									for (String feat_spec : diacriticMap.get(diacrit)) 
 									{
@@ -883,7 +885,10 @@ public class DiachronicSimulator {
 										}
 										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
 									}
-									phoneSymbToFeatsMap.put(toPhone, int_feats); 
+									//checking first if there is already a phone with this feature vector -- because adding another phone with the same feature vector will cause errors down the line.
+									if(phoneSymbToFeatsMap.containsValue(int_feats))
+										toPhone = UTILS.getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
+									else	phoneSymbToFeatsMap.put(toPhone, int_feats); 
 								}
 							}
 						}
@@ -950,7 +955,7 @@ public class DiachronicSimulator {
 	{	
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
-		
+				
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
