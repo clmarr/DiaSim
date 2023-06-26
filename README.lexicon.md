@@ -19,15 +19,16 @@ Any other relevant info, such as remarks about attestations, relevance to discus
 The essential thing in each row to have is a sequence of phone symbols representing the item's state at its input stage. 
 By default, standard IPA symbols defined in terms of distinctive features (in the file symbolDefs.csv) are to be used -- for more on this, and how to use your own symbol and feature sets, see the file "README.representations.md".
 DiaSim performs forward reconstruction by simulating the realization of rules in the cascade file (see README.cascade.md) on each of these items. 
-In the minimal-usage case, each row has only the input forms, results for each etymon will be presented and recorded and can be analyzed, but there is no mass comparison to observed forms and analysis. 
+In the minimal-usage case, each row has only the input forms, the *forward reconstructed* results for each etymon will be presented and recorded and can be analyzed, but there is no mass comparison to observed forms and analysis. 
 An example for what a row looks like for this minimal-usage scenario in the case of *sommier* is provided below: 
 
 ```
 s ˌɑ ɡ m ˈɑː r i u m $sommier. Pope s674.
 ```
 
-Notice compared to the example given for the same etymon *sommier* in the COMMENTING section, both rows have the phonological form of the Latin input (/sˌɑɡmˈɑːrium/) but unlike the one here, the minimum usage case shown here here lacks the phonological form of modern French *sommier* (/somje/).
-In all cases, the rules in the history of the development of Gallian Latin into French will be operated in order on a sequence that starts out as /sˌɑɡmˈɑːrium/, but there will be no comparison to /somje/ at the end, because it is not provided. 
+Notice compared to the example given for the same etymon *sommier* in the COMMENTING section, both rows have the phonological form of the Latin input (/sˌɑɡmˈɑːrium/) but unlike the one here, the minimum usage case shown here here lacks the phonological form of modern French *sommier* (/sɔmje/).
+In all cases, the rules in the history of the development of Gallian Latin into French will be operated in order on a sequence that starts out as /sˌɑɡmˈɑːrium/.
+The *forward reconstructed* results of this simulation for /sˌɑɡmˈɑːrium/ will be recorded and presented for analysis, but there will be no comparison to /sɔmje/ at the end, because it is not provided. 
 In order to perform mass comparisons and analyses on observed (or 'gold') outcomes for each etymon, that material must be supplied in a different "cell" for each item in its row. 
 Such cells are delimited by a comma (",").
 The example of the row for *sommier* with two cells from the COMMENTING section is reproduced here for comparison: 
@@ -36,8 +37,21 @@ The example of the row for *sommier* with two cells from the COMMENTING section 
 s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 ```
 
-Here we see that in addition to the input cell /sˌɑɡmˈɑːrium/, we have a row for the observed outcome in modern French: /somje/. 
+Here we see that in addition to the input cell /sˌɑɡmˈɑːrium/, we have a row for the observed outcome in modern French: /sɔmje/.
+Having this here enables us to compare the observed outcome -- the '*gold*' outcome -- with the outcome of forward reconstruction by DiaSim. 
+Viewed vertically, the input forms in each row form the *first column*. 
+This is also the only column in the minimal usage where only they are provided, but if there is to be mass comparison to observed (gold) outcomes at the end point or an intermediate point, there must be a column for that stage, which means it will have to have a cell in row. 
+Critically, each column msut have the same number of cells: there is a set number of columns for the whole lexicon file. 
+For more detail on the columns and gold stages (for which mass comparison between reconstructed and observed outcomes is performed), see the following section "COLUMNS AND STAGES". 
+A row for *sommier* with gold forms for the modern French outcome and various intermediate stages is exemplified below: 
 
+```
+Classical Latin , Late Latin , Old French I , Old French II , Middle French , Modern French
+s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌũ m j ˈe r , s ˌũ m j ˈe r , s ɔ m j e $sommier. Pope s674.
+```
+
+ 
+In the minimal-usage case, no row should have anything like this 
 
 
 
@@ -49,7 +63,7 @@ TODO morphology
 should represent the development, over the different diachronic stages, of an etymon, with each stage being indicated by a column.
 
 
-# THE COLUMNS
+# COLUMNS AND STAGES
 
 Each column represents a different diachronic stage. 
 If any form is given for a particular diachronic stage, a form must be given for every etymon at that stage.
