@@ -55,8 +55,8 @@ Stages where the forms of etyma are just to be recorded, not compared, are inste
 These are called "black stages", short for "black box stages". 
 Inasmuch as the input stage does not contain gold forms to test *against*, it is effectively a black (box) stage as well. 
 
-If a stage flagged with the tilde (in the cascade file) as "Middle French" is above has the same name as a column header of the lexicon file, this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
-Technically '~' is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
+If a stage flagged in the cascade file a tilde (\~) as "Middle French" as above has the same name as a column header of the lexicon file, this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
+Technically the tilde (\~) is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
 The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
 
 DiaSim will automatically associate stages in the rules file, in the order they are declared, to columns other than the input column, from left to right. 
