@@ -41,27 +41,17 @@ Here we see that in addition to the input cell /sˌɑɡmˈɑːrium/, we have a r
 Having this here enables us to compare the observed outcome -- the '*gold*' outcome -- with the outcome of forward reconstruction by DiaSim. 
 Viewed vertically, the input forms in each row form the *first column*. 
 This is also the only column in the minimal usage where only they are provided, but if there is to be mass comparison to observed (gold) outcomes at the end point or an intermediate point, there must be a column for that stage, which means it will have to have a cell in row. 
-Critically, each column msut have the same number of cells: there is a set number of columns for the whole lexicon file. 
-For more detail on the columns and gold stages (for which mass comparison between reconstructed and observed outcomes is performed), see the following section "COLUMNS AND STAGES". 
+
 A row for *sommier* with gold forms for the modern French outcome and various intermediate stages is exemplified below: 
 
 ```
-Classical Latin , Late Latin , Old French I , Old French II , Middle French , Modern French
 s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌũ m j ˈe r , s ˌũ m j ˈe r , s ɔ m j e $sommier. Pope s674.
 ```
 
+Critically, each row must have the same number of cells: there is a set number of columns for the whole lexicon file.
+For more detail on the columns and gold stages (for which mass comparison between reconstructed and observed outcomes is performed), see the following section "COLUMNS AND STAGES". 
  
-In the minimal-usage case, no row should have anything like this 
-
-
-
-TODO gold stages -- cells in each row -- columns if viewed vertically 
-
-TODO morphology
-
-
-should represent the development, over the different diachronic stages, of an etymon, with each stage being indicated by a column.
-
+Between the columns and the comment clause, one may enter a morphology clause flagged by '%'. For more info on this, see the section "MORPHOLOGICAL PARADIGM INFORMATION". 
 
 # COLUMNS AND STAGES
 
