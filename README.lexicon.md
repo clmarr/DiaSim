@@ -12,19 +12,21 @@ s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 
 # THE ROWS
 
-Each row contains one etymon, whose diachronic development is to be simulated in DiaSim. 
-In 
+Each row contains information on an etymon, whose diachronic development is to be simulated in DiaSim.
+As demonstrated with the example of *sommier* above, it is preferable to indicate the form this item is best known as, and preferably a source. 
+Any other relevant info, such as attestations, relevance to discussions of interest, rival etymologies, etc., should also be placekd here, if pertinent.
+
+At minimum, what is absolutely necessary for each row to have is a sequence of phone symbols representing the item's state at its input stage. 
+By default, standard IPA symbols defined in terms of distinctive features (in the file symbolDefs.csv) are to be used -- for more on this, and how to use your own symbol and feature sets, see the file "README.representations.md".
+When the cascade is run, it will perform forward reconstruction by operating each of the rules present in the cascade in order, simulating the resulting development for each lexeme in parallel (on how to write the cascade file, see "README.cascade.md"). 
+In this minimum scenario, with only the phonological forms of each item at its input stage present, these results will be presented and recorded, and can be analyzed, but they are not compared to observed outcomes at either the end stage or intermediate stages, as these are not provided.
+
+TODO gold stages -- cells in each row -- columns if viewed vertically 
+
+TODO morphology
 
 
 should represent the development, over the different diachronic stages, of an etymon, with each stage being indicated by a column.
-
-
-
-
-# THE IMPORTANCE OF SPACING
-
-Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
-This applies to the cascade files as well. 
 
 
 # THE COLUMNS
@@ -72,6 +74,14 @@ s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌu�
 ```
 
 Note that a final stage starting with the string "Modern" or "modern", or otherwise (without regard to upper/lower case) "output", "res", "result", or "out", will be treated as equivalent to the final output of forward reconstruction, i.e. the results after executing the last rule in the cascade. 
+
+
+
+# THE IMPORTANCE OF SPACING
+
+Note that spaces necessarily delimit all functional symbols, phonetic/phonological or otherwise. Material not separated by a space is in most cases considered part of the same "symbol" functionally, and a space means items on either side will be considered functionally separate.
+This applies to the cascade files as well. 
+
 
 # MORPHOLOGICAL PARADIGM INFORMATION 
 
