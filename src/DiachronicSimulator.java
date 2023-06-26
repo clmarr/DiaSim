@@ -346,7 +346,7 @@ public class DiachronicSimulator {
 					// and is interpreted to be the output gold stage.
 	// to be called AFTER extractCascade is. 
 		// goldOutput -- determined here. 
-	private static void processLexFileHeader(String firstlineproxy)
+	public static void processLexFileHeader(String firstlineproxy)
 	{
 		System.out.println("Processing lexicon stipulations for gold stages..."); 
 

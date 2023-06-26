@@ -1,13 +1,6 @@
 # README.lexicon:
 
-This file details how to properly construct a lexicon file so that it can be read by DiaSym.
- 
-The file should be a tab delimited value file with the extension .tsv.
-
-# THE ROWS
-
-Each row should represent the development, over the different diachronic stages, of an etymon, with each stage being indicated by a column.
-
+This file details how to properly construct a lexicon file so that it can be read by DiaSim.
 
 # COMMENTING
 
@@ -16,6 +9,16 @@ Any and all comments can only be placed in the final column and must be flagged 
 ```
 s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 ```
+
+# THE ROWS
+
+Each row contains one etymon, whose diachronic development is to be simulated in DiaSim. 
+In 
+
+
+should represent the development, over the different diachronic stages, of an etymon, with each stage being indicated by a column.
+
+
 
 
 # THE IMPORTANCE OF SPACING
@@ -29,22 +32,30 @@ This applies to the cascade files as well.
 Each column represents a different diachronic stage. 
 If any form is given for a particular diachronic stage, a form must be given for every etymon at that stage.
 In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "..." for stages where it is not present in the lexicon -- however, this functionality is not yet supported by the current release of DiaSim. 
+As of June 2023, the expansion to include this is not yet public as it is still undergoing steps of construction and testing. 
 
 The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
 Specifically, in the case of our French demonstration set, this is the Classical Latin form. 
 When and if other columns are specified, they should contain the phonological forms each etymon has at the stage corresponding to the column.
-The forms entered in these columns will be the gold standard phonological forms to which the forms obtained by the diachronic simulation at those stages will be compared. 
+
+TODO -- check DiaSim behavior with regard to header.
+TODO -- explanation about header. 
+TODO -- provide tester methods for header stuff
+TODO -- explanation about input stage here.
+
+The forms entered in columns after the first column will be the gold standard phonological forms to which the forms obtained by the diachronic simulation at those stages will be compared. 
 In order for simulation results at any point to be compared to a gold set, that set must be associated with a stage in the rules file and a column in the lexicon file, with its gold forms for each etymon in the lexicon file. 
-Without exception, each column specified must uniquely correspond to a diachronic stage that is declared in the rules file (see rules.README.txt -- a stage should be on a line declared immediately after the last rule that applied to its forms). In the cascade file, a proper diachronic stage that will be compared to gold must be flagged with a '~' character, as demonstrated below: 
+Without exception, each column specified must uniquely correspond to a diachronic stage that is declared in the rules file (see rules.README.txt -- a stage should be on a line declared immediately after the last rule that applied to its forms). In the cascade file, a proper diachronic stage where the results of forward reconstruction upon each lexeme will be compared to gold forms must be flagged with a '~' character, as demonstrated below: 
 
 ```
 ~Middle French
 ```
 
-Stages where the forms of etyma are just to be recorded, not compared, are instead flagged with a "=" character.
+Stages where the forms of etyma are just to be recorded, not compared, are instead flagged with a "=" character in the cascade file.
 These are called "black stages", short for "black box stages". 
+Inasmuch as the input stage does not contain gold forms to test *against*, it is effectively a black (box) stage as well. 
 
-If a stage flagged with the tilde as "Middle French" is above has the same name as a column header of the lexicon file, this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
+If a stage flagged with the tilde (in the cascade file) as "Middle French" is above has the same name as a column header of the lexicon file, this will be treated as a "gold" stage, upon which systematic comparison between forward-reconstructed forms and the "gold" forms provided in the lexicon can be performed. It will otherwise be treated as a "black" stage (black box stage), which exists for purposes of easy extraction of forms and grounding for analyses, but does not have associated "gold" forms. 
 Technically '~' is the gold stagename flag, but it will only be treated as a true gold stage if an identically named stage is present as a column header in the lexicon file; otherwise the stage will be "blackened" -- converted into a black box stage -- before computerized forward reconstruction commences. 
 The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
 
