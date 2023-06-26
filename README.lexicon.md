@@ -13,7 +13,7 @@ s ˌɑ ɡ m ˈɑː r i u m , s ɔ m j e $sommier. Pope s674.
 # THE ROWS
 
 Each row contains information on an etymon, whose diachronic development is to be simulated in DiaSim.
-As demonstrated with the example of *sommier* above, it is preferable to indicate the form this item is best known as, and preferably a source. 
+As demonstrated with the example of *sommier* above, it is conventional and preferable to use a comment clause (flagged by *$*) indicate the form this item is best known as, and preferably a source. 
 Any other relevant info, such as attestations, relevance to discussions of interest, rival etymologies, etc., should also be placekd here, if pertinent.
 
 At minimum, what is absolutely necessary for each row to have is a sequence of phone symbols representing the item's state at its input stage. 
