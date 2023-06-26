@@ -131,6 +131,12 @@ public class DiachronicSimulator {
 		System.out.println("Done extracting feature implications!");	
 	}
 	
+	public static void extractDiacriticDefs(String diacriticDefsLoc)
+	{
+		no_symb_diacritics = false; 
+		symbDiacriticsLoc = ""+diacriticDefsLoc; 
+	}
+	
 	public static void extractDiacriticDefs()
 	{
 		if (no_symb_diacritics)	return;
@@ -829,10 +835,10 @@ public class DiachronicSimulator {
 	/** auxiliary.
 	 * given String @param toLex
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
-	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
+	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
 	 * TODO still need to debug the use of diacritics here. 
 	 */
-	private static LexPhon parseLexPhon(String toLex)
+	public static LexPhon parseLexPhon(String toLex)
 	{
 		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
