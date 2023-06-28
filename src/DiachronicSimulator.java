@@ -956,8 +956,8 @@ public class DiachronicSimulator {
 		return out;
 	}
 	
-	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage(Gold/Result)Lexica
-	// TODO need to check behavior of this menu in the absence of a gold stage to use as the evaluation point.
+	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage (Gold/Result)Lexica
+	// this should only be called when a gold stage is called. 
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
 		Lexicon r = theSimulation.getCurrentResult();
