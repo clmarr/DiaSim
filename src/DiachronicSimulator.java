@@ -1195,7 +1195,8 @@ public class DiachronicSimulator {
 					}
 					else if (resp.equals("9"))	prompt = false;
 					else if (resp.equals("0")) {
-						System.out.println("Enter the input form, separating phones by '"+UTILS.PH_DELIM+"'");
+						System.out.println("Enter the input form, separating phones by the character '"+UTILS.PH_DELIM+"' (space)"); 
+							// TODO remember to change it saying "space" if that is ever changed.
 						resp = inpu.nextLine().replace("\n",""); 
 						LexPhon query = null;
 						try {
@@ -1243,7 +1244,9 @@ public class DiachronicSimulator {
 					else if(resp.equals("5"))
 					{
 						System.out.println("Note that '(...)+' notation has been converted to '(...) (...)*' internally, "
-								+ "so inputs of ')+' will not return any results.\nEnter the string you want to query with: \n");
+								+ "so inputs of ')+' will not return any results.\nFurthermore, note that the character '"+UTILS.PH_DELIM+"' "
+										+ "is necessary to delimit phones and functional parts of the sound change ('>', etc.)\n"+
+								"Enter the string you want to query with: \n");
 						
 						resp = inpu.nextLine().replace("\n", "").replace("([","( [").replace("])", "] )"); 
 						
