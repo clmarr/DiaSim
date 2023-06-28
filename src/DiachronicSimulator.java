@@ -988,7 +988,7 @@ public class DiachronicSimulator {
 		while(cont)
 		{
 			if (!firstLoop) 
-				System.out.println("Eval pt: "+evalStage
+				System.out.println("Eval pt: "+(evalStage == -1 ? "output" : goldStageNames[evalStage])
 					+ "; focus pt: "+(focPtSet ? focPtName : "none")
 					+ ";\nfilter sequence: "+(filterIsSet ? filterSeq.toString() : "none)")+"\n");
 				
@@ -1059,7 +1059,7 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Available options for focus point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.println("In: use time of input as focus point (i.e. filter by input forms)"
+					System.out.println("In: use time of inp as focus point (i.e. filter by input forms)"
 							+ "\nOut: filter in terms of generated output forms"
 							+ "\nGold: filter by correct observed (gold) forms for output (or last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
