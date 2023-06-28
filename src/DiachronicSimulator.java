@@ -1154,32 +1154,41 @@ public class DiachronicSimulator {
 				boolean fail = true; 
 				
 				System.out.println("Setting filter sequence to define lexicon subsample.");
-				System.out.println("[Filtering from "+focPtName+"]"); 
+				System.out.println("[Filtering from "+focPtName.replace("pivot@","")+"]"); 
 				
 				while(fail)
 				{	
-					System.out.println("Enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"'");
+					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
+							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
 					
 					resp = inpu.nextLine().replace("\n",""); 
 					
-					try {
-						filterSeq = fac.parseNewSeqFilter(resp, true);
-						fail = false;
-					}
-					catch (Exception e)
+					if (resp.strip().equalsIgnoreCase("delete"))
 					{
-						System.out.println("That is not a valid filter.\nTry again and double check spelling of any feature names, and that the proper delimitation is used...");
+						filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
+						filterIsSet = false; 
 					}
-					
-					if(!fail)
-					{
-						System.out.println("Success: now making subsample with filter "+filterSeq.toString());
-						System.out.println("(Pivot moment name: "+focPtName+")");
+					else {
+						try {
+							filterSeq = fac.parseNewSeqFilter(resp, true);
+							fail = false;
+						}
+						catch (Exception e)
+						{
+							System.out.println("That is not a valid filter.\nTry again and double check spelling of any feature names, and that the proper delimitation is used...");
+						}
 						
-						//TODO debugging
-						System.out.println("Filter seq : "+filterSeq);
-						
-						ea.setFilter(filterSeq,focPtName);
+						if(!fail)
+						{
+							System.out.println("Success: now making subsample with filter "+filterSeq.toString());
+							System.out.println("(Pivot moment name: "+focPtName+")");
+							
+							//TODO debugging
+							System.out.println("Filter seq : "+filterSeq);
+							
+							ea.setFilter(filterSeq,focPtName);
+							filterIsSet = true; 
+						}
 					}
 				}
 			}
