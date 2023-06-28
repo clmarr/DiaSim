@@ -130,7 +130,7 @@ public class Simulation {
 	
 	public void iterate()
 	{
-		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0)	System.out.println("On rule number "+instant); 
+		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0)	System.out.println("Simulated to rule number "+instant); 
 		SChange thisShift = CASCADE.get(instant); 
 		LexPhon[] prevForms = currLexicon.getWordList(); 
 		
