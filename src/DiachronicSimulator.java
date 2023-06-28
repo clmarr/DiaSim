@@ -989,7 +989,7 @@ public class DiachronicSimulator {
 		{
 			if (!firstLoop) 
 				System.out.println("Eval pt: "+(evalStage == -1 ? "output" : goldStageNames[evalStage])
-					+ "; focus pt: "+(focPtSet ? focPtName : "none")
+					+ "; focus pt: "+(focPtSet ? focPtName.replace("pivot@","") : "none")
 					+ ";\nfilter sequence: "+(filterIsSet ? filterSeq.toString() : "none)")+"\n");
 				
 			firstLoop = false; 
