@@ -957,6 +957,7 @@ public class DiachronicSimulator {
 	}
 	
 	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage(Gold/Result)Lexica
+	// TODO need to check behavior of this menu in the absence of a gold stage to use as the evaluation point.
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
 		Lexicon r = theSimulation.getCurrentResult();
@@ -976,8 +977,8 @@ public class DiachronicSimulator {
 		while((lastBlkOpt < 0 || curSt < 0) ? false : blackStageInstants[lastBlkOpt] > goldStageInstants[curSt])
 			lastBlkOpt--;
 		
-		boolean cont = true; 
-		int evalStage = curSt; 
+		boolean cont = true, firstLoop = true; 
+		int evalStage = curSt;  // this should only ever be a gold stage. 
 		SequentialFilter filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
 		Lexicon focPtLex = null;
 		String focPtName = ""; 
@@ -986,7 +987,15 @@ public class DiachronicSimulator {
 		
 		while(cont)
 		{
-			System.out.print("What would you like to do? Please enter the appropriate number below:\n"
+			if (!firstLoop) 
+				System.out.println("Eval pt: "+evalStage
+					+ "; focus pt: "+(focPtSet ? focPtName : "none")
+					+ ";\nfilter sequence: "+(filterIsSet ? filterSeq.toString() : "none)")+"\n");
+				
+			firstLoop = false; 
+			
+			System.out.print(
+					"What would you like to do? Please enter the appropriate number below:\n"
 					+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
 					+ "| 1 : Set focus point (upon which actions are conditioned, incl. filtering [2])       |\n"
 					+ "| 2 : Set filter sequence                                                             |\n"
@@ -1051,12 +1060,12 @@ public class DiachronicSimulator {
 					System.out.println("Available options for focus point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
 					System.out.println("In: delete focus pt & filter by input forms"
-							+ "\nOut: delete it & filter by generated output forms"
+							+ "\nOut: delete the focus point & filter by generated output forms"
 							+ "\nGold: delete it & filter by correct (gold) forms for output (last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
 							+ "\nR#: right before rule with index number <#>"
 							+ "(you can find rule indices with option 3 to query on the main menu)"
-							+ "\nKeep: keep the current focus pt and return"
+							+ "\nKeep: keep the current focus pt (or lack of a focus pt) and return"
 							+ "\nPlease enter the appropriate indicator."); 
 					
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
@@ -1334,6 +1343,7 @@ public class DiachronicSimulator {
 				System.out.println("Ending"); cont = false; 
 			}
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
+			
 		}
 	}
 	
