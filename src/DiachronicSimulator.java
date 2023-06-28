@@ -1059,9 +1059,9 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Available options for focus point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.println("In: delete focus pt & filter by input forms"
-							+ "\nOut: delete the focus point & filter by generated output forms"
-							+ "\nGold: delete it & filter by correct (gold) forms for output (last gold stage if halted before end)"
+					System.out.println("In: use time of input as focus point (i.e. filter by input forms)"
+							+ "\nOut: filter in terms of generated output forms"
+							+ "\nGold: filter by correct observed (gold) forms for output (or last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
 							+ "\nR#: right before rule with index number <#>"
 							+ "(you can find rule indices with option 3 to query on the main menu)"
@@ -1098,6 +1098,7 @@ public class DiachronicSimulator {
 					}
 					else
 					{	
+						focPtSet = true; 
 						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
 							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds.
 						if(resp.charAt(0) == 'g')
@@ -1125,7 +1126,6 @@ public class DiachronicSimulator {
 						}
 						else if (!resp.equals("Keep"))
 						{
-							focPtSet = true;
 							focPtLoc = -1; focPtLex = null; focPtName = ""+resp;
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
