@@ -31,7 +31,7 @@ This file will be expanded with usage basics  in 2023 and 2024.
 
 The other README files have the following coverage: (please be patient as we are trying our best to complete them while attending to other pressing issues!) 
 	
-	README.lexicon.md: covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with include paradigmatic information and token frequencies, 
+	README.lexicon.md: covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with columns for ('gold') stages with observed forms to compare with reconstructed outcomes, and how include paradigmatic information and token frequencies. 
 	README.cascade.md: covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
 	README.representations.md: covers the handling of features and the phone symbols defined in terms of them, including feature implications and translations. 
 	README.metrics.md: covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation	(coming soon)
