@@ -19,7 +19,7 @@ Other configurations include:
   -lex <filename> -- sets the file with the etyma to implment sound hcanges on (see README.lexicon.md)
   -impl <filename> -- allows you to use a feature implications file other than the default FeatureImplications (cf. README.representations.md) 
   -diacrit <filename> -- allows you to use a custom diacritics file (cf. README.representations.md) 
-  -idcost <a number> -- sets the cost of insertion and deletion for computing edit distances (cf. README.suite.md) 
+  -idcost <a number> -- sets the cost of insertion and deletion for computing edit distances (cf. README.metrics.md) 
 
 There are also the following command line flags, which are put together after a single hyphen (eg. "-ph")
   -p -- print changes mode -- prints words changed by each rule to console as they are changed. 
@@ -29,5 +29,12 @@ There are also the following command line flags, which are put together after a 
 
 This file will be expanded with usage basics  in 2023 and 2024. 
 
-The other README files have the following coverage
+The other README files have the following coverage: (please be patient as we are trying our best to complete them while attending to other pressing issues!) 
+	
+	README.lexicon.md: covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with include paradigmatic information and token frequencies, 
+	README.cascade.md: covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
+	README.representations.md: covers the handling of features and the phone symbols defined in terms of them, including feature implications and translations. 
+	README.metrics.md: covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation	(coming soon)
+	README.suite.md: covers the diagnostics offered by DiaSim whenever it *halts*, and how to use the so-called "halt menu" to debug your cascade! (coming soon)
+	
 
