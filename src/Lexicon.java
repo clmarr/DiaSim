@@ -172,7 +172,9 @@ public class Lexicon {
 	
 	//update which phones are absent (not yet in language or fell out of use) 
 		//based on whether they are absent or not in the latest gold stage 
-	public void updateAbsence(LexPhon[] stageGold)
+	//TODO can build off this but will need to work here .
+	
+	public void updateAbsenceTEST(LexPhon[] stageGold)
 	{
 		int theLen = stageGold.length;
 		if (theLen != theWordList.length)
