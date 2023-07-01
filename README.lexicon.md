@@ -109,7 +109,7 @@ This applies to the cascade files as well.
 
 # MORPHOLOGICAL PARADIGM INFORMATION 
 
-As of June 2023, expansion of DiaSim to handle paradigmatic relations is underway. (TODO update when complete) 
+As of summer 2023, expansion of DiaSim to handle paradigmatic relations is underway. (TODO update when complete) 
 
 For how to access automated paradigm based analyses making use of this info, this is handled in the *Paradigmatic analysis* section of README.suite.md. Note that inclusion of paradigmatic info in a line of the lexicon file is optional, and that the statistical analyses performed after and during a CFR run will only take into account items for which paradigmatic information is marked. 
 

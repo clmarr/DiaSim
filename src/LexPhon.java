@@ -1,5 +1,6 @@
 import java.util.List;
-import java.util.ArrayList; 
+import java.util.ArrayList;
+import java.util.HashMap; 
 
 /**
  * Class for representing the phonology of one word in the vocabulary
@@ -11,7 +12,9 @@ import java.util.ArrayList;
 public class LexPhon {
 	private List<SequentialPhonic> phonRep; //phonological representation
 	private String lemma; //name of its paradigm
-	private String lexClass; //lexical i.e. syntactic class
+	private String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
+	private HashMap<String,String> morphSynSpecs; 
+	private double frequency; // token frequency, if present; else -1 (which is default).
 	private List<String> domains; // semantic domains 
 	
 	public LexPhon(List<SequentialPhonic> pR)
@@ -23,7 +26,11 @@ public class LexPhon {
 				phonRep.add(0, new Boundary("word bound")); 
 			if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
 				phonRep.add(new Boundary("word bound")); 
+			this.lemma = ""; 
+			this.lexClass = ""; 
+			this.morphSynSpecs = new HashMap<String,String>(); 
 			this.domains = new ArrayList<String>(); 
+			this.frequency = -1.0; 
 		}
 	}
 	
@@ -95,30 +102,46 @@ public class LexPhon {
 			if (ph.getType().equals("phone"))	output += ph.print(); 
 		return output + "/"; 
 	}
+	
+	public boolean lemmaIsSpecified()	{	return	lemma.length() > 0; 	}
+	public boolean lexClassIsSpecified()	{	return lexClass.length() > 0; 	}
+	public boolean hasMorphSynSpecs()	{	return morphSynSpecs.size() > 0;	} 
+	public boolean frequencyIsSpecified()	{	return frequency != -1.0;	}
+	public boolean hasDomains()	{	return domains.size() > 0 ; 	}
 
 	public String getLemma() {
 		return lemma;
 	}
 
-	public void setLemma(String lemma) {
-		this.lemma = lemma;
-	}
-
 	public String getLexClass() {
 		return lexClass;
 	}
+	
+	public String checkMorphSynSpec(String feat)	{	return morphSynSpecs.get(feat);	}
+	
+	public double getFrequency()	{	return frequency;	}
+	
+	public boolean checkDomain(String dom)	{	return domains.contains(dom); 	}
+	public List<String> getDomains() {	return domains;	}
+	
+	public void setLemma(String lemma) {	this.lemma = lemma;	}
 
-	public void setLexClass(String lex_class) {
-		this.lexClass = lex_class;
-	}
-
-	public List<String> getDomains() {
-		return domains;
-	}
+	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
+	
+	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
+	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}
+	public void resetMorphSynSpecs	(HashMap<String,String> newSpecs)	
+	{	morphSynSpecs = new HashMap<String, String> (newSpecs);	}
+	
+	public void setFrequency(double freq)	{	this.frequency = freq; 	}
 
 	public void addDomain(String domain) {
 		this.domains.add(domain);
 	}
+	
+	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
+	
+	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
 	
 	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
 	public int getNumPhones()
@@ -191,6 +214,8 @@ public class LexPhon {
 		}
 		return 0;
 	}
+	
+	
 	
 	
 	
