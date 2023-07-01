@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class Lexicon {
 	private LexPhon[] theWordList; 
-	protected final String ABS_PR ="[ABSENT]"; 
 	
 	public Lexicon(List<LexPhon> theWords)
 	{
@@ -25,8 +24,10 @@ public class Lexicon {
 		theWordList = new LexPhon[theWords.length];
 		for (int wi = 0; wi < theWords.length; wi++)
 		{
-			if (theWords[wi].print().equals(ABS_PR))
+			if (theWords[wi].print().equals(UTILS.ABSENT_REPR))
 				theWordList[wi] = new AbsentLexPhon();
+			else if (theWords[wi].print().equals(UTILS.UNATTESTED_REPR))
+				theWordList[wi] = new UnattestedLexPhon();
 			else
 				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
 		}
@@ -86,7 +87,8 @@ public class Lexicon {
 		
 		for( int wli = 0; wli < wlLen; wli++)
 		{
-			if(theWordList[wli].print().equals(ABS_PR))	wordsChanged[wli] = false;
+			if(theWordList[wli].print().equals(UTILS.ABSENT_REPR))	
+				wordsChanged[wli] = false;
 			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
 			else	wordsChanged[wli] = false; 
 		}
@@ -100,7 +102,7 @@ public class Lexicon {
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
 		for (LexPhon theWord : theWordList)
 		{	
-			if (!theWord.print().equals(ABS_PR))
+			if (!theWord.print().equals(UTILS.ABSENT_REPR))
 			{
 				List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
 				for (SequentialPhonic curPh : thePhones)
@@ -128,7 +130,7 @@ public class Lexicon {
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
 		for (LexPhon lex: theWordList)
 		{
-			if (!lex.print().equals(ABS_PR))
+			if (!lex.print().equals(UTILS.ABSENT_REPR))
 				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
 				for (SequentialPhonic curPh : thePhones)
 				{
@@ -171,32 +173,83 @@ public class Lexicon {
 	}
 	
 	//update which phones are absent (not yet in language or fell out of use) 
-		//based on whether they are absent or not in the latest gold stage 
-	//TODO can build off this but will need to work here .
-	
-	public void updateAbsence(LexPhon[] stageGold)
+		//based on whether they are absent or not in the latest column in lexicon file. 
+	// this is to be implemented on the lexicon that is undergoing forward reconstruction
+	// NOT the gold lexicon! 
+	//TODO work here 
+	public void updateAbsence(LexPhon[] etymaInColumn)
 	{
-		int theLen = stageGold.length;
+		int theLen = etymaInColumn.length;
+		
 		if (theLen != theWordList.length)
 			throw new RuntimeException("ERROR: mismatch on vocab size of new gold stage and lexicon!");
+		
 		for (int wi = 0 ; wi < theLen ; wi++)
 		{	
-			if(theWordList[wi].print().equals(ABS_PR))
-				if(!stageGold[wi].print().equals(ABS_PR))
-					theWordList[wi] = new LexPhon(stageGold[wi].getPhonologicalRepresentation());
-			if(stageGold[wi].print().equals(ABS_PR))
-				if(!theWordList[wi].print().equals(ABS_PR))
+			LexPhon et_here = etymaInColumn[wi]; 
+			
+			if(theWordList[wi].print().equals(UTILS.ABSENT_REPR))
+				if(UTILS.etymonIsPresent(et_here))						
+						//	original condition  : !etymaInColumn[wi].print().equals(UTILS.ABSENT_REPR))
+								// -- however in practice allow "errors" whereby someone uses ">*" 
+								// to continue the absence of an etymon
+					theWordList[wi] = 
+						new LexPhon(et_here.getPhonologicalRepresentation());
+		
+			// remove from lexicon. 
+			if(et_here.print().equals(UTILS.ABSENT_REPR))
+				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 					theWordList[wi] = new AbsentLexPhon(); 
 		}
 	}
 
+	/**
+	 * @return number of etyma in this lexicon that are actually present
+	 * 	if this is not the lexicon being operated upon, a result of zero 
+	 * 		... will make it an effectively black stage lexicon
+	 * 		... that is only used for insertion or removal of etyma.
+	 */
+	public int numPresentEtyma()
+	{
+		int cnt= theWordList.length; 
+		for (LexPhon lex: theWordList)
+			if (UTILS.PSEUDO_LEXPHON_REPRS.contains(lex.print()))	cnt--; 
+		return cnt; 
+	}
 	
 	public int numAbsentEtyma()
 	{
 		int cnt = 0;
 		for (LexPhon lex: theWordList)
-			if (lex.print().equals(ABS_PR))	cnt += 1;
+			if (lex.print().equals(UTILS.ABSENT_REPR))	cnt += 1;
 		return cnt;
+	}
+	
+	public int numUnattestedEtyma()
+	{
+		int cnt = 0;
+		for (LexPhon lex: theWordList)
+			if (lex.print().equals(UTILS.UNATTESTED_REPR))	cnt += 1;
+		return cnt;
+	}
+	
+	// get the ID numbers of all etyma that are actually present. 
+	public int[] IDsWithPresentEtyma() 
+	{
+		int[] ID_array = new int[this.numPresentEtyma()]; 
+		int id_i = 0; 
+		for (int et_i = 0; et_i < theWordList.length; et_i++)
+		{	if (UTILS.etymonIsPresent(theWordList[et_i]))
+			{
+				ID_array[id_i] = et_i; 
+				id_i++; 
+			}}
+		
+		//guard rail. 
+		if (ID_array[ID_array.length-1] == 0)
+			throw new RuntimeException("Alert: there is some error in the counting of absent or unattested etyma at this stage, as ID_array was not filled. Investigate."); 
+		
+		return ID_array;
 	}
 	
 	

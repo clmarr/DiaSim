@@ -19,7 +19,7 @@ public class LexPhon {
 	
 	public LexPhon(List<SequentialPhonic> pR)
 	{
-		if (pR.size() != 0) //not an AbsentLexPhon
+		if (pR.size() != 0) //not an AbsentLexPhon or UnattestedLexPhon
 		{	
 			phonRep = new ArrayList<SequentialPhonic>(pR); 
 			if (!phonRep.get(0).equals(new Boundary("word bound")))

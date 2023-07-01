@@ -4,11 +4,10 @@ import java.util.ArrayList;
 /**
  * Class for representing a word that has either not entered the vocabulary yet, or has fallen out of usage.
  * @author Clayton Marr
- * TODO implement this to model words that enter the vocabulary late or leave it early in next project.
  */
-public class AbsentLexPhonTest extends LexPhon {
+public class UnattestedLexPhon extends LexPhon {
 	
-	public AbsentLexPhon()
+	public UnattestedLexPhon()
 	{	super(new ArrayList<SequentialPhonic>());	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()	{	return null;	}
@@ -17,8 +16,8 @@ public class AbsentLexPhonTest extends LexPhon {
 	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
-	public String toString()	{	return "[ABSENT]";	}
+	public String toString()	{	return UTILS.UNATTESTED_REPR;	}
 	
-	public String print() {		return "[ABSENT]";	}
+	public String print() {	return UTILS.UNATTESTED_REPR;	}
 	
 }

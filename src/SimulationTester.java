@@ -1525,12 +1525,14 @@ public class SimulationTester {
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
 	 */
-	private static LexPhon parseLexPhon(String toLex)
+	private static LexPhon parseLexPhon(String toLexem)
 	{
-		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
+		String toLex = toLexem.trim(); 
+		
+		if (toLex.equals(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
 		
-		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
+		String[] toPhones = toLex.split(""+UTILS.PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation

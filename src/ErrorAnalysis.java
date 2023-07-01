@@ -23,7 +23,7 @@ public class ErrorAnalysis {
 	
 	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 	
-	protected final String ABS_PR ="[ABSENT]"; 
+	//protected final String ABS_PR =UTILS.ABSENT_REPR;
 	protected final int MAX_RADIUS = 3;
 
 	
@@ -55,6 +55,7 @@ public class ErrorAnalysis {
 	
 	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
 	
+	// theRes = result lexicon, lexicon that is the result of forward reconstruction 
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
 		RES = theRes;
@@ -80,13 +81,18 @@ public class ErrorAnalysis {
 			goldPhInds.put(goldPhInventory[i].print(), i);
 				
 		NUM_ETYMA = theRes.getWordList().length;
-		SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
+		//SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
+		// now basing it off what is actually present in the gold -- not counting unattested, and not counting absent. 
+		SUBSAMP_SIZE = theGold.numPresentEtyma(); 
 		
 		FILTER = new int[SUBSAMP_SIZE];
 		PRESENT_ETS = new int[SUBSAMP_SIZE];
 		int fi = 0;
 		for (int i = 0 ; i < NUM_ETYMA; i++)
-		{	if (!theRes.getByID(i).print().equals(ABS_PR))
+		{	if (!UTILS.PSEUDO_LEXPHON_REPRS.contains(theGold.getByID(i).print()))
+						/**old conditioning below -- deleted per July 1 2023 rework to include etyma insertion and removal
+			* !theRes.getByID(i).print().equals(ABS_PR)) 
+						*/ 
 			{	FILTER[fi] = i;
 				PRESENT_ETS[fi] = i;
 				fi++;
@@ -122,13 +128,13 @@ public class ErrorAnalysis {
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
 				LexPhon currEt = theRes.getByID(i);
-				isPhInResEt[rphi][i] = (currEt.toString().equals("[ABSENT]")) ? 
+				isPhInResEt[rphi][i] = (currEt.toString().equals(ABS_PR)) ? 
 						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
 			}
 			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
 			{
 				LexPhon currEt = theGold.getByID(i);
-				isPhInGoldEt[gphi][i] = (currEt.toString().equals("[ABSENT]")) ?
+				isPhInGoldEt[gphi][i] = (currEt.toString().equals(ABS_PR)) ?
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
@@ -206,7 +212,7 @@ public class ErrorAnalysis {
 			LexPhon currEt = FOCUS.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
-				if(!currEt.toString().equals("[ABSENT]"))
+				if(!currEt.toString().equals(ABS_PR))
 					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
 				else	isPhInPivEt[pvi][ei] = false;
 				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
@@ -1020,7 +1026,7 @@ public class ErrorAnalysis {
 				
 		for (int isi = 0; isi < NUM_ETYMA ; isi++)
 		{
-			if(FOCUS.getByID(isi).toString().equals("[ABSENT]"))
+			if(FOCUS.getByID(isi).toString().equals(ABS_PR))
 				IN_SUBSAMP[isi] = false;
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 

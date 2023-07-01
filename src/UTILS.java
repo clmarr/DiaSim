@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -24,10 +25,15 @@ public class UTILS {
 	public final static char LEX_DELIM =','; 
 	public final static char STAGE_PRINT_DELIM = ',';  
 	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
-	public final static String ABSENT_PH_INDIC = "...";
+	public final static String ABSENT_PH_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
+	public final static String UNATTESTED_PH_INDIC = ">*", UNATTESTED_REPR = "{UNATTESTED}"; 
+	public final static List<String> PSEUDO_LEXPHON_REPRS = Arrays.asList(ABSENT_REPR, UNATTESTED_REPR);   
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 
+	public static boolean etymonIsPresent (LexPhon etym)	
+	{	return PSEUDO_LEXPHON_REPRS.contains(etym.print()); 	}
+	
 	public static int getFeatspecIntFromMark (char mark) 
 	{
 		if (!FEATSPEC_MARKS.contains(""+mark))

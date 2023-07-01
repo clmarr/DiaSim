@@ -835,15 +835,20 @@ public class DiachronicSimulator {
 	}**/
 	
 	/** auxiliary.
-	 * given String @param toLex
+	 * given String @param toLexem
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
 	 * TODO still need to debug the use of diacritics here. 
+	 * TODO when do that, make sure to update the counterpart in SimiulationTester.
 	 */
-	public static LexPhon parseLexPhon(String toLex)
+	public static LexPhon parseLexPhon(String toLexem)
 	{
-		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
+		String toLex = toLexem.trim(); 
+		
+		if (toLex.equals(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
+		if (toLex.equals(UTILS.UNATTESTED_REPR))
+			return new UnattestedLexPhon();	
 		
 		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
 		
