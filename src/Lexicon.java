@@ -174,7 +174,7 @@ public class Lexicon {
 		//based on whether they are absent or not in the latest gold stage 
 	//TODO can build off this but will need to work here .
 	
-	public void updateAbsenceTEST(LexPhon[] stageGold)
+	public void updateAbsence(LexPhon[] stageGold)
 	{
 		int theLen = stageGold.length;
 		if (theLen != theWordList.length)

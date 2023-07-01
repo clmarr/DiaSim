@@ -57,7 +57,6 @@ Between the columns and the comment clause, one may enter a morphology clause fl
 
 Each column represents a different diachronic stage. 
 If any form is given for a particular diachronic stage, a form must be given for every etymon at that stage.
-In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "--" for stages where it is not present in the lexicon. This will remove the item from the lexicon if it was present before, or mean it is not yet to be inserted otherwise. These will not contribute in any way to calculations of accuracy and error patterning at this gold stage. Use "*>" will be used for etyma that are not attested at that stage but also still present in the lexicon, not to be removed, but not to be included in gold stage statistics either. -- however, this functionality is not yet supported by the current release of DiaSim. 
 As of June 2023, the expansion to include this is not yet public as it is still undergoing steps of construction and testing. 
 
 The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
@@ -98,6 +97,12 @@ s ˌɑ ɡ m ˈɑː r i u m , s ˌɑ w m ˈɑ r ʝ o , s ˌu m ˈi e̯ r , s ˌu�
 ```
 
 Note that a final stage starting with the string "Modern" or "modern", or otherwise (without regard to upper/lower case) "output", "res", "result", or "out", will be treated as equivalent to the final output of forward reconstruction, i.e. the results after executing the last rule in the cascade. 
+
+
+In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "--" for stages where it is not present in the lexicon. This will remove the item from the lexicon if it was present before, or mean it is not yet to be inserted otherwise. 
+These will not contribute in any way to calculations of accuracy and error patterning at this gold stage. Use "*>" will be used for etyma that are not attested at that stage but also still present in the lexicon, not to be removed, but not to be included in gold stage statistics either. 
+A column that consists of only inserts or removals of etyma will be treated as a black box stage, not a gold stage. 
+However, the functionality described above is not yet supported by the current release of DiaSim. 
 
 
 

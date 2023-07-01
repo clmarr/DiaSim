@@ -165,6 +165,7 @@ public class Simulation {
 	        		" in stagesOrdered : '"+type+"'");
 			if ( type == 'g') //it's a gold stage.
         	{
+				//TODO need to fix here 
         		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
         		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
         		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
