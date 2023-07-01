@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * main class for diachronic derivation system
@@ -1502,6 +1504,7 @@ public class DiachronicSimulator {
 		symbDiacriticsLoc = "currentSymbolDiacriticDefs";
 		id_wt = 0.5; 
 		
+		
 		DEBUG_RULE_PROCESSING = false; 
 		DEBUG_MODE = false; 
 		print_changes_each_rule = false;
@@ -1617,8 +1620,17 @@ public class DiachronicSimulator {
 				}
 			}
 		}
-		if (i != args.length || no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] -out prefix"); 	
+		
+		// as of July 2023, default behavior is to make the run name based on the day it was run, in format YYYY-MM-DD
+		if (no_prefix)
+		{
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
+			LocalDateTime now = LocalDateTime.now(); 
+			runPrefix = "run_on_"+dtf.format(now).toString();
+		}
+		
+		if (i != args.length) //|| no_prefix)
+            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] [-out prefix]"); 	
 	}
 	
 	private static void printRuleAt(int theInd)

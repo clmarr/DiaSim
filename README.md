@@ -14,9 +14,13 @@ To specify run name, ruleset, and lexicon file: bash derive.sh <RUN_NAME> <CASCA
 
 You may also edit derive.sh and std_derive.sh to designate targets of your choosing.
 
-To run within Eclipse or another programming interface, the default necessary run configuration is -out <run_name>, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed. 
-The same applies to a run in a Linux terminal. 
-Other configurations include: 
+To run within Eclipse or another programming interface, or to run it in terminal, usage is as follows.
+
+Before July 1 2023, it was necessary to specify a runn name using -out: however, as of July 2023, it now defaults to a run name based on the date.
+
+Run configurations include: 
+
+  -out <run_name>, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed.   
 
   -symbols <symbol_file>  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult README.representations.md)
   
@@ -46,12 +50,12 @@ The other README files have the following coverage: (please be patient as we are
 	
 	README.lexicon.md: covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with columns for ('gold') stages with observed forms to compare with reconstructed outcomes, and how include paradigmatic information and token frequencies. 
 
- 	README.cascade.md: covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
-			
+	README.cascade.md: covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
+		
 	README.representations.md: covers the handling of features and the phone symbols defined in terms of them, including feature implications and translations. 
+
+	README.metrics.md: covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation	(coming soon)
 	
- 	README.metrics.md: covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation	(coming soon)
-	
- 	README.suite.md: covers the diagnostics offered by DiaSim whenever it *halts*, and how to use the so-called "halt menu" to debug your cascade! (coming soon)
+	README.suite.md: covers the diagnostics offered by DiaSim whenever it *halts*, and how to use the so-called "halt menu" to debug your cascade! (coming soon)
 	
 
