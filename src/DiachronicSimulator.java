@@ -173,6 +173,8 @@ public class DiachronicSimulator {
 		System.out.println("Done extracting symbol diacritics!");	
 	}
 	
+	// fills gold and black stage variables
+	// but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
 	public static void extractCascade(SChangeFactory theFactory)
 	{
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
@@ -214,8 +216,8 @@ public class DiachronicSimulator {
 		List<String> blackStageNameAndLocList = new ArrayList<String>();
 			// same as above, but will not be compared to gold. 
 		
-		goldStagesSet = false; blackStagesSet=false; columnedStagesSet = false;
-				
+		goldStagesSet = false; blackStagesSet=false; 
+		
 		int rli = 0; 
 		
 		while (rli < rulesByTimeInstant.size())
@@ -228,7 +230,6 @@ public class DiachronicSimulator {
 				else if ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
-					columnedStagesSet = true; 
 					
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 						// this assertion can stay as it does actually fulfill the role of an assertion... 
@@ -334,7 +335,6 @@ public class DiachronicSimulator {
 		System.out.println("Diachronic rules extracted. "); 
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc); 
-		
 	}
 	
 	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -342,7 +342,7 @@ public class DiachronicSimulator {
 		// if there is only one column, obviously it is just the input
 		// otherwise -- first is input, last is output, any in between are gold stages
 	// if there is a lexicon header 
-		// lexicon header is identified by being flagged by ~ 
+		// lexicon header is identified by being FLAGGED by ~ 
 			// i.e. UTILS.GOLD_STAGENAME_FLAG
 				// (delimiter is still , i.e. LEX_DELIM )
 		// first stage regardless of name is still "in(put)" 
@@ -354,27 +354,49 @@ public class DiachronicSimulator {
 	// to be called AFTER extractCascade is. 
 		// goldOutput -- determined here. 
 	//TODO need to modify this for new stagewise lexeme insertion/removal
-		// including TODO GRAY STAGES -- where there is insertion and removal but no comparison/evalution
+		// including TODO black columned stages -- where there is insertion and removal but no comparison/evaluation
+		// TODO need to make sure variables for columned stages include those that are given the black stage flag
+				// in the cascade file, but which have columns here...
+	// TODO reformulate column stage and gold stage blackening aspects present here into a sorting of stages based on appropriate factrors
 	public static void processLexFileHeader(String firstlineproxy)
 	{
 		System.out.println("Processing lexicon stipulations for gold stages..."); 
 
+		//stripping any comments and space -- this should already have been done, but just in case...
+		int cmt_loc = firstlineproxy.indexOf(UTILS.CMT_FLAG); 
+		if (cmt_loc != -1)
+			firstlineproxy = firstlineproxy.substring(0, cmt_loc); 
+		firstlineproxy = firstlineproxy.trim();
+		
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? 
 			firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1	;
 		System.out.println("Lexicon file has "+numCols+" columns!"); 
 		System.out.println("First column assumed to be input."); 
 			
 		boolean lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG; 
+		
 		if(lexiconHasHeader)
 		{
+			String[] colTitles = 
+					firstlineproxy.split(""+UTILS.LEX_DELIM);
+			int cti = 0; 
+			while (cti < colTitles.length)	colTitles[cti] = colTitles[cti].trim(); 
+			
+			//TODO work here.
+			
 			int coli = 1;
-			int numGoldStagesConfirmed = 0; 
+			int numCascadeGoldStagesConfirmed = 0;
 			while (coli < numCols - 1)
 			{
 				String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
-				int curgs = numGoldStagesConfirmed; // current gold stage. 
+				
+				int curgs = numCascadeGoldStagesConfirmed; 
+					// current gold stage in terms of what is given gold stage flag in cascade. 
+				
 				while ( coli == NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
+						// ^ will result in decrease in NUM_GOLD_STAGES 
+				
 				if (coli >= NUM_GOLD_STAGES)
 					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
 				numGoldStagesConfirmed++; 
@@ -401,6 +423,9 @@ public class DiachronicSimulator {
 			}
 			if (numGoldStagesConfirmed < NUM_GOLD_STAGES)
 			{
+				//TODO behavior here is problematic potentially,
+					// ??  conflation of blackening gold stage nmaes that have no column
+					// and column titles? 
 				System.out.println("Blackening remaining unconfirmed gold stages that were declared in cascade file!"); 
 				while (numGoldStagesConfirmed < NUM_GOLD_STAGES)
 					blackenGoldStage(numGoldStagesConfirmed);
@@ -408,6 +433,8 @@ public class DiachronicSimulator {
 		}
 		else
 		{
+			//TODO need to handle protodelta column stage stuff here
+			
 			System.out.println("No explicit header declared in lexicon file."); 
 			if(numCols == NUM_GOLD_STAGES + 1)
 			{
@@ -417,12 +444,11 @@ public class DiachronicSimulator {
 						+ "(or remove possible accidental stage flags in the cascade file) "
 						+ "if this is not what was intended."); 
 				
-				
-				
 				//TODO debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
 				
 				goldOutput = false; 
+				if (NUM_GOLD_STAGES > 0)	columnedStagesSet = true; 
 			}
 			else if(numCols == NUM_GOLD_STAGES + 2)
 			{
@@ -433,9 +459,11 @@ public class DiachronicSimulator {
 				System.out.println("numCols : "+numCols);
 				
 				goldOutput = true; 
+				if (NUM_GOLD_STAGES > 0)	columnedStagesSet = true; 
 			}
 			else 
 			{
+				//TODO check here...
 				if (numCols != 2) 
 					throw new RuntimeException("ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"); 
 				goldOutput = true; 
@@ -458,6 +486,7 @@ public class DiachronicSimulator {
 	//TODO as of July 2023 this now creates COLUMNED black stages! 
 	// there is no change in the number of columned stages, but there will be one more columned black stage. 
 	// note that the number of columned black stages is always effectively NUM_COLUMNED_STAGES - NUM_GOLD STAGES
+	// TODO (important): this method should not be called after goldStageGoldLexica or columedStageBlackLexica have been filled. 
 	private static void blackenGoldStage(int gsi)
 	{
 		System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]
@@ -486,7 +515,9 @@ public class DiachronicSimulator {
 		NUM_BLACK_STAGES++;
 		if (NUM_BLACK_STAGES == 1)	blackStagesSet = true;
 		if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; // originally this was to change the length of the array. 
+		
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; // essentially this is to change the length of the array. 
+		columnedBlackStageLexica = new Lexicon[NUM_COLUMNED_STAGES - NUM_GOLD_STAGES]; 	// ditto.
 		
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -541,9 +572,19 @@ public class DiachronicSimulator {
 				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			soi++; 
 		}
+	}
+	
+	/**
+	 * converts a stage that is assumed to have a column to a non-columned black stage
+	 * @param gsi -- gold stage index
+	 * @param csi -- column stage index
+	 * TODO implement !!
+	 */
+	private static void decolumnStage(int gsi, int csi)
+	{
 		
-		columnedStagesSet = true; 
-	}	
+	}
+	
 	
 	/**
 	 * determine if the column with the index (@param col_ind) in the array of columned cells that are potentially gold Lexica
@@ -558,13 +599,8 @@ public class DiachronicSimulator {
 	 * @return
 	 */
 	private static boolean columnToBeBlackened(Etymon[][] stage_cells, int col_ind)
-	{
-
-		//List<Etymon> comparanda = Arrays.asList( col_ind == 0 ? inputForms : stage_cells[col_ind-1]); 
-			//abrogated for now ^ 
-		
-		
-		//false if there's ever (at the least) an Etymon object that isn't a PseudoEtymon (e.g. has a phonological representation) 
+	{	
+		//return false if there's ever (at the least) an Etymon object that isn't a PseudoEtymon (e.g. has a phonological representation) 
 			// that is in the same row as an earlier 
 			// if make it to the end... true.
 		
@@ -589,7 +625,6 @@ public class DiachronicSimulator {
 			// effectively, the loop continues otherwise.
 		}
 		return true; 
-		
 	}
 	
 	//TODO need to implement protodelta expansion -- stagewise insertion/removal, morphology, token frequency, diacritics.
@@ -606,7 +641,13 @@ public class DiachronicSimulator {
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
 		extractCascade(theFactory);
+			// this inits gold and black stage variables because of how they are flagged in the cascade
+			// but column variables are only determined in the lexicon file, so they have not yet been initialized. 
+		
+		//start off by assuming they are equal to the gold stages. 
+		NUM_COLUMNED_STAGES = 0 + NUM_GOLD_STAGES; 
 
+		
 		//now input lexicon 
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
@@ -647,6 +688,8 @@ public class DiachronicSimulator {
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
 		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
+		
+		//TODO handling of column stages should begin here, possibly within processLexFileHeader.
 		processLexFileHeader(firstlineproxy); 
 		
 		//TODO debugging
@@ -681,8 +724,11 @@ public class DiachronicSimulator {
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 
+		//TODO column- related variables need to be initialized by here... ! 
 		// TODO blacken gold stages that consist of only insertion and removal here! 
 		
+		
+		// TODO enforce that column- related class variables are (accurately) set by this point ! 
 		
 		/** NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point. 
 			* -- as of summer 2023 not sure what that point was,

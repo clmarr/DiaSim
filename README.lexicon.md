@@ -53,6 +53,17 @@ For more detail on the columns and gold stages (for which mass comparison betwee
  
 Between the columns and the comment clause, one may enter a morphology clause flagged by '%'. For more info on this, see the section "MORPHOLOGICAL PARADIGM INFORMATION". 
 
+# HEADER
+
+The header must be flagged by having its first character as the symbol "~".
+
+TODO -- check DiaSim behavior with regard to header (i.e. DiachronicSimulator.processLexFileHeader()). 
+	TODO -- include behavior when header is not there
+TODO -- explanation about header. 
+TODO -- provide tester methods for header stuff
+TODO -- explanation about input stage here.
+
+
 # COLUMNS AND STAGES
 
 Each column represents a different diachronic stage. 
@@ -62,11 +73,6 @@ As of June 2023, the expansion to include this is not yet public as it is still 
 The first column, the only required one, must contain the initial forms for each etymon at the beginning of the diachronic simulation. 
 Specifically, in the case of our French demonstration set, this is the Classical Latin form. 
 When and if other columns are specified, they should contain the phonological forms each etymon has at the stage corresponding to the column.
-
-TODO -- check DiaSim behavior with regard to header.
-TODO -- explanation about header. 
-TODO -- provide tester methods for header stuff
-TODO -- explanation about input stage here.
 
 The forms entered in columns after the first column will be the gold standard phonological forms to which the forms obtained by the diachronic simulation at those stages will be compared. 
 In order for simulation results at any point to be compared to a gold set, that set must be associated with a stage in the rules file and a column in the lexicon file, with its gold forms for each etymon in the lexicon file. 
