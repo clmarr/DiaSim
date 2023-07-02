@@ -26,7 +26,7 @@ public class Lexicon {
 		{
 			if (theWords[wi].print().equals(UTILS.ABSENT_REPR))
 				theWordList[wi] = new AbsentLexPhon();
-			else if (theWords[wi].print().equals(UTILS.UNATTESTED_REPR))
+			else if (theWords[wi].print().equals(UTILS.UNATTD_REPR))
 				theWordList[wi] = new UnattestedLexPhon();
 			else
 				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
@@ -264,7 +264,7 @@ public class Lexicon {
 	{
 		int cnt = 0;
 		for (LexPhon lex: theWordList)
-			if (lex.print().equals(UTILS.UNATTESTED_REPR))	cnt += 1;
+			if (lex.print().equals(UTILS.UNATTD_REPR))	cnt += 1;
 		return cnt;
 	}
 	
