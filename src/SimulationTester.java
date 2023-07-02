@@ -1527,14 +1527,13 @@ public class SimulationTester {
 	 */
 	private static LexPhon parseLexPhon(String toLexem)
 	{
+		
 		String toLex = toLexem.trim(); 
 		
-		if (toLex.equals(UTILS.ABSENT_INDIC))
-		{	return new AbsentLexPhon();	}
-		else if (toLex.equals(UTILS.UNATTD_INDIC))
-			return new UnattestedLexPhon(); 
+		if (UTILS.PSEUDO_LEXPHON_REPRS.contains(toLex))
+			return new PseudoLexPhon(toLex); 	
 		
-		String[] toPhones = toLex.split(""+UTILS.PH_DELIM);
+		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation

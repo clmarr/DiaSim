@@ -28,10 +28,8 @@ public class Lexicon {
 		theWordList = new LexPhon[theWords.length];
 		for (int wi = 0; wi < theWords.length; wi++)
 		{
-			if (theWords[wi].print().equals(UTILS.ABSENT_REPR))
-				theWordList[wi] = new AbsentLexPhon();
-			else if (theWords[wi].print().equals(UTILS.UNATTD_REPR))
-				theWordList[wi] = new UnattestedLexPhon();
+			if (!UTILS.etymonIsPresent(theWords[wi]))
+				theWordList[wi] = new PseudoLexPhon(theWords[wi].print()) ;
 			else
 				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
 		}
@@ -216,18 +214,20 @@ public class Lexicon {
 			// if the etymon is still absent in the lexicon being CFR-d, but present in the stage spec'd forms..
 				// ... then insert it! 	
 			if(theWordList[wi].print().equals(UTILS.ABSENT_REPR))
-			{	if(UTILS.etymonIsPresent(et_here))						
-				{		//	original condition  : !etymaInColumn[wi].print().equals(UTILS.ABSENT_REPR))
-								// -- however in practice allow "errors" whereby someone uses ">*" 
-								// to continue the absence of an etymon
+			{	
+				if(UTILS.etymonIsPresent(et_here))						
+				{		/** original condition  : !etymaInColumn[wi].print().equals(UTILS.ABSENT_REPR))
+							*  -- however in practice allow "errors" 
+							* whereby uses unattested indicator in lexicon files (currently ">*") 
+							*  to "continue" the absence of an etymon */ 
 					theWordList[wi] = 
 						new LexPhon(et_here.getPhonologicalRepresentation());
 			}}
 		
-			// remove from lexicon. 
+			// remove from lexicon if it is present and we encounter indication it is now absent 
 			if(et_here.print().equals(UTILS.ABSENT_REPR))
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
-					theWordList[wi] = new AbsentLexPhon(); 
+					theWordList[wi] = new PseudoLexPhon(UTILS.ABSENT_REPR); 
 			
 			// don't need to do anything for unattested ">*" entries -- point is that they keep things. 
 		}
@@ -241,8 +241,7 @@ public class Lexicon {
 	 */
 	public LexPhon cloneLexeme (LexPhon origin)
 	{
-		if (UTILS.ABSENT_REPR.equals(origin.print()))	return new AbsentLexPhon(); 
-		else if (UTILS.UNATTD_REPR.equals(origin.print()))	return new UnattestedLexPhon(); 
+		if (!UTILS.etymonIsPresent(origin))	return new PseudoLexPhon(origin.print()); 
 		
 		LexPhon dolly = new LexPhon (
 				new ArrayList<SequentialPhonic> (origin.getPhonologicalRepresentation())); 
@@ -295,7 +294,7 @@ public class Lexicon {
 			{
 				ID_array[id_i] = et_i; 
 				id_i++; 
-			}}
+		}}
 		
 		//guard rail. 
 		if (ID_array[ID_array.length-1] == 0)
