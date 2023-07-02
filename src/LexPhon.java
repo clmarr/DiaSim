@@ -11,11 +11,11 @@ import java.util.HashMap;
  */
 public class LexPhon {
 	private List<SequentialPhonic> phonRep; //phonological representation
-	private String lemma; //name of its paradigm
-	private String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
-	private HashMap<String,String> morphSynSpecs; 
-	private double frequency; // token frequency, if present; else -1 (which is default).
-	private List<String> domains; // semantic domains 
+	protected String lemma; //name of its paradigm
+	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
+	protected HashMap<String,String> morphSynSpecs; 
+	protected double frequency; // token frequency, if present; else -1 (which is default).
+	protected List<String> domains; // semantic domains 
 	
 	public LexPhon(List<SequentialPhonic> pR)
 	{
