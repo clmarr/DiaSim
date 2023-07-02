@@ -12,6 +12,10 @@ import java.util.ArrayList;
 
 public class Lexicon {
 	private LexPhon[] theWordList; 
+		// should contain not only the present words but also the absent ones
+			// and the unattested ones if this is not the lexicon undergoing forward reconstruction
+		// the etymon indices (functioning as the IDs) should be consistent across Lexicon instances
+			// throughout a Simulation ! 
 	
 	public Lexicon(List<LexPhon> theWords)
 	{
@@ -19,6 +23,7 @@ public class Lexicon {
 		theWords.toArray(theWordList);
 	}
 	
+	// the
 	public Lexicon(LexPhon[] theWords)
 	{
 		theWordList = new LexPhon[theWords.length];
