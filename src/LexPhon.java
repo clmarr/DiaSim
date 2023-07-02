@@ -53,6 +53,11 @@ public class LexPhon {
 	
 	}
 	
+	public int phRepLen()
+	{
+		return phonRep.size();
+	}
+	
 	//index of first location of the phone if it is present, else returns -1 
 	public int findPhone(Phone ph)
 	{
@@ -118,7 +123,8 @@ public class LexPhon {
 	}
 	
 	public String checkMorphSynSpec(String feat)	{	return morphSynSpecs.get(feat);	}
-	
+	public HashMap<String, String> getMorphSynSpecs()	{	return new HashMap<String, String>(morphSynSpecs);	}
+		// returning clone to avoid accidental tampering with it. 
 	public double getFrequency()	{	return frequency;	}
 	
 	public boolean checkDomain(String dom)	{	return domains.contains(dom); 	}
@@ -208,17 +214,6 @@ public class LexPhon {
 	
 	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
 	
-	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
-	
-	public int phRepLen()
-	{
-		return phonRep.size();
-	}
-	
-	
-	
-	
-	
-	
+	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }	
 	
 }

@@ -226,6 +226,16 @@ public class Lexicon {
 	{
 		if (UTILS.ABSENT_REPR.equals(origin.print()))	return new AbsentLexPhon(); 
 		else if (UTILS.UNATTD_REPR.equals(origin.print()))	return new UnattestedLexPhon(); 
+		
+		LexPhon dolly = new LexPhon (
+				new ArrayList<SequentialPhonic> (origin.getPhonologicalRepresentation())); 
+		
+		dolly.setLemma(origin.getLemma());
+		dolly.setLexClass(origin.getLexClass());
+		dolly.resetMorphSynSpecs(origin.getMorphSynSpecs());
+		dolly.setFrequency(origin.getFrequency());
+		dolly.resetDomains(origin.getDomains());
+		return dolly; 		
 	}
 	
 	/**
