@@ -14,5 +14,15 @@ public class LexTester {
 	public static void main (String args[])
 	{
 		System.out.println("Under construction...") ;
+		
+		//TODO test comprehension of ABSENT_INDIC
+		
+		//TODO test comprehension of UNATTD_INDIC
+		
+		//TODO test comprehension of ABSENT_REPR, UNATTD_REPR 
+		
+		//TODO test Lexicon.updateAbsence... 
+		
+		
 	}
 }

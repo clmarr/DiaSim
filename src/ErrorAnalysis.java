@@ -13,51 +13,70 @@ public class ErrorAnalysis {
 	//TODO July 1 2023 run through this class and update for insertion/removal of etyma, but also make sure everything is clear
 		// perhaps also investigate possible sources of the "Infinite" error rate discovered earlier... 
 
-	private int[] levDists; 
-	private int[] FILTER; //indices of all etyma in subset
+	//TODO decide on what morphosyntactic analyses to perform
+		// TODO implement them... -- probably fall 2023 or winter
+
+	private Lexicon RES, GOLD, FOCUS;
+		//TODO investigate uses of FOCUS
+
 	private int[] PRESENT_ETS; 
-	private double[] peds, feds;
-	private boolean[] isHit; 
+		// TODO investigate uses.
+
+	private boolean focSet, filtSet;
+	private SequentialFilter filterSeq; 
+	private int[] FILTER; //indices of all etyma in subset
+		// TODO investigate uses. 
+	
+	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
+		// TODO consider renaming pivotPhInventory for naming consistency
+			// TODO investigate its uses. 
+	
+	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
+	// indexes for phones in the following int arrays are above.
+	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
+		//TODO investigate uses of these 
+	
+	private List<LexPhon[]> mismatches; 
+		// TODO investigate uses 
+	
+	private int TOTAL_ETYMA, SUBSAMP_SIZE;
+	private double TOT_ERRS;
+	
 	private boolean[] IN_SUBSAMP;
+		//TODO investigate uses of this one.
+	
+	private boolean[] isHit; 
+		//TODO investigate uses of this. 
+	
+	private FED featDist;	
+	private int[] levDists; 
+	private double[] peds, feds;
+	
+	private String[] featsByIndex; 
+		// this is distinctive/phonological features -- not the morphosyntactic ones. 
+	
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 	
-	private SequentialFilter filterSeq; 
 	
-	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 	
 	//protected final String ABS_PR =UTILS.ABSENT_REPR;
-	protected final int MAX_RADIUS = 3;
-
+		// TODO consider restoring this ^ 
 	
-	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
-		// indexes for phones in the following int arrays are above.
+	protected final int MAX_RADIUS = 3;
+	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
+	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
+
+	//TODO investigate calculation of each of these for if errors will arise from usage of
+		// absent and unattested etyma ...
 	protected int[] errorsByResPhone, errorsByGoldPhone; 
 	protected int[] errorsByPivotPhone;
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
 	private double[] errorRateByPivotPhone;
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
-	
-	private String[] featsByIndex; 
-		
-	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
-		
-	private List<LexPhon[]> mismatches; 
-	
-	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
-	
-	private int TOTAL_ETYMA, SUBSAMP_SIZE;
-	private double TOT_ERRS;
-	
-	private FED featDist;
-	
-	private Lexicon RES, GOLD, FOCUS;
-	
-	private boolean focSet, filtSet; 
-	
-	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
+		///TODO investigate uses
 	
 	// theRes = result lexicon, lexicon that is the result of forward reconstruction 
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
@@ -845,7 +864,7 @@ public class ErrorAnalysis {
 		while(currRow < arrArr.length)
 		{
 			if(arrArr[currRow][currCol] > arrArr[maxLocs[n-1][0]][maxLocs[n-1][1]])
-			{
+			{  
 				maxLocs[n-1] = new int[]{currRow, currCol}; 
 				int i = n - 2; 
 				boolean keep_replacing = i >= 0 ; 

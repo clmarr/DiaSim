@@ -16,7 +16,6 @@ import java.util.HashMap;
  *				indicator in lexicon file: ">*" (as of July 2023)
  * 
  * @author Clayton Marr
- * TODO implement this to model words that enter the vocabulary late or leave it early in next project.
  */
 public class PseudoLexPhon extends LexPhon {
 	
