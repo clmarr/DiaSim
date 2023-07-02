@@ -36,7 +36,7 @@ public class ErrorAnalysis {
 	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
 		//TODO investigate uses of these 
 	
-	private List<LexPhon[]> mismatches; 
+	private List<Etymon[]> mismatches; 
 		// TODO investigate uses 
 	
 	private int TOTAL_ETYMA, SUBSAMP_SIZE;
@@ -61,7 +61,7 @@ public class ErrorAnalysis {
 	
 	
 	
-	//protected final String ABS_PR =UTILS.ABSENT_REPR;
+	protected final String ABS_PR =UTILS.ABSENT_REPR;
 		// TODO consider restoring this ^ 
 	
 	protected final int MAX_RADIUS = 3;
@@ -78,20 +78,32 @@ public class ErrorAnalysis {
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 		///TODO investigate uses
 	
-	// theRes = result lexicon, lexicon that is the result of forward reconstruction 
+	/**
+	 *  theRes =
+	 * @param theRes --  result lexicon, lexicon that is the result of forward reconstruction. 
+	 * 		May have etyma that are absent at this stage
+	 * 			but none represented as unattested (because that would not apply) 
+	 * @param theGold -- lexicon of observed etyma to compare against. 
+	 * 		May have etyma that are absent at this stage,
+	 * 			or those that are unattested
+	 * @param indexedFeats -- phonological/distinctive features with their indices as held constant throughout the simulation. 
+	 * @param fedCalc -- Feature Edit Distance calculator object.
+	 */
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
 		RES = theRes;
 		GOLD = theGold; 
 		
 		FOCUS = null; //must be manually set later -- e.g setFocus()
-		filtSet = false; // set with setFilter() later
 		focSet = false;
+		filtSet = false; // set with setFilter() later
 		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
-		TOTAL_ETYMA = theRes.getWordList().length;
+		TOTAL_ETYMA = theRes.totalEtyma(); 
 			// total etyma, present or not at this moment 
+		//if (TOTAL_ETYMA != theGold.)
+			// TODO throw guard rail error here. 
 		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
@@ -113,7 +125,7 @@ public class ErrorAnalysis {
 		PRESENT_ETS = new int[SUBSAMP_SIZE];
 		int fi = 0;
 		for (int i = 0 ; i < TOTAL_ETYMA; i++)
-		{	if (!UTILS.PSEUDO_LEXPHON_REPRS.contains(theGold.getByID(i).print()))
+		{	if (!UTILS.PSEUDO_ETYM_REPRS.contains(theGold.getByID(i).print()))
 						/**old conditioning below -- deleted per July 1 2023 rework to include etyma insertion and removal
 			* !theRes.getByID(i).print().equals(ABS_PR)) 
 						*/ 
@@ -135,7 +147,7 @@ public class ErrorAnalysis {
 		confusionMatrix = new int[resPhInventory.length + 1][goldPhInventory.length + 1];
 		// final indices in both dimensions are for the null phone
 		
-		mismatches = new ArrayList<LexPhon[]>();
+		mismatches = new ArrayList<Etymon[]>();
 		
 		levDists = new int[TOTAL_ETYMA]; 
 		peds = new double[TOTAL_ETYMA];
@@ -151,13 +163,13 @@ public class ErrorAnalysis {
 
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
-				LexPhon currEt = theRes.getByID(i);
+				Etymon currEt = theRes.getByID(i);
 				isPhInResEt[rphi][i] = (currEt.toString().equals(ABS_PR)) ? 
 						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
 			}
 			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
 			{
-				LexPhon currEt = theGold.getByID(i);
+				Etymon currEt = theGold.getByID(i);
 				isPhInGoldEt[gphi][i] = (currEt.toString().equals(ABS_PR)) ?
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
@@ -233,7 +245,7 @@ public class ErrorAnalysis {
 		int[] pivPhCts = new int[pivotPhInventory.length]; 
 		for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)
 		{
-			LexPhon currEt = FOCUS.getByID(ei);
+			Etymon currEt = FOCUS.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
 				if(!currEt.toString().equals(ABS_PR))
@@ -346,9 +358,9 @@ public class ErrorAnalysis {
 	//..and also updates the list mismatches 
 	private void updateConfusionMatrix(int err_id)
 	{
-		LexPhon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
+		Etymon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
 		
-		mismatches.add( new LexPhon[] {res, gold}) ; 
+		mismatches.add( new Etymon[] {res, gold}) ; 
 				
 		SequentialPhonic[][] alignedForms = getAlignedForms(res,gold); 
 		
@@ -501,7 +513,7 @@ public class ErrorAnalysis {
 	{
 		List<String> out = new ArrayList<String>(); 
 
-		List<LexPhon[]> pairsWithConfusion = mismatchesWithConfusion(resPhInd, goldPhInd); 
+		List<Etymon[]> pairsWithConfusion = mismatchesWithConfusion(resPhInd, goldPhInd); 
 		
 		//NOTE: By default this is done for gold. may need to change that.
 		
@@ -518,7 +530,7 @@ public class ErrorAnalysis {
 			//TODO need to fix error here. 
 				//TODO what was the error? 
 			
-			LexPhon[] curPair = pairsWithConfusion.get(i); 
+			Etymon[] curPair = pairsWithConfusion.get(i); 
 			
 			featDist.compute(curPair[0],curPair[1]); 
 			int[][] alignment = featDist.get_min_alignment(); 
@@ -599,11 +611,11 @@ public class ErrorAnalysis {
 	// as indicated by the pairing of the uniquely indexed result phone
 	// and the different uniquely indexed gold phone.
 	// if either resPhInd or goldPhInd are -1, they are the null phone. 
-	private List<LexPhon[]> mismatchesWithConfusion (int resPhInd, int goldPhInd)
+	private List<Etymon[]> mismatchesWithConfusion (int resPhInd, int goldPhInd)
 	{
-		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
+		List<Etymon[]> out = new ArrayList<Etymon[]>(); 
 		boolean is_insert_or_delete = (resPhInd == resPhInventory.length) ||  (goldPhInd == goldPhInventory.length); 
-		for (LexPhon[] mismatch : mismatches)
+		for (Etymon[] mismatch : mismatches)
 		{
 			if ( is_insert_or_delete)
 			{	if(hasMismatch(resPhInd, goldPhInd, mismatch[0], mismatch[1]))	out.add(mismatch); 	}
@@ -617,7 +629,7 @@ public class ErrorAnalysis {
 	//check if specific mismatch has a specific confusion
 	// we assume either the confusion involves a null phone (i.e. it's insertion or deletion)
 	// or we have already checked that both phones involve are in fact present in both words
-	private boolean hasMismatch(int rphi, int gphi, LexPhon rlex, LexPhon glex)
+	private boolean hasMismatch(int rphi, int gphi, Etymon rlex, Etymon glex)
 	{
 		SequentialPhonic[][] alignment = getAlignedForms(rlex, glex); 
 	
@@ -633,7 +645,7 @@ public class ErrorAnalysis {
 	
 	//TODO replace with actual alignment algorithm
 		//TODO (Dec 3 2022) in what capacity was this done? 
-	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
+	private SequentialPhonic[][] getAlignedForms(Etymon r, Etymon g)
 	{
 		featDist.compute(r,g); //TODO may need to change insertion/deletion weight here!
 		int[][] trace = featDist.get_last_backtrace();
@@ -679,7 +691,7 @@ public class ErrorAnalysis {
 		return out;
 	}
 	/** obselete version of above class -- unnecessary and excessive. 
-	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
+	private SequentialPhonic[][] getAlignedForms(Etymon r, Etymon g)
 	{
 		//TODO debugging
 		System.out.println("r: "+r+"; g "+g);
@@ -743,7 +755,7 @@ public class ErrorAnalysis {
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
 	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
-	public static int levenshteinDistance(LexPhon s, LexPhon t)
+	public static int levenshteinDistance(Etymon s, Etymon t)
 	{
 		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 
 				tPhons = t.getPhonologicalRepresentation(); 
@@ -893,15 +905,15 @@ public class ErrorAnalysis {
 	 * to get all mismatches, enter a an empty list for @param targSeq
 	 * 
 	 */
-	public List<LexPhon[]> getCurrMismatches( List<SequentialPhonic> targSeq, boolean look_in_gold)
+	public List<Etymon[]> getCurrMismatches( List<SequentialPhonic> targSeq, boolean look_in_gold)
 	{
 		if (targSeq.size() == 0)	return mismatches;
-		List<LexPhon[]> out = new ArrayList<LexPhon[]>(); 
+		List<Etymon[]> out = new ArrayList<Etymon[]>(); 
 		int ind = look_in_gold ? 1 : 0; 
-		for (LexPhon[] msmtch : mismatches)
+		for (Etymon[] msmtch : mismatches)
 			if (Collections.indexOfSubList( msmtch[ind].getPhonologicalRepresentation(),
 					targSeq) != -1)
-				out.add(new LexPhon[] {msmtch[0], msmtch[1]});
+				out.add(new Etymon[] {msmtch[0], msmtch[1]});
 		return out;
 	}
 	
@@ -1038,7 +1050,7 @@ public class ErrorAnalysis {
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
 		FILTER = new int[SUBSAMP_SIZE]; 
-		mismatches = new ArrayList<LexPhon[]> (); 
+		mismatches = new ArrayList<Etymon[]> (); 
 		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
 		
 		errorsByResPhone = new int[resPhInventory.length];
@@ -1441,7 +1453,7 @@ public class ErrorAnalysis {
 	
 	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
 	{
-		LexPhon[] inpWds = inpLex.getWordList(); 
+		Etymon[] inpWds = inpLex.getWordList(); 
 		for(int i = 0; i < inpWds.length; i++) {
 			if (errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
 			{

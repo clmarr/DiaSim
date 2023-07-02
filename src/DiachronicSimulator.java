@@ -29,7 +29,7 @@ public class DiachronicSimulator {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String[]> diacriticMap; 
 	private static HashMap<String, String[]> featImplications; 
-	private static LexPhon[] inputForms; 
+	private static Etymon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
@@ -592,9 +592,9 @@ public class DiachronicSimulator {
 		
 		boolean justInput = !goldOutput && !goldStagesSet; 
 		
-		inputForms = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
-		LexPhon[][] goldForms = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA];
+		inputForms = new Etymon[NUM_ETYMA];
+		Etymon[] goldResults = new Etymon[NUM_ETYMA];  
+		Etymon[][] goldForms = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA];
 
 		int lfli = 0 ; //"lex file line index"
 		
@@ -786,7 +786,7 @@ public class DiachronicSimulator {
 	/** TODO abrogated -- method currently unused.
 	public static HashMap<Phone,Double> missLikelihoodPerPhone (Lexicon lexic)
 	{
-		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		Etymon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
 		assert NUM_ETYMA == finMissInds.length: "Error : mismatch between size of locMissed array and word list in lexicon"; 
 		
@@ -836,21 +836,24 @@ public class DiachronicSimulator {
 	
 	/** auxiliary.
 	 * given String @param toLexem
-	 * @return its representation as a LexPhon containing a sequence of Phone instances
+	 * @return its representation as a Etymon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
 	 * TODO still need to debug the use of diacritics here. 
-	 * TODO when do that, make sure to update the counterpart in SimiulationTester.
+	 * TODO when do that, make sure to update the counterpart in SimulationTester.
+	 * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
+	 * 		... because it does not yet handle parsing of morphological, semantic, or token frequency info... yetR. 
+	 * 		TODO decide where that will be parsed, make changes as necessary. 
 	 */
-	public static LexPhon parseLexPhon(String toLexem)
+	public static Etymon parseLexPhon(String toLexem)
 	{
 		String toLex = toLexem.trim(); 
 		
-		if (UTILS.PSEUDO_LEXPHON_REPRS.contains(toLex))
-			return new PseudoLexPhon(toLex); 	
+		if (UTILS.PSEUDO_ETYM_REPRS.contains(toLex))
+			return new PseudoEtymon(toLex); 	
 		
 		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
 		
-		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
+		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //Etymon class stores internal List of phones not an array,
 			// for better ease of mutation
 
 		for (String toPhone : toPhones)
@@ -911,7 +914,7 @@ public class DiachronicSimulator {
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
-		return new LexPhon(phones);
+		return new Etymon(phones);
 	}
 	
 	//auxiliary method -- get number of columns in lexicon file. 
@@ -1221,9 +1224,9 @@ public class DiachronicSimulator {
 						System.out.println("Enter the input form, separating phones by the character '"+UTILS.PH_DELIM+"' (space)"); 
 							// TODO remember to change it saying "space" if that is ever changed.
 						resp = inpu.nextLine().replace("\n",""); 
-						LexPhon query = null;
+						Etymon query = null;
 						try {
-							query = new LexPhon(fac.parseSeqPhSeg(resp));
+							query = new Etymon(fac.parseSeqPhSeg(resp));
 						}
 						catch (Exception e){
 							System.out.println("Error: could not parse entered phone string. Returning to query menu.");
@@ -1231,7 +1234,7 @@ public class DiachronicSimulator {
 						}
 						if(!prompt)
 						{
-							LexPhon[] wl = inputForms;
+							Etymon[] wl = inputForms;
 							String inds = UTILS.etymInds(wl, query);
 							System.out.println("Ind(s) with this word as input : "+inds);  
 						}
@@ -1336,8 +1339,8 @@ public class DiachronicSimulator {
 					{
 						System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
 						System.out.println("Res : Gold");
-						List<LexPhon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
-						for (LexPhon[] mm : mms)
+						List<Etymon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
+						for (Etymon[] mm : mms)
 							System.out.println(mm[0].print()+" : "+mm[1].print());
 					}
 					else if (resp.equals("9"))
@@ -1375,7 +1378,7 @@ public class DiachronicSimulator {
 		
 		int subset_size = indsInSubset.size();
 		
-		LexPhon[] subRes = new LexPhon[subset_size], subGold = new LexPhon[subset_size]; 
+		Etymon[] subRes = new Etymon[subset_size], subGold = new Etymon[subset_size]; 
 		
 		for (int j = 0 ; j < subset_size; j++)
 		{
@@ -1398,7 +1401,7 @@ public class DiachronicSimulator {
 	/** TODO currently abrogated, as not in use. 
 	private static HashMap<Phone,Double> avgLDForWordsWithPhone (Lexicon lexic)
 	{
-		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		Etymon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
 
 		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 
@@ -1441,7 +1444,7 @@ public class DiachronicSimulator {
 	/** TODO currently abrogated, as not in use. 
 	private static HashMap<Phone,Double> avgFEDForWordsWithPhone (Lexicon lexic)
 	{
-		LexPhon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
+		Etymon[] lexList = lexic.getWordList(); //indices should correspond to those in missLocations
 		int lexSize = lexList.length; 
 
 		Phone[] phonemicInventory = lexic.getPhonemicInventory(); 

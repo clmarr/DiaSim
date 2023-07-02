@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.ArrayList; 
 
 /**
- * class for representing the set of words (LexPhon instances) being simulated
+ * class for representing the set of words (Etymon instances) being simulated
  * in the language as it develops over time (diachronically) 
  * @author Clayton Marr
  *
@@ -11,34 +11,34 @@ import java.util.ArrayList;
 
 
 public class Lexicon {
-	private LexPhon[] theWordList; 
+	private Etymon[] theWordList; 
 		// should contain not only the present words but also the absent ones
 			// and the unattested ones if this is not the lexicon undergoing forward reconstruction
 		// the etymon indices (functioning as the IDs) should be consistent across Lexicon instances
 			// throughout a Simulation ! 
 	
-	public Lexicon(List<LexPhon> theWords)
+	public Lexicon(List<Etymon> theWords)
 	{
-		theWordList = new LexPhon[theWords.size()]; 
+		theWordList = new Etymon[theWords.size()]; 
 		theWords.toArray(theWordList);
 	}
 	
-	public Lexicon(LexPhon[] theWords)
+	public Lexicon(Etymon[] theWords)
 	{
-		theWordList = new LexPhon[theWords.length];
+		theWordList = new Etymon[theWords.length];
 		for (int wi = 0; wi < theWords.length; wi++)
 		{
 			if (!UTILS.etymonIsPresent(theWords[wi]))
-				theWordList[wi] = new PseudoLexPhon(theWords[wi].print()) ;
+				theWordList[wi] = new PseudoEtymon(theWords[wi].print()) ;
 			else
-				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
+				theWordList[wi] = new Etymon(theWords[wi].getPhonologicalRepresentation());
 		}
 	}
 	
 	//retrieve a particular lexical phonology by its "ID" -- i.e. its index in theWordList
 	// DerivationSimulation should construct instances of this class for the word set being simulated 
 	// such that words with the same index represent different stages of the same word
-	public LexPhon getByID(int ind)
+	public Etymon getByID(int ind)
 	{	return theWordList[ind]; 	}
 	
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
@@ -47,13 +47,13 @@ public class Lexicon {
 	public HashMap<String, Integer> getPhoneFrequenciesByWord()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
-		for (LexPhon lex : theWordList)
+		for (Etymon lex : theWordList)
 		{
 			if (!UTILS.etymonIsPresent(lex))	continue; 
 			
-			List<SequentialPhonic> lexPhonRep = lex.getPhonologicalRepresentation();
+			List<SequentialPhonic> phonRep = lex.getPhonologicalRepresentation();
 			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 
-			for (SequentialPhonic ph : lexPhonRep)
+			for (SequentialPhonic ph : phonRep)
 			{
 				if(ph.getType().equals("phone"))
 				{
@@ -70,7 +70,7 @@ public class Lexicon {
 		return output; 
 	}
 	
-	public LexPhon[] getWordList()
+	public Etymon[] getWordList()
 	{	return theWordList;	}
 	
 	
@@ -86,7 +86,7 @@ public class Lexicon {
 			if(theWordList[wli].print().equals(UTILS.ABSENT_REPR))	
 				wordsChanged[wli] = false;
 			else if (theWordList[wli].print().equals(UTILS.UNATTD_REPR))
-				throw new RuntimeException("Alert: tried to implement a rule on an UnattestedLexPhon instance (index = "+wli+"). Check this."); 
+				throw new RuntimeException("Alert: tried to implement a rule on a PseudoEtymon instance (index = "+wli+"). Check this."); 
 			
 			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
 			else	wordsChanged[wli] = false; 
@@ -100,7 +100,7 @@ public class Lexicon {
 		List<String> hitPhonesListStr = new ArrayList<String>(); 
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
 		
-		for (LexPhon theWord : theWordList)
+		for (Etymon theWord : theWordList)
 		{	
 			
 			if (UTILS.etymonIsPresent(theWord))
@@ -140,7 +140,7 @@ public class Lexicon {
 	public HashMap<String,Integer> getPhonemeCounts()
 	{
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
-		for (LexPhon lex: theWordList)
+		for (Etymon lex: theWordList)
 		{
 			if (!lex.print().equals(UTILS.ABSENT_REPR))
 				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
@@ -160,7 +160,7 @@ public class Lexicon {
 	public int getPhoneSeqFrequency(List<Phone> targSeq)
 	{
 		int currSeqInd = 0, count = 0;
-		for (LexPhon lex : theWordList)
+		for (Etymon lex : theWordList)
 		{	
 			if (!UTILS.etymonIsPresent(lex))	continue;
 			
@@ -191,15 +191,15 @@ public class Lexicon {
 	 * based on whether they are absent or not in the latest column in lexicon file. 
 	 * this is to be implemented on the lexicon that is undergoing forward reconstruction
 	 * NOT upon a gold lexicon! 
-	 * @param etymaInColumn -- array ([]) of LexPhon objects derived (probably via DiachronicSimulator.parseLexPhon() 
+	 * @param etymaInColumn -- array ([]) of Etymon objects derived (probably via DiachronicSimulator.parseLexPhon() 
 	 * 		from String valued cells in a column of a lexicon file -- i.e. the forms associated for a certain stage
-	 * 		which may be a proper LexPhon, which should be used for attested (GOLD) forms to compare to
-	 * 			or "--" which will make an AbsentLexPhon
+	 * 		which may be a proper Etymon, which should be used for attested (GOLD) forms to compare to
+	 * 			or "--" which will make an absent etymon 
 	 * 				 -- either not present yet in the language, or removed
-	 * 			or ">*" which makes an unattested (but present) UnattestedLexPhon 
+	 * 			or ">*" which makes an unattested (but present) etymon  
 	 */
 		//
-	public void updateAbsence(LexPhon[] etymaInColumn)
+	public void updateAbsence(Etymon[] etymaInColumn)
 	{
 		int theLen = etymaInColumn.length;
 		
@@ -209,7 +209,7 @@ public class Lexicon {
 		
 		for (int wi = 0 ; wi < theLen ; wi++)
 		{	
-			LexPhon et_here = etymaInColumn[wi]; 
+			Etymon et_here = etymaInColumn[wi]; 
 			
 			// if the etymon is still absent in the lexicon being CFR-d, but present in the stage spec'd forms..
 				// ... then insert it! 	
@@ -221,29 +221,29 @@ public class Lexicon {
 							* whereby uses unattested indicator in lexicon files (currently ">*") 
 							*  to "continue" the absence of an etymon */ 
 					theWordList[wi] = 
-						new LexPhon(et_here.getPhonologicalRepresentation());
+						new Etymon(et_here.getPhonologicalRepresentation());
 			}}
 		
 			// remove from lexicon if it is present and we encounter indication it is now absent 
 			if(et_here.print().equals(UTILS.ABSENT_REPR))
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
-					theWordList[wi] = new PseudoLexPhon(UTILS.ABSENT_REPR); 
+					theWordList[wi] = new PseudoEtymon(UTILS.ABSENT_REPR); 
 			
 			// don't need to do anything for unattested ">*" entries -- point is that they keep things. 
 		}
 	}
 
 	/**
-	 * cloning constructor for LexPhon objects outside of the LexPhon class to avoid class hierarchy-related issues 
-	 * 		that could arise if @param origin is in fact an AbsentLexPhon or UnattestedLexPhon
-	 * @param origin -- LexPhon object to clone
+	 * cloning constructor for Etymon objects outside of the Etymon class to avoid class hierarchy-related issues 
+	 * 		that could arise if @param origin is in fact a PseudoEtymon
+	 * @param origin -- Etymon object to clone
 	 * @return
 	 */
-	public LexPhon cloneLexeme (LexPhon origin)
+	public Etymon cloneLexeme (Etymon origin)
 	{
-		if (!UTILS.etymonIsPresent(origin))	return new PseudoLexPhon(origin.print()); 
+		if (!UTILS.etymonIsPresent(origin))	return new PseudoEtymon(origin.print()); 
 		
-		LexPhon dolly = new LexPhon (
+		Etymon dolly = new Etymon (
 				new ArrayList<SequentialPhonic> (origin.getPhonologicalRepresentation())); 
 		
 		dolly.setLemma(origin.getLemma());
@@ -263,15 +263,15 @@ public class Lexicon {
 	public int numPresentEtyma()
 	{
 		int cnt= theWordList.length; 
-		for (LexPhon lex: theWordList)
-			if (UTILS.PSEUDO_LEXPHON_REPRS.contains(lex.print()))	cnt--; 
+		for (Etymon lex: theWordList)
+			if (UTILS.PSEUDO_ETYM_REPRS.contains(lex.print()))	cnt--; 
 		return cnt; 
 	}
 	
 	public int numAbsentEtyma()
 	{
 		int cnt = 0;
-		for (LexPhon lex: theWordList)
+		for (Etymon lex: theWordList)
 			if (lex.print().equals(UTILS.ABSENT_REPR))	cnt += 1;
 		return cnt;
 	}
@@ -279,10 +279,12 @@ public class Lexicon {
 	public int numUnattestedEtyma()
 	{
 		int cnt = 0;
-		for (LexPhon lex: theWordList)
+		for (Etymon lex: theWordList)
 			if (lex.print().equals(UTILS.UNATTD_REPR))	cnt += 1;
 		return cnt;
 	}
+	
+	public int totalEtyma()	{	return theWordList.length; 	}
 	
 	// get the ID numbers of all etyma that are actually present. 
 	public int[] IDsWithPresentEtyma() 

@@ -28,13 +28,13 @@ public class UTILS {
 	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
 	public final static String UNATTD_INDIC = ">*", UNATTD_REPR = "{UNATTESTED}"; 
 		// the -INDIC items are the strings used in lexicon files provided by the user and processed by the system
-		// whereas the -REPR items are the internal representation within the LexPhon subclasses.
-	public final static List<String> PSEUDO_LEXPHON_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_REPR);   
+		// whereas the -REPR items are the internal representation within the Etymon subclasses.
+	public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_REPR);   
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 
-	public static boolean etymonIsPresent (LexPhon etym)	
-	{	return PSEUDO_LEXPHON_REPRS.contains(etym.print()); 	}
+	public static boolean etymonIsPresent (Etymon etym)	
+	{	return PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
 	public static int getFeatspecIntFromMark (char mark) 
 	{
@@ -77,7 +77,7 @@ public class UTILS {
 		return output <= max ? output : -1; 
 	}
 
-	public static String etymInds(LexPhon[] etList, LexPhon etTarg)
+	public static String etymInds(Etymon[] etList, Etymon etTarg)
 	{
 		String output = ""; 
 		for (int wli = 0; wli < etList.length; wli++)
@@ -294,7 +294,7 @@ public class UTILS {
 	
 	// check if an observed word, the second argument (in current usage, the observed predicted outcome based on a cascade)...
 		// is equivalent to the correct form of the word, the second argument (in current usage, the actual reflex word 
-	public static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
+	public static boolean checkWord(Etymon correct, Etymon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
 		boolean result = c.equals(o); 
@@ -331,7 +331,7 @@ public class UTILS {
 	 * @param g -- gold words
 	 * @param obs -- observed words
 	 */
-	public static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
+	public static int aggregateErrorsCheckWordLists(Etymon[] g, Etymon[] obs)
 	{
 		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
 		

@@ -590,10 +590,10 @@ public class DHSWrapper {
 							System.out.println("Error: invalid etymon index; there are only " + NUM_ETYMA
 									+ " etyma.\nReturning to forking test menu.");
 					} else {
-						LexPhon query = null;
+						Etymon query = null;
 						boolean validLexPhon = true;
 						try {
-							query = new LexPhon(fac.parseSeqPhSeg(resp));
+							query = new Etymon(fac.parseSeqPhSeg(resp));
 						} catch (Exception e) {
 							System.out
 									.println("Error: could not parse entered phone string. Returning to forking menu.");

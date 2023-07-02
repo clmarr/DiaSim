@@ -3,13 +3,17 @@ import java.util.ArrayList;
 import java.util.HashMap; 
 
 /**
- * Class for representing the phonology of one word in the vocabulary
+ * Class primarily for representing the phonology of one word in the vocabulary
  * This class currently forces the edges of the word to have word bounds
  * 	although this actually might not be appropriate for languages with weak boundaries
  *  	such as French with its liaison phenomenon -- nevertheless this phenomenon is outside the purview of this project. 
+ * in summer 2023, the skeleton to include morphosyntactic and semantic info, and frequency, was included
+ * 		and this was accordingly renamed from LexPhon to Etymon on July 2 2023 
+ * 		since it no longer exclusively represents the phonology of the item. 
+ * 		though this is still the primary function. 
  * @author Clayton Marr
  */
-public class LexPhon {
+public class Etymon {
 	private List<SequentialPhonic> phonRep; //phonological representation
 	protected String lemma; //name of its paradigm
 	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
@@ -17,9 +21,9 @@ public class LexPhon {
 	protected double frequency; // token frequency, if present; else -1 (which is default).
 	protected List<String> domains; // semantic domains 
 	
-	public LexPhon(List<SequentialPhonic> pR)
+	public Etymon(List<SequentialPhonic> pR)
 	{
-		if (pR.size() != 0) //not an AbsentLexPhon or UnattestedLexPhon
+		if (pR.size() != 0) //not an absent or unattesteed etymon (PseudoEtymon)
 		{	
 			phonRep = new ArrayList<SequentialPhonic>(pR); 
 			if (!phonRep.get(0).equals(new Boundary("word bound")))

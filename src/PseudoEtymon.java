@@ -10,25 +10,25 @@ import java.util.HashMap;
  *				if a previously present/inherited word is indicated as absent, it will be REMOVED
  *				if it is absent from the beginning, 
  *					it remains such until phonological material is provided in a later column, 
- *						and this will be replaced with a "real" LexPhon instance.
+ *						and this will be replaced with a "real" Etymon instance.
  *		UNATTESTED -- for use ONLY in gold stages or stages for insertion/removal of vocab
  *			this means the form continues to be inherited, but is not attested at the stage
  *				indicator in lexicon file: ">*" (as of July 2023)
  * 
  * @author Clayton Marr
  */
-public class PseudoLexPhon extends LexPhon {
+public class PseudoEtymon extends Etymon {
 	
 	private String representation; 
 	
-	public	PseudoLexPhon(String repr)
+	public	PseudoEtymon(String repr)
 	{
 		super(new ArrayList<SequentialPhonic>());
 		this.representation = ""+repr; 
 		
 		// guard rail: 
-		if (!UTILS.PSEUDO_LEXPHON_REPRS.contains(representation))
-			throw new RuntimeException("Alert: illegal typing of PseudoLexPhon instance: '"+repr+"'. Investigate this."); 
+		if (!UTILS.PSEUDO_ETYM_REPRS.contains(representation))
+			throw new RuntimeException("Alert: illegal typing of PseudoEtymon instance: '"+repr+"'. Investigate this."); 
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()	{	return null;	}
@@ -44,12 +44,12 @@ public class PseudoLexPhon extends LexPhon {
 	public String print() {		return representation;	}
 
 	public int findSequence(RestrictPhone[] sequence)	{	
-		System.out.println("Warning: searching for sequence in a PseudoLexPhon...");
+		System.out.println("Warning: searching for sequence in a PseudoEtymon...");
 		//TODO consider throwing error.
 		return -1;  
 	}
 	public int rFindSequence(RestrictPhone[] sequence)	{	
-		System.out.println("Warning: searching backward for sequence in a PseudoLexPhon...");
+		System.out.println("Warning: searching backward for sequence in a PseudoEtymon...");
 		//TODO consider throwing error.
 		return -1;  
 	}
