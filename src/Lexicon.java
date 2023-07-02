@@ -76,19 +76,6 @@ public class Lexicon {
 	{	return theWordList;	}
 	
 	
-	// does not appear to be in use. 
-	public boolean[] getPhonePresenceByEtTEST(Phone ph)
-	{
-		boolean[] out = new boolean[theWordList.length];
-		for (int wi = 0 ; wi < theWordList.length; wi++)
-		{
-			out[wi] = 
-					UTILS.etymonIsPresent(theWordList[wi]) 
-						? theWordList[wi].findPhone(ph) != -1 : false;  
-		}
-		return out;
-	}
-	
 	// "Get changed" -- i.e. we get them by having their indexes be true.
 	// used for writing the trajectory files as the lexicon moves forward through time.
 	public boolean[] applyRuleAndGetChangedWords(SChange rule)
@@ -114,9 +101,11 @@ public class Lexicon {
 	{
 		List<String> hitPhonesListStr = new ArrayList<String>(); 
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
+		
 		for (LexPhon theWord : theWordList)
 		{	
-			if (!theWord.print().equals(UTILS.ABSENT_REPR))
+			
+			if (UTILS.etymonIsPresent(theWord))
 			{
 				List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
 				for (SequentialPhonic curPh : thePhones)
@@ -127,15 +116,26 @@ public class Lexicon {
 						{
 							hitPhonesListStr.add(curPh.print()); 
 							phList.add(curPh);
-						}
-					}
-				}
-			}
-		}
+		}}}}}
+		
+		
 		int numPhones = phList.size(); 
 		Phone[] output = new Phone[numPhones]; 
 		for (int phi = 0; phi < numPhones; phi++)	output[phi] = new Phone(phList.get(phi)); 
 		return output; 
+	}
+	
+	// does not appear to be in use. 
+	public boolean[] getPhonePresenceByEt(Phone ph)
+	{
+		boolean[] out = new boolean[theWordList.length];
+		for (int wi = 0 ; wi < theWordList.length; wi++)
+		{
+			out[wi] = 
+					UTILS.etymonIsPresent(theWordList[wi]) 
+						? theWordList[wi].findPhone(ph) != -1 : false;  
+		}
+		return out;
 	}
 	
 	//counts for each phoneme
@@ -164,6 +164,8 @@ public class Lexicon {
 		int currSeqInd = 0, count = 0;
 		for (LexPhon lex : theWordList)
 		{	
+			if (!UTILS.etymonIsPresent(lex))	continue;
+			
 			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
 			for (SequentialPhonic curPh : thePhones)
 			{
