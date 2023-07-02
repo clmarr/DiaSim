@@ -58,7 +58,7 @@ public class ErrorAnalysis {
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 	
-	protected final String ABS_PR =UTILS.ABSENT_REPR;
+	//protected final String ABS_PR =UTILS.ABSENT_REPR;
 		// TODO consider restoring this ^ 
 	
 	protected final int MAX_RADIUS = 3;

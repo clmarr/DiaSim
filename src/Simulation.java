@@ -166,10 +166,10 @@ public class Simulation {
 			if ( type == 'g') //it's a gold stage.
         	{
 				//TODO need to fix here 
-        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
         		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
         		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
         			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
+        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
         		goldStageInd++;
         	}
         	else //black stage
