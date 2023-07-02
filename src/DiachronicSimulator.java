@@ -32,12 +32,15 @@ public class DiachronicSimulator {
 	private static Etymon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
-	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES;
-	private static String[] goldStageNames, blackStageNames; 
+	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_STAGES; 
+	private static String[] goldStageNames, blackStageNames, columnedStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
-	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
+	private static Lexicon[] columnedBlackStageLexica; 
+		// TOOD lexica for purposes of insertion and removal of etyma only.
+		// index will effectively be # columned stage index - # gold stage index 
+	private static int[] goldStageInstants, blackStageInstants, columnedStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet, columnedStagesSet; 
 	
 	private static boolean goldOutput; 
@@ -210,7 +213,7 @@ public class DiachronicSimulator {
 		List<String> blackStageNameAndLocList = new ArrayList<String>();
 			// same as above, but will not be compared to gold. 
 		
-		goldStagesSet = false; blackStagesSet=false;  
+		goldStagesSet = false; blackStagesSet=false; columnedStagesSet = false;
 				
 		int rli = 0; 
 		
@@ -224,6 +227,7 @@ public class DiachronicSimulator {
 				else if ( currRule.charAt(0) == UTILS.GOLD_STAGENAME_FLAG)
 				{
 					goldStagesSet = true; 
+					columnedStagesSet = true; 
 					
 					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
 						// this assertion can stay as it does actually fulfill the role of an assertion... 
@@ -429,7 +433,10 @@ public class DiachronicSimulator {
 					throw new RuntimeException("ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"); 
 				goldOutput = true; 
 				System.out.println("Last column assumed to be output!"); 
-				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
+				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages to columned black stages!"); 
+				
+				columnedStagesSet = true; 
+				
 				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
 			}
 		}
