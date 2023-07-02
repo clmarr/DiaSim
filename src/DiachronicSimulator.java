@@ -410,7 +410,11 @@ public class DiachronicSimulator {
 			System.out.println("No explicit header declared in lexicon file."); 
 			if(numCols == NUM_GOLD_STAGES + 1)
 			{
-				System.out.println("Each gold stage properly identified if we assume no output!"); 
+				System.out.println("Each gold stage properly identified if we assume no output! "
+						+ "Beware: no gold output calculation will occur. "
+						+ "Insert a header to explicate which stages are which "
+						+ "(or remove possible accidental stage flags in the cascade file) "
+						+ "if this is not what was intended."); 
 				
 				//TODO debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
