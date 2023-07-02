@@ -38,7 +38,7 @@ public class ErrorAnalysis {
 	private List<Etymon[]> mismatches; 
 		// TODO investigate uses 
 	
-	private int TOTAL_ETYMA, SUBSAMP_SIZE;
+	private int TOTAL_ETYMA, EVAL_SAMP_SIZE;
 	private double TOT_ERRS;
 	
 	private boolean[] IN_SUBSAMP;
@@ -58,8 +58,6 @@ public class ErrorAnalysis {
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 	
-	
-	
 	protected final String ABS_PR =UTILS.ABSENT_REPR;
 		// TODO consider restoring this ^ 
 	
@@ -78,7 +76,6 @@ public class ErrorAnalysis {
 		///TODO investigate uses
 	
 	/**
-	 *  theRes =
 	 * @param theRes --  result lexicon, lexicon that is the result of forward reconstruction. 
 	 * 		May have etyma that are absent at this stage
 	 * 			but none represented as unattested (because that would not apply) 
@@ -87,6 +84,8 @@ public class ErrorAnalysis {
 	 * 			or those that are unattested
 	 * @param indexedFeats -- phonological/distinctive features with their indices as held constant throughout the simulation. 
 	 * @param fedCalc -- Feature Edit Distance calculator object.
+	 * TODO need to make sure this is called BEFORE Lexicon.updateAbsence occurs, so that just-inserted etyma do not inflate accuracy. 
+	 * TODO need to insure that INSERTED etyma are not contributing to calculations!! 
 	 */
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
@@ -120,12 +119,14 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
 				
-		//SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
+		//EVAL_SAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
 		// now basing it off what is actually present in the gold -- not counting unattested, and not counting absent. 
-		SUBSAMP_SIZE = theGold.numObservedEtyma(); 
+		EVAL_SAMP_SIZE = theGold.numObservedEtyma(); 
+		//need to also exclude items that were INSERTED at this stage. 
+		//TODO here!! 
 		
-		FILTER = new int[SUBSAMP_SIZE];
-		PRESENT_ETS = new int[SUBSAMP_SIZE];
+		FILTER = new int[EVAL_SAMP_SIZE];
+		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
 		int fi = 0;
 		for (int i = 0 ; i < TOTAL_ETYMA; i++)
 		{	if (!UTILS.PSEUDO_ETYM_REPRS.contains(theGold.getByID(i).print()))
@@ -198,11 +199,11 @@ public class ErrorAnalysis {
 			}
 			else	isHit[i] = true;
 		}
-		pctAcc = numHits / (double) SUBSAMP_SIZE; 
-		pctWithin1 = num1off / (double) SUBSAMP_SIZE;
-		pctWithin2 = num2off / (double) SUBSAMP_SIZE; 
-		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
-		avgFED = totFED / (double) SUBSAMP_SIZE; 
+		pctAcc = numHits / (double) EVAL_SAMP_SIZE; 
+		pctWithin1 = num1off / (double) EVAL_SAMP_SIZE;
+		pctWithin2 = num2off / (double) EVAL_SAMP_SIZE; 
+		avgPED = totLexQuotients / (double) EVAL_SAMP_SIZE; 	
+		avgFED = totFED / (double) EVAL_SAMP_SIZE; 
 		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
@@ -219,9 +220,10 @@ public class ErrorAnalysis {
 
 	public void toDefaultFilter()
 	{
-		SUBSAMP_SIZE = PRESENT_ETS.length;
-		FILTER = new int[SUBSAMP_SIZE];
-		for (int i = 0 ; i < SUBSAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
+		EVAL_SAMP_SIZE = PRESENT_ETS.length;
+			// TODO check likely values of PRESENT_ETS at this point. 
+		FILTER = new int[EVAL_SAMP_SIZE];
+		for (int i = 0 ; i < EVAL_SAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
 		filterSeq = null;
 	}
 	
@@ -1046,13 +1048,14 @@ public class ErrorAnalysis {
 	}
 	
 	//assume indices are constant for the word lists across lexica 
+	//TODO investigate this method... 
 	public void articulateSubsample(String stage_name)
 	{	
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
-		SUBSAMP_SIZE = 0; String etStr = ""; 
+		EVAL_SAMP_SIZE = 0; String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
-		FILTER = new int[SUBSAMP_SIZE]; 
+		FILTER = new int[EVAL_SAMP_SIZE]; 
 		mismatches = new ArrayList<Etymon[]> (); 
 		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
 		
@@ -1074,7 +1077,7 @@ public class ErrorAnalysis {
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
-				SUBSAMP_SIZE += 1; 
+				EVAL_SAMP_SIZE += 1; 
 				etStr += isi+",";
 				if (isHit[isi])	nSSHits+=1; 
 				else	
@@ -1088,7 +1091,7 @@ public class ErrorAnalysis {
 		}
 		
 		
-		FILTER = new int[SUBSAMP_SIZE];
+		FILTER = new int[EVAL_SAMP_SIZE];
 		SS_HIT_IDS = new int[nSSHits];
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
@@ -1114,29 +1117,29 @@ public class ErrorAnalysis {
 		
 		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
 		
-		pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
-		 
-		if (SUBSAMP_SIZE == 0)
+		pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
+		
+		if (EVAL_SAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
-			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
-			System.out.println((""+(double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of whole");
+			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
+			System.out.println((""+(double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of whole");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
 			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 
-			for(int i = 0; i < SUBSAMP_SIZE; i++)
+			for(int i = 0; i < EVAL_SAMP_SIZE; i++)
 			{
 				for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
 				for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
 				
 			}
-			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
-			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
-			avgPED = totPED / (double) SUBSAMP_SIZE; 	
-			avgFED = totFED / (double) SUBSAMP_SIZE; 
+			pctWithin1 = nSS1off / (double) EVAL_SAMP_SIZE;
+			pctWithin2 = nSS2off / (double) EVAL_SAMP_SIZE; 
+			avgPED = totPED / (double) EVAL_SAMP_SIZE; 	
+			avgFED = totFED / (double) EVAL_SAMP_SIZE; 
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
 			for (int i = 0 ; i < goldPhInventory.length; i++)
