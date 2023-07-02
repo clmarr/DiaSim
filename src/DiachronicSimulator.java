@@ -38,7 +38,7 @@ public class DiachronicSimulator {
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
 	private static int[] goldStageInstants, blackStageInstants; // i.e. the index of custom stages in the ordered rule set
-	private static boolean goldStagesSet, blackStagesSet; 
+	private static boolean goldStagesSet, blackStagesSet, columnedStagesSet; 
 	
 	private static boolean goldOutput; 
 	
@@ -348,6 +348,8 @@ public class DiachronicSimulator {
 					// and is interpreted to be the output gold stage.
 	// to be called AFTER extractCascade is. 
 		// goldOutput -- determined here. 
+	//TODO need to modify this for new stagewise lexeme insertion/removal
+		// including TODO GRAY STAGES -- where there is insertion and removal but no comparison/evalution
 	public static void processLexFileHeader(String firstlineproxy)
 	{
 		System.out.println("Processing lexicon stipulations for gold stages..."); 
@@ -434,9 +436,12 @@ public class DiachronicSimulator {
 		
 	}
 	
+	
+	
 	// changes one gold stage to a black stage
 		// modifying global variables and data structures as appropriate. 
 	// int gsi -- the index in data structures of the stage we are blackening. 
+	//TODO need to look through this in light of protodelta branch changes 
 	private static void blackenGoldStage(int gsi)
 	{
 		System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
@@ -531,6 +536,7 @@ public class DiachronicSimulator {
 		}
 	}		
 	
+	//TODO need to implement protodelta expansion -- stagewise insertion/removal, morphology, token frequency, diacritics.
 	public static void main(String args[])
 	{
 		parseArgs(args); 
@@ -636,6 +642,10 @@ public class DiachronicSimulator {
 		*/ 
 		
 		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
+		
+		//TODO probably need to implement some sort of grey stage here -- those where we only have insertion and removal of etyma.
+				// maybe it can underlyingly be black or gold. TODO decide this 
+				// TODO implement.
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
@@ -968,6 +978,8 @@ public class DiachronicSimulator {
 	// this should only be called when a gold stage is called. 
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
+		//TODO need to fix here with regard to inserted etyma.
+		
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 				
