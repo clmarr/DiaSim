@@ -23,7 +23,7 @@ public class Etymon {
 	
 	public Etymon(List<SequentialPhonic> pR)
 	{
-		if (pR.size() != 0) //not an absent or unattesteed etymon (PseudoEtymon)
+		if (pR.size() != 0) //not an absent or unattested etymon (PseudoEtymon)
 		{	
 			phonRep = new ArrayList<SequentialPhonic>(pR); 
 			if (!phonRep.get(0).equals(new Boundary("word bound")))

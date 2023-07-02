@@ -260,7 +260,7 @@ public class Lexicon {
 	 * 		... will make it an effectively black stage lexicon
 	 * 		... that is only used for insertion or removal of etyma.
 	 */
-	public int numPresentEtyma()
+	public int numObservedEtyma()
 	{
 		int cnt= theWordList.length; 
 		for (Etymon lex: theWordList)
@@ -289,7 +289,7 @@ public class Lexicon {
 	// get the ID numbers of all etyma that are actually present. 
 	public int[] IDsWithPresentEtyma() 
 	{
-		int[] ID_array = new int[this.numPresentEtyma()]; 
+		int[] ID_array = new int[this.numObservedEtyma()]; 
 		int id_i = 0; 
 		for (int et_i = 0; et_i < theWordList.length; et_i++)
 		{	if (UTILS.etymonIsPresent(theWordList[et_i]))

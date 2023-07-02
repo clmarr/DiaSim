@@ -111,6 +111,7 @@ public class ErrorAnalysis {
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
 		
+		// unlike the *etymon* indices these are not (and cannot) be held equivalent to each other -- that would be too bbrittle. 
 		resPhInds = new HashMap<String, Integer>(); 
 		goldPhInds = new HashMap<String, Integer>();
 		
@@ -119,10 +120,9 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
 				
-		TOTAL_ETYMA = theRes.getWordList().length;
 		//SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
 		// now basing it off what is actually present in the gold -- not counting unattested, and not counting absent. 
-		SUBSAMP_SIZE = theGold.numPresentEtyma(); 
+		SUBSAMP_SIZE = theGold.numObservedEtyma(); 
 		
 		FILTER = new int[SUBSAMP_SIZE];
 		PRESENT_ETS = new int[SUBSAMP_SIZE];
