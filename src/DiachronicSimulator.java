@@ -988,16 +988,16 @@ public class DiachronicSimulator {
 		boolean cont = true, firstLoop = true; 
 		int evalStage = curSt;  // this should only ever be a gold stage. 
 		SequentialFilter filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
-		Lexicon focPtLex = null;
-		String focPtName = ""; 
-		int focPtLoc = -1; 
-		boolean focPtSet = false, filterIsSet = false;
+		Lexicon pivPtLex = null;
+		String pivPtName = ""; 
+		int pivPtLoc = -1; 
+		boolean pivPtSet = false, filterIsSet = false;
 		
 		while(cont)
 		{
 			if (!firstLoop) 
 				System.out.print("(Eval pt: "+(evalStage == -1 ? "output" : goldStageNames[evalStage])
-					+ "; focus pt: "+(focPtSet ? focPtName.replace("pivot@","") : "none")
+					+ "; pivot pt: "+(pivPtSet ? pivPtName.replace("pivot@","") : "none")
 					+ ")\n(filter sequence: "+(filterIsSet ? filterSeq.toString() : "none")+")\n");
 				
 			firstLoop = false; 
@@ -1005,7 +1005,7 @@ public class DiachronicSimulator {
 			System.out.print(
 					"What would you like to do? Please enter the appropriate number below:\n"
 					+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
-					+ "| 1 : Set focus point (upon which actions are conditioned, incl. filtering [2])       |\n"
+					+ "| 1 : Set pivot point (upon which actions are conditioned, incl. filtering [2])       |\n"
 					+ "| 2 : Set filter sequence                                                             |\n"
 					+ "| 3 : Query                                                                           |\n"
 					+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
@@ -1048,32 +1048,32 @@ public class DiachronicSimulator {
 					r = resp.equals("F") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
 					g = (curSt == -1 && resp.equals("F") ) ? goldOutputLexicon : goldStageGoldLexica[evalStage];
 					boolean filtered = ea.isFiltSet();
-					boolean focused = ea.isFocSet(); 
+					boolean pivoted = ea.isPivotSet(); 
 					
 					ea = new ErrorAnalysis(r, g, featsByIndex, 
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					if (focused) 	ea.setFocus(focPtLex, focPtName);
-					if (filtered) 	ea.setFilter(filterSeq, focPtName);
+					if (pivoted) 	ea.setPivot(pivPtLex, pivPtName);
+					if (filtered) 	ea.setFilter(filterSeq, pivPtName);
 				}
 			}
 			else if (resp.equals("1"))
 			{
-				System.out.println("Setting focus point -- extra stage printed for word list, and point at which we filter to make subsets."); 
-				System.out.println("Current focus point lexicon: "+(focPtSet ? focPtName : "not (yet) defined"));
+				System.out.println("Setting pivot point -- extra stage printed for word list, and point at which we filter to make subsets."); 
+				System.out.println("Current pivot point lexicon: "+(pivPtSet ? pivPtName : "not (yet) defined"));
 				System.out.println("Current filter : "+(filterIsSet ? filterSeq.toString() : "not (yet) defined")); 
 				
 				boolean chosen = false; 
 				while(!chosen)
 				{
-					System.out.println("Available options for focus point:");
+					System.out.println("Available options for pivot point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.println("In: use time of inp as focus point (i.e. filter by input forms)"
+					System.out.println("In: use time of inp as pivot point (i.e. filter by input forms)"
 							+ "\nOut: filter in terms of generated output forms"
 							+ "\nGold: filter by correct observed (gold) forms for output (or last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
 							+ "\nR#: right before rule with index number <#>"
 							+ "(you can find rule indices with option 3 to query on the main menu)"
-							+ "\nKeep: keep the current focus pt (or lack of a focus pt) and return"
+							+ "\nKeep: keep the current pivot pt (or lack of a pivot pt) and return"
 							+ "\nPlease enter the appropriate indicator."); 
 					
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
@@ -1089,7 +1089,7 @@ public class DiachronicSimulator {
 					if(!chosen)
 					{
 						if(resp.equals("R0"))	System.out.println("Invalid input: 'R0' is not a valid option -- instead choose 'In' "
-								+ "to delete focus point and use the input for filtering");
+								+ "to delete pivot point and use the input for filtering");
 						else if (resp.charAt(0) == 'g' && !goldStagesSet)
 							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
 						else if (resp.charAt(0) == 'b' && !blackStagesSet)
@@ -1106,63 +1106,63 @@ public class DiachronicSimulator {
 					}
 					else
 					{	
-						focPtSet = true; 
+						pivPtSet = true; 
 						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
 							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds.
 						if(resp.charAt(0) == 'g')
 						{
 							int si = Integer.parseInt(resp.substring(1));
-							focPtLex = goldStageGoldLexica[si]; 
-							focPtLoc = goldStageInstants[si];
-							focPtName = goldStageNames[si]+" [r"+focPtLoc+"]";
-							ea.setFocus(focPtLex, focPtName); 
+							pivPtLex = goldStageGoldLexica[si]; 
+							pivPtLoc = goldStageInstants[si];
+							pivPtName = goldStageNames[si]+" [r"+pivPtLoc+"]";
+							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'b')
 						{
 							int si = Integer.parseInt(resp.substring(1));
-							focPtLex = theSimulation.getStageResult(false, si);
-							focPtLoc = blackStageInstants[si];
-							focPtName = blackStageNames[si]+" [r"+focPtLoc+"]";
-							ea.setFocus(focPtLex, focPtName); 
+							pivPtLex = theSimulation.getStageResult(false, si);
+							pivPtLoc = blackStageInstants[si];
+							pivPtName = blackStageNames[si]+" [r"+pivPtLoc+"]";
+							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'R')
 						{
-							focPtLoc = Integer.parseInt(resp.substring(1)); 
-							focPtLex = UTILS.toyDerivation(theSimulation,CASCADE.subList(0, focPtLoc)).getCurrentResult();
-							focPtName = "pivot@R"+focPtLoc; 
-							ea.setFocus(focPtLex, focPtName); 
+							pivPtLoc = Integer.parseInt(resp.substring(1)); 
+							pivPtLex = UTILS.toyDerivation(theSimulation,CASCADE.subList(0, pivPtLoc)).getCurrentResult();
+							pivPtName = "pivot@R"+pivPtLoc; 
+							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (!resp.equals("Keep"))
 						{
-							focPtLoc = -1; focPtLex = null; focPtName = ""+resp;
+							pivPtLoc = -1; pivPtLex = null; pivPtName = ""+resp;
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
 									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
 								filterIsSet = false; 
-								focPtName = "";
-								focPtSet = false; 
+								pivPtName = "";
+								pivPtSet = false; 
 							}
 							else
 							{	
-								focPtLex = resp.equals("In") ? theSimulation.getInput() : 
+								pivPtLex = resp.equals("In") ? theSimulation.getInput() : 
 								resp.equals("Out") ? theSimulation.getCurrentResult() : 
 									(curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt];
-								ea.setFocus(focPtLex,focPtName);
+								ea.setPivot(pivPtLex,pivPtName);
 							}
 						}
 					}	
 				}
 			}
-			else if (resp.equals("2") && !focPtSet)
-				System.out.println("Error: cannot set a filter sequence without first setting a focus point.\nUse option '1' on the menu.");
+			else if (resp.equals("2") && !pivPtSet)
+				System.out.println("Error: cannot set a filter sequence without first setting a pivot point.\nUse option '1' on the menu.");
 			else if (resp.equals("2"))
 			{
 				boolean fail = true; 
 				
 				System.out.println("Setting filter sequence to define lexicon subsample.");
-				System.out.println("[Filtering from "+focPtName.replace("pivot@","")+"]"); 
+				System.out.println("[Filtering from "+pivPtName.replace("pivot@","")+"]"); 
 				
 				while(fail)
 				{	
@@ -1189,12 +1189,12 @@ public class DiachronicSimulator {
 						if(!fail)
 						{
 							System.out.println("Success: now making subsample with filter "+filterSeq.toString());
-							System.out.println("(Pivot moment name: "+focPtName+")");
+							System.out.println("(Pivot moment name: "+pivPtName+")");
 							
 							//TODO debugging
 							System.out.println("Filter seq : "+filterSeq);
 							
-							ea.setFilter(filterSeq,focPtName);
+							ea.setFilter(filterSeq,pivPtName);
 							filterIsSet = true; 
 						}
 					}
@@ -1299,7 +1299,7 @@ public class DiachronicSimulator {
 			{
 				if(!ea.isFiltSet())
 					System.out.println("Error: tried to do context autopsy without beforehand setting filter stipulations: You can do this with 2.");
-				else if (!ea.isFocSet()) System.out.println("Error: can't do context autopsy without first setting focus point. Use option 1.");
+				else if (!ea.isPivotSet()) System.out.println("Error: can't do context autopsy without first setting pivot point. Use option 1.");
 				else	ea.contextAutopsy();				
 			}
 			else if(resp.equals("6"))
@@ -1310,7 +1310,7 @@ public class DiachronicSimulator {
 				
 					System.out.print("What results would you like to check? Please enter the appropriate number:\n"
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
-						+ "| 1 : Print all corresponding forms (init(,focus),res,gold) (for subset if specified) |\n"
+						+ "| 1 : Print all corresponding forms (init(,pivot),res,gold) (for subset if specified) |\n"
 						+ "| 2 : Print all corresponding forms as above for all mismatched etyma                 |\n"
 						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)         |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
@@ -1319,7 +1319,7 @@ public class DiachronicSimulator {
 					
 					if(resp.equals("0"))
 					{
-						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+focPtName : "" ));
+						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+pivPtName : "" ));
 						
 						System.out.println("Overall accuracy : "+ea.getAccuracy());
 						System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
@@ -1331,13 +1331,13 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								"etyma: Input, " + (ea.isFocSet() ? "FOC: "+focPtName+"," : "")
+								"etyma: Input, " + (ea.isPivotSet() ? "PIV: "+pivPtName+"," : "")
 								+"Result, Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}
 					else if(resp.equals("3"))
 					{
-						System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+focPtName : "" ));
+						System.out.println("Printing all mismatched etyma" + (ea.isFiltSet() ? " for filter "+filterSeq.toString()+" at "+pivPtName : "" ));
 						System.out.println("Res : Gold");
 						List<Etymon[]> mms = ea.getCurrMismatches(new ArrayList<SequentialPhonic>(), true);
 						for (Etymon[] mm : mms)
