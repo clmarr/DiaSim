@@ -23,7 +23,6 @@ public class Lexicon {
 		theWords.toArray(theWordList);
 	}
 	
-	// the
 	public Lexicon(LexPhon[] theWords)
 	{
 		theWordList = new LexPhon[theWords.length];
@@ -46,11 +45,14 @@ public class Lexicon {
 	
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
 		//occurs at least once in a word in the  lexicon
+	// this returns frequency, not frequency RATE!
 	public HashMap<String, Integer> getPhoneFrequenciesByWord()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
 		for (LexPhon lex : theWordList)
 		{
+			if (!UTILS.etymonIsPresent(lex))	continue; 
+			
 			List<SequentialPhonic> lexPhonRep = lex.getPhonologicalRepresentation();
 			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 
 			for (SequentialPhonic ph : lexPhonRep)
@@ -73,17 +75,21 @@ public class Lexicon {
 	public LexPhon[] getWordList()
 	{	return theWordList;	}
 	
-	public boolean[] getPhonePresenceByEt(Phone ph)
+	
+	// does not appear to be in use. 
+	public boolean[] getPhonePresenceByEtTEST(Phone ph)
 	{
 		boolean[] out = new boolean[theWordList.length];
 		for (int wi = 0 ; wi < theWordList.length; wi++)
 		{
-			out[wi] = theWordList[wi].toString().equals("[ABSENT]") ? false : theWordList[wi].findPhone(ph) != -1; 
+			out[wi] = 
+					UTILS.etymonIsPresent(theWordList[wi]) 
+						? theWordList[wi].findPhone(ph) != -1 : false;  
 		}
 		return out;
 	}
 	
-	// "Get changed" -- i.e. we get them by hvaing their indexes be true.
+	// "Get changed" -- i.e. we get them by having their indexes be true.
 	// used for writing the trajectory files as the lexicon moves forward through time.
 	public boolean[] applyRuleAndGetChangedWords(SChange rule)
 	{
@@ -94,6 +100,9 @@ public class Lexicon {
 		{
 			if(theWordList[wli].print().equals(UTILS.ABSENT_REPR))	
 				wordsChanged[wli] = false;
+			else if (theWordList[wli].print().equals(UTILS.UNATTD_REPR))
+				throw new RuntimeException("Alert: tried to implement a rule on an UnattestedLexPhon instance (index = "+wli+"). Check this."); 
+			
 			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
 			else	wordsChanged[wli] = false; 
 		}
