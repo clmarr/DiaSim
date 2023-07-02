@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * @author Clayton Marr
  * TODO implement this to model words that enter the vocabulary late or leave it early in next project.
  */
-public class AbsentLexPhonTest extends LexPhon {
+public class AbsentLexPhon extends LexPhon {
 	
 	public AbsentLexPhon()
 	{	super(new ArrayList<SequentialPhonic>());	}

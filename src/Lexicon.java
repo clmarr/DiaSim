@@ -206,7 +206,7 @@ public class Lexicon {
 								// to continue the absence of an etymon
 					theWordList[wi] = 
 						new LexPhon(et_here.getPhonologicalRepresentation());
-				}}
+			}}
 		
 			// remove from lexicon. 
 			if(et_here.print().equals(UTILS.ABSENT_REPR))
@@ -216,6 +216,18 @@ public class Lexicon {
 		}
 	}
 
+	/**
+	 * cloning constructor for LexPhon objects outside of the LexPhon class to avoid class hierarchy-related issues 
+	 * 		that could arise if @param origin is in fact an AbsentLexPhon or UnattestedLexPhon
+	 * @param origin -- LexPhon object to clone
+	 * @return
+	 */
+	public LexPhon cloneLexeme (LexPhon origin)
+	{
+		if (UTILS.ABSENT_REPR.equals(origin.print()))	return new AbsentLexPhon(); 
+		else if (UTILS.UNATTD_REPR.equals(origin.print()))	return new UnattestedLexPhon(); 
+	}
+	
 	/**
 	 * @return number of etyma in this lexicon that are actually present
 	 * 	if this is not the lexicon being operated upon, a result of zero 

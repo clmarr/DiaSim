@@ -16,9 +16,9 @@ public class UnattestedLexPhon extends LexPhon {
 	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
-	public String toString()	{	return UTILS.UNATTESTED_REPR;	}
+	public String toString()	{	return UTILS.UNATTD_REPR;	}
 	
-	public String print() {	return UTILS.UNATTESTED_REPR;	}
+	public String print() {	return UTILS.UNATTD_REPR;	}
 
 	//TODO: override or throw errors for LexPhon methods from findSequence onward? 
 	

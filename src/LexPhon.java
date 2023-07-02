@@ -32,14 +32,7 @@ public class LexPhon {
 		this.morphSynSpecs = new HashMap<String,String>(); 
 		this.frequency = -1.0; 
 		this.domains = new ArrayList<String>(); 
-	}
-	
-	// clone constructor 
-	public LexPhon (LexPhon lP)
-	{
-		if (lP.print().equals(UTILS.ABSENT_REPR))	
-	}
-	
+	}	
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
 	{	return phonRep;	}
