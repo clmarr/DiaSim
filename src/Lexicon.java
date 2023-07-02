@@ -201,13 +201,13 @@ public class Lexicon {
 	 * 			or ">*" which makes an unattested (but present) UnattestedLexPhon 
 	 */
 		//
-	//TODO work here 
 	public void updateAbsence(LexPhon[] etymaInColumn)
 	{
 		int theLen = etymaInColumn.length;
 		
 		if (theLen != theWordList.length)
-			throw new RuntimeException("ERROR: mismatch on vocab size of new gold stage and lexicon!");
+			throw new RuntimeException("ERROR: mismatch on vocab size of current column ("
+					+theLen+") and lexicon under reconstruction ("+theWordList.length+")! Investigate this!");
 		
 		for (int wi = 0 ; wi < theLen ; wi++)
 		{	
@@ -228,7 +228,8 @@ public class Lexicon {
 			if(et_here.print().equals(UTILS.ABSENT_REPR))
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 					theWordList[wi] = new AbsentLexPhon(); 
-		
+			
+			// don't need to do anything for unattested ">*" entries -- point is that they keep things. 
 		}
 	}
 
