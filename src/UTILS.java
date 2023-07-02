@@ -34,7 +34,7 @@ public class UTILS {
 	public static final int PRINTERVAL = 100; 
 
 	public static boolean etymonIsPresent (Etymon etym)	
-	{	return PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
+	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
 	public static int getFeatspecIntFromMark (char mark) 
 	{

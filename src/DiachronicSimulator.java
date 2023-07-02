@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -416,6 +417,8 @@ public class DiachronicSimulator {
 						+ "(or remove possible accidental stage flags in the cascade file) "
 						+ "if this is not what was intended."); 
 				
+				
+				
 				//TODO debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
 				
@@ -452,45 +455,38 @@ public class DiachronicSimulator {
 	// changes one gold stage to a black stage
 		// modifying global variables and data structures as appropriate. 
 	// int gsi -- the index in data structures of the stage we are blackening. 
-	//TODO need to look through this in light of protodelta branch changes 
+	//TODO as of July 2023 this now creates COLUMNED black stages! 
+	// there is no change in the number of columned stages, but there will be one more columned black stage. 
+	// note that the number of columned black stages is always effectively NUM_COLUMNED_STAGES - NUM_GOLD STAGES
 	private static void blackenGoldStage(int gsi)
 	{
-		System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
-	
-		int[] oldGoldStageInstants, oldBlackStageInstants; 
+		System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]
+				+ ", to columned black stage.");
+		
+		//TODO work below here.
+		
+		int[] oldGoldStageInstants, oldBlackStageInstants;  
 		String[] oldGoldStageNames, oldBlackStageNames; 
 		
+		oldGoldStageInstants =  new int[NUM_GOLD_STAGES];	oldGoldStageNames = new String[NUM_GOLD_STAGES];
+		oldBlackStageInstants = new int[NUM_BLACK_STAGES];	oldBlackStageNames = new String[NUM_BLACK_STAGES];
 		
-		oldGoldStageInstants =  new int[NUM_GOLD_STAGES];
-		oldGoldStageNames = new String[NUM_GOLD_STAGES];
-		oldBlackStageInstants = new int[NUM_BLACK_STAGES]; 
-		oldBlackStageNames = new String[NUM_BLACK_STAGES];
-		if (goldStagesSet)
-		{
-			
-			for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
-			{
-				oldGoldStageInstants[gi] = goldStageInstants[gi]; 
-				oldGoldStageNames[gi] = goldStageNames[gi]; 	
-			}
-		}
+		if (goldStagesSet) // of course this should always be true. 
+		{	for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
+			{	oldGoldStageInstants[gi] = goldStageInstants[gi]; 	oldGoldStageNames[gi] = goldStageNames[gi]; 	}	}
+		
 		if (blackStagesSet)
-		{ 	
-			for (int bi = 0; bi < NUM_BLACK_STAGES; bi++)
-			{
-				oldBlackStageInstants[bi] = blackStageInstants[bi];
-				oldBlackStageNames[bi] = blackStageNames[bi];
-			}
-		}
+		{ 	for (int bi = 0; bi < NUM_BLACK_STAGES; bi++)
+			{	oldBlackStageInstants[bi] = blackStageInstants[bi];	oldBlackStageNames[bi] = blackStageNames[bi];	}	}
 		
-		int instantToBlacken = goldStageInstants[gsi];
-		String nameToBlacken = goldStageNames[gsi];
+		//int instantToBlacken = goldStageInstants[gsi];	String nameToBlacken = goldStageNames[gsi];
+		// above are abrogated.		
 		
 		NUM_GOLD_STAGES--;
 		NUM_BLACK_STAGES++;
 		if (NUM_BLACK_STAGES == 1)	blackStagesSet = true;
 		if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
-		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
+		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; // originally this was to change the length of the array. 
 		
 		goldStageNames = new String[NUM_GOLD_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
@@ -545,7 +541,56 @@ public class DiachronicSimulator {
 				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			soi++; 
 		}
-	}		
+		
+		columnedStagesSet = true; 
+	}	
+	
+	/**
+	 * determine if the column with the index (@param col_ind) in the array of columned cells that are potentially gold Lexica
+	 * 	should be blackened to a columned black stage
+	 * 	this is to occur if it consists of only insertions and deletions
+	 * 		which is determined by the presence of PseudoEtymon objects. 
+	 * @param stage_cells -- column/row combinations from the lexicon after being parsed by parseLexPhon.
+	 * 		dimensions should be [column][row] 
+	 * @param col_ind index of column to check. Note that this does not include the input column. 
+	 * 		in practice this should not be called for the final column. 
+	 * @prerequisite -- inputForms and NUM_ETYMA must be set. 
+	 * @return
+	 */
+	private static boolean columnToBeBlackened(Etymon[][] stage_cells, int col_ind)
+	{
+
+		//List<Etymon> comparanda = Arrays.asList( col_ind == 0 ? inputForms : stage_cells[col_ind-1]); 
+			//abrogated for now ^ 
+		
+		
+		//false if there's ever (at the least) an Etymon object that isn't a PseudoEtymon (e.g. has a phonological representation) 
+			// that is in the same row as an earlier 
+			// if make it to the end... true.
+		
+		for (int row_ind = 0 ; row_ind < NUM_ETYMA; row_ind ++)
+		{
+			if (!UTILS.etymonIsPresent(stage_cells[col_ind][row_ind]))	continue; 
+			
+			//otherwise this will trigger false if and only if there is phonological material here that is not an *insertion*. 
+			//if previous column in the row is an absent etymon, it's obviously an insertion...
+			// if previous column is unattested, see what it's continuing by looking further back as long as unattested etyma indications go back. 
+			//	 	brekaing the loop and calling false if phonological material is found. 
+			// 		and continuing on if an a specification that the etymon was absent is found -- i.e. the same behavior as if it was actually absent. 
+			int col_before = col_ind - 1; 
+			while (col_before < 0 ? false : UTILS.UNATTD_REPR.equals(stage_cells[col_before][row_ind]))	
+				col_before--; 
+			
+			Etymon prevCell = col_before == -1 ? inputForms[row_ind] : stage_cells[col_before][row_ind]; 
+			
+			if (UTILS.etymonIsPresent(prevCell))	return false; 
+			
+			//if (UTILS.ABSENT_REPR.equals(prevCell.print()))	continue; 
+			// effectively, the loop continues otherwise.
+		}
+		return true; 
+		
+	}
 	
 	//TODO need to implement protodelta expansion -- stagewise insertion/removal, morphology, token frequency, diacritics.
 	public static void main(String args[])
@@ -611,8 +656,9 @@ public class DiachronicSimulator {
 		
 		inputForms = new Etymon[NUM_ETYMA];
 		Etymon[] goldResults = new Etymon[NUM_ETYMA];  
-		Etymon[][] goldForms = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA];
-
+		Etymon[][] columnedForms = new Etymon[NUM_COLUMNED_STAGES][NUM_ETYMA];
+			//TODO need to inspect wherever this is called!
+			
 		int lfli = 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
@@ -626,7 +672,7 @@ public class DiachronicSimulator {
 				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
-						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
+						columnedForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
 				if (goldOutput)
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
@@ -635,10 +681,17 @@ public class DiachronicSimulator {
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 
-		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
+		// TODO blacken gold stages that consist of only insertion and removal here! 
+		
+		
+		/** NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point. 
+			* -- as of summer 2023 not sure what that point was,
+			* but with protodelta expansion they are now used for insertion and removal of etyma, 
+			* as with the black columned stage etyma array.*/ 
+		//TODO modify this so that it handles both gold stages and columned black stages. 
 		if(NUM_GOLD_STAGES > 0)
 			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
+				goldStageGoldLexica[gsi] = new Lexicon(columnedForms[gsi]); 
 		
 		if(goldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
@@ -659,7 +712,7 @@ public class DiachronicSimulator {
 				// TODO implement.
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (goldOutput)	theSimulation.setGold(goldResults);
-		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
+		if (goldStagesSet)	theSimulation.setGoldStages(columnedForms, goldStageNames, goldStageInstants);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
 
