@@ -26,13 +26,20 @@ public class LexPhon {
 				phonRep.add(0, new Boundary("word bound")); 
 			if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
 				phonRep.add(new Boundary("word bound")); 
-			this.lemma = ""; 
-			this.lexClass = ""; 
-			this.morphSynSpecs = new HashMap<String,String>(); 
-			this.domains = new ArrayList<String>(); 
-			this.frequency = -1.0; 
 		}
+		this.lemma = ""; 
+		this.lexClass = ""; 
+		this.morphSynSpecs = new HashMap<String,String>(); 
+		this.frequency = -1.0; 
+		this.domains = new ArrayList<String>(); 
 	}
+	
+	// clone constructor 
+	public LexPhon (LexPhon lP)
+	{
+		if (lP.print().equals(UTILS.ABSENT_REPR))	
+	}
+	
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
 	{	return phonRep;	}
@@ -124,25 +131,6 @@ public class LexPhon {
 	public boolean checkDomain(String dom)	{	return domains.contains(dom); 	}
 	public List<String> getDomains() {	return domains;	}
 	
-	public void setLemma(String lemma) {	this.lemma = lemma;	}
-
-	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
-	
-	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
-	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}
-	public void resetMorphSynSpecs	(HashMap<String,String> newSpecs)	
-	{	morphSynSpecs = new HashMap<String, String> (newSpecs);	}
-	
-	public void setFrequency(double freq)	{	this.frequency = freq; 	}
-
-	public void addDomain(String domain) {
-		this.domains.add(domain);
-	}
-	
-	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
-	
-	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
-	
 	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
 	public int getNumPhones()
 	{
@@ -151,11 +139,6 @@ public class LexPhon {
 			if(sp.getType().equals("phone"))
 				count++; 
 		return count; 
-	}
-	
-	public int phRepLen()
-	{
-		return phonRep.size();
 	}
 	
 	public int findSequence(RestrictPhone[] sequence)
@@ -214,6 +197,32 @@ public class LexPhon {
 		}
 		return 0;
 	}
+	
+	public void setLemma(String lemma) {	this.lemma = lemma;	}
+
+	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
+	
+	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
+	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}
+	public void resetMorphSynSpecs	(HashMap<String,String> newSpecs)	
+	{	morphSynSpecs = new HashMap<String, String> (newSpecs);	}
+	
+	public void setFrequency(double freq)	{	this.frequency = freq; 	}
+
+	public void addDomain(String domain) {
+		this.domains.add(domain);
+	}
+	
+	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
+	
+	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
+	
+	public int phRepLen()
+	{
+		return phonRep.size();
+	}
+	
+	
 	
 	
 	

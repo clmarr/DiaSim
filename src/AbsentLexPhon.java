@@ -21,4 +21,6 @@ public class AbsentLexPhonTest extends LexPhon {
 	
 	public String print() {		return "[ABSENT]";	}
 	
+	//TODO: override or throw errors for LexPhon methods from findSequence onward? 
+	
 }

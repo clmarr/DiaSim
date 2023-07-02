@@ -847,7 +847,7 @@ public class DiachronicSimulator {
 		
 		if (toLex.equals(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
-		if (toLex.equals(UTILS.UNATTESTED_REPR))
+		if (toLex.equals(UTILS.UNATTESTED_PH_INDIC))
 			return new UnattestedLexPhon();	
 		
 		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);

@@ -19,5 +19,7 @@ public class UnattestedLexPhon extends LexPhon {
 	public String toString()	{	return UTILS.UNATTESTED_REPR;	}
 	
 	public String print() {	return UTILS.UNATTESTED_REPR;	}
+
+	//TODO: override or throw errors for LexPhon methods from findSequence onward? 
 	
 }

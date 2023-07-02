@@ -1531,6 +1531,8 @@ public class SimulationTester {
 		
 		if (toLex.equals(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
+		else if (toLex.equals(UTILS.UNATTESTED_PH_INDIC))
+			return new UnattestedLexPhon(); 
 		
 		String[] toPhones = toLex.split(""+UTILS.PH_DELIM);
 		

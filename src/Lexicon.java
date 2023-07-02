@@ -172,10 +172,19 @@ public class Lexicon {
 		return count;
 	}
 	
-	//update which phones are absent (not yet in language or fell out of use) 
-		//based on whether they are absent or not in the latest column in lexicon file. 
-	// this is to be implemented on the lexicon that is undergoing forward reconstruction
-	// NOT the gold lexicon! 
+	/**
+	 * update which phones are absent (not yet in language or fell out of use) 
+	 * based on whether they are absent or not in the latest column in lexicon file. 
+	 * this is to be implemented on the lexicon that is undergoing forward reconstruction
+	 * NOT upon a gold lexicon! 
+	 * @param etymaInColumn -- array ([]) of LexPhon objects derived (probably via DiachronicSimulator.parseLexPhon() 
+	 * 		from String valued cells in a column of a lexicon file -- i.e. the forms associated for a certain stage
+	 * 		which may be a proper LexPhon, which should be used for attested (GOLD) forms to compare to
+	 * 			or "--" which will make an AbsentLexPhon
+	 * 				 -- either not present yet in the language, or removed
+	 * 			or ">*" which makes an unattested (but present) UnattestedLexPhon 
+	 */
+		//
 	//TODO work here 
 	public void updateAbsence(LexPhon[] etymaInColumn)
 	{
@@ -188,18 +197,22 @@ public class Lexicon {
 		{	
 			LexPhon et_here = etymaInColumn[wi]; 
 			
+			// if the etymon is still absent in the lexicon being CFR-d, but present in the stage spec'd forms..
+				// ... then insert it! 	
 			if(theWordList[wi].print().equals(UTILS.ABSENT_REPR))
-				if(UTILS.etymonIsPresent(et_here))						
-						//	original condition  : !etymaInColumn[wi].print().equals(UTILS.ABSENT_REPR))
+			{	if(UTILS.etymonIsPresent(et_here))						
+				{		//	original condition  : !etymaInColumn[wi].print().equals(UTILS.ABSENT_REPR))
 								// -- however in practice allow "errors" whereby someone uses ">*" 
 								// to continue the absence of an etymon
 					theWordList[wi] = 
 						new LexPhon(et_here.getPhonologicalRepresentation());
+				}}
 		
 			// remove from lexicon. 
 			if(et_here.print().equals(UTILS.ABSENT_REPR))
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 					theWordList[wi] = new AbsentLexPhon(); 
+		
 		}
 	}
 

@@ -9,6 +9,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ErrorAnalysis {
+	
+	//TODO July 1 2023 run through this class and update for insertion/removal of etyma, but also make sure everything is clear
+		// perhaps also investigate possible sources of the "Infinite" error rate discovered earlier... 
+
 	private int[] levDists; 
 	private int[] FILTER; //indices of all etyma in subset
 	private int[] PRESENT_ETS; 
@@ -44,7 +48,7 @@ public class ErrorAnalysis {
 	
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	
-	private int NUM_ETYMA, SUBSAMP_SIZE;
+	private int TOTAL_ETYMA, SUBSAMP_SIZE;
 	private double TOT_ERRS;
 	
 	private FED featDist;
@@ -60,14 +64,15 @@ public class ErrorAnalysis {
 	{
 		RES = theRes;
 		GOLD = theGold; 
-		FOCUS = null; //must be manually set later.
 		
-		filtSet = false;
+		FOCUS = null; //must be manually set later -- e.g setFocus()
+		filtSet = false; // set with setFilter() later
 		focSet = false;
 		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
-		NUM_ETYMA = theRes.getWordList().length;
+		TOTAL_ETYMA = theRes.getWordList().length;
+			// total etyma, present or not at this moment 
 		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
@@ -80,7 +85,7 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
 				
-		NUM_ETYMA = theRes.getWordList().length;
+		TOTAL_ETYMA = theRes.getWordList().length;
 		//SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
 		// now basing it off what is actually present in the gold -- not counting unattested, and not counting absent. 
 		SUBSAMP_SIZE = theGold.numPresentEtyma(); 
@@ -88,7 +93,7 @@ public class ErrorAnalysis {
 		FILTER = new int[SUBSAMP_SIZE];
 		PRESENT_ETS = new int[SUBSAMP_SIZE];
 		int fi = 0;
-		for (int i = 0 ; i < NUM_ETYMA; i++)
+		for (int i = 0 ; i < TOTAL_ETYMA; i++)
 		{	if (!UTILS.PSEUDO_LEXPHON_REPRS.contains(theGold.getByID(i).print()))
 						/**old conditioning below -- deleted per July 1 2023 rework to include etyma insertion and removal
 			* !theRes.getByID(i).print().equals(ABS_PR)) 
@@ -99,8 +104,8 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		isPhInResEt = new boolean[resPhInventory.length][NUM_ETYMA]; 
-		isPhInGoldEt = new boolean[goldPhInventory.length][NUM_ETYMA]; 
+		isPhInResEt = new boolean[resPhInventory.length][TOTAL_ETYMA]; 
+		isPhInGoldEt = new boolean[goldPhInventory.length][TOTAL_ETYMA]; 
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
@@ -113,15 +118,15 @@ public class ErrorAnalysis {
 		
 		mismatches = new ArrayList<LexPhon[]>();
 		
-		levDists = new int[NUM_ETYMA]; 
-		peds = new double[NUM_ETYMA];
-		feds = new double[NUM_ETYMA];
-		isHit = new boolean[NUM_ETYMA];
+		levDists = new int[TOTAL_ETYMA]; 
+		peds = new double[TOTAL_ETYMA];
+		feds = new double[TOTAL_ETYMA];
+		isHit = new boolean[TOTAL_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 				
-		IN_SUBSAMP = new boolean[NUM_ETYMA]; 
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
 		
-		for (int i = 0 ; i < NUM_ETYMA ; i++)
+		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
 			IN_SUBSAMP[i] = true; 		// until filter is set, all words are "in the subsample"
 
@@ -164,7 +169,7 @@ public class ErrorAnalysis {
 		pctWithin2 = num2off / (double) SUBSAMP_SIZE; 
 		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
 		avgFED = totFED / (double) SUBSAMP_SIZE; 
-		TOT_ERRS = (double)NUM_ETYMA - numHits;
+		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -205,9 +210,9 @@ public class ErrorAnalysis {
 		
 		focSet = true; 
 		
-		isPhInPivEt = new boolean[pivotPhInventory.length][NUM_ETYMA]; 
+		isPhInPivEt = new boolean[pivotPhInventory.length][TOTAL_ETYMA]; 
 		int[] pivPhCts = new int[pivotPhInventory.length]; 
-		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
+		for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)
 		{
 			LexPhon currEt = FOCUS.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
@@ -224,7 +229,7 @@ public class ErrorAnalysis {
 		{
 			errorsByPivotPhone =  new int[pivotPhInventory.length];
 			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
-			for (int ei = 0 ; ei < NUM_ETYMA ; ei++)	
+			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
 				if(!isHit[ei])
 					for (SequentialPhonic pivPh : FOCUS.getByID(ei).getPhOnlySeq())
@@ -948,7 +953,7 @@ public class ErrorAnalysis {
 			
 			
 			double totLevDist = 0.0, totFED = 0.0;
-			for (int eti = 0 ; eti < NUM_ETYMA; eti++)
+			for (int eti = 0 ; eti < TOTAL_ETYMA; eti++)
 			{
 				if(phInEt[ph_ind_str][eti])	
 				{
@@ -1009,7 +1014,7 @@ public class ErrorAnalysis {
 	//assume indices are constant for the word lists across lexica 
 	public void articulateSubsample(String stage_name)
 	{	
-		IN_SUBSAMP = new boolean[NUM_ETYMA];
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
 		SUBSAMP_SIZE = 0; String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
@@ -1024,7 +1029,7 @@ public class ErrorAnalysis {
 		errorRateByGoldPhone = new double[goldPhInventory.length];
 		errorRateByPivotPhone = new double[pivotPhInventory.length];
 				
-		for (int isi = 0; isi < NUM_ETYMA ; isi++)
+		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
 			if(FOCUS.getByID(isi).toString().equals(ABS_PR))
 				IN_SUBSAMP[isi] = false;
@@ -1081,7 +1086,7 @@ public class ErrorAnalysis {
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
 			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
-			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
+			System.out.println((""+(double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of whole");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
 			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
