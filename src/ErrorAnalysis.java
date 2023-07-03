@@ -1119,19 +1119,6 @@ public class ErrorAnalysis {
 			avgPED = totPED / (double) SUBSAMP_SIZE; 	
 			avgFED = totFED / (double) SUBSAMP_SIZE; 
 			
-			//TODO debugging
-			System.out.println("ph inventory counts...");
-			
-			System.out.println("For reconstructed lexicon: ");
-			for (int phi = 0; phi < resPhInventory.length; phi++)
-				System.out.println(resPhInventory[phi].print()+": "+resPhCts[phi]+"; errors: "+errorsByResPhone[phi]); 
-			System.out.println("For gold lexicon: "); 
-			for (int phi = 0; phi < goldPhInventory.length; phi++)
-				System.out.println(goldPhInventory[phi].print()+": "+goldPhCts[phi]+"; errors: "+errorsByGoldPhone[phi]); 	
-			System.out.println("For pivot lexicon: "); 
-			for (int phi = 0; phi < pivotPhInventory.length; phi++)
-				System.out.println(pivotPhInventory[phi].print()+": "+pivPhCts[phi]+"; errors: "+errorsByPivotPhone[phi]); 	
-			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
 			for (int i = 0 ; i < goldPhInventory.length; i++)
