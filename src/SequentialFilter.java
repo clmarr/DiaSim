@@ -296,7 +296,7 @@ public class SequentialFilter {
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
 		
-		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
+		if(minSize == 0)	throw new Error("You shouldn't be using filterSequence.filtMatchBounds with filter with no necessary length.");
 		if(minSize > pr.size())	return new ArrayList<int[]>(); 
 
 		List<int[]> out = new ArrayList<int[]>(); 

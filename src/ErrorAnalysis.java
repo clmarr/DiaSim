@@ -1053,6 +1053,7 @@ public class ErrorAnalysis {
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
 		SS_MISS_BOUNDS = new ArrayList<List<int[]>>(); 
+			//the _BOUNDS variables are serving an additional indexing role for building FILTER here
 		
 		while (etStr.contains(",") && etStr.length()>1)
 		{
