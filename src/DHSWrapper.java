@@ -463,10 +463,10 @@ public class DHSWrapper {
 					+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
 					+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
 					+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
-					+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
-					+ "\t\t\t:'get etym at X', to get the etymon at index <X>.\n"
-					+ "\t\t\t:'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
-					+ "\t\t\t:'get lexicon', print entire lexicon with etyma mapped to inds.\n");
+					+ "\t\t\t (BUGGED) 'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
+					+ "\t\t\t'get etym at X', to get the etymon at index <X>.\n"
+					+ "\t\t\t'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
+					+ "\t\t\t'get lexicon', print entire lexicon with etyma mapped to inds.\n");
 			resp = inpu.nextLine().replace("\n", "");
 			forkAt = UTILS.getValidInd(resp, originalLastMoment);
 			// TODO make sure it is correct to use base's last moment as max here...
@@ -482,7 +482,13 @@ public class DHSWrapper {
 				System.out.println(INV_RESP_MSG + ". There are only " + (originalLastMoment + 1) + " timesteps.");
 			else if (!resp.contains("get ") || resp.length() < 10)
 				System.out.println(INV_RESP_MSG);
-			else if (resp.equals("get cascade")) {
+			else if (resp.equals("get cascade") && proposedChanges.size() == 0)
+			{
+				System.out.println("Note that you don't have any current proposed changes, so this is just the original cascade:"); 
+				for(int ci = 0 ; ci < baseCASC.size(); ci++) 
+					System.out.println(""+ci+": "+baseCASC.get(ci)); 
+			}
+			else if (resp.equals("get cascade") /**&& proposedChanges.size() > 0**/ ) {
 				int ci = 0, gsi = 0, bsi = 0, firstFork = proposedChanges.size() > 0 ? originalLastMoment
 						: Integer.parseInt(proposedChanges.get(0)[0]);
 				while (ci < firstFork) {
@@ -548,7 +554,8 @@ public class DHSWrapper {
 					System.out.println(
 							ci + (ci == hci ? "->" + hci : "") + ": Last moment, after final rule and before output.");
 				}
-			} else if (resp.equals("get lexicon")) {
+			} 
+			else if (resp.equals("get lexicon")) {
 				System.out.println("etymID" + STAGE_PRINT_DELIM + "Input" + STAGE_PRINT_DELIM + "Gold");
 				for (int i = 0; i < NUM_ETYMA; i++)
 					System.out.println("" + i + STAGE_PRINT_DELIM + baseSimulation.getInputForm(i) + STAGE_PRINT_DELIM
