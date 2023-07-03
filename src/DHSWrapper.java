@@ -547,7 +547,8 @@ public class DHSWrapper {
 				for (int i = 0; i < NUM_ETYMA; i++)
 					System.out.println("" + i + STAGE_PRINT_DELIM + baseSimulation.getInputForm(i) + STAGE_PRINT_DELIM
 							+ baseSimulation.getGoldOutputForm(i));
-			} else {
+			} 
+			else {
 				int cutPoint = 9;
 				if (resp.substring(0, 9).equals("get rule ")) {
 					if (resp.length() >= 13) {
@@ -567,18 +568,23 @@ public class DHSWrapper {
 						boolean noMatches = true;
 						for (int ci = 0; ci < baseCASC.size(); ci++)
 							if (baseCASC.get(ci).toString().contains(entry))
+							{
 								System.out.println("" + ci + " : " + baseCASC.get(ci).toString());
-						if (noMatches)
-							System.out.println("No matches found.");
+								noMatches = false; 
+							}
+						
+						if (noMatches)	System.out.println("No matches found.");
 					}
 				}
-				if (resp.substring(0, 9).equals("get etym ")) {
+				else if (resp.substring(0, 9).equals("get etym ")) 
+				{
 					if (resp.length() >= 13) {
 						if (resp.substring(9, 12).equals("at "))
 							cutPoint = 12;
 						else if (resp.length() < 21 ? false : resp.substring(9, 20).equals("derivation "))
 							cutPoint = 20;
 					}
+					
 					String entry = resp.substring(cutPoint);
 					if (cutPoint > 9) {
 						int theInd = UTILS.getValidInd(entry, NUM_ETYMA - 1);
