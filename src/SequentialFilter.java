@@ -280,6 +280,9 @@ public class SequentialFilter {
 	//TODO possible error here that isPriorMatch(Helper) is... not called? 
 		// nor is it called anywhere in ErrorAnalysis.
 		// TODO need to make tester to check behavior of this as it is used in ErrorAnalysis.
+		// though in practice it seems likely that all necessary issues will be caught on the forward iteration through the phonetic segments
+		// since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
+		// and it's not like a segment would just be missed, since it starts at the beginning and goes to the end. 
 	public boolean filtCheck(List<SequentialPhonic> pr)
 	{
 		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
