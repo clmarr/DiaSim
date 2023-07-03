@@ -6,7 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Arrays; // used for occasional debugging print statements with arrays, not used otherwise.
 import java.util.Collections;
 
 public class ErrorAnalysis {

@@ -439,7 +439,7 @@ public class DiachronicSimulator {
 	// int gsi -- the index in data structures of the stage we are blackening. 
 	private static void blackenGoldStage(int gsi)
 	{
-		System.out.println("Blackening gold stage "+gsi+" : "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
+		System.out.println("Blackening gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
 	
 		int[] oldGoldStageInstants, oldBlackStageInstants; 
 		String[] oldGoldStageNames, oldBlackStageNames; 
