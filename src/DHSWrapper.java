@@ -124,6 +124,8 @@ public class DHSWrapper {
 		while (stillQuerying) // each pass processes a change.
 		{
 			int forkAt = queryForkPoint(inpu, FAC);
+			if (forkAt == -2)	// user decided to return to main menu
+				break; 
 			boolean toSetBehavior = true;
 			while (toSetBehavior) {
 				System.out.println("Operating on rule " + forkAt + ": " + hypCASC.get(forkAt).toString());
@@ -454,7 +456,8 @@ public class DHSWrapper {
 
 			// TODO is this confusing? reword? 
 			System.out.print("At what current rule number would you like to modify cascade? Please type the number.\n"
-					+ "You may also enter:\t'quit', to return to the main menu\n"
+					+ "You may also enter:"
+					+ "\t'quit', to return to the main menu\n"
 					+ "\t\t\t'get rule X', to get the index of any rules containing an entered string replacing <X>.\n"
 					+ "\t\t\t'get rule at X', to get the rule at the original index number <X>.\n"
 					+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
@@ -469,7 +472,10 @@ public class DHSWrapper {
 			// TODO make sure it is correct to use base's last moment as max here...
 
 			if (resp.equals("quit"))
-				stillQuerying = false;
+			{
+				forkAt= -2; //indicator upstream to end this functionality
+				stillQuerying = false; 
+			}
 			else if (forkAt > -1)
 				return forkAt;
 			else if (UTILS.getValidInd(resp, 99999) > -1)
