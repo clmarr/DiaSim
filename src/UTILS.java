@@ -27,7 +27,7 @@ public class UTILS {
 	public final static String ABSENT_PH_INDIC = "...";
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
-
+	
 	public static int getFeatspecIntFromMark (char mark) 
 	{
 		if (!FEATSPEC_MARKS.contains(""+mark))

@@ -36,13 +36,24 @@ public class ErrorAnalysis {
 	protected final String ABS_PR ="[ABSENT]"; //TODO note this variable is the locus of protodelta changes
 	protected final int MAX_RADIUS = 3;
 
-	
 	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
 		// indexes for phones in the following int arrays are above.
 	protected int[] errorsByResPhone, errorsByGoldPhone; 
 	protected int[] errorsByPivotPhone;
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
 	private double[] errorRateByPivotPhone;
+		// note that this rate is actually calculated in terms of 
+			//# of times the phone occurs in mismatch (observed != reconstructed) words 
+				// with MULTIPLE OCCURRENCES counted multiply
+				// divided by number of WORDS the phone occurs in total
+			// so mismatches with MULTIPLE OCCURRENCES of the same phone will inflate the rate slightly
+				// though the effect of this is overall not likely to be significant.
+			// and it is likely better than the basic alternative, which would fail to take into account
+				// multiple errors in the same phone in the same word. 
+			// an ideal case would involve an alignment algorithm to insure that cases where only one 
+					// occurence of hte phone in said word is errant are not being counted multiply
+			// but this is not a priority right now as there are more important things to improve upon given the work necessary to involve that.
+	
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
@@ -1080,12 +1091,12 @@ public class ErrorAnalysis {
 		}
 		
 		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
-		
-		pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
-		 
+				 
 		if (SUBSAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
+			pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
+			
 			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
 			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
@@ -1093,17 +1104,34 @@ public class ErrorAnalysis {
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 
-			for(int i = 0; i < SUBSAMP_SIZE; i++)
+			
+			for (int fi : FILTER)
 			{
-				for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
-				for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
-				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
+				//TODO need to check this area in protodelta to ensure handling of both absent and unattested etyma correctly 
+					// -- so that they are excluded from calculations
+				for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][fi] ? 1 : 0;
+				for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][fi] ? 1 : 0;
+				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][fi] ? 1 : 0;
 			}
 			
 			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
 			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
 			avgPED = totPED / (double) SUBSAMP_SIZE; 	
 			avgFED = totFED / (double) SUBSAMP_SIZE; 
+			
+			//TODO debugging
+			System.out.println("ph inventory counts...");
+			
+			System.out.println("For reconstructed lexicon: ");
+			for (int phi = 0; phi < resPhInventory.length; phi++)
+				System.out.println(resPhInventory[phi].print()+": "+resPhCts[phi]+"; errors: "+errorsByResPhone[phi]); 
+			System.out.println("For gold lexicon: "); 
+			for (int phi = 0; phi < goldPhInventory.length; phi++)
+				System.out.println(goldPhInventory[phi].print()+": "+goldPhCts[phi]+"; errors: "+errorsByGoldPhone[phi]); 	
+			System.out.println("For pivot lexicon: "); 
+			for (int phi = 0; phi < pivotPhInventory.length; phi++)
+				System.out.println(pivotPhInventory[phi].print()+": "+pivPhCts[phi]+"; errors: "+errorsByPivotPhone[phi]); 	
+			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
 			for (int i = 0 ; i < goldPhInventory.length; i++)
