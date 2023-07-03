@@ -6,13 +6,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 public class ErrorAnalysis {
 	private int[] levDists; 
+		// levenshtein edit distance between each reconstructed/observed word pair. 
+	private double[] peds, feds; 
+		// phonological edit distance and feature edit distance between each reconstructed/observed word pair
+	
 	private int[] FILTER; //indices of all etyma in subset
 	private int[] PRESENT_ETS; 
-	private double[] peds, feds;
 	private boolean[] isHit; 
 	private boolean[] IN_SUBSAMP;
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
@@ -23,7 +27,7 @@ public class ErrorAnalysis {
 	
 	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 	
-	protected final String ABS_PR ="[ABSENT]"; 
+	protected final String ABS_PR ="[ABSENT]"; //TODO note this variable is the locus of protodelta changes
 	protected final int MAX_RADIUS = 3;
 
 	
@@ -1188,13 +1192,13 @@ public class ErrorAnalysis {
 	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
 		//-- so if it is 8 and rel_ind is -2, we look at index 6
 	// ind 0 -- hit, ind 1 -- miss
-	private List<List<SequentialPhonic>> miss_and_hit_phones_at_rel_loc (int rel_ind)
+	private List<List<SequentialPhonic>> hit_and_miss_phones_at_rel_loc (int rel_ind)
 	{
 		boolean posterior = rel_ind > 0; 
 		List<List<SequentialPhonic>> out = new ArrayList<List<SequentialPhonic>>(); 
 		
-		List<SequentialPhonic> out0 = new ArrayList<SequentialPhonic>(),
-				out1 = new ArrayList<SequentialPhonic>(); 
+		List<SequentialPhonic> ph_hits = new ArrayList<SequentialPhonic>(),
+				ph_misses = new ArrayList<SequentialPhonic>(); 
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
@@ -1207,7 +1211,7 @@ public class ErrorAnalysis {
 				if (curr_ind >= 0 && curr_ind < curPR.size())
 				{
 					SequentialPhonic curr = curPR.get(curr_ind);
-					if(!containsSPh(curr,out0))	out0.add(curr); 
+					if(!containsSPh(curr,ph_hits))	ph_hits.add(curr); 
 				}
 			}
 		}
@@ -1221,12 +1225,12 @@ public class ErrorAnalysis {
 						: SS_MISS_BOUNDS.get(mi).get(imi)[0] + rel_ind;
 				if(curr_ind >= 0 && curr_ind < curPR.size()) {
 					SequentialPhonic curr = curPR.get(curr_ind); 
-					if(!containsSPh(curr,out1))	out1.add(curr);
+					if(!containsSPh(curr,ph_misses))	ph_misses.add(curr);
 				}
-			}
-		}
-		out.add(out0);
-		out.add(out1);
+		}}
+		
+		out.add(ph_hits);
+		out.add(ph_misses);
 		
 		return out;
 	}
@@ -1253,9 +1257,8 @@ public class ErrorAnalysis {
 					int mchi = (posterior ? bound[1] + curPR.size() : bound[0]) + rel_ind ;
 					if ( ( posterior ? curPR.size() - 1 - mchi : mchi) >= 0)
 						if(curPR.get(mchi).print().equals(phs.get(pi).print()))	out[pi] += 1; 
-				}
-			}
-		}
+		}}}
+		
 		return out; 
 	}
 	
@@ -1266,14 +1269,16 @@ public class ErrorAnalysis {
 		
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
-		List<List<SequentialPhonic>> phs_here = miss_and_hit_phones_at_rel_loc(rel_ind); 
+		List<List<SequentialPhonic>> phs_here = hit_and_miss_phones_at_rel_loc(rel_ind); 
 		// get frequency of phones among etyma that are misses, and those that are hits
-		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
+		
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
+		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
 			// get overall frequency of the miss phones and the hit phones
+		
 		if (hit_ph_frqs.length != phs_here.get(0).size() )
 			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs");
-		if (miss_ph_frqs.length == phs_here.get(1).size() )
+		if (miss_ph_frqs.length != phs_here.get(1).size() )
 			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs");
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
