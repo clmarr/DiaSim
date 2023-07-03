@@ -277,7 +277,9 @@ public class SequentialFilter {
 		return isPriorMatchHelper(phonSeq, cpic, placeBeforeOpener, mapSpotPreOpener); 
 	}
 
-	
+	//TODO possible error here that isPriorMatch(Helper) is... not called? 
+		// nor is it called anywhere in ErrorAnalysis.
+		// TODO need to make tester to check behavior of this as it is used in ErrorAnalysis.
 	public boolean filtCheck(List<SequentialPhonic> pr)
 	{
 		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");

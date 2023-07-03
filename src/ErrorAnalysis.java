@@ -1091,8 +1091,8 @@ public class ErrorAnalysis {
 				for (int ri = 0; ri < resPhInventory.length ; ri++)	resPhCts[ri] += isPhInResEt[ri][i] ? 1 : 0;
 				for (int gi = 0; gi < goldPhInventory.length; gi++) goldPhCts[gi] += isPhInGoldEt[gi][i] ? 1 : 0;
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][i] ? 1 : 0;
-				
 			}
+			
 			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
 			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
 			avgPED = totPED / (double) SUBSAMP_SIZE; 	
