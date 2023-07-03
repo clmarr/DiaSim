@@ -210,6 +210,7 @@ public class ErrorAnalysis {
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
 				goldPhCts = theGold.getPhonemeCounts(); 
 		
+		// TODO source of infinity error may be here. 
 		for (int i = 0 ; i < resPhInventory.length; i++)
 			errorRateByResPhone[i] = (double)errorsByResPhone[i] 
 					/ (double)resPhCts.get(resPhInventory[i].print());
@@ -1316,10 +1317,10 @@ public class ErrorAnalysis {
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
 		List<List<SequentialPhonic>> phs_here = miss_and_hit_phones_at_rel_loc(rel_ind); 
-		// frequencies of phones among hits and among misses
+		// get frequency of phones among etyma that are misses, and those that are hits
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
-		
+			// get overall frequency of the miss phones and the hit phones
 		if (hit_ph_frqs.length != phs_here.get(0).size() )
 			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs");
 		if (miss_ph_frqs.length == phs_here.get(1).size() )

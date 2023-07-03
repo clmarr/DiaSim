@@ -1207,6 +1207,10 @@ public class DiachronicSimulator {
 					resp = inpu.nextLine();
 					resp.replace("\n", ""); 
 					if (resp.toLowerCase().equals("keep"))	resp = "Keep"; 
+					if (!validOptions.contains(resp) && resp.length() > 1)
+						if (resp.charAt(0) == 'r' && "0123456789".contains(resp.charAt(1)+""))
+							resp = "R"+resp.substring(1); 
+					
 					chosen = validOptions.contains(resp); 
 					if(!chosen)
 					{
@@ -1324,8 +1328,8 @@ public class DiachronicSimulator {
 			}
 			else if(resp.equals("3"))
 			{
-				boolean prompt = true; 
-				while(prompt)
+				boolean promptQueryMenu = true; 
+				while(promptQueryMenu)
 				{	System.out.print("What is your query? Enter the corresponding indicator:\n"
 							+ "0 : get ID of an etymon by input form\n"
 							+ "1 : get etymon's input form by ID number\n"
@@ -1336,12 +1340,12 @@ public class DiachronicSimulator {
 							+ "6 : print all rules by time step.\n"
 							+ "9 : return to main menu.\n"); 
 					resp = inpu.nextLine().replace("\n",""); 
-					prompt = false;
+					promptQueryMenu = false;
 					if( !"01234569".contains(resp) || resp.length() > 1 ) {
 						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
-						prompt = true;
+						promptQueryMenu = true;
 					}
-					else if (resp.equals("9"))	prompt = false;
+					else if (resp.equals("9"))	promptQueryMenu = false;
 					else if (resp.equals("0")) {
 						System.out.println("Enter the input form, separating phones by the character '"+UTILS.PH_DELIM+"' (space)"); 
 							// TODO remember to change it saying "space" if that is ever changed.
@@ -1352,9 +1356,9 @@ public class DiachronicSimulator {
 						}
 						catch (Exception e){
 							System.out.println("Error: could not parse entered phone string. Returning to query menu.");
-							prompt = true;
+							promptQueryMenu = true;
 						}
-						if(!prompt)
+						if(!promptQueryMenu)
 						{
 							Etymon[] wl = inputForms;
 							String inds = UTILS.etymInds(wl, query);
@@ -1368,17 +1372,17 @@ public class DiachronicSimulator {
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
-							prompt =true;
+							promptQueryMenu =true;
 						}
 						else if(queryingRule)
 						{
-							prompt = theID < 0 || theID >= CASCADE.size();
-							if(prompt)	System.out.println("Error -- there are only "+CASCADE.size()+"rules. Returning to query menu."); 
+							promptQueryMenu = theID < 0 || theID >= CASCADE.size();
+							if(promptQueryMenu)	System.out.println("Error -- there are only "+CASCADE.size()+"rules. Returning to query menu."); 
 							else	printRuleAt(theID); 
 						}
 						else
 						{
-							if(prompt)	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
+							if(promptQueryMenu)	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
 							else if(resp.equals("1"))	System.out.println(inputForms[theID]); 
 							else 	System.out.println(""+theSimulation.getDerivation(theID));
 						}
