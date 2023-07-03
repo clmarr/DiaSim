@@ -292,7 +292,7 @@ public class SequentialFilter {
 		return false;
 	}
 	
-	// returns list of all boundaries of matched filters -- empty if there are none i.e. no match. 
+	// returns list of all boundaries ([onset, end]) of matched filters -- empty if there are none i.e. no match. 
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
 		
@@ -307,20 +307,21 @@ public class SequentialFilter {
 		while (dummy.size() >= minSize) {
 			for (int cpic = 0 ; cpic < dummy.size() && currMatchStart == -1; cpic++)
 				if(isPosteriorMatchHelper(dummy,cpic,0,0))	currMatchStart = cpic;
+			
 			if (currMatchStart == -1)	return out;
-			else
-			{
+			else	{
 				int matchEnd = currMatchStart + minSize - 1; 
 				while(matchEnd < dummy.size() ? 
 						!isPriorMatchHelper(dummy,matchEnd,placeRestrs.size()-1,parenMap.length-1) : false)
 					matchEnd++;
 				
-				out.add(new int[] {trueOnset + currMatchStart, trueOnset + matchEnd - pr.size()}); 
+				out.add(new int[] {trueOnset + currMatchStart, 
+						trueOnset + matchEnd - pr.size()}
+						); 
 				trueOnset = trueOnset + matchEnd + 1;
 				currMatchStart = -1;
 				dummy = dummy.subList(matchEnd+1,dummy.size());
-			}
-		}
+		}}
 		
 		return out; 
 	}
