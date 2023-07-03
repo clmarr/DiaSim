@@ -20,8 +20,14 @@ public class ErrorAnalysis {
 	private boolean[] isHit; 
 	private boolean[] IN_SUBSAMP;
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
-	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
+	
+
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
+		// etymon IDs of words that validly fit are filter and are, respectively, matches and mismatches between reconstructed and observed outcomes.
+	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
+	// lists of boundaries (onset, offset) of a filter sequence in words belonging to the two filtered sets described above. 
+		// necessary because some filters include parenthesized segments, giving them variable length within a word
+		// these are used for various auxiliary functions as well in some places of this class. 
 	
 	private SequentialFilter filterSeq; 
 	
@@ -1053,7 +1059,7 @@ public class ErrorAnalysis {
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
 		SS_MISS_BOUNDS = new ArrayList<List<int[]>>(); 
-			//the _BOUNDS variables are serving an additional indexing role for building FILTER here
+			//the -_BOUNDS variables are serving an additional indexing role for building FILTER here
 		
 		while (etStr.contains(",") && etStr.length()>1)
 		{
