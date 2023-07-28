@@ -602,6 +602,9 @@ public class DiachronicSimulator {
 		{
 			String theLine = lexFileLines.get(lfli);
 			
+			if(/**lfli <NUM_ETYMA && */numCols != colCount(theLine))
+				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
+			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
 			if (!justInput)
@@ -614,8 +617,6 @@ public class DiachronicSimulator {
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
-			if(lfli <NUM_ETYMA && numCols != colCount(theLine))
-				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 
 		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
