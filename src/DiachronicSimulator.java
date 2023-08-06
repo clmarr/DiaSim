@@ -1524,7 +1524,7 @@ public class DiachronicSimulator {
 			
 			//variable setters
 			
-			// output prefix -- required ultimately
+			// output prefix -- without this, the folder will be based on the date
 			else if (arg.contains("-out"))
 			{
 				if (i < args.length)
