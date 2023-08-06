@@ -464,7 +464,7 @@ public class SChangeFactory {
 		
 		if( (inp.charAt(0) == '{') != (inp.charAt(inp.length() - 1) == '}') )	throw new RuntimeException( 
 			"Mismatch between presence of disjunction opener and closer for parsing "
-			+ "the sequentional phonic segs to make a SChangehPhone"); 
+			+ "the sequentional phonic segs to make a SChangePhone"); 
 		if(inp.charAt(0) == '{')
 			inp = input.substring(1, inp.length() - 1).trim(); 
 		if(inp.contains(segDelim+""))
