@@ -215,9 +215,9 @@ public class SChangeFactory {
 				return output; 				
 			}
 		}
-		
+		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
-				+ " features for defining source -- this is forbidden.\nAttempted rule is: "+inp); 
+				+ " features for defining source -- this is forbidden. \nIt will be added in future releases. For now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
 		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
 				+ "features for defining destination -- this is forbidden.\nAttempted rule is: "+inp);
 		
