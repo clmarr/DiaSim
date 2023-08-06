@@ -392,7 +392,8 @@ public class SChangeFactory {
 			{
 				String toPhone = inputLeft.substring(0, inputLeft.indexOf('['));
 				if(! symbToFeatVects.containsKey(toPhone) )	throw new RuntimeException(
-						"Tried to declare phone with illegitimate symbol : "+toPhone); 
+						"Tried to declare phone with illegitimate symbol : "+toPhone
+						+"\nAttempted rule was :"+input); 
 				output.add(new Phone(symbToFeatVects.get(toPhone), featIndices, symbToFeatVects));
 				inputLeft = inputLeft.substring(inputLeft.indexOf('['));
 			}
