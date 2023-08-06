@@ -217,7 +217,7 @@ public class SChangeFactory {
 		}
 		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
-				+ " features for defining source -- this is forbidden. \nIt will be added in future releases. For now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
+				+ " features for defining source -- this is forbidden. \nIt will be added in future releases.\nFor now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
 		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
 				+ "features for defining destination -- this is forbidden.\nAttempted rule is: "+inp);
 		
@@ -230,12 +230,15 @@ public class SChangeFactory {
 		{
 			usingAlphFeats = alphCheck(inputSource); 
 			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
-			
+			if( inputSource.contains("{") || inputSource.contains("}")) 
+				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
+						+ "\nIn the mean time, please use multiple rules to accomplish your intended transformation."
+						+ "\nAttempted rule: "+inp);
 		}
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
-		if(isValidFeatSpecList(inputSource)) //we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
+		if(isValidFeatSpecList(inputSource)) //input consists of naught but a feat spec list -- we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
 			if (!usingAlphFeats)	usingAlphFeats = theDest.has_alpha_specs(); 

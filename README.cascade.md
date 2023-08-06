@@ -221,14 +221,8 @@ Essentially "@" means "there is something, anythign, segmental between this spot
 ### Optionality parentheses for once or never: (...) 
 
 Items (phones, boundary symbols...) or sequences thereof between '(' and ')' can optionally occur never or once. 
-This can be used in the input, or in the conditioning context, but cannot be used for the output side of the arrow as rules in DiaSim are deterministic. 
+This can be used in the conditioning context, but cannot be used for the output side of the arrow as rules in DiaSim are deterministic. 
 
-Usage on the input side of the arrow will mean that the material enclosed will be absorbed into the scope of the segment *sequence* that is replaced (deterministically) with the material on the output side. 
-An example in a k-palatalization process that absorbs a prior /j/: is shown below: 
-
-```
-(j) k > c / __ [+syl,+front]
-```
 
 Usage in the conditioning context, the more frequent usage, means the rule can "see through" the parenthesized material so that it will still operate if the necessary conditioning elements are on the other side of it. 
 This is seen in the centralization of countertonic /e/ in Early Old French, which occurred before either another vowel, or a consonant then another vowel, as shown below:
@@ -242,6 +236,24 @@ A classic example would be West Romance/Brythonic intervocalic lenition, which "
 ``` 
 [-voi] > [+voi] / [-cons] __ ({r;l}) [-cons]  
 ```
+
+Usage on the input side of the arrow will mean that the material enclosed will be absorbed into the scope of the segment *sequence* that is replaced (deterministically) with the material on the output side. 
+An example in a k-palatalization process that absorbs a prior /j/: is shown below: 
+
+```
+(j) k > c / __ [+syl,+front]
+```
+
+Note however that as of August 2023 the capacity to use optionality parentheses in the input is blocked as it is unclear that it would operate without errors. 
+Instead, if feature matrices are not involved (see parenthetial statement below) , disjunctions should should instead to accomplish the same transformation. For example the above rule would be formulated as follows below: 
+
+```
+{j k;k} > c / __ [+syl,+front] 
+```
+
+The disjunctions should be ordered so that the more specific scenario comes first, as otherwise the more general scenario will effectively bleed it. 
+
+(feature matrices and disjunctions also cannot currently be implemented at the same time in the input; hopefully this will soon be fixed)
 
 ### Optionality parentheses for never or any number of repeats: (...)*
 
@@ -275,8 +287,6 @@ SymbolDefs.csv
 FeatTranslations
 FeatImplications
 
-(TODO need to explain feature matrices???)
-
 (not committing to features as innate despite the choice of features favored as innate by some nativists -- not a theoretical stance)
 
 (citations on features? )
@@ -285,9 +295,15 @@ FeatImplications
 
 ### FEATURE MATRICES: 
 
+TODO explanation
+
+Note: currently, feature matrices cannot be used within a disjunction except in the context specification. 
+The ability put feature matrices in disjunctions in an input will hopefully be added soon. 
+Doing so for the destination is probably not advisable and will not be implemented -- these are best handled with separate rules, which reflects the fact that they probably operate separately anyways. (if this found to be not true, this may be amended) 
+
 
 ### ALPHA FEATURE NOTATION:
-While in the default 
+While in the default  (TODO finish...) 
 
 The use of features valued with 
 
