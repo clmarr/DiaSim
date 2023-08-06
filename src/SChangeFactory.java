@@ -583,7 +583,7 @@ public class SChangeFactory {
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
 					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
-						+ "with an invalid entrace for the list of feature specifications.");
+						+ " with an invalid entrance for the list of feature specifications.");
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
