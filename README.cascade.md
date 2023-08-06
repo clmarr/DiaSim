@@ -245,15 +245,15 @@ An example in a k-palatalization process that absorbs a prior /j/: is shown belo
 ```
 
 Note however that as of August 2023 the capacity to use optionality parentheses in the input is blocked as it is unclear that it would operate without errors. 
-Instead, if feature matrices are not involved (see parenthetial statement below) , disjunctions should should instead to accomplish the same transformation. For example the above rule would be formulated as follows below: 
+Instead, if feature matrices are not involved (see parenthetial statement below) , disjunctions should should instead to accomplish the same transformation. 
+(Feature matrices and disjunctions also cannot currently be implemented at the same time in the input; hopefully this will soon be fixed. )
+For example the above rule would be formulated as follows below: 
 
 ```
 {j k;k} > c / __ [+syl,+front] 
 ```
 
 The disjunctions should be ordered so that the more specific scenario comes first, as otherwise the more general scenario will effectively bleed it. 
-
-(feature matrices and disjunctions also cannot currently be implemented at the same time in the input; hopefully this will soon be fixed)
 
 ### Optionality parentheses for never or any number of repeats: (...)*
 
