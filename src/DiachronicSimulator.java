@@ -1492,6 +1492,11 @@ public class DiachronicSimulator {
 	//		  -e : (explicit) do not use feature implications
 	//		  -h : halt at stage checkpoints
 	//		  -i : ignore stages
+	// variable setting otherwise: -verbose, -out (for run prefix), 
+	//        -symbols, -impl (feature implications file location), 
+	//        -rules (cascade location), -diacrit (diacritics file location), 
+	//        -idcost (insertion/deletion cost)
+	//
 	private static void parseArgs(String[] args)
 	{
 		int i = 0, j; 
