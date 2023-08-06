@@ -250,7 +250,7 @@ Instead, if feature matrices are not involved (see parenthetial statement below)
 For example the above rule would be formulated as follows below: 
 
 ```
-{j k;k} > c / __ [+syl,+front] 
+{j k;k} > {c;c} / __ [+syl,+front] 
 ```
 
 The disjunctions should be ordered so that the more specific scenario comes first, as otherwise the more general scenario will effectively bleed it. 
