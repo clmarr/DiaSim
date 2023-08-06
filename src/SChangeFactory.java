@@ -127,7 +127,7 @@ public class SChangeFactory {
 		boolean priorSpecified = false, postrSpecified = false; 
 		if(contextSpecified)
 		{
-			if(!inputParse.contains(LOCUS)) throw new RuntimeException("Error: Context flag seen but locus not seen!"); 
+			if(!inputParse.contains(LOCUS)) throw new RuntimeException("Error: Context flag seen but locus not seen!\nAttempted rule is "+inp); 
 			inputSplit = inputParse.split(""+contextFlag); 
 			inputDest = inputSplit[0].trim(); 
 			inputParse = inputSplit[1].trim();
@@ -143,15 +143,15 @@ public class SChangeFactory {
 			
 			if( !priorSpecified && !postrSpecified)
 				throw new RuntimeException("Error : Context flag and locus marker seen, but no specification of either prior or posterior"
-						+ "on either side of the locus!");
+						+ "on either side of the locus!\nAttempted rule is :"+inp);
 
 			// in case of disjunction {..,..,..} in the context, use recursion to get all the possibilities
 			if(inputPrior.contains("{"))
 			{
 				if(! inputPrior.contains("}"))
-					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found");
+					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found\nAttempted rule is: "+inp);
 				if(! inputPrior.contains(""+segDelim) )
-					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found"); 
+					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found\nAttempted rule is: "+inp); 
 				int openerInd = inputPrior.indexOf("{"); 
 				int braceDepth = 1; 
 				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
@@ -159,7 +159,7 @@ public class SChangeFactory {
 
 				if (closerInd >= inputPrior.length())
 					throw new RuntimeException("Error: reached end of inputPrior without finding"
-						+ " the corresponding closer of the disjunction which was opened."); 
+						+ " the corresponding closer of the disjunction which was opened.\nAttempted rule is :"+inp); 
 				while(! (inputPrior.charAt(closerInd) == '}' && braceDepth == 1))
 				{
 					if(inputPrior.charAt(closerInd) == '{')	braceDepth++; 
@@ -168,7 +168,7 @@ public class SChangeFactory {
 					
 					if (closerInd >= inputPrior.length()) 
 						throw new RuntimeException("Error: reached end of inputPrior without finding"
-							+ "the corresponding closer of the disjunction which was opened." ); 
+							+ "the corresponding closer of the disjunction which was opened.\nAttempted rule is :"+inp); 
 				}
 				
 				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+segDelim); 
@@ -184,16 +184,16 @@ public class SChangeFactory {
 			if (inputPostr.contains("{"))
 			{
 				if(! inputPostr.contains("}") )
-					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found");
+					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found\nAttempted rule is: "+inp);
 				if(! inputPostr.contains(""+segDelim) )
-					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found"); 
+					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found\nAttepmted rule is: "+inp); 
 				int openerInd = inputPostr.indexOf("{"); 
 				int braceDepth = 1; 
 				int closerInd = openerInd + 4; //7 is the minimum number of characters a disjunction of 
 					// FeatMatrices could have in it : +hi;+lo-- but with phones it is 3
 
 				if( closerInd >= inputPostr.length() ) throw new RuntimeException( "Error: reached end of inputPrior without finding"
-						+ "the corresponding closer of the disjunction which was opened.") ; 
+						+ "the corresponding closer of the disjunction which was opened.\nAttempted rule is: "+inp) ; 
 				
 				while(! (inputPostr.charAt(closerInd) == '}' && braceDepth == 1))
 				{
@@ -202,7 +202,7 @@ public class SChangeFactory {
 					closerInd++;
 					
 					if( closerInd >= inputPostr.length() ) throw new RuntimeException( "Error: reached end of inputPrior without finding"
-							+ "the corresponding closer of the disjunction which was opened.") ; 
+							+ "the corresponding closer of the disjunction which was opened.\nAttempted rule is: "+inp) ; 
 				}
 				
 				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+segDelim); 
@@ -217,19 +217,20 @@ public class SChangeFactory {
 		}
 		
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
-				+ " features for defining source -- this is forbidden."); 
+				+ " features for defining source -- this is forbidden.\nAttempted rule is: "+inp); 
 		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
-				+ "features for defining destination -- this is forbidden.");
+				+ "features for defining destination -- this is forbidden.\nAttempted rule is: "+inp);
 		
 		//TODO note [ and ] can ONLY be used to surround feature specifications for FeatMatrix
 				// otherwise there will be very problematic errors
 		boolean srcHasFeatMatrices = inputSource.contains("["); 
 		if (srcHasFeatMatrices != inputSource.contains("]")) 
-			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification"); 
+			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
 		if(srcHasFeatMatrices)
 		{
 			usingAlphFeats = alphCheck(inputSource); 
-			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource); 
+			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
+			
 		}
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
@@ -272,7 +273,8 @@ public class SChangeFactory {
 			if(inputDest.contains("[")) // SChangeSeqToSeq
 			{
 				if (! inputDest.contains("]")) throw new RuntimeException("Error: mismatch in presence "
-						+ "of [ and ], which are correctly used to mark a FeatMatrix specification"); 
+						+ "of [ and ], which are correctly used to mark a FeatMatrix specification"
+						+ "\nAttempted rule is: "+inp); 
 				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, 
 						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp) : 
 							new SChangeSeqToSeq(featIndices, symbToFeatVects, parseRestrictPhoneSequence(inputSource),
@@ -314,7 +316,8 @@ public class SChangeFactory {
 			
 			if( inputDest.contains("{") || inputDest.contains("}") ) throw new RuntimeException(
 				"Error: cannot have disjunction braces in the destination for a SChangePhone with feature specified destination -- "
-				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"); 
+				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"
+				+ "\nAttemped rule is: "+inp); 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
 			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
@@ -325,7 +328,8 @@ public class SChangeFactory {
 		
 		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
 		if( sourceSegs.size() != destSegs.size() ) throw new RuntimeException(
-			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!");
+			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!"
+			+ "\nAttempted rule is: "+inp);
 		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
