@@ -266,11 +266,17 @@ public class PhoneTester {
 		System.out.println("The following should be '+sg':"); 
 		System.out.println(""+aspiration_dcrit[0]);
 		System.out.println("... now testing comprehension of monofeature diacritic with comments..."); 
-		String[] velarization_dcrit = diacriticMap.get(" ˠ ".strip()) ;
+		String[] cg_dcrit = diacriticMap.get(" ̰ ".strip()) ;
 		System.out.println("The following should be '1':");
-		System.out.println(""+velarization_dcrit.length); 
-		System.out.println("The following should be '+back':"); 
-		System.out.println(""+velarization_dcrit[0]); 
+		System.out.println(""+cg_dcrit.length); 
+		System.out.println("The following should be '+sg':"); 
+		System.out.println(""+cg_dcrit[0]); 
+		System.out.println("... now testing comprehension of multifeature diacritic with comments..."); 
+		String[] centralized_dcrit = diacriticMap.get(" ̈".strip());
+		System.out.println("The following should be '2':"); 
+		System.out.println(""+centralized_dcrit.length); 
+		System.out.println("The following should be '-back -front':");
+		System.out.println(""+centralized_dcrit[0]+" "+centralized_dcrit[1]); 
 		
 	}
 }
