@@ -142,31 +142,7 @@ public class DiachronicSimulator {
 	public static void extractDiacriticDefs()
 	{
 		if (no_symb_diacritics)	return;
-		diacriticMap = new HashMap<String, String[]>(); 
-		System.out.println("Now extracting info diacritics for segmental symbols...");
-
-		List<String> diacriticsLines = UTILS.readFileLines(symbDiacriticsLoc); 
-		
-		for(String sdline : diacriticsLines)
-		{
-			String[] sdsides = sdline.split(""+UTILS.DIACRITICS_DELIM);
-			sdsides[0] = sdsides[0].replace(" ",""); 
-			if (sdsides[1].contains(""+UTILS.CMT_FLAG))
-				sdsides[1] = sdsides[1].substring(0, sdsides[1].indexOf(""+UTILS.CMT_FLAG));
-			sdsides[1] = sdsides[1].replace(" ","");
-			String[] diacritFeats = sdsides[1].split(","); 
-			for (String df : diacritFeats) 
-			{
-				if (!UTILS.FEATSPEC_MARKS.contains(""+df.charAt(0)))
-					throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
-							+ "but instead this one has :"+df.charAt(0)); 
-				if (!featIndices.containsKey(df.substring(1)))
-					throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
-			}
-			diacriticMap.put(sdsides[0], sdsides[1].split(",")); 
-		}
-		
-		System.out.println("Done extracting symbol diacritics!");	
+		diacriticMap = UTILS.buildDiacriticMap(symbDiacriticsLoc, featIndices);
 	}
 	
 	public static void extractCascade(SChangeFactory theFactory)

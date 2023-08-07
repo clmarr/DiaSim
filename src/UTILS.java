@@ -476,6 +476,45 @@ public class UTILS {
 		return out; 
 	}
 	
+	/**
+	 * @author Clayton Marr
+	 * @date August 7 2023 (but based on material moved from slightly earlier method extractDiacriticDefs from earlier in the summer of 2023) 
+	 * @param diacriticDefLocation -- file to extract from
+	 * @param feature_indices -- should be featIndices in DiachronicSimulator; featureIndices in phoneTester
+	 * method to build diacritics map -- moved to here so it can be more easily shared between PhoneTester and DiachronicSimulator 
+	 * and anywhere else, as necessary
+	 * @return diacritics map to be used in DiachronicSimulator and in PhoneTester
+	 */
+	public static HashMap<String,String[]> buildDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
+	{
+		HashMap<String, String[]> diaMap = new HashMap<String, String[]> (); 
+		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
+		
+		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 
+		
+		for (String sdline: diacriticsLines)
+		{
+			String[] sdsides = sdline.split(""+DIACRITICS_DELIM); 
+			sdsides[0] = sdsides[0].replace(" ",""); 
+			if (sdsides[1].contains(""+CMT_FLAG))	
+				sdsides[1] = sdsides[1].substring(0, sdsides[1].indexOf(""+CMT_FLAG)); 
+			sdsides[1] = sdsides[1].replace(" ","");
+			String[] diacritFeats = sdsides[1].split(","); 
+			for (String df : diacritFeats)
+			{
+				if (!FEATSPEC_MARKS.contains(""+df.charAt(0)))
+					throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
+							+ "but instead this one has :"+df.charAt(0)); 
+				if (!feature_indices.containsKey(df.substring(1)))
+					throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
+			}
+			diaMap.put(sdsides[0], sdsides[1].split(",")); 
+		}
+		System.out.println("Done extracting symbol diacritics!");	
+		
+		return diaMap;
+	}
+	
 	// printer methods follow: 
 	
 	/**
