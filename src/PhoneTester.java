@@ -24,6 +24,9 @@ public class PhoneTester {
 		HashMap<String, String> symbsToFeatures = new HashMap<String, String>(); 
 		HashMap<String, Integer> featureIndices = new HashMap<String, Integer>(); 
 		HashMap<String, String[]> featImplications = new HashMap<String, String[]>();
+		HashMap<String, String[]> diacriticMap = new HashMap<String, String[]>(); 
+		String diacritic_def_loc = "currentSymbolDiacriticDefs.txt"; 
+		
 		String[] feats;
 		String firstFeat = "", nextLine; 
 		List<String> lines = new ArrayList<String>(); 
@@ -249,5 +252,25 @@ public class PhoneTester {
 		System.out.println(""+nasalStop.first_unset_alpha()); 
 		
 		System.out.println("For further testing of FeatMatrix with alpha features, use SChangeTester");
+		
+		System.out.println("----------------------");
+		System.out.println("Now testing diacritic comprehension."); 
+		diacriticMap = UTILS.buildDiacriticMap(diacritic_def_loc, featureIndices); 
+		
+		System.out.println("First testing input comprehension; will test implementation next..."); 
+	
+		System.out.println("Testing comprehension of monofeature diacritic sans comments..."); 
+		System.out.println("The following should be '1':"); 
+		String[] aspiration_dcrit = diacriticMap.get(" ʰ ".strip()) ;
+		System.out.println(""+aspiration_dcrit.length);
+		System.out.println("The following should be '+sg':"); 
+		System.out.println(""+aspiration_dcrit[0]);
+		System.out.println("... now testing comprehension of monofeature diacritic with comments..."); 
+		String[] velarization_dcrit = diacriticMap.get(" ˠ ".strip()) ;
+		System.out.println("The following should be '1':");
+		System.out.println(""+velarization_dcrit.length); 
+		System.out.println("The following should be '+back':"); 
+		System.out.println(""+velarization_dcrit[0]); 
+		
 	}
 }

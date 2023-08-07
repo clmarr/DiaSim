@@ -487,7 +487,7 @@ public class UTILS {
 	 */
 	public static HashMap<String,String[]> buildDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
 	{
-		HashMap<String, String[]> diaMap = new HashMap<String, String[]> (); 
+		HashMap<String, String[]> diacritMap = new HashMap<String, String[]> (); 
 		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
 		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 
@@ -508,11 +508,11 @@ public class UTILS {
 				if (!feature_indices.containsKey(df.substring(1)))
 					throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
 			}
-			diaMap.put(sdsides[0], sdsides[1].split(",")); 
+			diacritMap.put(sdsides[0], sdsides[1].split(",")); 
 		}
 		System.out.println("Done extracting symbol diacritics!");	
 		
-		return diaMap;
+		return diacritMap;
 	}
 	
 	// printer methods follow: 
