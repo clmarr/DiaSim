@@ -334,7 +334,7 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 
 (TODO examples...) 
 
-(TODO also used for feature preservation in movementː y(βstres) j > ɥ i(βstres) case from 13th century French from CLEF 
+(TODO also used for feature preservation in movement: y(βstres) j > ɥ i(βstres) case from 13th century French from CLEF 
 
 (TODO Surselvan example p37 for example of alpha features only input expressing "same value of round as for back" -- if round has to be back, if unround cannot be back, for it to be a valid target of the rule) 
 
@@ -345,6 +345,8 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 	
 (TODO elaborate...) 
 
+
+(TODO -- negative alpha feats not currently supported) 
 
 # Cited works
 

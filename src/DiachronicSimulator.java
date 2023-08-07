@@ -1511,7 +1511,7 @@ public class DiachronicSimulator {
 		lexFileLoc = "FLLex.txt";
 		cascFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
-		symbDiacriticsLoc = "currentSymbolDiacriticDefs";
+		symbDiacriticsLoc = "currentSymbolDiacriticDefs.txt";
 		id_wt = 0.5; 
 		
 		

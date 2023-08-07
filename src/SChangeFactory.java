@@ -584,7 +584,7 @@ public class SChangeFactory {
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
 					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
-						+ " with an invalid entrance for the list of feature specifications.");
+						+ " with an invalid entrance for the list of feature specifications.\nAttempted input was: "+input);
 					thePlaceRestrs.add(getFeatMatrix(curtp));  
 				}
 			}
@@ -657,7 +657,8 @@ public class SChangeFactory {
 	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
 		if(! isValidFeatSpecList(featSpecs) )
-			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications"); 
+			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
+					+ "\nAttempted feat specs: "+featSpecs); 
 		
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
