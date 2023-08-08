@@ -897,7 +897,7 @@ public class DiachronicSimulator {
 									for (String feat_spec : diacriticMap.get(diacrit)) 
 									{
 										String feat_here = feat_spec.substring(1); 
-										if (featIndices.containsKey(feat_here.substring(1)))
+										if (featIndices.containsKey(feat_here))
 										{
 											int featIndex = featIndices.get(feat_here); 
 											String insertion = ""+UTILS.getFeatspecIntFromMark(feat_spec.charAt(0)); 
