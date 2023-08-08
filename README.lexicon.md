@@ -105,7 +105,7 @@ Note that a final stage starting with the string "Modern" or "modern", or otherw
 
 
 In future versions of DiaSim, it will be possible to indicate that an etymon has either fallen out of use or entered the vocabulary late by specifying "--" for stages where it is not present in the lexicon. This will remove the item from the lexicon if it was present before, or mean it is not yet to be inserted otherwise. 
-These will not contribute in any way to calculations of accuracy and error patterning at this gold stage. Use "*>" will be used for etyma that are not attested at that stage but also still present in the lexicon, not to be removed, but not to be included in gold stage statistics either. 
+These will not contribute in any way to calculations of accuracy and error patterning at this gold stage. Use ">*" for etyma that are not attested at that stage but also still present in the lexicon, not to be removed, but not to be included in gold stage statistics either. 
 A column that consists of only inserts or removals of etyma will be treated as a black box stage, not a gold stage. 
 However, the functionality described above is not yet supported by the current release of DiaSim. 
 
