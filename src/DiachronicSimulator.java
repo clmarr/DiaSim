@@ -320,8 +320,8 @@ public class DiachronicSimulator {
 		// if there is only one column, obviously it is just the input
 		// otherwise -- first is input, last is output, any in between are gold stages
 	// if there is a lexicon header 
-		// lexicon header is identified by being FLAGGED by ~ 
-			// i.e. UTILS.GOLD_STAGENAME_FLAG
+		// lexicon header is identified by being FLAGGED by = 
+			// i.e. UTILS.BLACK_STAGENAME_FLAG
 				// (delimiter is still , i.e. LEX_DELIM )
 		// first stage regardless of name is still "in(put)" 
 		// for the others the names are saved,
@@ -352,7 +352,7 @@ public class DiachronicSimulator {
 		System.out.println("Lexicon file has "+numCols+" columns!"); 
 		System.out.println("First column assumed to be input."); 
 			
-		boolean lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG; 
+		boolean lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		if(lexiconHasHeader)
 		{
 			int coli = 1;
@@ -582,7 +582,7 @@ public class DiachronicSimulator {
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
-		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.GOLD_STAGENAME_FLAG ? 1 : 0); 
+		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		
 		//TODO handling of column stages should begin here, possibly within processLexFileHeader.
