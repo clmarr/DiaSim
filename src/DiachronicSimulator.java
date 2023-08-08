@@ -232,7 +232,7 @@ public class DiachronicSimulator {
 		NUM_GOLD_STAGES = goldStageNameAndLocList.size(); 
 		NUM_BLACK_STAGES =blackStageNameAndLocList.size();
 		
-		System.out.println("Using "+NUM_GOLD_STAGES+" custom stages."); 
+		System.out.println("Using "+(NUM_GOLD_STAGES+NUM_BLACK_STAGES)+" custom stages."); 
 		
 		if (NUM_GOLD_STAGES > 0)
 		{
