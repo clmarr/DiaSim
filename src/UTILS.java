@@ -69,7 +69,7 @@ public class UTILS {
 		return output <= max ? output : -1; 
 	}
 
-	public static String etymInds(LexPhon[] etList, LexPhon etTarg)
+	public static String etymInds(Etymon[] etList, Etymon etTarg)
 	{
 		String output = ""; 
 		for (int wli = 0; wli < etList.length; wli++)
@@ -286,7 +286,7 @@ public class UTILS {
 	
 	// check if an observed word, the second argument (in current usage, the observed predicted outcome based on a cascade)...
 		// is equivalent to the correct form of the word, the second argument (in current usage, the actual reflex word 
-	public static boolean checkWord(LexPhon correct, LexPhon observed, String errMessage)
+	public static boolean checkWord(Etymon correct, Etymon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
 		boolean result = c.equals(o); 
@@ -323,7 +323,7 @@ public class UTILS {
 	 * @param g -- gold words
 	 * @param obs -- observed words
 	 */
-	public static int aggregateErrorsCheckWordLists(LexPhon[] g, LexPhon[] obs)
+	public static int aggregateErrorsCheckWordLists(Etymon[] g, Etymon[] obs)
 	{
 		assert g.length == obs.length : "Error: tried to compare word lists of different lengths.";
 		

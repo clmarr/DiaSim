@@ -11,31 +11,31 @@ import java.util.ArrayList;
 
 
 public class Lexicon {
-	private LexPhon[] theWordList; 
+	private Etymon[] theWordList; 
 	protected final String ABS_PR ="[ABSENT]"; 
 	
-	public Lexicon(List<LexPhon> theWords)
+	public Lexicon(List<Etymon> theWords)
 	{
-		theWordList = new LexPhon[theWords.size()]; 
+		theWordList = new Etymon[theWords.size()]; 
 		theWords.toArray(theWordList);
 	}
 	
-	public Lexicon(LexPhon[] theWords)
+	public Lexicon(Etymon[] theWords)
 	{
-		theWordList = new LexPhon[theWords.length];
+		theWordList = new Etymon[theWords.length];
 		for (int wi = 0; wi < theWords.length; wi++)
 		{
 			if (theWords[wi].print().equals(ABS_PR))
 				theWordList[wi] = new AbsentLexPhon();
 			else
-				theWordList[wi] = new LexPhon(theWords[wi].getPhonologicalRepresentation());
+				theWordList[wi] = new Etymon(theWords[wi].getPhonologicalRepresentation());
 		}
 	}
 	
 	//retrieve a particular lexical phonology by its "ID" -- i.e. its index in theWordList
 	// DerivationSimulation should construct instances of this class for the word set being simulated 
 	// such that words with the same index represent different stages of the same word
-	public LexPhon getByID(int ind)
+	public Etymon getByID(int ind)
 	{	return theWordList[ind]; 	}
 	
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
@@ -43,7 +43,7 @@ public class Lexicon {
 	public HashMap<String, Integer> getPhoneFrequenciesByWord()
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
-		for (LexPhon lex : theWordList)
+		for (Etymon lex : theWordList)
 		{
 			List<SequentialPhonic> lexPhonRep = lex.getPhonologicalRepresentation();
 			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 
@@ -64,7 +64,7 @@ public class Lexicon {
 		return output; 
 	}
 	
-	public LexPhon[] getWordList()
+	public Etymon[] getWordList()
 	{	return theWordList;	}
 	
 	public boolean[] getPhonePresenceByEt(Phone ph)
@@ -98,7 +98,7 @@ public class Lexicon {
 	{
 		List<String> hitPhonesListStr = new ArrayList<String>(); 
 		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
-		for (LexPhon theWord : theWordList)
+		for (Etymon theWord : theWordList)
 		{	
 			if (!theWord.print().equals(ABS_PR))
 			{
@@ -126,7 +126,7 @@ public class Lexicon {
 	public HashMap<String,Integer> getPhonemeCounts()
 	{
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
-		for (LexPhon lex: theWordList)
+		for (Etymon lex: theWordList)
 		{
 			if (!lex.print().equals(ABS_PR))
 				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
@@ -146,7 +146,7 @@ public class Lexicon {
 	public int getPhoneSeqFrequency(List<Phone> targSeq)
 	{
 		int currSeqInd = 0, count = 0;
-		for (LexPhon lex : theWordList)
+		for (Etymon lex : theWordList)
 		{	
 			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
 			for (SequentialPhonic curPh : thePhones)
@@ -174,7 +174,7 @@ public class Lexicon {
 		//based on whether they are absent or not in the latest gold stage 
 	//TODO can build off this but will need to work here .
 	
-	public void updateAbsence(LexPhon[] stageGold)
+	public void updateAbsence(Etymon[] stageGold)
 	{
 		int theLen = stageGold.length;
 		if (theLen != theWordList.length)
@@ -183,7 +183,7 @@ public class Lexicon {
 		{	
 			if(theWordList[wi].print().equals(ABS_PR))
 				if(!stageGold[wi].print().equals(ABS_PR))
-					theWordList[wi] = new LexPhon(stageGold[wi].getPhonologicalRepresentation());
+					theWordList[wi] = new Etymon(stageGold[wi].getPhonologicalRepresentation());
 			if(stageGold[wi].print().equals(ABS_PR))
 				if(!theWordList[wi].print().equals(ABS_PR))
 					theWordList[wi] = new AbsentLexPhon(); 
@@ -194,7 +194,7 @@ public class Lexicon {
 	public int numAbsentEtyma()
 	{
 		int cnt = 0;
-		for (LexPhon lex: theWordList)
+		for (Etymon lex: theWordList)
 			if (lex.print().equals(ABS_PR))	cnt += 1;
 		return cnt;
 	}

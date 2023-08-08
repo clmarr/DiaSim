@@ -26,7 +26,7 @@ public class FED {
 		isdl_wt = id_wt;  
 	}
 	
-	public void compute(LexPhon l1, LexPhon l2)
+	public void compute(Etymon l1, Etymon l2)
 	{
 		SequentialPhonic[] s1 = l1.getPhOnlySeq(), s2 = l2.getPhOnlySeq ();
 		len1 = s1.length; len2= s2.length; 
