@@ -3,35 +3,39 @@ import java.util.ArrayList;
 import java.util.HashMap; 
 
 /**
- * Class for representing the phonology of one word in the vocabulary
+ * Class primarily for representing the phonology of one word in the vocabulary
  * This class currently forces the edges of the word to have word bounds
  * 	although this actually might not be appropriate for languages with weak boundaries
  *  	such as French with its liaison phenomenon -- nevertheless this phenomenon is outside the purview of this project. 
+ *  in summer 2023, the skeleton to include morphosyntactic and semantic info, and frequency, was included
+ * 		and this was accordingly renamed from LexPhon to Etymon on July 2 2023 
+ * 		since it no longer exclusively represents the phonology of the item. 
+ * 		though this is still the primary function. 
  * @author Clayton Marr
  */
 public class Etymon {
 	private List<SequentialPhonic> phonRep; //phonological representation
-	private String lemma; //name of its paradigm
-	private String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
-	private HashMap<String,String> morphSynSpecs; 
-	private double frequency; // token frequency, if present; else -1 (which is default).
-	private List<String> domains; // semantic domains 
+	protected String lemma; //name of its paradigm
+	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
+	protected HashMap<String,String> morphSynSpecs; 
+	protected double frequency; // token frequency, if present; else -1 (which is default).
+	protected List<String> domains; // semantic domains 
 	
 	public Etymon(List<SequentialPhonic> pR)
 	{
-		if (pR.size() != 0) //not an AbsentLexPhon
+		if (pR.size() != 0) //not an absent or unattested etymon (PseudoEtymon)
 		{	
 			phonRep = new ArrayList<SequentialPhonic>(pR); 
 			if (!phonRep.get(0).equals(new Boundary("word bound")))
 				phonRep.add(0, new Boundary("word bound")); 
 			if (!phonRep.get(phonRep.size()-1).equals(new Boundary("word bound")))
 				phonRep.add(new Boundary("word bound")); 
-			this.lemma = ""; 
-			this.lexClass = ""; 
-			this.morphSynSpecs = new HashMap<String,String>(); 
-			this.domains = new ArrayList<String>(); 
-			this.frequency = -1.0; 
 		}
+		this.lemma = ""; 
+		this.lexClass = ""; 
+		this.morphSynSpecs = new HashMap<String,String>(); 
+		this.frequency = -1.0; 
+		this.domains = new ArrayList<String>(); 
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
@@ -51,6 +55,11 @@ public class Etymon {
 		}
 		return out; 
 	
+	}
+	
+	public int phRepLen()
+	{
+		return phonRep.size();
 	}
 	
 	//index of first location of the phone if it is present, else returns -1 
@@ -124,25 +133,6 @@ public class Etymon {
 	public boolean checkDomain(String dom)	{	return domains.contains(dom); 	}
 	public List<String> getDomains() {	return domains;	}
 	
-	public void setLemma(String lemma) {	this.lemma = lemma;	}
-
-	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
-	
-	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
-	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}
-	public void resetMorphSynSpecs	(HashMap<String,String> newSpecs)	
-	{	morphSynSpecs = new HashMap<String, String> (newSpecs);	}
-	
-	public void setFrequency(double freq)	{	this.frequency = freq; 	}
-
-	public void addDomain(String domain) {
-		this.domains.add(domain);
-	}
-	
-	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
-	
-	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
-	
 	//auxiliary: count number of actual Phones in list of SequentialPhonic objects 
 	public int getNumPhones()
 	{
@@ -152,11 +142,7 @@ public class Etymon {
 				count++; 
 		return count; 
 	}
-	
-	public int phRepLen()
-	{
-		return phonRep.size();
-	}
+
 	
 	public int findSequence(RestrictPhone[] sequence)
 	{
@@ -216,7 +202,24 @@ public class Etymon {
 	}
 	
 	
+	public void setLemma(String lemma) {	this.lemma = lemma;	}
+
+	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
 	
+	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
+	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}
+	public void resetMorphSynSpecs	(HashMap<String,String> newSpecs)	
+	{	morphSynSpecs = new HashMap<String, String> (newSpecs);	}
+	
+	public void setFrequency(double freq)	{	this.frequency = freq; 	}
+
+	public void addDomain(String domain) {
+		this.domains.add(domain);
+	}
+	
+	public void removeDomain(String domain)	{	this.domains.remove(domain); 	}
+	
+	public void resetDomains(List<String> newDomains)	{	this.domains = new ArrayList<String>(newDomains); }
 	
 	
 }
