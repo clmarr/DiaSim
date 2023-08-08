@@ -763,18 +763,17 @@ public class SChangeTester {
 		//TODO 
 		
 		//TODO finish debugging here... applications to test -- w ; ũ
-
 		
-		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 20"); 
 		numCorrect = 0 ; 
 		
 		//TODO final debugging mode for featmatrix, with two alpha symbols, the latter for a feature that is often unspecified 
 			// -- only one should be extracted, and not the other. 
 		
 		System.out.println("Now testing with two alpha symbols -- ðnas, ðvoi, and ɛtense. The latter, tense, is often unspecified and should not be extracted in such cases..."); 
+		System.out.println("TODO implement this.");
 		//TODO test
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
+		//System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
 		numCorrect = 0 ; 
 		
 		//TODO debugging testers for SChange subclasses that handle alpha valued features... 
