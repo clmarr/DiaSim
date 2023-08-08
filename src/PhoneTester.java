@@ -278,5 +278,12 @@ public class PhoneTester {
 		System.out.println("The following should be '-back -front':");
 		System.out.println(""+centralized_dcrit[0]+" "+centralized_dcrit[1]); 
 		
+		System.out.println("Now testing implementation, with respect to comprehension of diacriticized symbols..."); 
+		System.out.println("The following should parse without error..."); 
+		//TODO work here. 
+		testPhone = new Phone(symbsToFeatures.get("p"), featureIndices, symbsToFeatures); 
+		testPhone.set("long", 1);
+		
+		System.out.println("TODO to be implemented..."); 		
 	}
 }
