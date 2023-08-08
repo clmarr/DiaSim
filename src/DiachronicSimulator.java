@@ -352,11 +352,12 @@ public class DiachronicSimulator {
 			firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1	;
 		System.out.println("Lexicon file has "+numCols+" columns!"); 
 		System.out.println("First column assumed to be input."); 
+			//TODO need to change this behavior to handle the situation where first column is a stage that is not equivalent to the input
 			
 		lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		if(lexiconHasHeader)
 		{
-			System.out.println("Header detefcted: "+firstlineproxy); 
+			System.out.println("Header detected: "+firstlineproxy); 
 			
 			int coli = 1;
 			int numGoldStagesConfirmed = 0; 
@@ -601,7 +602,8 @@ public class DiachronicSimulator {
 		Etymon[][] goldForms = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA];
 			//TODO need to inspect wherever this is called!
 
-		int lfli = lexiconHasHeader ? 1 : 0 ; //"lex file line index"
+		int lfli =  0 ; //"lex file line index"
+		if (lexiconHasHeader)	lexFileLines.remove(0); 
 		
 		while(lfli < NUM_ETYMA)
 		{
