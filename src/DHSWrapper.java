@@ -309,7 +309,7 @@ public class DHSWrapper {
 							for (int pci = 0; pci < proposedChanges.size(); pci++) {
 								String[] ipc = proposedChanges.get(pci);
 
-								// TODO check this _v_
+								// TODO check this below: 
 								// note: no comments are entered for the insertion part of rule modification,
 								// which, unlike simple deletion, implies a non-empty corresponding entry in
 								// index [2]
