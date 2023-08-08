@@ -9,7 +9,7 @@ import java.util.HashMap;
  *  	such as French with its liaison phenomenon -- nevertheless this phenomenon is outside the purview of this project. 
  * @author Clayton Marr
  */
-public class LexPhon {
+public class Etymon {
 	private List<SequentialPhonic> phonRep; //phonological representation
 	private String lemma; //name of its paradigm
 	private String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
@@ -17,7 +17,7 @@ public class LexPhon {
 	private double frequency; // token frequency, if present; else -1 (which is default).
 	private List<String> domains; // semantic domains 
 	
-	public LexPhon(List<SequentialPhonic> pR)
+	public Etymon(List<SequentialPhonic> pR)
 	{
 		if (pR.size() != 0) //not an AbsentLexPhon
 		{	

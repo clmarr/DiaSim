@@ -33,7 +33,7 @@ public class Simulation {
 	private boolean goldOutput; 
 	
 	
-	public void initialize(LexPhon[] inputForms, List<SChange> casc)
+	public void initialize(Etymon[] inputForms, List<SChange> casc)
 	{
 		inputLexicon = new Lexicon(inputForms); 
 		currLexicon = new Lexicon(inputForms); 
@@ -52,14 +52,14 @@ public class Simulation {
 		currStageInd = 0; 
 	}
 	
-	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] initializedDerivations, String[] orderedStages)
+	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] initializedDerivations, String[] orderedStages)
 	{
 		initialize(inputForms, casc); 
 		etDerivations = initializedDerivations; 
 		stagesOrdered = orderedStages;
 	}
 	
-	public Simulation(LexPhon[] inputForms, List<SChange> casc, String[] orderedStages)
+	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] orderedStages)
 	{
 		initialize(inputForms,casc);
 		etDerivations = new String[NUM_ETYMA];
@@ -71,7 +71,7 @@ public class Simulation {
 	//constructor for differential hypothesis empiricization Simulation object
 	public Simulation(Simulation baseline, List<SChange> propCasc)
 	{
-		LexPhon[] inputForms = baseline.getInput().getWordList();
+		Etymon[] inputForms = baseline.getInput().getWordList();
 		this.stagesOrdered = baseline.stagesOrdered; 
 		initialize(inputForms, propCasc); 
 		etDerivations = new String[NUM_ETYMA];
@@ -97,13 +97,13 @@ public class Simulation {
 	
 	public void setOpacity(boolean opa)	{	opaque = opa;	}
 	
-	public void setGold(LexPhon[] golds)
+	public void setGold(Etymon[] golds)
 	{
 		goldOutputLexicon = new Lexicon(golds); 
 		goldOutput = true; 
 	}
 	
-	public void setGoldStages(LexPhon[][] stageForms, String[] names, int[] times)
+	public void setGoldStages(Etymon[][] stageForms, String[] names, int[] times)
 	{
 		goldStageInstants = times;
 		goldStageNames = names; 
@@ -132,7 +132,7 @@ public class Simulation {
 	{
 		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0 && instant != 0)	System.out.println("Simulated to rule number "+instant); 
 		SChange thisShift = CASCADE.get(instant); 
-		LexPhon[] prevForms = currLexicon.getWordList(); 
+		Etymon[] prevForms = currLexicon.getWordList(); 
 		
 		boolean[] etChanged = currLexicon.applyRuleAndGetChangedWords(thisShift); 
 		for (int ei = 0; ei< NUM_ETYMA; ei++)
@@ -206,9 +206,9 @@ public class Simulation {
 	//accessors follow
 	public Lexicon getInput()	{	return inputLexicon;	}
 	public Lexicon getCurrentResult()	{	return currLexicon;	}
-	public LexPhon getCurrentForm(int id)	{	return currLexicon.getByID(id);	}
-	public LexPhon getInputForm(int id)	{	return inputLexicon.getByID(id);	}
-	public LexPhon getGoldOutputForm(int id)	{	return goldOutputLexicon.getByID(id);	}
+	public Etymon getCurrentForm(int id)	{	return currLexicon.getByID(id);	}
+	public Etymon getInputForm(int id)	{	return inputLexicon.getByID(id);	}
+	public Etymon getGoldOutputForm(int id)	{	return goldOutputLexicon.getByID(id);	}
 	public Lexicon getGoldOutput()		{	
 		if (!goldOutput) throw new RuntimeException( "called for gold outputs but none are set"); 
 		return goldOutputLexicon;	}
@@ -354,8 +354,8 @@ public class Simulation {
 	public int getGoldStageInd()	{	return goldStageInd;	}
 	public int getBlackStageInd()	{	return blackStageInd;	}
 	public String[] getStagesOrdered()	{	return stagesOrdered;	}
-	public LexPhon[][] getGoldStageGoldForms()	{
-		LexPhon[][] out = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
+	public Etymon[][] getGoldStageGoldForms()	{
+		Etymon[][] out = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA]; 
 		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 			out[gsi] = goldStageGoldLexica[gsi].getWordList();
 		return out;

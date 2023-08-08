@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * TODO implement this to model words that enter the vocabulary late or leave it early in next project.
  * 	TODO as of Dec 3, 2022 -- unsure if this was already implemented. Need to check. 
  */
-public class AbsentLexPhon extends LexPhon {
+public class AbsentLexPhon extends Etymon {
 	
 	public AbsentLexPhon()
 	{	super(new ArrayList<SequentialPhonic>());	}

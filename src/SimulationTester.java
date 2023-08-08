@@ -39,11 +39,11 @@ public class SimulationTester {
 	private static HashMap<String, String[]> featImplications; 
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES;
-	private static LexPhon[] inputForms; 
+	private static Etymon[] inputForms; 
 	private static Lexicon goldOutputLexicon;
 	private static boolean goldOutput; 
 	private static String[] goldStageNames, blackStageNames; 
-	private static LexPhon[][] goldStageGoldWordlists; //outer nested indices match with those of customStageNames 
+	private static Etymon[][] goldStageGoldWordlists; //outer nested indices match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
 	
@@ -533,7 +533,7 @@ public class SimulationTester {
 		//check DHS.changedDerivations
 		Phone er = new Phone(phoneSymbToFeatsMap.get("ə˞"), featIndices, phoneSymbToFeatsMap); 
 		int nFs = 0; 
-		for (LexPhon ifi : inputForms)	nFs += ifi.findPhone(er) == -1 ? 0 : 1 ; 
+		for (Etymon ifi : inputForms)	nFs += ifi.findPhone(er) == -1 ? 0 : 1 ; 
 		int[] efds = new int[nFs] ; int nfi = 0; 
 		for(int ifii = 0; nfi < nFs ; ifii++)
 			if (inputForms[ifii].findPhone(er) != -1)	efds[nfi++] = ifii; 
@@ -1470,7 +1470,7 @@ public class SimulationTester {
 
 		// now extract 
 		NUM_ETYMA = lexFileLines.size(); 
-		goldStageGoldWordlists = new LexPhon[NUM_GOLD_STAGES][NUM_ETYMA]; 
+		goldStageGoldWordlists = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA]; 
 
 		String[] initStrForms = new String[NUM_ETYMA]; 
 		
@@ -1490,8 +1490,8 @@ public class SimulationTester {
 		
 		boolean justInput = (numCols == 0); 
 		
-		inputForms = new LexPhon[NUM_ETYMA];
-		LexPhon[] goldResults = new LexPhon[NUM_ETYMA];  
+		inputForms = new Etymon[NUM_ETYMA];
+		Etymon[] goldResults = new Etymon[NUM_ETYMA];  
 
 		int lfli = 0 ; //"lex file line index"
 		
@@ -1521,16 +1521,20 @@ public class SimulationTester {
 	}
 
 	/** auxiliary.
-	 * given String @param toLex
+	 * given String @param toLexem
 	 * @return its representation as a LexPhon containing a sequence of Phone instances
+	 * @return its representation as a Etymon containing a sequence of Phone instances
 	 * TODO note we assume the phones are separated by PH_DELIM (presumably ' ') 
+	 *  * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
+	 * 		... because it does not yet handle parsing of morphological, semantic, or token frequency info... yetR. 
+	 * 		TODO decide where that will be parsed, make changes as necessary. 
 	 */
-	private static LexPhon parseLexPhon(String toLex)
+	private static Etymon parseLexPhon(String toLexem)
 	{
-		if (toLex.contains(UTILS.ABSENT_PH_INDIC))
+		if (toLexem.contains(UTILS.ABSENT_PH_INDIC))
 		{	return new AbsentLexPhon();	}
 		
-		String[] toPhones = toLex.trim().split(""+UTILS.PH_DELIM);
+		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //LexPhon class stores internal List of phones not an array,
 			// for better ease of mutation
@@ -1547,7 +1551,7 @@ public class SimulationTester {
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
-		return new LexPhon(phones);
+		return new Etymon(phones);
 	}
 	
 	
