@@ -425,8 +425,7 @@ public class DiachronicSimulator {
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
 				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
 			}
-		}
-		
+		}	
 	}
 	
 	// changes one gold stage to a black stage
@@ -850,7 +849,7 @@ public class DiachronicSimulator {
 	 */
 	public static Etymon parseLexPhon(String toLexem)
 	{
-		if (toLexem.contains(UTILS.ABSENT_PH_INDIC))
+		if (toLexem.contains(UTILS.ABSENT_INDIC))
 		{	return new AbsentLexPhon();	}
 		
 		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);

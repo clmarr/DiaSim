@@ -1531,7 +1531,7 @@ public class SimulationTester {
 	 */
 	private static Etymon parseLexPhon(String toLexem)
 	{
-		if (toLexem.contains(UTILS.ABSENT_PH_INDIC))
+		if (toLexem.contains(UTILS.ABSENT_INDIC))
 		{	return new AbsentLexPhon();	}
 		
 		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);
