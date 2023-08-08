@@ -127,6 +127,8 @@ public class Etymon {
 	}
 	
 	public String checkMorphSynSpec(String feat)	{	return morphSynSpecs.get(feat);	}
+	public HashMap<String, String> getMorphSynSpecs()	{	return new HashMap<String, String>(morphSynSpecs);	}
+	// returning clone to avoid accidental tampering with it. 
 	
 	public double getFrequency()	{	return frequency;	}
 	
