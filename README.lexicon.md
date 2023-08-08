@@ -55,7 +55,7 @@ Between the columns and the comment clause, one may enter a morphology clause fl
 
 # HEADER
 
-The header must be flagged by having its first character as the symbol "=", i.e. the black stage name flag.
+The header must be flagged by having its first character as the symbol "=", which is also the black stage name flag.
 
 TODO -- check DiaSim behavior with regard to header (i.e. DiachronicSimulator.processLexFileHeader()). 
 	TODO -- include behavior when header is not there

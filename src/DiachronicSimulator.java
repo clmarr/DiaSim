@@ -44,6 +44,7 @@ public class DiachronicSimulator {
 		// index will effectively be # columned stage index - # gold stage index 
 	private static int[] goldStageInstants, blackStageInstants, columnedStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet, columnedStagesSet; 
+	private static boolean lexiconHasHeader;
 	
 	private static boolean goldOutput; 
 	
@@ -352,9 +353,11 @@ public class DiachronicSimulator {
 		System.out.println("Lexicon file has "+numCols+" columns!"); 
 		System.out.println("First column assumed to be input."); 
 			
-		boolean lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
+		lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		if(lexiconHasHeader)
 		{
+			System.out.println("Header detefcted: "+firstlineproxy); 
+			
 			int coli = 1;
 			int numGoldStagesConfirmed = 0; 
 			while (coli < numCols - 1)
@@ -598,7 +601,7 @@ public class DiachronicSimulator {
 		Etymon[][] goldForms = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA];
 			//TODO need to inspect wherever this is called!
 
-		int lfli = 0 ; //"lex file line index"
+		int lfli = lexiconHasHeader ? 1 : 0 ; //"lex file line index"
 		
 		while(lfli < NUM_ETYMA)
 		{
@@ -912,7 +915,8 @@ public class DiachronicSimulator {
 					}
 					if (invalid_phone_error)
 						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
-								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length());
+								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length()
+								+ "\nLex phon is :"+toLexem);
 				}
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
