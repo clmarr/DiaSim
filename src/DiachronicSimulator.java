@@ -761,12 +761,15 @@ public class DiachronicSimulator {
 
 	private static void makeOutGraphFile()
 	{	
-		String filename = new File(runPrefix, runPrefix+ "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
+		String filename = new File(runPrefix, 
+				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
+				+ "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
 		UTILS.writeToFile(filename, theSimulation.outgraph(),true); 
 	}
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
-		String filename = new File(runPrefix, runPrefix + "_rules_log.txt").toString(); 
+		String filename = new File(runPrefix, 
+				runPrefix.substring(runPrefix.lastIndexOf("/") + 1)+ "_rules_log.txt").toString(); 
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 

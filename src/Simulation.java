@@ -166,10 +166,14 @@ public class Simulation {
 			if ( type == 'g') //it's a gold stage.
         	{
 				//TODO need to fix here 
-        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
         		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
         		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
         			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);
+        		currLexicon.updateAbsence(goldStageGoldLexica[goldStageInd].getWordList());
+        		//TODO this is likely still highly insufficient! Because the haltMenu and errorAnalysis do not happen within this class.
+        			//TODO will need to handle this somewhere else -- but where, and how to ensure correct behavior here? 
+        		//TODO also need to handle "grey stages" which just consist of an updateAbsence call effectively,
+        				// not comparison of reconstructed vs. observed forms...?
         		goldStageInd++;
         	}
         	else //black stage
