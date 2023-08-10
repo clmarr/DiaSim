@@ -251,8 +251,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		ALPH_VARS = new HashMap<String, String>();
 		targSource.resetAlphaValues();
 		destination.resetAlphaValues();
-		priorContext.resetAllAlphaValues();
-		postContext.resetAllAlphaValues();
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd)	postContext.resetAllAlphaValues();
 		need_to_reset = false;
 	}
 

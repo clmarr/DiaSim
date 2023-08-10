@@ -182,8 +182,8 @@ public class SChangePhoneAlpha extends SChangePhone {
 	public void reset_alphvals_everywhere()
 	{
 		ALPH_VARS = new HashMap<String, String>();
-		priorContext.resetAllAlphaValues();
-		postContext.resetAllAlphaValues();
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd)	postContext.resetAllAlphaValues();
 		need_to_reset = false;
 	}
 }
