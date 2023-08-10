@@ -72,6 +72,13 @@ public class SChangePhoneAlpha extends SChangePhone {
 										halt = true; 
 										priorPossible = false; 
 									}
+									else if (!pri.compareExceptAlpha(cpi))	
+									{	//check also for conflict OUTSIDE the alpha values and return false if so
+											// as that will cause a downstream UnsetAlphaException otherwise
+										if(need_to_reset)	reset_alphvals_everywhere();
+										halt = true; 
+										priorPossible = false; 
+									}
 									else
 									{
 										ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
@@ -147,6 +154,12 @@ public class SChangePhoneAlpha extends SChangePhone {
 						if(cpi.getType().equals("phone")) {
 							if(poi.check_for_alpha_conflict(cpi))
 							{
+								postContext.resetAllAlphaValues();
+								return false;
+							}
+							else if (!poi.compareExceptAlpha(cpi))	
+							{	//check also for conflict OUTSIDE the alpha values and return false if so
+									// as that will cause a downstream UnsetAlphaException otherwise
 								postContext.resetAllAlphaValues();
 								return false;
 							}

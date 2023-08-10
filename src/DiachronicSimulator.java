@@ -1617,7 +1617,8 @@ public class DiachronicSimulator {
 			else
 			{
 				for (j = 1; j < arg.length(); j++)
-				{	flag = arg.charAt(j);
+				{	
+					flag = arg.charAt(j);
 					switch(flag)	{
 						case 'r':
 							DEBUG_RULE_PROCESSING = true;

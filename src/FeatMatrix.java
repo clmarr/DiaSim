@@ -91,7 +91,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 		
 	/**
-	 * checks if candidate phone adheres to the restrictiosn
+	 * checks if candidate phone adheres to the restrictions
 	 * @precondition: they have the same length feature vectors
 	 * @throws UnsetAlphaError */
 	public boolean compare(SequentialPhonic cand)
@@ -114,6 +114,30 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
 					return false;
 			if ("9".contains(restr) && !"1".equals(restr))	return false; 
+		}
+		return true;
+	}
+	
+	/**
+	 * checks if @param cand adheres to restrictions except those that are alpha values
+	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas, currently in terms of alpha values embedded in contexts (not source phones). 
+	 */
+	public boolean compareExceptAlpha(SequentialPhonic cand)
+	{
+		if (!cand.getType().equals("phone"))
+			return false; 
+		
+		String candFeats = cand.toString().split(":")[1]; 
+		if (candFeats.length() != featVect.length())
+			throw new RuntimeException("ERROR: comparing with feature vects of unequal length");
+		
+		for (int i = 0 ; i < candFeats.length(); i++)
+		{
+			String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
+			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
+					return false;
+			if ("9".contains(restr) && !"1".equals(restr))	return false; 
+			// this will already doing nothing for alpha valued items -- which is exactly as should happen, they are being ignored. 
 		}
 		return true;
 	}
@@ -404,12 +428,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
-		
+			// "candidate feature vector"
 		if (cand_feat_vect.length != featVect.length()) 	throw new RuntimeException("cannot extract alpha values for feat vectors of inconsistent length"); 
-		
+
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			char fvspec = featVect.charAt(c); 
+
+			//TODO debugging
+			System.out.println("c at "+c+", featVect currently: "+featVect+"; fvspec "+fvspec+"; here, cand has "+cand_feat_vect[c]);
 			
 			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{

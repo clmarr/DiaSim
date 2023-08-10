@@ -27,6 +27,9 @@ public class Boundary extends PseudoPhone {
 		return cand.getType().equals(type);	
 	}
 	
+	public boolean compareExceptAlpha(SequentialPhonic cand)	
+	{	return compare(cand);	}
+	
 	//if the unit at the specified index ind is the same as this, do nothing
 	// otherwise, throw an error -- the method forceTruth should not be used to insert
 	// pseudoPhones into a segment, as this is a phonological program not a morphological one.

@@ -95,7 +95,7 @@ public class Simulation {
 		}		
 	}
 	
-	public void setOpacity(boolean opa)	{	opaque = opa;	}
+	public void setOpacity(boolean opa)	{	opaque = opa;		}
 	
 	public void setGold(Etymon[] golds)
 	{
@@ -133,6 +133,9 @@ public class Simulation {
 		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0 && instant != 0)	System.out.println("Simulated to rule number "+instant); 
 		SChange thisShift = CASCADE.get(instant); 
 		Etymon[] prevForms = currLexicon.getWordList(); 
+		
+		//TODO debugging
+		System.out.println("iterating on rule : "+thisShift);
 		
 		boolean[] etChanged = currLexicon.applyRuleAndGetChangedWords(thisShift); 
 		for (int ei = 0; ei< NUM_ETYMA; ei++)

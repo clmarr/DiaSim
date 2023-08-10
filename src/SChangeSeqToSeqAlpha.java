@@ -103,6 +103,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 										halt = true; 
 										priorPossible = false; 
 									}
+									else if (!pri.compareExceptAlpha(cpi))	
+									{	//check also for conflict OUTSIDE the alpha values and return false if so
+											// as that will cause a downstream UnsetAlphaException otherwise
+										halt = true; 
+										priorPossible = false;
+									}
 									else
 									{
 										HashMap<String,String> alphHere = pri.extractAndApplyAlphaValues(input.get(cpic));
@@ -147,6 +153,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 										{
 											halt = true; 
 											postrPossible = false; 
+										}
+										else if (!poi.compareExceptAlpha(cpi))	
+										{	//check also for conflict OUTSIDE the alpha values and return false if so
+												// as that will cause a downstream UnsetAlphaException otherwise
+											halt = true; 
+											postrPossible = false;
 										}
 										else
 										{

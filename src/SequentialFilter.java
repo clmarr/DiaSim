@@ -121,7 +121,7 @@ public class SequentialFilter {
 	 */
 	public boolean isPriorMatch (List<SequentialPhonic> phonSeq, int firstInd)
 	{
-		if(minSize == 0)	return true; 
+		if(minSize == 0)	return true;
 		if(minSize > firstInd)	return false; 
 		int  currPlaceInCand = firstInd - 1 , currRestrPlace = placeRestrs.size()-1, 
 				currPlaceInMap = parenMap.length - 1; 

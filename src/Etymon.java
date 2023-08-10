@@ -74,6 +74,9 @@ public class Etymon {
 	// false otherwise 
 	public boolean applyRule(SChange theRule)
 	{
+		//TODO debugging
+		System.out.println("applying to this word "+this); 
+		
 		List<SequentialPhonic> newPhonRep = theRule.realize(phonRep); 
 		boolean changed = false; 
 		if (newPhonRep.size() != phonRep.size() )	changed = true; 

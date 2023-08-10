@@ -79,7 +79,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				while(!stopIncrement)
 				{
 					if(p >= input.size())	stopIncrement = true; 
-					else if(input.get(p).getType().equals("bound") && p <= maxPlace)
+					else if(input.get(p).getType().contains("bound") && p < maxPlace)
 						p++; 
 					else	stopIncrement = true; 
 				}
@@ -155,15 +155,23 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				while(!halt)
 				{
 					RestrictPhone pri = pripr.get(crp); 
+					
 					if(pri.first_unset_alpha() != '0')
 					{
 						SequentialPhonic cpi = input.get(cpic); 
 						if (cpi.getType().equals("phone")) {
 							if (pri.check_for_alpha_conflict(cpi))
-							{
+							{	
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
+							//check also for conflict OUTSIDE the alpha values and return false if so
+								// as that will cause a downstream UnsetAlphaException otherwise
+							if (!pri.compareExceptAlpha(cpi))	{
+								if (need_to_reset)	reset_alphvals_everywhere(); 
+								return false; 
+							}
+							
 							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
 							priorContext.applyAlphaValues(ALPH_VARS);
@@ -205,6 +213,15 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
+							//check also for conflict OUTSIDE the alpha values and return false if so
+								// as that will cause a downstream UnsetAlphaException otherwise
+							if (!poi.compareExceptAlpha(cpi))	
+							{
+								if (need_to_reset)	reset_alphvals_everywhere(); 
+								return false; 
+							}
+						
+							
 							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
 							postContext.applyAlphaValues(ALPH_VARS);
