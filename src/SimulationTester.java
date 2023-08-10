@@ -87,7 +87,7 @@ public class SimulationTester {
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, NUM_ETYMA == testSimul.NUM_ETYMA(), "ERROR: number of input forms not consistent after initialization");
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
-		testSimul.setGold(goldOutputLexicon.getWordList());
+		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); 
 		// for debugging purposes opacity is fine. 
@@ -219,7 +219,7 @@ public class SimulationTester {
 		resetToWorkingCasc(theFactory); 
 		testSimul = new Simulation(inputForms, CASCADE, STAGE_ORDER); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
-		testSimul.setGold(goldOutputLexicon.getWordList());
+		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
 		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); //reinserted. Necessary? Not sure.  
 		testSimul.simulateToEnd(); 
@@ -1511,7 +1511,7 @@ public class SimulationTester {
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
-			if(lfli <NUM_ETYMA && numCols != UTILS.colCount(theLine))
+			if(lfli <NUM_ETYMA && numCols != UTILS.countColumns(theLine))
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 		}		
 

@@ -70,9 +70,9 @@ public class ErrorAnalysis {
 	
 	private FED featDist;
 	
-	private Lexicon RES, GOLD, FOCUS;
+	private Lexicon RES, GOLD, PIVOT;
 	
-	private boolean focSet, filtSet; 
+	private boolean pivSet, filtSet; 
 	
 	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
 	
@@ -80,10 +80,10 @@ public class ErrorAnalysis {
 	{
 		RES = theRes;
 		GOLD = theGold; 
-		FOCUS = null; //must be manually set later.
+		PIVOT = null; //must be manually set later.
 		
 		filtSet = false;
-		focSet = false;
+		pivSet = false;
 		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
@@ -202,30 +202,30 @@ public class ErrorAnalysis {
 		filterSeq = null;
 	}
 	
-	public void setFilter(SequentialFilter newFilt, String stage_name)
+	public void setFilter(SequentialFilter newFilt, String filt_name)
 	{
 		filterSeq = newFilt; 
 		filtSet = true;
-		if(focSet)	articulateSubsample(stage_name); 
+		if(pivSet)	articulateSubsample(filt_name); 
 	}
 	
-	public void setPivot(Lexicon newFoc, String stage_name)
+	public void setPivot(Lexicon newPiv, String piv_name)
 	{
-		FOCUS = newFoc; 
-		pivotPhInventory = newFoc.getPhonemicInventory();
+		PIVOT = newPiv; 
+		pivotPhInventory = newPiv.getPhonemicInventory();
 		
 		pivPhInds = new HashMap<String, Integer>(); 
 		
 		for(int i = 0 ; i < pivotPhInventory.length; i++)
 			pivPhInds.put(pivotPhInventory[i].print(), i);
 		
-		focSet = true; 
+		pivSet = true; 
 		
 		isPhInPivEt = new boolean[pivotPhInventory.length][NUM_ETYMA]; 
 		int[] pivPhCts = new int[pivotPhInventory.length]; 
 		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
 		{
-			Etymon currEt = FOCUS.getByID(ei);
+			Etymon currEt = PIVOT.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
 				if(!currEt.toString().equals("[ABSENT]"))
@@ -235,7 +235,7 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		if(filtSet)	articulateSubsample(stage_name); 
+		if(filtSet)	articulateSubsample(piv_name); 
 		else
 		{
 			errorsByPivotPhone =  new int[pivotPhInventory.length];
@@ -243,7 +243,7 @@ public class ErrorAnalysis {
 			for (int ei = 0 ; ei < NUM_ETYMA ; ei++)	
 			{
 				if(!isHit[ei])
-					for (SequentialPhonic pivPh : FOCUS.getByID(ei).getPhOnlySeq())
+					for (SequentialPhonic pivPh : PIVOT.getByID(ei).getPhOnlySeq())
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
@@ -258,7 +258,7 @@ public class ErrorAnalysis {
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrPivotPhLocs = new int[NUM_TOP_ERR_PHS_TO_DISP];
-		if (focSet)	topErrPivotPhLocs = arrLocNMax(errorRateByPivotPhone, NUM_TOP_ERR_PHS_TO_DISP); 
+		if (pivSet)	topErrPivotPhLocs = arrLocNMax(errorRateByPivotPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		
 		double max_res_err_rate = errorRateByResPhone[topErrResPhLocs[0]]; 
 		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]];  
@@ -287,9 +287,9 @@ public class ErrorAnalysis {
 						"/ with rate "+rate+",\tRate present in mismatches : "
 						+(""+(double)errorsByGoldPhone[topErrGoldPhLocs[i]]*100.0/(double)mismatches.size()));
 			}
-			if(focSet)
+			if(pivSet)
 			{
-				System.out.println("Focus point phones most associated with error: ");
+				System.out.println("Pivot point phones most associated with error: ");
 				for (int i = 0; i < topErrPivotPhLocs.length; i++)
 				{
 					double rate = errorRateByPivotPhone[topErrPivotPhLocs[i]];
@@ -357,8 +357,8 @@ public class ErrorAnalysis {
 				else	confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
 			}
 		}
-		if (focSet)
-			for (SequentialPhonic pivPh : FOCUS.getByID(err_id).getPhOnlySeq())
+		if (pivSet)
+			for (SequentialPhonic pivPh : PIVOT.getByID(err_id).getPhOnlySeq())
 				errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 	}
 	
@@ -1023,7 +1023,7 @@ public class ErrorAnalysis {
 	}
 	
 	//assume indices are constant for the word lists across lexica 
-	public void articulateSubsample(String stage_name)
+	public void articulateSubsample(String subsamp_name)
 	{	
 		IN_SUBSAMP = new boolean[NUM_ETYMA];
 		SUBSAMP_SIZE = 0; String etStr = ""; 
@@ -1042,10 +1042,10 @@ public class ErrorAnalysis {
 				
 		for (int isi = 0; isi < NUM_ETYMA ; isi++)
 		{
-			if(FOCUS.getByID(isi).toString().equals("[ABSENT]"))
+			if(PIVOT.getByID(isi).toString().equals("[ABSENT]"))
 				IN_SUBSAMP[isi] = false;
 			else
-				IN_SUBSAMP[isi] = filterSeq.filtCheck(FOCUS.getByID(isi).getPhonologicalRepresentation()); 
+				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIVOT.getByID(isi).getPhonologicalRepresentation()); 
 			if(IN_SUBSAMP[isi])
 			{	
 				int etld = levDists[isi];
@@ -1081,16 +1081,16 @@ public class ErrorAnalysis {
 			if (isHit[id])
 			{
 				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
-				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(FOCUS.getByID(id).getPhonologicalRepresentation()));
+				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(PIVOT.getByID(id).getPhonologicalRepresentation()));
 			}
 			else
 			{
 				SS_MISS_IDS[SS_MISS_BOUNDS.size()] = id;
-				SS_MISS_BOUNDS.add(filterSeq.filtMatchBounds(FOCUS.getByID(id).getPhonologicalRepresentation()));
+				SS_MISS_BOUNDS.add(filterSeq.filtMatchBounds(PIVOT.getByID(id).getPhonologicalRepresentation()));
 			}
 		}
 		
-		String stage_blurb = (stage_name.equals("")) ? "" : " in "+stage_name;
+		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
 		if (SUBSAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
@@ -1099,7 +1099,7 @@ public class ErrorAnalysis {
 			
 			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
 			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
-			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+stage_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
+			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+subsamp_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
 			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
@@ -1168,7 +1168,7 @@ public class ErrorAnalysis {
 		//header.
 		for (int prli = 0 ; prli < pri.size(); prli++)
 			out += "   "+(pri.size() - prli)+" before     |";
-		out += " FOCUS ";
+		out += " PIVOT ";
 		for(int poli =0 ; poli<po.size(); poli++)
 			out += "|    "+(1+poli)+" after    ";
 		out+="\n|"; 
@@ -1224,7 +1224,7 @@ public class ErrorAnalysis {
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
-			List<SequentialPhonic> curPR = FOCUS.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
+			List<SequentialPhonic> curPR = PIVOT.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
 
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
 			{
@@ -1239,7 +1239,7 @@ public class ErrorAnalysis {
 		}
 		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
-			List<SequentialPhonic> curPR = FOCUS.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
+			List<SequentialPhonic> curPR = PIVOT.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
 
 			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
 			{
@@ -1260,10 +1260,10 @@ public class ErrorAnalysis {
 	
 	/**
 	 * 
-	 * @param rel_ind -- index of analysis relative to first phone of confusion/focus
+	 * @param rel_ind -- index of analysis relative to first phone of confusion/pivot point
 	 * @param ids -- etymon ids 
 	 * @param phs -- phs to analyzie (typically optained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
-	 * @param theBounds -- bounds of the confusion/focus in those ids. 
+	 * @param theBounds -- bounds of the confusion/pivot point in those ids. 
 	 * @return
 	 */
 	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
@@ -1273,7 +1273,7 @@ public class ErrorAnalysis {
 		for (int pi = 0 ; pi < phs.size(); pi++) {
 			for (int eti = 0; eti < ids.length ; eti++)
 			{
-				List<SequentialPhonic> curPR = FOCUS.getByID(ids[eti]).getPhonologicalRepresentation();
+				List<SequentialPhonic> curPR = PIVOT.getByID(ids[eti]).getPhonologicalRepresentation();
 				for(int[] bound : theBounds.get(eti))
 				{
 					int mchi = (posterior ? bound[1] + curPR.size() : bound[0]) + rel_ind ;
@@ -1432,9 +1432,9 @@ public class ErrorAnalysis {
 		return filtSet; 
 	}
 	
-	public boolean isFocSet()
+	public boolean isPivotSet()
 	{
-		return focSet;
+		return pivSet;
 	}
 	
 	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
@@ -1445,8 +1445,8 @@ public class ErrorAnalysis {
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				System.out.print(append_space_to_x(inpWds[i].toString(), 19) + "| ");
-				if (focSet)
-					System.out.print(append_space_to_x(FOCUS.getByID(i).toString(),19)+"| ");
+				if (pivSet)
+					System.out.print(append_space_to_x(PIVOT.getByID(i).toString(),19)+"| ");
 				System.out.print(append_space_to_x(RES.getByID(i).toString(),19)+"| ");
 				System.out.print(GOLD.getByID(i)+"\n");
 			}	}

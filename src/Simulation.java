@@ -97,7 +97,7 @@ public class Simulation {
 	
 	public void setOpacity(boolean opa)	{	opaque = opa;		}
 	
-	public void setGold(Etymon[] golds)
+	public void setGoldOutput(Etymon[] golds)
 	{
 		goldOutputLexicon = new Lexicon(golds); 
 		goldOutput = true; 

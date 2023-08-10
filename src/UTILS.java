@@ -89,7 +89,7 @@ public class UTILS {
 	{
 		Simulation toy = new Simulation(ogs.getInput().getWordList(), jur, ogs.getStagesOrdered()); 
 		if (ogs.hasBlackStages())	toy.setBlackStages(ogs.getBlackStageNames(), ogs.getBlackStageInstants());
-		if (ogs.hasGoldOutput()) toy.setGold(ogs.getGoldOutput().getWordList()); 
+		if (ogs.hasGoldOutput()) toy.setGoldOutput(ogs.getGoldOutput().getWordList()); 
 		if (ogs.hasGoldStages()) toy.setGoldStages(ogs.getGoldStageGoldForms(), ogs.getGoldStageNames(), ogs.getGoldStageInstants());
 		toy.setOpacity(true);
 		toy.setStepPrinterval(PRINTERVAL); 
@@ -140,9 +140,9 @@ public class UTILS {
 	
 
 	//auxiliary method -- get number of columns in lexicon file. 
-	public static int colCount(String str)
+	public static int countColumns(String row)
 	{
-		String proxy = str+"";
+		String proxy = row+"";
 		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{

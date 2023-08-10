@@ -36,7 +36,7 @@ public class DiachronicSimulator {
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_STAGES; 
 	private static String inputName; 
 	private static String[] goldStageNames, blackStageNames, columnedStageNames; 
-	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
+	private static Lexicon[] goldStageGoldLexica; //indexes match with those of goldStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
 	
@@ -378,6 +378,8 @@ public class DiachronicSimulator {
 		{
 			System.out.println("Header detected: "+firstlineproxy); 
 			
+			//TODO this whole area needs a reworking. 
+			
 			int coli = 1;
 			int numGoldStagesConfirmed = 0; 
 			while (coli < numCols - 1)
@@ -403,6 +405,7 @@ public class DiachronicSimulator {
 			{
 				System.out.println("Final column is a gold stage, not the result column!"); 
 				goldOutput = false; 
+				
 				int curgs = numGoldStagesConfirmed; 
 				
 				//TODO debugging
@@ -460,9 +463,12 @@ public class DiachronicSimulator {
 		}	
 	}
 	
+	
+	
 	// changes one gold stage to a black stage
 		// modifying global variables and data structures as appropriate. 
 	// int gsi -- the index in data structures of the stage we are blackening. 
+	//TODO this may need a rework
 	private static void blackenGoldStage(int gsi)
 	{
 		System.out.println("Blackening gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
@@ -580,7 +586,7 @@ public class DiachronicSimulator {
 		//collect init lexicon ( and gold for stages or final output if so specified) 
 		//copy init lexicon to "evolving lexicon" 
 		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
-		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
+		// evolving lexicon at that point by copying it into the appropriate slot in the goldStageResultLexica or blackStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 		
 		//TODO debugging
@@ -650,7 +656,7 @@ public class DiachronicSimulator {
 		{
 			String theLine = lexFileLines.get(lfli);
 			
-			if(/**lfli <NUM_ETYMA && */numCols != colCount(theLine))
+			if(/**lfli <NUM_ETYMA && */numCols != UTILS.countColumns(theLine))
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
@@ -686,7 +692,7 @@ public class DiachronicSimulator {
 		
 		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
-		if (goldOutput)	theSimulation.setGold(goldResults);
+		if (goldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
@@ -787,6 +793,7 @@ public class DiachronicSimulator {
 			//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
 			//TODO figure out what we want to do here...
+					// TODO what did this mean?^ Figure out or delete it. 
 			ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 			ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
@@ -979,20 +986,6 @@ public class DiachronicSimulator {
 		return new Etymon(phones);
 	}
 	
-	//auxiliary method -- get number of columns in lexicon file. 
-	private static int colCount(String str)
-	{
-		String proxy = str+"";
-		int i = proxy.indexOf(""+UTILS.LEX_DELIM), c = 1 ;
-		while( i > -1)
-		{
-			c++; 
-			proxy = proxy.substring(i+1);
-			i = proxy.indexOf(","); 
-		}
-		return c; 
-	}
-	
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
 	private static void printIncludedBlackStages(int first, int last)
 	{
@@ -1113,7 +1106,7 @@ public class DiachronicSimulator {
 					r = resp.equals("F") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
 					g = (curSt == -1 && resp.equals("F") ) ? goldOutputLexicon : goldStageGoldLexica[evalStage];
 					boolean filtered = ea.isFiltSet();
-					boolean pivoted = ea.isFocSet(); 
+					boolean pivoted = ea.isPivotSet(); 
 					
 					ea = new ErrorAnalysis(r, g, featsByIndex, 
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
@@ -1372,7 +1365,7 @@ public class DiachronicSimulator {
 			{
 				if(!ea.isFiltSet())
 					System.out.println("Error: tried to do context autopsy without beforehand setting filter stipulations: You can do this with 2.");
-				else if (!ea.isFocSet()) System.out.println("Error: can't do context autopsy without first setting pivot point. Use option 1.");
+				else if (!ea.isPivotSet()) System.out.println("Error: can't do context autopsy without first setting pivot point. Use option 1.");
 				else	ea.contextAutopsy();				
 			}
 			else if(resp.equals("6"))
@@ -1404,7 +1397,7 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								"etyma: "+inputName+", " + (ea.isFocSet() ? "PIV: "+pivPtName+"," : "")
+								"etyma: "+inputName+", " + (ea.isPivotSet() ? "PIV: "+pivPtName+"," : "")
 								+"Result, Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}
