@@ -47,7 +47,7 @@ public class DiachronicSimulator {
 	private static boolean goldStagesSet, blackStagesSet, columnedStagesSet; 
 	private static boolean lexiconHasHeader;
 	
-	private static boolean goldOutput; 
+	private static boolean hasGoldOutput; 
 	
 	//to be set in command line...
 	private static String runPrefix;
@@ -399,12 +399,12 @@ public class DiachronicSimulator {
 			if (stipName.substring(1,6).equalsIgnoreCase("modern") || stipName.equalsIgnoreCase("output") || stipName.equalsIgnoreCase("out") || stipName.equalsIgnoreCase("res") || stipName.equalsIgnoreCase("result"))
 			{
 				System.out.println("Final column stipulated as gold output.");
-				goldOutput = true; 
+				hasGoldOutput = true; 
 			}
 			else
 			{
 				System.out.println("Final column is a gold stage, not the result column!"); 
-				goldOutput = false; 
+				hasGoldOutput = false; 
 				
 				int curgs = numGoldStagesConfirmed; 
 				
@@ -439,7 +439,7 @@ public class DiachronicSimulator {
 				//TODO debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
 				
-				goldOutput = false; 
+				hasGoldOutput = false; 
 			}
 			else if(numCols == NUM_GOLD_STAGES + 2)
 			{
@@ -449,13 +449,13 @@ public class DiachronicSimulator {
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
 				System.out.println("numCols : "+numCols);
 				
-				goldOutput = true; 
+				hasGoldOutput = true; 
 			}
 			else 
 			{
 				if (numCols != 2) 
 					throw new RuntimeException("ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages as specified in cascade file!"); 
-				goldOutput = true; 
+				hasGoldOutput = true; 
 				System.out.println("Last column assumed to be output!"); 
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
 				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
@@ -642,7 +642,7 @@ public class DiachronicSimulator {
 		//TODO debugging
 		System.out.println("N ET "+NUM_ETYMA);
 		
-		boolean justInput = !goldOutput && !goldStagesSet; 
+		boolean justInput = !hasGoldOutput && !goldStagesSet; 
 		
 		inputForms = new Etymon[NUM_ETYMA];
 		Etymon[] goldResults = new Etymon[NUM_ETYMA];  
@@ -667,7 +667,7 @@ public class DiachronicSimulator {
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
 						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
-				if (goldOutput)
+				if (hasGoldOutput)
 					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
 			}
 			lfli++;
@@ -678,7 +678,7 @@ public class DiachronicSimulator {
 			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
 		
-		if(goldOutput)	
+		if(hasGoldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
 		
 		System.out.println("Lexicon extracted.");
@@ -692,7 +692,7 @@ public class DiachronicSimulator {
 		
 		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
-		if (goldOutput)	theSimulation.setGoldOutput(goldResults);
+		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
@@ -785,7 +785,7 @@ public class DiachronicSimulator {
 		System.out.println("making output graph file in "+dir);
 		makeOutGraphFile(); 
 				
-		if(goldOutput)
+		if(hasGoldOutput)
 		{
 			haltMenu(-1, inp,theFactory);
 			
@@ -843,7 +843,7 @@ public class DiachronicSimulator {
 			String filename = new File(runPrefix, new File("derivation","etym"+wi+".txt").toString()).toString(); 
 			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
 				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
-				+ (goldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
+				+ (hasGoldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+theSimulation.getDerivation(wi)+"\n";
 			UTILS.writeToFile(filename, output, false); 
 		}
@@ -1020,11 +1020,17 @@ public class DiachronicSimulator {
 	}
 	
 	// @param curr_stage : -1 if at final result point, otherwise valid index of stage in goldStage (Gold/Result)Lexica
-	// this should only be called when a gold stage is called. 
+	// this should only be called when a gold stage is called, or at the end if there is a gold output supplied.
 	private static void haltMenu(int curSt, Scanner inpu, SChangeFactory fac)
 	{	
 		//TODO from protodelta need to fix here with regard to inserted etyma.
 			//TODO figure out what this was referring to...
+		
+		if (curSt == -1 && !hasGoldOutput)
+			throw new RuntimeException("Error: attempted to do analysis and diagnostics on final output (as curSt=-1), "
+					+"but no gold output forms were provided!");
+		else if (curSt > goldStageGoldLexica.length)
+			throw new RuntimeException("Error: attempted to do analysis and diagnostics for a gold stage that does not exist!"); 
 		
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
