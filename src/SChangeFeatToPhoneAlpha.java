@@ -41,7 +41,9 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 				if (test.first_unset_alpha() != '0')
 				{
 					if(cand.getType().equals("phone")) {
-						if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
+						if(test.check_for_alpha_conflict(cand))
+							targMatchFail = true;
+						else if (!test.compareExceptAlpha(cand))	targMatchFail = true; 
 						else
 						{
 							HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
@@ -117,7 +119,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
 							String[] popm = postContext.getParenMap();
 							int cpic = indAfter, crp = 0, cpim = 0; 
-							boolean halt = popm[cpim].contains("("); 
+							boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
 							while (!halt)
 							{
 								RestrictPhone poi = popr.get(crp); 

@@ -134,9 +134,6 @@ public class Simulation {
 		SChange thisShift = CASCADE.get(instant); 
 		Etymon[] prevForms = currLexicon.getWordList(); 
 		
-		//TODO debugging
-		System.out.println("iterating on rule : "+thisShift);
-		
 		boolean[] etChanged = currLexicon.applyRuleAndGetChangedWords(thisShift); 
 		for (int ei = 0; ei< NUM_ETYMA; ei++)
 		{	if(etChanged[ei])
@@ -197,7 +194,7 @@ public class Simulation {
 	}
 	
 	//TODO : method to simulate until manual halting point?
-		// TODO did I realize this through? I think so, but best to make sure it works again 
+		// TODO did I test this through? I think so, but best to make sure it works again 
 	public void simulateToNextStage()
 	{
 		int prevgsi = goldStageInd + 0 , prevbsi = blackStageInd + 0 ;

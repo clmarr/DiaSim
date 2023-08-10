@@ -371,7 +371,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	
 	// should always be called before extractAndApplyAlphaValues
-	// bounds do not matter for our purposes here -- checking for alpha impossibility in multiphone itmes should skip over juncture phones (i.e. word bounds etc) 
+	// bounds do not matter for our purposes here 
+	//		checking for alpha impossibility in multiphone items should skip over juncture phones (i.e. word bounds etc) 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
@@ -435,9 +436,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		{
 			char fvspec = featVect.charAt(c); 
 
-			//TODO debugging
-			System.out.println("c at "+c+", featVect currently: "+featVect+"; fvspec "+fvspec+"; here, cand has "+cand_feat_vect[c]);
-			
 			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
 				if (currReqs.containsKey(""+fvspec))

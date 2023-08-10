@@ -30,10 +30,11 @@ public class DiachronicSimulator {
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String[]> diacriticMap; 
 	private static HashMap<String, String[]> featImplications; 
-	private static Etymon[] inputForms; 
+	private static Etymon[] inputForms;
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_STAGES; 
+	private static String inputName; 
 	private static String[] goldStageNames, blackStageNames, columnedStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of customStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
@@ -158,6 +159,7 @@ public class DiachronicSimulator {
 		System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
 		rulesByTimeInstant = new ArrayList<String>(); 
+		inputName = "Input";
 
 		String nextRuleLine;
 		
@@ -209,9 +211,10 @@ public class DiachronicSimulator {
 				{
 					goldStagesSet = true; 
 					
-					assert rli != 0: "Error: Stage set at the first line -- this is useless, redundant with the initial stage ";
-						// this assertion can stay as it does actually fulfill the role of an assertion... 
-					
+					if (rli == 0)
+						throw new RuntimeException("Error: attempted to set gold stage '"+currRule.substring(1)+"' before any rules have modified the input. "
+								+ "There is no point in this and it was probably an error. Please reserve stages for time instants after the input has been modified.");
+						
 					currRule = currRule.substring(1); 
 					
 					if (currRule.contains(""+UTILS.GOLD_STAGENAME_FLAG))
@@ -221,24 +224,30 @@ public class DiachronicSimulator {
 						throw new RuntimeException("Error: illegal character found in name for custom stage -- <<"
 								+UTILS.STAGENAME_LOC_DELIM+">>");  
 					goldStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
-					rulesByTimeInstant.remove(rli);  
+				}
+				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG && rli ==0)
+				{
+					inputName = currRule.substring(1); 
+					System.out.println("Assuming the attempted black stage at the input, "+inputName+", is just a preferred name"
+							+ " for the input. No black stage constructed here.");
 				}
 				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG)
 				{
 					blackStagesSet =true;
+					
 					currRule = currRule.substring(1); 
 					if (currRule.contains(UTILS.STAGENAME_LOC_DELIM+""))
 						throw new RuntimeException("Error: illegal character found in name for custom stage -- <<"+UTILS.STAGENAME_LOC_DELIM+">>");  
 					blackStageNameAndLocList.add(""+currRule+UTILS.STAGENAME_LOC_DELIM+rli);
-					rulesByTimeInstant.remove(rli); 
 				}
-				else	rulesByTimeInstant.remove(rli); 
+				else	throw new RuntimeException("There must be some bizarre encoding error here in this line where a stage was flagged but the flag character caused a parsing error: "+currRule); 
+				rulesByTimeInstant.remove(rli);
 			}
 			else	rli++;
 		}
 		
 		NUM_GOLD_STAGES = goldStageNameAndLocList.size(); 
-		NUM_BLACK_STAGES =blackStageNameAndLocList.size();
+		NUM_BLACK_STAGES = blackStageNameAndLocList.size();
 		
 		System.out.println("Using "+(NUM_GOLD_STAGES+NUM_BLACK_STAGES)+" custom stages."); 
 		
@@ -271,6 +280,10 @@ public class DiachronicSimulator {
 		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		
+		//TODO debugging
+		System.out.println("next_gold "+next_gold+", next_black "+next_black);
+		DEBUG_RULE_PROCESSING= true ;		
+		
 		for(String currRule : rulesByTimeInstant)
 		{
 			if(DEBUG_RULE_PROCESSING)
@@ -289,6 +302,9 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_gold)
 				{
+					//TODO debugging
+					System.out.println("reached gold stage "+goldStageNameAndLocList.get(gsgi));
+					
 					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					goldStageInstants[gsgi] = CASCADE.size();		
 					gsgi += 1;
@@ -301,6 +317,9 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_black)
 				{
+					//TODO debugging
+					System.out.println("reached black stage "+blackStageNameAndLocList.get(bsgi)); 
+					
 					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					blackStageInstants[bsgi] = CASCADE.size();
 					bsgi += 1;
@@ -385,6 +404,15 @@ public class DiachronicSimulator {
 				System.out.println("Final column is a gold stage, not the result column!"); 
 				goldOutput = false; 
 				int curgs = numGoldStagesConfirmed; 
+				
+				//TODO debugging
+				System.out.println("confirmed gold stages:");
+				if (curgs == 0)	System.out.println("none");
+				else {
+					for (int confgsi = 0; confgsi < curgs ; confgsi++)
+						System.out.println(confgsi+ ": "+goldStageNames[confgsi]); 
+				}
+				
 				while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
 				if (coli > NUM_GOLD_STAGES)
@@ -555,6 +583,19 @@ public class DiachronicSimulator {
 		// evolving lexicon at that point by copying it into the appropriate slot in the customStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 		
+		//TODO debugging
+		System.out.println("blackStagesSet = "+blackStagesSet);
+		System.out.println("NUM_BLACK_STAGES = "+NUM_BLACK_STAGES); 
+		System.out.println("blackStageNames.length = "+blackStageNames.length);
+		System.out.println("blackStageNames[0] = "+blackStageNames[0]); 
+		System.out.println("blackStageNames[2] = "+blackStageNames[2]); 
+		System.out.println("blackStageInstants[0] = "+blackStageInstants[0]);
+		System.out.println("blackStageInstants[2] = "+blackStageInstants[2]);
+		System.out.println("NUM_GOLD_STAGES = "+NUM_GOLD_STAGES);
+		System.out.println("goldStageNames.length = "+goldStageNames.length) ;
+		System.out.println("goldStageNames[0] = "+goldStageNames[0]);
+				
+		
 		System.out.println("Now extracting lexicon...");
 		String nextLine; 
 		
@@ -653,6 +694,15 @@ public class DiachronicSimulator {
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		
+		//TODO debugging
+		System.out.println("blackStagesSet = "+blackStagesSet);
+		System.out.println("NUM_BLACK_STAGES = "+NUM_BLACK_STAGES); 
+		System.out.println("blackStageNames.length = "+blackStageNames.length);
+		System.out.println("blackStageNames[0] = "+blackStageNames[0]); 
+		System.out.println("blackStageNames[2] = "+blackStageNames[2]); 
+		System.out.println("blackStageInstants[0] = "+blackStageInstants[0]);
+		System.out.println("blackStageInstants[2] = "+blackStageInstants[2]);
+		
 		File dir = new File(""+runPrefix); 
 		dir.mkdir(); 
 		
@@ -696,7 +746,7 @@ public class DiachronicSimulator {
 					if(resp.equalsIgnoreCase("y"))	
 					{
 						Lexicon prevLex = theSimulation.getInput(); 
-						String prstname = "Input";
+						String prstname = inputName;
 						
 						if (goldStageInd + blackStageInd > 0)
 						{
@@ -708,7 +758,7 @@ public class DiachronicSimulator {
 						}
 						
 						String bd = "\t,\t"; 
-						System.out.println("etymID"+bd+"Input"+bd+"Last stage: "+prstname+""+bd+"Curr stage: "+blackStageNames[blackStageInd]);
+						System.out.println("etymID"+bd+inputName+bd+"Last stage: "+prstname+""+bd+"Curr stage: "+blackStageNames[blackStageInd]);
 						for (int i = 0 ; i < NUM_ETYMA ; i++)
 							System.out.println(i+bd+inputForms[i]+bd+prevLex.getByID(i)+bd+theSimulation.getCurrentForm(i));
 					}
@@ -1082,7 +1132,7 @@ public class DiachronicSimulator {
 				{
 					System.out.println("Available options for pivot point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
-					System.out.println("In: use time of inp as pivot point (i.e. filter by input forms)"
+					System.out.println("In: "+inputName+" as pivot (i.e. filter by input forms)"
 							+ "\nOut: filter in terms of generated output forms"
 							+ "\nGold: filter by correct observed (gold) forms for output (or last gold stage if halted before end)"
 							+ "\nU: delete it, and also delete filter (return to scoping over whole lexicon)"
@@ -1108,7 +1158,9 @@ public class DiachronicSimulator {
 					if(!chosen)
 					{
 						if(resp.equals("R0"))	System.out.println("Invalid input: 'R0' is not a valid option -- instead choose 'In' "
-								+ "to delete pivot point and use the input for filtering");
+								+ "to delete pivot point and use the input"
+								+ (inputName.equalsIgnoreCase("input") ? "" : " ("+inputName+")")
+								+ " for filtering");
 						else if (resp.charAt(0) == 'g' && !goldStagesSet)
 							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
 						else if (resp.charAt(0) == 'b' && !blackStagesSet)
@@ -1224,7 +1276,9 @@ public class DiachronicSimulator {
 				boolean promptQueryMenu = true; 
 				while(promptQueryMenu)
 				{	System.out.print("What is your query? Enter the corresponding indicator:\n"
-							+ "0 : get ID of an etymon by input form\n"
+							+ "0 : get ID of an etymon by form at input"
+								+ (inputName.equalsIgnoreCase("input") ? "" : " ("+inputName+")")
+								+"\n"
 							+ "1 : get etymon's input form by ID number\n"
 							+ "2 : print all etyma by ID\n"
 							+ "3 : get derivation up to this point for etymon by its ID\n"
@@ -1282,7 +1336,7 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("2"))
 					{
-						System.out.println("etymID"+UTILS.STAGE_PRINT_DELIM+"Input"+UTILS.STAGE_PRINT_DELIM+"Gold");
+						System.out.println("etymID"+UTILS.STAGE_PRINT_DELIM+inputName+UTILS.STAGE_PRINT_DELIM+"Gold");
 						for (int i = 0 ; i < r.getWordList().length ; i++)
 							System.out.println(""+i+UTILS.STAGE_PRINT_DELIM+inputForms[i]+UTILS.STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
 					}
@@ -1350,7 +1404,7 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								"etyma: Input, " + (ea.isFocSet() ? "PIV: "+pivPtName+"," : "")
+								"etyma: "+inputName+", " + (ea.isFocSet() ? "PIV: "+pivPtName+"," : "")
 								+"Result, Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}

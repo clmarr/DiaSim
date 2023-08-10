@@ -127,14 +127,15 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		if(targSource.has_alpha_specs())
 		{
 			if (!phHere.getType().equals("phone"))	
-				if(!phHere.print().equals(targSource.print()))	return false;
-			else if (!targSource.check_for_alpha_conflict(phHere))
+			{	if(!phHere.print().equals(targSource.print()))	return false;	}
+			else if (targSource.check_for_alpha_conflict(phHere))	return false;
+			else if (!targSource.compareExceptAlpha(phHere))	return false;
+			else 
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
 				targSource.applyAlphaValues(ALPH_VARS);
 				need_to_reset = true;
 			}
-			else	return false; 
 		}
 		
 		if (!targSource.compare(phHere))
@@ -200,7 +201,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				List<RestrictPhone> popr = postContext.getPlaceRestrs();
 				String[] popm = postContext.getParenMap();
 				int cpic = ind + inpSize, crp = 0, cpim = 0; 
-				boolean halt = popm[cpim].contains("(");
+				boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
 				while(!halt)
 				{
 					RestrictPhone poi = popr.get(crp); 

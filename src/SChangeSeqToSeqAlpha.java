@@ -46,7 +46,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		while (p < maxPlace)
 		{
 			int p_if_match_fail = p; 
-			boolean targMatchFail = false; // for halting for-loop.
+			boolean targMatchFail = false; // for halting the for-loop.
 			// i -- place in targ source abstraction. 
 			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
 			{
@@ -58,6 +58,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 				else if (test.first_unset_alpha() != '0')
 				{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
+					else if (test.compareExceptAlpha(cand))	targMatchFail = true; 
 					else
 					{
 						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
@@ -141,7 +142,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
 							String[] popm = postContext.getParenMap();
 							int cpic = indAfter, crp = 0, cpim = 0; 
-							boolean halt = popm[cpim].contains("("); 
+							boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
 							while (!halt)
 							{
 								RestrictPhone poi = popr.get(crp); 

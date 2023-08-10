@@ -144,7 +144,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 			List<RestrictPhone> popr = postContext.getPlaceRestrs();
 			String[] popm = postContext.getParenMap();
 			int cpic = indAfter, crp = 0, cpim = 0; 
-			boolean halt = popm[cpim].contains("(");
+			boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
 			while(!halt)
 			{
 				RestrictPhone poi = popr.get(crp);
