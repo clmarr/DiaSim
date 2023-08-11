@@ -58,7 +58,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 				else if (test.first_unset_alpha() != '0')
 				{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
-					else if (test.compareExceptAlpha(cand))	targMatchFail = true; 
+					else if (!test.compareExceptAlpha(cand))	targMatchFail = true; 
 					else
 					{
 						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 

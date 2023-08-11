@@ -756,11 +756,10 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
 				"Error: now that all alpha symbol features should have been extracted, there should be no unset alpha, "
 				+ "but the first unset alpha symbol is detected to be "+fmtest.first_unset_alpha()) ? 1 : 0 ; 
+		System.out.println("TODO finish testing here : see comments in file..."); 
 		//TODO finish testing [ɪ̃] -- should pass β=- and ɣ=+
 		
 		//TODO testing with [w] -- should pass β=+ and ɣ = -
-		
-		//TODO 
 		
 		//TODO finish debugging here... applications to test -- w ; ũ
 		
@@ -771,12 +770,21 @@ public class SChangeTester {
 			// -- only one should be extracted, and not the other. 
 		
 		System.out.println("Now testing with two alpha symbols -- ðnas, ðvoi, and ɛtense. The latter, tense, is often unspecified and should not be extracted in such cases..."); 
-		System.out.println("TODO implement this.");
+		System.out.println("TODO implement this above!^");
 		//TODO test
 		//System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 18"); 
 		numCorrect = 0 ; 
 		
-		//TODO debugging testers for SChange subclasses that handle alpha valued features... 
+		//TODO debugging FeatMatrix.compareExceptAlpha
+		System.out.println("Now testing FeatMatrix.compareExceptAlpha ... ");
+		System.out.println("TODO.");
+		
+		//TODO comparing the classes 
+		System.out.println("TODO: tests for SChange subclasses that handle alpha valued features..."); 
+		System.out.println("Now testing SeqToSeqAlpha...");
+		String testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
+		SChange testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		System.out.println("testRule type : "+testRule.getClass()); 
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
