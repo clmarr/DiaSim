@@ -600,7 +600,13 @@ public class DHSWrapper {
 						if (cutPoint == 12)
 							printBaselineRuleAt(theInd);
 						else /* curPoint == 16 */ if (theInd > -1)
-							baseSimulation.getRuleEffect(theInd);
+						{
+							System.out.println("etyma effected by rule "+theInd+", "+baseSimulation.getRuleAt(theInd)+
+									"\n(original form : "+baseSimulation.getOrigRuleAt(theInd)+")");
+							String[] rule_effects_at_ind = baseSimulation.getRuleEffect(theInd);
+							for(String effect: rule_effects_at_ind)
+								if (!(""+effect).equals("null"))	System.out.println(effect); 
+						}		
 					} else {
 						boolean noMatches = true;
 						for (int ci = 0; ci < baseCASC.size(); ci++)

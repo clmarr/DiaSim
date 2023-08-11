@@ -139,7 +139,7 @@ public class Simulation {
 		{	if(etChanged[ei])
 			{
 				etDerivations[ei] += "\n"+currLexicon.getByID(ei)+" | "+instant+" : "+thisShift; 
-				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei); 
+				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print(); 
 			}
 		}
 		
@@ -347,6 +347,7 @@ public class Simulation {
 	public int NUM_BLACK_STAGES()	{	return NUM_BLACK_STAGES;	}
 	
 	public String getRuleAt(int id)	{	return ""+CASCADE.get(id); 	}
+	public String getOrigRuleAt(int id)	{	return ""+CASCADE.get(id).getOrig();	}
 	
 	public int getInstant()	{	return instant;	}
 	
