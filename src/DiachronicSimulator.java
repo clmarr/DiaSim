@@ -328,11 +328,6 @@ public class DiachronicSimulator {
 		System.out.println("Diachronic rules extracted. "); 
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
-		
-		//TODO debugging
-		System.out.println("stageOrdering: "); 
-		for (int soi = 0 ; soi < stageOrdering.length; soi++)	System.out.println(soi+" "+stageOrdering[soi]);
-		
 	}
 	
 	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -443,7 +438,7 @@ public class DiachronicSimulator {
 			}
 			else if(numCols == NUM_GOLD_STAGES + 2)
 			{
-				System.out.println("Each gold stage properly identified if we assume last is output!"); 
+				System.out.println("Each gold stage properly identified if we assume last is the gold forms for the output time!"); 
 
 				//TODO debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
