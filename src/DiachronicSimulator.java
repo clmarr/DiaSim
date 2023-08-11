@@ -622,7 +622,7 @@ public class DiachronicSimulator {
 		processLexFileHeader(firstlineproxy); 
 		
 		//TODO debugging
-		System.out.println("N ET "+NUM_ETYMA);
+		System.out.println("Number of etyma: "+NUM_ETYMA);
 		
 		boolean justInput = !hasGoldOutput && !goldStagesSet; 
 		

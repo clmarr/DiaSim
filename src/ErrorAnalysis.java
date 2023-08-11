@@ -559,18 +559,27 @@ public class ErrorAnalysis {
 				// in which case it will be in the res form. 
 
 			SequentialPhonic[] goldPhs = curPair[1].getPhOnlySeq(), resPhs= curPair[0].getPhOnlySeq();
-			boolean nullGold = (goldPhInd == goldPhInventory.length);
-		
-			//TODO debugging
-			System.out.println("output item : "+curPair[0]);
-			System.out.println("gold item : "+curPair[1]); 
+			boolean nullPhForGold = (goldPhInd == goldPhInventory.length),
+					nullPhForRes = (resPhInd == resPhInventory.length); 
 			
-			if (nullGold) 			{
+			if (nullPhForGold && nullPhForRes)
+				throw new RuntimeException("Error: somehow we ended up calculating the confusion between \n"
+						+ "a gold null phone (∅) and a result null phone... this should never happen.\n"
+						+ " Investigate this.");
+		
+			if (nullPhForGold) 			{
 				
 				for(int rpi = 0 ; rpi == resPhs.length ? false : alignment[rpi][0] != -2 ; rpi++)
 					if(resPhs[rpi].print().equals(resPhInventory[resPhInd].print()))
 						if(alignment[rpi][0] < 0)
 							confuseLocs.add(rpi); 
+			}
+			else if (nullPhForRes)
+			{
+				for (int gpi = 0 ; gpi == goldPhs.length ? false : alignment[gpi][1] != -2 ; gpi++)
+					if (goldPhs[gpi].print().equals(goldPhInventory[goldPhInd].print()))
+						if(alignment[gpi][1] < 0)
+							confuseLocs.add(gpi); 
 			}
 			else {
 				for(int gpi = 0 ; gpi < goldPhs.length; gpi++)
@@ -586,7 +595,7 @@ public class ErrorAnalysis {
 			//now retrieve context IN GOLD of confusion.
 			for (Integer dloc : confuseLocs)
 			{
-				int opLocBefore = getPrevAlignedGoldPos(alignment, dloc, nullGold); 
+				int opLocBefore = getPrevAlignedGoldPos(alignment, dloc, nullPhForGold); 
 				
 				if (opLocBefore == goldPhs.length) {
 					printAlignment(alignment,resPhs,goldPhs); 
@@ -604,7 +613,7 @@ public class ErrorAnalysis {
 				else	priorPhoneCounts[goldPhInventory.length] += 1;  
 				//goldPhInventory.length -- i.e. word bound.
 
-				int opLocAfter = getNextAlignedGoldPos(alignment, dloc, nullGold, goldPhs.length) ;
+				int opLocAfter = getNextAlignedGoldPos(alignment, dloc, nullPhForGold, goldPhs.length) ;
 
 				if (opLocAfter < goldPhs.length)
 				{
