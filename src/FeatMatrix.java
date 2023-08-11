@@ -35,11 +35,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// which is what is stored in the featVect for this case. 
 			// 
 	
-	private boolean DESPEC_VIA_ALPHA = false; // set to true to allow spreading of despecification via alpha features
+	private boolean DESPEC_VIA_ALPHA = true; // set to true to allow spreading of despecification via alpha features
 	// without this, one cannot despecify alpha features directly, explicitly,
 		// though the specification of an alpha feature could downstream lead to the despecification of other features
 			// via feature implications. 
-	
+	// currently, making this true will cause errors. 
 	
 	// TODO may need to add variables or methods to handle situation where has different alpha symbols for different features. 
 	
@@ -321,16 +321,26 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (String s : alphVals.keySet())
 		{
 			//s is the current alpha symbol, every instance of it in the featVect is being changed to the extracted value, val.  
-			char val = alphVals.get(s).charAt(0); 
-				//alphVals.get(s) must be just one character -- may need to throw an Error if this is not the case.  
-				// s must also be one character, but that is for reasons external to this class. 
 			
-			// disallow despecification via alpha
+			if(alphVals.get(s).length() > 1)
+				throw new RuntimeException("Error: value for alpha-specified feature (alpha symbol: "+s+") "
+						+ "is more than one character : "+alphVals.get(s)); 
+				//alphVals.get(s) must be just one character
+				// s must also be one character,
+					//but that is for reasons external to this class,
+					// as the length of the featVect must be static. 
+			
+			char val = alphVals.get(s).charAt(0); 
+				
+			// disallow despecification via alpha unless DESPEC_VIA_ALPHA is true.
 			if (val == '9' && !DESPEC_VIA_ALPHA)	continue;
 			else if (!"02".contains(""+val))	{ 
-				if (val != '1')	System.out.println("Alert -- tried to apply a value other than 0,1,2, or 9 to an alpha-specified feature... likely error around here. Ignoring for now...");
+				if (val != '1' && !(val == '9' && DESPEC_VIA_ALPHA))
+				{	System.out.println("Alert -- tried to apply a value other than 0,1,2, or 9 to an alpha-specified feature "
+							+ "\n   ... likely error around here. Ignoring for now...");
 					//as for other values outside the accepted four, they really shouldn't be allowed, but we're doing this above for now.
-				continue;			
+					continue;		
+				}
 			}
 			
 			while(featVect.contains(s))
@@ -350,7 +360,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				
 				//handling first the any-specification case to store for implications downstream
 				if("02".contains(""+val) && featImpls.keySet().contains(currSpec))
-				{	alphFeatsWImpls.add(currSpec); } //will actually be handled downstream in this method.
+				{	alphFeatsWImpls.add(currSpec); } 
+					//will actually be handled downstream in this method.
 				
 				// feat specs modification
 				int fsloc = featSpecs.indexOf(s+currSpec);	//index of where in featSpecs to modify. 
