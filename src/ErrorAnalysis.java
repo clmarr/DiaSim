@@ -130,7 +130,7 @@ public class ErrorAnalysis {
 		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
 		int fi = 0;
 		for (int i = 0 ; i < TOTAL_ETYMA; i++)
-		{	if (!theRes.getByID(i).print().equals(ABS_PR))
+		{	if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR))
 			{	FILTER[fi] = i;
 				PRESENT_ETS[fi] = i;
 				fi++;
@@ -176,7 +176,7 @@ public class ErrorAnalysis {
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
-			if (!theRes.getByID(i).print().equals(ABS_PR) && !theGold.getByID(i).print().equals(ABS_PR))
+			if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR) && !theGold.getByID(i).print().equals(UTILS.ABSENT_REPR))
 			{	
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
