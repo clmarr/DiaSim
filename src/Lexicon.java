@@ -249,6 +249,9 @@ Etymon et_here = etymaInColumn[wi];
 		return dolly; 		
 	}
 	
+	public Etymon cloneLexemeAt (int id)
+	{	return cloneLexeme(getByID(id));	}
+	
 	/**
 	 * @return number of etyma in this lexicon that are actually present
 	 * 	if this is not the lexicon being operated upon, a result of zero 

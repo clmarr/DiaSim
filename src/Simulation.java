@@ -26,6 +26,10 @@ public class Simulation {
 			// ever two stages at the same moment (point between rule steps)
 
 	private String[][] ruleEffects; 
+		// first index is rule number
+		// second index is etymon id number
+			// it will be null if the etymon is unaffected by the rule
+			// otherwise it will be of the form : /X/ > /Y/
 	private String[] etDerivations; 
 	//stores derivation (form at every time step), with stages delimited by line breaks, of each word 
 	
@@ -132,7 +136,13 @@ public class Simulation {
 	{
 		if (stepPrinterval == 0 ? false : instant % stepPrinterval == 0 && instant != 0)	System.out.println("Simulated to rule number "+instant); 
 		SChange thisShift = CASCADE.get(instant); 
-		Etymon[] prevForms = currLexicon.getWordList(); 
+		
+		// need to make clones here as doing sometihng like 
+			// Etymon[] prevForms = currLexicon.getWordList(); 
+		// ... will just have the prevForms modified due to pointers when applyRuleAndGetChangedWords() operates. 
+		Etymon[] prevForms = new Etymon[NUM_ETYMA]; 
+		for (int pfi = 0 ; pfi < NUM_ETYMA; pfi++)
+			prevForms[pfi] = currLexicon.cloneLexemeAt(pfi);
 		
 		boolean[] etChanged = currLexicon.applyRuleAndGetChangedWords(thisShift); 
 		for (int ei = 0; ei< NUM_ETYMA; ei++)
