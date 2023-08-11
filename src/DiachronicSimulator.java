@@ -280,10 +280,6 @@ public class DiachronicSimulator {
 		if (goldStagesSet)	next_gold = Integer.parseInt(goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		if (blackStagesSet)	next_black = Integer.parseInt(blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[1]);
 		
-		//TODO debugging
-		System.out.println("next_gold "+next_gold+", next_black "+next_black);
-		DEBUG_RULE_PROCESSING= true ;		
-		
 		for(String currRule : rulesByTimeInstant)
 		{
 			if(DEBUG_RULE_PROCESSING)
@@ -331,7 +327,11 @@ public class DiachronicSimulator {
 		
 		System.out.println("Diachronic rules extracted. "); 
 		
-		stageOrdering = UTILS.extractStageOrder(cascFileLoc); 
+		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
+		
+		//TODO debugging
+		System.out.println("stageOrdering: "); 
+		for (int soi = 0 ; soi < stageOrdering.length; soi++)	System.out.println(soi+" "+stageOrdering[soi]);
 		
 	}
 	
@@ -388,10 +388,6 @@ public class DiachronicSimulator {
 			{
 				String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
 				
-				//TODO debugging
-				System.out.println(numGoldStagesConfirmed+" gold stages confirmed, stipName "+stipName+", goldStageNames here "+goldStageNames[numGoldStagesConfirmed]);
-				System.out.println("coli "+coli+", NUM_GOLD_STAGES "+NUM_GOLD_STAGES);
-				
 				// using ">= NUM_GOLD_STAGES + 1", because the first line is the input. 
 				while ( coli >= NUM_GOLD_STAGES + 1 ? 
 						false : !stipName.equalsIgnoreCase(goldStageNames[numGoldStagesConfirmed]) )
@@ -405,7 +401,7 @@ public class DiachronicSimulator {
 				coli++; 
 			}// either we have passed last column (coli == numCols) or confirmed the last gold stage or both 
 			
-			//TODO abrogated below
+			//TODO below should be abrogated and replaced... probably. If we keep this method at all. 
 			String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
 			
 			if (stipName.substring(1,6).equalsIgnoreCase("modern") || stipName.equalsIgnoreCase("output") || stipName.equalsIgnoreCase("out") || stipName.equalsIgnoreCase("res") || stipName.equalsIgnoreCase("result"))
@@ -690,15 +686,6 @@ public class DiachronicSimulator {
 
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
-		
-		//TODO debugging
-		System.out.println("blackStagesSet = "+blackStagesSet);
-		System.out.println("NUM_BLACK_STAGES = "+NUM_BLACK_STAGES); 
-		System.out.println("blackStageNames.length = "+blackStageNames.length);
-		System.out.println("blackStageNames[0] = "+blackStageNames[0]); 
-		System.out.println("blackStageNames[2] = "+blackStageNames[2]); 
-		System.out.println("blackStageInstants[0] = "+blackStageInstants[0]);
-		System.out.println("blackStageInstants[2] = "+blackStageInstants[2]);
 		
 		File dir = new File(""+runPrefix); 
 		dir.mkdir(); 

@@ -457,10 +457,27 @@ public class UTILS {
 	//extract order of stages so that we don't end up with ``flips'' in the relative ordering between stages
 		// in the case that they end up in the same
 		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
-	public static String[] extractStageOrder(String cascLoc)
+	// @param black_at_input -- true to execute bandaid in scenario where user declared name of input stage as a black stage. 
+		// in this case, skip until have found first rule. 
+	public static String[] extractStageOrder(String cascLoc, boolean black_at_input)
 	{
 		List<String> lines = readFileLines(cascLoc); 
 		int li = 0; 
+		
+		if (black_at_input)
+		{
+			boolean found_first_rule = false ;
+			while (!found_first_rule) 
+			{
+				String ln = lines.get(li).split(""+CMT_FLAG)[0].strip(); 
+				lines.remove(li); // can destructively do this, since rules are not being processed in this method. 
+				if (ln.length() == 0 )	continue; 
+				if (ln.charAt(0) == GOLD_STAGENAME_FLAG)
+					throw new RuntimeException("Somehow found a gold stage called '"+ln.substring(1)+"' before any rules are declared; there must be an error somewhere.");
+				found_first_rule = (ln.charAt(0) != BLACK_STAGENAME_FLAG && ln.contains(">"));
+			}
+		}
+		
 		while(li < lines.size())
 		{
 			String ln = lines.get(li); 
@@ -473,6 +490,7 @@ public class UTILS {
 			}
 			else lines.remove(li);
 		}
+		
 		String[] out = new String[lines.size()]; 
 		li = 0;
 		int ngi = 0, nbi = 0;

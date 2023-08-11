@@ -93,6 +93,8 @@ public class DHSWrapper {
 	// then the original mapping that would be used to identify (hi == bi for modif,
 	// map[hi] == bi && map[bi] == hi for relocdation)
 	// ... will be disturbed.
+	
+	private String input_name;
 
 	private SChangeFactory FAC;
 
@@ -113,10 +115,32 @@ public class DHSWrapper {
 		this.id_wt = id_wt;
 		this.origCascLoc = ogCascLoc;
 		this.FAC = theFac;
-		stagesOrdered = UTILS.extractStageOrder(origCascLoc);
+		stagesOrdered = UTILS.extractStageOrder(origCascLoc, false);
 		reset();
 	}
 
+	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt,
+			String ogCascLoc, SChangeFactory theFac, String inp_name) {
+		baseSimulation = baseSim;
+		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
+		NUM_ETYMA = baseSim.NUM_ETYMA();
+		NUM_GOLD_STAGES = baseSim.NUM_GOLD_STAGES();
+		NUM_BLACK_STAGES = baseSim.NUM_BLACK_STAGES();
+		if (NUM_GOLD_STAGES > 0)
+			goldStageNames = baseSim.getGoldStageNames();
+		if (NUM_BLACK_STAGES > 0)
+			blackStageNames = baseSim.getBlackStageNames();
+		this.feats_weighted = feats_weighted;
+		this.featsByIndex = featsByIndex;
+		this.FT_WTS = FT_WTS;
+		this.id_wt = id_wt;
+		this.origCascLoc = ogCascLoc;
+		this.FAC = theFac;
+		this.input_name = inp_name; 
+		stagesOrdered = UTILS.extractStageOrder(origCascLoc, !input_name.equalsIgnoreCase("input"));
+		reset();
+	}
+	
 	public void queryProposedChanges(Scanner inpu) {
 		stillQuerying = true;
 		String resp;

@@ -157,22 +157,6 @@ public class Simulation {
 		assert NUM_GOLD_STAGES + NUM_BLACK_STAGES == stagesOrdered.length : 
 			"Error: illegal construction of class variable Simulation.stagesOrdered";
 		
-		//TODO debugging
-		System.out.println("goldOutput "+goldOutput); 
-		if (hasGoldStages())
-		{
-			for (int gsi = 0; gsi < NUM_GOLD_STAGES; gsi++)
-				System.out.println("gold "+gsi+" @ "+goldStageInstants[gsi]+", "+goldStageNames[gsi]);
-		}
-		else 	System.out.println("no gold stages GSHOGEH"); 
-		if (hasBlackStages())
-		{
-			for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)
-				System.out.println("black "+bsi+" @ "+blackStageInstants[bsi]+", "+blackStageNames[bsi]);
-		}
-		else	System.out.println("no black stages") ;
-		System.out.println("currStageInd "+currStageInd+", stagesOrdered len "+stagesOrdered.length);
-		
 		//while not if for scenario that two stages are at same moment-- but ordered within that.
 		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     
 		{
@@ -351,11 +335,6 @@ public class Simulation {
 	public int getNextStageInd()
 	{
 		int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
-		
-		//TODO debugging
-		System.out.println("si "+si);
-		System.out.println("stagesOrdered["+si+"] "+stagesOrdered[si]);
-		
 		return (stagesOrdered[currStageInd].charAt(0) == 'g' ?
 	                goldStageInstants : blackStageInstants)[si]; 
 	}

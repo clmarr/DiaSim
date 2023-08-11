@@ -63,7 +63,7 @@ public class SimulationTester {
 		System.out.println("Creating SChangeFactory...");
 		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
-		STAGE_ORDER = UTILS.extractStageOrder(DBG_START_CASC); 
+		STAGE_ORDER = UTILS.extractStageOrder(DBG_START_CASC, false); 
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
 			// first extracting from gold casc so that we do initial sanity test of the correct cascade leading to correct forms
 				// with all metrics agreeing with this etc etc. 

@@ -779,12 +779,16 @@ public class SChangeTester {
 		System.out.println("Now testing FeatMatrix.compareExceptAlpha ... ");
 		System.out.println("TODO.");
 		
-		//TODO comparing the classes 
-		System.out.println("TODO: tests for SChange subclasses that handle alpha valued features..."); 
+		//TODO debugging each of the SChange subclasses that handle alpha-valued features. 
+		System.out.println("TODO: tests for SChange subclasses that handle alpha-valued features..."); 
+		System.out.println("TODO tests for SChangeFeatAlpha, SChangeFeatToPhoneAlpha, SChangePhoneAlpha..."); 
+		
 		System.out.println("Now testing SeqToSeqAlpha...");
+		System.out.println("Testing case with no disjunctions.");
 		String testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
 		SChange testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
-		System.out.println("testRule type : "+testRule.getClass()); 
+		System.out.println("testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
+		System.out.println("TODO implement this.");
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,

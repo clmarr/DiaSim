@@ -216,8 +216,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							}
 							//check also for conflict OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!poi.compareExceptAlpha(cpi))	
-							{
+							if (!poi.compareExceptAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}
