@@ -376,24 +376,36 @@ public class DiachronicSimulator {
 		lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		if(lexiconHasHeader)
 		{
+			//TODO this whole area is bugged bugged bugged!!!!!!
 			System.out.println("Header detected: "+firstlineproxy); 
 			
 			//TODO this whole area needs a reworking. 
 			
 			int coli = 1;
 			int numGoldStagesConfirmed = 0; 
-			while (coli < numCols - 1)
+			
+			while (coli <= numCols - 1 && numGoldStagesConfirmed < NUM_GOLD_STAGES)
 			{
 				String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
-				int curgs = numGoldStagesConfirmed; // current gold stage. 
-				while ( coli == NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
+				
+				//TODO debugging
+				System.out.println(numGoldStagesConfirmed+" gold stages confirmed, stipName "+stipName+", goldStageNames here "+goldStageNames[numGoldStagesConfirmed]);
+				System.out.println("coli "+coli+", NUM_GOLD_STAGES "+NUM_GOLD_STAGES);
+				
+				// using ">= NUM_GOLD_STAGES + 1", because the first line is the input. 
+				while ( coli >= NUM_GOLD_STAGES + 1 ? 
+						false : !stipName.equalsIgnoreCase(goldStageNames[numGoldStagesConfirmed]) )
 					blackenGoldStage(coli); 
-				if (coli >= NUM_GOLD_STAGES)
-					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
+						// note that blackenGoldStage() decreases NUM_GOLD_STAGES 
+				
+				//TODO debugging
+				System.out.println("gold stage "+(numGoldStagesConfirmed+1)+" confirmed: "+stipName); 
+				
 				numGoldStagesConfirmed++; 
 				coli++; 
-			}
-			// coli == numCols - 1 here -- we have reached the last column.
+			}// either we have passed last column (coli == numCols) or confirmed the last gold stage or both 
+			
+			//TODO abrogated below
 			String stipName = firstlineproxy.split(""+UTILS.LEX_DELIM)[coli].trim(); 
 			
 			if (stipName.substring(1,6).equalsIgnoreCase("modern") || stipName.equalsIgnoreCase("output") || stipName.equalsIgnoreCase("out") || stipName.equalsIgnoreCase("res") || stipName.equalsIgnoreCase("result"))
@@ -403,18 +415,10 @@ public class DiachronicSimulator {
 			}
 			else
 			{
-				System.out.println("Final column is a gold stage, not the result column!"); 
+				System.out.println("Final column is a gold stage, not gold results!"); 
 				hasGoldOutput = false; 
 				
 				int curgs = numGoldStagesConfirmed; 
-				
-				//TODO debugging
-				System.out.println("confirmed gold stages:");
-				if (curgs == 0)	System.out.println("none");
-				else {
-					for (int confgsi = 0; confgsi < curgs ; confgsi++)
-						System.out.println(confgsi+ ": "+goldStageNames[confgsi]); 
-				}
 				
 				while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
 					blackenGoldStage(coli); 
@@ -588,19 +592,6 @@ public class DiachronicSimulator {
 		//each time a custom stage time step loc (int in the array goldStageTimeInstantLocs or blackStageTimeInstantLocs) is hit, save the 
 		// evolving lexicon at that point by copying it into the appropriate slot in the goldStageResultLexica or blackStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
-		
-		//TODO debugging
-		System.out.println("blackStagesSet = "+blackStagesSet);
-		System.out.println("NUM_BLACK_STAGES = "+NUM_BLACK_STAGES); 
-		System.out.println("blackStageNames.length = "+blackStageNames.length);
-		System.out.println("blackStageNames[0] = "+blackStageNames[0]); 
-		System.out.println("blackStageNames[2] = "+blackStageNames[2]); 
-		System.out.println("blackStageInstants[0] = "+blackStageInstants[0]);
-		System.out.println("blackStageInstants[2] = "+blackStageInstants[2]);
-		System.out.println("NUM_GOLD_STAGES = "+NUM_GOLD_STAGES);
-		System.out.println("goldStageNames.length = "+goldStageNames.length) ;
-		System.out.println("goldStageNames[0] = "+goldStageNames[0]);
-				
 		
 		System.out.println("Now extracting lexicon...");
 		String nextLine; 

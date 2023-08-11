@@ -33,7 +33,8 @@ public class ErrorAnalysis {
 	
 	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 	
-	protected final String ABS_PR ="[ABSENT]"; //TODO note this variable is the locus of protodelta changes
+	protected final String ABS_PR ="[ABSENT]"; 
+		//TODO note this variable is the locus of protodelta changes
 	protected final int MAX_RADIUS = 3;
 
 	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
@@ -51,7 +52,7 @@ public class ErrorAnalysis {
 			// and it is likely better than the basic alternative, which would fail to take into account
 				// multiple errors in the same phone in the same word. 
 			// an ideal case would involve an alignment algorithm to insure that cases where only one 
-					// occurence of hte phone in said word is errant are not being counted multiply
+					// occurence of the phone in said word is errant are not being counted multiply
 			// but this is not a priority right now as there are more important things to improve upon given the work necessary to involve that.
 	
 	private int[][] confusionMatrix; 
