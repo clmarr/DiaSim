@@ -103,18 +103,27 @@ public class ErrorAnalysis {
 	{
 		RES = theRes;
 		GOLD = theGold; 
-		PIV_PT_LEX = null; //must be manually set later.
-		
+		PIV_PT_LEX = null; //must be manually set later, e.g. setPivot() 
 		filtSet = false;
-		pivotSet = false;
+		pivotSet = false; // set with setFilter() later. 
 		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
-		TOTAL_ETYMA = theRes.getWordList().length;
+		TOTAL_ETYMA = theRes.totalEtyma(); 
+		// total etyma, present or not at this moment 
+
+		if (TOTAL_ETYMA != theGold.totalEtyma()) // guard rail. 
+			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
+					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+theGold.totalEtyma()+"). "
+							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
+							+ "given the paramount of importance of keeping etymon indices constant. "
+							+ "Investigate this."); 
 		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
 		
+		// unlike the *etymon* indices these indices here are not (and cannot) be held equivalent to each other 
+			// -- that would be too brittle. 
 		resPhInds = new HashMap<String, Integer>(); 
 		goldPhInds = new HashMap<String, Integer>();
 		
@@ -549,6 +558,10 @@ public class ErrorAnalysis {
 			SequentialPhonic[] goldPhs = curPair[1].getPhOnlySeq(), resPhs= curPair[0].getPhOnlySeq();
 			boolean nullGold = (goldPhInd == goldPhInventory.length);
 		
+			//TODO debugging
+			System.out.println("output item : "+curPair[0]);
+			System.out.println("gold item : "+curPair[1]); 
+			
 			if (nullGold) 			{
 				
 				for(int rpi = 0 ; rpi == resPhs.length ? false : alignment[rpi][0] != -2 ; rpi++)
