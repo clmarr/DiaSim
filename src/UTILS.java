@@ -471,7 +471,7 @@ public class UTILS {
 			{
 				String ln = lines.get(li).split(""+CMT_FLAG)[0].strip(); 
 				lines.remove(li); // can destructively do this, since rules are not being processed in this method. 
-				if (ln.length() == 0 )	continue; 
+				if (ln.length() == 0 )	continue;
 				if (ln.charAt(0) == GOLD_STAGENAME_FLAG)
 					throw new RuntimeException("Somehow found a gold stage called '"+ln.substring(1)+"' before any rules are declared; there must be an error somewhere.");
 				found_first_rule = (ln.charAt(0) != BLACK_STAGENAME_FLAG && ln.contains(">"));

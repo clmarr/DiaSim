@@ -10,35 +10,65 @@ import java.util.Arrays; // used for occasional debugging print statements with 
 import java.util.Collections;
 
 public class ErrorAnalysis {
+	
+	//TODO summer 2023 run through this class and update for insertion/removal of etyma, but also make sure everything is clear
+	// TODO investigate: is the "Infinite" rate report noted in early summer still occurring (I think not, but best to check.)  
+	
+	//TODO decide on what morphosyntactic analyses to perform
+	// TODO implement them... -- probably fall 2023 or winter	
+
+	private Lexicon RES, GOLD, PIV_PT_LEX;
+	//TODO investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
+
+	private int[] PRESENT_ETS; 
+	// TODO investigate uses.
+
+	private boolean pivotSet, filtSet;
+	private SequentialFilter filterSeq; 
+	private int[] FILTER; //indices of all etyma in subset
+	// TODO investigate uses. 	
+	
+	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
+		// the first two are largely used for indexing purposes for search and comparison between different phonne(me)s.
+	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
+		// indexes for phones in the following int arrays are above.
+	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
+		// TODO investigate uses of these. 
+	private List<Etymon[]> mismatches; 
+		// TODO investigate uses. 
+
+	private int TOTAL_ETYMA, EVAL_SAMP_SIZE;
+	private double TOT_ERRS;	
+	private boolean[] IN_SUBSAMP; //TODO investigate uses of this one.
+	private boolean[] isHit; 	//TODO investigate uses 
+
+	private FED featDist;
 	private int[] levDists; 
 		// levenshtein edit distance between each reconstructed/observed word pair. 
 	private double[] peds, feds; 
 		// phonological edit distance and feature edit distance between each reconstructed/observed word pair
+	private String[] featsByIndex; 
+		// this is distinctive/phonological features -- not the morphosyntactic ones. 
 	
-	private int[] FILTER; //indices of all etyma in subset
-	private int[] PRESENT_ETS; 
-	private boolean[] isHit; 
-	private boolean[] IN_SUBSAMP;
+	
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
-	
-
-	private int[] SS_HIT_IDS, SS_MISS_IDS; 
-		// etymon IDs of words that validly fit are filter and are, respectively, matches and mismatches between reconstructed and observed outcomes.
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
 	// lists of boundaries (onset, offset) of a filter sequence in words belonging to the two filtered sets described above. 
 		// necessary because some filters include parenthesized segments, giving them variable length within a word
 		// these are used for various auxiliary functions as well in some places of this class. 
+	private int[] SS_HIT_IDS, SS_MISS_IDS; 
+		// etymon IDs of words that validly fit are filter and are, respectively, matches and mismatches between reconstructed and observed outcomes.
 	
-	private SequentialFilter filterSeq; 
 	
-	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
-	
-	protected final String ABS_PR ="[ABSENT]"; 
+	//protected final String ABS_PR ="[ABSENT]"; 
 		//TODO note this variable is the locus of protodelta changes
+		// now handled via UTILS.ABSENT_INDIC ; consider restoring if necessary. 
 	protected final int MAX_RADIUS = 3;
+	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
+	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
 
-	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
-		// indexes for phones in the following int arrays are above.
+	//TODO investigate calculation of each of these for if errors will arise from usage of
+		// absent and unattested etyma ...
 	protected int[] errorsByResPhone, errorsByGoldPhone; 
 	protected int[] errorsByPivotPhone;
 	private double[] errorRateByResPhone, errorRateByGoldPhone; 
@@ -52,43 +82,35 @@ public class ErrorAnalysis {
 			// and it is likely better than the basic alternative, which would fail to take into account
 				// multiple errors in the same phone in the same word. 
 			// an ideal case would involve an alignment algorithm to insure that cases where only one 
-					// occurence of the phone in said word is errant are not being counted multiply
+					// occurrence of the phone in said word is errant are not being counted multiply
 			// but this is not a priority right now as there are more important things to improve upon given the work necessary to involve that.
-	
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
 	
-	private String[] featsByIndex; 
-		
-	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
-		
-	private List<Etymon[]> mismatches; 
-	
-	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
-	
-	private int NUM_ETYMA, SUBSAMP_SIZE;
-	private double TOT_ERRS;
-	
-	private FED featDist;
-	
-	private Lexicon RES, GOLD, PIVOT;
-	
-	private boolean pivSet, filtSet; 
-	
-	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
-	
+	/**
+	 * @param theRes --  result lexicon, lexicon that is the result of forward reconstruction. 
+	 * 		May have etyma that are absent at this stage
+	 * 			but none represented as unattested (because that would not apply) 
+	 * @param theGold -- lexicon of observed etyma to compare against. 
+	 * 		May have etyma that are absent at this stage,
+	 * 			or those that are unattested
+	 * @param indexedFeats -- phonological/distinctive features with their indices as held constant throughout the simulation. 
+	 * @param fedCalc -- Feature Edit Distance calculator object.
+	 * TODO need to make sure this is called BEFORE Lexicon.updateAbsence occurs, so that just-inserted etyma do not inflate accuracy. 
+	 * TODO need to insure that INSERTED etyma are not contributing to calculations!! 
+	 */
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
 	{
 		RES = theRes;
 		GOLD = theGold; 
-		PIVOT = null; //must be manually set later.
+		PIV_PT_LEX = null; //must be manually set later.
 		
 		filtSet = false;
-		pivSet = false;
+		pivotSet = false;
 		
 		featDist = fedCalc; 
 		featsByIndex = indexedFeats;
-		NUM_ETYMA = theRes.getWordList().length;
+		TOTAL_ETYMA = theRes.getWordList().length;
 		
 		resPhInventory = theRes.getPhonemicInventory();
 		goldPhInventory = theGold.getPhonemicInventory();
@@ -101,13 +123,13 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
 				
-		NUM_ETYMA = theRes.getWordList().length;
-		SUBSAMP_SIZE = NUM_ETYMA - theRes.numAbsentEtyma();
+		TOTAL_ETYMA = theRes.getWordList().length;
+		EVAL_SAMP_SIZE = TOTAL_ETYMA - theRes.numAbsentEtyma();
 		
-		FILTER = new int[SUBSAMP_SIZE];
-		PRESENT_ETS = new int[SUBSAMP_SIZE];
+		FILTER = new int[EVAL_SAMP_SIZE];
+		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
 		int fi = 0;
-		for (int i = 0 ; i < NUM_ETYMA; i++)
+		for (int i = 0 ; i < TOTAL_ETYMA; i++)
 		{	if (!theRes.getByID(i).print().equals(ABS_PR))
 			{	FILTER[fi] = i;
 				PRESENT_ETS[fi] = i;
@@ -115,8 +137,8 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		isPhInResEt = new boolean[resPhInventory.length][NUM_ETYMA]; 
-		isPhInGoldEt = new boolean[goldPhInventory.length][NUM_ETYMA]; 
+		isPhInResEt = new boolean[resPhInventory.length][TOTAL_ETYMA]; 
+		isPhInGoldEt = new boolean[goldPhInventory.length][TOTAL_ETYMA]; 
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
@@ -129,15 +151,15 @@ public class ErrorAnalysis {
 		
 		mismatches = new ArrayList<Etymon[]>();
 		
-		levDists = new int[NUM_ETYMA]; 
-		peds = new double[NUM_ETYMA];
-		feds = new double[NUM_ETYMA];
-		isHit = new boolean[NUM_ETYMA];
+		levDists = new int[TOTAL_ETYMA]; 
+		peds = new double[TOTAL_ETYMA];
+		feds = new double[TOTAL_ETYMA];
+		isHit = new boolean[TOTAL_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 				
-		IN_SUBSAMP = new boolean[NUM_ETYMA]; 
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
 		
-		for (int i = 0 ; i < NUM_ETYMA ; i++)
+		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
 			IN_SUBSAMP[i] = true; 		// until filter is set, all words are "in the subsample"
 
@@ -175,12 +197,12 @@ public class ErrorAnalysis {
 			}
 			else	isHit[i] = true;
 		}
-		pctAcc = numHits / (double) SUBSAMP_SIZE; 
-		pctWithin1 = num1off / (double) SUBSAMP_SIZE;
-		pctWithin2 = num2off / (double) SUBSAMP_SIZE; 
-		avgPED = totLexQuotients / (double) SUBSAMP_SIZE; 	
-		avgFED = totFED / (double) SUBSAMP_SIZE; 
-		TOT_ERRS = (double)NUM_ETYMA - numHits;
+		pctAcc = numHits / (double) EVAL_SAMP_SIZE; 
+		pctWithin1 = num1off / (double) EVAL_SAMP_SIZE;
+		pctWithin2 = num2off / (double) EVAL_SAMP_SIZE; 
+		avgPED = totLexQuotients / (double) EVAL_SAMP_SIZE; 	
+		avgFED = totFED / (double) EVAL_SAMP_SIZE; 
+		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
@@ -197,9 +219,9 @@ public class ErrorAnalysis {
 
 	public void toDefaultFilter()
 	{
-		SUBSAMP_SIZE = PRESENT_ETS.length;
-		FILTER = new int[SUBSAMP_SIZE];
-		for (int i = 0 ; i < SUBSAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
+		EVAL_SAMP_SIZE = PRESENT_ETS.length;
+		FILTER = new int[EVAL_SAMP_SIZE];
+		for (int i = 0 ; i < EVAL_SAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
 		filterSeq = null;
 	}
 	
@@ -207,12 +229,12 @@ public class ErrorAnalysis {
 	{
 		filterSeq = newFilt; 
 		filtSet = true;
-		if(pivSet)	articulateSubsample(filt_name); 
+		if(pivotSet)	articulateSubsample(filt_name); 
 	}
 	
 	public void setPivot(Lexicon newPiv, String piv_name)
 	{
-		PIVOT = newPiv; 
+		PIV_PT_LEX = newPiv; 
 		pivotPhInventory = newPiv.getPhonemicInventory();
 		
 		pivPhInds = new HashMap<String, Integer>(); 
@@ -220,13 +242,13 @@ public class ErrorAnalysis {
 		for(int i = 0 ; i < pivotPhInventory.length; i++)
 			pivPhInds.put(pivotPhInventory[i].print(), i);
 		
-		pivSet = true; 
+		pivotSet = true; 
 		
-		isPhInPivEt = new boolean[pivotPhInventory.length][NUM_ETYMA]; 
+		isPhInPivEt = new boolean[pivotPhInventory.length][TOTAL_ETYMA]; 
 		int[] pivPhCts = new int[pivotPhInventory.length]; 
-		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
+		for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)
 		{
-			Etymon currEt = PIVOT.getByID(ei);
+			Etymon currEt = PIV_PT_LEX.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
 				if(!currEt.toString().equals("[ABSENT]"))
@@ -241,10 +263,10 @@ public class ErrorAnalysis {
 		{
 			errorsByPivotPhone =  new int[pivotPhInventory.length];
 			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
-			for (int ei = 0 ; ei < NUM_ETYMA ; ei++)	
+			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
 				if(!isHit[ei])
-					for (SequentialPhonic pivPh : PIVOT.getByID(ei).getPhOnlySeq())
+					for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
@@ -259,7 +281,7 @@ public class ErrorAnalysis {
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrPivotPhLocs = new int[NUM_TOP_ERR_PHS_TO_DISP];
-		if (pivSet)	topErrPivotPhLocs = arrLocNMax(errorRateByPivotPhone, NUM_TOP_ERR_PHS_TO_DISP); 
+		if (pivotSet)	topErrPivotPhLocs = arrLocNMax(errorRateByPivotPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		
 		double max_res_err_rate = errorRateByResPhone[topErrResPhLocs[0]]; 
 		double max_gold_err_rate = errorRateByGoldPhone[topErrGoldPhLocs[0]];  
@@ -288,7 +310,7 @@ public class ErrorAnalysis {
 						"/ with rate "+rate+",\tRate present in mismatches : "
 						+(""+(double)errorsByGoldPhone[topErrGoldPhLocs[i]]*100.0/(double)mismatches.size()));
 			}
-			if(pivSet)
+			if(pivotSet)
 			{
 				System.out.println("Pivot point phones most associated with error: ");
 				for (int i = 0; i < topErrPivotPhLocs.length; i++)
@@ -358,8 +380,8 @@ public class ErrorAnalysis {
 				else	confusionMatrix[resPhInds.get(r)][goldPhInds.get(g)] += 1;
 			}
 		}
-		if (pivSet)
-			for (SequentialPhonic pivPh : PIVOT.getByID(err_id).getPhOnlySeq())
+		if (pivotSet)
+			for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(err_id).getPhOnlySeq())
 				errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 	}
 	
@@ -965,7 +987,7 @@ public class ErrorAnalysis {
 			
 			
 			double totLevDist = 0.0, totFED = 0.0;
-			for (int eti = 0 ; eti < NUM_ETYMA; eti++)
+			for (int eti = 0 ; eti < TOTAL_ETYMA; eti++)
 			{
 				if(phInEt[ph_ind_str][eti])	
 				{
@@ -1026,11 +1048,11 @@ public class ErrorAnalysis {
 	//assume indices are constant for the word lists across lexica 
 	public void articulateSubsample(String subsamp_name)
 	{	
-		IN_SUBSAMP = new boolean[NUM_ETYMA];
-		SUBSAMP_SIZE = 0; String etStr = ""; 
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
+		EVAL_SAMP_SIZE = 0; String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
-		FILTER = new int[SUBSAMP_SIZE]; 
+		FILTER = new int[EVAL_SAMP_SIZE]; 
 		mismatches = new ArrayList<Etymon[]> (); 
 		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
 		
@@ -1041,18 +1063,18 @@ public class ErrorAnalysis {
 		errorRateByGoldPhone = new double[goldPhInventory.length];
 		errorRateByPivotPhone = new double[pivotPhInventory.length];
 				
-		for (int isi = 0; isi < NUM_ETYMA ; isi++)
+		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(PIVOT.getByID(isi).toString().equals("[ABSENT]"))
+			if(PIV_PT_LEX.getByID(isi).toString().equals("[ABSENT]"))
 				IN_SUBSAMP[isi] = false;
 			else
-				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIVOT.getByID(isi).getPhonologicalRepresentation()); 
+				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
 			if(IN_SUBSAMP[isi])
 			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
-				SUBSAMP_SIZE += 1; 
+				EVAL_SAMP_SIZE += 1; 
 				etStr += isi+",";
 				if (isHit[isi])	nSSHits+=1; 
 				else	
@@ -1066,7 +1088,7 @@ public class ErrorAnalysis {
 		}
 		
 		
-		FILTER = new int[SUBSAMP_SIZE];
+		FILTER = new int[EVAL_SAMP_SIZE];
 		SS_HIT_IDS = new int[nSSHits];
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
@@ -1082,24 +1104,24 @@ public class ErrorAnalysis {
 			if (isHit[id])
 			{
 				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
-				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(PIVOT.getByID(id).getPhonologicalRepresentation()));
+				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(PIV_PT_LEX.getByID(id).getPhonologicalRepresentation()));
 			}
 			else
 			{
 				SS_MISS_IDS[SS_MISS_BOUNDS.size()] = id;
-				SS_MISS_BOUNDS.add(filterSeq.filtMatchBounds(PIVOT.getByID(id).getPhonologicalRepresentation()));
+				SS_MISS_BOUNDS.add(filterSeq.filtMatchBounds(PIV_PT_LEX.getByID(id).getPhonologicalRepresentation()));
 			}
 		}
 		
 		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
-		if (SUBSAMP_SIZE == 0)
+		if (EVAL_SAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
-			pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
+			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
 			
-			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
-			System.out.println((""+(double)SUBSAMP_SIZE/(double)NUM_ETYMA*100.0).substring(0,5)+"% of whole");
+			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
+			System.out.println((""+(double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of whole");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+subsamp_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
 			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
@@ -1115,10 +1137,10 @@ public class ErrorAnalysis {
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][fi] ? 1 : 0;
 			}
 			
-			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
-			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
-			avgPED = totPED / (double) SUBSAMP_SIZE; 	
-			avgFED = totFED / (double) SUBSAMP_SIZE; 
+			pctWithin1 = nSS1off / (double) EVAL_SAMP_SIZE;
+			pctWithin2 = nSS2off / (double) EVAL_SAMP_SIZE; 
+			avgPED = totPED / (double) EVAL_SAMP_SIZE; 	
+			avgFED = totFED / (double) EVAL_SAMP_SIZE; 
 			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
@@ -1225,7 +1247,7 @@ public class ErrorAnalysis {
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
-			List<SequentialPhonic> curPR = PIVOT.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
+			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
 
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
 			{
@@ -1240,7 +1262,7 @@ public class ErrorAnalysis {
 		}
 		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
-			List<SequentialPhonic> curPR = PIVOT.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
+			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
 
 			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
 			{
@@ -1274,7 +1296,7 @@ public class ErrorAnalysis {
 		for (int pi = 0 ; pi < phs.size(); pi++) {
 			for (int eti = 0; eti < ids.length ; eti++)
 			{
-				List<SequentialPhonic> curPR = PIVOT.getByID(ids[eti]).getPhonologicalRepresentation();
+				List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(ids[eti]).getPhonologicalRepresentation();
 				for(int[] bound : theBounds.get(eti))
 				{
 					int mchi = (posterior ? bound[1] + curPR.size() : bound[0]) + rel_ind ;
@@ -1435,7 +1457,7 @@ public class ErrorAnalysis {
 	
 	public boolean isPivotSet()
 	{
-		return pivSet;
+		return pivotSet;
 	}
 	
 	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
@@ -1446,8 +1468,8 @@ public class ErrorAnalysis {
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				System.out.print(append_space_to_x(inpWds[i].toString(), 19) + "| ");
-				if (pivSet)
-					System.out.print(append_space_to_x(PIVOT.getByID(i).toString(),19)+"| ");
+				if (pivotSet)
+					System.out.print(append_space_to_x(PIV_PT_LEX.getByID(i).toString(),19)+"| ");
 				System.out.print(append_space_to_x(RES.getByID(i).toString(),19)+"| ");
 				System.out.print(GOLD.getByID(i)+"\n");
 			}	}
