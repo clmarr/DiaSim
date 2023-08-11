@@ -779,14 +779,38 @@ public class SChangeTester {
 		System.out.println("Now testing FeatMatrix.compareExceptAlpha ... ");
 		System.out.println("TODO.");
 		
+		numCorrect = 0;
+		
 		//TODO debugging each of the SChange subclasses that handle alpha-valued features. 
 		System.out.println("TODO: tests for SChange subclasses that handle alpha-valued features..."); 
 		System.out.println("TODO tests for SChangeFeatAlpha, SChangeFeatToPhoneAlpha, SChangePhoneAlpha..."); 
 		
+		numCorrect = 0; 
 		System.out.println("Now testing SeqToSeqAlpha...");
-		System.out.println("Testing case with no disjunctions.");
-		String testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
+		System.out.println("Testing cases with no disjunctions.");
+
+		String testRuleString = "[+lo,βstres,ɣprim] e̯ > ∅ [-tense,βstres,ɣprim]";
 		SChange testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		System.out.println("testing a case with diacritics too... testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
+		
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a e̯"),
+				testFactory.parseSeqPhSeg("e")) ? 1 : 0;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a e"),
+				testFactory.parseSeqPhSeg("a e")) ? 1 : 0 ;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a̯ e"),
+				testFactory.parseSeqPhSeg("a̯ e")) ? 1 : 0 ;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("ˈɑ e̯"),
+				testFactory.parseSeqPhSeg("ˈe")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("ˌɐ̃ e̯"),
+				testFactory.parseSeqPhSeg("ˌe")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("k ɒː e̯ r a ɛ̯ l ˈɶ e̯ m a e"),
+				testFactory.parseSeqPhSeg("k e r a ɛ̯ l ˈe m a e")) ? 1 : 0; 
+		
+		List<SequentialPhonic> testInput = testFactory.parseSeqPhSeg("a e̯"); 
+		
+		
+		testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		System.out.println("testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
 		System.out.println("TODO implement this.");
 	}
