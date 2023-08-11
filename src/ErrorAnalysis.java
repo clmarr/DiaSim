@@ -546,10 +546,13 @@ public class ErrorAnalysis {
 			
 			featDist.compute(curPair[0],curPair[1]); 
 			int[][] alignment = featDist.get_min_alignment(); 
-				// at each outer index, find at ind 0 : position aligned to res phone at outer ind, 
-				// at ind 1 : position aligned to gold phone at outer ind
-				// -1 -- aligned to null phone
-				// -2 -- aligned to null phone at word boundary
+				// for each outer index (i.e. the first [])...
+					// find at ind 0 (in second []) : the position aligned to res phone at outer ind, 
+					// and at ind 1 : position aligned to gold phone at outer ind
+				// if = -1 -- aligned to null phone
+				// if = -2 -- aligned to null phone at word boundary
+				// "inner" index -- the number in the sequence of aligned pairs 
+					// (including pairs with a null phone as an element on for either the result or the gold) 
 			
 			List<Integer> confuseLocs = new ArrayList<Integer>();
 			//will be based on location in the gold form, unless it is a res phone aligned to gold null,
