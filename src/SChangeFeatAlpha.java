@@ -65,11 +65,11 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
 	{
 		//abort if too small
-		if (input.size() < minPriorSize + minTargSize + minPostSize)	return input; 
+		if (input.size() < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input.subList(0, minPriorSize)); 
 		int p = minPriorSize; 
-		int maxPlace = input.size() - minPostSize - minTargSize; 
+		int maxPlace = input.size() - minPostSize - minInputSize; 
 		
 		while(p <= maxPlace)
 		{
@@ -120,7 +120,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		// ... the constant target size. 
 		int inpSize = input.size(); 
 		//abort if index is obviously invalid 
-		if(ind + minTargSize + minPostSize - 1 > inpSize || ind < minPriorSize)	return false; 
+		if(ind + minInputSize + minPostSize - 1 > inpSize || ind < minPriorSize)	return false; 
 		
 		SequentialPhonic phHere = input.get(ind); 
 		
@@ -129,7 +129,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			if (!phHere.getType().equals("phone"))	
 			{	if(!phHere.print().equals(targSource.print()))	return false;	}
 			else if (targSource.check_for_alpha_conflict(phHere))	return false;
-			else if (!targSource.compareExceptAlpha(phHere))	return false;
+			else if (!targSource.comparePreAlpha(phHere))	return false;
 			else 
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
@@ -168,7 +168,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							}
 							//check also for conflict OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!pri.compareExceptAlpha(cpi))	{
+							if (!pri.comparePreAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}
@@ -216,7 +216,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							}
 							//check also for conflict OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!poi.compareExceptAlpha(cpi))	{
+							if (!poi.comparePreAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}

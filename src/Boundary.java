@@ -27,7 +27,7 @@ public class Boundary extends PseudoPhone {
 		return cand.getType().equals(type);	
 	}
 	
-	public boolean compareExceptAlpha(SequentialPhonic cand)	
+	public boolean comparePreAlpha(SequentialPhonic cand)	
 	{	return compare(cand);	}
 	
 	//if the unit at the specified index ind is the same as this, do nothing

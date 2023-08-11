@@ -23,10 +23,10 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 	{
 		int inpSize = input.size(); 
 		//abort if too small
-		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if(inpSize < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
+				maxPlace = inpSize - Math.max(minPostSize + minInputSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
@@ -34,7 +34,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 		{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; 
-			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
+			for (int i = 0 ; i < minInputSize && !targMatchFail ; i++)
 			{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
@@ -43,7 +43,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					if(cand.getType().equals("phone")) {
 						if(test.check_for_alpha_conflict(cand))
 							targMatchFail = true;
-						else if (!test.compareExceptAlpha(cand))	targMatchFail = true; 
+						else if (!test.comparePreAlpha(cand))	targMatchFail = true; 
 						else
 						{
 							HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
@@ -53,7 +53,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 								if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(alphHere);
 							if (postSpecd)
 								if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(alphHere);
-							for (int j = i; j < minTargSize; j++)	targSource.get(j).applyAlphaValues(alphHere);
+							for (int j = i; j < minInputSize; j++)	targSource.get(j).applyAlphaValues(alphHere);
 						}
 						targMatchFail = targMatchFail ? true : test.compare(cand); 
 					}
@@ -83,7 +83,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 										halt = true; 
 										priorPossible = false; 
 									}
-									else if (!pri.compareExceptAlpha(cpi))	
+									else if (!pri.comparePreAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
 										halt = true; 
@@ -111,7 +111,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					boolean isPostrMatch = !postSpecd; 
 					
 					if(!isPostrMatch) {
-						int indAfter = p + minTargSize;
+						int indAfter = p + minInputSize;
 						boolean postrPossible = true; 
 						boolean reachedEnd = false; 
 						if(postContext.has_unset_alphas())
@@ -132,7 +132,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 											halt = true; 
 											postrPossible = false; 
 										}
-										else if (!poi.compareExceptAlpha(cpi))	
+										else if (!poi.comparePreAlpha(cpi))	
 										{	//check also for conflict OUTSIDE the alpha values and return false if so
 												// as that will cause a downstream UnsetAlphaException otherwise
 											halt = true; 
@@ -174,7 +174,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					if (isPostrMatch)
 					{
 						res.addAll(destination); 
-						p += minTargSize; 
+						p += minInputSize; 
 					}	
 				}
 			}

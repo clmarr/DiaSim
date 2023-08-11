@@ -21,7 +21,7 @@ public abstract class SChange {
 
 	protected SequentialFilter priorContext, postContext; 
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
-	protected int minPriorSize, minPostSize, minTargSize; 
+	protected int minPriorSize, minPostSize, minInputSize; 
 	protected String orig;
 	protected HashMap<String,String> ALPH_VARS; 
 	

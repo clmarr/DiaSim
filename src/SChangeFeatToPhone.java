@@ -17,7 +17,7 @@ public class SChangeFeatToPhone extends SChange{
 				throw new Error("Error: cannot enter non-word-boundaries (@) or null phones (∅) into a SChangeFeatToPhone!");
 		
 		targSource = new ArrayList<RestrictPhone>(sourcePlaces); 
-		minTargSize = targSource.size(); 
+		minInputSize = targSource.size(); 
 		destination = dest; 
 	}
 	
@@ -33,10 +33,10 @@ public class SChangeFeatToPhone extends SChange{
 	{
 		int inpSize = input.size(); 
 		//abort if too small
-		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if(inpSize < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
+				maxPlace = inpSize - Math.max(minPostSize + minInputSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
@@ -92,14 +92,14 @@ public class SChangeFeatToPhone extends SChange{
 			throw new Error("Error: tried to match with firstInd after word ends!");
 		
 		int checkInd = firstInd, targInd = 0; 
-		while (targInd < minTargSize && checkInd < inpSize ) 
+		while (targInd < minInputSize && checkInd < inpSize ) 
 		{
 			SequentialPhonic currObs = input.get(checkInd); 
 			if(!targSource.get(targInd).compare(currObs)) 	return -1; 
 			else
 			{	checkInd++; targInd++; 	}
 		}
-		if(targInd == minTargSize)
+		if(targInd == minInputSize)
 			return (posteriorMatch(input, checkInd) ? checkInd : -1);
 		else	return -1; 	
 	}

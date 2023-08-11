@@ -31,34 +31,45 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	}
 	
 	@Override
+	// note that this should always operate on an input headed by # and closed also by # 
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
 		int inpSize = input.size(); 
 		//abort if too small
-		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if(inpSize < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		// p -- place in input being operated on.
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
+				maxPlace = inpSize - Math.max(minPostSize + minInputSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
+		
+		//TODO debugging
+		System.out.println("maxPlace = "+maxPlace);
+		if (p >= maxPlace)	System.out.println("not even making it to the check"); 
 		
 		while (p < maxPlace)
 		{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; // for halting the for-loop.
 			// i -- place in targ source abstraction. 
-			for (int i = 0 ; i < minTargSize && !targMatchFail ; i++)
+			for (int i = 0 ; i < minInputSize && !targMatchFail ; i++)
 			{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
+				
+				//TODO debugging
+				System.out.println("comparing: cand "+cand+", test "+test);
 				
 				if(!cand.getType().equals("phone"))
 					targMatchFail = !cand.print().equals(test.print()) ;
 				else if (test.first_unset_alpha() != '0')
 				{
+					//TODO debugging
+					System.out.println("detected unset alpha"); 
+					
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
-					else if (!test.compareExceptAlpha(cand))	targMatchFail = true; 
+					else if (!test.comparePreAlpha(cand))	targMatchFail = true; 
 					else
 					{
 						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
@@ -66,6 +77,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						// the only case where the return of extractAndApplyAlphaValues() is empty
 							// is when there is a failure to meet a NON-alpha specified value. 
 							// so this is a targ match fail. 
+						
+						//TODO debugging
+						System.out.println("alpha possibility...?!!");
+						System.out.println("alphHere = "+alphHere); 
+						System.out.println("alphHere.size = "+alphHere.size()) ;
+						
 						if (alphHere.size() == 0 )	targMatchFail = true; 
 						else
 						{
@@ -74,13 +91,20 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 							need_to_reset = true;
 							test.applyAlphaValues(ALPH_VARS);
 							mapAlphVals(); 
+							
+							//TODO debugging
+							System.out.println("test is now "+test+", and cand is "+cand);
+							System.out.println("test and cand compare... "+test.compare(cand));
 						}
 					}
 				}
 				targMatchFail = targMatchFail ? true : !test.compare(cand); 
+				
+				//TODO debugging
+				if (targMatchFail)	System.out.println("targ match for p = "+p+" failed, at i = "+i);
 			}
 			if (!targMatchFail) //target matched
-			{
+			{	
 				boolean isPriorMatch = !priorSpecd;
 				if(!isPriorMatch)	{
 					boolean priorPossible = true; 
@@ -104,7 +128,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 										halt = true; 
 										priorPossible = false; 
 									}
-									else if (!pri.compareExceptAlpha(cpi))	
+									else if (!pri.comparePreAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
 										halt = true; 
@@ -134,7 +158,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					boolean isPostrMatch = !postSpecd; 
 					
 					if(!isPostrMatch) {
-						int indAfter = p + minTargSize;
+						int indAfter = p + minInputSize;
 						boolean postrPossible = true; 
 						boolean reachedEnd = false; 
 						if(postContext.has_unset_alphas())
@@ -155,7 +179,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 											halt = true; 
 											postrPossible = false; 
 										}
-										else if (!poi.compareExceptAlpha(cpi))	
+										else if (!poi.comparePreAlpha(cpi))	
 										{	//check also for conflict OUTSIDE the alpha values and return false if so
 												// as that will cause a downstream UnsetAlphaException otherwise
 											halt = true; 
@@ -198,7 +222,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					if (isPostrMatch)
 					{
 						res.addAll(generateResult(input,p)); 
-						p += minTargSize; 
+						p += minInputSize; 
 					}
 				}
 			}

@@ -134,7 +134,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{	return this.equals(phonSeg.get(ind)); }
 	
 	@Override
-	public boolean compareExceptAlpha (SequentialPhonic phon)
+	public boolean comparePreAlpha (SequentialPhonic phon)
 	{	return compare(phon);	}
 	
 	@Override

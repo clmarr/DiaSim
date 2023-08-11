@@ -793,18 +793,18 @@ public class SChangeTester {
 		SChange testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		System.out.println("testing a case with diacritics too... testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
 		
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a e̯"),
-				testFactory.parseSeqPhSeg("e")) ? 1 : 0;
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a e"),
-				testFactory.parseSeqPhSeg("a e")) ? 1 : 0 ;
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("a̯ e"),
-				testFactory.parseSeqPhSeg("a̯ e")) ? 1 : 0 ;
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("ˈɑ e̯"),
-				testFactory.parseSeqPhSeg("ˈe")) ? 1 : 0; 
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("ˌɐ̃ e̯"),
-				testFactory.parseSeqPhSeg("ˌe")) ? 1 : 0; 
-		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("k ɒː e̯ r a ɛ̯ l ˈɶ e̯ m a e"),
-				testFactory.parseSeqPhSeg("k e r a ɛ̯ l ˈe m a e")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# a e̯ #"),
+				testFactory.parseSeqPhSeg("# e #")) ? 1 : 0;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ɐ e #"),
+				testFactory.parseSeqPhSeg("# ɐ e #")) ? 1 : 0 ;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# a̯ e #"),
+				testFactory.parseSeqPhSeg("# a̯ e #")) ? 1 : 0 ;
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ˈɑ e̯ #"),
+				testFactory.parseSeqPhSeg("# ˈe #")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ˌã e̯ #"),
+				testFactory.parseSeqPhSeg("# ˌe #")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# k ˌɒː e̯ r æ ɛ̯ l ˈɶ e̯ m a e #"),
+				testFactory.parseSeqPhSeg("# k ˌe r æ ɛ̯ l ˈe m a e #")) ? 1 : 0; 
 		
 		List<SequentialPhonic> testInput = testFactory.parseSeqPhSeg("a e̯"); 
 		
@@ -813,6 +813,9 @@ public class SChangeTester {
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		System.out.println("testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
 		System.out.println("TODO implement this.");
+	
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 6"); 
+
 	}
 
 	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,

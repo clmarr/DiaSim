@@ -25,7 +25,7 @@ public class SChangeSeqToSeq  extends SChange
 		
 		targSource = new ArrayList<RestrictPhone>(trgsrc);
 		targSeqSize = targSource.size();
-		minTargSize = generateTrueSize(targSource); 
+		minInputSize = generateTrueSize(targSource); 
 		destSpecs = new ArrayList<RestrictPhone>(dstspcs);
 		symbMap = new HashMap<String,String>(symb_map);
 		featInds = new HashMap<String,Integer>(ftInds); 
@@ -46,10 +46,10 @@ public class SChangeSeqToSeq  extends SChange
 	{
 		int inpSize = input.size(); 
 		//abort if too small
-		if(inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
+		if(inpSize < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.min(minPostSize + minTargSize, 1); 
+				maxPlace = inpSize - Math.min(minPostSize + minInputSize, 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		

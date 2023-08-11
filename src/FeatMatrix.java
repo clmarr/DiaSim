@@ -23,19 +23,23 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private HashMap<String, String[]> featImpls; 
 	
-	private String localAlphabet; // for handling all features functioning as alpha values within the feature specifications... 
+	private String localAlphabet; // for handling all symbols functioning as alpha values within the feature specifications... 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultifeatAlpha; 	
 	
-	private boolean DESPEC_VIA_ALPHA = false; // set to true to allow spreading of despecification via alpha features
-	
 	// DESPECIFICATION -- 
-		// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
-		// example: if a vowel goes from -cont to +cont, the feature delrel should be despecified
-		// this case is the only time we will ever make use of the List<String> despecifications
-		// which is what is stored in the featVect for this case. 
-		// 
+			// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
+			// example: if a vowel goes from -cont to +cont, the feature delrel should be despecified
+			// this case is the only time we will ever make use of the List<String> despecifications
+			// which is what is stored in the featVect for this case. 
+			// 
+	
+	private boolean DESPEC_VIA_ALPHA = false; // set to true to allow spreading of despecification via alpha features
+	// without this, one cannot despecify alpha features directly, explicitly,
+		// though the specification of an alpha feature could downstream lead to the despecification of other features
+			// via feature implications. 
+	
 	
 	// TODO may need to add variables or methods to handle situation where has different alpha symbols for different features. 
 	
@@ -122,7 +126,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * checks if @param cand adheres to restrictions except those that are alpha values
 	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas, currently in terms of alpha values embedded in contexts (not source phones). 
 	 */
-	public boolean compareExceptAlpha(SequentialPhonic cand)
+	public boolean comparePreAlpha(SequentialPhonic cand)
 	{
 		if (!cand.getType().equals("phone"))
 			return false; 
@@ -134,10 +138,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int i = 0 ; i < candFeats.length(); i++)
 		{
 			String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
-			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
+			String cand_feat = candFeats.substring(i, i+1); 
+			if ("02".contains(restr) && !restr.equals(cand_feat))
 					return false;
-			if ("9".contains(restr) && !"1".equals(restr))	return false; 
-			// this will already doing nothing for alpha valued items -- which is exactly as should happen, they are being ignored. 
+			if ("9".contains(restr) && !"1".equals(cand_feat))	
+				return false; 
+			if (!DESPEC_VIA_ALPHA && localAlphabet.contains(restr) && "91".contains(cand_feat))
+				return false; 
+			// if DESPEC_VIA_ALPHA is true, no need to handled alpha valued features at all; 
+					// this will already doing nothing for alpha valued items -- which is exactly as should happen, they are being ignored. 
 		}
 		return true;
 	}

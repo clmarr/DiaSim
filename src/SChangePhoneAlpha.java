@@ -72,7 +72,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 										halt = true; 
 										priorPossible = false; 
 									}
-									else if (!pri.compareExceptAlpha(cpi))	
+									else if (!pri.comparePreAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
 										if(need_to_reset)	reset_alphvals_everywhere();
@@ -157,7 +157,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 								postContext.resetAllAlphaValues();
 								return false;
 							}
-							else if (!poi.compareExceptAlpha(cpi))	
+							else if (!poi.comparePreAlpha(cpi))	
 							{	//check also for conflict OUTSIDE the alpha values and return false if so
 									// as that will cause a downstream UnsetAlphaException otherwise
 								postContext.resetAllAlphaValues();

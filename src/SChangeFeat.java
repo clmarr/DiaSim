@@ -11,7 +11,7 @@ public class SChangeFeat extends SChange {
 		if(!targSpecs.equals("") && !targSpecs.equals("∅"))
 		{
 			targSource = new FeatMatrix(targSpecs, orderedFeats, featImplications); 
-			minTargSize = 1; 
+			minInputSize = 1; 
 		}
 		else //i.e. we know source-target is null if this is reachedpint. 
 			throw new Error("Insertion is not allowed for SChangeFeats -- please use an SChangePhone instead."); 
@@ -24,11 +24,11 @@ public class SChangeFeat extends SChange {
 	
 	public void initialize(RestrictPhone source, RestrictPhone dest) 
 	{
-		if(source.getClass().toString().contains("NullPhone"))	minTargSize = 0; 
-		else	minTargSize = 1; 
+		if(source.getClass().toString().contains("NullPhone"))	minInputSize = 0; 
+		else	minInputSize = 1; 
 		targSource = source; 
 		
-		if(dest.getClass().toString().contains("NullPhone") && minTargSize <= 0) 
+		if(dest.getClass().toString().contains("NullPhone") && minInputSize <= 0) 
 			throw new RuntimeException("Error: both target and destination are null!");  
 		destination = dest; 
 	}
@@ -69,11 +69,11 @@ public class SChangeFeat extends SChange {
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
 	{
 		//abort if too small
-		if (input.size() < minPriorSize + minTargSize + minPostSize)	return input; 
+		if (input.size() < minPriorSize + minInputSize + minPostSize)	return input; 
 		
 		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input.subList(0, minPriorSize)); 
 		int p = minPriorSize; 
-		int maxPlace = input.size() - minPostSize - minTargSize; 
+		int maxPlace = input.size() - minPostSize - minInputSize; 
 		/** check if target with correct context occurs at each index
 		 * We iterate from the beginning to the end of the word. 
 		 */
@@ -135,7 +135,7 @@ public class SChangeFeat extends SChange {
 		// ... the constant target size. 
 		int inpSize = input.size(); 
 		//abort if index is obviously invalid 
-		if(ind + minTargSize + minPostSize - 1 > inpSize || ind < 0)	return false; 
+		if(ind + minInputSize + minPostSize - 1 > inpSize || ind < 0)	return false; 
 		
 		//return false if phone at specified place does not match restrictions on target
 		if(!targSource.compare(input, ind))	return false;
@@ -143,13 +143,13 @@ public class SChangeFeat extends SChange {
 		//now we know the prior context and target requirements are both met
 		// we now check for the posterior context
 		if(minPostSize == 0)	return true; 
-		return posteriorMatch(input, ind+minTargSize); 
+		return posteriorMatch(input, ind+minInputSize); 
 	}
 	
 	public String toString()
 	{
 		String output=""; 
-		if (minTargSize == 0)	output += "∅";
+		if (minInputSize == 0)	output += "∅";
 		else //in this case we know target is a FeatMatrix
 			output+=targSource.toString(); 
 		
