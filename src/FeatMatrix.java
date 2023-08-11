@@ -35,7 +35,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// which is what is stored in the featVect for this case. 
 			// 
 	
-	private boolean DESPEC_VIA_ALPHA = true; // set to true to allow spreading of despecification via alpha features
+	private boolean DESPEC_VIA_ALPHA = false; // set to true to allow spreading of despecification via alpha features
 	// without this, one cannot despecify alpha features directly, explicitly,
 		// though the specification of an alpha feature could downstream lead to the despecification of other features
 			// via feature implications. 
