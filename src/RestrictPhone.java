@@ -23,4 +23,6 @@ public interface RestrictPhone{
 	public void resetAlphaValues();
 	public boolean has_alpha_specs(); 
 	public char first_unset_alpha();  // returns '0' if "false" i.e. no unset alphas, otherwise the value of the (first) unset alpha
+
+	public String getFeatVect(); 
 }

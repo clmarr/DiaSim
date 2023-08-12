@@ -44,10 +44,6 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
-		//TODO debugging
-		System.out.println("maxPlace = "+maxPlace);
-		if (p >= maxPlace)	System.out.println("not even making it to the check"); 
-		
 		while (p < maxPlace)
 		{
 			int p_if_match_fail = p; 
@@ -58,16 +54,10 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
 				
-				//TODO debugging
-				System.out.println("comparing: cand "+cand+", test "+test);
-				
 				if(!cand.getType().equals("phone"))
 					targMatchFail = !cand.print().equals(test.print()) ;
 				else if (test.first_unset_alpha() != '0')
 				{
-					//TODO debugging
-					System.out.println("detected unset alpha"); 
-					
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
 					else if (!test.comparePreAlpha(cand))	targMatchFail = true; 
 					else
@@ -78,30 +68,18 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 							// is when there is a failure to meet a NON-alpha specified value. 
 							// so this is a targ match fail. 
 						
-						//TODO debugging
-						System.out.println("alpha possibility...?!!");
-						System.out.println("alphHere = "+alphHere); 
-						System.out.println("alphHere.size = "+alphHere.size()) ;
-						
 						if (alphHere.size() == 0 )	targMatchFail = true; 
 						else
 						{
 							for (String alph: alphHere.keySet())  //there will be no replacements since check_for_alpha_conflict was false.
 								ALPH_VARS.put(alph,alphHere.get(alph)); 
-							need_to_reset = true;
+							need_to_reset = true;	
 							test.applyAlphaValues(ALPH_VARS);
 							mapAlphVals(); 
-							
-							//TODO debugging
-							System.out.println("test is now "+test+", and cand is "+cand);
-							System.out.println("test and cand compare... "+test.compare(cand));
 						}
 					}
 				}
 				targMatchFail = targMatchFail ? true : !test.compare(cand); 
-				
-				//TODO debugging
-				if (targMatchFail)	System.out.println("targ match for p = "+p+" failed, at i = "+i);
 			}
 			if (!targMatchFail) //target matched
 			{	

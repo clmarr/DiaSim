@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 
 public class SChangeTester {
 
@@ -786,7 +785,7 @@ public class SChangeTester {
 		System.out.println("TODO tests for SChangeFeatAlpha, SChangeFeatToPhoneAlpha, SChangePhoneAlpha..."); 
 		
 		numCorrect = 0; 
-		System.out.println("Now testing SeqToSeqAlpha...");
+		System.out.println("\n\n\nNow testing SeqToSeqAlpha...");
 		System.out.println("Testing cases with no disjunctions.");
 
 		String testRuleString = "[+lo,βstres,ɣprim] e̯ > ∅ [-tense,βstres,ɣprim]";
@@ -794,19 +793,17 @@ public class SChangeTester {
 		System.out.println("testing a case with diacritics too... testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
 		
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# a e̯ #"),
-				testFactory.parseSeqPhSeg("# e #")) ? 1 : 0;
+				testFactory.parseSeqPhSeg("# ɛ #")) ? 1 : 0;
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ɐ e #"),
 				testFactory.parseSeqPhSeg("# ɐ e #")) ? 1 : 0 ;
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# a̯ e #"),
 				testFactory.parseSeqPhSeg("# a̯ e #")) ? 1 : 0 ;
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ˈɑ e̯ #"),
-				testFactory.parseSeqPhSeg("# ˈe #")) ? 1 : 0; 
+				testFactory.parseSeqPhSeg("# ˈɛ #")) ? 1 : 0; 
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# ˌã e̯ #"),
-				testFactory.parseSeqPhSeg("# ˌe #")) ? 1 : 0; 
+				testFactory.parseSeqPhSeg("# ˌɛ #")) ? 1 : 0; 
 		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("# k ˌɒː e̯ r æ ɛ̯ l ˈɶ e̯ m a e #"),
-				testFactory.parseSeqPhSeg("# k ˌe r æ ɛ̯ l ˈe m a e #")) ? 1 : 0; 
-		
-		List<SequentialPhonic> testInput = testFactory.parseSeqPhSeg("a e̯"); 
+				testFactory.parseSeqPhSeg("# k ˌɛ r æ ɛ̯ l ˈɛ m a e #")) ? 1 : 0; 
 		
 		
 		testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 

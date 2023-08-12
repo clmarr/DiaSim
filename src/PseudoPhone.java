@@ -22,6 +22,7 @@ public abstract class PseudoPhone extends SequentialPhonic implements RestrictPh
 	
 	//TODO in future version, possibly properly implement these guys
 	public String getFeatString()	{	return null;	}
+	public String getFeatVect()	{	return getFeatString();	}
 	public HashMap<String,Integer> getFeatIndices()	{	return null;	}
 	public HashMap<String,String> getFeatSymbMap()	{	return null;	}
 }

@@ -114,10 +114,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		for (int i = 0 ; i < candFeats.length(); i++)
 		{
-			String restr = featVect.substring(i,i+1); 
+			String restr = featVect.substring(i,i+1),
+					cand_spec = candFeats.substring(i,i+1); 
 			if ("02".contains(restr) && !restr.equals(candFeats.substring(i, i+1)))
 					return false;
-			if ("9".contains(restr) && !"1".equals(restr))	return false; 
+			if ("9".contains(restr) && !"1".equals(cand_spec))	return false; 
 		}
 		return true;
 	}

@@ -74,6 +74,9 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	
 	// accessors : all return clones of the objects, not the originals. 
 	public String getFeatString()	{	return ""+featString;	}
+	public String getFeatVect()	{	return getFeatString();	}	
+	//currently necessary to evade inheritance confusion (getFeatString from SequentialPhonic, getFeatVect from RestrictPhone)
+		// ... unfortunately these ended up both being necessary for tester methods 
 	public HashMap<String,Integer> getFeatIndices()	
 	{	return featIndices; 	}
 	public HashMap<String,String> getFeatSymbMap()
