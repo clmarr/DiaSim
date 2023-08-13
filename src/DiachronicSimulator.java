@@ -1281,7 +1281,9 @@ public class DiachronicSimulator {
 						{
 							Etymon[] wl = inputForms;
 							String inds = UTILS.etymInds(wl, query);
-							System.out.println("Ind(s) with this word as input : "+inds);  
+							if (inds.trim().equals(""))
+								System.out.println("No input forms are '"+query+", check the form and try again."); 
+							else	System.out.println("Ind(s) with this word as input : "+inds);  
 						}
 					}
 					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
@@ -1291,6 +1293,9 @@ public class DiachronicSimulator {
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
+							System.out.println("Oops, '"+resp+"' is not a valid " 
+									+ (queryingRule ? "rule" : "etymon")
+									+ " ID. Please try again!"); 
 							promptQueryMenu =true;
 						}
 						else if(queryingRule)

@@ -149,7 +149,10 @@ public class Simulation {
 		{	if(etChanged[ei])
 			{
 				etDerivations[ei] += "\n"+currLexicon.getByID(ei)+" | "+instant+" : "+thisShift; 
-				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print(); 
+				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print()
+						+ "             (et."+ei+"; "+inputLexicon.getByID(ei)
+						+ (goldOutput ? " > ... > " + goldOutputLexicon.getByID(ei) : "") 
+						+ ")"; 
 			}
 		}
 		
