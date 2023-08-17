@@ -491,7 +491,7 @@ public class DHSWrapper {
 					+ "\t\t\t'get etym at X', to get the etymon at index <X>.\n"
 					+ "\t\t\t'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 					+ "\t\t\t'get lexicon', print entire lexicon with etyma mapped to inds.\n");
-			resp = inpu.nextLine().replace("\n", "");
+			resp = inpu.nextLine().replace("\n", "").trim();
 			forkAt = UTILS.getValidInd(resp, originalLastMoment);
 			// TODO make sure it is correct to use base's last moment as max here...
 
