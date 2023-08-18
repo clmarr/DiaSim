@@ -314,7 +314,7 @@ public class DiachronicSimulator {
 				if (cri == next_black)
 				{
 					//TODO debugging
-					System.out.println("reached black stage "+blackStageNameAndLocList.get(bsgi)); 
+					System.out.println("reached black stage "+blackStageNameAndLocList.get(bsgi).replace(":",": ")); 
 					
 					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					blackStageInstants[bsgi] = CASCADE.size();
@@ -1297,9 +1297,9 @@ public class DiachronicSimulator {
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
-							System.out.println("Oops, '"+resp+"' is not a valid " 
-									+ (queryingRule ? "rule" : "etymon")
-									+ " ID. Please try again!"); 
+							System.out.println("Oops, '"+idstr+"' is not a valid ID for a" 
+									+ (queryingRule ? " rule" : "n etymon")
+									+ ". Please try again!"); 
 							promptQueryMenu =true;
 						}
 						else if(queryingRule)
