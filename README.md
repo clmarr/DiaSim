@@ -14,6 +14,8 @@ To specify run name, ruleset, and lexicon file: bash derive.sh <RUN_NAME> <CASCA
 
 You may also edit derive.sh and std_derive.sh to designate targets of your choosing.
 
+As of August 2023, there is a bug in the processing of stage data -- as a result, please use "-i" (to ignore any stages and convert them to "black box stages") at the end of your run command for it to not crash. Hopefully this will be fixed soon. Your patience is appreciated. 
+
 To run within Eclipse or another programming interface, or to run it in terminal, usage is as follows.
 
 Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date.
