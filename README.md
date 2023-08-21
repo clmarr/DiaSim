@@ -16,7 +16,7 @@ You may also edit derive.sh and std_derive.sh to designate targets of your choos
 
 To run within Eclipse or another programming interface, or to run it in terminal, usage is as follows.
 
-Before July 1 2023, it was necessary to specify a runn name using -out: however, as of July 2023, it now defaults to a run name based on the date.
+Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date.
 
 Run configurations include: 
 
