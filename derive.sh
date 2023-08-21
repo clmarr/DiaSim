@@ -23,5 +23,5 @@ fi
 
 echo $ARGS
 
-java -cp build/classes DiachronicSimulator -out $RUN_NAME -rules ./$RULESET -lex ./$LEX $ARGS
+java -cp bin/classes DiachronicSimulator -out $RUN_NAME -rules ./$RULESET -lex ./$LEX $ARGS
 

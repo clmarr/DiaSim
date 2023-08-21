@@ -291,7 +291,7 @@ public class DiachronicSimulator {
 					System.out.println("SChange generated : "+newShift+", with type"+newShift.getClass());
 			}
 			CASCADE.addAll(theFactory.generateSoundChangesFromRule(currRule));
-			
+			 
 			cri++; 
 			
 			if(goldStagesSet)
