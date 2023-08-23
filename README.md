@@ -23,12 +23,13 @@ Before July 1 2023, it was necessary to specify a run name using -out: however, 
 Run configurations include: 
 
   -out <run_name>, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed.   
+1
 
   -symbols <symbol_file>  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult README.representations.md)
   
   -rules <cascade_file> -- sets the file with the ordered sound changes to realize upon the lexicon 
 
-  -lex <filename> -- sets the file with the etyma to implment sound hcanges on (see README.lexicon.md)
+  -lex <filename> -- sets the file with the etyma to implement sound changes on (see README.lexicon.md)
   
   -impl <filename> -- allows you to use a feature implications file other than the default FeatureImplications (cf. README.representations.md) 
   
