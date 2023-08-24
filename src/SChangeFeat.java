@@ -85,6 +85,10 @@ public class SChangeFeat extends SChange {
 				while(!stopIncrement)
 				{
 					if(p >= input.size())	stopIncrement = true; 
+					else if(input.get(p).print().equals("#") && p == 0)
+					{
+						res.add(input.get(p)); p++; 
+					}
 					else if(input.get(p).getType().equals("bound") && p <= maxPlace)
 						p++; 
 					else	stopIncrement = true; 

@@ -79,6 +79,10 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				while(!stopIncrement)
 				{
 					if(p >= input.size())	stopIncrement = true; 
+					else if(input.get(p).print().equals("#") && p == 0)
+					{
+						res.add(input.get(p)); p++; 
+					}
 					else if(input.get(p).getType().contains("bound") && p < maxPlace)
 						p++; 
 					else	stopIncrement = true; 
@@ -90,7 +94,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				// when destination is null, we add nothing,
 				// and increment p TWICE
 				// this is done to block a segment that is deleted itself causing the deletion of the following unit
-				// note that this will itself cause rare erros if the that averted situation was actually the intention
+				// note that this will itself cause rare errors if the that averted situation was actually the intention
 				// however it is assumed that this would be incredibly rare. if ever occuring at all. 
 				if (destination.print().equals("∅"))	
 				{	
@@ -134,6 +138,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
 				targSource.applyAlphaValues(ALPH_VARS);
+				destination.applyAlphaValues(ALPH_VARS);
 				need_to_reset = true;
 			}
 		}
@@ -224,7 +229,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							
 							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
-							postContext.applyAlphaValues(ALPH_VARS);
+							postContext.applyAlphaValues(ALPH_VARS); 
 							popr = postContext.getPlaceRestrs();
 						}
 					}
@@ -234,8 +239,9 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				}
 			}
 		}
-			
-		if (!posteriorMatch(input, ind+inpSize))
+		
+		//TODO something here is bugged! UnsetAlphaErrorr gets thrown SequentialFilter.isPosteriorMatch (336) via .isPosteriorMatchHelper(:406) via FeatMatrix.compare(:107).
+		if (!posteriorMatch(input, ind+minInputSize)) // prior to Aug 22, was ind+inpSize, but that was likely a bug. 
 		{
 			if (need_to_reset)	reset_alphvals_everywhere(); 
 			return false;
