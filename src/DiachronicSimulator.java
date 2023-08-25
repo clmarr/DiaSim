@@ -5,13 +5,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap; 
 import java.util.Scanner; 
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 /**
  * main class for diachronic derivation system
@@ -1687,12 +1687,12 @@ public class DiachronicSimulator {
 			}
 		}
 		
-		// as of July 2023, default behavior is to make the run name based on the day it was run, in format YYYY-MM-DD
+		// If user hasn't specified a run output location, make a unique run prefix
 		if (no_prefix)
 		{
-			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");  
-			LocalDateTime now = LocalDateTime.now(); 
-			runPrefix = "run_on_"+dtf.format(now).toString();
+			String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
+			runPrefix = "unnamed_run_"+timeStamp;
+			System.out.println("No output location specified. Will create a folder with name '"+runPrefix+"'.");
 		}
 		
 		if (i != args.length) //|| no_prefix)
