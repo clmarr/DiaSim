@@ -1,3 +1,4 @@
 #!/bin/sh
 
-java -cp bin DiachronicSimulator -out $1 -rules ./DiaCLEF -lex ./FLLex.txt -i
+export ARGS=$*
+java -cp bin DiachronicSimulator $ARGS
