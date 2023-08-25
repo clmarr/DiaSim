@@ -2,6 +2,24 @@
 
 This package, or rather earlier stages of it, are covered broadly in Marr & Mortensen 2020 (preprint:https://www.academia.edu/71888418/Computerized_Forward_Reconstruction_for_Analysis_in_Diachronic_Phonology_and_Latin_to_French_Reflex_Prediction) , and Marr & Mortensen 2022 (preprint: https://www.academia.edu/94911785/Large_scale_computerized_forward_reconstruction_yields_new_perspectives_in_French_diachronic_phonology) 
 
+## Running DiaSim
+
+### Windows
+
+In Windows, DiaSim is run with the batch script `derive.bat`.
+
+To start DiaSim via the Windows command line, navigate to the DiaSim directory and run derive.bat by using the following command: 
+
+	./derive.bat
+
+Command line arguments can be included here; see the "Command line arguments" section below.
+
+You can also run this derive.bat script by double clicking it in your file explorer. However, you will not be able to specify arguments this way unless you manually edit them into this script. 
+
+If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `run_on_<date>`.
+
+
+### Linux / Mac OS
 For a run with default configurations, in command line call: bash std_derive.sh
 
 To specify run name, ruleset, and lexicon file: bash derive.sh <RUN_NAME> <CASCADE_FILE> <LEXFILE_FILE>
@@ -19,6 +37,8 @@ As of August 2023, there is a bug in the processing of stage data -- as a result
 To run within Eclipse or another programming interface, or to run it in terminal, usage is as follows.
 
 Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date.
+
+## Command line arguments
 
 Run configurations include: 
 
