@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -115,7 +116,7 @@ public class UTILS {
 			
 			}
 			
-			BufferedWriter out = new BufferedWriter(new FileWriter(filename)); 
+			BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
 			out.write(output);
 			out.close();
 		}
