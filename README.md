@@ -16,7 +16,7 @@ Command line arguments can be included here; see the "Command line arguments" se
 
 You can also run this derive.bat script by double clicking it in your file explorer. However, you will not be able to specify arguments this way unless you manually edit them into this script. 
 
-If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `run_on_<date>`.
+If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `unnamed_run_<datetime>`.
 
 
 ### Linux / Mac OS
@@ -38,7 +38,7 @@ You may also edit derive.sh and std_derive.sh to designate targets of your choos
 
 As of August 2023, there is a bug in the processing of stage data -- as a result, please use "-i" (to ignore any stages and convert them to "black box stages") at the end of your run command for it to not crash. Hopefully this will be fixed soon. Your patience is appreciated. 
 
-Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date.
+Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date and time.
 
 ## Command line arguments
 
