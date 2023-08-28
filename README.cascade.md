@@ -29,7 +29,7 @@ Technically '\~' is the gold stagename flag, but it will only be treated as a tr
 The black stage header "=" may be used instead of "~" for disambiguatory purposes within the lexicon file.
 
 Do not flag the first stage name as this will cause issues as this is the name for the input, not a gold stage. In this way, in the CLEF cascades, there is no flag anywhere for Classical Latin, which is the input stage, before any rules are applied. 
-Similarly, do not flag the name of the last stage in the lexicon if it is also the output stage (using a last stage in the lexicon that is not the output stage may be confusing, but you an do so: in this case, it should be flagged at a point such that at least one rule remains below it). 
+Similarly, do not flag the name of the last stage in the lexicon if it is also the output stage (using a last stage in the lexicon that is not the output stage may be confusing, but you can do so: in this case, it should be flagged at a point such that at least one rule remains below it). 
 
 
 # COMMENTING:
