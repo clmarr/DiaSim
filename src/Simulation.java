@@ -12,6 +12,7 @@ public class Simulation {
 	
 	private int[] goldStageInstants, blackStageInstants; 
 	private String[] goldStageNames, blackStageNames; 
+	private String inputStageName;
 	
 	private int NUM_ETYMA; 
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES; 
@@ -54,6 +55,7 @@ public class Simulation {
 		goldStageInd = 0; 
 		blackStageInd = 0; 
 		currStageInd = 0; 
+		inputStageName = "Input"; 
 	}
 	
 	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] initializedDerivations, String[] orderedStages)
@@ -96,7 +98,8 @@ public class Simulation {
 			goldStageNames = baseline.goldStageNames; 
 			goldStageResultLexica = new Lexicon[goldStageNames.length] ;
 			NUM_GOLD_STAGES = goldStageNames.length;
-		}		
+		}	
+		this.inputStageName = baseline.inputStageName; 
 	}
 	
 	public void setOpacity(boolean opa)	{	opaque = opa;		}
@@ -125,6 +128,9 @@ public class Simulation {
 		blackStageResultLexica = new Lexicon[names.length];
 		NUM_BLACK_STAGES = names.length; 
 	}	
+	
+	public void setInputStageName(String isn)
+	{	inputStageName = ""+isn;	}
 	
 	//for use in constructing hypothesis simulations
 	public void setGoldInstants(int[] times)	{	goldStageInstants = times;	}
@@ -316,13 +322,13 @@ public class Simulation {
 		String toRet = ""; 
 		for(String st : ordered_stages)
 		{	
-			if (st.equals("in"))	toRet += "Input";
-			else if (st.equals("out"))	toRet += "Output [REFERENCE]";
+			if (st.equals("in"))	toRet += inputStageName; 
+			else if (st.equals("out"))	toRet += "Output {GOLD}";
 			else
 			{
 				boolean isg = st.charAt(0) == 'g'; 
 				int stn = Integer.parseInt(st.substring(1)); 
-				toRet += isg ? goldStageNames[stn] + " [REFERENCE]" : blackStageNames[stn];
+				toRet += isg ? goldStageNames[stn] + " {GOLD}" : blackStageNames[stn];
 			}
 			toRet += " | "; 
 		}
@@ -336,7 +342,14 @@ public class Simulation {
 		// calcStagesOrdered(); 
 		/** currently using slightly modified stage string array 
 		 * to include output without possibly causing errors by modifying a frequently used class variable. */
-		String[] graph_stages = Arrays.copyOf(stagesOrdered, stagesOrdered.length+1);
+		
+		// code below was missing the input stage, probably due to a fix that caused a side effect ?
+		/**  String[] graph_stages = Arrays.copyOf(stagesOrdered, stagesOrdered.length+1);
+		* graph_stages[graph_stages.length-1] = "out"; */
+		String[] graph_stages = new String[stagesOrdered.length+2];
+		graph_stages[0] = "in"; 
+		for (int gsi = 1; gsi < graph_stages.length-1; gsi++)
+			graph_stages[gsi] = stagesOrdered[gsi-1]; 
 		graph_stages[graph_stages.length-1] = "out"; 
 		
 		String out = "etID  | "+stageOutHeader(graph_stages); 
@@ -374,6 +387,7 @@ public class Simulation {
 	public int getInstant()	{	return instant;	}
 	
 	public List<SChange> CASCADE()	{	return CASCADE;	}
+	public String getInputStageName()	{	return inputStageName;	}
 	public String[] getGoldStageNames()	{	return goldStageNames;	}
 	public int[] getGoldStageInstants()	{	return goldStageInstants;	}
 	public String[] getBlackStageNames()	{	return blackStageNames;	}

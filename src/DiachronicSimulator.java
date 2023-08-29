@@ -676,6 +676,8 @@ public class DiachronicSimulator {
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
+		if (!inputName.equalsIgnoreCase("input"))
+				theSimulation.setInputStageName(inputName);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
 
@@ -1385,7 +1387,7 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								"etyma: "+inputName+" | " + (ea.isPivotSet() ? "PIV: "+pivPtName+" | " : "")
+								"etyma: \n#,\t| "+inputName+" | " + (ea.isPivotSet() ? "PIV: "+pivPtName+" | " : "")
 								+" Result | Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}
