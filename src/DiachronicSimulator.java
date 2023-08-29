@@ -1385,7 +1385,7 @@ public class DiachronicSimulator {
 					{
 						boolean is2 = "2".equals(resp); 
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
-								"etyma: "+inputName+" | " + (ea.isPivotSet() ? "PIV: "+pivPtName+" | " : "")
+								"etyma: \n#,\t| "+inputName+" | " + (ea.isPivotSet() ? "PIV: "+pivPtName+" | " : "")
 								+" Result | Gold"); 
 						ea.printFourColGraph(theSimulation.getInput(), is2);	
 					}
