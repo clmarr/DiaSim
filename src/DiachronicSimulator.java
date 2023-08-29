@@ -676,6 +676,8 @@ public class DiachronicSimulator {
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
+		if (!inputName.equalsIgnoreCase("input"))
+				theSimulation.setInputStageName(inputName);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
 		theSimulation.setOpacity(!print_changes_each_rule);
 
