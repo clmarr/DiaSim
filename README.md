@@ -10,7 +10,9 @@ On Windows, DiaSim can be run with the batch script `derive.bat`.
 
 In the command line, navigate to the DiaSim directory and run derive.bat by using the following command:
 
+```
  ./derive.bat
+```
 
 Command line arguments can be included here; see the "Command line arguments" section below.
 
@@ -20,7 +22,9 @@ On Linux and Mac OS, DiaSim can be run with the bash script `derive.sh`.
 
 In the command line, navigate to the DiaSim directory and run derive.sh by using the following command:
 
+```
  ./derive.sh
+```
 
 Command line arguments can be included here; see the "Command line arguments" section below.
 
@@ -66,7 +70,7 @@ More information on lexica can be found on this repository's wiki (CURRENTLY UND
 
 A cascade file contains your ordered list of sound change rules that you desire DiaSim to apply to the lexicon. If your lexicon includes intermediate gold stages (see "Creating a lexicon file" above), then the point at which these stages occur must also be specified in the cascade. Additionally, stages without attested forms can be specified in the cascade; these are called "black stages." Since black stages, by definition, do not have corresponding attested forms which appear in the lexicon, black output forms cannot be cross-checked. They simply serve to let DiaSim know what other notable points in the cascade may be.
 
-The rules that make up a cascade are in the conventional sound change notation, that is to say, `A > B /C__D`.
+The rules that make up a cascade are in the conventional sound change notation, that is to say, `A > B / C __ D`.
 
 More information on cascades can be found on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
 
