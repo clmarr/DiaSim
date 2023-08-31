@@ -1240,9 +1240,6 @@ public class DiachronicSimulator {
 							System.out.println("Success: now making subsample with filter "+filterSeq.toString());
 							System.out.println("(Pivot moment name: "+pivPtName+")");
 							
-							//TODO debugging
-							System.out.println("Filter seq : "+filterSeq);
-							
 							ea.setFilter(filterSeq,pivPtName);
 							filterIsSet = true; 
 						}
@@ -1288,8 +1285,8 @@ public class DiachronicSimulator {
 							Etymon[] wl = inputForms;
 							String inds = UTILS.etymInds(wl, query);
 							if (inds.trim().equals(""))
-								System.out.println("No input forms are '"+query+", check the form and try again."); 
-							else	System.out.println("Ind(s) with this word as input : "+inds);  
+								System.out.println("No input forms found for '"+query+", check the form and try again."); 
+							else	System.out.println("Ind(s) with the form /"+query+"/ as input : "+inds);  
 						}
 					}
 					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
