@@ -1237,7 +1237,7 @@ public class DiachronicSimulator {
 						
 						if(!fail)
 						{
-							System.out.println("Success: now making subsample with filter "+filterSeq.toString());
+							System.out.println("Success: now making subsample\nNew filter: "+filterSeq.toString());
 							System.out.println("(Pivot moment name: "+pivPtName+")");
 							
 							ea.setFilter(filterSeq,pivPtName);

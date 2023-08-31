@@ -175,13 +175,13 @@ public class ErrorAnalysis {
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
 				Etymon currEt = theRes.getByID(i);
-				isPhInResEt[rphi][i] = (currEt.toString().equals("[ABSENT]")) ? 
+				isPhInResEt[rphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ? 
 						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
 			}
 			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
 			{
 				Etymon currEt = theGold.getByID(i);
-				isPhInGoldEt[gphi][i] = (currEt.toString().equals("[ABSENT]")) ?
+				isPhInGoldEt[gphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ?
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
@@ -260,7 +260,7 @@ public class ErrorAnalysis {
 			Etymon currEt = PIV_PT_LEX.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
-				if(!currEt.toString().equals("[ABSENT]"))
+				if(!currEt.toString().equals(UTILS.ABSENT_REPR))
 					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
 				else	isPhInPivEt[pvi][ei] = false;
 				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
@@ -1090,7 +1090,7 @@ public class ErrorAnalysis {
 				
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(PIV_PT_LEX.getByID(isi).toString().equals("[ABSENT]"))
+			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR))
 				IN_SUBSAMP[isi] = false;
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
