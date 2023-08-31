@@ -1,62 +1,52 @@
 # DiaSim
 
-This package, or rather earlier stages of it, are covered broadly in Marr & Mortensen 2020 (preprint:<https://www.academia.edu/71888418/Computerized_Forward_Reconstruction_for_Analysis_in_Diachronic_Phonology_and_Latin_to_French_Reflex_Prediction>) , and Marr & Mortensen 2022 (preprint: <https://www.academia.edu/94911785/Large_scale_computerized_forward_reconstruction_yields_new_perspectives_in_French_diachronic_phonology>)
+This package, or rather earlier stages of it, are covered broadly in Marr & Mortensen 2020 (preprint: <https://www.academia.edu/71888418/Computerized_Forward_Reconstruction_for_Analysis_in_Diachronic_Phonology_and_Latin_to_French_Reflex_Prediction>), and Marr & Mortensen 2022 (preprint: <https://www.academia.edu/94911785/Large_scale_computerized_forward_reconstruction_yields_new_perspectives_in_French_diachronic_phonology>)
 
 ## Running DiaSim
 
-### Windows
+### Windows Command Line
 
-In Windows, DiaSim can be run with the batch script `derive.bat`.
+On Windows, DiaSim can be run with the batch script `derive.bat`.
 
-To start DiaSim via the Windows command line, navigate to the DiaSim directory and run derive.bat by using the following command:
+In the command line, navigate to the DiaSim directory and run derive.bat by using the following command:
 
  ./derive.bat
 
 Command line arguments can be included here; see the "Command line arguments" section below.
 
-You can also run this derive.bat script by double clicking it in your file explorer. However, you will not be able to specify arguments this way unless you manually edit them into this script.
+### Bash (Linux / Mac OS)
 
-If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `unnamed_run_<datetime>`.
+On Linux and Mac OS, DiaSim can be run with the bash script `derive.sh`.
 
-### Linux / Mac OS
+In the command line, navigate to the DiaSim directory and run derive.sh by using the following command:
 
-For a run with default configurations, in command line call:
+ ./derive.sh
 
- bash std_derive.sh
-
-To specify run name, ruleset, and lexicon file:
-
- bash derive.sh <RUN_NAME> <CASCADE_FILE> <LEXFILE_FILE>
-
-`<RUN_NAME>` is the name you want the folder with all resulting derivations and analysis files to be placed (without < and >)
-
-`<CASCADE_FILE>` is the location of the file containing the set of sound changes you want to implement, in SPE format, with $ flagging comments (see README.cascade.md for more details)
-
-`<LEXICON_FILE>` is the location of the file containing the etyma you want to operate these ordered sound changes upon, with $ flagging comments, and stages with observed outcomes in consistent columns delimited by ',' from the input forms (see README.lexicon.md for details).
-
-You may also edit derive.sh and std_derive.sh to designate targets of your choosing.
-
-As of August 2023, there is a bug in the processing of stage data -- as a result, please use "-i" (to ignore any stages and convert them to "black box stages") at the end of your run command for it to not crash. Hopefully this will be fixed soon. Your patience is appreciated.
-
-Before July 1 2023, it was necessary to specify a run name using -out: however, as of July 2023, it now defaults to a run name based on the date and time.
+Command line arguments can be included here; see the "Command line arguments" section below.
 
 ## Command line arguments
 
-Run configurations include:
+You may include these command line arguments by adding them to your run command. If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `unnamed_run_<datetime>`.
 
-- `-out <run_name>`, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed.
+Specifying a lexicon, cascade, and run name:
 
-- `-symbols <symbol_file>`  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult README.representations.md)
+- `-lex <filename>` -- sets the file with the etyma to implement sound changes on (see README.lexicon.md)
   
 - `-rules <cascade_file>` -- sets the file with the ordered sound changes to realize upon the lexicon
 
-- `-lex <filename>` -- sets the file with the etyma to implement sound changes on (see README.lexicon.md)
+- `-out <run_name>`, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed
+
+Additional options:
+
+- `-symbols <symbol_file>`  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult README.representations.md)
   
 - `-impl <filename>` -- allows you to use a feature implications file other than the default FeatureImplications (cf. README.representations.md)
   
 - `-diacrit <filename>` -- allows you to use a custom diacritics file (cf. README.representations.md)
   
 - `-idcost <a number>` -- sets the cost of insertion and deletion for computing edit distances (cf. README.metrics.md)
+
+- `-verbose` -- verbose mode -- prints out more information about file locations and other variables set at the command line call.
 
 There are also the following command line flags, which are put together after a single hyphen (eg. "`-ph`")
   
@@ -65,12 +55,28 @@ There are also the following command line flags, which are put together after a 
 - `-h` -- halt mode --- halts at all intermediate stages, not just those associated with observed outcomes to test against (gold stages)
   
 - `-e` -- explicit mode -- ignores feature implications
-  
-- `-v` -- verbose mode -- prints out more information about file locations and other variables set at the command line call.
+
+## Lexicon file
+
+A lexicon file contains your collection of etyma to be processed. It contains a series of attested lexical items from a starting point ("input stage"), optionally followed by any number of series of attested forms of those words from later stages ("gold stages"). DiaSim iterates through your cascade of rules (see below), applies changes to this lexicon, and computes output forms, which can be compared to your gold stages. DiaSim can provide details on any discrepancies between computed results and what is actually observed in the gold stages.
+
+More information on lexica can be found on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+
+## Cascade file
+
+A cascade file contains your ordered list of sound change rules that you desire DiaSim to apply to the lexicon. If your lexicon includes intermediate gold stages (see "Creating a lexicon file" above), then the point at which these stages occur must also be specified in the cascade. Additionally, stages without attested forms can be specified in the cascade; these are called "black stages." Since black stages, by definition, do not have corresponding attested forms which appear in the lexicon, black output forms cannot be cross-checked. They simply serve to let DiaSim know what other notable points in the cascade may be.
+
+The rules that make up a cascade are in the conventional sound change notation, that is to say, `A > B /C__D`.
+
+More information on cascades can be found on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+
+## Output data
+
+DiaSim will populate your chosen output folder with files containing information on your results. These files include a log of the rules applied, a table of etyma in the state they appear at each stage, statistical analyses pertaining to phones, and a folder containing detailed derivations for each etymon.
 
 ---
 
-This file will be expanded with usage basics  in 2023 and 2024.
+This file will be expanded with usage basics in 2023 and 2024.
 
 The other README files have the following coverage: (please be patient as we are trying our best to complete them while attending to other pressing issues!)
 
