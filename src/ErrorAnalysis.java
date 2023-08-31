@@ -1071,6 +1071,13 @@ public class ErrorAnalysis {
 	}
 	
 	//assume indices are constant for the word lists across lexica 
+	// TODO there is an error around here that is causing filters with word bounds in them to return false
+	// but this only seems to happen in the context of filter sequences from the halt menu 
+	// though not for the (same??) method called in SequentialFilter for sound changes -- why might this be? 
+	// 		relevant method if the error isn't here -- SequentialFilter.filtCheck 
+	//	but -- they ARE detected when the filter consists of only a # 
+	// likewise it is detected for "# n"
+	// it seems to be "n #" that is disfavored. 
 	public void articulateSubsample(String subsamp_name)
 	{	
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA];

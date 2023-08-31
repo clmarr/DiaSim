@@ -286,7 +286,7 @@ public class SequentialFilter {
 	{
 		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
 		if(minSize > pr.size())	return false;
-		for(int cpic = 0; cpic < pr.size() - minSize; cpic++)
+		for(int cpic = 0; cpic <= pr.size() - minSize; cpic++)
 			if(isPosteriorMatchHelper(pr,cpic,0,0))	return true;
 		return false;
 	}
