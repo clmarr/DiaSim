@@ -10,7 +10,7 @@ On Windows, DiaSim can be run with the batch script `derive.bat`.
 
 In the command line, navigate to the DiaSim directory and run derive.bat by using the following command:
 
-```
+```text
  ./derive.bat
 ```
 
@@ -22,7 +22,7 @@ On Linux and Mac OS, DiaSim can be run with the bash script `derive.sh`.
 
 In the command line, navigate to the DiaSim directory and run derive.sh by using the following command:
 
-```
+```text
  ./derive.sh
 ```
 
@@ -59,6 +59,22 @@ There are also the following command line flags, which are put together after a 
 - `-h` -- halt mode --- halts at all intermediate stages, not just those associated with observed outcomes to test against (gold stages)
   
 - `-e` -- explicit mode -- ignores feature implications
+
+### Example configuration
+
+Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_cascade`. You have put these files in the DiaSim directory. You want to run DiaSim and have it make an output folder called `my_run`. Additionally, you want DiaSim to print to the console every sound change and affected etymon as it runs. Once you have navigated to the DiaSim directory, you will run a shell command that looks like this:
+
+Windows command line:
+
+```text
+./derive.bat -lex my_lexicon -rules my_cascade -out my_run -p
+```
+
+Bash:
+
+```text
+./derive.sh -lex my_lexicon -rules my_cascade -out my_run -p
+```
 
 ## Lexicon file
 
