@@ -1088,10 +1088,11 @@ public class ErrorAnalysis {
 		errorRateByGoldPhone = new double[goldPhInventory.length];
 		errorRateByPivotPhone = new double[pivotPhInventory.length];
 				
+		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
 			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR))
-				IN_SUBSAMP[isi] = false;
+				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time;.
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
 			if(IN_SUBSAMP[isi])

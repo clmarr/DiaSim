@@ -47,8 +47,7 @@ public class SequentialFilter {
 		
 		hasAlphSpecs = false; 
 		for(RestrictPhone pr : placeRestrs)
-			if (pr.has_alpha_specs())	hasAlphSpecs = true; 
-		
+			if (pr.has_alpha_specs())	hasAlphSpecs = true; 		
 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm)
@@ -336,6 +335,13 @@ public class SequentialFilter {
 		return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
 	}
 	
+	/**
+	 * @param phonSeq	phone sequence we are checking
+	 * @param cpic	location in phonSeq		("current place in candidate (sequence)")
+	 * @param crp	location in placeRestrs	("current restriction place")
+	 * @param cpim	location in parenMap	("current place in (paren)map") 
+	 * @return
+	 */
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
 	{	
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
