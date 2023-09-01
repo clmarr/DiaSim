@@ -1154,7 +1154,7 @@ public class ErrorAnalysis {
 			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
 			
 			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
-			System.out.println((""+(double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of whole");
+			System.out.println((""+(double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of etyma in whole dataset.");
 			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+subsamp_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
 			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
 	
