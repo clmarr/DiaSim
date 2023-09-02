@@ -1013,11 +1013,14 @@ public class DiachronicSimulator {
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
-		System.out.println("Overall accuracy : "+ea.getAccuracy());
-		System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
-		System.out.println("Accuracy within 2 phones: "+ea.getPctWithin2());
-		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
+		System.out.println();
+		System.out.println("ACCURACY REPORT:");
+		System.out.println("Overall accuracy:                        "+ea.getAccuracy());
+		System.out.println("Accuracy within 1 phone:                 "+ea.getPctWithin1());
+		System.out.println("Accuracy within 2 phones:                "+ea.getPctWithin2());
+		System.out.println("Average edit distance from gold:         "+ea.getAvgPED());
 		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+		System.out.println();
 		
 		int lastGoldOpt = (curSt == -1 ? NUM_GOLD_STAGES : curSt) - 1;
 		int lastBlkOpt = NUM_BLACK_STAGES - 1;
