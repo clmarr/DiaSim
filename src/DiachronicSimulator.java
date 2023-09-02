@@ -59,7 +59,7 @@ public class DiachronicSimulator {
 	
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics; 
+		no_feat_impls, no_symb_diacritics, skipOutput; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -685,9 +685,11 @@ public class DiachronicSimulator {
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		
 		File dir = new File(""+runPrefix); 
-		dir.mkdir(); 
+		if (!skipOutput) {
+			dir.mkdir();
 		
-		makeRulesLog(CASCADE);
+			makeRulesLog(CASCADE);
+		}
 		
 		String resp; 		
 		Scanner inp = new Scanner(System.in);
@@ -751,39 +753,43 @@ public class DiachronicSimulator {
 		
 		System.out.println("Simulation complete.");
 		
-		System.out.println("making derivation files in "+dir);
+		if (!skipOutput) {
+			System.out.println("making derivation files in "+dir);
 		
-		//make derivation files.
-		makeDerivationFiles(); 	
+			//make derivation files.
+			makeDerivationFiles(); 	
 		
-		//make output graphs file
-		System.out.println("making output graph file in "+dir);
-		makeOutGraphFile(); 
+			//make output graphs file
+			System.out.println("making output graph file in "+dir);
+			makeOutGraphFile(); 
+		}
 				
 		if(hasGoldOutput)
 		{
 			haltMenu(-1, inp,theFactory);
 			
-			System.out.println("Writing analysis files...");
-			//TODO -- enable analysis on "influence" of black stages and init stage... 
+			if (!skipOutput) {
+				System.out.println("Writing analysis files...");
+				//TODO -- enable analysis on "influence" of black stages and init stage... 
 			
-			//TODO figure out what we want to do here...
-					// TODO what did this mean?^ Figure out or delete it. 
-			ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
+				//TODO figure out what we want to do here...
+						// TODO what did this mean?^ Figure out or delete it. 
+				ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-			ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
-					false, theSimulation.getCurrentResult());
-			ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
+				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
+				false, theSimulation.getCurrentResult());
+				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
 			
-			if(goldStagesSet)
-			{	
-				for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
+				if(goldStagesSet)
 				{	
-					ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
+					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
+					{	
+						ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
 							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
+						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 							).toString();
-					eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
+						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
+					}
 				}
 			}
 		}
@@ -1013,11 +1019,14 @@ public class DiachronicSimulator {
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
-		System.out.println("Overall accuracy : "+ea.getAccuracy());
-		System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
-		System.out.println("Accuracy within 2 phones: "+ea.getPctWithin2());
-		System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
-		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+		System.out.println();
+		System.out.println("ACCURACY REPORT: ");
+		System.out.println("Overall accuracy:........................."+ea.getAccuracy());
+		System.out.println("Accuracy within 1 phone:.................."+ea.getPctWithin1());
+		System.out.println("Accuracy within 2 phones:................."+ea.getPctWithin2());
+		System.out.println("Average edit distance from gold:.........."+ea.getAvgPED());
+		System.out.println("Average feature edit distance from gold:.."+ea.getAvgFED());
+		System.out.println();
 		
 		int lastGoldOpt = (curSt == -1 ? NUM_GOLD_STAGES : curSt) - 1;
 		int lastBlkOpt = NUM_BLACK_STAGES - 1;
@@ -1574,6 +1583,7 @@ public class DiachronicSimulator {
 		print_changes_each_rule = false;
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
+		skipOutput = false;
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1677,6 +1687,9 @@ public class DiachronicSimulator {
 						case 'i':
 							ignore_stages = true; 
 							if (vflag)	System.out.println("Ignoring all stages.");
+							break;
+						case 's':
+							skipOutput = true;
 							break;
 						default:
 							System.err.println("Illegal flag : "+flag);
