@@ -2,7 +2,7 @@
 
 ## Accuracy report
 
-After calculating forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim cross-checks the lexicon it has built against your lexicon of gold forms and provides the user with an accuracy report. This report provides the following statistics pertaining to the accuracy of your data:
+After computing forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim cross-checks the lexicon it has built against your lexicon of gold forms and provides the user with an accuracy report. This report provides the following statistics pertaining to the accuracy of your data:
 
 - Overall Accuracy: reflects the number of correctly forward-reconstructed etyma (in other words, etyma where the **edit distance** relative to the gold set is 0), divided by the total number of present etyma. A higher value is better.
 
