@@ -16,6 +16,6 @@ After calculating forward-reconstructed etyma based on the input lexicon and the
 
 ## Understanding edit distance
 
-For every etymon in your lexicon, DiaSim calculates an **edit distance** value. This consists of a comparison between each forward-reconstructed etymon (computed by DiaSim) and its gold counterpart (provided in the lexicon by the user). The edit distance is the number of phones by which the two etyma differ (be it by mismatch, inaccurate deletion of phones, or inaccurate insertion of phones). A lower edit distance value is better; an edit distance of zero means the two etyma match.
+For every etymon in your lexicon, DiaSim calculates an **edit distance** value. In natural language processing, edit distance (also known as Levenshtein distance) is a metric for how much a given string of letters differs from some ideal string. DiaSim utilizes an edit distance algorithm to quantify how much each forward-reconstructed etymon (computed by DiaSim) differs from its corresponding gold etymon (provided by the user). The edit distance value is the number of phones by which the two etyma differ (be it by mismatch, inaccurate deletion of phones, or inaccurate insertion of phones). A lower edit distance value is better; an edit distance of zero means the two etyma match.
 
 In addition to edit distance according to phones, another edit distance metric called "**feature edit distance**" is calculated for each etymon. Feature edit distance sheds light on how many **features** off an etymon is. It is therefore a more fine-grained metric.
