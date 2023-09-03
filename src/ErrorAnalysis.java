@@ -783,6 +783,7 @@ public class ErrorAnalysis {
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
 	// substitution has a cost of 1, the same as a single insertion or as a single deletion 
+		// TODO ^ is the above still true as of September 2023? Check. 
 	public static int levenshteinDistance(Etymon s, Etymon t)
 	{
 		List<SequentialPhonic> sPhons = s.getPhonologicalRepresentation(), 

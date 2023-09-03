@@ -33,8 +33,10 @@ public class FED {
 		
 		// dynamic programming 
 		double[][] matr = new double[len1+1][len2+1];
-			//matr -- each row corresponds to a spot between phones in l1, advancing past it means aligning (or inserting/deleting) that phone
-			// likewise each column has the same relationship to its respective phone in l2
+			/** matr -- each row corresponds to a spot between phones in l1, 
+			* 	advancing past it means aligning (or inserting/deleting) that phone
+			* likewise each column has the same relationship to its respective phone in l2
+			*/ 
 		String[][] backtraces = new String[len1+1][len2+1]; 
 			//with the same correspondences as in matr
 			// each cell contains the coordinates of the previous cell in the path of minimum cost to that cell
