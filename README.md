@@ -38,7 +38,7 @@ Specifying a lexicon, cascade, and run name:
   
 - `-rules <cascade_file>` -- sets the file with the ordered sound changes to realize upon the lexicon
 
-- `-out <run_name>`, where <run_name> is the name you want the folder with all resulting derivations and analysis files to be placed
+- `-out <run_name>`, where <run_name> is the name you want the folder with all resulting forward-reconstructions and analysis files to be placed
 
 Additional options:
 
@@ -92,7 +92,7 @@ More information on cascades can be found on this repository's wiki (CURRENTLY U
 
 ## Output data
 
-DiaSim will populate your chosen output folder with files containing information on your results. These files include a log of the rules applied, a table of etyma in the state they appear at each stage, statistical analyses pertaining to phones, and a folder containing detailed derivations for each etymon.
+DiaSim will populate your chosen output folder with files containing information on your results. These files include a log of the rules applied, a table of etyma in the state they appear at each stage, statistical analyses pertaining to phones, and a folder containing step-by-step forward-reconstructions for each etymon.
 
 ---
 
