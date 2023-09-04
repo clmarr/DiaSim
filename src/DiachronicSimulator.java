@@ -1013,6 +1013,7 @@ public class DiachronicSimulator {
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
+		//TODO the following printlines should be moved to a method, as this accuracy report is copy/pasted with slight variations six times throughout the code!
 		System.out.println();
 		System.out.println("ACCURACY REPORT:");
 		System.out.println("Overall accuracy:                        "+ea.getAccuracy());
