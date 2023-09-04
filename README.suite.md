@@ -4,7 +4,7 @@ This file (as of summer 2023, in progress) covers how to use DiaSim to analyze i
 
 ## "Debugging" rule inaccuracies
 
-After computing forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim provides the user with a menu through which detailed analytics may be performed. This menu, referred to as the "suite menu," is a powerful tool for determining what rules in your cascade are producing reconstructive errors and should be examined.
+After computing forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim provides the user with a menu through which detailed analytics may be performed. This menu, referred to as the "suite menu," is a powerful tool for determining what rules in your cascade are producing reconstructive errors ("confusions") and should be examined.
 
 ## The suite menu
 
