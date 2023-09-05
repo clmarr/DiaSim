@@ -4,7 +4,9 @@ This file (as of summer 2023, in progress) covers how to use DiaSim to analyze i
 
 ## "Debugging" rule inaccuracies
 
-After computing forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim provides the user with a menu through which detailed analytics may be performed. This menu, referred to as the "suite menu," is a powerful tool for determining what rules in your cascade are producing reconstructive errors ("confusions") and should be examined.
+After computing forward-reconstructed etyma based on the input lexicon and the cascade you give it, DiaSim provides the user with a menu through which detailed analytics may be performed. This menu, referred to as the "suite menu," is a powerful tool for determining what rules in your cascade are producing reconstructive errors and should be examined.
+
+Note that in DiaSim, the term "confusion" refers to a mismatch at the level of phones, while "error" refers to a mismatch at the level of etyma.
 
 ## The suite menu
 
@@ -77,9 +79,9 @@ In the filter analysis submenu, you canː
 
 - `1`ː Print etyma containing your chosen filter
 
-- `2`ː Print confused etyma containing your chosen filter
+- `2`ː Print erroneously constructed etyma containing your chosen filter
 
-- `3`ː Print confused etyma containing your chosen filter as they appeared at your chosen evaluation point (see **Setting an evaluation point** above)
+- `3`ː Print erroneously constructed etyma containing your chosen filter as they appeared at your chosen evaluation point (see **Setting an evaluation point** above)
 
 ### `7`: Testing effects of a proposed cascade edit
 
