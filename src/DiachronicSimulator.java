@@ -58,8 +58,8 @@ public class DiachronicSimulator {
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
-	private static boolean DEBUG_RULE_PROCESSING, DEBUG_MODE, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics; 
+	private static boolean DEBUG_RULE_PROCESSING, print_changes_each_rule, stage_pause, ignore_stages, 
+		no_feat_impls, no_symb_diacritics, skip_file_creation; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -685,9 +685,11 @@ public class DiachronicSimulator {
 			//index IN THE ARRAYS that the next stage to look for will be at .
 		
 		File dir = new File(""+runPrefix); 
-		dir.mkdir(); 
-		
-		makeRulesLog(CASCADE);
+		if (!skip_file_creation) {
+			dir.mkdir(); 
+			
+			makeRulesLog(CASCADE);
+		}
 		
 		String resp; 		
 		Scanner inp = new Scanner(System.in);
@@ -751,39 +753,43 @@ public class DiachronicSimulator {
 		
 		System.out.println("Simulation complete.");
 		
-		System.out.println("making derivation files in "+dir);
-		
-		//make derivation files.
-		makeDerivationFiles(); 	
-		
-		//make output graphs file
-		System.out.println("making output graph file in "+dir);
-		makeOutGraphFile(); 
+		if (!skip_file_creation) {
+			System.out.println("making derivation files in "+dir);
+			
+			//make derivation files.
+			makeDerivationFiles(); 	
+			
+			//make output graphs file
+			System.out.println("making output graph file in "+dir);
+			makeOutGraphFile(); 
+		}
 				
 		if(hasGoldOutput)
 		{
 			haltMenu(-1, inp,theFactory);
 			
-			System.out.println("Writing analysis files...");
-			//TODO -- enable analysis on "influence" of black stages and init stage... 
-			
-			//TODO figure out what we want to do here...
-					// TODO what did this mean?^ Figure out or delete it. 
-			ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
-					feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-			ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
-					false, theSimulation.getCurrentResult());
-			ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
-			
-			if(goldStagesSet)
-			{	
-				for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
+			if (!skip_file_creation) {
+				System.out.println("Writing analysis files...");
+				//TODO -- enable analysis on "influence" of black stages and init stage... 
+				
+				//TODO figure out what we want to do here...
+						// TODO what did this mean?^ Figure out or delete it. 
+				ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
+						feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
+						false, theSimulation.getCurrentResult());
+				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
+				
+				if(goldStagesSet)
 				{	
-					ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
-							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
-					String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
-							).toString();
-					eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
+					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
+					{	
+						ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
+								feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
+						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
+								).toString();
+						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
+					}
 				}
 			}
 		}
@@ -1574,10 +1580,10 @@ public class DiachronicSimulator {
 		
 		
 		DEBUG_RULE_PROCESSING = false; 
-		DEBUG_MODE = false; 
 		print_changes_each_rule = false;
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
+		skip_file_creation = false;
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1666,10 +1672,6 @@ public class DiachronicSimulator {
 							no_feat_impls = true; 
 							if (vflag)	System.out.println("Ignoring any feature implications.");
 							break; 
-						case 'd':
-							DEBUG_MODE = true;
-							if (vflag)	System.out.println("Debugging mode on.");
-							break; 
 						case 'p':
 							print_changes_each_rule = true;
 							if (vflag)	System.out.println("Printing words changed for each rule.");
@@ -1681,6 +1683,10 @@ public class DiachronicSimulator {
 						case 'i':
 							ignore_stages = true; 
 							if (vflag)	System.out.println("Ignoring all stages.");
+							break;
+						case 's':
+							skip_file_creation = true;
+							if (vflag)	System.out.println("Skipping creation of output files and directories.");
 							break;
 						default:
 							System.err.println("Illegal flag : "+flag);
@@ -1699,7 +1705,7 @@ public class DiachronicSimulator {
 		}
 		
 		if (i != args.length) //|| no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-redphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] [-out prefix]"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-resphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] [-out prefix]"); 	
 	}
 	
 	private static void printRuleAt(int theInd)
