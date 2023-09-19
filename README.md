@@ -60,6 +60,8 @@ There are also the following command line flags, which are put together after a 
   
 - `-e` -- explicit mode -- ignores feature implications
 
+- `-s` -- skip file creation -- runs without creating a run output folder
+
 ### Example configuration
 
 Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_cascade`. You have put these files in the DiaSim directory. You want to run DiaSim and have it make an output folder called `my_run`. Additionally, you want DiaSim to print to the console every sound change and affected etymon as it runs. Once you have navigated to the DiaSim directory, you will run a shell command that looks like this:
