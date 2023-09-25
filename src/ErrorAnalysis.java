@@ -364,8 +364,6 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	
-	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
 	private void updateConfusionMatrix(int err_id)
@@ -1271,6 +1269,9 @@ public class ErrorAnalysis {
 	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
 		//-- so if it is 8 and rel_ind is -2, we look at index 6
 	// ind 0 -- hit, ind 1 -- miss
+	// TODO currently this does not incorporate info on the *frequencies* of hit and miss phones
+	//  this is instead accessed after this is called, via get_ph_freqs_at_rel_loc 
+	// if we want to make this return frequencies, would need to make it return a HashMap instead... 
 	private List<List<SequentialPhonic>> hit_and_miss_phones_at_rel_loc (int rel_ind)
 	{
 		boolean posterior = rel_ind > 0; 
@@ -1285,8 +1286,9 @@ public class ErrorAnalysis {
 
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
 			{
-				int curr_ind = posterior ? SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind :
-					SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
+				int curr_ind = posterior ? 
+						SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind 
+						: SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
 				if (curr_ind >= 0 && curr_ind < curPR.size())
 				{
 					SequentialPhonic curr = curPR.get(curr_ind);
@@ -1349,8 +1351,8 @@ public class ErrorAnalysis {
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
 		List<List<SequentialPhonic>> phs_here = hit_and_miss_phones_at_rel_loc(rel_ind); 
-		// get frequency of phones among etyma that are misses, and those that are hits
 		
+		// get frequency of phones among etyma that are misses, and those that are hits
 		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
 			// get overall frequency of the miss phones and the hit phones
