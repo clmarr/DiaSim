@@ -1322,7 +1322,8 @@ public class ErrorAnalysis {
 	 * @param rel_ind -- index of analysis relative to first phone of confusion/pivot point
 	 * @param ids -- etymon ids 
 	 * @param phs -- phs to analyzie (typically optained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
-	 * @param theBounds -- bounds of the confusion/pivot point in those ids. 
+	 * @param theBounds -- array of two values, with the bounds of the confusion/pivot sequence in the etyma (with the specified ids). 
+	 * 		[0] -- beginning of the confusion sequence, and [1] is its end. 
 	 * @return
 	 */
 	private int[] get_ph_freqs_at_rel_loc(int rel_ind, int[] ids, List<SequentialPhonic> phs, List<List<int[]>> theBounds)
@@ -1387,6 +1388,9 @@ public class ErrorAnalysis {
 			predPhIndexer.put(phprint, mpi + featsByIndex.length*2); 
 		}
 
+		//TODO currently debugigng here -- September 25, 2023. 
+			// Looking for error that triggers irrelevant features like splng to appear in context autopsy
+			// may be related to the surprisingly high numerical outputs too.. 
 		// only to cand_freqs for hits, since we are predicting misses, not hits per se. 
 		for (int hpi = 0; hpi < hit_ph_frqs.length; hpi++)
 			if (predPhIndexer.containsKey(phs_here.get(0).get(hpi).print()))
@@ -1395,12 +1399,12 @@ public class ErrorAnalysis {
 		int unspec = UTILS.UNSPEC_INT;
 		
 		// get counts for feature value predictors using phone counts. 
-		for (int phi = 0; phi < phs_here.get(1).size(); phi++)
+		for (int phi = 0; phi < phs_here.get(1).size(); phi++) // iterating over miss phones
 		{
-			String curprint = phs_here.get(1).get(phi).toString(); 
-			if (!curprint.equals("#"))
+			SequentialPhonic missed_ph_here = phs_here.get(1).get(phi); 
+			if (!missed_ph_here.getType().contains("bound"))
 			{	
-				char[] fstr = curprint.split(":")[1].toCharArray();
+				char[] fstr = missed_ph_here.toString().split(":")[1].toCharArray();
 				
 				for (int spi = 0; spi < featsByIndex.length; spi++)
 				{	
@@ -1413,11 +1417,10 @@ public class ErrorAnalysis {
 		
 		for(int phi = 0 ; phi < phs_here.get(0).size(); phi++)
 		{
+			SequentialPhonic hit_ph_here = phs_here.get(0).get(phi); 
 			
-			String curprint = phs_here.get(0).get(phi).toString();
-				
-			if(!curprint.equals("#"))
-			{	char[] fstr = curprint.split(":")[1].toCharArray();
+			if(!hit_ph_here.getType().contains("bound"))
+			{	char[] fstr = hit_ph_here.toString().split(":")[1].toCharArray();
 			
 				for (int spi = 0; spi < featsByIndex.length; spi++)
 				{
