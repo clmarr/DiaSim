@@ -1636,7 +1636,7 @@ public class ErrorAnalysis {
 				//TODO debugging
 				System.out.println("Suppressing scoring for inactive feature: "+candPredictors[fi]); 
 				
-				fi += (UTILS.MARK_NEG == candPredictors[fi].charAt(0) ? 2 : 1) ; 
+				fi += (UTILS.MARK_NEG == candPredictors[fi].charAt(0) ? 1 : 0) ; 
 				continue; 
 			}
 			
@@ -1646,7 +1646,6 @@ public class ErrorAnalysis {
 				for (int yi = 0 ; yi<2 ; yi++)
 					System.out.print("n"+xi+yi+" = "+
 						predictor_n_matr[fi][xi][yi] + " | ");
-			System.out.print("\n");
 			
 			if (mode.equals("phi"))
 				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
@@ -1673,6 +1672,9 @@ public class ErrorAnalysis {
 					scores[fi] = UTILS.fB_score(miss_pred_precision, miss_pred_recall, 
 							Double.parseDouble(mode.substring(1))); 	
 			}
+			
+			//TODO debugging
+			System.out.println("score : "+scores[fi]);
 		}
 		
 		//choose final output
