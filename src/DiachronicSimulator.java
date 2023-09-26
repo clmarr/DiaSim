@@ -753,7 +753,7 @@ public class DiachronicSimulator {
 		
 		System.out.println("Simulation complete.");
 		
-		if (!skip_file_creation) {
+		if (!skip_file_creation) {  
 			System.out.println("making derivation files in "+dir);
 			
 			//make derivation files.
@@ -1363,7 +1363,9 @@ public class DiachronicSimulator {
 				if(!ea.isFiltSet())
 					System.out.println("Error: tried to do context autopsy without beforehand setting filter stipulations: You can do this with 2.");
 				else if (!ea.isPivotSet()) System.out.println("Error: can't do context autopsy without first setting pivot point. Use option 1.");
-				else	ea.contextAutopsy();				
+				else	ea.contextAutopsyComparison();		
+					// TODO currently using contextAutopsyComparison() for debugging purposes.
+					// TODO fix this: should instead prompt user for what correlation test to use...?
 			}
 			else if(resp.equals("6"))
 			{

@@ -16,6 +16,10 @@ public class ErrorAnalysis {
 	
 	//TODO decide on what morphosyntactic analyses to perform
 	// TODO implement them... -- probably fall 2023 or winter	
+	
+	private double PHI_SMOOTHING = 1; 
+	private double F_SMOOTHING = 0.25;
+		// in cases where zero hits exist for a certain location relative to a confusion
 
 	private Lexicon RES, GOLD, PIV_PT_LEX;
 	//TODO investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
@@ -49,7 +53,10 @@ public class ErrorAnalysis {
 		// phonological edit distance and feature edit distance between each reconstructed/observed word pair
 	private String[] featsByIndex; 
 		// this is distinctive/phonological features -- not the morphosyntactic ones. 
-	
+	private List<String> inactiveFeats;
+		// features that never vary. To be detected upon construction.
+	private List<String> pivotInactiveFeats; 
+		// inactive features for subsample at pivot point. Might be a slightly smaller set, for one reason or another. Defined when pivot is made. 
 	
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
@@ -65,7 +72,7 @@ public class ErrorAnalysis {
 		// now handled via UTILS.ABSENT_INDIC ; consider restoring if necessary. 
 	protected final int MAX_RADIUS = 3;
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
-	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.3;
+	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.1;
 
 	//TODO investigate calculation of each of these for if errors will arise from usage of
 		// absent and unattested etyma ...
@@ -166,7 +173,7 @@ public class ErrorAnalysis {
 		isHit = new boolean[TOTAL_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 				
-		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 		
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
@@ -224,6 +231,16 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i].print()); 
+		
+		inactiveFeats = new ArrayList<String>(); 
+		for (String fbi : featsByIndex)
+		{	inactiveFeats.add(UTILS.MARK_POS+fbi); inactiveFeats.add(UTILS.MARK_NEG+fbi);	}
+		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,RES); 
+		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD);
+		
+		//TODO Debugging
+		// System.out.println("inactive feats now at : "+inactiveFeats.size()); 
+		// for (String ifi : inactiveFeats)	System.out.println(ifi); 
 	}
 
 	public void toDefaultFilter()
@@ -280,6 +297,7 @@ public class ErrorAnalysis {
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
+			pivotInactiveFeats = rmvFeatsActiveInSample(inactiveFeats, PIV_PT_LEX); 
 		}
 	}
 	
@@ -1181,25 +1199,70 @@ public class ErrorAnalysis {
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
 		}
-			
+		
+		pivotInactiveFeats = rmvFeatsActiveInSample(inactiveFeats,PIV_PT_LEX);		
 	}
 	
-	public void contextAutopsy()
+	
+	public void printSubSample()
 	{
-		System.out.println("Autopsy -- contexts most associated with error:");
-		System.out.println("Features:"); 
+		System.out.println(UTILS.fillSpaceToN("Pivot pt form",12) +"|" 
+				+UTILS.fillSpaceToN("CFR result",12)+"|"
+				+UTILS.fillSpaceToN("gold result", 12));
+		for (int ei = 0 ; ei < TOTAL_ETYMA; ei++)
+			if (IN_SUBSAMP[ei])
+				System.out.println(
+						UTILS.fillSpaceToN(PIV_PT_LEX.getByID(ei).print(),12) + "|"
+						+ UTILS.fillSpaceToN(RES.getByID(ei).print(),12) + "|"
+						+ UTILS.fillSpaceToN(GOLD.getByID(ei).print(), 12)); 
+	}
+	
+	/** currently used for development/debugging of context autopsy
+	 * 	running four context autopsies next to each other
+	 * 		, each with a different correlation metric: 
+	 * 		1) phi
+	 * 		2) f1
+	 * 		3) f3
+	 * 		4) f0.2 
+	 * 
+	 * TODO future behavior: should ask user which sort of test to do, perhaps? 
+	 */
+	public void contextAutopsyComparison()
+	{
+		//TODO debugging
+		System.out.println("Items in subsample: "); 
+		printSubSample(); 
+		
+		contextAutopsy("phi");
+		contextAutopsy("f"); 
+		contextAutopsy("f3");
+		contextAutopsy("f0.2"); 
+	}
+	
+	/**
+	 * get printout elucidating which contexts (in terms of phones, features, bounds)
+	 * 		are most correlated to error
+	 * @param metric_name -- should be either phi, f, or f followed by a number >= 0
+	 * 		f = F1 score
+	 * 		f# = fBeta score, with the number being beta
+	 */
+	public void contextAutopsy(String metric_name)
+	{
+		System.out.println("Autopsy -- contexts most correlated with error (metric: "+metric_name+"): ");
 		
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
+		//TODO need to debug get_autopsy_scope
 		int[] scope = get_autopsy_scope(); 
 		
 		//TODO debugging
 		System.out.println("Context autopsy scope is "+scope[0]+","+scope[1]);
 		
+		
 		int rel_loc = scope[0];
 		while (rel_loc < 0)
 		{
-			prior.add(topNPredictorsForRelInd(4, rel_loc));
+			prior.add(topNScoredPredictorsAtRelInd(4, rel_loc, metric_name));
 			rel_loc++;
 		}
 		
@@ -1207,7 +1270,7 @@ public class ErrorAnalysis {
 		List<String[]> postr = new ArrayList<String[]>();
 		while(rel_loc <= scope[1])
 		{
-			postr.add(topNPredictorsForRelInd(4, rel_loc));
+			postr.add(topNScoredPredictorsAtRelInd(4, rel_loc, metric_name));
 			rel_loc++;
 		}
 		
@@ -1321,7 +1384,7 @@ public class ErrorAnalysis {
 	 * 
 	 * @param rel_ind -- index of analysis relative to first phone of confusion/pivot point
 	 * @param ids -- etymon ids 
-	 * @param phs -- phs to analyzie (typically optained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
+	 * @param phs -- phs to analyzie (typically obtained by miss_and_hit_phones_at_rel_loc(rel_ind)) 
 	 * @param theBounds -- array of two values, with the bounds of the confusion/pivot sequence in the etyma (with the specified ids). 
 	 * 		[0] -- beginning of the confusion sequence, and [1] is its end. 
 	 * @return
@@ -1344,31 +1407,79 @@ public class ErrorAnalysis {
 		return out; 
 	}
 	
-	public String[] topNPredictorsForRelInd(int n, int rel_ind)
+	//TODO redo score calculation so that it is the Pearson coefficient! 
+	//TODO write up function description here ! 
+	//TODO incorporate overall frequency of the miss phones and the hit phones in some way? 
+	/**
+	 * 
+	 * @param n_rows
+	 * @param rel_ind
+	 * @param mode -- determines scoring algorithm 
+	 * 		-- must be f1 (for f-score), or phi, for MCC, which is equivalent to Pearson's coefficient in this case,
+	 * 			since it is operationalized as a 'binary classification' scenario 
+	 * 			(x = predictor present (1) or absent (0); y = miss (1) or hit (0) 
+	 * 	 @note that in cases where there are no hits at all for a certain relative location,
+	 * 		a smoothing constant (PHI_SMOOTHING,F_SMOOTHING) will be applied 
+	 * 			to prevent scores from getting all driven towards 1 (for F-scores) 
+	 * 				or 0 (for phi-coefficients) by this 
+	 * 				( would happen this way because hit counts that are zero
+	 * 					 would drive precision and recall to 1, 
+	 * 					but would also zero out the product for the numerator of the phi formula
+	 * @return top N predictors of error, by position relative to a confusion or filter sequence, along with their correlation score
+	 */
+	public String[] topNScoredPredictorsAtRelInd(int n_rows, int rel_ind, String mode)
 	{
+		//TODO debugigng
+		System.out.println("Inactive features: "+pivotInactiveFeats.size());
+		for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
+		
+		mode = mode.toLowerCase(); 
+		if (!mode.equals("phi") && !mode.equals("f") && !UTILS.valid_fB(mode))	
+			throw new RuntimeException("Error: tried to run a context autopsy with an illegal scoring algorithm stipulation\n"
+					+ "The options are either 'f' or 'f1' for F(1)-score, f and then an integer or double >= 0 for f-Beta score,\n"
+					+ " or 'phi' for MCC (equivalent to Pearson's coefficient, in this case)."); 
+		
 		if (SS_MISS_IDS.length == 0)
 			throw new RuntimeException("Error: tried to predict feats for a sequence subset that has no misses!");
 		
 		System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
 		List<List<SequentialPhonic>> phs_here = hit_and_miss_phones_at_rel_loc(rel_ind); 
+		List<SequentialPhonic> hit_phs_here = phs_here.get(0), miss_phs_here = phs_here.get(1); 
 		
 		// get frequency of phones among etyma that are misses, and those that are hits
-		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, phs_here.get(0), SS_HIT_BOUNDS); 
-		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, phs_here.get(1), SS_MISS_BOUNDS); 
-			// get overall frequency of the miss phones and the hit phones
+		int[] hit_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_HIT_IDS, hit_phs_here, SS_HIT_BOUNDS); 
+		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, miss_phs_here, SS_MISS_BOUNDS); 
 		
-		if (hit_ph_frqs.length != phs_here.get(0).size() )
+		if (hit_ph_frqs.length != hit_phs_here.size() )
 			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs");
-		if (miss_ph_frqs.length != phs_here.get(1).size() )
+		if (miss_ph_frqs.length != miss_phs_here.size() )
 			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs");
+	
+		//TODO debugging -- checking accuracy of frequency counts. 
+		System.out.println("Frequency counts -- misses:"); 
+		for (int mpi = 0 ; mpi < miss_phs_here.size(); mpi++)
+			System.out.println(miss_phs_here.get(mpi)+": "+miss_ph_frqs[mpi]);
+		System.out.println("and for hits:"); 
+		for (int hpi = 0 ; hpi < hit_phs_here.size(); hpi++)
+			System.out.println(hit_phs_here.get(hpi)+": "+hit_ph_frqs[hpi]); 
+		System.out.println("----\n"); 
+		
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
 		
 		String[] candPredictors = new String[featsByIndex.length*2+miss_ph_frqs.length]; 
+			// variables that are being investigated as possible predictors of error. 
 		
-		int[][] cand_freqs = new int[2][featsByIndex.length*2+miss_ph_frqs.length]; 
-			//first dimensh -- 0 for hit, 1 for miss
+		//int[][] cand_freqs = new int[2][featsByIndex.length*2+miss_ph_frqs.length]; 
+				// above -- deprecated, used before September 25, 2023. 
+		
+		int[][][] predictor_n_matr = new int[featsByIndex.length*2 + miss_ph_frqs.length]
+				[2][2]; 
+			// matrix for calculation of F1 or phi.
+			// first dimension -- one for each candidate predictor variable of a miss (these include features, phones, and in some cases maybe bounds. 
+			//second dimension -- 0 for hit, 1 for miss
+			//third dimension -- 1 if predictor (feat, phone, bound) is present at the relative location, 0 if absent
 		
 		// fill list of all possible feature value predictors. 
 		for (int fti = 0 ; fti < featsByIndex.length; fti++)
@@ -1376,6 +1487,87 @@ public class ErrorAnalysis {
 			candPredictors[2*fti] = "-"+featsByIndex[fti];
 			candPredictors[2*fti+1] = "+"+featsByIndex[fti];
 		}
+		
+		// increment counts of misses for downstream use in calculation (hits will be next). 
+		for(int mpi = 0 ; mpi < miss_ph_frqs.length; mpi++)
+		{
+			SequentialPhonic missPred_ph = miss_phs_here.get(mpi); 
+			int matr_phIndex = featsByIndex.length*2 + mpi;
+			candPredictors[matr_phIndex] = "/"+missPred_ph.print()+"/"; 
+			
+			// all the other phones are ones that are NOT at this rel_loc for this miss...
+				// increment accordingly 
+			int wi = featsByIndex.length*2; 
+			while(wi < matr_phIndex) 
+				predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+			predictor_n_matr[matr_phIndex][1][1] = miss_ph_frqs[mpi]; 
+			wi = matr_phIndex + 1; 
+			while (wi < featsByIndex.length*2 + miss_ph_frqs.length)
+				predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+			
+			//adding indices to predPhIndexer, but is this necessary? (TODO)
+			predPhIndexer.put(missPred_ph.print(), mpi + featsByIndex.length*2); 
+			
+			//incorporate also the counts for features that the phone has (unless they are unspecified) 
+				// for the "miss/error" side of the calculation 
+				// ... if it is not a boundary flag
+			if (!missPred_ph.getType().contains("bound"))
+			{
+				char[] fstr = missPred_ph.getFeatString().toCharArray(); 
+				for (int spi = 0 ; spi < featsByIndex.length; spi++)
+				{
+					int fspi = Integer.parseInt(""+fstr[spi]); 
+					if (fspi != UTILS.UNSPEC_INT)
+					{
+						predictor_n_matr[2*spi + fspi/2] // fspi / 2 = 0 if '-', 1 if '+', which is in accord with the ordering of these in candPredictors
+								[1][1] += miss_ph_frqs[mpi]; 
+						
+						//and the converse, for the feature that it is *not* 
+						predictor_n_matr[2*spi + (1 - fspi/2)][0][1] += miss_ph_frqs[mpi]; 
+					}
+				}	
+			}
+		}
+		
+		// do the same for counts for phones at rel_locs for hits
+			// , but only if those phones have a non-zero count for misses.
+			// however, the increment for features happens either way 
+			// to make sure the calculations for those goes correctly. 
+		for (int hpi = 0 ; hpi < hit_ph_frqs.length; hpi++)
+		{
+			SequentialPhonic hitPred_ph = hit_phs_here.get(hpi); 
+			
+			//feature increments first, here. 
+			if (!hitPred_ph.getType().contains("bound"))
+			{
+				char[] fstr = hitPred_ph.getFeatString().toCharArray(); 
+				for (int spi = 0 ; spi < featsByIndex.length; spi++)
+				{
+					int fspi = Integer.parseInt(""+fstr[spi]); 
+					if (fspi != UTILS.UNSPEC_INT) {
+						predictor_n_matr[2*spi + fspi/2][1][0] += hit_ph_frqs[hpi]; 
+						predictor_n_matr[2*spi + 1 - fspi/2][0][0] += hit_ph_frqs[hpi]; 
+					}
+				}
+			}
+			
+			// now the segment-wise counts
+				// count positively only if the segment is among the rel_loc residents for misses...
+				// negatively for all others. 
+			int ppii_for_hpi = 
+					predPhIndexer.containsKey(hitPred_ph.print()) 
+					? predPhIndexer.get(hitPred_ph.print()) : -1; 
+			int wi = featsByIndex.length * 2; 
+			while ( wi < ppii_for_hpi) 
+				predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
+			if (wi == ppii_for_hpi)
+				predictor_n_matr[wi++][1][0] += hit_ph_frqs[hpi]; 
+			while ( wi < featsByIndex.length * 2 + hit_ph_frqs.length)
+				predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
+			
+		}
+		
+		/** below is old version before September 25, 2023. 
 		
 		// increment counts of predictiveness toward misses here. 
 		for (int mpi = 0; mpi < miss_ph_frqs.length; mpi++)
@@ -1430,14 +1622,56 @@ public class ErrorAnalysis {
 				}
 			}
 		}
+		*/
+		
+		//TODO rewriting the below. 
+		// TODO rewrite it to fork based on what the scoring algorithm is : f1 or phi! 
 		
 		double[] scores = new double[candPredictors.length];
 		for(int fi = 0 ; fi < candPredictors.length; fi++)
 		{
-			if (cand_freqs[1][fi] > 0)
+			if(pivotInactiveFeats.contains(UTILS.MARK_POS+candPredictors[fi].substring(1)) 
+					|| pivotInactiveFeats.contains(UTILS.MARK_NEG+candPredictors[fi].substring(1)))
 			{
-				double c_miss = (double)cand_freqs[1][fi], c_hit = (double)cand_freqs[0][fi]; 
-				scores[fi] = ((c_miss + 1.0) / (c_hit + 1.0)) * (c_miss / SS_MISS_IDS.length); 
+				//TODO debugging
+				System.out.println("Suppressing scoring for inactive feature: "+candPredictors[fi]); 
+				
+				fi += (UTILS.MARK_NEG == candPredictors[fi].charAt(0) ? 2 : 1) ; 
+				continue; 
+			}
+			
+			//TODO debugging
+			System.out.print("counts for "+candPredictors[fi]+": "); 
+			for (int xi = 0; xi<2; xi++)
+				for (int yi = 0 ; yi<2 ; yi++)
+					System.out.print("n"+xi+yi+" = "+
+						predictor_n_matr[fi][xi][yi] + " | ");
+			System.out.print("\n");
+			
+			if (mode.equals("phi"))
+				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
+						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][0][0]),
+						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][1][0]), 
+						predictor_n_matr[fi][0][1],
+						predictor_n_matr[fi][1][1]); 
+			else 
+			{
+				//smooth if there are no hits at all in this position 
+				boolean toSmooth = (predictor_n_matr[fi][0][0] + predictor_n_matr[fi][1][0] == 0) ;
+				
+				double miss_pred_precision = 
+						(double) predictor_n_matr[fi][1][1] 
+						/ ((double) (predictor_n_matr[fi][1][1] + predictor_n_matr[fi][1][0]
+								+ (toSmooth ? F_SMOOTHING : 0 ) ));
+				double miss_pred_recall = 
+						(double) predictor_n_matr[fi][1][1]
+						/ ((double) (predictor_n_matr[fi][0][1] + predictor_n_matr[fi][1][1]
+								+ (toSmooth ? F_SMOOTHING : 0 ) )); 
+				if (mode.equals("f"))
+					scores[fi] = UTILS.f1(miss_pred_precision, miss_pred_recall);
+				else	/*mode must be f_Beta!*/ 
+					scores[fi] = UTILS.fB_score(miss_pred_precision, miss_pred_recall, 
+							Double.parseDouble(mode.substring(1))); 	
 			}
 		}
 		
@@ -1448,9 +1682,9 @@ public class ErrorAnalysis {
 		
 		String insignif = "<"+AUTOPSY_DISPLAY_THRESHOLD+" thresh";
 		
-		double[] lb = new double[n]; //"leader board"
-		String[] out = new String[n];
-		for (int oi = 0; oi < n ; oi++)	out[oi] = insignif; 
+		double[] lb = new double[n_rows]; //"leader board"
+		String[] out = new String[n_rows];
+		for (int oi = 0; oi < n_rows ; oi++)	out[oi] = insignif; 
 		
 		
 		while (ffi < candPredictors.length)
@@ -1467,16 +1701,16 @@ public class ErrorAnalysis {
 				while(try_place)
 				{	if (sc < lb[placer])
 					{	placer++; 
-						try_place = placer < n; 
+						try_place = placer < n_rows; 
 					}
 					else	try_place = false;
 				}
-				while (placer <  n)
+				while (placer < n_rows )
 				{
 					double to_move = lb[placer];	 String moving_outp = out[placer];
 					lb[placer] = sc; 	out[placer] = scout;
 		
-					if (to_move <= AUTOPSY_DISPLAY_THRESHOLD)	placer = n;
+					if (to_move <= AUTOPSY_DISPLAY_THRESHOLD)	placer = n_rows ;
 					else
 					{
 						sc = to_move; 	scout = moving_outp; placer++;
@@ -1512,6 +1746,47 @@ public class ErrorAnalysis {
 				System.out.print(append_space_to_x(RES.getByID(i).toString(),19)+"| ");
 				System.out.print(GOLD.getByID(i)+"\n");
 			}	}
+	}
+	
+	/** rmvFeatsActiveInSample
+	 *
+	/* Used on subsamples to form the inactiveFeats lists for the subsample, which may be smaller,
+		/* as the features may actually (somehow) be active (for some reason) at the intermediate pivot stage) 
+	/* @param earlier_inactive_list the preexisting list of inactive features (which at the start is just the entire list of +/- feature stipulations) 
+	/* @param sample -- lexicon we are looking through. 
+	 * @return list of inactive feats that has been modified in this way.
+	 * 			(will include the values that the feature CONSTANTLY has: e.g. -splng if all segments are -splng. )  
+	 */
+	public List<String> rmvFeatsActiveInSample(List<String> earlier_inactive_list, Lexicon sample)
+	{
+		if (earlier_inactive_list.size() == 0)	return earlier_inactive_list; 
+		
+		List<String> out = new ArrayList<String>(earlier_inactive_list), 
+				indexedFeatList = Arrays.asList(featsByIndex); 
+		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
+		{
+			if (IN_SUBSAMP[idi])
+			{
+				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
+				for (SequentialPhonic phmi : repi)
+				{
+					char[] featstring = phmi.getFeatString().toCharArray(); 
+					int ifi = 0; 
+					while (ifi < out.size())
+					{	
+						String fstipi = out.get(ifi); 
+						int fsloc = indexedFeatList.indexOf(fstipi.substring(1)); 
+							// need to use Integer.parseInt to avoid misinterpretation as hashcode.
+						if ( UTILS.getFeatspecIntFromMark(fstipi.charAt(0)) != Integer.parseInt(""+featstring[fsloc]) )  
+							out.remove(ifi); 
+						else	ifi++; 
+					}
+					
+					if (out.size() == 0)	return out; 
+				}
+			}
+		}		
+		return out; 
 	}
 	
 }
