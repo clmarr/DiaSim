@@ -815,4 +815,31 @@ public class UTILS {
 	{
 		return str.substring(str.length()-cand.length()).equals(cand); 
 	}
+	
+	//return harmonic mean of precision and recall
+	public static double f1 (double precision, double recall)
+	{
+		// return fB_score (precision, recall, 1) ;  -- equivalent! 
+		return 2.0 * precision * recall / (precision + recall); 
+		
+	}
+	
+	// beta > 1 favors recall contributing more to the outcome of the score
+		// beta = 0 is just precision
+		// beta in (0, 1) favors precision 
+		// very large beta starts to become just a measure of recall
+	public static double fB_score (double precision, double recall, double beta)
+	{
+		return (1 + beta*beta) * precision * recall 
+				/ ( beta * beta * precision + recall ); 
+	}
+	
+	// calculate MCC for a binary variable pair. Effectively equivalent to Pearson's coefficient in this binary pair case. 
+	public static double phi_coeff (double n00, double n10, double n01, double n11)
+	{
+		double numerator = n11 * n00 - n10 * n01;
+		double denominator = Math.sqrt( 
+				(n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00));
+		return numerator / denominator; 
+	}
 }
