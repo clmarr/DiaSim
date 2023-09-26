@@ -834,6 +834,25 @@ public class UTILS {
 				/ ( beta * beta * precision + recall ); 
 	}
 	
+	// return if string consists of F + a valid beta value for an f-score test
+	public static boolean valid_fB (String entry)
+	{
+		entry = entry.strip(); 
+		if (entry.length() < 2)	return false;  
+		if (!entry.substring(0,1).equalsIgnoreCase("f"))	return false; 
+		String beta = entry.substring(1); 
+		if (beta.contains("."))
+		{
+			int dot_index = beta.indexOf("."); 
+			beta = beta.substring(0,dot_index) + beta.substring(dot_index+1); 
+			if (beta.contains("."))	return false; 
+		}
+		for (char c : beta.toCharArray())
+			if (!Character.isDigit(c))	return false; 
+		
+		return true; 
+	}
+	
 	// calculate MCC for a binary variable pair. Effectively equivalent to Pearson's coefficient in this binary pair case. 
 	public static double phi_coeff (double n00, double n10, double n01, double n11)
 	{
