@@ -36,6 +36,17 @@ public class UTILS {
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
+	public static char getFeatspecMarkFromInt (int ftInt)
+	{
+		if (ftInt == POS_INT)	return MARK_POS;
+		if (ftInt == NEG_INT)	return MARK_NEG;
+		
+		if (ftInt != UNSPEC_INT)
+			throw new RuntimeException("Error -- invalid feature int used: "+ftInt); 
+		
+		return MARK_UNSPEC; 
+	}
+	
 	public static int getFeatspecIntFromMark (char mark) 
 	{
 		if (!FEATSPEC_MARKS.contains(""+mark))
