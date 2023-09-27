@@ -1355,6 +1355,14 @@ public class ErrorAnalysis {
 				int curr_ind = posterior ? 
 						SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind 
 						: SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
+				
+				//TODO debugging 
+				if (!posterior && rel_ind == -1)
+				{
+					System.out.print("Poss. # here; SHB[0]: "+SS_HIT_BOUNDS.get(hi).get(ihi)[0]+", rel_ind "+rel_ind+", ");
+					System.out.println("first element in curPR : "+curPR.get(0)+", et "+PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).print());
+				}
+				
 				if (curr_ind >= 0 && curr_ind < curPR.size())
 				{
 					SequentialPhonic curr = curPR.get(curr_ind);
@@ -1370,6 +1378,14 @@ public class ErrorAnalysis {
 			{
 				int curr_ind = posterior ? SS_MISS_BOUNDS.get(mi).get(imi)[1] + curPR.size() + rel_ind 
 						: SS_MISS_BOUNDS.get(mi).get(imi)[0] + rel_ind;
+				
+				//TODO debugging 
+				if (!posterior && rel_ind == -1)
+				{
+					System.out.print("Poss. # here; SHB[0]: "+SS_MISS_BOUNDS.get(mi).get(imi)[0]+", rel_ind "+rel_ind+", ");
+					System.out.println("first element in curPR : "+curPR.get(0)+", et "+PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).print());
+				}
+				
 				if(curr_ind >= 0 && curr_ind < curPR.size()) {
 					SequentialPhonic curr = curPR.get(curr_ind); 
 					if(!containsSPh(curr,ph_misses))	ph_misses.add(curr);
@@ -1821,5 +1837,28 @@ public class ErrorAnalysis {
 		}		
 		return out; 
 	}
+	
+	// class used to fix the fact that, (probably) for class-internal reasons,
+		// filtMatchBounds the method within the class SequentialFilter that is used to get the list of bounds, 
+		// for filter-onsets, uses the n+1 index for every case except when the word starts after the onset
+			// i.e. the first element of each filter boundary tuple is never 1, but it can be 0 (or 2) 
+		// within this class, however, it needs to be 1, so that the word boundary itself can be properly considered as a 
+			// possible predictor of error (previously, it was being ignored to avoid out-of-bounds exceptions).
+		// further investigation into the interaction of this class with SequentialFilter may be necessary 
+			// but with a fairly broad if not deep investigation on September 27 2023 it seems fine... 
+	public List<List<int[]>> processSeqFiltBounds (List<List<int[]>> sfbounds)
+	{
+		List<List<int[]>> out = new ArrayList<List<int[]>> ();
+		for (List<int[]> sublist : sfbounds)
+		{
+			List<int[]> outsublist = new ArrayList<int[]>(); 
+			for (int[] pair : sublist) 
+				outsublist.add(new int[] 
+						{ Math.max(pair[0], 1), pair[1]} ); 
+			out.add(outsublist);
+		}
+		return out; 
+	}
+	
 	
 }
