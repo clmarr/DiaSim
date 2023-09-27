@@ -1047,8 +1047,6 @@ public class ErrorAnalysis {
 	}
 	
 	// determine the scope of the autopsy based on the relation of sequence starts (and ends) to word boundaries
-		// we are conditioning this only on the hits because we figure context much more often is a positive determiner
-		// of defining context for a shift, rather than a negative determiner.
 	private int[] get_autopsy_scope()
 	{
 		int[] startInRadiusCts = new int[MAX_RADIUS+1];
@@ -1066,7 +1064,14 @@ public class ErrorAnalysis {
 						//per how filtMatchBounds are constructed in SequentialFilter.
 			}				
 		}
+		for (List<int[]> locBounds : SS_MISS_BOUNDS)
+		{	for (int[] bound : locBounds)
+			{
+				if(bound[0] < MAX_RADIUS)	startInRadiusCts[bound[0]] += 1; 
+				if(bound[1] >= -1*MAX_RADIUS)	endInRadiusCts[bound[1]*-1-1] += 1;
+			}}
 		
+		int denominator = SS_HIT_IDS.length + SS_MISS_IDS.length; 
 		int[] out = new int[] {-1,1};
 		int[] cumul = new int[] { startInRadiusCts[0] , endInRadiusCts[0] };
 		boolean[] freeze = new boolean[] {false, false};
@@ -1075,13 +1080,13 @@ public class ErrorAnalysis {
 			if (!freeze[0])
 			{	
 				cumul[0] += startInRadiusCts[-1 * out[0]];
-				freeze[0] = (double)cumul[0] / (double)SS_HIT_IDS.length > 0.32;
+				freeze[0] = (double)cumul[0] / (double)denominator > 0.32;
 				if (!freeze[0])	out[0]--; 
 			}
 			if (!freeze[1])
 			{
 				cumul[1] += endInRadiusCts[out[1]];
-				freeze[1] = (double) cumul[1] / (double)SS_HIT_IDS.length > 0.32; 	
+				freeze[1] = (double) cumul[1] / (double)denominator > 0.32; 	
 				if (!freeze[1])	out[1]++;
 			}
 		}
@@ -1254,7 +1259,7 @@ public class ErrorAnalysis {
 		
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
-		//TODO need to debug get_autopsy_scope
+		//TODO may need to further examine get_autopsy_scope
 		int[] scope = get_autopsy_scope(); 
 		
 		//TODO debugging
