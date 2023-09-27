@@ -17,7 +17,7 @@ public class ErrorAnalysis {
 	//TODO decide on what morphosyntactic analyses to perform
 	// TODO implement them... -- probably fall 2023 or winter	
 	
-	private double PHI_SMOOTHING = 1; 
+	private double PHI_SMOOTHING = 0.5; 
 	private double F_SMOOTHING = 0.25;
 		// in cases where zero hits exist for a certain location relative to a confusion
 
@@ -1062,6 +1062,8 @@ public class ErrorAnalysis {
 			{
 				if(bound[0] < MAX_RADIUS)	startInRadiusCts[bound[0]] += 1; 
 				if(bound[1] >= -1*MAX_RADIUS)	endInRadiusCts[bound[1]*-1-1] += 1;
+					// recall that bound[1] is going to be a negative number -- counting back from offset of word, 
+						//per how filtMatchBounds are constructed in SequentialFilter.
 			}				
 		}
 		
@@ -1274,13 +1276,13 @@ public class ErrorAnalysis {
 			rel_loc++;
 		}
 		
-		System.out.print(feature_autopsy(4, prior,postr)); 
+		System.out.print(autopsy_print(4, prior,postr)); 
 		
 	}
 	
 	// @precondition pri and po should have same and consistent (across high level nestings) length in both dimensions
-	// TODO explain what this is here .
-	public String feature_autopsy(int height, List<String[]> pri, List<String[]> po)
+	// generates the printout for the context autopsy functionality 
+	public String autopsy_print(int height, List<String[]> pri, List<String[]> po)
 	{
 		String out = "\n ";
 		
@@ -1497,7 +1499,9 @@ public class ErrorAnalysis {
 			candPredictors[matr_phIndex] = "/"+missPred_ph.print()+"/"; 
 			
 			// all the other phones are ones that are NOT at this rel_loc for this miss...
+				// thus the predictor is absnet, but they are misses -- include in counts of n01 (unpredicted "positives", the positive being a 'miss') 
 				// increment accordingly 
+				// however -- do not penalize non-bound phones if the segment found is a boundary. 
 			int wi = featsByIndex.length*2; 
 			while(wi < matr_phIndex) 
 				predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
@@ -1553,7 +1557,7 @@ public class ErrorAnalysis {
 			}
 			
 			// now the segment-wise counts
-				// count positively only if the segment is among the rel_loc residents for misses...
+				// count positively for this segment is found at this rel_loc for misses...
 				// negatively for all others. 
 			int ppii_for_hpi = 
 					predPhIndexer.containsKey(hitPred_ph.print()) 
