@@ -1428,6 +1428,12 @@ public class ErrorAnalysis {
 	 * 				( would happen this way because hit counts that are zero
 	 * 					 would drive precision and recall to 1, 
 	 * 					but would also zero out the product for the numerator of the phi formula
+	 * 
+	 * 	@note the counts for boundary markers will not count against other phones
+	 * 		as it is currently being done, a word bound and a morpheme bound also won't count against each other
+	 * 			but to date, the morpheme bound has never been used -- will need to fix this if it is ever to be used here
+	 * 			(there are definitely other things the morpheme bound being used would require changing for,
+	 * 				since both it and the phoneme on the other side of it should be considered the context at that relative location...) 
 	 * @return top N predictors of error, by position relative to a confusion or filter sequence, along with their correlation score
 	 */
 	public String[] topNScoredPredictorsAtRelInd(int n_rows, int rel_ind, String mode)
@@ -1496,19 +1502,29 @@ public class ErrorAnalysis {
 		{
 			SequentialPhonic missPred_ph = miss_phs_here.get(mpi); 
 			int matr_phIndex = featsByIndex.length*2 + mpi;
-			candPredictors[matr_phIndex] = "/"+missPred_ph.print()+"/"; 
 			
-			// all the other phones are ones that are NOT at this rel_loc for this miss...
-				// thus the predictor is absnet, but they are misses -- include in counts of n01 (unpredicted "positives", the positive being a 'miss') 
-				// increment accordingly 
-				// however -- do not penalize non-bound phones if the segment found is a boundary. 
-			int wi = featsByIndex.length*2; 
-			while(wi < matr_phIndex) 
-				predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+			boolean curPredIsBound = missPred_ph.getType().contains("bound"); 
+			candPredictors[matr_phIndex] = curPredIsBound ? 
+					"/"+missPred_ph.print()+"/" : missPred_ph.print();
+	
 			predictor_n_matr[matr_phIndex][1][1] = miss_ph_frqs[mpi]; 
-			wi = matr_phIndex + 1; 
-			while (wi < featsByIndex.length*2 + miss_ph_frqs.length)
-				predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+
+			// all the other phones are ones that are NOT at this rel_loc for this miss...
+				// thus the predictor is absent, but they are misses -- include in counts of n01 (unpredicted "positives", the positive being a 'miss') 
+				// increment accordingly 
+				// however -- do not penalize proper phones if the segment found is a boundary. 
+				// currently this will also avoid punishing other boundary phones
+				// NOTE need to fix this if we ever actually use the morpheme bound. 
+					// but for now this seems fine. 
+			if (!curPredIsBound)
+			{
+				int wi = featsByIndex.length*2; 
+				while(wi < matr_phIndex) 
+					predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+				wi = matr_phIndex + 1; 
+				while (wi < featsByIndex.length*2 + miss_ph_frqs.length)
+					predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
+			}
 			
 			//adding indices to predPhIndexer, but is this necessary? (TODO)
 			predPhIndexer.put(missPred_ph.print(), mpi + featsByIndex.length*2); 
@@ -1516,7 +1532,7 @@ public class ErrorAnalysis {
 			//incorporate also the counts for features that the phone has (unless they are unspecified) 
 				// for the "miss/error" side of the calculation 
 				// ... if it is not a boundary flag
-			if (!missPred_ph.getType().contains("bound"))
+			if (!curPredIsBound)
 			{
 				char[] fstr = missPred_ph.getFeatString().toCharArray(); 
 				for (int spi = 0 ; spi < featsByIndex.length; spi++)
@@ -1541,9 +1557,10 @@ public class ErrorAnalysis {
 		for (int hpi = 0 ; hpi < hit_ph_frqs.length; hpi++)
 		{
 			SequentialPhonic hitPred_ph = hit_phs_here.get(hpi); 
-			
+			boolean curPredIsBound = hitPred_ph.getType().contains("bound"); 
+
 			//feature increments first, here. 
-			if (!hitPred_ph.getType().contains("bound"))
+			if (!curPredIsBound)
 			{
 				char[] fstr = hitPred_ph.getFeatString().toCharArray(); 
 				for (int spi = 0 ; spi < featsByIndex.length; spi++)
@@ -1558,17 +1575,26 @@ public class ErrorAnalysis {
 			
 			// now the segment-wise counts
 				// count positively for this segment is found at this rel_loc for misses...
-				// negatively for all others. 
+				// negatively for all others (unless this segment is a boundary flag,
+						// in which case it only counts for its own calculation 
+						// i.e. phones count against it , it counts for itself 
+						// (that is, counting 'for' itself as a predictor if present at a miss, 
+						// against itself if absent at a miss or present at a hit; same reverse for proper segmental phones)
 			int ppii_for_hpi = 
 					predPhIndexer.containsKey(hitPred_ph.print()) 
 					? predPhIndexer.get(hitPred_ph.print()) : -1; 
-			int wi = featsByIndex.length * 2; 
-			while ( wi < ppii_for_hpi) 
-				predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
-			if (wi == ppii_for_hpi)
-				predictor_n_matr[wi++][1][0] += hit_ph_frqs[hpi]; 
-			while ( wi < featsByIndex.length * 2 + hit_ph_frqs.length)
-				predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
+			if (ppii_for_hpi != -1)	
+				predictor_n_matr[ppii_for_hpi][1][0] += hit_ph_frqs[hpi];
+			
+			if (!curPredIsBound)
+			{
+				int wi = featsByIndex.length * 2; 
+				while ( wi < ppii_for_hpi) 
+					predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
+				if (wi == ppii_for_hpi) wi++;	// already incremented above. If wi starts at -1 both this and the loop above are bypassed of course.  
+				while ( wi < featsByIndex.length * 2 + hit_ph_frqs.length)
+					predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
+			}
 			
 		}
 		
