@@ -291,7 +291,10 @@ public class SequentialFilter {
 		return false;
 	}
 	
-	// returns list of all boundaries ([onset, end]) of matched filters -- empty if there are none i.e. no match. 
+	// returns list of all boundaries ([onset, end]) of matched filters
+		// -- empty if there are none, i.e. no match. 
+		// note that of the boundary pairs, while the first element is the (positive) index of the onset of the filter match
+			// the second is the *negative* index of the offset *counting back from the end of the word* (as in python indexing, etc.) 
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
 		
@@ -307,7 +310,7 @@ public class SequentialFilter {
 			for (int cpic = 0 ; cpic < dummy.size() && currMatchStart == -1; cpic++)
 				if(isPosteriorMatchHelper(dummy,cpic,0,0))	currMatchStart = cpic;
 			
-			if (currMatchStart == -1)	return out;
+			if (currMatchStart == -1)	return out;	// this is an empty list at this point -- returning empty, as there is no match. 
 			else	{
 				int matchEnd = currMatchStart + minSize - 1; 
 				while(matchEnd < dummy.size() ? 
