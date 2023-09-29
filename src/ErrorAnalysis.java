@@ -1503,6 +1503,14 @@ public class ErrorAnalysis {
 		String[] candPredictors = new String[featsByIndex.length*2+miss_ph_frqs.length]; 
 			// variables that are being investigated as possible predictors of error. 
 		
+		boolean WDBND_INCR_ABS_FEAT = true,
+				WDBND_INCR_ABS_PH = true; 
+			// these determine, for the purposes of counts in the N matrix, 
+				// if the word bound "counts" as the absence of other predictors
+				// be they features, or phonemes, respectively
+			// behavior will necessarily have to be different for a morpheme bound
+				// -- those should always not count.
+		
 		//int[][] cand_freqs = new int[2][featsByIndex.length*2+miss_ph_frqs.length]; 
 				// above -- deprecated, used before September 25, 2023. 
 		
@@ -1520,18 +1528,58 @@ public class ErrorAnalysis {
 			candPredictors[2*fti+1] = "+"+featsByIndex[fti];
 		}
 		
+		// (may) need to get indices of word and morphemic boundary cells in advance
+		// this is the list index (mpi) values they *will* have, if present -- if absent, -1. 
+		int wdbnd_miss_loc = UTILS.findSeqPhBySymb(miss_phs_here, (new Boundary("word bound")).print() ), 
+			mphbnd_miss_loc = UTILS.findSeqPhBySymb(miss_phs_here, (new Boundary("morph bound")).print() ),
+			mphbnd_hit_loc = UTILS.findSeqPhBySymb(hit_phs_here, (new Boundary("morph bound")).print() ); 
+		
+
+		// MORPH BOUND AS PREDICTOR HANDLING
+		// current handling if one of the predictors is a morpheme boundary -- don't handle it.
+			// need to make some decisions on how handling it would work
+			// in the following loop, it will only count against word boundaries if present, and nothing else
+			// and is not permitted to be used as a predictor itself, 
+				// if/when it needs to be, decisions will need to be made about how to count negatives against it 
+				// and positives too. 
+				// it should be able to be "seen through" for the phones on the other side, to handle cases where 
+				// both the phonetic material on the otherside and the morpheme bound together are the contextual trigger.
+				// and each of the cases were only *one* of the two is, 
+					// the conditioning being insensitive to the other . 
+		if (mphbnd_miss_loc != -1)
+		{
+			// do NOT add to predPhIndexer (current policy)
+			
+			// n00 and n01 counting wrt. word bound, if present as a predictor of misses
+			if (wdbnd_miss_loc != -1)
+			{
+				// increment n01 for # as predictor with morph bound misses.
+				predictor_n_matr[featsByIndex.length*2 + wdbnd_miss_loc][0][1] 
+						= miss_ph_frqs[mphbnd_miss_loc]; 
+				
+				// increment n00 for # as predictor with morph bound *hits*. 
+				if (mphbnd_hit_loc != -1)
+					predictor_n_matr[featsByIndex.length*2 + wdbnd_miss_loc][0][0] 
+							= hit_ph_frqs[mphbnd_hit_loc]; 
+			}
+		}
+		
 		// increment counts of misses for downstream use in calculation (hits will be next). 
 		for(int mpi = 0 ; mpi < miss_ph_frqs.length; mpi++)
 		{
+			if (mpi == mphbnd_miss_loc)	continue; // behavior handled above, before loop. 
+			
 			SequentialPhonic missPred_ph = miss_phs_here.get(mpi); 
 			int matr_phIndex = featsByIndex.length*2 + mpi;
 			
-			boolean curPredIsBound = missPred_ph.getType().contains("bound"); 
-			candPredictors[matr_phIndex] = curPredIsBound ? 
-					"/"+missPred_ph.print()+"/" : missPred_ph.print();
-	
-			predictor_n_matr[matr_phIndex][1][1] = miss_ph_frqs[mpi]; 
+			boolean curPredIsWdBnd = missPred_ph.print().equals((new Boundary("word bound")).print()); 
+			candPredictors[matr_phIndex] = curPredIsWdBnd ? 
+					missPred_ph.print() : "/"+missPred_ph.print()+"/" ; 
+			predPhIndexer.put(missPred_ph.print(), mpi + featsByIndex.length*2); 
 
+				// always increment n11 
+			predictor_n_matr[matr_phIndex][1][1] = miss_ph_frqs[mpi]; 
+			
 			// all the other phones are ones that are NOT at this rel_loc for this miss...
 				// thus the predictor is absent, but they are misses -- include in counts of n01 (unpredicted "positives", the positive being a 'miss') 
 				// increment accordingly 
@@ -1539,7 +1587,7 @@ public class ErrorAnalysis {
 				// currently this will also avoid punishing other boundary phones
 				// NOTE need to fix this if we ever actually use the morpheme bound. 
 					// but for now this seems fine. 
-			if (!curPredIsBound)
+			if (!curPredIsWdBnd || WDBND_INCR_ABS_PH)
 			{
 				int wi = featsByIndex.length*2; 
 				while(wi < matr_phIndex) 
@@ -1549,13 +1597,11 @@ public class ErrorAnalysis {
 					predictor_n_matr[wi++][0][1] += miss_ph_frqs[mpi]; 
 			}
 			
-			//adding indices to predPhIndexer, but is this necessary? (TODO)
-			predPhIndexer.put(missPred_ph.print(), mpi + featsByIndex.length*2); 
 			
 			//incorporate also the counts for features that the phone has (unless they are unspecified) 
 				// for the "miss/error" side of the calculation 
 				// ... if it is not a boundary flag
-			if (!curPredIsBound)
+			if (!curPredIsWdBnd)
 			{
 				char[] fstr = missPred_ph.getFeatString().toCharArray(); 
 				for (int spi = 0 ; spi < featsByIndex.length; spi++)
@@ -1571,6 +1617,15 @@ public class ErrorAnalysis {
 					}
 				}	
 			}
+			else if (WDBND_INCR_ABS_FEAT) /** if the current predictor is a word bound, 
+				 * and we are counting it as negative for feature predictors... */ 
+			{
+				for (int spi = 0 ; spi < featsByIndex.length; spi++)
+				{
+					predictor_n_matr[spi*2][0][1] += miss_ph_frqs[mpi]; 
+					predictor_n_matr[spi*2+1][0][1] += miss_ph_frqs[mpi]; 
+				}
+			}
 		}
 		
 		// do the same for counts for phones at rel_locs for hits
@@ -1579,11 +1634,13 @@ public class ErrorAnalysis {
 			// to make sure the calculations for those goes correctly. 
 		for (int hpi = 0 ; hpi < hit_ph_frqs.length; hpi++)
 		{
+			if (hpi == mphbnd_hit_loc)	continue; 
+			
 			SequentialPhonic hitPred_ph = hit_phs_here.get(hpi); 
-			boolean curPredIsBound = hitPred_ph.getType().contains("bound"); 
+			boolean curPredIsWdBnd = hitPred_ph.print().equals((new Boundary("word bound")).print()); 
 
 			//feature increments first, here. 
-			if (!curPredIsBound)
+			if (!curPredIsWdBnd)
 			{
 				char[] fstr = hitPred_ph.getFeatString().toCharArray(); 
 				for (int spi = 0 ; spi < featsByIndex.length; spi++)
@@ -1593,6 +1650,14 @@ public class ErrorAnalysis {
 						predictor_n_matr[2*spi + fspi/2][1][0] += hit_ph_frqs[hpi]; 
 						predictor_n_matr[2*spi + 1 - fspi/2][0][0] += hit_ph_frqs[hpi]; 
 					}
+				}
+			}
+			else if (WDBND_INCR_ABS_FEAT) // if incrementing wordbound as absence of feature spec'd predictor ... 
+			{
+				for (int spi = 0 ; spi < featsByIndex.length; spi++)
+				{
+					predictor_n_matr[spi*2][0][0] += hit_ph_frqs[hpi]; 
+					predictor_n_matr[spi*2+1][0][0] += hit_ph_frqs[hpi]; 
 				}
 			}
 			
@@ -1609,16 +1674,22 @@ public class ErrorAnalysis {
 			if (ppii_for_hpi != -1)	
 				predictor_n_matr[ppii_for_hpi][1][0] += hit_ph_frqs[hpi];
 			
-			if (!curPredIsBound)
+			if (!curPredIsWdBnd || WDBND_INCR_ABS_PH)
 			{
 				int wi = featsByIndex.length * 2; 
 				while ( wi < ppii_for_hpi) 
 					predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
 				if (wi == ppii_for_hpi) wi++;	// already incremented above. If wi starts at -1 both this and the loop above are bypassed of course.  
-				while ( wi < featsByIndex.length * 2 + hit_ph_frqs.length)
+				while ( wi < featsByIndex.length * 2 + miss_ph_frqs.length)
 					predictor_n_matr[wi++][0][0] += hit_ph_frqs[hpi]; 
 			}
-			
+		}
+		
+		//zero out n0* cells for morpheme boundary -- per current policy of "not handling" it.
+		if (mphbnd_miss_loc != -1)
+		{
+			predictor_n_matr[mphbnd_miss_loc][0][0] = 0; 
+			predictor_n_matr[mphbnd_miss_loc][0][1] = 0; 
 		}
 		
 		/** below is old version before September 25, 2023. 
@@ -1861,6 +1932,4 @@ public class ErrorAnalysis {
 		}
 		return out; 
 	}
-	
-	
 }

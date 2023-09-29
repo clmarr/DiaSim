@@ -267,6 +267,20 @@ public class UTILS {
 	
 	//checker methods follow: 
 	
+	/** findSeqBySymb
+	 * if
+	 * @param toSearch, a list, contains... 
+	 * @param sought, a certain sequential phonic instance's symbol ...
+	 * @return its index, else return -1 .
+	 */
+	// else return -1. 
+	public static int findSeqPhBySymb (List<SequentialPhonic> toSearch, String sought)
+	{
+		for (int tsi = 0; tsi < toSearch.size(); tsi++ )
+			if (toSearch.get(tsi).print().equals(sought))	return tsi; 
+		return -1;
+	}
+	
 	//true if two sequences of SequentialPhonic instances are functionally equal
 	public static boolean phonSeqsEqual(List<SequentialPhonic> sp1, List<SequentialPhonic> sp2) {
 		if (sp1.size() != sp2.size())
