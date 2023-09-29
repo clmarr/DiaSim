@@ -1363,13 +1363,6 @@ public class ErrorAnalysis {
 						SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind 
 						: SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
 				
-				//TODO debugging 
-				if (!posterior && rel_ind == -1)
-				{
-					System.out.print("Poss. # here; SHB[0]: "+SS_HIT_BOUNDS.get(hi).get(ihi)[0]+", rel_ind "+rel_ind+", ");
-					System.out.println("first element in curPR : "+curPR.get(0)+", et "+PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).print());
-				}
-				
 				if (curr_ind >= 0 && curr_ind < curPR.size())
 				{
 					SequentialPhonic curr = curPR.get(curr_ind);
@@ -1385,13 +1378,6 @@ public class ErrorAnalysis {
 			{
 				int curr_ind = posterior ? SS_MISS_BOUNDS.get(mi).get(imi)[1] + curPR.size() + rel_ind 
 						: SS_MISS_BOUNDS.get(mi).get(imi)[0] + rel_ind;
-				
-				//TODO debugging 
-				if (!posterior && rel_ind == -1)
-				{
-					System.out.print("Poss. # here; SHB[0]: "+SS_MISS_BOUNDS.get(mi).get(imi)[0]+", rel_ind "+rel_ind+", ");
-					System.out.println("first element in curPR : "+curPR.get(0)+", et "+PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).print());
-				}
 				
 				if(curr_ind >= 0 && curr_ind < curPR.size()) {
 					SequentialPhonic curr = curPR.get(curr_ind); 
