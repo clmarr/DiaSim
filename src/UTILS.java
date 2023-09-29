@@ -828,8 +828,11 @@ public class UTILS {
 	}
 	
 	//return harmonic mean of precision and recall
+	// give 0 rather than NaN if both recall and precision are zero. 
 	public static double f1 (double precision, double recall)
 	{
+		if (precision + recall == 0)	return 0.0; 
+		
 		// return fB_score (precision, recall, 1) ;  -- equivalent! 
 		return 2.0 * precision * recall / (precision + recall); 
 		
@@ -839,8 +842,11 @@ public class UTILS {
 		// beta = 0 is just precision
 		// beta in (0, 1) favors precision 
 		// very large beta starts to become just a measure of recall
+	// give 0 rather than NaN if both recall and precision are zero. 
 	public static double fB_score (double precision, double recall, double beta)
 	{
+		if (precision + recall == 0)	return 0.0; 
+		
 		return (1 + beta*beta) * precision * recall 
 				/ ( beta * beta * precision + recall ); 
 	}

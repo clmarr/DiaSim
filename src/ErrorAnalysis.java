@@ -1170,6 +1170,8 @@ public class ErrorAnalysis {
 			}
 		}
 		
+		SS_HIT_BOUNDS = processSeqFiltBounds(SS_HIT_BOUNDS); SS_MISS_BOUNDS = processSeqFiltBounds(SS_MISS_BOUNDS);
+		
 		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
 		if (EVAL_SAMP_SIZE == 0)
@@ -1459,9 +1461,9 @@ public class ErrorAnalysis {
 	 */
 	public String[] topNScoredPredictorsAtRelInd(int n_rows, int rel_ind, String mode)
 	{
-		//TODO debugigng
-		System.out.println("Inactive features: "+pivotInactiveFeats.size());
-		for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
+		// below was useful useful in past debugging
+		//System.out.println("Inactive features: "+pivotInactiveFeats.size());
+		//for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
 		
 		mode = mode.toLowerCase(); 
 		if (!mode.equals("phi") && !mode.equals("f") && !UTILS.valid_fB(mode))	
@@ -1676,23 +1678,20 @@ public class ErrorAnalysis {
 		}
 		*/
 		
-		//TODO rewriting the below. 
-		// TODO rewrite it to fork based on what the scoring algorithm is : f1 or phi! 
-		
 		double[] scores = new double[candPredictors.length];
 		for(int fi = 0 ; fi < candPredictors.length; fi++)
 		{
 			if(pivotInactiveFeats.contains(UTILS.MARK_POS+candPredictors[fi].substring(1)) 
 					|| pivotInactiveFeats.contains(UTILS.MARK_NEG+candPredictors[fi].substring(1)))
 			{
-				//TODO debugging
-				System.out.println("Suppressing scoring for inactive feature: "+candPredictors[fi]); 
+				// material below useful in past debugging
+				//System.out.println("Suppressing scoring for inactive feature: "+candPredictors[fi]); 
 				
 				fi += (UTILS.MARK_NEG == candPredictors[fi].charAt(0) ? 1 : 0) ; 
 				continue; 
 			}
 			
-			//TODO debugging
+			// material below useful in past debugging
 			System.out.print("counts for "+candPredictors[fi]+": "); 
 			for (int xi = 0; xi<2; xi++)
 				for (int yi = 0 ; yi<2 ; yi++)
@@ -1703,21 +1702,19 @@ public class ErrorAnalysis {
 				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
 						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][0][0]),
 						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][1][0]), 
-						predictor_n_matr[fi][0][1],
+						Math.max(PHI_SMOOTHING, predictor_n_matr[fi][0][1]),
 						predictor_n_matr[fi][1][1]); 
 			else 
 			{
-				//smooth if there are no hits at all in this position 
-				boolean toSmooth = (predictor_n_matr[fi][0][0] + predictor_n_matr[fi][1][0] == 0) ;
-				
 				double miss_pred_precision = 
 						(double) predictor_n_matr[fi][1][1] 
-						/ ((double) (predictor_n_matr[fi][1][1] + predictor_n_matr[fi][1][0]
-								+ (toSmooth ? F_SMOOTHING : 0 ) ));
+						/ ((double) Math.max( F_SMOOTHING, 
+								predictor_n_matr[fi][1][0] + predictor_n_matr[fi][1][1])); 
 				double miss_pred_recall = 
 						(double) predictor_n_matr[fi][1][1]
-						/ ((double) (predictor_n_matr[fi][0][1] + predictor_n_matr[fi][1][1]
-								+ (toSmooth ? F_SMOOTHING : 0 ) )); 
+						/ ((double) Math.max(F_SMOOTHING, 
+								predictor_n_matr[fi][0][1] + predictor_n_matr[fi][1][1])); 
+				
 				if (mode.equals("f"))
 					scores[fi] = UTILS.f1(miss_pred_precision, miss_pred_recall);
 				else	/*mode must be f_Beta!*/ 
