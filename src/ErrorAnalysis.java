@@ -1795,7 +1795,7 @@ public class ErrorAnalysis {
 			}
 			
 			//below was useful for past debugging
-			// System.out.println("score : "+scores[fi]);
+			//System.out.println("score : "+scores[fi]);
 		}
 		
 		//choose final output
@@ -1922,11 +1922,12 @@ public class ErrorAnalysis {
 					// (so WdBound must be alone at top or insignificant too...) just return.
 					return lb_out; 
 				
-				// this point means either no phones above the printing threshold, or no feats, but not both. 
+				
 				if (wdBndRank == -1)	{
-					lb_out[n_rows] = aut_score_out("#",scores[wdBndFFI]); 	
-					lb_out[n_rows+1] = 
-						(topFtFFI == -1 ? "fts" : "phs" ) + " all < "+adt_print;
+					if (wdBndFFI != -1) // if wdBndFFI is -1, it's not a predictor of misses at all.. 
+						lb_out[n_rows] = aut_score_out("#",scores[wdBndFFI]); 	
+					
+					lb_out[n_rows+1] = (topFtFFI == -1 ? "fts" : "phs" ) + " all < "+adt_print;
 				  	return lb_out; 
 				}
 			}
@@ -1936,7 +1937,7 @@ public class ErrorAnalysis {
 			
 			// the word bound cannot squeeze out both of the other two, so if it made the top N, only one of the other two must've been excluded
 				// -- so, only one row to fill in. 
-			if (wdBndRank != -1)  
+			if (wdBndRank != -1 || wdBndFFI == -1) // wdBndFFI is -1 when it's not a predictor for misses at all, so has no place on the chart.    
 				lb_out[n_rows + 1] =  
 					aut_score_out (candPredictors[lowerSegTopFFI], scores[lowerSegTopFFI]); 
 			
