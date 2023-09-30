@@ -1364,9 +1364,32 @@ public class DiachronicSimulator {
 				if(!ea.isFiltSet())
 					System.out.println("Error: tried to do context autopsy without beforehand setting filter stipulations: You can do this with 2.");
 				else if (!ea.isPivotSet()) System.out.println("Error: can't do context autopsy without first setting pivot point. Use option 1.");
-				else	ea.contextAutopsyComparison();		
-					// TODO currently using contextAutopsyComparison() for debugging purposes.
-					// TODO fix this: should instead prompt user for what correlation test to use...?
+				else	{
+					resp = ""; 
+					while (resp.length() == 0)
+					{
+						System.out.println("Please indicate which metric for correlation to error you would like to use: ");
+						System.out.println("Options include: ");
+						System.out.println("\t'phi': the phi coefficient (Matthews Correlation Coefficient), equivalent to the Pearson coefficient in this case"); 
+						System.out.println("\t'f': an F-score (harmonic mean between precision and recall, \n\t\t(i.e. precision of a contextual predictor in predicting error, that is, likewise for recall.)");
+						System.out.println("\t'f<RATIO>': an f-score where <RATIO> is replaced by a value >= 0 that indicates the ratio of importance of recall vis a vis precision.\n\t\t(recommendation: favor precision over recall, but not too much!)"); 
+						System.out.println("\t'comp': comparison of prepared values for the four different metrics."); 
+					
+						resp = inpu.nextLine().strip(); 
+					
+						if (resp.length() == 0) continue; 
+						else if (resp.length() >= 4 ? resp.substring(0,4).equalsIgnoreCase("comp") : false)					
+							ea.contextAutopsyComparison();		
+						else if (resp.equalsIgnoreCase("phi"))
+							ea.contextAutopsy("phi");
+						else if (resp.equalsIgnoreCase("f"))
+							ea.contextAutopsy("f"); 
+						else if (UTILS.valid_fB(resp))
+							ea.contextAutopsy(resp); 
+						else
+							System.out.println("Invalid response: '"+resp+"'. Please follow the instructions below. ");
+					}	
+				}
 			}
 			else if(resp.equals("6"))
 			{

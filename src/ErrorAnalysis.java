@@ -1311,7 +1311,7 @@ public class ErrorAnalysis {
 		{
 			// delimiter between top N and the "footer" 
 			if (i == height)	
-				out += append_space_to_x("...",pri.size()*17)+"| XXXXX |"
+				out += append_space_to_x("|...",pri.size()*17)+"| XXXXX |"
 					  +append_space_to_x("   ...",po.size()*17-4)+"...|\n";
 
 			out += "|"; 
@@ -1926,10 +1926,10 @@ public class ErrorAnalysis {
 				if (wdBndRank == -1)	{
 					if (wdBndFFI != -1) // if wdBndFFI is -1, it's not a predictor of misses at all.. 
 						lb_out[n_rows] = aut_score_out("#",scores[wdBndFFI]); 	
-					
-					lb_out[n_rows+1] = (topFtFFI == -1 ? "fts" : "phs" ) + " all < "+adt_print;
-				  	return lb_out; 
 				}
+				lb_out[n_rows+1] = (topFtFFI == -1 ? "fts" : "phs" ) + " all < "+adt_print;
+			  	return lb_out; 
+				
 			}
 			 
 			boolean featsFirst = scores[topFtFFI] > scores[topPhFFI]; 
