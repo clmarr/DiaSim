@@ -1289,6 +1289,14 @@ public class ErrorAnalysis {
 	
 	// @precondition pri and po should have same and consistent (across high level nestings) length in both dimensions
 	// generates the printout for the context autopsy functionality 
+	//	each String[] in pri and po should be |height+2| in length. 
+	// on bottom two lines: 
+	// 		if the top [height] items contain neither a phone nor the word boundary
+	//			the last two lines are the top phone and the word boundary	
+	//			in order of their frequency. 
+	//		if it includes one or both, the [height + 2]^th most common predictor is listed last
+	//			if it includes both, the [height + 1]^th predictor is listed second to last. 
+	//  
 	public String autopsy_print(int height, List<String[]> pri, List<String[]> po)
 	{
 		String out = "\n ";
@@ -1304,9 +1312,14 @@ public class ErrorAnalysis {
 		out+="|\n"; 
 		
 		//now main scope. 
-		
-		for (int i = 0 ; i < height ; i++)
+		//iteration over rows
+		for (int i = 0 ; i < height + 2 ; i++)
 		{
+			// delimiter between top N and the "footer" 
+			if (i == height)	
+				out += append_space_to_x("...",pri.size()*17)+"| XXXXX |"
+					  +append_space_to_x("   ...",po.size()*17-4)+"...|\n";
+
 			out += "|"; 
 			for (String[] ipri : pri)
 			{
@@ -1321,6 +1334,7 @@ public class ErrorAnalysis {
 			}
 			out += "|\n";
 		}
+		
 		return out+"\n";
 	}
 	
@@ -1444,6 +1458,12 @@ public class ErrorAnalysis {
 	 * 			(there are definitely other things the morpheme bound being used would require changing for,
 	 * 				since both it and the phoneme on the other side of it should be considered the context at that relative location...) 
 	 * @return top N predictors of error, by position relative to a confusion or filter sequence, along with their correlation score
+	 * 	// for bottom two lines: 
+	// 		if the top [n_rows] items don't contain (a) a feature, (b) a phone, (c) the word bound
+	//			then the highest scoring members of each of the two that is missing are the last two lines
+	//			in order of their frequency. 
+	//		if it includes two of the three, then the last line is the highest scoring member of the third. 
+	//  
 	 */
 	public String[] topNScoredPredictorsAtRelInd(int n_rows, int rel_ind, String mode)
 	{
@@ -1788,13 +1808,25 @@ public class ErrorAnalysis {
 		while(ffi < scores.length ? scores[ffi] <= AUTOPSY_DISPLAY_THRESHOLD : false )	
 			ffi++; 
 		
-		String insignif = "<"+AUTOPSY_DISPLAY_THRESHOLD+" thresh";
+		String adt_print = ""+AUTOPSY_DISPLAY_THRESHOLD; 
+		if (adt_print.length() > 4) adt_print = adt_print.substring(0,4); 
+ 		
+		double[] lb_scores = new double[n_rows+2]; //lb = "leader board"
+		String[] lb_out = new String[n_rows+2];
+		for (int oi = 0; oi < n_rows + 2 ; oi++)	lb_out[oi] = "<"+adt_print+" low limit";
+				
+		int topFtRank = -1, topPhRank = -1, wdBndRank = -1; 
+		int topFtFFI = -1, topPhFFI = -1,
+				wdBndFFI = (wdbnd_miss_loc == -1) ? -1 : wdbnd_miss_loc + featsByIndex.length*2; 
 		
-		double[] lb = new double[n_rows]; //"leader board"
-		String[] out = new String[n_rows];
-		for (int oi = 0; oi < n_rows ; oi++)	out[oi] = insignif; 
-		
-		
+		// we know whether the predictor is a feature (index < featsByIndex.length*2)
+		// the word bound (index == wdBndFFI) 
+		// or a phone (the other cases) -- assuming now morphemic phones are in use here. 
+		// can also use the cell in lb_out :
+			// for feature: "+-".contains(lb_out[IND].substring(0,1)) && !" ".equals(lb_out[IND].substring(1,2))
+			// for phone: "/".equals(lb_out[IND].substring(0,1))
+			// for word bound: "#".equals(lb_out[IND].substring(0,1)) 
+			// same would apply to scout. 
 		while (ffi < candPredictors.length)
 		{
 			double sc= scores[ffi]; 
@@ -1802,33 +1834,148 @@ public class ErrorAnalysis {
 			{	
 				int placer = 0; 
 				boolean try_place = true; 
-				String scout = candPredictors[ffi] + " : "+sc;
+				String scout = aut_score_out(candPredictors[ffi],sc);
 				
-				scout = scout.substring(0,Math.min(scout.indexOf('.')+3,scout.length()));
+				// check for usurpation of type-wise top score. 
+				String predTypeHere = 
+						scout.substring(0,1).equals("#") ? "wdbnd"
+							: scout.substring(0,1).equals("/") ? "phone" : "feat"; 
+
+				
 				
 				while(try_place)
-				{	if (sc < lb[placer])
+				{	if (sc < lb_scores[placer])
 					{	placer++; 
-						try_place = placer < n_rows; 
+						try_place = placer < n_rows + 2; 
 					}
-					else	try_place = false;
+					else	
+						try_place = false;
 				}
-				while (placer < n_rows )
+				
+				boolean usurpTopForPredType = // because we should always be at a lower place number if the score is higher (massive errors will make it clear if this assumption is wrong) 
+						predTypeHere.equals("wdbnd") ? false : //word bound -- tautologically, true, but irrelevant as we always know the word bound FFI. 
+							ffi < featsByIndex.length * 2 ? //if true -- a feat spec. If false -- a phone. 
+								(topFtFFI == -1 ? true : sc > scores[topFtFFI]) 
+								: (topPhFFI == -1 ? true : sc > scores[topPhFFI]); 
+				if (usurpTopForPredType && ffi < featsByIndex.length * 2) 
+				{	topFtFFI = ffi ; topFtRank = placer < n_rows ? placer : -1; }
+				else if (usurpTopForPredType)	
+				{	topPhFFI = ffi ; topPhRank = placer < n_rows ? placer : -1; }
+				
+					
+				String type_last_placed = ""; 
+				while (placer < n_rows + 2)
 				{
-					double to_move = lb[placer];	 String moving_outp = out[placer];
-					lb[placer] = sc; 	out[placer] = scout;
+					// this whole section (ironically) determines the type-wise ranking. The main action is much more concise, below this. 
+					String type_to_place = 
+						scout.substring(0,1).equals("#") ? "wdbnd"
+							: scout.substring(0,1).equals("/") ? "phone" : "feat"; 
+					
+						// note that a -1 for feat/phone could be the first feat or phone,
+							// or a situation where no feat/phone is currently in the top N on the leader board
+								// but there will still be a top scoring member to compete with. 
+						
+					int typeTopRank = type_to_place.equals("feat") ? topFtRank : topPhRank; 
+					int newRankIfTop = placer < n_rows ? placer : -1; 
+					
+					if (type_to_place.equals("wdbnd"))	wdBndRank = newRankIfTop; // forking below doesn't apply as only one word bound predictor possible. 
+					
+					// already handled the usurpation case with an initial addition before this while-loop. 
+					
+					// otherwise, for initial insertions that DO NOT usurp the ft/ph top runner -- do not change it. 
+					// do nothing if previous top is more than one above 
+					// but if it is only one above, this is a demotion, and the top rank for the feat/ph must be bumped down (or off the board)
+						// except in the case where top ft/ph was usurped and is itself being bumped down [type_last_placed.equals(type_to_place)] 
+						// -- in that case, do nothing, as necessary changes were already made
+						// note that the top for the type cannot be >= placer, because then newTopForPredType would have been true
+							// and the else if clause above would have preempted this one.. 
+					else if (!type_last_placed.equals("") && typeTopRank == placer -1 && !type_last_placed.equals(type_to_place))
+					{
+						// note newRankIfTop will be -1 if placer >= n_rows
+						if (type_to_place.equals("feat"))	topFtRank = newRankIfTop;
+						else /*phone*/  topPhRank = newRankIfTop; 	
+						// no change to top--FFI since it's just being bumped down in rank. 
+					}
+					
+					// finally, the actual bumping down. 
+					double to_move = lb_scores[placer];	 String moving_outp = lb_out[placer];
+					lb_scores[placer] = sc; 	lb_out[placer] = scout;
 		
-					if (to_move <= AUTOPSY_DISPLAY_THRESHOLD)	placer = n_rows ;
+					if (to_move <= AUTOPSY_DISPLAY_THRESHOLD)	break;
 					else
 					{
-						sc = to_move; 	scout = moving_outp; placer++;
+						sc = to_move; 	scout = moving_outp;	placer++;
+						type_last_placed = ""+type_to_place; 
 					}
 				}
 			}
 			ffi++; 
 		}
 		
-		return out; 
+		// now deal with the last two rows, so that if any of the three of (a) feats, (b) phones, (c) the word bound is not shown,
+			// the top scoring member of that category will be shown at the bottom of the chart. 
+			// bottom of chart just stays at is, otherwise .
+		if (topFtRank == -1 || topPhRank == -1 || wdBndRank == -1)
+		{
+			//note that if no phones were correlated to error at a level above the threshold,
+				// topPhFFI will still be -1 at this point, 
+				// likewise for topFtFFI 
+			//handle this first to preempt errors. 
+			if (topFtFFI == -1 || topPhFFI == -1) 
+			{
+				if (topFtFFI == -1 && topPhFFI == -1) // both feats and phones are insignificant 
+					// (so WdBound must be alone at top or insignificant too...) just return.
+					return lb_out; 
+				
+				// this point means either no phones above the printing threshold, or no feats, but not both. 
+				if (wdBndRank == -1)	{
+					lb_out[n_rows] = aut_score_out("#",scores[wdBndFFI]); 	
+					lb_out[n_rows+1] = 
+						(topFtFFI == -1 ? "fts" : "phs" ) + " all < "+adt_print;
+				  	return lb_out; 
+				}
+			}
+			 
+			boolean featsFirst = scores[topFtFFI] > scores[topPhFFI]; 
+			int lowerSegTopFFI = featsFirst ? topPhFFI : topFtFFI; 
+			
+			// the word bound cannot squeeze out both of the other two, so if it made the top N, only one of the other two must've been excluded
+				// -- so, only one row to fill in. 
+			if (wdBndRank != -1)  
+				lb_out[n_rows + 1] =  
+					aut_score_out (candPredictors[lowerSegTopFFI], scores[lowerSegTopFFI]); 
+			
+			// if the word bound is higher than the loser between phones and feats, it is penultimate, and phones/feats are the last
+			else if (scores[wdBndFFI] > scores[lowerSegTopFFI])
+			{
+				lb_out[n_rows] = aut_score_out("#",scores[wdBndFFI]); 
+				lb_out[n_rows+1] = aut_score_out(candPredictors[lowerSegTopFFI], scores[lowerSegTopFFI]); 
+			}
+			else
+			{
+				//first of all, word bound is in last. 
+				lb_out[n_rows+1] = aut_score_out("#", scores[wdBndFFI]) ; 
+				// modify the penultimate row only if it the remaining type (ft/ph) is not already in top N
+				if ( (featsFirst ? topPhRank : topFtRank) == -1)
+					lb_out[n_rows] = aut_score_out( candPredictors[lowerSegTopFFI] , scores[lowerSegTopFFI]); 
+				
+			}
+		}
+		
+		return lb_out; 
+	}
+	
+	public String aut_score_out (String predictor, double score)
+	{
+		boolean below_threshhold = score < AUTOPSY_DISPLAY_THRESHOLD; 
+		String numeric_element = 
+				below_threshhold ? " < "+ AUTOPSY_DISPLAY_THRESHOLD : " : "+ score; 
+		numeric_element.replace("0.","."); 
+		int nePdLoc = numeric_element.lastIndexOf("."); 
+		if (nePdLoc != -1 && nePdLoc < numeric_element.length()-4)
+			numeric_element = numeric_element.substring(0,nePdLoc + 4); 
+		
+		return predictor + numeric_element; 
 	}
 	
 	public boolean isFiltSet()
