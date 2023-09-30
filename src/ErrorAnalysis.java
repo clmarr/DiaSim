@@ -1238,9 +1238,9 @@ public class ErrorAnalysis {
 	 */
 	public void contextAutopsyComparison()
 	{
-		//TODO debugging
-		System.out.println("Items in subsample: "); 
-		printSubSample(); 
+		//useful for debugging, below. 
+		//System.out.println("Items in subsample: "); 
+		//printSubSample(); 
 		
 		contextAutopsy("phi");
 		contextAutopsy("f"); 
@@ -1261,13 +1261,7 @@ public class ErrorAnalysis {
 		
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
-		//TODO may need to further examine get_autopsy_scope
 		int[] scope = get_autopsy_scope(); 
-		
-		//TODO debugging
-		System.out.println("Context autopsy scope is "+scope[0]+","+scope[1]);
-		
-		
 		int rel_loc = scope[0];
 		while (rel_loc < 0)
 		{
@@ -1480,7 +1474,8 @@ public class ErrorAnalysis {
 		if (SS_MISS_IDS.length == 0)
 			throw new RuntimeException("Error: tried to predict feats for a sequence subset that has no misses!");
 		
-		System.out.println("calculating phones at rel loc "+rel_ind+"...");
+		// below was useful for past debugging. 
+		// System.out.println("calculating phones at rel loc "+rel_ind+"...");
 		
 		List<List<SequentialPhonic>> phs_here = hit_and_miss_phones_at_rel_loc(rel_ind); 
 		List<SequentialPhonic> hit_phs_here = phs_here.get(0), miss_phs_here = phs_here.get(1); 
@@ -1494,14 +1489,14 @@ public class ErrorAnalysis {
 		if (miss_ph_frqs.length != miss_phs_here.size() )
 			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs");
 	
-		//TODO debugging -- checking accuracy of frequency counts. 
-		System.out.println("Frequency counts -- misses:"); 
+		//debugging -- checking accuracy of frequency counts. -- was useful in past, commented out currently. 
+		/** System.out.println("Frequency counts -- misses:"); 
 		for (int mpi = 0 ; mpi < miss_phs_here.size(); mpi++)
 			System.out.println(miss_phs_here.get(mpi)+": "+miss_ph_frqs[mpi]);
 		System.out.println("and for hits:"); 
 		for (int hpi = 0 ; hpi < hit_phs_here.size(); hpi++)
 			System.out.println(hit_phs_here.get(hpi)+": "+hit_ph_frqs[hpi]); 
-		System.out.println("----\n"); 
+		System.out.println("----\n"); */ 
 		
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 
@@ -1769,11 +1764,11 @@ public class ErrorAnalysis {
 			}
 			
 			// material below useful in past debugging
-			System.out.print("counts for "+candPredictors[fi]+": "); 
+			/** System.out.print("counts for "+candPredictors[fi]+": "); 
 			for (int xi = 0; xi<2; xi++)
 				for (int yi = 0 ; yi<2 ; yi++)
 					System.out.print("n"+xi+yi+" = "+
-						predictor_n_matr[fi][xi][yi] + " | ");
+						predictor_n_matr[fi][xi][yi] + " | ");*/
 			
 			if (mode.equals("phi"))
 				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
@@ -1799,8 +1794,8 @@ public class ErrorAnalysis {
 							Double.parseDouble(mode.substring(1))); 	
 			}
 			
-			//TODO debugging
-			System.out.println("score : "+scores[fi]);
+			//below was useful for past debugging
+			// System.out.println("score : "+scores[fi]);
 		}
 		
 		//choose final output
