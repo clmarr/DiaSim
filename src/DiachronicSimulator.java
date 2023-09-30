@@ -1065,7 +1065,8 @@ public class DiachronicSimulator {
 						+ "| 6 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n"
 						+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 						+ "| 9 : End this analysis.______________________________________________________________|\n");
-				resp = inpu.nextLine().substring(0,1);
+				resp = inpu.nextLine();
+				if (resp.length() > 0)	resp = resp.substring(0,1);
 			}
 			
 			if (resp.equals("0")) //set evaluation point
