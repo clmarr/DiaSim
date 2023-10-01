@@ -1662,7 +1662,6 @@ public class DiachronicSimulator {
 				
 				if (i < args.length) 
 				{
-					i++; 
 					if (args[i].charAt(0) != '-')	symbDiacriticsLoc=args[i]; 
 				}
 			}

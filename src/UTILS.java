@@ -545,21 +545,23 @@ public class UTILS {
 		
 		for (String sdline: diacriticsLines)
 		{
-			String[] sdsides = sdline.split(""+DIACRITICS_DELIM); 
-			sdsides[0] = sdsides[0].replace(" ",""); 
-			if (sdsides[1].contains(""+CMT_FLAG))	
-				sdsides[1] = sdsides[1].substring(0, sdsides[1].indexOf(""+CMT_FLAG)); 
-			sdsides[1] = sdsides[1].replace(" ","");
-			String[] diacritFeats = sdsides[1].split(","); 
-			for (String df : diacritFeats)
+			int cmtFlagIndex = sdline.indexOf(CMT_FLAG);
+			if (cmtFlagIndex != -1)
+				sdline = sdline.substring(0, cmtFlagIndex);
+			String[] sdsides = sdline.replace(" ", "").split(String.valueOf(DIACRITICS_DELIM));
+			if (!sdsides[0].equals(""))
 			{
-				if (!FEATSPEC_MARKS.contains(""+df.charAt(0)))
-					throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
-							+ "but instead this one has :"+df.charAt(0)); 
-				if (!feature_indices.containsKey(df.substring(1)))
-					throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
+				String[] diacritFeats = sdsides[1].split(","); 
+				for (String df : diacritFeats)
+				{
+					if (!FEATSPEC_MARKS.contains(""+df.charAt(0)))
+						throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
+								+ "but instead this one has :"+df.charAt(0)); 
+					if (!feature_indices.containsKey(df.substring(1)))
+						throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
+				}
+				diacritMap.put(sdsides[0], sdsides[1].split(","));
 			}
-			diacritMap.put(sdsides[0], sdsides[1].split(",")); 
 		}
 		System.out.println("Done extracting symbol diacritics!");	
 		
