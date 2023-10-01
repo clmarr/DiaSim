@@ -67,7 +67,7 @@ The confusion diagnosis tool is used to show the most common 'confusions,' that 
 
 For each listed phone-to-phone confusion, the percentage of errant words comprised by this confusion is printed, along with contextual predictors of the confusion, in terms of both features and phones.
 
-### `5`: Running an autopsy
+### `5`: Running a context autopsy
 
 *A detailed explanation of this submenu is in progress. Thank you for your patience.*
 
