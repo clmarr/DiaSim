@@ -378,7 +378,7 @@ public class ErrorAnalysis {
 			if (get_contexts)
 			{
 				List<String> probCtxts = identifyProblemContextsForConfusion(topConfusions[i][0], topConfusions[i][1]);
-				System.out.println("Most common predictors of this confusion : "); 
+				System.out.println("Most common contextual predictors of this confusion : "); 
 				for (String obs : probCtxts)	System.out.println(""+obs); 
 			}	 
 		}
@@ -889,7 +889,11 @@ public class ErrorAnalysis {
 		return maxLocs;
 	}
 	
-	//rows -- results, cols -- gold
+	/**
+	 * @return array of the locations (row, col)
+	 *  of the top N (= @param n) values within the 2d array .
+	 * internal usage: rows -- results, cols -- gold
+	*/
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
 		int[][] maxLocs = new int[n][2]; 
