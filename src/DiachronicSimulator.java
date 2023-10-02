@@ -58,8 +58,8 @@ public class DiachronicSimulator {
 	private static String lexFileLoc;
 	
 	private static double id_wt; 
-	private static boolean DEBUG_RULE_PROCESSING, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation; 
+	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -71,16 +71,16 @@ public class DiachronicSimulator {
 	
 	private static void extractSymbDefs()
 	{
-		System.out.println("Collecting symbol definitions...");
+		if (VERBOSE)		System.out.println("Collecting symbol definitions...");
 		
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		
 		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
-		System.out.println("Symbol definitions extracted!");
-		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
 		
-
+		if (VERBOSE)
+			System.out.println("Symbol definitions extracted!\nLength of symbDefsLines : "+symbDefsLines.size()); 
+		
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
 		
@@ -127,7 +127,8 @@ public class DiachronicSimulator {
 		
 		if (no_feat_impls)	return; 
 		
-		System.out.println("Now extracting info from feature implications file...");
+		if (VERBOSE)
+			System.out.println("Now extracting info from feature implications file...");
 		
 		List<String> featImplLines = UTILS.readFileLines(featImplsLoc);
 				
@@ -136,8 +137,6 @@ public class DiachronicSimulator {
 			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
 			featImplications.put(fisides[0], fisides[1].split(""+UTILS.FEAT_DELIM));
 		}
-		
-		System.out.println("Done extracting feature implications!");	
 	}
 	
 	public static void extractDiacriticDefs(String diacriticDefsLoc)
@@ -1577,7 +1576,6 @@ public class DiachronicSimulator {
 	
 	// required : runPrefix must be specified 
 	// flags: -r : debug rule processing
-	//		  -d : debugging mode -- TODO implement
 	//		  -p : print words every time they are changed by a rule
 	//		  -e : (explicit) do not use feature implications
 	//		  -h : halt at stage checkpoints
@@ -1586,13 +1584,14 @@ public class DiachronicSimulator {
 	//        -symbols, -impl (feature implications file location), 
 	//        -rules (cascade location), -diacrit (diacritics file location), 
 	//        -idcost (insertion/deletion cost)
+	//		  -debug_stages: debug stage processing 
 	//
 	private static void parseArgs(String[] args)
 	{
 		int i = 0, j; 
 		String arg;
 		char flag; 
-		boolean vflag = false;
+		VERBOSE = false;
 		
 		boolean no_prefix = true; 
 		
@@ -1605,7 +1604,7 @@ public class DiachronicSimulator {
 		id_wt = 0.5; 
 		
 		
-		DEBUG_RULE_PROCESSING = false; 
+		DEBUG_RULE_PROCESSING = false; DEBUG_STAGES = false; 
 		print_changes_each_rule = false;
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
@@ -1615,7 +1614,7 @@ public class DiachronicSimulator {
 		{
 			arg = args[i++];
 			
-			if (arg.equals("-verbose"))	vflag = true; 
+			if (arg.equals("-verbose"))	VERBOSE = true; 
 			
 			//variable setters
 			
@@ -1625,7 +1624,7 @@ public class DiachronicSimulator {
 				if (i < args.length)
 					runPrefix = args[i++]; 
 				else	System.err.println("Output prefix specification requires a string");
-				if (vflag)	System.out.println("output prefix: "+runPrefix);
+				if (VERBOSE)	System.out.println("output prefix: "+runPrefix);
 				no_prefix = false; 
 			}
 			
@@ -1634,7 +1633,7 @@ public class DiachronicSimulator {
 			{
 				if (i < args.length)	symbDefsLoc = args[i++];
 				else	System.err.println("-symbols requires a location");
-				if (vflag)	System.out.println("symbol definitions location: "+symbDefsLoc);
+				if (VERBOSE)	System.out.println("symbol definitions location: "+symbDefsLoc);
 			}
 			
 			//feature implications file location
@@ -1642,7 +1641,7 @@ public class DiachronicSimulator {
 			{
 				if (i < args.length)	featImplsLoc = args[i++]; 
 				else	System.err.println("-impl requires a location for feature implications location.");
-				if (vflag)	System.out.println("feature implications location: "+featImplsLoc);
+				if (VERBOSE)	System.out.println("feature implications location: "+featImplsLoc);
 			}
 			
 			//ruleset file location
@@ -1650,7 +1649,7 @@ public class DiachronicSimulator {
 			{
 				if (i < args.length)	cascFileLoc = args[i++];
 				else	System.err.println("-rules requires a location for ruleset file.");
-				if (vflag)	System.out.println("ruleset file location: "+cascFileLoc);
+				if (VERBOSE)	System.out.println("ruleset file location: "+cascFileLoc);
 			}
 			
 			//flag to use diacritics, and the location of the diacritics file. 
@@ -1671,7 +1670,7 @@ public class DiachronicSimulator {
 			{
 				if (i < args.length)	lexFileLoc = args[i++];
 				else	System.err.println("-lex requires a location for lexicon file location.");
-				if (vflag)	System.out.println("lexicon file location: "+lexFileLoc);
+				if (VERBOSE)	System.out.println("lexicon file location: "+lexFileLoc);
 			}
 			
 			//insertion/deletion cost
@@ -1679,7 +1678,14 @@ public class DiachronicSimulator {
 			{
 				if (i < args.length)	id_wt = Double.parseDouble(args[i++]);
 				else	System.err.println("-idcost requires a double for ratio of insertion/deletion cost to substitution");
-				if (vflag)	System.out.println("insertion/deletion cost ratio to substitution: "+id_wt); 
+				if (VERBOSE)	System.out.println("insertion/deletion cost ratio to substitution: "+id_wt); 
+			}
+			
+			// nothing placed afterward -- triggers stage debugging printouts. 
+			else if (arg.equalsIgnoreCase("-debug_stages"))
+			{
+				DEBUG_STAGES = true; 
+				if (VERBOSE)	System.out.println("debugging stage processing"); 
 			}
 			
 			//flag args
@@ -1691,27 +1697,27 @@ public class DiachronicSimulator {
 					switch(flag)	{
 						case 'r':
 							DEBUG_RULE_PROCESSING = true;
-							if (vflag)	System.out.println("Debugging rule processing.");
+							if (VERBOSE)	System.out.println("Debugging rule processing.");
 							break; 
 						case 'e': 
 							no_feat_impls = true; 
-							if (vflag)	System.out.println("Ignoring any feature implications.");
+							if (VERBOSE)	System.out.println("Ignoring any feature implications.");
 							break; 
 						case 'p':
 							print_changes_each_rule = true;
-							if (vflag)	System.out.println("Printing words changed for each rule.");
+							if (VERBOSE)	System.out.println("Printing words changed for each rule.");
 							break;
 						case 'h':
 							stage_pause = true; 
-							if (vflag)	System.out.println("Halting for analysis at stage checkpoints.");
+							if (VERBOSE)	System.out.println("Halting for analysis at stage checkpoints.");
 							break; 
 						case 'i':
 							ignore_stages = true; 
-							if (vflag)	System.out.println("Ignoring all stages.");
+							if (VERBOSE)	System.out.println("Ignoring all stages.");
 							break;
 						case 's':
 							skip_file_creation = true;
-							if (vflag)	System.out.println("Skipping creation of output files and directories.");
+							if (VERBOSE)	System.out.println("Skipping creation of output files and directories.");
 							break;
 						default:
 							System.err.println("Illegal flag : "+flag);
