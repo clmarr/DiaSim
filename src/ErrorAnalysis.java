@@ -304,6 +304,8 @@ public class ErrorAnalysis {
 	//@param get_contexts -- determine if we want to list the most problematic context info
 	public void confusionDiagnosis(boolean get_contexts)
 	{
+		int N_CONFS_TO_PRINT = 5; 
+		
 		// top n error rates for res and gold
 		int[] topErrResPhLocs = arrLocNMax(errorRateByResPhone, NUM_TOP_ERR_PHS_TO_DISP); 
 		int[] topErrGoldPhLocs = arrLocNMax(errorRateByGoldPhone, NUM_TOP_ERR_PHS_TO_DISP); 
@@ -353,7 +355,7 @@ public class ErrorAnalysis {
 		else	System.out.println("No particular phones especially associated with error.");
 			
 		System.out.println("---\nMost common confusions: "); 
-		int[][] topConfusions = arr2dLocNMax(confusionMatrix, 5); 
+		int[][] topConfusions = arr2dLocNMax(confusionMatrix, N_CONFS_TO_PRINT); 
 		
 		for(int i = 0 ; i < topConfusions.length; i++)
 		{
