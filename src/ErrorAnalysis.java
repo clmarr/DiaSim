@@ -304,6 +304,10 @@ public class ErrorAnalysis {
 	//@param get_contexts -- determine if we want to list the most problematic context info
 	public void confusionDiagnosis(boolean get_contexts)
 	{
+		List<String> inactiveGoldFeats = new ArrayList<String>(); 
+		inactiveGoldFeats = rmvFeatsActiveInSample(inactiveGoldFeats,GOLD);
+		
+		
 		int N_CONFS_TO_PRINT = 5; 
 		
 		// top n error rates for res and gold
@@ -377,7 +381,7 @@ public class ErrorAnalysis {
 			//parse contexts
 			if (get_contexts)
 			{
-				List<String> probCtxts = identifyProblemContextsForConfusion(topConfusions[i][0], topConfusions[i][1]);
+				List<String> probCtxts = identifyProblemContextsForConfusion(topConfusions[i][0], topConfusions[i][1], inactiveGoldFeats);
 				System.out.println("Most common contextual predictors of this confusion : "); 
 				for (String obs : probCtxts)	System.out.println(""+obs); 
 			}	 
@@ -413,8 +417,18 @@ public class ErrorAnalysis {
 	}
 	
 
-	//@prerequisite: indexedCts should have one more index than inventory, for storing instances of the word bound
-	private List<String> ctxtPrognose (String ctxtName, int[] indexedCts, SequentialPhonic[] inventory, int total_confusion_instances, double thresh)
+	/** 
+	 * @prerequisite: indexedCts should have one more index than inventory, for storing instances of the word bound
+	 * @param ctxtName: pre prior, prior, etc... 
+	 * @param indexedCts: 
+	 * @param inventory: phonemic inventory 
+	 * @param total_confusion_instances
+	 * @param thresh: threshhold to print
+	 * @param feats_to_suppress: -- +/- features that are inactive, to not be printed
+	 * @return lines of context prognosis , informing what phones, features, etc are likely in contexts for a certain confusion 
+	 */
+	// 
+	private List<String> ctxtPrognose (String ctxtName, int[] indexedCts, SequentialPhonic[] inventory, int total_confusion_instances, double thresh, List<String> feats_to_suppress)
 	{ 
 		List<String> out = new ArrayList<String>();
 		int n_wdbd = indexedCts[inventory.length];
@@ -429,6 +443,12 @@ public class ErrorAnalysis {
 			candFeats[2*fti] = "-"+featsByIndex[fti];
 			candFeats[2*fti+1] = "+"+featsByIndex[fti];
 		}
+		
+		//preemptively suppress inactive features. 
+		for (int cfi = 0 ; cfi < candFeats.length; cfi++)
+			if (feats_to_suppress.contains(candFeats[cfi] ))
+				candFeats[cfi] = ""; 
+		
 		boolean constFeatsRemain = true; 
 		boolean candFeatsTouched = false;
 		
@@ -557,7 +577,7 @@ public class ErrorAnalysis {
 	
 	// report which contexts tend to surround confusion frequently enough that it becomes 
 		// suspicious and deemed worth displaying
-	private List<String> identifyProblemContextsForConfusion(int resPhInd, int goldPhInd)
+	private List<String> identifyProblemContextsForConfusion(int resPhInd, int goldPhInd, List<String> feats_to_suppress)
 	{
 		List<String> out = new ArrayList<String>(); 
 
@@ -666,10 +686,10 @@ public class ErrorAnalysis {
 			}
 		} 
 		
-		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_confusion_instances,0.2)); 
-		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
-		out.addAll(ctxtPrognose("posterior",posteriorPhoneCounts,goldPhInventory,total_confusion_instances,0.2));
-		out.addAll(ctxtPrognose("post posterior",postPostrCounts,goldPhInventory,total_confusion_instances,0.2));
+		out.addAll(ctxtPrognose("pre prior",prePriorCounts,goldPhInventory,total_confusion_instances,0.2, feats_to_suppress)); 
+		out.addAll(ctxtPrognose("prior",priorPhoneCounts,goldPhInventory,total_confusion_instances,0.2, feats_to_suppress));
+		out.addAll(ctxtPrognose("posterior",posteriorPhoneCounts,goldPhInventory,total_confusion_instances,0.2, feats_to_suppress));
+		out.addAll(ctxtPrognose("post posterior",postPostrCounts,goldPhInventory,total_confusion_instances,0.2, feats_to_suppress));
 		
 		return out; 
 	}

@@ -1459,7 +1459,7 @@ public class DiachronicSimulator {
 				DHSinterface.queryProposedChanges(inpu); 
 			}
 			else if(resp.equals("9")) {
-				System.out.println("Ending"); cont = false; 
+				System.out.println("Ending..."); cont = false; 
 			}
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 			
