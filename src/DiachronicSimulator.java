@@ -1070,7 +1070,7 @@ public class DiachronicSimulator {
 						+ "| 2 : Set filter sequence                                                             |\n"
 						+ "| 3 : Query                                                                           |\n"
 						+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
-						+ "| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n"
+						+ "| 5 : Run context autopsy (at evaluation point) for filter sequence                   |\n"
 						+ "| 6 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n"
 						+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
 						+ "| 9 : End this analysis.______________________________________________________________|\n");
