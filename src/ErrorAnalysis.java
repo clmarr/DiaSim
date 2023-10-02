@@ -490,20 +490,40 @@ public class ErrorAnalysis {
 		
 	}
 	
+	//note for alignments... as relevant to the following classes... 
+	// for each outer index (i.e. the first [])...
+	// find at ind 0 (in second []) : the position aligned to res phone at outer ind, 
+	// and at ind 1 (second []) : position aligned to gold phone at outer ind
+		// if = -1 -- aligned to null phone
+		// if = -2 -- aligned to null phone at word boundary
+	// "inner" index -- the number in the sequence of aligned pairs 
+	// (including pairs with a null phone as an element on for either the result or the gold) 
 	
+	/** getPrevAlignedGoldPos 
+	 * @param alignment -- previously generated alignment (FED.get_min_alignment() ,etc.) 
+	 * @param dloc -- current location in gold phone sequence unless aligned to a null gold phone, 
+	 * 		in which case it is the location in the result phone sequence. 
+	 * @param alignedToNullGold -- true if current aligned gold is null. 
+	 * @return the previous position in the gold given a current aligned position. 
+	 *	@return -1 if reached the onset of the word 
+	 */ 
 	private int getPrevAlignedGoldPos (int[][] alignment, int dloc, boolean alignedToNullGold)
 	{
-		if (!alignedToNullGold)	return dloc - 1; 
-		int currResLoc = dloc - 1, out = -1;
+		if (!alignedToNullGold)	return dloc - 1; // in this case dloc refers to the gold phone index.
+			// if dloc = 0, reached the beginning, so return -1 
+		// ..but if aligned to a null gold, dloc will be a res phone index. 
+		int currResLoc = dloc - 1, out = -1; 
 		while (out == -1)
 		{
-			if (currResLoc == -1)	return -1;
+			if (currResLoc == -1)	return -1; // reached beginning. 
 			out = alignment[currResLoc][0]; 
 			currResLoc = currResLoc - 1; 
 		}
 		return out; 
 	}
 	
+	// like above, except that the indicator that we've reached the *end* of the gold, @return @param end
+		// @param end -- goldPhs.length 
 	private int getNextAlignedGoldPos (int[][] alignment, int dloc, boolean alignedToNullGold, int end)
 	{
 		if (!alignedToNullGold)	return dloc + 1;
@@ -537,8 +557,6 @@ public class ErrorAnalysis {
 	
 	// report which contexts tend to surround confusion frequently enough that it becomes 
 		// suspicious and deemed worth displaying
-	// this method is frequently modified at current state of the project 
-	// NOTE: context info for confusions now disabled! 
 	private List<String> identifyProblemContextsForConfusion(int resPhInd, int goldPhInd)
 	{
 		List<String> out = new ArrayList<String>(); 
@@ -556,8 +574,8 @@ public class ErrorAnalysis {
 
 		for (int i = 0 ; i < pairsWithConfusion.size(); i++)
 		{
-			//TODO need to fix error here. 
-				//TODO what was the error? 
+			//TODO need to fix error here.  (this comment was from summer 2019 -- now unclear what the error was was unclear, but perhaps it is now fixed) 
+				// (or maybe it referred to 1.H.I.a, the occasional out of bounds error that now can't seem to be reproduced? )
 			
 			Etymon[] curPair = pairsWithConfusion.get(i); 
 			
@@ -589,7 +607,7 @@ public class ErrorAnalysis {
 				for(int rpi = 0 ; rpi == resPhs.length ? false : alignment[rpi][0] != -2 ; rpi++)
 					if(resPhs[rpi].print().equals(resPhInventory[resPhInd].print()))
 						if(alignment[rpi][0] < 0)
-							confuseLocs.add(rpi); 
+							confuseLocs.add(rpi); // result location since aligned to null in gold... 
 			}
 			else if (nullPhForRes)
 			{
@@ -614,9 +632,13 @@ public class ErrorAnalysis {
 			{
 				int opLocBefore = getPrevAlignedGoldPos(alignment, dloc, nullPhForGold); 
 				
-				if (opLocBefore == goldPhs.length) {
+				//not 100% clear why is the op loc before being goldPhs.length (which should never happen...?) causing a printAlignment call?
+					// likely debugging? These lines were added on July 9, 2019, so whatever error it was is likely fixed or otherwise stale. 
+					// Thus, commented out for now. 
+				/** if (opLocBefore == goldPhs.length) {
+					System.out.println("Something is odd... reached the end of the gold phone sequence with a call for a *prior* aligned phone position."); 
 					printAlignment(alignment,resPhs,goldPhs); 
-				}
+				}*/ 
 				
 				
 				if(opLocBefore != -1)
@@ -688,8 +710,11 @@ public class ErrorAnalysis {
 		return false; 
 	}
 	
-	//TODO replace with actual alignment algorithm
-		//TODO (Dec 3 2022) in what capacity was this done? 
+	//TODO replace with actual alignment algorithm -- comment from April 2019
+		//TODO (Dec 3 2022) in what capacity was this to be done? 
+		// well it would still be a good idea to review the literature on alignment algorithms 
+			// to see if this one is up to par, and update it if not 
+			//(or give multiple options?) 
 	private SequentialPhonic[][] getAlignedForms(Etymon r, Etymon g)
 	{
 		featDist.compute(r,g); //TODO may need to change insertion/deletion weight here!
