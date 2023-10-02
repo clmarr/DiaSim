@@ -139,7 +139,7 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	public static void extractDiacriticDefs(String diacriticDefsLoc)
+	public static void extractDiacriticCDefs(String diacriticDefsLoc)
 	{
 		no_symb_diacritics = false; 
 		symbDiacriticsLoc = ""+diacriticDefsLoc; 
@@ -250,20 +250,22 @@ public class DiachronicSimulator {
 		
 		System.out.println("Using "+(NUM_GOLD_STAGES+NUM_BLACK_STAGES)+" custom stages."); 
 		
-		if (NUM_GOLD_STAGES > 0)
-		{
-			System.out.print("Gold stages: ");
-			for (String gs : goldStageNameAndLocList)
-				System.out.print(gs.substring(0,gs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
-			System.out.println(""); 
-		}
-		  
-		if (NUM_BLACK_STAGES > 0)
-		{
-			System.out.print("Black stages:");
-			for (String bs : blackStageNameAndLocList)
-				System.out.print(bs.substring(0,bs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
-			System.out.println(""); 
+		if (VERBOSE || DEBUG_STAGES) {
+			if (NUM_GOLD_STAGES > 0)
+			{
+				System.out.print("Gold stages: ");
+				for (String gs : goldStageNameAndLocList)
+					System.out.print(gs.substring(0,gs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
+				System.out.println(""); 
+			}
+			  
+			if (NUM_BLACK_STAGES > 0)
+			{
+				System.out.print("Black stages:");
+				for (String bs : blackStageNameAndLocList)
+					System.out.print(bs.substring(0,bs.indexOf(UTILS.STAGENAME_LOC_DELIM))+",");
+				System.out.println(""); 
+			}
 		}
 		
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES]; 
@@ -324,7 +326,7 @@ public class DiachronicSimulator {
 			}
 		}
 		
-		System.out.println("Diachronic rules extracted. "); 
+		if (VERBOSE)	System.out.println("Diachronic rules extracted. "); 
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
 	}
@@ -352,7 +354,8 @@ public class DiachronicSimulator {
 // and TODO reformulate column stage and gold stage blackening aspects present here into a sorting of stages based on appropriate factors
 	public static void processLexFileHeader(String firstlineproxy)
 	{
-		System.out.println("Processing lexicon stipulations for gold stages..."); 
+		if (VERBOSE||DEBUG_STAGES)
+			System.out.println("Processing lexicon stipulations for gold stages..."); 
 
 		//stripping any comments and space -- this should already have been done, but just in case...
 		int cmt_loc = firstlineproxy.indexOf(UTILS.CMT_FLAG); 
@@ -363,15 +366,19 @@ public class DiachronicSimulator {
 		
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? 
 			firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1	;
-		System.out.println("Lexicon file has "+numCols+" columns!"); 
-		System.out.println("First column assumed to be input."); 
-			//TODO need to change this behavior to handle the situation where first column is a stage that is not equivalent to the input
-			
+		
+		if (VERBOSE || DEBUG_STAGES) { 
+			System.out.println("Lexicon file has "+numCols+" columns!"); 
+			System.out.println("First column assumed to be input."); 
+		}	//TODO need to change this behavior to handle the situation where first column is a stage that is not equivalent to the input
+		
+		
 		lexiconHasHeader = firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		if(lexiconHasHeader)
 		{
 			//TODO this whole area is bugged bugged bugged!!!!!!
-			System.out.println("Header detected: "+firstlineproxy); 
+			if (VERBOSE || DEBUG_STAGES)
+				System.out.println("Header detected: "+firstlineproxy); 
 			
 			//TODO this whole area needs a reworking. 
 			
@@ -389,7 +396,8 @@ public class DiachronicSimulator {
 						// note that blackenGoldStage() decreases NUM_GOLD_STAGES 
 				
 				//TODO debugging
-				System.out.println("gold stage "+(numGoldStagesConfirmed+1)+" confirmed: "+stipName); 
+				if (DEBUG_STAGES || VERBOSE )
+					System.out.println("gold stage "+(numGoldStagesConfirmed+1)+" confirmed: "+stipName); 
 				
 				numGoldStagesConfirmed++; 
 				coli++; 
@@ -425,23 +433,24 @@ public class DiachronicSimulator {
 		}
 		else
 		{
-			System.out.println("No explicit header declared in lexicon file."); 
+			if (VERBOSE || DEBUG_STAGES)
+				System.out.println("No explicit header declared in lexicon file."); 
 			if(numCols == NUM_GOLD_STAGES + 1)
 			{
-				System.out.println("Each gold stage properly identified if we assume no output!"); 
-				
-				//TODO useful for debugging
-				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
+				if (VERBOSE||DEBUG_STAGES) {
+					System.out.println("Each gold stage properly identified if we assume no output!"); 
+					System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
+				}
 				
 				hasGoldOutput = false; 
 			}
 			else if(numCols == NUM_GOLD_STAGES + 2)
 			{
-				System.out.println("Each gold stage properly identified if we assume last is the gold forms for the output time!"); 
-
-				//TODO debugging
-				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
-				System.out.println("numCols : "+numCols);
+				if (VERBOSE || DEBUG_STAGES) {
+					System.out.println("Each gold stage properly identified if we assume last is the gold forms for the output time!"); 
+					System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
+					System.out.println("numCols : "+numCols);
+				}
 				
 				hasGoldOutput = true; 
 			}
@@ -465,7 +474,8 @@ public class DiachronicSimulator {
 	//TODO this may need a rework
 	private static void blackenGoldStage(int gsi)
 	{
-		System.out.println("Blackening gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
+		if (VERBOSE || DEBUG_STAGES)
+			System.out.println("Blackening gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
 	
 		int[] oldGoldStageInstants, oldBlackStageInstants; 
 		String[] oldGoldStageNames, oldBlackStageNames; 
@@ -493,6 +503,7 @@ public class DiachronicSimulator {
 			}
 		}
 		
+		//TODO review here -- something must be missing. Why aren't these used? 
 		int instantToBlacken = goldStageInstants[gsi];
 		String nameToBlacken = goldStageNames[gsi];
 		
@@ -566,7 +577,7 @@ public class DiachronicSimulator {
 		extractFeatImpls(); 
 		extractDiacriticDefs(); 
 				
-		System.out.println("Creating SChangeFactory...");
+		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
 		
 		extractCascade(theFactory);
@@ -583,7 +594,7 @@ public class DiachronicSimulator {
 		// evolving lexicon at that point by copying it into the appropriate slot in the goldStageResultLexica or blackStageLexica array
 		// finally when we reach the end of the rule list, save it as testResultLexicon
 		
-		System.out.println("Now extracting lexicon...");
+		if (VERBOSE)	System.out.println("Now extracting lexicon...");
 		String nextLine; 
 		
 		List<String> lexFileLines = new ArrayList<String>(); 
@@ -620,8 +631,8 @@ public class DiachronicSimulator {
 		//TODO handling of column stages should begin here, possibly within processLexFileHeader.
 		processLexFileHeader(firstlineproxy); 
 		
-		//TODO debugging
-		System.out.println("Number of etyma: "+NUM_ETYMA);
+		if (VERBOSE)
+			System.out.println("Number of etyma: "+NUM_ETYMA);
 		
 		boolean justInput = !hasGoldOutput && !goldStagesSet; 
 		
@@ -661,10 +672,6 @@ public class DiachronicSimulator {
 		
 		if(hasGoldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
-		
-		System.out.println("Lexicon extracted.");
-
-		System.out.println("Now preparing simulation.");
 		
 		/** former debugging
 		*System.out.println("stageOrdering.length : "+stageOrdering.length); 
