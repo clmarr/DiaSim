@@ -155,7 +155,8 @@ public class DiachronicSimulator {
 	// but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
 	public static void extractCascade(SChangeFactory theFactory)
 	{
-		System.out.println("Now extracting diachronic sound change rules from rules file...");
+		if (VERBOSE)
+			System.out.println("Now extracting diachronic sound change rules from rules file...");
 		
 		rulesByTimeInstant = new ArrayList<String>(); 
 		inputName = "Input";
@@ -227,7 +228,9 @@ public class DiachronicSimulator {
 				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG && rli ==0)
 				{
 					inputName = currRule.substring(1); 
-					System.out.println("Assuming the attempted black stage at the input, "+inputName+", is just a preferred name"
+					if (VERBOSE || DEBUG_STAGES)
+						System.out.println("Assuming the attempted black stage at the input, '"+inputName+""
+							+ "', is just a preferred name"
 							+ " for the input. No black stage constructed here.");
 				}
 				else if (currRule.charAt(0) == UTILS.BLACK_STAGENAME_FLAG)
@@ -299,8 +302,8 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_gold)
 				{
-					//TODO debugging
-					System.out.println("reached gold stage "+goldStageNameAndLocList.get(gsgi));
+					if (VERBOSE || DEBUG_STAGES)
+						System.out.println("reached gold stage "+goldStageNameAndLocList.get(gsgi));
 					
 					goldStageNames[gsgi] = goldStageNameAndLocList.get(gsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					goldStageInstants[gsgi] = CASCADE.size();		
@@ -314,8 +317,8 @@ public class DiachronicSimulator {
 			{
 				if (cri == next_black)
 				{
-					//TODO debugging
-					System.out.println("reached black stage "+blackStageNameAndLocList.get(bsgi).replace(":",": ")); 
+					if (VERBOSE || DEBUG_STAGES)
+						System.out.println("reached black stage "+blackStageNameAndLocList.get(bsgi).replace(":",": ")); 
 					
 					blackStageNames[bsgi] = blackStageNameAndLocList.get(bsgi).split(""+UTILS.STAGENAME_LOC_DELIM)[0];
 					blackStageInstants[bsgi] = CASCADE.size();

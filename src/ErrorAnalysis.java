@@ -556,7 +556,6 @@ public class ErrorAnalysis {
 
 		for (int i = 0 ; i < pairsWithConfusion.size(); i++)
 		{
-			
 			//TODO need to fix error here. 
 				//TODO what was the error? 
 			
