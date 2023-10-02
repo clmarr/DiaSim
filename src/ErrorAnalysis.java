@@ -1646,6 +1646,11 @@ public class ErrorAnalysis {
 						//and the converse, for the feature that it is *not* 
 						predictor_n_matr[2*spi + (1 - fspi/2)][0][1] += miss_ph_frqs[mpi]; 
 					}
+					else // fspi is unspecified -- counts as negative for *both* the positive and negative stipulations for the feature. 
+					{	
+						predictor_n_matr[2*spi][0][1] += miss_ph_frqs[mpi]; 
+						predictor_n_matr[2*spi+1][0][1] += miss_ph_frqs[mpi];
+					}
 				}	
 			}
 			else if (WDBND_INCR_ABS_FEAT) /** if the current predictor is a word bound, 
@@ -1681,6 +1686,12 @@ public class ErrorAnalysis {
 						predictor_n_matr[2*spi + fspi/2][1][0] += hit_ph_frqs[hpi]; 
 						predictor_n_matr[2*spi + 1 - fspi/2][0][0] += hit_ph_frqs[hpi]; 
 					}
+					else // unspecified feature -- counts as absence of both + and - settings for hte feature.
+					{
+						predictor_n_matr[2*spi][0][0] += hit_ph_frqs[hpi];
+						predictor_n_matr[2*spi+1][0][0] += hit_ph_frqs[hpi];
+					}
+					
 				}
 			}
 			else if (WDBND_INCR_ABS_FEAT) // if incrementing wordbound as absence of feature spec'd predictor ... 
