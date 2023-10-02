@@ -1726,7 +1726,9 @@ public class DiachronicSimulator {
 		{
 			String timeStamp = new SimpleDateFormat("yyyy-MM-dd_HHmmss").format(new Date());
 			runPrefix = "unnamed_run_"+timeStamp;
-			System.out.println("No output location specified. Will create a folder with name '"+runPrefix+"'.");
+			if (!skip_file_creation) {
+				System.out.println("No output location specified. Will create a folder with name '"+runPrefix+"'.");
+			}
 		}
 		
 		if (i != args.length) //|| no_prefix)
