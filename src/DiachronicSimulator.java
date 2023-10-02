@@ -1413,7 +1413,11 @@ public class DiachronicSimulator {
 						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)         |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
 					
-					resp = inpu.nextLine().substring(0,1);
+					resp = ""; 
+					while (resp.equals(""))
+						resp = inpu.nextLine().replace("\n","");
+					
+					resp = resp.substring(0,1);
 					
 					if(resp.equals("0"))
 					{
