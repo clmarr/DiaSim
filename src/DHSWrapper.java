@@ -487,7 +487,7 @@ public class DHSWrapper {
 					+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
 					+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
 					+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
-					+ "\t\t\t (BUGGED) 'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
+					+ "\t\t\t 'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
 					+ "\t\t\t'get etym at X', to get the etymon at index <X>.\n"
 					+ "\t\t\t'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 					+ "\t\t\t'get lexicon', print entire lexicon with etyma mapped to inds.\n");
@@ -650,10 +650,11 @@ public class DHSWrapper {
 						Etymon query = null;
 						boolean validLexPhon = true;
 						try {
-							query = new Etymon(fac.parseSeqPhSeg(resp));
+							query = new Etymon(fac.parseSeqPhSeg(entry));
 						} catch (Exception e) {
 							System.out
-									.println("Error: could not parse entered phone string. Returning to forking menu.");
+									.println("Error: could not parse entered phone string. "
+											+ "\nDue to exception: "+e+".\nReturning to forking menu.");
 							validLexPhon = false;
 						}
 						if (validLexPhon) {

@@ -431,7 +431,7 @@ public class DiachronicSimulator {
 			{
 				System.out.println("Each gold stage properly identified if we assume no output!"); 
 				
-				//TODO debugging
+				//TODO useful for debugging
 				System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
 				
 				hasGoldOutput = false; 
@@ -1740,5 +1740,3 @@ public class DiachronicSimulator {
 		else System.out.println(CASCADE.get(theInd)); 
 	}
 }
-
-
