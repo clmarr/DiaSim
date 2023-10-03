@@ -894,4 +894,54 @@ public class UTILS {
 				(n11 + n10) * (n01 + n00) * (n11 + n01) * (n10 + n00));
 		return numerator / denominator; 
 	}
+
+	/**
+	 * Returns a multiline string consisting of a formatted accuracy report.
+	 * @param ea an ErrorAnalysis
+	 * @return A formatted string.
+	 */
+	public static String getAccuracyReport(ErrorAnalysis ea)
+	{
+		String accuracyReport = "";
+		accuracyReport += "\nACCURACY REPORT:";
+
+		accuracyReport += String.format("\nOverall accuracy:                        %.8f", ea.getAccuracy());
+		accuracyReport += String.format("\nAccuracy within 1 phone:                 %.8f", ea.getPctWithin1());
+		accuracyReport += String.format("\nAccuracy within 2 phones:                %.8f", ea.getPctWithin2());
+		accuracyReport += String.format("\nAverage edit distance from gold:         %.8f", ea.getAvgPED());
+		accuracyReport += String.format("\nAverage feature edit distance from gold: %.8f", ea.getAvgFED());
+		
+
+		return accuracyReport;
+	}
+
+	/**
+	 * Returns a multiline string consisting of a formatted comparative accuracy report.
+	 * @param ea the existing ErrorAnalysis
+	 * @param newEa a candidate ErrorAnalysis
+	 * @return A formatted string.
+	 */
+	public static String getAccuracyReport(ErrorAnalysis ea, ErrorAnalysis newEa)
+	{
+		String accuracyReport = "";
+		accuracyReport +=               "\nCOMPARATIVE ACCURACY REPORT:             OLD:          NEW:";
+		
+		accuracyReport += String.format("\nOverall accuracy:                        %.8f -> %.8f",
+			ea.getAccuracy(), newEa.getAccuracy());
+
+		accuracyReport += String.format("\nAccuracy within 1 phone:                 %.8f -> %.8f",
+			ea.getPctWithin1(), newEa.getPctWithin1());
+
+		accuracyReport += String.format("\nAccuracy within 2 phones:                %.8f -> %.8f",
+			ea.getPctWithin2(), newEa.getPctWithin2());
+
+		accuracyReport += String.format("\nAverage edit distance from gold:         %.8f -> %.8f",
+			ea.getAvgPED(), newEa.getAvgPED());
+
+		accuracyReport += String.format("\nAverage feature edit distance from gold: %.8f -> %.8f",
+			ea.getAvgFED(), newEa.getAvgFED());
+
+
+		return accuracyReport;
+	}
 }

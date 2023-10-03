@@ -1048,15 +1048,9 @@ public class ErrorAnalysis {
 	
 	public void makeAnalysisFile(String fileName, boolean use_gold, Lexicon lexic)
 	{
-		String output = "Analysis for "+(use_gold ? "Gold" : "Result")+"/n";
+		String output = "Analysis for "+(use_gold ? "Gold" : "Result")+"\n";
 		
-		// System.out.println("Average feature edit distance from gold: "+getAvgFED());
-		
-		output += "Overall accuracy : "+getAccuracy()+"\n";
-		output += "Accuracy within 1 phone: "+getPctWithin1()+"%\n"; 
-		output += "Accuracy within 2 phone: "+getPctWithin2()+"%\n";
-		output += "Average edit distance per from gold phone: "+getAvgPED()+"\n"; 
-		output += "Average feature edit distance from gold: "+getAvgFED()+"\n";
+		output += UTILS.getAccuracyReport(this) + "\n\n";
 		
 		output += "Performance associated with each phone in "+(use_gold ? "Gold" : "Result")+"\n"; 
 		output += "Phone in "+(use_gold ? "Gold" : "Result")+"\tAssociated final miss likelihood\t"

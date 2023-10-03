@@ -1028,15 +1028,7 @@ public class DiachronicSimulator {
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt));
 
-		//TODO the following printlines should be moved to a method, as this accuracy report is copy/pasted with slight variations six times throughout the code!
-		System.out.println();
-		System.out.println("ACCURACY REPORT:");
-		System.out.println("Overall accuracy:                        "+ea.getAccuracy());
-		System.out.println("Accuracy within 1 phone:                 "+ea.getPctWithin1());
-		System.out.println("Accuracy within 2 phones:                "+ea.getPctWithin2());
-		System.out.println("Average edit distance from gold:         "+ea.getAvgPED());
-		System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
-		System.out.println();
+		System.out.println(UTILS.getAccuracyReport(ea,ea));
 		
 		int lastGoldOpt = (curSt == -1 ? NUM_GOLD_STAGES : curSt) - 1;
 		int lastBlkOpt = NUM_BLACK_STAGES - 1;
@@ -1064,7 +1056,7 @@ public class DiachronicSimulator {
 			while (resp.length() == 0)
 			{
 				System.out.print(
-						"What would you like to do? Please enter the appropriate number below:\n"
+						"\nWhat would you like to do? Please enter the appropriate number below:\n"
 						+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
 						+ "| 1 : Set pivot point (upon which actions are conditioned, incl. filtering [2])       |\n"
 						+ "| 2 : Set filter sequence                                                             |\n"
@@ -1422,12 +1414,7 @@ public class DiachronicSimulator {
 					if(resp.equals("0"))
 					{
 						System.out.println("Printing stats:"+ (ea.isFiltSet() ? " for filter "+filterSeq.toString()+ " at "+pivPtName : "" ));
-						
-						System.out.println("Overall accuracy : "+ea.getAccuracy());
-						System.out.println("Accuracy within 1 phone: "+ea.getPctWithin1());
-						System.out.println("Accuracy within 2 phones: "+ea.getPctWithin2());
-						System.out.println("Average edit distance per from gold phone: "+ea.getAvgPED());
-						System.out.println("Average feature edit distance from gold: "+ea.getAvgFED());
+						System.out.println(UTILS.getAccuracyReport(ea));
 					}
 					else if("12".contains(resp))
 					{
