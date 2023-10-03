@@ -279,13 +279,7 @@ public class DHSWrapper {
 					feats_weighted ? new FED(featsByIndex.length, FT_WTS, id_wt) : new FED(featsByIndex.length, id_wt));
 			System.out.println("Final output comparison for hypothesis simulation");
 			DHScomp.printBasicResults();
-			System.out.println("Overall accuracy : " + ea.getAccuracy() + " >>> " + hea.getAccuracy());
-			System.out.println("Accuracy within 1 phone: " + ea.getPctWithin1() + " >>> " + hea.getPctWithin1());
-			System.out.println("Accuracy within 2 phone: " + ea.getPctWithin2() + " >>> " + hea.getPctWithin2());
-			System.out.println(
-					"Average edit distance per from gold phone: " + ea.getAvgPED() + " >>> " + hea.getAvgPED());
-			System.out
-					.println("Average feature edit distance from gold: " + ea.getAvgFED() + " >>> " + hea.getAvgFED());
+			System.out.println(UTILS.getAccuracyReport(ea, hea));
 
 			char choice = 'a';
 			while (choice != '9') {
@@ -303,15 +297,7 @@ public class DHSWrapper {
 				if (choice == '4') {
 					System.out.println("Final output comparison for hypothesis simulation");
 					DHScomp.printBasicResults();
-					System.out.println("Overall accuracy : " + ea.getAccuracy() + " >>> " + hea.getAccuracy());
-					System.out
-							.println("Accuracy within 1 phone: " + ea.getPctWithin1() + " >>> " + hea.getPctWithin1());
-					System.out
-							.println("Accuracy within 2 phone: " + ea.getPctWithin2() + " >>> " + hea.getPctWithin2());
-					System.out.println(
-							"Average edit distance per from gold phone: " + ea.getAvgPED() + " >>> " + hea.getAvgPED());
-					System.out.println(
-							"Average feature edit distance from gold: " + ea.getAvgFED() + " >>> " + hea.getAvgFED());
+					System.out.println(UTILS.getAccuracyReport(ea, hea));
 					System.out.println("Enter anything to continue.");
 					char dum = inpu.nextLine().charAt(0);
 					System.out.println("\nWould you like to do anything else?");
@@ -442,12 +428,7 @@ public class DHSWrapper {
 					pct1offs = new double[] { bsea.getPctWithin1(), hsea.getPctWithin1() },
 					avgFEDs = new double[] { bsea.getAvgFED(), hsea.getAvgFED() };
 			if (pctAccs[0] != pctAccs[1] || pct1offs[0] != pct1offs[1] || avgFEDs[0] != avgFEDs[1]) {
-				System.out.println("Overall accuracy : " + pctAccs[0] + " >>> " + pctAccs[1]);
-				System.out.println("Accuracy within 1 phone: " + pct1offs[0] + " >>> " + pct1offs[1]);
-				System.out.println("Accuracy within 2 phone: " + bsea.getPctWithin2() + " >>> " + hsea.getPctWithin2());
-				System.out.println(
-						"Average edit distance per from gold phone: " + bsea.getAvgPED() + " >>> " + hsea.getAvgPED());
-				System.out.println("Average feature edit distance from gold: " + avgFEDs[0] + " >>> " + avgFEDs[1]);
+				System.out.println(UTILS.getAccuracyReport(bsea, hsea));
 				System.out.println("Press anything to continue.");
 				char dum = inpu.nextLine().charAt(0);
 				// TODO possibly enable further user interaction here?
