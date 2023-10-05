@@ -1084,8 +1084,8 @@ public class DiachronicSimulator {
 					}
 					else	System.out.println("intermediate stage "+evalStage+": "+goldStageNames[evalStage]); 
 				
-					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,false); 
-					validOptions.add("F"); 
+					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true); 
+					validOptions.add("f"); 
 					boolean chosen = false;
 					
 					while (!chosen)
@@ -1094,14 +1094,14 @@ public class DiachronicSimulator {
 						printIncludedGoldStages(0, lastGoldOpt); 
 						System.out.println("F : "+ (curSt == -1 ? "final forms" : "current forms at stage "+curSt));
 						System.out.println("Please enter the indicator for the stage you desire"); 
-						resp = inpu.nextLine().substring(0,1);
+						resp = inpu.nextLine().toLowerCase();
 						chosen = validOptions.contains(resp);
 						if(!chosen)	System.out.println("Invalid response. Please choose a valid indicator for the new evaluation stage."); 
 					}
 					
-					evalStage = resp.equals("F") ? curSt : Integer.parseInt(resp); 
-					r = resp.equals("F") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
-					g = (curSt == -1 && resp.equals("F") ) ? goldOutputLexicon : goldStageGoldLexica[evalStage];
+					evalStage = resp.equals("f") ? curSt : Integer.parseInt(resp.replaceAll("[^0-9]", "")); 
+					r = resp.equals("f") ? theSimulation.getCurrentResult() : theSimulation.getStageResult(true, evalStage);
+					g = (curSt == -1 && resp.equals("f") ) ? goldOutputLexicon : goldStageGoldLexica[evalStage];
 					boolean filtered = ea.isFiltSet();
 					boolean pivoted = ea.isPivotSet(); 
 					
