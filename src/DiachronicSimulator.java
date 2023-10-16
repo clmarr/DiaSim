@@ -1158,7 +1158,7 @@ public class DiachronicSimulator {
 						else if (resp.charAt(0) == 'g' && !goldStagesSet)
 							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
 						else if (resp.charAt(0) == 'b' && !blackStagesSet)
-							System.out.println("Invalid input: cannot use 'g' when no b stages are set!"); 
+							System.out.println("Invalid input: cannot use 'b' when no black stages are set!"); 
 						else if ("bgR".contains(""+resp.charAt(0)) && !UTILS.isInt(resp.substring(1)))
 							System.out.println("Invalid input: 'R', 'g', and 'b' require a valid integer after them, but '"+resp.substring(1)+"' is not!"); 
 						else if (resp.charAt(0) == 'R')
