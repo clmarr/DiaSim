@@ -1120,7 +1120,7 @@ public class DiachronicSimulator {
 				boolean chosen = false; 
 				while(!chosen)
 				{
-					System.out.println("Available options for pivot point:");
+					System.out.println("\nAvailable options for pivot point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
 					System.out.println("In: "+inputName+" as pivot (i.e. filter by input forms)"
 							+ "\nOut: filter in terms of generated output forms"
@@ -1217,6 +1217,8 @@ public class DiachronicSimulator {
 								ea.setPivot(pivPtLex,pivPtName);
 							}
 						}
+						else // resp is "Keep", all need to do is make sure didn't errantly set pivot point. 
+							if (pivPtName.equals(""))	pivPtSet = false; 
 					}	
 				}
 			}
