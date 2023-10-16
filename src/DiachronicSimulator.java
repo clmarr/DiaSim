@@ -1137,8 +1137,12 @@ public class DiachronicSimulator {
 					
 					for(int ri = 1; ri < CASCADE.size(); ri++)	
 						validOptions.add("R"+ri);
-					resp = inpu.nextLine();
-					resp.replace("\n", ""); 
+					
+					resp = ""; 
+					while (resp.equals(""))
+						resp = inpu.nextLine().replace("\n","").strip(); 
+					resp.replace("\n", "");
+					
 					if (resp.toLowerCase().equals("keep"))	resp = "Keep"; 
 					if (!validOptions.contains(resp) && resp.length() > 1)
 						if (resp.charAt(0) == 'r' && "0123456789".contains(resp.charAt(1)+""))
@@ -1273,7 +1277,11 @@ public class DiachronicSimulator {
 							+ "5 : get time step(s) of any rule whose string form contains the submitted string\n"
 							+ "6 : print all rules by time step.\n"
 							+ "9 : return to main menu.\n"); 
-					resp = inpu.nextLine().replace("\n",""); 
+					resp = ""; 
+					while (resp.equals(""))
+						resp = inpu.nextLine().replace("\n","").strip(); 
+					resp.replace("\n", "");
+					
 					promptQueryMenu = false;
 					if( !"01234569".contains(resp) || resp.length() > 1 ) {
 						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
@@ -1339,7 +1347,10 @@ public class DiachronicSimulator {
 										+ "is necessary to delimit phones and functional parts of the sound change ('>', etc.)\n"+
 								"Enter the string you want to query with: \n");
 						
-						resp = inpu.nextLine().replace("\n", "").replace("([","( [").replace("])", "] )"); 
+						resp = ""; 
+						while (resp.equals(""))
+							resp = inpu.nextLine().replace("\n","").strip(); 
+						resp.replace("\n", "").replace("([","( [").replace("])", "] )"); 
 						
 						boolean noMatches = true; 
 						
@@ -1376,8 +1387,10 @@ public class DiachronicSimulator {
 						System.out.println("\t'f<RATIO>': an f-score where <RATIO> is replaced by a value >= 0 that indicates the ratio of importance of recall vis a vis precision.\n\t\t(recommendation: favor precision over recall, but not too much!)"); 
 						System.out.println("\t'comp': comparison of prepared values for the four different metrics."); 
 					
-						resp = inpu.nextLine().strip(); 
-					
+						resp = ""; 
+						while (resp.equals(""))
+							resp = inpu.nextLine().replace("\n","").strip(); 
+				
 						if (resp.length() == 0) continue; 
 						else if (resp.length() >= 4 ? resp.substring(0,4).equalsIgnoreCase("comp") : false)					
 							ea.contextAutopsyComparison();		
