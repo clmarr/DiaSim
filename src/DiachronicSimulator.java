@@ -1234,12 +1234,14 @@ public class DiachronicSimulator {
 					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
 							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
 					
-					resp = inpu.nextLine().replace("\n",""); 
+					resp = inpu.nextLine().replace("\n","").strip(); 
 					
 					if (resp.strip().equalsIgnoreCase("delete"))
 					{
 						filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
 						filterIsSet = false; 
+						fail =false; 
+						ea.removeFilter();
 					}
 					else {
 						try {

@@ -242,6 +242,12 @@ public class ErrorAnalysis {
 		// System.out.println("inactive feats now at : "+inactiveFeats.size()); 
 		// for (String ifi : inactiveFeats)	System.out.println(ifi); 
 	}
+	
+	public void removeFilter()
+	{
+		toDefaultFilter(); 
+		filtSet = false; 
+	}
 
 	public void toDefaultFilter()
 	{
