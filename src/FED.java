@@ -166,23 +166,47 @@ public class FED {
 	private static double isdl_cost_default()
 	{	return isdl_wt * n_feats;	}
 	
+	
+	// returns a cost calculated as the sum of the feature-wise difference (Hamming-ish) between the inserted/deleted phone
+		// and its prior and posterior neighbors
+		// if it is word initial, instead of the feature-wise distance between an (inexistant) prior phone's feature vector
+			// difference from "silence" is computed
+			// "silence" is equated to a [-] value for all phones
+			// this essentially assumes that "silence" is most like an asyllabic voiceless schwa 
+				// (within the framework of the default symbolDefs file's feature framework) 
+			// note that positive-valued features will incur twice the penalty of unspecified features, 
+				// and [-] features will incur none in this case
+		// if the inserted/deleted phone is word-final, 
+			// the same difference with "silence" described above will be calculated
+				// instead of comparison with an inexistent posterior phone's feature vector
+	// note that the default penalties here, before modification by multiplying it by isdl_wt,
+		// will thus tend to be around twice (roughly) the typical substitution penalties
+		// this motivates the current (October 2023) default isdl_wt value of 0.5 
 	private static double contextualized_isdl_cost(SequentialPhonic[] fullSeq, int loc)
 	{
 		double sum = 0.0;
 		SequentialPhonic sp = fullSeq[loc];
 		int[] spFtVals = new int[n_feats];
 		for (int i = 0; i < n_feats; i++)	spFtVals[i] = Integer.parseInt(""+sp.getFeatString().substring(i,i+1));
-		if (loc == 0)
+		if (loc == 0) // for prosthesis 
 		{	for(int i = 0; i < n_feats; i++)	sum += isdl_wt * spFtVals[i]; 	}
+			// penalizes positives most and unspecifieds a bit -- silence assumed like an asyllabic voiceless schwa
+				// (though inserted/deleted asyllabic voiceless schwa 
+				// *would* have unspecified features in default symbolDefs, 
+					// so it would in fact incur a (small) penalty)
 		else
 		{
-			String prFtStr = fullSeq[loc-1].getFeatString();
+			String prFtStr = fullSeq[loc-1].getFeatString(); // previous feature string
 			for (int i = 0; i < n_feats; i++)	
 				sum += isdl_wt * 
 					Math.abs(spFtVals[i] - Integer.parseInt(prFtStr.substring(i,i+1)));
 		}
-		if (loc == fullSeq.length-1)
+			// penalizes based on how different the inserted entity is from its prior neighbor (if it has one 
+				// -- otherwise the above if-statement is hit)
+		if (loc == fullSeq.length-1) // if insertion/deletion is at end of word
 		{	for(int i = 0; i < n_feats; i++)	sum += isdl_wt * spFtVals[i]; 	}
+			// same behavior as beginning -- penalize based on how different the inserted/deleted segment is from "silence" 
+				// "silence" being construed as being most like an asyllabic voiceless schwa
 		else
 		{
 			String psFtStr = fullSeq[loc+1].getFeatString();
@@ -190,6 +214,8 @@ public class FED {
 				sum += isdl_wt *
 					Math.abs(spFtVals[i] - Integer.parseInt(psFtStr.substring(i,i+1)));
 		}
+			// accrue penalty based on phonetic difference from posterior neighbor if it exists
+		
 		return sum;
 	}
 	
