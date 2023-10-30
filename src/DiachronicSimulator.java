@@ -59,7 +59,7 @@ public class DiachronicSimulator {
 	
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE; 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, simple_isdl_for_FED; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -1627,6 +1627,7 @@ public class DiachronicSimulator {
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
 		skip_file_creation = false;
+		simple_isdl_for_FED = false; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1698,6 +1699,9 @@ public class DiachronicSimulator {
 				else	System.err.println("-idcost requires a double for ratio of insertion/deletion cost to substitution");
 				if (VERBOSE)	System.out.println("insertion/deletion cost ratio to substitution: "+id_wt); 
 			}
+			
+			else if (arg.equals("-simple_FED"))
+				simple_isdl_for_FED = true; 
 			
 			// nothing placed afterward -- triggers stage debugging printouts. 
 			else if (arg.equalsIgnoreCase("-debug_stages"))

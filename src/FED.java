@@ -11,12 +11,13 @@ public class FED {
 	private static int[][] last_backtrace; 
 	private static int n_feats;
 	
-	private static final boolean CONTEXTUALIZE_ISDL = true; 
+	private static boolean contextualize_isdl; 
 	
 	public FED (int numFeats, double id_wt)
 	{	n_feats = numFeats;
 		weighted = false; 
 		isdl_wt = id_wt;
+		contextualize_isdl = true; 
 	}
 	
 	public FED(int numFeats, double[] wts, double id_wt)
@@ -24,6 +25,24 @@ public class FED {
 		weighted = true;
 		weights = wts;
 		isdl_wt = id_wt;  
+		contextualize_isdl = true; 
+	}
+	
+	public FED (int numFeats, double id_wt, boolean contextualize_insert_delete)
+	{
+		n_feats = numFeats;
+		weighted = false; 
+		isdl_wt = id_wt;
+		contextualize_isdl = contextualize_insert_delete; 
+	}
+	
+	public FED (int numFeats, double[] wts, double id_wt, boolean contextualize_insert_delete) 
+	{
+		n_feats = numFeats; 
+		weighted = true;
+		weights = wts;
+		isdl_wt = id_wt;  
+		contextualize_isdl = contextualize_insert_delete; 
 	}
 	
 	public void compute(Etymon l1, Etymon l2)
@@ -123,9 +142,6 @@ public class FED {
 			else
 				throw new Error("Error: invalid backtrace");
 		}
-		
-		
-		
 	}
 	
 	// minimum feature edit distance
@@ -152,7 +168,7 @@ public class FED {
 	// TODO no current need to normalized by length of feature vector (i.e. number of features) because this is constant
 	private static double isdl_cost(SequentialPhonic[] fullSeq, int loc)  
 	{
-		return CONTEXTUALIZE_ISDL ? contextualized_isdl_cost(fullSeq,loc) : isdl_cost_default(); 
+		return contextualize_isdl ? contextualized_isdl_cost(fullSeq,loc) : isdl_cost_default(); 
 		
 		/** questionable abrogated method below. 
 		double sum = 0.0;
