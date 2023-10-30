@@ -59,7 +59,7 @@ public class DiachronicSimulator {
 	
 	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, simple_isdl_for_FED; 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, contextualize_FED; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -784,7 +784,7 @@ public class DiachronicSimulator {
 				//TODO figure out what we want to do here...
 						// TODO what did this mean?^ Figure out or delete it. 
 				ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
-						feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,simple_isdl_for_FED) : new FED(featsByIndex.length, id_wt,simple_isdl_for_FED));
+						feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,!contextualize_FED) : new FED(featsByIndex.length, id_wt,!contextualize_FED));
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
 						false, theSimulation.getCurrentResult());
 				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
@@ -794,7 +794,7 @@ public class DiachronicSimulator {
 					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 					{	
 						ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
-								feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,simple_isdl_for_FED) : new FED(featsByIndex.length, id_wt,simple_isdl_for_FED));
+								feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,!contextualize_FED) : new FED(featsByIndex.length, id_wt,!contextualize_FED));
 						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 								).toString();
 						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
@@ -1026,7 +1026,7 @@ public class DiachronicSimulator {
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 				
 		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,simple_isdl_for_FED) : new FED(featsByIndex.length, id_wt,simple_isdl_for_FED));
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,!contextualize_FED) : new FED(featsByIndex.length, id_wt,!contextualize_FED));
 
 		System.out.println(UTILS.getAccuracyReport(ea));
 		
@@ -1106,7 +1106,7 @@ public class DiachronicSimulator {
 					boolean pivoted = ea.isPivotSet(); 
 					
 					ea = new ErrorAnalysis(r, g, featsByIndex, 
-							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,simple_isdl_for_FED) : new FED(featsByIndex.length, id_wt,simple_isdl_for_FED));
+							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,!contextualize_FED) : new FED(featsByIndex.length, id_wt,!contextualize_FED));
 					if (pivoted) 	ea.setPivot(pivPtLex, pivPtName);
 					if (filtered) 	ea.setFilter(filterSeq, pivPtName);
 				}
@@ -1201,7 +1201,7 @@ public class DiachronicSimulator {
 						{
 							pivPtLoc = -1; pivPtLex = null; pivPtName = ""+resp;
 							ea = new ErrorAnalysis(r, g, featsByIndex, 
-									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,simple_isdl_for_FED) : new FED(featsByIndex.length, id_wt,simple_isdl_for_FED));
+									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,!contextualize_FED) : new FED(featsByIndex.length, id_wt,!contextualize_FED));
 							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
@@ -1628,7 +1628,7 @@ public class DiachronicSimulator {
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
 		skip_file_creation = false;
-		simple_isdl_for_FED = false; 
+		contextualize_FED = true; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1702,7 +1702,7 @@ public class DiachronicSimulator {
 			}
 			
 			else if (arg.equals("-simple_FED"))
-				simple_isdl_for_FED = true; 
+				contextualize_FED = false; 
 			
 			// nothing placed afterward -- triggers stage debugging printouts. 
 			else if (arg.equalsIgnoreCase("-debug_stages"))
