@@ -1230,9 +1230,9 @@ public class ErrorAnalysis {
 			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
 			
 			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
-			System.out.println((""+(double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0).substring(0,5)+"% of etyma in whole dataset.");
-			System.out.println("Accuracy on subset with sequence "+filterSeq.toString()+subsamp_blurb+" : "+(""+pctAcc*100.0).substring(0,3)+"%");
-			System.out.println("Percent of errors included in subset: "+((double)nSSMisses/TOT_ERRS*100.0)+"%");
+			System.out.println(String.format("%.2f%% of etyma in whole dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0));
+			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
+			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 
