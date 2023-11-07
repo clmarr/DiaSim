@@ -82,7 +82,7 @@ Bash:
 
 A lexicon file contains your collection of etyma to be processed. It contains a series of attested lexical items from a starting point ("input stage"), optionally followed by any number of series of attested forms of those words from later stages ("gold stages"). DiaSim iterates through your cascade of rules (see below), applies changes to this lexicon, and computes output forms, which can be compared to your gold stages. DiaSim can provide details on any discrepancies between computed results and what is actually observed in the gold stages.
 
-More information on lexica can be found on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+More information on lexica can be found in the file README.cascade.md, and eventually will be included on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
 
 ## Cascade file
 
@@ -90,7 +90,7 @@ A cascade file contains your ordered list of sound change rules that you desire 
 
 The rules that make up a cascade are in the conventional sound change notation, that is to say, `A > B / C __ D`.
 
-More information on cascades can be found on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+More information on cascades can be found in the file README.lexicon.md, and eventually will also be included in this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
 
 ## Output data
 
