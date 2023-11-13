@@ -360,7 +360,7 @@ Hamann 2014 = Hamann, S. 2014. "Phonological changes". In Bowern, C. and Evans, 
 
 Hill 2014 = Hill, N. W. 2014. "Grammatically conditioned sound change". *Language and Linguistics Compass* 8(6): 211-229.
 
-Hock 1976 = Hock, H. H. 1976. Review of An introducction to historical and comparative linguiistics by Raimo Anttila. *Language* 52(1): 202-220. 
+Hock 1976 = Hock, H. H. 1976. Review of An introduction to historical and comparative linguiistics by Raimo Anttila. *Language* 52(1): 202-220. 
 
 Hyman & Moxley 1996 = Hyman, L. and Moxley, J. 1996. "The morpheme in phonological change: velar palatalization in Bantu." *Diachronica* 13(2): 259-82.  
 
