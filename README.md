@@ -82,7 +82,7 @@ Bash:
 
 A lexicon file contains your collection of etyma to be processed. It contains a series of attested lexical items from a starting point ("input stage"), optionally followed by any number of series of attested forms of those words from later stages ("gold stages"). DiaSim iterates through your cascade of rules (see below), applies changes to this lexicon, and computes output forms, which can be compared to your gold stages. DiaSim can provide details on any discrepancies between computed results and what is actually observed in the gold stages.
 
-More information on lexica can be found in the file README.lexicon.md, and eventually will be included on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+More information on lexica can be found in the [README on lexicon files](https://github.com/clmarr/DiaSim/blob/gamma/README.lexicon.md), and eventually will be included on this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
 
 ## Cascade file
 
@@ -90,7 +90,7 @@ A cascade file contains your ordered list of sound change rules that you desire 
 
 The rules that make up a cascade are in the conventional sound change notation, that is to say, `A > B / C __ D`.
 
-More information on cascades can be found in the file README.cascade.md, and eventually will also be included in this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
+More information on cascades can be found in the [README on cascades](https://github.com/clmarr/DiaSim/blob/gamma/README.cascade.md), and eventually will also be included in this repository's wiki (CURRENTLY UNDER CONSTRUCTION).
 
 ## Output data
 
@@ -102,12 +102,12 @@ This file will be expanded with usage basics in 2023 and 2024.
 
 The other README files have the following coverage: (please be patient as we are trying our best to complete them while attending to other pressing issues!)
 
-- README.lexicon.md: covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with columns for ('gold') stages with observed forms to compare with reconstructed outcomes, and how include paradigmatic information and token frequencies.
+- [README.lexicon.md](https://github.com/clmarr/DiaSim/blob/gamma/README.lexicon.md): covers how to build your lexicon file, the set of etyma to realize sound changes upon, including how to make a lexicon file with columns for ('gold') stages with observed forms to compare with reconstructed outcomes, and how include paradigmatic information and token frequencies.
 
-- README.cascade.md: covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
+- [README.cascade.md](https://github.com/clmarr/DiaSim/blob/gamma/README.cascade.md): covers how to make your cascade file, the set of ordered sound changes to realize upon your lexicon, according to SPE format with a couple added gimmicks, the use of alpha features, the placement of gold and black boxes in the cascade, and so forth (most sections complete but considerable material still under construction)
   
-- README.representations.md: covers the handling of features and the phone symbols defined in terms of them, including feature implications and translations.
+- [README.representations.md](https://github.com/clmarr/DiaSim/blob/gamma/README.representations.md): covers the handling of features and the phone symbols defined in terms of them, including feature implications and translations.
 
-- README.metrics.md: covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation (coming soon)
+- [README.metrics.md](https://github.com/clmarr/DiaSim/blob/gamma/README.metrics.md): covers how metrics provided whenever DiaSim evaluates reconstructed outputs against observed forms are computed, and how to modify their computation (coming soon)
 
-- README.suite.md: covers the diagnostics offered by DiaSim whenever it *halts*, and how to use the so-called "halt menu" to debug your cascade! (coming soon)
+- [README.suite.md](https://github.com/clmarr/DiaSim/blob/gamma/README.suite.md): covers the diagnostics offered by DiaSim whenever it *halts*, and how to use the so-called "halt menu" to debug your cascade! (coming soon)
