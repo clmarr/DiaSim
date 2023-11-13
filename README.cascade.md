@@ -354,7 +354,7 @@ Anttila 1972 = Anttila, R. 1972. "An introduction to historical and comparative 
 
 Downing 2007 = Downing, L. 2007. "Explaining the role of the morphological continuum in Bantu spirantization". *Africana Linguistica* 13: 53-78. 
 
-Enger 2013 = Enger, H-O. 2013 "Inflectiona chagne, 'sound laws' and the autonomy of morphology: the case of Scandinavian case and gender reduction". *Diachronica* 30(1): 1-26. 
+Enger 2013 = Enger, H-O. 2013 "Inflectional change, 'sound laws' and the autonomy of morphology: the case of Scandinavian case and gender reduction". *Diachronica* 30(1): 1-26. 
 
 Hamann 2014 = Hamann, S. 2014. "Phonological changes". In Bowern, C. and Evans, B. (eds.), *The Routledge Handbook of Historical Linguistics*. 
 
