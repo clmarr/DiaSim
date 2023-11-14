@@ -133,6 +133,10 @@ public class SChangeFactory {
 			inputParse = inputSplit[1].trim();
 			inputSplit = inputParse.split(LOCUS); 
 			
+			if (inputSplit.length == 0)
+				throw new RuntimeException("Error: Context flag and locus marker seen, but no specification of either prior or posterior "
+						+ "on either side of the locus!\nAttempted rule is: "+inp);
+
 			postrSpecified = (inputSplit.length == 2 );
 			inputPostr = "";
 			if(postrSpecified)	inputPostr = inputSplit[1].trim(); 
