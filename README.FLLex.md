@@ -1,4 +1,4 @@
-Readme for FLLex dataset policies. 
+README for FLLex dataset policies. 
 
 
 Rationale: 
@@ -8,7 +8,10 @@ initial paper introducing the DiaSim system, it is used for demonstrating how Di
 rule set, namely the example of the Latin-to-French diachronic transformational rule set as described by Mildred K Pope
 in her 1934 foundational treatise, "From Latin to Modern French with Especial Consideration of Anglo-Norman: Phonology
 and Morphology". However, more generally, this dataset is also intended to enable testing of any "hypothesis" of a set
-of diachronic transformation rules for the Latin-to-French scenario. 
+of diachronic transformation rules for the Latin-to-French scenario. The form of the dataset used in Marr and Mortensen 2020,
+and also Marr and Mortensen 2023, is preserved as "FLLex2020" within the folder "legacy" (similarly, there is a 2020 version
+of the periodicized "FLLAPS" dataset in the same folder), though at the time of writing (November 13, 2023), subsequent 
+changes to FLLex have been limited to material in the comments. 
 
 In order to enable this dataset to be of such use, we must be clear of what specifically it is to be used to test. 
 Specifically, this dataset is constructed to test PHONOLOGICAL developments. It is not intended to test developments that
