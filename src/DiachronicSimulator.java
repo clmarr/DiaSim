@@ -1055,17 +1055,22 @@ public class DiachronicSimulator {
 			
 			while (resp.length() == 0)
 			{
-				System.out.print(
-						"\nWhat would you like to do? Please enter the appropriate number below:\n"
-						+ "| 0 : Set evaluation point ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|\n"
-						+ "| 1 : Set pivot point (upon which actions are conditioned, incl. filtering [2])       |\n"
-						+ "| 2 : Set filter sequence                                                             |\n"
-						+ "| 3 : Query                                                                           |\n"
-						+ "| 4 : Confusion diagnosis at evaluation point                                         |\n"
-						+ "| 5 : Run context autopsy (at evaluation point) for filter sequence                   |\n"
-						+ "| 6 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n"
-						+ "| 7 : Test full effects of a proposed change to the cascade                           |\n"
-						+ "| 9 : End this analysis.______________________________________________________________|\n");
+				System.out.println("\n" +
+					"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# SUITE MENU #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
+					"|        What would you like to do? Please enter the appropriate number below:        |\n" +
+					"|                                 ----- Scoping -----                                 |\n" +
+					"| 0 : Set evaluation point                                                            |\n" +
+					"| 1 : Set pivot point (upon which actions are conditioned, incl. filtering [2])       |\n" +
+					"| 2 : Set filter sequence                                                             |\n" +
+					"|                               ------ View data -----                                |\n" +
+					"| 3 : Query                                                                           |\n" +
+					"| 4 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n" +
+					"|                              ------ Diagnostics -----                               |\n" +
+					"| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n" +
+					"| 6 : Confusion diagnosis at evaluation point                                         |\n" +
+					"| 7 : Test full effects of a proposed change to the cascade                           |\n" +
+					"|-------------------------------------------------------------------------------------|\n" +
+					"|_9 : End this analysis.______________________________________________________________|");
 				resp = inpu.nextLine();
 				if (resp.length() > 0)	resp = resp.substring(0,1);
 			}
@@ -1374,7 +1379,7 @@ public class DiachronicSimulator {
 					}
 				}
 			}
-			else if(resp.equals("4"))	ea.confusionDiagnosis(true);
+			else if(resp.equals("6"))	ea.confusionDiagnosis(true);
 			else if(resp.equals("5"))
 			{
 				if(!ea.isFiltSet())
@@ -1409,7 +1414,7 @@ public class DiachronicSimulator {
 					}	
 				}
 			}
-			else if(resp.equals("6"))
+			else if(resp.equals("4"))
 			{
 				boolean subcont = true; 
 				
