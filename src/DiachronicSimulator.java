@@ -1,10 +1,13 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.HashMap; 
 import java.util.Scanner; 
@@ -769,8 +772,11 @@ public class DiachronicSimulator {
 			makeDerivationFiles(); 	
 			
 			//make output graphs file
-			System.out.println("making output graph file in "+dir);
-			makeOutGraphFile(); 
+			System.out.println("making stagewise output graph file in "+dir);
+			makeStagewiseOutGraphFile(); 
+			System.out.print("... and rulewise output graph file ...");
+			makeRulewiseOutGraphFile(); 
+			System.out.print(" ... done.\n");
 		}
 				
 		if(hasGoldOutput)
@@ -806,13 +812,59 @@ public class DiachronicSimulator {
 		inp.close();
 	}
 
-	private static void makeOutGraphFile()
+	private static void makeStagewiseOutGraphFile()
 	{	
 		String filename = new File(runPrefix, 
 				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
-				+ "_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
+				+ "_stagewise_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
 		UTILS.writeToFile(filename, theSimulation.outgraph(),true); 
 	}
+	
+	private static void makeRulewiseOutGraphFile()
+	{
+		String[][] ruleByEtymGraph = theSimulation.derivationGraph();
+		
+		//TODO debugging
+		System.out.println("made local graph..."); 
+		
+		String filename = new File(runPrefix, 
+				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
+				+ "_rulewise_output_graph.csv").toString(); 
+		try 
+		{	
+			int dirBreak = filename.indexOf("/");
+
+			while (dirBreak != -1)
+			{
+				String curDir = filename.substring(0, dirBreak),
+						rem = filename.substring(dirBreak+1); 
+				if (!new File(curDir).exists()) 
+					new File(curDir).mkdirs(); 
+				
+				dirBreak = !rem.contains("/") ? -1 : 
+					dirBreak + 1 + rem.indexOf("/"); 
+			
+			}
+			
+			BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
+			
+			for (int ri = 0 ; ri < ruleByEtymGraph.length; ri++)
+				out.write(String.join(",", ruleByEtymGraph[ri]) + "\n"); 
+			
+			out.close();
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}		
+	}
+	
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
 		String filename = new File(runPrefix, 
