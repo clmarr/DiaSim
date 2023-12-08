@@ -1062,10 +1062,10 @@ public class DiachronicSimulator {
 					"| 0 : Set evaluation point                                                            |\n" +
 					"| 1 : Set pivot point (upon which actions are conditioned, incl. filtering [2])       |\n" +
 					"| 2 : Set filter sequence                                                             |\n" +
-					"|                               ------ View data -----                                |\n" +
+					"|                                ----- View data -----                                |\n" +
 					"| 3 : Query                                                                           |\n" +
 					"| 4 : Review filtered results or analyze them (stats, errors) at eval point (submenu) |\n" +
-					"|                              ------ Diagnostics -----                               |\n" +
+					"|                               ----- Diagnostics -----                               |\n" +
 					"| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n" +
 					"| 6 : Confusion diagnosis at evaluation point                                         |\n" +
 					"| 7 : Test full effects of a proposed change to the cascade                           |\n" +
