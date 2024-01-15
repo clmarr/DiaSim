@@ -588,7 +588,7 @@ public class DHSWrapper {
 							
 							boolean no_effect = true; 
 							for(String effect: rule_effects_at_ind)	{
-								if (!(""+effect).equals("null"))	
+								if (!(""+effect).equals("null") && !(""+effect).equals(""))	
 								{	System.out.println(effect); 
 									no_effect = false; 
 								}

@@ -369,8 +369,6 @@ public class Simulation {
 			// can ( and should ) skip if there is no stages at all.  
 		if (stagesOrdered.length > 0) 
 		{
-			
-			
 			boolean nextStageBlack = stagesOrdered[soi].charAt(0) == 'b'; 
 			int next_stage_ri = (nextStageBlack ? blackStageInstants : goldStageInstants)
 					[Integer.parseInt(stagesOrdered[soi].substring(1))]; 
@@ -446,7 +444,7 @@ public class Simulation {
 		}
 		
 		//TODO debugging
-		System.out.println ("rulewise outgraph built successfully.");
+		System.out.println ("\nrulewise outgraph built successfully.");
 		
 		return output; 
 	}
