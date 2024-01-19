@@ -311,7 +311,7 @@ public class Simulation {
 				boolean isg = st.charAt(0) == 'g'; 
 				int stn = Integer.parseInt(st.substring(1)); 
 				to_return += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
-				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn]+"}"; 
+				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn].getByID(ID)+"}"; 
 			}
 			to_return += " | "; 
 		}
