@@ -947,6 +947,9 @@ public class ErrorAnalysis {
 	*/
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
+		//TODO debugging
+		System.out.println("res ph inventory size : "+resPhInventory.length);
+		
 		int[][] maxLocs = new int[n][2]; 
 			// list of the locations(row, col) with the top N greatest values
 			// in descending order. 
@@ -957,47 +960,35 @@ public class ErrorAnalysis {
 			// so currCol = 0 is what is being compared against. 
 			// since the increment is by columns first, we compare first against situation with currCol as 1. 
 		
-		while (num_filled < n)
+		while (currRow < arrArr.length) 
 		{
-			if (arrArr[currRow][currCol] > arrArr[maxLocs[num_filled - 1][0]][maxLocs[num_filled-1][1]])
+			//first check if lowest member of top N list is beaten by the value for current location
+			//if it is, then check if any higher members of top N list get usurped too
+			// in the process, bump each location that is usurped down 
+			// potentially falling off the top N if the top N spots were already filled. 
+			
+			int i = num_filled - 1; 
+			//TODO work here.
+
+			boolean lowest_usurped = 
+					arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]];		
+			if (lowest_usurped)
 			{
-				boolean keep_replacing = true; 
-				int i = num_filled - 1; 
-				while(keep_replacing)
-				{
-					maxLocs[i+1] = new int[] {maxLocs[i][0], maxLocs[i][1]}; 
-					maxLocs[i] = new int[]{currRow, currCol}; 
-					i--;
-					if (i < 0)	keep_replacing = false;
-					else	keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
-				}
-				num_filled++;
-			}
-			currCol++; 
-			if (currCol == arrArr[0].length)
-			{	currCol = 0; currRow++; 	}
-		}
-		// now output is filled -- now replacing those with less than cells we still have not yet seen.
-		// currRow and currCol are still correct next spots we assume 
-		
-		while(currRow < arrArr.length)
-		{
-			if(arrArr[currRow][currCol] > arrArr[maxLocs[n-1][0]][maxLocs[n-1][1]])
-			{
-				maxLocs[n-1] = new int[]{currRow, currCol}; 
-				int i = n - 2; 
-				boolean keep_replacing = i >= 0 ; 
-				if (keep_replacing)
-					keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
-				while(keep_replacing)
-				{
-					maxLocs[i+1] = new int[] {maxLocs[i][0], maxLocs[i][1]}; 
+				while (i < 0 ? false : 
+					arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]])
+				{	
+					if (i < n - 1) // loser totally knocked off the top N if it was the Nth. Otherwise, just bumped down. 
+						maxLocs[i+1] = new int[] {maxLocs[i][0], maxLocs[i][1]}; 
+					//winner, the current location, usurps place i. 
 					maxLocs[i] = new int[] {currRow, currCol}; 
 					i--;
-					if ( i < 0)	keep_replacing = false;
-					else	keep_replacing = (arrArr[currRow][currCol] > arrArr[maxLocs[i][0]][maxLocs[i][1]]);
 				}
 			}
+			else if (num_filled < n) //take the lowest unfilled spot if not all spots are filled yet. 
+				maxLocs[num_filled] = new int[] {currRow, currCol}; 
+			
+			if (num_filled < n)	num_filled++; 
+			
 			currCol++; 
 			if (currCol == arrArr[0].length)
 			{	currCol = 0; currRow++; 	}
