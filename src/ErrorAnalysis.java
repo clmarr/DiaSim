@@ -93,6 +93,7 @@ public class ErrorAnalysis {
 			// but this is not a priority right now as there are more important things to improve upon given the work necessary to involve that.
 	private int[][] confusionMatrix; 
 		// rows -- indexed by resPhInds; columns -- indexed by goldPhInds
+		// NOTE: final indices in both dimensions are for the null phone!
 	
 	/**
 	 * @param theRes --  result lexicon, lexicon that is the result of forward reconstruction. 
@@ -947,6 +948,8 @@ public class ErrorAnalysis {
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
 		int[][] maxLocs = new int[n][2]; 
+			// list of the locations(row, col) with the top N greatest values
+			// in descending order. 
 		int num_filled = 1; //since maxLocs[0] = {0,0} already by default
 
 		int currCol = 1, currRow = 0; 
