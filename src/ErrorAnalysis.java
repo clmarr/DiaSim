@@ -953,6 +953,9 @@ public class ErrorAnalysis {
 		int num_filled = 1; //since maxLocs[0] = {0,0} already by default
 
 		int currCol = 1, currRow = 0; 
+			// since maxLocs[0] is already {0,0}, it starts with the assumption that that is the location of a max value
+			// so currCol = 0 is what is being compared against. 
+			// since the increment is by columns first, we compare first against situation with currCol as 1. 
 		
 		while (num_filled < n)
 		{
