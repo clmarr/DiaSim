@@ -248,7 +248,10 @@ public class SChangeFactory {
 			if (!usingAlphFeats)	usingAlphFeats = theDest.has_alpha_specs(); 
 			if (!usingAlphFeats && priorSpecified)
 				usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
-			// don't need to check with posterior since it won't have any if there are none in all of source, dest, and prior.
+			if (!usingAlphFeats && postrSpecified)
+				usingAlphFeats = parseNewSeqFilter(inputPostr,boundsMatter).hasAlphaSpecs();
+				// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
+				// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
 			
 			// note that parseSinglePhonicDest returns a word bound "#" if the input is not a valid string referring to a single phonic.
 			if(theDest.print().equals("#") == false)
@@ -273,7 +276,7 @@ public class SChangeFactory {
 			return output;  
 		}
 		// if we reach this point, we know the source is not a single FeatMatrix 
-		// and the SChange must be an SChangeFeatToPhone or SChangePhone
+		// and the SChange must be an SChangeFeatToPhone, SChangeSeqToSeq or SChangePhone
 		
 		if(srcHasFeatMatrices) // it's an SChangeFeatToPhone or SChangeSeqToSeq
 		{
