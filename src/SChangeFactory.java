@@ -34,7 +34,7 @@ public class SChangeFactory {
 	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	
 	private static final char phDelim = ' '; // delimits phones that are in the same sequence
-	public static final char segDelim = ';'; // delimits segments that are in disjunctio
+	public static final char disjunctDelim = ';'; // delimits segments that are in disjunction
 	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]
@@ -154,7 +154,7 @@ public class SChangeFactory {
 			{
 				if(! inputPrior.contains("}"))
 					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found\nAttempted rule is: "+inp);
-				if(! inputPrior.contains(""+segDelim) )
+				if(! inputPrior.contains(""+disjunctDelim) )
 					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found\nAttempted rule is: "+inp); 
 				int openerInd = inputPrior.indexOf("{"); 
 				int braceDepth = 1; 
@@ -175,7 +175,7 @@ public class SChangeFactory {
 							+ "the corresponding closer of the disjunction which was opened.\nAttempted rule is :"+inp); 
 				}
 				
-				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+segDelim); 
+				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+disjunctDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
 					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest
@@ -189,7 +189,7 @@ public class SChangeFactory {
 			{
 				if(! inputPostr.contains("}") )
 					throw new RuntimeException("Error: disjunction opener found but disjunction closer not found\nAttempted rule is: "+inp);
-				if(! inputPostr.contains(""+segDelim) )
+				if(! inputPostr.contains(""+disjunctDelim) )
 					throw new RuntimeException("Error: disjunction opener found but disjunction delimiter not found\nAttepmted rule is: "+inp); 
 				int openerInd = inputPostr.indexOf("{"); 
 				int braceDepth = 1; 
@@ -209,7 +209,7 @@ public class SChangeFactory {
 							+ "the corresponding closer of the disjunction which was opened.\nAttempted rule is: "+inp) ; 
 				}
 				
-				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+segDelim); 
+				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+disjunctDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
 					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest+
@@ -313,7 +313,27 @@ public class SChangeFactory {
 		
 		//if we reach this point, we know we are making an SChangePhone
 		
-		List<List<SequentialPhonic>> sourceSegs = parseSeqPhDisjunctSegs(inputSource);
+		List<List<SequentialPhonic>> sourceDisjuncts = parseSeqPhDisjunctSegs(inputSource);
+		
+		//but, change this into a SeqToSeqAlpha if using alpha features
+		// this is necessary because of how SChangePhone generates destinations during construction 
+			// (which doesn't work with the dynamism of alpha features)
+		// and because we're changing it to a SeqToSeqALpha, may need multiple ones 
+			// in case there is a disjunction in the input... 
+		if (usingAlphFeats) {
+			for (String disj : UTILS.getBraceDisjPossibilities(inputSource))
+			{
+				SChangeSeqToSeqAlpha nextShift = 
+						new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, parseRestrictPhoneSequence(disj),
+								parseRestrictPhoneSequence(inputDest, true), inp);
+				if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+				if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
+				output.add(nextShift); 
+			}
+			return output; 
+		}
+		
+		// if reached this point, not using alpha feats!
 		
 		//check if making an SChangePhone using FeatMatrices for the dest
 		if(hasValidFeatSpecList(inputDest))
@@ -322,10 +342,11 @@ public class SChangeFactory {
 				inputDest = inputDest.substring(1, inputDest.indexOf(']')); 
 			if(isValidFeatSpecList(inputDest))
 			{
+				
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(inputDest, true)) ; 
-				SChangePhone newShift = usingAlphFeats? new SChangePhoneAlpha(sourceSegs, destMutations, inp)
-						: new SChangePhone(sourceSegs, destMutations, inp);
+				
+				SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				output.add(newShift); 
@@ -337,8 +358,7 @@ public class SChangeFactory {
 				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"
 				+ "\nAttemped rule is: "+inp); 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
-			SChangePhone newShift = usingAlphFeats ? new SChangePhoneAlpha(sourceSegs, destMutations, inp)
-					: new SChangePhone(sourceSegs, destMutations, inp);
+			SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(newShift); 
@@ -346,11 +366,10 @@ public class SChangeFactory {
 		}
 		
 		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
-		if( sourceSegs.size() != destSegs.size() ) throw new RuntimeException(
+		if( sourceDisjuncts.size() != destSegs.size() ) throw new RuntimeException(
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!"
 			+ "\nAttempted rule is: "+inp);
-		SChangePhone newShift = usingAlphFeats ? new SChangePhoneAlpha(sourceSegs, destSegs, inp) 
-				: new SChangePhone(sourceSegs, destSegs, inp); 
+		SChangePhone newShift = new SChangePhone(sourceDisjuncts, destSegs, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 		output.add(newShift); 
@@ -485,9 +504,9 @@ public class SChangeFactory {
 			+ "\nAttempted rule was : "+input); 
 		if(inp.charAt(0) == '{')
 			inp = input.substring(1, inp.length() - 1).trim(); 
-		if(inp.contains(segDelim+""))
+		if(inp.contains(disjunctDelim+""))
 		{	
-			String[] inpSegStrs = inp.split(""+segDelim); 
+			String[] inpSegStrs = inp.split(""+disjunctDelim); 
 			for (int issi = 0 ; issi < inpSegStrs.length; issi++)
 				output.add(parseSeqPhSeg(inpSegStrs[issi].trim())); 
 			return output; 

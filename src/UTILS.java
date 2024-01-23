@@ -25,6 +25,7 @@ public class UTILS {
 	public final static char STAGENAME_LOC_DELIM = ':'; 
 	public final static char LEX_DELIM =','; 
 	public final static char STAGE_PRINT_DELIM = ',';  
+	public final static char DISJUNCT_DELIM = ','; 
 	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
 	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
 	public final static String UNATTD_INDIC = ">*", UNATTD_REPR = "{UNATTESTED}"; 
@@ -738,14 +739,14 @@ public class UTILS {
 			if(checkForBracingError(inputPostr))
 				throw new RuntimeException("Invalid input for posterior context stipulation: "+inputPostr); 
 		
-		return getBraceDisjunctions(impCtxt); 
+		return getBraceDisjPossibilities(impCtxt); 
 	}
 	
 	//error if any opener { braces are not closed by a closer } brace or vice versa.
 	// @true if there is such erroneous usage. 
 	public static boolean checkForBracingError(String s) 
 	{
-		String SD = SChangeFactory.segDelim + ""; 
+		String SD = DISJUNCT_DELIM + ""; 
 		if (s.contains("{") != s.contains("}") )	return true; 
 		if(!s.contains("{"))	return false; 
 		int openerInd = s.indexOf("{"), lastCloserInd = s.lastIndexOf("}"); 
@@ -791,7 +792,12 @@ public class UTILS {
 		return false; 
 	}
 	
-	public static List<String> getBraceDisjunctions(String inp)
+
+	/**
+	 * given a string of phonemes featMatrices, pseudophones etc with a disjunction (@param INP) , 
+	 * @return all possible strings with each possibility of (each) disjunction clause explored 
+	 */
+	public static List<String> getBraceDisjPossibilities(String inp)
 	{
 		if(checkForBracingError(inp))	
 			throw new RuntimeException("Invalid bracing in string: "+inp);
@@ -806,7 +812,7 @@ public class UTILS {
 		while (braceDepth > 1 || inp.charAt(checkInd) != '}')
 		{
 			char curr = inp.charAt(checkInd); 
-			if (curr == SChangeFactory.segDelim && braceDepth == 1) 
+			if (curr == DISJUNCT_DELIM && braceDepth == 1) 
 				ddelims.add(checkInd); 
 			if(curr == '{' && braceDepth == 1)
 				lvl2disjunctSpans.add(new int[] {checkInd, -1}); 
@@ -833,7 +839,7 @@ public class UTILS {
 		// will recurse if necessary.
 		for (String disj : lvl1disjuncts)
 			out.addAll( 
-					getBraceDisjunctions(inp.substring(0, openerInd) + disj + inp.substring(checkInd+1)));
+					getBraceDisjPossibilities(inp.substring(0, openerInd) + disj + inp.substring(checkInd+1)));
 		
 		return out; 
 	}
@@ -975,4 +981,5 @@ public class UTILS {
 		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 		return !non_alpha_initials.contains(spec.substring(0,1)); 
 	}
+	
 }

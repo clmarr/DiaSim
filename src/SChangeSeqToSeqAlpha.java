@@ -137,14 +137,16 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					
 					if(!isPostrMatch) {
 						int indAfter = p + minInputSize;
-						boolean postrPossible = true; 
-						boolean reachedEnd = false; 
+						boolean postrPossible = true, reachedEnd = false; 
 						if(postContext.has_unset_alphas())
 						{
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
 							String[] popm = postContext.getParenMap();
 							int cpic = indAfter, crp = 0, cpim = 0; 
 							boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
+								// note that code here seems to assume that no alpha values will be specified after a parenthesis in a posterior context.
+									// ... which may not be safe?  
+									// TODO revise this? 
 							while (!halt)
 							{
 								RestrictPhone poi = popr.get(crp); 
