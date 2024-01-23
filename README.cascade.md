@@ -321,6 +321,7 @@ Alpha features are a notation device used by phonologists to indicate a linkage 
 	multiple alpha features... 
 		
 	(negative alpha values...) 
+ 	(TODO cover with '!' rather than '-')
 	(TODO need to ensure coverage of negated alpha values works)
 		(negated alpha values in debugging suite...) 
 		
@@ -346,7 +347,8 @@ This is economic, as otherwise separate rules for the spreading of the '+' and '
 (TODO elaborate...) 
 
 
-(TODO -- negative alpha feats not currently supported) 
+(TODO -- negative alpha feats not currently supported)
+	(will be supported with '!' serving to negate-- to avoid confusion with '-'). 
 
 # Cited works
 
