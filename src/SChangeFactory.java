@@ -121,10 +121,10 @@ public class SChangeFactory {
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
 		
-		boolean usingAlphFeats = false; 
 		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
 		boolean priorSpecified = false, postrSpecified = false; 
+		
 		if(contextSpecified)
 		{
 			if(!inputParse.contains(LOCUS)) throw new RuntimeException("Error: Context flag seen but locus not seen!\nAttempted rule is "+inp); 
@@ -219,6 +219,19 @@ public class SChangeFactory {
 				return output; 				
 			}
 		}
+		
+		boolean usingAlphFeats = 
+				UTILS.stringHasFMWithAlpha(inputSource); 
+		if (!usingAlphFeats) 
+			usingAlphFeats = UTILS.stringHasFMWithAlpha(inputDest); 
+		if (!usingAlphFeats && priorSpecified)
+			usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
+		if (!usingAlphFeats && postrSpecified)
+			usingAlphFeats = parseNewSeqFilter(inputPostr,boundsMatter).hasAlphaSpecs();
+			// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
+			// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
+				
+		
 		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
 				+ " features for defining source -- this is forbidden. \nIt will be added in future releases.\nFor now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
@@ -232,7 +245,6 @@ public class SChangeFactory {
 			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
 		if(srcHasFeatMatrices)
 		{
-			usingAlphFeats = UTILS.stringHasFMWithAlpha(inputSource); 
 			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
 			if( inputSource.contains("{") || inputSource.contains("}")) 
 				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
@@ -245,13 +257,6 @@ public class SChangeFactory {
 		if(isValidFeatSpecList(inputSource)) //input consists of naught but a feat spec list -- we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
-			if (!usingAlphFeats)	usingAlphFeats = theDest.has_alpha_specs(); 
-			if (!usingAlphFeats && priorSpecified)
-				usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
-			if (!usingAlphFeats && postrSpecified)
-				usingAlphFeats = parseNewSeqFilter(inputPostr,boundsMatter).hasAlphaSpecs();
-				// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
-				// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
 			
 			// note that parseSinglePhonicDest returns a word bound "#" if the input is not a valid string referring to a single phonic.
 			if(theDest.print().equals("#") == false)
@@ -296,8 +301,10 @@ public class SChangeFactory {
 			}
 			
 			//else, i.e. its a SChangeFeatToPhone 
-			SChangeFeatToPhone thisShift = new SChangeFeatToPhone(featIndices, 
-					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), inp); 
+			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha (featIndices, 
+					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), inp)
+					: new SChangeFeatToPhone(featIndices, parseRestrictPhoneSequence(inputSource), 
+							parsePhoneSequenceForDest(inputDest), inp); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(thisShift); 
@@ -317,7 +324,8 @@ public class SChangeFactory {
 			{
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(inputDest, true)) ; 
-				SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
+				SChangePhone newShift = usingAlphFeats? new SChangePhoneAlpha(sourceSegs, destMutations, inp)
+						: new SChangePhone(sourceSegs, destMutations, inp);
 				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				output.add(newShift); 
@@ -329,7 +337,8 @@ public class SChangeFactory {
 				+ "same mutations must be applied to all disjunctions in the source target, which all must be the same length"
 				+ "\nAttemped rule is: "+inp); 
 			ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>(parseRestrictPhoneSequence(inputDest, true)); 
-			SChangePhone newShift = new SChangePhone(sourceSegs, destMutations, inp);
+			SChangePhone newShift = usingAlphFeats ? new SChangePhoneAlpha(sourceSegs, destMutations, inp)
+					: new SChangePhone(sourceSegs, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 			output.add(newShift); 
@@ -340,7 +349,8 @@ public class SChangeFactory {
 		if( sourceSegs.size() != destSegs.size() ) throw new RuntimeException(
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!"
 			+ "\nAttempted rule is: "+inp);
-		SChangePhone newShift = new SChangePhone(sourceSegs, destSegs, inp); 
+		SChangePhone newShift = usingAlphFeats ? new SChangePhoneAlpha(sourceSegs, destSegs, inp) 
+				: new SChangePhone(sourceSegs, destSegs, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 		output.add(newShift); 
