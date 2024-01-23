@@ -950,7 +950,7 @@ public class UTILS {
 	 * @return true if there is a feat matrix with an alpha-valued feature specification present in this string 
 	 * 		intended for use for inputs, destinations, and contexts... 
 	 */
-	public boolean stringHasFMWithAlpha (String str)
+	public static boolean stringHasFMWithAlpha (String str)
 	{
 		String[] protophones = str.split(""+PH_DELIM); 
 		
@@ -970,7 +970,7 @@ public class UTILS {
 	/**
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) is assigned an alpha value. 
 	 * @param spec is the string form of the feature specification. */ 
-	public boolean spec_is_alpha_marked(String spec)
+	public static boolean spec_is_alpha_marked(String spec)
 	{
 		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 		return !non_alpha_initials.contains(spec.substring(0,1)); 

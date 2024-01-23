@@ -232,7 +232,7 @@ public class SChangeFactory {
 			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
 		if(srcHasFeatMatrices)
 		{
-			usingAlphFeats = alphCheck(inputSource); 
+			usingAlphFeats = UTILS.stringHasFMWithAlpha(inputSource); 
 			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
 			if( inputSource.contains("{") || inputSource.contains("}")) 
 				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
@@ -635,27 +635,6 @@ public class SChangeFactory {
 		return false; 
 	}
 	
-	// check if alpha notation is being used for any specs in a featMatrix
-	private boolean alphCheck (String inp)
-	{
-		String[] protophones = inp.split(""+phDelim);
-		for(int ppi = 0 ; ppi < protophones.length; ppi++)
-		{
-			String curpp = ""+protophones[ppi].trim();
-			if(curpp.charAt(0) == '[')
-			{
-				curpp = curpp.substring(1, curpp.indexOf(']'));
-				if(!"+-0".contains(curpp.substring(0,1)))	return true; 
-				if(curpp.contains(restrDelim+""))
-				{
-					String[] specs = curpp.split(""+restrDelim); 
-					for (int spi = 1; spi < specs.length; spi++)
-						if (!"+-0".contains(specs[spi].substring(0,1)))	return true;
-				}
-			}
-		}
-		return false;
-	}
 
 	public FeatMatrix getFeatMatrix(String featSpecs)
 	{	return getFeatMatrix(featSpecs, false);	}
