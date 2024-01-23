@@ -311,33 +311,34 @@ public class SChangeFactory {
 			return output;  
 		}
 		
-		//if we reach this point, we know we are making an SChangePhone
+		//if we reach this point, we know we are making an SChangePhone, formally
+			// ... although it might end up as an SChangeSeqToSeqAlpha if need be
+			// to avoid certain issues. 
 		
-		List<List<SequentialPhonic>> sourceDisjuncts = parseSeqPhDisjunctSegs(inputSource);
-		
-		//but, change this into a SeqToSeqAlpha if using alpha features
-		// this is necessary because of how SChangePhone generates destinations during construction 
-			// (which doesn't work with the dynamism of alpha features)
-		// and because we're changing it to a SeqToSeqALpha, may need multiple ones 
-			// in case there is a disjunction in the input... 
-		if (usingAlphFeats) {
-			for (String disj : UTILS.getBraceDisjPossibilities(inputSource))
-			{
-				SChangeSeqToSeqAlpha nextShift = 
-						new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, parseRestrictPhoneSequence(disj),
-								parseRestrictPhoneSequence(inputDest, true), inp);
-				if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
-				if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
-				output.add(nextShift); 
-			}
-			return output; 
-		}
-		
-		// if reached this point, not using alpha feats!
+		List<List<SequentialPhonic>> sourceDisjuncts = parseSeqPhDisjunctSegs(inputSource);		
 		
 		//check if making an SChangePhone using FeatMatrices for the dest
 		if(hasValidFeatSpecList(inputDest))
 		{
+			//change this into a SeqToSeqAlpha if using alpha features
+			// this is necessary because of how SChangePhone generates destinations during construction 
+				// (which doesn't work with the dynamism of alpha features)
+			// and because we're changing it to a SeqToSeqALpha, may need multiple ones 
+				// in case there is a disjunction in the input... 
+			if (usingAlphFeats) {
+				for (String disj : UTILS.getBraceDisjPossibilities(inputSource))
+				{
+					SChangeSeqToSeqAlpha nextShift = 
+							new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, parseRestrictPhoneSequence(disj),
+									parseRestrictPhoneSequence(inputDest, true), inp);
+					if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
+					if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
+					output.add(nextShift); 
+				}
+				return output; 
+			}
+			// if reached this point, not using alpha feats!
+
 			if(inputDest.charAt(0) == '[' && inputDest.indexOf(']') == inputDest.length() - 1)
 				inputDest = inputDest.substring(1, inputDest.indexOf(']')); 
 			if(isValidFeatSpecList(inputDest))
@@ -365,11 +366,15 @@ public class SChangeFactory {
 			return output;
 		}
 		
-		List<List<SequentialPhonic>> destSegs = parseSeqPhDisjunctSegs(inputDest); 
-		if( sourceDisjuncts.size() != destSegs.size() ) throw new RuntimeException(
+		// if reached this point, no feature matrix in destination (thus no alpha there -- though there may be in context... (not in input as this is an SChangePhone)) 
+		
+		List<List<SequentialPhonic>> destDisjuncts = parseSeqPhDisjunctSegs(inputDest); 
+		if( sourceDisjuncts.size() != destDisjuncts.size() ) throw new RuntimeException(
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!"
 			+ "\nAttempted rule is: "+inp);
-		SChangePhone newShift = new SChangePhone(sourceDisjuncts, destSegs, inp); 
+		SChangePhone newShift = 
+				usingAlphFeats? new SChangePhoneAlpha(sourceDisjuncts, destDisjuncts, inp) 
+				: new SChangePhone(sourceDisjuncts, destDisjuncts, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 		output.add(newShift); 

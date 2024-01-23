@@ -736,7 +736,7 @@ public class SChangeTester {
 		prevFeatVect = fmtest.getFeatVect(); initSpecs = fmtest.toString();
 		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(o_tense_nas); 
 		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.isEmpty(), 
-				"Error: nothing should bbe extracted for [õ] since it violates [+hi], but something was...") ? 1 : 0 ; 
+				"Error: nothing should be extracted for [õ] since it violates [+hi], but something was...") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(prevFeatVect), 
 				"Error: nothing should be extracted for [õ] since it violates [+hi], but the feature vector has somehow changed!") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(fmtest.toString()), 
@@ -782,6 +782,7 @@ public class SChangeTester {
 		
 		//TODO debugging each of the SChange subclasses that handle alpha-valued features. 
 		System.out.println("TODO: tests for SChange subclasses that handle alpha-valued features..."); 
+		System.out.println("TODO: tests that SChangeFactory extracts the right class in different scenarios...");
 		System.out.println("TODO tests for SChangeFeatAlpha, SChangeFeatToPhoneAlpha, SChangePhoneAlpha..."); 
 		
 		numCorrect = 0; 
