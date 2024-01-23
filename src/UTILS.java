@@ -944,4 +944,35 @@ public class UTILS {
 
 		return accuracyReport;
 	}
+	
+	/**
+	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
+	 * @return true if there is a feat matrix with an alpha-valued feature specification present in this string 
+	 * 		intended for use for inputs, destinations, and contexts... 
+	 */
+	public boolean stringHasFMWithAlpha (String str)
+	{
+		String[] protophones = str.split(""+PH_DELIM); 
+		
+		for(int ppi = 0 ; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.charAt(0) == '[')
+			{
+				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
+				for (String spec : specs) 
+					if (spec_is_alpha_marked(spec))	return true; 
+			}
+		}
+		return false;
+	}	
+	
+	/**
+	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) is assigned an alpha value. 
+	 * @param spec is the string form of the feature specification. */ 
+	public boolean spec_is_alpha_marked(String spec)
+	{
+		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
+		return !non_alpha_initials.contains(spec.substring(0,1)); 
+	}
 }
