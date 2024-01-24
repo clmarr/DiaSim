@@ -257,7 +257,7 @@ public class PhoneTester {
 		System.out.println("Now testing diacritic comprehension."); 
 		diacriticMap = UTILS.buildDiacriticMap(diacritic_def_loc, featureIndices); 
 		
-		System.out.println("First testing input comprehension; will test implementation next..."); 
+		System.out.println("First testing comprehension of diacritic input file; will test implementation next..."); 
 	
 		System.out.println("Testing comprehension of monofeature diacritic sans comments..."); 
 		System.out.println("The following should be '1':"); 
@@ -265,7 +265,7 @@ public class PhoneTester {
 		System.out.println(""+aspiration_dcrit.length);
 		System.out.println("The following should be '+sg':"); 
 		System.out.println(""+aspiration_dcrit[0]);
-		System.out.println("... now testing comprehension of monofeature diacritic with comments..."); 
+		System.out.println("... now testing comprehension of monofeature diacritic with comments on its line in the file..."); 
 		String[] cg_dcrit = diacriticMap.get(" ̰ ".strip()) ;
 		System.out.println("The following should be '1':");
 		System.out.println(""+cg_dcrit.length); 
