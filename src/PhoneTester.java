@@ -280,9 +280,12 @@ public class PhoneTester {
 		
 		System.out.println("Now testing implementation, with respect to comprehension of diacriticized symbols..."); 
 		System.out.println("The following should parse without error..."); 
-		//TODO work here. 
 		testPhone = new Phone(symbsToFeatures.get("p"), featureIndices, symbsToFeatures); 
 		testPhone.set("long", 1);
+		System.out.println("The following should be 'pː': "+testPhone.print()); 
+		
+		//TODO work here. 
+
 		
 		System.out.println("TODO to be implemented..."); 		
 	}
