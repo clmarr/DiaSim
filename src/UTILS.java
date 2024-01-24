@@ -540,9 +540,11 @@ public class UTILS {
 	 * @param feature_indices -- should be featIndices in DiachronicSimulator; featureIndices in phoneTester
 	 * method to build diacritics map -- moved to here so it can be more easily shared between PhoneTester and DiachronicSimulator 
 	 * and anywhere else, as necessary
-	 * @return diacritics map to be used in DiachronicSimulator and in PhoneTester
+	 * formerly, @returned diacritics map to be used in DiachronicSimulator and in PhoneTester
+	 * now as of @date January 24, 2024, this is a void method that initializes the now LOCAL but PUBLIC diacritic map, which will be referenced by other classes
+	 * 	but kept here in UTILS. 
 	 */
-	public static void buildDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
+	public static void extractDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
 	{
 		DIACRIT_TO_FEAT_MAP = new HashMap<String, String[]> (); 
 		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
@@ -566,12 +568,10 @@ public class UTILS {
 					if (!feature_indices.containsKey(df.substring(1)))
 						throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
 				}
-				diacritMap.put(sdsides[0], sdsides[1].split(","));
+				DIACRIT_TO_FEAT_MAP.put(sdsides[0], sdsides[1].split(","));
 			}
 		}
 		System.out.println("Done extracting symbol diacritics!");	
-		
-		return diacritMap;
 	}
 	
 	// printer methods follow: 

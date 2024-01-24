@@ -31,7 +31,6 @@ public class DiachronicSimulator {
 	private static double[] FT_WTS; 
 	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String[]> diacriticMap; 
 	private static HashMap<String, String[]> featImplications; 
 	private static Etymon[] inputForms;
 	private static Lexicon goldOutputLexicon;
@@ -151,7 +150,7 @@ public class DiachronicSimulator {
 	public static void extractDiacriticDefs()
 	{
 		if (no_symb_diacritics)	return;
-		diacriticMap = UTILS.extractDiacriticMap(symbDiacriticsLoc, featIndices);
+		UTILS.extractDiacriticMap(symbDiacriticsLoc, featIndices);
 	}
 	
 	// fills gold and black stage variables
@@ -986,7 +985,7 @@ public class DiachronicSimulator {
 					*/
 					if (!no_symb_diacritics)
 					{
-						List<String> diacritsLeft = new ArrayList<String>(diacriticMap.keySet()); 
+						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FEAT_MAP.keySet()); 
 						while (diacritsLeft.size()>0)
 						{
 							String diacrit = diacritsLeft.remove(0); 
@@ -998,7 +997,7 @@ public class DiachronicSimulator {
 								{
 									invalid_phone_error = false; 
 									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
-									for (String feat_spec : diacriticMap.get(diacrit)) 
+									for (String feat_spec : UTILS.DIACRIT_TO_FEAT_MAP.get(diacrit)) 
 									{
 										String feat_here = feat_spec.substring(1); 
 										if (featIndices.containsKey(feat_here))
