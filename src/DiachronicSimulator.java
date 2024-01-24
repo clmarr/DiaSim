@@ -1734,12 +1734,17 @@ public class DiachronicSimulator {
 			//otherwise they should place the location afterward. 
 			else if (arg.contains("-diacrit"))
 			{
+				
 				no_symb_diacritics = false; 
 				
 				if (i < args.length) 
 				{
-					if (args[i].charAt(0) != '-')	symbDiacriticsLoc=args[i]; 
+					if (args[i].charAt(0) != '-')	symbDiacriticsLoc=args[i++]; 
+					else	symbDiacriticsLoc = "currentSymbolDiacriticDefs.txt"; // default. 
 				}
+				
+				if (VERBOSE)	System.out.println("diacritics file location: "+symbDiacriticsLoc);
+
 			}
 			
 			//lexicon location
@@ -1771,6 +1776,8 @@ public class DiachronicSimulator {
 			//flag args
 			else
 			{
+				if (VERBOSE)	System.out.println("single character flag set detected: "+arg); 
+				
 				for (j = 1; j < arg.length(); j++)
 				{	
 					flag = arg.charAt(j);
@@ -1818,7 +1825,7 @@ public class DiachronicSimulator {
 		}
 		
 		if (i != args.length) //|| no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-resphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacritics afile] [-out prefix]"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-resphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacrit afile] [-out prefix]"); 	
 	}
 	
 	private static void printRuleAt(int theInd)
