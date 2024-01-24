@@ -151,7 +151,7 @@ public class DiachronicSimulator {
 	public static void extractDiacriticDefs()
 	{
 		if (no_symb_diacritics)	return;
-		diacriticMap = UTILS.buildDiacriticMap(symbDiacriticsLoc, featIndices);
+		diacriticMap = UTILS.extractDiacriticMap(symbDiacriticsLoc, featIndices);
 	}
 	
 	// fills gold and black stage variables

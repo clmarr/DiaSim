@@ -34,6 +34,11 @@ public class UTILS {
 	public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_REPR); 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
+	//IPA symbol hashmaps. 
+	public static HashMap<String,String[]> DIACRIT_TO_FEAT_MAP; 
+	public static HashMap<String,String> PHONE_SYMB_TO_FEAT_MAP; 
+	public static HashMap<String,String[]> FEATURE_IMPLICATIONS; 	
+	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
@@ -537,9 +542,9 @@ public class UTILS {
 	 * and anywhere else, as necessary
 	 * @return diacritics map to be used in DiachronicSimulator and in PhoneTester
 	 */
-	public static HashMap<String,String[]> buildDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
+	public static void buildDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
 	{
-		HashMap<String, String[]> diacritMap = new HashMap<String, String[]> (); 
+		DIACRIT_TO_FEAT_MAP = new HashMap<String, String[]> (); 
 		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
 		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 

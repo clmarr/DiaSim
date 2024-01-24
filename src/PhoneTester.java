@@ -255,7 +255,7 @@ public class PhoneTester {
 		
 		System.out.println("----------------------");
 		System.out.println("Now testing diacritic comprehension."); 
-		diacriticMap = UTILS.buildDiacriticMap(diacritic_def_loc, featureIndices); 
+		diacriticMap = UTILS.extractDiacriticMap(diacritic_def_loc, featureIndices); 
 		
 		System.out.println("First testing comprehension of diacritic input file; will test implementation next..."); 
 	
