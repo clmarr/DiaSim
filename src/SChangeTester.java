@@ -13,14 +13,13 @@ import java.util.List;
 public class SChangeTester {
 
 	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
-	private final static char IMPLICATION_DELIM = ':', PH_DELIM = ' ';
+	private final static char PH_DELIM = ' ';
 	private final static char restrDelim = ',';
 	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private static String[] featsByIndex;
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap;
-	private static HashMap<String, String[]> featImplications;
 	private static String featImplsLoc = "FeatImplications";
 
 	public static void main(String args[])
@@ -93,34 +92,7 @@ public class SChangeTester {
 			li++; 
 		}
 		
-		System.out.println("Now extracting info from feature implications file...");
-		
-		List<String> featImplLines = new ArrayList<String>(); 
-		featImplications = new HashMap<String, String[]>(); 
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(featImplsLoc), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		for(String filine : featImplLines)
-		{
-			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
-		}
-		
-		//TODO debugging
+		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
 		
 		System.out.println("Beginning test of SChangeFeat");

@@ -12,21 +12,22 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, boolean bm, String origForm)
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
+			boolean bm, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, bm, origForm);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
-			SequentialFilter priors, SequentialFilter postrs, String origForm, HashMap<String,String[]> featImpls)
+			SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, priors, postrs,  origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
-			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm, HashMap<String,String[]> featImpls)
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
@@ -38,21 +39,24 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		need_to_reset = false; 
 	}
 	
-	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, boolean bm, String origForm)
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest,
+			boolean bm, String origForm)
 	{
 		super(source, dest, bm, origForm);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}
 	
-	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, 
+			SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	
 		super(source, dest, priorContxt, postContxt, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}
 	
-	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, SequentialFilter priorContxt, SequentialFilter postContxt, boolean bm, String origForm)
+	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, 
+			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(source, dest, priorContxt, postContxt, bm, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 

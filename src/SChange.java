@@ -86,11 +86,4 @@ public abstract class SChange {
 	public String getOrig()
 	{	return orig;	}
 	
-	//TODO was there ever any use for this here? If not, delete. 
-	//TODO in progress
-/**	private char[] extract_local_ALPHAbet()
-	{
-		
-	}*/
-	
 }

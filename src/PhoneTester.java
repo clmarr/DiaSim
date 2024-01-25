@@ -23,7 +23,6 @@ public class PhoneTester {
 		
 		HashMap<String, String> symbsToFeatures = new HashMap<String, String>(); 
 		HashMap<String, Integer> featureIndices = new HashMap<String, Integer>(); 
-		HashMap<String, String[]> featImplications = new HashMap<String, String[]>();
 		String diacritic_def_loc = "currentSymbolDiacriticDefs.txt"; 
 		
 		String[] feats;
@@ -73,27 +72,7 @@ public class PhoneTester {
 			li++; 
 		}
 		
-		lines = new ArrayList<String>(); 
-		try
-		{
-			BufferedReader in =  new BufferedReader ( new InputStreamReader (
-				new FileInputStream("FeatImplications"), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	lines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		}
-		
-		for(String line : lines)
-		{
-			String[] sides = line.split(""+UTILS.IMPLICATION_DELIM); 
-			featImplications.put(sides[0], sides[1].split(""+UTILS.FEAT_DELIM)); 
-		}
+		UTILS.extractFeatImpls("FeatImplications");
 		
 		System.out.println("feats[0] = "+feats[0]);
 		System.out.println("firstFeat = "+firstFeat);
