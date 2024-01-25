@@ -1076,6 +1076,29 @@ public class UTILS {
 	}
 	
 	/**
+	 * @param listOfFeatSpecs -- list of sets of featSpecs -- e.g. { [+hi,+back]; {+cont,+son]}
+	 * @return @true if at least two cells of hte least contain conflicting specifications for at least one feature. 
+	 */
+	public static boolean checkForFeatureConflict(List<String> listOfFeatSpecs) 
+	{
+		HashMap<String,String> specsMade = new HashMap<String,String> (); 
+		
+		for (String specSet : listOfFeatSpecs) 
+		{
+			for (String featSpec : specSet.split(""+RESTR_DELIM)) 
+			{
+				String spec = ""+featSpec.charAt(0), ft = featSpec.substring(1); 
+				if (specsMade.containsKey(ft))
+				{	if (!specsMade.get(ft).equals(spec))	return true; 	}
+				else specsMade.put(ft, spec);		
+			}
+		}
+		
+		return false; 
+	}
+	
+	
+	/**
 	 * @author Clayton Marr, @date January 24, 2024
 	 * @param unseenSymb -- a previously unseen combination of a base phone symbol and diacritics
 	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
@@ -1116,6 +1139,14 @@ public class UTILS {
 					System.out.println("Warning: redundant diacritic (' "+candDiacrit+" ') detected in hitherto unseen diacriticized symbol <"+unseenSymb+">."); 
 				
 				diacritsFound.add(candDiacrit);
+				
+				if(phoneSymbToFeatsMap.containsKey(restOfPhone))	// successful parse complete! 
+				{
+					String newFeatVect = phoneSymbToFeatsMap.get(restOfPhone); 
+					
+					// apply the features 
+				}
+					
 			
 			}
 		}
