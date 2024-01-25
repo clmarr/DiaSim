@@ -53,6 +53,7 @@ public class ErrorAnalysis {
 		// phonological edit distance and feature edit distance between each reconstructed/observed word pair
 	private String[] featsByIndex; 
 		// this is distinctive/phonological features -- not the morphosyntactic ones. 
+		// as of Jan 24, 2024 -- dependent on UTILS. 
 	private List<String> inactiveFeats;
 		// features that never vary. To be detected upon construction.
 	private List<String> pivotInactiveFeats; 
@@ -107,7 +108,7 @@ public class ErrorAnalysis {
 	 * TODO need to make sure this is called BEFORE Lexicon.updateAbsence occurs, so that just-inserted etyma do not inflate accuracy. 
 	 * TODO need to insure that INSERTED etyma are not contributing to calculations!! 
 	 */
-	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, String[] indexedFeats, FED fedCalc)
+	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, FED fedCalc)
 	{
 		RES = theRes;
 		GOLD = theGold; 
@@ -116,7 +117,7 @@ public class ErrorAnalysis {
 		pivotSet = false; // set with setFilter() later. 
 		
 		featDist = fedCalc; 
-		featsByIndex = indexedFeats;
+		featsByIndex = UTILS.featsByIndex;
 		TOTAL_ETYMA = theRes.totalEtyma(); 
 		// total etyma, present or not at this moment 
 
