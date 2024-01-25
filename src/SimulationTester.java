@@ -27,15 +27,9 @@ public class SimulationTester {
 	private static final String SYMBS_LOC = "symbolDefs.csv";
 	private static final String LEX_LOC = "DebugDummyLexicon.txt"; 
 	private static final String FI_LOC = "FeatImplications"; 
-	private static final double ID_WT = 0.5; 
 	
 	//constant once set.
 	private static SChangeFactory theFactory; 
-	private static String[] featsByIndex; 
-	private static HashMap<String, Integer> featIndices;
-	private static boolean feats_weighted;
-	private static double[] FT_WTS; 
-	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static Etymon[] inputForms; 
@@ -54,6 +48,8 @@ public class SimulationTester {
 	
 	public static void main(String args[]) throws MidDisjunctionEditException
 	{
+		UTILS.ID_WT = 0.5; 
+
 		initWorkingCascFile(); 
 
 		extractSymbDefs(); 
@@ -173,8 +169,7 @@ public class SimulationTester {
 			//TODO check this was/is implemented (Dec 2022) 
 		System.out.println("Checking at final waypoint, a gold stage."); 
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected"); 
-		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1),  
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		checker = UTILS.setupErrorAnalysis(testSimul.getStageResult(true,1), testSimul.getGoldStageGold(1));
 		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
 		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldStageGoldWordlists[1], testSimul.getCurrentResult().getWordList()); 
 
@@ -1259,6 +1254,9 @@ public class SimulationTester {
 	{
 		System.out.println("Collecting symbol definitions...");
 		
+		UTILS.extractSymbDefs(UTILS.readFileLines(SYMBS_LOC));
+		// below abrogated, currently being performed within UTILS. 
+		/** 
 		featIndices = new HashMap<String, Integer>() ; 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		
@@ -1301,7 +1299,7 @@ public class SimulationTester {
 			
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
-		}
+		}*/ 
 	}
 	
 
@@ -1515,6 +1513,12 @@ public class SimulationTester {
 	 */
 	private static Etymon parseLexPhon(String toLexem)
 	{
+		
+		// as of Jan 24, 2024, abrogated, with this function taken over by UTILS.parseLexPhon 
+		return UTILS.parseLexPhon(toLexem,true);
+			// second variable true is no_symb_diacritics; this will need to be changed if we ever start using diacritics. 
+	
+		/**
 		String toLex = toLexem.trim(); 
 		
 		if (UTILS.PSEUDO_ETYM_REPRS.contains(toLex))
@@ -1537,7 +1541,7 @@ public class SimulationTester {
 				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
 			}
 		}
-		return new Etymon(phones);
+		return new Etymon(phones);*/ 
 	}
 	
 	
@@ -1567,7 +1571,9 @@ public class SimulationTester {
 	
 	private static ErrorAnalysis standardChecker(Lexicon res, Lexicon gold)
 	{
-		return new ErrorAnalysis( res, gold, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		return new ErrorAnalysis( res, gold, UTILS.feats_weighted ? 
+				new FED(UTILS.featsByIndex.length, UTILS.FT_WTS, UTILS.ID_WT) 
+				: new FED(UTILS.featsByIndex.length, UTILS.ID_WT));
 	}
 	
 	private static List<String> extractCascRulesByStep(SChangeFactory fac, String CASC_FILE_LOC)
