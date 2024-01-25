@@ -6,30 +6,28 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	
 	private boolean need_to_reset;
 	
-	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, String origForm, 
-			HashMap<String,String[]> featImpls)
-	{	super(ordFts, targSpecs, destSpecs, origForm, featImpls);	
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, String origForm)
+	{	super(ordFts, targSpecs, destSpecs, origForm);	
 		ALPH_VARS = new HashMap<String, String>(); 
 		need_to_reset = false;
 	}
 	
-	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, boolean bm, String origForm,
-			HashMap<String,String[]> featImpls)
-	{	super(ordFts, targSpecs, destSpecs, bm, origForm, featImpls);
+	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, boolean bm, String origForm)
+	{	super(ordFts, targSpecs, destSpecs, bm, origForm);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			SequentialFilter priors, SequentialFilter postrs, String origForm, HashMap<String,String[]> featImpls)
-	{	super(ordFts, targSpecs, destSpecs, priors, postrs,  origForm, featImpls); 
+	{	super(ordFts, targSpecs, destSpecs, priors, postrs,  origForm); 
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm, HashMap<String,String[]> featImpls)
-	{	super(ordFts, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm, featImpls);
+	{	super(ordFts, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm);
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}

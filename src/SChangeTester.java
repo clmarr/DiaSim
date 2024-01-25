@@ -125,9 +125,9 @@ public class SChangeTester {
 		
 		System.out.println("Beginning test of SChangeFeat");
 		
-		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
 		
-		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-voi", "+voi","DEBUG",featImplications); 
+		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-voi", "+voi","DEBUG"); 
 		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
 		int numCorrect = 0 ; 
@@ -135,32 +135,32 @@ public class SChangeTester {
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"t"+PH_DELIM+"a"), 
 				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"d"+PH_DELIM+"a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-nas", "+nas", "DEBUG", featImplications);
+		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-nas", "+nas", "DEBUG");
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+nas", false)); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("n a b a n a"),
 				testFactory.parseSeqPhSeg("n ã b a n ã")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", Arrays.asList(featsByIndex), featImplications), new NullPhone(), "DEBUG");
+		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", Arrays.asList(featsByIndex)), new NullPhone(), "DEBUG");
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+son", false));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r a l a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl", Arrays.asList(featsByIndex), featImplications), new NullPhone(), "DEBUG"); 
+		scfTest = new SChangeFeat(new FeatMatrix("+syl", Arrays.asList(featsByIndex)), new NullPhone(), "DEBUG"); 
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+syl", boundsMatter));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r e l e")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-cont,-nas,-lat,-delrel","-voi","DEBUG", featImplications); 
+		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-cont,-nas,-lat,-delrel","-voi","DEBUG"); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("t i t e ð l a t t o n u r")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", Arrays.asList(featsByIndex), featImplications),
+		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", Arrays.asList(featsByIndex)),
 				new Phone(phoneSymbToFeatsMap.get("q"), featIndices, phoneSymbToFeatsMap),"DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("q i q e ð l a q q o n u r")) ? 1 : 0 ;
 		
 		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-cont", "+nas,+son,.delrel,+cont",
-				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG", featImplications);
+				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("b i m b d e n n o"),
 				testFactory.parseSeqPhSeg("b i m b d e n n o")) ? 1 : 0; 
 		
@@ -296,7 +296,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 		System.out.println("\nNow testing alpha variable functionality."); 
 		System.out.println("First : testing alpha variable functionality of FeatMatrices and no alpha feats specified"); 
-		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(featsByIndex),featImplications); 
+		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(featsByIndex)); 
 		
 		numCorrect += UTILS.checkBoolean(false, fmtest.has_alpha_specs(), 
 				"Error: system believes there to be alpha specs when there are none.") ? 1 : 0 ; 
@@ -320,7 +320,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 				
 		System.out.println("\nNow for a feature matrix with one alpha value, without any feature implications (-tense,βhi)..."); 
-		fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(featsByIndex), featImplications); 
+		fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(featsByIndex)); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("β"), 
 				"Error: the local alphabet should be 'β' but instead it is '"+fmtest.getLocalAlphabet()+"'") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
@@ -629,7 +629,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 		
 		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication; also testing UnsetAlphaError and the reset function here...");
-		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(featsByIndex),featImplications); 
+		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(featsByIndex)); 
 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
@@ -839,7 +839,7 @@ public class SChangeTester {
 	
 	private static FeatMatrix newFM(String specs)
 	{
-		return new FeatMatrix(specs, Arrays.asList(featsByIndex),featImplications);
+		return new FeatMatrix(specs, Arrays.asList(featsByIndex));
 	}
 	
 	/** for simulating the change of one feature in a feature vector as used in FeatMatrix

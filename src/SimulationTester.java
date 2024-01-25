@@ -36,7 +36,6 @@ public class SimulationTester {
 	private static boolean feats_weighted;
 	private static double[] FT_WTS; 
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String[]> featImplications; 
 	private static boolean goldStagesSet, blackStagesSet; 
 	private static int NUM_ETYMA, NUM_GOLD_STAGES, NUM_BLACK_STAGES;
 	private static Etymon[] inputForms; 
@@ -58,10 +57,10 @@ public class SimulationTester {
 		initWorkingCascFile(); 
 
 		extractSymbDefs(); 
-		extractFeatImpls();
+		UTILS.extractFeatImpls(FI_LOC);
 		
 		System.out.println("Creating SChangeFactory...");
-		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
 		
 		STAGE_ORDER = UTILS.extractStageOrder(DBG_START_CASC, false); 
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
@@ -1303,21 +1302,6 @@ public class SimulationTester {
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
 		}
-	}
-	
-	public static void extractFeatImpls()
-	{
-		featImplications = new HashMap<String, String[]>(); 
-		
-		List<String> featImplLines = UTILS.readFileLines(FI_LOC);
-		
-		for(String filine : featImplLines)
-		{
-			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+UTILS.FEAT_DELIM));
-		}
-		
-		System.out.println("Done extracting feature implications!");	
 	}
 	
 

@@ -573,7 +573,7 @@ public class DiachronicSimulator {
 		extractDiacriticDefs(); 
 				
 		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
-		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, UTILS.FT_IMPLICATIONS); 
+		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
 		
 		extractCascade(theFactory);
 		// this inits gold and black stage variables because of how they are flagged in the cascade

@@ -24,7 +24,6 @@ public class SChangeContextTester {
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
-	private static HashMap<String, String[]> featImplications; 
 	private static String featImplsLoc = "FeatImplications"; 
 	private static Phone dummiePhone; 
 	public static void main(String args[])
@@ -96,34 +95,7 @@ public class SChangeContextTester {
 		
 		//TODO debugging
 		System.out.println("Now extracting info from feature implications file...");
-		
-		List<String> featImplLines = new ArrayList<String>(); 
-		featImplications = new HashMap<String, String[]>(); 
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(featImplsLoc), "UTF-8")); 
-			while((nextLine = in.readLine()) != null)	featImplLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		for(String filine : featImplLines)
-		{
-			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
-		}
-		
-		//TODO debugging
-		//TODO wait -- is this "debugging" i.e. that should be deleted once errors are fixed, or is this part of the permanent code for the debugger class? 
+		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
 		
 		System.out.println("\nBeginning test of context functions...");
@@ -136,7 +108,7 @@ public class SChangeContextTester {
 		System.out.println("The following should be : ");
 		System.out.println(W+" ( "+X+" ( "+Y+" ) ( "+Z+" )+ ( "+W+" "+Y+" )* )");
 		
-		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
 		System.out.println("And it is ...\n"+testFactory.forceParenSpaceConsistency(testString0));
 		
 		System.out.println("\nAfter expanding the plus parens, it should now be : "); 
@@ -172,10 +144,10 @@ public class SChangeContextTester {
 		String ft1 = featsByIndex[0], ft2 = featsByIndex[1];
 		Aph.set(ft1,2); Bph.set(ft1, 2); Cph.set(ft1, 0); Dph.set(ft1, 0);
 		Aph.set(ft2, 2); Bph.set(ft2, 0); Cph.set(ft2,2); Dph.set(ft2,0);
-		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featNames, featImplications),
-				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featNames, featImplications),
-				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featNames, featImplications), 
-				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featNames, featImplications); 
+		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featNames),
+				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featNames),
+				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featNames), 
+				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featNames); 
 		
 		SequentialFilter testContext = testFactory.parseNewSeqFilter(Afm+"", boundsMatter);
 		dummyTestList.add(Aph); dummyTestList.add(Cph); 
