@@ -31,7 +31,7 @@ public class SChangeFactory {
 	public static final String LOCUS = "__"; //marks place of the source target relative to the contexts
 	// of the shift 
 	
-	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
+	private final char cmtFlag = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	
 	private static final char phDelim = UTILS.PH_DELIM; // ' '; // delimits phones that are in the same sequence
 	public static final char disjunctDelim = UTILS.DISJUNCT_DELIM; // ';'; // delimits segments that are in disjunction

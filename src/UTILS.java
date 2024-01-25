@@ -1224,31 +1224,12 @@ public class UTILS {
 	 */
 	public boolean isValidFeatSpecList(String input)
 	{
-		String[] specs = input.split(""+restrDelim); 
+		String[] specs = input.split(""+RESTR_DELIM); 
 		
 		for(int si = 0; si < specs.length; si++)	
 			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
 		return true; 
-	}
-	
-	//hasValidFeatSpecList
-	// breaks string up according to delimiter phDelim 
-	// and @return true if any of the components describe a feat vector
-	
-	private boolean hasValidFeatSpecList(String inp)
-	{
-		if(isValidFeatSpecList(inp.trim()))		return true; 
-		String[] protophones = inp.split(""+PH_DELIM);
-		for(int ppi = 0; ppi < protophones.length; ppi++)
-		{
-			String curpp = ""+protophones[ppi].trim();
-			if(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
-			if(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
-			if(isValidFeatSpecList(curpp))	return true; 
-		}
-		return false; 
-	}
-	
+	}	
 
 	public FeatMatrix getFeatMatrix(String featSpecs)
 	{	return getFeatMatrix(featSpecs, false);	}
@@ -1289,29 +1270,26 @@ public class UTILS {
 			
 			if(featsWithImplications.contains(currSpec)) 
 			{
-				String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec); 
+				String[] implications = FT_IMPLICATIONS.get(currSpec); 
 				for (int ii = 0; ii < implications.length; ii++)
 				{	if (output.contains(implications[ii].substring(1)) == false)
 					{	
 						output += RESTR_DELIM + implications[ii];
-						theFeatSpecs = output.trim().split(""+RESTR_DELIM); 
-					}
-				}
-			}
+						theFeatSpecs = output.trim().split(""+RESTR_DELIM); 		
+			}}}
+			
 			if("+-".contains(currSpec.substring(0,1)))
 			{
 				if(featsWithImplications.contains(currSpec.substring(1)))
 				{
-					String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec.substring(1)); 
+					String[] implications = FT_IMPLICATIONS.get(currSpec.substring(1)); 
 					for (int ii=0; ii < implications.length; ii++)
 					{	if(output.contains(implications[ii]) == false)
 						{
 							output += RESTR_DELIM + implications[ii]; 
 							theFeatSpecs = output.trim().split(""+RESTR_DELIM); 
 						}
-					}
-				}
-			}
+			}}}
 		}
 		
 		return output; 
