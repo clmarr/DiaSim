@@ -17,10 +17,11 @@ import java.util.Set;
 */
 	
 public class SChangeFactory {
+	
+	//TODO the following are in the process of being abrogated as of Jan 24/25 2024 
 	private static HashMap<String, String> symbToFeatVects; 
 	private HashMap<String, String> featVectsToSymb; 
 	private static HashMap<String, Integer> featIndices;
-	private static Set<String> featsWithImplications; 
 	private static List<String> ordFeatNames; 
 	
 	public final char ARROW = '>'; //separates source target from destination 
@@ -34,7 +35,7 @@ public class SChangeFactory {
 	
 	private static final char phDelim = UTILS.PH_DELIM; // ' '; // delimits phones that are in the same sequence
 	public static final char disjunctDelim = UTILS.DISJUNCT_DELIM; // ';'; // delimits segments that are in disjunction
-	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
+	private static final char restrDelim = UTILS.RESTR_DELIM;// ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]
 	
@@ -70,9 +71,7 @@ public class SChangeFactory {
 				feat = misplaced_feat; 
 			}
 		}
-		
-		featsWithImplications = UTILS.FT_IMPLICATIONS.keySet(); 
-		
+				
 		featVectsToSymb = new HashMap<String, String>(); 
 		Set<String> stfKeys = stf.keySet(); 
 		for (String key : stfKeys)
@@ -651,7 +650,7 @@ public class SChangeFactory {
 	
 	//hasValidFeatSpecList
 	// breaks string up according to delimiter phDelim 
-	// and @return true if any of hte components describe a feat vector
+	// and @return true if any of the components describe a feat vector
 	
 	private boolean hasValidFeatSpecList(String inp)
 	{

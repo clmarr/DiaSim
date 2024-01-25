@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -19,6 +20,9 @@ public class UTILS {
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
+	public static final char RESTR_DELIM =  ','; // delimits restrictiosn between features inside the specification
+			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
+			// ... as [+A,-B,+C]
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	public final static char STAGENAME_LOC_DELIM = ':'; 
@@ -33,9 +37,12 @@ public class UTILS {
 	public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_REPR); 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
-	//IPA symbol hashmaps. 
+	//IPA symbol and feature related variaables. 
 	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP; 
 	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
+	
+	public static Set<String> featsWithImplications; 
+	public static List<String> ordFeatNames; 
 	
 	public static String[] featsByIndex; 
 	public static HashMap<String, Integer> featIndices;
@@ -47,10 +54,11 @@ public class UTILS {
 	public static double ID_WT; 
 	public static boolean contextualize_FED; 
 	
-	public static boolean VERBOSE; 
-	
 	public static boolean symbsExtracted = false , no_feat_impls = false, 
 			diacriticsExtracted = false, featImplsExtracted = false;
+	
+	public static boolean VERBOSE; 
+	
 	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
@@ -503,8 +511,11 @@ public class UTILS {
 	{
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
+		featIndices = new HashMap<String,Integer>(); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
+
+		ordFeatNames = new ArrayList<String>(featIndices.keySet());
 		
 		//Now we check if the features have weights
 		if (symbDefsLines.get(1).split(",")[0].equalsIgnoreCase("FEATURE_WEIGHTS"))
@@ -604,6 +615,8 @@ public class UTILS {
 			FT_IMPLICATIONS.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
 		}
 		featImplsExtracted = true; 
+		featsWithImplications = FT_IMPLICATIONS.keySet(); 
+
 	}
 	
 	/**
@@ -1107,6 +1120,8 @@ public class UTILS {
 			}
 		}
 	
+		
+		// return false; 
 	}
 	
 	
@@ -1201,6 +1216,105 @@ public class UTILS {
 		return new ErrorAnalysis(currResult, gold,  
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,ID_WT,contextualize_FED) 
 						: new FED(featsByIndex.length, ID_WT,contextualize_FED));
+	}
+	
+	/** isValidFeatSpecList
+	 * @return @true iff @param input consists of a list of valid feature specifications 
+	 * 	each delimited by restrDelim
+	 */
+	public boolean isValidFeatSpecList(String input)
+	{
+		String[] specs = input.split(""+restrDelim); 
+		
+		for(int si = 0; si < specs.length; si++)	
+			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
+		return true; 
+	}
+	
+	//hasValidFeatSpecList
+	// breaks string up according to delimiter phDelim 
+	// and @return true if any of the components describe a feat vector
+	
+	private boolean hasValidFeatSpecList(String inp)
+	{
+		if(isValidFeatSpecList(inp.trim()))		return true; 
+		String[] protophones = inp.split(""+PH_DELIM);
+		for(int ppi = 0; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
+			if(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
+			if(isValidFeatSpecList(curpp))	return true; 
+		}
+		return false; 
+	}
+	
+
+	public FeatMatrix getFeatMatrix(String featSpecs)
+	{	return getFeatMatrix(featSpecs, false);	}
+	
+	//derives FeatMatrix object instance from String of featSpec instances
+	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
+	{
+		if(! isValidFeatSpecList(featSpecs) )
+			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
+					+ "\nAttempted feat specs: "+featSpecs); 
+		
+		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
+		
+		if(theFeatSpecs.contains("0") == false)
+			return new FeatMatrix(theFeatSpecs, ordFeatNames); 
+				
+		if(theFeatSpecs.contains("0") && !isInputDest)
+			throw new RuntimeException(
+			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
+		return new FeatMatrix(theFeatSpecs, ordFeatNames); 
+	}
+	
+	/**	applyImplications
+	 * modifies a list of features which will presumably be used to define a FeatMatrix 
+	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
+	 * @param featSpecs, feature specifications before application of the stored implications
+	 */
+	public String applyImplications (String featSpecs) 
+	{
+		if (! isValidFeatSpecList(featSpecs) )
+			throw new RuntimeException("Error : preempted attempt to apply implications to an invalid list of feature specifications"); 
+		String[] theFeatSpecs = featSpecs.trim().split(""+RESTR_DELIM); 
+		String output = ""+featSpecs; 
+		
+		for(int fsi = 0 ; fsi < theFeatSpecs.length; fsi++)
+		{
+			String currSpec = theFeatSpecs[fsi]; 
+			
+			if(featsWithImplications.contains(currSpec)) 
+			{
+				String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec); 
+				for (int ii = 0; ii < implications.length; ii++)
+				{	if (output.contains(implications[ii].substring(1)) == false)
+					{	
+						output += RESTR_DELIM + implications[ii];
+						theFeatSpecs = output.trim().split(""+RESTR_DELIM); 
+					}
+				}
+			}
+			if("+-".contains(currSpec.substring(0,1)))
+			{
+				if(featsWithImplications.contains(currSpec.substring(1)))
+				{
+					String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec.substring(1)); 
+					for (int ii=0; ii < implications.length; ii++)
+					{	if(output.contains(implications[ii]) == false)
+						{
+							output += RESTR_DELIM + implications[ii]; 
+							theFeatSpecs = output.trim().split(""+RESTR_DELIM); 
+						}
+					}
+				}
+			}
+		}
+		
+		return output; 
 	}
 		
 }
