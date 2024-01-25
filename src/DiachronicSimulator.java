@@ -585,15 +585,15 @@ public class DiachronicSimulator {
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
-			inputForms[lfli] = parseLexPhon(initStrForms[lfli]);
+			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics);
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
 					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
-						goldForms[gsi][lfli] = parseLexPhon(forms[gsi+1]);
+						goldForms[gsi][lfli] = UTILS.parseLexPhon(forms[gsi+1],no_symb_diacritics);
 				if (hasGoldOutput)
-					goldResults[lfli] = parseLexPhon(forms[NUM_GOLD_STAGES+1]);
+					goldResults[lfli] = UTILS.parseLexPhon(forms[NUM_GOLD_STAGES+1],no_symb_diacritics);
 			}
 			lfli++;
 		}		
@@ -716,8 +716,8 @@ public class DiachronicSimulator {
 				
 				//TODO figure out what we want to do here...
 						// TODO what did this mean?^ Figure out or delete it. 
-				ErrorAnalysis ea = new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, featsByIndex, 
-						feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,contextualize_FED) : new FED(featsByIndex.length, id_wt,contextualize_FED));
+				ErrorAnalysis ea = renewedErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
+						
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
 						false, theSimulation.getCurrentResult());
 				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
@@ -726,8 +726,10 @@ public class DiachronicSimulator {
 				{	
 					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 					{	
-						ErrorAnalysis eap = new ErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], featsByIndex,
-								feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,contextualize_FED) : new FED(featsByIndex.length, id_wt,contextualize_FED));
+						ErrorAnalysis eap = new ErrorAnalysis(
+								theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], UTILS.featsByIndex,
+								UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) : 
+									new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 								).toString();
 						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
@@ -871,90 +873,6 @@ public class DiachronicSimulator {
 		return output; 
 	}**/
 	
-	/** auxiliary.
-	 * given String @param toLexem
-	 * @return its representation as a Etymon containing a sequence of Phone instances
-	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
-	 * TODO still need to debug the use of diacritics here. 
-	 * TODO when do that, make sure to update the counterpart in SimulationTester.
-	 * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
-	 * 		... because it does not yet handle parsing of morphological, semantic, or token frequency info... yetR. 
-	 * 		TODO decide where that will be parsed, make changes as necessary. 
-	 */
-	public static Etymon parseLexPhon(String toLexem)
-	{
-		String toLex = toLexem.trim(); 
-		
-		if (UTILS.PSEUDO_ETYM_REPRS.contains(toLex))
-			return new PseudoEtymon(toLex);
-		
-		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);
-		
-		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //Etymon class stores internal List of phones not an array,
-			// for better ease of mutation
-
-		for (String toPhone : toPhones)
-		{
-			if (toPhone.equals("#") || toPhone.equals("+"))
-				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
-			else
-			{
-				if (!phoneSymbToFeatsMap.containsKey(toPhone))
-				{
-					boolean invalid_phone_error = true; 
-					
-					/**
-					 * if the symbol isn't present in symbolDefs but it is a diacritic-marked variant of a symbol in it, 
-					 * it will be rescued here, by adding a new symbol to phoneSymbToFeatsMap
-					 * 	with feats a modified version of the basis according to the feature specifications
-					 * 	that are associated to that diacritic in diacriticMap
-					 *  if a phone already exists with that feature set, it will simply be replaced with that one. 
-					 * at present it can only have one diacritic added onto it here. 
-					*/
-					if (!no_symb_diacritics)
-					{
-						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FT_MAP.keySet()); 
-						while (diacritsLeft.size()>0)
-						{
-							String diacrit = diacritsLeft.remove(0); 
-							if (toPhone.contains(diacrit))
-							{
-								String rest_of_phone = toPhone+""; 
-								rest_of_phone = toPhone.replace(diacrit,""); 
-								if(phoneSymbToFeatsMap.containsKey(rest_of_phone))
-								{
-									invalid_phone_error = false; 
-									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
-									for (String feat_spec : UTILS.DIACRIT_TO_FT_MAP.get(diacrit)) 
-									{
-										String feat_here = feat_spec.substring(1); 
-										if (featIndices.containsKey(feat_here))
-										{
-											int featIndex = featIndices.get(feat_here); 
-											String insertion = ""+UTILS.getFeatspecIntFromMark(feat_spec.charAt(0)); 
-											int_feats = int_feats.substring(0,featIndex) + insertion + int_feats.substring(featIndex+1); 
-										}
-										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
-									}
-									//checking first if there is already a phone with this feature vector -- because adding another phone with the same feature vector will cause errors down the line.
-									if(phoneSymbToFeatsMap.containsValue(int_feats))
-										toPhone = UTILS.getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
-									else	phoneSymbToFeatsMap.put(toPhone, int_feats); 
-								}
-							}
-						}
-					}
-					if (invalid_phone_error)
-						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
-								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length()
-								+ "\nLex phon is :"+toLexem);
-				}
-				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
-			}
-		}
-		return new Etymon(phones);
-	}
-	
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
 	private static void printIncludedBlackStages(int first, int last)
 	{
@@ -1004,8 +922,9 @@ public class DiachronicSimulator {
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 				
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,contextualize_FED) : new FED(featsByIndex.length, id_wt,contextualize_FED));
+		ErrorAnalysis ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
+				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
+						: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 
 		System.out.println(UTILS.getAccuracyReport(ea));
 		
@@ -1089,8 +1008,9 @@ public class DiachronicSimulator {
 					boolean filtered = ea.isFiltSet();
 					boolean pivoted = ea.isPivotSet(); 
 					
-					ea = new ErrorAnalysis(r, g, featsByIndex, 
-							feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,contextualize_FED) : new FED(featsByIndex.length, id_wt,contextualize_FED));
+					ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
+							UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
+									: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 					if (pivoted) 	ea.setPivot(pivPtLex, pivPtName);
 					if (filtered) 	ea.setFilter(filterSeq, pivPtName);
 				}
@@ -1184,8 +1104,9 @@ public class DiachronicSimulator {
 						else if (!resp.equals("Keep"))
 						{
 							pivPtLoc = -1; pivPtLex = null; pivPtName = ""+resp;
-							ea = new ErrorAnalysis(r, g, featsByIndex, 
-									feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt,contextualize_FED) : new FED(featsByIndex.length, id_wt,contextualize_FED));
+							ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
+									UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
+											: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
@@ -1452,6 +1373,13 @@ public class DiachronicSimulator {
 			else	System.out.println("Invalid response. Please enter one of the listed numbers"); 
 			
 		}
+	}
+	
+	private static ErrorAnalysis renewedErrorAnalysis(Lexicon currResult, Lexicon gold) 
+	{
+		return new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, UTILS.featsByIndex, 
+				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
+						: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 	}
 	
 	//TODO below is abrogated as it is not in use. 

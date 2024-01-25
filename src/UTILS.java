@@ -1053,4 +1053,90 @@ public class UTILS {
 		return !non_alpha_initials.contains(spec.substring(0,1)); 
 	}
 	
+	
+	/** 
+	 * given String @param toLexem
+	 * @return its representation as a Etymon containing a sequence of Phone instances
+	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
+	 * TODO still need to debug the use of diacritics here. 
+	 * TODO when do that, make sure to update the counterpart in SimulationTester.
+	 * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
+	 * 		... because it does not yet handle parsing of morphological, semantic, or token frequency info... yetR. 
+	 * 		TODO decide where that will be parsed, make changes as necessary. 
+	 * moved from DiachronicSimulator to UTILS on January 24, 2024. 
+	 */
+	public static Etymon parseLexPhon(String toLexem, boolean no_symb_diacritics)
+	{
+		String toLex = toLexem.trim(); 
+		
+		if (UTILS.PSEUDO_ETYM_REPRS.contains(toLex))
+			return new PseudoEtymon(toLex);
+		
+		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);
+		
+		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //Etymon class stores internal List of phones not an array,
+			// for better ease of mutation
+
+		for (String toPhone : toPhones)
+		{
+			if (toPhone.equals("#") || toPhone.equals("+"))
+				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
+			else
+			{
+				if (!UTILS.phoneSymbToFeatsMap.containsKey(toPhone))
+				{
+					boolean invalid_phone_error = true; 
+					
+					/**
+					 * if the symbol isn't present in symbolDefs but it is a diacritic-marked variant of a symbol in it, 
+					 * it will be rescued here, by adding a new symbol to phoneSymbToFeatsMap
+					 * 	with feats a modified version of the basis according to the feature specifications
+					 * 	that are associated to that diacritic in diacriticMap
+					 *  if a phone already exists with that feature set, it will simply be replaced with that one. 
+					 * at present it can only have one diacritic added onto it here. 
+					*/
+					if (!no_symb_diacritics)
+					{
+						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FT_MAP.keySet()); 
+						while (diacritsLeft.size()>0)
+						{
+							String diacrit = diacritsLeft.remove(0); 
+							if (toPhone.contains(diacrit))
+							{
+								String rest_of_phone = toPhone+""; 
+								rest_of_phone = toPhone.replace(diacrit,""); 
+								if(UTILS.phoneSymbToFeatsMap.containsKey(rest_of_phone))
+								{
+									invalid_phone_error = false; 
+									String int_feats = UTILS.phoneSymbToFeatsMap.get(rest_of_phone); 
+									for (String feat_spec : UTILS.DIACRIT_TO_FT_MAP.get(diacrit)) 
+									{
+										String feat_here = feat_spec.substring(1); 
+										if (UTILS.featIndices.containsKey(feat_here))
+										{
+											int featIndex = UTILS.featIndices.get(feat_here); 
+											String insertion = ""+UTILS.getFeatspecIntFromMark(feat_spec.charAt(0)); 
+											int_feats = int_feats.substring(0,featIndex) + insertion + int_feats.substring(featIndex+1); 
+										}
+										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
+									}
+									//checking first if there is already a phone with this feature vector -- because adding another phone with the same feature vector will cause errors down the line.
+									if(phoneSymbToFeatsMap.containsValue(int_feats))
+										toPhone = UTILS.getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
+									else	phoneSymbToFeatsMap.put(toPhone, int_feats); 
+								}
+							}
+						}
+					}
+					if (invalid_phone_error)
+						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
+								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length()
+								+ "\nLex phon is :"+toLexem);
+				}
+				phones.add(new Phone(phoneSymbToFeatsMap.get(toPhone), featIndices, phoneSymbToFeatsMap));
+			}
+		}
+		return new Etymon(phones);
+	}
+	
 }
