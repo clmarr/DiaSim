@@ -31,7 +31,6 @@ public class DiachronicSimulator {
 	private static double[] FT_WTS; 
 	
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String[]> featImplications; 
 	private static Etymon[] inputForms;
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
@@ -120,24 +119,6 @@ public class DiachronicSimulator {
 			
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
-		}
-	}
-	
-	public static void extractFeatImpls()
-	{
-		featImplications = new HashMap<String, String[]>(); 
-		
-		if (no_feat_impls)	return; 
-		
-		if (VERBOSE)
-			System.out.println("Now extracting info from feature implications file...");
-		
-		List<String> featImplLines = UTILS.readFileLines(featImplsLoc);
-				
-		for(String filine : featImplLines)
-		{
-			String[] fisides = filine.split(""+UTILS.IMPLICATION_DELIM); 
-			featImplications.put(fisides[0], fisides[1].split(""+UTILS.FEAT_DELIM));
 		}
 	}
 	
@@ -579,11 +560,20 @@ public class DiachronicSimulator {
 		
 		//collect task information from symbol definitions file. 
 		extractSymbDefs(); 
-		extractFeatImpls(); 
+		
+
+		// TODO move the following block back to somewhere in DiachronicSimulator... 
+		if (!no_feat_impls)
+		{
+			if (VERBOSE)
+				System.out.println("Now extracting info from feature implications file...");
+			UTILS.extractFeatImpls(featImplsLoc); 
+		}
+		
 		extractDiacriticDefs(); 
 				
 		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
-		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, featImplications); 
+		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices, UTILS.FT_IMPLICATIONS); 
 		
 		extractCascade(theFactory);
 		// this inits gold and black stage variables because of how they are flagged in the cascade
@@ -985,7 +975,7 @@ public class DiachronicSimulator {
 					*/
 					if (!no_symb_diacritics)
 					{
-						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FEAT_MAP.keySet()); 
+						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FT_MAP.keySet()); 
 						while (diacritsLeft.size()>0)
 						{
 							String diacrit = diacritsLeft.remove(0); 
@@ -997,7 +987,7 @@ public class DiachronicSimulator {
 								{
 									invalid_phone_error = false; 
 									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
-									for (String feat_spec : UTILS.DIACRIT_TO_FEAT_MAP.get(diacrit)) 
+									for (String feat_spec : UTILS.DIACRIT_TO_FT_MAP.get(diacrit)) 
 									{
 										String feat_here = feat_spec.substring(1); 
 										if (featIndices.containsKey(feat_here))

@@ -35,9 +35,9 @@ public class UTILS {
 	public static final int PRINTERVAL = 100; 
 	
 	//IPA symbol hashmaps. 
-	public static HashMap<String,String[]> DIACRIT_TO_FEAT_MAP; 
-	public static HashMap<String,String> PHONE_SYMB_TO_FEAT_MAP; 
-	public static HashMap<String,String[]> FEATURE_IMPLICATIONS; 	
+	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP; 
+	public static HashMap<String,String> PHONE_SYMB_TO_FT_MAP; 
+	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
 	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
@@ -533,6 +533,20 @@ public class UTILS {
 		return out; 
 	}
 	
+
+	public static void extractFeatImpls(String featImplsSrc)
+	{
+		FT_IMPLICATIONS = new HashMap<String, String[]>(); 
+		
+		List<String> featImplLines = readFileLines(featImplsSrc);
+				
+		for(String filine : featImplLines)
+		{
+			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
+			FT_IMPLICATIONS.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
+		}
+	}
+	
 	/**
 	 * @author Clayton Marr
 	 * @date August 7 2023 (but based on material moved from slightly earlier method extractDiacriticDefs from earlier in the summer of 2023) 
@@ -546,7 +560,7 @@ public class UTILS {
 	 */
 	public static void extractDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
 	{
-		DIACRIT_TO_FEAT_MAP = new HashMap<String, String[]> (); 
+		DIACRIT_TO_FT_MAP = new HashMap<String, String[]> (); 
 		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
 		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 
@@ -568,7 +582,7 @@ public class UTILS {
 					if (!feature_indices.containsKey(df.substring(1)))
 						throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
 				}
-				DIACRIT_TO_FEAT_MAP.put(sdsides[0], sdsides[1].split(","));
+				DIACRIT_TO_FT_MAP.put(sdsides[0], sdsides[1].split(","));
 			}
 		}
 		System.out.println("Done extracting symbol diacritics!");	

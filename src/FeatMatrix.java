@@ -21,7 +21,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private List<String> ordFeats; // for retrieving feature indices 
 	
-	private HashMap<String, String[]> featImpls; 
+	//private HashMap<String, String[]> featImpls; 
+	//	abrogated -- as of Jan 24, 2024, now using a global feature implications hashmap stored in UTILS.
 	
 	private String localAlphabet; // for handling all symbols functioning as alpha values within the feature specifications... 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
@@ -48,7 +49,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * should be passed with ',' as  delimiters, and '+/-' as indicators (or '0', for despecification if the result of upstream application of feature implications)
 	 */
 	// 
-	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String, String[]> ftImpls)
+	public FeatMatrix(String specs, List<String> orderedFeats)
 	{
 		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
 		localAlphabet = "";
@@ -58,7 +59,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		initSpecs=specs+""; 
 
 		ordFeats = orderedFeats; 
-		featImpls = ftImpls;
 		
 		init_chArr = new char[ordFeats.size()];
 		Arrays.fill(init_chArr, '1');
@@ -283,11 +283,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		List<String> impls = new ArrayList<String>(); 
 		
 		// first any implications contingent to both + and - specification 
-		if("+-".contains(""+value) && featImpls.keySet().contains(feature))
-			impls.addAll(Arrays.asList(featImpls.get(feature))); 
+		if("+-".contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
+			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(feature))); 
 		// then any implications contingent to the specific case observed, with + or with - 
-		if(featImpls.keySet().contains(value+feature))
-			impls.addAll(Arrays.asList(featImpls.get(value+feature))); 
+		if(UTILS.FT_IMPLICATIONS.keySet().contains(value+feature))
+			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(value+feature))); 
 		
 		for (String ii: impls)	apply_value(ii.substring(0,1), ii.substring(1), true); 
 	}
@@ -360,7 +360,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				String currSpec = ordFeats.get(nxind); 
 				
 				//handling first the any-specification case to store for implications downstream
-				if("02".contains(""+val) && featImpls.keySet().contains(currSpec))
+				if("02".contains(""+val) && UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
 				{	alphFeatsWImpls.add(currSpec); } 
 					//will actually be handled downstream in this method.
 				
@@ -370,7 +370,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				
 				//now the specific specification for implications downstream. 
 				currSpec = toSurfVal(val)+currSpec; 
-				if (featImpls.keySet().contains(currSpec))
+				if (UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
 					alphFeatsWImpls.add(currSpec); 
 			}
 		}
@@ -383,7 +383,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		 */
 		for (String afii : alphFeatsWImpls)	
 		{
-			String[] impls = featImpls.get(afii); 
+			String[] impls = UTILS.FT_IMPLICATIONS.get(afii); 
 			for (String impc : impls)	
 				apply_value(impc.substring(0,1), // although this looks potentially bugged, it won't be, because the second column of implications must always have a specific value associated with the feature (otherwise, the feature implication would be vacuous)
 						impc.substring(1), true); 
