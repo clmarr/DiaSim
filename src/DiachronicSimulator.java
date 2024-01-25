@@ -25,12 +25,6 @@ public class DiachronicSimulator {
 	
 	private static List<String> rulesByTimeInstant;
 	
-	private static String[] featsByIndex; 
-	private static HashMap<String, Integer> featIndices;
-	private static boolean feats_weighted;
-	private static double[] FT_WTS; 
-	
-	private static HashMap<String, String> phoneSymbToFeatsMap;
 	private static Etymon[] inputForms;
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
@@ -69,64 +63,7 @@ public class DiachronicSimulator {
 	
 	private static String[] stageOrdering; 
 	private static String[] initStrForms; 
-	
-	private static void extractSymbDefs()
-	{
-		if (VERBOSE)		System.out.println("Collecting symbol definitions...");
-		
-		featIndices = new HashMap<String, Integer>() ; 
-		phoneSymbToFeatsMap = new HashMap<String, String>(); 
-		
-		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
-		
-		if (VERBOSE)
-			System.out.println("Symbol definitions extracted!\nLength of symbDefsLines : "+symbDefsLines.size()); 
-		
-		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
-		
-		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
-		
-		//Now we check if the features have weights
-		if (symbDefsLines.get(1).split(",")[0].equalsIgnoreCase("FEATURE_WEIGHTS"))
-		{
-			feats_weighted = true; 
-			FT_WTS = new double[featsByIndex.length];
-			String[] weightsByIndex = symbDefsLines.get(1).substring(symbDefsLines.get(1).indexOf(",")+1).split(",");
-			for(int i = 0 ; i < featsByIndex.length; i++)
-				FT_WTS[i] = Double.parseDouble(weightsByIndex[i]); 
-			symbDefsLines.remove(1); 
-		}	
-		else	feats_weighted = false;
-		
-		//from the rest-- extract the symbol def each represents
-		int li = 1; String nextLine;
-		while (li < symbDefsLines.size()) 
-		{
-			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
-			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
-			
-			String intFeatVals = ""; 
-			for(int fvi = 0; fvi < featVals.length; fvi++)
-			{
-				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
-				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
-				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
-			}
-			
-			phoneSymbToFeatsMap.put(symb, intFeatVals);
-			li++; 
-		}
-	}
-	
-	public static void extractDiacriticDefs()
-	{
-		if (no_symb_diacritics)	return;
-		UTILS.extractDiacriticMap(symbDiacriticsLoc, featIndices);
-	}
+
 	
 	// fills gold and black stage variables
 	// but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
@@ -552,9 +489,15 @@ public class DiachronicSimulator {
 	{
 		parseArgs(args); 
 		
-		//collect task information from symbol definitions file. 
-		extractSymbDefs(); 
-		
+		//extract symbol definitions, and with them, the features in use. 
+		List<String> symbDefLines = UTILS.readFileLines(symbDefsLoc);
+
+		if (VERBOSE)		
+		{
+			System.out.println("Collecting symbol definitions...");
+			System.out.println("Symbol definitions extracted!\nLength of symbDefsLines : "+symbDefLines.size()); 
+		}
+		UTILS.extractSymbDefs(symbDefLines); 
 
 		// TODO move the following block back to somewhere in DiachronicSimulator... 
 		if (!no_feat_impls)
@@ -564,8 +507,9 @@ public class DiachronicSimulator {
 			UTILS.extractFeatImpls(featImplsLoc); 
 		}
 		
-		extractDiacriticDefs(); 
-				
+		if (!no_symb_diacritics)	
+			UTILS.extractDiacriticMap(symbDiacriticsLoc);		
+		
 		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
 		

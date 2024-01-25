@@ -39,6 +39,14 @@ public class UTILS {
 	public static HashMap<String,String> PHONE_SYMB_TO_FT_MAP; 
 	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
 	
+	public static String[] featsByIndex; 
+	public static HashMap<String, Integer> featIndices;
+	public static boolean feats_weighted;
+	public static double[] FT_WTS; 
+	public static HashMap<String, String> phoneSymbToFeatsMap;
+	
+	
+	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
@@ -486,6 +494,49 @@ public class UTILS {
 		return out.substring(0, out.length() - "\n".length()) ;
 	}
 	
+	public static void extractSymbDefs(List<String> symbDefsLines)
+	{
+		//from the first line, extract the feature list and then the features for each symbol.
+		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
+		
+		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
+		
+		//Now we check if the features have weights
+		if (symbDefsLines.get(1).split(",")[0].equalsIgnoreCase("FEATURE_WEIGHTS"))
+		{
+			feats_weighted = true; 
+			FT_WTS = new double[featsByIndex.length];
+			String[] weightsByIndex = symbDefsLines.get(1).substring(symbDefsLines.get(1).indexOf(",")+1).split(",");
+			for(int i = 0 ; i < featsByIndex.length; i++)
+				FT_WTS[i] = Double.parseDouble(weightsByIndex[i]); 
+			symbDefsLines.remove(1); 
+		}	
+		else	feats_weighted = false;
+		
+		//from the rest-- extract the symbol def each represents
+		int li = 1; String nextLine;
+		while (li < symbDefsLines.size()) 
+		{
+			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
+			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
+			String symb = nextLine.substring(0, ind1stComma); 
+			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
+			
+			String intFeatVals = ""; 
+			for(int fvi = 0; fvi < featVals.length; fvi++)
+			{
+				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
+				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
+				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
+			}
+			
+			phoneSymbToFeatsMap.put(symb, intFeatVals);
+			li++; 
+		}
+	}
+	
+	
 	//extract order of stages so that we don't end up with ``flips'' in the relative ordering between stages
 		// in the case that they end up in the same
 		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
@@ -557,8 +608,9 @@ public class UTILS {
 	 * formerly, @returned diacritics map to be used in DiachronicSimulator and in PhoneTester
 	 * now as of @date January 24, 2024, this is a void method that initializes the now LOCAL but PUBLIC diacritic map, which will be referenced by other classes
 	 * 	but kept here in UTILS. 
+	 * @prerequisite: class variable featIndices has already been defined. 
 	 */
-	public static void extractDiacriticMap(String diacriticDefLocation, HashMap<String, Integer> feature_indices)
+	public static void extractDiacriticMap(String diacriticDefLocation)
 	{
 		DIACRIT_TO_FT_MAP = new HashMap<String, String[]> (); 
 		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
@@ -579,7 +631,7 @@ public class UTILS {
 					if (!FEATSPEC_MARKS.contains(""+df.charAt(0)))
 						throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
 								+ "but instead this one has :"+df.charAt(0)); 
-					if (!feature_indices.containsKey(df.substring(1)))
+					if (!featIndices.containsKey(df.substring(1)))
 						throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
 				}
 				DIACRIT_TO_FT_MAP.put(sdsides[0], sdsides[1].split(","));
