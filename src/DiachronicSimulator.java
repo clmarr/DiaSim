@@ -53,7 +53,7 @@ public class DiachronicSimulator {
 	private static String lexFileLoc;
 	
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, UTILS.contextualize_FED; 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
