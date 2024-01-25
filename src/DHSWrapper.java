@@ -151,6 +151,8 @@ public class DHSWrapper {
 																													// date
 						+ "8: Go back to previous option (setting fork point, querying options available).\n"
 						+ "9: Cancel entire forking test and return to main menu.\n");
+				//TODO (1/24/24) was there a 4...7 above? The space seems ominous. 
+
 				resp = inpu.nextLine().substring(0, 1);
 
 				if (!"012389".contains(resp))
