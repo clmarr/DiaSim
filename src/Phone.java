@@ -64,11 +64,10 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		regenerateSymb(); 
 	}
 	
-	//TODO as of Jan 24 2024, planning to move this to UTILS... 
+	//TODO as of Jan 24 2024, this method made dependent on UTILS
 	private void regenerateSymb()
 	{
-		if(mapToSymb.containsKey(featString))	symb = mapToSymb.get(featString);
-		else	symb = "?";
+		symb = UTILS.generatePhoneSymbol(featString);
 	}
 	
 	// accessors : all return clones of the objects, not the originals. 

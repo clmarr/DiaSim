@@ -1235,6 +1235,12 @@ public class UTILS {
 		return new Etymon(phones);
 	}
 	
+	public static String generatePhoneSymbol(String featString)
+	{
+		if(featsToSymbMap.containsKey(featString))	return featsToSymbMap.get(featString);
+		else return "?";
+	}
+	
 	public static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
 	{
 		return new ErrorAnalysis(currResult, gold,  
