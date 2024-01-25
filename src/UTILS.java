@@ -1155,6 +1155,9 @@ public class UTILS {
 				
 				if(phoneSymbToFeatsMap.containsKey(restOfPhone))	// successful parse complete! 
 				{
+					if (VERBOSE)
+						System.out.println("New phone symbol ' "+unseenSymb+" ' defined!"); 
+					
 					String newFeatVect = phoneSymbToFeatsMap.get(restOfPhone); 
 				
 					// get feat specs for each diacritic.
@@ -1243,12 +1246,32 @@ public class UTILS {
 		return new Etymon(phones);
 	}
 	
-	/** 
-	 * modify the hashmaps to add a new symbol ( @param symb) for hte feat vect ( @param vect ) 
-	 */
-	public static void addNewlyDefinedFeatVect(String vect, String symb)
+	// returns list of all diacritics found in symbol. Empty string if none found. 
+	public static List<String> diacritsFoundInPhoneSymb (String symb)
 	{
-		//TODO work here. 
+		String symb_elements_left = ""+symb; 
+		List<String> out = new ArrayList<String>(); 
+		for (String diacrit : DIACRIT_TO_FT_MAP.keySet()) {
+			if (symb_elements_left.contains(diacrit)) {
+				out.add(diacrit); 
+				symb_elements_left = symb_elements_left.replace(diacrit, ""); 
+			}
+		}
+		
+		return out; 
+	}
+	
+	/** 
+	 * modify the hashmaps to add a new symbol ( @param symb) for the feat vect ( @param vect ) 
+	 * @error if somehow this phone is already defined 
+	 */
+	public static void defineFeatVect(String vect, String symb)
+	{
+		if (phoneSymbToFeatsMap.containsKey(symb))
+			throw new Error("Error: tried to add newly defined phone ' "+symb+" ' as dedicated symbol for the feature vector "+vect+
+					"\n...but this symbol is already dedicated to the feature vector "+phoneSymbToFeatsMap.get(symb)); 
+		phoneSymbToFeatsMap.put(symb,vect); 
+		featsToSymbMap.put(vect,symb); 
 	}
 	
 	/**
@@ -1259,13 +1282,17 @@ public class UTILS {
 	 * search through diacritics for a diacritic or combination of diacritics that could be added to a base phone to generate this vector 
 	 * 	this is done by detecting which diacritics are true
 	 * 		in first runthrough (tries for base symbol + single diacritic): 
-	 * 			for each diacritic, check if it is true of the feature vecotr
+	 * 			for each diacritic, check if it is true of the feature vector
 	 * 				if so add it to set of diacritics to consider for multiple diacritic formations (second runtrhough) 
-	 * 				if htere is a base symbol (existing symbol in the hashmaps) that it can be added to
+	 * 				if there is a base symbol (existing symbol in the hashmaps) that it can be added to
 	 * 					check if it would create a diacritic conflict (i.e. if the 'base' symbol is in fact already diacriticized)
 	 * 					and if not, we've successfully found a new phone for this feature vect
 	 * 						add it to the hashmaps and @return @true
-	 * 		if this doens't work for any single diacritics, use the subset of diacritics that are true to try multiple diacritic combos 
+	 * 			@note that if multiple diacritics are defined for the same features, there is a preference for those that were defined first originally!
+	 * 				(their order almost certainly reflects their original order in the file diacritics were extracted from) 
+	 * 			@note that in the same way there is a preference for phones that were defined earlier. 
+	 * 				(which also disprefers phones that were secondarily assigned to feat vects using htis method)
+	 * 		if this doesn't work for any single diacritics, use the subset of diacritics that are true to try multiple diacritic combos 
 	 * 			wherein again cases with conflicting diacritics (both from the base or the ones being added) are blocked
 	 * 		if neither of these worked @return @false
 	 * if @param apply_ft_impls, apply feature implications. 
@@ -1295,15 +1322,27 @@ public class UTILS {
 				{
 					String candDiacritResult = curCandFM.forceTruthOnFeatVect
 							(baseFeatVect).replace(Integer.toString(DESPEC_INT), Integer.toString(UNSPEC_INT)); 
+					
 					if (candDiacritResult.equals(unseenVect))	// we found it!!
 					{
-						//TODO work here. 
-					}
+						String newSymb = 
+								featsToSymbMap.get(baseFeatVect) //base
+								+ featsToPossibleDiacritics.get(diacritSpecSetCands.get(ssi)).get(0);//diacritic
+		
+						defineFeatVect(unseenVect,newSymb); 
+						// preference for first diacritic defined for this feature set. 
+						if (VERBOSE)
+							System.out.println("New symbol '"+newSymb+"' defined to represent feat vect "+unseenVect+"."); 
+					}	
 				}
 				
 				ssi++; // move on but keep this as a candidate. 
 			}
+			else	//not a valid candidate
+				diacritSpecSetCands.remove(ssi); 	
 		}
+		
+		//second run -- trying multiple diacritic combinations 
 		
 		if (1==1)
 			throw new Error("Error: called tryDefineUnseenFeatVect(), which is still under construction! ");
