@@ -11,8 +11,9 @@ import java.util.ArrayList;
 
 public class Phone extends SequentialPhonic implements RestrictPhone {
 
+	// as of Jan 24, 2024, the functions of featIndices were subsumed by the same-named variable in UTILS
+	
 	private String featString; // string of 0s, 1s and 2s -- 0 is negative, 2 positive, 1 unspecified
-	private HashMap<String, Integer> featIndices; 
 	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa symbol. 
 	private String symb; 
 		
@@ -28,7 +29,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 			throw new RuntimeException("ERROR: featVals' size is not the same as featInds hashmap");
 		type = "phone";
 		featString = ""+featVals; 
-		featIndices = new HashMap<String, Integer>(featInds);
 		mapToSymb = new HashMap<String, String>(); 
 		Set<String> sMKeys = symbMap.keySet(); 
 		for ( String key : sMKeys)
@@ -48,7 +48,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{
 		type = "phone"; 
 		featString = dolly.getFeatString();
-		featIndices = dolly.getFeatIndices();
 		mapToSymb = dolly.getFeatSymbMap(); 
 		regenerateSymb(); 
 	}
@@ -61,7 +60,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		if( !dolly.getType().equals("phone"))	throw new RuntimeException("Type error in constructing phone clone!"); 
 		type="phone";
 		featString = dolly.getFeatString();
-		featIndices = dolly.getFeatIndices();
 		mapToSymb = dolly.getFeatSymbMap(); 
 		regenerateSymb(); 
 	}
@@ -77,8 +75,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	public String getFeatVect()	{	return getFeatString();	}	
 	//currently necessary to evade inheritance confusion (getFeatString from SequentialPhonic, getFeatVect from RestrictPhone)
 		// ... unfortunately these ended up both being necessary for tester methods 
-	public HashMap<String,Integer> getFeatIndices()	
-	{	return featIndices; 	}
+
 	public HashMap<String,String> getFeatSymbMap()
 	{	return mapToSymb;	}
 	
@@ -91,7 +88,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	public int get(String featName)
 	{	
 		if (!featExists(featName))	throw new RuntimeException( "Violated precondition: featName is not a valid feature! ");
-		int index = featIndices.get(featName); 
+		int index = UTILS.featIndices.get(featName); 
 		return Integer.parseInt(featString.substring(index, index+1)); 	}
 	
 	/**
@@ -102,7 +99,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{
 		if (!featExists(featName))	throw new RuntimeException("ERROR: tried to set to inexistant feature");
 		if (newVal < 0 || newVal > 2)	throw new RuntimeException("ERROR: invalid number for feature");
-		int ind = featIndices.get(featName); 
+		int ind = UTILS.featIndices.get(featName); 
 		featString = featString.substring(0, ind) + newVal + featString.substring(ind+1); 
 		regenerateSymb();
 	}
@@ -156,7 +153,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	
 	public boolean featExists(String ftName)
 	{
-		return featIndices.containsKey(ftName); 
+		return UTILS.featIndices.containsKey(ftName); 
 	}
 	
 	public SequentialPhonic copy()

@@ -100,7 +100,7 @@ public class PhoneTester {
 		String badProxyFeats = badProxyP.getFeatString(); 
 		String featIndices = testPhone.getFeatString(); 
 		// recall that testPhone is in fact /p/ -- so we are simply zeroing a single featureb below. 
-		int randFeatIndex = (int)(Math.random() * testPhone.getFeatIndices().size()); 
+		int randFeatIndex = (int)(Math.random() * UTILS.featIndices.size()); 
 		badProxyFeats = badProxyFeats.substring(0, randFeatIndex) 
 				+ ((featIndices.charAt(randFeatIndex) == UTILS.POS_INT) ? UTILS.NEG_INT : UTILS.POS_INT) 
 				+ badProxyFeats.substring(randFeatIndex+1); 
