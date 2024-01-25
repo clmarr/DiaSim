@@ -1235,6 +1235,32 @@ public class UTILS {
 		return new Etymon(phones);
 	}
 	
+	/**
+	 * @author Clayton Marr, @date January 25, 2024 
+	 * @param unseenVect -- feature vector that does not yet have a phone symbol attached to it. 
+	 * 		@error if it is actually defined 
+	 * 		@error if phone symbols not yet extracted, or if diacritics not yet extracted. 
+	 * search through diacritics for a diacritic or combination of diacritics that could be added to a base phone to generate this vector 
+	 *  TODO decide how to do the search 
+	 * @return @false if search failed (TODO determine the conditions for that!) 
+	 * 		@true if search successful 
+	 * 			after adding the new phone/featvect pair to featsToSymbsMap and phoneSymbToFeatsMap. 
+	 */
+	public static boolean tryDefineUnseenFeatVect (String unseenVect) 
+	{
+		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
+		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
+		if (featsToSymbMap.containsKey(unseenVect))	
+			throw new Error ("Error: tried to define new symbol for 'unseen' feat vector that has already been seen and defined!"); 
+		
+		if (1==1)
+			throw new Error("Error: called tryDefineUnseenFeatVect(), which is still under construction! ");
+		
+		return false;
+		
+		
+	}
+	
 	public static String generatePhoneSymbol(String featString)
 	{
 		if(featsToSymbMap.containsKey(featString))	return featsToSymbMap.get(featString);
