@@ -497,7 +497,7 @@ public class UTILS {
 	public static void extractSymbDefs(List<String> symbDefsLines)
 	{
 		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+UTILS.FEAT_DELIM); 
+		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 		
@@ -518,16 +518,16 @@ public class UTILS {
 		while (li < symbDefsLines.size()) 
 		{
 			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(UTILS.FEAT_DELIM); 
+			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
 			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+UTILS.FEAT_DELIM); 		
+			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
 			
 			String intFeatVals = ""; 
 			for(int fvi = 0; fvi < featVals.length; fvi++)
 			{
-				if(featVals[fvi].equals(""+UTILS.MARK_POS))	intFeatVals+= UTILS.POS_INT; 
-				else if (featVals[fvi].equals(""+UTILS.MARK_UNSPEC))	intFeatVals += UTILS.UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+UTILS.MARK_NEG))	intFeatVals += UTILS.NEG_INT; 
+				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
+				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
+				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
 				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
 			}
 			
@@ -607,7 +607,7 @@ public class UTILS {
 	 * and anywhere else, as necessary
 	 * formerly, @returned diacritics map to be used in DiachronicSimulator and in PhoneTester
 	 * now as of @date January 24, 2024, this is a void method that initializes the now LOCAL but PUBLIC diacritic map, which will be referenced by other classes
-	 * 	but kept here in UTILS. 
+	 * 	but kept here in  
 	 * @prerequisite: class variable featIndices has already been defined. 
 	 */
 	public static void extractDiacriticMap(String diacriticDefLocation)
@@ -1057,7 +1057,7 @@ public class UTILS {
 	/** 
 	 * given String @param toLexem
 	 * @return its representation as a Etymon containing a sequence of Phone instances
-	 * TODO note we assume the phones are separated by (UTILS.)PH_DELIM (presumably ' ') 
+	 * TODO note we assume the phones are separated by ()PH_DELIM (presumably ' ') 
 	 * TODO still need to debug the use of diacritics here. 
 	 * TODO when do that, make sure to update the counterpart in SimulationTester.
 	 * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
@@ -1069,10 +1069,10 @@ public class UTILS {
 	{
 		String toLex = toLexem.trim(); 
 		
-		if (UTILS.PSEUDO_ETYM_REPRS.contains(toLex))
+		if (PSEUDO_ETYM_REPRS.contains(toLex))
 			return new PseudoEtymon(toLex);
 		
-		String[] toPhones = toLexem.trim().split(""+UTILS.PH_DELIM);
+		String[] toPhones = toLexem.trim().split(""+PH_DELIM);
 		
 		List<SequentialPhonic> phones = new ArrayList<SequentialPhonic>(); //Etymon class stores internal List of phones not an array,
 			// for better ease of mutation
@@ -1083,7 +1083,7 @@ public class UTILS {
 				phones.add(new Boundary(toPhone.equals("#") ? "word bound" : "morph bound"));
 			else
 			{
-				if (!UTILS.phoneSymbToFeatsMap.containsKey(toPhone))
+				if (!phoneSymbToFeatsMap.containsKey(toPhone))
 				{
 					boolean invalid_phone_error = true; 
 					
@@ -1097,7 +1097,7 @@ public class UTILS {
 					*/
 					if (!no_symb_diacritics)
 					{
-						List<String> diacritsLeft = new ArrayList<String>(UTILS.DIACRIT_TO_FT_MAP.keySet()); 
+						List<String> diacritsLeft = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()); 
 						while (diacritsLeft.size()>0)
 						{
 							String diacrit = diacritsLeft.remove(0); 
@@ -1105,24 +1105,24 @@ public class UTILS {
 							{
 								String rest_of_phone = toPhone+""; 
 								rest_of_phone = toPhone.replace(diacrit,""); 
-								if(UTILS.phoneSymbToFeatsMap.containsKey(rest_of_phone))
+								if(phoneSymbToFeatsMap.containsKey(rest_of_phone))
 								{
 									invalid_phone_error = false; 
-									String int_feats = UTILS.phoneSymbToFeatsMap.get(rest_of_phone); 
-									for (String feat_spec : UTILS.DIACRIT_TO_FT_MAP.get(diacrit)) 
+									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
+									for (String feat_spec : DIACRIT_TO_FT_MAP.get(diacrit)) 
 									{
 										String feat_here = feat_spec.substring(1); 
-										if (UTILS.featIndices.containsKey(feat_here))
+										if (featIndices.containsKey(feat_here))
 										{
-											int featIndex = UTILS.featIndices.get(feat_here); 
-											String insertion = ""+UTILS.getFeatspecIntFromMark(feat_spec.charAt(0)); 
+											int featIndex = featIndices.get(feat_here); 
+											String insertion = ""+getFeatspecIntFromMark(feat_spec.charAt(0)); 
 											int_feats = int_feats.substring(0,featIndex) + insertion + int_feats.substring(featIndex+1); 
 										}
 										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
 									}
 									//checking first if there is already a phone with this feature vector -- because adding another phone with the same feature vector will cause errors down the line.
 									if(phoneSymbToFeatsMap.containsValue(int_feats))
-										toPhone = UTILS.getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
+										toPhone = getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
 									else	phoneSymbToFeatsMap.put(toPhone, int_feats); 
 								}
 							}

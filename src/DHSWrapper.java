@@ -27,9 +27,6 @@ public class DHSWrapper {
 	private double id_wt;
 	private String[] goldStageNames;
 	private String[] blackStageNames;
-	private boolean feats_weighted;
-	private String[] featsByIndex;
-	private double[] FT_WTS;
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA;
 
 	// long-term dynamic but not of interest in tracking
@@ -98,7 +95,7 @@ public class DHSWrapper {
 
 	private SChangeFactory FAC;
 
-	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt,
+	public DHSWrapper(Simulation baseSim, double id_wt,
 			String ogCascLoc, SChangeFactory theFac) {
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
@@ -109,9 +106,6 @@ public class DHSWrapper {
 			goldStageNames = baseSim.getGoldStageNames();
 		if (NUM_BLACK_STAGES > 0)
 			blackStageNames = baseSim.getBlackStageNames();
-		this.feats_weighted = feats_weighted;
-		this.featsByIndex = featsByIndex;
-		this.FT_WTS = FT_WTS;
 		this.id_wt = id_wt;
 		this.origCascLoc = ogCascLoc;
 		this.FAC = theFac;
@@ -119,7 +113,7 @@ public class DHSWrapper {
 		reset();
 	}
 
-	public DHSWrapper(Simulation baseSim, boolean feats_weighted, String[] featsByIndex, double[] FT_WTS, double id_wt,
+	public DHSWrapper(Simulation baseSim, double id_wt,
 			String ogCascLoc, SChangeFactory theFac, String inp_name) {
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
@@ -130,9 +124,6 @@ public class DHSWrapper {
 			goldStageNames = baseSim.getGoldStageNames();
 		if (NUM_BLACK_STAGES > 0)
 			blackStageNames = baseSim.getBlackStageNames();
-		this.feats_weighted = feats_weighted;
-		this.featsByIndex = featsByIndex;
-		this.FT_WTS = FT_WTS;
 		this.id_wt = id_wt;
 		this.origCascLoc = ogCascLoc;
 		this.FAC = theFac;

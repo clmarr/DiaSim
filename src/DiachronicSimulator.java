@@ -1368,7 +1368,7 @@ public class DiachronicSimulator {
 	
 	private static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
 	{
-		return new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, UTILS.featsByIndex, 
+		return new ErrorAnalysis(currResult, gold, UTILS.featsByIndex, 
 				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
 						: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
 	}
