@@ -1077,24 +1077,28 @@ public class UTILS {
 	
 	/**
 	 * @param listOfFeatSpecs -- list of sets of featSpecs -- e.g. { [+hi,+back]; {+cont,+son]}
-	 * @return @true if at least two cells of hte least contain conflicting specifications for at least one feature. 
+	 * @return list of feats for which there are conflicting specifications, delimited by RESTR_DELIM + a space 
+	 * @else return "".  
 	 */
-	public static boolean checkForFeatureConflict(List<String> listOfFeatSpecs) 
+	public static String detectFeatConflicts(List<String> listOfFeatSpecs) 
 	{
 		HashMap<String,String> specsMade = new HashMap<String,String> (); 
+		List<String> conflictedFeats = new ArrayList<String>(); 
 		
 		for (String specSet : listOfFeatSpecs) 
 		{
 			for (String featSpec : specSet.split(""+RESTR_DELIM)) 
 			{
 				String spec = ""+featSpec.charAt(0), ft = featSpec.substring(1); 
-				if (specsMade.containsKey(ft))
-				{	if (!specsMade.get(ft).equals(spec))	return true; 	}
+				if (specsMade.containsKey(ft) && !conflictedFeats.contains(ft))
+				{	if (!specsMade.get(ft).equals(spec))	conflictedFeats.add(ft); }
 				else specsMade.put(ft, spec);		
 			}
 		}
 		
-		return false; 
+		if (conflictedFeats.size() == 0)	return ""; 
+		else return String.join(RESTR_DELIM+" ", conflictedFeats);
+		
 	}
 	
 	
@@ -1104,7 +1108,7 @@ public class UTILS {
 	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
 	 *  @prerequisite DIACRIT_TO_FT_MAP has also already been built (extractDiacriticMap()) 
 	 * this method will attempt to parse what phonetic feature string this likely indicates
-	 * 	beware,(TODO) @error if there are multiple diacritics present AND they indicate contracting features! 
+	 * 	beware,(TODO) @error (currently as @warning instead) if there are multiple diacritics present AND they indicate contracting features! 
 	 * 			(maybe this isn't necessary to do?) 
 	 * @return @false if there is no predefined base phone detected  [ likely triggering error in outer-nested method ]
 	 * 		(in practice, a 'base phone' is one already present as a key in phoneSymbToFeatsMap 
@@ -1143,8 +1147,26 @@ public class UTILS {
 				if(phoneSymbToFeatsMap.containsKey(restOfPhone))	// successful parse complete! 
 				{
 					String newFeatVect = phoneSymbToFeatsMap.get(restOfPhone); 
+				
+					// get feat specs for each diacritic.
+					List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
+					for (String dfi : diacritsFound)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
 					
-					// apply the features 
+					// deal with any induced feature conflicts... 
+					String conflictedFeats = detectFeatConflicts(featSpecSetsPerDiacrit);
+					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol ' "+unseenSymb+" ' "
+								+ "appear to involve a conflict for the specification of the following features:\n\t"
+								+conflictedFeats);
+							
+					// apply the features. Note they are applied in the order the diacritics were detected...
+					for (String fsi : featSpecSetsPerDiacrit)	
+						newFeatVect = (getFeatMatrix(fsi,true)).forceTruthOnFeatVect(newFeatVect);
+					
+					//add new symbol, feat vector pair to phoneSymbToFeatsMap 
+					phoneSymbToFeatsMap.put(unseenSymb, newFeatVect); 
+					
+					
+					
 				}
 					
 			
@@ -1152,7 +1174,7 @@ public class UTILS {
 		}
 	
 		
-		// return false; 
+		return false; 
 	}
 	
 	
@@ -1253,7 +1275,7 @@ public class UTILS {
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
 	 */
-	public boolean isValidFeatSpecList(String input)
+	public static boolean isValidFeatSpecList(String input)
 	{
 		String[] specs = input.split(""+RESTR_DELIM); 
 		
@@ -1266,18 +1288,18 @@ public class UTILS {
 	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
-	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
+	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls)
 	{
 		if(! isValidFeatSpecList(featSpecs) )
 			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
 					+ "\nAttempted feat specs: "+featSpecs); 
 		
-		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
+		String theFeatSpecs = apply_ft_impls ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
 			return new FeatMatrix(theFeatSpecs, ordFeatNames); 
 				
-		if(theFeatSpecs.contains("0") && !isInputDest)
+		if(theFeatSpecs.contains("0") && !apply_ft_impls)
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
 		return new FeatMatrix(theFeatSpecs, ordFeatNames); 
@@ -1288,7 +1310,7 @@ public class UTILS {
 	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
 	 * @param featSpecs, feature specifications before application of the stored implications
 	 */
-	public String applyImplications (String featSpecs) 
+	public static String applyImplications (String featSpecs) 
 	{
 		if (! isValidFeatSpecList(featSpecs) )
 			throw new RuntimeException("Error : preempted attempt to apply implications to an invalid list of feature specifications"); 
