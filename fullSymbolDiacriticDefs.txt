@@ -1,6 +1,6 @@
  ʰ = +sg $aspirated
  ʲ = +hi,+front $palatalized
- ˠ = +back $velarized. Currently not marked as +hi per current treatment of coronal laterals that are velarized in symbolDefs.
+ ˠ = +back $velarized. Currently not marked as +hi per current treatment of coronal laterals that are velarized in symbolDefs. For this reason may be used for uvulars too perhaps (even if heretically), unless this is changed in a custom local version. 
  ʷ = +lab,+hi,+back,+round $labiovelarized
  ᶣ = +lab,+hi,+front,+round $labiopalatalized. Note that the current one used in symbolDefs.csv for ɡᶣ and kᶣ does not trigger +round 
  ˤ = +lo,+back $pharyngealized.
@@ -19,4 +19,5 @@
  ̹ = +round $weakly rounded, typically for coronals. Patterns/marked as round but not labial. 
  ˈ= +stres,+prim
  ˌ= +stres,-prim
+ ːː= +splng $must be defined before long or it will just be interpreted as (potentially runtime error-triggering) duplication of the long marker.   
  ː= +long

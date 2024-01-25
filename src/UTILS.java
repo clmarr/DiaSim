@@ -42,13 +42,14 @@ public class UTILS {
 	public static boolean feats_weighted;
 	public static double[] FT_WTS; 
 	public static HashMap<String, String> phoneSymbToFeatsMap;
+	public static HashMap<String, String> featsToSymbMap; 
 	
 	public static double ID_WT; 
 	public static boolean contextualize_FED; 
 	
 	public static boolean VERBOSE; 
 	
-	public static boolean symbsExtracted = false , 
+	public static boolean symbsExtracted = false , no_feat_impls = false, 
 			diacriticsExtracted = false, featImplsExtracted = false;
 	
 	public static boolean etymonIsPresent (Etymon etym)	
@@ -615,13 +616,9 @@ public class UTILS {
 	 * formerly, @returned diacritics map to be used in DiachronicSimulator and in PhoneTester
 	 * now as of @date January 24, 2024, this is a void method that initializes the now LOCAL but PUBLIC diacritic map, which will be referenced by other classes
 	 * 	but kept here in UTILS.
-	 * @prerequisite: class variable featIndices has already been defined. 
 	 */
 	public static void extractDiacriticMap(String diacriticDefLocation)
 	{
-		if (!featImplsExtracted)
-			throw new Error("Error: tried to extract diacritics before feature implications were extracted!");
-		
 		DIACRIT_TO_FT_MAP = new HashMap<String, String[]> (); 
 		if (VERBOSE)		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
@@ -1071,14 +1068,47 @@ public class UTILS {
 	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
 	 *  @prerequisite DIACRIT_TO_FT_MAP has also already been built (extractDiacriticMap()) 
 	 * this method will attempt to parse what phonetic feature string this likely indicates
-	 * 	beware, @error if there are multiple diacritics present AND they indicate contracting features! 
-	 * @error if there is no predefined base phone.
-	 * @return
+	 * 	beware,(TODO) @error if there are multiple diacritics present AND they indicate contracting features! 
+	 * 			(maybe this isn't necessary to do?) 
+	 * @return @false if there is no predefined base phone detected  [ likely triggering error in outer-nested method ]
+	 * 		(in practice, a 'base phone' is one already present as a key in phoneSymbToFeatsMap 
+	 * @return @true if the parse is successful, 
+	 * 	 but before returning, add @param unseenSymb as a key into @classvariable phoneSymbToFeatsMap ( @destructive ) 
+	 * 		with its newly detected feature string as a value 
+	 * 	 also, add the feature string as a key with @param unseenSymb as a value into @classvariable featsToSymbMap ( @destructive ) 
+	 * 		if there was already a symbol with that feature string, then @usurp it within featsToSymbMap
+	 * 			(because this is largely used as an auxiliary to @method parseLexPhon, 
+	 * 					so unseen symbols likely reflect the annotation scheme of the "gold" forms to compare against...) 
+	 * 		@print a message saying as much if @verbose
 	 */
-	/** public static boolean tryParseAndDefineSymbol (String unseenSymb) 
+	public static boolean tryParseAndDefineMarkedSymbol (String unseenSymb) 
 	{
+		if (!symbsExtracted)	throw new Error("Error: tried to parse an unseen marked symbol before symbol definitions were extracted in the first place!"); 
+		if (!diacriticsExtracted)	throw new Error("Error: tried to parse an unseen diacritic marked symbol were diacritic definitions were extracted!"); 
 		
-	}*/ 
+		List<String> diacritsLeft = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()),
+				diacritsFound = new ArrayList<String>(); 
+		String restOfPhone = ""+unseenSymb; 
+		
+		while (diacritsLeft.size()>0 ) 
+		{
+			String candDiacrit = diacritsLeft.remove(0); 
+			if(restOfPhone.contains(candDiacrit))
+			{
+				restOfPhone.replace(candDiacrit, ""); 
+					// not "replaceAll" -- should only replace the first instance 
+					// so there could be an error (runtime or otherwise) if the same diacritic is used twice and the existing item isn't already defined. 
+					// catching that here. 
+				if (restOfPhone.contains(candDiacrit) && !candDiacrit.equals("ː")) 
+					System.out.println("Warning: redundant diacritic (' "+candDiacrit+" ') detected in hitherto unseen diacriticized symbol <"+unseenSymb+">."); 
+				
+				diacritsFound.add(candDiacrit);
+			
+			}
+		}
+	
+	}
+	
 	
 	
 	/** 

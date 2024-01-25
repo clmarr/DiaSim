@@ -498,7 +498,6 @@ public class DiachronicSimulator {
 		}
 		UTILS.extractSymbDefs(symbDefLines); 
 
-		// TODO move the following block back to somewhere in DiachronicSimulator... 
 		if (!no_feat_impls)
 		{
 			if (VERBOSE)
@@ -1628,8 +1627,9 @@ public class DiachronicSimulator {
 							DEBUG_RULE_PROCESSING = true;
 							if (VERBOSE)	System.out.println("Debugging rule processing.");
 							break; 
-						case 'e': 
+						case 'e':  // explicit 
 							no_feat_impls = true; 
+							UTILS.no_feat_impls = true; 
 							if (VERBOSE)	System.out.println("Ignoring any feature implications.");
 							break; 
 						case 'p':

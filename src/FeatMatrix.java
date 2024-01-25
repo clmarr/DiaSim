@@ -162,6 +162,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public boolean compare(List<SequentialPhonic> candPhonSeq, int index)
 	{	return compare(candPhonSeq.get(index));		}
 	
+	// modify feat vect so this feat matrices values have been imposed. 
+	public String forceTruthOnFeatVect (String patientFeatVect) 
+	{
+		String out = ""+patientFeatVect; 
+		
+		for (int fvi = 0; fvi < featVect.length() ; fvi++)
+		{
+			char ch = featVect.charAt(fvi); 
+			if (ch != '1')
+				out = out.substring(0, fvi) + 
+					(ch == '9' ? '1' : ch) + out.substring(fvi+1); 
+		}
+		
+		return out; 
+	}
+	
 	/**
 	 *  makes all the restrictions specified in this FeatMatrix true for @param patient
 	 *  patient -- patient as in object of modification necessary to impose the truth of the values encoded in this FeatMatrix
@@ -182,14 +198,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// but for security best to call it out, as obscure errors could easily ensue
 			// prior to Dec 20 2022, this was throwing an UnsetAlphaError-- unclear why. 
 		
-		for (int fvi = 0; fvi < featVect.length() ; fvi++)
-		{
-			char ch = featVect.charAt(fvi); 
-			if (ch != '1')
-				patFeats = patFeats.substring(0, fvi) + 
-					(ch == '9' ? '1' : ch) + patFeats.substring(fvi+1); 
-		}
-		output.setFeats(patFeats);
+		output.setFeats(forceTruthOnFeatVect(patFeats));
 		
 		return output; 
 	}
