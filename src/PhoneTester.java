@@ -233,7 +233,7 @@ public class PhoneTester {
 		
 		System.out.println("----------------------");
 		System.out.println("Now testing diacritic comprehension."); 
-		UTILS.extractDiacriticMap(diacritic_def_loc, featureIndices); 
+		UTILS.extractDiacriticMap(diacritic_def_loc); 
 		
 		System.out.println("First testing comprehension of diacritic input file; will test implementation next..."); 
 	

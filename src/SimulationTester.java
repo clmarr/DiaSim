@@ -173,7 +173,7 @@ public class SimulationTester {
 			//TODO check this was/is implemented (Dec 2022) 
 		System.out.println("Checking at final waypoint, a gold stage."); 
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, testSimul.justHitGoldStage(), "ERROR: gold stage erroneously not detected"); 
-		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1), featsByIndex, 
+		checker = new ErrorAnalysis(testSimul.getStageResult(true, 1), testSimul.getGoldStageGold(1),  
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
 		errorCount +=UTILS.checkMetric(1.0, checker.getAccuracy(), "ERROR: accuracy of only %o at second gold waypoint compared to stored result lexicon at that point.") ? 0 : 1 ; 
 		errorCount +=UTILS.aggregateErrorsCheckWordLists(goldStageGoldWordlists[1], testSimul.getCurrentResult().getWordList()); 
@@ -1252,7 +1252,7 @@ public class SimulationTester {
 	
 	
 	private static DHSWrapper newDHS(Simulation sim)
-	{	return new DHSWrapper(sim, feats_weighted, featsByIndex, FT_WTS, ID_WT, DBG_WRKG_CASC,theFactory); 
+	{	return new DHSWrapper(sim, DBG_WRKG_CASC,theFactory); 
 	}
 	
 	private static void extractSymbDefs()
@@ -1567,7 +1567,7 @@ public class SimulationTester {
 	
 	private static ErrorAnalysis standardChecker(Lexicon res, Lexicon gold)
 	{
-		return new ErrorAnalysis( res, gold, featsByIndex, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
+		return new ErrorAnalysis( res, gold, feats_weighted ? new FED(featsByIndex.length, FT_WTS, ID_WT) : new FED(featsByIndex.length, ID_WT));
 	}
 	
 	private static List<String> extractCascRulesByStep(SChangeFactory fac, String CASC_FILE_LOC)

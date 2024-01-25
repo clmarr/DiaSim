@@ -715,7 +715,7 @@ public class DiachronicSimulator {
 				
 				//TODO figure out what we want to do here...
 						// TODO what did this mean?^ Figure out or delete it. 
-				ErrorAnalysis ea = setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
+				ErrorAnalysis ea = UTILS.setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
 						
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
 						false, theSimulation.getCurrentResult());
@@ -725,7 +725,7 @@ public class DiachronicSimulator {
 				{	
 					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 					{	
-						ErrorAnalysis eap = setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
+						ErrorAnalysis eap = UTILS.setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
 						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 								).toString();
 						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
@@ -918,7 +918,7 @@ public class DiachronicSimulator {
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 				
-		ErrorAnalysis ea = setupErrorAnalysis(r,g);
+		ErrorAnalysis ea = UTILS.setupErrorAnalysis(r,g);
 
 		System.out.println(UTILS.getAccuracyReport(ea));
 		
@@ -1002,7 +1002,7 @@ public class DiachronicSimulator {
 					boolean filtered = ea.isFiltSet();
 					boolean pivoted = ea.isPivotSet(); 
 					
-					ea = setupErrorAnalysis(r,g); 
+					ea = UTILS.setupErrorAnalysis(r,g); 
 					if (pivoted) 	ea.setPivot(pivPtLex, pivPtName);
 					if (filtered) 	ea.setFilter(filterSeq, pivPtName);
 				}
@@ -1096,7 +1096,7 @@ public class DiachronicSimulator {
 						else if (!resp.equals("Keep"))
 						{
 							pivPtLoc = -1; pivPtLex = null; pivPtName = ""+resp;
-							ea = setupErrorAnalysis(r,g); 
+							ea = UTILS.setupErrorAnalysis(r,g); 
 							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
@@ -1354,7 +1354,7 @@ public class DiachronicSimulator {
 			}
 			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
-				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, UTILS.ID_WT, cascFileLoc, fac); 
+				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, cascFileLoc, fac); 
 				DHSinterface.queryProposedChanges(inpu); 
 			}
 			else if(resp.equals("9")) {
@@ -1365,12 +1365,6 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	private static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
-	{
-		return new ErrorAnalysis(currResult, gold, UTILS.featsByIndex, 
-				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,UTILS.ID_WT,UTILS.contextualize_FED) 
-						: new FED(UTILS.featsByIndex.length, UTILS.ID_WT,UTILS.contextualize_FED));
-	}
 	
 	//TODO below is abrogated as it is not in use. 
 	//makes  EA object on subset of gold/res pairs that have a specified sequence in either the gold or res as flagged by boolean second param

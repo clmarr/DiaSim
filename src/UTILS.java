@@ -1141,7 +1141,7 @@ public class UTILS {
 	
 	public static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
 	{
-		return new ErrorAnalysis(currResult, gold, featsByIndex, 
+		return new ErrorAnalysis(currResult, gold,  
 				feats_weighted ? new FED(featsByIndex.length, FT_WTS,ID_WT,contextualize_FED) 
 						: new FED(featsByIndex.length, ID_WT,contextualize_FED));
 	}
