@@ -20,7 +20,6 @@ public class SChangeFactory {
 	private static HashMap<String, String> symbToFeatVects; 
 	private HashMap<String, String> featVectsToSymb; 
 	private static HashMap<String, Integer> featIndices;
-	private static HashMap<String, String[]> featImplications; 
 	private static Set<String> featsWithImplications; 
 	private static List<String> ordFeatNames; 
 	
@@ -50,7 +49,7 @@ public class SChangeFactory {
 	
 	//Constructor
 	
-	public SChangeFactory(HashMap<String, String> stf, HashMap<String,Integer> featInds, HashMap<String, String[]> featImpls)
+	public SChangeFactory(HashMap<String, String> stf, HashMap<String,Integer> featInds)
 	{
 		boundsMatter = false; //TODO figure out how the user can specify if boundsMatter should be true
 		
@@ -72,8 +71,7 @@ public class SChangeFactory {
 			}
 		}
 		
-		featImplications = new HashMap<String, String[]>(featImpls); 
-		featsWithImplications = featImplications.keySet(); 
+		featsWithImplications = UTILS.FT_IMPLICATIONS.keySet(); 
 		
 		featVectsToSymb = new HashMap<String, String>(); 
 		Set<String> stfKeys = stf.keySet(); 
@@ -683,12 +681,12 @@ public class SChangeFactory {
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
+			return new FeatMatrix(theFeatSpecs, ordFeatNames); 
 				
 		if(theFeatSpecs.contains("0") && !isInputDest)
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
-		return new FeatMatrix(theFeatSpecs, ordFeatNames, featImplications); 
+		return new FeatMatrix(theFeatSpecs, ordFeatNames); 
 	}
 	
 	/**	applyImplications
@@ -709,7 +707,7 @@ public class SChangeFactory {
 			
 			if(featsWithImplications.contains(currSpec)) 
 			{
-				String[] implications = featImplications.get(currSpec); 
+				String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec); 
 				for (int ii = 0; ii < implications.length; ii++)
 				{	if (output.contains(implications[ii].substring(1)) == false)
 					{	
@@ -722,7 +720,7 @@ public class SChangeFactory {
 			{
 				if(featsWithImplications.contains(currSpec.substring(1)))
 				{
-					String[] implications = featImplications.get(currSpec.substring(1)); 
+					String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec.substring(1)); 
 					for (int ii=0; ii < implications.length; ii++)
 					{	if(output.contains(implications[ii]) == false)
 						{
