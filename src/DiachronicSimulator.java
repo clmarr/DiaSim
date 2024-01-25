@@ -122,12 +122,6 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	public static void extractDiacriticCDefs(String diacriticDefsLoc)
-	{
-		no_symb_diacritics = false; 
-		symbDiacriticsLoc = ""+diacriticDefsLoc; 
-	}
-	
 	public static void extractDiacriticDefs()
 	{
 		if (no_symb_diacritics)	return;
