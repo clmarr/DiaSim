@@ -1110,6 +1110,15 @@ public class UTILS {
 		
 	}
 	
+	public static String detectDiacritFeatConflicts(List<String> diacrits)
+	{
+		// get feat specs for each diacritic.
+		List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
+		for (String dfi : diacrits)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
+		
+		return detectFeatConflicts(featSpecSetsPerDiacrit);
+	}
+	
 	
 	/**
 	 * @author Clayton Marr, @date January 24, 2024
@@ -1160,12 +1169,13 @@ public class UTILS {
 					
 					String newFeatVect = phoneSymbToFeatsMap.get(restOfPhone); 
 				
-					// get feat specs for each diacritic.
+					// get feat specs for each diacritics, deal with any induced feature conflicts. 
 					List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
 					for (String dfi : diacritsFound)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
 					
 					// deal with any induced feature conflicts... 
-					String conflictedFeats = detectFeatConflicts(featSpecSetsPerDiacrit);
+					String conflictedFeats =detectDiacritFeatConflicts(diacritsFound); 
+					
 					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol ' "+unseenSymb+" ' "
 								+ "appear to involve a conflict for the specification of the following features:\n\t"
 								+conflictedFeats);
@@ -1274,6 +1284,19 @@ public class UTILS {
 		featsToSymbMap.put(vect,symb); 
 	}
 	
+	/** 
+	 * 
+	 * @param vect  -- vector needing defining
+	 * @param baseVect -- vector of base phone that exists that is being tried
+	 * @param suffixVect -- 
+	 * @param suffixForm
+	 * @return
+	 */
+	public static boolean checkSuffixationToDefineFeatVect(String vect, String baseVect, String suffixVect, String suffixForm)
+	{
+		
+	}
+	
 	/**
 	 * @author Clayton Marr, @date January 25, 2024 
 	 * @param unseenVect -- feature vector that does not yet have a phone symbol attached to it. 
@@ -1304,9 +1327,6 @@ public class UTILS {
 		if (featsToSymbMap.containsKey(unseenVect))	
 			throw new Error ("Error: tried to define new symbol for 'unseen' feat vector that has already been seen and defined!"); 
 		
-		//TODO consider abrogation for htis
-		HashMap<String,FeatMatrix> diacritCands = new HashMap<String,FeatMatrix> (); 
-		
 		List<String> diacritSpecSetCands = new ArrayList<String>(featsToPossibleDiacritics.keySet());
 		
 		int ssi = 0; 
@@ -1321,18 +1341,24 @@ public class UTILS {
 				for (String baseFeatVect : featsToSymbMap.keySet())
 				{
 					String candDiacritResult = curCandFM.forceTruthOnFeatVect
-							(baseFeatVect).replace(Integer.toString(DESPEC_INT), Integer.toString(UNSPEC_INT)); 
+							(baseFeatVect).replace(Integer.toString(DESPEC_INT), 
+									Integer.toString(UNSPEC_INT)); 
 					
-					if (candDiacritResult.equals(unseenVect))	// we found it!!
+					String baseSymb = featsToSymbMap.get(baseFeatVect),
+							suffix = featsToPossibleDiacritics.get(diacritSpecSetCands.get(ssi)).get(0); 
+					List<String> diacritsInvolved = diacritsFoundInPhoneSymb(baseSymb); 
+					diacritsInvolved.add(suffix); 
+					
+					if (candDiacritResult.equals(unseenVect)
+							&& !detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
 					{
-						String newSymb = 
-								featsToSymbMap.get(baseFeatVect) //base
-								+ featsToPossibleDiacritics.get(diacritSpecSetCands.get(ssi)).get(0);//diacritic
+						String newSymb = baseSymb + suffix;
 		
 						defineFeatVect(unseenVect,newSymb); 
 						// preference for first diacritic defined for this feature set. 
 						if (VERBOSE)
 							System.out.println("New symbol '"+newSymb+"' defined to represent feat vect "+unseenVect+"."); 
+						return true; 
 					}	
 				}
 				
@@ -1342,14 +1368,91 @@ public class UTILS {
 				diacritSpecSetCands.remove(ssi); 	
 		}
 		
-		//second run -- trying multiple diacritic combinations 
-		
-		if (1==1)
-			throw new Error("Error: called tryDefineUnseenFeatVect(), which is still under construction! ");
-		
-		return false;
+		//second run -- could not get a combo with single diacritics, now trying multiple diacritic combinations 
 		
 		
+		HashMap<Integer,HashMap<String,String>> combinedSpecSetCandsByDepth = new HashMap<Integer,HashMap<String,String>>(); 
+			// key -- number of combined diacrits (starting with 2)
+			// value -- a hashmap of (featvect, diacritcombo) pairs. 
+		int depth = 2; 
+		
+		HashMap<String,String> depth1set = new HashMap<String,String> (); 
+		for ( String dssi : diacritSpecSetCands) 
+			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));
+		combinedSpecSetCandsByDepth.put(1,depth1set); 
+		
+		while (depth < diacritSpecSetCands.size())
+		{
+			HashMap<String,String> currDepthSet = new HashMap<String,String>(); 
+			for ( String existingStackFeats : combinedSpecSetCandsByDepth.get(depth-1).keySet()) 
+			{
+				for ( String addend : diacritSpecSetCands) // for each, try adding another diacrit onto it... 
+				{
+					// bypass if it's already in the stack... 
+					if (combinedSpecSetCandsByDepth.get(depth-1).get(existingStackFeats).contains(
+							featsToPossibleDiacritics.get(addend).get(0)))
+						continue;
+					
+					List<String> currFeatSpecCombo = new ArrayList<String>(); 
+					currFeatSpecCombo.add(existingStackFeats); 
+					currFeatSpecCombo.add(addend); 
+					
+					// bypass if there would be any feature conflicts. 
+					if (!detectFeatConflicts(currFeatSpecCombo).equals(""))
+						continue; 
+									
+					//bypass if the features being added are already included. 
+					List<String> feats_to_add = Arrays.asList(addend.split(""+RESTR_DELIM)); 
+					int fai= 0; 
+					while (fai < feats_to_add.size()) {
+						if ( existingStackFeats.contains( feats_to_add.get(fai) ) )
+							feats_to_add.remove(fai); 
+						else	fai++; 
+					}
+					if (feats_to_add.size() == 0) // bypass
+						continue; 
+					
+					String resultFeatVect = existingStackFeats + RESTR_DELIM 
+							+ (feats_to_add.size() == 1 ? feats_to_add.get(0)
+									: String.join(""+RESTR_DELIM, feats_to_add)); 
+					
+					String comboSuffix = 
+							combinedSpecSetCandsByDepth.get(depth-1).get(existingStackFeats) // existing diacritics
+							+ featsToPossibleDiacritics.get(addend).get(0);  // newly added material. 
+					
+					FeatMatrix curCandFM = getFeatMatrix(resultFeatVect, apply_ft_impls);
+					if (curCandFM.compareToFeatVect(unseenVect)) //valid candidate 
+					{
+						for (String baseFeatVect : featsToSymbMap.keySet())
+						{
+							String candDiacritResult = curCandFM.forceTruthOnFeatVect
+									(baseFeatVect).replace(Integer.toString(DESPEC_INT), 
+											Integer.toString(UNSPEC_INT)); 
+							String baseSymb = featsToSymbMap.get(baseFeatVect);
+							
+							List<String> diacritsInvolved = diacritsFoundInPhoneSymb(baseSymb); 
+							diacritsInvolved.add(comboSuffix); 
+							
+							if (candDiacritResult.equals(unseenVect)
+									&& !detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
+							{						
+								String newSymb = baseSymb + comboSuffix;
+								defineFeatVect(unseenVect,newSymb); 
+								// preference for first diacritic defined for this feature set. 
+								if (VERBOSE)
+									System.out.println("New symbol '"+newSymb+"' defined to represent feat vect "+unseenVect+"."); 
+								return true; 
+							}
+						}
+					}
+					
+					currDepthSet.put(resultFeatVect , comboSuffix); 
+				}
+			}
+			depth++; 
+		}
+		
+		return false;		
 	}
 	
 	public static String generatePhoneSymbol(String featString)
