@@ -18,7 +18,7 @@ public class UTILS {
 
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
-	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
+	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public static final char RESTR_DELIM =  ','; // delimits restrictiosn between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
@@ -50,6 +50,7 @@ public class UTILS {
 	public static double[] FT_WTS; 
 	public static HashMap<String, String> phoneSymbToFeatsMap;
 	public static HashMap<String, String> featsToSymbMap; 
+	public static HashMap<String, List<String>> featsToPossibleDiacritics; 
 	
 	public static double ID_WT; 
 	public static boolean contextualize_FED; 
@@ -634,6 +635,7 @@ public class UTILS {
 	public static void extractDiacriticMap(String diacriticDefLocation)
 	{
 		DIACRIT_TO_FT_MAP = new HashMap<String, String[]> (); 
+		featsToPossibleDiacritics = new HashMap<String, List<String>>(); 
 		if (VERBOSE)		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
 		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 
@@ -656,6 +658,12 @@ public class UTILS {
 						throw new RuntimeException("ERROR: tried to declare a diacritic, "+sdsides[0]+" that would mark an invalid feature: "+df);
 				}
 				DIACRIT_TO_FT_MAP.put(sdsides[0], sdsides[1].split(","));
+				
+				List<String> ftpdi_val = 
+						featsToPossibleDiacritics.containsKey(sdsides[1]) ? 
+								featsToPossibleDiacritics.get(sdsides[1]) : new ArrayList<String>() ;
+				ftpdi_val.add(sdsides[0]);
+				featsToPossibleDiacritics.put(sdsides[1], ftpdi_val); 
 			}
 		}
 		if (VERBOSE)
@@ -1235,23 +1243,67 @@ public class UTILS {
 		return new Etymon(phones);
 	}
 	
+	/** 
+	 * modify the hashmaps to add a new symbol ( @param symb) for hte feat vect ( @param vect ) 
+	 */
+	public static void addNewlyDefinedFeatVect(String vect, String symb)
+	{
+		//TODO work here. 
+	}
+	
 	/**
 	 * @author Clayton Marr, @date January 25, 2024 
 	 * @param unseenVect -- feature vector that does not yet have a phone symbol attached to it. 
 	 * 		@error if it is actually defined 
 	 * 		@error if phone symbols not yet extracted, or if diacritics not yet extracted. 
 	 * search through diacritics for a diacritic or combination of diacritics that could be added to a base phone to generate this vector 
-	 *  TODO decide how to do the search 
-	 * @return @false if search failed (TODO determine the conditions for that!) 
-	 * 		@true if search successful 
-	 * 			after adding the new phone/featvect pair to featsToSymbsMap and phoneSymbToFeatsMap. 
+	 * 	this is done by detecting which diacritics are true
+	 * 		in first runthrough (tries for base symbol + single diacritic): 
+	 * 			for each diacritic, check if it is true of the feature vecotr
+	 * 				if so add it to set of diacritics to consider for multiple diacritic formations (second runtrhough) 
+	 * 				if htere is a base symbol (existing symbol in the hashmaps) that it can be added to
+	 * 					check if it would create a diacritic conflict (i.e. if the 'base' symbol is in fact already diacriticized)
+	 * 					and if not, we've successfully found a new phone for this feature vect
+	 * 						add it to the hashmaps and @return @true
+	 * 		if this doens't work for any single diacritics, use the subset of diacritics that are true to try multiple diacritic combos 
+	 * 			wherein again cases with conflicting diacritics (both from the base or the ones being added) are blocked
+	 * 		if neither of these worked @return @false
+	 * if @param apply_ft_impls, apply feature implications. 
 	 */
-	public static boolean tryDefineUnseenFeatVect (String unseenVect) 
+	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
 		if (featsToSymbMap.containsKey(unseenVect))	
 			throw new Error ("Error: tried to define new symbol for 'unseen' feat vector that has already been seen and defined!"); 
+		
+		//TODO consider abrogation for htis
+		HashMap<String,FeatMatrix> diacritCands = new HashMap<String,FeatMatrix> (); 
+		
+		List<String> diacritSpecSetCands = new ArrayList<String>(featsToPossibleDiacritics.keySet());
+		
+		int ssi = 0; 
+		while (ssi < diacritSpecSetCands.size())
+		{
+			FeatMatrix curCandFM = getFeatMatrix(diacritSpecSetCands.get(ssi), apply_ft_impls);
+			if (curCandFM.compareToFeatVect(unseenVect))
+			{
+				//then this is a valid candidate!
+				
+				//check if this can combine with an existing base symbol 
+				for (String baseFeatVect : featsToSymbMap.keySet())
+				{
+					String candDiacritResult = curCandFM.forceTruthOnFeatVect
+							(baseFeatVect).replace(Integer.toString(DESPEC_INT), Integer.toString(UNSPEC_INT)); 
+					if (candDiacritResult.equals(unseenVect))	// we found it!!
+					{
+						//TODO work here. 
+					}
+				}
+				
+				ssi++; // move on but keep this as a candidate. 
+			}
+		}
 		
 		if (1==1)
 			throw new Error("Error: called tryDefineUnseenFeatVect(), which is still under construction! ");

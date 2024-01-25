@@ -95,20 +95,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 		
 	/**
-	 * checks if candidate phone adheres to the restrictions
-	 * @precondition: they have the same length feature vectors
-	 * @throws UnsetAlphaError */
-	public boolean compare(SequentialPhonic cand)
+	 * compare truth against an ordered feat vect ( @param candFeats) , whether from a phone or not 
+	 * @return true if this would be true if the cand feat vector meets the specifications of this FeatMatrix. 
+	 */
+	public boolean compareToFeatVect (String candFeats)
 	{
-		if (!cand.getType().equals("phone"))
-			return false; 
-		
-		char nonSet = first_unset_alpha();
-		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet); 
-			//formerly -- throw new	RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet"' remains uninitialized");
-		
-		String candFeats = cand.toString().split(":")[1]; 
-		
 		if (candFeats.length() != featVect.length())
 			throw new RuntimeException("ERROR: comparing with feature vects of unequal length");
 		
@@ -121,6 +112,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			if ("9".contains(restr) && !"1".equals(cand_spec))	return false; 
 		}
 		return true;
+	}
+	
+	/**
+	 * checks if candidate phone adheres to the restrictions
+	 * @precondition: they have the same length feature vectors
+	 * @throws UnsetAlphaError */
+	public boolean compare(SequentialPhonic cand)
+	{
+		if (!cand.getType().equals("phone"))
+			return false; 
+		
+		char nonSet = first_unset_alpha();
+		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet); 
+			//formerly -- throw new	RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet"' remains uninitialized");
+		
+		return compareToFeatVect (cand.toString().split(":")[1]); 
 	}
 	
 	/**
