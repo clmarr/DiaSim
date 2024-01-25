@@ -1179,9 +1179,7 @@ public class UTILS {
 	
 		return false; 
 	}
-	
-	
-	
+		
 	/** 
 	 * given String @param toLexem
 	 * @return its representation as a Etymon containing a sequence of Phone instances
@@ -1213,7 +1211,6 @@ public class UTILS {
 			{
 				if (!phoneSymbToFeatsMap.containsKey(toPhone))
 				{
-					boolean invalid_phone_error = true; 
 					
 					/**
 					 * if the symbol isn't present in symbolDefs but it is a diacritic-marked variant of a symbol in it, 
@@ -1223,39 +1220,10 @@ public class UTILS {
 					 *  if a phone already exists with that feature set, it will simply be replaced with that one. 
 					 * at present it can only have one diacritic added onto it here. 
 					*/
-					if (!no_symb_diacritics)
-					{
-						List<String> diacritsLeft = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()); 
-						while (diacritsLeft.size()>0)
-						{
-							String diacrit = diacritsLeft.remove(0); 
-							if (toPhone.contains(diacrit))
-							{
-								String rest_of_phone = toPhone+""; 
-								rest_of_phone = toPhone.replace(diacrit,""); 
-								if(phoneSymbToFeatsMap.containsKey(rest_of_phone))
-								{
-									invalid_phone_error = false; 
-									String int_feats = phoneSymbToFeatsMap.get(rest_of_phone); 
-									for (String feat_spec : DIACRIT_TO_FT_MAP.get(diacrit)) 
-									{
-										String feat_here = feat_spec.substring(1); 
-										if (featIndices.containsKey(feat_here))
-										{
-											int featIndex = featIndices.get(feat_here); 
-											String insertion = ""+getFeatspecIntFromMark(feat_spec.charAt(0)); 
-											int_feats = int_feats.substring(0,featIndex) + insertion + int_feats.substring(featIndex+1); 
-										}
-										else throw new RuntimeException("Error: unrecognized feature value, "+feat_spec.substring(1)+", in diacriticized(?) phone :"+toPhone);									
-									}
-									//checking first if there is already a phone with this feature vector -- because adding another phone with the same feature vector will cause errors down the line.
-									if(phoneSymbToFeatsMap.containsValue(int_feats))
-										toPhone = getKeyFromValue(phoneSymbToFeatsMap, int_feats); 
-									else	phoneSymbToFeatsMap.put(toPhone, int_feats); 
-								}
-							}
-						}
-					}
+					
+					boolean invalid_phone_error = no_symb_diacritics ? 
+							true : tryParseAndDefineMarkedSymbol(toPhone);
+					
 					if (invalid_phone_error)
 						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
 								+ "Symbol is : '"+toPhone+"', length = "+toPhone.length()
