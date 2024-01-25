@@ -12,7 +12,6 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Iterator;
 
 public class UTILS {
 
@@ -45,7 +44,8 @@ public class UTILS {
 	public static double[] FT_WTS; 
 	public static HashMap<String, String> phoneSymbToFeatsMap;
 	
-	
+	public static double ID_WT; 
+	public static boolean contextualize_FED; 
 	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
@@ -607,7 +607,7 @@ public class UTILS {
 	 * and anywhere else, as necessary
 	 * formerly, @returned diacritics map to be used in DiachronicSimulator and in PhoneTester
 	 * now as of @date January 24, 2024, this is a void method that initializes the now LOCAL but PUBLIC diacritic map, which will be referenced by other classes
-	 * 	but kept here in  
+	 * 	but kept here in UTILS.
 	 * @prerequisite: class variable featIndices has already been defined. 
 	 */
 	public static void extractDiacriticMap(String diacriticDefLocation)
@@ -1139,4 +1139,11 @@ public class UTILS {
 		return new Etymon(phones);
 	}
 	
+	public static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
+	{
+		return new ErrorAnalysis(currResult, gold, featsByIndex, 
+				feats_weighted ? new FED(featsByIndex.length, FT_WTS,ID_WT,contextualize_FED) 
+						: new FED(featsByIndex.length, ID_WT,contextualize_FED));
+	}
+		
 }

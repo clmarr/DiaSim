@@ -52,9 +52,8 @@ public class DiachronicSimulator {
 	private static String cascFileLoc; 	
 	private static String lexFileLoc;
 	
-	private static double id_wt; 
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, contextualize_FED; 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, UTILS.contextualize_FED; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -511,7 +510,7 @@ public class DiachronicSimulator {
 			UTILS.extractDiacriticMap(symbDiacriticsLoc);		
 		
 		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
-		SChangeFactory theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
+		SChangeFactory theFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		
 		extractCascade(theFactory);
 		// this inits gold and black stage variables because of how they are flagged in the cascade
@@ -1355,7 +1354,7 @@ public class DiachronicSimulator {
 			}
 			else if(resp.equals("7")) //forking test for proposed changes to cascade. 
 			{
-				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, feats_weighted, featsByIndex, FT_WTS, id_wt, cascFileLoc, fac); 
+				DHSWrapper DHSinterface = new DHSWrapper(theSimulation, UTILS.ID_WT, cascFileLoc, fac); 
 				DHSinterface.queryProposedChanges(inpu); 
 			}
 			else if(resp.equals("9")) {
@@ -1369,8 +1368,8 @@ public class DiachronicSimulator {
 	private static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
 	{
 		return new ErrorAnalysis(currResult, gold, UTILS.featsByIndex, 
-				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
-						: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
+				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,UTILS.ID_WT,UTILS.contextualize_FED) 
+						: new FED(UTILS.featsByIndex.length, UTILS.ID_WT,UTILS.contextualize_FED));
 	}
 	
 	//TODO below is abrogated as it is not in use. 
@@ -1465,7 +1464,7 @@ public class DiachronicSimulator {
 		int[] totalFED = new int[inventorySize]; //total feature edit distance 
 			// of words with this phone
 		
-		FED distMeasure = feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt); 
+		FED distMeasure = feats_weighted ? new FED(featsByIndex.length, FT_WTS,UTILS.ID_WT) : new FED(featsByIndex.length, UTILS.ID_WT); 
 		
 		for(int li = 0 ; li < lexSize ; li++)
 		{
@@ -1522,7 +1521,7 @@ public class DiachronicSimulator {
 		cascFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
 		symbDiacriticsLoc = "currentSymbolDiacriticDefs.txt";
-		id_wt = 0.5; 
+		UTILS.ID_WT = 0.5; 
 		
 		
 		DEBUG_RULE_PROCESSING = false; DEBUG_STAGES = false; 
@@ -1530,7 +1529,7 @@ public class DiachronicSimulator {
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
 		skip_file_creation = false;
-		contextualize_FED = true; 
+		UTILS.contextualize_FED = true; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
 		{
@@ -1603,13 +1602,13 @@ public class DiachronicSimulator {
 			//insertion/deletion cost
 			else if (arg.equals("-idcost"))
 			{
-				if (i < args.length)	id_wt = Double.parseDouble(args[i++]);
+				if (i < args.length)	UTILS.ID_WT = Double.parseDouble(args[i++]);
 				else	System.err.println("-idcost requires a double for ratio of insertion/deletion cost to substitution");
-				if (VERBOSE)	System.out.println("insertion/deletion cost ratio to substitution: "+id_wt); 
+				if (VERBOSE)	System.out.println("insertion/deletion cost ratio to substitution: "+UTILS.ID_WT); 
 			}
 			
 			else if (arg.equals("-simple_FED"))
-				contextualize_FED = false; 
+				UTILS.contextualize_FED = false; 
 			
 			// nothing placed afterward -- triggers stage debugging printouts. 
 			else if (arg.equalsIgnoreCase("-debug_stages"))
