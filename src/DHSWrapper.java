@@ -24,7 +24,6 @@ public class DHSWrapper {
 	public static final String HANGING_INDENT = "      ";
 
 	// constant once set
-	private double id_wt;
 	private String[] goldStageNames;
 	private String[] blackStageNames;
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_ETYMA;
@@ -95,7 +94,7 @@ public class DHSWrapper {
 
 	private SChangeFactory FAC;
 
-	public DHSWrapper(Simulation baseSim, double id_wt,
+	public DHSWrapper(Simulation baseSim, 
 			String ogCascLoc, SChangeFactory theFac) {
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
@@ -106,14 +105,13 @@ public class DHSWrapper {
 			goldStageNames = baseSim.getGoldStageNames();
 		if (NUM_BLACK_STAGES > 0)
 			blackStageNames = baseSim.getBlackStageNames();
-		this.id_wt = id_wt;
 		this.origCascLoc = ogCascLoc;
 		this.FAC = theFac;
 		stagesOrdered = UTILS.extractStageOrder(origCascLoc, false);
 		reset();
 	}
 
-	public DHSWrapper(Simulation baseSim, double id_wt,
+	public DHSWrapper(Simulation baseSim, 
 			String ogCascLoc, SChangeFactory theFac, String inp_name) {
 		baseSimulation = baseSim;
 		baseCASC = new ArrayList<SChange>(baseSim.CASCADE());
@@ -124,7 +122,6 @@ public class DHSWrapper {
 			goldStageNames = baseSim.getGoldStageNames();
 		if (NUM_BLACK_STAGES > 0)
 			blackStageNames = baseSim.getBlackStageNames();
-		this.id_wt = id_wt;
 		this.origCascLoc = ogCascLoc;
 		this.FAC = theFac;
 		this.input_name = inp_name; 
@@ -262,12 +259,10 @@ public class DHSWrapper {
 
 			DifferentialHypothesisSimulator DHScomp = gsstops ? generateDHSWithStops(inpu) : generateDHS();
 
-			ErrorAnalysis ea = new ErrorAnalysis(baseSimulation.getCurrentResult(), baseSimulation.getGoldOutput(),
-					featsByIndex,
-					feats_weighted ? new FED(featsByIndex.length, FT_WTS, id_wt) : new FED(featsByIndex.length, id_wt));
-			ErrorAnalysis hea = new ErrorAnalysis(DHScomp.hypCascSim.getCurrentResult(), baseSimulation.getGoldOutput(),
-					featsByIndex,
-					feats_weighted ? new FED(featsByIndex.length, FT_WTS, id_wt) : new FED(featsByIndex.length, id_wt));
+			ErrorAnalysis ea = UTILS.setupErrorAnalysis(baseSimulation.getCurrentResult(), baseSimulation.getGoldOutput());
+
+			ErrorAnalysis hea = UTILS.setupErrorAnalysis(DHScomp.hypCascSim.getCurrentResult(), baseSimulation.getGoldOutput());
+			
 			System.out.println("Final output comparison for hypothesis simulation");
 			DHScomp.printBasicResults();
 			System.out.println(UTILS.getAccuracyReport(ea, hea));
@@ -404,14 +399,10 @@ public class DHSWrapper {
 			while (!hypEmpiricized.justHitGoldStage() && !hypEmpiricized.isComplete()) // TODO check this.
 				hypEmpiricized.simulateToNextStage();
 
-			ErrorAnalysis hsea = new ErrorAnalysis(hypEmpiricized.getCurrentResult(),
-					baseSimulation.getGoldStageGold(gssi), featsByIndex,
-					feats_weighted ? new FED(featsByIndex.length, FT_WTS, id_wt) : new FED(featsByIndex.length, id_wt));
-
-			ErrorAnalysis bsea = new ErrorAnalysis(baseSimulation.getStageResult(true, gssi),
-					baseSimulation.getGoldStageGold(gssi), featsByIndex,
-					feats_weighted ? new FED(featsByIndex.length, FT_WTS, id_wt) : new FED(featsByIndex.length, id_wt));
-
+			ErrorAnalysis hsea = UTILS.setupErrorAnalysis(hypEmpiricized.getCurrentResult(), baseSimulation.getGoldStageGold(gssi)); 
+			ErrorAnalysis bsea = UTILS.setupErrorAnalysis(baseSimulation.getStageResult(true,  gssi), 
+					baseSimulation.getGoldStageGold(gssi)); 
+			
 			System.out.println("Hit gold stage " + gssi + ": " + goldStageNames[gssi]);
 			gssi++;
 
