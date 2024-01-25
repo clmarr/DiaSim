@@ -16,16 +16,16 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	protected HashMap<String,String> symbMap; 
 		 */
 	
-	public SChangeSeqToSeqAlpha(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
+	public SChangeSeqToSeqAlpha(List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
 	{
-		super(ftInds, symb_map, trgsrc, dstSpcs, origForm); 
+		super(trgsrc, dstSpcs, origForm); 
 		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false; 
 	}
 	
-	public SChangeSeqToSeqAlpha(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map,  List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
+	public SChangeSeqToSeqAlpha( List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
 			SequentialFilter prior, SequentialFilter postr, String origForm)
-	{	super(ftInds, symb_map, trgsrc, dstSpcs, prior, postr, origForm);
+	{	super(trgsrc, dstSpcs, prior, postr, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false;
 	}
@@ -226,8 +226,8 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		{
 			if(targSource.get(targInd).print().equals("∅")) // a null phone -- must correspond to a proper Phone
 			{
-				String theSpecs = symbMap.get(destSpecs.get(targInd).print());
-				output.add(new Phone(theSpecs, featInds, symbMap));
+				String theSpecs = UTILS.phoneSymbToFeatsMap.get(destSpecs.get(targInd).print());
+				output.add(new Phone(theSpecs, UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 			}
 			else
 			{

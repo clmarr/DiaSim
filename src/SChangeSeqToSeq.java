@@ -15,31 +15,26 @@ public class SChangeSeqToSeq  extends SChange
 {
 	protected List<RestrictPhone> targSource, destSpecs;
 	protected int targSeqSize; 
-	protected HashMap<String,Integer> featInds; 
-	protected HashMap<String,String> symbMap; 
 	
 	
-	private void initialize(HashMap<String,Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstspcs)
+	private void initialize(List<RestrictPhone> trgsrc, List<RestrictPhone> dstspcs)
 	{
 		assert trgsrc.size() == dstspcs.size(): "Error: lengths of lists entered into SChangeSeqToSeq are not the same length.";
 		
 		targSource = new ArrayList<RestrictPhone>(trgsrc);
 		targSeqSize = targSource.size();
 		minInputSize = generateTrueSize(targSource); 
-		destSpecs = new ArrayList<RestrictPhone>(dstspcs);
-		symbMap = new HashMap<String,String>(symb_map);
-		featInds = new HashMap<String,Integer>(ftInds); 
-		
+		destSpecs = new ArrayList<RestrictPhone>(dstspcs);		
 	}
 	
-	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map, List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
+	public SChangeSeqToSeq(List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs, String origForm)
 	{
-		super(true, origForm); initialize(ftInds, symb_map, trgsrc, dstSpcs); 
+		super(true, origForm); initialize(trgsrc, dstSpcs); 
 	}
 	
-	public SChangeSeqToSeq(HashMap<String, Integer> ftInds, HashMap<String,String> symb_map,  List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
+	public SChangeSeqToSeq(List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
 			SequentialFilter prior, SequentialFilter postr, String origForm)
-	{	super(prior,postr, true, origForm); initialize(ftInds, symb_map, trgsrc, dstSpcs); }
+	{	super(prior,postr, true, origForm); initialize(trgsrc, dstSpcs); }
 	
 	//Realization
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
@@ -97,8 +92,8 @@ public class SChangeSeqToSeq  extends SChange
 		{
 			if(targSource.get(targInd).print().equals("∅")) // a null phone -- must correspond to a proper Phone
 			{
-				String theSpecs = symbMap.get(destSpecs.get(targInd).print());
-				output.add(new Phone(theSpecs, featInds, symbMap));
+				String theSpecs = UTILS.phoneSymbToFeatsMap.get(destSpecs.get(targInd).print());
+				output.add(new Phone(theSpecs, UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 			}
 			else
 			{

@@ -23,7 +23,7 @@ public class SChangeFactory {
 	private static Set<String> featsWithImplications; 
 	private static List<String> ordFeatNames; 
 	
-	private final char ARROW = '>'; //separates source target from destination 
+	public final char ARROW = '>'; //separates source target from destination 
 	public static final char contextFlag = '/'; //signals the beginning of context specification
 	// may shift to pipe if the fact that this is used to mark phonemic status in synchronic phonology
 	// ... becomes problematic
@@ -32,8 +32,8 @@ public class SChangeFactory {
 	
 	private final char cmtFlag = '$'; //marks taht the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	
-	private static final char phDelim = ' '; // delimits phones that are in the same sequence
-	public static final char disjunctDelim = ';'; // delimits segments that are in disjunction
+	private static final char phDelim = UTILS.PH_DELIM; // ' '; // delimits phones that are in the same sequence
+	public static final char disjunctDelim = UTILS.DISJUNCT_DELIM; // ';'; // delimits segments that are in disjunction
 	private static final char restrDelim = ','; // delimits restrictiosn between features inside the specification
 		// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 		// ... as [+A,-B,+C]

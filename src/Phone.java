@@ -64,6 +64,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		regenerateSymb(); 
 	}
 	
+	//TODO as of Jan 24 2024, planning to move this to UTILS... 
 	private void regenerateSymb()
 	{
 		if(mapToSymb.containsKey(featString))	symb = mapToSymb.get(featString);

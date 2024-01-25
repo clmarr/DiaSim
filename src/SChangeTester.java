@@ -232,32 +232,32 @@ public class SChangeTester {
 		
 		System.out.println("Now testing SChangeSeqToSeq");
 		numCorrect = 0;
-		SChangeSeqToSeq scsqTest = new SChangeSeqToSeq(featIndices, phoneSymbToFeatsMap, 
+		SChangeSeqToSeq scsqTest = new SChangeSeqToSeq(
 				testFactory.parseRestrictPhoneSequence("[+hi,+tense,+long] ∅"), testFactory.parseRestrictPhoneSequence("[-hi,+lo,-long] j",true), "DEBUG");
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t ˈiː m #"), testFactory.parseSeqPhSeg("# t ˈa j m #")) ? 1 : 0;
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t iː m #"), testFactory.parseSeqPhSeg("# t a j m #")) ? 1 : 0 ;
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("# t ˌiː iː #" ), testFactory.parseSeqPhSeg("# t ˌa j a j #")) ? 1 : 0 ;
 		
-		scsqTest = new SChangeSeqToSeq ( featIndices, phoneSymbToFeatsMap,
+		scsqTest = new SChangeSeqToSeq (
 				testFactory.parseRestrictPhoneSequence("[-lo] [+round]"), testFactory.parseRestrictPhoneSequence("[+round,+long,+lab] ∅", true), "DEBUG"); 
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("l ˌe w u"), testFactory.parseSeqPhSeg("l ˌøː u")) ? 1 : 0;
 		
-		scsqTest = new SChangeSeqToSeq ( featIndices, phoneSymbToFeatsMap, 
+		scsqTest = new SChangeSeqToSeq (
 				testFactory.parseRestrictPhoneSequence("∅ [+front]"), testFactory.parseRestrictPhoneSequence("e̯ [+hi,+tense]", true), "DEBUG"); 
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("eː n r a"), testFactory.parseSeqPhSeg("e̯ iː n r a")) ? 1 : 0 ;
 		
-		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
+		scsqTest = new SChangeSeqToSeq( 
 				testFactory.parseRestrictPhoneSequence("[+hi,+son] [+lab]"), testFactory.parseRestrictPhoneSequence("[-tense] [+cont]", true), "DEBUG");
 		scsqTest.setPostContext(testFactory.parseNewSeqFilter("[+cons]",false));
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("h u p p u p i p k"), testFactory.parseSeqPhSeg("h ʊ ɸ p u p ɪ ɸ k")) ? 1 : 0 ; 
 		
-		scsqTest = new SChangeSeqToSeq( featIndices, phoneSymbToFeatsMap, 
+		scsqTest = new SChangeSeqToSeq( 
 				testFactory.parseRestrictPhoneSequence("[+lab] [+lab] [+hi,+front,-syl]"),
 				testFactory.parseRestrictPhoneSequence("∅ [-lab,-ant,+hi,+front] ∅", true), "DEBUG");
 		numCorrect += runTest(scsqTest, testFactory.parseSeqPhSeg("a w β j p j o w p c y"), 
 				testFactory.parseSeqPhSeg("a ʝ p j o c y")) ? 1 : 0 ;
 				
-		scsqTest = new SChangeSeqToSeq(featIndices, phoneSymbToFeatsMap, 
+		scsqTest = new SChangeSeqToSeq(
 				testFactory.parseRestrictPhoneSequence("[+back] [+back]"), testFactory.parseRestrictPhoneSequence("∅ [+long]", true), "DEBUG"); 
 		scsqTest.setPriorContext(testFactory.parseNewSeqFilter("#", true));
 		

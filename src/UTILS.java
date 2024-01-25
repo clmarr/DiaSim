@@ -35,7 +35,6 @@ public class UTILS {
 	
 	//IPA symbol hashmaps. 
 	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP; 
-	public static HashMap<String,String> PHONE_SYMB_TO_FT_MAP; 
 	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
 	
 	public static String[] featsByIndex; 
