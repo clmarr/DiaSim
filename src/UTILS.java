@@ -1284,18 +1284,6 @@ public class UTILS {
 		featsToSymbMap.put(vect,symb); 
 	}
 	
-	/** 
-	 * 
-	 * @param vect  -- vector needing defining
-	 * @param baseVect -- vector of base phone that exists that is being tried
-	 * @param suffixVect -- 
-	 * @param suffixForm
-	 * @return
-	 */
-	public static boolean checkSuffixationToDefineFeatVect(String vect, String baseVect, String suffixVect, String suffixForm)
-	{
-		
-	}
 	
 	/**
 	 * @author Clayton Marr, @date January 25, 2024 
