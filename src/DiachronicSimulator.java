@@ -1529,7 +1529,11 @@ public class DiachronicSimulator {
 		{
 			arg = args[i++];
 			
-			if (arg.equals("-verbose"))	VERBOSE = true; 
+			if (arg.equals("-verbose"))	
+			{
+				VERBOSE = true; 
+				UTILS.VERBOSE = true; 
+			}
 			
 			//variable setters
 			

@@ -46,6 +46,11 @@ public class UTILS {
 	public static double ID_WT; 
 	public static boolean contextualize_FED; 
 	
+	public static boolean VERBOSE; 
+	
+	public static boolean symbsExtracted = false , 
+			diacriticsExtracted = false, featImplsExtracted = false;
+	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
@@ -533,6 +538,8 @@ public class UTILS {
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
 			li++; 
 		}
+		
+		symbsExtracted = true;
 	}
 	
 	
@@ -595,6 +602,7 @@ public class UTILS {
 			String[] fisides = filine.split(""+IMPLICATION_DELIM); 
 			FT_IMPLICATIONS.put(fisides[0], fisides[1].split(""+FEAT_DELIM));
 		}
+		featImplsExtracted = true; 
 	}
 	
 	/**
@@ -611,8 +619,11 @@ public class UTILS {
 	 */
 	public static void extractDiacriticMap(String diacriticDefLocation)
 	{
+		if (!featImplsExtracted)
+			throw new Error("Error: tried to extract diacritics before feature implications were extracted!");
+		
 		DIACRIT_TO_FT_MAP = new HashMap<String, String[]> (); 
-		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
+		if (VERBOSE)		System.out.println("Now extracting diacritics for segmentals symbols from file: "+diacriticDefLocation); 
 		
 		List<String> diacriticsLines = readFileLines(diacriticDefLocation); 
 		
@@ -636,7 +647,9 @@ public class UTILS {
 				DIACRIT_TO_FT_MAP.put(sdsides[0], sdsides[1].split(","));
 			}
 		}
-		System.out.println("Done extracting symbol diacritics!");	
+		if (VERBOSE)
+			System.out.println("Done extracting symbol diacritics!");	
+		diacriticsExtracted = true; 
 	}
 	
 	// printer methods follow: 
@@ -1051,6 +1064,21 @@ public class UTILS {
 		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 		return !non_alpha_initials.contains(spec.substring(0,1)); 
 	}
+	
+	/**
+	 * @author Clayton Marr, @date January 24, 2024
+	 * @param unseenSymb -- a previously unseen combination of a base phone symbol and diacritics
+	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
+	 *  @prerequisite DIACRIT_TO_FT_MAP has also already been built (extractDiacriticMap()) 
+	 * this method will attempt to parse what phonetic feature string this likely indicates
+	 * 	beware, @error if there are multiple diacritics present AND they indicate contracting features! 
+	 * @error if there is no predefined base phone.
+	 * @return
+	 */
+	/** public static boolean tryParseAndDefineSymbol (String unseenSymb) 
+	{
+		
+	}*/ 
 	
 	
 	/** 
