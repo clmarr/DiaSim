@@ -548,6 +548,7 @@ public class UTILS {
 			}
 			
 			phoneSymbToFeatsMap.put(symb, intFeatVals);
+			featsToSymbMap.put(intFeatVals, symb ); 
 			li++; 
 		}
 		
@@ -1165,15 +1166,17 @@ public class UTILS {
 					//add new symbol, feat vector pair to phoneSymbToFeatsMap 
 					phoneSymbToFeatsMap.put(unseenSymb, newFeatVect); 
 					
+					// add feats to symb to the reverse map, potentially usurping the default symbol mapped to in doing so 
+							// (most recently seen symbol is one being used in current gold set, so this makes sense). 
+					if (VERBOSE && featsToSymbMap.containsKey(newFeatVect)) 
+						System.out.println("The symbol ' "+featsToSymbMap.get(newFeatVect)+" ' is usurped as the default print of its feature vector by ' "+unseenSymb); 
+					featsToSymbMap.put(newFeatVect, unseenSymb); 
 					
-					
-				}
-					
-			
+					return true; 
+				}	
 			}
 		}
 	
-		
 		return false; 
 	}
 	
