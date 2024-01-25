@@ -716,7 +716,7 @@ public class DiachronicSimulator {
 				
 				//TODO figure out what we want to do here...
 						// TODO what did this mean?^ Figure out or delete it. 
-				ErrorAnalysis ea = renewedErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
+				ErrorAnalysis ea = setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
 						
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
 						false, theSimulation.getCurrentResult());
@@ -726,10 +726,7 @@ public class DiachronicSimulator {
 				{	
 					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 					{	
-						ErrorAnalysis eap = new ErrorAnalysis(
-								theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi], UTILS.featsByIndex,
-								UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) : 
-									new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
+						ErrorAnalysis eap = setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
 						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 								).toString();
 						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
@@ -922,9 +919,7 @@ public class DiachronicSimulator {
 		Lexicon r = theSimulation.getCurrentResult();
 		Lexicon g = (curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt]; 
 				
-		ErrorAnalysis ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
-				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
-						: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
+		ErrorAnalysis ea = setupErrorAnalysis(r,g);
 
 		System.out.println(UTILS.getAccuracyReport(ea));
 		
@@ -1008,9 +1003,7 @@ public class DiachronicSimulator {
 					boolean filtered = ea.isFiltSet();
 					boolean pivoted = ea.isPivotSet(); 
 					
-					ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
-							UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
-									: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
+					ea = setupErrorAnalysis(r,g); 
 					if (pivoted) 	ea.setPivot(pivPtLex, pivPtName);
 					if (filtered) 	ea.setFilter(filterSeq, pivPtName);
 				}
@@ -1104,9 +1097,7 @@ public class DiachronicSimulator {
 						else if (!resp.equals("Keep"))
 						{
 							pivPtLoc = -1; pivPtLex = null; pivPtName = ""+resp;
-							ea = new ErrorAnalysis(r, g, UTILS.featsByIndex, 
-									UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
-											: new FED(UTILS.featsByIndex.length, id_wt,contextualize_FED));
+							ea = setupErrorAnalysis(r,g); 
 							
 							if(resp.equals("U"))
 							{	filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {});
@@ -1375,7 +1366,7 @@ public class DiachronicSimulator {
 		}
 	}
 	
-	private static ErrorAnalysis renewedErrorAnalysis(Lexicon currResult, Lexicon gold) 
+	private static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 
 	{
 		return new ErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon, UTILS.featsByIndex, 
 				UTILS.feats_weighted ? new FED(UTILS.featsByIndex.length, UTILS.FT_WTS,id_wt,contextualize_FED) 
@@ -1405,8 +1396,7 @@ public class DiachronicSimulator {
 			subGold[j] = ogGold.getByID(k); 	
 		}
 		 
-		return new ErrorAnalysis(new Lexicon(subRes), new Lexicon(subGold), featsByIndex, 
-				feats_weighted ? new FED(featsByIndex.length, FT_WTS,id_wt) : new FED(featsByIndex.length, id_wt)); 
+		return setupErrorAnalysis(new Lexicon(subRes), new Lexicon(subGold)); 
 		
 	}
 	**/
