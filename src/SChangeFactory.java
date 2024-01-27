@@ -18,11 +18,12 @@ import java.util.Set;
 	
 public class SChangeFactory {
 	
-	//TODO the following are in the process of being abrogated as of Jan 24/25 2024 
-	private static HashMap<String, String> symbToFeatVects; 
+	// the following are taken over by UTILS as of late January 2024.  
+	/** private static HashMap<String, String> symbToFeatVects; 
 	private HashMap<String, String> featVectsToSymb; 
 	private static HashMap<String, Integer> featIndices;
 	private static List<String> ordFeatNames; 
+	*/ 
 	
 	public final char ARROW = '>'; //separates source target from destination 
 	public static final char contextFlag = '/'; //signals the beginning of context specification
@@ -43,7 +44,6 @@ public class SChangeFactory {
 		// or a Phone class' feature Vector
 		//TODO featVectDelim is currently abrogated
 	
-	private final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~","0"};
 	
 	
 	private boolean boundsMatter; 
@@ -54,8 +54,15 @@ public class SChangeFactory {
 	{
 		boundsMatter = false; //TODO figure out how the user can specify if boundsMatter should be true
 		
+		if (!UTILS.symbsExtracted)
+			throw new Error("Error: tried to use SChangeFactory before symbol defs have been extracted for UTILS!"); 
+		
+		// below has had its functions taken over by UTILS.... 
+		// some of the code that checks the consistency of feature ordering was not copied.
+			// it may be worth reviving if issues arise for whatever reason due to inconsistent feature ordering
+			// though such an issue does not seem likley at this time (late January 2024)
+		/** 
 		symbToFeatVects = new HashMap<String, String>(stf);
-		checkForIllegalPhoneSymbols(); 
 		
 		Set<String> featNames = featInds.keySet();
 		ordFeatNames = new ArrayList<String>(featNames); 
@@ -82,18 +89,9 @@ public class SChangeFactory {
 						+ " " +featdef+", redundant hit for "+key+" with original as "+featVectsToSymb.get(featdef));
 			featVectsToSymb.put(featdef, key); 
 		}
+		*/
 	}
-	
-	public void checkForIllegalPhoneSymbols()
-	{
-		Set<String> phSymbols = symbToFeatVects.keySet(); 
-		for(String phSymb : phSymbols)
-		{
-			for(String illegal : illegalForPhSymbs)
-				if(phSymb.contains(illegal))
-					throw new Error("Error, the phone symbol "+phSymb+" contains an illegal part, "+illegal); 
-		}
-	}
+
 	
 	/** generateSChanges
 	 * returns a list of Shift instances of the appropriate subclass based on input String,
@@ -268,8 +266,8 @@ public class SChangeFactory {
 			//if we reach here, we know it is a SChangeFeatToPhone
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
 			targSource.add(getFeatMatrix(inputSource)); 
-			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha(featIndices, targSource, 
-					parsePhoneSequenceForDest(inputDest), inp) : new SChangeFeatToPhone(featIndices, targSource, 
+			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha(UTILS.featIndices, targSource, 
+					parsePhoneSequenceForDest(inputDest), inp) : new SChangeFeatToPhone(UTILS.featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp); 
 				//errors will be caught by exceptions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
@@ -287,9 +285,9 @@ public class SChangeFactory {
 				if (! inputDest.contains("]")) throw new RuntimeException("Error: mismatch in presence "
 						+ "of [ and ], which are correctly used to mark a FeatMatrix specification"
 						+ "\nAttempted rule is: "+inp); 
-				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, 
+				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(
 						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp) : 
-							new SChangeSeqToSeq(featIndices, symbToFeatVects, parseRestrictPhoneSequence(inputSource),
+							new SChangeSeqToSeq(parseRestrictPhoneSequence(inputSource),
 									parseRestrictPhoneSequence(inputDest,true), inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
@@ -298,9 +296,9 @@ public class SChangeFactory {
 			}
 			
 			//else, i.e. its a SChangeFeatToPhone 
-			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha (featIndices, 
+			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha (UTILS.featIndices, 
 					parseRestrictPhoneSequence(inputSource), parsePhoneSequenceForDest(inputDest), inp)
-					: new SChangeFeatToPhone(featIndices, parseRestrictPhoneSequence(inputSource), 
+					: new SChangeFeatToPhone(UTILS.featIndices, parseRestrictPhoneSequence(inputSource), 
 							parsePhoneSequenceForDest(inputDest), inp); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
@@ -326,7 +324,7 @@ public class SChangeFactory {
 				for (String disj : UTILS.getBraceDisjPossibilities(inputSource))
 				{
 					SChangeSeqToSeqAlpha nextShift = 
-							new SChangeSeqToSeqAlpha(featIndices, symbToFeatVects, parseRestrictPhoneSequence(disj),
+							new SChangeSeqToSeqAlpha(parseRestrictPhoneSequence(disj),
 									parseRestrictPhoneSequence(inputDest, true), inp);
 					if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 					if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
@@ -420,26 +418,26 @@ public class SChangeFactory {
 				output.add(new NullPhone()); 
 				inputLeft = inputLeft.substring(1).trim(); 
 			}
-			else if(symbToFeatVects.containsKey(inputLeft))
+			else if(UTILS.phoneSymbToFeatsMap.containsKey(inputLeft))
 			{
-				output.add(new Phone(symbToFeatVects.get(inputLeft), featIndices, symbToFeatVects));
+				output.add(new Phone(UTILS.phoneSymbToFeatsMap.get(inputLeft), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 				return output; 
 			}
 			else if(inputLeft.indexOf(phDelim) > 0)
 			{
 				String toDelim = inputLeft.substring(0, inputLeft.indexOf(phDelim)); 
-				if(! symbToFeatVects.containsKey(toDelim) )	throw new RuntimeException(
+				if(! UTILS.phoneSymbToFeatsMap.containsKey(toDelim) )	throw new RuntimeException(
 					"Tried to declare phone with illegitimate symbol : "+toDelim); 
-				output.add(new Phone(symbToFeatVects.get(toDelim), featIndices, symbToFeatVects));
+				output.add(new Phone(UTILS.phoneSymbToFeatsMap.get(toDelim), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 				inputLeft = inputLeft.substring(inputLeft.indexOf(phDelim)+1);
 			}
 			else if(inputLeft.indexOf('[') > 0)
 			{
 				String toPhone = inputLeft.substring(0, inputLeft.indexOf('['));
-				if(! symbToFeatVects.containsKey(toPhone) )	throw new RuntimeException(
+				if(! UTILS.phoneSymbToFeatsMap.containsKey(toPhone) )	throw new RuntimeException(
 						"Tried to declare phone with illegitimate symbol : "+toPhone
 						+"\nAttempted rule was :"+input); 
-				output.add(new Phone(symbToFeatVects.get(toPhone), featIndices, symbToFeatVects));
+				output.add(new Phone(UTILS.phoneSymbToFeatsMap.get(toPhone), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 				inputLeft = inputLeft.substring(inputLeft.indexOf('['));
 			}
 			else
@@ -457,8 +455,8 @@ public class SChangeFactory {
 	public RestrictPhone parseSinglePhonicDest(String inp)
 	{
 		if(inp.equals("∅"))	return new NullPhone(); 
-		if(symbToFeatVects.containsKey(inp))	
-			return new Phone(symbToFeatVects.get(inp),featIndices,symbToFeatVects);
+		if(UTILS.phoneSymbToFeatsMap.containsKey(inp))	
+			return new Phone(UTILS.phoneSymbToFeatsMap.get(inp),UTILS.featIndices,UTILS.phoneSymbToFeatsMap);
 		String input = inp; 
 		if(input.charAt(0) == '[' && input.indexOf("]") == input.length() - 1)
 			input = input.substring(input.indexOf("[")+1, input.indexOf("]")); 
@@ -475,9 +473,9 @@ public class SChangeFactory {
 		List<Phone> output = new ArrayList<Phone>(); 
 		for(String toPhone : toPhones)
 		{			
-			if(! symbToFeatVects.containsKey(toPhone) )	throw new RuntimeException(
+			if(! UTILS.phoneSymbToFeatsMap.containsKey(toPhone) )	throw new RuntimeException(
 					"Tried to parse illegitimate phone symbol : "+toPhone); 
-			output.add(new Phone(symbToFeatVects.get(toPhone), featIndices, symbToFeatVects));
+			output.add(new Phone(UTILS.phoneSymbToFeatsMap.get(toPhone), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 		}
 		return output; 
 	}
@@ -535,9 +533,9 @@ public class SChangeFactory {
 	{
 		if("+#".contains(curtp))
 			return new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"); 
-		if(! symbToFeatVects.containsKey(curtp) ) throw new RuntimeException( "Error: tried to parse invalid symbol!"
+		if(! UTILS.phoneSymbToFeatsMap.containsKey(curtp) ) throw new RuntimeException( "Error: tried to parse invalid symbol!"
 				+ " Symbol : "+curtp);
-		return new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects); 
+		return new Phone(UTILS.phoneSymbToFeatsMap.get(curtp), UTILS.featIndices, UTILS.phoneSymbToFeatsMap); 
 	}
 	
 	/** parseNewContext 
@@ -607,8 +605,8 @@ public class SChangeFactory {
 					"Error : illegitimate usage of brackets " + curtp); 
 				
 				parenMapInProgress.add("i"+thePlaceRestrs.size()) ;
-				if(symbToFeatVects.containsKey(curtp))
-					thePlaceRestrs.add(new Phone(symbToFeatVects.get(curtp), featIndices, symbToFeatVects));
+				if(UTILS.phoneSymbToFeatsMap.containsKey(curtp))
+					thePlaceRestrs.add(new Phone(UTILS.phoneSymbToFeatsMap.get(curtp), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
 				else if ("#+".contains(curtp))
 					thePlaceRestrs.add(new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"));
 				else if ("@".equals(curtp))
@@ -644,7 +642,7 @@ public class SChangeFactory {
 		String[] specs = input.split(""+restrDelim); 
 		
 		for(int si = 0; si < specs.length; si++)	
-			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
+			if (!UTILS.ordFeatNames.contains(specs[si].substring(1)))	return false;
 		return true; 
 	}
 	
@@ -680,58 +678,23 @@ public class SChangeFactory {
 		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
 		
 		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, ordFeatNames); 
+			return new FeatMatrix(theFeatSpecs, UTILS.ordFeatNames); 
 				
 		if(theFeatSpecs.contains("0") && !isInputDest)
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
-		return new FeatMatrix(theFeatSpecs, ordFeatNames); 
+		return new FeatMatrix(theFeatSpecs, UTILS.ordFeatNames); 
 	}
 	
 	/**	applyImplications
 	 * modifies a list of features which will presumably be used to define a FeatMatrix 
 	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
 	 * @param featSpecs, feature specifications before application of the stored implications
+	 * as of @date January 27, 2024, made dependent on the same method (copied from here not long before) in UTILS. 
 	 */
 	public String applyImplications (String featSpecs) 
 	{
-		if (! isValidFeatSpecList(featSpecs) )
-			throw new RuntimeException("Error : preempted attempt to apply implications to an invalid list of feature specifications"); 
-		String[] theFeatSpecs = featSpecs.trim().split(""+restrDelim); 
-		String output = ""+featSpecs; 
-		
-		for(int fsi = 0 ; fsi < theFeatSpecs.length; fsi++)
-		{
-			String currSpec = theFeatSpecs[fsi]; 
-			
-			if(featsWithImplications.contains(currSpec)) 
-			{
-				String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec); 
-				for (int ii = 0; ii < implications.length; ii++)
-				{	if (output.contains(implications[ii].substring(1)) == false)
-					{	
-						output += restrDelim + implications[ii];
-						theFeatSpecs = output.trim().split(""+restrDelim); 
-					}
-				}
-			}
-			if("+-".contains(currSpec.substring(0,1)))
-			{
-				if(featsWithImplications.contains(currSpec.substring(1)))
-				{
-					String[] implications = UTILS.FT_IMPLICATIONS.get(currSpec.substring(1)); 
-					for (int ii=0; ii < implications.length; ii++)
-					{	if(output.contains(implications[ii]) == false)
-						{
-							output += restrDelim + implications[ii]; 
-							theFeatSpecs = output.trim().split(""+restrDelim); 
-						}
-					}
-				}
-			}
-		}
-		
-		return output; 
+		return UTILS.applyImplications(featSpecs); 
 	}
 	
 	//TODO abrogate this -- it doesn't seem necessary 

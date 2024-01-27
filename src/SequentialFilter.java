@@ -416,7 +416,6 @@ public class SequentialFilter {
 				return false; 
 			else	{		
 				currPlaceInCand++; currRestrPlace++; currPlaceInMap++; 	}
-			
 		}
 		if(currRestrPlace == numRestrPlaces)	{	return true;	}
 		if(currPlaceInCand == lenPhonSeq)

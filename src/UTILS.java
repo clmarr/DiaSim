@@ -28,7 +28,7 @@ public class UTILS {
 	public final static char STAGENAME_LOC_DELIM = ':'; 
 	public final static char LEX_DELIM =','; 
 	public final static char STAGE_PRINT_DELIM = ',';  
-	public final static char DISJUNCT_DELIM = ','; 
+	public final static char DISJUNCT_DELIM = ';'; 
 	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
 	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
 	public final static String UNATTD_INDIC = ">*", UNATTD_REPR = "{UNATTESTED}"; 
@@ -51,6 +51,8 @@ public class UTILS {
 	public static HashMap<String, String> phoneSymbToFeatsMap;
 	public static HashMap<String, String> featsToSymbMap; 
 	public static HashMap<String, List<String>> featsToPossibleDiacritics; 
+	
+	public static final String[] illegalForPhSymbs = new String[]{"[","]","{","}","__",":",",",";"," ","+","#","@","∅","$",">","/","~","0"};
 	
 	public static double ID_WT; 
 	public static boolean contextualize_FED; 
@@ -508,17 +510,32 @@ public class UTILS {
 		return out.substring(0, out.length() - "\n".length()) ;
 	}
 	
+	
+	public static void checkForIllegalPhoneSymbols()
+	{
+		Set<String> phSymbols = phoneSymbToFeatsMap.keySet(); 
+		for(String phSymb : phSymbols)
+		{
+			for(String illegal : illegalForPhSymbs)
+				if(phSymb.contains(illegal))
+					throw new Error("Error, the phone symbol "+phSymb+" contains an illegal part, "+illegal); 
+		}
+	}
+	
 	public static void extractSymbDefs(List<String> symbDefsLines)
 	{
 		//from the first line, extract the feature list and then the features for each symbol.
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		featsToSymbMap = new HashMap<String, String>(); 	
+		
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		featIndices = new HashMap<String,Integer>(); 
 		
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 
-		ordFeatNames = new ArrayList<String>(featIndices.keySet());
+		//ordFeatNames = new ArrayList<String>(featIndices.keySet());
+			//TODO abrogated above -- because this apparently disorders the features!
+		ordFeatNames = Arrays.asList(featsByIndex); 
 		
 		//Now we check if the features have weights
 		if (symbDefsLines.get(1).split(",")[0].equalsIgnoreCase("FEATURE_WEIGHTS"))
@@ -554,6 +571,8 @@ public class UTILS {
 			featsToSymbMap.put(intFeatVals, symb ); 
 			li++; 
 		}
+		
+		checkForIllegalPhoneSymbols(); 
 		
 		symbsExtracted = true;
 	}

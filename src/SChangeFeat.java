@@ -144,6 +144,7 @@ public class SChangeFeat extends SChange {
 		//now we know the prior context and target requirements are both met
 		// we now check for the posterior context
 		if(minPostSize == 0)	return true; 
+		
 		return posteriorMatch(input, ind+minInputSize); 
 	}
 	
