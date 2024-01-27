@@ -1174,10 +1174,11 @@ public class UTILS {
 			String candDiacrit = diacritsLeft.remove(0); 
 			if(restOfPhone.contains(candDiacrit))
 			{
-				restOfPhone.replace(candDiacrit, ""); 
+				restOfPhone = restOfPhone.replace(candDiacrit, ""); 
 					// not "replaceAll" -- should only replace the first instance 
 					// so there could be an error (runtime or otherwise) if the same diacritic is used twice and the existing item isn't already defined. 
 					// catching that here. 
+				
 				if (restOfPhone.contains(candDiacrit) && !candDiacrit.equals("ː")) 
 					System.out.println("Warning: redundant diacritic (' "+candDiacrit+" ') detected in hitherto unseen diacriticized symbol <"+unseenSymb+">."); 
 				
@@ -1264,7 +1265,7 @@ public class UTILS {
 					*/
 					
 					boolean invalid_phone_error = no_symb_diacritics ? 
-							true : tryParseAndDefineMarkedSymbol(toPhone);
+							true : !tryParseAndDefineMarkedSymbol(toPhone);
 					
 					if (invalid_phone_error)
 						throw new RuntimeException("ERROR: tried to declare a phone in a word in the lexicon using an invalid symbol.\n"
