@@ -382,7 +382,7 @@ public class Simulation {
 					System.out.println("stage loc detected; " +
 							(stageIsBlack ? UTILS.BLACK_STAGENAME_FLAG + blackStageNames[bsi]
 									: UTILS.GOLD_STAGENAME_FLAG + goldStageNames[gsi]) 
-							+"... (n stages : "+(NUM_GOLD_STAGES + NUM_BLACK_STAGES)); 
+							+"... (n stages : "+(NUM_GOLD_STAGES + NUM_BLACK_STAGES)+")"); 
 				
 					output[outrow_i][0] = stageIsBlack ? UTILS.BLACK_STAGENAME_FLAG + blackStageNames[bsi]
 							: UTILS.GOLD_STAGENAME_FLAG + goldStageNames[gsi]; 
