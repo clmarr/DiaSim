@@ -12,9 +12,11 @@ import java.util.ArrayList;
 public class Phone extends SequentialPhonic implements RestrictPhone {
 
 	// as of Jan 24, 2024, the functions of featIndices were subsumed by the same-named variable in UTILS
+	// as of Jan 27, 2024, mapToSymb is abrogated, its functions taken over by UTILS.featsToSymbMap
+	
 	
 	private String featString; // string of 0s, 1s and 2s -- 0 is negative, 2 positive, 1 unspecified
-	private HashMap<String, String> mapToSymb; // key is feature string, value is ipa symbol. 
+	//private HashMap<String, String> mapToSymb; // key is feature string, value is ipa symbol -- abrogated (see note above) as of Jan 27, 2024.  
 	private String symb; 
 		
 	/**
@@ -29,15 +31,18 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 			throw new RuntimeException("ERROR: featVals' size is not the same as featInds hashmap");
 		type = "phone";
 		featString = ""+featVals; 
-		mapToSymb = new HashMap<String, String>(); 
+		//mapToSymb = new HashMap<String, String>();  // abrogated as of 1/27/24
+		// mapToSymb abrogated as of 1/27/24 
+		/** 
 		Set<String> sMKeys = symbMap.keySet(); 
 		for ( String key : sMKeys)
 		{
 			String featdef = symbMap.get(key); 
+			
 			if (mapToSymb.containsKey(featdef) == true) 
 				throw new RuntimeException("ERROR: duplicate phone definition in symbMap!");
 			mapToSymb.put(featdef, key); 
-		}
+		}*/ 
 		regenerateSymb(); 
 	}
 	
@@ -48,7 +53,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{
 		type = "phone"; 
 		featString = dolly.getFeatString();
-		mapToSymb = dolly.getFeatSymbMap(); 
 		regenerateSymb(); 
 	}
 	
@@ -60,7 +64,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 		if( !dolly.getType().equals("phone"))	throw new RuntimeException("Type error in constructing phone clone!"); 
 		type="phone";
 		featString = dolly.getFeatString();
-		mapToSymb = dolly.getFeatSymbMap(); 
 		regenerateSymb(); 
 	}
 	
@@ -76,10 +79,6 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	//currently necessary to evade inheritance confusion (getFeatString from SequentialPhonic, getFeatVect from RestrictPhone)
 		// ... unfortunately these ended up both being necessary for tester methods 
 
-	public HashMap<String,String> getFeatSymbMap()
-	{	return mapToSymb;	}
-	
-	
 	
 	/**
 	 * @precondition featExists(featName)

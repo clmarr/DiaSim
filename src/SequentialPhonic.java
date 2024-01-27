@@ -1,8 +1,5 @@
-import java.util.HashMap; 
-
 public abstract class SequentialPhonic extends Phonic {
 	abstract public String getFeatString(); 
-	abstract public HashMap<String, String> getFeatSymbMap(); 
 	abstract public SequentialPhonic copy(); 
 	public boolean equals(Object other)
 	{
