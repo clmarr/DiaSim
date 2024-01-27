@@ -669,32 +669,10 @@ public class SChangeFactory {
 	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
+	// as of January 27, 2024, dependent on the method (copied from this) in UTILS.
 	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
 	{
-		if(! isValidFeatSpecList(featSpecs) )
-			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
-					+ "\nAttempted feat specs: "+featSpecs); 
-		
-		String theFeatSpecs = isInputDest ? applyImplications(featSpecs) : featSpecs+"";
-		
-		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, UTILS.ordFeatNames); 
-				
-		if(theFeatSpecs.contains("0") && !isInputDest)
-			throw new RuntimeException(
-			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
-		return new FeatMatrix(theFeatSpecs, UTILS.ordFeatNames); 
-	}
-	
-	/**	applyImplications
-	 * modifies a list of features which will presumably be used to define a FeatMatrix 
-	 * so that the implications regarding the specification or non-specifications of certain features are adhered to 
-	 * @param featSpecs, feature specifications before application of the stored implications
-	 * as of @date January 27, 2024, made dependent on the same method (copied from here not long before) in UTILS. 
-	 */
-	public String applyImplications (String featSpecs) 
-	{
-		return UTILS.applyImplications(featSpecs); 
+		return UTILS.getFeatMatrix(featSpecs, isInputDest);
 	}
 	
 	//TODO abrogate this -- it doesn't seem necessary 
