@@ -56,7 +56,7 @@ public class SimulationTester {
 		UTILS.extractFeatImpls(FI_LOC);
 		
 		System.out.println("Creating SChangeFactory...");
-		theFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
+		theFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		
 		STAGE_ORDER = UTILS.extractStageOrder(DBG_START_CASC, false); 
 		extractCascAndLex(theFactory, DBG_GOLD_CASC); 
@@ -525,7 +525,7 @@ public class SimulationTester {
 						+ UTILS.print1dBoolArrAsIntArr(theDHS.getPrChLocs())) ;
 
 		//check DHS.changedDerivations
-		Phone er = new Phone(phoneSymbToFeatsMap.get("ə˞"), featIndices, phoneSymbToFeatsMap); 
+		Phone er = new Phone(UTILS.phoneSymbToFeatsMap.get("ə˞"), UTILS.featIndices, UTILS.phoneSymbToFeatsMap); 
 		int nFs = 0; 
 		for (Etymon ifi : inputForms)	nFs += ifi.findPhone(er) == -1 ? 0 : 1 ; 
 		int[] efds = new int[nFs] ; int nfi = 0; 

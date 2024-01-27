@@ -12,15 +12,21 @@ import java.util.List;
 
 public class SChangeTester {
 
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
-	private final static char PH_DELIM = ' ';
-	private final static char restrDelim = ',';
-	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	private static String[] featsByIndex;
+	private final static char MARK_POS = UTILS.MARK_POS, MARK_NEG = UTILS.MARK_NEG, 
+			MARK_UNSPEC = UTILS.MARK_UNSPEC, FEAT_DELIM = UTILS.FEAT_DELIM;
+	private final static char PH_DELIM = UTILS.PH_DELIM;
+	private final static char restrDelim = UTILS.RESTR_DELIM;
+	private final static int POS_INT = UTILS.POS_INT, NEG_INT = UTILS.NEG_INT, UNSPEC_INT = UTILS.UNSPEC_INT;
+	
+	
+	// the following structures are now stored within UTILS...
+	
+	/** private static String[] featsByIndex;
 	private static HashMap<String, Integer> featIndices;
 	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String> phoneFeatsToSymbMap;
-	private static String featImplsLoc = "FeatImplications";
+	private static HashMap<String, String> phoneFeatsToSymbMap; */ 
+	private static String featImplsLoc = "FeatImplications",
+			symbDefsLoc = "symbolDefs.csv"; 
 
 	public static void main(String args[])
 	{
@@ -33,11 +39,16 @@ public class SChangeTester {
 		
 		boolean boundsMatter = false; 
 		
+
+		/** below is now handled within UTILS, for now. 
+		 * 		
+		 * 
 		featIndices = new HashMap<String, Integer>(); 
 		phoneSymbToFeatsMap = new HashMap<String, String>(); 
 		phoneFeatsToSymbMap = new HashMap<String, String>(); 	
 		
 		List<String> symbDefsLines = new ArrayList<String>();
+
 		String nextLine; 
 		
 		try 
@@ -58,11 +69,16 @@ public class SChangeTester {
 			System.out.println("IO Exception!");
 			e.printStackTrace();
 		}
+		*/ 
+		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
+		UTILS.extractSymbDefs(symbDefsLines); 
 		
 		//TODO debugging
 		System.out.println("Symbol definitions extracted!");
 		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
 		
+		// following is now handed within UTILS.
+		/** 
 		//from the first line, extract the feature list and then the features for each symbol.
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		
@@ -91,15 +107,16 @@ public class SChangeTester {
 			phoneFeatsToSymbMap.put(intFeatVals, symb);
 			li++; 
 		}
+		*/ 
 		
 		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
 		
 		System.out.println("Beginning test of SChangeFeat");
 		
-		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
+		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		
-		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-voi", "+voi","DEBUG"); 
+		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-voi", "+voi","DEBUG"); 
 		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
 		int numCorrect = 0 ; 
@@ -107,31 +124,31 @@ public class SChangeTester {
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"t"+PH_DELIM+"a"), 
 				testFactory.parseSeqPhSeg("a"+PH_DELIM+"s"+PH_DELIM+"d"+PH_DELIM+"a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-nas", "+nas", "DEBUG");
+		scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-nas", "+nas", "DEBUG");
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+nas", false)); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("n a b a n a"),
 				testFactory.parseSeqPhSeg("n ã b a n ã")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", Arrays.asList(featsByIndex)), new NullPhone(), "DEBUG");
+		scfTest = new SChangeFeat(new FeatMatrix("+syl,-cons", Arrays.asList(UTILS.featsByIndex)), new NullPhone(), "DEBUG");
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+son", false));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r a l a")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("+syl", Arrays.asList(featsByIndex)), new NullPhone(), "DEBUG"); 
+		scfTest = new SChangeFeat(new FeatMatrix("+syl", Arrays.asList(UTILS.featsByIndex)), new NullPhone(), "DEBUG"); 
 		scfTest.setPriorContext(testFactory.parseNewSeqFilter("+syl", boundsMatter));
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("r e a l e a"), 
 				testFactory.parseSeqPhSeg("r e l e")) ? 1 : 0;
 		
-		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-cont,-nas,-lat,-delrel","-voi","DEBUG"); 
+		scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-cont,-nas,-lat,-delrel","-voi","DEBUG"); 
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("t i t e ð l a t t o n u r")) ? 1 : 0; 
 		
-		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", Arrays.asList(featsByIndex)),
-				new Phone(phoneSymbToFeatsMap.get("q"), featIndices, phoneSymbToFeatsMap),"DEBUG");
+		scfTest = new SChangeFeat(new FeatMatrix("-cont,-nas,-lat,-delrel", Arrays.asList(UTILS.featsByIndex)),
+				new Phone(UTILS.phoneSymbToFeatsMap.get("q"), UTILS.featIndices, UTILS.phoneSymbToFeatsMap),"DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("d i d e ð l a d d o n u r"),
 				testFactory.parseSeqPhSeg("q i q e ð l a q q o n u r")) ? 1 : 0 ;
 		
-		scfTest = new SChangeFeat(Arrays.asList(featsByIndex), "-cont", "+nas,+son,.delrel,+cont",
+		scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-cont", "+nas,+son,.delrel,+cont",
 				testFactory.parseNewSeqFilter("+nas,-syl", false), testFactory.parseNewSeqFilter("+syl", false), "DEBUG");
 		numCorrect += runTest(scfTest, testFactory.parseSeqPhSeg("b i m b d e n n o"),
 				testFactory.parseSeqPhSeg("b i m b d e n n o")) ? 1 : 0; 
@@ -143,23 +160,23 @@ public class SChangeTester {
 		
 		System.out.println("Now testing SChangeFeatToPhone");
 		
-		SChangeFeatToPhone scftpTest = new SChangeFeatToPhone(featIndices,
+		SChangeFeatToPhone scftpTest = new SChangeFeatToPhone(UTILS.featIndices,
 				testFactory.parseRestrictPhoneSequence("l"+PH_DELIM+"[+hi,+front]"),
 				testFactory.parsePhoneSequenceForDest("ʎ"), "DEBUG");  
 		numCorrect = runTest(scftpTest, testFactory.parseSeqPhSeg("a l j a"), testFactory.parseSeqPhSeg("a ʎ a")) ? 1 : 0; 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("a l i e l j"), testFactory.parseSeqPhSeg(" a ʎ e ʎ")) ? 1 : 0; 
 		
-		scftpTest = new SChangeFeatToPhone(featIndices, 
+		scftpTest = new SChangeFeatToPhone(UTILS.featIndices, 
 				testFactory.parseRestrictPhoneSequence("[+hi,+front,-syl]"), 
 				testFactory.parsePhoneSequenceForDest("j ɟ ʝ"), "DEBUG"); 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("a c i a j o"), testFactory.parseSeqPhSeg("a j ɟ ʝ i a j ɟ ʝ o")) ? 1 : 0 ;
 		
-		scftpTest = new SChangeFeatToPhone(featIndices, 
+		scftpTest = new SChangeFeatToPhone(UTILS.featIndices, 
 				testFactory.parseRestrictPhoneSequence("[-cons,+front,+hi] [+syl,+back] [-cont,+hi]"),
 				testFactory.parsePhoneSequenceForDest("ʝ o w j"), "DEBUG"); 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("j o c o k a"), testFactory.parseSeqPhSeg("ʝ o w j o k a ")) ? 1 : 0 ;
 		
-		scftpTest = new SChangeFeatToPhone(featIndices,
+		scftpTest = new SChangeFeatToPhone(UTILS.featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor,-voi] # j [+syl]"), 
 				testFactory.parsePhoneSequenceForDest("t͡ʃ j ə"), "DEBUG"); 
 		scftpTest.setPostContext(testFactory.parseNewSeqFilter("#", true)); 
@@ -167,7 +184,7 @@ public class SChangeTester {
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ # j ˈu #"), testFactory.parseSeqPhSeg("# kʰ ˈɛ t͡ʃ j ə #")) ? 1 : 0; 
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #"), testFactory.parseSeqPhSeg("# ɡ ˈɑ t # j ˈæ̃ː m z #")) ? 1 : 0; 
 		
-		scftpTest = new SChangeFeatToPhone(featIndices,
+		scftpTest = new SChangeFeatToPhone(UTILS.featIndices,
 				testFactory.parseRestrictPhoneSequence("[-cont,+cor] # [+syl,-prim]"),
 				testFactory.parsePhoneSequenceForDest("ɾ ə"), "DEBUG");
 		numCorrect += runTest(scftpTest, testFactory.parseSeqPhSeg("# f ə ɡ ˈɛ t # ə b ˈa w t # ɪ t #"),
@@ -268,7 +285,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 		System.out.println("\nNow testing alpha variable functionality."); 
 		System.out.println("First : testing alpha variable functionality of FeatMatrices and no alpha feats specified"); 
-		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(featsByIndex)); 
+		FeatMatrix fmtest = new FeatMatrix("+prim,+stres",Arrays.asList(UTILS.featsByIndex)); 
 		
 		numCorrect += UTILS.checkBoolean(false, fmtest.has_alpha_specs(), 
 				"Error: system believes there to be alpha specs when there are none.") ? 1 : 0 ; 
@@ -292,7 +309,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 				
 		System.out.println("\nNow for a feature matrix with one alpha value, without any feature implications (-tense,βhi)..."); 
-		fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(featsByIndex)); 
+		fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(UTILS.featsByIndex)); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("β"), 
 				"Error: the local alphabet should be 'β' but instead it is '"+fmtest.getLocalAlphabet()+"'") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
@@ -305,8 +322,8 @@ public class SChangeTester {
 		
 		//testing whether featVect is stored properly in the FeatMatrix object instance 
 		String corrFeatVect = ""; 
-		for(int i = 0; i < featsByIndex.length; i++)	corrFeatVect += "1";
-		int hi_loc = featIndices.get("hi"), tense_loc = featIndices.get("tense"); 
+		for(int i = 0; i < UTILS.featsByIndex.length; i++)	corrFeatVect += "1";
+		int hi_loc = UTILS.featIndices.get("hi"), tense_loc = UTILS.featIndices.get("tense"); 
 		corrFeatVect = corrFeatVect.substring(0, hi_loc) + "β" + corrFeatVect.substring(hi_loc+1); 
 		corrFeatVect = corrFeatVect.substring(0, tense_loc) + "0" + corrFeatVect.substring(tense_loc+1);
 		prevFeatVect = fmtest.getFeatVect(); 
@@ -601,7 +618,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 		
 		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication; also testing UnsetAlphaError and the reset function here...");
-		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(featsByIndex)); 
+		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(UTILS.featsByIndex)); 
 
 		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
 				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
@@ -811,7 +828,7 @@ public class SChangeTester {
 	
 	private static FeatMatrix newFM(String specs)
 	{
-		return new FeatMatrix(specs, Arrays.asList(featsByIndex));
+		return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));
 	}
 	
 	/** for simulating the change of one feature in a feature vector as used in FeatMatrix
@@ -829,7 +846,7 @@ public class SChangeTester {
 		String output = ""+fv_inp;
 		for (String ch : deep_feat_ch_specs.split(""+restrDelim))
 		{
-			int floc = featIndices.get(ch.substring(1)); 
+			int floc = UTILS.featIndices.get(ch.substring(1)); 
 			output = output.substring(0,floc) + ch.substring(0,1) + output.substring(floc+1); 
 		}
 		return output;		

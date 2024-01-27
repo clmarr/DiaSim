@@ -511,6 +511,8 @@ public class UTILS {
 	public static void extractSymbDefs(List<String> symbDefsLines)
 	{
 		//from the first line, extract the feature list and then the features for each symbol.
+		phoneSymbToFeatsMap = new HashMap<String, String>(); 
+		featsToSymbMap = new HashMap<String, String>(); 	
 		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
 		featIndices = new HashMap<String,Integer>(); 
 		
