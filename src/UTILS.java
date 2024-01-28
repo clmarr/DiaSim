@@ -1133,6 +1133,8 @@ public class UTILS {
 	
 	public static String detectDiacritFeatConflicts(List<String> diacrits)
 	{
+		if (diacrits.size() < 2)	return ""; 
+		
 		// get feat specs for each diacritic.
 		List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
 		for (String dfi : diacrits)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
@@ -1332,6 +1334,8 @@ public class UTILS {
 	 */
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
+		if(VERBOSE)	System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
+		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
 		if (featsToSymbMap.containsKey(unseenVect))	
@@ -1347,6 +1351,9 @@ public class UTILS {
 			{
 				//then this is a valid candidate!
 				
+				//TODO debugging
+				System.out.println("valid candidate: ' "+diacritSpecSetCands.get(ssi)+" '!");
+				
 				//check if this can combine with an existing base symbol 
 				for (String baseFeatVect : featsToSymbMap.keySet())
 				{
@@ -1357,10 +1364,10 @@ public class UTILS {
 					String baseSymb = featsToSymbMap.get(baseFeatVect),
 							suffix = featsToPossibleDiacritics.get(diacritSpecSetCands.get(ssi)).get(0); 
 					List<String> diacritsInvolved = diacritsFoundInPhoneSymb(baseSymb); 
-					diacritsInvolved.add(suffix); 
+					diacritsInvolved.add(suffix);
 					
 					if (candDiacritResult.equals(unseenVect)
-							&& !detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
+							&& detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
 					{
 						String newSymb = baseSymb + suffix;
 		
@@ -1378,6 +1385,7 @@ public class UTILS {
 				diacritSpecSetCands.remove(ssi); 	
 		}
 		
+		if(VERBOSE)	System.out.println("No single diacritic alone can define it. Attempting combos..."); 
 		//second run -- could not get a combo with single diacritics, now trying multiple diacritic combinations 
 		
 		
@@ -1468,7 +1476,8 @@ public class UTILS {
 	public static String generatePhoneSymbol(String featString)
 	{
 		if(featsToSymbMap.containsKey(featString))	return featsToSymbMap.get(featString);
-		else return "?";
+		return !diacriticsExtracted ? "?"
+				: (tryDefineUnseenFeatVect(featString, true) ? featsToSymbMap.get(featString) : "?");
 	}
 	
 	public static ErrorAnalysis setupErrorAnalysis(Lexicon currResult, Lexicon gold) 

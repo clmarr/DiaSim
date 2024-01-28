@@ -21,10 +21,17 @@ public class PhoneTester {
 	{	
 		System.out.println("Initiating test of class Phone");
 		
-		HashMap<String, String> symbsToFeatures = new HashMap<String, String>(); 
-		HashMap<String, Integer> featureIndices = new HashMap<String, Integer>(); 
+		// as of 1/27/24, the following strutures are taken over by UTILS. 
+		//HashMap<String, String> symbsToFeatures = new HashMap<String, String>(); 
+		//HashMap<String, Integer> featureIndices = new HashMap<String, Integer>(); 
 		String diacritic_def_loc = "currentSymbolDiacriticDefs.txt"; 
 		
+		UTILS.VERBOSE = true; 
+		List<String> symbDefsLines = UTILS.readFileLines("symbolDefs.csv");
+		String firstFeat  = symbDefsLines.get(0).replace("SYMB,","").split(",")[0]; 
+		UTILS.extractSymbDefs(symbDefsLines); 
+		
+		/** 
 		String[] feats;
 		String firstFeat = "", nextLine; 
 		List<String> lines = new ArrayList<String>(); 
@@ -71,8 +78,11 @@ public class PhoneTester {
 			symbsToFeatures.put(symb, intFeatVals);
 			li++; 
 		}
-		
+		*/ 
 		UTILS.extractFeatImpls("FeatImplications");
+		HashMap<String,Integer> featureIndices = UTILS.featIndices; 
+		HashMap<String,String> symbsToFeatures = UTILS.phoneSymbToFeatsMap; 
+		String[] feats = UTILS.featsByIndex; 
 		
 		System.out.println("feats[0] = "+feats[0]);
 		System.out.println("firstFeat = "+firstFeat);
@@ -255,11 +265,15 @@ public class PhoneTester {
 		System.out.println(""+centralized_dcrit.length); 
 		System.out.println("The following should be '-back -front':");
 		System.out.println(""+centralized_dcrit[0]+" "+centralized_dcrit[1]); 
+		System.out.println("The following should be true: "+UTILS.DIACRIT_TO_FT_MAP.containsKey("ː")); 
+		System.out.println("The following should be '+long': "+UTILS.DIACRIT_TO_FT_MAP.get("ː")[0]); 
+		System.out.println("The following should be 'ː': "+UTILS.featsToPossibleDiacritics.get("+long").get(0)); 
+		System.out.println("The following should be true : "+UTILS.featsToSymbMap.containsValue("p")); 
 		
 		System.out.println("Now testing implementation, with respect to comprehension of diacriticized symbols..."); 
 		System.out.println("The following should parse without error..."); 
 		testPhone = new Phone(symbsToFeatures.get("p"), featureIndices, symbsToFeatures); 
-		testPhone.set("long", 1);
+		testPhone.set("long", 2);
 		System.out.println("The following should be 'pː': "+testPhone.print()); 
 		
 		//TODO work here. 
