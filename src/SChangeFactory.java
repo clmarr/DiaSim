@@ -525,7 +525,6 @@ public class SChangeFactory {
 			if(!phsInSeg[pisi].equals("∅"))
 				output.add(parseSeqPh(phsInSeg[pisi].trim()));		
 		}
-		
 		return output;
 	}
 	
@@ -533,8 +532,13 @@ public class SChangeFactory {
 	{
 		if("+#".contains(curtp))
 			return new Boundary(("#".equals(curtp) ? "word " : "morph ") + "bound"); 
-		if(! UTILS.phoneSymbToFeatsMap.containsKey(curtp) ) throw new RuntimeException( "Error: tried to parse invalid symbol!"
-				+ " Symbol : "+curtp);
+		
+		if(! UTILS.phoneSymbToFeatsMap.containsKey(curtp) ) 
+			if (!UTILS.diacriticsExtracted ? 
+					true : !UTILS.tryParseAndDefineMarkedSymbol(curtp))
+				throw new RuntimeException( "Error: tried to parse invalid symbol!"
+						+ " Symbol : "+curtp); 
+		
 		return new Phone(UTILS.phoneSymbToFeatsMap.get(curtp), UTILS.featIndices, UTILS.phoneSymbToFeatsMap); 
 	}
 	
