@@ -1351,9 +1351,6 @@ public class UTILS {
 			{
 				//then this is a valid candidate!
 				
-				//TODO debugging
-				System.out.println("valid candidate: ' "+diacritSpecSetCands.get(ssi)+" '!");
-				
 				//check if this can combine with an existing base symbol 
 				for (String baseFeatVect : featsToSymbMap.keySet())
 				{
