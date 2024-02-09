@@ -245,6 +245,21 @@ public class DiachronicSimulator {
 		if (VERBOSE)	System.out.println("Diachronic rules extracted. "); 
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
+		
+		// flag a warning for dangerous stage names
+		if (goldStagesSet)
+			for (String gsni : goldStageNames)
+				if (gsni.equalsIgnoreCase("none"))
+					System.out.println("WARNING: it is advised not to use a stage named 'none', as this can cause errors!");
+		if (blackStagesSet)
+			for (String bsni : blackStageNames)
+				if (bsni.equalsIgnoreCase("none"))
+					System.out.println("WARNING: it is advised not to use a stage named 'none', as this can cause errors!");
+		if (columnedStagesSet)
+			for (String csni : columnedStageNames)
+				if (csni.equalsIgnoreCase("none"))
+					System.out.println("WARNING: it is advised not to use a stage named 'none', as this can cause errors!");
+
 	}
 	
 	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -1263,8 +1278,21 @@ public class DiachronicSimulator {
 					}
 					else //"6"
 					{
-						for(int ci = 0 ; ci < CASCADE.size(); ci++) 
+						for(int ci = 0 ; ci < CASCADE.size(); ci++) {
+							String stageDetection = getStageNameHere(ci);
+							if (!stageDetection.equals("none"))
+							{
+								if (stageDetection.contains(",")) 
+								{ 
+									String[] stagesHere = stageDetection.split(","); 
+									for (String shi : stagesHere) 
+										System.out.println("\t-- "+shi+" --"); 
+								}
+								else	System.out.println("\t-- "+stageDetection+" --"); 
+							}
 							System.out.println(""+ci+": "+CASCADE.get(ci)); 
+
+						}
 					}
 				}
 			}
@@ -1675,5 +1703,38 @@ public class DiachronicSimulator {
 		if (theInd == CASCADE.size())
 			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
 		else System.out.println(CASCADE.get(theInd)); 
+	}
+	
+	/**
+	 * for @param index, an instant in the cascade... 
+	 *  @return a String the name of any stages that is hit right before this rule operates (the "time instant" -- TODO change terminology per Brian if necessary)
+	 * 		in most cases there will be no stage -- in which case it will say "none" 
+	 * 		in cases where there are multiple, they are separated by the column delimiter, which is currently ','
+	 */
+	private static String getStageNameHere (int index)
+	{
+		if (stageOrdering.length == 0)	return "none" ; 
+		
+		List<String> stagesHere = new ArrayList<String>(); 
+		
+		int goldStagesPassed = 0, blackStagesPassed = 0; 
+		
+		for (String soi : stageOrdering)
+		{
+			char prefix = soi.charAt(0); 
+			int stageInstant = Integer.parseInt(soi.substring(1)); 
+			if (stageInstant > index)	break; 
+			if (stageInstant == index)
+			{
+				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[goldStagesPassed++]); 
+				else if (prefix == 'b')	stagesHere.add("Black Stage: "+blackStageNames[blackStagesPassed++]); 
+				else 
+					throw new RuntimeException("Error: illegal prefix for stage at "+index+". Entry in stagesOrdered: "+soi); 
+			}
+		}
+		
+		if (stagesHere.size() == 0)		return "none"; 
+		if (stagesHere.size() == 1)	return stagesHere.get(0); 
+		return	String.join(",", stagesHere); 
 	}
 }
