@@ -14,6 +14,7 @@
  ̪ = +ant,+cor,+distr $dental. 
  ̯ = -syl 
  ̩ = +syl
+ ˀ= +cg $glottalization. Currently realized in feature defs with same feature as creaky voice (which is how it is realized on sonorants, including vowels), and +cg has been used for both each in the past. 
  ̰ = +cg $constrict glottis, proxy for creaky voiced segments. 
  ̤ = +sg $spread glottis, can be proxy for breathy voiced segments.
  ̹ = +round $weakly rounded, typically for coronals. Patterns/marked as round but not labial. 
