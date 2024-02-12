@@ -25,6 +25,14 @@ $ To be sure she does note (s186) that "betacism doesn't occur after k" but she 
 $ of k -- such as the deletion of the rounded "fricative"/approximant before ʝ (indeed after kw, it is the ʝ that is deleted it seems...) 
 ɣʷ > w / [+back,+hi,+cons] __ 
 
+$2024 CORRECTION: d before consonantal obstruents and nasals undergoes total assimilation (ad satis, prefixation etc.) 
+	$unclear what happened before l, but there is already a rule in Gallo-Roman that lateralizes -d- in secondary -dl- clusters (cf. querquedulam > sarcelle) 
+	$ however, this is clearly different from the fate of secondary -dm- and -dn-, which can become -zm-, -rn-, -zn- (in Early Old French)
+	$d̪ > [acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront] / __ [-son,acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront]
+	$d̪ > [+nas,+cont,+son,aant,bcor,cdistr,dlab,ehi,fback] / __ [+nas,aant,bcor,cdistr,dlab,ehi,fback]
+$explicit version until the current error in SChangeSeqToSeqAlpha is cleaned... 
+{d̪ m;d̪ n̪;d̪ b;d̪ p;d̪ f;d̪ t̪;d̪ s;d̪ ɡ;d̪ k} > {m m;n̪ n̪;b b;p p;f f;t̪ t̪;s s;ɡ ɡ;k k} 
+
 $Pope p226 s629
 $In the second century, all aspiration on Greek loanwords was lost. 
 [+sg,-cont] > [-sg]
