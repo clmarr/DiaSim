@@ -208,7 +208,13 @@ $So we give her the benefit of the doubt and place the lenition of the rest of t
 $Right after the beginning of palatalization.
 $ she is not clear about whether her j and w ("fricatives") are sonorant, but we will assume they are NOT
 	$... given that she called them fricatives -- this is supported by her trajectory for rubeum > rouge (s676)
-b > β / [+syl] __ [+son,-lat,-nas]
+$ CORRECTION (2024): restriction against acting before laterals and nasals. 
+	$ There are no original -bn- or -bl- clusters in Latin so the rule may have been hyperspecified to begin with.
+	$ However, secondary -βl- clusters due to syncope become -bl- in much of oil (incl. Francien) anyways so these would too if this became β
+		$ and the case of sublongus > selon suggests weakening of the /b/ in -bl- anyways
+	$ -bm- may have been assimlated to -mm- but otherwise perhaps should be affected here.
+	$ form before correction: b > β / [+syl] __ [+son,-lat,-nas]
+b > β / [+syl] __ [+son]
 
 $ p115 s263 -- with proparoxytons with intervocalic g, both g and preceding vowel deleted "early" (s263)
 	$ given the hypothesized forms listed by Pope, it is clear she thinks this happened before  ɪ > e and ʊ > o 
@@ -368,8 +374,16 @@ $ CORRECTION: include also the syncope of vowels before n̪
 $ CORRECTION: when before a vowel in coda position it instead goes to "evanescent" ə̯ 
  $ (which will be completely effaced instead only in the Gallo-Roman stage) 
  	$ before t when after a consonantal continuant then a stop
-e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
-e > ∅ / __ [+distr] [+syl] ([-syl]) #
+ 	$ this was: $e > ə̯ / [+cont,+cons] [-delrel] __ t̪ [+syl] #
+ $ 2024 CORRECTION: this latter correction is removed as it is possibly overfitting,
+ 	$ , and better handled in a more general rule. 
+$ 2024 CORRECTION: this rule is broadened to hit all cases of e before prevocalic t/n/d, not just penultimates. 
+	$ whereas Pope thought it only hit penultimates,
+	$... it seems it can it anywhere except the pretonic, so long as it doesn't create a cluster in NT- (the strongest cluster in Romance save maybe geminates)
+$ 2024 CORRECTION: "exception" classes that go instead to ə̯ instead broadened to include : 
+	$ [-round] [+lab] __ D/T [-lo]
+e > ə̯ / [-round] [+lab] __ [+distr,-son] [-lo]
+e > ∅ / [-nas] [-syl] __ [+distr] [-prim]
 
 $ CORRECTION: unstressed ɛ after palatal deleted 
 	$ when before t̪ then some a-variant
@@ -377,7 +391,8 @@ $ SUPPRESSED -- overfitting.
 $ ɛ > ∅ / [+front,+cons] __ t̪ [+lo]
 
 $CORRECTION ə̯ inserted between p and d (rapidum, sapidum, tepidum > rade, sade, tiede | etc) 
-∅ > ə̯ / p __ d̪
+$ this rule WAS: ∅ > ə̯ / p __ d̪
+$CORRECTION 2024: more holistic exception classes now cover this (probably overfit) rule, now handled two paragraphs above. 
 
 $ CORRECTION : n̪ > m / p __  -- case of carpinum > charme etc
 $ Pope does cover it but doesn't attribute it to Late Latin.
@@ -420,7 +435,11 @@ d̪ > ð / __ [+lat]
 
 $ s353 : devoicing of labial and dental consonants that are now before t 
 $ since aidier is excluded, we can dodge fixing palatals too. 
-[+ant,+cons,-son] > [-voi] / __ t̪
+$ CORRECTION 2024 : include also progressive posttonic devoicing
+$		now applying both directions for any voiceless anterior consonant, not just t. 
+[+ant,+cons,-son] > [-voi] / __ [-voi,+ant]
+[+ant,+cons,-son] > [-voi] / [+prim] [-voi,+ant] __ 
+
 
 $p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
 $It was apparently still being resisted among the educated classes at the time of St. Augustine, 4th century and early 5th century 
