@@ -1721,15 +1721,17 @@ public class DiachronicSimulator {
 		
 		for (String soi : stageOrdering)
 		{
-			char prefix = soi.charAt(0); 
-			int stageInstant = Integer.parseInt(soi.substring(1)); 
+			char prefix = soi.charAt(0); 			
+			int stageInstant = -1, stageNumber = Integer.parseInt(soi.substring(1)); 
+			if (prefix == 'g') stageInstant = goldStageInstants[stageNumber]; 
+			else if (prefix == 'b')	stageInstant = blackStageInstants[stageNumber]; 
+			else throw new RuntimeException("Error: illegal prefix for stage at "+index+". Entry in stagesOrdered: "+soi); 
+					
 			if (stageInstant > index)	break; 
 			if (stageInstant == index)
 			{
 				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[goldStagesPassed++]); 
 				else if (prefix == 'b')	stagesHere.add("Black Stage: "+blackStageNames[blackStagesPassed++]); 
-				else 
-					throw new RuntimeException("Error: illegal prefix for stage at "+index+". Entry in stagesOrdered: "+soi); 
 			}
 		}
 		
