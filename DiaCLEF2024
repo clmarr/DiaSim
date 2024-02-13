@@ -85,6 +85,7 @@ $ CORRECTION: stressed i + e > iː x (pietatem type lexemes affected)
 
 $Page 72-73, section 154i ~ elaborated p 89 s 179 
 $Classical Latin length distinction becomes a quality ("tense" for us) distinction
+$ CORRECTION 2024 : but only for vowels with some degree of stress. 
 [+syl,-lo,-long] > [-tense]
 
 $p73 s155i ~ p91 s185 -- h-loss word-internally Pope explains that this happened word-internally first "very early", word initially later 
@@ -282,7 +283,7 @@ k > x / [-cons] __ [+cor,-voi]
 $CORRECTION: countertonic /ɛ/ closes back to /e/ before ssʝ (not sj -- see prehensionem > prison)
 ˌɛ > ˌe / __ s s ʝ
 
-$p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in teh 3rd/4th century Appendix Prodi 
+$p144 s359 ~ p73 s156iii : g > w before m, Pope says this is first attested in the 3rd/4th century Appendix Prodi 
 $"opened and vocalized"-- Pope is explicit that it passes through a fricative stage p65 s135b
 ɡ > [+cont] / __ m 
 ɣ > w / __ m 
@@ -455,8 +456,11 @@ $However she indicates a shift order in s307i that necessitates velar stop palat
 $So we give her the benefit of the doubt and place the lenition of the rest of the velar stops later,
 $Right after the beginning of palatalization. This should be roughly 4th century
 $ inclusion of palatal voiced stop in this shift -- as per Pope p127 s297
-[-delrel,+voi] > [+cont] / [+syl] __ [+son,-lat,-nas]
-d̪ > ð / __ [+lat]
+$ CORRECTION 2024: unified all into one rule, since βl is going to revert to bl now anyways. 
+$	previous version, two rules: 
+$		[-delrel,+voi] > [+cont] / [+syl] __ [+son,-nas]
+$		d̪ > ð / __ [+lat]
+[-delrel,+voi] > [+cont] / [+syl] __ [+son,-nas]
 
 $ s353 : devoicing of labial and dental consonants that are now before t 
 $ since aidier is excluded, we can dodge fixing palatals too. 
@@ -464,11 +468,6 @@ $ CORRECTION 2024 : include also progressive posttonic devoicing
 $		now applying both directions for any voiceless anterior consonant, not just t. 
 [+ant,+cons,-son] > [-voi] / __ [-voi,+ant]
 [+ant,+cons,-son] > [-voi] / [+prim] [-voi,+ant] __ 
-
-
-$p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
-$It was apparently still being resisted among the educated classes at the time of St. Augustine, 4th century and early 5th century 
-h > ∅ 
 
 $p73 s156vi -- influence of tonic vowels on countertonic vowels
 $***NOTE Pope calls these "TENDENCIES"
@@ -567,20 +566,38 @@ $ CORRECTION: ɸ, ɸʷ deleted if in between consonants.
 $ Pope s352: -ika endings -- atonic e is deleted BEFORE k becomes voiced
 $ CORRECTION: occurs in all -ika- instances including inside the word (i.e. praedicatorem >precheur)
 $ CORRECTION: occurs only after voicing if the e is preceded by nasal+voiced stop, or by r
-e k > ɡ / r __ [+lo]
-e k > ɡ / [+nas] [-cont,+voi] __ [+lo]
-e > ∅ / __ k [+lo]
+$ CORRECTION 2024: the only regular voiceless outcomes are (a) when a voiceless consonant stands before [e] (and a low vowel stands after, which has always been an assumption).
+	$ and (b) when the [e k] stands between a stressed a syllable (with l or n in between in practice, with -ll- counting singly, unlike -rr-) 
+	$ the words that remain voiced are thus explicable due to belonging to a high caste register (dimanche, precheur) or analogy (precher from precheur, chevaucher from chevauche < caballicat) 
+	$ -ll- may seem like an exception given caballicare but this works as analogy from caballicat; there may be something to Arteaga's suspicion that this is a load from something "Frankoid" perhaps Picard
+		$ consider: *bullicare > bouger , slicare > Old French saugier, delica:tus > Afr deugié (ANorm a-deugi-) 
+				$ (inconsistency elsewehre ~ caballicare > Apr cabalcar, AGasc cabalgar, ALyonn chavouchour) 
+				$ another "high caste" item, basilica > basoche, baseche in French. 
+		$ in the north/east: pollicarem > Lorr peutchet, Picard poquer vs. Old Provencal polgar, Old Gascon pogar, Old Lyonnais polga-l 
+			$ fullicare > Walloon foki-r, Lorrain fouchier
+$ former version: 
+$	e k > ɡ / r __ [+lo]
+$ 	e k > ɡ / [+cons,+voi] [+cons,+voi] __ [+lo]
+$	e > ∅ / __ k [+lo]
 
-$ Arteaga Mazzola version of this: voicing is the regular phenomenon (but later cluster assimilation plus non-phonetic influence of the "Frankish" voiceless palatal final change this for many words)
+e > ∅ / [-voi] __ k [+lo]
+e > ∅ / [+lo,+prim] (l) [+cons] __ k [+lo,-prim]
+
+$CORRECTION 2024: the latter part, which creates the Cga clusters, is moved after k-voicing
+
+$ Arteaga Mazzola version of this, for testing: voicing is the regular phenomenon (but later cluster assimilation plus non-phonetic influence of the "Frankish" voiceless palatal final change this for many words)
 $ e k > ɡ / [+cons,-round] __ [+lo]
 
 $ Pope p137 s335-336, also p77 s163-5 : voicing of k to ɡ 
 $ Began in fifth century, "became general" in the sixth century as per s336
 $ Explicitly occurred BEFORE slurring of intertonic vowels s349 -- unlike same slightly later shift for t(>d) (s350)
-$ Explicitly occurs BEFORE beginning of second palatalization and before au > o s299
+$ Explicitly occurs B1EFORE beginning of second palatalization and before au > o s299
 	$ potentially RECURRENT as per Pope s162 
 $ this incorporates ɡw > ɣw as per Pope s329 
 k > ɡ / [-cons] __ [+syl]
+
+$CORRECTION 2024: voiced outcomes of eka- handled here.
+e > ∅ / __ ɡ [+lo] 
 
 $ CORRECTION : syncope of unstressed ɛ,e before countertonic ɛ+r 
 	$ if followed by consonant then primary stressed back vowel (verecundiam, caerefolium)
@@ -600,13 +617,61 @@ $ and happened before first formation of palatal sibilant fricatives...
 [+cont,-son] > [+voi] / [-cons] __ [+syl] $CORRECTION: fixed to exclude w. We are not hitting xw clusters with this yet. 
 [+cont,-son] > [+voi] / [-cons] __ ʝ [-cons] $CORRECTION: Pope doesn't consider yod at this point a consonant, but lenition clearly occurs before it... 
 
+$ CORRECTION 2024 a rule is placed before Gallo-Roman i-mutation that accounts for the y-mutation that seems to occur before the following sequence:
+	$ 1. velar continuant (ɣ,x,w)  2. high round item (u, w; ʉ fronting hasn't happened yet), 3. anything not back 
+	$ target seems to be non-round,non-high vowels.
+$ Pope accounted for this in separate rules each much later in Gallo-Roman 
+	$ former rule 439, which was being used to account for things like sequet > suit ( this was one in a series of rules, the others of which are still where they originally were.)
+			$ former rule ˈi > ˈʉ / __ e̯ ɣ [+cons] 
+	$		former rule 491 : {ˌe w;ˌe} > {ˌo;ˌo} / __ [+hi,+round,+prim] 
+	$ (old rule comments here for former rule 491 here :)  s329 and s484 countertonic e becomes o before w and tonic u -- doesn't state when explicitly other than "in Early Old French" 
+		$she doesn't seem to mention this being effected by former o,
+			$ so we assume it comes before s166.2 ~ s184 
+	$ curiously, while there is not enough outside of verbs in Francien to justify having hte wi- become a y (excluding verbs given morphomics project ongoing),
+		$ there is in some regions: qui: > cu /ky/ in some Provencal, Lorrain keu, Franc-Comptois ky-sk (qui-est-ce-que), and even Middle French "cui" maybe
+		$ verbal forms, currently excluded : comparui > comparu, valui > valu (these would not trigger this rule) 
+$ I'm unifying these into a single phenomenon that also explains other things--
+	$ the apparent "y-mutation" in this sequence, when the effect of this rule combines with the next. 
+	$ non-high stressed vowels go to ˈo (or ˈø ? ), which will become ˈy per i-mutation  (Pope s419 -- mo:wwi > my) 
+		$ ˈɛ > ˈɔ
+			$ per Pope sequere, -o, -et etc (at this point, sˈɛːxwe-) develop into sui(t) , with other forms perhaps following by analogy .
+			$ likewise : many owrds originally derived fro msequere (in-, con-, per-, pro-, ad-), esp. in Lorr. Wall. Frpr. FrComt. 
+			$ on behavior of ɔ in this position -- coqu- words .
+		$ ˈe > ˈo
+			$ Pope s419 notes deːbui > diːwwi > dy 
+			$ there is also displicui > dˌesplˈeːxwi > ... deply , (ac)cre:vi > (ac)cru etc. 
+		$ ˌe > ˌo -- Pope notes seːkuːr(u/a) (sˌeɣˈʉːr- at this point) > sûr 
+				$ sequˈent- > so(v)entre in Pope too . 
+				$ aequˈalem > o.el  (however ont adaequare > aiguier, aïver, likewise aequaliare aequalitaːtem
+					$  maybe not word initially . 
+					$ or otherwise, as Pope suggested, maybe the countertonics are under the influence of hte tonic specifically 
+				$ ie:iu:n(i)um > jeune
+			$ she only has them going to o at that point though. In attested old French the o.y hiatus becomes y so it need not be handled here. 
+		$ ˈɑ > ˈo ? 
+			$ unfortunately this is heavily verbally skewed but alas -- placui- types (>plu) and habui (>u) 
+				$ there is however a nominal item among the countertonics for this. 
+	$ non-high countertonic vowels seem to go to ˌo more clearly. 
+			$ note that the pre-existing stipulation of Gallo-Roman i-mutatoin is that it targets PRIMARY stressed vowels 
+					$ so this divergence falls out of hte model reassuringly!  
+		$ ˌɑ > ˌo ː Pope notes taːcuːtu > tˌaɣuːtu > tu (aside from habu-, placu- forms that could be analogized)
+	$ so, essentially, the difference between ɛ vs. the rest is already present in their valeus for +/- tense
+[+stres,-round,-hi] > [-lo,-front,+back,+round,+lab] / @ __ [+back,+cont,-ant,-nas] [+hi,+round] [-back]
+
+$ TODO 2024 -- consider actually having the final ui- > y happen? 
+
 $ Pope p77 s163-1 ~ p164-165 s419 : Influence of final (atonic) /i/ on preceding tonic /e/ and /o/. 
+$ GALLO-ROMAN I-MUTATION/ I-AFFECTATION 
 $ Dated to 6th or 7th centuries (s163-1) 
 $ Pope states this happened before the "weakening" of final atonic vowels. 
 $ e > i and o > y 
 $ Based on the way she has ordered the rules on page 77, 
 $ it would appear she is asserting that this is the first appearance of /y/ in French. 
 [+prim,+tense,-hi,-lo] > [+hi,+front] / __ ([-syl])* i # 
+
+$p73 s155i ~ p91 s185 -- as Pope explained, h-effacement happened word-internally first. 
+$It was apparently still being resisted among the educated classes at the time of St. Augustine, 4th century and early 5th century 
+$ CORRECTION 2024: moved yet later.
+h > ∅ 
 
 $ CORRECTION : l > ɫ can go here . Will need to be recurrent. 
 l > ɫ / __ [+cons,-lat]
@@ -1204,6 +1269,10 @@ $ Completion of fall of the schwas
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
+$CORRECTION 2024: delete resulting word final post consonantal w except post-velar stop# 
+∅ > ə / [-cont,+back] w __ #
+w > ∅ / [+cons] __ #
+
 $ Pope s351 : affricate tsj voices and depalatalizes when it is about to comes into contact with d through schwa fall, 
 	$ and is followed by /ə/
 	$ Pope attributes it technically to the "consonant group"
@@ -1699,7 +1768,7 @@ $ Second: w, possibly with following schwa, is nullified before on an obstruent 
 $ Third: 'i (probably via ɯ) becomes ʉ before e̯ɣC, under assimilative influence of ɣ (> ɯ, then to nearest phoneme at that time, ʉ) 
 $ this one may have to be suppressed as although it is highly predictive, it could also be explained by analogy
 	$ cases: suivre, suis, suie, suit...
-ˈi > ˈʉ / __ e̯ ɣ [+cons] 
+	$ CORRECTION 2024 : this is moved to before i-mutation and combined with other rules. 
 $ Fourth: remaining ɣw > jv (e'vier, ive, antive, antif, suivre, sive)
 ɣ w > j v 
 $ (rule for e'vier not e`vier deleted for overfitting) 
@@ -1742,8 +1811,9 @@ x > ∅ / [-prim] __ #
 $ s357 x palatalizes after tonic a, i. However, neither is raised. 
 $ CORRECTION: x also palatalizes after ae̯, aj and ie̯ \
 	$ -- so allow one front glide in between
+$ CORRECTION 2024: and also, yo̯,
 x > ç / [+lo,+front,+prim] ([-cons,-syl,+front]) __ #
-x > ç / [+hi,+front,+prim] ([-cons,-syl,+front]) __ #
+x > ç / [+hi,-back,+prim] ([-cons,-syl]) __ #
 
 $ s357, elsewhere, x closes back to k 
 x > k / __ #
@@ -1791,7 +1861,8 @@ $ s365 : effacement of middle consonant in groups that don't end in l or r
 [+cons] > ∅ / [+cons] __ [+nas,+cons]
 
 $ s374ii: fricative + w > w w 
-[+cont,+cons,+voi] > w / __ w 
+$ CORRECTION 2024: SUPPRESSED 
+$ [+cont,+cons,+voi,-son] > w / __ w 
 
 $ recurrence of s374i 
 w > ∅ / [-cont] [-cont] __
@@ -1876,11 +1947,7 @@ $ Pope s257 : unstressed ə > e before yod. She implies this is also happening b
 $ s252 : this feeds ej > oj phenomena.
 ə > e / __ [+front,+son,+hi,-syl]
 
-$ s329 and s484 countertonic e becomes o before w and tonic u -- doesn't state when explicitly other than "in Early Old French" 
-$she doesn't seem to mention this being effected by former o,
-	$ so we assume it comes before s166.2 ~ s184 
-ˌe w > ˌo
-ˌe > ˌo / __ [+hi,+round,+prim] 
+$ CORRECTION 2024 -- the rule for s329/s484 is moved much earlier, to Middle Gallo-Roman 
 
 $ s422 e "intertonic" (i.e. stress-less) moves up to i before palatal consonants (ɲ,ʎ)
 $ CORRECTION : this is moved earlier, originally in LOF
@@ -2477,6 +2544,9 @@ $ as per s671 -- nasal variant included.
 
 $ s555-556 ɥø > jø
 ɥ > j / __ [+front,+round,-hi]
+
+$CORRECTION 2024: block unexpected glide-medial sequences resulting from the j.ie >jje, w(u/o)e > wwe. Regarding the latter there is another source of these which needs fixing on its own. 
+[-cons,-syl] > ∅ / [+cons] __ [-cons,-syl]
 
 $ s556 jø > ø after dʒ 
 j > ∅ / d͡ʒ __ [+front,+round,-hi]
