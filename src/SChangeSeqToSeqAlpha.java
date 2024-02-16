@@ -175,6 +175,8 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 												popr = postContext.getPlaceRestrs();
 												popm = postContext.getParenMap();
 												need_to_reset = true; 
+												for (int k = 0; k < destSpecs.size(); k++)	
+													destSpecs.get(k).applyAlphaValues(alphHere); //TODO need to check that this works here, I have suspicions it won't.
 											}
 											else
 											{
@@ -201,6 +203,10 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					}
 					if (isPostrMatch)
 					{
+						//TODO debugging
+						System.out.println("match at phone : "+input.get(p) + " " + 
+								(postSpecd ? "∅" : input.get(p+1).print())); 
+						
 						res.addAll(generateResult(input,p)); 
 						p += minInputSize; 
 					}
