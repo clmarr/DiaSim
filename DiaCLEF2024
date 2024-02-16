@@ -1369,9 +1369,10 @@ $ CORRECTION: geminate stops are degeminated if after consonant, or before conso
 $ deal with labials here -- others later, given that labials will mutate to form new geminate clusters with all the coronals after this
 $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ would appear overfit, but this is just a generalization of the phonological rules Pope already agrees with. 
-{b b;p p}>{b;p} / [+cons] __
-{b b;p p}>{b;p} / __ [+cons] {[+cons];#}
-{b b;p p}>{b;p} / __ {[+cons,-son];[+cons,+nas]}
+$ CORRECT 2024: since this now has the exact same behavior as degemination for other obstruents and laterals generally just abit below, this is combined into that rule, reducing the number of rules. 
+${b b;p p}>{b;p} / [+cons] __
+${b b;p p}>{b;p} / __ [+cons] {[+cons];#}
+${b b;p p}>{b;p} / __ {[+cons,-son];[+cons,+nas]}
 
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
 $ RECURRENT as per s162
@@ -1393,9 +1394,11 @@ $ CORRECTION: geminate stops are degeminated if after consonant,
 $ --don't have to deal with the affricate clusters or palatals in the latter case as they never occur 
 $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ CORRECTION : s,m,l also shortened when double after another consonant or word initially - include also ɫl for good measure
-{d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l} / {[+cons];#} __
-{d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ [+cons] {[+cons];#}
-{d̪ d̪;t̪ t̪;ɡ ɡ;k k} > {d̪;t̪;ɡ;k} / __ {[+cons,-son];[+cons,+nas]}
+$ CORRECTION 2024: this is combined with the same phenomenon for bb and pp
+$ CORRECTION 2024: r r now included for the main group (not the ss/mm specific stuff) 
+{d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l;r r;b b;p p} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l;r;b;p} / {[+cons];#} __
+{d̪ d̪;t̪ t̪;ɡ ɡ;k k;b b;p p;r r} > {d̪;t̪;ɡ;k;b;p;r} / __ [+cons] {[+cons];#}
+{d̪ d̪;t̪ t̪;ɡ ɡ;k k;b b;p p;r r} > {d̪;t̪;ɡ;k;b;p;r} / __ {[+cons,-son];[+cons,+nas]}
 {s s;m m}>{s;m} / __ [+cons] 
 
 $ CORRECTION : t̪ t͡sʲ in word initial position also eliminated. 
@@ -1679,8 +1682,8 @@ $it is not as simple as Pope argues...
 	$ we group together all three of these as oral coronal continuants. 
 	$ CORRECTION 4:  also does happen before interdental frics always if word initial
 	$ CORRECTION 5: but, unless covered by a rule above, does not happen for C #
+$ CORRECTION 2024, 1: this, formelry the second line (ˌɛ > ˌe / __ r r), is removed as it is covered by the subsequent rule ˌɛ > ˌe / __ @ @
 {ˌɛ;ˌɔ} > {ˌɨ;ˌɯ} / __ [+lat] [+cons]
-ˌɛ > ˌe / __ r r
 ˌɛ > ˌe / # __ [+cor,+cont]
 ˌɛ > ˌɨ / __ [+cor,-nas,+cont] [+cons,-nas]
 ˌɛ > ˌe / __ @ @

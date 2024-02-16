@@ -138,6 +138,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					if(!isPostrMatch) {
 						int indAfter = p + minInputSize;
 						boolean postrPossible = true, reachedEnd = false; 
+						
 						if(postContext.has_unset_alphas())
 						{
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
@@ -198,15 +199,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 								}
 							}
 						}
+
 						isPostrMatch = !postrPossible ? false : 
 							reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
 					}
 					if (isPostrMatch)
 					{
-						//TODO debugging
-						System.out.println("match at phone : "+input.get(p) + " " + 
-								(postSpecd ? "∅" : input.get(p+1).print())); 
-						
 						res.addAll(generateResult(input,p)); 
 						p += minInputSize; 
 					}
@@ -263,6 +261,11 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 			if(priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(ALPH_VARS);
 		if(postSpecd)
 			if(postContext.hasAlphaSpecs())	postContext.applyAlphaValues(ALPH_VARS);
+		
+		/** for(int i = 0; i < targSource.size(); i++)
+			targSource.get(i).applyAlphaValues(ALPH_VARS);
+		for(int j = 0; j < destSpecs.size(); j++)
+			destSpecs.get(j).applyAlphaValues(ALPH_VARS);*/ 
 		
 		targSource = targSource.stream().map(APPLY_ALPHAS).collect(Collectors.toList());
 		destSpecs = destSpecs.stream().map(APPLY_ALPHAS).collect(Collectors.toList()); 
