@@ -9,24 +9,28 @@ public class SChangePhoneAlpha extends SChangePhone {
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, String origForm)
 	{
 		super(targs, dests, origForm);
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false;
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{
 		super(targs, dests, priors, postrs, origForm);
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false; 
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, String origForm)
 	{
 		super(targs, mutations, origForm);
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false; 
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SequentialFilter prior, SequentialFilter postr, String origForm)
 	{
-		super(targs, mutations, prior, postr, origForm); 
+		super(targs, mutations, prior, postr, origForm);
+		ALPH_VARS = new HashMap<String,String>(); 
 		need_to_reset = false; 
 	}
 	
@@ -121,7 +125,9 @@ public class SChangePhoneAlpha extends SChangePhone {
 				
 				}
 				else
-				{	res.add(currInpPh);	p++;	}		
+				{	res.add(currInpPh);	p++;	}
+				
+				if(need_to_reset) reset_alphvals_everywhere();
 			}
 		}
 		
