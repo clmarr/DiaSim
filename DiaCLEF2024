@@ -1243,8 +1243,7 @@ $ CORRECTION ə temporarily retained between t/d/ð/r/l and ɣ, just long enough
 $ CORRECTION : ə also retained after dental ə ɣ for now 
 ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
 $ CORRECTION : ə also retained when after [+cons] w and before [+cons]
-$ CORRECTION 2024: removed this as it is covered elsewhere.
-$ə̯ > ə / [+cons] w __ [+cons] 
+ə̯ > ə / [+cons] w __ [+cons] 
 $ CORRECTION : ə also preserved when after [+cons] p __ followed by -cont, and the next syllable is tonic 
 ə̯ > ə / [+cons] p __ [-cont] ([-syl])* [+prim]
 $ CORRECTION : ə always retained after dʒ or tʃ
@@ -1813,6 +1812,11 @@ $s355-357 close if became supported
 $ CORRECTION: this is moved later to come after the -xw- handling phenomena
 [+cont,-son,-strid] > [-delrel] / [+cons] __ #
 
+$ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
+$ CORRECT 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally, and added rule to send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
+ɣ > x / __ {[-voi];#}
+ɣ > ʝ 
+
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
 
@@ -1921,9 +1925,6 @@ $ CORRECTION: dental fricative edh is also deleted before non sonorants
 		$ then the latter is replaced with 'ie 
 [+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ ð [-cont]
 ð > ∅ / __ [-cont]
-
-$ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
-ɣ > x / __ [-voi]
 
 $ s366 degemination 
 $ CORRECTION: extended to also hit rr when word final 
