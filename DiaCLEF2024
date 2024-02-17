@@ -523,7 +523,8 @@ $ note that Pope is fairly inconsistent as to the identity of the <u> in qu
 $ she seems to label it as a semivowel (u with glid mark) in s327-330
 $ but marks it as her "fricative" w in s186-188
 $ to reflect this we don't question it and just use w to reflect her usage, without questioning it...
-k > x / [+syl] __ w [+syl]
+$ CORRECTION 2024: modify to hit also kw- before glides.
+k > x / [+syl] __ w [-cons]
 
 $ s374ii : intervocalic -lw- > ll and -sw- > ss 
 $ CORRECTION: this happens for sw everywhere it occurs, not just intervocalically 
@@ -917,7 +918,8 @@ $s374i : w from hiatus u,o effaced if coming after two consonants
 $CORRECTION: Pope includes post-velar w (uses placui) as an example, but we exclude post-velar environments
 	$ more examples on the other side since at this point former hiatus u,o are totally merged with w
 	$ i.e. lingua, linguaticum, quinque, quinquaginta, sanguem, omquam...
-w > ∅ / [+cons] [+cons,-back] __
+$CORRECTION 2024: just one non-velar consonant immediately beforehand will cause this reliably. This fix removes errant w- from hundreds of verb forms.
+w > ∅ / [+cons,-back] __
 
 $ s322-326, palatalization of velar frics pre-coronal
 [+back,+hi,+cont,-son] > [-back,+front] / __ [+cor]
@@ -1682,8 +1684,8 @@ $it is not as simple as Pope argues...
 	$ we group together all three of these as oral coronal continuants. 
 	$ CORRECTION 4:  also does happen before interdental frics always if word initial
 	$ CORRECTION 5: but, unless covered by a rule above, does not happen for C #
-$ CORRECTION 2024, 1: this, formelry the second line (ˌɛ > ˌe / __ r r), is removed as it is covered by the subsequent rule ˌɛ > ˌe / __ @ @
 {ˌɛ;ˌɔ} > {ˌɨ;ˌɯ} / __ [+lat] [+cons]
+ˌɛ > ˌe / __ r r
 ˌɛ > ˌe / # __ [+cor,+cont]
 ˌɛ > ˌɨ / __ [+cor,-nas,+cont] [+cons,-nas]
 ˌɛ > ˌe / __ @ @
