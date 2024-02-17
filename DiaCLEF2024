@@ -1227,25 +1227,27 @@ $ CORRECTION: only retained before ʎ or ɲ -- not tsʲ or ç (with regards to p
 $ CORRECTION: retained before ŋ t͡sʲ 
 	$but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters 
 	$ (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
+$ CORRECTION 2024 : __ ŋ tsʲ and __ n t roped into a general __ N C case.
 $ CORRECTION: ə also preserved between m and ts followed by a tonic
 $ CORRECTION: ə is NOT preserved before rʲ
 ə̯ > ə / __ [+front,+cons,+son]
 ə > ə̯ / __ rʲ
 ə̯ > ə / m __ t͡sʲ [+prim]
-ə̯ > ə / __ ŋ t͡sʲ
 ə̯ > ə / __ [+cons] [+cons] [+cons]
 $s258a : ə retained before n̪ t̪ #
 $ CORRECTION: retained before all -nt, not just finally
-ə̯ > ə / __ [+nas] t̪
+$ CORRECTION 2024: combined with ə̯ > ə / __ ŋ t͡sʲ for a more predictive __ N C rule. 
+ə̯ > ə / __ [+nas,+cons] [-son]
 $ CORRECTION ə temporarily retained between t/d/ð/r/l and ɣ, just long enough for t to lenit and handling cases like pelerin
 ə̯ > ə / [+cor,-strid] __ ɣ
 $ CORRECTION : ə also retained after dental ə ɣ for now 
 ə̯ > ə / [+cor,+ant,+distr] ə ɣ __
-$ CORRECTION : ə also retained when after [+cons] w and before [+cons] 
-ə̯ > ə / [+cons] w __ [+cons] 
+$ CORRECTION : ə also retained when after [+cons] w and before [+cons]
+$ CORRECTION 2024: removed this as it is covered elsewhere.
+$ə̯ > ə / [+cons] w __ [+cons] 
 $ CORRECTION : ə also preserved when after [+cons] p __ followed by -cont, and the next syllable is tonic 
 ə̯ > ə / [+cons] p __ [-cont] ([-syl])* [+prim]
-$ CORRECTION : ə always retained after dʒ or tʃ\
+$ CORRECTION : ə always retained after dʒ or tʃ
 ə̯ > ə / [+delrel,-ant] __
 
 $ CORRECTION: ə̯ > e before final s when there is no other syllabic in the syllable
@@ -1265,7 +1267,7 @@ $ examples: que, ne; could be seen as overfitting but not having this would impl
 $ CORRECTION : ə̯ retained after STOP r and before a cons
 ə̯ > ə / [-cont] r __ [+cons]
 
-$ CORRECTION : ə̯ retained after non-lateral cons then l, and before cons
+$ CORRECTION : ə̯ retained after non-lateral cons then l, if also before cons
 ə̯ > ə / [-lat,+cons] l __ [+cons]
 
 $ Completion of fall of the schwas 
