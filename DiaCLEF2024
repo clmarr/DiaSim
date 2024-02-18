@@ -1813,9 +1813,8 @@ $ CORRECTION: this is moved later to come after the -xw- handling phenomena
 [+cont,-son,-strid] > [-delrel] / [+cons] __ #
 
 $ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
-$ CORRECT 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally, and added rule to send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
+$ CORRECT 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally. Added rule later will send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
 ɣ > x / __ {[-voi];#}
-ɣ > ʝ 
 
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
@@ -1823,12 +1822,39 @@ x > ∅ / [-prim] __ #
 $ s357 x palatalizes after tonic a, i. However, neither is raised. 
 $ CORRECTION: x also palatalizes after ae̯, aj and ie̯ \
 	$ -- so allow one front glide in between
-$ CORRECTION 2024: and also, yo̯. And also, not just word finallyǃ 
-x > ç / [+lo,+front,+prim] ([-cons,-syl,+front]) __
-x > ç / [+hi,-back,+prim] ([-cons,-syl]) __
+$ CORRECTION 2024: suppressed in favor of 2024 solution.
+$x > ç / [+lo,+front,+prim] ([-cons,-syl,+front]) __ #
+$x > ç / [+hi,-back,+prim] ([-cons,-syl]) __ # 
 
 $ s357, elsewhere, x closes back to k 
-x > k / __ #
+$ CORRECTION 2024: suppressed in favor of 2024 solution.
+$x > k / __ #
+
+
+$ CORRECTION 2024 to s357: x > ç also after  yo̯ and ow it seemes
+	$ and furthermore before consonants.
+	$ the previous formulation had x surviving into Old French in various (presumably unforeseen) sequences. 
+	$ so instead, it is the contexts where it closes to k that are specified, and it becomes ç elsehwere
+	$ closure to k in specifically at coda, after tonic velar vowel ('velar vowel'- Pope's words in s357 too); apparently the source of "ue", which is /ʉo̯/ at this stage, counts (ab hoc > avuec, pro hoc > prohec) . Since the OFFGLIDE is velar, it can fit in, and also capture the case ow .
+	$ for justification of treatment of ʉ itself as non-velar for (non-Walloon) oïl and Frpr at this stage see cmt block below.
+x > k / [+prim,+back] __ #
+x > k / [+prim] [+back,-syl,-cons] __ #
+
+	$ remaining x and ɣ are fronted
+[+back,-son,-round,+cont] > [-back,+front]
+	
+		$ concerning /ˈʉ/ itself (< Lat uː, exc. in E.(?) Walloon where it > u), it appears there is a different treatment between the different parts of Gallo-Romance...ː > ʉk#/uk# > yk in Occitan vs. ʉj in Proto-Frpr and in Proto-Oïl (later to >y in most cases). Northern Occitan (Auvergnat, Périg, Cevennes, Dauph) seems to pattern with Afrpr and/or Oïl 
+		$ e.g... 
+			$ (mal-, ben-) *astruːcus 
+				$ > Apr astruc >  Lang esturga (feminized), Gasc mauastruc (but Cev has maratrü alongside estruc; Dauph maitrü), desastruc (> Gasc desestruguè)
+				$ vs. Afrpr malatrui (> Jura maltru, Sav matru), benatrui (> ( Dauph fprr banatru, Lyonn metru / melatru/maléutru ), *atrui (> Lyonn atru )
+				$ and vs. Oïl *aðətrʉː  (> Norm. autru), malaðətrʉː (> Afr malestru, malautru > Mfr malotru, Champ malantru ) 
+			$ brūcus
+				$ Agasc bruc > Gasc broc; Lnag brouc & brougo; Pr. brug
+				$ AFr brui , Berr/Bour breu/bru 
+			$ lūcus > AChamp lu-z (nom.) vs. Gasc luc. 
+			$ note als traucum > Apr trauc vs. Pic trou & treu (though in french ɣ deletes in this context, as does most ocu); likewise glaucus > Apr glauc
+	$ crǒcum > Apr croc/cruec/groc/gruec vs .AJChamp croi
 
 $ s357, s359, s324, s325: ç merges into ʝ
 ç > ʝ
