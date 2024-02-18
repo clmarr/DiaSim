@@ -1874,7 +1874,8 @@ b > β / [-cons] __ r
 $ should be after resolution of palatal consonants. 
 $ s404 : ʝ > j ("i-glide" for Pope) after vowels; j is simply absorbed by preceding i
 $ CORRECTION: also absorbed by preceding j (incl nasal j) or some variant of /i/ (varying by stress/length/nasality)
-ʝ > j / [-cons] __ 
+$ CORRECTION: ʝ to j everywhere, not just after [-cons]. Hitting sequences that were missed by Pope. 
+ʝ > j
 j > ∅ / [+hi,+front,+tense] __
 
 $ s165.5 leveling of au to o (s505)
@@ -1895,8 +1896,9 @@ $ s367 d,t + s becomes the affricate;
 [+cor,-delrel] s > t͡s
 
 $ s365 : effacement of middle consonant in groups that don't end in l or r 
-[+cons] > ∅ / [+cons] __ [-son]
-[+cons] > ∅ / [+cons] __ [+nas,+cons]
+$ CORRECTION 2024: hit all asyllabics, not just consonantals. 
+[-syl] > ∅ / [+cons] __ [-son]
+[-syl] > ∅ / [+cons] __ [+nas,+cons]
 
 $ s374ii: fricative + w > w w 
 $ CORRECTION 2024: SUPPRESSED 
@@ -2637,10 +2639,11 @@ $ CORRECTION: the inclusion stipulated by Pope of also stops being contexts here
 ˌə > ∅ / [+cont,-son] __ [+son,+ant,-nas] [+prim]
 
 $ CORRECTION: final j after vowel just deleted except after high vowel
-$ this is s532 but Pope has it attributed to hte 17th century.
-	$ i.e. veracum > vrai, also mai, bai, essai -- Pope seems to think that ʝ remained different from j much later than she does elsewhere (s532)
+$ this is s532 but Pope has it attributed to the 17th century.
+	$ i.e. veracum > vrai, also mai, bai, essai -- Pope seems to think that ʝ remained different from j much later than she does elsewhere (s532; s533 exc in southern zones? Here discussion of "eʝ" in Middle French is likley secondary though?). Diff between veracum > vrai and likewise mai/balai/bai/essai vs. fai/brai/trai. 
 	$ only case that did go to /e/ seems to be habeo > ai... which is irregular anyways.
 	$ thus this is bleeding s529ii. 
+	$ however, veracum (vrai) has its tonic syllable's vowel - following cons sequence merge with that of badium (bai) in Gallo-Roman in the current version without error, and this is based on just a grammarians views in Middle French...
 j > ∅ / [-hi,+syl] __ #
 
 $ s464 : continuation of nasalizing tendency into Middle French -- still productive except for i and y (i.e. promener, fromage...) 
