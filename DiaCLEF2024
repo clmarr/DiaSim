@@ -573,7 +573,7 @@ $ CORRECTION 2024: the only regular voiceless outcomes are (a) when a voiceless 
 	$ the words that remain voiced are thus explicable due to belonging to a high caste register (dimanche, precheur) or analogy (precher from precheur, chevaucher from chevauche < caballicat) 
 	$ -ll- may seem like an exception given caballicare but this works as analogy from caballicat; there may be something to Arteaga's suspicion that this is a load from something "Frankoid" perhaps Picard
 		$ consider: *bullicare > bouger , slicare > Old French saugier, delica:tus > Afr deugié (ANorm a-deugi-) 
-				$ (inconsistency elsewehre ~ caballicare > Apr cabalcar, AGasc cabalgar, ALyonn chavouchour) 
+				$ (inconsistency elsewhere ~ caballicare > Apr cabalcar, AGasc cabalgar, ALyonn chavouchour) 
 				$ another "high caste" item, basilica > basoche, baseche in French. 
 		$ in the north/east: pollicarem > Lorr peutchet, Picard poquer vs. Old Provencal polgar, Old Gascon pogar, Old Lyonnais polga-l 
 			$ fullicare > Walloon foki-r, Lorrain fouchier
@@ -676,7 +676,8 @@ $ CORRECTION 2024: moved yet later.
 h > ∅ 
 
 $ CORRECTION : l > ɫ can go here . Will need to be recurrent. 
-l > ɫ / __ [+cons,-lat]
+$ CORRECTION 2024: doesn't happen post-consonantally
+l > ɫ / [-cons] __ [+cons,-lat]
 
 $ as per Pope p126 s293
 $ palatalization of ŋ, l and s before palatal stops followed by short unstressed paroxytone e,ɛ before r,t
@@ -1273,8 +1274,9 @@ $ Completion of fall of the schwas
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
 
-$CORRECTION 2024: ʝ brought into contact with a consonant palatalizes it and disappears. 
-[+cons] ʝ > [+hi,+front,-back] ∅
+$CORRECTION 2024: ʝ brought into contact with a consonant palatalizes it and disappears. It simply disappears after palatals and palatoalveolars. 
+$ʝ > ∅ / [+front,+cons] __
+$[+cons] ʝ > [+hi,+front,-back] ∅
 
 $CORRECTION 2024: delete resulting word final post consonantal w except post-velar stop# 
 $ This absorbs the earlier w deletion rule in ŋg __ # 
@@ -1373,7 +1375,7 @@ $ CORRECTION: geminate stops are degeminated if after consonant, or before conso
 $ deal with labials here -- others later, given that labials will mutate to form new geminate clusters with all the coronals after this
 $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ would appear overfit, but this is just a generalization of the phonological rules Pope already agrees with. 
-$ CORRECT 2024: since this now has the exact same behavior as degemination for other obstruents and laterals generally just abit below, this is combined into that rule, reducing the number of rules. 
+$ CORRECTION 2024: since this now has the exact same behavior as degemination for other obstruents and laterals generally just abit below, this is combined into that rule, reducing the number of rules. 
 ${b b;p p}>{b;p} / [+cons] __
 ${b b;p p}>{b;p} / __ [+cons] {[+cons];#}
 ${b b;p p}>{b;p} / __ {[+cons,-son];[+cons,+nas]}
@@ -1400,10 +1402,10 @@ $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ CORRECTION : s,m,l also shortened when double after another consonant or word initially - include also ɫl for good measure
 $ CORRECTION 2024: this is combined with the same phenomenon for bb and pp
 $ CORRECTION 2024: r r now included for the main group (not the ss/mm specific stuff) 
-{d̪ d̪;t̪ t̪;t̪ t͡s;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;m m;l l;ɫ l;r r;b b;p p} > {d̪;t̪;t͡s;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;m;l;l;r;b;p} / {[+cons];#} __
-{d̪ d̪;t̪ t̪;ɡ ɡ;k k;b b;p p;r r} > {d̪;t̪;ɡ;k;b;p;r} / __ [+cons] {[+cons];#}
-{d̪ d̪;t̪ t̪;ɡ ɡ;k k;b b;p p;r r} > {d̪;t̪;ɡ;k;b;p;r} / __ {[+cons,-son];[+cons,+nas]}
-{s s;m m}>{s;m} / __ [+cons] 
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;t̪ t͡s;t̪ t͡sʲ;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;s sʲ;m m;m mʲ;l l;ɫ l;l lʲ;ɫ lʲ;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;t͡s;t͡sʲ;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;sʲ;m;mʲ;l;l;lʲ;lʲ;r;rʲ;b;bʲ;p;pʲ} / {[+cons];#} __
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ [+cons] {[+cons];#}
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;d̪ʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ {[+cons,-son];[+cons,+nas]}
+{s s;s sʲ;m m;m mʲ}>{s;sʲ;m;mʲ} / __ [+cons] 
 
 $ CORRECTION : t̪ t͡sʲ in word initial position also eliminated. 
 $ For good measure, handle also any word initial stop followed by a non-continuant
@@ -1753,6 +1755,12 @@ a > ə / [+syl] ([-syl])* __
 $CORRECTION 2024: rope any surviving ə before R C[-son] into the fate of ˌɛ 
 ə > ˌɛ / __ r [-son] 
 
+$CORRECTION 2024: surviving ə after Cj- (and Cw-, for good measure) sent to ˌɛ also to prevent unexpected clusters.
+	$ This is sort of a bandaid solution, admittedly.
+	$ happens before the tonic syllable -- not for final sylls. 
+	$ TODO may need revision. 
+ə > ˌɛ / [+cons] [+hi,-cons,-syl] __ ([-prim])* [+prim]
+
 $ CORRECTION: This is no longer necessary
 $ s318 ~ s165-4 palatalization of final s by enya and elya preceding 
 $s > t͡sʲ / {ɲ;ʎ} __ # 
@@ -1816,7 +1824,7 @@ $ CORRECTION: this is moved later to come after the -xw- handling phenomena
 [+cont,-son,-strid] > [-delrel] / [+cons] __ #
 
 $ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
-$ CORRECT 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally. Added rule later will send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
+$ CORRECTION 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally. Added rule later will send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
 ɣ > x / __ {[-voi];#}
 
 $ s357 -- loss of final x after unstressed sylls 
@@ -1959,7 +1967,8 @@ $ CORRECTION: dental fricative edh is also deleted before non sonorants
 
 $ s366 degemination 
 $ CORRECTION: extended to also hit rr when word final 
-{p p;b b;f f;m m;t̪ t̪;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d͡ʒ;n̪ n̪;s s;z z;l l;k k;ɡ ɡ;n̪ n̪} > {p;b;f;m;t̪;t͡s;t͡sʲ;t͡ʃ;d̪;d͡ʒ;n̪;s;z;l;k;ɡ;n̪}
+$ CORRECTION 2024: extend to hit palatals in case they survive.
+{p p;p pʲ;b b;b bʲ;f f;f fʲ;m m;m mʲ;t̪ t̪;t̪ t̪ʲ;t̪ t͡s;t̪ t͡sʲ;t̪ t͡ʃ;d̪ d̪;d̪ d̪ʲ;d̪ d͡ʒ;n̪ n̪;n̪ n̪ʲ;s s;s sʲ;z z;z zʲ;l l;l lʲ;k k;ɡ ɡ} > {p;pʲ;b;bʲ;f;fʲ;m;mʲ;t̪;t̪ʲ;t͡s;t͡sʲ;t͡ʃ;d̪;dʲ;d͡ʒ;n̪;n̪ʲ;s;sʲ;z;zʲ;l;lʲ;k;ɡ}
 r r >  r / __ # 
 
 $ CORRECTION: s378 moved earlier. 
@@ -1996,7 +2005,7 @@ e > i / __ [+hi,+son,+front,+cons]
 $s166.9 ~ s383-391 -- "beginnings" of l-vocalization praeconsonantal. 
 $As per Pope s167, "unclear" how much and if the vocalization aspect was present during this period.
 $First attested in 9th century -- s390. 
-$semi-correction: for simplicity sake, let's not deal wiht lambda- gamma, and just use /ɫ/
+$semi-correction: for simplicity sake, let's not deal with lambda- gamma, and just use /ɫ/
 [+lat] > ɫ / __ [+cons]
 
 $s382iv and s384 : but back l becomes ʎ after i (originally Pope has this as lʲ, but Occam's razor as
@@ -2316,7 +2325,9 @@ $ She also explicitly limits it to hte stressed diphthong
 $ BASECLEF CORRECTION: w after u or y is immediately deleted
 w > ∅ / [+syl,+hi,+round] __
 
-$ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced
+$ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced. 
+$ CORRECTION 2024: but if it does somehow survive before vowels, send it to lj
+lʲ > l j / __ [-cons]
 lʲ > ∅
 
 $s330 ~ s388 ~ s538-540 : a glide develops between ɛ and w
@@ -2726,7 +2737,10 @@ $ s270 : began in the 14th century but not accepted until the 16th,
 $ $ consistent with treatment of s268-9, we have reduction to ə̯ realized before MF marker
 	$ and realize the lengthening and total effacement afterward
 $ per examples in s269, 271 etc : when she says vowels she must mean "nonconsonantals"
+$ CORRECTION 2024: this was not intended to hit Cj- segments (and perhaps not Cw?? either).
+	$ Modified to reflect that -- without the same exclusion on ə̯ though. 
 ə > ə̯ / [-cons] __
+
 
 $ s529ii: ɛ j > e word-finally
 $ note s560 says "earlier" (i.e. EOF) aj(>ɛj)>ɛː renders ɛ (possibly long ɛː per poets cited) 
