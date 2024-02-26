@@ -1707,18 +1707,17 @@ public class DiachronicSimulator {
 	
 	/**
 	 * for @param index, an instant in the cascade... 
-	 *  @return a String the name of any stages that is hit right before this rule operates (the "time instant" -- TODO change terminology per Brian if necessary)
-	 * 		in most cases there will be no stage -- in which case it will say "none" 
-	 * 		in cases where there are multiple, they are separated by the column delimiter, which is currently ','
+	 *  @return a String the name of any stages that is hit right before this rule operates (the "time instant" 
+	 *  	-- TODO change terminology per Brian if necessary)
+	 * 	in most cases there will be no stage -- in which case it will say "none" 
+	 * 	in cases where there are multiple, they are separated by the column delimiter, which is currently ','
 	 */
 	private static String getStageNameHere (int index)
 	{
 		if (stageOrdering.length == 0)	return "none" ; 
 		
 		List<String> stagesHere = new ArrayList<String>(); 
-		
-		int goldStagesPassed = 0, blackStagesPassed = 0; 
-		
+				
 		for (String soi : stageOrdering)
 		{
 			char prefix = soi.charAt(0); 			
@@ -1730,8 +1729,8 @@ public class DiachronicSimulator {
 			if (stageInstant > index)	break; 
 			if (stageInstant == index)
 			{
-				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[goldStagesPassed++]); 
-				else if (prefix == 'b')	stagesHere.add("Black Stage: "+blackStageNames[blackStagesPassed++]); 
+				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[stageNumber]); 
+				else if (prefix == 'b')	stagesHere.add("Black Stage: "+blackStageNames[stageNumber]); 
 			}
 		}
 		
