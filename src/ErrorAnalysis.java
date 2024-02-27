@@ -1094,8 +1094,17 @@ public class ErrorAnalysis {
 		
 		writeToFile(fileName, output); 
 	}
-	
+
+	// for when form IDs are not actually being used -- producing same results that makeEtymwiseEDFile originally did. 
 	public void makeEtymwiseEDfile(String filename)
+	{
+		List<String> formId_list = new ArrayList<String>(); 
+		for (int eti = 0; eti < TOTAL_ETYMA ; eti++)
+			formId_list.add(Integer.toString(eti)); 
+		makeEtymwiseEDfile(filename,formId_list); 			
+	}
+	
+	public void makeEtymwiseEDfile(String filename, List<String> formIds)
 	{
 		String output = "ID,CFR_prediction,gold,rawLevenshteinED,phonemewiseLevenshteinED,featureED"; 
 		
@@ -1104,7 +1113,7 @@ public class ErrorAnalysis {
 					filename : filename+".csv"); 
 		
 		for (int eti = 0; eti < TOTAL_ETYMA; eti++)
-			output += "\n" + eti //TODO may need to fix this for Borja Herce's ID indexing preferences... 
+			output += "\n" + formIds.get(eti) //TODO may need to fix this for Borja Herce's ID indexing preferences... 
 					+ "," + RES.getByID(eti).print()
 					+ "," + GOLD.getByID(eti).print()
 					+ "," + levDists[eti] 

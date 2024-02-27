@@ -63,6 +63,9 @@ public class DiachronicSimulator {
 	private static String[] stageOrdering; 
 	private static String[] initStrForms; 
 
+	private static List<String> formIDs;
+		// may need debugging at some point, but for now is being used in an as-necessary (for work with Borja) manner. 
+		//TODO note that as it stands currently, if you use formIDs, they MUST be on every word or else there will be concurrence errors (!) 
 	
 	// fills gold and black stage variables
 	// but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
@@ -544,13 +547,17 @@ public class DiachronicSimulator {
 		String nextLine; 
 		
 		List<String> lexFileLines = new ArrayList<String>(); 
+		formIDs = new ArrayList<String>(); 
 		
 		try 
 		{	File inFile = new File(lexFileLoc); 
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8"));
 			while((nextLine = in.readLine()) != null)	
-			{	if (nextLine.contains(UTILS.CMT_FLAG+""))
+			{	
+				if (nextLine.contains(UTILS.FORM_ID_FLAG+"") && UTILS.USE_FORM_ID)
+					formIDs.add(nextLine.substring(nextLine.lastIndexOf(UTILS.FORM_ID_FLAG)+1));
+				if (nextLine.contains(UTILS.CMT_FLAG+""))
 					nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
 				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
 			}
@@ -734,7 +741,11 @@ public class DiachronicSimulator {
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
 						false/*, theSimulation.getCurrentResult()*/);
 				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true/*,goldOutputLexicon*/);
-				ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
+				
+				if (UTILS.USE_FORM_ID)
+					ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString()), formIDs); 
+				
+				else	ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
 				
 				
 				if(goldStagesSet)
@@ -1638,6 +1649,9 @@ public class DiachronicSimulator {
 			else if (arg.equals("-simple_FED"))
 				UTILS.contextualize_FED = false; 
 			
+			else if (arg.equalsIgnoreCase("-use_form_ID"))
+				UTILS.USE_FORM_ID = true; 
+			
 			// nothing placed afterward -- triggers stage debugging printouts. 
 			else if (arg.equalsIgnoreCase("-debug_stages"))
 			{
@@ -1645,6 +1659,8 @@ public class DiachronicSimulator {
 				if (VERBOSE)	System.out.println("debugging stage processing"); 
 			}
 			
+			
+		
 			//flag args
 			else
 			{

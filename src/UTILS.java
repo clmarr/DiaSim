@@ -61,6 +61,8 @@ public class UTILS {
 			diacriticsExtracted = false, featImplsExtracted = false;
 	
 	public static boolean VERBOSE; 
+	public static boolean USE_FORM_ID; 
+	public static final char FORM_ID_FLAG = 'ɸ'; 
 	
 	
 	public static boolean etymonIsPresent (Etymon etym)	
