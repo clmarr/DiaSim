@@ -1159,9 +1159,12 @@ $ thanks to Latin stress rules, we can safely assume we are talking about a long
 $ placement before 164.11 is decided by the presence of non-reduced unstressed final vowels in her forms
 	$ but it must be after a-fronting, as she uses a rather than alpha. 
 $ Attested in the Glossary of Reichenau and, in a name, in the Oaths of Strasbourg
-$ CORRECTION: when not preceded by a consonant, this instead goes to jˈɛː 
-ˈaː rʲ > j ˈɛː r / [+syl] __ [+syl] #
-ˈaː rʲ > ˈɛː r / [+syl] ([-syl])* __ [+syl] # 
+$ CORRECTION: when not preceded by a consonant, this instead goes to jˈɛː
+$ CORRECTION 2024: actually, just go to jˈɛː everywhere before V#, exc. in the first syll 
+	$ former rule: 
+		$ ˈaː rʲ > j ˈɛː r / [+syl] __ [+syl] #
+		$ˈaː rʲ > ˈɛː r / [+syl] ([-syl])* __ [+syl] # 
+ˈaː rʲ > j ˈɛː r / [+syl] ([-syl])* __ [+syl] #
 
 $ s164-11 ~ s256 Reduction of non-stressed non-low vowels to schwa 
 $ NOTE: this actually occurred a bit later than the ones above, 
@@ -1215,6 +1218,10 @@ $ CORRECTION: lambdacism of remaining tap before ə̯ then voiced consonantal (p
 $ CORRECTION : final ə̯ r > r ə̯
 {ə̯ r;ə̯ ɾ} > {r ə̯;ɾ ə̯} / __ #
 
+$CORRECTION 2024: fortition of tsj, v/β and ɣ after r/ɾ/l ə̯  if next vowel is jɛː ˈi(e̯), ˈe ˈo (or, probalby, u) -- may need to be retimed/reformulated
+	$ e.g. nutritiōnem > nourrisson, latrōcīnium > lar(re)cin, paraverēdum > palefroi, quadrifurcum > carrefour, matricularium > marguillier) 
+{ɣ;t͡sʲ;β;v} > {ɡ ɡ;t t͡sʲ;f;f} / [+cor,+son] ə̯ __ ([-syl])* [-cons,+tense,-lo]
+
 $ CORRECTION: schwa retention after l to block formation of new clusters of shape l (obstruent) r (pelerin, palefroi...) 
 $ may be overfitting (two examples, pelerin and palefroi) but does align with what we know of what clusters are likely impermissible (i.e. lβr, lɣr...̠
 ə̯ > ə / [+lat] __ ([-son]) (ə̯) [+son,+cor,-nas]
@@ -1228,7 +1235,6 @@ $ CORRECTION: only retained before ʎ or ɲ -- not tsʲ or ç (with regards to p
 $ CORRECTION: retained before ŋ t͡sʲ 
 	$but it doesn't seem like this is true of any other non-sonorant palatal ending cons clusters 
 	$ (second rule here thus changed away from just marking "heavy" palatal ended clusters to just ŋ t͡sʲ) 
-$ CORRECTION 2024 : __ ŋ tsʲ and __ n t roped into a general __ N C case.
 $ CORRECTION: ə also preserved between m and ts followed by a tonic
 $ CORRECTION: ə is NOT preserved before rʲ
 ə̯ > ə / __ [+front,+cons,+son]
@@ -1270,9 +1276,18 @@ $ CORRECTION : ə̯ retained after STOP r and before a cons
 $ CORRECTION : ə̯ retained after non-lateral cons then l, if also before cons
 ə̯ > ə / [-lat,+cons] l __ [+cons]
 
+$CORRECTION 2024: stop sequences stops followed by ə then l j trigger palatalization of the latter and resyllabification of the ə  
+ə̯ l j > ə ʎ / [-cont] (ə̯) [-cont] __
+
+$CORRECTION 2024: ə retained so as to prevent CTC(C/W) clusters, where T is a voiceless occlusive, pretonic.
+ə̯ > ə / [+cons] (ə̯) [-cont] __ [+cons] [-syl] [+prim]
+
 $ Completion of fall of the schwas 
 $Delete all the rest which were not specifically retained: 
 ə̯ > ∅ 
+
+$ CORRECTION 2024: ejection of i between tsʲ and pretonic consonantal continuant. TODO may need revision: currently only cases are attested for n and ð. 
+∅ > i / t͡sʲ __ ([+cons,+cont])+ [+prim]
 
 $CORRECTION 2024: ʝ brought into contact with a consonant palatalizes it and disappears. It simply disappears after palatals and palatoalveolars. 
 $ʝ > ∅ / [+front,+cons] __
@@ -1339,11 +1354,13 @@ $ CORRECTION : expand [+lat] [+nas] __ context to any non-nasal consonantal then
 $ CORRECTION : ə inserted after cons + son before word codas in general
 $ CORRECTION : retained after +cons ɲ __ # (Auvergne, peigne, etc) 
 $ CORRECTION: retained after double m
-∅ > ə / [+cons,-son] [+son,-syl] __ #
-∅ > ə / [+cons,-nas] [+nas] __ #
+$ CORRECTION 2024: for C-son R, also happens before final consonant. 
+	$ tihs does not happen for CN(C)# if the first C is sonorant -- e.g. dormit > dort. No specific evidence concerning the others as of yet. 
+∅ > ə / [+cons,-son] [+son,+cons] __ ([+cons])* #
+∅ > ə / [+cons,-nas] [+cons,+nas] __ #
 ∅ > ə / [+cons] ɲ __ #
 ∅ > ə / [-ant,+delrel] __ #
-∅ > ə / [-lat,+cons] l __ #
+∅ > ə / [-lat,+cons] l __  #
 ∅ > ə / m m __ #
 
 $ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!), 
@@ -1351,6 +1368,22 @@ $ CORRECTION : endings of [+lab] [dental,-cont] (NOT alveolar!),
 ∅ > ə / [+cons,+lab] [+cor,-delrel] __ #
 [+cor,+ant,+distr,+voi,-cont] > t̪ ə / [-voi] __ #
 ∅ > ə / d̪ t̪ __ #
+
+$CORRECTION 2024: various other fixes for insertion of vowels before final consonants to break up clusters...
+	$ vowel ejected after ɲ and supported palatals before CC is e (more front) 
+	$ 	ɲ ejects first and always after itself (even if anohter palatal comes after -- relative chronology effects) 
+			$ it ejects if followed by a continuant, then another consonantal. 
+		$ tempting to think β ejects in the same contexts -- but unlikely given nouns ː fabrica > fabrdʒa > forge etc. 
+∅ > e / ɲ __ [+cont,+cons] [+cons] 
+	$ other nasals (exc. engma) have i (!!) ejected after them before Cj (Cj)+ C (case of amicitatem amistie) 
+∅ > i / [+nas,+cons,-hi] __ [+cons,+front] ([+cons,+front])* [+cons,-front]
+	$ e ejected between C t/tsʲ and C C 
+∅ > e / [+cons] [+strid,+front] __ [+cons] [+cons] 
+	$ i ejected in ʉ t͡sʲ __ N : būcina > buisine , būcināre > Old French buisiner
+∅ > i / [+round,+hi] t͡sʲ __ [+nas,+cons]
+		$ get ə in obstruent nasal __ ([+cons])+ also . (diff from the 2nd in the block above, which concerns ln(ə)#
+		$ will cover remaining tsms, ðms, zms, βms, etc. 
+∅ > ə / [-son] [+nas,+cons] __ ([+cons])+ #
 
 $ s355 -- final spirantization reversed when come into contact via slurring to consonantal. 
 [+ant,-son,+distr] > [-delrel] / [+cons] __ #
@@ -1402,10 +1435,11 @@ $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ CORRECTION : s,m,l also shortened when double after another consonant or word initially - include also ɫl for good measure
 $ CORRECTION 2024: this is combined with the same phenomenon for bb and pp
 $ CORRECTION 2024: r r now included for the main group (not the ss/mm specific stuff) 
+$ CORRECTION 2024: w w now included in last group with s and m 
 {d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;t̪ t͡s;t̪ t͡sʲ;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;s sʲ;m m;m mʲ;l l;ɫ l;l lʲ;ɫ lʲ;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;t͡s;t͡sʲ;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;sʲ;m;mʲ;l;l;lʲ;lʲ;r;rʲ;b;bʲ;p;pʲ} / {[+cons];#} __
 {d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ [+cons] {[+cons];#}
 {d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;d̪ʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ {[+cons,-son];[+cons,+nas]}
-{s s;s sʲ;m m;m mʲ}>{s;sʲ;m;mʲ} / __ [+cons] 
+{s s;s sʲ;m m;m mʲ;w w}>{s;sʲ;m;mʲ;w} / __ [+cons] 
 
 $ CORRECTION : t̪ t͡sʲ in word initial position also eliminated. 
 $ For good measure, handle also any word initial stop followed by a non-continuant
@@ -1511,7 +1545,8 @@ $ CORRECTION: includes tonic ɔ
 {ˈɛː;ˈɔː} > {ˈi e̯;ˈu o̯}
 
 $ CORRECTION: j ˈi e̯ then becomes ˈi e̯ when it came from rʲ and would not create a hiatus. 
-j > ∅ / [+syl] ([-syl])+ __ ˈi e̯ rʲ
+$ CORRECTION 2024: reformulated into j-absorption rule and moved further down. 
+$j > ∅ / [+syl] ([-syl])+ __ ˈi e̯ rʲ
 
 $ s167 ~ s181 ~ s42 ~ s9 : continuation of u > y -- u goes to ʉ
 [+hi,+tense,+round,+syl,-nas] > [-front,-back]
@@ -1563,9 +1598,13 @@ rʲ > r
 $ for maintenance -- Pope doesn't account for the fact that this could end up with a /j/ + j + Cons cluster
 $ but this is not an interesting error, just a clumsy one -- obviously no such cluster can exist
 $ so we bleed it with a special rule... 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z} 
+$ CORRECTION 2024: that pseudo-bleeding rule immediately below can be handled better below. Suppressed
+$ CORRECTION 2024: dʒ and tʃ worked in too. 
+$ {t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ} > {t̪;d̪;s;z;n̪;d͡z} / [+hi,+front,-syl] __ 
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;d͡ʒʲ;t͡ʃʲ} > {j t̪;j d̪;j s;j z;j n̪;j d͡z;j d͡ʒ;j t͡ʃ} 
 
+$CORRECTION 2024: delete interconsonantal j, incl. jj. This absorbs the pseudo-bleeding rule. 
+j > ∅ / {j;[+cons]} __ [+cons]
 
 $ CORRECTION: case of disiunare, prehensionem, etc -- ˌej goes to ɛj, and thus ultimately ˌi, before zʲ
 $ deaffircation of dz counterfeeds this (lice:re > loisir, ve:ci:num > voisin, etc) 
@@ -1588,8 +1627,13 @@ $ There is evidence that the deletion of j in -ier endings centuries later, whic
 			$so that 'ie > j'e happened much earlier
 $  NOTE : needs to be suppressed for demonstrative purposes for case traiter
 $ may need to reanalyze this -- unsure if analogy (see extended discussion in palatalization remarks...) 
+$ CORRECTION 2024: depalatization expanded to apply to postalveolars too. 
 [+cor] > [+hi,+front] / [+front,+hi] __ [+hi,+front]
-{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r} / [+front,+tense,-lo,+syl] [+hi] __
+{t̪ʲ;d̪ʲ;sʲ;zʲ;n̪ʲ;d͡zʲ;lʲ;rʲ;d͡ʒʲ;t͡ʃʲ} > {t̪;d̪;s;z;n̪;d͡z;l;r;d͡ʒ;t͡ʃ} / [+front,+tense,-lo,+syl] [+hi] __
+
+$CORRECTION 2024: (effectively absorbing earlier Cjierʲ > C(ʲ)ierʲ rule) -- j removed in jie  if after C- 
+j > ∅ / [+cons] __ [+hi,+front,-round,+son] e̯
+
 
 $ we trust Pope on her word (s318) that s "palatalizes" into t͡sʲ word finally after palatal lateral and nasal elements rather than a simple spirant
 	$ and also [CORRECTION] expand it to include all palatal sonorant consonantals
@@ -1718,15 +1762,26 @@ w > ∅ / [+round,-tense] __ {[-syl,-cor];[+strid];[-syl,+son]}
 $ feed nasalized u formation if necessary
 [+syl,+back,+round] > [+nas,+hi,+tense] / __ [+nas,+cons]
 
+$ CORRECTION 2024 : labial-labial clusters resolve in favor of the second element. 
+$ alpha version, TODO restore for testing purposes [+lab,-son,-back] > [αvoi,βcont,ɣdelrel,ðstrid] / __ [+lab,-son,αvoi,βcont,ɣdelrel,ðstrid]
+{β m;p β} > {m m;β β} 
+
+
 $ s359 : β and ɣʷ brought into contact with other consonants vocalize to w (ex: fabrica > faurga > forge) 
 $ CORRECTION: β does not do so if before r then a non-consonantal
+$ CORRECTION: β does not go to w before another labial obstruent 
+$ CORRECTION: β does not vocalize after front non-lo consonants. Instead it deletes in clusters, or else goes to v. 
 ɣʷ > w / __ (ə) [+cons]
-β > w / __ [-son] 
+β > w / __ [-son,-lab] 
 β > w / __ [+cons,+nas]
-β > w / __ r (ə) [+cons]
+β > v / [-lo,+front] __ r
+β > w / __ r [+cons]
 
 $ s164.6 ~ s 189 
 β > v 
+
+$ v deleted if initial in three cons cluster (tenebrica > tenerge) 
+v > ∅ / __ [+cons] [+cons]
 
 $ CORRECTION: s258 moved much earlier. 
 
@@ -2314,6 +2369,9 @@ $s385~s390 vocalization of dark l variants
 $ per Pope s390: attested in rhymes by middle of 12th century: 
 [+lat,+back] > w
 
+$CORRECTION 2024 : ə > o / __ w 
+ə > o / __ w
+
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested in 1137 -- "over the course of the 12th century"
 $ "Stages not fully determined but appear to be ˈue̯ > ˈuø̯ > w'ø > ˈø"
@@ -2871,7 +2929,8 @@ $ s532 : "accepted only in the 17th century"
 $ Peletier (1549) accepts it. 
 $  -- Lanoue (1596) accepts only in some cases
 $ "hesitation in Early Modern French" 
-[+lo,+front] j > [-lo,-tense,+long] ∅ / __ (ə̯) #
+$ CORRECTION 2024: this also happens before consonants, not just word finally (so we don't end up with errant [aj]!)
+[+lo,+front] j > [-lo,-tense,+long] ∅ / __ (ə̯) {#;[+cons]}
 
 $ s562 -- per consistency on FLLAPS Pope tables, ə̯ after another vowel effaced with prior lengthening at this point.
 $ but only before a stressed syllabic
@@ -3121,7 +3180,8 @@ $ CORRECTION: s511 diarhesis moved much earlier
 
 $ s531.ii : aj followed by tonic vowel becomes ɛj, accepted in late 17th century
 $ CORRECTION: only before tense tonic vowels, and it goes to e, not ɛj
-[+lo,+front] j > [-lo,-tense] ∅ / __  [+prim,+tense]
+$ CORRECTION 2024: can see through a glide, though.
+[+lo,+front] j > [-lo,-tense] ∅ / __  ([-cons,-syl]) [+prim,+tense]
 
 $ CORRECTION: mid vowels to lax before i,j
 [+syl,-lo,-hi] > [-tense] / __ [-cons,+hi,+front]

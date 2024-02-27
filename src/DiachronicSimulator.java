@@ -732,8 +732,10 @@ public class DiachronicSimulator {
 				ErrorAnalysis ea = UTILS.setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
 						
 				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
-						false, theSimulation.getCurrentResult());
-				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true,goldOutputLexicon);
+						false/*, theSimulation.getCurrentResult()*/);
+				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true/*,goldOutputLexicon*/);
+				ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
+				
 				
 				if(goldStagesSet)
 				{	
@@ -742,7 +744,8 @@ public class DiachronicSimulator {
 						ErrorAnalysis eap = UTILS.setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
 						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 								).toString();
-						eap.makeAnalysisFile(currfile,false, theSimulation.getStageResult(true, gsi));
+						eap.makeAnalysisFile(currfile,false/*, theSimulation.getStageResult(true, gsi)*/);
+						ea.makeEtymwiseEDfile((new File(runPrefix,goldStageNames[gsi].replaceAll(" ","")+"EditDistances").toString())); 
 					}
 				}
 			}
@@ -750,7 +753,7 @@ public class DiachronicSimulator {
 		System.out.println("Thank you for using DiaSim"); 
 		inp.close();
 	}
-
+	
 	private static void makeStagewiseOutGraphFile()
 	{	
 		String filename = new File(runPrefix, 

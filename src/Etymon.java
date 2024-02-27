@@ -17,6 +17,7 @@ public class Etymon {
 	private List<SequentialPhonic> phonRep; //phonological representation
 	protected String lemma; //name of its paradigm
 	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
+	protected String formID; //form ID for use in project with Borja. 
 	protected HashMap<String,String> morphSynSpecs; 
 	protected double frequency; // token frequency, if present; else -1 (which is default).
 	protected List<String> domains; // semantic domains 
@@ -118,6 +119,8 @@ public class Etymon {
 	public boolean frequencyIsSpecified()	{	return frequency != -1.0;	}
 	public boolean hasDomains()	{	return domains.size() > 0 ; 	}
 
+	public String getFormID() {	return formID;	} 
+	
 	public String getLemma() {
 		return lemma;
 	}
@@ -204,6 +207,7 @@ public class Etymon {
 	}
 	
 	
+	public void setFormID(String id)	{	this.formID = id; }
 	public void setLemma(String lemma) {	this.lemma = lemma;	}
 
 	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}

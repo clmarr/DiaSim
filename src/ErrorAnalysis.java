@@ -1050,7 +1050,8 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	public void makeAnalysisFile(String fileName, boolean use_gold, Lexicon lexic)
+	// before Feb 26, 2024, was still using for a third method argument, Lexicon lexic, for actually nothing. Now abrogated.  
+	public void makeAnalysisFile(String fileName, boolean use_gold/*, Lexicon lexic*/)
 	{
 		String output = "Analysis for "+(use_gold ? "Gold" : "Result")+"\n";
 		
@@ -1092,6 +1093,25 @@ public class ErrorAnalysis {
 		}
 		
 		writeToFile(fileName, output); 
+	}
+	
+	public void makeEtymwiseEDfile(String filename)
+	{
+		String output = "ID,CFR_prediction,gold,rawLevenshteinED,phonemewiseLevenshteinED,featureED"; 
+		
+		String outfilename = filename.length() < 4 ? filename+".csv" : 
+			(filename.substring(filename.length()-4).equals(".csv") ? 
+					filename : filename+".csv"); 
+		
+		for (int eti = 0; eti < TOTAL_ETYMA; eti++)
+			output += "\n" + eti //TODO may need to fix this for Borja Herce's ID indexing preferences... 
+					+ "," + RES.getByID(eti).print()
+					+ "," + GOLD.getByID(eti).print()
+					+ "," + levDists[eti] 
+					+ "," + peds[eti]
+					+ "," + feds[eti];
+		
+		writeToFile(outfilename,output); 
 	}
 	
 	// determine the scope of the autopsy based on the relation of sequence starts (and ends) to word boundaries
