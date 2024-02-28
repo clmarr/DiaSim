@@ -388,6 +388,14 @@ public class DiachronicSimulator {
 				
 				hasGoldOutput = true; 
 			}
+			else if (numCols == 1)	// just-input run. 
+			{
+				System.out.println("Only one column detected in lexicon file -- input only run!");
+				hasGoldOutput = false; 
+				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening all gold stages!"); 
+				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
+			}
+				
 			else 
 			{
 				if (numCols != 2) 
