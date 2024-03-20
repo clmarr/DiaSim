@@ -1106,7 +1106,7 @@ public class ErrorAnalysis {
 	
 	public void makeEtymwiseEDfile(String filename, List<String> formIds)
 	{
-		String output = "ID,CFR_prediction,gold,rawLevenshteinED,phonemewiseLevenshteinED,featureED"; 
+		String output = "ID,CFR_prediction,gold,rawLevenshteinED,phonemewiseLevenshteinED,featureED,pred_phone_length,gold_phone_length"; 
 		
 		String outfilename = filename.length() < 4 ? filename+".csv" : 
 			(filename.substring(filename.length()-4).equals(".csv") ? 
@@ -1118,7 +1118,9 @@ public class ErrorAnalysis {
 					+ "," + GOLD.getByID(eti).print()
 					+ "," + levDists[eti] 
 					+ "," + peds[eti]
-					+ "," + feds[eti];
+					+ "," + feds[eti]
+					+ "," + RES.getByID(eti).getNumPhones()
+					+ "," + GOLD.getByID(eti).getNumPhones(); 
 		
 		writeToFile(outfilename,output); 
 	}
