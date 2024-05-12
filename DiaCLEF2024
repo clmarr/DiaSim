@@ -1218,8 +1218,8 @@ $ CORRECTION: lambdacism of remaining tap before ə̯ then voiced consonantal (p
 $ CORRECTION : final ə̯ r > r ə̯
 {ə̯ r;ə̯ ɾ} > {r ə̯;ɾ ə̯} / __ #
 
-$CORRECTION 2024: fortition of tsj, v/β and ɣ after r/ɾ/l ə̯  if next vowel is jɛː ˈi(e̯), ˈe ˈo (or, probalby, u) -- may need to be retimed/reformulated
-	$ e.g. nutritiōnem > nourrisson, latrōcīnium > lar(re)cin, paraverēdum > palefroi, quadrifurcum > carrefour, matricularium > marguillier) 
+$CORRECTION 2024: fortition of tsj, v/β and ɣ after r/ɾ/l ə̯  if next vowel is jɛː ˈi(e̯), ˈe ˈo (or, probably, u) -- may need to be retimed/reformulated
+	$ e.g. nutritiōnem > nourrisson, latrōcīnium > lar(re)cin, paraverēdum > palefroi, quadrifurcum > carrefour, matricularium > marguillier, pollicēnum > poussin, exclāricīre > esclaircir)  
 {ɣ;t͡sʲ;β;v} > {ɡ ɡ;t t͡sʲ;f;f} / [+cor,+son] ə̯ __ ([-syl])* [-cons,+tense,-lo]
 
 $ CORRECTION: schwa retention after l to block formation of new clusters of shape l (obstruent) r (pelerin, palefroi...) 
@@ -1289,7 +1289,7 @@ $Delete all the rest which were not specifically retained:
 $ CORRECTION 2024: ejection of i between tsʲ and pretonic consonantal continuant. TODO may need revision: currently only cases are attested for n and ð. 
 ∅ > i / t͡sʲ __ ([+cons,+cont])+ [+prim]
 
-$CORRECTION 2024: ʝ brought into contact with a consonant palatalizes it and disappears. It simply disappears after palatals and palatoalveolars. 
+$CORRECTION 2024: ʝ brought into contact with a consonant palatalizes it and disappears. It simply disappears after palatals and palatoalveolars. It appears this is not in use though. Delete? 
 $ʝ > ∅ / [+front,+cons] __
 $[+cons] ʝ > [+hi,+front,-back] ∅
 
@@ -2797,8 +2797,8 @@ $ $ consistent with treatment of s268-9, we have reduction to ə̯ realized befo
 $ per examples in s269, 271 etc : when she says vowels she must mean "nonconsonantals"
 $ CORRECTION 2024: this was not intended to hit Cj- segments (and perhaps not Cw?? either).
 	$ Modified to reflect that -- without the same exclusion on ə̯ though. 
+	$ TODO May 2024 -- it appears this change was actually unimplemented; implementing it would seem to require multiple rules. Currently don't include in report on rule changes for DiaCLEF2024. 
 ə > ə̯ / [-cons] __
-
 
 $ s529ii: ɛ j > e word-finally
 $ note s560 says "earlier" (i.e. EOF) aj(>ɛj)>ɛː renders ɛ (possibly long ɛː per poets cited) 
