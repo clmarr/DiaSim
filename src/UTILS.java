@@ -63,7 +63,10 @@ public class UTILS {
 	public static boolean VERBOSE; 
 	public static boolean USE_FORM_ID; 
 	public static final char FORM_ID_FLAG = 'ɸ'; 
+		// for flagging lexical or morphological info within lines of a lexicon file -- between phonological info and the comment
 	
+	
+	public static final int MAX_DIACRIT = 4; 
 	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
@@ -1336,7 +1339,7 @@ public class UTILS {
 	 */
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
-		if(VERBOSE)	System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
+		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
 		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
@@ -1384,7 +1387,7 @@ public class UTILS {
 				diacritSpecSetCands.remove(ssi); 	
 		}
 		
-		if(VERBOSE)	System.out.println("No single diacritic alone can define it. Attempting combos..."); 
+		System.out.println("No single diacritic alone can define it. Attempting combos..."); 
 		//second run -- could not get a combo with single diacritics, now trying multiple diacritic combinations 
 		
 		
@@ -1398,7 +1401,7 @@ public class UTILS {
 			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));
 		combinedSpecSetCandsByDepth.put(1,depth1set); 
 		
-		while (depth < diacritSpecSetCands.size())
+		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT)
 		{
 			HashMap<String,String> currDepthSet = new HashMap<String,String>(); 
 			for ( String existingStackFeats : combinedSpecSetCandsByDepth.get(depth-1).keySet()) 
@@ -1468,6 +1471,9 @@ public class UTILS {
 			}
 			depth++; 
 		}
+		
+		if (depth >= diacritSpecSetCands.size() || depth >= MAX_DIACRIT)
+			System.out.println("Warning: tried to generate diacritized symbol for unseen feature spec combination, but failed to find an appropriate base symbol + diacritics combination.");
 		
 		return false;		
 	}
