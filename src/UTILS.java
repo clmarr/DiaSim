@@ -1202,8 +1202,21 @@ public class UTILS {
 					List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
 					for (String dfi : diacritsFound)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
 					
+					// detect diacritics in base phone symbol -- start with all of htem and remove htem. 
+					List<String> basePhDiacrits = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()); 
+					for (String diacr : diacritsFound)	basePhDiacrits.remove(diacr); 
+					int bpdi = 0; 
+					while (bpdi < basePhDiacrits.size())
+					{
+						if (restOfPhone.contains(basePhDiacrits.get(bpdi)))	bpdi++; 
+						else	basePhDiacrits.remove(bpdi); 
+					}
+					
+					List<String> totalDiacrits = new ArrayList<String>(basePhDiacrits);
+					totalDiacrits.addAll(diacritsFound); 
+					
 					// deal with any induced feature conflicts... 
-					String conflictedFeats = detectDiacritFeatConflicts(diacritsFound); 
+					String conflictedFeats = detectDiacritFeatConflicts(totalDiacrits); 
 					
 					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol "
 							+ "' "+unseenSymb+" ' "
