@@ -17,7 +17,8 @@
  ˀ= +cg $glottalization. Currently realized in feature defs with same feature as creaky voice (which is how it is realized on sonorants, including vowels), and +cg has been used for both each in the past. 
  ̰ = +cg $constrict glottis, proxy for creaky voiced segments. 
  ̤ = +sg $spread glottis, can be proxy for breathy voiced segments.
- ̹ = +round $weakly rounded, typically for coronals. Patterns/marked as round but not labial. 
+ ̹ = +round $weakly rounded, typically for coronals. Patterns/marked as round but not labial.
+ ᵝ= +lab $labialized but no velar aspect  
  ˈ= +stres,+prim
  ˌ= +stres,-prim
  ːː= +splng $must be defined before long or it will just be interpreted as (potentially runtime error-triggering) duplication of the long marker.   
