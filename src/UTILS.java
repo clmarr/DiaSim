@@ -1136,13 +1136,18 @@ public class UTILS {
 		
 	}
 	
-	public static String detectDiacritFeatConflicts(List<String> diacrits)
+	public static String detectDiacritFeatConflicts(List<String> diacrits, boolean applyFeatImpls)
 	{
 		if (diacrits.size() < 2)	return ""; 
 		
 		// get feat specs for each diacritic.
 		List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
-		for (String dfi : diacrits)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
+		for (String dfi : diacrits)	
+		{
+			String toAdd = String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi)); 
+			if (applyFeatImpls)	toAdd = applyImplications(toAdd); 
+			featSpecSetsPerDiacrit.add(toAdd); 
+		}
 		
 		return detectFeatConflicts(featSpecSetsPerDiacrit);
 	}
@@ -1216,7 +1221,7 @@ public class UTILS {
 					totalDiacrits.addAll(diacritsFound); 
 					
 					// deal with any induced feature conflicts... 
-					String conflictedFeats = detectDiacritFeatConflicts(totalDiacrits); 
+					String conflictedFeats = detectDiacritFeatConflicts(totalDiacrits,true); 
 					
 					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol "
 							+ "' "+unseenSymb+" ' "
@@ -1236,11 +1241,13 @@ public class UTILS {
 						System.out.println("The symbol ' "+featsToSymbMap.get(newFeatVect)+" ' is usurped as the default print of its feature vector by ' "+unseenSymb); 
 					featsToSymbMap.put(newFeatVect, unseenSymb); 
 					
+					System.out.println("Defined new symbol '"+unseenSymb+"', with feat vect: "+newFeatVect+" ."); 
+					
 					return true; 
 				}	
 			}
 		}
-	
+
 		return false; 
 	}
 		
@@ -1383,7 +1390,7 @@ public class UTILS {
 					diacritsInvolved.add(suffix);
 					
 					if (candDiacritResult.equals(unseenVect)
-							&& detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
+							&& detectDiacritFeatConflicts(diacritsInvolved,true).equals(""))	// then we found it!!
 					{
 						String newSymb = baseSymb + suffix;
 		
@@ -1468,7 +1475,7 @@ public class UTILS {
 							diacritsInvolved.add(comboSuffix); 
 							
 							if (candDiacritResult.equals(unseenVect)
-									&& !detectDiacritFeatConflicts(diacritsInvolved).equals(""))	// then we found it!!
+									&& !detectDiacritFeatConflicts(diacritsInvolved,true).equals(""))	// then we found it!!
 							{						
 								String newSymb = baseSymb + comboSuffix;
 								defineFeatVect(unseenVect,newSymb); 
@@ -1487,7 +1494,8 @@ public class UTILS {
 		}
 		
 		if (depth >= diacritSpecSetCands.size() || depth >= MAX_DIACRIT)
-			System.out.println("Warning: tried to generate diacritized symbol for unseen feature spec combination, but failed to find an appropriate base symbol + diacritics combination.");
+			System.out.println("Warning: tried to generate diacritized symbol for unseen feature spec combination, "
+					+ "but failed to find an appropriate base symbol + diacritics combination.");
 		
 		return false;		
 	}
