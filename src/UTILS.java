@@ -1154,7 +1154,7 @@ public class UTILS {
 	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
 	 *  @prerequisite DIACRIT_TO_FT_MAP has also already been built (extractDiacriticMap()) 
 	 * this method will attempt to parse what phonetic feature string this likely indicates
-	 * 	beware,(TODO) @error (currently as @warning instead) if there are multiple diacritics present AND they indicate contracting features! 
+	 * 	beware,(TODO) @error (currently as @warning instead) if there are multiple diacritics present AND they indicate contradictory features! 
 	 * 			(maybe this isn't necessary to do?) 
 	 * @return @false if there is no predefined base phone detected  [ likely triggering error in outer-nested method ]
 	 * 		(in practice, a 'base phone' is one already present as a key in phoneSymbToFeatsMap 
@@ -1170,7 +1170,7 @@ public class UTILS {
 	public static boolean tryParseAndDefineMarkedSymbol (String unseenSymb) 
 	{
 		if (!symbsExtracted)	throw new Error("Error: tried to parse an unseen marked symbol before symbol definitions were extracted in the first place!"); 
-		if (!diacriticsExtracted)	throw new Error("Error: tried to parse an unseen diacritic marked symbol were diacritic definitions were extracted!"); 
+		if (!diacriticsExtracted)	throw new Error("Error: tried to parse an unseen diacritic marked symbol before diacritic definitions were extracted!"); 
 		
 		List<String> diacritsLeft = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()),
 				diacritsFound = new ArrayList<String>(); 
@@ -1198,14 +1198,15 @@ public class UTILS {
 					
 					String newFeatVect = phoneSymbToFeatsMap.get(restOfPhone); 
 				
-					// get feat specs for each diacritics, deal with any induced feature conflicts. 
+					// get feat specs for each diacritic, deal with any induced feature conflicts. 
 					List<String> featSpecSetsPerDiacrit = new ArrayList<String>(); 
 					for (String dfi : diacritsFound)	featSpecSetsPerDiacrit.add(String.join(""+RESTR_DELIM, DIACRIT_TO_FT_MAP.get(dfi))); 
 					
 					// deal with any induced feature conflicts... 
-					String conflictedFeats =detectDiacritFeatConflicts(diacritsFound); 
+					String conflictedFeats = detectDiacritFeatConflicts(diacritsFound); 
 					
-					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol ' "+unseenSymb+" ' "
+					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol "
+							+ "' "+unseenSymb+" ' "
 								+ "appear to involve a conflict for the specification of the following features:\n\t"
 								+conflictedFeats);
 							
