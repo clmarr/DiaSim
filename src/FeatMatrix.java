@@ -69,6 +69,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		{	
 			String sp = spArr[i]; 
 			
+			// as of July 2024, spaces are automatically removed when parsing FMs.
+			sp = sp.replace(" ",""); 
+			
 			String indic = sp.substring(0, 1); 
 			boolean is_alph = !"-+0".contains(indic); 
 		
