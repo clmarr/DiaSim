@@ -99,9 +99,9 @@ public class SChangeFactory {
 	 */
 	public String removeSpacesInFM(String input)
 	{
-		String outp = input.replace("[ ", "").replace(" ]","").replace(UTILS.FEAT_DELIM+" ", "").replace(" "+UTILS.FEAT_DELIM,""); 
+		String outp = input.replace("[ ", "[").replace(" ]","]").replace(UTILS.FEAT_DELIM+" ", UTILS.FEAT_DELIM).replace(" "+UTILS.FEAT_DELIM,UTILS.FEAT_DELIM); 
 		return ((restrDelim+"").equals(UTILS.FEAT_DELIM+"")) ? outp : 
-			outp.replace(restrDelim + " ", "").replace(" "+restrDelim,""); 
+			outp.replace(restrDelim + " ", restrDelim).replace(" "+restrDelim,restrDelim); 
 	}
 	
 	/** generateSChanges
