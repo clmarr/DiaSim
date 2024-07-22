@@ -1107,7 +1107,7 @@ public class UTILS {
 	public static boolean spec_is_alpha_marked(String spec)
 	{
 		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
-		return !non_alpha_initials.contains(spec.substring(0,1)); 
+		return !non_alpha_initials.contains(spec.replace(" ","").substring(0,1)); 
 	}
 	
 	/**
