@@ -1388,7 +1388,7 @@ public class UTILS {
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
 		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
-		System.out.println("This vector corresponds with the following feature specifications: "+spellOutFeatVect(unseenVect));
+		System.out.println("\t\tThis corresponds to the following feature specifications: "+spellOutFeatVect(unseenVect));
 		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
