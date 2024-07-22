@@ -116,6 +116,10 @@ public class SChangeFactory {
 		int cmtStart = inp.indexOf(""+cmtFlag); 
 		String input = (cmtStart == -1) ? inp.trim() : inp.substring(0, cmtStart).trim();
 		
+
+		// as of July 2024, eliminating spaces next to feature delimitation and immediately on the inside of feature matrix braces
+		input = removeSpacesInFM(input); 
+		
 		List<SChange> output = new ArrayList<SChange>(); 
 		
 		if(! input.contains(""+ARROW))
@@ -126,9 +130,6 @@ public class SChangeFactory {
 		String inputSource = inputSplit[0].trim(), inputParse = inputSplit[1].trim(); 
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
-		
-		// as of July 2024, eliminating spaces next to feature delimitation and immediately on the inside of feature matrix braces
-		inp = removeSpacesInFM(inp); 
 		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
 		boolean priorSpecified = false, postrSpecified = false; 
