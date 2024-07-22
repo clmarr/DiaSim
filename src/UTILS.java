@@ -1338,7 +1338,30 @@ public class UTILS {
 		featsToSymbMap.put(vect,symb); 
 	}
 	
-	
+	public static String spellOutFeatVect (String featVect) {
+		String out = "";
+		for (int fi = 0; fi < featVect.length(); fi++) {
+			switch (featVect.charAt(fi)) {
+				case '0':
+					out += "-";
+					break;
+				case '1':
+					out += "0";
+					break;
+				case '2':
+					out += "+";
+					break;
+				case '9':
+					out += ".";
+					break;
+				default:
+					break;
+			}
+			out += featsByIndex[fi] + " ";
+		}
+		return out;
+	}
+
 	/**
 	 * @author Clayton Marr, @date January 25, 2024 
 	 * @param unseenVect -- feature vector that does not yet have a phone symbol attached to it. 
@@ -1365,6 +1388,7 @@ public class UTILS {
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
 		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
+		System.out.println("This vector corresponds with the following feature specifications: "+spellOutFeatVect(unseenVect));
 		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
