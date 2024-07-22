@@ -104,6 +104,50 @@ public class SChangeFactory {
 			outp.replace(restrDelim + " ", ""+restrDelim).replace(" "+restrDelim,""+restrDelim); 
 	}
 	
+	/**
+	 * ruleStringHasUnmatchedAlpha
+	 * check if, in @param input, a string form of a SPE rule, there is an alpha feature used only once. 
+	 * @return
+	 */
+	public boolean ruleStringHasUnmatchedAlpha(String input)
+	{
+		if (!UTILS.stringHasFMWithAlpha(input))	return false; 
+		
+		HashMap<String,Integer> alphaUsages = new HashMap<String,Integer>(); 
+		String inputLeft = input+"";
+		
+		while (inputLeft.contains("["))
+		{
+			int fmstart = inputLeft.indexOf("["); 
+			
+			if (!inputLeft.substring(fmstart).contains("]"))
+				throw new Error("Error: missing closure for feature matrix in rule:\n\t"+input); 
+			int fmend = inputLeft.indexOf("]"); 
+			
+			String currFM = inputLeft.substring(fmstart+1,fmend);
+			inputLeft = inputLeft.substring(fmend+1); 
+			
+			while (currFM.length() > 0)
+			{
+				currFM = currFM.trim(); 
+				int endOfSpec = currFM.contains(""+UTILS.FEAT_DELIM) ? 
+						currFM.indexOf(UTILS.FEAT_DELIM) : currFM.length() - 1;
+				String currSpec = currFM.substring(0, endOfSpec); 
+				inputLeft = inputLeft.substring(endOfSpec+1); 
+				
+				if (UTILS.spec_is_alpha_marked(currSpec)) // enter alpha usage calculation
+				{
+					String alphChar = currSpec.substring(0,1); 
+					alphaUsages.put(alphChar, 
+							1 + (alphaUsages.containsKey(alphChar) ? 
+									alphaUsages.get(alphChar) : 0));  
+				}
+			}
+		}
+		
+		return alphaUsages.containsValue(1); 
+	}
+	
 	/** generateSChanges
 	 * returns a list of Shift instances of the appropriate subclass based on input String,
 	 * 		which should be a single change written in phonological rule notation
@@ -240,6 +284,10 @@ public class SChangeFactory {
 			// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
 			// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
 				
+		// throw error if an alpha value is used only once: 
+		if (usingAlphFeats ? ruleStringHasUnmatchedAlpha(input) : false)
+			throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"
+					+ "\nThe rule: "+input); 		
 		
 		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
