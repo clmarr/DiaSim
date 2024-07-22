@@ -133,7 +133,7 @@ public class SChangeFactory {
 				int endOfSpec = currFM.contains(""+UTILS.FEAT_DELIM) ? 
 						currFM.indexOf(UTILS.FEAT_DELIM) : currFM.length() - 1;
 				String currSpec = currFM.substring(0, endOfSpec); 
-				inputLeft = inputLeft.substring(endOfSpec+1); 
+				currFM = currFM.substring(endOfSpec+1); 
 				
 				if (UTILS.spec_is_alpha_marked(currSpec)) // enter alpha usage calculation
 				{
