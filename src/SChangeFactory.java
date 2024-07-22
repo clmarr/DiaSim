@@ -91,7 +91,18 @@ public class SChangeFactory {
 		}
 		*/
 	}
-
+	
+	/**
+	 * removeSpacesInFM
+	 * for a String version of a sound law, @param input
+	 * @return version with of it having removed any spaces near feature delimiters (',') or on the inside of the bounding braces
+	 */
+	public String removeSpacesInFM(String input)
+	{
+		String outp = input.replace("[ ", "").replace(" ]","").replace(UTILS.FEAT_DELIM+" ", "").replace(" "+UTILS.FEAT_DELIM,""); 
+		return ((restrDelim+"").equals(UTILS.FEAT_DELIM+"")) ? outp : 
+			outp.replace(restrDelim + " ", "").replace(" "+restrDelim,""); 
+	}
 	
 	/** generateSChanges
 	 * returns a list of Shift instances of the appropriate subclass based on input String,
@@ -116,6 +127,8 @@ public class SChangeFactory {
 		
 		String inputDest = inputParse.trim(), inputPrior = "", inputPostr = ""; 
 		
+		// as of July 2024, eliminating spaces next to feature delimitation and immediately on the inside of feature matrix braces
+		inp = removeSpacesInFM(inp); 
 		
 		boolean contextSpecified = inputParse.contains(""+contextFlag); 
 		boolean priorSpecified = false, postrSpecified = false; 

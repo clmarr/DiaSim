@@ -20,7 +20,7 @@ public class UTILS {
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
-	public static final char RESTR_DELIM =  ','; // delimits restrictiosn between features inside the specification
+	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 			// ... as [+A,-B,+C]
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
@@ -1095,6 +1095,7 @@ public class UTILS {
 			{
 				// as of July 2024, spaces in feature matrices as written are ignored: 
 				curpp = curpp.replace(" ", "");
+				
 				
 				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
 				for (String spec : specs) 
