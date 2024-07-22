@@ -1093,6 +1093,9 @@ public class UTILS {
 			String curpp = ""+protophones[ppi].trim();
 			if(curpp.charAt(0) == '[')
 			{
+				// as of July 2024, spaces in feature matrices as written are ignored: 
+				curpp = curpp.replace(" ", "");
+				
 				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
 				for (String spec : specs) 
 					if (spec_is_alpha_marked(spec))	return true; 
