@@ -126,7 +126,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		// ... the constant target size. 
 		int inpSize = input.size(); 
 		//abort if index is obviously invalid 
-		if(ind + minInputSize + minPostSize - 1 > inpSize || ind < minPriorSize)	return false; 
+		if(ind + minInputSize + minPostSize - 1 > inpSize || ind < minPriorSize)	
+			return false; 
 		
 		SequentialPhonic phHere = input.get(ind); 
 		
@@ -204,16 +205,20 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			//process alpha specs for posterior if necessary...
 			if (postContext.hasAlphaSpecs())
 			{
-				if (need_to_reset)	postContext.applyAlphaValues(ALPH_VARS); 
+				if (need_to_reset)	// alpha values already set from input/source, or from prior context... 
+					postContext.applyAlphaValues(ALPH_VARS); 	
 				List<RestrictPhone> popr = postContext.getPlaceRestrs();
 				String[] popm = postContext.getParenMap();
-				int cpic = ind + inpSize, crp = 0, cpim = 0; 
+				int cpic = ind + minInputSize, // before July 25 2024 was ind + inpSize but that was probably an error. 
+						crp = 0, cpim = 0; 
 				boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
+				
 				while(!halt)
 				{
 					RestrictPhone poi = popr.get(crp); 
+					
 					if(poi.first_unset_alpha() != '0')
-					{
+					{	
 						SequentialPhonic cpi = input.get(cpic); 
 						if (cpi.getType().equals("phone")) {
 							if(poi.check_for_alpha_conflict(cpi))
@@ -228,7 +233,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								return false; 
 							}
 						
-							
 							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(input.get(cpic)));
 							need_to_reset = true;
 							postContext.applyAlphaValues(ALPH_VARS); 
@@ -242,7 +246,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			}
 		}
 		
-		//TODO something here is bugged! UnsetAlphaErrorr gets thrown SequentialFilter.isPosteriorMatch (336) via .isPosteriorMatchHelper(:406) via FeatMatrix.compare(:107).
+		//TODO something here is bugged! UnsetAlphaError gets thrown SequentialFilter.isPosteriorMatch (336) via .isPosteriorMatchHelper(:406) via FeatMatrix.compare(:107).
+		// TODO as of July 25, 2024, this may be fixed, but further investigation may be necessary. 
 		if (!posteriorMatch(input, ind+minInputSize)) // prior to Aug 22, was ind+inpSize, but that was likely a bug. 
 		{
 			if (need_to_reset)	reset_alphvals_everywhere(); 
