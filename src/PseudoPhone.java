@@ -20,6 +20,9 @@ public abstract class PseudoPhone extends SequentialPhonic implements RestrictPh
 		return false; // i.e. not a pseudophone. 
 	}
 	
+	@Override
+	public void setAsOutput()	{ /*do nothing*/ }
+	
 	//TODO in future version, possibly properly implement these guys
 	public String getFeatString()	{	return null;	}
 	public String getFeatVect()	{	return getFeatString();	}

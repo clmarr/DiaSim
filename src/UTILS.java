@@ -1566,13 +1566,11 @@ public class UTILS {
 		
 		String theFeatSpecs = apply_ft_impls ? applyImplications(featSpecs) : featSpecs+"";
 		
-		if(theFeatSpecs.contains("0") == false)
-			return new FeatMatrix(theFeatSpecs, ordFeatNames); 
-				
 		if(theFeatSpecs.contains("0") && !apply_ft_impls)
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
-		return new FeatMatrix(theFeatSpecs, ordFeatNames); 
+		
+		return new FeatMatrix(theFeatSpecs, ordFeatNames);
 	}
 	
 	/**	applyImplications

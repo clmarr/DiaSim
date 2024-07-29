@@ -180,5 +180,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	@Override
 	public char first_unset_alpha()	{	return '0';	}
 	
+	@Override
+	public void setAsOutput()	{	/* do nothing*/ }	
 	
 }

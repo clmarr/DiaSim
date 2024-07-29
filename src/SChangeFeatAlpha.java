@@ -183,7 +183,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								return false; 
 							}
 							
-							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
+							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(cpi));
 							need_to_reset = true;
 							priorContext.applyAlphaValues(ALPH_VARS);
 							pripr = priorContext.getPlaceRestrs();
@@ -223,19 +223,20 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					{	
 						SequentialPhonic cpi = input.get(cpic); 
 						if (cpi.getType().equals("phone")) {
-							if(poi.check_for_alpha_conflict(cpi))
+							if(poi.check_for_alpha_conflict(cpi)) // but note that for Phone instances this is currently always false. 
 							{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
-							//check also for conflict OUTSIDE the alpha values and return false if so
+							//check also for conflict between restriction and observed context phone 
+							// wrt features OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
 							if (!poi.comparePreAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}
 						
-							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(input.get(cpic)));
+							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(cpi));
 							need_to_reset = true;
 							postContext.applyAlphaValues(ALPH_VARS); 
 							popr = postContext.getPlaceRestrs();

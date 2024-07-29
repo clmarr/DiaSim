@@ -13,6 +13,7 @@ public interface RestrictPhone{
 			// also returns false if an alpha specified feature is *unspecified*
 		// this method has no handling for alpha-valued features otherwise. 
 			// and no handling at all if it is DESPEC_VIA_ALPHA is true. 
+	public void setAsOutput(); // will set DESPEC_VIA_ALPHA to true if it is a feature matrix, otherwise do nothing. 
 	
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind); 
 	

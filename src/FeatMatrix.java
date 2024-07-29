@@ -42,6 +42,25 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// via feature implications. 
 	// currently, making this true will cause errors. 
 	
+	// TODO note on despecification
+		// alphVals should be HashMap with keys of the original alpha symbol set, and values of the surface form of the specification being imposed (+,-)
+			// this class should probably not be used for despecification of alpha values 
+		// the values in alphVals should be in their 'deep' values with 0 meaning negative, 2 positive, 9 despecified
+			// the deep value 1 should never occur as a value in alphVals
+			// and while 9 will occur, it should NOT be applied as an alpha value, as that could lead to errors
+				// and furthermore, since sound change does not operate by despecifying a feature value according to the received literature,
+					// neither should the application of alpha values treat despecification as some ternary third feature.
+					// of the same functional load as negative or positive feature values.
+					// to change this behavior, set the class parameter DESPEC_VIA_ALPHA to true. 
+		// however, it is permissible in one specific case to use LOCALLY ONLY despecification: 
+			// that is when the alpha feature in the output, and specified in the prior and posterior contexts
+				// i.e. the output is assimilating to the context -- for example a coronal becoming non-coronal
+						// thus losing specification for [ant], and [distr] 
+			// it is not permissible for the input
+					// (i.e. you wouldn't want to catch the shared non-specification of dorsals and glottals for [ant] when you meant to indicate either "both alveolars" or "both postalveolars" etc.
+		// to handle this, the method setAsOutput is added, which changes DESPEC_VIA_ALPHA for that instance to true. 
+	public void setAsOutput()	{ DESPEC_VIA_ALPHA = true; 	}
+	
 	// TODO may need to add variables or methods to handle situation where has different alpha symbols for different features. 
 	
 	/**
@@ -312,18 +331,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
-	//TODO need to replace values also in featSpecs here. 
-	// alphVals should be HashMap with keys of the original alpha symbol set, and values of the surface form of the specification being imposed (+,-)
-		// this class should probably not be used for despecification of alpha values 
-	// the values in alphVals should be in their 'deep' values with 0 meaning negative, 2 positive, 9 despecified
-		// the deep value 1 should never occur as a value in alphVals
-		// and while 9 will occur, it should NOT be applied as an alpha value, as that could lead to errors
-			// and furthermore, since sound change does not operate by despecifying a feature value according to the recieved literature,
-				// neither should the application of alpha values treat despecification as some ternary third feature.
-				// of the same functional load as negative or positive feature values.
-				// to change this behavior, set the class parameter DESPEC_VIA_ALPHA to true. 
-	// @precondition both the keys and the values in alphVals should be one character strings
-	// this class should be called using the outputs of extractAndApplyAlphaValues
+	//TODO need to replace values also in featSpecs here. (2024 TODO check -- was this done?) 
+
+	/** @precondition both the keys and the values in alphVals should be one character strings
+	 * this class should be called using the outputs of extractAndApplyAlphaValues
+	  */ 
+	// on despecification, see notes near the variable DESPEC_VIA_ALPHA.
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		if (alphVals.keySet().size() == 0)	return; 

@@ -164,7 +164,7 @@ public class SChangeFactory {
 		// as of July 2024, eliminating spaces next to feature delimitation and immediately on the inside of feature matrix braces
 		input = removeSpacesInFM(input); 
 		
-		List<SChange> output = new ArrayList<SChange>(); 
+		List<SChange> outputToCasc = new ArrayList<SChange>(); 
 		
 		if(! input.contains(""+ARROW))
 			throw new Error("Error : input to rule generation that lacks an arrow\nRule is "+inp); 
@@ -231,12 +231,12 @@ public class SChangeFactory {
 				String[] disjuncts = inputPrior.substring(openerInd+1,closerInd).split(""+disjunctDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest
+					outputToCasc.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest
 							+phDelim+contextFlag+phDelim + (openerInd== 0 ? "" : inputPrior.substring(0, openerInd) + phDelim) 
 							+ disjuncts[di] + inputPrior.substring(closerInd+1) +phDelim+ LOCUS + phDelim+inputPostr));
 				} 
 				
-				return output; 
+				return outputToCasc; 
 			}
 			if (inputPostr.contains("{"))
 			{
@@ -265,11 +265,11 @@ public class SChangeFactory {
 				String[] disjuncts = inputPostr.substring(openerInd+1,closerInd).split(""+disjunctDelim); 
 				for (int di = 0; di < disjuncts.length ; di ++) //recurse.
 				{
-					output.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest+
+					outputToCasc.addAll(generateSoundChangesFromRule(inputSource+phDelim+ARROW+phDelim+inputDest+
 							phDelim+contextFlag+phDelim+inputPrior +phDelim+ LOCUS +phDelim+ inputPostr.substring(0, openerInd) +
 							phDelim+disjuncts[di] +(closerInd < inputPostr.length()-1 ? inputPostr.substring(closerInd+1): ""))); 
 				}
-				return output; 				
+				return outputToCasc; 				
 			}
 		}
 		
@@ -315,15 +315,21 @@ public class SChangeFactory {
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
 			
-			// note that parseSinglePhonicDest returns a word bound "#" if the input is not a valid string referring to a single phonic.
+			theDest.setAsOutput();	// allow despecification only for outputs of rules
+			
+			// note that parseSinglePhonicDest returns a word bound "#" 
+				// if the value passed as its argument is not a valid string referring to a *single* Phonic
+					// which includes a valid FeatMatrix. 
+				// i.e. if it returns # it could be multiple phones though -- so we will parse it as an SChangeFeatToPhone
+				// this does mean that in practice a FeatMatrix to single phone may be treated as an SChangeFeat... (TODO are we sure about this still? Does it matter)
 			if(theDest.print().equals("#") == false)
 			{
 				SChangeFeat thisShift = usingAlphFeats ? new SChangeFeatAlpha(getFeatMatrix(inputSource), theDest, boundsMatter, inp) :
 						new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter, inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-				output.add(thisShift); 
-				return output;  
+				outputToCasc.add(thisShift); 
+				return outputToCasc;  
 			}
 			//if we reach here, we know it is a SChangeFeatToPhone
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
@@ -334,8 +340,8 @@ public class SChangeFactory {
 				//errors will be caught by exceptions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-			output.add(thisShift); 
-			return output;  
+			outputToCasc.add(thisShift); 
+			return outputToCasc;  
 		}
 		// if we reach this point, we know the source is not a single FeatMatrix 
 		// and the SChange must be an SChangeFeatToPhone, SChangeSeqToSeq or SChangePhone
@@ -353,8 +359,8 @@ public class SChangeFactory {
 									parseRestrictPhoneSequence(inputDest,true), inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-				output.add(thisShift); 
-				return output;  
+				outputToCasc.add(thisShift); 
+				return outputToCasc;  
 			}
 			
 			//else, i.e. its a SChangeFeatToPhone 
@@ -364,8 +370,8 @@ public class SChangeFactory {
 							parsePhoneSequenceForDest(inputDest), inp); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-			output.add(thisShift); 
-			return output;  
+			outputToCasc.add(thisShift); 
+			return outputToCasc;  
 		}
 		
 		//if we reach this point, we know we are making an SChangePhone, formally
@@ -390,9 +396,9 @@ public class SChangeFactory {
 									parseRestrictPhoneSequence(inputDest, true), inp);
 					if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 					if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
-					output.add(nextShift); 
+					outputToCasc.add(nextShift); 
 				}
-				return output; 
+				return outputToCasc; 
 			}
 			// if reached this point, not using alpha feats!
 
@@ -407,8 +413,8 @@ public class SChangeFactory {
 				SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-				output.add(newShift); 
-				return output;
+				outputToCasc.add(newShift); 
+				return outputToCasc;
 			}
 			
 			if( inputDest.contains("{") || inputDest.contains("}") ) throw new RuntimeException(
@@ -419,13 +425,14 @@ public class SChangeFactory {
 			SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-			output.add(newShift); 
-			return output;
+			outputToCasc.add(newShift); 
+			return outputToCasc;
 		}
 		
 		// if reached this point, no feature matrix in destination (thus no alpha there -- though there may be in context... (not in input as this is an SChangePhone)) 
 		
 		List<List<SequentialPhonic>> destDisjuncts = parseSeqPhDisjunctSegs(inputDest); 
+		
 		if( sourceDisjuncts.size() != destDisjuncts.size() ) throw new RuntimeException(
 			"Error: mismatch in the number of disjunctions of source segs and disjunctions of dest segs!"
 			+ "\nAttempted rule is: "+inp);
@@ -434,8 +441,8 @@ public class SChangeFactory {
 				: new SChangePhone(sourceDisjuncts, destDisjuncts, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
-		output.add(newShift); 
-		return output;
+		outputToCasc.add(newShift); 
+		return outputToCasc;
 	}
 	
 	public RestrictPhone[] parseRestrictPhoneArray(String input)
@@ -512,7 +519,7 @@ public class SChangeFactory {
 	/**parseSinglePhonicDest
 	 * return RestrictPhone containing correct parse of the input destination 
 	 * IMPORTANT: not to be used for word bounds! 
-	 * if it is not a valid string referring to a single Phonic, then return a word bound. s
+	 * if it is not a valid string referring to a single Phonic, then return a word bound. 
 	 */
 	public RestrictPhone parseSinglePhonicDest(String inp)
 	{
@@ -547,6 +554,7 @@ public class SChangeFactory {
 	 * parse the (disjunctive if necessary) sequential phonic segments for either
 	 * the source or the destination
 	 * @param input -- either the source or the dest
+	 * not to be used for FeatMatrix instances
 	 * @return list of disjunctions (if not disjunctive, contains only one) of segments of SequentialPhonic instances
 	 */
 	public List<List<SequentialPhonic>> parseSeqPhDisjunctSegs (String input)
@@ -578,6 +586,7 @@ public class SChangeFactory {
 		return output; 
 	}
 	
+	// not to be used for FeatMatrix instances. 
 	public List<SequentialPhonic> parseSeqPhSeg (String inp)
 	{
 		List<SequentialPhonic> output = new ArrayList<SequentialPhonic>(); 
@@ -590,6 +599,7 @@ public class SChangeFactory {
 		return output;
 	}
 	
+	// not to be used for FeatMatrix instances. 
 	public SequentialPhonic parseSeqPh (String curtp)
 	{
 		if("+#".contains(curtp))
@@ -736,9 +746,13 @@ public class SChangeFactory {
 	
 	//derives FeatMatrix object instance from String of featSpec instances
 	// as of January 27, 2024, dependent on the method (copied from this) in UTILS.
-	public FeatMatrix getFeatMatrix(String featSpecs, boolean isInputDest)
+	// if is rule output, will apply feature implications, and, 
+		// as of July 2024, also allow despecification via alpha features, uniquely for rule outputs. 
+	public FeatMatrix getFeatMatrix(String featSpecs, boolean isRuleOutput)
 	{
-		return UTILS.getFeatMatrix(featSpecs, isInputDest);
+		FeatMatrix outputFM = UTILS.getFeatMatrix(featSpecs, isRuleOutput);
+		outputFM.setAsOutput();  // allows despecification via alpha. 
+		return outputFM;
 	}
 	
 	//TODO abrogate this -- it doesn't seem necessary 
