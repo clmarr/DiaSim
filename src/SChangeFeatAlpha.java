@@ -97,7 +97,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				// and increment p TWICE
 				// this is done to block a segment that is deleted itself causing the deletion of the following unit
 				// note that this will itself cause rare errors if the that averted situation was actually the intention
-				// however it is assumed that this would be incredibly rare. if ever occuring at all. 
+				// however it is assumed that this would be incredibly rare. if ever occurring at all. 
 				if (destination.print().equals("∅"))	
 				{	
 					if(p < input.size() - 1)
@@ -159,7 +159,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS);
 				List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 				String[] pripm = priorContext.getParenMap(); 
-				int cpic = ind - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
+				int cpic = ind - 1, // candidate at prior index counter
+						crp = pripr.size() - 1, cpim = pripm.length - 1; 
 				boolean halt = pripm[cpim].contains(")"); 
 				while(!halt)
 				{
@@ -167,14 +168,15 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					
 					if(pri.first_unset_alpha() != '0')
 					{
-						SequentialPhonic cpi = input.get(cpic); 
+						SequentialPhonic cpi = input.get(cpic); // candidate at prior index
 						if (cpi.getType().equals("phone")) {
-							if (pri.check_for_alpha_conflict(cpi))
+							if (pri.check_for_alpha_conflict(cpi)) //but note: currently Phone.check_for_alpha_conflict always returns false. 
 							{	
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false;
 							}
-							//check also for conflict OUTSIDE the alpha values and return false if so
+							//check also for conflict between the restriction on this prior place and the phone there,
+								// in matters OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
 							if (!pri.comparePreAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
