@@ -1171,7 +1171,7 @@ public class DiachronicSimulator {
 					resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
 							// resp = inpu.nextLine().replace("\n","").strip(); 
 					
-					if (resp.strip().equalsIgnoreCase("delete"))
+					if (UTILS.stripEnds(resp).equalsIgnoreCase("delete"))	//resp.strip().equalsIgnoreCase("delete"))
 					{
 						filterSeq = new SequentialFilter(new ArrayList<RestrictPhone>(), new String[] {}); 
 						filterIsSet = false; 
@@ -1287,7 +1287,8 @@ public class DiachronicSimulator {
 						
 						resp = ""; 
 						while (resp.equals(""))
-							resp = inpu.nextLine().replace("\n","").strip(); 
+							resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
+							//resp = inpu.nextLine().replace("\n","").strip(); 
 						resp.replace("\n", "").replace("([","( [").replace("])", "] )"); 
 						
 						boolean noMatches = true; 
@@ -1340,7 +1341,8 @@ public class DiachronicSimulator {
 					
 						resp = ""; 
 						while (resp.equals(""))
-							resp = inpu.nextLine().replace("\n","").strip(); 
+							resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
+							//resp = inpu.nextLine().replace("\n","").strip(); 
 				
 						if (resp.length() == 0) continue; 
 						else if (resp.length() >= 4 ? resp.substring(0,4).equalsIgnoreCase("comp") : false)					

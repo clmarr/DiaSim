@@ -857,7 +857,9 @@ public class UTILS {
 		//check for improper brace placement with regard to locus, and other incorrect formations. 
 		String[] inpSplit = impCtxt.split(LOC); 
 		String inputPrior = inpSplit[0];
-		boolean priorSpecified = inputPrior.strip().length() > 0, 
+		boolean 
+				priorSpecified = stripEnds(inputPrior).length() > 0,
+				//		priorSpecified = inputPrior.strip().length() > 0, 
 				postrSpecified = inpSplit.length == 1 ? false : inpSplit[1].strip().length() > 0;
 		if (inpSplit.length > 2)	throw new RuntimeException("Context specification cannot have multiple locuses!");
 		String inputPostr = inpSplit.length == 2 ? inpSplit[1] : ""; 
