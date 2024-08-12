@@ -249,18 +249,18 @@ public class PhoneTester {
 	
 		System.out.println("Testing comprehension of monofeature diacritic sans comments..."); 
 		System.out.println("The following should be '1':"); 
-		String[] aspiration_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ʰ ".strip()) ;
+		String[] aspiration_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ʰ ".trim()) ;
 		System.out.println(""+aspiration_dcrit.length);
 		System.out.println("The following should be '+sg':"); 
 		System.out.println(""+aspiration_dcrit[0]);
 		System.out.println("... now testing comprehension of monofeature diacritic with comments on its line in the file..."); 
-		String[] cg_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ̰ ".strip()) ;
+		String[] cg_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ̰ ".trim()) ;
 		System.out.println("The following should be '1':");
 		System.out.println(""+cg_dcrit.length); 
 		System.out.println("The following should be '+sg':"); 
 		System.out.println(""+cg_dcrit[0]); 
 		System.out.println("... now testing comprehension of multifeature diacritic with comments..."); 
-		String[] centralized_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ̈".strip());
+		String[] centralized_dcrit = UTILS.DIACRIT_TO_FT_MAP.get(" ̈".trim());
 		System.out.println("The following should be '2':"); 
 		System.out.println(""+centralized_dcrit.length); 
 		System.out.println("The following should be '-back -front':");

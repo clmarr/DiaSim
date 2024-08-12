@@ -1277,7 +1277,10 @@ public class DHSWrapper {
 
 				String cmtBlock = "";
 				// if the next line is headed by the comment flag: absorb all consecutive comment lines in @varbl commentBlock
-				while (readIn.equals("") ? false : readIn.stripLeading().charAt(0) == CMT_FLAG) {
+				while (readIn.equals("") ? false : 
+					UTILS.stripEnds(readIn).charAt(0) == CMT_FLAG
+					//readIn.stripLeading().charAt(0) == CMT_FLAG
+					) {
 					linesPassed++;
 					if(!lastLine) {
 						int brkpt = readIn.indexOf("\n") + "\n".length();

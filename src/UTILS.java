@@ -558,7 +558,7 @@ public class UTILS {
 		int li = 1; String nextLine;
 		while (li < symbDefsLines.size()) 
 		{
-			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
+			nextLine = stripEnds(symbDefsLines.get(li)); //strip white space and invisible characters 
 			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
 			String symb = nextLine.substring(0, ind1stComma); 
 			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
@@ -598,7 +598,9 @@ public class UTILS {
 			boolean found_first_rule = false ;
 			while (!found_first_rule) 
 			{
-				String ln = lines.get(li).split(""+CMT_FLAG)[0].strip(); 
+				String ln = lines.get(li).split(""+CMT_FLAG)[0].replaceAll("^[ \t]+|[ \t]+$", ""); 
+				
+					//String ln = lines.get(li).split(""+CMT_FLAG)[0].strip(); 
 				lines.remove(li); // can destructively do this, since rules are not being processed in this method. 
 				if (ln.length() == 0 )	continue;
 				if (ln.charAt(0) == GOLD_STAGENAME_FLAG)
@@ -1614,6 +1616,11 @@ public class UTILS {
 		}
 		
 		return output; 
+	}
+	
+	public static String stripEnds(String inp)
+	{
+		return inp.replaceAll("^[ \t]+|[ \t]+$","");
 	}
 		
 }

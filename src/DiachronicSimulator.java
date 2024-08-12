@@ -1072,7 +1072,8 @@ public class DiachronicSimulator {
 					
 					resp = ""; 
 					while (resp.equals(""))
-						resp = inpu.nextLine().replace("\n","").strip(); 
+						resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
+						//resp = inpu.nextLine().replace("\n","").strip(); 
 					resp.replace("\n", "");
 					
 					if (resp.toLowerCase().equals("keep"))	resp = "Keep"; 
@@ -1167,7 +1168,8 @@ public class DiachronicSimulator {
 					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
 							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
 					
-					resp = inpu.nextLine().replace("\n","").strip(); 
+					resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
+							// resp = inpu.nextLine().replace("\n","").strip(); 
 					
 					if (resp.strip().equalsIgnoreCase("delete"))
 					{
@@ -1214,7 +1216,8 @@ public class DiachronicSimulator {
 							+ "9 : return to main menu.\n"); 
 					resp = ""; 
 					while (resp.equals(""))
-						resp = inpu.nextLine().replace("\n","").strip(); 
+						resp = UTILS.stripEnds(inpu.nextLine().replace("\n","")); 
+							// resp = inpu.nextLine().replace("\n","").strip(); 
 					resp.replace("\n", "");
 					
 					promptQueryMenu = false;
