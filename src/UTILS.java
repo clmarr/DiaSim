@@ -860,7 +860,7 @@ public class UTILS {
 		boolean 
 				priorSpecified = stripEnds(inputPrior).length() > 0,
 				//		priorSpecified = inputPrior.strip().length() > 0, 
-				postrSpecified = inpSplit.length == 1 ? false : inpSplit[1].strip().length() > 0;
+				postrSpecified = inpSplit.length == 1 ? false : stripEnds(inpSplit[1]).length() > 0;
 		if (inpSplit.length > 2)	throw new RuntimeException("Context specification cannot have multiple locuses!");
 		String inputPostr = inpSplit.length == 2 ? inpSplit[1] : ""; 
 		
@@ -1008,7 +1008,7 @@ public class UTILS {
 	// return if string consists of F + a valid beta value for an f-score test
 	public static boolean valid_fB (String entry)
 	{
-		entry = entry.strip(); 
+		entry = stripEnds(entry); 
 		if (entry.length() < 2)	return false;  
 		if (!entry.substring(0,1).equalsIgnoreCase("f"))	return false; 
 		String beta = entry.substring(1); 
