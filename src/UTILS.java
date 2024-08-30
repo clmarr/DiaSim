@@ -154,12 +154,12 @@ public class UTILS {
 			{
 				String curDir = filename.substring(0, dirBreak),
 						rem = filename.substring(dirBreak+1); 
+				
 				if (!new File(curDir).exists()) 
 					new File(curDir).mkdirs(); 
-				
-				dirBreak = !rem.contains("/") ? -1 : 
-					dirBreak + 1 + rem.indexOf("/"); 
 			
+				dirBreak = !rem.contains("/") ? -1 : 
+					dirBreak + 1 + rem.indexOf("/"); 			
 			}
 			
 			BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
