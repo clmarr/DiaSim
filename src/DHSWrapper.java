@@ -562,7 +562,12 @@ public class DHSWrapper {
 					String entry = resp.substring(cutPoint);
 					if (cutPoint > 9) {
 						int theInd = UTILS.getValidInd(entry, baseCASC.size());
-						if (cutPoint == 12)
+						if(theInd >= hypCASC.size() || theInd < 0)
+						{
+							System.out.println("There is no rule "+theInd+"; valid rule numbers are in the interval (inclusive) [0,"+hypCASC.size()+"]");
+							continue; 
+						}
+						else if (cutPoint == 12)
 							printBaselineRuleAt(theInd);
 						else /* curPoint == 16 */ if (theInd > -1)
 						{

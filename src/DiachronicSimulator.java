@@ -1672,8 +1672,6 @@ public class DiachronicSimulator {
 				DEBUG_STAGES = true; 
 				if (VERBOSE)	System.out.println("debugging stage processing"); 
 			}
-			
-			
 		
 			//flag args
 			else
