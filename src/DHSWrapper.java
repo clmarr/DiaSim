@@ -564,7 +564,7 @@ public class DHSWrapper {
 						int theInd = UTILS.getValidInd(entry, baseCASC.size());
 						if(theInd >= hypCASC.size() || theInd < 0)
 						{
-							System.out.println("There is no rule "+theInd+"; valid rule numbers are in the interval (inclusive) [0,"+hypCASC.size()+"]");
+							System.out.println("There is no rule "+entry+"; valid rule numbers are in the interval (inclusive) [0,"+hypCASC.size()+"]");
 							continue; 
 						}
 						else if (cutPoint == 12)
