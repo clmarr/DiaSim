@@ -1186,6 +1186,7 @@ public class DiachronicSimulator {
 				while(fail)
 				{	
 					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
+							+ "To retain it, type 'KEEP'.\n"
 							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
 					
 					resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
@@ -1198,6 +1199,8 @@ public class DiachronicSimulator {
 						fail =false; 
 						ea.removeFilter();
 					}
+					else if (UTILS.stripEnds(resp).equalsIgnoreCase("keep"))
+						fail = false; 
 					else {
 						try {
 							filterSeq = fac.parseNewSeqFilter(resp, true);
