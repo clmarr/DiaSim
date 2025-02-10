@@ -482,6 +482,9 @@ ${ˌe;ˌɛ} > {ˌɑ;ˌɑ} / __ ([-syl])* [+lo,+prim]
 $ CORRECTION: e mutation deleted -- does much more harm than good. 
 $s505 ~ ˌɑ w > ˌɑ before round stressed sylls -- already handled elsewhere, don't need to redundantly do it here. 
 
+$CORRECTION 2025: loss of j in # m __ in Occitano-Romance, Franco-Provencal, and Oil 
+ʝ > ∅ / # m __ 
+
 $p73 s154ii : length returns for stressed vowels only, conditioned the open/closed context condition:
 $ as per s197-198 -- not "blocked", including word final, followed by vowel, followed by cons + word coda only in a monosyllable,
 $ followed by cons + vowel, or followed by plosive + l/r
@@ -499,10 +502,11 @@ $ -- give her the benefit of the doubt and specify +syl not -cons
 [+prim] > [+long] / __ [+lab,+voi,+ant] r [+syl] #
 [+prim] > [+long] / # ([-syl])* __ [+cons] #
 
-$ ~Early Gallo-Roman
+$=Early Gallo-Roman
 $ Sixth and seventh centuries, as per Pope s163 
 
 $ CORRECTION: deletion of unstressed -we- after velars and before a cons, in syllables internal to a tri-or-more syllabic word (cases of aquila > aille, sanguisuga>sangsue) 
+$happens in FrPr and northern Occitano-Romance, but not southern (not Catalan, not Gascon) 
 w e > ∅ / [+syl] ([-syl])* [+hi,+back,+cons] __ [+cons] ([-syl])* [+syl]
 
 $ Pope s325ii intervocalic sk > ks before u,o  -- precedes s325i
@@ -654,7 +658,7 @@ $ I'm unifying these into a single phenomenon that also explains other things--
 			$ unfortunately this is heavily verbally skewed but alas -- placui- types (>plu) and habui (>u) 
 				$ there is however a nominal item among the countertonics for this. 
 	$ non-high countertonic vowels seem to go to ˌo more clearly. 
-			$ note that the pre-existing stipulation of Gallo-Roman i-mutatoin is that it targets PRIMARY stressed vowels 
+			$ note that the pre-existing stipulation of Gallo-Roman i-mutation is that it targets PRIMARY stressed vowels 
 					$ so this divergence falls out of hte model reassuringly!  
 		$ ˌɑ > ˌo ː Pope notes taːcuːtu > tˌaɣuːtu > tu (aside from habu-, placu- forms that could be analogized)
 	$ so, essentially, the difference between ɛ vs. the rest is already present in their valeus for +/- tense
@@ -1069,7 +1073,7 @@ $ hits former tonic a
 
 $ CORRECTION: beginning of u > y fronting moved earlier. 
 
-$MIDDLE GALLO-ROMAN
+$=Middle Gallo-Roman
 $ Seventh century as per Pope s164
 
 $Absorption of prior velar (now palatal) frics by lambda, resolving s322
@@ -1786,7 +1790,7 @@ v > ∅ / __ [+cons] [+cons]
 
 $ CORRECTION: s258 moved much earlier. 
 
-$ Later Gallo-Roman 
+$=Later Gallo-Roman 
 $ 8th and 9th centuries as per Pope s165
 
 $ s427 tonic free a ... i.e. ae̯  ... becomes aj before n, m 
@@ -1800,7 +1804,7 @@ $s355-357 open word finals again if unsupported
 [-delrel] > [+cont] / [-cons] __ # 
 
 $ CORRECTION : ɸ > f (also in BaseCLEFstar)
-ɸ > f
+ɸ > f 
 
 $s326 Later Gallo-Roman ks formed from vowel deletions > s, not to xs
 k > ∅ / __ s #
