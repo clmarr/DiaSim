@@ -448,9 +448,9 @@ public class DiachronicSimulator {
 		oldGoldStageNames = new String[NUM_GOLD_STAGES];
 		oldBlackStageInstants = new int[NUM_BLACK_STAGES]; 
 		oldBlackStageNames = new String[NUM_BLACK_STAGES];
+		
 		if (goldStagesSet)
-		{
-			
+		{	
 			for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
 			{
 				oldGoldStageInstants[gi] = goldStageInstants[gi]; 
@@ -527,6 +527,8 @@ public class DiachronicSimulator {
 		{
 			if (stageOrdering[soi].charAt(0) == 'g')
 				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
+			else if (stageOrdering[soi].charAt(0) == 'b')
+				stageOrdering[soi] = "b"+(1 + Integer.parseInt(stageOrdering[soi].substring(1))); 
 			soi++; 
 		}
 	}		
