@@ -1463,8 +1463,8 @@ public class UTILS {
 		for ( String dssi : diacritSpecSetCands) 
 			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));
 		combinedSpecSetCandsByDepth.put(1,depth1set); 
-		
-		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT)
+				
+		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT && depth1set.size() > 0)
 		{
 			HashMap<String,String> currDepthSet = new HashMap<String,String>(); 
 			for ( String existingStackFeats : combinedSpecSetCandsByDepth.get(depth-1).keySet()) 
