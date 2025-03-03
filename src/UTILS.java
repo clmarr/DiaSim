@@ -71,6 +71,8 @@ public class UTILS {
 	
 	public static final int MAX_DIACRIT = 4; 
 	
+	public static int NUM_UNDEFINED_PHONES_USED = 0; 
+	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
@@ -1401,8 +1403,7 @@ public class UTILS {
 	 */
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
-		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: "+unseenVect); 
-		System.out.println("\t\tThis corresponds to the following feature specifications: "+spellOutFeatVect(unseenVect));
+		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: \n\t"+spellOutFeatVect(unseenVect));
 		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
@@ -1464,7 +1465,7 @@ public class UTILS {
 			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));
 		combinedSpecSetCandsByDepth.put(1,depth1set); 
 				
-		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT && depth1set.size() > 0)
+		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT && depth1set.size() > 0 && combinedSpecSetCandsByDepth.containsKey(depth-1))
 		{
 			HashMap<String,String> currDepthSet = new HashMap<String,String>(); 
 			for ( String existingStackFeats : combinedSpecSetCandsByDepth.get(depth-1).keySet()) 
@@ -1535,9 +1536,17 @@ public class UTILS {
 			depth++; 
 		}
 		
-		if (depth >= diacritSpecSetCands.size() || depth >= MAX_DIACRIT)
-			System.out.println("Warning: tried to generate diacritized symbol for unseen feature spec combination, "
-					+ "but failed to find an appropriate base symbol + diacritics combination.");
+		
+		if (depth >= diacritSpecSetCands.size() || depth >= MAX_DIACRIT || !combinedSpecSetCandsByDepth.containsKey(depth-1))
+		{
+			String newSymb = "?"+Integer.toString(NUM_UNDEFINED_PHONES_USED++); 
+			System.out.println("Warning: tried to generate diacritized symbol for unseen feature spec combination, \n"
+					+ spellOutFeatVect(unseenVect)+"...\n"
+					+ "but failed to find an appropriate base symbol + diacritics combination.\n"
+					+ "Now using the following symbol: "+newSymb); 
+			defineFeatVect(unseenVect,newSymb); 
+
+		}
 		
 		return false;		
 	}
