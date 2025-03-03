@@ -1238,6 +1238,7 @@ public class DiachronicSimulator {
 							+ "4 : get rule by time step\n"
 							+ "5 : get time step(s) of any rule whose string form contains the submitted string\n"
 							+ "6 : print all rules by time step.\n"
+							+ "7 : get phonemic inventory at pivot point (you need to have set pivot point).\n"
 							+ "9 : return to main menu.\n"); 
 					resp = ""; 
 					while (resp.equals(""))
@@ -1246,7 +1247,7 @@ public class DiachronicSimulator {
 					resp.replace("\n", "");
 					
 					promptQueryMenu = false;
-					if( !"01234569".contains(resp) || resp.length() > 1 ) {
+					if( !"012345679".contains(resp) || resp.length() > 1 ) {
 						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
 						promptQueryMenu = true;
 					}
@@ -1331,6 +1332,20 @@ public class DiachronicSimulator {
 							}
 						}
 						if(noMatches)	System.out.println("No matches found."); 
+					}
+					else if(resp.equals("7")) 
+					{
+						if (pivPtSet)
+						{
+							System.out.println("Phonemes present in lexicon at pivot point, "+pivPtName); 
+							Phone[] inventory = pivPtLex.getPhonemicInventory(); 
+							for (Phone phonemi : inventory)
+								System.out.println(phonemi.print()+": "+UTILS.spellOutFeatVect(phonemi.getFeatVect()));
+						}
+						else 
+							System.out.println("Error : requested phonemic inventory of pivot lexicon (option 7), but no pivot point has been chosen.\n"
+									+ "Please return to the main menu and choose the option to designate a pivot point if you wish to use this.");
+							
 					}
 					else //"6"
 					{
