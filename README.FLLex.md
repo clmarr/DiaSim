@@ -128,4 +128,4 @@ French forms:
 	but one may note that according to some analysis it nevertheless has "sonorant" syllabic properties (i.e. in words
 	like "quatre" /kat̪ʁ/) 
 	
-This dataset does not claim to be (and is not) an exclusive list of inherited French etyma from Latin... yet, at least. As of present, no morphological info has been included in entries for this, despite the ongoing expansion of DiaSim as of June 2023 to include paradigmatic info in lexicon entries for later calculations of regularity rates by cell and other adjacent/related purposes. 
+This dataset does not claim to be (and is not) an exclusive list of inherited French etyma from Latin... yet, at least. As of present, no morphological info has been included in entries for this, despite the then-ongoing expansion of DiaSim as of June 2023 to include paradigmatic info in lexicon entries for later calculations of regularity rates by cell and other adjacent/related purposes. 
