@@ -1,7 +1,7 @@
  ʰ = +sg $aspirated
  ᵝ = +lab $labialized but no velar aspect unless main symbol is velar. 
  ʲ = +hi,+front $palatalized
- ˠ = +back $velarized. Currently not marked as +hi per current treatment of coronal laterals that are velarized in symbolDefs. For this reason may be used for uvulars too perhaps (even if heretically), unless this is changed in a custom local version. 
+ ˠ = +back $velarized. Currently not marked as +hi per current treatment of coronal laterals that are velarized in symbolDefs. For this reason may be used for uvulars too perhaps (even if heretically), unless this is changed in a custom local version. Use of the tilde as in ɫ not recommended as it could look like nasalization for some characters. 
  ʷ = +lab,+hi,+back,+round $labiovelarized
  ᶣ = +lab,+hi,+front,+round $labiopalatalized. Note that the current one used in symbolDefs.csv for ɡᶣ and kᶣ does not trigger +round 
  ˤ = +lo,+back $pharyngealized.
@@ -15,7 +15,7 @@
  ̪ = +ant,+cor,+distr $dental. 
  ̯ = -syl 
  ̩ = +syl
- ˀ= +cg $glottalization. Currently realized in feature defs with same feature as creaky voice (which is how it is realized on sonorants, including vowels), and +cg has been used for both each in the past. 
+ ˀ= +cg $glottalization. Currently realized in feature defs with same feature as creaky voice (which is how it is realized on sonorants, including vowels), and +cg has been used for both each in the past. Can be used for ejectives functionally. 
  ̰ = +cg $constrict glottis, proxy for creaky voiced segments. 
  ̤ = +sg $spread glottis, can be proxy for breathy voiced segments.
  ̹ = +round $weakly rounded, typically for coronals. Patterns/marked as round but not labial.
