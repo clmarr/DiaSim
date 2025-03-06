@@ -10,8 +10,11 @@ in her 1934 foundational treatise, "From Latin to Modern French with Especial Co
 and Morphology". However, more generally, this dataset is also intended to enable testing of any "hypothesis" of a set
 of diachronic transformation rules for the Latin-to-French scenario. The form of the dataset used in Marr and Mortensen 2020,
 and also Marr and Mortensen 2023, is preserved as "FLLex2020" within the folder "legacy" (similarly, there is a 2020 version
-of the periodicized "FLLAPS" dataset in the same folder), though at the time of writing (November 13, 2023), subsequent 
-changes to FLLex have been limited to material in the comments. 
+of the periodicized "FLLAPS" dataset in the same folder). Changes were largely only cosmetic changes in comments,
+aside from fixing a couple coding errors concerning countertonic stress in reference forms.
+There were more substantial, though in the large picture still minor, changes to FLLex and DiaCLEF
+in 2024; these later versions can be found on www.github.com/clmarr/DiaSim as FLLexPlus2024 and DiaCLEF2024 (and now DiaCLEF2025). 
+
 
 In order to enable this dataset to be of such use, we must be clear of what specifically it is to be used to test. 
 Specifically, this dataset is constructed to test PHONOLOGICAL developments. It is not intended to test developments that
@@ -24,11 +27,11 @@ As this dataset is intended for use in simulating the continuous development of 
 are consistently excluded if they fall under any of the following categories:
 * Words that have been effected by morphologically motivated processes like analogy.
 * Words affected by hypercorrection. 
-* Words that became obselete. This applies also for words that fell out of use, and were then revived. This is 
+* Words that became obsolete. This applies also for words that fell out of use, and were then revived. This is 
 	significant because it cannot be guaranteed that they would be affected by regular shifts during their period 
-	wihthout usage. 
-	* However, some obselete words have been included for the purposes of testing certain phenomena. These are marked
-		with comments (starting with $) specifying that they are obselete and used for testing, and will be removed 
+	without usage. 
+	* However, some obsolete words have been included for the purposes of testing certain phenomena. These are marked
+		with comments (starting with $) specifying that they are obsolete and used for testing, and will be removed 
 		once this purposes is deemed to be sufficiently fulfilled. 
 * Words that have been effected by lexicon-motivated processes like contamination
 	* These also include bilingual contamination -- i.e. Pope s750, common for both Gaulish and Frankish.
@@ -42,7 +45,7 @@ are consistently excluded if they fall under any of the following categories:
 * Innovations in any period except Latin. 
 * Any and all innovations based on building off of previous words. These include but are not limited to deverbalizations,
 	suffixations, prefixations, blends/portmanteaus, compounds, and other similar sorts of derivations. 
-* "Refections" as per Rey, i.e. where sounds were reinserted under the influence of the (known or percieved, correctly or not) etymological origin form. 
+* "Refections" as per Rey, i.e. where sounds were reinserted under the influence of the (known or perceived, correctly or not) etymological origin form. 
 * Words effected by syntactically-motivated phenomena that are NOT phonologically mediated. However, when these phenomena
 	occurred during the Latin stage and were mediated through stress in a predictable way, as described by Pope, they 
 	may still be included simply by changing the stress values of the Latin citation forms. Almost all cases of this
