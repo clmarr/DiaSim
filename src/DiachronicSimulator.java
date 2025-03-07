@@ -629,7 +629,7 @@ public class DiachronicSimulator {
 			String theLine = lexFileLines.get(lfli);
 			
 			if(/**lfli <NUM_ETYMA && */numCols != UTILS.countColumns(theLine))
-				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli);
+				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli+".\nThe line: "+theLine);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics);
