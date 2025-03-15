@@ -72,8 +72,9 @@ public class DHSWrapper {
 	// same as above for the locations of period waypoints.
 
 	private String[] stagesOrdered;
-	// g# -- gold stage number <#>
+	// G# -- gold stage number <#>
 	// b# -- black stage number <#>
+	// B# -- columned black stage, black stage number <#>
 	// for preventing de facto switches when stages exist in the same "moment"
 	// between rules in the editing process
 

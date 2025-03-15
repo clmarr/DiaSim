@@ -71,6 +71,7 @@ public class Simulation {
 		inputStageName = "Input"; 
 	}
 	
+	// no intermediate columned stages, only uncolumned black. 
 	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] initializedDerivations, String[] orderedStages)
 	{
 		initialize(inputForms, casc); 
@@ -78,6 +79,7 @@ public class Simulation {
 		stagesOrdered = orderedStages;
 	}
 	
+	// no intermediate columned stages, only uncolumned black. 
 	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] orderedStages)
 	{
 		initialize(inputForms,casc);
@@ -105,8 +107,11 @@ public class Simulation {
 			blackStageNames = baseline.blackStageNames;
 			blackStageResultLexica = new Lexicon[blackStageNames.length];
 			NUM_BLACK_STAGES = blackStageNames.length; 		
-			if (baseline.hasColumnedBlackStages())
+			if (baseline.hasColumnedBlackStages()) {
 				columnedBlackStageBlackIndices = new ArrayList<Integer>(baseline.columnedBlackStageBlackIndices); 
+				columnedBlackStageLexica = baseline.columnedBlackStageLexica; 
+				NUM_COLUMNED_BLACK_STAGES = baseline.NUM_COLUMNED_BLACK_STAGES; 
+			}
 		}
 		
 		if (baseline.hasGoldStages()) {
