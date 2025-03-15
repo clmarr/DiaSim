@@ -30,7 +30,7 @@ public class UTILS {
 	public final static char STAGE_PRINT_DELIM = ',';  
 	public final static char DISJUNCT_DELIM = ';'; 
 	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
-	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
+	public final static String ABSENT_INDIC = "...", ABSENT_REPR = "{ABSENT}"; 
 	public final static String UNATTD_GOLD_INDIC = ">*", UNATTD_GOLD_REPR = "{UNATTESTED}"; 
 		// the -INDIC items are the strings used in lexicon files provided by the user and processed by the system
 		// whereas the -REPR items are the internal representation within the Etymon subclasses.
@@ -590,11 +590,13 @@ public class UTILS {
 	}
 	
 	
-	//extract order of intermediate stages so that we don't end up with ``flips'' in the relative ordering between stages
+	/** extract order of intermediate stages so that we don't end up with ``flips'' in the relative ordering between stages
 		// in the case that they end up in the same
 		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
 	// @param black_at_input -- true to execute bandaid in scenario where user declared name of input stage as a black stage. 
 		// in this case, skip until have found first rule. 
+	// @note does not handle columned black stages -- this is done externally. 
+	 */
 	public static String[] extractStageOrder(String cascLoc, boolean black_at_input)
 	{
 		List<String> lines = readFileLines(cascLoc); 
@@ -633,7 +635,7 @@ public class UTILS {
 		li = 0;
 		int ngi = 0, nbi = 0;
 		while (li < out.length) {
-			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "g"+(ngi++) : "b"+(nbi++);
+			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "G"+(ngi++) : "b"+(nbi++);
 			li++;
 		}
 		return out; 
