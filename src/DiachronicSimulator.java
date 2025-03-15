@@ -29,8 +29,9 @@ public class DiachronicSimulator {
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_STAGES; 
+	private static int NUM_STAGES()	{	return NUM_GOLD_STAGES + NUM_BLACK_STAGES;	}/*having columned is unnecessary as they are either columnedBlack or gold*/
 	private static String inputName; 
-	private static String[] goldStageNames, blackStageNames, columnedStageNames; 
+	private static String[] goldStageNames, blackStageNames, allStageNames, columnedStageNames; 
 	private static Lexicon[] goldStageGoldLexica; //indexes match with those of goldStageNames 
 		//so that each stage has a unique index where its lexicon and its name are stored at 
 			// in their respective lists.
@@ -39,8 +40,9 @@ public class DiachronicSimulator {
 		// TODO lexica for purposes of insertion and removal of etyma only.
 		// TODO currently still unimplemented
 		// index will effectively be # columned stage index - # gold stage index 
-	private static int[] goldStageInstants, blackStageInstants, columnedStageInstants; // i.e. the index of custom stages in the ordered rule set
+	private static int[] goldStageInstants, blackStageInstants, allStageInstants, columnedStageInstants; // i.e. the index of custom stages in the ordered rule set
 	private static boolean goldStagesSet, blackStagesSet, columnedStagesSet; 
+	private static boolean anyStagesSet()	{	return goldStagesSet || blackStagesSet; /*having columned is unnecessary as they are either columnedBlack or gold*/	}
 	private static boolean lexiconHasHeader;
 	
 	private static boolean hasGoldOutput; 
@@ -68,8 +70,12 @@ public class DiachronicSimulator {
 		// may need debugging at some point, but for now is being used in an as-necessary (for work with Borja) manner. 
 		//TODO note that as it stands currently, if you use formIDs, they MUST be on every word or else there will be concurrence errors (!) 
 	
-	// fills gold and black stage variables
-	// but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
+	/** extractCascade
+	 * given @param theFactory, extracts ordered cascade from cascade file. 
+	 * @note fills @global variables pertaining to stages: NUM_GOLD_STAGES, NUM_BLACK_STAGES, goldStagesSet, blackStagesSet
+	 *		goldStageGoldLexica, goldStageNames, goldStageInstants, blackStageNames, blackStageInstants
+	 *	but not column stage variables because this is not specified in the cascade but rather in the lexicon file...
+	 */
 	public static void extractCascade(SChangeFactory theFactory)
 	{
 		if (VERBOSE)
@@ -250,23 +256,20 @@ public class DiachronicSimulator {
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
 		
-		NUM_COLUMNED_STAGES = (goldStagesSet || blackStagesSet) ? NUM_GOLD_STAGES + NUM_BLACK_STAGES : 0 ;
-		columnedStagesSet = NUM_COLUMNED_STAGES > 0; 
+		if ( NUM_STAGES() != stageOrdering.length)
+			throw new Error("Error: mismatch in stage count ("+NUM_STAGES()+") and size of stageOrdering ("+stageOrdering.length+")");
 		
-		if (NUM_COLUMNED_STAGES != stageOrdering.length)
-			throw new Error("Error: mismatch in columned stage count ("+NUM_COLUMNED_STAGES+") and size of stageOrdering ("+stageOrdering.length+")");
-		
-		if (columnedStagesSet)
+		if (anyStagesSet())
 		{
-			columnedStageNames = new String[NUM_COLUMNED_STAGES];
-			columnedStageInstants = new int[NUM_COLUMNED_STAGES]; 
-			for (int csi = 0 ; csi < NUM_COLUMNED_STAGES; csi++)
+			allStageNames = new String[NUM_STAGES()];
+			allStageInstants = new int[NUM_STAGES()]; 
+			for (int csi = 0 ; csi < NUM_STAGES(); csi++)
 			{
 				String curr_stage_pointer = stageOrdering[csi]; 
 				boolean isGold = curr_stage_pointer.charAt(0) == 'g'; 
 				int stageNumber = Integer.parseInt(curr_stage_pointer.substring(1)); 
-				columnedStageNames[csi] = (isGold ? goldStageNames : blackStageNames)[stageNumber];
-				columnedStageInstants[csi] = (isGold ? goldStageInstants : blackStageInstants)[stageNumber]; 
+				allStageNames[csi] = (isGold ? goldStageNames : blackStageNames)[stageNumber];
+				allStageInstants[csi] = (isGold ? goldStageInstants : blackStageInstants)[stageNumber]; 
 			}
 		}
 		
@@ -279,11 +282,6 @@ public class DiachronicSimulator {
 			for (String bsni : blackStageNames)
 				if (bsni.equalsIgnoreCase("none"))
 					System.out.println("WARNING: it is advised not to use a stage named 'none', as this can cause errors!");
-		if (columnedStagesSet)
-			for (String csni : columnedStageNames)
-				if (csni.equalsIgnoreCase("none"))
-					System.out.println("WARNING: it is advised not to use a stage named 'none', as this can cause errors!");
-
 	}
 	
 	//Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -1482,10 +1480,10 @@ public class DiachronicSimulator {
 						boolean pivot_inserted = false; 
 						if ("InGoldOut".contains(pivPtName)) pivot_inserted = true; 
 						
-						for (int cosi = 0 ; cosi < NUM_COLUMNED_STAGES; cosi++) {
+						for (int cosi = 0 ; cosi < NUM_COLUMNED_STAGES; cosi++) { //TODO here we mean just total stages
 							if (ea.isPivotSet() && !pivot_inserted)
 							{
-								if (pivPtLoc < columnedStageInstants[cosi])
+								if (pivPtLoc < columnedStageInstants[cosi]) //TODO here meaning just total stages. 
 								{
 									headerRow += UTILS.append_space_to_x("PIV@"+pivPtName, 19)+"|";
 									lexCols.add(pivPtLex);
