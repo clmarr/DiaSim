@@ -1143,7 +1143,7 @@ public class DHSWrapper {
 				throw new RuntimeException("ERROR: processChWithAddNearWaypoint called for what is clearly a simple insertion, yet insertion parameters are missing."); 
 		
 		// first part -- determine correct add loc. 
-		boolean isGold = targ.charAt(0) == 'g'; 
+		boolean isGold = targ.charAt(0) == 'G'; 
 		int si = Integer.parseInt(targ.substring(1)) - 1 ; 
 		int addLoc = (isGold ? hypGoldLocs : hypBlackLocs)[si] ;
 		
@@ -1311,7 +1311,7 @@ public class DHSWrapper {
 						 && ! (nxRuleInd + effLocModifier != getHypStageLoc(nx_hyp_st) ? 
 								 false : catchInterStageDeletionBug(nx_hyp_st, pci))) 
 				{
-					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+					boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'G'; 
 
 					out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 						+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] ;
@@ -1333,8 +1333,8 @@ public class DHSWrapper {
 				{					
 					boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
 					
-					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
-							|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
+					if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'G')
+							|| (!isgold && stagesOrdered[nx_base_st].toLowerCase().charAt(0) != 'b') )
 						throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
 					if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
 						throw new RuntimeException("Error: stage counting error."); 
@@ -1520,7 +1520,7 @@ public class DHSWrapper {
 							strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier
 								&& ! (nxRuleInd + effLocModifier != getHypStageLoc(nx_hyp_st) ? 
 										false : catchInterStageDeletionBug(nx_hyp_st, pci))) {
-						boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+						boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'G'; 
 	
 						out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 							+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] 
@@ -1563,7 +1563,7 @@ public class DHSWrapper {
 			while (nx_hyp_st >= nSO ? false : 
 				strToHypStageLoc(stagesOrdered[nx_hyp_st]) <= nxRuleInd - effLocModifier)
 			{
-				boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'g'; 
+				boolean nhst_gold = stagesOrdered[nx_hyp_st].charAt(0) == 'G'; 
 	
 				out += STAGEFLAGS.charAt(nhst_gold ? 0 : 1 )  
 					+ (nhst_gold ? goldStageNames : blackStageNames)[Integer.parseInt(stagesOrdered[nx_hyp_st].substring(1))] + "\n";
@@ -1578,8 +1578,8 @@ public class DHSWrapper {
 			{					
 				boolean isgold = (ch1 == UTILS.GOLD_STAGENAME_FLAG); 
 	
-				if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'g')
-						|| (!isgold && stagesOrdered[nx_base_st].charAt(0) != 'b') )
+				if ( (isgold && stagesOrdered[nx_base_st].charAt(0) != 'G')
+						|| (!isgold && stagesOrdered[nx_base_st].toLowerCase().charAt(0) != 'b') )
 					throw new RuntimeException("Error: stage flag does not match stage type in stagesOrdered!") ; 
 				if ( (isgold ? igs : ibs ) != Integer.parseInt(stagesOrdered[nx_base_st].substring(1)) - 1 )
 					throw new RuntimeException("Error: stage counting error."); 
@@ -1628,7 +1628,7 @@ public class DHSWrapper {
 	// @param aggRemTxt -- aggregrate remaining text
 	// @return break point to skip those stages
 	private static int brkPtForStageSkip(String aggRemTxt, String skipCode) {
-		boolean isGold = skipCode.charAt(0) == 'g';
+		boolean isGold = skipCode.charAt(0) == 'G';
 		char SN = isGold ? UTILS.GOLD_STAGENAME_FLAG : UTILS.BLACK_STAGENAME_FLAG;
 		int skips_left = Integer.parseInt(skipCode.substring(1));
 		if (aggRemTxt.charAt(0) == SN)
@@ -1656,7 +1656,7 @@ public class DHSWrapper {
 	{
 		if (s.length() < 2 ? true : (!"gb".contains(s.charAt(0)+"") || !UTILS.isInt(s.substring(1))) )
 			throw new RuntimeException("Invalid string form for stage"); 
-		return (s.charAt(0) == 'g' ? hypGoldLocs : hypBlackLocs)[Integer.parseInt(s.substring(1))]; 
+		return (s.charAt(0) == 'G' ? hypGoldLocs : hypBlackLocs)[Integer.parseInt(s.substring(1))]; 
 	}
 	
 	private int getHypStageLoc(int sn)
@@ -1666,7 +1666,7 @@ public class DHSWrapper {
 	
 	private int getBaseStageLoc (int sn) {
 		return baseSimulation.getStageInstant(
-				stagesOrdered[sn].charAt(0) == 'g', 
+				stagesOrdered[sn].charAt(0) == 'G', 
 				Integer.parseInt(stagesOrdered[sn].substring(1)) );
 	}
 	
