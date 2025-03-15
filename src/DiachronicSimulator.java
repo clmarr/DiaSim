@@ -1480,10 +1480,10 @@ public class DiachronicSimulator {
 						boolean pivot_inserted = false; 
 						if ("InGoldOut".contains(pivPtName)) pivot_inserted = true; 
 						
-						for (int cosi = 0 ; cosi < NUM_COLUMNED_STAGES; cosi++) { //TODO here we mean just total stages
+						for (int cosi = 0 ; cosi < NUM_STAGES(); cosi++) { //TODO here we mean just total stages
 							if (ea.isPivotSet() && !pivot_inserted)
 							{
-								if (pivPtLoc < columnedStageInstants[cosi]) //TODO here meaning just total stages. 
+								if (pivPtLoc < allStageInstants[cosi]) //TODO here meaning just total stages. 
 								{
 									headerRow += UTILS.append_space_to_x("PIV@"+pivPtName, 19)+"|";
 									lexCols.add(pivPtLex);
