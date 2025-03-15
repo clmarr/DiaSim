@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Class for representing one of two cases...
  *  	ABSENT -- a word that has either not entered the vocabulary yet, or has fallen out of usage.
- *				indicator in lexicon file: "--" (as of July 2023) 
+ *				indicator in lexicon file: "..." (as of March 2025) 
  *				if a previously present/inherited word is indicated as absent, it will be REMOVED
  *				if it is absent from the beginning, 
  *					it remains such until phonological material is provided in a later column, 
@@ -17,7 +17,7 @@ import java.util.HashMap;
  *				indicator in lexicon file: ">*" (as of July 2023)
  *			NOTE THAT THIS IS TO BE DISTINGUISHED FROM NOT ATTESTED IN INTERNAL USAGE IN Etymon (as inherited) which just governs display! 
  * 				(all of these are treated as "attested" because we don't prefix them with an extra asterisk!) 
- * 		variables in UTILS relevant: 	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
+ * 		variables in UTILS relevant: 	public final static String ABSENT_INDIC = "...", ABSENT_REPR = "{ABSENT}"; 
 			public final static String UNATTD_GOLD_INDIC = ">*", UNATTD_GOLD_REPR = "{UNATTESTED}"; 
 				// the -INDIC items are the strings used in lexicon files provided by the user and processed by the system
 				// whereas the -REPR items are the internal representation within the Etymon subclasses.

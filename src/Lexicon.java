@@ -202,7 +202,7 @@ public class Lexicon {
 	 * @param etymaInColumn -- array ([]) of Etymon objects derived (probably via DiachronicSimulator.parseLexPhon() 
 	 * 		from String valued cells in a column of a lexicon file -- i.e. the forms associated for a certain stage
 	 * 		which may be a proper Etymon, which should be used for attested (GOLD) forms to compare to
-	 * 			or "--" which will make an absent etymon 
+	 * 			or "..." which will make an absent etymon 
 	 * 				 -- either not present yet in the language, or removed
 	 * 			or ">*" which makes an unattested (but present) etymon  
 	 */
@@ -235,7 +235,7 @@ public class Lexicon {
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 					theWordList[wi] = new PseudoEtymon(UTILS.ABSENT_REPR); 
 			
-			// don't need to do anything for unattested ">*" entries -- point is that they keep things. 
+			// don't need to do anything for unattested ">*" entries -- point is that they keep things the same. 
 		}
 	}
 
