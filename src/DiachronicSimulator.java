@@ -743,7 +743,8 @@ public class DiachronicSimulator {
 		
 		inputForms = new Etymon[NUM_ETYMA];
 		Etymon[] goldResults = new Etymon[NUM_ETYMA];  // being built to pass to  goldOutputLexicon
-		Etymon[][] goldForms = new Etymon[NUM_GOLD_STAGES][NUM_ETYMA]; //being built to pass to goldStageGoldLexica
+		Etymon[][] columnForms = new Etymon[NUM_COLUMNED_STAGES()][NUM_ETYMA];
+				//being built to pass to goldStageGoldLexica and blackINsertionRemovalLexica. 
 			//TODO need to inspect wherever this is called!
 			//TODO may need one for columnedBlackStage forms? -- or, just build that directly...
 		
@@ -771,10 +772,11 @@ public class DiachronicSimulator {
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
-				if(NUM_GOLD_STAGES > 0)
-				{	for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++) {
-						goldForms[gsi][lfli] = UTILS.parseLexPhon(forms[gsi+1],no_symb_diacritics);
-						if(commented)	goldForms[gsi][lfli].setComments(commentContents);
+				if(NUM_COLUMNED_STAGES() > 0)
+				{	for (int csi = 0 ; csi < NUM_COLUMNED_STAGES() ; csi++) {
+						columnForms[csi][lfli] = UTILS.parseLexPhon(forms[csi+1],no_symb_diacritics);
+						if(commented)	columnForms[csi][lfli].setComments(commentContents);
+						//TODO NEED TO FIX HERE!!! WRT COLUMNED BLACK
 					}
 				}
 				if (hasGoldOutput) {
@@ -785,10 +787,24 @@ public class DiachronicSimulator {
 			lfli++;
 		}		
 
-		//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
-		if(NUM_GOLD_STAGES > 0)
-			for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
-				goldStageGoldLexica[gsi] = new Lexicon(goldForms[gsi]); 
+		
+		if(NUM_COLUMNED_STAGES() > 0)
+		{
+			int gsi = 0 , cbsi = 0, si = 0 ; // (gold, columned black, lexicon column) indices respectively  
+			//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
+			//TODO NEED TO FIX HERE!!!!!!!WRT COLUMNED BLACK
+			for (int coli = 0 ; coli < NUM_COLUMNED_STAGES(); coli++)
+			{
+				char stageTypeIndic = 'b'; 
+				while (stageTypeIndic == 'b') //uncolumned black. 
+					stageTypeIndic = stageOrdering[si++].charAt(0); 
+				
+				if (stageTypeIndic == 'G') // gold
+					goldStageGoldLexica[gsi++] = new Lexicon(columnForms[coli]);
+				else // columned black
+					blackInsertionRemovalLexica[cbsi++] = new Lexicon(columnForms[coli]); 
+			}
+		}
 		
 		if(hasGoldOutput)	
 			goldOutputLexicon = new Lexicon(goldResults); 
@@ -801,7 +817,7 @@ public class DiachronicSimulator {
 		theSimulation = new Simulation(inputForms, CASCADE, initStrForms, stageOrdering); 
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
-		if (goldStagesSet)	theSimulation.setGoldStages(goldForms, goldStageNames, goldStageInstants);
+		if (columnedStagesSet())	theSimulation.setColumnedStages(columnForms, columnedStageNames, columnedStageInstants, blackToColumnedIndex);
 		if (!inputName.equalsIgnoreCase("input"))
 				theSimulation.setInputStageName(inputName);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
@@ -1997,14 +2013,15 @@ public class DiachronicSimulator {
 			char prefix = soi.charAt(0); 			
 			int stageInstant = -1, stageNumber = Integer.parseInt(soi.substring(1)); 
 			if (prefix == 'g') stageInstant = goldStageInstants[stageNumber]; 
-			else if (prefix == 'b')	stageInstant = blackStageInstants[stageNumber]; 
+			else if (prefix == 'b' || prefix == 'B')	stageInstant = blackStageInstants[stageNumber]; 
 			else throw new RuntimeException("Error: illegal prefix for stage at "+index+". Entry in stagesOrdered: "+soi); 
 					
 			if (stageInstant > index)	break; 
 			if (stageInstant == index)
 			{
 				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[stageNumber]); 
-				else if (prefix == 'b')	stagesHere.add("Black Stage: "+blackStageNames[stageNumber]); 
+				else if (prefix == 'b' || prefix == 'B')	
+					stagesHere.add( (prefix == 'B' ? "Columned " : "")+"Black Stage: "+blackStageNames[stageNumber]); 
 			}
 		}
 		
