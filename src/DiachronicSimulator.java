@@ -310,7 +310,7 @@ public class DiachronicSimulator {
 	 * @prerequisite: the following already exist and will be modified ( @destructive ): 
 	 * 		@global blackToColumnedIndex, stageOrdering
 	 * 
-	 * TODO may need debugging!
+	 * TODO may need debugging! (March 15, 2025)
 	 */
 	public void makeBlackStageColumned(int black_stage_ind) {
 		String thisStageName = blackStageNames[black_stage_ind]; 
@@ -541,24 +541,25 @@ public class DiachronicSimulator {
 	}
 	
 	
-	
+	/** 
 	// changes one gold stage to a UNCOLUMNED black stage
 		// modifying global variables and data structures as appropriate. 
-	// int gsi -- the index in data structures of the stage we are blackening. 
-	//TODO this may need a rework
+	// @param int gsi -- the index in data structures of the stage we are blackening. 
+	//TODO this may need a rework (working through, March 15, 2025...) 
+	 */
 	private static void blackenGoldStage(int gsi)
 	{
 		if (VERBOSE || DEBUG_STAGES)
-			System.out.println("Blackening gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]); 
+			System.out.println("Changing gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]+ " to uncolumned black stage!"); 
 	
-		int[] oldGoldStageInstants, oldBlackStageInstants; 
+		int[] oldGoldStageInstants, oldBlackStageInstants, oldBlackToColumnedIndex; 
 		String[] oldGoldStageNames, oldBlackStageNames; 
-		
 		
 		oldGoldStageInstants =  new int[NUM_GOLD_STAGES];
 		oldGoldStageNames = new String[NUM_GOLD_STAGES];
 		oldBlackStageInstants = new int[NUM_BLACK_STAGES]; 
 		oldBlackStageNames = new String[NUM_BLACK_STAGES];
+		oldBlackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
 		
 		if (goldStagesSet)
 		{	
@@ -574,6 +575,7 @@ public class DiachronicSimulator {
 			{
 				oldBlackStageInstants[bi] = blackStageInstants[bi];
 				oldBlackStageNames[bi] = blackStageNames[bi];
+				oldBlackToColumnedIndex[bi] = blackToColumnedIndex[bi]; 
 			}
 		}
 		
@@ -591,9 +593,10 @@ public class DiachronicSimulator {
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		blackStageInstants = new int[NUM_BLACK_STAGES]; 
+		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
 		
 		int soi = 0, bsloc = 0; 
-		while ( !stageOrdering[soi].equals("G"+gsi) ) 
+		while ( !stageOrdering[soi].equals("G"+gsi) ) //when this ends, it means the stage being blackened was reached. 
 		{
 			if(stageOrdering[soi].charAt(0) == 'G')
 			{
@@ -609,14 +612,16 @@ public class DiachronicSimulator {
 				if (curbi != bsloc) throw new RuntimeException("Error: a black stage was skipped in stageOrdering!"); 
 				blackStageNames[curbi] = oldBlackStageNames[curbi]; 
 				blackStageInstants[curbi] = oldBlackStageInstants[curbi]; 
+				blackToColumnedIndex[curbi] = oldBlackToColumnedIndex[curbi]; 
 				bsloc++; 
 			}
 			soi++; 
 			if (soi >= stageOrdering.length)	
 				throw new RuntimeException("ERROR: the stage we are blackening was never found in stageOrdering!") ;
-		}
+		}//the stage being blackened was reached. 
 		blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
 		blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
+		blackToColumnedIndex[bsloc] = -1; // it became "Decolumned". 
 		stageOrdering[soi] = "b"+bsloc;
 	
 		int isg = gsi; 
@@ -631,6 +636,7 @@ public class DiachronicSimulator {
 		{ 
 			blackStageNames[bsloc] = oldBlackStageNames[bsloc-1];
 			blackStageInstants[bsloc] = oldBlackStageInstants[bsloc-1];
+			blackToColumnedIndex[bsloc] = oldBlackToColumnedIndex[bsloc-1]; 
 			bsloc++; 
 		}
 		
@@ -639,8 +645,8 @@ public class DiachronicSimulator {
 		{
 			if (stageOrdering[soi].charAt(0) == 'g')
 				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
-			else if (stageOrdering[soi].charAt(0) == 'b')
-				stageOrdering[soi] = "b"+(1 + Integer.parseInt(stageOrdering[soi].substring(1))); 
+			else // stageOrdering[soi].charAt(0) == 'b' || 'B'
+				stageOrdering[soi] = stageOrdering[soi].charAt(0)+""+(1 + Integer.parseInt(stageOrdering[soi].substring(1))); 
 			soi++; 
 		}
 	}		
