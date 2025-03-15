@@ -584,8 +584,15 @@ public class DiachronicSimulator {
 			{	
 				if (nextLine.contains(UTILS.FORM_ID_FLAG+"") && UTILS.USE_FORM_ID)
 					formIDs.add(nextLine.substring(nextLine.lastIndexOf(UTILS.FORM_ID_FLAG)+1));
+				
+				
+				//comments now being added to Etymon class.
 				if (nextLine.contains(UTILS.CMT_FLAG+""))
-					nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
+				{
+					// old version, just this: nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
+					String lineSansComments = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
+					if (lineSansComments.equals(""))	continue;
+				}
 				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
 			}
 			in.close(); 
@@ -628,19 +635,33 @@ public class DiachronicSimulator {
 		{
 			String theLine = lexFileLines.get(lfli);
 			
+			String commentContents = "";
+			boolean commented = theLine.contains(UTILS.CMT_FLAG+""); 
+			if (commented) {
+				commentContents = theLine.substring(theLine.indexOf(UTILS.CMT_FLAG+"")); 
+				theLine = theLine.substring(0,theLine.indexOf(UTILS.CMT_FLAG)).trim(); 
+			}
+			
 			if(/**lfli <NUM_ETYMA && */numCols != UTILS.countColumns(theLine))
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli+".\nThe line: "+theLine);
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics);
+			if (commented)	inputForms[lfli].setComments(commentContents);
+			
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_GOLD_STAGES > 0)
-					for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++)
+				{	for (int gsi = 0 ; gsi < NUM_GOLD_STAGES ; gsi++) {
 						goldForms[gsi][lfli] = UTILS.parseLexPhon(forms[gsi+1],no_symb_diacritics);
-				if (hasGoldOutput)
+						if(commented)	goldForms[gsi][lfli].setComments(commentContents);
+					}
+				}
+				if (hasGoldOutput) {
 					goldResults[lfli] = UTILS.parseLexPhon(forms[NUM_GOLD_STAGES+1],no_symb_diacritics);
+					if(commented)	goldResults[lfli].setComments(commentContents);
+				}
 			}
 			lfli++;
 		}		
@@ -1239,6 +1260,7 @@ public class DiachronicSimulator {
 							+ "5 : get time step(s) of any rule whose string form contains the submitted string\n"
 							+ "6 : print all rules by time step.\n"
 							+ "7 : get phonemic inventory at pivot point (you need to have set pivot point).\n"
+							+ "8 : get any comments left in lexicon file for an etymon, by its ID.\n"
 							+ "9 : return to main menu.\n"); 
 					resp = ""; 
 					while (resp.equals(""))
@@ -1247,7 +1269,7 @@ public class DiachronicSimulator {
 					resp.replace("\n", "");
 					
 					promptQueryMenu = false;
-					if( !"012345679".contains(resp) || resp.length() > 1 ) {
+					if( !"0123456789".contains(resp) || resp.length() > 1 ) {
 						System.out.println("Error : '"+resp+"' is not in the list of valid indicators. Please try again.");
 						promptQueryMenu = true;
 					}
@@ -1278,10 +1300,10 @@ public class DiachronicSimulator {
 							else	System.out.println("Ind(s) with the form /"+query+"/ as input : "+inds);  
 						}
 					}
-					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
+					else if(resp.equals("1")||resp.equals("3") || resp.equals("4") || resp.equals("8"))
 					{
-						System.out.println("Enter the ID to query:");
-						String idstr = inpu.nextLine(); 
+						System.out.println("Enter the " + (resp.equals("4") ? "rule number" : "ID" ) +" to query:");
+						String idstr = inpu.nextLine();  
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
@@ -1298,9 +1320,16 @@ public class DiachronicSimulator {
 						}
 						else
 						{
-							if(promptQueryMenu)	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
+							if(promptQueryMenu)	/*shouldn't occur anyways but oh well*/	System.out.println("Error -- there are only "+NUM_ETYMA+" etyma. Returning to query menu."); 
 							else if(resp.equals("1"))	System.out.println(inputForms[theID]); 
-							else 	System.out.println(""+theSimulation.getDerivation(theID));
+							else if (resp.equals("3"))	System.out.println(""+theSimulation.getDerivation(theID));
+							else /*must be 8, comments*/ 
+							{
+								String cmt = inputForms[theID].getComments().trim(); 
+								if (cmt.length() == 0)	System.out.println("No comments for this item!"); 
+								else	System.out.println(cmt);
+								promptQueryMenu = true; 
+							}
 						}
 					}
 					else if(resp.equals("2"))

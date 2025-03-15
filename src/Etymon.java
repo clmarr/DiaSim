@@ -18,6 +18,7 @@ public class Etymon {
 	protected String lemma; //name of its paradigm
 	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
 	protected String formID; //form ID for use in project with Borja. 
+	protected String comments; //flagged comments in lexicon file. 
 	protected HashMap<String,String> morphSynSpecs; 
 	protected double frequency; // token frequency, if present; else -1 (which is default).
 	protected List<String> domains; // semantic domains 
@@ -37,6 +38,7 @@ public class Etymon {
 		}
 		this.lemma = ""; 
 		this.lexClass = ""; 
+		this.comments = "";
 		this.morphSynSpecs = new HashMap<String,String>(); 
 		this.frequency = -1.0; 
 		this.domains = new ArrayList<String>(); 
@@ -127,13 +129,9 @@ public class Etymon {
 
 	public String getFormID() {	return formID;	} 
 	
-	public String getLemma() {
-		return lemma;
-	}
-
-	public String getLexClass() {
-		return lexClass;
-	}
+	public String getLemma() {	return lemma;	}
+	public String getLexClass() {		return lexClass;	}
+	public String getComments()	{	return comments;	}
 	
 	public String checkMorphSynSpec(String feat)	{	return morphSynSpecs.get(feat);	}
 	public HashMap<String, String> getMorphSynSpecs()	{	return new HashMap<String, String>(morphSynSpecs);	}
@@ -217,6 +215,7 @@ public class Etymon {
 	public void setLemma(String lemma) {	this.lemma = lemma;	}
 
 	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}
+	public void setComments(String comments)	{	this.comments= comments;	}
 	
 	public void setMorphSynSpec (String feat, String val)	{	morphSynSpecs.put(feat, val);	}
 	public void removeMorphSynSpec	(String feat)	{	morphSynSpecs.remove(feat);	}

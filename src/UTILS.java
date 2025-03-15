@@ -195,6 +195,8 @@ public class UTILS {
 	public static int countColumns(String row)
 	{
 		String proxy = row+"";
+		if (proxy.contains(CMT_FLAG+""))
+			proxy = proxy.substring(0, proxy.indexOf(CMT_FLAG+""));
 		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{
