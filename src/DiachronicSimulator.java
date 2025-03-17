@@ -510,8 +510,49 @@ public class DiachronicSimulator {
 		if(to_columned)	makeBlackStageColumned(newBlackLoc);
 	}		
 
+	/**
+	 * determine if the column with the index (@param col_ind) in the array of columned cells that are potentially gold Lexica
+	 * 	should be blackened to a columned black stage
+	 * 	this is to occur if it consists of only insertions and deletions
+	 * 		which is determined by the presence of PseudoEtymon objects. 
+	 * @param stage_cells -- column/row combinations from the lexicon after being parsed by parseLexPhon.
+	 * 		dimensions should be [column][row] 
+	 * @param col_ind index of column to check. Note that this does not include the input column. 
+	 * 		in practice this should not be called for the final column. 
+	 * @prerequisite -- inputForms and NUM_ETYMA must be set. 
+	 * @return
+	 */
+	private static boolean columnToBeBlackened(Etymon[][] stage_cells, int col_ind)
+	{	
+		//return false if there's ever (at the least) an Etymon object that isn't a PseudoEtymon (e.g. has a phonological representation) 
+			// that is in the same row as an earlier 
+			// if make it to the end... true.
+
+		for (int row_ind = 0 ; row_ind < NUM_ETYMA; row_ind ++)
+		{
+			if (!UTILS.etymonIsPresent(stage_cells[col_ind][row_ind]))	continue; 
+
+			//otherwise this will trigger false if and only if there is phonological material here that is not an *insertion*. 
+			//if previous column in the row is an absent etymon, it's obviously an insertion...
+			// if previous column is unattested, see what it's continuing by looking further back as long as unattested etyma indications go back. 
+			//	 	brekaing the loop and calling false if phonological material is found. 
+			// 		and continuing on if an a specification that the etymon was absent is found -- i.e. the same behavior as if it was actually absent. 
+			int col_before = col_ind - 1; 
+			while (col_before < 0 ? false : UTILS.UNATTD_GOLD_INDIC.equals(stage_cells[col_before][row_ind]))	
+				col_before--; 
+
+			Etymon prevCell = col_before == -1 ? inputForms[row_ind] : stage_cells[col_before][row_ind]; 
+
+			if (UTILS.etymonIsPresent(prevCell))	return false; 
+
+			//if (UTILS.ABSENT_REPR.equals(prevCell.print()))	continue; 
+			// effectively, the loop continues otherwise.
+		}
+		return true; 
+	}
 	
-	/** processLexFileHeader
+	
+	/** coordinateStages
 	 * matching (or not) stages declared in cascade file with structure in lexicon file 
 	 * 		to coordinate stages as they will function in simulation and determine appropriate behavior. 
 	 * Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -748,7 +789,7 @@ public class DiachronicSimulator {
 		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		
-		//TODO handling of column stages should begin here, possibly within processLexFileHeader.
+		//TODO handling of column stages should begin here, possibly within coordinateStages.
 		coordinateStages(firstlineproxy); 
 		
 		if (VERBOSE)
