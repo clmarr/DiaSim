@@ -98,7 +98,9 @@ public class SimulationTester {
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
-		ErrorAnalysis checker = standardChecker(testSimul.getCurrentResult(), new Lexicon(inputForms)); 
+		Lexicon dummyResult = testSimul.getCurrentResult();
+		dummyResult.markEtymaReconstructed(); 
+		ErrorAnalysis checker = standardChecker(dummyResult, new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
@@ -116,8 +118,9 @@ public class SimulationTester {
 		testSimul.iterate();
 		
 		System.out.println("Checking integrity of stored input forms after step."); 
-		
-		checker = standardChecker(testSimul.getInput(), new Lexicon(inputForms)); 
+		dummyResult = testSimul.getInput();
+		dummyResult.markEtymaReconstructed();
+		checker = standardChecker(dummyResult, new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
@@ -904,7 +907,7 @@ public class SimulationTester {
 				+ "had no effect beyond that of the previous rule (which appears to have been correctly formed)."); 
 		corDD = "/hˈajtən/\n" + 
 				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : *#hˈajtən# > *#hˈajtə̃n# | bled or deleted\n" + 
+				"1[1|-1] : #hˈajtən# > *#hˈajtə̃n# | bled or deleted\n" + 
 				"4[4|1] : *#hˈajtə̃n# > *#hˈʌjtə̃n# | *#hˈajtən# > *#hˈʌjtən#\n" + 
 				"1[-1|2] : fed or inserted | *#hˈʌjtən# > *#hˈʌjtə̃n#\n" + 
 				"Waypoint 1 Gold : *#hˈʌjtə̃n# | *#hˈʌjtə̃n#\n" + 
