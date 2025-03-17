@@ -78,7 +78,7 @@ public class Simulation {
 		stagesOrdered = orderedStages;
 	}
 	
-	// no intermediate columned stages, only uncolumned black. 
+	// no intermediate columned stages, only uncolumned black. If there are columned stages, they must be separately entered, via setColumnedStages
 	public Simulation(Etymon[] inputForms, List<SChange> casc, String[] orderedStages)
 	{
 		initialize(inputForms,casc);
@@ -141,15 +141,18 @@ public class Simulation {
 	 * @prerequisite @param blackStageColumnedIndices[black_stage_index] = -1 if it's not a columned black stage
 	 * 	otherwise it is
 	 * builds @global columnedBlackStageLexica, columnedStageNames, columnedStageInstants,
-	 * 		 goldStageGoldLexica, goldStageNames, goldStageInstants
+	 * 		 goldStageGoldLexica, goldStageNames, goldStageInstants,
+	 * 	 @initializes, @destructive also remakes @global goldStageResultLexica as well
+	 * 		and @iff blackstages were not set, @global blackStageResultLexica, blackStageInstant, blackStageNames
 	 */
 	public void setColumnedStages(Etymon[][] stageForms, String[] names, int[] times, int[] blackStageColumnedIndices) 
 	{
 		for (int bsi = 0 ; bsi < blackStageColumnedIndices.length; bsi++)
 			if (blackStageColumnedIndices[bsi] != -1)	columnedBlackStageBlackIndices.add(bsi); 
+		
 		NUM_COLUMNED_BLACK_STAGES = columnedBlackStageBlackIndices.size(); 
 		columnedBlackStageLexica = new Lexicon[NUM_COLUMNED_BLACK_STAGES]; 
-
+		
 		NUM_GOLD_STAGES = names.length - NUM_COLUMNED_BLACK_STAGES; 
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES] ;
 		goldStageNames = new String[NUM_GOLD_STAGES]; 
@@ -158,6 +161,17 @@ public class Simulation {
 		columnedStageNames = names; 
 		columnedStageInstants = times;
 		
+		boolean blackStagesNotSetYet = NUM_BLACK_STAGES == 0;
+		if (blackStagesNotSetYet)	 // no black or no gold stages previously set -- if so, need this to dodge weird errors.
+		{
+			NUM_BLACK_STAGES = NUM_COLUMNED_BLACK_STAGES; 
+			blackStageResultLexica = new Lexicon[NUM_BLACK_STAGES]; 
+			blackStageNames = new String[NUM_BLACK_STAGES]; 
+			blackStageInstants = new int[NUM_BLACK_STAGES];
+		}//TODO NOTE black stages are going to be the same as columned black stages in all ways in this situation
+		//will also have to dodge semianalogous errors for gold either way... 
+		goldStageResultLexica = new Lexicon[NUM_GOLD_STAGES]; 
+
 		int  gsfi = 0, cbsfi = 0; 
 		
 		for (int soi = 0 ; soi < stagesOrdered.length; soi++)
@@ -174,11 +188,17 @@ public class Simulation {
 			else if (stageTypeIndic == 'B') //columned black stage
 			{
 				columnedBlackStageLexica[cbsfi] = new Lexicon(stageForms[column]); 
-				// names and instants -- can be accessed via columnedBlackStageBlackIndices to coordinate.
-					//we assume that won't cause errors;
+				// names and instants for columned black -- can be accessed via columnedBlackStageBlackIndices to coordinate.
+					//we assume that won't cause errors -- except the case accounted for below wherein there were no uncolumned black stages 
+						// and they weren't already set
+				if (blackStagesNotSetYet)	{	
+					blackStageNames[cbsfi] = names[column]; blackStageInstants[cbsfi] = times[column]; 
+				}
+				
 				cbsfi++; 
 			}
 		}
+		
 	}
 	
 	public void setBlackStages(String[] names, int[] times)
@@ -255,7 +275,7 @@ public class Simulation {
         			//TODO will need to handle this somewhere else -- but where, and how to ensure correct behavior here? 
         		//TODO also need to handle "black stages" which just consist of an updateAbsence call effectively,
         				// not comparison of reconstructed vs. observed forms...?
-        		//TODO as of March 16, 2025, handling this by marking etyma reconstructed only after a rule has been iterated on (whether it affected them or not)
+        		//TODO NOTE as of March 16, 2025, handling this by marking etyma reconstructed only after a rule has been iterated on (whether it affected them or not)
         			// so words not marked as reconstructed will not be compared. 
         		goldStageInd++;
         	} //else, black stage

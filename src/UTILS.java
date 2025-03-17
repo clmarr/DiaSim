@@ -372,6 +372,7 @@ public class UTILS {
 	public static boolean checkWord(Etymon correct, Etymon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
+		if (o.startsWith("*"))	o = o.substring(1); 
 		boolean result = c.equals(o); 
 		if (!result)	System.out.println(errorMessage(c,o,errMessage)); 
 		return result; 
