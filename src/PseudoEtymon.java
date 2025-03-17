@@ -24,7 +24,7 @@ import java.util.HashMap;
 					// the latter are for unattested GOLD lexicon items -- i.e. those not included in diagnostic analysis
 					// i.e. NOT unattested reconstructions!
 				public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_GOLD_REPR); 
-			also hte method UTILS.etymonIsPresent
+			also the method UTILS.etymonIsPresent
  * @author Clayton Marr
  */
 public class PseudoEtymon extends Etymon {
@@ -123,4 +123,7 @@ public class PseudoEtymon extends Etymon {
 			throw new RuntimeException( "Alert: tried to set "+param+" (to '"+target+"') "
 					+ "an etymon that is currently absent! Check this.");	 
 	}
+	
+	public boolean isReconstructed()	{	return false;	}
+	
 }
