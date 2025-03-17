@@ -1136,7 +1136,7 @@ public class DHSWrapper {
 			int deleteLoc, String deletionNotes, String newLaw, List<SChange> newRules, String insertionNotes)
 	{
 		// catch possible errors.  
-		if (targ.length() < 2 ? true : !("gb".contains(targ.charAt(0)+"") && UTILS.isInt(targ.substring(1)) ) )
+		if (targ.length() < 2 ? true : !("GbB".contains(targ.charAt(0)+"") && UTILS.isInt(targ.substring(1)) ) )
 			throw new RuntimeException("ERROR: <targ> for processChWithAddNearWaypoint invalid. "
 					+ "\nForm must be g# or b# to target the #th gold or black stage.");
 		if(deleteLoc == -1 || deletionNotes.equals("")) // must be simple insertion. 
@@ -1655,7 +1655,7 @@ public class DHSWrapper {
  
 	private int strToHypStageLoc (String s)
 	{
-		if (s.length() < 2 ? true : (!"gb".contains(s.charAt(0)+"") || !UTILS.isInt(s.substring(1))) )
+		if (s.length() < 2 ? true : (!"GbB".contains(s.charAt(0)+"") || !UTILS.isInt(s.substring(1))) )
 			throw new RuntimeException("Invalid string form for stage"); 
 		return (s.charAt(0) == 'G' ? hypGoldLocs : hypBlackLocs)[Integer.parseInt(s.substring(1))]; 
 	}

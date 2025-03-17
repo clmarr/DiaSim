@@ -367,15 +367,15 @@ public class SimulationTester {
 		//now check syntax of differential derivation of a word that was indeed changed. 
 		String corDD = "/mˈowltəd/\n" 
 				+ "CONCORDANT UNTIL RULE : 0\n"
-				+ "0[-1|0] : fed or inserted | *#mˈowltəd# > *#mˈowlˠtəd#\n"
+				+ "0[-1|0] : fed or inserted | #mˈowltəd# > *#mˈowlˠtəd#\n"
 				+ "Waypoint 1 Gold : *#mˈowltəd# | *#mˈowlˠtəd#\n"
-				+ "6[5|6] : *#mˈowltəd# > *#mˈowlʔəd# | *#mˈowlˠtəd# > *#mˈowlˠʔəd#\n"
+				+ "6[5|6] : #mˈowltəd# > *#mˈowlʔəd# | *#mˈowlˠtəd# > *#mˈowlˠʔəd#\n"
 				+ "Waypoint 2 Black : *#mˈowlʔəd# | *#mˈowlˠʔəd#\n"
 				+ "Waypoint 3 Gold : *#mˈowlʔəd# | *#mˈowlˠʔəd#\n"
 				+ "Final forms : *#mˈowlʔəd# | *#mˈowlˠʔəd#";
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed"); 
+				"ERROR: differential derivation for 'molted' is malformed.\nCorrect:\n"+corDD+"\nObserved:\n"+theDHS.getDifferentialDerivation(26)); 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
@@ -644,9 +644,9 @@ public class SimulationTester {
 		// also testing differential derivation generation for case of a forward relocdation in this block.
 		corDD = "/bˈʌtə˞/\n" + 
 				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : *#bˈʌtə˞# > *#bˈʌɾə˞# | bled or deleted\n" + 
+				"1[1|-1] : #bˈʌtə˞# > *#bˈʌɾə˞# | bled or deleted\n" + 
 				"Waypoint 1 Gold : *#bˈʌɾə˞# | *#bˈʌtə˞#\n" + 
-				"1[-1|5] : fed or inserted | *#bˈʌtə˞# > *#bˈʌɾə˞#\n" + 
+				"1[-1|5] : fed or inserted | #bˈʌtə˞# > *#bˈʌɾə˞#\n" + 
 				"Waypoint 2 Black : *#bˈʌɾə˞# | *#bˈʌɾə˞#\n" + 
 				"7[7|-1] : *#bˈʌɾə˞# > *#bˈʌɾə# | bled or deleted\n" + 
 				"Waypoint 3 Gold : *#bˈʌɾə# | *#bˈʌɾə˞#\n" + 
