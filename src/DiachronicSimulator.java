@@ -525,7 +525,7 @@ public class DiachronicSimulator {
 	private static boolean columnToBeBlackened(Etymon[][] stage_cells, int col_ind)
 	{	
 		//return false if there's ever (at the least) an Etymon object that isn't a PseudoEtymon (e.g. has a phonological representation) 
-			// that is in the same row as an earlier 
+			// that is in the same row as an earlier non-PseudoEtymon 
 			// if make it to the end... true.
 
 		for (int row_ind = 0 ; row_ind < NUM_ETYMA; row_ind ++)
@@ -535,10 +535,10 @@ public class DiachronicSimulator {
 			//otherwise this will trigger false if and only if there is phonological material here that is not an *insertion*. 
 			//if previous column in the row is an absent etymon, it's obviously an insertion...
 			// if previous column is unattested, see what it's continuing by looking further back as long as unattested etyma indications go back. 
-			//	 	brekaing the loop and calling false if phonological material is found. 
+			//	 	breaking the loop and calling false if phonological material is found (because that would mean this is a stagewise gold form to compare against)
 			// 		and continuing on if an a specification that the etymon was absent is found -- i.e. the same behavior as if it was actually absent. 
 			int col_before = col_ind - 1; 
-			while (col_before < 0 ? false : UTILS.UNATTD_GOLD_INDIC.equals(stage_cells[col_before][row_ind]))	
+			while (col_before < 0 ? false : UTILS.UNATTD_GOLD_REPR.equals(stage_cells[col_before][row_ind].print()))	
 				col_before--; 
 
 			Etymon prevCell = col_before == -1 ? inputForms[row_ind] : stage_cells[col_before][row_ind]; 
