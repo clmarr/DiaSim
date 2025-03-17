@@ -27,7 +27,7 @@ public class ErrorAnalysis {
 	private int[] PRESENT_ETS; 
 	// TODO investigate uses.
 
-	private boolean pivotSet, filtSet;
+	private boolean pivotSet, filtSet; 
 	private SequentialFilter filterSeq; 
 	private int[] FILTER; //indices of all etyma in subset
 	// TODO investigate uses. 	
@@ -58,6 +58,7 @@ public class ErrorAnalysis {
 		// features that never vary. To be detected upon construction.
 	private List<String> pivotInactiveFeats; 
 		// inactive features for subsample at pivot point. Might be a slightly smaller set, for one reason or another. Defined when pivot is made. 
+		// currently not used 
 	
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
@@ -115,8 +116,8 @@ public class ErrorAnalysis {
 		RES = theRes;
 		GOLD = theGold; 
 		PIV_PT_LEX = null; //must be manually set later, e.g. setPivot() 
-		filtSet = false;
-		pivotSet = false; // set with setFilter() later. 
+		filtSet = false;// set with setFilter() later. 
+		pivotSet = false;  /*pivotingOnGoldOrInput = false;*/  // set with setPivot()
 		
 		featDist = fedCalc; 
 		featsByIndex = UTILS.featsByIndex;
@@ -182,8 +183,9 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			IN_SUBSAMP[i] = true; 		// until filter is set, all words are "in the subsample"
-
+			IN_SUBSAMP[i] = true; 	// until filter is set, all words are "in the subsample"
+			boolean inheritedTillNow = theRes.getByID(i).isReconstructed(); 
+			
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
 				Etymon currEt = theRes.getByID(i);
@@ -197,7 +199,8 @@ public class ErrorAnalysis {
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
-			if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR) && !theGold.getByID(i).print().equals(UTILS.ABSENT_REPR))
+			if (inheritedTillNow &&  //don't include recently inserted etyma for calculations!
+					!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR) && !theGold.getByID(i).print().equals(UTILS.ABSENT_REPR))
 			{	
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
@@ -215,8 +218,8 @@ public class ErrorAnalysis {
 				if(!isHit[i])
 					updateConfusionMatrix(i);
 						//also increments errorsBy(Res/Gold)Phone^ 
-			}
-			else	isHit[i] = true;
+			}//for recently inserted etyma, they will always be equal to the form they were just inserted as!
+			else	isHit[i] = true; 
 		}
 		
 		globalMismatches.addAll(subsampMismatches);
@@ -243,12 +246,10 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i].print()); 
 		
-		inactiveFeats = inactiveFeatList(RES); 
-		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD);
-		
-		//TODO Debugging
-		// System.out.println("inactive feats now at : "+inactiveFeats.size()); 
-		// for (String ifi : inactiveFeats)	System.out.println(ifi); 
+		inactiveFeats = inactiveFeatList(RES, true); 
+		// now remove feats that aren't active in result lexicon but are in the gold
+			// -- this is not a redundancy
+		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD,false);
 	}
 	
 	public void removeFilter()
@@ -276,6 +277,10 @@ public class ErrorAnalysis {
 		if(pivotSet)	articulateSubsample(filt_name); 
 	}
 	
+	/**
+	 * @param newPiv -- pivot lexicon
+	 * @param piv_name -- name of it
+	 */
 	public void setPivot(Lexicon newPiv, String piv_name)
 	{
 		PIV_PT_LEX = newPiv; 
@@ -315,7 +320,7 @@ public class ErrorAnalysis {
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
-			pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX); 
+			pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX, false); 
 		}
 	}
 	
@@ -344,7 +349,7 @@ public class ErrorAnalysis {
 			return;
 		}
 		
-		List<String> inactiveGoldFeats = inactiveFeatList(GOLD);
+		List<String> inactiveGoldFeats = inactiveFeatList(GOLD,false);
 		
 		int N_CONFS_TO_PRINT = 5; 
 		
@@ -428,6 +433,7 @@ public class ErrorAnalysis {
 	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
+	// this method assumes that the word with @param err_id is reconstructed, otherwise this method would be called
 	private void updateConfusionMatrix(int err_id)
 	{
 		Etymon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
@@ -756,6 +762,10 @@ public class ErrorAnalysis {
 	// or we have already checked that both phones involve are in fact present in both words
 	private boolean hasMismatch(int rphi, int gphi, Etymon rlex, Etymon glex)
 	{
+		//no mismatch if rlex if they are the same, ignoring reconstructed marking *
+		if (rlex.toString().replace("*","").equals(glex.toString().replace("*","")))
+			return false;
+		
 		SequentialPhonic[][] alignment = getAlignedForms(rlex, glex); 
 	
 		SequentialPhonic rph = new NullPhone(), gph = new NullPhone(); 
@@ -818,67 +828,7 @@ public class ErrorAnalysis {
 
 		return out;
 	}
-	/** obselete version of above class -- unnecessary and excessive. 
-	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
-	{
-		//TODO debugging
-		System.out.println("r: "+r+"; g "+g);
-		
-		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
-		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this..
-			// nested index [0] -- location (or non-location for -1, -2)
-		
-		//TODO debugging
-		System.out.println("align_stipul: "); 
-		for (int asi = 0; asi < align_stipul.length ; asi++)
-			System.out.println(UTILS.print1dIntArr(align_stipul[asi])); 
-		
-		SequentialPhonic[] rphs = r.getPhOnlySeq(), gphs = g.getPhOnlySeq(); 
-
-		int al_len = rphs.length;
-		for (int a = 0; a < align_stipul.length; a++)
-			if (align_stipul[a][1] == -1)	al_len++; 
-		
-		SequentialPhonic[][] out = new SequentialPhonic[al_len][2]; 
-		int ari = 0, agi = 0; 
-		
-		//comments conceptualize the alignment relationship as a "transformation of the result to the gold" 
-		
-		for(int oi = 0 ; oi < al_len; oi++)
-		{
-			//TODO debugging
-			System.out.println("ari "+ari+"; agi "+agi+"; oi "+oi);
-			
-			if (align_stipul[ari][0] == -1) // deletion of phone at place <ari> in result
-			{
-				out[oi][0] = rphs[ari]; ari++;
-				out[oi][1] = new NullPhone(); 
-			}
-			else if (align_stipul[ari][0] == -2) //deletion of result phone next to word boundary
-			{
-				out[oi][0] = new NullPhone(); ari++; 
-				out[oi][1] = gphs[agi]; agi++; 
-			}
-			else if (align_stipul[agi][1] == -1) //insertion of phone at place <agi> in gold
-			{
-				out[oi][0] = new NullPhone(); 
-				out[oi][1] = gphs[agi]; agi++;
-			}
-			else if (align_stipul[agi][1] == -2) // insertion at boundary for gold 
-			{
-				out[oi][0] = rphs[ari]; ari++; 
-				out[oi][1] = new NullPhone(); agi++; 
-			}
-			else //this means backtrace must be diagonal -- meaning a substitution occurred, or they are identical
-			{
-				out[oi][0] = rphs[ari]; ari++; //this should be true before ari is incremented : ari == align_stipul[agi]
-				out[oi][1] = gphs[agi]; agi++; // same for agi == align_stipul[ari]
-			}
-		}
-		
-		return out;
-	}*/ 
-
+	
 	//auxiliary
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
@@ -978,9 +928,6 @@ public class ErrorAnalysis {
 	*/
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
-		//TODO debugging
-		System.out.println("res ph inventory size : "+resPhInventory.length);
-		
 		int[][] maxLocs = new int[n][2]; 
 			// list of the locations(row, col) with the top N greatest values
 			// in descending order. 
@@ -1106,11 +1053,10 @@ public class ErrorAnalysis {
 			
 			double n_words_ph_in = 0;
 			
-			
 			double totLevDist = 0.0, totFED = 0.0;
 			for (int eti = 0 ; eti < TOTAL_ETYMA; eti++)
 			{
-				if(phInEt[ph_ind_str][eti])	
+				if(phInEt[ph_ind_str][eti] && (use_gold ? true : RES.getByID(eti).isReconstructed()))	
 				{
 					totLevDist += levDists[eti];
 					totFED += feds[eti]; 
@@ -1231,11 +1177,11 @@ public class ErrorAnalysis {
 		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR))
-				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time;.
+			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR) && !RES.getByID(isi).isReconstructed())
+				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time, or just inserted in result lexicon.
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
-			if(IN_SUBSAMP[isi])
+			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed())
 			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
@@ -1252,7 +1198,6 @@ public class ErrorAnalysis {
 				totFED += feds[isi]; 
 			}
 		}
-		
 		
 		FILTER = new int[EVAL_SAMP_SIZE];
 		SS_HIT_IDS = new int[nSSHits];
@@ -1318,7 +1263,7 @@ public class ErrorAnalysis {
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
 		}
 		
-		pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX); 
+		pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX,false); 
 	}
 	
 	
@@ -1469,6 +1414,9 @@ public class ErrorAnalysis {
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
+			// skip if not reconstructed.
+			if (!RES.getByID(SS_HIT_IDS[hi]).isReconstructed())	continue; 
+			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
 
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
@@ -1486,6 +1434,9 @@ public class ErrorAnalysis {
 		}
 		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
+			// skip if not reconstructed, though for misses tihs is probably redundant -- just inserted would not be a miss. 
+			if (!RES.getByID(SS_MISS_IDS[mi]).isReconstructed())	continue; 
+						
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
 
 			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
@@ -1522,6 +1473,9 @@ public class ErrorAnalysis {
 		for (int pi = 0 ; pi < phs.size(); pi++) {
 			for (int eti = 0; eti < ids.length ; eti++)
 			{
+				//exclude if not reconstructed in RES
+				if (!RES.getByID(ids[eti]).isReconstructed())	continue;
+				
 				List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(ids[eti]).getPhonologicalRepresentation();
 				for(int[] bound : theBounds.get(eti))
 				{
@@ -2094,15 +2048,9 @@ public class ErrorAnalysis {
 		return predictor + numeric_element; 
 	}
 	
-	public boolean isFiltSet()
-	{
-		return filtSet; 
-	}
-	
-	public boolean isPivotSet()
-	{
-		return pivotSet;
-	}
+	public boolean isFiltSet()	{	return filtSet;	}
+
+	public boolean isPivotSet()	{	return pivotSet;	}
 	
 	/** printStagedGraph 
 	 *  -- print graph where for each etymon, its form at a certain stage (incl pivot point if specified) is printed... 
@@ -2116,7 +2064,7 @@ public class ErrorAnalysis {
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if (errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
+			if ( errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
@@ -2142,18 +2090,19 @@ public class ErrorAnalysis {
 	/** inactiveFeatList  
 	 * 
 	 * @param samp -- lexicon working with
+	 * @param inheritedOnly -- excludes words just inserted, i.e. not marked (*) as reconstructed
 	 * @return list of features [(+/-)feat] that do not vary within the sample. 
 	 * 		@note that at present this counts unspecified as not being unequal to + or -
 	 * 			and thus grounds for removal
 	 * 			thus features like [delrel] and [stres] may not ever be treated as inactive
 	 * 			@todo consider fixing that so that UNSPEC and [-] do NOT get treated as equal. 
 	 */
-	private List<String> inactiveFeatList(Lexicon samp)
+	private List<String> inactiveFeatList(Lexicon samp, boolean inheritedOnly)
 	{
 		ArrayList<String> out = new ArrayList<String>(); 
 		for (String fbi : featsByIndex)
 		{	out.add(UTILS.MARK_POS+fbi); out.add(UTILS.MARK_NEG+fbi);	}
-		return rmvFeatsActiveInSample(out,samp); 
+		return rmvFeatsActiveInSample(out,samp,inheritedOnly); 
 	}
 	
 	/** rmvFeatsActiveInSample
@@ -2166,7 +2115,7 @@ public class ErrorAnalysis {
 	 * 			(will include the values that the feature CONSTANTLY has: e.g. -splng if all segments are -splng. )  
 	 * @beware -- will be limited to feats in @param earlier_inactive_list -- may need to reinitialize that. 
 	 */
-	public List<String> rmvFeatsActiveInSample(List<String> earlier_inactive_list, Lexicon sample)
+	public List<String> rmvFeatsActiveInSample(List<String> earlier_inactive_list, Lexicon sample, boolean inheritedOnly)
 	{
 		if (earlier_inactive_list.size() == 0)	return earlier_inactive_list; 
 		
@@ -2174,7 +2123,7 @@ public class ErrorAnalysis {
 				indexedFeatList = Arrays.asList(featsByIndex); 
 		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
 		{
-			if (IN_SUBSAMP[idi])
+			if (IN_SUBSAMP[idi] && (inheritedOnly ? sample.getByID(idi).isReconstructed() : true))
 			{
 				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
 				for (SequentialPhonic phmi : repi)

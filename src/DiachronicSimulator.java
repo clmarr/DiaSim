@@ -1145,6 +1145,7 @@ public class DiachronicSimulator {
 		String pivPtName = ""; 
 		int pivPtLoc = -1; 
 		boolean pivPtSet = false, filterIsSet = false;
+		//boolean pivPtIsGoldOrInput = false; 
 		
 		while(cont)
 		{
@@ -1291,6 +1292,7 @@ public class DiachronicSimulator {
 							pivPtLex = goldStageGoldLexica[si]; 
 							pivPtLoc = goldStageInstants[si];
 							pivPtName = goldStageNames[si]+" [r"+pivPtLoc+"]";
+							//pivPtIsGoldOrInput = true; 
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'b')
@@ -1299,6 +1301,7 @@ public class DiachronicSimulator {
 							pivPtLex = theSimulation.getStageResult(false, si);
 							pivPtLoc = blackStageInstants[si];
 							pivPtName = blackStageNames[si]+" [r"+pivPtLoc+"]";
+							//pivPtIsGoldOrInput = false; 
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'R')
@@ -1306,6 +1309,7 @@ public class DiachronicSimulator {
 							pivPtLoc = Integer.parseInt(resp.substring(1)); 
 							pivPtLex = UTILS.toyDerivation(theSimulation,CASCADE.subList(0, pivPtLoc)).getCurrentResult();
 							pivPtName = "pivot@R"+pivPtLoc; 
+							//pivPtIsGoldOrInput = false; 
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (!resp.equals("Keep"))
@@ -1318,12 +1322,14 @@ public class DiachronicSimulator {
 								filterIsSet = false; 
 								pivPtName = "";
 								pivPtSet = false; 
+								//pivPtIsGoldOrInput = false; 
 							}
 							else
 							{	
 								pivPtLex = resp.equals("In") ? theSimulation.getInput() : 
-								resp.equals("Out") ? theSimulation.getCurrentResult() : 
+									resp.equals("Out") ? theSimulation.getCurrentResult() : 
 									(curSt == -1) ? goldOutputLexicon : goldStageGoldLexica[curSt];
+								//pivPtIsGoldOrInput = !resp.equals("Out"); // based on the above -- if there's reason to adjust this, then this too
 								ea.setPivot(pivPtLex,pivPtName);
 							}
 						}
