@@ -22,7 +22,7 @@ public class Etymon {
 	protected HashMap<String,String> morphSynSpecs; 
 	protected double frequency; // token frequency, if present; else -1 (which is default).
 	protected List<String> domains; // semantic domains 
-	protected boolean reconstructed; //* true if unattested, but considered for stats. 
+	protected boolean reconstructed; //* true if unattested predicted forms via forward reconstruction; considered for stats. 
 		// i.e. forward reconstructed states OR INCLUDED but unattested backward reconstructed states (e.g. proto-Indo-European forms)
 		// Not to be confused with absent etyma, including absent unattested etyma not to be considered in diagnostics.  
 	

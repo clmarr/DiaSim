@@ -107,6 +107,8 @@ public class ErrorAnalysis {
 	 * @param fedCalc -- Feature Edit Distance calculator object.
 	 * TODO need to make sure this is called BEFORE Lexicon.updateAbsence occurs, so that just-inserted etyma do not inflate accuracy. 
 	 * TODO need to insure that INSERTED etyma are not contributing to calculations!! 
+	 * 		as of March 16, 2025, using !Etymon.reconstructed to exclude recently inserted ones. 
+	 * TODO NOTE that phonemes only in inserted etyma (loan phonemes if you will) will NOT be included! 
 	 */
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, FED fedCalc)
 	{
@@ -128,8 +130,8 @@ public class ErrorAnalysis {
 							+ "given the paramount of importance of keeping etymon indices constant. "
 							+ "Investigate this."); 
 		
-		resPhInventory = theRes.getPhonemicInventory();
-		goldPhInventory = theGold.getPhonemicInventory();
+		resPhInventory = theRes.getPhonemicInventory(true);
+		goldPhInventory = theGold.getPhonemicInventory(false);
 		
 		// unlike the *etymon* indices these indices here are not (and cannot) be held equivalent to each other 
 			// -- that would be too brittle. 
@@ -230,8 +232,8 @@ public class ErrorAnalysis {
 		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
-		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
-				goldPhCts = theGold.getPhonemeCounts(); 
+		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(true), 
+				goldPhCts = theGold.getPhonemeCounts(false); 
 		
 		// TODO source of infinity error may be here. 
 		for (int i = 0 ; i < resPhInventory.length; i++)
@@ -277,7 +279,7 @@ public class ErrorAnalysis {
 	public void setPivot(Lexicon newPiv, String piv_name)
 	{
 		PIV_PT_LEX = newPiv; 
-		pivotPhInventory = newPiv.getPhonemicInventory();
+		pivotPhInventory = newPiv.getPhonemicInventory(false);
 		
 		pivPhInds = new HashMap<String, Integer>(); 
 		

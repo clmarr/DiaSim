@@ -644,7 +644,7 @@ public class DiachronicSimulator {
 		while (soi < stageOrdering.length)
 		{
 			if (stageOrdering[soi].charAt(0) == 'g')
-				stageOrdering[soi] = "g"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
+				stageOrdering[soi] = "G"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			else // stageOrdering[soi].charAt(0) == 'b' || 'B'
 				stageOrdering[soi] = stageOrdering[soi].charAt(0)+""+(1 + Integer.parseInt(stageOrdering[soi].substring(1))); 
 			soi++; 
@@ -1093,7 +1093,7 @@ public class DiachronicSimulator {
 	{
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
-				System.out.println("g"+gsi+": "+
+				System.out.println("G"+gsi+": "+
 					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageInstants[gsi]+")");
 	}
 	
@@ -1109,7 +1109,7 @@ public class DiachronicSimulator {
 	{
 		List<String> out = new ArrayList<String>();
 		if (goldStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "G":"")+oi);
 		return out;
 	}
 	
@@ -1502,7 +1502,7 @@ public class DiachronicSimulator {
 						if (pivPtSet)
 						{
 							System.out.println("Phonemes present in lexicon at pivot point, "+pivPtName); 
-							Phone[] inventory = pivPtLex.getPhonemicInventory(); 
+							Phone[] inventory = pivPtLex.getPhonemicInventory(false); 
 							for (Phone phonemi : inventory)
 								System.out.println(phonemi.print()+": "+UTILS.spellOutFeatVect(phonemi.getFeatVect()));
 						}
