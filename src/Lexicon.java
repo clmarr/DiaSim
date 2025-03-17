@@ -232,7 +232,8 @@ public class Lexicon {
 		{	
 			Etymon et_here = etymaInColumn[wi]; 
 			
-			// if the etymon is still absent in the lexicon being CFR-d, but present in the stage spec'd forms..
+			// if the etymon is at this point/previously absent in the lexicon being CFR-d, 
+				// but present in the stage spec'd forms...
 				// ... then insert it! 	
 			if(theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 			{	

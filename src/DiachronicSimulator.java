@@ -438,6 +438,7 @@ public class DiachronicSimulator {
 		}	
 	
 		lexiconHasHeader = lexicHeader.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
+		
 		if(lexiconHasHeader)
 		{
 			if (VERBOSE || DEBUG_STAGES)
@@ -552,22 +553,25 @@ public class DiachronicSimulator {
 		if (VERBOSE || DEBUG_STAGES)
 			System.out.println("Changing gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]+ " to uncolumned black stage!"); 
 	
-		int[] oldGoldStageInstants, oldBlackStageInstants, oldBlackToColumnedIndex; 
-		String[] oldGoldStageNames, oldBlackStageNames; 
+		int[] oldGoldStageInstants, oldBlackStageInstants, oldColumnedStageInstants, 
+			oldBlackToColumnedIndex; 
+		String[] oldGoldStageNames, oldBlackStageNames, oldColumnedStageNames; 
 		
-		oldGoldStageInstants =  new int[NUM_GOLD_STAGES];
-		oldGoldStageNames = new String[NUM_GOLD_STAGES];
-		oldBlackStageInstants = new int[NUM_BLACK_STAGES]; 
-		oldBlackStageNames = new String[NUM_BLACK_STAGES];
+		oldGoldStageInstants =  new int[NUM_GOLD_STAGES]; oldGoldStageNames = new String[NUM_GOLD_STAGES];
+		oldBlackStageInstants = new int[NUM_BLACK_STAGES]; oldBlackStageNames = new String[NUM_BLACK_STAGES];
 		oldBlackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
+		oldColumnedStageInstants = new int[NUM_COLUMNED_STAGES()]; oldColumnedStageNames = new String[NUM_COLUMNED_STAGES()];
 		
-		if (goldStagesSet)
-		{	
-			for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
+		if (columnedStagesSet()) {
+			for (int ci = 0 ; ci < NUM_COLUMNED_STAGES(); ci++)
 			{
-				oldGoldStageInstants[gi] = goldStageInstants[gi]; 
-				oldGoldStageNames[gi] = goldStageNames[gi]; 	
+				oldColumnedStageInstants[ci] = columnedStageInstants[ci];
+				oldColumnedStageNames[ci] = columnedStageNames[ci]; 
 			}
+			if (goldStagesSet)
+			{	for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
+				{	oldGoldStageInstants[gi] = goldStageInstants[gi]; oldGoldStageNames[gi] = goldStageNames[gi]; 	
+			}}
 		}
 		if (blackStagesSet)
 		{ 	
@@ -579,6 +583,7 @@ public class DiachronicSimulator {
 			}
 		}
 		
+		
 		//TODO review here -- something must be missing. Why aren't these used? 
 		int instantToBlacken = goldStageInstants[gsi];
 		String nameToBlacken = goldStageNames[gsi];
@@ -589,11 +594,13 @@ public class DiachronicSimulator {
 		if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES];
 		
-		goldStageNames = new String[NUM_GOLD_STAGES];
+		goldStageNames = new String[NUM_GOLD_STAGES]; // recall NUM_GOLD_STAGES is one less
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
-		blackStageNames = new String[NUM_BLACK_STAGES];
+		blackStageNames = new String[NUM_BLACK_STAGES];// recall NUM_GOLD_STAGES is one more
 		blackStageInstants = new int[NUM_BLACK_STAGES]; 
 		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
+		columnedStageNames = new String[NUM_COLUMNED_STAGES()];
+		columnedStageInstants = new int[NUM_COLUMNED_STAGES()];
 		
 		int soi = 0, bsloc = 0; 
 		while ( !stageOrdering[soi].equals("G"+gsi) ) //when this ends, it means the stage being blackened was reached. 
@@ -618,10 +625,12 @@ public class DiachronicSimulator {
 			soi++; 
 			if (soi >= stageOrdering.length)	
 				throw new RuntimeException("ERROR: the stage we are blackening was never found in stageOrdering!") ;
-		}//the stage being blackened was reached. 
+		}
+		//the stage being blackened was reached. 
 		blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
 		blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
-		blackToColumnedIndex[bsloc] = -1; // it became "Decolumned". 
+		blackToColumnedIndex[bsloc] = -1; // the former gold stages is now a noncolumned black stage -- it became "Decolumned" 
+			// -- so it is -1 in this array as per its construction. 
 		stageOrdering[soi] = "b"+bsloc;
 	
 		int isg = gsi; 
@@ -632,8 +641,8 @@ public class DiachronicSimulator {
 			isg++; 
 		}
 		bsloc++;		
-		while(bsloc < NUM_BLACK_STAGES)
-		{ 
+		while(bsloc < NUM_BLACK_STAGES) //recall NUM_BLACK_STAGES is one more than before. 
+		{ 	// bsloc now corresponds to the place after the next stage in the old black stage organizing arrays. 
 			blackStageNames[bsloc] = oldBlackStageNames[bsloc-1];
 			blackStageInstants[bsloc] = oldBlackStageInstants[bsloc-1];
 			blackToColumnedIndex[bsloc] = oldBlackToColumnedIndex[bsloc-1]; 
@@ -643,7 +652,7 @@ public class DiachronicSimulator {
 		soi++;
 		while (soi < stageOrdering.length)
 		{
-			if (stageOrdering[soi].charAt(0) == 'g')
+			if (stageOrdering[soi].charAt(0) == 'G')
 				stageOrdering[soi] = "G"+(-1 + Integer.parseInt(stageOrdering[soi].substring(1)));
 			else // stageOrdering[soi].charAt(0) == 'b' || 'B'
 				stageOrdering[soi] = stageOrdering[soi].charAt(0)+""+(1 + Integer.parseInt(stageOrdering[soi].substring(1))); 
@@ -1267,17 +1276,17 @@ public class DiachronicSimulator {
 								+ "to delete pivot point and use the input"
 								+ (inputName.equalsIgnoreCase("input") ? "" : " ("+inputName+")")
 								+ " for filtering");
-						else if (resp.charAt(0) == 'g' && !goldStagesSet)
+						else if ("g".equalsIgnoreCase(""+resp.charAt(0)) && !goldStagesSet)
 							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
-						else if (resp.charAt(0) == 'b' && !blackStagesSet)
+						else if ("b".equalsIgnoreCase(""+resp.charAt(0)) && !blackStagesSet)
 							System.out.println("Invalid input: cannot use 'b' when no black stages are set!"); 
 						else if ("bgR".contains(""+resp.charAt(0)) && !UTILS.isInt(resp.substring(1)))
 							System.out.println("Invalid input: 'R', 'g', and 'b' require a valid integer after them, but '"+resp.substring(1)+"' is not!"); 
 						else if (resp.charAt(0) == 'R')
 							System.out.println("'"+resp+"' is not a valid option: the last rule is number "+(CASCADE.size()-1));
-						else if (resp.charAt(0) == 'g')
+						else if ("g".equalsIgnoreCase(""+resp.charAt(0)))
 							System.out.println("'"+resp+"' is not a valid option, the last computed gold stage is number "+lastGoldOpt); 
-						else if (resp.charAt(0) == 'b')
+						else if ("b".equalsIgnoreCase(""+resp.charAt(0)))
 							System.out.println("'"+resp+"' is not a valid option, the last computed black stage is number "+lastBlkOpt); 
 						else	System.out.println("Invalid input : '"+resp+"'\nPlease select a valid option listed below:");
 					}
@@ -1286,7 +1295,7 @@ public class DiachronicSimulator {
 						pivPtSet = true; 
 						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
 							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds.
-						if(resp.charAt(0) == 'g')
+						if("g".equalsIgnoreCase(""+resp.charAt(0)))
 						{
 							int si = Integer.parseInt(resp.substring(1));
 							pivPtLex = goldStageGoldLexica[si]; 
@@ -1295,7 +1304,7 @@ public class DiachronicSimulator {
 							//pivPtIsGoldOrInput = true; 
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
-						else if (resp.charAt(0) == 'b')
+						else if ("b".equalsIgnoreCase(""+resp.charAt(0)))
 						{
 							int si = Integer.parseInt(resp.substring(1));
 							pivPtLex = theSimulation.getStageResult(false, si);
@@ -1635,7 +1644,7 @@ public class DiachronicSimulator {
 							}
 							
 							String currSt = stageOrdering[cosi]; 
-							boolean goldHere = currSt.charAt(0) == 'g'; 
+							boolean goldHere = currSt.charAt(0) == 'G'; 
 							int stageNum = Integer.parseInt(currSt.substring(1)); 
 							headerRow += UTILS.append_space_to_x(
 									(goldHere ? goldStageNames : blackStageNames)[stageNum], 19) + "|"; 
@@ -2018,14 +2027,14 @@ public class DiachronicSimulator {
 		{
 			char prefix = soi.charAt(0); 			
 			int stageInstant = -1, stageNumber = Integer.parseInt(soi.substring(1)); 
-			if (prefix == 'g') stageInstant = goldStageInstants[stageNumber]; 
+			if (prefix == 'G') stageInstant = goldStageInstants[stageNumber]; 
 			else if (prefix == 'b' || prefix == 'B')	stageInstant = blackStageInstants[stageNumber]; 
 			else throw new RuntimeException("Error: illegal prefix for stage at "+index+". Entry in stagesOrdered: "+soi); 
 					
 			if (stageInstant > index)	break; 
 			if (stageInstant == index)
 			{
-				if (prefix == 'g') stagesHere.add("Gold Stage: "+goldStageNames[stageNumber]); 
+				if (prefix == 'G') stagesHere.add("Gold Stage: "+goldStageNames[stageNumber]); 
 				else if (prefix == 'b' || prefix == 'B')	
 					stagesHere.add( (prefix == 'B' ? "Columned " : "")+"Black Stage: "+blackStageNames[stageNumber]); 
 			}
