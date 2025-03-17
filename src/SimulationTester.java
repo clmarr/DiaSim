@@ -71,7 +71,7 @@ public class SimulationTester {
 		
 		int errorCount = 0, totalErrorCount = 0;
 		
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"g0","b0","g1"} ), 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"G0","b0","G1"} ), 
 				"ERROR: Simulation.stagesOrdered not constructed properly.") ;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		
@@ -557,7 +557,7 @@ public class SimulationTester {
 				+ "moving the flapping rule that is at index 1 to index 5,"
 				+ " after the first waypoint.\n----------------\n"); 
 		
-		DHSW.processChWithAddNearWaypoint(false, "g1", 
+		DHSW.processChWithAddNearWaypoint(false, "G1", 
 				1, "relocdated from 1 to 5, after first waypoint", "", null, "relocdated from 1 to 5, after first waypoint");; 
 		
 		//DHSW.processSingleCh(1,"relocdated from 1 to 6",6,"",null,
@@ -946,7 +946,7 @@ public class SimulationTester {
 		String[] ch6DelPCform = new String[] {"5", "deletion", currNote},
 				ch6InsPCform = new String[] {"7", "[+cor,-delrel] > ɾ / [-cons] __ [-stres]", currNote}; 
 		
-		DHSW.processChWithAddNearWaypoint(true, "g2", 
+		DHSW.processChWithAddNearWaypoint(true, "G2", 
 				5, currNote, "", null, currNote);
 		 
 		//test realization in cascade structures
@@ -1106,15 +1106,15 @@ public class SimulationTester {
 				theFactory.generateSoundChangesFromRule(nx_law), "Flapping contexts revised");
 		
 		nx_law = "d > ɾ / [-cons] __ [-cons]";
-		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+		DHSW.processChWithAddNearWaypoint(true, "G2", -1, "",
 				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between nonconsonantals.");
 		
 		nx_law = "d > ɾ / [+son] __ [+syl,-stres]"; 
-		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+		DHSW.processChWithAddNearWaypoint(true, "G2", -1, "",
 				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between sonorant cons and unstressed vowel.");
 		
 		nx_law = "[+syl,-stres] > [-nas] / __ n [+syl]"; 
-		DHSW.processChWithAddNearWaypoint(false, "g2", -1, "", nx_law, theFactory.generateSoundChangesFromRule(nx_law), "denasalization before intervocalic /n/");
+		DHSW.processChWithAddNearWaypoint(false, "G2", -1, "", nx_law, theFactory.generateSoundChangesFromRule(nx_law), "denasalization before intervocalic /n/");
 		
 		nx_law = "n > ∅ / [-cons,+nas] __ [-son,-cor]";
 		DHSW.processSingleCh(-1, "", 14, nx_law, theFactory.generateSoundChangesFromRule(nx_law), "/n/ effaced between nasal vowel and non-coronal obstruent.");
