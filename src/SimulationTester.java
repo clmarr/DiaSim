@@ -83,7 +83,7 @@ public class SimulationTester {
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
-		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setColumnedStages(goldStageGoldWordlists, goldStageNames, goldStageInstants, new int[0]);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); 
 		// for debugging purposes opacity is fine. 
 		
@@ -214,7 +214,7 @@ public class SimulationTester {
 		testSimul = new Simulation(inputForms, CASCADE, STAGE_ORDER); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
-		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setColumnedStages(goldStageGoldWordlists, goldStageNames, goldStageInstants, new int[0]);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); //reinserted. Necessary? Not sure.  
 		testSimul.simulateToEnd(); 
 

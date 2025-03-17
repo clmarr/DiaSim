@@ -13,8 +13,8 @@ public class Simulation {
 	
 	public List<Integer> columnedBlackStageBlackIndices; //list of all black stage indices (indices of arrays like blackStageInstants, blackStageNames) that are columned. 
 		// should be in order 
-	private int[] goldStageInstants, blackStageInstants; 
-	private String[] goldStageNames, blackStageNames; 
+	private int[] goldStageInstants, blackStageInstants, columnedStageInstants; 
+	private String[] goldStageNames, blackStageNames, columnedStageNames;
 	private String inputStageName;
 	
 	private int NUM_ETYMA; 
@@ -52,7 +52,6 @@ public class Simulation {
 	{
 		inputLexicon = new Lexicon(inputForms); 
 		currLexicon = new Lexicon(inputForms); 
-		currLexicon.markEtymaReconstructed();
 		CASCADE = new ArrayList<SChange>(casc); 
 		TOTAL_STEPS = CASCADE.size(); 
 		goldOutput = false; 
@@ -141,6 +140,8 @@ public class Simulation {
 	 *  and which black stages are columned. Should match which ones are headed by "B" in stagesOrdered
 	 * @prerequisite @param blackStageColumnedIndices[black_stage_index] = -1 if it's not a columned black stage
 	 * 	otherwise it is
+	 * builds @global columnedBlackStageLexica, columnedStageNames, columnedStageInstants,
+	 * 		 goldStageGoldLexica, goldStageNames, goldStageInstants
 	 */
 	public void setColumnedStages(Etymon[][] stageForms, String[] names, int[] times, int[] blackStageColumnedIndices) 
 	{
@@ -153,6 +154,9 @@ public class Simulation {
 		goldStageGoldLexica = new Lexicon[NUM_GOLD_STAGES] ;
 		goldStageNames = new String[NUM_GOLD_STAGES]; 
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
+		
+		columnedStageNames = names; 
+		columnedStageInstants = times;
 		
 		int  gsfi = 0, cbsfi = 0, column = 0; 
 		
@@ -251,7 +255,8 @@ public class Simulation {
         			//TODO will need to handle this somewhere else -- but where, and how to ensure correct behavior here? 
         		//TODO also need to handle "black stages" which just consist of an updateAbsence call effectively,
         				// not comparison of reconstructed vs. observed forms...?
-        		currLexicon.markEtymaReconstructed(); 
+        		//TODO as of March 16, 2025, handling this by marking etyma reconstructed only after a rule has been iterated on (whether it affected them or not)
+        			// so words not marked as reconstructed will not be compared. 
         		goldStageInd++;
         	} //else, black stage
         	else //uncolumned black stage
@@ -261,11 +266,8 @@ public class Simulation {
         			etDerivations[ei] += "\n"+blackStageNames[blackStageInd]+" stage form : "+currLexicon.getByID(ei);
         		
         		if (type == 'B') 	// columned black stage!
-        		{
         			currLexicon.updateAbsence(
         				columnedBlackStageLexica[columnedBlackStageBlackIndices.indexOf(blackStageInd)].getWordList() );
-            		currLexicon.markEtymaReconstructed(); 
-        		}
         		
         		blackStageInd++;
         	}
@@ -342,11 +344,11 @@ public class Simulation {
 					false :
 						(bsi == blackStageInd ? true :
 							goldStageInstants[gsi] <= blackStageInstants[bsi]))
-			{	stagesOrdered[gsi+bsi+1] = "g"+gsi; 
+			{	stagesOrdered[gsi+bsi+1] = "G"+gsi; 
 				gsi++; 
 			}
 			else	{
-				stagesOrdered[gsi+bsi+1] = "b"+bsi;
+				stagesOrdered[gsi+bsi+1] = (columnedBlackStageBlackIndices.contains(bsi) ? "B" : "b")+bsi;
 				bsi++; 
 			}
 		}
@@ -533,19 +535,9 @@ public class Simulation {
 	public int getNextStageInd()
 	{
 		int si = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
-
-		//TODO debugging
-		// System.out.println("stagesOrdered exists? "+stagesOrdered);
-		// System.out.println("length of it : "+stagesOrdered.length);
-		// System.out.println("currStageInd ...? : "+currStageInd);
-		// System.out.println("si : "+si);
-		// System.out.println("blackStageInstants exists? "+blackStageInstants);
-		// System.out.println("goldStages.... ? "+goldStageInstants);
-
 		return (stagesOrdered[currStageInd].charAt(0) == 'G' ?
 	                goldStageInstants : blackStageInstants)[si]; 
 	}
-
 	
 	public int getTotalSteps()	{	return TOTAL_STEPS;	}
 
@@ -564,6 +556,8 @@ public class Simulation {
 	public int[] getGoldStageInstants()	{	return goldStageInstants;	}
 	public String[] getBlackStageNames()	{	return blackStageNames;	}
 	public int[] getBlackStageInstants()	{	return blackStageInstants;	}
+	public String[] getColumnedStageNames()	{	return columnedStageNames;	}
+	public int[] getColumnedStageInstants()	{	return columnedStageInstants;	}
 	public int getGoldStageInd()	{	return goldStageInd;	}
 	public int getBlackStageInd()	{	return blackStageInd;	}
 	public String[] getStagesOrdered()	{	return stagesOrdered;	}
@@ -572,6 +566,17 @@ public class Simulation {
 		for (int gsi = 0 ; gsi < NUM_GOLD_STAGES; gsi++)
 			out[gsi] = goldStageGoldLexica[gsi].getWordList();
 		return out;
+	}
+	public Etymon[][] getColumnStageForms()	{
+		Etymon[][] out = new Etymon[NUM_COLUMNED_STAGES()][NUM_ETYMA];
+		int cbsi = 0, gsi = 0;  // (columned black stage, (columned) gold stage) indices, respectively 
+		for (int si = 0 ; si < NUM_STAGES() && gsi + cbsi < NUM_COLUMNED_STAGES(); si++)
+		{
+			char typeIndic = stagesOrdered[si].charAt(0); 
+			if (typeIndic == 'G')  out[cbsi + gsi] = goldStageGoldLexica[gsi++].getWordList(); 
+			else if (typeIndic == 'B')	out[cbsi + gsi] = columnedBlackStageLexica[cbsi++].getWordList(); 
+		}
+		return out; 
 	}
 	
 }

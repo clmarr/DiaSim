@@ -142,7 +142,15 @@ public class UTILS {
 		Simulation toy = new Simulation(ogs.getInput().getWordList(), jur, ogs.getStagesOrdered()); 
 		if (ogs.hasBlackStages())	toy.setBlackStages(ogs.getBlackStageNames(), ogs.getBlackStageInstants());
 		if (ogs.hasGoldOutput()) toy.setGoldOutput(ogs.getGoldOutput().getWordList()); 
-		if (ogs.hasGoldStages()) toy.setGoldStages(ogs.getGoldStageGoldForms(), ogs.getGoldStageNames(), ogs.getGoldStageInstants());
+		if (ogs.hasColumnedStages()) 
+		{
+			int[] blackStageColumnedIndices = new int[ogs.hasBlackStages() ? ogs.NUM_BLACK_STAGES(): 0]; 
+			if (ogs.hasBlackStages())
+				for (int bsi = 0 ; bsi < ogs.NUM_BLACK_STAGES() ; bsi++)
+					blackStageColumnedIndices[bsi] = ogs.columnedBlackStageBlackIndices.contains(bsi) ? bsi : -1; 
+			toy.setColumnedStages(ogs.getColumnStageForms(), ogs.getColumnedStageNames(), ogs.getColumnedStageInstants(), blackStageColumnedIndices);
+		}
+			
 		toy.setOpacity(true);
 		toy.setStepPrinterval(PRINTERVAL); 
 		toy.simulateToEnd();
