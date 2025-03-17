@@ -158,11 +158,12 @@ public class Simulation {
 		columnedStageNames = names; 
 		columnedStageInstants = times;
 		
-		int  gsfi = 0, cbsfi = 0, column = 0; 
+		int  gsfi = 0, cbsfi = 0; 
 		
 		for (int soi = 0 ; soi < stagesOrdered.length; soi++)
 		{
 			char stageTypeIndic = stagesOrdered[soi].charAt(0);
+			int column = gsfi + cbsfi; 
 			if (stageTypeIndic == 'G') //gold stage 
 			{
 				goldStageGoldLexica[gsfi] = new Lexicon(stageForms[column]); 
@@ -177,7 +178,6 @@ public class Simulation {
 					//we assume that won't cause errors;
 				cbsfi++; 
 			}
-			column++; 
 		}
 	}
 	
