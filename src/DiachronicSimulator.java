@@ -312,7 +312,7 @@ public class DiachronicSimulator {
 	 * 
 	 * TODO may need debugging! (March 15, 2025)
 	 */
-	public void makeBlackStageColumned(int black_stage_ind) {
+	public static void makeBlackStageColumned(int black_stage_ind) {
 		String thisStageName = blackStageNames[black_stage_ind]; 
 		int thisStageInstant = blackStageInstants[black_stage_ind];
 		
@@ -388,14 +388,15 @@ public class DiachronicSimulator {
 	}
 	
 	/** 
-	// changes one gold stage to a UNCOLUMNED black stage
-		// modifying global variables and data structures as appropriate. 
-	// @param int gsi -- the index in data structures of the stage we are blackening and decolumning 
+	 * changes one gold stage to a UNCOLUMNED black stage
+		*modifying @global variables and data structures as appropriate. 
+	 * @param int gsi -- the index in data structures of the stage we are blackening (and decolumning, perhaps recolumning)
+	 * @param boolean to_columned -- if it is to be (re)coluned. As it is done currently, for ease of coding if not computation. 
 	 * @destructive modification to all @global organizing arrays for black, gold, and columned (But not specifically columned black) stages
 	 * @global goldStageGoldLexica remade and reinitialized.
-	//TODO this may need a rework (working through, mid March 2025...) 
+	 * reworking from mid March 2025... TODO may need to be checked for possible errors introduced. 
 	 */
-	private static void decolumnGoldStage(int gsi)
+	private static void blackenGoldStage(int gsi, boolean to_columned)
 	{
 		if (VERBOSE || DEBUG_STAGES)
 			System.out.println("Changing gold stage "+goldStageNames[gsi]+" at "+goldStageInstants[gsi]+ " to uncolumned black stage!"); 
@@ -478,6 +479,7 @@ public class DiachronicSimulator {
 		blackToColumnedIndex[bsloc] = -1; // the former gold stages is now a noncolumned black stage -- it became "Decolumned" 
 			// -- so it is -1 in this array as per its construction. 
 		stageOrdering[soi] = "b"+bsloc;
+		int newBlackLoc = bsloc; 
 	
 		int isg = gsi;  //csi also remains same value. 
 		soi++; bsloc++; // bsloc now corresponds to the place after the next stage in the old black stage organizing arrays.
@@ -504,6 +506,8 @@ public class DiachronicSimulator {
 			}
 			soi++; 
 		}
+		
+		if(to_columned)	makeBlackStageColumned(newBlackLoc);
 	}		
 
 	
@@ -579,7 +583,7 @@ public class DiachronicSimulator {
 				// using ">= NUM_GOLD_STAGES + 1", because the first line is the input. 
 				while ( coli >= NUM_GOLD_STAGES + 1 ? 
 						false : !stipName.equalsIgnoreCase(goldStageNames[numGoldStagesConfirmed]) )
-					decolumnGoldStage(coli); 
+					blackenGoldStage(coli); 
 						// note that decolumnGoldStage() decreases NUM_GOLD_STAGES 
 				
 				//TODO debugging
@@ -606,7 +610,7 @@ public class DiachronicSimulator {
 				int curgs = numGoldStagesConfirmed; 
 				
 				while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
-					decolumnGoldStage(coli); 
+					blackenGoldStage(coli); 
 				if (coli > NUM_GOLD_STAGES)
 					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
 				numGoldStagesConfirmed++; 	
@@ -615,7 +619,7 @@ public class DiachronicSimulator {
 			{
 				System.out.println("Blackening remaining unconfirmed gold stages that were declared in cascade file!"); 
 				while (numGoldStagesConfirmed < NUM_GOLD_STAGES)
-					decolumnGoldStage(numGoldStagesConfirmed);
+					blackenGoldStage(numGoldStagesConfirmed);
 			}
 		}
 		else
@@ -646,7 +650,7 @@ public class DiachronicSimulator {
 				System.out.println("Only one column detected in lexicon file -- input only run!");
 				hasGoldOutput = false; 
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
-				while(NUM_GOLD_STAGES > 0)	decolumnGoldStage(0); 
+				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
 			}
 				
 			else 
@@ -656,7 +660,7 @@ public class DiachronicSimulator {
 				hasGoldOutput = true; 
 				System.out.println("Last column assumed to be output!"); 
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
-				while(NUM_GOLD_STAGES > 0)	decolumnGoldStage(0); 
+				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
 			}
 		}	
 	}
