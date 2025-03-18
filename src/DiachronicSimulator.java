@@ -388,7 +388,7 @@ public class DiachronicSimulator {
 	}
 	
 	/** 
-	 * changes one gold stage to a UNCOLUMNED black stage
+	 * changes one gold stage to a UNCOLUMNED black stage (then recolumend if @param to_columned = true)
 		*modifying @global variables and data structures as appropriate. 
 	 * @param int gsi -- the index in data structures of the stage we are blackening (and decolumning, perhaps recolumning)
 	 * @param boolean to_columned -- if it is to be (re)coluned. As it is done currently, for ease of coding if not computation. 
@@ -551,12 +551,60 @@ public class DiachronicSimulator {
 		return true; 
 	}
 	
+	/**
+	 * 
+	 * @param name of stage to retrieve 
+	 * @return -1 @if it never occurs, @else the contents of stageOrdering for it 
+	 * 		(e.g. "G" if gold stage then the number of gold stage,
+	 * 			 b for uncolumned black, B for columned black...) 
+	 */
+	private String retrieveStageByName(String name, int ignoreStageOrderingIndex)
+	{
+		String out = UTILS.NULL_STAGE_INDIC; 
+		if(NUM_STAGES() == 0)	return out; 
+		name = name.trim();
+
+		for (int soi = 0 ; soi < stageOrdering.length; soi++)
+		{
+			if (soi == ignoreStageOrderingIndex)	continue; 
+			boolean isBlack = stageOrdering[soi].substring(0,1).equalsIgnoreCase("b"); 
+			if(  name.equals(
+					(isBlack ? blackStageNames : goldStageNames)
+					[Integer.parseInt(stageOrdering[soi].substring(1))].trim()))	
+				return name; 
+		}
+		return out; 
+	}
+	
+	 /**preemptBadStageName
+	  * throws errors for duplicate or insecure stage names. 
+	  * @param newName to be tested
+	  * @param ignoreStageOrderingIndex -- default -1; otherwise this index will be ignored; use it to test if all names are nonduplicate
+	  */
+	private void preemptBadStageName(String newName, int ignoreStageOrderingIndex)
+	{
+		// illegal names
+		if (Arrays.asList(new String[] {UTILS.NULL_STAGE_INDIC,"Gold","Input","Out","In","Output"}).contains(newName)
+				|| ( "rbg".contains(newName.substring(0,1).toLowerCase()) && UTILS.isNumeric(newName.substring(1).trim())))
+			throw new RuntimeException("Error: you have attempted to name a stage '"+newName
+					+ "'. This is illegal for security reasons. Please try another name."); 
+		
+		// duplicate names
+		
+		if (!retrieveStageByName(newName, ignoreStageOrderingIndex).equals(UTILS.NULL_STAGE_INDIC))
+			throw new RuntimeException("Error: you have attempted to name a stage a duplicate name: "+newName); 
+		}	
+	}
+	private void preemptBadStageName(String newName)	{	preemptBadStageName(newName,-1); 	}
+	
 	
 	/** coordinateStages
 	 * matching (or not) stages declared in cascade file with structure in lexicon file 
 	 * 		to coordinate stages as they will function in simulation and determine appropriate behavior. 
 	 * Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
 	 * as of March 2025, @prerequisite -- cascade file with stages flagged has ALREADY been called. 
+	 * furthermore, @prerequisite -- @global stageOrdering already and initialized and filled (currently done in extractCascade), 
+	 * 		though it may be modified ( @destructive) 
 	// if there is no lexicon header : count number of columns
 		// if there is only one column, obviously it is just the input
 		// otherwise -- first is input, last is output, any in between are gold stages
@@ -572,7 +620,6 @@ public class DiachronicSimulator {
 					// and is interpreted to be the output gold stage.
 	// to be called AFTER extractCascade is. 
 		// goldOutput -- determined here. 
-	//TODO need to modify this for new stagewise lexeme insertion/removal
 	// including TODO black columned stages -- where there is insertion and removal but no comparison/evaluation
 	// TODO for protodelta -- need to make sure variables for columned stages include those that are given the black stage flag
 			// in the cascade file, but which have columns here...

@@ -25,6 +25,7 @@ public class UTILS {
 			// ... as [+A,-B,+C]
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
+	public final static String NULL_STAGE_INDIC = "NULLSTAGE"; 
 	public final static char STAGENAME_LOC_DELIM = ':'; 
 	public final static char LEX_DELIM =','; 
 	public final static char STAGE_PRINT_DELIM = ',';  
@@ -1666,4 +1667,13 @@ public class UTILS {
 		return out;
 	}
 		
+	public static boolean isNumeric (String s)
+	{
+		try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+	}
 }
