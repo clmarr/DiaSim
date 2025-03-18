@@ -267,6 +267,7 @@ public class DiachronicSimulator {
 		if (VERBOSE)	System.out.println("Diachronic rules extracted. "); 
 		
 		stageOrdering = UTILS.extractStageOrder(cascFileLoc, !inputName.equalsIgnoreCase("input")); 
+		preemptAnyBadStageName(); 
 		
 		if ( NUM_STAGES() != stageOrdering.length)
 			throw new Error("Error: mismatch in stage count ("+NUM_STAGES()+") and size of stageOrdering ("+stageOrdering.length+")");
@@ -552,13 +553,22 @@ public class DiachronicSimulator {
 	}
 	
 	/**
-	 * 
+	 * @param currIndic -- indicator a la stage ordering -- G/B/b then number among gold or black stages. 
+	 * @return its name. 
+	 */
+	private static String stageOrderingIndicToName(String currIndic)
+	{
+		boolean isBlack = currIndic.substring(0,1).equalsIgnoreCase("b"); 
+		return (isBlack ? blackStageNames : goldStageNames)[Integer.parseInt(currIndic.substring(1))];
+	}
+	
+	/**
 	 * @param name of stage to retrieve 
 	 * @return -1 @if it never occurs, @else the contents of stageOrdering for it 
 	 * 		(e.g. "G" if gold stage then the number of gold stage,
 	 * 			 b for uncolumned black, B for columned black...) 
 	 */
-	private String retrieveStageByName(String name, int ignoreStageOrderingIndex)
+	private static String retrieveStageByName(String name, int ignoreStageOrderingIndex)
 	{
 		String out = UTILS.NULL_STAGE_INDIC; 
 		if(NUM_STAGES() == 0)	return out; 
@@ -567,11 +577,9 @@ public class DiachronicSimulator {
 		for (int soi = 0 ; soi < stageOrdering.length; soi++)
 		{
 			if (soi == ignoreStageOrderingIndex)	continue; 
-			boolean isBlack = stageOrdering[soi].substring(0,1).equalsIgnoreCase("b"); 
-			if(  name.equals(
-					(isBlack ? blackStageNames : goldStageNames)
-					[Integer.parseInt(stageOrdering[soi].substring(1))].trim()))	
-				return name; 
+			String currStageIndic = stageOrdering[soi];
+			if(  name.equals(stageOrderingIndicToName(currStageIndic).trim()))	
+				return currStageIndic; 
 		}
 		return out; 
 	}
@@ -581,7 +589,7 @@ public class DiachronicSimulator {
 	  * @param newName to be tested
 	  * @param ignoreStageOrderingIndex -- default -1; otherwise this index will be ignored; use it to test if all names are nonduplicate
 	  */
-	private void preemptBadStageName(String newName, int ignoreStageOrderingIndex)
+	private static void preemptBadStageName(String newName, int ignoreStageOrderingIndex)
 	{
 		// illegal names
 		if (Arrays.asList(new String[] {UTILS.NULL_STAGE_INDIC,"Gold","Input","Out","In","Output"}).contains(newName)
@@ -593,9 +601,18 @@ public class DiachronicSimulator {
 		
 		if (!retrieveStageByName(newName, ignoreStageOrderingIndex).equals(UTILS.NULL_STAGE_INDIC))
 			throw new RuntimeException("Error: you have attempted to name a stage a duplicate name: "+newName); 
-		}	
 	}
 	private void preemptBadStageName(String newName)	{	preemptBadStageName(newName,-1); 	}
+	
+	/** preemptAnyBadStageName
+	 * preempts any existing bad stage name, with stages already extracted from cascade and stageOrdering already built afterward ( @prerequisite) 
+	 */
+	private static void preemptAnyBadStageName()
+	{
+		if (NUM_STAGES() == 0) return; 
+		for (int soi = 0 ; soi < stageOrdering.length; soi++)
+			preemptBadStageName(stageOrderingIndicToName(stageOrdering[soi]),soi); 
+	}
 	
 	
 	/** coordinateStages
