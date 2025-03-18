@@ -615,7 +615,7 @@ public class DiachronicSimulator {
 	}
 	
 	
-	/** coordinateStages
+	/** coordinateColumns
 	 * matching (or not) stages declared in cascade file with structure in lexicon file 
 	 * 		to coordinate stages as they will function in simulation and determine appropriate behavior. 
 	 * Behavior based on stipulations on gold stages (or lack of stipulations) in lexicon file and cascade file: 
@@ -646,7 +646,7 @@ public class DiachronicSimulator {
 		//TODO for later expansions -- need to change this behavior to handle the situation where first column is a stage that is not equivalent to the inpu
 	 * @param lexicHeader -- first line of lexicon with content
 	 */
-		public static void coordinateStages(String lexicHeader)
+		public static void coordinateColumns(String lexicHeader)
 	{
 		if (VERBOSE||DEBUG_STAGES)
 			System.out.println("Coordinating stages as per cascade file with stages as per lexicon file..."); 
@@ -731,46 +731,53 @@ public class DiachronicSimulator {
 		{
 			if (VERBOSE || DEBUG_STAGES)
 				System.out.println("No explicit header declared in lexicon file."); 
-			if(numCols == NUM_GOLD_STAGES + 1)
+			
+			if (numCols <= 2)	// just-input run. 
 			{
-				if (VERBOSE||DEBUG_STAGES) {
-					System.out.println("Each gold stage properly identified if we assume no output!"); 
-					System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
-				}
+				hasGoldOutput = numCols == 2; //0 is impossible by how the file is processed. 
+				System.out.println(hasGoldOutput ? 
+						"Two columns detected: first assumed to be input and last assumed to be final observed output forms!"
+						: "Only one column detected in lexicon file -- input only run!");
 				
+				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
+				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0, false); 
+			}
+			else if(numCols == NUM_GOLD_STAGES + 1)
+			{
+				System.out.println("Each gold stage from cascade properly identified if we assume no gold output!"); 
+				System.out.println("Beware: no systematic comparison possible at endpoint!");
 				hasGoldOutput = false; 
 			}
 			else if(numCols == NUM_GOLD_STAGES + 2)
 			{
 				if (VERBOSE || DEBUG_STAGES) {
-					System.out.println("Each gold stage properly identified if we assume last is the gold forms for the output time!"); 
-					System.out.println("NUM_GOLD_STAGES : "+NUM_GOLD_STAGES);
+					System.out.println("Each gold stage from cascade properly identified if we assume last is the gold forms for the output time!"); 
 					System.out.println("numCols : "+numCols);
 				}
 				
 				hasGoldOutput = true; 
 			}
-			else if (numCols == 1)	// just-input run. 
+			else if (numCols == NUM_STAGES() + 1 || numCols == NUM_STAGES() + 2 ) // we're going to have columned stages. 
 			{
-				System.out.println("Only one column detected in lexicon file -- input only run!");
-				hasGoldOutput = false; 
-				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
-				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
-			}
+				if (VERBOSE||DEBUG_STAGES) 
+					System.out.println("Each gold and black stage from cascade identified to a column"
+							+ (numCols == NUM_STAGES() + 1 ? ", if we assume no gold output!\nBeware: no systematic comparison possible at endpoint!" 
+									: "!"));  
+				hasGoldOutput = numCols == NUM_STAGES() + 2 ; 
 				
-			else 
-			{
-				if (numCols != 2) 
-					throw new RuntimeException("ERROR: invalid number of columns given that we have "+NUM_GOLD_STAGES+" gold stages and "+NUM_BLACK_STAGES+" black stages as specified in cascade file!"); 
-				hasGoldOutput = true; 
-				System.out.println("Last column assumed to be output!"); 
-				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
-				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0); 
+				// making black stages columned, on the basis of stageOrdering in lieu of a header...
+				for (String ordStage : stageOrdering )
+					if (ordStage.substring(0,1).equals("b")) //columnize it!
+						makeBlackStageColumned(Integer.parseInt(ordStage.substring(1))); 
 			}
+			else
+				throw new RuntimeException("ERROR: invalid number of columns ("+numCols+"), "
+							+ "given that we have "+NUM_GOLD_STAGES+" gold stages and "+NUM_BLACK_STAGES+
+							" black stages as specified in cascade file!"); 
 		}	
 	}
 	
-	
+		
 	public static void main(String args[])
 	{
 		parseArgs(args); 
@@ -850,11 +857,12 @@ public class DiachronicSimulator {
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
+		
 		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		
-		//TODO handling of column stages should begin here, possibly within coordinateStages.
-		coordinateStages(firstlineproxy); 
+		//TODO handling of column stages should begin here, possibly within coordinateColumns.
+		coordinateColumns(firstlineproxy); 
 		
 		if (VERBOSE)
 			System.out.println("Number of etyma: "+NUM_ETYMA);
@@ -864,9 +872,7 @@ public class DiachronicSimulator {
 		inputForms = new Etymon[NUM_ETYMA];
 		Etymon[] goldResults = new Etymon[NUM_ETYMA];  // being built to pass to  goldOutputLexicon
 		Etymon[][] columnForms = new Etymon[NUM_COLUMNED_STAGES()][NUM_ETYMA];
-				//being built to pass to goldStageGoldLexica and blackINsertionRemovalLexica. 
-			//TODO need to inspect wherever this is called!
-			//TODO may need one for columnedBlackStage forms? -- or, just build that directly...
+				//being built to pass to goldStageGoldLexica and blackInsertionRemovalLexica down the line. 
 		
 		int lfli =  0 ; //"lex file line index"
 		if (lexiconHasHeader)	lexFileLines.remove(0); 
