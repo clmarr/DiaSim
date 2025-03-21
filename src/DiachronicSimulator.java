@@ -1764,8 +1764,12 @@ public class DiachronicSimulator {
 			// nothing placed afterward -- triggers stage debugging printouts. 
 			else if (arg.equalsIgnoreCase("-debug_stages"))
 			{
-				DEBUG_STAGES = true; 
-				if (VERBOSE)	System.out.println("debugging stage processing"); 
+				DEBUG_STAGES = true;
+				if (VERBOSE)
+					System.out.println("debugging stage processing");
+			}
+			else if (arg.equalsIgnoreCase("-ui")) {
+				
 			}
 		
 			//flag args
