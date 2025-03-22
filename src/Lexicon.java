@@ -154,7 +154,7 @@ public class Lexicon {
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
 		for (Etymon lex: theWordList)
 		{
-			if (!lex.print().equals(UTILS.ABSENT_REPR))
+			if (!UTILS.isPseudoEtymon(lex))
 				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
 				for (SequentialPhonic curPh : thePhones)
 				{
@@ -205,7 +205,7 @@ public class Lexicon {
 	public void markEtymaReconstructed()
 	{
 		for (int eti = 0; eti < theWordList.length; eti++)
-			if (!theWordList[eti].print().equals(UTILS.ABSENT_REPR))
+			if (UTILS.isPseudoEtymon(theWordList[eti]))
 				theWordList[eti].setReconstructed(true);
 	}
 	

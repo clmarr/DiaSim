@@ -71,7 +71,7 @@ public class ErrorAnalysis {
 	
 	//protected final String ABS_PR ="[ABSENT]"; 
 		//TODO note this variable is the locus of protodelta changes
-		// now handled via UTILS.ABSENT_INDIC ; consider restoring if necessary. 
+		// now handled via UTILS.isPseudoEtymon()
 	protected final int MAX_RADIUS = 3;
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.1;
@@ -151,7 +151,7 @@ public class ErrorAnalysis {
 		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
 		int fi = 0;
 		for (int i = 0 ; i < TOTAL_ETYMA; i++)
-		{	if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR))
+		{	if (!UTILS.isPseudoEtymon(theRes.getByID(i)))
 			{	FILTER[fi] = i;
 				PRESENT_ETS[fi] = i;
 				fi++;
@@ -190,18 +190,18 @@ public class ErrorAnalysis {
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 			{
 				Etymon currEt = theRes.getByID(i);
-				isPhInResEt[rphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ? 
+				isPhInResEt[rphi][i] = UTILS.isPseudoEtymon(currEt) ? 
 						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
 			}
 			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
 			{
 				Etymon currEt = theGold.getByID(i);
-				isPhInGoldEt[gphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ?
+				isPhInGoldEt[gphi][i] = UTILS.isPseudoEtymon(currEt) ?
 						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
 			}
 			
 			if (inheritedTillNow &&  //don't include recently inserted etyma for calculations!
-					!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR) && !theGold.getByID(i).print().equals(UTILS.ABSENT_REPR))
+					!UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i))) 
 			{	
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
@@ -301,7 +301,7 @@ public class ErrorAnalysis {
 			Etymon currEt = PIV_PT_LEX.getByID(ei);
 			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
 			{
-				if(!currEt.toString().equals(UTILS.ABSENT_REPR))
+				if(!UTILS.isPseudoEtymon(currEt))
 					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
 				else	isPhInPivEt[pvi][ei] = false;
 				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
