@@ -1105,7 +1105,7 @@ public class DiachronicSimulator {
 						}
 						
 						String bd = "\t,\t"; 
-						System.out.println("etymID"+bd+inputName+bd+"Last stage: "+prstname+""+bd+"Curr stage: "+blackStageNames[blackStageInd]);
+						System.out.println("etymID"+bd+inputName+bd+"Last: "+prstname+""+bd+"Curr: "+blackStageNames[blackStageInd]);
 						for (int i = 0 ; i < NUM_ETYMA ; i++)
 							System.out.println(i+bd+inputForms[i]+bd+prevLex.getByID(i)+bd+theSimulation.getCurrentForm(i));
 					}

@@ -183,7 +183,8 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			IN_SUBSAMP[i] = true; 	// until filter is set, all words are "in the subsample"
+			IN_SUBSAMP[i] = !UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i)) ; 	
+				// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold. 
 			boolean inheritedTillNow = theRes.getByID(i).isReconstructed(); 
 			
 			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
@@ -1177,7 +1178,7 @@ public class ErrorAnalysis {
 		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR) && !RES.getByID(isi).isReconstructed())
+			if(UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi)) || RES.getByID(isi).isReconstructed())
 				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time, or just inserted in result lexicon.
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
@@ -2123,7 +2124,8 @@ public class ErrorAnalysis {
 				indexedFeatList = Arrays.asList(featsByIndex); 
 		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
 		{
-			if (IN_SUBSAMP[idi] && (inheritedOnly ? sample.getByID(idi).isReconstructed() : true))
+			if (IN_SUBSAMP[idi] && 
+					(inheritedOnly ? sample.getByID(idi).isReconstructed() : UTILS.PSEUDO_ETYM_INDICS.contains(sample.getByID(idi)+"")))
 			{
 				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
 				for (SequentialPhonic phmi : repi)
