@@ -298,7 +298,8 @@ public class DiachronicSimulator {
 	}
 	
 	/** makeBlackStageColumned
-	 * makes the black stage with the index (index being order in which black stages occur), @param black_stage_number,
+	 * makes the black stage with the index 
+	 * @param black_stage_number (index being order in which black stages occur -- stages of black stage organization structured)
 	 * into a columned black stage -- with a column in the lexicon, for purposes of insertion and removal. 
 	 * modifies columned (black) stage @global variables: 
 	 * 	NUM_COLUMNED_BLACK_STAGES, columnedBlackStagesSet, columnedStageNames, columnedBlackStageNames
@@ -391,7 +392,7 @@ public class DiachronicSimulator {
 	/** 
 	 * changes one gold stage to a UNCOLUMNED black stage (then recolumend if @param to_columned = true)
 		*modifying @global variables and data structures as appropriate. 
-	 * @param int gsi -- the index in data structures of the stage we are blackening (and decolumning, perhaps recolumning)
+	 * @param int gsi -- the index in GOLD data structures of the stage we are blackening (and decolumning, perhaps recolumning)
 	 * @param boolean to_columned -- if it is to be (re)coluned. As it is done currently, for ease of coding if not computation. 
 	 * @destructive modification to all @global organizing arrays for black, gold, and columned (But not specifically columned black) stages
 	 * @global goldStageGoldLexica remade and reinitialized.
@@ -564,7 +565,9 @@ public class DiachronicSimulator {
 	
 	/**
 	 * @param name of stage to retrieve 
-	 * @return -1 @if it never occurs, @else the contents of stageOrdering for it 
+	 * @param ignoreStageOrderingIndex -- index of stageOrdering to bypass.
+	 * 		 Use -1 if not ignoring any cell  
+	 * @return UTILS.NULL_STAGE_INDIC (currently "NULLSTAGE") @if it never occurs, @else the contents of stageOrdering's cell for it 
 	 * 		(e.g. "G" if gold stage then the number of gold stage,
 	 * 			 b for uncolumned black, B for columned black...) 
 	 */
@@ -578,8 +581,26 @@ public class DiachronicSimulator {
 		{
 			if (soi == ignoreStageOrderingIndex)	continue; 
 			String currStageIndic = stageOrdering[soi];
-			if(  name.equals(stageOrderingIndicToName(currStageIndic).trim()))	
+			if(  name.equalsIgnoreCase(stageOrderingIndicToName(currStageIndic).trim()))	
 				return currStageIndic; 
+		}
+		return out; 
+	}
+	
+	/**  given @param name, stage name
+	 * @return  index in stage ordering
+	 * @if it's absent, return -1. 
+	 */
+	private static int retrieveStageOrderingIndexByName (String name)
+	{
+		int out = -1; 
+		if (NUM_STAGES() == 0)	return out;
+		name = name.trim();
+		for (int soi = 0 ; soi < stageOrdering.length; soi++)
+		{
+			String currStageIndic = stageOrdering[soi];
+			if(  name.equalsIgnoreCase(stageOrderingIndicToName(currStageIndic).trim()))	
+				return soi; 
 		}
 		return out; 
 	}
@@ -656,7 +677,6 @@ public class DiachronicSimulator {
 		if (cmt_loc != -1)
 			lexicHeader = lexicHeader.substring(0, cmt_loc); 
 		lexicHeader = lexicHeader.trim();		
-		//TODO still need to integrate protodelta behavior for the rest of this class. 
 		
 		int numCols = lexicHeader.contains(""+UTILS.LEX_DELIM) ? 
 			lexicHeader.split(""+UTILS.LEX_DELIM).length : 1	;
@@ -668,6 +688,8 @@ public class DiachronicSimulator {
 	
 		lexiconHasHeader = lexicHeader.charAt(0) == UTILS.BLACK_STAGENAME_FLAG; 
 		
+		//TODO still need to integrate protodelta behavior for the rest of this class. 
+
 		if(lexiconHasHeader)
 		{
 			if (VERBOSE || DEBUG_STAGES)
@@ -676,57 +698,59 @@ public class DiachronicSimulator {
 			String[] colTitles = lexicHeader.split(""+UTILS.LEX_DELIM); 
 			int cti = 0; 
 			while (cti < colTitles.length)	colTitles[cti] = colTitles[cti].trim();
-						
-			int coli = 1;
-			int numGoldStagesConfirmed = 0; 
+					
+			// assuming the first line is the input .
+			inputName =colTitles[0]; 
+			if ( !retrieveStageByName(inputName,-1).equals(UTILS.NULL_STAGE_INDIC))
+				System.out.println("Warning: An intermediate stage's name is listed as header for the input column.\n"
+						+ "DiaSim does not yet support starting at an intermediate stage; hopefully this will become available soon (stay tuned)."); 
+			cti = 1; 
 			
-			//TODO this whole area is bugged bugged bugged!!!!!			
-			while (coli <= numCols - 1 && numGoldStagesConfirmed < NUM_GOLD_STAGES)
-			{
-				String stipName = lexicHeader.split(""+UTILS.LEX_DELIM)[coli].trim(); 
-				
-				// using ">= NUM_GOLD_STAGES + 1", because the first line is the input. 
-				while ( coli >= NUM_GOLD_STAGES + 1 ? 
-						false : !stipName.equalsIgnoreCase(goldStageNames[numGoldStagesConfirmed]) )
-					blackenGoldStage(coli); 
-						// note that decolumnGoldStage() decreases NUM_GOLD_STAGES 
-				
-				//TODO debugging
-				if (DEBUG_STAGES || VERBOSE )
-					System.out.println("gold stage "+(numGoldStagesConfirmed+1)+" confirmed: "+stipName); 
-				
-				numGoldStagesConfirmed++; 
-				coli++; 
-			}// either we have passed last column (coli == numCols) or confirmed the last gold stage or both 
+			int prevStageOrderIndex = 0; 
 			
-			//TODO below should be abrogated and replaced... probably. If we keep this method at all. 
-			String stipName = lexicHeader.split(""+UTILS.LEX_DELIM)[coli].trim(); 
+			while (cti < colTitles.length)
+			{
+				int nextStageOrderIndex = retrieveStageOrderingIndexByName(colTitles[cti]); 
+				if (nextStageOrderIndex == -1)
+					throw new RuntimeException("Stage name declared in lexicon header that is not flagged "
+							+ "anywhere in the cascade (check spelling): "+colTitles[cti]);
+				if (nextStageOrderIndex < prevStageOrderIndex)
+					throw new RuntimeException("Mismatch in stage ordering in cascade file and in lexicon header.\n"
+							+ "The stage '"+colTitles[cti]+"' is placed in the lexicon header after stage '"+colTitles[cti-1]+"', but before it in the cascade!"); 
+				
+				// if it's an uncolumned black stage, column it. 
+				if (stageOrdering[nextStageOrderIndex].substring(0,1).equals("b"))
+					makeBlackStageColumned(Integer.parseInt(stageOrdering[nextStageOrderIndex].substring(1)));
+				
+				//blacken any gold stages in between. 
+				while (prevStageOrderIndex < nextStageOrderIndex)
+				{
+					if(stageOrdering[prevStageOrderIndex].substring(0,1).equals("G")) 
+					{	//decolumn and blacken the skipped gold stage
+						int goldStageInd = Integer.parseInt(stageOrdering[prevStageOrderIndex].substring(1)); 
+						System.out.println("Blackening (and decolumning) gold stage skipped over in header: "+
+								goldStageNames[goldStageInd]); 
+						blackenGoldStage(goldStageInd,false); 
+					}	
+					prevStageOrderIndex++; 
+				}
+				prevStageOrderIndex = nextStageOrderIndex;
+				cti++; 
+			}
+			//if there's stuff in stageOrdering left -- blacken any gold stages. 
+			while (prevStageOrderIndex < stageOrdering.length)
+			{
+				if(stageOrdering[prevStageOrderIndex].substring(0,1).equals("G")) 
+				{	//decolumn and blacken the skipped gold stage
+					int goldStageInd = Integer.parseInt(stageOrdering[prevStageOrderIndex].substring(1)); 
+					System.out.println("Blackening (and decolumning) gold stage skipped over in header: "+
+							goldStageNames[goldStageInd]); 
+					blackenGoldStage(goldStageInd,false); 
+				}	
+				prevStageOrderIndex++; 
+			}
 			
-			if (stipName.substring(1,6).equalsIgnoreCase("modern") || stipName.equalsIgnoreCase("output") || stipName.equalsIgnoreCase("out") || stipName.equalsIgnoreCase("res") || stipName.equalsIgnoreCase("result"))
-			{
-				System.out.println("Final column stipulated as gold output.");
-				hasGoldOutput = true; 
-			}
-			else
-			{
-				System.out.println("Final column is a gold stage, not gold results!"); 
-				hasGoldOutput = false; 
-				
-				int curgs = numGoldStagesConfirmed; 
-				
-				while ( coli > NUM_GOLD_STAGES ? false : stipName.equals(goldStageNames[curgs]) )
-					blackenGoldStage(coli); 
-				if (coli > NUM_GOLD_STAGES)
-					throw new RuntimeException("Error: Failed to find gold stage that was stipulated in lexicon file header : "+stipName);
-				numGoldStagesConfirmed++; 	
-			}
-			if (numGoldStagesConfirmed < NUM_GOLD_STAGES)
-			{
-				System.out.println("Blackening remaining unconfirmed gold stages that were declared in cascade file!"); 
-				while (numGoldStagesConfirmed < NUM_GOLD_STAGES)
-					blackenGoldStage(numGoldStagesConfirmed);
-			}
-		}
+		}// either we have passed last column (coli == numCols) or confirmed the last gold stage or both 
 		else
 		{
 			if (VERBOSE || DEBUG_STAGES)
@@ -873,10 +897,12 @@ public class DiachronicSimulator {
 		Etymon[] goldResults = new Etymon[NUM_ETYMA];  // being built to pass to  goldOutputLexicon
 		Etymon[][] columnForms = new Etymon[NUM_COLUMNED_STAGES()][NUM_ETYMA];
 				//being built to pass to goldStageGoldLexica and blackInsertionRemovalLexica down the line. 
+			// before their shapes are finalized, as they are reinitialized in stage blackening and (de)columning processes
 		
 		int lfli =  0 ; //"lex file line index"
 		if (lexiconHasHeader)	lexFileLines.remove(0); 
 		
+		//file columnForms
 		while(lfli < NUM_ETYMA)
 		{
 			String theLine = lexFileLines.get(lfli);
@@ -902,30 +928,38 @@ public class DiachronicSimulator {
 				{	for (int csi = 0 ; csi < NUM_COLUMNED_STAGES() ; csi++) {
 						columnForms[csi][lfli] = UTILS.parseLexPhon(forms[csi+1],no_symb_diacritics);
 						if(commented)	columnForms[csi][lfli].setComments(commentContents);
-						//TODO NEED TO FIX HERE!!! WRT COLUMNED BLACK
 					}
 				}
-				if (hasGoldOutput) {
-					goldResults[lfli] = UTILS.parseLexPhon(forms[NUM_GOLD_STAGES+1],no_symb_diacritics);
-					if(commented)	goldResults[lfli].setComments(commentContents);
-				}
+				
+				if (hasGoldOutput)
+					goldResults[lfli] = UTILS.parseLexPhon(forms[forms.length-1], no_symb_diacritics); 
 			}
 			lfli++;
 		}		
-
-		
+	
 		if(NUM_COLUMNED_STAGES() > 0)
 		{
-			int gsi = 0 , cbsi = 0, si = 0 ; // (gold, columned black, lexicon column) indices respectively  
-			//NOTE keeping gold lexica around solely for purpose of initializing Simulation objects at this point.
-			//TODO NEED TO FIX HERE!!!!!!!WRT COLUMNED BLACK
+			// first, determine if any of the gold stages need to become columned black stages
+			for (int soi = 0 ; soi < stageOrdering.length; soi++) 
+				if (stageOrdering[soi].charAt(0) == 'G')
+					if (columnToBeBlackened(columnForms,soi))
+						blackenGoldStage(Integer.parseInt(stageOrdering[soi].substring(1)),true);
+							//note the first variable is the number among gold stuff 
+						//TODO note there may be a bug in doing it htis way though -- decolumning then columning, effectively (as of March 21) 
+				// make gold stage to columned black.
+			
+			int gsi = 0 , cbsi = 0, si = 0 ; // (gold, columned black, stage ordering column) indices respectively  
+			// fill goldStageGoldLexica and balckInsertionRemovalLexica
 			for (int coli = 0 ; coli < NUM_COLUMNED_STAGES(); coli++)
 			{
-				char stageTypeIndic = 'b'; 
-				while (stageTypeIndic == 'b') //uncolumned black. 
-					stageTypeIndic = stageOrdering[si++].charAt(0); 
-				
-				if (stageTypeIndic == 'G') // gold
+				char stageTypeIndic = stageOrdering[si].charAt(0); 
+				if (stageTypeIndic == 'b') //uncolumned black
+				{
+					si++; 
+					if (si >= stageOrdering.length)
+						break; 
+				}
+				else if (stageTypeIndic == 'G') // gold
 					goldStageGoldLexica[gsi++] = new Lexicon(columnForms[coli]);
 				else // columned black
 					blackInsertionRemovalLexica[cbsi++] = new Lexicon(columnForms[coli]); 
@@ -944,6 +978,8 @@ public class DiachronicSimulator {
 		if (blackStagesSet)  theSimulation.setBlackStages(blackStageNames, blackStageInstants);
 		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (columnedStagesSet())	theSimulation.setColumnedStages(columnForms, columnedStageNames, columnedStageInstants, blackToColumnedIndex);
+		
+		//TODO imposing standard input name -- turn this off when using intermediate starting points is made possible.
 		if (!inputName.equalsIgnoreCase("input"))
 				theSimulation.setInputStageName(inputName);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
