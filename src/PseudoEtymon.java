@@ -34,10 +34,12 @@ public class PseudoEtymon extends Etymon {
 	public	PseudoEtymon(String repr)
 	{
 		super(new ArrayList<SequentialPhonic>(),false);
-		this.representation = ""+repr; 
 		
-		// guard rail: 
-		if (!UTILS.PSEUDO_ETYM_REPRS.contains(representation))
+		if (UTILS.PSEUDO_ETYM_REPRS.contains(repr))
+			this.representation = ""+repr; 
+		else if (UTILS.PSEUDO_ETYM_INDICS.contains(repr))
+			this.representation = UTILS.PSEUDO_ETYM_REPRS.get(UTILS.PSEUDO_ETYM_INDICS.indexOf(repr));
+		else // guard rail
 			throw new RuntimeException("Alert: illegal typing of PseudoEtymon instance: '"+repr+"'. Investigate this."); 
 	}
 	
@@ -49,7 +51,7 @@ public class PseudoEtymon extends Etymon {
 	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
-	public String toString()	{	return representation;	}
+	public String toString()	{	return UTILS.PSEUDO_ETYM_INDICS.get(UTILS.PSEUDO_ETYM_REPRS.indexOf(representation));	}
 	
 	public String print() {		return representation;	}
 

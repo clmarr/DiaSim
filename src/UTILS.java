@@ -38,6 +38,7 @@ public class UTILS {
 			// the latter are for unattested GOLD lexicon items -- i.e. those not included in diagnostic analysis
 			// i.e. NOT unattested reconstructions!
 	public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_GOLD_REPR); 	
+	public final static List<String> PSEUDO_ETYM_INDICS = Arrays.asList(ABSENT_INDIC, UNATTD_GOLD_INDIC); 
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
@@ -1292,7 +1293,7 @@ public class UTILS {
 	{
 		String toLex = toLexem.trim(); 
 		
-		if (PSEUDO_ETYM_REPRS.contains(toLex))
+		if (PSEUDO_ETYM_INDICS.contains(toLex))
 			return new PseudoEtymon(toLex);
 
 		boolean toLexIsReconstructed = false; 
