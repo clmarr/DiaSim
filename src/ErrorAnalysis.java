@@ -22,7 +22,6 @@ public class ErrorAnalysis {
 		// in cases where zero hits exist for a certain location relative to a confusion
 
 	private Lexicon RES, GOLD, PIV_PT_LEX;
-	//TODO when have time investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
 
 	private boolean pivotSet, filtSet; 
 	private SequentialFilter filterSeq; 
@@ -43,7 +42,7 @@ public class ErrorAnalysis {
 		// pairs of etyma (res, gold) mismatched. globalMismatches used to reset subsampMismatches when filter deleted. 
 	
 	private int TOTAL_ETYMA,  //TOTAL_ETYMA -- to be ALL etyma in the lexicon, including absent, just inserted
-			EVAL_SAMPSIZE; //EVAL_SAMP_SIZE -- number of all those only those that are in scope of evaluation 
+			EVAL_SAMPSIZE; //EVAL_SAMPSIZE -- number of all those only those that are in scope of evaluation 
 	private double TOT_ERRS;	
 	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
 				// which excludes just inserted and pseudo-etyma 
@@ -235,9 +234,9 @@ public class ErrorAnalysis {
 	
 	/** determineEvalSamp
 	 * @prerequisite @global lexica RES and GOLD are set 
-	 * @action: @builds @global IN_EVAL_SAMP, MAX_EVAL_SAMP 
+	 * @action: @builds @global IN_EVALSAMP, MAX_EVALSAMP 
 	 * 	  the total eval samples, that may be filtered from 
-	 * 	@sets global TOTAL_ETYMA, EVAL_SAMP_SIZE.
+	 * 	@sets global TOTAL_ETYMA, EVAL_SAMPSIZE.
 	 */
 	private void determineEvalSamp()
 	{
@@ -502,8 +501,9 @@ public class ErrorAnalysis {
 			}
 		}
 		if (pivotSet)
-			for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(err_id).getPhOnlySeq())
-				errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
+			if (!UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(err_id)))
+				for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(err_id).getPhOnlySeq())
+					errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 	}
 	
 
@@ -1135,7 +1135,8 @@ public class ErrorAnalysis {
 					filename : filename+".csv"); 
 		
 		for (int eti = 0; eti < TOTAL_ETYMA; eti++)
-			output += "\n" + formIds.get(eti) //TODO may need to fix this for Borja Herce's ID indexing preferences... 
+			output += !IN_EVALSAMP[eti] ? "" 
+					: "\n" + formIds.get(eti) //TODO may need to fix this for Borja Herce's ID indexing preferences... 
 					+ "," + RES.getByID(eti).print()
 					+ "," + GOLD.getByID(eti).print()
 					+ "," + levDists[eti] 
@@ -1206,7 +1207,8 @@ public class ErrorAnalysis {
 	public void articulateSubsample(String subsamp_name)
 	{	
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
-		EVAL_SAMPSIZE = 0; String etStr = ""; 
+		int SUBSAMP_SIZE = 0;  //TODO very suspicious here! Investigate!
+		String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
 		subsampMismatches = new ArrayList<Etymon[]> (); 
@@ -1222,16 +1224,17 @@ public class ErrorAnalysis {
 		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi)) || !RES.getByID(isi).isReconstructed())
-				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time, or just inserted in result lexicon.
-			else
-				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
+			//ignore etyma absent at this time, or just inserted in result lexicon -- otherwise on basis of the presence of filter seq
+				// also exclude etyma that are pseudo etyma in the subsamp 
+			IN_SUBSAMP[isi] = (!IN_EVALSAMP[isi] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi))) ? false : 
+				filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
+
 			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed()) // second requirement is redundant, but just for safety. 
 			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
-				EVAL_SAMPSIZE += 1; 
+				SUBSAMP_SIZE += 1; 
 				etStr += isi+",";
 				if (isHit[isi])	nSSHits+=1; //filtered above for IN_SUBSAMP, so the fact that isHit[isi] is true for just inserted or pseud ois ok. 
 				else	
@@ -1244,7 +1247,7 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
+		FILTER_SUBSAMP = new int[SUBSAMP_SIZE];
 		SS_HIT_IDS = new int[nSSHits];
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
@@ -1273,14 +1276,14 @@ public class ErrorAnalysis {
 		
 		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
-		if (EVAL_SAMPSIZE == 0)
+		if (SUBSAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
-			pctAcc = (double)nSSHits / (double)EVAL_SAMPSIZE; 
+			pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
 			
-			System.out.println("Size of subset : "+EVAL_SAMPSIZE+"; ");
-			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)EVAL_SAMPSIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
-			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)EVAL_SAMPSIZE/(double)RES.numPresentEtyma()*100));
+			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
+			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
+			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)SUBSAMP_SIZE/(double)EVAL_SAMPSIZE*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
 	
@@ -1296,10 +1299,10 @@ public class ErrorAnalysis {
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][fi] ? 1 : 0;
 			}
 			
-			pctWithin1 = nSS1off / (double) EVAL_SAMPSIZE;
-			pctWithin2 = nSS2off / (double) EVAL_SAMPSIZE; 
-			avgPED = totPED / (double) EVAL_SAMPSIZE; 	
-			avgFED = totFED / (double) EVAL_SAMPSIZE; 
+			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
+			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
+			avgPED = totPED / (double) SUBSAMP_SIZE; 	
+			avgFED = totFED / (double) SUBSAMP_SIZE; 
 			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
@@ -1333,8 +1336,6 @@ public class ErrorAnalysis {
 	 * 		2) f1
 	 * 		3) f3
 	 * 		4) f0.2 
-	 * 
-	 * TODO future behavior: should ask user which sort of test to do, perhaps? 
 	 */
 	public void contextAutopsyComparison()
 	{
@@ -1460,8 +1461,9 @@ public class ErrorAnalysis {
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
-			// skip if not reconstructed.
-			if (!RES.getByID(SS_HIT_IDS[hi]).isReconstructed())	continue; 
+			// skip if not in eval samp (not reconstructed or pseudo, or pseudo in pivot lexion 
+			if (!IN_EVALSAMP[SS_HIT_IDS[hi]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(SS_HIT_IDS[hi])))
+				continue;
 			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
 
@@ -1480,9 +1482,11 @@ public class ErrorAnalysis {
 		}
 		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
-			// skip if not reconstructed, though for misses tihs is probably redundant -- just inserted would not be a miss. 
-			if (!RES.getByID(SS_MISS_IDS[mi]).isReconstructed())	continue; 
-						
+			// skip if not reconstructed, though for misses this is probably redundant -- just inserted would not be a miss.
+					// but also need to skpi if its a pseudo-etymon in pivot lex
+			if (!IN_EVALSAMP[SS_MISS_IDS[mi]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(SS_MISS_IDS[mi])))
+				continue;
+			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
 
 			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
@@ -1519,8 +1523,9 @@ public class ErrorAnalysis {
 		for (int pi = 0 ; pi < phs.size(); pi++) {
 			for (int eti = 0; eti < ids.length ; eti++)
 			{
-				//exclude if not reconstructed in RES
-				if (!RES.getByID(ids[eti]).isReconstructed())	continue;
+				//exclude if not in eval samp, or is pseudoEt in pivot. 
+				if (!IN_EVALSAMP[ids[eti]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ids[eti])))
+					continue;
 				
 				List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(ids[eti]).getPhonologicalRepresentation();
 				for(int[] bound : theBounds.get(eti))
