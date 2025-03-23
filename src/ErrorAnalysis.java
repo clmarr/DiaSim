@@ -46,8 +46,9 @@ public class ErrorAnalysis {
 	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
 				// which excludes just inserted and pseudo-etyma 
 	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered)  subsample
-	private boolean[] isHit; 	//TODO investigate uses 
+	private boolean[] isHit; 	
 			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
+				//those excluded from subsample and eval samp are actually treated as true. -0-note. 
 
 	private FED featDist;
 	private int[] levDists; 
@@ -70,7 +71,6 @@ public class ErrorAnalysis {
 		// these are used for various auxiliary functions as well in some places of this class. 
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 		// etymon IDs of words that validly fit are filter and are, respectively, matches and mismatches between reconstructed and observed outcomes.
-	
 	
 	//protected final String ABS_PR ="[ABSENT]"; 
 		//TODO note this variable is the locus of protodelta changes
@@ -165,7 +165,7 @@ public class ErrorAnalysis {
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			if (IN_SUBSAMP[i]) 
+			if (IN_EVALSAMP[i]) 
 			{	
 				for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
 				{
@@ -194,10 +194,10 @@ public class ErrorAnalysis {
 				totFED += feds[i];
 				
 				if(!isHit[i])
-					updateConfusionMatrix(i);
-						//also increments errorsBy(Res/Gold)Phone^ 
+					updateConfusionMatrix(i); // builds subsampMismatches. 
+						//also increments errorsBy(Res/Gold)Phone^
 			}//for recently inserted etyma, they will always be equal to the form they were just inserted as!
-			else	isHit[i] = true; 
+			else	isHit[i] = true; //and for absence, absence equals absence. 
 		}
 		
 		globalMismatches.addAll(subsampMismatches);
@@ -205,12 +205,13 @@ public class ErrorAnalysis {
 			for (int j = 0 ; j < confusionMatrix[i].length; j++)
 				globalConfusionMatrix[i][j] = confusionMatrix[i][j]; 		
 		
+		// here out of eval samp size, not total etyma, because absent and just inserted don't count! 
 		pctAcc = numHits / (double) EVAL_SAMPSIZE; 
 		pctWithin1 = num1off / (double) EVAL_SAMPSIZE;
 		pctWithin2 = num2off / (double) EVAL_SAMPSIZE; 
 		avgPED = totLexQuotients / (double) EVAL_SAMPSIZE; 	
 		avgFED = totFED / (double) EVAL_SAMPSIZE; 
-		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
+		TOT_ERRS = (double)EVAL_SAMPSIZE - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
 		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(true), 
@@ -289,10 +290,14 @@ public class ErrorAnalysis {
 	{
 		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
-		for (int i = 0 ; i < EVAL_SAMPSIZE; i++)
+		int fi = 0; 
+		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{
-			FILTER_SUBSAMP[i] = MAX_EVALSAMP[i];
-			IN_SUBSAMP[i] = IN_EVALSAMP[i];
+			if (IN_EVALSAMP[i])
+			{
+				IN_SUBSAMP[i] = true; 
+				FILTER_SUBSAMP[fi++] = i; 
+			}
 		}
 		filterSeq = null;
 	}
@@ -2140,6 +2145,7 @@ public class ErrorAnalysis {
 		/* as the features may actually (somehow) be active (for some reason) at the intermediate pivot stage) 
 	/* @param earlier_inactive_list the preexisting list of inactive features (which at the start is just the entire list of +/- feature stipulations) 
 	/* @param sample -- lexicon we are looking through. 
+	 * @prerequisite -- IN_SUBSAMP filled, and it excludes just reconstructed etyma in RES and those that are pseudoEtyma in etiher. 
 	 * @return list of inactive feats that has been modified in this way.
 	 * 			(will include the values that the feature CONSTANTLY has: e.g. -splng if all segments are -splng. )  
 	 * @beware -- will be limited to feats in @param earlier_inactive_list -- may need to reinitialize that. 
@@ -2152,8 +2158,7 @@ public class ErrorAnalysis {
 				indexedFeatList = Arrays.asList(featsByIndex); 
 		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
 		{
-			if (IN_SUBSAMP[idi] && 
-					(inheritedOnly ? sample.getByID(idi).isReconstructed() : UTILS.PSEUDO_ETYM_INDICS.contains(sample.getByID(idi)+"")))
+			if (IN_SUBSAMP[idi])
 			{
 				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
 				for (SequentialPhonic phmi : repi)
@@ -2169,11 +2174,9 @@ public class ErrorAnalysis {
 							out.remove(ifi); 
 						else	ifi++; 
 					}
-					
 					if (out.size() == 0)	return out; 
-				}
-			}
-		}		
+		}}}		
+		
 		return out; 
 	}
 	
