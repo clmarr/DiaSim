@@ -1168,7 +1168,6 @@ public class ErrorAnalysis {
 		EVAL_SAMP_SIZE = 0; String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
-		FILTER = new int[EVAL_SAMP_SIZE]; 
 		subsampMismatches = new ArrayList<Etymon[]> (); 
 		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
 		
@@ -1182,7 +1181,7 @@ public class ErrorAnalysis {
 		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi)) || RES.getByID(isi).isReconstructed())
+			if(UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi)) || !RES.getByID(isi).isReconstructed())
 				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time, or just inserted in result lexicon.
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
@@ -1240,6 +1239,7 @@ public class ErrorAnalysis {
 			
 			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
 			System.out.println(String.format("%.2f%% of etyma in whole dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0));
+			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)EVAL_SAMP_SIZE/(double)RES.numPresentEtyma()*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
 	
