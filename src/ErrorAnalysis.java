@@ -410,9 +410,13 @@ public class ErrorAnalysis {
 			SequentialPhonic rTarget = topConfusions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topConfusions[i][0]],
 					gTarget = topConfusions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topConfusions[i][1]];
 			
-			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
-			
 			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
+			if (wordsWithConfusion == 0.0)	{
+				System.out.println("No other confusions remain! (Good job)"); 
+				break; 			
+			}
+			
+			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
 					
 			double errorShare = wordsWithConfusion / (double)subsampMismatches.size() * 100.0; 
 			String strErrShare = ""+errorShare; 

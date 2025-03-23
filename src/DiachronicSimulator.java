@@ -1884,7 +1884,7 @@ public class DiachronicSimulator {
 			{
 				if (!atOutput)
 				{
-					System.out.println("DHS not yet enabled before final output point is reached!"); 
+					System.out.println("DHS not yet enabled before final output point is reached! Please choose another option or get to final output first!"); 
 					continue;
 				}
 				
