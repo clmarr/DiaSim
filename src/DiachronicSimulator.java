@@ -992,19 +992,11 @@ public class DiachronicSimulator {
 			blackInsertionRemovalLexica = new Lexicon[NUM_COLUMNED_BLACK_STAGES]; 
 			coli = 0; 
 			
-			//TODO debugging
-			System.out.print("stageOrdering: "+stageOrdering[0]); 
-			for(int stoi = 1 ; stoi < stageOrdering.length; stoi++)	System.out.print(", "+stageOrdering[stoi]); 
-			System.out.println("");
-			
 			for ( int si = 0 ; coli < NUM_COLUMNED_STAGES(); si++)
 			{
-				//TODO debugging
-				System.out.println("column "+coli+" @sOrd: "+stageOrdering[si]); 
-				
 				char stageTypeIndic = stageOrdering[si].charAt(0); 
 				if (stageTypeIndic == 'b') //uncolumned black
-					if (si >= stageOrdering.length)	break; 
+				{	if (si >= stageOrdering.length)	break; 	}
 				else
 				{
 					if (stageTypeIndic == 'G') // gold
