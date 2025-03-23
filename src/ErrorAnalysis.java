@@ -37,6 +37,8 @@ public class ErrorAnalysis {
 		// first dimension -- index of each phone in respective lexicon inventory
 			// inner dimension -- index among ALL etyma (TOTAL_ETYMA) --- including the absent and just inserted ones
 			// need to make sure these aren't included in calculations through filtering via other structures.
+		//note pivot aspects calculated also for etyma that are present in pivot but not in the eval samp (which is only if inherited in RES, not pseudo in GOLD). 
+	 		//must be filtered later. 
 	private List<Etymon[]> globalMismatches, subsampMismatches; 
 		// pairs of etyma (res, gold) mismatched. globalMismatches used to reset subsampMismatches when filter deleted. 
 	
@@ -312,6 +314,8 @@ public class ErrorAnalysis {
 	/**
 	 * @param newPiv -- pivot lexicon
 	 * @param piv_name -- name of it
+	 * note pivot aspects calculated also for etyma that are present in pivot but not in the eval samp (which is only if inherited in RES, not pseudo in GOLD). 
+	 * 		must be filtered later. 
 	 */
 	public void setPivot(Lexicon newPiv, String piv_name)
 	{
@@ -330,14 +334,12 @@ public class ErrorAnalysis {
 		for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)
 		{
 			Etymon currEt = PIV_PT_LEX.getByID(ei);
-			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
-			{
-				if(!UTILS.isPseudoEtymon(currEt))
-					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
-				else	isPhInPivEt[pvi][ei] = false;
-				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
-			}
-		}
+			if (!UTILS.isPseudoEtymon(currEt)) {
+				for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
+				{
+					isPhInPivEt[pvi][ei] = currEt.findPhone(pivotPhInventory[pvi]) != -1;
+					if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
+		}}}
 		
 		if(filtSet)	articulateSubsample(piv_name); 
 		else
@@ -346,7 +348,7 @@ public class ErrorAnalysis {
 			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
 			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
-				if(!isHit[ei])
+				if(!isHit[ei]) // will be true for, and thus exclude, cases outside the eval samp (pseudo in gold, noninherited or psuedo in res) 
 					for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 			}
@@ -440,6 +442,7 @@ public class ErrorAnalysis {
 		{
 			SequentialPhonic rTarget = topConfusions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topConfusions[i][0]],
 					gTarget = topConfusions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topConfusions[i][1]];
+					// recall that storing phInventory.length in topConfusions indicates insertion/deletion -- correspondence to null 
 			
 			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
 			if (wordsWithConfusion == 0.0)	{
@@ -472,6 +475,13 @@ public class ErrorAnalysis {
 	// this method assumes that the word with @param err_id is reconstructed, otherwise this method would be called
 	private void updateConfusionMatrix(int err_id)
 	{
+		// guard rail
+		if (!IN_EVALSAMP[err_id])
+		{	
+			System.out.println("Warning: trying to update confusion matrix with an index excluded from analysis!"); 
+			return; 
+		}
+		
 		Etymon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
 		
 		subsampMismatches.add( new Etymon[] {res, gold}) ; 
@@ -1216,14 +1226,14 @@ public class ErrorAnalysis {
 				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time, or just inserted in result lexicon.
 			else
 				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
-			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed())
+			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed()) // second requirement is redundant, but just for safety. 
 			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
 				EVAL_SAMPSIZE += 1; 
 				etStr += isi+",";
-				if (isHit[isi])	nSSHits+=1; 
+				if (isHit[isi])	nSSHits+=1; //filtered above for IN_SUBSAMP, so the fact that isHit[isi] is true for just inserted or pseud ois ok. 
 				else	
 				{
 					nSSMisses+=1;
@@ -1241,13 +1251,13 @@ public class ErrorAnalysis {
 		SS_MISS_BOUNDS = new ArrayList<List<int[]>>(); 
 			//the -_BOUNDS variables are serving an additional indexing role for building FILTER here
 		
-		while (etStr.contains(",") && etStr.length()>1)
+		while (etStr.contains(",") && etStr.length()>1) //etStr will exclude cases outside the eval samp.
 		{
 			int commaloc = etStr.indexOf(",");
 			int id = Integer.parseInt(etStr.substring(0, commaloc));
 			etStr = etStr.substring(commaloc+1); 
 			FILTER_SUBSAMP[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
-			if (isHit[id])
+			if (isHit[id]) //cases outside eval samp already excluded as long as they don't end up in etStr. 
 			{
 				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
 				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(PIV_PT_LEX.getByID(id).getPhonologicalRepresentation()));
