@@ -17,7 +17,8 @@ public class ErrorAnalysis {
 	//TODO decide on what morphosyntactic analyses to perform
 	// TODO implement them... -- probably fall 2023 or winter	
 	
-	private double PHI_SMOOTHING = 0.5; 
+	private double PHI_SMOOTHING() 	//1/19 ,which will make max phi into 0.9, or the 1/subsamp size -- whichever is lower. 
+		{	return 1.0 / Math.max(19, FILTER_SUBSAMP.length); 	}
 	private double F_SMOOTHING = 0.25;
 		// in cases where zero hits exist for a certain location relative to a confusion
 
@@ -445,7 +446,7 @@ public class ErrorAnalysis {
 			
 			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
 			if (wordsWithConfusion == 0.0)	{
-				System.out.println("No other confusions remain! (Good job)"); 
+				System.out.println("\n...No other confusions remain! (Good job)"); 
 				break; 			
 			}
 			
@@ -1282,7 +1283,7 @@ public class ErrorAnalysis {
 			pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
 			
 			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
-			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
+			System.out.println(String.format("%.2f%% of etyma in dataset, total (including those absent at this point).", (double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
 			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)SUBSAMP_SIZE/(double)EVAL_SAMPSIZE*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
@@ -1897,9 +1898,9 @@ public class ErrorAnalysis {
 			
 			if (mode.equals("phi"))
 				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
-						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][0][0]),
-						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][1][0]), 
-						Math.max(PHI_SMOOTHING, predictor_n_matr[fi][0][1]),
+						Math.max(PHI_SMOOTHING(),predictor_n_matr[fi][0][0]),
+						Math.max(PHI_SMOOTHING(),predictor_n_matr[fi][1][0]), 
+						Math.max(PHI_SMOOTHING(), predictor_n_matr[fi][0][1]),
 						predictor_n_matr[fi][1][1]); 
 			else 
 			{
