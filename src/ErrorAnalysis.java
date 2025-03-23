@@ -22,29 +22,32 @@ public class ErrorAnalysis {
 		// in cases where zero hits exist for a certain location relative to a confusion
 
 	private Lexicon RES, GOLD, PIV_PT_LEX;
-	//TODO investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
-
-	private int[] PRESENT_ETS; 
-	// TODO investigate uses.
+	//TODO when have time investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
 
 	private boolean pivotSet, filtSet; 
 	private SequentialFilter filterSeq; 
-	private int[] FILTER; //indices of all etyma in subset
-	// TODO investigate uses. 	
+	private int[] FILTER_SUBSAMP; //indices of all etyma in subset
+	private int[] MAX_EVALSAMP; //indices of all etyma in eval samp -- excluding pseudo-etyma, and those just inserted in Res. 
 	
 	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 		// the first two are largely used for indexing purposes for search and comparison between different phonne(me)s.
 	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
 		// indexes for phones in the following int arrays are above.
 	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
-		// TODO investigate uses of these. 
+		// first dimension -- index of each phone in respective lexicon inventory
+			// inner dimension -- index among ALL etyma (TOTAL_ETYMA) --- including the absent and just inserted ones
+			// need to make sure these aren't included in calculations through filtering via other structures.
 	private List<Etymon[]> globalMismatches, subsampMismatches; 
-		// TODO investigate uses. 
-
-	private int TOTAL_ETYMA, EVAL_SAMP_SIZE;
+		// pairs of etyma (res, gold) mismatched. globalMismatches used to reset subsampMismatches when filter deleted. 
+	
+	private int TOTAL_ETYMA,  //TOTAL_ETYMA -- to be ALL etyma in the lexicon, including absent, just inserted
+			EVAL_SAMPSIZE; //EVAL_SAMP_SIZE -- number of all those only those that are in scope of evaluation 
 	private double TOT_ERRS;	
-	private boolean[] IN_SUBSAMP; //TODO investigate uses of this one.
+	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
+				// which excludes just inserted and pseudo-etyma 
+	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered)  subsample
 	private boolean[] isHit; 	//TODO investigate uses 
+			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
 
 	private FED featDist;
 	private int[] levDists; 
@@ -119,16 +122,12 @@ public class ErrorAnalysis {
 		filtSet = false;// set with setFilter() later. 
 		pivotSet = false;  /*pivotingOnGoldOrInput = false;*/  // set with setPivot()
 		
+		determineEvalSamp(); 
+		initFiltSamp(); //here, functions to establish default filter. 
+			// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold, or just inserted. 
+
 		featDist = fedCalc; 
 		featsByIndex = UTILS.featsByIndex;
-		TOTAL_ETYMA = theRes.numPresentEtyma(); 
-
-		if (TOTAL_ETYMA != theGold.numPresentEtyma()) // guard rail. 
-			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
-					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+theGold.totalEtyma()+"). "
-							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
-							+ "given the paramount of importance of keeping etymon indices constant. "
-							+ "Investigate this."); 
 		
 		resPhInventory = theRes.getPhonemicInventory(true);
 		goldPhInventory = theGold.getPhonemicInventory(false);
@@ -143,22 +142,8 @@ public class ErrorAnalysis {
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
 		
-		//TODO this needs rework. 
-		EVAL_SAMP_SIZE = TOTAL_ETYMA - theRes.numJustInsertedEtyma();
-		
-		FILTER = new int[EVAL_SAMP_SIZE];
-		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
-		int fi = 0;
-		for (int i = 0 ; i < theRes.getWordList().length; i++)
-		{	if (!UTILS.isPseudoEtymon(theRes.getByID(i)) && theRes.getByID(i).isReconstructed())
-			{	FILTER[fi] = i;
-				PRESENT_ETS[fi] = i;
-				fi++;
-			}
-		}
-		
-		isPhInResEt = new boolean[resPhInventory.length][EVAL_SAMP_SIZE]; 
-		isPhInGoldEt = new boolean[goldPhInventory.length][EVAL_SAMP_SIZE]; 
+		isPhInResEt = new boolean[resPhInventory.length][TOTAL_ETYMA]; 
+		isPhInGoldEt = new boolean[goldPhInventory.length][TOTAL_ETYMA]; 
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
@@ -172,21 +157,14 @@ public class ErrorAnalysis {
 		
 		globalMismatches = new ArrayList<Etymon[]>(); subsampMismatches = new ArrayList<Etymon[]>(); 
 		
-		levDists = new int[EVAL_SAMP_SIZE]; 
-		peds = new double[EVAL_SAMP_SIZE];
-		feds = new double[EVAL_SAMP_SIZE];
-		isHit = new boolean[EVAL_SAMP_SIZE];
+		levDists = new int[TOTAL_ETYMA]; 
+		peds = new double[TOTAL_ETYMA];
+		feds = new double[TOTAL_ETYMA];
+		isHit = new boolean[TOTAL_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
-				
-		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 		
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			boolean inheritedTillNow = theRes.getByID(i).isReconstructed(); 
-			IN_SUBSAMP[i] = !UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i)) && inheritedTillNow ; 	
-				// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold, or just inserted. 
-			 //don't include recently inserted etyma for calculations!
-			
 			if (IN_SUBSAMP[i]) 
 			{	
 				for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
@@ -227,11 +205,11 @@ public class ErrorAnalysis {
 			for (int j = 0 ; j < confusionMatrix[i].length; j++)
 				globalConfusionMatrix[i][j] = confusionMatrix[i][j]; 		
 		
-		pctAcc = numHits / (double) EVAL_SAMP_SIZE; 
-		pctWithin1 = num1off / (double) EVAL_SAMP_SIZE;
-		pctWithin2 = num2off / (double) EVAL_SAMP_SIZE; 
-		avgPED = totLexQuotients / (double) EVAL_SAMP_SIZE; 	
-		avgFED = totFED / (double) EVAL_SAMP_SIZE; 
+		pctAcc = numHits / (double) EVAL_SAMPSIZE; 
+		pctWithin1 = num1off / (double) EVAL_SAMPSIZE;
+		pctWithin2 = num2off / (double) EVAL_SAMPSIZE; 
+		avgPED = totLexQuotients / (double) EVAL_SAMPSIZE; 	
+		avgFED = totFED / (double) EVAL_SAMPSIZE; 
 		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
@@ -252,22 +230,71 @@ public class ErrorAnalysis {
 		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD,false);
 	}
 	
-	public void removeFilter()
+	/** determineEvalSamp
+	 * @prerequisite @global lexica RES and GOLD are set 
+	 * @action: @builds @global IN_EVAL_SAMP, MAX_EVAL_SAMP 
+	 * 	  the total eval samples, that may be filtered from 
+	 * 	@sets global TOTAL_ETYMA, EVAL_SAMP_SIZE.
+	 */
+	private void determineEvalSamp()
 	{
-		toDefaultFilter(); 
-		filtSet = false; 
+		TOTAL_ETYMA = RES.totalEtyma(); // total indices, so we don't have to keep calling it. 
+		if (TOTAL_ETYMA != GOLD.totalEtyma()) // guard rail. Reconstructed etyma will not be same since gold is not reconstructed, and it's *possible* that someone could want to make one in the unattested. 
+			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
+					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+GOLD.totalEtyma()+"). "
+							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
+							+ "given the paramount of importance of keeping etymon indices constant. "
+							+ "Investigate this."); 
+		
+		List<Integer> protoEvalSamp = new ArrayList<Integer>(); 
+		
+		for (int eti = 0 ; eti < TOTAL_ETYMA ; eti++)
+			if (evalSampInclusible(eti))	protoEvalSamp.add(eti); 
+		
+		IN_EVALSAMP = new boolean[TOTAL_ETYMA]; 
+		EVAL_SAMPSIZE = protoEvalSamp.size();
+		MAX_EVALSAMP = new int[EVAL_SAMPSIZE]; 
+		int evsi = 0; 
+		for (int pesi : protoEvalSamp)
+		{
+			IN_EVALSAMP[pesi] = true; 
+			MAX_EVALSAMP[evsi++] = pesi; 
+		}
 	}
+	
+	/** return whether the index will be included in max eval samp
+	 * at present (March 2025) this is only for etyma that are 
+	 * 		(a) reconstructed, not just inserted, in RES (by definition excluding pseudoEtyma)
+	 * 		(b) not pseudoEtyma in GOLD
+	 * @param index -- index of word in both GOLD and RES; must be a valid int
+	 * @prerequisite @global RES and GOLD are initialized
+	 */
+	public boolean evalSampInclusible (int index)
+	{	return RES.getByID(index).isReconstructed() 
+			&& !UTILS.isPseudoEtymon(GOLD.getByID(index)); 	}
+	
+	public void removeFilter()
+	{	toDefaultFilter(); 	filtSet = false; }
 
 	public void toDefaultFilter()
 	{
-		EVAL_SAMP_SIZE = PRESENT_ETS.length;
-		FILTER = new int[EVAL_SAMP_SIZE];
-		for (int i = 0 ; i < EVAL_SAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
-		filterSeq = null;
+		initFiltSamp(); 
 		subsampMismatches = new ArrayList<Etymon[]> (globalMismatches);
 		for (int i =0; i < confusionMatrix.length; i++)
 			for (int j = 0 ; j < confusionMatrix[i].length; j++)
 				confusionMatrix[i][j] = globalConfusionMatrix[i][j]; 	
+	}
+	
+	public void initFiltSamp()
+	{
+		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
+		for (int i = 0 ; i < EVAL_SAMPSIZE; i++)
+		{
+			FILTER_SUBSAMP[i] = MAX_EVALSAMP[i];
+			IN_SUBSAMP[i] = IN_EVALSAMP[i];
+		}
+		filterSeq = null;
 	}
 	
 	public void setFilter(SequentialFilter newFilt, String filt_name)
@@ -1164,7 +1191,7 @@ public class ErrorAnalysis {
 	public void articulateSubsample(String subsamp_name)
 	{	
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
-		EVAL_SAMP_SIZE = 0; String etStr = ""; 
+		EVAL_SAMPSIZE = 0; String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
 		subsampMismatches = new ArrayList<Etymon[]> (); 
@@ -1189,7 +1216,7 @@ public class ErrorAnalysis {
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
-				EVAL_SAMP_SIZE += 1; 
+				EVAL_SAMPSIZE += 1; 
 				etStr += isi+",";
 				if (isHit[isi])	nSSHits+=1; 
 				else	
@@ -1202,7 +1229,7 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		FILTER = new int[EVAL_SAMP_SIZE];
+		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
 		SS_HIT_IDS = new int[nSSHits];
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
@@ -1214,7 +1241,7 @@ public class ErrorAnalysis {
 			int commaloc = etStr.indexOf(",");
 			int id = Integer.parseInt(etStr.substring(0, commaloc));
 			etStr = etStr.substring(commaloc+1); 
-			FILTER[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
+			FILTER_SUBSAMP[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
 			if (isHit[id])
 			{
 				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
@@ -1231,21 +1258,21 @@ public class ErrorAnalysis {
 		
 		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
-		if (EVAL_SAMP_SIZE == 0)
+		if (EVAL_SAMPSIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
-			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
+			pctAcc = (double)nSSHits / (double)EVAL_SAMPSIZE; 
 			
-			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
-			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
-			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)EVAL_SAMP_SIZE/(double)RES.numPresentEtyma()*100));
+			System.out.println("Size of subset : "+EVAL_SAMPSIZE+"; ");
+			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)EVAL_SAMPSIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
+			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)EVAL_SAMPSIZE/(double)RES.numPresentEtyma()*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 
 			
-			for (int fi : FILTER)
+			for (int fi : FILTER_SUBSAMP)
 			{
 				//TODO need to check this area in protodelta to ensure handling of both absent and unattested etyma correctly 
 					// -- so that they are excluded from calculations
@@ -1254,10 +1281,10 @@ public class ErrorAnalysis {
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][fi] ? 1 : 0;
 			}
 			
-			pctWithin1 = nSS1off / (double) EVAL_SAMP_SIZE;
-			pctWithin2 = nSS2off / (double) EVAL_SAMP_SIZE; 
-			avgPED = totPED / (double) EVAL_SAMP_SIZE; 	
-			avgFED = totFED / (double) EVAL_SAMP_SIZE; 
+			pctWithin1 = nSS1off / (double) EVAL_SAMPSIZE;
+			pctWithin2 = nSS2off / (double) EVAL_SAMPSIZE; 
+			avgPED = totPED / (double) EVAL_SAMPSIZE; 	
+			avgFED = totFED / (double) EVAL_SAMPSIZE; 
 			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
