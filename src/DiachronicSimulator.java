@@ -1449,7 +1449,7 @@ public class DiachronicSimulator {
 					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
 					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold"); validOptions.add("Keep");
 					
-					for(int ri = 1; ri < CASCADE.size(); ri++)	
+					for(int ri = 1; ri < (atOutput ? CASCADE.size() : goldStageInstants[curSt]); ri++)	
 						validOptions.add("R"+ri);
 					
 					resp = ""; 
