@@ -205,7 +205,7 @@ public class Lexicon {
 	public void markEtymaReconstructed()
 	{
 		for (int eti = 0; eti < theWordList.length; eti++)
-			if (UTILS.isPseudoEtymon(theWordList[eti]))
+			if (!UTILS.isPseudoEtymon(theWordList[eti]))
 				theWordList[eti].setReconstructed(true);
 	}
 	

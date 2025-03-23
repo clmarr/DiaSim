@@ -332,7 +332,7 @@ public class ErrorAnalysis {
 		{
 			System.out.println("Error: tried to do confusion diagnosis when there is (somehow) "
 					+ "\n\ta forward reconstructed language with no phonemes in its phonemic inventory."
-					+ "\n\t(This is likely because all etyma ended up with every phone they had deleted.\n\n"); 
+					+ "\n\t(This is likely because all etyma ended up with every phone they had deleted.)"); 
 			return;
 		}
 		
