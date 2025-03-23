@@ -121,10 +121,9 @@ public class ErrorAnalysis {
 		
 		featDist = fedCalc; 
 		featsByIndex = UTILS.featsByIndex;
-		TOTAL_ETYMA = theRes.totalEtyma(); 
-		// total etyma, present or not at this moment 
+		TOTAL_ETYMA = theRes.numPresentEtyma(); 
 
-		if (TOTAL_ETYMA != theGold.totalEtyma()) // guard rail. 
+		if (TOTAL_ETYMA != theGold.numPresentEtyma()) // guard rail. 
 			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
 					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+theGold.totalEtyma()+"). "
 							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
@@ -143,23 +142,23 @@ public class ErrorAnalysis {
 			resPhInds.put(resPhInventory[i].print(), i);
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
-				
-		TOTAL_ETYMA = theRes.getWordList().length;
-		EVAL_SAMP_SIZE = TOTAL_ETYMA - theRes.numAbsentEtyma();
+		
+		//TODO this needs rework. 
+		EVAL_SAMP_SIZE = TOTAL_ETYMA - theRes.numJustInsertedEtyma();
 		
 		FILTER = new int[EVAL_SAMP_SIZE];
 		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
 		int fi = 0;
-		for (int i = 0 ; i < TOTAL_ETYMA; i++)
-		{	if (!UTILS.isPseudoEtymon(theRes.getByID(i)))
+		for (int i = 0 ; i < theRes.getWordList().length; i++)
+		{	if (!UTILS.isPseudoEtymon(theRes.getByID(i)) && theRes.getByID(i).isReconstructed())
 			{	FILTER[fi] = i;
 				PRESENT_ETS[fi] = i;
 				fi++;
 			}
 		}
 		
-		isPhInResEt = new boolean[resPhInventory.length][TOTAL_ETYMA]; 
-		isPhInGoldEt = new boolean[goldPhInventory.length][TOTAL_ETYMA]; 
+		isPhInResEt = new boolean[resPhInventory.length][EVAL_SAMP_SIZE]; 
+		isPhInGoldEt = new boolean[goldPhInventory.length][EVAL_SAMP_SIZE]; 
 		
 		errorsByResPhone = new int[resPhInventory.length];
 		errorsByGoldPhone = new int[goldPhInventory.length];
@@ -173,36 +172,36 @@ public class ErrorAnalysis {
 		
 		globalMismatches = new ArrayList<Etymon[]>(); subsampMismatches = new ArrayList<Etymon[]>(); 
 		
-		levDists = new int[TOTAL_ETYMA]; 
-		peds = new double[TOTAL_ETYMA];
-		feds = new double[TOTAL_ETYMA];
-		isHit = new boolean[TOTAL_ETYMA];
+		levDists = new int[EVAL_SAMP_SIZE]; 
+		peds = new double[EVAL_SAMP_SIZE];
+		feds = new double[EVAL_SAMP_SIZE];
+		isHit = new boolean[EVAL_SAMP_SIZE];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
 				
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 		
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			IN_SUBSAMP[i] = !UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i)) ; 	
-				// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold. 
 			boolean inheritedTillNow = theRes.getByID(i).isReconstructed(); 
+			IN_SUBSAMP[i] = !UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i)) && inheritedTillNow ; 	
+				// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold, or just inserted. 
+			 //don't include recently inserted etyma for calculations!
 			
-			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
-			{
-				Etymon currEt = theRes.getByID(i);
-				isPhInResEt[rphi][i] = UTILS.isPseudoEtymon(currEt) ? 
-						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
-			}
-			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
-			{
-				Etymon currEt = theGold.getByID(i);
-				isPhInGoldEt[gphi][i] = UTILS.isPseudoEtymon(currEt) ?
-						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
-			}
-			
-			if (inheritedTillNow &&  //don't include recently inserted etyma for calculations!
-					!UTILS.isPseudoEtymon(theRes.getByID(i)) && !UTILS.isPseudoEtymon(theGold.getByID(i))) 
+			if (IN_SUBSAMP[i]) 
 			{	
+				for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
+				{
+					Etymon currEt = theRes.getByID(i);
+					isPhInResEt[rphi][i] = UTILS.isPseudoEtymon(currEt) ? 
+							false : (currEt.findPhone(resPhInventory[rphi]) != -1);
+				}
+				for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
+				{
+					Etymon currEt = theGold.getByID(i);
+					isPhInGoldEt[gphi][i] = UTILS.isPseudoEtymon(currEt) ?
+							false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
+				}
+				
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
 				numHits += (levDists[i] == 0) ? 1 : 0; 
@@ -1238,7 +1237,7 @@ public class ErrorAnalysis {
 			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
 			
 			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
-			System.out.println(String.format("%.2f%% of etyma in whole dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0));
+			System.out.println(String.format("%.2f%% of etyma in dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
 			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)EVAL_SAMP_SIZE/(double)RES.numPresentEtyma()*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
@@ -1915,8 +1914,6 @@ public class ErrorAnalysis {
 						scout.substring(0,1).equals("#") ? "wdbnd"
 							: scout.substring(0,1).equals("/") ? "phone" : "feat"; 
 
-				
-				
 				while(try_place)
 				{	if (sc < lb_scores[placer])
 					{	placer++; 
