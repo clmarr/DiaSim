@@ -1319,10 +1319,13 @@ public class DiachronicSimulator {
 			//TODO figure out what this was referring to...
 		boolean atOutput = curSt == -1; 
 		
-		if (curSt == -1 && !hasGoldOutput)
+		//TODO debugging
+		System.out.println("hasGoldOutput : "+hasGoldOutput); 
+		
+		if (atOutput && !hasGoldOutput)
 			throw new RuntimeException("Error: attempted to do analysis and diagnostics on final output (as curSt=-1), "
 					+"but no gold output forms were provided!");
-		else if (curSt > goldStageGoldLexica.length)
+		else if (!goldStagesSet ? false: curSt > goldStageGoldLexica.length)
 			throw new RuntimeException("Error: attempted to do analysis and diagnostics for a gold stage that does not exist!"); 
 		
 		Lexicon r = theSimulation.getCurrentResult();
