@@ -2114,7 +2114,7 @@ public class ErrorAnalysis {
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if ( errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
+			if ( errorsOnly ? !isHit[i] : true)
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
@@ -2174,7 +2174,7 @@ public class ErrorAnalysis {
 				indexedFeatList = Arrays.asList(featsByIndex); 
 		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
 		{
-			if (IN_SUBSAMP[idi])
+			if (IN_SUBSAMP[idi] && !UTILS.isPseudoEtymon(sample.getByID(idi)))
 			{
 				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
 				for (SequentialPhonic phmi : repi)
