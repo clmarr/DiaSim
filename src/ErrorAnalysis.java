@@ -50,7 +50,7 @@ public class ErrorAnalysis {
 	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered) subsample
 	private boolean[] isHit; 	
 			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
-				//those excluded from subsample and eval samp are actually treated as true. -0-note. 
+				//those excluded from subsample and eval samp are actually treated as true. 
 
 	private FED featDist;
 	private int[] levDists; 
@@ -348,7 +348,7 @@ public class ErrorAnalysis {
 			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
 			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
-				if(!isHit[ei]) // will be true for, and thus exclude, cases outside the eval samp (pseudo in gold, noninherited or psuedo in res) 
+				if(!isHit[ei] && !UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ei))) // will be true for, and thus exclude, cases outside the eval samp (pseudo in GOLD , noninherited or psuedo in res) 
 					for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 			}
@@ -1237,7 +1237,7 @@ public class ErrorAnalysis {
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
 				SUBSAMP_SIZE += 1; 
 				etStr += isi+",";
-				if (isHit[isi])	nSSHits+=1; //filtered above for IN_SUBSAMP, so the fact that isHit[isi] is true for just inserted or pseud ois ok. 
+				if (isHit[isi])	nSSHits+=1; //filtered above for IN_SUBSAMP, so the fact that isHit[isi] is true for just inserted or pseudo is ok. 
 				else	
 				{
 					nSSMisses+=1;
