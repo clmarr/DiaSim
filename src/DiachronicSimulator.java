@@ -913,8 +913,10 @@ public class DiachronicSimulator {
 		// now extract from lexicon 
 		
 		String firstlineproxy = ""+lexFileLines.get(0); 
+		if (firstlineproxy.contains(""+UTILS.CMT_FLAG))
+			firstlineproxy = firstlineproxy.substring(0, firstlineproxy.indexOf(""+UTILS.CMT_FLAG));
 		int numCols = firstlineproxy.contains(""+UTILS.LEX_DELIM) ? firstlineproxy.split(""+UTILS.LEX_DELIM).length : 1 ; 
-		
+
 		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		
