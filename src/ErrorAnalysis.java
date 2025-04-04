@@ -2115,7 +2115,7 @@ public class ErrorAnalysis {
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if ( errorsOnly ? !isHit[i] : true && filterOnly ? IN_SUBSAMP[i] : true )
+			if ( (errorsOnly ? !isHit[i] : true) && (filterOnly ? IN_SUBSAMP[i] : true ))
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
