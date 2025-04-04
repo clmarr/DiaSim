@@ -1481,7 +1481,7 @@ public class DiachronicSimulator {
 								+ " for filtering");
 						else if (resp.substring(0,1).equalsIgnoreCase("R") && Integer.parseInt(resp.substring(1)) > goldStageInstants[curSt])
 							System.out.println("Invalid input: cannot pivot on a stage after the current point in relative chronology!"); 
-						else if ("g".equalsIgnoreCase(""+resp.charAt(0)) && !goldStagesSet)
+						else if ("g".equalsIgnoreCase(""+resp.charAt(0)) && !goldStagesSet && !"gold".equalsIgnoreCase(resp))
 							System.out.println("Invalid input: cannot use 'g' when no gold stages are set!"); 
 						else if ("b".equalsIgnoreCase(""+resp.charAt(0)) && !blackStagesSet)
 							System.out.println("Invalid input: cannot use 'b' when no black stages are set!"); 
@@ -1489,7 +1489,7 @@ public class DiachronicSimulator {
 							System.out.println("Invalid input: 'R', 'g', and 'b' require a valid integer after them, but '"+resp.substring(1)+"' is not!"); 
 						else if (resp.charAt(0) == 'R')
 							System.out.println("'"+resp+"' is not a valid option: the last rule is number "+(CASCADE.size()-1));
-						else if ("g".equalsIgnoreCase(""+resp.charAt(0)))
+						else if ("g".equalsIgnoreCase(""+resp.charAt(0)) && !"gold".equalsIgnoreCase(resp))
 							System.out.println("'"+resp+"' is not a valid option, the last computed gold stage is number "+lastGoldOpt); 
 						else if ("b".equalsIgnoreCase(""+resp.charAt(0)))
 							System.out.println("'"+resp+"' is not a valid option, the last computed black stage is number "+lastBlkOpt); 
@@ -1500,7 +1500,7 @@ public class DiachronicSimulator {
 						pivPtSet = true; 
 						if(resp.length() < 4 ? false : resp.substring(0,4).toLowerCase().equals("gold")) 
 							resp = "Gold";// preempt dumb capitalization stuff that could cause errors because g# is used to grab gold stage inds.
-						if("g".equalsIgnoreCase(""+resp.charAt(0)))
+						if("g".equalsIgnoreCase(""+resp.charAt(0)) && !"Gold".equals(resp))
 						{
 							int si = Integer.parseInt(resp.substring(1));
 							pivPtLex = goldStageGoldLexica[si]; 
