@@ -47,7 +47,7 @@ public class ErrorAnalysis {
 	private double TOT_ERRS;	
 	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
 				// which excludes just inserted and pseudo-etyma 
-	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered)  subsample
+	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered) subsample
 	private boolean[] isHit; 	
 			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
 				//those excluded from subsample and eval samp are actually treated as true. -0-note. 
@@ -2107,14 +2107,15 @@ public class ErrorAnalysis {
 	 * @param lexicolumns -- in order, lexica for which each etymon's form will be printed
 	 * @param errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reocnstructed results.
 	 * NOTE: last index will be @global @param TOTAL_ETYMA -- if lexica have different sizes, could cause problems
+	 * @param filterOnly -- true if printing only filtered etyma
 	 * TODO : note that this assumes unchanging indices for each etymon in each lexicon!
 	 * 	 
 	 * */
-	public void printStagedGraph(List<Lexicon> lexicolumns, boolean errorsOnly)
+	public void printStagedGraph(List<Lexicon> lexicolumns, boolean errorsOnly, boolean filterOnly)
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if ( errorsOnly ? !isHit[i] : true)
+			if ( errorsOnly ? !isHit[i] : true && filterOnly ? IN_SUBSAMP[i] : true )
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
@@ -2124,15 +2125,16 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	// errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reocnstructed results.
-	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
+	// @param filterOnly -- true if printing only filtered etyma
+	// errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reconstructed results.
+	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly, boolean filterOnly)
 	{
 		List<Lexicon> stagesToPrint = new ArrayList<Lexicon>(); 
 		stagesToPrint.add(inpLex);
 		if (pivotSet) { stagesToPrint.add(PIV_PT_LEX); }
 		stagesToPrint.add(RES); 
 		stagesToPrint.add(GOLD); 
-		printStagedGraph(stagesToPrint, errorsOnly);
+		printStagedGraph(stagesToPrint, errorsOnly, filterOnly);
 	}
 	
 	

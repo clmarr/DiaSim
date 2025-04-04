@@ -1823,7 +1823,7 @@ public class DiachronicSimulator {
 						System.out.println("Printing all "+(is2 ? "mismatched ":"")+
 								"etyma: \n#,\t| "+inputName+" | " + (ea.isPivotSet() ? "PIV: "+pivPtName+" | " : "")
 								+" Result | Gold"); 
-						ea.printFourColGraph(theSimulation.getInput(), is2);	
+						ea.printFourColGraph(theSimulation.getInput(), is2, true);	
 					}
 					else if("45".contains(resp))
 					{	
@@ -1866,7 +1866,7 @@ public class DiachronicSimulator {
 						lexCols.add(atOutput ? theSimulation.getGoldOutput() : theSimulation.getGoldStageGold(curSt)); 
 						System.out.println("Printing all "+(errsOnly ? "mismatched ":"")+
 								"etyma: \n#"+headerRow);
-						ea.printStagedGraph(lexCols, errsOnly);
+						ea.printStagedGraph(lexCols, errsOnly, true);
 					}
 					else if(resp.equals("3"))
 					{
