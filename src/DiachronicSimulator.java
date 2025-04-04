@@ -937,7 +937,7 @@ public class DiachronicSimulator {
 		int lfli =  0 ; //"lex file line index"
 		if (lexiconHasHeader)	lexFileLines.remove(0); 
 		
-		//file columnForms
+		//fill (the code variable) columnForms and store column forms 
 		while(lfli < NUM_ETYMA)
 		{
 			String theLine = lexFileLines.get(lfli);

@@ -455,7 +455,7 @@ public class Simulation {
 			int next_stage_ri = (nextStageBlack ? blackStageInstants : goldStageInstants)
 					[Integer.parseInt(stagesOrdered[soi].substring(1))]; 
 	
-			while (soi >= stagesOrdered.length ? false : !stagesOrdered[soi].equals("out"))
+			while ( rule_i < CASCADE.size() && (soi >= stagesOrdered.length ? false : !stagesOrdered[soi].equals("out")))
 			{
 				if (rule_i == next_stage_ri) 
 				{
@@ -494,7 +494,7 @@ public class Simulation {
 				
 				output[outrow_i][0] = "R"+rule_i; 
 				
-				for (int eti=0; eti < NUM_ETYMA; eti++)
+				for (int eti=0; eti < NUM_ETYMA && rule_i < CASCADE.size(); eti++)
 				{
 					String rule_eff_here = ruleEffects[rule_i][eti]; 
 					int arrow_loc = rule_eff_here.indexOf("> ");
