@@ -1002,6 +1002,7 @@ public class DiachronicSimulator {
 			
 			while (resp.length() == 0)
 			{
+				GUIEncloser.Menu();
 				System.out.println("\n" +
 					"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# SUITE MENU #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
 					"|        What would you like to do? Please enter the appropriate number below:        |\n" +
@@ -1017,7 +1018,9 @@ public class DiachronicSimulator {
 					"| 6 : Confusion diagnosis at evaluation point                                         |\n" +
 					"| 7 : Test full effects of a proposed change to the cascade                           |\n" +
 					"|-------------------------------------------------------------------------------------|\n" +
-					"|_9 : End this analysis.______________________________________________________________|");
+					"| 9 : End this analysis.															   |\n" +
+					"|_____________________________________________________________________________________|");
+				GUIEncloser.Menu();
 				resp = inpu.nextLine();
 				if (resp.length() > 0)	resp = resp.substring(0,1);
 			}
@@ -1071,6 +1074,7 @@ public class DiachronicSimulator {
 				boolean chosen = false; 
 				while(!chosen)
 				{
+					GUIEncloser.Menu();
 					System.out.println("\nAvailable options for pivot point:");
 					printIncludedGoldStages(0, lastGoldOpt); printIncludedBlackStages(0, lastBlkOpt); 
 					System.out.println("In: "+inputName+" as pivot (i.e. filter by input forms)"
@@ -1081,7 +1085,7 @@ public class DiachronicSimulator {
 							+ "(you can find rule indices with option 3 to query on the main menu)"
 							+ "\nKeep: keep the current pivot pt (or lack of a pivot pt) and return"
 							+ "\nPlease enter the appropriate indicator."); 
-					
+					GUIEncloser.Menu();
 					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true);
 					validOptions.addAll(validBlackStageOptions(0,lastBlkOpt,true));
 					validOptions.add("In"); validOptions.add("Out"); validOptions.add("U"); validOptions.add("Gold"); validOptions.add("Keep");
@@ -1190,7 +1194,8 @@ public class DiachronicSimulator {
 					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
 							+ "To retain it, type 'KEEP'.\n"
 							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
-					
+					GUIEncloser.singleInput();
+					GUIEncloser.singleInput();
 					resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
 							// resp = inpu.nextLine().replace("\n","").strip(); 
 					
@@ -1228,7 +1233,9 @@ public class DiachronicSimulator {
 			{
 				boolean promptQueryMenu = true; 
 				while(promptQueryMenu)
-				{	System.out.print("What is your query? Enter the corresponding indicator:\n"
+				{	
+					GUIEncloser.Menu();
+					System.out.print("What is your query? Enter the corresponding indicator:\n"
 							+ "0 : get ID of an etymon by form at input"
 								+ (inputName.equalsIgnoreCase("input") ? "" : " ("+inputName+")")
 								+"\n"
@@ -1240,6 +1247,7 @@ public class DiachronicSimulator {
 							+ "6 : print all rules by time step.\n"
 							+ "7 : get phonemic inventory at pivot point (you need to have set pivot point).\n"
 							+ "9 : return to main menu.\n"); 
+					GUIEncloser.Menu();
 					resp = ""; 
 					while (resp.equals(""))
 						resp = UTILS.stripEnds(inpu.nextLine().replace("\n","")); 
@@ -1280,7 +1288,9 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("1")||resp.equals("3") || resp.equals("4"))
 					{
+						GUIEncloser.singleInput();
 						System.out.println("Enter the ID to query:");
+						GUIEncloser.singleInput();
 						String idstr = inpu.nextLine(); 
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
@@ -1311,11 +1321,12 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("5"))
 					{
+						GUIEncloser.singleInput();
 						System.out.println("Note that '(...)+' notation has been converted to '(...) (...)*' internally, "
 								+ "so inputs of ')+' will not return any results.\nFurthermore, note that the character '"+UTILS.PH_DELIM+"' "
 										+ "is necessary to delimit phones and functional parts of the sound change ('>', etc.)\n"+
 								"Enter the string you want to query with: \n");
-						
+						GUIEncloser.singleInput();
 						resp = ""; 
 						while (resp.equals(""))
 							resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
@@ -1377,13 +1388,14 @@ public class DiachronicSimulator {
 					resp = ""; 
 					while (resp.length() == 0)
 					{
+						GUIEncloser.Menu();
 						System.out.println("Please indicate which metric for correlation to error you would like to use: ");
 						System.out.println("Options include: ");
 						System.out.println("\t'phi': the phi coefficient (Matthews Correlation Coefficient), equivalent to the Pearson coefficient in this case"); 
 						System.out.println("\t'f': an F-score (harmonic mean between precision and recall, \n\t\t(i.e. precision of a contextual predictor in predicting error, that is, likewise for recall.)");
 						System.out.println("\t'f<RATIO>': an f-score where <RATIO> is replaced by a value >= 0 that indicates the ratio of importance of recall vis a vis precision.\n\t\t(recommendation: favor precision over recall, but not too much!)"); 
 						System.out.println("\t'comp': comparison of prepared values for the four different metrics."); 
-					
+						GUIEncloser.Menu();
 						resp = ""; 
 						while (resp.equals(""))
 							resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));
@@ -1408,7 +1420,7 @@ public class DiachronicSimulator {
 				boolean subcont = true; 
 				
 				while(subcont) {
-				
+					GUIEncloser.Menu();
 					System.out.print("What results would you like to check? Please enter the appropriate number:\n"
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
 						+ "| 1 : Print all corresponding forms (init(,pivot),res,gold) (for subset if specified) |\n"
@@ -1416,8 +1428,9 @@ public class DiachronicSimulator {
 						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)         |\n"
 					    + "| 4 : Print all corresponding forms at each stage (for subset if specified)           |\n"
 						+ "| 5 : Print all corresponding forms for errant etyma as above (for subset if spec'd)  |\n"
-						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
-					
+						+ "| 9 : Exit this menu.																 |\n"
+						+ "|_____________________________________________________________________________________|");  
+					GUIEncloser.Menu();
 					resp = ""; 
 					while (resp.equals(""))
 						resp = inpu.nextLine().replace("\n","");
