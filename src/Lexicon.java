@@ -42,15 +42,79 @@ public class Lexicon {
 	public Etymon getByID(int ind)
 	{	return theWordList[ind]; 	}
 	
+	public Etymon[] getWordList()
+	{	return theWordList;	}
+	
+	// "Get changed" -- i.e. we get them by having their indexes be true.
+	// used for writing the trajectory files as the lexicon moves forward through time.
+	// as of March 16, 2025, this also marks all present etyma as reconstructed, 
+		// for purposes of differentiation from etyma recently inserted at gold stages for calculation of accuracy and diagnostics. 
+	public boolean[] applyRuleAndGetChangedWords(SChange rule)
+	{
+		int wlLen = theWordList.length ;
+		boolean[] wordsChanged = new boolean[wlLen]; 
+		
+		for( int wli = 0; wli < wlLen; wli++)
+		{
+			if(theWordList[wli].print().equals(UTILS.ABSENT_REPR))	
+				wordsChanged[wli] = false;
+			else if (theWordList[wli].print().equals(UTILS.UNATTD_GOLD_REPR))
+				throw new RuntimeException("Alert: tried to implement a rule on a PseudoEtymon instance (index = "+wli+"). Check this.");
+			
+			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
+			else	wordsChanged[wli] = false; 
+		}
+		
+		markEtymaReconstructed(); 
+		
+		return wordsChanged; 
+	}
+	
+	/** getPhonemicInventory
+	 * 
+	 * @param only_reconstructed : if @true only include phones in reconstructed words: not those just inserted. 
+	 * @return list of all phones present in words of the lexicon
+	 */
+	public Phone[] getPhonemicInventory(boolean only_reconstructed)
+	{
+		List<String> hitPhonesListStr = new ArrayList<String>(); 
+		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
+		for (Etymon theWord : theWordList)
+		{	
+			if (UTILS.etymonIsPresent(theWord))
+			{
+				if (only_reconstructed && !theWord.isReconstructed())	continue;
+					// to skip recent insertions. 
+				
+				List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
+				for (SequentialPhonic curPh : thePhones)
+				{
+					if(curPh.getType().equals("phone"))
+					{
+						if(!hitPhonesListStr.contains(curPh.print()))
+						{
+							hitPhonesListStr.add(curPh.print()); 
+							phList.add(curPh);
+		}}}}}
+		
+		
+		int numPhones = phList.size(); 
+		Phone[] output = new Phone[numPhones]; 
+		for (int phi = 0; phi < numPhones; phi++)	output[phi] = new Phone(phList.get(phi)); 
+		return output; 
+	}
+	
+
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
 		//occurs at least once in a word in the  lexicon
 	// this returns frequency, not frequency RATE!
-	public HashMap<String, Integer> getPhoneFrequenciesByWord()
+	public HashMap<String, Integer> getPhoneFrequenciesByWord(boolean onlyReconstructed)
 	{
 		HashMap<String, Integer> output = new HashMap<String, Integer>(); 
 		for (Etymon lex : theWordList)
 		{
-			if (!UTILS.etymonIsPresent(lex))	continue; 
+			if (onlyReconstructed ? lex.isReconstructed() : !UTILS.etymonIsPresent(lex))	continue; 
+				// note that isReconstructed() gives false for pseudo etyma 
 			
 			List<SequentialPhonic> phonRep = lex.getPhonologicalRepresentation();
 			List<SequentialPhonic> phonesAlreadySeen = new ArrayList<SequentialPhonic>(); 
@@ -71,76 +135,26 @@ public class Lexicon {
 		return output; 
 	}
 	
-	public Etymon[] getWordList()
-	{	return theWordList;	}
-	
-	// "Get changed" -- i.e. we get them by having their indexes be true.
-	// used for writing the trajectory files as the lexicon moves forward through time.
-	public boolean[] applyRuleAndGetChangedWords(SChange rule)
-	{
-		int wlLen = theWordList.length ;
-		boolean[] wordsChanged = new boolean[wlLen]; 
-		
-		for( int wli = 0; wli < wlLen; wli++)
-		{
-			if(theWordList[wli].print().equals(UTILS.ABSENT_REPR))	
-				wordsChanged[wli] = false;
-			else if (theWordList[wli].print().equals(UTILS.UNATTD_GOLD_REPR))
-				throw new RuntimeException("Alert: tried to implement a rule on a PseudoEtymon instance (index = "+wli+"). Check this.");
-			
-			if(theWordList[wli].applyRule(rule))	wordsChanged[wli] = true; 
-			else	wordsChanged[wli] = false; 
-		}
-		return wordsChanged; 
-	}
-	
-	//return list of all phones present in words of the lexicon
-	public Phone[] getPhonemicInventory()
-	{
-		List<String> hitPhonesListStr = new ArrayList<String>(); 
-		List<SequentialPhonic> phList = new ArrayList<SequentialPhonic>(); 
-		for (Etymon theWord : theWordList)
-		{	
-			if (UTILS.etymonIsPresent(theWord))
-			{
-				List<SequentialPhonic> thePhones = theWord.getPhonologicalRepresentation(); 
-				for (SequentialPhonic curPh : thePhones)
-				{
-					if(curPh.getType().equals("phone"))
-					{
-						if(!hitPhonesListStr.contains(curPh.print()))
-						{
-							hitPhonesListStr.add(curPh.print()); 
-							phList.add(curPh);
-		}}}}}
-		
-		
-		int numPhones = phList.size(); 
-		Phone[] output = new Phone[numPhones]; 
-		for (int phi = 0; phi < numPhones; phi++)	output[phi] = new Phone(phList.get(phi)); 
-		return output; 
-	}
-	
 	// does not appear to be in use. 
-	public boolean[] getPhonePresenceByEt(Phone ph)
+	public boolean[] getPhonePresenceByEt(Phone ph, boolean only_reconstructed)
 	{
 		boolean[] out = new boolean[theWordList.length];
 		for (int wi = 0 ; wi < theWordList.length; wi++)
-		{
 			out[wi] = 
-					UTILS.etymonIsPresent(theWordList[wi]) 
+					(UTILS.etymonIsPresent(theWordList[wi]) 
+							&& (!only_reconstructed || theWordList[wi].isReconstructed()) )
 						? theWordList[wi].findPhone(ph) != -1 : false;  
-		}
+		
 		return out;
 	}
 	
 	//counts for each phoneme
-	public HashMap<String,Integer> getPhonemeCounts()
+	public HashMap<String,Integer> getPhonemeCounts(boolean only_reconstructed)
 	{
 		HashMap<String,Integer> theMap = new HashMap<String,Integer>(); 
 		for (Etymon lex: theWordList)
 		{
-			if (!lex.print().equals(UTILS.ABSENT_REPR))
+			if (!UTILS.isPseudoEtymon(lex))
 				{SequentialPhonic[] thePhones = lex.getPhOnlySeq();
 				for (SequentialPhonic curPh : thePhones)
 				{
@@ -152,15 +166,16 @@ public class Lexicon {
 		}
 		return theMap;
 	}
-	
+		
 	//get number of times a particular sequence of phones occurs
 	// for use in error analysis when predicting with a third, predictor, stage. 
-	public int getPhoneSeqFrequency(List<Phone> targSeq)
+	public int getPhoneSeqFrequency(List<Phone> targSeq, boolean onlyReconstructed)
 	{
 		int currSeqInd = 0, count = 0;
 		for (Etymon lex : theWordList)
 		{	
-			if (!UTILS.etymonIsPresent(lex))	continue;
+			if (onlyReconstructed ? lex.isReconstructed() : !UTILS.etymonIsPresent(lex))
+				continue;	// note that isReconstructed() gives false for pseudo etyma 
 			
 			List<SequentialPhonic> thePhones = lex.getPhonologicalRepresentation(); 
 			for (SequentialPhonic curPh : thePhones)
@@ -190,7 +205,7 @@ public class Lexicon {
 	public void markEtymaReconstructed()
 	{
 		for (int eti = 0; eti < theWordList.length; eti++)
-			if (!theWordList[eti].print().equals(UTILS.ABSENT_REPR))
+			if (!UTILS.isPseudoEtymon(theWordList[eti]))
 				theWordList[eti].setReconstructed(true);
 	}
 	
@@ -202,7 +217,7 @@ public class Lexicon {
 	 * @param etymaInColumn -- array ([]) of Etymon objects derived (probably via DiachronicSimulator.parseLexPhon() 
 	 * 		from String valued cells in a column of a lexicon file -- i.e. the forms associated for a certain stage
 	 * 		which may be a proper Etymon, which should be used for attested (GOLD) forms to compare to
-	 * 			or "--" which will make an absent etymon 
+	 * 			or "..." which will make an absent etymon 
 	 * 				 -- either not present yet in the language, or removed
 	 * 			or ">*" which makes an unattested (but present) etymon  
 	 */
@@ -217,7 +232,8 @@ public class Lexicon {
 		{	
 			Etymon et_here = etymaInColumn[wi]; 
 			
-			// if the etymon is still absent in the lexicon being CFR-d, but present in the stage spec'd forms..
+			// if the etymon is at this point/previously absent in the lexicon being CFR-d, 
+				// but present in the stage spec'd forms...
 				// ... then insert it! 	
 			if(theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 			{	
@@ -235,7 +251,7 @@ public class Lexicon {
 				if(!theWordList[wi].print().equals(UTILS.ABSENT_REPR))
 					theWordList[wi] = new PseudoEtymon(UTILS.ABSENT_REPR); 
 			
-			// don't need to do anything for unattested ">*" entries -- point is that they keep things. 
+			// don't need to do anything for unattested ">*" entries -- point is that they keep things the same. 
 		}
 	}
 
@@ -269,7 +285,7 @@ public class Lexicon {
 	 * 		... will make it an effectively black stage lexicon
 	 * 		... that is only used for insertion or removal of etyma.
 	 */
-	public int numObservedEtyma()
+	public int numPresentEtyma()
 	{
 		int cnt= theWordList.length; 
 		for (Etymon lex: theWordList)
@@ -293,12 +309,22 @@ public class Lexicon {
 		return cnt;
 	}
 	
+	public int numReconstructedEtyma()
+	{
+		int cnt = 0; 
+		for (Etymon lex: theWordList)
+			if (lex.isReconstructed())	cnt += 1; 
+		return cnt;
+	}
+	
+	public int numJustInsertedEtyma()	{	return numPresentEtyma() - numReconstructedEtyma(); 	}
+	
 	public int totalEtyma()	{	return theWordList.length; 	}
 	
 	// get the ID numbers of all etyma that are actually present. 
 	public int[] IDsWithPresentEtyma() 
 	{
-		int[] ID_array = new int[this.numObservedEtyma()]; 
+		int[] ID_array = new int[this.numPresentEtyma()]; 
 		int id_i = 0; 
 		for (int et_i = 0; et_i < theWordList.length; et_i++)
 		{	if (UTILS.etymonIsPresent(theWordList[et_i]))

@@ -6,7 +6,7 @@ import java.util.HashMap;
 /**
  * Class for representing one of two cases...
  *  	ABSENT -- a word that has either not entered the vocabulary yet, or has fallen out of usage.
- *				indicator in lexicon file: "--" (as of July 2023) 
+ *				indicator in lexicon file: "..." (as of March 2025) 
  *				if a previously present/inherited word is indicated as absent, it will be REMOVED
  *				if it is absent from the beginning, 
  *					it remains such until phonological material is provided in a later column, 
@@ -17,14 +17,14 @@ import java.util.HashMap;
  *				indicator in lexicon file: ">*" (as of July 2023)
  *			NOTE THAT THIS IS TO BE DISTINGUISHED FROM NOT ATTESTED IN INTERNAL USAGE IN Etymon (as inherited) which just governs display! 
  * 				(all of these are treated as "attested" because we don't prefix them with an extra asterisk!) 
- * 		variables in UTILS relevant: 	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
+ * 		variables in UTILS relevant: 	public final static String ABSENT_INDIC = "...", ABSENT_REPR = "{ABSENT}"; 
 			public final static String UNATTD_GOLD_INDIC = ">*", UNATTD_GOLD_REPR = "{UNATTESTED}"; 
 				// the -INDIC items are the strings used in lexicon files provided by the user and processed by the system
 				// whereas the -REPR items are the internal representation within the Etymon subclasses.
 					// the latter are for unattested GOLD lexicon items -- i.e. those not included in diagnostic analysis
 					// i.e. NOT unattested reconstructions!
 				public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_GOLD_REPR); 
-			also hte method UTILS.etymonIsPresent
+			also the method UTILS.etymonIsPresent
  * @author Clayton Marr
  */
 public class PseudoEtymon extends Etymon {
@@ -34,10 +34,12 @@ public class PseudoEtymon extends Etymon {
 	public	PseudoEtymon(String repr)
 	{
 		super(new ArrayList<SequentialPhonic>(),false);
-		this.representation = ""+repr; 
 		
-		// guard rail: 
-		if (!UTILS.PSEUDO_ETYM_REPRS.contains(representation))
+		if (UTILS.PSEUDO_ETYM_REPRS.contains(repr))
+			this.representation = ""+repr; 
+		else if (UTILS.PSEUDO_ETYM_INDICS.contains(repr))
+			this.representation = UTILS.PSEUDO_ETYM_REPRS.get(UTILS.PSEUDO_ETYM_INDICS.indexOf(repr));
+		else // guard rail
 			throw new RuntimeException("Alert: illegal typing of PseudoEtymon instance: '"+repr+"'. Investigate this."); 
 	}
 	
@@ -49,7 +51,7 @@ public class PseudoEtymon extends Etymon {
 	
 	public boolean applyRule(SChange sch)	{	return false;	}
 	
-	public String toString()	{	return representation;	}
+	public String toString()	{	return UTILS.PSEUDO_ETYM_INDICS.get(UTILS.PSEUDO_ETYM_REPRS.indexOf(representation));	}
 	
 	public String print() {		return representation;	}
 
@@ -123,4 +125,7 @@ public class PseudoEtymon extends Etymon {
 			throw new RuntimeException( "Alert: tried to set "+param+" (to '"+target+"') "
 					+ "an etymon that is currently absent! Check this.");	 
 	}
+	
+	public boolean isReconstructed()	{	return false;	}
+	
 }

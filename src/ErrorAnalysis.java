@@ -17,34 +17,40 @@ public class ErrorAnalysis {
 	//TODO decide on what morphosyntactic analyses to perform
 	// TODO implement them... -- probably fall 2023 or winter	
 	
-	private double PHI_SMOOTHING = 0.5; 
+	private double PHI_SMOOTHING() 	//1/19 ,which will make max phi into 0.9, or the 1/subsamp size -- whichever is lower. 
+		{	return 1.0 / Math.max(19, FILTER_SUBSAMP.length); 	}
 	private double F_SMOOTHING = 0.25;
 		// in cases where zero hits exist for a certain location relative to a confusion
 
 	private Lexicon RES, GOLD, PIV_PT_LEX;
-	//TODO investigate uses of PIV_PT_LEX -- lexicon at the pivot point. 
 
-	private int[] PRESENT_ETS; 
-	// TODO investigate uses.
-
-	private boolean pivotSet, filtSet;
+	private boolean pivotSet, filtSet; 
 	private SequentialFilter filterSeq; 
-	private int[] FILTER; //indices of all etyma in subset
-	// TODO investigate uses. 	
+	private int[] FILTER_SUBSAMP; //indices of all etyma in subset
+	private int[] MAX_EVALSAMP; //indices of all etyma in eval samp -- excluding pseudo-etyma, and those just inserted in Res. 
 	
 	private Phone[] resPhInventory, goldPhInventory, pivotPhInventory;
 		// the first two are largely used for indexing purposes for search and comparison between different phonne(me)s.
 	private HashMap<String, Integer> resPhInds, goldPhInds, pivPhInds;
 		// indexes for phones in the following int arrays are above.
 	private boolean[][] isPhInResEt, isPhInGoldEt, isPhInPivEt; 
-		// TODO investigate uses of these. 
+		// first dimension -- index of each phone in respective lexicon inventory
+			// inner dimension -- index among ALL etyma (TOTAL_ETYMA) --- including the absent and just inserted ones
+			// need to make sure these aren't included in calculations through filtering via other structures.
+		//note pivot aspects calculated also for etyma that are present in pivot but not in the eval samp (which is only if inherited in RES, not pseudo in GOLD). 
+	 		//must be filtered later. 
 	private List<Etymon[]> globalMismatches, subsampMismatches; 
-		// TODO investigate uses. 
-
-	private int TOTAL_ETYMA, EVAL_SAMP_SIZE;
+		// pairs of etyma (res, gold) mismatched. globalMismatches used to reset subsampMismatches when filter deleted. 
+	
+	private int TOTAL_ETYMA,  //TOTAL_ETYMA -- to be ALL etyma in the lexicon, including absent, just inserted
+			EVAL_SAMPSIZE; //EVAL_SAMPSIZE -- number of all those only those that are in scope of evaluation 
 	private double TOT_ERRS;	
-	private boolean[] IN_SUBSAMP; //TODO investigate uses of this one.
-	private boolean[] isHit; 	//TODO investigate uses 
+	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
+				// which excludes just inserted and pseudo-etyma 
+	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered) subsample
+	private boolean[] isHit; 	
+			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
+				//those excluded from subsample and eval samp are actually treated as true. 
 
 	private FED featDist;
 	private int[] levDists; 
@@ -58,6 +64,7 @@ public class ErrorAnalysis {
 		// features that never vary. To be detected upon construction.
 	private List<String> pivotInactiveFeats; 
 		// inactive features for subsample at pivot point. Might be a slightly smaller set, for one reason or another. Defined when pivot is made. 
+		// currently not used 
 	
 	private double pctAcc, pctWithin1, pctWithin2, avgPED, avgFED; 
 	private List<List<int[]>> SS_HIT_BOUNDS, SS_MISS_BOUNDS;
@@ -67,10 +74,9 @@ public class ErrorAnalysis {
 	private int[] SS_HIT_IDS, SS_MISS_IDS; 
 		// etymon IDs of words that validly fit are filter and are, respectively, matches and mismatches between reconstructed and observed outcomes.
 	
-	
 	//protected final String ABS_PR ="[ABSENT]"; 
 		//TODO note this variable is the locus of protodelta changes
-		// now handled via UTILS.ABSENT_INDIC ; consider restoring if necessary. 
+		// now handled via UTILS.isPseudoEtymon()
 	protected final int MAX_RADIUS = 3;
 	private final int NUM_TOP_ERR_PHS_TO_DISP = 4; 
 	public final double AUTOPSY_DISPLAY_THRESHOLD = 0.1;
@@ -107,29 +113,26 @@ public class ErrorAnalysis {
 	 * @param fedCalc -- Feature Edit Distance calculator object.
 	 * TODO need to make sure this is called BEFORE Lexicon.updateAbsence occurs, so that just-inserted etyma do not inflate accuracy. 
 	 * TODO need to insure that INSERTED etyma are not contributing to calculations!! 
+	 * 		as of March 16, 2025, using !Etymon.reconstructed to exclude recently inserted ones. 
+	 * TODO NOTE that phonemes only in inserted etyma (loan phonemes if you will) will NOT be included! 
 	 */
 	public ErrorAnalysis(Lexicon theRes, Lexicon theGold, FED fedCalc)
 	{
 		RES = theRes;
 		GOLD = theGold; 
 		PIV_PT_LEX = null; //must be manually set later, e.g. setPivot() 
-		filtSet = false;
-		pivotSet = false; // set with setFilter() later. 
+		filtSet = false;// set with setFilter() later. 
+		pivotSet = false;  /*pivotingOnGoldOrInput = false;*/  // set with setPivot()
 		
+		determineEvalSamp(); 
+		initFiltSamp(); //here, functions to establish default filter. 
+			// until filter is set, all words are "in the subsample"... unless they're pseudo etyma in res OR gold, or just inserted. 
+
 		featDist = fedCalc; 
 		featsByIndex = UTILS.featsByIndex;
-		TOTAL_ETYMA = theRes.totalEtyma(); 
-		// total etyma, present or not at this moment 
-
-		if (TOTAL_ETYMA != theGold.totalEtyma()) // guard rail. 
-			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
-					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+theGold.totalEtyma()+"). "
-							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
-							+ "given the paramount of importance of keeping etymon indices constant. "
-							+ "Investigate this."); 
 		
-		resPhInventory = theRes.getPhonemicInventory();
-		goldPhInventory = theGold.getPhonemicInventory();
+		resPhInventory = theRes.getPhonemicInventory(true);
+		goldPhInventory = theGold.getPhonemicInventory(false);
 		
 		// unlike the *etymon* indices these indices here are not (and cannot) be held equivalent to each other 
 			// -- that would be too brittle. 
@@ -140,20 +143,6 @@ public class ErrorAnalysis {
 			resPhInds.put(resPhInventory[i].print(), i);
 		for (int i = 0 ; i < goldPhInventory.length; i++)
 			goldPhInds.put(goldPhInventory[i].print(), i);
-				
-		TOTAL_ETYMA = theRes.getWordList().length;
-		EVAL_SAMP_SIZE = TOTAL_ETYMA - theRes.numAbsentEtyma();
-		
-		FILTER = new int[EVAL_SAMP_SIZE];
-		PRESENT_ETS = new int[EVAL_SAMP_SIZE];
-		int fi = 0;
-		for (int i = 0 ; i < TOTAL_ETYMA; i++)
-		{	if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR))
-			{	FILTER[fi] = i;
-				PRESENT_ETS[fi] = i;
-				fi++;
-			}
-		}
 		
 		isPhInResEt = new boolean[resPhInventory.length][TOTAL_ETYMA]; 
 		isPhInGoldEt = new boolean[goldPhInventory.length][TOTAL_ETYMA]; 
@@ -175,28 +164,24 @@ public class ErrorAnalysis {
 		feds = new double[TOTAL_ETYMA];
 		isHit = new boolean[TOTAL_ETYMA];
 		double totLexQuotients = 0.0, numHits = 0.0, num1off=0.0, num2off=0.0, totFED = 0.0; 
-				
-		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 		
 		
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{	
-			IN_SUBSAMP[i] = true; 		// until filter is set, all words are "in the subsample"
-
-			for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
-			{
-				Etymon currEt = theRes.getByID(i);
-				isPhInResEt[rphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ? 
-						false : (currEt.findPhone(resPhInventory[rphi]) != -1);
-			}
-			for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
-			{
-				Etymon currEt = theGold.getByID(i);
-				isPhInGoldEt[gphi][i] = (currEt.toString().equals(UTILS.ABSENT_REPR)) ?
-						false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
-			}
-			
-			if (!theRes.getByID(i).print().equals(UTILS.ABSENT_REPR) && !theGold.getByID(i).print().equals(UTILS.ABSENT_REPR))
+			if (IN_EVALSAMP[i]) 
 			{	
+				for(int rphi = 0 ; rphi < resPhInventory.length; rphi++)
+				{
+					Etymon currEt = theRes.getByID(i);
+					isPhInResEt[rphi][i] = UTILS.isPseudoEtymon(currEt) ? 
+							false : (currEt.findPhone(resPhInventory[rphi]) != -1);
+				}
+				for (int gphi = 0 ; gphi < goldPhInventory.length; gphi++)
+				{
+					Etymon currEt = theGold.getByID(i);
+					isPhInGoldEt[gphi][i] = UTILS.isPseudoEtymon(currEt) ?
+							false : (currEt.findPhone(goldPhInventory[gphi]) != -1);
+				}
+				
 				levDists[i] = levenshteinDistance(theRes.getByID(i), theGold.getByID(i));
 				isHit[i] = (levDists[i] == 0); 
 				numHits += (levDists[i] == 0) ? 1 : 0; 
@@ -211,10 +196,10 @@ public class ErrorAnalysis {
 				totFED += feds[i];
 				
 				if(!isHit[i])
-					updateConfusionMatrix(i);
-						//also increments errorsBy(Res/Gold)Phone^ 
-			}
-			else	isHit[i] = true;
+					updateConfusionMatrix(i); // builds subsampMismatches. 
+						//also increments errorsBy(Res/Gold)Phone^
+			}//for recently inserted etyma, they will always be equal to the form they were just inserted as!
+			else	isHit[i] = true; //and for absence, absence equals absence. 
 		}
 		
 		globalMismatches.addAll(subsampMismatches);
@@ -222,16 +207,17 @@ public class ErrorAnalysis {
 			for (int j = 0 ; j < confusionMatrix[i].length; j++)
 				globalConfusionMatrix[i][j] = confusionMatrix[i][j]; 		
 		
-		pctAcc = numHits / (double) EVAL_SAMP_SIZE; 
-		pctWithin1 = num1off / (double) EVAL_SAMP_SIZE;
-		pctWithin2 = num2off / (double) EVAL_SAMP_SIZE; 
-		avgPED = totLexQuotients / (double) EVAL_SAMP_SIZE; 	
-		avgFED = totFED / (double) EVAL_SAMP_SIZE; 
-		TOT_ERRS = (double)TOTAL_ETYMA - numHits;
+		// here out of eval samp size, not total etyma, because absent and just inserted don't count! 
+		pctAcc = numHits / (double) EVAL_SAMPSIZE; 
+		pctWithin1 = num1off / (double) EVAL_SAMPSIZE;
+		pctWithin2 = num2off / (double) EVAL_SAMPSIZE; 
+		avgPED = totLexQuotients / (double) EVAL_SAMPSIZE; 	
+		avgFED = totFED / (double) EVAL_SAMPSIZE; 
+		TOT_ERRS = (double)EVAL_SAMPSIZE - numHits;
 		
 		//calculate error rates by phone for each of result and gold sets
-		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(), 
-				goldPhCts = theGold.getPhonemeCounts(); 
+		HashMap<String, Integer> resPhCts = theRes.getPhonemeCounts(true), 
+				goldPhCts = theGold.getPhonemeCounts(false); 
 		
 		// TODO source of infinity error may be here. 
 		for (int i = 0 ; i < resPhInventory.length; i++)
@@ -241,30 +227,81 @@ public class ErrorAnalysis {
 			errorRateByGoldPhone[i] = (double)errorsByGoldPhone[i]
 					/ (double)goldPhCts.get(goldPhInventory[i].print()); 
 		
-		inactiveFeats = inactiveFeatList(RES); 
-		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD);
-		
-		//TODO Debugging
-		// System.out.println("inactive feats now at : "+inactiveFeats.size()); 
-		// for (String ifi : inactiveFeats)	System.out.println(ifi); 
+		inactiveFeats = inactiveFeatList(RES, true); 
+		// now remove feats that aren't active in result lexicon but are in the gold
+			// -- this is not a redundancy
+		inactiveFeats = rmvFeatsActiveInSample(inactiveFeats,GOLD,false);
 	}
 	
-	public void removeFilter()
+	/** determineEvalSamp
+	 * @prerequisite @global lexica RES and GOLD are set 
+	 * @action: @builds @global IN_EVALSAMP, MAX_EVALSAMP 
+	 * 	  the total eval samples, that may be filtered from 
+	 * 	@sets global TOTAL_ETYMA, EVAL_SAMPSIZE.
+	 */
+	private void determineEvalSamp()
 	{
-		toDefaultFilter(); 
-		filtSet = false; 
+		TOTAL_ETYMA = RES.totalEtyma(); // total indices, so we don't have to keep calling it. 
+		if (TOTAL_ETYMA != GOLD.totalEtyma()) // guard rail. Reconstructed etyma will not be same since gold is not reconstructed, and it's *possible* that someone could want to make one in the unattested. 
+			throw new RuntimeException("Alert: tried to do error analysis between lexica of different sizes "
+					+ "(result: "+TOTAL_ETYMA+", vs. gold: "+GOLD.totalEtyma()+"). "
+							+ "-Absent and unattested etyma should be stored as PseudoEtymon objects, "
+							+ "given the paramount of importance of keeping etymon indices constant. "
+							+ "Investigate this."); 
+		
+		List<Integer> protoEvalSamp = new ArrayList<Integer>(); 
+		
+		for (int eti = 0 ; eti < TOTAL_ETYMA ; eti++)
+			if (evalSampInclusible(eti))	protoEvalSamp.add(eti); 
+		
+		IN_EVALSAMP = new boolean[TOTAL_ETYMA]; 
+		EVAL_SAMPSIZE = protoEvalSamp.size();
+		MAX_EVALSAMP = new int[EVAL_SAMPSIZE]; 
+		int evsi = 0; 
+		for (int pesi : protoEvalSamp)
+		{
+			IN_EVALSAMP[pesi] = true; 
+			MAX_EVALSAMP[evsi++] = pesi; 
+		}
 	}
+	
+	/** return whether the index will be included in max eval samp
+	 * at present (March 2025) this is only for etyma that are 
+	 * 		(a) reconstructed, not just inserted, in RES (by definition excluding pseudoEtyma)
+	 * 		(b) not pseudoEtyma in GOLD
+	 * @param index -- index of word in both GOLD and RES; must be a valid int
+	 * @prerequisite @global RES and GOLD are initialized
+	 */
+	public boolean evalSampInclusible (int index)
+	{	return RES.getByID(index).isReconstructed() 
+			&& !UTILS.isPseudoEtymon(GOLD.getByID(index)); 	}
+	
+	public void removeFilter()
+	{	toDefaultFilter(); 	filtSet = false; }
 
 	public void toDefaultFilter()
 	{
-		EVAL_SAMP_SIZE = PRESENT_ETS.length;
-		FILTER = new int[EVAL_SAMP_SIZE];
-		for (int i = 0 ; i < EVAL_SAMP_SIZE; i++)	FILTER[i] = PRESENT_ETS[i];
-		filterSeq = null;
+		initFiltSamp(); 
 		subsampMismatches = new ArrayList<Etymon[]> (globalMismatches);
 		for (int i =0; i < confusionMatrix.length; i++)
 			for (int j = 0 ; j < confusionMatrix[i].length; j++)
 				confusionMatrix[i][j] = globalConfusionMatrix[i][j]; 	
+	}
+	
+	public void initFiltSamp()
+	{
+		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
+		int fi = 0; 
+		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
+		{
+			if (IN_EVALSAMP[i])
+			{
+				IN_SUBSAMP[i] = true; 
+				FILTER_SUBSAMP[fi++] = i; 
+			}
+		}
+		filterSeq = null;
 	}
 	
 	public void setFilter(SequentialFilter newFilt, String filt_name)
@@ -274,10 +311,16 @@ public class ErrorAnalysis {
 		if(pivotSet)	articulateSubsample(filt_name); 
 	}
 	
+	/**
+	 * @param newPiv -- pivot lexicon
+	 * @param piv_name -- name of it
+	 * note pivot aspects calculated also for etyma that are present in pivot but not in the eval samp (which is only if inherited in RES, not pseudo in GOLD). 
+	 * 		must be filtered later. 
+	 */
 	public void setPivot(Lexicon newPiv, String piv_name)
 	{
 		PIV_PT_LEX = newPiv; 
-		pivotPhInventory = newPiv.getPhonemicInventory();
+		pivotPhInventory = newPiv.getPhonemicInventory(false);
 		
 		pivPhInds = new HashMap<String, Integer>(); 
 		
@@ -291,14 +334,12 @@ public class ErrorAnalysis {
 		for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)
 		{
 			Etymon currEt = PIV_PT_LEX.getByID(ei);
-			for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
-			{
-				if(!currEt.toString().equals(UTILS.ABSENT_REPR))
-					isPhInPivEt[pvi][ei] = (currEt.findPhone(pivotPhInventory[pvi]) != -1);
-				else	isPhInPivEt[pvi][ei] = false;
-				if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
-			}
-		}
+			if (!UTILS.isPseudoEtymon(currEt)) {
+				for(int pvi = 0 ; pvi < pivotPhInventory.length; pvi++)
+				{
+					isPhInPivEt[pvi][ei] = currEt.findPhone(pivotPhInventory[pvi]) != -1;
+					if(isPhInPivEt[pvi][ei])	pivPhCts[pvi] += 1; 
+		}}}
 		
 		if(filtSet)	articulateSubsample(piv_name); 
 		else
@@ -307,13 +348,13 @@ public class ErrorAnalysis {
 			errorRateByPivotPhone = new double[pivotPhInventory.length]; //to avoid errors. 
 			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
-				if(!isHit[ei])
+				if(!isHit[ei] && !UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ei))) // will be true for, and thus exclude, cases outside the eval samp (pseudo in GOLD , noninherited or psuedo in res) 
 					for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
-			pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX); 
+			pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX, false); 
 		}
 	}
 	
@@ -324,7 +365,7 @@ public class ErrorAnalysis {
 		{
 			System.out.println("Error: tried to do confusion diagnosis when there is (somehow) "
 					+ "\n\ta forward reconstructed language with no phonemes in its phonemic inventory."
-					+ "\n\t(This is likely because all etyma ended up with every phone they had deleted.\n\n"); 
+					+ "\n\t(This is likely because all etyma ended up with every phone they had deleted.)"); 
 			return;
 		}
 		
@@ -342,7 +383,7 @@ public class ErrorAnalysis {
 			return;
 		}
 		
-		List<String> inactiveGoldFeats = inactiveFeatList(GOLD);
+		List<String> inactiveGoldFeats = inactiveFeatList(GOLD,false);
 		
 		int N_CONFS_TO_PRINT = 5; 
 		
@@ -401,10 +442,15 @@ public class ErrorAnalysis {
 		{
 			SequentialPhonic rTarget = topConfusions[i][0] == resPhInventory.length ? new NullPhone() : resPhInventory[topConfusions[i][0]],
 					gTarget = topConfusions[i][1] == goldPhInventory.length ? new NullPhone() : goldPhInventory[topConfusions[i][1]];
-			
-			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
+					// recall that storing phInventory.length in topConfusions indicates insertion/deletion -- correspondence to null 
 			
 			double wordsWithConfusion = (double)confusionMatrix[topConfusions[i][0]][topConfusions[i][1]];
+			if (wordsWithConfusion == 0.0)	{
+				System.out.println("\n...No other confusions remain! (Good job)"); 
+				break; 			
+			}
+			
+			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
 					
 			double errorShare = wordsWithConfusion / (double)subsampMismatches.size() * 100.0; 
 			String strErrShare = ""+errorShare; 
@@ -426,8 +472,16 @@ public class ErrorAnalysis {
 	
 	//also updates errorsByResPhone and errorsByGoldPhone
 	//..and also updates the list mismatches 
+	// this method assumes that the word with @param err_id is reconstructed, otherwise this method would be called
 	private void updateConfusionMatrix(int err_id)
 	{
+		// guard rail
+		if (!IN_EVALSAMP[err_id])
+		{	
+			System.out.println("Warning: trying to update confusion matrix with an index excluded from analysis!"); 
+			return; 
+		}
+		
 		Etymon res = RES.getByID(err_id), gold = GOLD.getByID(err_id); 
 		
 		subsampMismatches.add( new Etymon[] {res, gold}) ; 
@@ -448,8 +502,9 @@ public class ErrorAnalysis {
 			}
 		}
 		if (pivotSet)
-			for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(err_id).getPhOnlySeq())
-				errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
+			if (!UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(err_id)))
+				for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(err_id).getPhOnlySeq())
+					errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 	}
 	
 
@@ -754,6 +809,10 @@ public class ErrorAnalysis {
 	// or we have already checked that both phones involve are in fact present in both words
 	private boolean hasMismatch(int rphi, int gphi, Etymon rlex, Etymon glex)
 	{
+		//no mismatch if rlex if they are the same, ignoring reconstructed marking *
+		if (rlex.toString().replace("*","").equals(glex.toString().replace("*","")))
+			return false;
+		
 		SequentialPhonic[][] alignment = getAlignedForms(rlex, glex); 
 	
 		SequentialPhonic rph = new NullPhone(), gph = new NullPhone(); 
@@ -816,67 +875,7 @@ public class ErrorAnalysis {
 
 		return out;
 	}
-	/** obselete version of above class -- unnecessary and excessive. 
-	private SequentialPhonic[][] getAlignedForms(LexPhon r, LexPhon g)
-	{
-		//TODO debugging
-		System.out.println("r: "+r+"; g "+g);
-		
-		featDist.compute(r, g); //TODO may need to change insertion/deletion weight here!
-		int[][] align_stipul = featDist.get_min_alignment(); //TODO check this..
-			// nested index [0] -- location (or non-location for -1, -2)
-		
-		//TODO debugging
-		System.out.println("align_stipul: "); 
-		for (int asi = 0; asi < align_stipul.length ; asi++)
-			System.out.println(UTILS.print1dIntArr(align_stipul[asi])); 
-		
-		SequentialPhonic[] rphs = r.getPhOnlySeq(), gphs = g.getPhOnlySeq(); 
-
-		int al_len = rphs.length;
-		for (int a = 0; a < align_stipul.length; a++)
-			if (align_stipul[a][1] == -1)	al_len++; 
-		
-		SequentialPhonic[][] out = new SequentialPhonic[al_len][2]; 
-		int ari = 0, agi = 0; 
-		
-		//comments conceptualize the alignment relationship as a "transformation of the result to the gold" 
-		
-		for(int oi = 0 ; oi < al_len; oi++)
-		{
-			//TODO debugging
-			System.out.println("ari "+ari+"; agi "+agi+"; oi "+oi);
-			
-			if (align_stipul[ari][0] == -1) // deletion of phone at place <ari> in result
-			{
-				out[oi][0] = rphs[ari]; ari++;
-				out[oi][1] = new NullPhone(); 
-			}
-			else if (align_stipul[ari][0] == -2) //deletion of result phone next to word boundary
-			{
-				out[oi][0] = new NullPhone(); ari++; 
-				out[oi][1] = gphs[agi]; agi++; 
-			}
-			else if (align_stipul[agi][1] == -1) //insertion of phone at place <agi> in gold
-			{
-				out[oi][0] = new NullPhone(); 
-				out[oi][1] = gphs[agi]; agi++;
-			}
-			else if (align_stipul[agi][1] == -2) // insertion at boundary for gold 
-			{
-				out[oi][0] = rphs[ari]; ari++; 
-				out[oi][1] = new NullPhone(); agi++; 
-			}
-			else //this means backtrace must be diagonal -- meaning a substitution occurred, or they are identical
-			{
-				out[oi][0] = rphs[ari]; ari++; //this should be true before ari is incremented : ari == align_stipul[agi]
-				out[oi][1] = gphs[agi]; agi++; // same for agi == align_stipul[ari]
-			}
-		}
-		
-		return out;
-	}*/ 
-
+	
 	//auxiliary
 	//as formulated here : https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 	//under this definition of Levenshtein Edit Distance,
@@ -976,9 +975,6 @@ public class ErrorAnalysis {
 	*/
 	private int[][] arr2dLocNMax(int[][] arrArr, int n)
 	{
-		//TODO debugging
-		System.out.println("res ph inventory size : "+resPhInventory.length);
-		
 		int[][] maxLocs = new int[n][2]; 
 			// list of the locations(row, col) with the top N greatest values
 			// in descending order. 
@@ -1104,11 +1100,10 @@ public class ErrorAnalysis {
 			
 			double n_words_ph_in = 0;
 			
-			
 			double totLevDist = 0.0, totFED = 0.0;
 			for (int eti = 0 ; eti < TOTAL_ETYMA; eti++)
 			{
-				if(phInEt[ph_ind_str][eti])	
+				if(phInEt[ph_ind_str][eti] && (use_gold ? true : RES.getByID(eti).isReconstructed()))	
 				{
 					totLevDist += levDists[eti];
 					totFED += feds[eti]; 
@@ -1141,7 +1136,8 @@ public class ErrorAnalysis {
 					filename : filename+".csv"); 
 		
 		for (int eti = 0; eti < TOTAL_ETYMA; eti++)
-			output += "\n" + formIds.get(eti) //TODO may need to fix this for Borja Herce's ID indexing preferences... 
+			output += !IN_EVALSAMP[eti] ? "" 
+					: "\n" + formIds.get(eti) //TODO may need to fix this for Borja Herce's ID indexing preferences... 
 					+ "," + RES.getByID(eti).print()
 					+ "," + GOLD.getByID(eti).print()
 					+ "," + levDists[eti] 
@@ -1212,10 +1208,10 @@ public class ErrorAnalysis {
 	public void articulateSubsample(String subsamp_name)
 	{	
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
-		EVAL_SAMP_SIZE = 0; String etStr = ""; 
+		int SUBSAMP_SIZE = 0;  //TODO very suspicious here! Investigate!
+		String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
 		double totPED = 0.0 , totFED = 0.0; 
-		FILTER = new int[EVAL_SAMP_SIZE]; 
 		subsampMismatches = new ArrayList<Etymon[]> (); 
 		confusionMatrix = new int[resPhInventory.length+1][goldPhInventory.length+1];
 		
@@ -1229,18 +1225,19 @@ public class ErrorAnalysis {
 		//determining what etyma are in the subsample
 		for (int isi = 0; isi < TOTAL_ETYMA ; isi++)
 		{
-			if(PIV_PT_LEX.getByID(isi).toString().equals(UTILS.ABSENT_REPR))
-				IN_SUBSAMP[isi] = false;	//ignore etyma absent at this time;.
-			else
-				IN_SUBSAMP[isi] = filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
-			if(IN_SUBSAMP[isi])
+			//ignore etyma absent at this time, or just inserted in result lexicon -- otherwise on basis of the presence of filter seq
+				// also exclude etyma that are pseudo etyma in the subsamp 
+			IN_SUBSAMP[isi] = (!IN_EVALSAMP[isi] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi))) ? false : 
+				filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
+
+			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed()) // second requirement is redundant, but just for safety. 
 			{	
 				int etld = levDists[isi];
 				nSS1off += (etld <= 1) ? 1.0 : 0.0;
 				nSS2off += (etld <= 2) ? 1.0 : 0.0;
-				EVAL_SAMP_SIZE += 1; 
+				SUBSAMP_SIZE += 1; 
 				etStr += isi+",";
-				if (isHit[isi])	nSSHits+=1; 
+				if (isHit[isi])	nSSHits+=1; //filtered above for IN_SUBSAMP, so the fact that isHit[isi] is true for just inserted or pseudo is ok. 
 				else	
 				{
 					nSSMisses+=1;
@@ -1251,21 +1248,20 @@ public class ErrorAnalysis {
 			}
 		}
 		
-		
-		FILTER = new int[EVAL_SAMP_SIZE];
+		FILTER_SUBSAMP = new int[SUBSAMP_SIZE];
 		SS_HIT_IDS = new int[nSSHits];
 		SS_MISS_IDS = new int[nSSMisses];
 		SS_HIT_BOUNDS = new ArrayList<List<int[]>>(); 
 		SS_MISS_BOUNDS = new ArrayList<List<int[]>>(); 
 			//the -_BOUNDS variables are serving an additional indexing role for building FILTER here
 		
-		while (etStr.contains(",") && etStr.length()>1)
+		while (etStr.contains(",") && etStr.length()>1) //etStr will exclude cases outside the eval samp.
 		{
 			int commaloc = etStr.indexOf(",");
 			int id = Integer.parseInt(etStr.substring(0, commaloc));
 			etStr = etStr.substring(commaloc+1); 
-			FILTER[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
-			if (isHit[id])
+			FILTER_SUBSAMP[SS_HIT_BOUNDS.size()+SS_MISS_BOUNDS.size()] = id; 
+			if (isHit[id]) //cases outside eval samp already excluded as long as they don't end up in etStr. 
 			{
 				SS_HIT_IDS[SS_HIT_BOUNDS.size()] = id;
 				SS_HIT_BOUNDS.add(filterSeq.filtMatchBounds(PIV_PT_LEX.getByID(id).getPhonologicalRepresentation()));
@@ -1281,20 +1277,21 @@ public class ErrorAnalysis {
 		
 		String subsamp_blurb = (subsamp_name.equals("")) ? "" : " in "+subsamp_name;
 				 
-		if (EVAL_SAMP_SIZE == 0)
+		if (SUBSAMP_SIZE == 0)
 			System.out.println("Uh oh -- size of subset is 0.");
 		else {
-			pctAcc = (double)nSSHits / (double)EVAL_SAMP_SIZE; 
+			pctAcc = (double)nSSHits / (double)SUBSAMP_SIZE; 
 			
-			System.out.println("Size of subset : "+EVAL_SAMP_SIZE+"; ");
-			System.out.println(String.format("%.2f%% of etyma in whole dataset.", (double)EVAL_SAMP_SIZE/(double)TOTAL_ETYMA*100.0));
+			System.out.println("Size of subset : "+SUBSAMP_SIZE+"; ");
+			System.out.println(String.format("%.2f%% of etyma in dataset, total (including those absent at this point).", (double)SUBSAMP_SIZE/(double)TOTAL_ETYMA*100.0)); //TODO this line may become redundant. Consider deletion? 
+			System.out.println(String.format("%.2f%% of etyma present at evaluation point.", (double)SUBSAMP_SIZE/(double)EVAL_SAMPSIZE*100));
 			System.out.println(String.format("Accuracy on subset with sequence %s%s : %.2f%%", filterSeq, subsamp_blurb, pctAcc*100.0));
 			System.out.println(String.format("Percent of errors included in subset: %.2f%%",(double)nSSMisses/TOT_ERRS*100.0));
 	
 			int[] resPhCts = new int[resPhInventory.length], goldPhCts = new int[goldPhInventory.length],
 					pivPhCts = new int[pivotPhInventory.length]; 
 			
-			for (int fi : FILTER)
+			for (int fi : FILTER_SUBSAMP)
 			{
 				//TODO need to check this area in protodelta to ensure handling of both absent and unattested etyma correctly 
 					// -- so that they are excluded from calculations
@@ -1303,10 +1300,10 @@ public class ErrorAnalysis {
 				for (int pvi = 0; pvi < pivotPhInventory.length; pvi++) pivPhCts[pvi] += isPhInPivEt[pvi][fi] ? 1 : 0;
 			}
 			
-			pctWithin1 = nSS1off / (double) EVAL_SAMP_SIZE;
-			pctWithin2 = nSS2off / (double) EVAL_SAMP_SIZE; 
-			avgPED = totPED / (double) EVAL_SAMP_SIZE; 	
-			avgFED = totFED / (double) EVAL_SAMP_SIZE; 
+			pctWithin1 = nSS1off / (double) SUBSAMP_SIZE;
+			pctWithin2 = nSS2off / (double) SUBSAMP_SIZE; 
+			avgPED = totPED / (double) SUBSAMP_SIZE; 	
+			avgFED = totFED / (double) SUBSAMP_SIZE; 
 			
 			for (int i = 0 ; i < resPhInventory.length; i++)
 				errorRateByResPhone[i] = (double)errorsByResPhone[i] / (double)resPhCts[i];
@@ -1316,7 +1313,7 @@ public class ErrorAnalysis {
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 
 		}
 		
-		pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX); 
+		pivotInactiveFeats = inactiveFeatList(PIV_PT_LEX,false); 
 	}
 	
 	
@@ -1340,8 +1337,6 @@ public class ErrorAnalysis {
 	 * 		2) f1
 	 * 		3) f3
 	 * 		4) f0.2 
-	 * 
-	 * TODO future behavior: should ask user which sort of test to do, perhaps? 
 	 */
 	public void contextAutopsyComparison()
 	{
@@ -1467,6 +1462,10 @@ public class ErrorAnalysis {
 		
 		for (int hi = 0; hi < SS_HIT_IDS.length; hi++)
 		{
+			// skip if not in eval samp (not reconstructed or pseudo, or pseudo in pivot lexion 
+			if (!IN_EVALSAMP[SS_HIT_IDS[hi]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(SS_HIT_IDS[hi])))
+				continue;
+			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
 
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
@@ -1484,6 +1483,11 @@ public class ErrorAnalysis {
 		}
 		for (int mi = 0 ; mi < SS_MISS_IDS.length; mi++)
 		{
+			// skip if not reconstructed, though for misses this is probably redundant -- just inserted would not be a miss.
+					// but also need to skpi if its a pseudo-etymon in pivot lex
+			if (!IN_EVALSAMP[SS_MISS_IDS[mi]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(SS_MISS_IDS[mi])))
+				continue;
+			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_MISS_IDS[mi]).getPhonologicalRepresentation();
 
 			for(int imi = 0; imi < SS_MISS_BOUNDS.get(mi).size(); imi++)
@@ -1520,6 +1524,10 @@ public class ErrorAnalysis {
 		for (int pi = 0 ; pi < phs.size(); pi++) {
 			for (int eti = 0; eti < ids.length ; eti++)
 			{
+				//exclude if not in eval samp, or is pseudoEt in pivot. 
+				if (!IN_EVALSAMP[ids[eti]] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ids[eti])))
+					continue;
+				
 				List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(ids[eti]).getPhonologicalRepresentation();
 				for(int[] bound : theBounds.get(eti))
 				{
@@ -1890,9 +1898,9 @@ public class ErrorAnalysis {
 			
 			if (mode.equals("phi"))
 				scores[fi] = UTILS.phi_coeff( //with smoothing for zero hit scenario if necessary
-						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][0][0]),
-						Math.max(PHI_SMOOTHING,predictor_n_matr[fi][1][0]), 
-						Math.max(PHI_SMOOTHING, predictor_n_matr[fi][0][1]),
+						Math.max(PHI_SMOOTHING(),predictor_n_matr[fi][0][0]),
+						Math.max(PHI_SMOOTHING(),predictor_n_matr[fi][1][0]), 
+						Math.max(PHI_SMOOTHING(), predictor_n_matr[fi][0][1]),
 						predictor_n_matr[fi][1][1]); 
 			else 
 			{
@@ -1954,8 +1962,6 @@ public class ErrorAnalysis {
 						scout.substring(0,1).equals("#") ? "wdbnd"
 							: scout.substring(0,1).equals("/") ? "phone" : "feat"; 
 
-				
-				
 				while(try_place)
 				{	if (sc < lb_scores[placer])
 					{	placer++; 
@@ -2092,29 +2098,24 @@ public class ErrorAnalysis {
 		return predictor + numeric_element; 
 	}
 	
-	public boolean isFiltSet()
-	{
-		return filtSet; 
-	}
-	
-	public boolean isPivotSet()
-	{
-		return pivotSet;
-	}
+	public boolean isFiltSet()	{	return filtSet;	}
+
+	public boolean isPivotSet()	{	return pivotSet;	}
 	
 	/** printStagedGraph 
 	 *  -- print graph where for each etymon, its form at a certain stage (incl pivot point if specified) is printed... 
 	 * @param lexicolumns -- in order, lexica for which each etymon's form will be printed
 	 * @param errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reocnstructed results.
 	 * NOTE: last index will be @global @param TOTAL_ETYMA -- if lexica have different sizes, could cause problems
+	 * @param filterOnly -- true if printing only filtered etyma
 	 * TODO : note that this assumes unchanging indices for each etymon in each lexicon!
 	 * 	 
 	 * */
-	public void printStagedGraph(List<Lexicon> lexicolumns, boolean errorsOnly)
+	public void printStagedGraph(List<Lexicon> lexicolumns, boolean errorsOnly, boolean filterOnly)
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if (errorsOnly ? IN_SUBSAMP[i] && !isHit[i] : IN_SUBSAMP[i])
+			if ( (errorsOnly ? !isHit[i] : true) && (filterOnly ? IN_SUBSAMP[i] : true ))
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
@@ -2124,15 +2125,16 @@ public class ErrorAnalysis {
 		}
 	}
 	
-	// errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reocnstructed results.
-	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly)
+	// @param filterOnly -- true if printing only filtered etyma
+	// errorsOnly -- true if printing graph for only etyma that mismatch gold forms in their reconstructed results.
+	public void printFourColGraph(Lexicon inpLex, boolean errorsOnly, boolean filterOnly)
 	{
 		List<Lexicon> stagesToPrint = new ArrayList<Lexicon>(); 
 		stagesToPrint.add(inpLex);
 		if (pivotSet) { stagesToPrint.add(PIV_PT_LEX); }
 		stagesToPrint.add(RES); 
 		stagesToPrint.add(GOLD); 
-		printStagedGraph(stagesToPrint, errorsOnly);
+		printStagedGraph(stagesToPrint, errorsOnly, filterOnly);
 	}
 	
 	
@@ -2140,18 +2142,19 @@ public class ErrorAnalysis {
 	/** inactiveFeatList  
 	 * 
 	 * @param samp -- lexicon working with
+	 * @param inheritedOnly -- excludes words just inserted, i.e. not marked (*) as reconstructed
 	 * @return list of features [(+/-)feat] that do not vary within the sample. 
 	 * 		@note that at present this counts unspecified as not being unequal to + or -
 	 * 			and thus grounds for removal
 	 * 			thus features like [delrel] and [stres] may not ever be treated as inactive
 	 * 			@todo consider fixing that so that UNSPEC and [-] do NOT get treated as equal. 
 	 */
-	private List<String> inactiveFeatList(Lexicon samp)
+	private List<String> inactiveFeatList(Lexicon samp, boolean inheritedOnly)
 	{
 		ArrayList<String> out = new ArrayList<String>(); 
 		for (String fbi : featsByIndex)
 		{	out.add(UTILS.MARK_POS+fbi); out.add(UTILS.MARK_NEG+fbi);	}
-		return rmvFeatsActiveInSample(out,samp); 
+		return rmvFeatsActiveInSample(out,samp,inheritedOnly); 
 	}
 	
 	/** rmvFeatsActiveInSample
@@ -2160,11 +2163,12 @@ public class ErrorAnalysis {
 		/* as the features may actually (somehow) be active (for some reason) at the intermediate pivot stage) 
 	/* @param earlier_inactive_list the preexisting list of inactive features (which at the start is just the entire list of +/- feature stipulations) 
 	/* @param sample -- lexicon we are looking through. 
+	 * @prerequisite -- IN_SUBSAMP filled, and it excludes just reconstructed etyma in RES and those that are pseudoEtyma in etiher. 
 	 * @return list of inactive feats that has been modified in this way.
 	 * 			(will include the values that the feature CONSTANTLY has: e.g. -splng if all segments are -splng. )  
 	 * @beware -- will be limited to feats in @param earlier_inactive_list -- may need to reinitialize that. 
 	 */
-	public List<String> rmvFeatsActiveInSample(List<String> earlier_inactive_list, Lexicon sample)
+	public List<String> rmvFeatsActiveInSample(List<String> earlier_inactive_list, Lexicon sample, boolean inheritedOnly)
 	{
 		if (earlier_inactive_list.size() == 0)	return earlier_inactive_list; 
 		
@@ -2172,7 +2176,7 @@ public class ErrorAnalysis {
 				indexedFeatList = Arrays.asList(featsByIndex); 
 		for (int idi = 0 ; idi < TOTAL_ETYMA; idi++)
 		{
-			if (IN_SUBSAMP[idi])
+			if (IN_SUBSAMP[idi] && !UTILS.isPseudoEtymon(sample.getByID(idi)))
 			{
 				SequentialPhonic[] repi = sample.getByID(idi).getPhOnlySeq();
 				for (SequentialPhonic phmi : repi)
@@ -2188,11 +2192,9 @@ public class ErrorAnalysis {
 							out.remove(ifi); 
 						else	ifi++; 
 					}
-					
 					if (out.size() == 0)	return out; 
-				}
-			}
-		}		
+		}}}		
+		
 		return out; 
 	}
 	

@@ -25,18 +25,21 @@ public class UTILS {
 			// ... as [+A,-B,+C]
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
+	public final static String NULL_STAGE_INDIC = "NULLSTAGE"; 
 	public final static char STAGENAME_LOC_DELIM = ':'; 
 	public final static char LEX_DELIM =','; 
 	public final static char STAGE_PRINT_DELIM = ',';  
 	public final static char DISJUNCT_DELIM = ';'; 
 	public final static String OUT_GRAPH_FILE_TYPE = ".csv"; 
-	public final static String ABSENT_INDIC = "--", ABSENT_REPR = "{ABSENT}"; 
+	public final static String ABSENT_INDIC = "...", ABSENT_REPR = "{ABSENT}"; 
 	public final static String UNATTD_GOLD_INDIC = ">*", UNATTD_GOLD_REPR = "{UNATTESTED}"; 
 		// the -INDIC items are the strings used in lexicon files provided by the user and processed by the system
 		// whereas the -REPR items are the internal representation within the Etymon subclasses.
 			// the latter are for unattested GOLD lexicon items -- i.e. those not included in diagnostic analysis
 			// i.e. NOT unattested reconstructions!
 	public final static List<String> PSEUDO_ETYM_REPRS = Arrays.asList(ABSENT_REPR, UNATTD_GOLD_REPR); 	
+	public final static List<String> PSEUDO_ETYM_INDICS = Arrays.asList(ABSENT_INDIC, UNATTD_GOLD_INDIC); 
+	public static boolean isPseudoEtymon (Etymon e)	{	return PSEUDO_ETYM_INDICS.contains(e+""); 	}
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
@@ -142,7 +145,15 @@ public class UTILS {
 		Simulation toy = new Simulation(ogs.getInput().getWordList(), jur, ogs.getStagesOrdered()); 
 		if (ogs.hasBlackStages())	toy.setBlackStages(ogs.getBlackStageNames(), ogs.getBlackStageInstants());
 		if (ogs.hasGoldOutput()) toy.setGoldOutput(ogs.getGoldOutput().getWordList()); 
-		if (ogs.hasGoldStages()) toy.setGoldStages(ogs.getGoldStageGoldForms(), ogs.getGoldStageNames(), ogs.getGoldStageInstants());
+		if (ogs.hasColumnedStages()) 
+		{
+			int[] blackStageColumnedIndices = new int[ogs.hasBlackStages() ? ogs.NUM_BLACK_STAGES(): 0]; 
+			if (ogs.hasBlackStages())
+				for (int bsi = 0 ; bsi < ogs.NUM_BLACK_STAGES() ; bsi++)
+					blackStageColumnedIndices[bsi] = ogs.columnedBlackStageBlackIndices.contains(bsi) ? bsi : -1; 
+			toy.setColumnedStages(ogs.getColumnStageForms(), ogs.getColumnedStageNames(), ogs.getColumnedStageInstants(), blackStageColumnedIndices);
+		}
+			
 		toy.setOpacity(true);
 		toy.setStepPrinterval(PRINTERVAL); 
 		toy.simulateToEnd();
@@ -195,6 +206,8 @@ public class UTILS {
 	public static int countColumns(String row)
 	{
 		String proxy = row+"";
+		if (proxy.contains(CMT_FLAG+""))
+			proxy = proxy.substring(0, proxy.indexOf(CMT_FLAG+""));
 		int i = proxy.indexOf(""+LEX_DELIM), c = 1 ;
 		while( i > -1)
 		{
@@ -362,6 +375,7 @@ public class UTILS {
 	public static boolean checkWord(Etymon correct, Etymon observed, String errMessage)
 	{
 		String c = correct.print(), o = observed.print(); 
+		if (o.startsWith("*"))	o = o.substring(1); 
 		boolean result = c.equals(o); 
 		if (!result)	System.out.println(errorMessage(c,o,errMessage)); 
 		return result; 
@@ -588,11 +602,13 @@ public class UTILS {
 	}
 	
 	
-	//extract order of intermediate stages so that we don't end up with ``flips'' in the relative ordering between stages
+	/** extract order of intermediate stages so that we don't end up with ``flips'' in the relative ordering between stages
 		// in the case that they end up in the same
 		// chronological "moment" between rule operation steps (TODO need to clarify this a bit further maybe?) 
 	// @param black_at_input -- true to execute bandaid in scenario where user declared name of input stage as a black stage. 
 		// in this case, skip until have found first rule. 
+	// @note does not handle columned black stages -- this is done externally. 
+	 */
 	public static String[] extractStageOrder(String cascLoc, boolean black_at_input)
 	{
 		List<String> lines = readFileLines(cascLoc); 
@@ -631,7 +647,7 @@ public class UTILS {
 		li = 0;
 		int ngi = 0, nbi = 0;
 		while (li < out.length) {
-			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "g"+(ngi++) : "b"+(nbi++);
+			out[li] = lines.get(li).charAt(0) == GOLD_STAGENAME_FLAG ? "G"+(ngi++) : "b"+(nbi++);
 			li++;
 		}
 		return out; 
@@ -1278,7 +1294,7 @@ public class UTILS {
 	{
 		String toLex = toLexem.trim(); 
 		
-		if (PSEUDO_ETYM_REPRS.contains(toLex))
+		if (PSEUDO_ETYM_INDICS.contains(toLex))
 			return new PseudoEtymon(toLex);
 
 		boolean toLexIsReconstructed = false; 
@@ -1653,4 +1669,13 @@ public class UTILS {
 		return out;
 	}
 		
+	public static boolean isNumeric (String s)
+	{
+		try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+	}
 }

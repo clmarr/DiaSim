@@ -71,7 +71,7 @@ public class SimulationTester {
 		
 		int errorCount = 0, totalErrorCount = 0;
 		
-		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"g0","b0","g1"} ), 
+		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(testSimul.getStagesOrdered(), new String[] {"G0","b0","G1"} ), 
 				"ERROR: Simulation.stagesOrdered not constructed properly.") ;
 		// first -- ensure that path is not immediately considered complete by class Simulation. 
 		
@@ -83,7 +83,7 @@ public class SimulationTester {
 		
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
-		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setColumnedStages(goldStageGoldWordlists, goldStageNames, goldStageInstants, new int[0]);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); 
 		// for debugging purposes opacity is fine. 
 		
@@ -98,7 +98,9 @@ public class SimulationTester {
 		System.out.println("Sanity check -- input forms should be 100% correct checked against input forms."); 
 		
 		//ErrorAnalysis for input lexicon against... itself... should have perfect scores for everything.
-		ErrorAnalysis checker = standardChecker(testSimul.getCurrentResult(), new Lexicon(inputForms)); 
+		Lexicon dummyResult = testSimul.getCurrentResult();
+		dummyResult.markEtymaReconstructed(); 
+		ErrorAnalysis checker = standardChecker(dummyResult, new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: avg FED should be 0.0 but it is %o") ? 0 : 1 ; 
@@ -116,8 +118,9 @@ public class SimulationTester {
 		testSimul.iterate();
 		
 		System.out.println("Checking integrity of stored input forms after step."); 
-		
-		checker = standardChecker(testSimul.getInput(), new Lexicon(inputForms)); 
+		dummyResult = testSimul.getInput();
+		dummyResult.markEtymaReconstructed();
+		checker = standardChecker(dummyResult, new Lexicon(inputForms)); 
 
 		//check that average distance metrics are all 0
 		errorCount +=UTILS.checkMetric(0.0, checker.getAvgFED(), "ERROR: avg FED should be 0.0 but it is %o") ? 0 : 1 ;
@@ -214,20 +217,20 @@ public class SimulationTester {
 		testSimul = new Simulation(inputForms, CASCADE, STAGE_ORDER); 
 		testSimul.setBlackStages(blackStageNames, blackStageInstants);
 		testSimul.setGoldOutput(goldOutputLexicon.getWordList());
-		testSimul.setGoldStages(goldStageGoldWordlists, goldStageNames, goldStageInstants);
+		testSimul.setColumnedStages(goldStageGoldWordlists, goldStageNames, goldStageInstants, new int[0]);
 		testSimul.setStepPrinterval(UTILS.PRINTERVAL); //reinserted. Necessary? Not sure.  
 		testSimul.simulateToEnd(); 
 
 		String bittenCorrectBaselineDeriv = "/bˈɪtən/\n" + 
-				"#bˈɪɾən# | 0 : [+cor,-delrel] > ɾ / [-cons] __ [-stres]\n" + 
-				"#bˈɪɾə̃n# | 1 : [-cons] > [+nas,+son,0delrel] / __ n\n" + 
-				"Waypoint 1 Gold stage form : #bˈɪɾə̃n#\n" + 
-				"Waypoint 2 Black stage form : #bˈɪɾə̃n#\n" + 
-				"Waypoint 3 Gold stage form : #bˈɪɾə̃n#\n" + 
-				"Final form : #bˈɪɾə̃n#";
+				"*#bˈɪɾən# | 0 : [+cor,-delrel] > ɾ / [-cons] __ [-stres]\n" + 
+				"*#bˈɪɾə̃n# | 1 : [-cons] > [+nas] / __ n\n" + 
+				"Waypoint 1 Gold stage form : *#bˈɪɾə̃n#\n" + 
+				"Waypoint 2 Black stage form : *#bˈɪɾə̃n#\n" + 
+				"Waypoint 3 Gold stage form : *#bˈɪɾə̃n#\n" + 
+				"Final form : *#bˈɪɾə̃n#";
 		String observedDerBitten = testSimul.getDerivation(0); 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, bittenCorrectBaselineDeriv.equals(observedDerBitten), "ERROR: baseline derivation for 'bitten' not matched."
-				+ "correct:\n"+bittenCorrectBaselineDeriv+"\nobserved:\n"+observedDerBitten) ;
+				+ "\nCorrect:\n"+bittenCorrectBaselineDeriv+"\nObserved:\n"+observedDerBitten) ;
 		
 		System.out.print("Performance of baseline cascade before edits...\n"
 				+ UTILS.stdMetricHeader()+"\n"); 
@@ -327,22 +330,22 @@ public class SimulationTester {
 		
 		String mhdCor = 
 				"/mˈowltəd/\n" + 
-				"#mˈowlˠtəd# | 0 : l > lˠ / __ [+cons]\n" + 
-				"Waypoint 1 Gold stage form : #mˈowlˠtəd#\n" + 
-				"#mˈowlˠʔəd# | 6 : t > ʔ / __ ə\n" + 
-				"Waypoint 2 Black stage form : #mˈowlˠʔəd#\n" + 
-				"Waypoint 3 Gold stage form : #mˈowlˠʔəd#\n" + 
-				"Final form : #mˈowlˠʔəd#";
+				"*#mˈowlˠtəd# | 0 : l > lˠ / __ [+cons]\n" + 
+				"Waypoint 1 Gold stage form : *#mˈowlˠtəd#\n" + 
+				"*#mˈowlˠʔəd# | 6 : t > ʔ / __ ə\n" + 
+				"Waypoint 2 Black stage form : *#mˈowlˠʔəd#\n" + 
+				"Waypoint 3 Gold stage form : *#mˈowlˠʔəd#\n" + 
+				"Final form : *#mˈowlˠʔəd#";
 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.hypCascSim.getDerivation(26).equals(mhdCor), 
 				"ERROR: malformed derivation of 'molted' for hypothesis cascade after 1 change");  
 		
 		String mbdGlobCor = "/mˈowltəd/\n" + 
-				"Waypoint 1 Gold stage form : #mˈowltəd#\n" + 
-				"#mˈowlʔəd# | 6 : t > ʔ / __ ə\n" + 
-				"Waypoint 2 Black stage form : #mˈowlʔəd#\n" + 
-				"Waypoint 3 Gold stage form : #mˈowlʔəd#\n" + 
-				"Final form : #mˈowlʔəd#";
+				"Waypoint 1 Gold stage form : *#mˈowltəd#\n" + 
+				"*#mˈowlʔəd# | 6 : t > ʔ / __ ə\n" + 
+				"Waypoint 2 Black stage form : *#mˈowlʔəd#\n" + 
+				"Waypoint 3 Gold stage form : *#mˈowlʔəd#\n" + 
+				"Final form : *#mˈowlʔəd#";
 		//checking globalization of derivation
 		errorCount +=chBoolPrIncIfError(getLineNumber(), true, theDHS.getGlobalizedDerivation(0 , false).equals(bittenCorrectBaselineDeriv.replace("1 :","2 :" ).replace("0 :", "1 :")),
 				"ERROR: malformation of globalized derivation in baseline for 'bitten'"); 
@@ -367,15 +370,15 @@ public class SimulationTester {
 		//now check syntax of differential derivation of a word that was indeed changed. 
 		String corDD = "/mˈowltəd/\n" 
 				+ "CONCORDANT UNTIL RULE : 0\n"
-				+ "0[-1|0] : fed or inserted | #mˈowltəd# > #mˈowlˠtəd#\n"
-				+ "Waypoint 1 Gold : #mˈowltəd# | #mˈowlˠtəd#\n"
-				+ "6[5|6] : #mˈowltəd# > #mˈowlʔəd# | #mˈowlˠtəd# > #mˈowlˠʔəd#\n"
-				+ "Waypoint 2 Black : #mˈowlʔəd# | #mˈowlˠʔəd#\n"
-				+ "Waypoint 3 Gold : #mˈowlʔəd# | #mˈowlˠʔəd#\n"
-				+ "Final forms : #mˈowlʔəd# | #mˈowlˠʔəd#";
+				+ "0[-1|0] : fed or inserted | #mˈowltəd# > *#mˈowlˠtəd#\n"
+				+ "Waypoint 1 Gold : *#mˈowltəd# | *#mˈowlˠtəd#\n"
+				+ "6[5|6] : #mˈowltəd# > *#mˈowlʔəd# | *#mˈowlˠtəd# > *#mˈowlˠʔəd#\n"
+				+ "Waypoint 2 Black : *#mˈowlʔəd# | *#mˈowlˠʔəd#\n"
+				+ "Waypoint 3 Gold : *#mˈowlʔəd# | *#mˈowlˠʔəd#\n"
+				+ "Final forms : *#mˈowlʔəd# | *#mˈowlˠʔəd#";
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(26).equals(corDD), 
-				"ERROR: differential derivation for 'molted' is malformed"); 
+				"ERROR: differential derivation for 'molted' is malformed.\nCorrect:\n"+corDD+"\nObserved:\n"+theDHS.getDifferentialDerivation(26)); 
 		
 		//checking DHS.changedDerivations
 			// we don't need to check the exact syntax since we have effectively already done that above.
@@ -398,9 +401,9 @@ public class SimulationTester {
 				"ERROR: false positive detection of blocking effects of l-darkening when there are none."); 
 		
 		String[] darkened = new String[40]; 
-		darkened[15] = "#mˈowltən# > #mˈowlˠtən#"; 
-		darkened[26] = "#mˈowltəd# > #mˈowlˠtəd#";
-		darkened[28] = "#bihˈowldən# > #bihˈowlˠdən#"; 
+		darkened[15] = "#mˈowltən# > *#mˈowlˠtən#"; 
+		darkened[26] = "#mˈowltəd# > *#mˈowlˠtəd#";
+		darkened[28] = "#bihˈowldən# > *#bihˈowlˠdən#"; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, UTILS.compare1dStrArrs(CREs.get(0)[1], darkened),
 				"ERROR: incorrect comprehension of effects by caused by the insertion of l-darkening");
 				
@@ -510,9 +513,9 @@ public class SimulationTester {
 			+ theDHS.getDifferentialDerivation(0)) ;
 		corDD = "/bˈʌtə˞/\n" 
 			+ "CONCORDANT UNTIL RULE : 7\n"
-			+ "7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n"
-			+ "Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n"
-			+ "Final forms : #bˈʌɾə# | #bˈʌɾə˞#";
+			+ "7[7|-1] : *#bˈʌɾə˞# > *#bˈʌɾə# | bled or deleted\n"
+			+ "Waypoint 3 Gold : *#bˈʌɾə# | *#bˈʌɾə˞#\n"
+			+ "Final forms : *#bˈʌɾə# | *#bˈʌɾə˞#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 			"ERRORː differential derivation for 'butter' is malformed"); 
 			
@@ -557,7 +560,7 @@ public class SimulationTester {
 				+ "moving the flapping rule that is at index 1 to index 5,"
 				+ " after the first waypoint.\n----------------\n"); 
 		
-		DHSW.processChWithAddNearWaypoint(false, "g1", 
+		DHSW.processChWithAddNearWaypoint(false, "G1", 
 				1, "relocdated from 1 to 5, after first waypoint", "", null, "relocdated from 1 to 5, after first waypoint");; 
 		
 		//DHSW.processSingleCh(1,"relocdated from 1 to 6",6,"",null,
@@ -644,13 +647,13 @@ public class SimulationTester {
 		// also testing differential derivation generation for case of a forward relocdation in this block.
 		corDD = "/bˈʌtə˞/\n" + 
 				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : #bˈʌtə˞# > #bˈʌɾə˞# | bled or deleted\n" + 
-				"Waypoint 1 Gold : #bˈʌɾə˞# | #bˈʌtə˞#\n" + 
-				"1[-1|5] : fed or inserted | #bˈʌtə˞# > #bˈʌɾə˞#\n" + 
-				"Waypoint 2 Black : #bˈʌɾə˞# | #bˈʌɾə˞#\n" + 
-				"7[7|-1] : #bˈʌɾə˞# > #bˈʌɾə# | bled or deleted\n" + 
-				"Waypoint 3 Gold : #bˈʌɾə# | #bˈʌɾə˞#\n" + 
-				"Final forms : #bˈʌɾə# | #bˈʌɾə˞#"; 
+				"1[1|-1] : #bˈʌtə˞# > *#bˈʌɾə˞# | bled or deleted\n" + 
+				"Waypoint 1 Gold : *#bˈʌɾə˞# | *#bˈʌtə˞#\n" + 
+				"1[-1|5] : fed or inserted | #bˈʌtə˞# > *#bˈʌɾə˞#\n" + 
+				"Waypoint 2 Black : *#bˈʌɾə˞# | *#bˈʌɾə˞#\n" + 
+				"7[7|-1] : *#bˈʌɾə˞# > *#bˈʌɾə# | bled or deleted\n" + 
+				"Waypoint 3 Gold : *#bˈʌɾə# | *#bˈʌɾə˞#\n" + 
+				"Final forms : *#bˈʌɾə# | *#bˈʌɾə˞#"; 
 		
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(22).equals(corDD),
 				"ERRORː differential derivation for 'butter' is malformed\n"
@@ -775,10 +778,10 @@ public class SimulationTester {
 		//case of word 4 fountain -- here we see a real change. 
 		corDD = "/fˈæwntən/\n"
 			+ "CONCORDANT UNTIL RULE : 7\n"
-			+ "7[-1|7] : fed or inserted | #fˈæ̃w̃ntə̃n# > #fˈæ̃w̃nʔə̃n#\n"
-			+ "Waypoint 2 Black : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
-			+ "Waypoint 3 Gold : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#\n"
-			+ "Final forms : #fˈæ̃w̃ntə̃n# | #fˈæ̃w̃nʔə̃n#";			
+			+ "7[-1|7] : fed or inserted | *#fˈæ̃w̃ntə̃n# > *#fˈæ̃w̃nʔə̃n#\n"
+			+ "Waypoint 2 Black : *#fˈæ̃w̃ntə̃n# | *#fˈæ̃w̃nʔə̃n#\n"
+			+ "Waypoint 3 Gold : *#fˈæ̃w̃ntə̃n# | *#fˈæ̃w̃nʔə̃n#\n"
+			+ "Final forms : *#fˈæ̃w̃ntə̃n# | *#fˈæ̃w̃nʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD),
 				"ERROR: derivation of fountain is malformed"); 
 		String fountainDDr4 = ""+corDD; 
@@ -904,15 +907,15 @@ public class SimulationTester {
 				+ "had no effect beyond that of the previous rule (which appears to have been correctly formed)."); 
 		corDD = "/hˈajtən/\n" + 
 				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
-				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
-				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
-				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
-				"5[5|5] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | #hˈʌjtə̃n# > #hˈʌjɾə̃n#\n" + 
-				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
-				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#\n" + 
-				"Final forms : #hˈʌjɾə̃n# | #hˈʌjɾə̃n#";
-			// TODO maybe this one should not really be different between the basline and hyp at all... 
+				"1[1|-1] : #hˈajtən# > *#hˈajtə̃n# | bled or deleted\n" + 
+				"4[4|1] : *#hˈajtə̃n# > *#hˈʌjtə̃n# | *#hˈajtən# > *#hˈʌjtən#\n" + 
+				"1[-1|2] : fed or inserted | *#hˈʌjtən# > *#hˈʌjtə̃n#\n" + 
+				"Waypoint 1 Gold : *#hˈʌjtə̃n# | *#hˈʌjtə̃n#\n" + 
+				"5[5|5] : *#hˈʌjtə̃n# > *#hˈʌjɾə̃n# | *#hˈʌjtə̃n# > *#hˈʌjɾə̃n#\n" + 
+				"Waypoint 2 Black : *#hˈʌjɾə̃n# | *#hˈʌjɾə̃n#\n" + 
+				"Waypoint 3 Gold : *#hˈʌjɾə̃n# | *#hˈʌjɾə̃n#\n" + 
+				"Final forms : *#hˈʌjɾə̃n# | *#hˈʌjɾə̃n#";
+			// TODO maybe this one should not really be different between the baseline and hyp at all... 
 					// since there is no material difference really, just the same things happening in a different order
 						// to obtain the same results by the next waypoint... 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
@@ -946,7 +949,7 @@ public class SimulationTester {
 		String[] ch6DelPCform = new String[] {"5", "deletion", currNote},
 				ch6InsPCform = new String[] {"7", "[+cor,-delrel] > ɾ / [-cons] __ [-stres]", currNote}; 
 		
-		DHSW.processChWithAddNearWaypoint(true, "g2", 
+		DHSW.processChWithAddNearWaypoint(true, "G2", 
 				5, currNote, "", null, currNote);
 		 
 		//test realization in cascade structures
@@ -1036,38 +1039,38 @@ public class SimulationTester {
 		// 8 | heighten -- affected by all three test rules. 
 		corDD = "/hˈajtən/\n" + 
 				"CONCORDANT UNTIL RULE : 1\n" + 
-				"1[1|-1] : #hˈajtən# > #hˈajtə̃n# | bled or deleted\n" + 
-				"4[4|1] : #hˈajtə̃n# > #hˈʌjtə̃n# | #hˈajtən# > #hˈʌjtən#\n" + 
-				"1[-1|2] : fed or inserted | #hˈʌjtən# > #hˈʌjtə̃n#\n" + 
-				"Waypoint 1 Gold : #hˈʌjtə̃n# | #hˈʌjtə̃n#\n" + 
-				"5[5|-1] : #hˈʌjtə̃n# > #hˈʌjɾə̃n# | bled or deleted\n" +
-				"7[-1|6] : fed or inserted | #hˈʌjtə̃n# > #hˈʌjʔə̃n#\n" +
-				"Waypoint 2 Black : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#\n" + 
-				"Waypoint 3 Gold : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#\n" + 
-				"Final forms : #hˈʌjɾə̃n# | #hˈʌjʔə̃n#";
+				"1[1|-1] : *#hˈajtən# > *#hˈajtə̃n# | bled or deleted\n" + 
+				"4[4|1] : *#hˈajtə̃n# > *#hˈʌjtə̃n# | *#hˈajtən# > *#hˈʌjtən#\n" + 
+				"1[-1|2] : fed or inserted | *#hˈʌjtən# > *#hˈʌjtə̃n#\n" + 
+				"Waypoint 1 Gold : *#hˈʌjtə̃n# | *#hˈʌjtə̃n#\n" + 
+				"5[5|-1] : *#hˈʌjtə̃n# > *#hˈʌjɾə̃n# | bled or deleted\n" +
+				"7[-1|6] : fed or inserted | *#hˈʌjtə̃n# > *#hˈʌjʔə̃n#\n" +
+				"Waypoint 2 Black : *#hˈʌjɾə̃n# | *#hˈʌjʔə̃n#\n" + 
+				"Waypoint 3 Gold : *#hˈʌjɾə̃n# | *#hˈʌjʔə̃n#\n" + 
+				"Final forms : *#hˈʌjɾə̃n# | *#hˈʌjʔə̃n#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(7).equals(corDD),
 				"ERROR: differential derivation for 'heighten' is malformed:\n"+theDHS.getDifferentialDerivation(7)); 
 		// 29 | bidden -- affected only by test rule 6 (moving flapping across a waypoint) 
 		corDD = "/bˈɪdən/\n" + 
 				"CONCORDANT UNTIL RULE : 5\n" + 
-				"5[5|-1] : #bˈɪdə̃n# > #bˈɪɾə̃n# | bled or deleted\n" + 
-				"Waypoint 2 Black : #bˈɪɾə̃n# | #bˈɪdə̃n#\n" + 
-				"5[-1|7] : fed or inserted | #bˈɪdə̃n# > #bˈɪɾə̃n#\n" + 
-				"Waypoint 3 Gold : #bˈɪɾə̃n# | #bˈɪɾə̃n#\n" + 
-				"Final forms : #bˈɪɾə̃n# | #bˈɪɾə̃n#";
+				"5[5|-1] : *#bˈɪdə̃n# > *#bˈɪɾə̃n# | bled or deleted\n" + 
+				"Waypoint 2 Black : *#bˈɪɾə̃n# | *#bˈɪdə̃n#\n" + 
+				"5[-1|7] : fed or inserted | *#bˈɪdə̃n# > *#bˈɪɾə̃n#\n" + 
+				"Waypoint 3 Gold : *#bˈɪɾə̃n# | *#bˈɪɾə̃n#\n" + 
+				"Final forms : *#bˈɪɾə̃n# | *#bˈɪɾə̃n#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(29).equals(corDD),
 				"ERROR: differential derivation for 'bidden' is malformed:\n"
 				+ theDHS.getDifferentialDerivation(29)); 
 		// 31 | mitigate -- affected by test rules 4 and 6 specifically
 		corDD = "/mˈɪtɪɡɛjt/\n"
 				+ "CONCORDANT UNTIL RULE : 5\n" 
-				+ "5[5|-1] : #mˈɪtɪɡɛjt# > #mˈɪɾɪɡɛjt# | bled or deleted\n"
-				+ "6[-1|5] : fed or inserted | #mˈɪtɪɡɛjt# > #mˈɪtɪɡɛjʔ#\n"
-				+ "Waypoint 2 Black : #mˈɪɾɪɡɛjt# | #mˈɪtɪɡɛjʔ#\n"
-				+ "5[-1|7] : fed or inserted | #mˈɪtɪɡɛjʔ# > #mˈɪɾɪɡɛjʔ#\n"
-				+ "Waypoint 3 Gold : #mˈɪɾɪɡɛjt# | #mˈɪɾɪɡɛjʔ#\n"
-				+ "10[8|9] : #mˈɪɾɪɡɛjt# > #mˈɪɾɨɡɛjt# | #mˈɪɾɪɡɛjʔ# > #mˈɪɾɨɡɛjʔ#\n"
-				+ "Final forms : #mˈɪɾɨɡɛjt# | #mˈɪɾɨɡɛjʔ#";
+				+ "5[5|-1] : *#mˈɪtɪɡɛjt# > *#mˈɪɾɪɡɛjt# | bled or deleted\n"
+				+ "6[-1|5] : fed or inserted | *#mˈɪtɪɡɛjt# > *#mˈɪtɪɡɛjʔ#\n"
+				+ "Waypoint 2 Black : *#mˈɪɾɪɡɛjt# | *#mˈɪtɪɡɛjʔ#\n"
+				+ "5[-1|7] : fed or inserted | *#mˈɪtɪɡɛjʔ# > *#mˈɪɾɪɡɛjʔ#\n"
+				+ "Waypoint 3 Gold : *#mˈɪɾɪɡɛjt# | *#mˈɪɾɪɡɛjʔ#\n"
+				+ "10[8|9] : *#mˈɪɾɪɡɛjt# > *#mˈɪɾɨɡɛjt# | *#mˈɪɾɪɡɛjʔ# > *#mˈɪɾɨɡɛjʔ#\n"
+				+ "Final forms : *#mˈɪɾɨɡɛjt# | *#mˈɪɾɨɡɛjʔ#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(31).contentEquals(corDD), 
 				"ERROR: differential derivation for 'mitigate' is malformed:\n" + theDHS.getDifferentialDerivation(31));
 		
@@ -1106,15 +1109,15 @@ public class SimulationTester {
 				theFactory.generateSoundChangesFromRule(nx_law), "Flapping contexts revised");
 		
 		nx_law = "d > ɾ / [-cons] __ [-cons]";
-		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+		DHSW.processChWithAddNearWaypoint(true, "G2", -1, "",
 				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between nonconsonantals.");
 		
 		nx_law = "d > ɾ / [+son] __ [+syl,-stres]"; 
-		DHSW.processChWithAddNearWaypoint(true, "g2", -1, "",
+		DHSW.processChWithAddNearWaypoint(true, "G2", -1, "",
 				nx_law, theFactory.generateSoundChangesFromRule(nx_law), "d flapping between sonorant cons and unstressed vowel.");
 		
 		nx_law = "[+syl,-stres] > [-nas] / __ n [+syl]"; 
-		DHSW.processChWithAddNearWaypoint(false, "g2", -1, "", nx_law, theFactory.generateSoundChangesFromRule(nx_law), "denasalization before intervocalic /n/");
+		DHSW.processChWithAddNearWaypoint(false, "G2", -1, "", nx_law, theFactory.generateSoundChangesFromRule(nx_law), "denasalization before intervocalic /n/");
 		
 		nx_law = "n > ∅ / [-cons,+nas] __ [-son,-cor]";
 		DHSW.processSingleCh(-1, "", 14, nx_law, theFactory.generateSoundChangesFromRule(nx_law), "/n/ effaced between nasal vowel and non-coronal obstruent.");
@@ -1166,51 +1169,51 @@ public class SimulationTester {
 		
 		corDD = "/fˈutɑn/\n" + 
 				"CONCORDANT UNTIL RULE : 7\n" + 
-				"7[7|-1] : #fˈutɑ̃n# > #fˈuɾɑ̃n# | bled or deleted\n" + 
-				"Waypoint 3 Gold : #fˈuɾɑ̃n# | #fˈutɑ̃n#\n" + 
-				"Final forms : #fˈuɾɑ̃n# | #fˈutɑ̃n#";
+				"7[7|-1] : *#fˈutɑ̃n# > *#fˈuɾɑ̃n# | bled or deleted\n" + 
+				"Waypoint 3 Gold : *#fˈuɾɑ̃n# | *#fˈutɑ̃n#\n" + 
+				"Final forms : *#fˈuɾɑ̃n# | *#fˈutɑ̃n#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(24).equals(corDD),
 				"ERROR: differential derivation of 'futan' is malformed:\n"+theDHS.getDifferentialDerivation(24)) ;
 		corDD = "/ɹˈɛjdɑn/\n" + 
 				"CONCORDANT UNTIL RULE : 7\n" + 
-				"7[7|-1] : #ɹˈɛjdɑ̃n# > #ɹˈɛjɾɑ̃n# | bled or deleted\n" + 
-				"8[-1|8] : fed or inserted | #ɹˈɛjdɑ̃n# > #ɹˈɛjɾɑ̃n#\n" + 
-				"Waypoint 3 Gold : #ɹˈɛjɾɑ̃n# | #ɹˈɛjɾɑ̃n#\n" + 
-				"Final forms : #ɹˈɛjɾɑ̃n# | #ɹˈɛjɾɑ̃n#"; 
+				"7[7|-1] : *#ɹˈɛjdɑ̃n# > *#ɹˈɛjɾɑ̃n# | bled or deleted\n" + 
+				"8[-1|8] : fed or inserted | *#ɹˈɛjdɑ̃n# > *#ɹˈɛjɾɑ̃n#\n" + 
+				"Waypoint 3 Gold : *#ɹˈɛjɾɑ̃n# | *#ɹˈɛjɾɑ̃n#\n" + 
+				"Final forms : *#ɹˈɛjɾɑ̃n# | *#ɹˈɛjɾɑ̃n#"; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(33).equals(corDD),
 				"ERROR: differential derivation for 'radon' is malformed:\n"+theDHS.getDifferentialDerivation(33)); 
 		corDD = "/bihˈowldən/\n" + 
 				"CONCORDANT UNTIL RULE : 9\n" + 
-				"9[-1|9] : fed or inserted | #bihˈowlˠdə̃n# > #bihˈowlˠɾə̃n#\n" + 
-				"Waypoint 3 Gold : #bihˈowlˠdə̃n# | #bihˈowlˠɾə̃n#\n" + 
-				"12[9|12] : #bihˈowlˠdə̃n# > #bɨhˈowlˠdə̃n# | #bihˈowlˠɾə̃n# > #bɨhˈowlˠɾə̃n#\n" + 
-				"Final forms : #bɨhˈowlˠdə̃n# | #bɨhˈowlˠɾə̃n#"; 
+				"9[-1|9] : fed or inserted | *#bihˈowlˠdə̃n# > *#bihˈowlˠɾə̃n#\n" + 
+				"Waypoint 3 Gold : *#bihˈowlˠdə̃n# | *#bihˈowlˠɾə̃n#\n" + 
+				"12[9|12] : *#bihˈowlˠdə̃n# > *#bɨhˈowlˠdə̃n# | *#bihˈowlˠɾə̃n# > *#bɨhˈowlˠɾə̃n#\n" + 
+				"Final forms : *#bɨhˈowlˠdə̃n# | *#bɨhˈowlˠɾə̃n#"; 
 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(28).equals(corDD),
 				"ERROR: differential derivation for 'beholden' is malformed:\n"+theDHS.getDifferentialDerivation(28));
 		
 		corDD = "/pˈændə˞/\n" + 
 				"CONCORDANT UNTIL RULE : 9\n" + 
-				"9[-1|9] : fed or inserted | #pʰˈæ̃ndə˞# > #pʰˈæ̃nɾə˞#\n" + 
-				"Waypoint 3 Gold : #pʰˈæ̃ndə˞# | #pʰˈæ̃nɾə˞#\n" + 
-				"15[-1|15] : fed or inserted | #pʰˈæ̃nɾə˞# > #pʰˈæ̃ɾə˞#\n" + 
-				"Final forms : #pʰˈæ̃ndə˞# | #pʰˈæ̃ɾə˞#"; 
+				"9[-1|9] : fed or inserted | *#pʰˈæ̃ndə˞# > *#pʰˈæ̃nɾə˞#\n" + 
+				"Waypoint 3 Gold : *#pʰˈæ̃ndə˞# | *#pʰˈæ̃nɾə˞#\n" + 
+				"15[-1|15] : fed or inserted | *#pʰˈæ̃nɾə˞# > *#pʰˈæ̃ɾə˞#\n" + 
+				"Final forms : *#pʰˈæ̃ndə˞# | *#pʰˈæ̃ɾə˞#"; 
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(32).equals(corDD), 
 				"ERROR: differential derivation for 'pander' is malformed:\n" + theDHS.getDifferentialDerivation(32)); 
 		
 		corDD = "/mjˈutɪni/\n" + 
 				"CONCORDANT UNTIL RULE : 10\n" + 
-				"10[-1|10] : fed or inserted | #mjˈuʔɪ̃ni# > #mjˈuʔɪni#\n" + 
-				"11[8|-1] : #mjˈuʔɪ̃ni# > #mjˈuʔə̃ni# | bled or deleted\n" + 
-				"12[-1|12] : fed or inserted | #mjˈuʔɪni# > #mjˈuʔɨni#\n" + 
-				"Final forms : #mjˈuʔə̃ni# | #mjˈuʔɨni#";
+				"10[-1|10] : fed or inserted | *#mjˈuʔɪ̃ni# > *#mjˈuʔɪni#\n" + 
+				"11[8|-1] : *#mjˈuʔɪ̃ni# > *#mjˈuʔə̃ni# | bled or deleted\n" + 
+				"12[-1|12] : fed or inserted | *#mjˈuʔɪni# > *#mjˈuʔɨni#\n" + 
+				"Final forms : *#mjˈuʔə̃ni# | *#mjˈuʔɨni#";
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(14).equals(corDD), 
 				"ERROR: differential derivation for 'mutiny' is malformed:\n" + theDHS.getDifferentialDerivation(14)); 
 		
 		corDD = "/fˈæwntən/\n"
 				+ "CONCORDANT UNTIL RULE : 14\n"
-				+ "14[-1|14] : fed or inserted | #fˈæ̃w̃nʔə̃n# > #fˈæ̃w̃ʔə̃n#\n" 
-				+ "Final forms : #fˈæ̃w̃nʔə̃n# | #fˈæ̃w̃ʔə̃n#";			
+				+ "14[-1|14] : fed or inserted | *#fˈæ̃w̃nʔə̃n# > *#fˈæ̃w̃ʔə̃n#\n" 
+				+ "Final forms : *#fˈæ̃w̃nʔə̃n# | *#fˈæ̃w̃ʔə̃n#";			
 		errorCount += chBoolPrIncIfError(getLineNumber(), true, theDHS.getDifferentialDerivation(4).equals(corDD), 
 				"ERROR: differential derivation for 'fountain' is malformed:\n"+theDHS.getDifferentialDerivation(4));
 		
@@ -1468,7 +1471,7 @@ public class SimulationTester {
 			goldOutput = true; 
 		else if (numCols != NUM_GOLD_STAGES + 1) 
 			throw new RuntimeException("ERROR: mismatch between number of columns in lexicon file and number of gold stages declared in rules file (plus 1)\n"
-					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; # cols : "+numCols); 
+					+ "# stages in rules file : "+NUM_GOLD_STAGES+"; *# cols : "+numCols); 
 		
 		boolean justInput = (numCols == 0); 
 		
