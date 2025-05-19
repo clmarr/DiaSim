@@ -2,54 +2,32 @@ import logo from './logo.svg';
 import './App.css';
 import StartMenu from './startArgs';
 import Menu from './Menu'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { myText } from './text';
 
 
 function App() {
   const [elements, setElements] = useState([])
-  const [index, setIndex] = useState(0)
-  const [data, setData] = useState({})  // Add state for your data
-
+  const [data, setData] = useState([])  // Use array as a queue instead of map
+  const stringMap = { "start args": StartMenu, "menu": Menu, "text": myText }
   const addElement = (element, elementData = {}) => {
-    setElements([...elements, element])
-    setData({...data, [index]: elementData})  // Store data for this element
-    setIndex(index + 1)
-    // console.log(data);
+    setElements(prev => [...prev, stringMap[element]])
+    setData(prev => [...prev, elementData])  // Store data for this element
   }
-  // const nextElement = () => {
-  //   const fetchUntilExit = () => {
-  //     fetch("/next")
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       if (data.exit) {
-  //       console.log("Exit condition reached:", data.exit);
-  //       } else {
-  //       // Process data then fetch again
-  //       addElement(Menu, data);
-  //       fetchUntilExit();
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error("Error in fetch:", error);
-  //     });
-  //   };
-    
-  //   fetchUntilExit();
-  // }
+  
 
   // Initialize with StartMenu
   if (elements.length === 0) {
-    addElement(StartMenu)
-    console.log(index)
+    addElement("start args")
   }
 
   return (
     <div className="App">
       <header className="App-header">
         {elements.map((Component, ind) => (
-          <div key={ind} style={{ display: ind < index ? 'block' : 'none' }}>
+          <div key={ind} style={{ display: 'block' }}>
             <Component 
-              isActive={ind === index - 1} 
+              isActive={ind === elements.length - 1} 
               nextElement={addElement} 
               data={data[ind] || {}}
             />
@@ -59,5 +37,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

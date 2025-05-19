@@ -1002,7 +1002,7 @@ public class DiachronicSimulator {
 			
 			while (resp.length() == 0)
 			{
-				GUIEncloser.Menu();
+				GUIEncloser.Text();
 				System.out.println("\n" +
 					"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~# SUITE MENU #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
 					"|        What would you like to do? Please enter the appropriate number below:        |\n" +

@@ -30,7 +30,6 @@ async function getFile(key, placeHolders, setPlaceholders) {
         const response = await fetch(`/filename`);
         const data = await response.json();
         const newPlaceHolders = { ...placeHolders, [key]: data["filename"] };
-        console.log(newPlaceHolders[key]);
         setPlaceholders(newPlaceHolders);
     } catch (error) {
         console.error('Error fetching file:', error);
@@ -38,7 +37,6 @@ async function getFile(key, placeHolders, setPlaceholders) {
 }
 
 const StartMenu = (input) => {
-    console.log(input);
     const [formData, setFormData] = useState(input.data || {});
     const [placeHolders, setPlaceholders] = useState(() => {
         // Load saved placeholders from localStorage on initialization
@@ -65,7 +63,7 @@ const StartMenu = (input) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted with data:', formData);
+        // console.log('Form submitted with data:', formData);
         // Send the updated form data to the server
         fetch('/start/config', {
             method: 'POST',
@@ -81,8 +79,17 @@ const StartMenu = (input) => {
         })
             .then(response => response.json())
             .then(data => {
-                // console.log('Success:', data);
-                input.nextElement(Menu, data);
+                // Iterate through each element in the data array
+                if (Array.isArray(data)) {
+                    data.forEach((element, index) => {
+                        console.log(`Element ${index}:`, element);
+                        input.nextElement(element[0], element[1])
+                        // Add a delay before processing the next element
+                    });
+                } else {
+                    console.log('Success:', data);
+                }
+                
             })
             .catch((error) => {
                 console.error('Error:', error);

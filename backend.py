@@ -42,32 +42,32 @@ def start_json():
     data = request.get_json()
     # Store the configuration data in the master_data dictionary
     master_data["config"] = data
-    print(data)
-    # tempArgs = ["java -cp bin "DiachronicSimulator"]
+    tempArgs = ["java", "-cp" ,"bin", "DiachronicSimulator"]
     activeFlags = "-"
-    # for key in data:
-    #     if data[key] == "true":
-    #         activeFlags += key[0]
-    #     tempArgs.append(f"-{key} {data[key]}")
-    # tempArgs.append(activeFlags)
-    # print(tempArgs)
-    # io = backendWrapper(
-    # )
+    for key in data:
+        if data[key] == "true":
+            activeFlags += key[0]
+        tempArgs.append(f"-{key} {data[key]}")
+    tempArgs.append(activeFlags)
+    if activeFlags == "-":
+        activeFlags = ""
+    io = backendWrapper(tempArgs)
+    # text = io.get_next()
+    # menu_option = io.get_next()
     
     
-    return jsonify([{ "text": "option 0", "return": "0", "type": "button" },
-    { "text": "option 1", "return": "1", "type": "button" }])
-
-@app.route("/next")
-def next_io():
-    return
+    
+    return jsonify([["text", f"testing"], ["menu", [{ "text": "option 0", "return": "0", "type": "button" },
+      { "text": "option 1", "return": "1", "type": "button" }]]])
 
 @app.route("/sendline", methods=["POST"])
-def sendLine():
+def send_line():
     global io
     data = request.get_json()
-    io.io.sendline(data["return"])
-    return jsonify({"status" : "200"})
+    print("in sendline", data)
+    # io.io.sendline(data["return"].encode())
+    return jsonify([["text", f"testing the menu"], ["menu", [{ "text": "option 0", "return": "0", "type": "button" },
+      { "text": "option 1", "return": "1", "type": "button" }]]])
 
 @app.route("/api/data", methods=['GET'])
 def get_data():
@@ -91,7 +91,6 @@ def get_data():
         return jsonify(start_args)
     elif args.get("start_percentages") == "true":
         return jsonify("nothing")
-    # Your function code here
     return jsonify({"data": "This is the data endpoint"})
 
 # def open_browser():
@@ -107,3 +106,4 @@ if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
     
     print("Server running on http://localhost:5000/")
+    
