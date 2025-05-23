@@ -3,9 +3,11 @@ import java.io.BufferedWriter;
 import java.io.File; 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
@@ -1182,7 +1184,8 @@ public class DiachronicSimulator {
 			
 			}
 			
-			BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream (filename), StandardCharsets.UTF_8));
+			//BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
 			
 			for (int ri = 0 ; ri < ruleByEtymGraph.length; ri++)
 				out.write(String.join(",", ruleByEtymGraph[ri]) + "\n"); 

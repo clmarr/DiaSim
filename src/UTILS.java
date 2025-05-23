@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.OutputStreamWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -178,7 +180,9 @@ public class UTILS {
 					dirBreak + 1 + rem.indexOf("/"); 			
 			}
 			
-			BufferedWriter out = new BufferedWriter(new FileWriter(filename,StandardCharsets.UTF_8)); 
+			BufferedWriter out = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(filename), StandardCharsets.UTF_8)); 
+					
 			out.write(output);
 			out.close();
 		}
