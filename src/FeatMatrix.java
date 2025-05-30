@@ -470,11 +470,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	/**
 	 *  for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, returns empty HashMap. 
-	 * also returns an empty HashMap if specifications that are not unspecified alpha specs are inconsistent with @param inp 
-	 * - because if these requirements are not met, the extraction alpha values for a context phone or input phone cannot occur in the first place
+	 * also returns an empty HashMap if specifications that are not unspecified alpha specs 
+	 * 			are inconsistent with @param inp 
+	 * - because if these requirements are not met, 
+	 * 		the extraction alpha values for a context phone or input phone cannot occur in the first place
 	 * 	* as it won't be a valid situation for the operation of the sound change in question 
-	* otherwise APPLIES the value specifications that alpha-valued features have in the SequentialPhonic @param inp
-	* 	and then returns those exact value specifications that were applied
+	* otherwise @apply the value specifications that alpha-valued features have in the SequentialPhonic @param inp
+	* 	and then @return those exact value specifications that were applied
 	*/
 	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{

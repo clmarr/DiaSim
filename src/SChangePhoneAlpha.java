@@ -157,29 +157,30 @@ public class SChangePhoneAlpha extends SChangePhone {
 				if(poi.first_unset_alpha() != '0')
 				{
 					SequentialPhonic cpi = input.get(cpic); 
-						if(cpi.getType().equals("phone")) {
-							if(poi.check_for_alpha_conflict(cpi))
-							{
-								postContext.resetAllAlphaValues();
-								return false;
-							}
-							else if (!poi.comparePreAlpha(cpi))	
-							{	//check also for conflict OUTSIDE the alpha values and return false if so
-									// as that will cause a downstream UnsetAlphaException otherwise
-								postContext.resetAllAlphaValues();
-								return false;
-							}
-							else
-							{
-								temp_alph_vals.putAll(poi.extractAndApplyAlphaValues(cpi));
-								postContext.applyAlphaValues(temp_alph_vals);
-								popr = postContext.getPlaceRestrs();
-								popm = postContext.getParenMap(); 
+					if(cpi.getType().equals("phone")) {
+						if(poi.check_for_alpha_conflict(cpi)) // conflict with established alpha values -- not a match 
+						{
+							postContext.resetAllAlphaValues();
+							return false;
+						}
+						else if (!poi.comparePreAlpha(cpi))	
+						{	//check also for conflict OUTSIDE the alpha values and return false if so
+								// as that will cause a downstream UnsetAlphaException otherwise
+							postContext.resetAllAlphaValues();
+							return false;
+						}
+						else
+						{
+							temp_alph_vals.putAll(poi.extractAndApplyAlphaValues(cpi));
+							postContext.applyAlphaValues(temp_alph_vals);
+							popr = postContext.getPlaceRestrs();
+							popm = postContext.getParenMap(); 
 							}}
 				}
 				cpic++; crp++; cpim++;
 				if (crp >= popr.size())	halt = true;
-				else	halt = popm[cpim].contains("(");
+				else	halt = popm[cpim].contains("("); 
+					//TODO might need to make sure this doens't create problems wrt alphas in parens...  
 			}
 		}
 		return postContext.isPosteriorMatch(input, indAfter); 

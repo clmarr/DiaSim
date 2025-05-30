@@ -1583,7 +1583,7 @@ public class DiachronicSimulator {
 					else if (UTILS.stripEnds(resp).equalsIgnoreCase("keep"))
 						fail = false; 
 					else {
-						try {
+						try {  
 							filterSeq = fac.parseNewSeqFilter(resp, true);
 							fail = false;
 						}

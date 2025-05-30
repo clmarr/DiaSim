@@ -18,7 +18,7 @@ public class SequentialFilter {
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
-	 * 		0	|	1	|	2	|	3	|	4 	|	5	|	6	|	7
+	 * 		0	|	1	|	2	|	3	|	4 	|	5	|	6	|	7			parenMap 
 	 * 		i0 	|  *(:4	| 	i1 	| 	i2 	|  )*:1 | 	(:7	| 	i3	|	):5 
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
 	 * 		in placeRestrs
@@ -276,25 +276,87 @@ public class SequentialFilter {
 		return isPriorMatchHelper(phonSeq, cpic, placeBeforeOpener, mapSpotPreOpener); 
 	}
 
-	//TODO possible error here that isPriorMatch(Helper) is... not called? 
-		// nor is it called anywhere in ErrorAnalysis.
-		// TODO need to make tester to check behavior of this as it is used in ErrorAnalysis.
-		// though in practice it seems likely that all necessary issues will be caught on the forward iteration through the phonetic segments
-		// since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
-		// and it's not like a segment would just be missed, since it starts at the beginning and goes to the end. 
+	/** 
+	 * @return @true if stipulations of placeRestrs match for (somewhere in) pr
+	 * @note isPosteriorMatchHelper called as means of checking matching for a sequence; `asymmetry' of not calling isPriorMatch(Helper) no cause for alarm. 
+	 *  all necessary issues should be caught on the forward iteration through the phonetic segments
+	 * 	*  since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
+		*  and it's not like a segment would just be missed, since it starts at the beginning and goes to the end.
+	 * @param pr -- sequence to compare for potential match
+	 */
 	public boolean filtCheck(List<SequentialPhonic> pr)
 	{
 		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
 		if(minSize > pr.size())	return false;
+		
 		for(int cpic = 0; cpic <= pr.size() - minSize; cpic++)
-			if(isPosteriorMatchHelper(pr,cpic,0,0))	return true;
+		{
+			if (hasAlphSpecs) {
+				HashMap<String, String> currAlphVals = new HashMap<String, String>();
+				
+				int cand_alph_rp = 0 ,  cand_alph_pic = cpic; 
+				
+				int cand_alph_pim = !parenMap[0].contains("(") ? 0 
+						: Integer.parseInt(parenMap[0].substring(parenMap[0].indexOf("(")+1)); 
+				while (has_unset_alphas())
+				{
+					// checking for LOCAL alpha values
+						// this is done for filtCheck in a way resemblant but separate from calls to isPosteriorMatch from SChange--Alpha classes 
+						// in the latter, alpha values pertain not just to one SequentialFilter used for prior or posterior context
+							// but also the input and output, and the other (posterior/prior) context...
+							// drawn esp from SChangePhoneAlpha.posterriorMatch()
+								// TODO consider making this something unified in UTILS? 
+									// Or somewhere else so that don't have to fix code in multiple places, potentially? 
+					
+					//TODO may need to look at effects of parentheses on this... 
+					
+					
+					
+					RestrictPhone poi = placeRestrs.get(cand_alph_rp); 
+					if ( poi.first_unset_alpha() != '0')
+					{
+						SequentialPhonic cpi = pr.get(cand_alph_pic); 
+						if (cpi.getType().equals("phone")) {
+							
+							if (poi.check_for_alpha_conflict(cpi) ? true : !poi.comparePreAlpha(cpi)) {	
+								resetAllAlphaValues(); 
+								return false;	}
+							
+							currAlphVals.putAll(poi.extractAndApplyAlphaValues(cpi));
+							applyAlphaValues(currAlphVals); 
+						}
+						//TODO work here. 
+					}
+					cand_alph_rp++; cand_alph_pim++; cand_alph_pic++; 
+					
+					if (cand_alph_pim < parenMap.length)
+						cand_alph_pim = !parenMap[cand_alph_pim].contains("(") ? cand_alph_pim
+							: Integer.parseInt(parenMap[cand_alph_pim].substring(parenMap[cand_alph_pim].indexOf("(")+1)); 
+					
+					if (cand_alph_rp >= placeRestrs.size())	break;					
+				}
+				
+				if (isPosteriorMatchHelper(pr,cpic,0,0))	
+				{	resetAllAlphaValues(); return true; }
+				resetAllAlphaValues(); 
+				if (cand_alph_rp >= placeRestrs.size())	
+				{
+					assert !has_unset_alphas(): 
+						"Error: alpha values left unset in filtCheck before preceding to isPosteriorMatchHelper()"; 
+					break;					
+				}
+			}
+			else if (isPosteriorMatchHelper(pr,cpic,0,0))	return true;  
+		}
 		return false;
 	}
 	
-	// returns list of all boundaries ([onset, end]) of matched filters
-		// -- empty if there are none, i.e. no match. 
-		// note that of the boundary pairs, while the first element is the (positive) index of the onset of the filter match
-			// the second is the *negative* index of the offset *counting back from the end of the word* (as in python indexing, etc.) 
+	/**
+	 * @return list of all boundaries ([onset, end]) of matched filters in @param pr
+	 *  	@empty if there are none, i.e. no match. 
+		* @note that of the boundary pairs, while the first element is the (positive) index of the onset of the filter match
+			* the second is the *negative* index of the offset *counting back from the end of the word* (as in python indexing, etc.) 
+	 */  
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
 		
@@ -340,13 +402,19 @@ public class SequentialFilter {
 	
 	/**
 	 * @param phonSeq	phone sequence we are checking
-	 * @param cpic	location in phonSeq		("current place in candidate (sequence)")
-	 * @param crp	location in placeRestrs	("current restriction place")
-	 * @param cpim	location in parenMap	("current place in (paren)map") 
+	 * @param cpic	location in phonSeq		- current place in (candidate) phonic sequence
+	 * @param crp	location in placeRestrs	- current restriction place (restrictions upon candidate phones)
+	 * @param cpim	location in parenMap	
 	 * @return
-	 */
+	 * */
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
 	{	
+		//TODO debugging
+		System.out.print("cpic "+cpic+"; crp "+crp+"; cpim "+cpim+"; phonSeq: "); 
+		for (SequentialPhonic pSi : phonSeq)
+			System.out.print(pSi.print()+" "); 
+		System.out.println("");
+		
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		if(crp == placeRestrs.size())	return true;
@@ -408,6 +476,12 @@ public class SequentialFilter {
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 
+			//TODO debugging
+			System.out.println("currRestrPlace "+currRestrPlace+", currPlaceInCand "+currPlaceInCand
+					+";\n\tplaceRestr here "+placeRestrs.get(currRestrPlace).toString()+" ; phonSeq here "+phonSeq.get(currPlaceInCand).toString()); 
+			
+			//TODO working here concerning the alpha error. 
+			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
 					&& !placeRestrs.get(currRestrPlace).print().equals(phonSeq.get(currPlaceInCand)+"")
 					&& !placeRestrs.get(currRestrPlace).print().equals("@"))	
