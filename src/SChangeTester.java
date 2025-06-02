@@ -64,8 +64,7 @@ public class SChangeTester {
 		UTILS.extractSymbDefs(symbDefsLines); 
 		
 		//TODO debugging
-		System.out.println("Symbol definitions extracted!");
-		System.out.println("Length of symbDefsLines : "+symbDefsLines.size()); 
+		System.out.println("Symbol definitions extracted! ("+symbDefsLines.size()+" lines)"); 
 		
 		// following is now handed within UTILS.
 		/** 

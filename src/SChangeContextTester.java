@@ -1,112 +1,49 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 public class SChangeContextTester {
 
 	//excludes all material dealing with feature implications 
 
-	private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
+	//private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
 	private final static char PH_DELIM = ' '; 
-	private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
-	private static String[] featsByIndex; 
+	//private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private static List<String> featNames; 
-	private static HashMap<String, Integer> featIndices;
-	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String> phoneFeatsToSymbMap; //TODO abrogate either this or the previous class variable
-	private static String featImplsLoc = "FeatImplications"; 
+	//local symb-to-feats and vice versa maps abrogated, now in UTILS: 	private static HashMap<String, String> phoneSymbToFeatsMap,  phoneFeatsToSymbMap;
+			// likewise: private static HashMap<String, Integer> featIndices;private static String[] featsByIndex; 
+
+	private static String featImplsLoc = "FeatImplications", symbDefsLoc = "symbolDefs.csv"; 
 	private static Phone dummiePhone; 
 	public static void main(String args[])
 	{
 		boolean boundsMatter = false; 
 		
-		featIndices = new HashMap<String, Integer>(); 
-		phoneSymbToFeatsMap = new HashMap<String, String>(); 
-		phoneFeatsToSymbMap = new HashMap<String, String>(); 
-				
 		System.out.println("Collecting symbol definitions...");
-		
-		List<String> symbDefsLines = new ArrayList<String>();
-		String nextLine; 
-		
-		try 
-		{	File inFile = new File("symbolDefs.csv"); 
-			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8")); 
-			while((nextLine = in.readLine()) != null)	
-				symbDefsLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		
-		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
-		
-		for(int fi = 0; fi < featsByIndex.length; fi++) 
-			featIndices.put(featsByIndex[fi], fi);
-		
-		featNames = Arrays.asList(featsByIndex);
-		
-		//from the rest-- extract the symbol def each represents
-		int li = 1; 
-		while (li < symbDefsLines.size()) 
-		{
-			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
-			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
-			
-			String intFeatVals = ""; 
-			for(int fvi = 0; fvi < featVals.length; fvi++)
-			{
-				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
-				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
-				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
-			}
-			
-			phoneSymbToFeatsMap.put(symb, intFeatVals);
-			phoneFeatsToSymbMap.put(intFeatVals, symb);
-			li++; 
-		}
-		
+		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
+		UTILS.extractSymbDefs(symbDefsLines); 
+				
 		String firstline = symbDefsLines.get(1).replaceAll("\\s+", "");
-		dummiePhone = new Phone (phoneSymbToFeatsMap.get(firstline.substring(0,firstline.indexOf(FEAT_DELIM))), 
-				featIndices, phoneSymbToFeatsMap);
+		dummiePhone = new Phone (UTILS.phoneSymbToFeatsMap.get(firstline.substring(0,firstline.indexOf(UTILS.FEAT_DELIM))), 
+				UTILS.featIndices, UTILS.phoneSymbToFeatsMap);
 		
-		//TODO debugging
+		featNames = Arrays.asList(UTILS.featsByIndex);
+		
 		System.out.println("Now extracting info from feature implications file...");
 		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
 		
 		System.out.println("\nBeginning test of context functions...");
 		
-		String W = "[-"+featsByIndex[0]+"]", X = "[+"+featsByIndex[0]+"]";
-		String Y = "[-"+featsByIndex[1]+"]", Z = "[+"+featsByIndex[1]+"]";
+		String W = "[-"+UTILS.featsByIndex[0]+"]", X = "[+"+UTILS.featsByIndex[0]+"]";
+		String Y = "[-"+UTILS.featsByIndex[1]+"]", Z = "[+"+UTILS.featsByIndex[1]+"]";
 		
 		String testString0 = W+"( "+X+" ("+Y+")( "+Z+")+("+W+" "+Y+")*)";
 		System.out.println("Testing the method forceParenCloseConsistency()"); 
 		System.out.println("The following should be : ");
 		System.out.println(W+" ( "+X+" ( "+Y+" ) ( "+Z+" )+ ( "+W+" "+Y+" )* )");
 		
-		SChangeFactory testFactory = new SChangeFactory(phoneSymbToFeatsMap, featIndices); 
+		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		System.out.println("And it is ...\n"+testFactory.forceParenSpaceConsistency(testString0));
 		
 		System.out.println("\nAfter expanding the plus parens, it should now be : "); 
@@ -139,13 +76,13 @@ public class SChangeContextTester {
 		//TODO: A is ++, B +-, C -+ and D --
 		List<SequentialPhonic> dummyTestList = new ArrayList<SequentialPhonic>(); 
 		Phone Aph = new Phone(dummiePhone), Bph = new Phone(dummiePhone), Cph = new Phone(dummiePhone), Dph = new Phone(dummiePhone); 
-		String ft1 = featsByIndex[0], ft2 = featsByIndex[1];
+		String ft1 = UTILS.featsByIndex[0], ft2 = UTILS.featsByIndex[1];
 		Aph.set(ft1,2); Bph.set(ft1, 2); Cph.set(ft1, 0); Dph.set(ft1, 0);
 		Aph.set(ft2, 2); Bph.set(ft2, 0); Cph.set(ft2,2); Dph.set(ft2,0);
-		FeatMatrix Afm = new FeatMatrix("+"+ft1+FEAT_DELIM+"+"+ft2, featNames),
-				Bfm = new FeatMatrix("+"+ft1+FEAT_DELIM+"-"+ft2, featNames),
-				Cfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"+"+ft2, featNames), 
-				Dfm = new FeatMatrix("-"+ft1+FEAT_DELIM+"-"+ft2, featNames); 
+		FeatMatrix Afm = new FeatMatrix("+"+ft1+UTILS.FEAT_DELIM+"+"+ft2, featNames),
+				Bfm = new FeatMatrix("+"+ft1+UTILS.FEAT_DELIM+"-"+ft2, featNames),
+				Cfm = new FeatMatrix("-"+ft1+UTILS.FEAT_DELIM+"+"+ft2, featNames), 
+				Dfm = new FeatMatrix("-"+ft1+UTILS.FEAT_DELIM+"-"+ft2, featNames); 
 		
 		SequentialFilter testContext = testFactory.parseNewSeqFilter(Afm+"", boundsMatter);
 		dummyTestList.add(Aph); dummyTestList.add(Cph); 

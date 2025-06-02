@@ -366,7 +366,8 @@ public class SequentialFilter {
 
 		while (dummy.size() >= minSize) {
 			for (int cpic = 0 ; cpic < dummy.size() && currMatchStart == -1; cpic++)
-				if(isPosteriorMatchHelper(dummy,cpic,0,0))	currMatchStart = cpic;
+				if(filtCheck(cpic == 0 ? dummy : dummy.subList(cpic, dummy.size())))
+				//formerly: if(isPosteriorMatchHelper(dummy,cpic,0,0))	currMatchStart = cpic; //this will effectively halt the for-loop
 			
 			if (currMatchStart == -1)	return out;	// this is an empty list at this point -- returning empty, as there is no match. 
 			else	{
