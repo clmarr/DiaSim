@@ -18,8 +18,6 @@ public class SequentialFilter {
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
-	 * 		0	|	1	|	2	|	3	|	4 	|	5	|	6	|	7			parenMap 
-	 * 		i0 	|  *(:4	| 	i1 	| 	i2 	|  )*:1 | 	(:7	| 	i3	|	):5 
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
 	 * 		in placeRestrs
 	 * cells with paren markers { (, ), *(, )*, } indicate where parens open and close
@@ -309,9 +307,6 @@ public class SequentialFilter {
 									// Or somewhere else so that don't have to fix code in multiple places, potentially? 
 					
 					//TODO may need to look at effects of parentheses on this... 
-					
-					
-					
 					RestrictPhone poi = placeRestrs.get(cand_alph_rp); 
 					if ( poi.first_unset_alpha() != '0')
 					{
@@ -359,7 +354,6 @@ public class SequentialFilter {
 	 */  
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
-		
 		if(minSize == 0)	throw new Error("You shouldn't be using filterSequence.filtMatchBounds with filter with no necessary length.");
 		if(minSize > pr.size())	return new ArrayList<int[]>(); 
 
@@ -442,6 +436,8 @@ public class SequentialFilter {
 				lenPhonSeq = phonSeq.size(), numRestrPlaces = placeRestrs.size(), mapSize = parenMap.length; 
 		while( currPlaceInCand < lenPhonSeq && currRestrPlace < numRestrPlaces && currPlaceInMap < mapSize)
 		{
+			// if we're at a parenthesis -- then return true if it's true either with or without it, taking account length of the input for if "with" is possible. 
+				// forking based on any number of recurrences scenario (i.e. "( ... )*") handled in next conditional, since '*' is placed upon closing parenthesis
 			if(parenMap[currPlaceInMap].contains("("))
 			{
 				int minPhonesInParen = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
@@ -463,7 +459,7 @@ public class SequentialFilter {
 				{
 					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))		return true; 
 					int formerPlace = currPlaceInMap;
-					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); 
+					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); //go back to beginning of repeated optional segment
 					int proxyPlace = currPlaceInMap + 1; 
 					while(parenMap[proxyPlace].charAt(0) != 'i') 
 					{
@@ -478,9 +474,7 @@ public class SequentialFilter {
 
 			//TODO debugging
 			System.out.println("currRestrPlace "+currRestrPlace+", currPlaceInCand "+currPlaceInCand
-					+";\n\tplaceRestr here "+placeRestrs.get(currRestrPlace).toString()+" ; phonSeq here "+phonSeq.get(currPlaceInCand).toString()); 
-			
-			//TODO working here concerning the alpha error. 
+					+";\n\tplaceRestr here "+placeRestrs.get(currRestrPlace).toString()+" ; phonSeq here "+phonSeq.get(currPlaceInCand).print()); 
 			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
 					&& !placeRestrs.get(currRestrPlace).print().equals(phonSeq.get(currPlaceInCand)+"")

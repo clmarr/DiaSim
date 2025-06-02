@@ -146,8 +146,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			return false; 
 		
 		char nonSet = first_unset_alpha();
-		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet); 
-			//formerly -- throw new	RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet"' remains uninitialized");
+		if (nonSet != '0')	throw new UnsetAlphaError(""+nonSet); 		//formerly -- throw new	RuntimeException("ERROR: tried to compare when alpha style symbol '"+nonSet"' remains uninitialized");
 		
 		return compareToFeatVect (cand.toString().split(":")[1]); 
 	}
