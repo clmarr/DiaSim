@@ -316,13 +316,12 @@ public class SequentialFilter {
 						if (cpi.getType().equals("phone")) {
 							
 							if (poi.check_for_alpha_conflict(cpi) ? true : !poi.comparePreAlpha(cpi)) {	
-								resetAllAlphaValues(); 
-								return false;	}
+								resetAllAlphaValues(); break;  // move on. 
+							}
 							
 							currAlphVals.putAll(poi.extractAndApplyAlphaValues(cpi));
 							applyAlphaValues(currAlphVals); 
 						}
-						//TODO work here. 
 					}
 					cand_alph_rp++; cand_alph_pim++; cand_alph_pic++; 
 					
@@ -335,13 +334,9 @@ public class SequentialFilter {
 				
 				if (isPosteriorMatchHelper(pr,cpic,0,0))	
 				{	resetAllAlphaValues(); return true; }
+				
 				resetAllAlphaValues(); 
-				if (cand_alph_rp >= placeRestrs.size())	
-				{
-					assert !has_unset_alphas(): 
-						"Error: alpha values left unset in filtCheck before preceding to isPosteriorMatchHelper()"; 
-					break;					
-				}
+				
 			}
 			else if (isPosteriorMatchHelper(pr,cpic,0,0))	return true;  
 		}
@@ -406,12 +401,6 @@ public class SequentialFilter {
 	 * */
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
 	{	
-		//TODO debugging
-		System.out.print("cpic "+cpic+"; crp "+crp+"; cpim "+cpim+"; phonSeq: "); 
-		for (SequentialPhonic pSi : phonSeq)
-			System.out.print(pSi.print()+" "); 
-		System.out.println("");
-		
 		assert cpic <= phonSeq.size() && crp <= placeRestrs.size() && cpim <= parenMap.length: 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		if(crp == placeRestrs.size())	return true;
@@ -475,10 +464,6 @@ public class SequentialFilter {
 				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
 			}
 
-			//TODO debugging
-			System.out.println("currRestrPlace "+currRestrPlace+", currPlaceInCand "+currPlaceInCand
-					+";\n\tplaceRestr here "+placeRestrs.get(currRestrPlace).toString()+" ; phonSeq here "+phonSeq.get(currPlaceInCand).print()); 
-			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
 					&& !placeRestrs.get(currRestrPlace).print().equals(phonSeq.get(currPlaceInCand)+"")
 					&& !placeRestrs.get(currRestrPlace).print().equals("@"))	

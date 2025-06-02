@@ -1,3 +1,10 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -13,7 +20,7 @@ public class SChangeContextTester {
 	//local symb-to-feats and vice versa maps abrogated, now in UTILS: 	private static HashMap<String, String> phoneSymbToFeatsMap,  phoneFeatsToSymbMap;
 			// likewise: private static HashMap<String, Integer> featIndices;private static String[] featsByIndex; 
 
-	private static String featImplsLoc = "FeatImplications", symbDefsLoc = "symbolDefs.csv"; 
+	private static String featImplsLoc = "FeatImplications", symbDefsLoc = "symbolDefs.csv", lexFileLoc="DebugDummyLexicon.txt";
 	private static Phone dummiePhone; 
 	public static void main(String args[])
 	{
@@ -325,6 +332,60 @@ public class SChangeContextTester {
 		SChangeContext testCXCX7i7t = testFactory.parseNewContext("("+X+" ("+X+")* )+",false);
 		System.out.println("The following should be 1\n"+testCXCX7i7t.generateMinSize()); 
 		 **/
+		
+		System.out.print("extracting output stage from debug dummy lexicon to test alpha handling within SequentialFilter...");
+		//DebugDummyLexicon has no header.
+		String nextLine; 
+		
+		List<String> debugLexOutputs = new ArrayList<String>(); 
+		
+		try 
+		{	File inFile = new File(lexFileLoc); 
+			BufferedReader in = new BufferedReader ( new InputStreamReader (
+				new FileInputStream(inFile), "UTF8"));
+			while((nextLine = in.readLine()) != null)	
+				if (nextLine.contains(","))				// all debugDummyLexiconLines are commented.
+					debugLexOutputs.add(nextLine.substring(nextLine.lastIndexOf(" , ")+3,nextLine.indexOf("$")-1)); 		
+			in.close(); 
+		}
+		catch (UnsupportedEncodingException e) {
+			System.out.println("Encoding unsupported!");
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			System.out.println("File not found!");
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("IO Exception!");
+			e.printStackTrace();
+		}
+		
+		int NUM_DEBUG_ETYMA = debugLexOutputs.size(); 
+		
+		Etymon[] debugLex = new Etymon[NUM_DEBUG_ETYMA]; 
+		for (int ei = 0 ; ei < NUM_DEBUG_ETYMA; ei++ )
+			debugLex[ei] = UTILS.parseLexPhon(debugLexOutputs.remove(0), false); 
+		System.out.println("extracted. ");
+		
+		System.out.println("baseline: testing filtCheck for [+cont] [+cont]");
+		String testPlaceRestrs = "[+cont] [+cont]";
+		SequentialFilter filtTester =  testFactory.parseNewSeqFilter(testPlaceRestrs, false);
+		System.out.println("The filter "+testPlaceRestrs+" should be false for only these 3: bˈʌɾə˞  , kəɾˈɛʔ , pʰˈæ̃ɾə˞   ..."); 
+		for (Etymon debugeti : debugLex)
+			if (!filtTester.filtCheck(debugeti.getPhonologicalRepresentation()))
+				System.out.println(testPlaceRestrs+" not matched for "+debugeti.print()); 
+		
+		System.out.println("testing filtCheck with local repeated alphas... [acont] [acont]"); 
+		// same filter to be used in double-iteration, for checking handling of internal alpha matching
+		testPlaceRestrs = "[acont] [acont]";
+		filtTester =  testFactory.parseNewSeqFilter(testPlaceRestrs, false);
+		
+		System.out.println("The filter "+testPlaceRestrs+" should be false for only these 3: bˈʌɾə˞  , kəɾˈɛʔ , pʰˈæ̃ɾə˞    ..."); 
+		
+		for (Etymon debugeti : debugLex)
+			if (!filtTester.filtCheck(debugeti.getPhonologicalRepresentation()))
+				System.out.println(testPlaceRestrs+" not matched for "+debugeti.print()); 
+		
+		
 	}
 	
 	

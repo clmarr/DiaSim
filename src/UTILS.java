@@ -1207,7 +1207,7 @@ public class UTILS {
 	public static boolean tryParseAndDefineMarkedSymbol (String unseenSymb) 
 	{
 		if (!symbsExtracted)	throw new Error("Error: tried to parse an unseen marked symbol before symbol definitions were extracted in the first place!"); 
-		if (!diacriticsExtracted)	throw new Error("Error: tried to parse an unseen diacritic marked symbol before diacritic definitions were extracted!"); 
+		if (!diacriticsExtracted)	throw new Error("Error: tried to parse an unseen diacritic marked symbol ( "+unseenSymb+" ) before diacritic definitions were extracted!"); 
 		
 		List<String> diacritsLeft = new ArrayList<String>(DIACRIT_TO_FT_MAP.keySet()),
 				diacritsFound = new ArrayList<String>(); 
