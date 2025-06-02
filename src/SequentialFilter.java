@@ -18,6 +18,8 @@ public class SequentialFilter {
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
+	 *		0  | 1     | 2  |	3	|	4 	   | 5   | 6  |	 7			parenMap 
+	 *		i0 | *(:4 | i1 | 	i2 |  )*:1 | (:7 | i3 |	 ):5 
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
 	 * 		in placeRestrs
 	 * cells with paren markers { (, ), *(, )*, } indicate where parens open and close
