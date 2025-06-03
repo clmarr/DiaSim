@@ -13,6 +13,17 @@ n̪ > ŋ / __ [+hi,+back,-cont]
 ɡ > ŋ / __ [+nas,+cor]
 [+lo] > [-front,+back]
 [+lo] > [+front,-back] / __ e̯
+
+$2024 CORRECTION: d before consonantal obstruents and nasals undergoes total assimilation (ad satis, prefixation etc.) 
+	$unclear what happened before l, but there is already a rule in Gallo-Roman that lateralizes -d- in secondary -dl- clusters (cf. querquedulam > sarcelle) 
+	$ however, this is clearly different from the fate of secondary -dm- and -dn-, which can become -zm-, -rn-, -zn- (in Early Old French)
+$ 2025 correction: moved before desonorization of j, w -- this counterfeeds it, it seems.
+d̪ > [acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront] / __ [-son,acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront]
+d̪ > [+nas,+cont,+son,aant,bcor,cdistr,dlab,ehi,fback] / __ [+nas,aant,bcor,cdistr,dlab,ehi,fback]
+$explicit version until the current error in SChangeSeqToSeqAlpha is cleaned... -- it now works but can restore this if the error ever recurs. 
+${d̪ m;d̪ n̪;d̪ b;d̪ p;d̪ f;d̪ t̪;d̪ s;d̪ ɡ;d̪ k} > {m m;n̪ n̪;b b;p p;f f;t̪ t̪;s s;ɡ ɡ;k k} 
+
+
 {j;w} > [+cons,-son] / __ [+syl] $as per Pope s106 -- Pope considers w and j when not "vocalic" (i.e. part of diphthong) to be fricative
 	$ for j, p55 s106c ; for w, p56 s109
 $ Note that the sequence u: + w does not seem to occur in Latin 
@@ -25,13 +36,7 @@ $ To be sure she does note (s186) that "betacism doesn't occur after k" but she 
 $ of k -- such as the deletion of the rounded "fricative"/approximant before ʝ (indeed after kw, it is the ʝ that is deleted it seems...) 
 ɣʷ > w / [+back,+hi,+cons] __ 
 
-$2024 CORRECTION: d before consonantal obstruents and nasals undergoes total assimilation (ad satis, prefixation etc.) 
-	$unclear what happened before l, but there is already a rule in Gallo-Roman that lateralizes -d- in secondary -dl- clusters (cf. querquedulam > sarcelle) 
-	$ however, this is clearly different from the fate of secondary -dm- and -dn-, which can become -zm-, -rn-, -zn- (in Early Old French)
-	$d̪ > [acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront] / __ [-son,acont,dstrid,evoi,fant,gcor,hdistr,ilab,jhi,klo,lback,mfront]
-	$d̪ > [+nas,+cont,+son,aant,bcor,cdistr,dlab,ehi,fback] / __ [+nas,aant,bcor,cdistr,dlab,ehi,fback]
-$explicit version until the current error in SChangeSeqToSeqAlpha is cleaned... 
-{d̪ m;d̪ n̪;d̪ b;d̪ p;d̪ f;d̪ t̪;d̪ s;d̪ ɡ;d̪ k} > {m m;n̪ n̪;b b;p p;f f;t̪ t̪;s s;ɡ ɡ;k k} 
+
 
 $a more modest assimilation for clusters in bC.
 	$ -br- -- not included as these clearly show the same developments as secondary -(b/p>β)r clusters
