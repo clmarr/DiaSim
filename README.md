@@ -109,3 +109,11 @@ More information on cascades can be found on the [**Cascade**](https://github.co
 ## Output data
 
 DiaSim will populate your chosen output folder with files containing information on your results. These files include a log of the rules applied, a table of etyma in the state they appear at each stage, statistical analyses pertaining to phones, and a folder containing step-by-step forward-reconstructions for each etymon.
+
+## Miscellaneous
+
+It is common to have issues printing symbols if you are using DiaSim within Eclipse on certain operating systems. Adding the following VM argument within Run Configurations (under the Arguments tab) often helps:
+
+```
+-Dsun.stdout.encoding=UTF-8
+```
