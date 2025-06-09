@@ -298,6 +298,9 @@ public class SequentialFilter {
 				
 				int cand_alph_pim = !parenMap[0].contains("(") ? 0 
 						: Integer.parseInt(parenMap[0].substring(parenMap[0].indexOf("(")+1)); 
+				
+				boolean match_impossible = false; 
+				
 				while (has_unset_alphas())
 				{
 					// checking for LOCAL alpha values
@@ -316,7 +319,7 @@ public class SequentialFilter {
 						if (cpi.getType().equals("phone")) {
 							
 							if (poi.check_for_alpha_conflict(cpi) ? true : !poi.comparePreAlpha(cpi)) {	
-								resetAllAlphaValues(); break;  // move on. 
+								resetAllAlphaValues(); match_impossible = true; break;  // move on. 
 							}
 							
 							currAlphVals.putAll(poi.extractAndApplyAlphaValues(cpi));
@@ -329,10 +332,13 @@ public class SequentialFilter {
 						cand_alph_pim = !parenMap[cand_alph_pim].contains("(") ? cand_alph_pim
 							: Integer.parseInt(parenMap[cand_alph_pim].substring(parenMap[cand_alph_pim].indexOf("(")+1)); 
 					
-					if (cand_alph_rp >= placeRestrs.size())	break;					
+					if (cand_alph_rp >= placeRestrs.size())	
+					{	match_impossible=true;
+						break;					
+					}
 				}
 				
-				if (isPosteriorMatchHelper(pr,cpic,0,0))	
+				if (match_impossible ? false : isPosteriorMatchHelper(pr,cpic,0,0))	
 				{	resetAllAlphaValues(); return true; }
 				
 				resetAllAlphaValues(); 
