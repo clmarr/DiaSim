@@ -398,7 +398,7 @@ public class ErrorAnalysis {
 		
 		if (max_res_err_rate > 1.25 * (1.0 - pctAcc) || max_gold_err_rate > 1.25 * (1.0 - pctAcc)) 
 		{ 
-			System.out.println("Result phones most associated with error: ");
+			System.out.println("Result phones most often present in errant etyma: ");
 			
 			for(int i = 0 ; i < topErrResPhLocs.length; i++)
 			{
@@ -411,7 +411,7 @@ public class ErrorAnalysis {
 						+(""+(double)errorsByResPhone[topErrResPhLocs[i]]*100.0/(double)subsampMismatches.size()));
 				
 			}
-			System.out.println("Gold phones most associated with error: ");
+			System.out.println("Gold phones most often present in errant etyma: ");
 			for(int i = 0 ; i < topErrGoldPhLocs.length; i++)
 			{
 				double rate = errorRateByGoldPhone[topErrGoldPhLocs[i]];
@@ -450,7 +450,7 @@ public class ErrorAnalysis {
 				break; 			
 			}
 			
-			System.out.println("----\nConfusion "+(i+1)+": "+ rTarget.print()+" for "+gTarget.print()); 
+			System.out.println("----\nConfusion "+(i+1)+": predicted result "+ rTarget.print()+" for actual "+gTarget.print()); 
 					
 			double errorShare = wordsWithConfusion / (double)subsampMismatches.size() * 100.0; 
 			String strErrShare = ""+errorShare; 

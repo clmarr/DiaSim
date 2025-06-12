@@ -453,7 +453,7 @@ public class DHSWrapper {
 					+ "\t\t\t'get rule effect X', to get all changes from a rule by the index <X>.\n"
 					+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
 					+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
-					+ "\t\t\t 'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
+					+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
 					+ "\t\t\t'get etym at X', to get the etymon at index <X>.\n"
 					+ "\t\t\t'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 					+ "\t\t\t'get lexicon', print entire lexicon with etyma mapped to inds.\n");
