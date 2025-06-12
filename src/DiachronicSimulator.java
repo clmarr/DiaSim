@@ -1866,7 +1866,7 @@ public class DiachronicSimulator {
 							pivot_inserted = true; 
 						}
 						
-						headerRow += UTILS.append_space_to_x(" Prediction",19) +" | Gold"; 
+						headerRow += UTILS.append_space_to_x(" Output",19) +" | Gold"; 
 						lexCols.add(theSimulation.getCurrentResult()); 
 						lexCols.add(atOutput ? theSimulation.getGoldOutput() : theSimulation.getGoldStageGold(curSt)); 
 						System.out.println("Printing all "+(errsOnly ? "mismatched ":"")+
