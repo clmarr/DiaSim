@@ -451,6 +451,9 @@ public class Simulation {
 			// can ( and should ) skip if there is no stages at all.  
 		if (stagesOrdered.length > 0) 
 		{
+			//TODO debugging
+			System.out.println("\nstage "+soi+", stages ordered [soi] = "+stagesOrdered[soi]); 
+			
 			boolean nextStageBlack = stagesOrdered[soi].charAt(0) == 'b'; 
 			int next_stage_ri = (nextStageBlack ? blackStageInstants : goldStageInstants)
 					[Integer.parseInt(stagesOrdered[soi].substring(1))]; 
