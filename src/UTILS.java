@@ -1535,7 +1535,8 @@ public class UTILS {
 							String baseSymb = featsToSymbMap.get(baseFeatVect);
 							
 							List<String> diacritsInvolved = diacritsFoundInPhoneSymb(baseSymb); 
-							diacritsInvolved.add(comboSuffix); 
+							//diacritsInvolved.add(comboSuffix);  -- causes some errors for combined diacritics. Replaced with w. below. 
+							diacritsInvolved.addAll(diacritsFoundInPhoneSymb(comboSuffix)); 
 							
 							if (candDiacritResult.equals(unseenVect)
 									&& !detectDiacritFeatConflicts(diacritsInvolved,true).equals(""))	// then we found it!!
