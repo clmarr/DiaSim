@@ -54,6 +54,9 @@ public class SequentialFilter {
 	
 	 * @param bm whether bounds matter
 	 */
+	// abbreviations in use in comments: 
+	// bm = whether bounds matter. 
+	// pm = paren map. 
 	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		parenMap = pm ; 
