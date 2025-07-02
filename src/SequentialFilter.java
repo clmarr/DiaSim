@@ -18,21 +18,27 @@ public class SequentialFilter {
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
-	 *		0  | 1     | 2  |	3	|	4 	   | 5   | 6  |	 7			parenMap 
-	 *		i0 | *(:4 | i1 | 	i2 |  )*:1 | (:7 | i3 |	 ):5 
+	 *		0  | 1     | 2  | 3  | 4    | 5   | 6  |	 7			parenMap index
+	 *		i0 | *(:4  | i1 | i2 | )*:1 | (:7 | i3 |	 ):5 		contents
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
 	 * 		in placeRestrs
 	 * cells with paren markers { (, ), *(, )*, } indicate where parens open and close
 	 * 		relative to those indices in parenMap
 	 * 		the number on the inside of the paren(thesis) indicates which index IN PARENMAP 
 	 * 			is where the corresponding opening or closing paren lies. 
-	 * TODO Note as of July 12 2018
-	 * when this is entered, in order to save time, the min number of places within each paren window
-	 * 		are calculated using the auxiliary method 
-	 * 
+	 * note as of July 12 2018 -- when this is entered, in order to save time, the min number of places within each paren window
+	 * 		are calculated using the auxiliary method markParenMapForMinPlacesInEachWindow
+	 * 		so it could look like this: 
+	 *		0  | 1      | 2  | 3  | 4      | 5     | 6  |	 7			parenMap index
+	 *		i0 | *(:4,2 | i1 | i2 | )*:1,2 | (:7,1 | i3 |	 ):5,1		contents
 	*/
+	
+	// abbreviations in use in comments: 
 	// bm = whether bounds matter. 
 	// pm = paren map. 
+	
+	
+	
 	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		parenMap = pm ; 
@@ -60,57 +66,6 @@ public class SequentialFilter {
 		initialize(prs, pm, bm); 
 	}
 	
-	//auxiliary for initialization : mark all parenthetical cells in parenMap
-		// with the minimum number of places inside
-	// we assume they come in in the form *(:4 and )*:7 etc ... 
-	private void markParenMapForMinPlacesInEachWindow()
-	{
-		int currIndex = parenMap.length - 1;
-		while(currIndex > 1) // no parenthesis could ever close before index 2 else it would be containing nothing. 
-		{
-			if(parenMap[currIndex].contains(")"))
-			{
-				int openerIndex = Integer.parseInt(parenMap[currIndex].split(":")[1].split(",")[0]); 
-				int minPlaces = minPlacesInParenWindow(openerIndex, currIndex); 
-				parenMap[currIndex] = parenMap[currIndex] + "," + minPlaces;
-				parenMap[openerIndex] = parenMap[openerIndex] + "," + minPlaces; 
-				currIndex--; 
-			}
-			else
-			{	
-				while(!parenMap[currIndex].contains(")") && currIndex > 1)	
-					currIndex--;
-			}
-			
-		}
-			
-	}
-	
-	//auxiliary method to determine the minimum possible input size that can satisfy these context restrictions
-	//must be called AFTER markParenMapForMinPlacesInEachWindow is called. 
-	public int generateMinSize()
-	{
-		int pmSize = parenMap.length, count = 0;
-		
-			//optParenDepth is the number of optional { ()*, ()} paren structures we are currently in
-		
-		int i = 0; 
-		while (i < pmSize) 
-		{
-			String currMapCell = parenMap[i];
-			
-			if(currMapCell.contains("(")) // then hop. 
-				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
-			else	
-			{
-				if (currMapCell.contains(")")) throw new RuntimeException( "Error: unopened ')' found"); 
-				count++;
-				i++;
-			}
-				
-		}
-		return count; 
-	}
 	
 	/**isPriorMatch
 	 * checks if a legal prior context can be found in @param phonSeq
@@ -176,7 +131,7 @@ public class SequentialFilter {
 				int proxypim = cpim; 
 				while(parenMap[proxypim].contains(")"))
 				{	
-					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) - 1; 
+					proxypim = pairedParenLoc(proxypim) - 1; 
 					if(proxypim == -1)	return true; 
 				}
 				return false; 
@@ -190,7 +145,7 @@ public class SequentialFilter {
 		{			
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
-				int minContents = Integer.parseInt(parenMap[currPlaceInMap].split(",")[1]); 
+				int minContents = getMinParenSegments(currPlaceInMap);  
 				//if we could not possibly include the contents of this paren structure because there are too many 
 					// for the space we have left in the input... 
 				if(minContents > currPlaceInCand || minContents > currRestrPlace)
@@ -211,7 +166,7 @@ public class SequentialFilter {
 					
 					//find correct currRestrPlace to return to if we are going back to beginning of paren. 
 					int formerPlace = currPlaceInMap; 
-					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); 
+					currPlaceInMap = pairedParenLoc(currPlaceInMap); 
 					
 					int proxyPlace = currPlaceInMap - 1; 
 					while(parenMap[proxyPlace].charAt(0) != 'i')	
@@ -247,7 +202,7 @@ public class SequentialFilter {
 				int proxypim = currPlaceInMap; 
 				while(parenMap[proxypim].contains(")"))
 				{	
-					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) - 1; 
+					proxypim = pairedParenLoc(proxypim) - 1; 
 					if(proxypim == -1)	return true; 
 				}
 				return false; 
@@ -262,7 +217,7 @@ public class SequentialFilter {
 	private boolean isPriorMatchHelperExcludeParen (List<SequentialPhonic> phonSeq, int cpic,
 			int crp, int cpim)
 	{
-		int mapSpotPreOpener = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) - 1 ;
+		int mapSpotPreOpener = pairedParenLoc(cpim) - 1 ;
 		if (mapSpotPreOpener < 0)	return true; 
 		
 		int placeBeforeOpener = -1, proxyMapSpot = mapSpotPreOpener; 
@@ -297,8 +252,9 @@ public class SequentialFilter {
 				int cand_alph_rp = 0 ,  cand_alph_pic = cpic; 
 				
 				int cand_alph_pim = !parenMap[0].contains("(") ? 0 
-						: Integer.parseInt(parenMap[0].substring(parenMap[0].indexOf("(")+1)); 
-				
+						: pairedParenLoc(0) + 1;  //Integer.parseInt(parenMap[0].substring(parenMap[0].indexOf("(") +1)); 
+				//TODO possible paren issue here when alphas in parenthesis. 
+
 				boolean match_impossible = false; 
 				
 				while (has_unset_alphas())
@@ -310,6 +266,9 @@ public class SequentialFilter {
 							// drawn esp from SChangePhoneAlpha.posterriorMatch()
 								// TODO consider making this something unified in UTILS? 
 									// Or somewhere else so that don't have to fix code in multiple places, potentially? 
+					
+					//TODO debugging
+					System.out.println(String.join(" | ", parenMap));
 					
 					//TODO may need to look at effects of parentheses on this... 
 					RestrictPhone poi = placeRestrs.get(cand_alph_rp); 
@@ -328,9 +287,10 @@ public class SequentialFilter {
 					}
 					cand_alph_rp++; cand_alph_pim++; cand_alph_pic++; 
 					
+					//TODO possible paren issue here when alphas in parenthesis. 
 					if (cand_alph_pim < parenMap.length)
 						cand_alph_pim = !parenMap[cand_alph_pim].contains("(") ? cand_alph_pim
-							: Integer.parseInt(parenMap[cand_alph_pim].substring(parenMap[cand_alph_pim].indexOf("(")+1)); 
+							: pairedParenLoc(cand_alph_pim) + 1; 
 					
 					if (cand_alph_rp >= placeRestrs.size())	
 					{	match_impossible=true;
@@ -422,7 +382,7 @@ public class SequentialFilter {
 				int proxypim = cpim;
 				while(parenMap[proxypim].contains("("))
 				{
-					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) + 1; 
+					proxypim = pairedParenLoc(proxypim) + 1; 
 					if(proxypim == parenMap.length)	return true; 
 				}
 				return false; 
@@ -438,7 +398,8 @@ public class SequentialFilter {
 				// forking based on any number of recurrences scenario (i.e. "( ... )*") handled in next conditional, since '*' is placed upon closing parenthesis
 			if(parenMap[currPlaceInMap].contains("("))
 			{
-				int minPhonesInParen = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
+				int minPhonesInParen = getMinParenSegments(currPlaceInMap); 
+							//Integer.parseInt(parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
 
 				//if we could not possibly include the contents of this paren structure because there are too many 
 				// for the space we have left in the input... 
@@ -457,7 +418,7 @@ public class SequentialFilter {
 				{
 					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))		return true; 
 					int formerPlace = currPlaceInMap;
-					currPlaceInMap = Integer.parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[0]); //go back to beginning of repeated optional segment
+					currPlaceInMap = pairedParenLoc(currPlaceInMap); //go back to beginning of repeated optional segment
 					int proxyPlace = currPlaceInMap + 1; 
 					while(parenMap[proxyPlace].charAt(0) != 'i') 
 					{
@@ -492,7 +453,7 @@ public class SequentialFilter {
 				int proxypim = currPlaceInMap;
 				while(parenMap[proxypim].contains("("))
 				{
-					proxypim = Integer.parseInt(parenMap[proxypim].split(":")[1].split(",")[0]) + 1; 
+					proxypim = pairedParenLoc(proxypim) + 1; 
 					if(proxypim == parenMap.length)	return true; 
 				}
 				return false; 
@@ -506,7 +467,7 @@ public class SequentialFilter {
 	private boolean isPosteriorMatchHelperExcludeParen(List<SequentialPhonic> phonSeq, int cpic,
 			int crp, int cpim)
 	{
-		int mapSpotPostCloser = Integer.parseInt(parenMap[cpim].split(":")[1].split(",")[0]) + 1 ;
+		int mapSpotPostCloser = pairedParenLoc(cpim) + 1 ;
 		
 		if( mapSpotPostCloser > parenMap.length) throw new RuntimeException("Error: illegitimate closing index recorded!"); 
 		if (mapSpotPostCloser == parenMap.length)	
@@ -527,11 +488,69 @@ public class SequentialFilter {
 	}
 	
 	
-	//auxiliary method -- gets the minimum number of places in placeRestrs that could be covered 
-		//in the contents of one window in parenMap, only to be used for calculating minimum number within
-		// a paren structure 
-	// first and last are the bounds of the window in indices in PARENMAP
-		// --they should both be parentheses
+	// -- PAREN MAP AUXILIARIES FOLLOW -- 
+	
+	/**markParenMapForMinPlacesInEachWindow
+	 * auxiliary for initialization : mark all parenthetical cells in parenMap
+		* with the minimum number of places inside
+	 	* @prerequisite assume they come in in the form *(:4 and )*:7 etc ... 
+	 	*/ 
+	private void markParenMapForMinPlacesInEachWindow()
+	{
+		int currIndex = parenMap.length - 1;
+		while(currIndex > 1) // no parenthesis could ever close before index 2 else it would be containing nothing. 
+		{
+			if(parenMap[currIndex].contains(")"))
+			{
+				int openerIndex = pairedParenLoc(currIndex);  
+				int minPlaces = minPlacesInParenWindow(openerIndex, currIndex); 
+				parenMap[currIndex] = parenMap[currIndex] + "," + minPlaces;
+				parenMap[openerIndex] = parenMap[openerIndex] + "," + minPlaces; 
+				currIndex--; 
+			}
+			else
+			{	
+				while(!parenMap[currIndex].contains(")") && currIndex > 1)	
+					currIndex--;
+			}	
+		}
+	}
+	
+	/** genMinSize
+	 * 
+	 * @return the minimum possible input size for parenMap that can satisfy these context restrictions
+	 * @precondition must be called AFTER markParenMapForMinPlacesInEachWindow is called. 
+	 */
+	public int generateMinSize()
+	{
+		int pmSize = parenMap.length, count = 0;
+			//optParenDepth is the number of optional { ()*, ()} paren structures we are currently in
+		
+		int i = 0; 
+		while (i < pmSize) 
+		{
+			String currMapCell = parenMap[i];
+			
+			if(currMapCell.contains("(")) // then hop. 
+				i = Integer.parseInt(currMapCell.split(":")[1].split(",")[0]) + 1 ;	
+			else	
+			{
+				if (currMapCell.contains(")")) throw new RuntimeException( "Error: unopened ')' found"); 
+				count++;
+				i++;
+			}	
+		}
+		return count; 
+	}	
+	
+	/** minPlacesInParenWindow
+	 * auxiliary for parenMaps
+	 * @param first -- opening bound of window in indexed cell of @paramMap
+	 * @param last -- closing bound corresponding to hte above
+	 * @return minimum number of places in @param @placeRestrs that could be covered 
+		* in the contents of one window in @param @parenMap
+		* @usagenote only to be used for calculating minimum number within a parenthesized structure 
+	 */
 	private int minPlacesInParenWindow (int first, int last)
 	{
 		if( first + 1 >= last || first < 0 || last >= parenMap.length )	throw new RuntimeException(
@@ -559,6 +578,26 @@ public class SequentialFilter {
 		
 		return count; 
 	}
+	
+	/**
+	 * pairedParenLoc
+	 * given @param thisParenLoc loc of current parenthesis in @parenMap
+	 * @return location in parenMap of the corresponding parenthesis
+	 * @prerequisite thisParenLoc indexes a cell in parenMap that actually has a parenthesis. 
+	 */
+	public int pairedParenLoc(int thisParenLoc)
+	{
+		String contents = parenMap[thisParenLoc].split(":")[1]; 
+		return Integer.parseInt(contents.contains(",") ? contents.split(",")[0] : contents); 
+	}
+	/**
+	 * given @param parenLoc, an index in @parenMap of a parenthesis
+	 * @return minimum number of segments in the parenthesis (i.e. it oculd be repeated etc.)
+	 * @prerequisite these have bee marked by markParenMapForMinPlacesInEachWindow.
+	 */
+	public int getMinParenSegments(int parenLoc)	{	return Integer.parseInt(parenMap[parenLoc].split(",")[1]);	}
+	
+	// ---- ACCESSORS ----- 
 	
 	public int getMinSize() 	{	return minSize;	}
 	
@@ -599,6 +638,8 @@ public class SequentialFilter {
 		for(String p : pm)	output += p + " "; 
 		return output.trim();
 	}*/
+	
+	// -- ALPHA ACCESSORS -- 
 	
 	public void applyAlphaValues(HashMap<String, String> alphVals)
 	{

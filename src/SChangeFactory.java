@@ -624,11 +624,18 @@ public class SChangeFactory {
 	 * 		0	|	1	|	2	|	3	|	4 	|	5	|	6	|	7
 	 * 		i0 	| +(:4	| 	i1 	| 	i2 	| )+:1	| 	(:7	| 	i3	|	):5 
 	 * cells with contents starting i indicate that the cell corresponds to the index of the number following 
-	 * 		in placeRestrs
+	 * 		in *placeRestrs*
 	 * cells with paren markers { +(, )+, (, ), *(, )*, } indicate where parens open and close
-	 * 		relative to those indices in parenMap
-	 * 		the number on the inside of hte paren indicates which index IN PARENMAP 
+	 * 		relative to those indices in *parenMap*
+	 * IMPORTANT DISTINCTION: 	after i 	--	loc in placeRestrs
+	 * 						vs. after paren -- 	loc in parenMap!!!
+	 * 		the number on the inside of the paren indicates which index IN PARENMAP 
 	 * 			is where the corresponding opening or closing paren lies.
+	 * 	note that as of 2018, SequentialFilter's initialization process calls a method that modifies parenMap
+	 * 		this id done to facilitate calculation, 
+	 * 		minimum places was added into the cell contents of cells with parens
+	 * 		delimited by a comma (',')
+	 * 		so you could have, in the first index above, "+(:4,2". 
 	 * @param inp -- raw input for the context specifications  
 	 * @param boundsMatter -- determines whether the context restrictions we create will pass over boundaries 
 	 * 		in input for context matching checker functions 
