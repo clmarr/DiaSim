@@ -1264,16 +1264,7 @@ public class UTILS {
 					for (String fsi : featSpecSetsPerDiacrit)	
 						newFeatVect = (getFeatMatrix(fsi,true)).forceTruthOnFeatVect(newFeatVect);
 					
-					//add new symbol, feat vector pair to phoneSymbToFeatsMap 
-					phoneSymbToFeatsMap.put(unseenSymb, newFeatVect); 
-					
-					// add feats to symb to the reverse map, potentially usurping the default symbol mapped to in doing so 
-							// (most recently seen symbol is one being used in current gold set, so this makes sense). 
-					if (VERBOSE && featsToSymbMap.containsKey(newFeatVect)) 
-						System.out.println("The symbol ' "+featsToSymbMap.get(newFeatVect)+" ' is usurped as the default print of its feature vector by ' "+unseenSymb); 
-					featsToSymbMap.put(newFeatVect, unseenSymb); 
-					
-					System.out.println("Defined new symbol '"+unseenSymb+"', with feat vect: "+newFeatVect+" ."); 
+					defineFeatVect(newFeatVect, unseenSymb); 
 					
 					return true; 
 				}	
@@ -1282,6 +1273,8 @@ public class UTILS {
 
 		return false; 
 	}
+	
+	
 		
 	/** 
 	 * given String @param toLexem
@@ -1367,11 +1360,19 @@ public class UTILS {
 	 */
 	public static void defineFeatVect(String vect, String symb)
 	{
+		//add new symbol, feat vector pair to phoneSymbToFeatsMap 
 		if (phoneSymbToFeatsMap.containsKey(symb))
 			throw new Error("Error: tried to add newly defined phone ' "+symb+" ' as dedicated symbol for the feature vector "+vect+
 					"\n...but this symbol is already dedicated to the feature vector "+phoneSymbToFeatsMap.get(symb)); 
 		phoneSymbToFeatsMap.put(symb,vect); 
+		
+		// add feats to symb to the reverse map, potentially usurping the default symbol mapped to in doing so 
+		// (most recently seen symbol is one being used in current gold set, so this makes sense). 
+		if (VERBOSE && featsToSymbMap.containsKey(vect)) 
+			System.out.println("The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
 		featsToSymbMap.put(vect,symb); 
+		
+		System.out.println("Defined new symbol '"+symb+"', with feat vect: "+vect+" ."); 
 	}
 	
 	public static String spellOutFeatVect (String featVect) {
@@ -1423,7 +1424,8 @@ public class UTILS {
 	 */
 	public static boolean tryDefineUnseenFeatVect (String unseenVect, boolean apply_ft_impls) 
 	{
-		System.out.println("Attempting to define new symbol for hitherto unseen feature vector: \n\t"+spellOutFeatVect(unseenVect));
+		if (VERBOSE)
+			System.out.println("Attempting to define new symbol for hitherto unseen feature vector: \n\t"+spellOutFeatVect(unseenVect));
 		
 		if (!diacriticsExtracted)	throw new Error ("Error: tried to use diacritics to define new symbol before diacritics were extracted!"); 
 		if (!symbsExtracted)	throw new Error ("Error: tried to define new symbol for unseen feat vector before phone symbols were even extracted!"); 
@@ -1472,7 +1474,8 @@ public class UTILS {
 				diacritSpecSetCands.remove(ssi); 	
 		}
 		
-		System.out.println("No single diacritic alone can define it. Attempting combos..."
+		if (VERBOSE)
+			System.out.println("No single diacritic alone can define it. Attempting combos..."
 				+ " \n\t(Possible starting points: "+String.join("  ",diacritSpecSetCands.toArray(String[]::new))+")"); 
 		
 		//second run -- if reached, then above, could not get a combo with single diacritics, now trying multiple diacritic combinations 

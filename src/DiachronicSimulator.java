@@ -1615,7 +1615,7 @@ public class DiachronicSimulator {
 							resp = "R"+resp.substring(1); 
 						if (validOptions.contains(resp.substring(0,1).toUpperCase()+resp.substring(1).toLowerCase()))
 							resp = resp.substring(0,1).toUpperCase() + resp.substring(1).toLowerCase();
-						if (resp.equalsIgnoreCase("input"))	resp = "In"; 
+						if (resp.equalsIgnoreCase("input") || resp.equalsIgnoreCase("in"))	resp = "In"; 
 					}
 										
 					chosen = validOptions.contains(resp); 
