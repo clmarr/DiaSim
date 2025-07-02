@@ -1433,6 +1433,7 @@ public class UTILS {
 		List<String> diacritSpecSetCands = new ArrayList<String>(featsToPossibleDiacritics.keySet());
 		
 		int ssi = 0; 
+		
 		while (ssi < diacritSpecSetCands.size())
 		{
 			FeatMatrix curCandFM = getFeatMatrix(diacritSpecSetCands.get(ssi), apply_ft_impls);
@@ -1471,9 +1472,10 @@ public class UTILS {
 				diacritSpecSetCands.remove(ssi); 	
 		}
 		
-		System.out.println("No single diacritic alone can define it. Attempting combos..."); 
-		//second run -- could not get a combo with single diacritics, now trying multiple diacritic combinations 
+		System.out.println("No single diacritic alone can define it. Attempting combos..."
+				+ " \n\t(Possible starting points: "+String.join("  ",diacritSpecSetCands.toArray(String[]::new))+")"); 
 		
+		//second run -- if reached, then above, could not get a combo with single diacritics, now trying multiple diacritic combinations 
 		
 		HashMap<Integer,HashMap<String,String>> combinedSpecSetCandsByDepth = new HashMap<Integer,HashMap<String,String>>(); 
 			// key -- number of combined diacrits (starting with 2)
@@ -1482,10 +1484,10 @@ public class UTILS {
 		
 		HashMap<String,String> depth1set = new HashMap<String,String> (); 
 		for ( String dssi : diacritSpecSetCands) 
-			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));
+			depth1set.put(dssi, featsToPossibleDiacritics.get(dssi).get(0));  //get 0 -- if two diacritics indicate the same set of features, arbitrarily choose the first. 
 		combinedSpecSetCandsByDepth.put(1,depth1set); 
 				
-		while (depth < diacritSpecSetCands.size() && depth < MAX_DIACRIT && depth1set.size() > 0 && combinedSpecSetCandsByDepth.containsKey(depth-1))
+		while (depth < diacritSpecSetCands.size() && depth <= MAX_DIACRIT && depth1set.size() > 0 && combinedSpecSetCandsByDepth.containsKey(depth-1))
 		{
 			HashMap<String,String> currDepthSet = new HashMap<String,String>(); 
 			for ( String existingStackFeats : combinedSpecSetCandsByDepth.get(depth-1).keySet()) 
@@ -1504,7 +1506,7 @@ public class UTILS {
 					// bypass if there would be any feature conflicts. 
 					if (!detectFeatConflicts(currFeatSpecCombo).equals(""))
 						continue; 
-									
+					
 					//bypass if the features being added are already included. 
 					List<String> feats_to_add = Arrays.asList(addend.split(""+RESTR_DELIM)); 
 					int fai= 0; 
@@ -1515,7 +1517,7 @@ public class UTILS {
 					}
 					if (feats_to_add.size() == 0) // bypass
 						continue; 
-					
+				
 					String resultFeatVect = existingStackFeats + RESTR_DELIM 
 							+ (feats_to_add.size() == 1 ? feats_to_add.get(0)
 									: String.join(""+RESTR_DELIM, feats_to_add)); 
@@ -1554,6 +1556,7 @@ public class UTILS {
 					currDepthSet.put(resultFeatVect , comboSuffix); 
 				}
 			}
+			combinedSpecSetCandsByDepth.put(depth, currDepthSet); 
 			depth++; 
 		}
 		
@@ -1566,7 +1569,6 @@ public class UTILS {
 					+ "but failed to find an appropriate base symbol + diacritics combination.\n"
 					+ "Now using the following symbol: "+newSymb); 
 			defineFeatVect(unseenVect,newSymb); 
-
 		}
 		
 		return false;		
