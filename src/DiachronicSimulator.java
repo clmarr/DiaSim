@@ -49,6 +49,10 @@ public class DiachronicSimulator {
 		// for each black stage index, among the black stage arrays, 
 			// gives the columned stage index if it is columned.
 		// if uncolumned (default), contains -1. 
+	private static void initBlackToColumnedIndex() {	
+		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
+		for (int bci = 0; bci < NUM_BLACK_STAGES; bci++)	blackToColumnedIndex[bci] = -1; 
+	}
 	private static boolean goldStagesSet, blackStagesSet, columnedBlackStagesSet; 
 	private static boolean columnedStagesSet()	{	return goldStagesSet || columnedBlackStagesSet;	}
 	private static boolean anyStagesSet()	{	return goldStagesSet || blackStagesSet; /*having columned is unnecessary as they are either columnedBlack or gold*/	}
@@ -74,8 +78,13 @@ public class DiachronicSimulator {
 	
 	private static String[] stageOrdering; 
 		// letter then number. 'G' = gold stage, 'b' = (uncolumned) black stage, 'B' = columned black stage. 
-		// Number is the number AMONG the respective stage subtype.
-		// so there will be "skips" among hte black stages for the columned ones. 
+		// Number is the number AMONG the respective stage subtype (gold vs. black)
+		// so there will be "skips" among the (uncolumned/columned) black stages for the (columed/uncolumned) ones
+			// since all black stages share the same 'count up'.
+		// e.g. -- b0,G0,G1,B1,G2,b2... 
+	private static int startStageIndex; // default -1; index of stageOrdering that the cascade starts at 
+		// if >=0 this formerly intermediate stage becomes the start stage, 
+		// and rules up to that point are effectively skipped. 
 	private static String[] initStrForms; 
 
 	private static List<String> formIDs;
@@ -210,8 +219,7 @@ public class DiachronicSimulator {
 		blackStageNames = new String[NUM_BLACK_STAGES];
 		goldStageInstants = new int[NUM_GOLD_STAGES]; 
 		blackStageInstants = new int[NUM_BLACK_STAGES]; 
-		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
-		for (int bsi = 0; bsi < NUM_BLACK_STAGES; bsi++)	blackToColumnedIndex[bsi] = -1; 
+		initBlackToColumnedIndex(); 
 		
 		// for the purposes of when this is called -- before the lexicon file is engaged, critically --
 			// columned stages is effectively the same as gold stages; there are no uncolumned black stages
@@ -579,13 +587,13 @@ public class DiachronicSimulator {
 	
 	/**
 	 * @param name of stage to retrieve 
-	 * @param ignoreStageOrderingIndex -- index of stageOrdering to bypass.
+	 * @param ignoreThisIndex -- index of stageOrdering to bypass.
 	 * 		 Use -1 if not ignoring any cell  
 	 * @return UTILS.NULL_STAGE_INDIC (currently "NULLSTAGE") @if it never occurs, @else the contents of stageOrdering's cell for it 
 	 * 		(e.g. "G" if gold stage then the number of gold stage,
 	 * 			 b for uncolumned black, B for columned black...) 
 	 */
-	private static String retrieveStageByName(String name, int ignoreStageOrderingIndex)
+	private static String retrieveStageByName(String name, int ignoreThisIndex)
 	{
 		String out = UTILS.NULL_STAGE_INDIC; 
 		if(NUM_STAGES() == 0)	return out; 
@@ -593,7 +601,7 @@ public class DiachronicSimulator {
 
 		for (int soi = 0 ; soi < stageOrdering.length; soi++)
 		{
-			if (soi == ignoreStageOrderingIndex)	continue; 
+			if (soi == ignoreThisIndex)	continue; 
 			String currStageIndic = stageOrdering[soi];
 			if(  name.equalsIgnoreCase(stageOrderingIndicToName(currStageIndic).trim()))	
 				return currStageIndic; 
@@ -638,7 +646,7 @@ public class DiachronicSimulator {
 			throw new RuntimeException("Error: you have attempted to name a stage a duplicate name: "+newName); 
 	}
 	private void preemptBadStageName(String newName)	{	preemptBadStageName(newName,-1); 	}
-	
+
 	/** preemptAnyBadStageName
 	 * preempts any existing bad stage name, with stages already extracted from cascade and stageOrdering already built afterward ( @prerequisite) 
 	 */
@@ -649,6 +657,157 @@ public class DiachronicSimulator {
 			preemptBadStageName(stageOrderingIndicToName(stageOrdering[soi]),soi); 
 	}
 	
+	/**
+	 * subsetCascade
+	 * @date July 1, 2025 
+	 *  given [int] @param inputStageIndex, -1 or an index of stageOrdering
+	 *  make that stage,, if not -1, the new start stage to implements intermediate start 
+	 *  all material before that will be deleted. 
+	 *  given [int] @param outputStageIndex, -1 or an index of stageOrdering,
+	 *  make that stage, -if not -1, the new output stage.
+	 *  everything afterward is deleted! 
+	 *  @prerequisite cascade has already been extracted 
+	 *  @prerequisite called before any blackening of gold stages or columning of black stages in coordinateColumns or afterward in main() 
+	 *  @destructive! 
+	 *  	@modified: CASCADE, stageOrdering
+	 *  		*-StageNames variables
+	 *  		*-StageInstants variables
+	 *  		NUM*STAGES variables
+	 *  		*StagesSet variables
+	 *  		blackToColumnedIndex
+	 */
+	private static void subsetCascade(int newInputStageIndex, int newOutputStageIndex) {
+		
+		
+		boolean sameStart = newInputStageIndex == -1,
+				sameEnd = newOutputStageIndex == -1; 
+		if (!sameEnd) {
+			assert newInputStageIndex < newOutputStageIndex:
+				"Alert: tried to subset the cascade to start at a stage (index "+newInputStageIndex+
+				") that is not before the stage it is instructed to end at (index "+newOutputStageIndex+")"; 
+		}
+		else //i.e. new output stage instant is -1, so new input should NOT be -1. 
+		{
+			assert newInputStageIndex != newOutputStageIndex: 
+				"Alert: tried to subset the cascade to start and end both at the null index (-1)!" ;
+			newOutputStageIndex = stageOrdering.length; 
+		}
+		
+		int newStartInstant = sameStart ? 0 : allStageInstants[newInputStageIndex], 
+				newEndInstant = sameEnd ? CASCADE.size() : allStageInstants[newOutputStageIndex]; 
+		
+		assert newInputStageIndex >= -1 && newInputStageIndex < stageOrdering.length:
+			"Alert: invalid stage index for intermediate start ("+newInputStageIndex+"; stagesOrdering length = "+stageOrdering.length+")"; 
+		assert newOutputStageIndex >= -1 && newOutputStageIndex < stageOrdering.length:
+			"Alert: invalid stage index for intermediate end ("+newOutputStageIndex+"; stagesOrdering length = "+stageOrdering.length+")"; 
+		
+		int priorNSt = stageOrdering.length; // Nst = number of stages
+				
+		int newNSt = priorNSt
+                - (1 + newInputStageIndex) // default 0
+                - (priorNSt - newOutputStageIndex); // default 0 
+
+		String[] newStageOrdering = new String[newNSt], newAllStageNames = new String[newNSt]; 
+		int[] newAllStageInstants = new int[newNSt]; 
+		NUM_GOLD_STAGES = 0; NUM_BLACK_STAGES = 0; NUM_COLUMNED_BLACK_STAGES = 0;
+		// fill new stage ordering and determine size of new stage comprehension structures 
+		for (int soi = 0; soi < newNSt; soi ++)
+		{
+			String so_here = stageOrdering[newInputStageIndex + 1 + soi]; 
+			newStageOrdering[soi] = ""+so_here; 
+			newAllStageNames[soi] = allStageNames[newInputStageIndex + 1 + soi]; 
+			newAllStageInstants[soi] = 
+					(-1* newStartInstant) + newAllStageInstants[newInputStageIndex + 1 + soi];String prefix = so_here.substring(0,1);
+			if ("b".equalsIgnoreCase(prefix)) NUM_BLACK_STAGES++; 
+			if ("B".equals(prefix)) NUM_COLUMNED_BLACK_STAGES++; 
+			if ("G".equalsIgnoreCase(prefix)) NUM_GOLD_STAGES++; 	
+			 
+		}
+		allStageInstants = newAllStageInstants; 
+		
+		assert NUM_STAGES() == newNSt: 
+			"Alert: there was an error in stage data structure recomposition during stage subsetting.\n"
+			+ "N_STAGES() calculated at "+NUM_STAGES()+", but we expected "+newNSt; 
+		
+		blackStagesSet = NUM_BLACK_STAGES > 0; goldStagesSet = NUM_GOLD_STAGES > 0; columnedBlackStagesSet = NUM_COLUMNED_BLACK_STAGES > 0; 
+		String [] newBlackStageNames = new String[NUM_BLACK_STAGES], newColumnedBlackStageNames = new String[NUM_COLUMNED_BLACK_STAGES], newColumnedStageNames = new String[NUM_COLUMNED_STAGES()], newGoldStageNames = new String[NUM_GOLD_STAGES]; 
+		int[] newBlackStageInstants = new int[NUM_BLACK_STAGES], newColumnedStageInstants = new int[NUM_COLUMNED_STAGES()], 
+				newColumnedBlackStageInstants = new int[NUM_COLUMNED_BLACK_STAGES], newGoldStageInstants = new int[NUM_GOLD_STAGES]; 
+		initBlackToColumnedIndex(); 
+		
+		// newStageOrdering and newAllStageInstants will have the old stage numbers for now 
+			// it is efficient to make use of that first, and then adjust them. 
+		// note allStageInstances has already been finalized. 
+		int new_bsi = 0, new_cbsi = 0, new_csi = 0, new_gsi = 0;
+		stageOrdering = new String[newNSt]; allStageNames = new String[newNSt]; 
+		blackStageInstants = new int[NUM_BLACK_STAGES]; goldStageInstants = new int[NUM_GOLD_STAGES];  
+		
+		for (String nStage_i : newStageOrdering) 
+		{
+			int asi = new_bsi+new_gsi; //all stage index
+			String prefix = nStage_i.substring(0,1);
+			int subtyped_stage_index = Integer.parseInt(nStage_i.substring(1)); 
+			boolean isBlack = "b".equalsIgnoreCase(prefix), isGold = "G".equals(prefix), isColumned = "BG".contains(prefix); 
+			String stageName_here = (isBlack ? blackStageNames : goldStageNames)[subtyped_stage_index]; 
+			
+			stageOrdering[asi] = prefix + (isBlack ? new_bsi : new_gsi); 
+			allStageNames[asi] = (isBlack ? blackStageNames : goldStageNames)[subtyped_stage_index]; 
+				
+			if("b".equals(prefix)) // uncolumned black
+			{
+				newBlackStageNames[new_bsi] = allStageNames[asi]; 
+				newBlackStageInstants[new_bsi++] = allStageInstants[asi]; 
+			}
+			else //columned
+			{
+				assert "BG".contains(prefix): "Alert -- irregular prefix in stageOrdering["+(asi+newInputStageIndex+1)+"] : "+nStage_i;;
+				
+				newColumnedStageNames[new_csi] = allStageNames[asi]; 
+				newColumnedStageInstants[new_csi++] = allStageInstants[asi]; 
+				
+				if ("G".equals(prefix)) //gold
+				{
+					newGoldStageNames[new_gsi] = allStageNames[asi];
+					newGoldStageInstants[new_gsi++] = allStageInstants[asi];
+				}
+				else // columned black
+				{
+					newColumnedBlackStageNames[new_cbsi] = allStageNames[asi]; 
+					newColumnedBlackStageInstants[new_cbsi] = allStageInstants[asi]; 
+					blackToColumnedIndex[new_bsi] = new_cbsi; 
+					new_bsi++; new_cbsi++;
+				}
+			}
+		}
+		
+		blackStageNames = newBlackStageNames; goldStageNames = newGoldStageNames; 
+		
+		
+		
+		//TODO abrogated area below. 
+		
+			// initialize replacement structures
+			int priorNGSt = NUM_GOLD_STAGES + 0 , priorNBSt =NUM_BLACK_STAGES+0, priornBCSt = NUM_COLUMNED_BLACK_STAGES+0; 
+			int	newNGSt = NUM_GOLD_STAGES + 0 , newNBSt =NUM_BLACK_STAGES+0, newNBCSt = NUM_COLUMNED_BLACK_STAGES+0; 
+
+		// first modify stagewise data structures by iterating through stageORdering and deleting elements before stageStart
+		int soi = 0; 
+		while (soi <= newInputStageIndex) 
+		{
+			char prefix = stageOrdering[soi].charAt(0); 
+			if ("b".equalsIgnoreCase(prefix+"")) // black, columned or not
+			{
+			}
+			
+		}
+
+		// reinitialize black, columned black, and gold structures
+		
+		// go through rest, chopping off material after end
+		
+		
+		NUM_BLACK_STAGES = newNBSt; NUM_GOLD_STAGES = newNGSt; NUM_COLUMNED_BLACK_STAGES = newNBCSt; 
+	}
 	
 	/** coordinateColumns
 	 * matching (or not) stages declared in cascade file with structure in lexicon file 
@@ -676,9 +835,9 @@ public class DiachronicSimulator {
 	// TODO for protodelta -- need to make sure variables for columned stages include those that are given the black stage flag
 			// in the cascade file, but which have columns here...
 	// and TODO reformulate column stage and gold stage blackening aspects present here into a sorting of stages based on appropriate factors
-		// TODO March 2025: implementation underway... 
+		// TODO March 2025: implementation underway... TODO what did I do here? Adjust comments. 
 	// currently assuming first column is input and last is output
-		//TODO for later expansions -- need to change this behavior to handle the situation where first column is a stage that is not equivalent to the inpu
+		// as of July 1, 2025 -- need to change this behavior to handle the situation where first column is a stage that is not equivalent to the inpu
 	 * @param lexicHeader -- first line of lexicon with content
 	 */
 		public static void coordinateColumns(String lexicHeader)
@@ -721,12 +880,18 @@ public class DiachronicSimulator {
 			inputName =colTitles[0].substring(1); 
 			if (VERBOSE)
 				System.out.println(inputName+" assumed to be input!"); 
-			if ( !retrieveStageByName(inputName,-1).equals(UTILS.NULL_STAGE_INDIC))
-				System.out.println("Warning: An intermediate stage's name is listed as header for the input column.\n"
-						+ "DiaSim does not yet support starting at an intermediate stage; hopefully this will become available soon (stay tuned)."); 
-			cti = 1; 
 			
-			int prevStageOrderIndex = 0; 
+			startStageIndex = retrieveStageByName(inputName,-1).equals(UTILS.NULL_STAGE_INDIC) ? -1 : 
+				retrieveStageOrderingIndexByName(inputName); 
+			
+			if ( startStageIndex != -1 )  {
+				System.out.println("Intermediate stage "+allStageNames[startStageIndex]+" (at instant "+allStageInstants[startStageIndex]+") "
+						+ "is now the start stage! Beware: everything before it will be ignored."); 
+			}
+			
+			cti = startStageIndex + 2; // by default: 1; (startStageIndex default = -1 P
+			
+			int prevStageOrderIndex = startStageIndex + 1; //default: 0 
 			
 			while (cti < colTitles.length)
 			{
