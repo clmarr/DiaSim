@@ -332,7 +332,7 @@ public class DiachronicSimulator {
 	 * @prerequisite: the following already exist and will be modified ( @destructive ): 
 	 * 		@global blackToColumnedIndex, stageOrdering
 	 * 
-	 * TODO may need debugging! (March 15, 2025)
+	 * TODO may need debugging! (March 15, 2025) [extensive debugging done in March 2025 but more may be necessary] 
 	 */
 	public static void makeBlackStageColumned(int black_stage_ind) {
 		String thisStageName = blackStageNames[black_stage_ind]; 
@@ -415,7 +415,7 @@ public class DiachronicSimulator {
 	 * @param int gsi -- the index in GOLD data structures of the stage we are blackening (and decolumning, perhaps recolumning)
 	 * @param boolean to_columned -- if it is to be (re)coluned. As it is done currently, for ease of coding if not computation. 
 	 * @destructive modification to all @global organizing arrays for black, gold, and columned (But not specifically columned black) stages
-	 * reworking from mid March 2025... TODO may need to be checked for possible errors introduced. 
+	 * reworking from mid March 2025... TODO may need to be checked for possible sgtray errors introduced. 
 	 */
 	private static void blackenGoldStage(int gsi, boolean to_columned)
 	{
@@ -803,13 +803,15 @@ public class DiachronicSimulator {
 					// and is interpreted to be the output gold stage.
 	// to be called AFTER extractCascade is. 
 		// goldOutput -- determined here. 
-	// including TODO black columned stages -- where there is insertion and removal but no comparison/evaluation
+	// including black columned stages -- where there is insertion and removal but no comparison/evaluation
 	// TODO for protodelta -- need to make sure variables for columned stages include those that are given the black stage flag
 			// in the cascade file, but which have columns here...
 	// and TODO reformulate column stage and gold stage blackening aspects present here into a sorting of stages based on appropriate factors
-		// TODO March 2025: implementation underway... TODO what did I do here? Adjust comments. 
+		// March 2025: implementation underway... extensive debugging in March nad April 2025, TODO is this satisfactory now? 
 	// currently assuming first column is input and last is output
-		// as of July 1, 2025 -- need to change this behavior to handle the situation where first column is a stage that is not equivalent to the inpu
+		// as of July 1, 2025 -- if first column is the name of an intermediate stage flagged in the lexicon,
+		 * 	then that stage becomes the input stage
+		 * and all rules before it are ignored.
 	 * @param lexicHeader -- first line of lexicon with content
 	 */
 		public static void coordinateColumns(String lexicHeader)
@@ -1159,7 +1161,8 @@ public class DiachronicSimulator {
 		if (hasGoldOutput)	theSimulation.setGoldOutput(goldResults);
 		if (columnedStagesSet())	theSimulation.setColumnedStages(columnForms, columnedStageNames, columnedStageInstants, blackToColumnedIndex);
 		
-		//TODO imposing standard input name -- turn this off when using intermediate starting points is made possible.
+		//imposing standard input name -- originally thought we'd have to turn this off when using intermediate starting points is made possible.
+			// but now it doesn't seem to be an issue. 
 		if (!inputName.equalsIgnoreCase("input"))
 				theSimulation.setInputStageName(inputName);
 		theSimulation.setStepPrinterval(UTILS.PRINTERVAL); 
