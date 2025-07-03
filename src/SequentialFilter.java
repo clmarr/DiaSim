@@ -283,6 +283,13 @@ public class SequentialFilter {
 		// if there are no alpha values, task is easy. 
 		if (internAlphs.size() == 0)
 		{
+			if (backwards) 
+			{
+				for (int cpic = prCand.size()-1; cpic >= minSize; cpic--)
+					if (isPriorMatchHelper(prCand,cpic,placeRestrs.size() - 1, parenMap.length-1))
+						return true; 
+				return false; 
+			}
 			for (int cpic = 0 ; cpic <= prCand.size()- minSize; cpic++)
 			{	if (isPosteriorMatchHelper(prCand,cpic,0,0))	return true; }
 			return false; 
