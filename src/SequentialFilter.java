@@ -722,9 +722,7 @@ public class SequentialFilter {
 	}
 	
 	public boolean hasAlphaSpecs()
-	{
-		return hasAlphSpecs;
-	}
+	{	return hasAlphSpecs;	}
 	
 	public boolean has_unset_alphas()
 	{

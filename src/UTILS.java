@@ -1108,6 +1108,12 @@ public class UTILS {
 		return accuracyReport;
 	}
 	
+	//preempt illegal alpha symbols
+	public static final String ILLEGAL_ALPHAS = "[|]/()*+ 0129-,;";
+	public static void abortIllegalAlpha(char inp) {	abortIllegalAlpha(""+inp);	}
+	public static void abortIllegalAlpha(String inp)	{
+		if (ILLEGAL_ALPHAS.contains(inp))			throw new Error("Illegal character attempted to be used as alpha symbol: ' "+inp+" '");	}
+	
 	/**
 	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
 	 * @return true if there is a feat matrix with an alpha-valued feature specification present in this string 

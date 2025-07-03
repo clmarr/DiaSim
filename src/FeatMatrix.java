@@ -95,7 +95,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			boolean is_alph = !"-+0".contains(indic); 
 		
 			if (is_alph)
-			{	if (!localAlphabet.contains(indic))	localAlphabet += indic; 
+			{	UTILS.abortIllegalAlpha(indic);
+				if (!localAlphabet.contains(indic))	localAlphabet += indic; 
 				else	hasMultifeatAlpha = true;
 			}
 			String feat = sp.substring(1); 
