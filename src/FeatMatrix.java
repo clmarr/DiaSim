@@ -280,11 +280,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		featSpecs = ""+initSpecs;
 	}
 	
+	@Override
 	/** 
 	 * reset only one alpha value, @param alph,
 	 * using @init_chArr to locate it within @featVect
 	 */
-	public void resetThisAlphVal (char alph) {
+	public void resetAlphVal (char alph) {
 		for (int ichri = 0 ; ichri < init_chArr.length ; ichri++)
 			if (init_chArr[ichri] == alph)
 				featVect = featVect.substring(0,ichri) + alph + featVect.substring(ichri+1); 					
