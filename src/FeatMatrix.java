@@ -334,7 +334,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	//TODO need to replace values also in featSpecs here. (2024 TODO check -- was this done?) 
 
-	/** @precondition both the keys and the values in alphVals should be one character strings
+	/** @precondition both the keys [alpha features] and the values [String numerical featvect values] 
+	 * 		in alphVals should be one character strings
 	 * this class should be called using the outputs of extractAndApplyAlphaValues
 	  */ 
 	// on despecification, see notes near the variable DESPEC_VIA_ALPHA.
@@ -470,14 +471,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	@Override
 	/**
-	 *  for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, returns empty HashMap. 
-	 * also returns an empty HashMap if specifications that are not unspecified alpha specs 
+	 *  for a FeatMatrix with either no alpha specs or no UNFILLED alpha specs, @return empty HashMap. 
+	 * also @return an empty HashMap if specifications that are not unspecified alpha specs 
 	 * 			are inconsistent with @param inp 
 	 * - because if these requirements are not met, 
 	 * 		the extraction alpha values for a context phone or input phone cannot occur in the first place
 	 * 	* as it won't be a valid situation for the operation of the sound change in question 
 	* otherwise @apply the value specifications that alpha-valued features have in the SequentialPhonic @param inp
 	* 	and then @return those exact value specifications that were applied
+	* 		in HashMap with key = alpha symbol, value = feat vect spec (a [String] number ~ 0,1,2, or 9) 
 	*/
 	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{

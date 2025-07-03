@@ -14,8 +14,8 @@ import java.util.HashMap;
 public class SequentialFilter {
 	
 	private int minSize;
-	private boolean boundsMatter; //determines if we will pass over boundary markers (morpheme, word) in the input. 
-	private boolean hasAlphSpecs;
+	private boolean boundsMatter; //determines if we will pass over boundary markers (morpheme, word) in the input.
+	
 	private List<RestrictPhone> placeRestrs; // the restriction on each place as indicated by index 
 	private String[] parenMap;  /**parenMap is a String[] that is a "map" of where parenthetical statements apply
 	 * ..., structured as illustrated by this example (the top row is the indices IN PARENMAP)
@@ -34,9 +34,10 @@ public class SequentialFilter {
 	 *		i0 | *(:4,2 | i1 | i2 | )*:1,2 | (:7,1 | i3 |	 ):5,1		contents
 	*/
 	
-	
-	public boolean hasParenthesizedAlpha; // true if htere is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
 	public static char ALPH_DELIM = '|';
+	private HashMap<String,String> localAlphSpecs; // key -- alpha symbol, value -- current setting, "" if unset.
+	private HashMap<String,List<Integer>> localAlphLocs; // key-- alpha symbol, value -- locations in paren(Alpha)Map where it occurs
+	private List<String> parenthesizedAlphas; // list of alphas that occur in parens
 	private String[] parenAlphaMap; 
 	/** parenAlphaMap -- for calculating where alphas are in hte parenMap
 	 * indices correspond to those of parenMap, NOT placeRestrs
@@ -63,13 +64,7 @@ public class SequentialFilter {
 		
 		minSize = generateMinSize(); 
 		
-		hasAlphSpecs = false; 
-		hasParenthesizedAlpha = false; 
-		fillParenAlphaMap(); 
-		
-		//below is probably redundant as hasAlphSpecs is set in fillParenAlphaMap() anyways,but just to be sure...
-		for(RestrictPhone pr : placeRestrs)
-			if (pr.has_alpha_specs())	{	hasAlphSpecs = true; break;	}	
+		initAlpha(); 	
 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm)
@@ -262,7 +257,7 @@ public class SequentialFilter {
 		
 		for(int cpic = 0; cpic <= pr.size() - minSize; cpic++)
 		{
-			if (hasAlphSpecs) {
+			if (hasAlphaSpecs()) {
 				HashMap<String, String> currAlphVals = new HashMap<String, String>();
 				
 				int cand_alph_rp = 0 ,  cand_alph_pic = cpic; 
@@ -275,6 +270,7 @@ public class SequentialFilter {
 				
 				while (has_unset_alphas())
 				{
+					//TODO important note.
 					// checking for LOCAL alpha values
 						// this is done for filtCheck in a way resemblant but separate from calls to isPosteriorMatch from SChange--Alpha classes 
 						// in the latter, alpha values pertain not just to one SequentialFilter used for prior or posterior context
@@ -668,7 +664,7 @@ public class SequentialFilter {
 	 * fill parenAlphaMap, given @prerequisite that @parenMap and @placeRestrs are already filled. 
 	 * also sets @param @hasParenthesizedALpha and @param @hasAlphSpecs to true if appropriate
 	 */
-	public void fillParenAlphaMap()
+	public void initAlpha()
 	{
 		parenAlphaMap = new String[parenMap.length]; 
 		int parenDepth = 0; 
@@ -684,15 +680,23 @@ public class SequentialFilter {
 			RestrictPhone pr = placeRestrs.get(Integer.parseInt(parenMap[pmi].substring(1))); 
 			if (!pr.has_alpha_specs())	continue; 
 			
-			hasAlphSpecs = true; 
 			if (parenDepth > 0) {
-				hasParenthesizedAlpha = true;
-				parenMap[pmi] += "("; 
+				parenAlphaMap[pmi] += "("; 
 			}
-			parenMap[pmi] += String.join(ALPH_DELIM+"", pr.getAlphaVars()); 
+			parenAlphaMap[pmi] += String.join(ALPH_DELIM+"", pr.getAlphaVars()); 
 		}
 	}	
 	
+	public List<Integer> getPlaceRestrLocsWithAlpha(char alph)	{	return getPlaceRestrLocsWithAlpha(alph+""); 	}
+	public List<Integer> getPlaceRestrLocsWithAlpha(String alphsymb)
+	{
+		List<Integer> out = new ArrayList<Integer>(); 
+		if	(!localAlphLocs.containsKey(alphsymb))	return out;
+		
+		for (int loc_i: localAlphLocs.get(alphsymb))
+			out.add(Integer.parseInt(parenMap[loc_i].substring(1)));  //after the "i" 
+		return out; 
+	}
 	
 	// --- ACCESSORS---
 	//strictly for debugging purposes. 
@@ -711,24 +715,37 @@ public class SequentialFilter {
 	
 	// -- ALPHA ACCESSORS -- 
 	
+	public boolean hasAlphaSpecs()	{	return localAlphSpecs.size() > 0 ;	}
+	public boolean hasParenthesizedAlpha() // true if there is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
+	{	return parenthesizedAlphas.size() > 0;	}
+	
+	//TODO remake
 	public void applyAlphaValues(HashMap<String, String> alphVals)
 	{
 		for (int pri = 0 ; pri < placeRestrs.size(); pri++)	placeRestrs.get(pri).applyAlphaValues(alphVals);
 	}
 	
+	//TODO remake
 	public void resetAllAlphaValues()
 	{
 		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	placeRestrs.get(pri).resetAlphaValues(); 
 	}
 	
-	public boolean hasAlphaSpecs()
-	{	return hasAlphSpecs;	}
-	
+	//TODO remake. 
 	public boolean has_unset_alphas()
 	{
 		for (RestrictPhone pri : placeRestrs)
 			if (pri.first_unset_alpha() != '0')	return true;
 		return false; 
+	}
+	
+	public boolean has_unset_paren_alphas()
+	{
+		if (!hasParenthesizedAlpha())	return false; 
+		for (String pa_i : parenthesizedAlphas)
+			if (!localAlphSpecs.get(pa_i).equals(""))	return true; 
+		
+		return false;
 	}
 	
 	
