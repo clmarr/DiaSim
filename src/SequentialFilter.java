@@ -256,6 +256,10 @@ public class SequentialFilter {
 		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
 		if(minSize > pr.size())	return false;
 		
+		HashMap<String, List<Integer>> parennedPRsToAlphaSet = new HashMap<String, List<Integer>> (); 
+			// key = alpha symbol; value = list of integers in placeRestrs that are parenthesized IN PARENMAP to set once alpha is determined OUTSIDE the parentheses!
+		//TODO error for alphas that only exist in parentheses. 
+		
 		for(int cpic = 0; cpic <= pr.size() - minSize; cpic++)
 		{
 			if (hasAlphaSpecs()) {
@@ -717,6 +721,23 @@ public class SequentialFilter {
 		for (int loc_i: localAlphLocs.get(alphsymb))
 			out.add(Integer.parseInt(parenMap[loc_i].substring(1)));  //after the "i" 
 		return out; 
+	}
+	
+	/**
+	 * @return @true iff @param alph is only marked within parentheses
+	 * @prerequisite: @parenthesizedAlphas, @localAlphSpecs, @parenMap, and @parenAlphaMap have been initialized. 
+	 */
+	public boolean alphaOnlyInParentheses(String alph)
+	{
+		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an existent alpha ("+alph+")is only parenthetical"); 
+		if (!parenthesizedAlphas.contains(alph))	return false; 
+		
+		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
+		{
+			if (parenMap[pami].contains(")"))	{	pami = pairedParenLoc(pami)+1; continue;	}
+			if (parenAlphaMap[pami].contains(alph))	return false; 
+		}
+		return true; 
 	}
 	
 	// --- ACCESSORS---
