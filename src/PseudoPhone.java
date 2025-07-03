@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 //this class does not actually represent any real linguistic feature
 //however it is used for various programming purposes
@@ -27,4 +29,8 @@ public abstract class PseudoPhone extends SequentialPhonic implements RestrictPh
 	public String getFeatString()	{	return null;	}
 	public String getFeatVect()	{	return getFeatString();	}
 	public HashMap<String,String> getFeatSymbMap()	{	return null;	}
+	
+
+	@Override
+	public List<String> getAlphaVars()	{	return new ArrayList<String>(); 	}
 }

@@ -167,6 +167,9 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	{	/*do nothing*/	}
 	
 	@Override
+	public List<String> getAlphaVars()	{	return new ArrayList<String>(); 	}
+	
+	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp)
 	{	return false;	}
 	

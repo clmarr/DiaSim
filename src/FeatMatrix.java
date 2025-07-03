@@ -112,8 +112,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				// until we despecify it later. 
 				//... and meanwhile, we have 1 for those that were untouched. 	
 		}
+		
 		featVect = new String(init_chArr); 
-		hasAlphSpecs = localAlphabet.length() > 0; 
+		hasAlphSpecs = localAlphabet.length() > 0;  
 	}
 		
 	/**
@@ -536,6 +537,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	public String getLocalAlphabet()
 	{	return ""+localAlphabet;	}
+	
+	@Override
+	public List<String> getAlphaVars()	{	return Arrays.asList(localAlphabet.split(""));  	}
 	
 	@Override
 	public String toString() 

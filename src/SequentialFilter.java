@@ -1,5 +1,6 @@
 import java.util.List; 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 /**
@@ -33,12 +34,23 @@ public class SequentialFilter {
 	 *		i0 | *(:4,2 | i1 | i2 | )*:1,2 | (:7,1 | i3 |	 ):5,1		contents
 	*/
 	
-	// abbreviations in use in comments: 
-	// bm = whether bounds matter. 
-	// pm = paren map. 
 	
+	public boolean hasParenthesizedAlpha; // true if htere is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
+	public static char ALPH_DELIM = '|';
+	private String[] parenAlphaMap; 
+	/** parenAlphaMap -- for calculating where alphas are in hte parenMap
+	 * indices correspond to those of parenMap, NOT placeRestrs
+	 * default (no alphas present) = "" -- also applies for paren cells
+	 * if alphas present, not parenthesized: list of alpha symbols present at this location, delimited by '|'. 
+	 * if alphas present, parenthesized: '(' followed by list of alpha symbols present at this location, delimited by '|'. 
+	 */
 	
+	/**
+	 * @param prs place restrictions
+	 * @param pm  paren map. 
 	
+	 * @param bm whether bounds matter
+	 */
 	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		parenMap = pm ; 
@@ -52,8 +64,12 @@ public class SequentialFilter {
 		minSize = generateMinSize(); 
 		
 		hasAlphSpecs = false; 
+		hasParenthesizedAlpha = false; 
+		fillParenAlphaMap(); 
+		
+		//below is probably redundant as hasAlphSpecs is set in fillParenAlphaMap() anyways,but just to be sure...
 		for(RestrictPhone pr : placeRestrs)
-			if (pr.has_alpha_specs())	hasAlphSpecs = true; 		
+			if (pr.has_alpha_specs())	{	hasAlphSpecs = true; break;	}	
 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm)
@@ -625,6 +641,60 @@ public class SequentialFilter {
 		return output.substring(0, output.length() - 1); 
 	}
 	
+	/**
+	 * given @param loc in @parenMap
+	 * @return list of all alpha specs present there
+	 * otherwise return empty list.
+	 * 	empty list also returned if a paren is there IN PAREN MAP, with a warning.
+	 */
+	public String[] alphasAtParenMapLoc(int loc)	{	
+		String pmContent = parenMap[loc]; 
+		if ("*()+".contains(pmContent.substring(0,1)))
+		{
+			System.out.println("tried to check for alphas at a spot ("+loc+") marking a parenthesis in paren map!");
+			return new String[0]; 
+		}
+		
+		if (parenAlphaMap[loc].equals(""))	return new String[0]; 
+		
+		if (pmContent.charAt(0) == '(')	pmContent = pmContent.substring(1); 
+		
+		if (pmContent.contains(""+ALPH_DELIM))
+			return pmContent.split(""+ALPH_DELIM);
+		else return new String[] {pmContent};	
+	}
+	
+	/** 
+	 * fill parenAlphaMap, given @prerequisite that @parenMap and @placeRestrs are already filled. 
+	 * also sets @param @hasParenthesizedALpha and @param @hasAlphSpecs to true if appropriate
+	 */
+	public void fillParenAlphaMap()
+	{
+		parenAlphaMap = new String[parenMap.length]; 
+		int parenDepth = 0; 
+		for (int pmi = 0 ; pmi < parenMap.length; pmi++)
+		{
+			if (parenMap[pmi].contains("("))
+			{	parenDepth++; continue; 	}
+			if (parenMap[pmi].contains(")"))
+			{	parenDepth--;
+				assert parenDepth > 0: "parenDepth fell below zero?! How did this happen?"; 
+				continue;	}
+			
+			RestrictPhone pr = placeRestrs.get(Integer.parseInt(parenMap[pmi].substring(1))); 
+			if (!pr.has_alpha_specs())	continue; 
+			
+			hasAlphSpecs = true; 
+			if (parenDepth > 0) {
+				hasParenthesizedAlpha = true;
+				parenMap[pmi] += "("; 
+			}
+			parenMap[pmi] += String.join(ALPH_DELIM+"", pr.getAlphaVars()); 
+		}
+	}	
+	
+	
+	// --- ACCESSORS---
 	//strictly for debugging purposes. 
 	public String[] getParenMap()	{	return parenMap;	}
 	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
