@@ -303,15 +303,14 @@ public class SequentialFilter {
 	 * @param alphsToSetWithin -- alphas being LOCALLY determined; not those set (from external class objects) before filter is checked
 	 * 			 	and not those that have already been set in parent calls. 
 	 * 				it is these that will be UNSET at the end of the call if a match fails. 
+	 * @note filter resetting within this method only happens upon match failure! 
+	 * 
 	 * @param placeRestrLoc -- place in placeRestrs structure
 	 * @param parenMapLoc -- place in parenMap (and parenAlphaMap) 
 	 * @param backward -- if going backwards [e.g. if this ends up used to check a prior contexgt
 	 * @return
 	 */
 	// TODO is alphsToSetWithin even necessary? 	
-	//TODO uncomment this when filtCheckHelper is secure? [@ July 3, 2025]
-	//public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, List<String> alphsToSetWithin, int placeRestrLoc, int parenMapLoc)
-	//{	return filtCheckHelper(prCandLeft,alphsToSetWithin,placeRestrLoc,parenMapLoc,false); }
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
 	{
 		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
