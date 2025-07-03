@@ -448,7 +448,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	// should always be called before extractAndApplyAlphaValues
 	// bounds do not matter for our purposes here 
 	//		checking for alpha impossibility in multiphone items should skip over juncture phones (i.e. word bounds etc) 
-	// @return @true in case of conflicting values assigned to an @alpha feature. */ 
+	// @return @true if @alphaconflict -- conflicting values assigned to an @alpha feature. */ 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
