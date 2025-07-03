@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class FeatMatrix extends Phonic implements RestrictPhone {
 	
-	private char[] init_chArr; //retains mark of alpha values given to constructor class
-		// whereas they assume their functional numerical values in featVect as they become specified
+	private char[] init_chArr; /**@retains mark of @alpha values given to constructor class
+		// whereas they assume their functional numerical values in @featVect as they become specified*/ 
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
 		// despecification -- i.e. arising only because of feature implications,
@@ -278,6 +278,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public void resetAlphaValues()
 	{	featVect = new String(init_chArr);
 		featSpecs = ""+initSpecs;
+	}
+	
+	/** 
+	 * reset only one alpha value, @param alph,
+	 * using @init_chArr to locate it within @featVect
+	 */
+	public void resetThisAlphVal (char alph) {
+		for (int ichri = 0 ; ichri < init_chArr.length ; ichri++)
+			if (init_chArr[ichri] == alph)
+				featVect = featVect.substring(0,ichri) + alph + featVect.substring(ichri+1); 					
 	}
 	
 	private char toSurfVal(char i)
