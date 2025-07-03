@@ -34,6 +34,7 @@ public class SequentialFilter {
 	 *		i0 | *(:4,2 | i1 | i2 | )*:1,2 | (:7,1 | i3 |	 ):5,1		contents
 	*/
 	
+	public static String UNSET_LOC_ALPHVAL =""; 
 	public static char ALPH_DELIM = '|';
 	private HashMap<String,String> localAlphSpecs; // key -- alpha symbol, value -- current setting, "" if unset.
 	private HashMap<String,List<Integer>> localAlphLocs; // key-- alpha symbol, value -- locations in paren(Alpha)Map where it occurs
@@ -651,7 +652,7 @@ public class SequentialFilter {
 			return new String[0]; 
 		}
 		
-		if (parenAlphaMap[loc].equals(""))	return new String[0]; 
+		if (parenAlphaMap[loc].equals(UNSET_LOC_ALPHVAL))	return new String[0]; 
 		
 		if (pmContent.charAt(0) == '(')	pmContent = pmContent.substring(1); 
 		
@@ -668,6 +669,11 @@ public class SequentialFilter {
 	{
 		parenAlphaMap = new String[parenMap.length]; 
 		int parenDepth = 0; 
+		
+		localAlphSpecs = new HashMap<String,String>(); 
+		localAlphLocs = new HashMap<String,List<Integer>>(); 
+		parenthesizedAlphas = new ArrayList<String>(); 
+		
 		for (int pmi = 0 ; pmi < parenMap.length; pmi++)
 		{
 			if (parenMap[pmi].contains("("))
@@ -679,11 +685,23 @@ public class SequentialFilter {
 			
 			RestrictPhone pr = placeRestrs.get(Integer.parseInt(parenMap[pmi].substring(1))); 
 			if (!pr.has_alpha_specs())	continue; 
+			// if go past this point, there must be alph specs. 
 			
 			if (parenDepth > 0) {
 				parenAlphaMap[pmi] += "("; 
 			}
-			parenAlphaMap[pmi] += String.join(ALPH_DELIM+"", pr.getAlphaVars()); 
+			
+			List<String> localAlphs = pr.getAlphaVars(); 
+			parenAlphaMap[pmi] += String.join(ALPH_DELIM+"", localAlphs); 
+			for (String lai : localAlphs)
+			{
+				if (!localAlphSpecs.containsKey(lai))
+				{
+					localAlphSpecs.put(lai, UNSET_LOC_ALPHVAL);
+					localAlphLocs.put(lai, Arrays.asList( new int[]{pmi})); 
+				}
+				
+			}
 		}
 	}	
 	
@@ -719,22 +737,42 @@ public class SequentialFilter {
 	public boolean hasParenthesizedAlpha() // true if there is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
 	{	return parenthesizedAlphas.size() > 0;	}
 	
-	//TODO remake
 	public void applyAlphaValues(HashMap<String, String> alphVals)
 	{
-		for (int pri = 0 ; pri < placeRestrs.size(); pri++)	placeRestrs.get(pri).applyAlphaValues(alphVals);
+		if (!hasAlphaSpecs())	return; 
+		for (String alph: alphVals.keySet()) {
+			if (!localAlphSpecs.containsKey(alph))	
+				throw new Error("tried to set an absent alpha variable: "+alph); 
+			localAlphSpecs.put(alph, alphVals.get(alph)); 
+			HashMap<String,String> stip = new HashMap<String,String>(); 
+			stip.put(alph, alphVals.get(alph));
+			for (int pri: getPlaceRestrLocsWithAlpha(alph))
+				placeRestrs.get(pri).applyAlphaValues(stip);
+		}
+		
+		//the below should be trivial, but uncomment as bandaid if errors of lack of coverage arise if need quick fix
+		//for (int pri = 0 ; pri < placeRestrs.size(); pri++)	placeRestrs.get(pri).applyAlphaValues(alphVals);
 	}
 	
-	//TODO remake
 	public void resetAllAlphaValues()
 	{
+		for (String alph_i : localAlphSpecs.keySet())
+			localAlphSpecs.put(alph_i, UNSET_LOC_ALPHVAL); 
+		
+		//TODO note -- below is NOT trivial. Due to how FeatMatrix operates, unfortunately, it would be very inefficient otherwise,
+		// but have to reset all alph vals in each FeatMatrix at a time 
+			// rather than each alph val being reset across all FMs at a time...
 		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	placeRestrs.get(pri).resetAlphaValues(); 
 	}
 	
-	//TODO remake. 
+	
 	public boolean has_unset_alphas()
 	{
-		for (RestrictPhone pri : placeRestrs)
+		if (!hasAlphaSpecs())	return false;
+		for (String spec : localAlphSpecs.values())
+			if (spec.equals(UNSET_LOC_ALPHVAL))	return true; 
+		
+		for (RestrictPhone pri : placeRestrs) //TODO this should be trivial, but for security do this too. 
 			if (pri.first_unset_alpha() != '0')	return true;
 		return false; 
 	}
@@ -743,7 +781,7 @@ public class SequentialFilter {
 	{
 		if (!hasParenthesizedAlpha())	return false; 
 		for (String pa_i : parenthesizedAlphas)
-			if (!localAlphSpecs.get(pa_i).equals(""))	return true; 
+			if (!localAlphSpecs.get(pa_i).equals(UNSET_LOC_ALPHVAL))	return true; 
 		
 		return false;
 	}

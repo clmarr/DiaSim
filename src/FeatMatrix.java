@@ -331,9 +331,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (String ii: impls)	apply_value(ii.substring(0,1), ii.substring(1), true); 
 	}
 	
+	// alph -- an alpha variable, val {0,1,2,9} the value it'll be set too. 
+	public void setAlphaValue(String alph, String val)
+	{
+		HashMap<String,String> hm = new HashMap<String,String>();
+		hm.put(alph, val);
+		applyAlphaValues(hm); 
+	}
+	
 	@Override
-	//TODO need to replace values also in featSpecs here. (2024 TODO check -- was this done?) 
-
 	/** @precondition both the keys [alpha features] and the values [String numerical featvect values] 
 	 * 		in alphVals should be one character strings
 	 * this class should be called using the outputs of extractAndApplyAlphaValues
