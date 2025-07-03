@@ -264,190 +264,15 @@ public class SequentialFilter {
 	*  concerning @alpha features, this computes compatibility based @locally based on those NOT set already
 	*  		those that are set outside this method could have been set for adherence to already @determined for adherence to input, output, or another context SequentialFilter
 	 * @param prCand -- sequence to compare for potential match
+	 * @param backward -- true if going backward, like if this is being used for a prior context. 
 	 */
 	public boolean filtCheck(List<SequentialPhonic> prCand)	{	return filtCheck(prCand,false);	}
-	public boolean filtCheck(List<SequentialPhonic> prCand, boolean isPosteriorContext)
-	{
-		if(minSize == 0)	throw new Error("You shouldn't be using filtCheck with filter with no necessary length.");
-		if(minSize > prCand.size())	return false;
-		
-		/**
-		 *  build @local set of alphas to check between @param @prCand and @placeRestrs via @parenMap -- those not already set! 
-		 *  @key = alpha symbol 
-		 *  @value = setting being considered; default to unset. 
-		 */
-		
-		List<String> internAlphs = new ArrayList<String>(localAlphSpecs.keySet()); 
-		for (String symb : localAlphSpecs.keySet())
-			if (!localAlphSpecs.get(symb).equals(UNSET_ALPHVAL))	internAlphs.remove(symb); 
-		
-		// if there are no alpha values, task is easy. 
-		if (internAlphs.size() == 0)
-		{
-			for (int cpic = 0 ; cpic <= prCand.size()- minSize; cpic++)
-			{	if (isPosteriorMatchHelper(prCand,cpic,0,0))	return true; }
-			return false; 
-		}
-	
-		//if we're here, we have local alphas to deal with... 
-		
-		/** unless this is a posteriorContext [@param isPosteriorContext] 
-		// if we're starting with a parenthesis [i.e. optional material!] we will fill any alphas there
-			// but we don't start checking to fill them there since they will be skipped if possible (i.e. when checking words for a filter, beginning will be skipped)
-		// if it is a posteriorContext, we're going to need to throw an error for now as @TODO as of July 2025, the ability to handle this has not yet been implemented
-		 * 		in order to do so, would have to potentially consider multiple quantities of segments (if its a ()* or ()+ paren, with an alpha-spec inside it, that's initial.. ugh.) 
-		 */
-		if (parenMap[0].contains("(") && isPosteriorContext) {
-			int initParenEnd = pairedParenLoc(0); 
-			for (int pii = 1 ; pii < initParenEnd; pii++)
-				if (parenAlphaMap[pii].substring(1).length() > 0)	
-					throw new Error ("Error: trying to use SequentialFilter.filtCheck to check a posterior context that starts in a parenthesis with an alpha spec inside... "
-							+ "support for this is not yet implemented!"); 
-		} /** to be fair, it doesn't seem clear that we'd necessarily WANT to implement that...
-			// in any case, for when it is a postr contex t-- skipping initial paren material is accounted for anyways by the loopoing over cpic -- if we can do without it, true will be returned earlier
-				// otherwise, cpic being > 0 will account for its presence, and alpha values within will be handled elsewhere
-							// (TODO right? I hope this works. No apparent reason it wouldn't though.) 
-					// hmm, would probably need to accont for it via @parennedCandLocsAlphCheck [currently a loop-internal variable] 
-					 * note also that below, it is determined that @parennedPlaceRestrsToAlphCheck does not include @alphas that exist @ONLY in @parentheses. 
-		*/ 
-		
-		int init_cpim = !parenMap[0].contains("(") ? 0 : pairedParenLoc(0)+1 ; 
-
-		HashMap<String, List<Integer>> parennedPlaceRestrsToAlphCheck = new HashMap<String, List<Integer>> ();
-			/** @key = alpha symbol; @value = list of integers in @placeRestrs and the input @param @prCand 
-				// that are parenthesized IN @parenMap to check -- see if settings of alphas via @prCand work.... 
-		*/	
-		for ( String intalphi : internAlphs)
-			if (parenthesizedAlphas.contains(intalphi) && !alphaOnlyInParentheses(intalphi))
-				parennedPlaceRestrsToAlphCheck.put(intalphi, getPlaceRestrLocsWithAlpha(intalphi)); 
-		
-		for(int cpic = 0; cpic <= prCand.size() - minSize; cpic++)
-		{
-			HashMap<String, String> internAlphStips = initAlphaStips(internAlphs); 
-			HashMap<String, List<Integer>> parennedCandLocsAlphCheck = new HashMap<String, List<Integer>> (); 
-			
-			int cand_alph_rp = 0 ,  cand_alph_pic = cpic, cand_alph_pim = init_cpim ; 
-			boolean match_cant_start_here = false; 
-	
-			while (internAlphStips.containsValue(UNSET_ALPHVAL)) // local equivalent of has_unset_alphas
-			{	/** TODO important note.
-				// checking for @LOCAL @alpha values
-					// this is done for filtCheck in a way resemblant but separate from calls to isPosteriorMatch from SChange--Alpha classes 
-					// in the latter, alpha values pertain not just to one SequentialFilter used for prior or posterior context
-						// but also the input and output, and the other (posterior/prior) context...
-							// TODO consider making this something unified in @UTILS? 
-								// Or somewhere else so that don't have to fix code in multiple places, potentially? 
-						// however as of July 3, 2025, it appears this is the main place that this stuff is relevant anyways (?) 
-						// unless we also need to do the like for @isPriorMatchHelper and @isPosteriorMatchHelper ?
-				*/
-				
-				RestrictPhone poi = placeRestrs.get(cand_alph_rp);
-				
-				// if (!poi.comparePreAlpha(cpi))	{	match_cant_start_here = true; break
-				if (poi.first_unset_alpha() != '0')
-				{
-					SequentialPhonic cpi = prCand.get(cand_alph_pic);
-					if (cpi.getType().equals("phone")) {
-						if (poi.check_for_alpha_conflict(cpi) ? true : !poi.comparePreAlpha(cpi)) { // if there's reason this won't work. 	
-							match_cant_start_here = true; 
-							break;
-						}
-						
-						//otherwise we have alpha values to extract... 
-						HashMap<String, String> alphExtract = poi.extractAndApplyAlphaValues(cpi); 
-						
-						// for each alpha symb extracted, if it is already extracted, it should have already been specified in poi,
-							// so it would not have been returned with extractAndApply 
-								// -- hence don't need to check with a potential conflict in internAlphStips or the calss param localAlphSpecs for that matter.. 
-						// and if it's there already, actually, something is weird. 
-						// perhpas throw error here if that's happening TODO
-						applyAlphaValues(poi.extractAndApplyAlphaValues(cpi)); 
-						for (String alphae_i : alphExtract.keySet())	internAlphStips.put(alphae_i,alphExtract.get(alphae_i)); 
-					}
-					//else	// non-phone at 
-				}
-			}
-				
-				
-			if (match_cant_start_here ? false : isPosteriorMatchHelper(prCand,cpic,0,0)) // match if true. 
-			{
-				resetTheseAlphaValues(internAlphs); //reset in general . 
-				return true; 
-			}
-			resetTheseAlphaValues(internAlphs); 	
-			// reset for next iter, or for in general if it's the last iteration. 
-		}
-		//return false; 
-		
-		//TODO below is abrogated
-		for(int cpic = 0; cpic <= prCand.size() - minSize; cpic++)
-		{	
-			
-			//each iteration -- START of check for matching gfilter 
-			if (hasAlphaSpecs()) {
-				HashMap<String, String> currAlphVals = new HashMap<String, String>();
-				
-				int cand_alph_rp = 0 ,  cand_alph_pic = cpic; 
-				
-				int cand_alph_pim = !parenMap[0].contains("(") ? 0 
-						: pairedParenLoc(0) + 1;  //Integer.parseInt(parenMap[0].substring(parenMap[0].indexOf("(") +1)); 
-				//TODO possible paren issue here when alphas in parenthesis. 
-
-				boolean match_impossible = false; 
-				
-				while (has_unset_alphas())
-				{
-					//TODO important note.
-					// checking for LOCAL alpha values
-						// this is done for filtCheck in a way resemblant but separate from calls to isPosteriorMatch from SChange--Alpha classes 
-						// in the latter, alpha values pertain not just to one SequentialFilter used for prior or posterior context
-							// but also the input and output, and the other (posterior/prior) context...
-							// drawn esp from SChangePhoneAlpha.posterriorMatch()
-								// TODO consider making this something unified in UTILS? 
-									// Or somewhere else so that don't have to fix code in multiple places, potentially? 
-					
-					//TODO debugging
-					System.out.println(String.join(" | ", parenMap));
-					
-					//TODO may need to look at effects of parentheses on this... 
-					RestrictPhone poi = placeRestrs.get(cand_alph_rp); 
-					if ( poi.first_unset_alpha() != '0')
-					{
-						SequentialPhonic cpi = prCand.get(cand_alph_pic); 
-						if (cpi.getType().equals("phone")) {
-							
-							if (poi.check_for_alpha_conflict(cpi) ? true : !poi.comparePreAlpha(cpi)) {	
-								resetAllAlphaValues(); match_impossible = true; break;  // move on. 
-							}
-							
-							currAlphVals.putAll(poi.extractAndApplyAlphaValues(cpi));
-							applyAlphaValues(currAlphVals); 
-						}
-					}
-					cand_alph_rp++; cand_alph_pim++; cand_alph_pic++; 
-					
-					//TODO possible paren issue here when alphas in parenthesis. 
-					if (cand_alph_pim < parenMap.length)
-						cand_alph_pim = !parenMap[cand_alph_pim].contains("(") ? cand_alph_pim
-							: pairedParenLoc(cand_alph_pim) + 1; 
-					
-					if (cand_alph_rp >= placeRestrs.size())	
-					{	match_impossible=true;
-						break;					
-					}
-				}
-				
-				if (match_impossible ? false : isPosteriorMatchHelper(prCand,cpic,0,0))	
-				{	resetAllAlphaValues(); return true; }
-				
-				resetAllAlphaValues(); 
-				
-			}
-			else if (isPosteriorMatchHelper(prCand,cpic,0,0))	return true;  
-		}
-		return false;
+	public boolean filtCheck(List<SequentialPhonic> prCand, boolean backwards ) {	
+		return filtCheckHelper ( new ArrayList<SequentialPhonic>(prCand) , 
+				backwards ? placeRestrs.size() - 1 : 0 , 
+				backwards ? parenMap.length - 1 : 0 , 
+				backwards) ; 
 	}
-	
 	
 	/** 
 	 * 
@@ -467,14 +292,16 @@ public class SequentialFilter {
 	//{	return filtCheckHelper(prCandLeft,alphsToSetWithin,placeRestrLoc,parenMapLoc,false); }
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
 	{
-		assert placeRestrLoc <= placeRestrs.size() && parenMapLoc <= parenMap.length: 
+		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
+				: (placeRestrLoc <= placeRestrs.size() && parenMapLoc <= parenMap.length): 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
 		
 		// if reached end of placeRestrs -- good chance filter is passed!
-		if (placeRestrLoc == placeRestrs.size())	return true; 
+		if (backward ? placeRestrLoc == -1 : placeRestrLoc == placeRestrs.size())	
+			return true; 
 				
 		// if somehow exhausted parenmap without exhausting placeRestrs (which would trigger the above) --  must be structure storing error
-		if (parenMapLoc == parenMap.length)	
+		if (backward ? parenMapLoc == -1 : parenMapLoc == parenMap.length)	
 			throw new Error("Reached end of parenMap but still iterating in placeRestrs (@"+placeRestrLoc+"/"+placeRestrs.size()+") -- must be error!");
 		
 		int incr = backward ? -1 : 1; //increment 
