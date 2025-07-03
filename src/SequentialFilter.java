@@ -261,17 +261,39 @@ public class SequentialFilter {
 	 *  all necessary issues should be caught on the forward iteration through the phonetic segments
 	 * 	*  since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
 		*  and it's not like a segment would just be missed, since it starts at the beginning and goes to the end.
-	*  concerning @alpha features, this computes compatibility based @locally based on those NOT set already
+	*  concerning @alpha features, this computes compatibility recursive, effectively based @locally based on those NOT set already
 	*  		those that are set outside this method could have been set for adherence to already @determined for adherence to input, output, or another context SequentialFilter
 	 * @param prCand -- sequence to compare for potential match
 	 * @param backward -- true if going backward, like if this is being used for a prior context. 
+	 * if this is used for prior or posterior context in a way that alpha feats will need to be extracted for external concordance,
+	 * 		may need to turn off the resetting with @param resetAfterMatch 
+	 * 			but this will not be relevant for the recursvie calls to filtCheckHelper, which are only resetting in the case of a match failure. 
 	 */
-	public boolean filtCheck(List<SequentialPhonic> prCand)	{	return filtCheck(prCand,false);	}
-	public boolean filtCheck(List<SequentialPhonic> prCand, boolean backwards ) {	
-		return filtCheckHelper ( new ArrayList<SequentialPhonic>(prCand) , 
+	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
+	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch, boolean backwards ) {	
+		
+		//alphs that will be set and reset within this method's recursion. 
+		List<String> internAlphs = new ArrayList<String>(); 
+		for (String alphi : localAlphSpecs.keySet())
+			if (localAlphSpecs.get(alphi).equals(UNSET_ALPHVAL))	internAlphs.add(alphi);
+		
+		// if there are no alpha values, task is easy. 
+		if (internAlphs.size() == 0)
+		{
+			for (int cpic = 0 ; cpic <= prCand.size()- minSize; cpic++)
+			{	if (isPosteriorMatchHelper(prCand,cpic,0,0))	return true; }
+			return false; 
+		}
+	
+		//if we're here, we have local alphas to deal with... 
+		
+		boolean success =  filtCheckHelper ( new ArrayList<SequentialPhonic>(prCand) , 
 				backwards ? placeRestrs.size() - 1 : 0 , 
 				backwards ? parenMap.length - 1 : 0 , 
 				backwards) ; 
+		
+		if (resetAfterMatch)	resetTheseAlphaValues(internAlphs); 
+		return success; 
 	}
 	
 	/** 
