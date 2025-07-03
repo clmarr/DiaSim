@@ -154,8 +154,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	/**
-	 * checks if @param cand adheres to restrictions except those that are alpha values
-	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas, currently in terms of alpha values embedded in contexts (not source phones). 
+	 * checks if @param cand adheres to restrictions @except those that are @alpha values
+	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas,
+	 *  currently in terms of alpha values embedded in contexts (not source phones). 
 	 */
 	public boolean comparePreAlpha(SequentialPhonic cand)
 	{
@@ -175,7 +176,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			if ("9".contains(restr) && !"1".equals(cand_feat))	
 				return false; 
 			if (!DESPEC_VIA_ALPHA && localAlphabet.contains(restr) && "91".contains(cand_feat))
-				return false; 
+				return false;  //(2025 interpretation) this would require alpha to be set at this time. Though blocking that via this class is a bit categorically off, it's not really comparing *pre* alpha...
 			// if DESPEC_VIA_ALPHA is true, no need to handled alpha valued features at all; 
 					// this will already doing nothing for alpha valued items -- which is exactly as should happen, they are being ignored. 
 		}
@@ -443,9 +444,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	
+	/** 
 	// should always be called before extractAndApplyAlphaValues
 	// bounds do not matter for our purposes here 
 	//		checking for alpha impossibility in multiphone items should skip over juncture phones (i.e. word bounds etc) 
+	// @return @true in case of conflicting values assigned to an @alpha feature. */ 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{

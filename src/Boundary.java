@@ -51,6 +51,9 @@ public class Boundary extends PseudoPhone {
 	}
 
 	@Override
+	public List<String> getAlphaVars()	{	return new ArrayList<String>(); 	}
+	
+	@Override
 	public HashMap<String, String> extractAndApplyAlphaValues(SequentialPhonic inp) {
 		return null;
 	}
