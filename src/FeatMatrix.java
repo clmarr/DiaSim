@@ -331,6 +331,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (String ii: impls)	apply_value(ii.substring(0,1), ii.substring(1), true); 
 	}
 	
+	@Override
 	// alph -- an alpha variable, val {0,1,2,9} the value it'll be set too. 
 	public void setAlphaValue(String alph, String val)
 	{

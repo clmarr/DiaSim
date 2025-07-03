@@ -17,6 +17,7 @@ public interface RestrictPhone{
 	
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patientSeq, int ind); 
 	
+	public void setAlphaValue(String alph, String val); 
 	public void applyAlphaValues(HashMap<String,String> alphVals);
 	public List<String> getAlphaVars(); 	//get any local alpha specifications; 
 	

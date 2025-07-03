@@ -30,7 +30,6 @@ public abstract class PseudoPhone extends SequentialPhonic implements RestrictPh
 	public String getFeatVect()	{	return getFeatString();	}
 	public HashMap<String,String> getFeatSymbMap()	{	return null;	}
 	
-
 	@Override
 	public List<String> getAlphaVars()	{	return new ArrayList<String>(); 	}
 }

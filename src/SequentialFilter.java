@@ -687,20 +687,23 @@ public class SequentialFilter {
 			if (!pr.has_alpha_specs())	continue; 
 			// if go past this point, there must be alph specs. 
 			
+			List<String> localAlphs = pr.getAlphaVars(); 
+
 			if (parenDepth > 0) {
 				parenAlphaMap[pmi] += "("; 
+				for (String loc_alph_i : localAlphs)
+					if (!parenthesizedAlphas.contains(loc_alph_i))	parenthesizedAlphas.add(loc_alph_i); 
 			}
 			
-			List<String> localAlphs = pr.getAlphaVars(); 
 			parenAlphaMap[pmi] += String.join(ALPH_DELIM+"", localAlphs); 
 			for (String lai : localAlphs)
 			{
 				if (!localAlphSpecs.containsKey(lai))
 				{
 					localAlphSpecs.put(lai, UNSET_LOC_ALPHVAL);
-					localAlphLocs.put(lai, Arrays.asList( new int[]{pmi})); 
+					localAlphLocs.put(lai, Arrays.asList(pmi)); // TODO there might be a data type issue here? 
 				}
-				
+				else	localAlphLocs.get(lai).add(pmi); 
 			}
 		}
 	}	
@@ -743,11 +746,10 @@ public class SequentialFilter {
 		for (String alph: alphVals.keySet()) {
 			if (!localAlphSpecs.containsKey(alph))	
 				throw new Error("tried to set an absent alpha variable: "+alph); 
-			localAlphSpecs.put(alph, alphVals.get(alph)); 
-			HashMap<String,String> stip = new HashMap<String,String>(); 
-			stip.put(alph, alphVals.get(alph));
+			String val = alphVals.get(alph); 
+			localAlphSpecs.put(alph, val); 
 			for (int pri: getPlaceRestrLocsWithAlpha(alph))
-				placeRestrs.get(pri).applyAlphaValues(stip);
+				placeRestrs.get(pri).setAlphaValue(alph, val);
 		}
 		
 		//the below should be trivial, but uncomment as bandaid if errors of lack of coverage arise if need quick fix
