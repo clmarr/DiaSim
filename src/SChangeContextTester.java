@@ -382,7 +382,7 @@ public class SChangeContextTester {
 		System.out.println("The filter "+testPlaceRestrs+" should be false for only these 3: bˈʌɾə˞  , kəɾˈɛʔ , pʰˈæ̃ɾə˞    ..."); 
 		
 		for (Etymon debugeti : debugLex)
-			if (!filtTester.filtCheck(debugeti.getPhonologicalRepresentation()))
+			if (!filtTester.filtCheck(debugeti.getPhonologicalRepresentation(),true,false))
 				System.out.println(testPlaceRestrs+" not matched for "+debugeti.print()); 
 		
 		

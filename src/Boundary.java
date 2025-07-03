@@ -77,4 +77,10 @@ public class Boundary extends PseudoPhone {
 	public char first_unset_alpha() {
 		return '0';
 	}
+	
+	@Override
+	public void setAlphaValue(String alph, String val) {	/* do nothing*/ }
+
+	@Override
+	public void resetAlphVal(char alph) {	/* do nothing*/ }
 }

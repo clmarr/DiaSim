@@ -1228,7 +1228,7 @@ public class ErrorAnalysis {
 			//ignore etyma absent at this time, or just inserted in result lexicon -- otherwise on basis of the presence of filter seq
 				// also exclude etyma that are pseudo etyma in the subsamp 
 			IN_SUBSAMP[isi] = (!IN_EVALSAMP[isi] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi))) ? false : 
-				filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation()); 
+				filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation(),true,false); 
 
 			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed()) // second requirement is redundant, but just for safety. 
 			{	

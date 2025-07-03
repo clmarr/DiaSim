@@ -184,6 +184,12 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	public char first_unset_alpha()	{	return '0';	}
 	
 	@Override
-	public void setAsOutput()	{	/* do nothing*/ }	
+	public void setAsOutput()	{	/* do nothing*/ }
+
+	@Override
+	public void setAlphaValue(String alph, String val) {	/* do nothing*/ }
+
+	@Override
+	public void resetAlphVal(char alph) {	/* do nothing*/ }
 	
 }
