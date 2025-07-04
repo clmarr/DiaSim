@@ -296,14 +296,20 @@ public class SequentialFilter {
 		}
 	
 		//if we're here, we have local alphas to deal with... 
-		
-		boolean success =  filtCheckHelper ( new ArrayList<SequentialPhonic>(prCand) , 
-				backwards ? placeRestrs.size() - 1 : 0 , 
-				backwards ? parenMap.length - 1 : 0 , 
-				backwards) ; 
-		
-		if (resetAfterMatch)	resetTheseAlphaValues(internAlphs); 
-		return success; 
+		for (int cpic = 0; cpic < prCand.size() - minSize ; cpic ++ )
+		{
+			boolean success =  filtCheckHelper ( 
+					new ArrayList<SequentialPhonic>( backwards ? prCand.subList(0, prCand.size() - cpic) : prCand.subList(cpic, prCand.size())), 
+					backwards ? placeRestrs.size() - 1 : 0 , 
+					backwards ? parenMap.length - 1 : 0 , 
+					backwards) ; 
+			if (success) 
+			{
+				if (resetAfterMatch)	resetTheseAlphaValues(internAlphs);
+				return true; 
+			} 
+		}
+		return false;
 	}
 	
 	/** 
@@ -323,6 +329,10 @@ public class SequentialFilter {
 	// TODO is alphsToSetWithin even necessary? 	
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
 	{
+		//TODO debugging 
+		System.out.println("candidate: "+UTILS.printWord(prCandLeft)+
+				"; crp "+placeRestrLoc+"; cpim "+parenMapLoc); 
+		
 		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
 				: (placeRestrLoc <= placeRestrs.size() && parenMapLoc <= parenMap.length): 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
@@ -385,7 +395,7 @@ public class SequentialFilter {
 			if (!cpitype.equals("phone"))	return false; 
 			
 			//abort alpha conflict, or if it wouldn't match anyways
-			if (rpi.check_for_alpha_conflict(cpi) ? false : !rpi.comparePreAlpha(cpi))	
+			if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreAlpha(cpi))	
 				return false; 
 			
 			// if reached here, going to have to extract and apply alpha values 
