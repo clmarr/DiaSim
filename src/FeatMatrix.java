@@ -289,7 +289,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public void resetAlphVal (char alph) {
 		for (int ichri = 0 ; ichri < init_chArr.length ; ichri++)
 			if (init_chArr[ichri] == alph)
-				featVect = featVect.substring(0,ichri) + alph + featVect.substring(ichri+1); 					
+				featVect = featVect.substring(0,ichri) + alph + featVect.substring(ichri+1); 
+		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
+			if (initSpecs.charAt(ispi) == alph)
+				featSpecs = featSpecs.substring(0,ispi) + alph + featSpecs.substring(ispi+1);
 	}
 	
 	private char toSurfVal(char i)
