@@ -48,6 +48,7 @@ public class ErrorAnalysis {
 	private boolean[] IN_EVALSAMP; //for any index of all etyma in the lexica, are they in the maximum eval sample
 				// which excludes just inserted and pseudo-etyma 
 	private boolean[] IN_SUBSAMP; //for index in lexicon (total, as above), is it in the (filtered) subsample
+	private boolean[] IN_PRINT_SUBSAMP; // also printing etyma that pass filters but are not in eval samp.
 	private boolean[] isHit; 	
 			//index is of TOTAL etyma, not the eval samp or any filtered subsamp. 
 				//those excluded from subsample and eval samp are actually treated as true. 
@@ -292,6 +293,7 @@ public class ErrorAnalysis {
 	{
 		FILTER_SUBSAMP = new int[EVAL_SAMPSIZE];
 		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; 
+		IN_PRINT_SUBSAMP = new boolean[TOTAL_ETYMA];
 		int fi = 0; 
 		for (int i = 0 ; i < TOTAL_ETYMA ; i++)
 		{
@@ -300,6 +302,7 @@ public class ErrorAnalysis {
 				IN_SUBSAMP[i] = true; 
 				FILTER_SUBSAMP[fi++] = i; 
 			}
+			IN_PRINT_SUBSAMP[i] = true; 
 		}
 		filterSeq = null;
 	}
@@ -1207,7 +1210,7 @@ public class ErrorAnalysis {
 	// it seems to be "n #" that is disfavored. 
 	public void articulateSubsample(String subsamp_name)
 	{	
-		IN_SUBSAMP = new boolean[TOTAL_ETYMA];
+		IN_SUBSAMP = new boolean[TOTAL_ETYMA]; IN_PRINT_SUBSAMP = new boolean[TOTAL_ETYMA];
 		int SUBSAMP_SIZE = 0;  //TODO very suspicious here! Investigate!
 		String etStr = ""; 
 		int nSSHits = 0, nSSMisses = 0, nSS1off = 0, nSS2off = 0; 
@@ -1227,9 +1230,10 @@ public class ErrorAnalysis {
 		{
 			//ignore etyma absent at this time, or just inserted in result lexicon -- otherwise on basis of the presence of filter seq
 				// also exclude etyma that are pseudo etyma in the subsamp 
-			IN_SUBSAMP[isi] = (!IN_EVALSAMP[isi] || UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi))) ? false : 
+			IN_PRINT_SUBSAMP[isi] = UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(isi)) ? false : 
 				filterSeq.filtCheck(PIV_PT_LEX.getByID(isi).getPhonologicalRepresentation(),true,false); 
-
+			IN_SUBSAMP[isi] = IN_PRINT_SUBSAMP[isi] ? IN_EVALSAMP[isi] : false; 
+			
 			if(IN_SUBSAMP[isi] && RES.getByID(isi).isReconstructed()) // second requirement is redundant, but just for safety. 
 			{	
 				int etld = levDists[isi];
@@ -1323,7 +1327,7 @@ public class ErrorAnalysis {
 				+UTILS.fillSpaceToN("CFR result",12)+"|"
 				+UTILS.fillSpaceToN("gold result", 12));
 		for (int ei = 0 ; ei < TOTAL_ETYMA; ei++)
-			if (IN_SUBSAMP[ei])
+			if (IN_PRINT_SUBSAMP[ei])
 				System.out.println(
 						UTILS.fillSpaceToN(PIV_PT_LEX.getByID(ei).print(),12) + "|"
 						+ UTILS.fillSpaceToN(RES.getByID(ei).print(),12) + "|"
@@ -2115,7 +2119,7 @@ public class ErrorAnalysis {
 	{
 		for (int i = 0; i < TOTAL_ETYMA; i++)
 		{
-			if ( (errorsOnly ? !isHit[i] : true) && (filterOnly ? IN_SUBSAMP[i] : true ))
+			if ( (errorsOnly ? !isHit[i] : true) && (filterOnly ? IN_PRINT_SUBSAMP[i] : true ))
 			{
 				System.out.print(append_space_to_x(i+",",6)+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
