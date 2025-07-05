@@ -62,7 +62,7 @@ public class SequentialFilter {
 		parenMap = pm ; 
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
 		
-		boundsMatter = false;
+		boundsMatter = bm;
 		minSize = generateMinSize(); 
 		
 		markParenMapForMinPlacesInEachWindow();		
@@ -247,16 +247,6 @@ public class SequentialFilter {
 	}
 
 	
-	/**
-	 * given @param alphSymbs containing alpha symbols 
-	 * @return an initialized HashMap for them before being set
-	 */
-	public HashMap<String, String> initAlphaStips (List<String> alphSymbs) 
-	{
-		HashMap<String, String> out = new HashMap<String, String>(); 
-		for (String alphi : alphSymbs)	out.put(alphi, UNSET_ALPHVAL); 
-		return out; 
-	}
 	
 	/** 
 	 * @return @true if stipulations of placeRestrs match for (somewhere in) pr
@@ -274,6 +264,9 @@ public class SequentialFilter {
 	 */
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch, boolean backwards ) {	
+		
+		//TODO debugging
+		System.out.println("checking for sequence: "+UTILS.printWord(prCand)); 
 		
 		//alphs that will be set and reset within this method's recursion. 
 		List<String> internAlphs = new ArrayList<String>(); 
@@ -296,10 +289,13 @@ public class SequentialFilter {
 		}
 	
 		//if we're here, we have local alphas to deal with... 
-		for (int cpic = 0; cpic < prCand.size() - minSize ; cpic ++ )
+		for (int matchStart = 0; matchStart < prCand.size() - minSize ; matchStart ++ ) // cpic is starting index
 		{
+			//TODO debugging
+			System.out.println("match start"); 
+			
 			boolean success =  filtCheckHelper ( 
-					new ArrayList<SequentialPhonic>( backwards ? prCand.subList(0, prCand.size() - cpic) : prCand.subList(cpic, prCand.size())), 
+					new ArrayList<SequentialPhonic>( backwards ? prCand.subList(0, prCand.size() - matchStart) : prCand.subList(matchStart, prCand.size())), 
 					backwards ? placeRestrs.size() - 1 : 0 , 
 					backwards ? parenMap.length - 1 : 0 , 
 					backwards) ; 
@@ -308,6 +304,7 @@ public class SequentialFilter {
 				if (resetAfterMatch)	resetTheseAlphaValues(internAlphs);
 				return true; 
 			} 
+			resetTheseAlphaValues(internAlphs);
 		}
 		return false;
 	}
@@ -352,7 +349,10 @@ public class SequentialFilter {
 		if (backward ? PMcell.contains(")") : PMcell.contains("("))
 		{		
 			//advance past? :
-			if (filtCheckHelper(prCandLeft, placeRestrLoc, pairedParenLoc(parenMapLoc) + incr, backward))
+			int nextPMspot = pairedParenLoc(parenMapLoc) + incr;
+			// if would advance to end -- true. 
+			if (backward ? nextPMspot < 0 : nextPMspot == parenMap.length) 	return true; 
+			if (filtCheckHelper(prCandLeft, Integer.parseInt(parenMap[nextPMspot].substring(1)), nextPMspot, backward))
 				return true; 
 			
 			//if minimum possible places would exceed material we have left to match to, then don't entter paren -- return match failure instead
@@ -370,11 +370,11 @@ public class SequentialFilter {
 			if (filtCheckHelper(prCandLeft, placeRestrLoc, parenMapLoc + incr, backward))
 				return true; 
 			
-			
+			int nextPMspot = pairedParenLoc(parenMapLoc) + incr; 
 			if (PMcell.contains("*") || PMcell.contains("+")) //recurse if you can otherwise. 
 				return  
 					getMinParenSegments(parenMapLoc) > prCandLeft.size() ? false :
-						filtCheckHelper(prCandLeft, placeRestrLoc, pairedParenLoc(parenMapLoc) + incr, backward); 
+						filtCheckHelper(prCandLeft, Integer.parseInt(parenMap[nextPMspot].substring(1)), nextPMspot, backward); 
 		}
 
 		// now we know were not at a paren. 
@@ -386,7 +386,7 @@ public class SequentialFilter {
 		List<SequentialPhonic> candRemainder = new ArrayList<SequentialPhonic>(prCandLeft); 
 		
 		SequentialPhonic cpi = candRemainder.remove(backward ? prCandLeft.size() - 1 : 0); 
-		if (rpi.first_unset_alpha() != '0' ) // alph feats to extract here ..
+		if (rpi.has_alpha_specs() ? rpi.first_unset_alpha() != '0' : false ) // alph feats to extract here ..
 		{
 			String cpitype = cpi.getType(); 
 			// edge case: bypass morphbound
@@ -398,9 +398,16 @@ public class SequentialFilter {
 			if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreAlpha(cpi))	
 				return false; 
 			
+			//TODO debugging
+			System.out.println("rpi first unset was "+rpi.first_unset_alpha()+"; compare " +rpi.toString()+ " preAlpha : "+ rpi.comparePreAlpha(cpi)); 
+			
 			// if reached here, going to have to extract and apply alpha values 
 			HashMap<String,String> alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
 				//^ keyset of which will be reset in case of failure. 
+			
+			//TODO debugging
+			System.out.println("extract  : "+String.join(",", alphExtract.values())); 
+			
 			applyAlphaValues(alphExtract); 
 			
 			// revert alpha values if recursive calls fails. 
@@ -696,6 +703,7 @@ public class SequentialFilter {
 		String contents = parenMap[thisParenLoc].split(":")[1]; 
 		return Integer.parseInt(contents.contains(",") ? contents.split(",")[0] : contents); 
 	}
+	
 	/**
 	 * given @param parenLoc, an index in @parenMap of a parenthesis
 	 * @return minimum number of segments in the parenthesis (i.e. it oculd be repeated etc.)
@@ -729,6 +737,78 @@ public class SequentialFilter {
 			}
 		}
 		return output.substring(0, output.length() - 1); 
+	}	
+	
+	// --- ACCESSORS---
+	//strictly for debugging purposes. 
+	public String[] getParenMap()	{	return parenMap;	}
+	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
+	
+	//TODO abrogated, but kept around for possible debugging purposes
+	/**
+	private static String printParenMap(SChangeContext testCont)
+	{
+		String output = ""; 
+		String[] pm = testCont.getParenMap();
+		for(String p : pm)	output += p + " "; 
+		return output.trim();
+	}*/
+	
+	// -- ALPHA ACCESSORS -- 
+	public HashMap<String,String> getLocalAlphSpecs()	{	return localAlphSpecs;	}
+	public HashMap<String,List<Integer>> getLocalAlphLocs()	{	return localAlphLocs;	}
+	public List<String> getParenthesizedAlphas()	{	return parenthesizedAlphas;	}
+	public String[] getParenAlphaMap()	{	return parenAlphaMap;	}
+	public boolean hasAlphaSpecs()	{	return localAlphSpecs.size() > 0 ;	}
+	public boolean hasParenthesizedAlpha() // true if there is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
+	{	return parenthesizedAlphas.size() > 0;	}
+	
+	public boolean has_unset_alphas()
+	{
+		if (!hasAlphaSpecs())	return false;
+		for (String spec : localAlphSpecs.values())
+			if (spec.equals(UNSET_ALPHVAL))	return true; 
+		
+		for (RestrictPhone pri : placeRestrs) //TODO this should be trivial, but for security do this too. 
+			if (pri.first_unset_alpha() != '0')	return true;
+		return false; 
+	}
+	
+	public boolean has_unset_paren_alphas()
+	{
+		if (!hasParenthesizedAlpha())	return false; 
+		for (String pa_i : parenthesizedAlphas)
+			if (localAlphSpecs.get(pa_i).equals(UNSET_ALPHVAL))	return true; 
+		
+		return false;
+	}
+		
+	/**
+	 * @return @true iff @param alph is only marked within parentheses
+	 * @prerequisite: @parenthesizedAlphas, @localAlphSpecs, @parenMap, and @parenAlphaMap have been initialized. 
+	 */
+	public boolean alphaOnlyInParentheses(String alph)
+	{
+		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an existent alpha ("+alph+")is only parenthetical"); 
+		if (!parenthesizedAlphas.contains(alph))	return false; 
+		
+		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
+		{
+			if (parenMap[pami].contains(")"))	{	pami = pairedParenLoc(pami)+1; continue;	}
+			if (parenAlphaMap[pami].contains(alph))	return false; 
+		}
+		return true; 
+	}
+	
+	public List<Integer> getPlaceRestrLocsWithAlpha(char alph)	{	return getPlaceRestrLocsWithAlpha(alph+""); 	}
+	public List<Integer> getPlaceRestrLocsWithAlpha(String alphsymb)
+	{
+		List<Integer> out = new ArrayList<Integer>(); 
+		if	(!localAlphLocs.containsKey(alphsymb))	return out;
+		
+		for (int loc_i: localAlphLocs.get(alphsymb))
+			out.add(Integer.parseInt(parenMap[loc_i].substring(1)));  //after the "i" 
+		return out; 
 	}
 	
 	/**
@@ -752,6 +832,20 @@ public class SequentialFilter {
 		if (pmContent.contains(""+ALPH_DELIM))
 			return pmContent.split(""+ALPH_DELIM);
 		else return new String[] {pmContent};	
+	}
+	
+	
+	
+	// -- ALPHA MUTATORS --
+	/**
+	 * given @param alphSymbs containing alpha symbols 
+	 * @return an initialized HashMap for them before being set
+	 */
+	public HashMap<String, String> initAlphaStips (List<String> alphSymbs) 
+	{
+		HashMap<String, String> out = new HashMap<String, String>(); 
+		for (String alphi : alphSymbs)	out.put(alphi, UNSET_ALPHVAL); 
+		return out; 
 	}
 	
 	/** 
@@ -796,59 +890,15 @@ public class SequentialFilter {
 					localAlphSpecs.put(lai, UNSET_ALPHVAL);
 					localAlphLocs.put(lai, Arrays.asList(pmi)); // TODO there might be a data type issue here? 
 				}
-				else	localAlphLocs.get(lai).add(pmi); 
+				else
+				{
+					List<Integer> updatedLocs = new ArrayList<Integer>(localAlphLocs.get(lai)); 
+					updatedLocs.add(pmi); 
+					localAlphLocs.put(lai,updatedLocs); 
+				}
 			}
 		}
 	}	
-	
-	public List<Integer> getPlaceRestrLocsWithAlpha(char alph)	{	return getPlaceRestrLocsWithAlpha(alph+""); 	}
-	public List<Integer> getPlaceRestrLocsWithAlpha(String alphsymb)
-	{
-		List<Integer> out = new ArrayList<Integer>(); 
-		if	(!localAlphLocs.containsKey(alphsymb))	return out;
-		
-		for (int loc_i: localAlphLocs.get(alphsymb))
-			out.add(Integer.parseInt(parenMap[loc_i].substring(1)));  //after the "i" 
-		return out; 
-	}
-	
-	/**
-	 * @return @true iff @param alph is only marked within parentheses
-	 * @prerequisite: @parenthesizedAlphas, @localAlphSpecs, @parenMap, and @parenAlphaMap have been initialized. 
-	 */
-	public boolean alphaOnlyInParentheses(String alph)
-	{
-		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an existent alpha ("+alph+")is only parenthetical"); 
-		if (!parenthesizedAlphas.contains(alph))	return false; 
-		
-		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
-		{
-			if (parenMap[pami].contains(")"))	{	pami = pairedParenLoc(pami)+1; continue;	}
-			if (parenAlphaMap[pami].contains(alph))	return false; 
-		}
-		return true; 
-	}
-	
-	// --- ACCESSORS---
-	//strictly for debugging purposes. 
-	public String[] getParenMap()	{	return parenMap;	}
-	public List<RestrictPhone> getPlaceRestrs()	{	return placeRestrs;	}
-	
-	//TODO abrogated, but kept around for possible debugging purposes
-	/**
-	private static String printParenMap(SChangeContext testCont)
-	{
-		String output = ""; 
-		String[] pm = testCont.getParenMap();
-		for(String p : pm)	output += p + " "; 
-		return output.trim();
-	}*/
-	
-	// -- ALPHA ACCESSORS -- 
-	
-	public boolean hasAlphaSpecs()	{	return localAlphSpecs.size() > 0 ;	}
-	public boolean hasParenthesizedAlpha() // true if there is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
-	{	return parenthesizedAlphas.size() > 0;	}
 	
 	public void applyAlphaValues(HashMap<String, String> alphVals)
 	{
@@ -879,34 +929,23 @@ public class SequentialFilter {
 	}
 	
 	public void resetTheseAlphaValues(List<String> toReset) {
+		
+		//TODO debugging
+		System.out.println("toReset[0] : "+toReset.get(0)+" { = "+localAlphSpecs.get(toReset.get(0))); 
+		
 		for (String reseti: toReset)
 		{	
 			localAlphSpecs.put(reseti, UNSET_ALPHVAL);
 			for (int pri : getPlaceRestrLocsWithAlpha(reseti))
 				placeRestrs.get(pri).resetAlphVal(reseti.charAt(0));
+			
 		}
+	
+		//TODO debugging
+		System.out.println(" now toReset[0] : "+toReset.get(0)+" { = "+localAlphSpecs.get(toReset.get(0))); 
 	}
 	
-	
-	public boolean has_unset_alphas()
-	{
-		if (!hasAlphaSpecs())	return false;
-		for (String spec : localAlphSpecs.values())
-			if (spec.equals(UNSET_ALPHVAL))	return true; 
-		
-		for (RestrictPhone pri : placeRestrs) //TODO this should be trivial, but for security do this too. 
-			if (pri.first_unset_alpha() != '0')	return true;
-		return false; 
-	}
-	
-	public boolean has_unset_paren_alphas()
-	{
-		if (!hasParenthesizedAlpha())	return false; 
-		for (String pa_i : parenthesizedAlphas)
-			if (!localAlphSpecs.get(pa_i).equals(UNSET_ALPHVAL))	return true; 
-		
-		return false;
-	}
+
 	
 	
 }

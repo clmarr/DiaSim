@@ -230,16 +230,8 @@ public class PhoneTester {
 		
 		System.out.println("----------------------");
 		
-		System.out.println("Now testing functionality of alpha feature handling within FeatMatrix, without any alpha feature specification...");
 
-		System.out.println("(no alpha feature specification, testing for errant detection thereof)"); 
-		System.out.println("The following should all be 'false':");
-		System.out.println("(has_alpha_specs()) "+nasalStop.has_alpha_specs());
-		System.out.println("(has_multispec_alpha()) "+nasalStop.has_multifeat_alpha()); 
-		System.out.println("The following should be '0': (first_unset_alpha())");
-		System.out.println(""+nasalStop.first_unset_alpha()); 
-		
-		System.out.println("For further testing of FeatMatrix with alpha features, use SChangeTester");
+		System.out.println("For further testing of FeatMatrix with alpha features, see AlphaTester (or if not incorporated yet, SChangeTester and SChangContextTester)");
 		
 		System.out.println("----------------------");
 		System.out.println("Now testing diacritic comprehension."); 

@@ -509,6 +509,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
 		
+		//TODO debugging
+		System.out.println("extracting from : "+inp.print());
+		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 			// "candidate feature vector"
@@ -566,7 +569,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{	return ""+localAlphabet;	}
 	
 	@Override
-	public List<String> getAlphaVars()	{	return Arrays.asList(localAlphabet.split(""));  	}
+	public List<String> getAlphaVars()	{	return localAlphabet.equals("") ? new ArrayList<String> ()  
+			: Arrays.asList(localAlphabet.split(""));  	}
 	
 	@Override
 	public String toString() 
