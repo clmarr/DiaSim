@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class AlphaTester {
@@ -136,35 +138,83 @@ public class AlphaTester {
 		SequentialFilter filtTester =  testFactory.parseNewSeqFilter("# [+back,astres] ([astres]) #", false);
 		pointTest(true, filtTester.hasAlphaSpecs(), 
 				"(@line "+getLineNumber()+") hasAlphaSpecs should be %c for this SeqFilt but it isn't"); 
+		pointTest("a", String.join(";", filtTester.getLocalAlphSpecs().keySet()), "(@line "+getLineNumber()+") alphas should include %c but detected { %o }"); 
+		pointTest("a", String.join(";", filtTester.getLocalAlphLocs().keySet()), "(@line "+getLineNumber()+") localAlphLocs keys should include %c but detected { %o }"); 
+		pointTest("1,3",
+				filtTester.getLocalAlphLocs().get("a"),
+				"(@line "+getLineNumber()+") a's locations should include %c but we see [ %o ]"); 
+		pointTest("1,2",
+				filtTester.getPlaceRestrLocsWithAlpha("a"), 
+				"(@line "+getLineNumber()+") a's locations in placeRestrs should include %c but we see [ %o ]"); 
+		
 		pointTest(true, filtTester.hasParenthesizedAlpha(), "(@line "+getLineNumber()+") hasParenthesizedAlpha should be %c but isn't"); 
 		pointTest("a", String.join(";", filtTester.getParenthesizedAlphas()), "(@line "+getLineNumber()+") parenthesized alphas should be just %c but detected %o"); 
+		pointTest(",a,,(a,,",
+				filtTester.getParenAlphaMap(),
+				"(@line "+getLineNumber()+") parenAlphaMap should be [ %c ] but it is [ %o ]"); 
+		pointTest(false, 
+				filtTester.alphaOnlyInParentheses("a"),
+				"(@line "+getLineNumber()+") a is not only stipulated in parenthesized locations, but it is errantly detected as such"); 
+		
 		
 		pointTest(true, filtTester.has_unset_alphas(), "(@line "+getLineNumber()+") errantly thought alphas prematurely set"); 
 		pointTest(true, filtTester.has_unset_paren_alphas(), "(@line "+getLineNumber()+") errantly thought parenthesized alphas prematurely set"); 
+		pointTest("["+SequentialFilter.UNSET_ALPHVAL+"]","["+String.join(",", filtTester.getLocalAlphSpecs().values())+"]",
+				"(@line "+getLineNumber()+") localAlphSpecs should be unset but instead we see %o"); 
 		
+		List<SequentialPhonic> shouldPass1 = testFactory.parseSeqPhSeg("# ɑ ɛ #"); 
+		List<SequentialPhonic> shouldPass2 = testFactory.parseSeqPhSeg("# u #"); 
+		List<SequentialPhonic> shouldPass3 = testFactory.parseSeqPhSeg("# ˈo #"); 
+		List<SequentialPhonic> shouldPass4 = testFactory.parseSeqPhSeg("# ˈo ˌa #"); 
 
-			// localAlphLocs
-			// getPlaceRestrLocsWithAlpha
-			// alphasOnlyInParentheses(String alph)
+		HashMap<String,String> extraction = (new FeatMatrix("+back,astres",featNames)).extractAndApplyAlphaValues(shouldPass1.get(1)); 
+		pointTest("a", String.join(",", extraction.keySet()), "should have extracted for alph feat a but instead we see : %o"); 
+		pointTest("0", extraction.get("a"), "extracted value should be %c but we see %o"); 
+		filtTester.applyAlphaValues(extraction);
+		pointTest(false, filtTester.has_unset_alphas(), "(@line "+getLineNumber()+") errantly thought alphas still unset after being applied"); 
+		pointTest(false, filtTester.has_unset_paren_alphas(), "(@line "+getLineNumber()+") errantly thought parenthesized alphas unset after being applied"); 
+		pointTest("[0]","["+String.join(",", filtTester.getLocalAlphSpecs().values())+"]",
+				"(@line "+getLineNumber()+") localAlphSpecs should be %c but instead we see %o"); 
 		
-			// before setting alphas ...  -- i.e. after initAlpha()
-				// localAlphSpecs
-			
-			// applyAlphaValues, then afterward ... 
-				// has_unset_alphas
-				// has_unset_paren_alphas
-				// localAlphSpecs values
+		filtTester.resetAllAlphaValues(); 
+		pointTest(true, filtTester.has_unset_alphas(), "(@line "+getLineNumber()+") errantly thought alphas set after being reset"); 
+		pointTest(true, filtTester.has_unset_paren_alphas(), "(@line "+getLineNumber()+") errantly thought parenthesized alphas set after being reset"); 
+		pointTest("["+SequentialFilter.UNSET_ALPHVAL+"]","["+String.join(",", filtTester.getLocalAlphSpecs().values())+"]",
+				"(@line "+getLineNumber()+") localAlphSpecs should be %c after reset but instead we see %o"); 
 		
-			// after resetAllAlphaValues
-				// has_unset_alphas
-				// has_unset_paren_alphas 
-				// localAlphSpecs values
+		extraction = filtTester.getPlaceRestrs().get(1).extractAndApplyAlphaValues(shouldPass4.get(1)); 
+		pointTest("a", String.join(",", extraction.keySet()), "should have extracted for alph feat a but instead we see : %o"); 
+		pointTest("2", extraction.get("a"), "extracted value should be %c but we see %o"); 
+		filtTester.applyAlphaValues(extraction);
+		pointTest(false, filtTester.has_unset_alphas(), "(@line "+getLineNumber()+") errantly thought alphas still unset after being applied"); 
+		pointTest(false, filtTester.has_unset_paren_alphas(), "(@line "+getLineNumber()+") errantly thought parenthesized alphas unset after being applied"); 
+		pointTest("[2]","["+String.join(",", filtTester.getLocalAlphSpecs().values())+"]",
+				"(@line "+getLineNumber()+") localAlphSpecs should be %c but instead we see %o"); 
+		filtTester.resetTheseAlphaValues(Arrays.asList(new String[] {"a"})); 
+		pointTest(true, filtTester.has_unset_alphas(), "(@line "+getLineNumber()+") errantly thought alphas set after being reset"); 
+		pointTest(true, filtTester.has_unset_paren_alphas(), "(@line "+getLineNumber()+") errantly thought parenthesized alphas set after being reset"); 
+		pointTest("["+SequentialFilter.UNSET_ALPHVAL+"]","["+String.join(",", filtTester.getLocalAlphSpecs().values())+"]",
+				"(@line "+getLineNumber()+") localAlphSpecs should be %c after reset but instead we see %o"); 
 		
-			// after resetTheseAlphaValues
-				// has_unset_alphas
-				// has_unset_paren_alphas 
-				// localAlphSpecs values
+		filtCheckCheck(filtTester, shouldPass1, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass2, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass3, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass4, true, getLineNumber()); 
 		
+		List<SequentialPhonic> shouldFail1 = testFactory.parseSeqPhSeg("u b u #"); 
+		List<SequentialPhonic> shouldFail2 = testFactory.parseSeqPhSeg("# u ˈa #"); 
+		List<SequentialPhonic> shouldFail3 = testFactory.parseSeqPhSeg("# i #"); 
+		List<SequentialPhonic> shouldFail4 = testFactory.parseSeqPhSeg("# u"); 
+		List<SequentialPhonic> shouldFail5 = testFactory.parseSeqPhSeg("# ˈu o #"); 
+		
+		filtCheckCheck(filtTester, shouldFail1, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail2, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail3, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail4, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail5, false, getLineNumber()); 
+
+
+		// using shouldPass# variables... 
 			// filtCheck
 			// filtCheckHelper
 		concludeTestBatch(); 
@@ -179,6 +229,13 @@ public class AlphaTester {
 		numCorrect = 0; totalChecks = 0; 
 	}
 
+	private static void filtCheckCheck(SequentialFilter filt, List<SequentialPhonic> candidate, boolean passable, int ln)
+	{
+		pointTest(passable, 
+				filt.filtCheck(candidate, true),
+				"(@line "+ln+") "+UTILS.printWord(candidate)+" should "+(passable ? "pass" : "fail")+" but it doesn't."); 
+	}
+	
 	// string equation vsn. 
 	private static void pointTest(String corr, String obs, String msg) 
 	{
@@ -192,6 +249,33 @@ public class AlphaTester {
 		numCorrect += UTILS.checkBoolean(corr, obs, UTILS.errorMessage(""+corr, ""+obs, msg))
 				? 1 : 0;	
 	}
+	private static void pointTest(List<Integer> corr, List<Integer> obs, String msg)
+	{	pointTest(corr.toArray(), obs.toArray(), msg); }
+	private static void pointTest(String corr, List<Integer> obs, String msg) // corr format [#,#,# ..]
+	{	
+		String[] corr_spl = corr.split(","); 
+		
+		List<Integer> corrToPass = new ArrayList<Integer>(); 
+		for (int csi = 0 ; csi < corr_spl.length; csi++) 
+			corrToPass.add(Integer.parseInt(corr_spl[csi])); 
+		pointTest(corrToPass, obs, msg); }
+	
+	// @corr format: cellA,cellB... 
+	private static void pointTest(String corr, String[] obs, String msg)
+	{	pointTest("["+corr+"]", "["+String.join(",", obs)+"]", msg); 	}
+	
+	private static void pointTest(Object[] corr, Object[] obs, String msg)
+	{	pointTest("["+UTILS.print1dArr(corr)+"]", "["+UTILS.print1dArr(obs)+"]", msg); 	}
+	private static void pointTest(int[] corr, int[] obs, String msg)
+	{	pointTest("["+UTILS.print1dIntArr(corr)+"]", "["+UTILS.print1dIntArr(obs)+"]", msg); 	}
+	// corr format: #,# 
+	private static void pointTest(String corr, int[] obs, String msg)
+	{	String[] corr_spl = corr.split(","); 
+		
+		int[] corrToPass = new int[corr_spl.length]; 
+		for (int csi = 0 ; csi < corr_spl.length; csi++) corrToPass[csi] = Integer.parseInt(corr_spl[csi]); 
+	
+		pointTest(corrToPass, obs, msg); }
 	
 	public static int getLineNumber() {
 	    return Thread.currentThread().getStackTrace()[2].getLineNumber();

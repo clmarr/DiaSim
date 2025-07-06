@@ -746,6 +746,14 @@ public class UTILS {
 
 	}
 	
+	public static String print1dArr(Object[] a)
+	{
+		if (a.length == 0)	return "[empty array]"; 
+		String out = ""; 
+		for (Object ai : a)	out += ""+ai+","; 
+		return out.substring(0, out.length()-1);
+	}
+	
 	public static String print1dIntArr(int[] a)
 	{
 		if (a.length == 0)	return "[empty array]"; 

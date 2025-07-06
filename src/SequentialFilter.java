@@ -855,6 +855,7 @@ public class SequentialFilter {
 	public void initAlpha()
 	{
 		parenAlphaMap = new String[parenMap.length]; 
+		
 		int parenDepth = 0; 
 		
 		localAlphSpecs = new HashMap<String,String>(); 
@@ -863,6 +864,7 @@ public class SequentialFilter {
 		
 		for (int pmi = 0 ; pmi < parenMap.length; pmi++)
 		{
+			parenAlphaMap[pmi] = ""; 	//bc it inits as null in Java, annoyingly...
 			if (parenMap[pmi].contains("("))
 			{	parenDepth++; continue; 	}
 			if (parenMap[pmi].contains(")"))
@@ -875,7 +877,7 @@ public class SequentialFilter {
 			// if go past this point, there must be alph specs. 
 			
 			List<String> localAlphs = pr.getAlphaVars(); 
-
+			
 			if (parenDepth > 0) {
 				parenAlphaMap[pmi] += "("; 
 				for (String loc_alph_i : localAlphs)
@@ -883,6 +885,8 @@ public class SequentialFilter {
 			}
 			
 			parenAlphaMap[pmi] += String.join(ALPH_DELIM+"", localAlphs); 
+			if (parenAlphaMap[pmi].charAt(parenAlphaMap[pmi].length()-1) == ALPH_DELIM)	parenAlphaMap[pmi] = parenAlphaMap[pmi].substring(0, parenAlphaMap[pmi].length()-1);  
+			
 			for (String lai : localAlphs)
 			{
 				if (!localAlphSpecs.containsKey(lai))
