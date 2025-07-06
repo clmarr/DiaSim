@@ -1148,6 +1148,7 @@ public class UTILS {
 	}	
 	
 	/**
+	 * TODO will need to adjust this once negative alphas implemented.
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) is assigned an alpha value. 
 	 * @param spec is the string form of the feature specification. */ 
 	public static boolean spec_is_alpha_marked(String spec)

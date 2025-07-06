@@ -204,7 +204,7 @@ public class AlphaTester {
 		List<SequentialPhonic> shouldFail1 = testFactory.parseSeqPhSeg("u b u #"); 
 		List<SequentialPhonic> shouldFail2 = testFactory.parseSeqPhSeg("# u ˈa #"); 
 		List<SequentialPhonic> shouldFail3 = testFactory.parseSeqPhSeg("# i #"); 
-		List<SequentialPhonic> shouldFail4 = testFactory.parseSeqPhSeg("# u"); 
+		List<SequentialPhonic> shouldFail4 = testFactory.parseSeqPhSeg("# u ˈa"); 
 		List<SequentialPhonic> shouldFail5 = testFactory.parseSeqPhSeg("# ˈu o #"); 
 		
 		filtCheckCheck(filtTester, shouldFail1, false, getLineNumber()); 

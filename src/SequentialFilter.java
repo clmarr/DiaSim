@@ -288,8 +288,11 @@ public class SequentialFilter {
 			return false; 
 		}
 	
+		//TODO debugging
+		System.out.println(" cand size "+prCand.size()+" min size "+minSize); 
+		
 		//if we're here, we have local alphas to deal with... 
-		for (int matchStart = 0; matchStart < prCand.size() - minSize ; matchStart ++ ) // cpic is starting index
+		for (int matchStart = 0; matchStart <= prCand.size() - minSize ; matchStart ++ ) // cpic is starting index
 		{
 			//TODO debugging
 			System.out.println("match start"); 
@@ -301,11 +304,18 @@ public class SequentialFilter {
 					backwards) ; 
 			if (success) 
 			{
+				//TODO debugging
+				System.out.println("successǃ "); 
+				
 				if (resetAfterMatch)	resetTheseAlphaValues(internAlphs);
 				return true; 
 			} 
 			resetTheseAlphaValues(internAlphs);
 		}
+		
+		//TODO debugging
+		System.out.println("failure!"); 
+		
 		return false;
 	}
 	
@@ -406,7 +416,7 @@ public class SequentialFilter {
 				//^ keyset of which will be reset in case of failure. 
 			
 			//TODO debugging
-			System.out.println("extract  : "+String.join(",", alphExtract.values())); 
+			System.out.println("extract : "+String.join(",", alphExtract.values())); 
 			
 			applyAlphaValues(alphExtract); 
 			

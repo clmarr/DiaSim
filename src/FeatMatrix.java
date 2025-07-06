@@ -287,12 +287,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * using @init_chArr to locate it within @featVect
 	 */
 	public void resetAlphVal (char alph) {
-		for (int ichri = 0 ; ichri < init_chArr.length ; ichri++)
-			if (init_chArr[ichri] == alph)
-				featVect = featVect.substring(0,ichri) + alph + featVect.substring(ichri+1); 
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
 			if (initSpecs.charAt(ispi) == alph)
 				featSpecs = featSpecs.substring(0,ispi) + alph + featSpecs.substring(ispi+1);
+		
+		// doing it this way in order to preserve implications... 
+		featVect = new String(init_chArr);
+		for (String featspec : featSpecs.split(","))
+			if (!UTILS.spec_is_alpha_marked(featspec))
+				apply_value(featspec.substring(0,1), featspec.substring(1),false); 
 	}
 	
 	private char toSurfVal(char i)
@@ -510,7 +513,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
 		
 		//TODO debugging
-		System.out.println("extracting from : "+inp.print());
+		System.out.println("init chArr "+String.copyValueOf(init_chArr));
+		System.out.println("feat vect  "+featVect); 
+		System.out.println("length "+featVect.length()); 
+		
+		System.out.println("extracting from : "+inp.print()+"; feats "+UTILS.spellOutFeatVect(inp.toString().split(":")[1]));//+"\nfor local "+UTILS.spellOutFeatVect(featVect)));
 		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
