@@ -512,13 +512,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	{
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
 		
-		//TODO debugging
-		System.out.println("init chArr "+String.copyValueOf(init_chArr));
-		System.out.println("feat vect  "+featVect); 
-		System.out.println("length "+featVect.length()); 
-		
-		System.out.println("extracting from : "+inp.print()+"; feats "+UTILS.spellOutFeatVect(inp.toString().split(":")[1]));//+"\nfor local "+UTILS.spellOutFeatVect(featVect)));
-		
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 			// "candidate feature vector"

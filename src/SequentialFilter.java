@@ -265,9 +265,6 @@ public class SequentialFilter {
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch, boolean backwards ) {	
 		
-		//TODO debugging
-		System.out.println("checking for sequence: "+UTILS.printWord(prCand)); 
-		
 		//alphs that will be set and reset within this method's recursion. 
 		List<String> internAlphs = new ArrayList<String>(); 
 		for (String alphi : localAlphSpecs.keySet())
@@ -288,15 +285,9 @@ public class SequentialFilter {
 			return false; 
 		}
 	
-		//TODO debugging
-		System.out.println(" cand size "+prCand.size()+" min size "+minSize); 
-		
 		//if we're here, we have local alphas to deal with... 
 		for (int matchStart = 0; matchStart <= prCand.size() - minSize ; matchStart ++ ) // cpic is starting index
 		{
-			//TODO debugging
-			System.out.println("match start"); 
-			
 			boolean success =  filtCheckHelper ( 
 					new ArrayList<SequentialPhonic>( backwards ? prCand.subList(0, prCand.size() - matchStart) : prCand.subList(matchStart, prCand.size())), 
 					backwards ? placeRestrs.size() - 1 : 0 , 
@@ -304,17 +295,11 @@ public class SequentialFilter {
 					backwards) ; 
 			if (success) 
 			{
-				//TODO debugging
-				System.out.println("successǃ "); 
-				
 				if (resetAfterMatch)	resetTheseAlphaValues(internAlphs);
 				return true; 
 			} 
 			resetTheseAlphaValues(internAlphs);
 		}
-		
-		//TODO debugging
-		System.out.println("failure!"); 
 		
 		return false;
 	}
@@ -336,10 +321,6 @@ public class SequentialFilter {
 	// TODO is alphsToSetWithin even necessary? 	
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
 	{
-		//TODO debugging 
-		System.out.println("candidate: "+UTILS.printWord(prCandLeft)+
-				"; crp "+placeRestrLoc+"; cpim "+parenMapLoc); 
-		
 		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
 				: (placeRestrLoc <= placeRestrs.size() && parenMapLoc <= parenMap.length): 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
@@ -347,7 +328,6 @@ public class SequentialFilter {
 		// if reached end of placeRestrs -- good chance filter is passed!
 		if (backward ? placeRestrLoc == -1 : placeRestrLoc == placeRestrs.size())	
 			return true; 
-				
 		// if somehow exhausted parenmap without exhausting placeRestrs (which would trigger the above) --  must be structure storing error
 		if (backward ? parenMapLoc == -1 : parenMapLoc == parenMap.length)	
 			throw new Error("Reached end of parenMap but still iterating in placeRestrs (@"+placeRestrLoc+"/"+placeRestrs.size()+") -- must be error!");
@@ -362,29 +342,45 @@ public class SequentialFilter {
 			int nextPMspot = pairedParenLoc(parenMapLoc) + incr;
 			// if would advance to end -- true. 
 			if (backward ? nextPMspot < 0 : nextPMspot == parenMap.length) 	return true; 
-			if (filtCheckHelper(prCandLeft, Integer.parseInt(parenMap[nextPMspot].substring(1)), nextPMspot, backward))
+			
+			boolean nextSpotIsOpeningParen = 
+					parenMap[nextPMspot].contains(")(".charAt(backward ? 0 : 1)+""); 
+			
+			if (filtCheckHelper(prCandLeft, nextSpotIsOpeningParen ? placeRestrLoc : Integer.parseInt(parenMap[nextPMspot].substring(1)), nextPMspot, backward))
 				return true; 
 			
-			//if minimum possible places would exceed material we have left to match to, then don't entter paren -- return match failure instead
+			nextPMspot = parenMapLoc + incr; 
+			nextSpotIsOpeningParen =  parenMap[nextPMspot].contains(")(".charAt(backward ? 0 : 1)+"");
+
+			//if minimum possible places would exceed material we have left to match to, then don't enter paren -- return match failure instead
 			if (getMinParenSegments(parenMapLoc) > prCandLeft.size() )	// don't restrict based on placeRestrs, bc could recurse in that too. 
 				return false; 
 			
-			//enter paren: 
-			else return filtCheckHelper(prCandLeft, placeRestrLoc, parenMapLoc + incr, backward); 
+			//enter paren. 
+			else return filtCheckHelper(prCandLeft, nextSpotIsOpeningParen ? placeRestrLoc : Integer.parseInt(parenMap[parenMapLoc+incr].substring(1)), nextPMspot, backward); 
 		}
 		
 		// at closing paren: 
 		if (backward ? PMcell.contains("(") : PMcell.contains(")"))
 		{
 			// if can advance, do so  -- and its all we do unless it's a ()+ or ()* paren
+			int nextPMspot = parenMapLoc + incr; 
+			boolean nextSpotIsOpeningParen = 
+					parenMap[nextPMspot].contains(")(".charAt(backward ? 0 : 1)+""); 
+			
+			
 			if (filtCheckHelper(prCandLeft, placeRestrLoc, parenMapLoc + incr, backward))
 				return true; 
 			
-			int nextPMspot = pairedParenLoc(parenMapLoc) + incr; 
+			nextPMspot = pairedParenLoc(parenMapLoc) + incr; 
+			nextSpotIsOpeningParen = 
+					parenMap[nextPMspot].contains(")(".charAt(backward ? 0 : 1)+""); 
 			if (PMcell.contains("*") || PMcell.contains("+")) //recurse if you can otherwise. 
 				return  
 					getMinParenSegments(parenMapLoc) > prCandLeft.size() ? false :
-						filtCheckHelper(prCandLeft, Integer.parseInt(parenMap[nextPMspot].substring(1)), nextPMspot, backward); 
+						filtCheckHelper(prCandLeft, 
+								nextSpotIsOpeningParen ? placeRestrLoc : Integer.parseInt(parenMap[nextPMspot].substring(1)), 
+								nextPMspot, backward); 
 		}
 
 		// now we know were not at a paren. 
@@ -408,15 +404,9 @@ public class SequentialFilter {
 			if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreAlpha(cpi))	
 				return false; 
 			
-			//TODO debugging
-			System.out.println("rpi first unset was "+rpi.first_unset_alpha()+"; compare " +rpi.toString()+ " preAlpha : "+ rpi.comparePreAlpha(cpi)); 
-			
 			// if reached here, going to have to extract and apply alpha values 
 			HashMap<String,String> alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
 				//^ keyset of which will be reset in case of failure. 
-			
-			//TODO debugging
-			System.out.println("extract : "+String.join(",", alphExtract.values())); 
 			
 			applyAlphaValues(alphExtract); 
 			
@@ -709,7 +699,7 @@ public class SequentialFilter {
 	 * @prerequisite thisParenLoc indexes a cell in parenMap that actually has a parenthesis. 
 	 */
 	public int pairedParenLoc(int thisParenLoc)
-	{
+	{	
 		String contents = parenMap[thisParenLoc].split(":")[1]; 
 		return Integer.parseInt(contents.contains(",") ? contents.split(",")[0] : contents); 
 	}
@@ -944,9 +934,6 @@ public class SequentialFilter {
 	
 	public void resetTheseAlphaValues(List<String> toReset) {
 		
-		//TODO debugging
-		System.out.println("toReset[0] : "+toReset.get(0)+" { = "+localAlphSpecs.get(toReset.get(0))); 
-		
 		for (String reseti: toReset)
 		{	
 			localAlphSpecs.put(reseti, UNSET_ALPHVAL);
@@ -955,8 +942,6 @@ public class SequentialFilter {
 			
 		}
 	
-		//TODO debugging
-		System.out.println(" now toReset[0] : "+toReset.get(0)+" { = "+localAlphSpecs.get(toReset.get(0))); 
 	}
 	
 
