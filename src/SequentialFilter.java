@@ -267,9 +267,6 @@ public class SequentialFilter {
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch, boolean backwards ) {	
 		
-		//TODO debugging
-		System.out.println("--------\ntesting : "+UTILS.printWord(prCand));
-		
 		//alphs that will be set and reset within this method's recursion. 
 		List<String> internAlphs = new ArrayList<String>(); 
 		for (String alphi : localAlphSpecs.keySet())
@@ -327,12 +324,6 @@ public class SequentialFilter {
 	// TODO is alphsToSetWithin even necessary? 	
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward, int lineCall)
 	{
-		//TODO debugging
-		System.out.println("line call @"+lineCall+"; candLeft "+UTILS.printWord(prCandLeft)+"; pr "+placeRestrLoc+"; pml "+parenMapLoc); 
-		System.out.print("Current alpha specs-- ");
-		for (String k : localAlphSpecs.keySet())	System.out.print(k+":"+localAlphSpecs.get(k)+" "); 
-		System.out.println("");
-		
 		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
 				: (placeRestrLoc <= placeRestrs.size() && parenMapLoc <= parenMap.length): 
 			"Error in call to isPosteriorMatchHelper -- at least one of the counter params was way too high";
@@ -428,21 +419,9 @@ public class SequentialFilter {
 			if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreUnsetAlpha(cpi))	
 				return false; 
 			
-			//TODO debugging
-			System.out.println("call was ...");
-			//TODO debugging
-			System.out.println("line call @"+lineCall+"; candLeft "+UTILS.printWord(prCandLeft)+"; pr "+placeRestrLoc+"; pml "+parenMapLoc); 
-			System.out.print("Current alpha specs-- ");
-			for (String k : localAlphSpecs.keySet())	System.out.print(k+":"+localAlphSpecs.get(k)+" "); 
-			System.out.println("");
-			System.out.println("rpi "+rpi+"; cpi "+cpi.print()); 
-			
 			// if reached here, going to have to extract and apply alpha values 
 			HashMap<String,String> alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
 				//^ keyset of which will be reset in case of failure. 
-			
-			//TODO debugging
-			System.out.println("extract : "+ String.join(",",alphExtract.keySet())); 
 			
 			applyAlphaValues(alphExtract); 
 			
@@ -459,12 +438,10 @@ public class SequentialFilter {
 			else return true; 
 		}
 		else { 
-			//TODO debugging
 			int nextPMspot = parenMapLoc + incr; 
 			int nextPRspot = nextPMspot == parenMap.length ? placeRestrLoc + incr 
 					: parenMap[nextPMspot].contains(")") || parenMap[nextPMspot].contains("(") ? placeRestrLoc : Integer.parseInt(parenMap[nextPMspot].substring(1)); 
 
-			System.out.println("non alpha scenario with candLeft "+UTILS.printWord(prCandLeft)+"; pr "+placeRestrLoc+"; pml "+parenMapLoc); 			
 			return rpi.compare(cpi) == false ? false 
 				: filtCheckHelper (candRemainder, nextPRspot, nextPMspot, backward,AlphaTester.getLineNumber()); 
 		}
