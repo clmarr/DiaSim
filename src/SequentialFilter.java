@@ -789,7 +789,7 @@ public class SequentialFilter {
 	 */
 	public boolean alphaOnlyInParentheses(String alph)
 	{
-		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an existent alpha ("+alph+")is only parenthetical"); 
+		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an inexistent alpha ("+alph+")is only parenthetical"); 
 		if (!parenthesizedAlphas.contains(alph))	return false; 
 		
 		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
@@ -799,6 +799,69 @@ public class SequentialFilter {
 		}
 		return true; 
 	}
+	
+	/**
+	 * @param parenBoundLoc -- location in parenMap of parenthesis opener or closer. 
+	 * @return list of alphas in the SequentialFilter that exist only in this parenthesis
+	 * 		which will be @reset when it is exited!
+	 * @else return @empty list
+	 */
+	public List<String> parenthesisLocalAlphas(int parenBoundLoc)
+	{
+		if (parenBoundLoc < 0 || parenBoundLoc >= parenMap.length) 
+			throw new Error("Error: tried to check for parenthesis-local alpha at an index out of the range of parenMap"); 
+		if (!parenMap[parenBoundLoc].contains("(") && !parenMap[parenBoundLoc].contains(")"))
+			throw new Error("Error: tried to check for parenthesis-local alpha at an index that isn't a parenthesis bound."); 
+		
+		ArrayList<String> out = new ArrayList<String>(); 
+		int iterationEndpoint = pairedParenLoc(parenBoundLoc); 
+		int increment = parenBoundLoc < iterationEndpoint ? 1 : -1; 
+		
+		// fill possibilities
+		int currLoc = parenBoundLoc + increment; 
+		while (currLoc != iterationEndpoint)
+		{
+			if (!parenMap[currLoc].contains("(") && !parenMap[currLoc].contains(")"))
+			{
+				String[] alphsHere = parenAlphaMap[currLoc].replace("(", "").split(ALPH_DELIM+""); 
+				for (String ahi: alphsHere)
+					if (!out.contains(ahi))	out.add(ahi); 
+				currLoc += increment; 
+			}
+			else /* paren loc*/	currLoc = pairedParenLoc(currLoc) + increment; 
+		}
+		
+		if (out.size() == 0)	return out; 
+		
+		// remove if they're elsewhere, except in a subsumed parenthesis
+		currLoc = 0; 
+		while (currLoc < Math.min(iterationEndpoint, parenBoundLoc))
+		{
+			// increments currLoc("++") -- don't miss this when debugging!
+			String contentHere = parenAlphaMap[currLoc++].replace("(", ""); 
+			if (contentHere.length() > 0) 
+				for (int oalphj = out.size() - 1; oalphj >= 0 ; oalphj--)
+					if (contentHere.contains(out.get(oalphj)))
+						out.remove(oalphj); 
+		}
+		
+		if (out.size() == 0)	return out; 
+
+		currLoc = Math.max(iterationEndpoint, parenBoundLoc); 
+		
+		while(currLoc < parenAlphaMap.length)
+		{
+				// increments currLoc("++") -- don't miss this when debugging!
+			String contentHere = parenAlphaMap[currLoc++].replace("(", ""); 
+			if (contentHere.length() > 0) 
+				for (int oalphj = out.size() - 1; oalphj >= 0 ; oalphj--)
+					if (contentHere.contains(out.get(oalphj)))
+						out.remove(oalphj); 
+		}
+		
+		return out;
+	}
+	
 	
 	public List<Integer> getPlaceRestrLocsWithAlpha(char alph)	{	return getPlaceRestrLocsWithAlpha(alph+""); 	}
 	public List<Integer> getPlaceRestrLocsWithAlpha(String alphsymb)

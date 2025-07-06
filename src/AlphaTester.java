@@ -218,6 +218,15 @@ public class AlphaTester {
 			// filtCheck
 			// filtCheckHelper
 		concludeTestBatch(); 
+		
+		initTestBatch();
+		System.out.println("Testing parenthesisLocalAlphas..."); 
+		filtTester =  testFactory.parseNewSeqFilter("[astres,+syl] ([acons,bround] [bround,chi,dcor] ([chi,flab,fround])) @ ([dcor,elat,econt])* m #", true); 
+		pointTest("b,c", String.join(",", filtTester.parenthesisLocalAlphas(1)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(4)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(6)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("e", String.join(",", filtTester.parenthesisLocalAlphas(9)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		concludeTestBatch(); 
 
 	}
 	
