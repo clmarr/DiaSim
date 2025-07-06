@@ -136,7 +136,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			if (!phHere.getType().equals("phone"))	
 			{	if(!phHere.print().equals(targSource.print()))	return false;	}
 			else if (targSource.check_for_alpha_conflict(phHere))	return false;
-			else if (!targSource.comparePreAlpha(phHere))	return false;
+			else if (!targSource.comparePreUnsetAlpha(phHere))	return false;
 			else 
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
@@ -178,7 +178,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							//check also for conflict between the restriction on this prior place and the phone there,
 								// in matters OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!pri.comparePreAlpha(cpi))	{
+							if (!pri.comparePreUnsetAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}
@@ -231,7 +231,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							//check also for conflict between restriction and observed context phone 
 							// wrt features OUTSIDE the alpha values and return false if so
 								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!poi.comparePreAlpha(cpi))	{
+							if (!poi.comparePreUnsetAlpha(cpi))	{
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}

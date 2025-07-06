@@ -5,7 +5,7 @@ public interface RestrictPhone{
 	public String print(); 
 	public boolean compare(List<SequentialPhonic> phonSeg, int ind);
 	public boolean compare(SequentialPhonic candPh);
-	public boolean comparePreAlpha(SequentialPhonic candPh); 
+	public boolean comparePreUnsetAlpha(SequentialPhonic candPh); 
 		// to compare before alpha values are extracted
 		// relevant for FeatMatrix instances
 		// returns false if non-alpha specified feature stipulations are not true for the candidate Seqph

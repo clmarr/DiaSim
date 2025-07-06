@@ -59,7 +59,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 				else if (test.first_unset_alpha() != '0')
 				{
 					if(test.check_for_alpha_conflict(cand)) targMatchFail = true;
-					else if (!test.comparePreAlpha(cand))	targMatchFail = true; 
+					else if (!test.comparePreUnsetAlpha(cand))	targMatchFail = true; 
 					else
 					{
 						HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
@@ -106,7 +106,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 										halt = true; 
 										priorPossible = false; 
 									}
-									else if (!pri.comparePreAlpha(cpi))	
+									else if (!pri.comparePreUnsetAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
 										halt = true; 
@@ -160,7 +160,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 											halt = true; 
 											postrPossible = false; 
 										}
-										else if (!poi.comparePreAlpha(cpi))	
+										else if (!poi.comparePreUnsetAlpha(cpi))	
 										{	//check also for conflict OUTSIDE the alpha values and return false if so
 												// as that will cause a downstream UnsetAlphaException otherwise
 											halt = true; 

@@ -221,11 +221,46 @@ public class AlphaTester {
 		
 		initTestBatch();
 		System.out.println("Testing parenthesisLocalAlphas..."); 
-		filtTester =  testFactory.parseNewSeqFilter("[astres,+syl] ([acons,bround] [bround,chi,dcor] ([chi,flab,fround])) @ ([dcor,elat,econt])* m #", true); 
-		pointTest("b,c", String.join(",", filtTester.parenthesisLocalAlphas(1)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
-		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(4)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
-		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(6)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
-		pointTest("e", String.join(",", filtTester.parenthesisLocalAlphas(9)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		filtTester =  testFactory.parseNewSeqFilter("# [astres,+syl,dhi] ([acons,bround] [bround,chi] ([chi,flab,fround])) @ ([dcor,elat,econt])* m #", true); 
+		pointTest("b,c", String.join(",", filtTester.parenthesisLocalAlphas(2)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("b,c", String.join(",", filtTester.parenthesisLocalAlphas(8)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(5)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("f", String.join(",", filtTester.parenthesisLocalAlphas(7)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("e", String.join(",", filtTester.parenthesisLocalAlphas(10)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		pointTest("e", String.join(",", filtTester.parenthesisLocalAlphas(12)), "(@line "+getLineNumber()+") local parens here should be %c but we get %o");
+		
+		shouldPass1 = testFactory.parseSeqPhSeg("# ˈa kʷ w a p k m #"); 
+		shouldPass2 = testFactory.parseSeqPhSeg("# ˈa kʷ w i a p k m #"); 
+		shouldPass3 = testFactory.parseSeqPhSeg("# a ɥ w a p k m #"); 
+		List<SequentialPhonic> shouldFail0 = testFactory.parseSeqPhSeg("# ˈa kʷ w a p k a m # ");
+		shouldFail1 = testFactory.parseSeqPhSeg("# ˈa kʷ w a p k m"); 
+		shouldFail2 = testFactory.parseSeqPhSeg("# a kʷ w a p k m #");
+		shouldFail3 = testFactory.parseSeqPhSeg("# ˈa k w a p k m #");
+		shouldFail4 = testFactory.parseSeqPhSeg("# ˈa kʷ w a p t m #"); 
+		shouldPass4 = testFactory.parseSeqPhSeg("# ˈu t r e a l ɾ l m #"); 
+		shouldFail5 = testFactory.parseSeqPhSeg("# ˈu t r e a l s l m #"); 
+		List<SequentialPhonic> shouldFail6 = testFactory.parseSeqPhSeg("# ˈu t r b a l ɾ l m #"); 
+		List<SequentialPhonic> shouldPass6 = testFactory.parseSeqPhSeg("# ˈu t r b # a l m #"); 
+
+
+		filtCheckCheck(filtTester, shouldPass1, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass2, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass3, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass4, true, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldPass6, true, getLineNumber()); 
+
+		filtCheckCheck(filtTester, shouldFail0, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail1, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail2, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail3, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail4, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail5, false, getLineNumber()); 
+		filtCheckCheck(filtTester, shouldFail6, false, getLineNumber());
+		filtCheckCheck(filtTester, testFactory.parseSeqPhSeg("ˈa kʷ w a p k a a a a a m # "), false, getLineNumber());
+		
+
+
+		
 		concludeTestBatch(); 
 
 	}

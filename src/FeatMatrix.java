@@ -157,8 +157,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * checks if @param cand adheres to restrictions @except those that are @alpha values
 	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas,
 	 *  currently in terms of alpha values embedded in contexts (not source phones). 
+	 *  as of @2025 -- no longer opearting through init_chArr but now via featspecs,
+	 *  	becuase sometimes some alphas are filled and others are not. 
 	 */
-	public boolean comparePreAlpha(SequentialPhonic cand)
+	public boolean comparePreUnsetAlpha(SequentialPhonic cand)
 	{
 		if (!cand.getType().equals("phone"))
 			return false; 
@@ -169,7 +171,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		for (int i = 0 ; i < candFeats.length(); i++)
 		{
-			String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
+			// abrogated 2025 -- String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
+			String restr = featVect.substring(i,i+1); 
 			String cand_feat = candFeats.substring(i, i+1); 
 			if ("02".contains(restr) && !restr.equals(cand_feat))
 					return false;
@@ -290,9 +293,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
 			if (initSpecs.charAt(ispi) == alph)
 				featSpecs = featSpecs.substring(0,ispi) + alph + featSpecs.substring(ispi+1);
-		
+
 		// doing it this way in order to preserve implications... 
 		featVect = new String(init_chArr);
+	
 		for (String featspec : featSpecs.split(","))
 			if (!UTILS.spec_is_alpha_marked(featspec))
 				apply_value(featspec.substring(0,1), featspec.substring(1),false); 
@@ -325,13 +329,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	private void apply_value(String value, String feature, boolean via_impl)
 	{
 		int aff_ind = ordFeats.indexOf(feature);
-			
-		if (featVect.charAt(aff_ind) != '1')	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
+		
+		boolean alphaResetOverride = UTILS.spec_is_alpha_marked(featVect.charAt(aff_ind)+feature) && featSpecs.contains(value+feature); 
+			// to overrule the below in cases of partial alpha reset. 
+		
+		if (featVect.charAt(aff_ind) != '1' && !alphaResetOverride)	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
 		featVect = featVect.substring(0, aff_ind) + fromSurfVal(value.charAt(0)) + featVect.substring(aff_ind+1); 
 		
-		if (!via_impl) // if it's not via implication 
+		if (!via_impl && !alphaResetOverride) // if it's not via implication 
 		{	
-			if (featSpecs.contains(feature))
+			if (featSpecs.contains(feature) )
 				System.out.println("Likely error: tried to modify featSpecs for specification of feature "+feature+", but it was already there. Continuing, but you may wish to examine this..."); 
 			else	featSpecs += FEAT_DELIM + value + feature;  
 		}

@@ -22,7 +22,7 @@ public class NullPhone extends PseudoPhone {
 	//see above. 
 	public boolean compare(SequentialPhonic phon)	{	return true;	}
 	
-	public boolean comparePreAlpha (SequentialPhonic phon)
+	public boolean comparePreUnsetAlpha (SequentialPhonic phon)
 	{	return compare(phon);	}
 	
 	public List<SequentialPhonic> forceTruth(List<SequentialPhonic> patSeq, int ind)
