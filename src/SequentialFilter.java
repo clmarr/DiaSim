@@ -322,6 +322,8 @@ public class SequentialFilter {
 	 * @return
 	 */
 	// TODO is alphsToSetWithin even necessary? 	
+	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
+	{	return filtCheckHelper(prCandLeft,placeRestrLoc,parenMapLoc,backward,-1); 	}
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward, int lineCall)
 	{
 		assert backward ? placeRestrLoc >= -1 && parenMapLoc >=  -1
