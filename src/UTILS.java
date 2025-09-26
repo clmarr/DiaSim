@@ -1125,7 +1125,7 @@ public class UTILS {
 	public static void abortIllegalAlphaSpec(String inp) 
 	{	
 		inp = inp.replace(" ",""); 
-		if ((""+MARK_POS+MARK_NEG+MARK_UNSPEC).contains(inp.substring(0,1)))
+		if (FEATSPEC_MARKS.contains(inp.substring(0,1)))
 			inp = inp.substring(1); 
 		if (!ordFeatNames.contains(inp.substring(1))
 				|| ILLEGAL_ALPHAS.contains(inp.charAt(0)+""))
@@ -1174,7 +1174,6 @@ public class UTILS {
 	{
 		String spec = fspec.replace(" ", ""); 
 		abortMidgetFeatSpec(spec); 
-		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 		if ((""+MARK_NEG+MARK_UNSPEC).contains(spec.substring(0,1)))
 			return false; 
 		if (spec.charAt(0) == MARK_POS)
@@ -1192,9 +1191,9 @@ public class UTILS {
 	 * @return @true iff it is an alpha feature preposed in a certain way (+, -, 0)- - 
 	 * 	e.g. '-' + alpha character + feature -- meaning the character at 1 is the alpha value.
 	 */
-	public static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
+	private static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
 	{
-		if (!(""+MARK_NEG+MARK_POS+MARK_UNSPEC).contains(prep+""))	
+		if (!FEATSPEC_MARKS.contains(prep+""))	
 			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 
 		String spec = fspec.replace(" ", ""); 
 		abortMidgetFeatSpec(spec); 
@@ -1230,6 +1229,33 @@ public class UTILS {
 					+ "\n(Should be : '"+MARK_NEG+"' + alph var + a valid feature'...)"); 
 		
 		return fspec.charAt(1); 
+	}
+	
+	/**
+	 * 
+	 * @param inp -- String form a rule or filter
+	 * @return a list of all unique feature specifications in @param inp
+	 */
+	public List<String> detectAllFeatSpecs (String inp)
+	{
+		String inp_left = inp+""; 
+		List<String> outp = new ArrayList<String>(); 
+		
+		while (inp_left.contains("["))
+		{
+			inp_left = inp_left.substring(inp_left.indexOf("[")); 
+			if(!inp_left.contains("]"))
+				throw new Error("Error: unclosed feature matrix in '"+inp+"'");
+			int closingLoc = inp_left.indexOf("]"); 
+			
+			String thisMatrix = inp_left.substring(0, closingLoc); 
+			if (thisMatrix.contains(""+FEAT_DELIM))
+				outp.addAll(Arrays.asList(thisMatrix.split(""+FEAT_DELIM)));
+			else outp.add(thisMatrix); 
+			inp_left = closingLoc + 1 < inp_left.length() ? inp_left.substring(closingLoc+1) : "" ; 
+		}
+		
+		return outp;
 	}
 	
 	/**
