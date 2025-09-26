@@ -1248,7 +1248,7 @@ public class UTILS {
 				throw new Error("Error: unclosed feature matrix in '"+inp+"'");
 			int closingLoc = inp_left.indexOf("]"); 
 			
-			String thisMatrix = inp_left.substring(0, closingLoc); 
+			String thisMatrix = inp_left.substring(0, closingLoc).replace(" ", ""); 
 			if (thisMatrix.contains(""+FEAT_DELIM))
 				outp.addAll(Arrays.asList(thisMatrix.split(""+FEAT_DELIM)));
 			else outp.add(thisMatrix); 
@@ -1256,6 +1256,50 @@ public class UTILS {
 		}
 		
 		return outp;
+	}
+	
+	/**
+	 * @precondition ordFeatNames has been filled 
+	 * @param inp -- a rule, or a filter
+	 * 		if a filter, should be one used in isolation, e.g. in the debugging suite -- not as part of a rule
+	 * @throws @error if there is a negative alpha stipulation with no positive alpha feat stip anywhere else in this rule or filter.
+	 */
+	public void abortOrphanedNegAlphStip (String inp)
+	{
+		List<String> specsHere = detectAllFeatSpecs (inp); 
+		
+		String neggedAlphsLeft = ""; // all negated alpha characters present. 
+		
+		for (int i = 0 ; i < specsHere.size(); i++) 
+		{
+			String sphi = specsHere.get(i); 
+			if (spec_is_neg_alpha_marked(sphi))
+			{
+				char neggedAlph = getNegatedAlpha(sphi); 
+				if (!neggedAlphsLeft.contains(""+neggedAlph))
+					neggedAlphsLeft += (""+neggedAlph); 
+				
+				specsHere.remove(i); 
+				i--; 
+			}
+		}
+		
+		while (neggedAlphsLeft.length() > 0)
+		{
+			char nali = neggedAlphsLeft.charAt(0); 
+			neggedAlphsLeft = neggedAlphsLeft.length() == 1 ? "" : neggedAlphsLeft.substring(1); 
+			boolean safe = false; 
+			
+			for (String sphj : specsHere ) 
+			{
+				String sph = sphj.substring(sphj.charAt(0) == MARK_POS ? 1 : 0); 
+				if (nali == sph.charAt(0) && ordFeatNames.contains(sph.substring(1)))
+					safe = true; ; // go to bigger wild loop -- passed for this character. 
+			}
+			
+			//if didn't match -- orphaned negative alpha spec was present! 
+			if (!safe)	throw new Error("ERROR: negated alpha variable '"+nali+"' is orphaned, without a counterpart anywhere in this formulation ('"+inp+"')"); 
+		}
 	}
 	
 	/**
