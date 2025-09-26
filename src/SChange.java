@@ -24,6 +24,8 @@ public abstract class SChange {
 	protected int minPriorSize, minPostSize, minInputSize; 
 	protected String orig;
 	protected HashMap<String,String> ALPH_VARS; 
+	protected HashMap<String,String> NEG_ALPH_PROXIES; //key proxy, value alph it is the neg val for. 
+		// unimplemented for all non-alpha subclasses.... just like ALPH_VARS
 	
 	public SChange(String origForm)
 	{

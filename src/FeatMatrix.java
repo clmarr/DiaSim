@@ -7,8 +7,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private char[] init_chArr; /**@retains mark of @alpha values given to constructor class
 		// whereas they assume their functional numerical values in @featVect as they become specified*/ 
+		//TODO NOTE that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
+		//TODO note that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
 		// despecification -- i.e. arising only because of feature implications,
 			// the change of a feature from +/- to . in unspecified in a phone operated upon. 
 		// DESPECIFICATION of phones as part of the FeatMatrix is represented as a 9 in FeatSpecs	
@@ -17,8 +19,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// will always return to initSpecs after alphas are reset. 
 		// initSpecs, once set, must not under any circumstance be changed.
 		// featSpecs, meanwhile, changes when an alpha value is set... 
-			//TODO need to ascertain this actually works... 
-	
+			//TODO need to ascertain this actually works... (9/25/25 : unsure when that was written. Before implementation of neg alphas [as is the state at time of writing], seemed to be fine. 
+		// TODO note -- these will use the negative proxy alpha symbols too, for convenience/ codign continuity. 
 	private List<String> ordFeats; // for retrieving feature indices 
 	
 	//private HashMap<String, String[]> featImpls; 
@@ -28,6 +30,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultifeatAlpha; 	
+	
+	private HashMap<String, String> negProxyAlphs; 
 	
 	// DESPECIFICATION -- 
 			// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
