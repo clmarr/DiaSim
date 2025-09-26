@@ -1236,7 +1236,7 @@ public class UTILS {
 	 * @param inp -- String form a rule or filter
 	 * @return a list of all unique feature specifications in @param inp
 	 */
-	public List<String> detectAllFeatSpecs (String inp)
+	public static List<String> detectAllFeatSpecs (String inp)
 	{
 		String inp_left = inp+""; 
 		List<String> outp = new ArrayList<String>(); 
@@ -1264,7 +1264,7 @@ public class UTILS {
 	 * 		if a filter, should be one used in isolation, e.g. in the debugging suite -- not as part of a rule
 	 * @throws @error if there is a negative alpha stipulation with no positive alpha feat stip anywhere else in this rule or filter.
 	 */
-	public void abortOrphanedNegAlphStip (String inp)
+	public static void abortOrphanedNegAlphStip (String inp)
 	{
 		List<String> specsHere = detectAllFeatSpecs (inp); 
 		

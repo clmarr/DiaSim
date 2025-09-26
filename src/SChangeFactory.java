@@ -154,6 +154,7 @@ public class SChangeFactory {
 	 * in most cases this will only have one SChange
 	 * however, in some cases of disjunction in the source or the contexts, it is better 
 	 * 		to make multiple SChange instances. 
+	 * @precondition UTILS.extractSymbolDefs() has already been called and features extracted are those operationally in use here.
 	 */
 	public List<SChange> generateSoundChangesFromRule(String inp)
 	{
@@ -288,6 +289,8 @@ public class SChangeFactory {
 		if (usingAlphFeats ? ruleStringHasUnmatchedAlpha(input) : false)
 			throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"
 					+ "\nThe rule: "+input); 		
+		//... or if there is a negative alpha without any positive usage: 
+		if (usingAlphFeats)	UTILS.abortOrphanedNegAlphStip(input); 
 		
 		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
