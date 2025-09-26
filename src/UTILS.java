@@ -1121,6 +1121,24 @@ public class UTILS {
 	public static void abortIllegalAlpha(char inp) {	abortIllegalAlpha(""+inp);	}
 	public static void abortIllegalAlpha(String inp)	{
 		if (ILLEGAL_ALPHAS.contains(inp))			throw new Error("Illegal character attempted to be used as alpha symbol: ' "+inp+" '");	}
+	// @precondition: ordFeatNames initialized in terms of feature names operationally in use...
+	public static void abortIllegalAlphaSpec(String inp) 
+	{	
+		inp = inp.replace(" ",""); 
+		if ((""+MARK_POS+MARK_NEG+MARK_UNSPEC).contains(inp.substring(0,1)))
+			inp = inp.substring(1); 
+		if (!ordFeatNames.contains(inp.substring(1))
+				|| ILLEGAL_ALPHAS.contains(inp.charAt(0)+""))
+			throw new Error("Illegal attempted alpha feature specification : '"+inp+"'"); 	
+	}
+	
+	public static void abortMidgetFeatSpec(String fsp)
+	{
+		if (fsp.length() < 2)
+			throw new Error("Error: tried to check a feature stipulation less than two characters long ('"+fsp+"')\n."
+					+ " Such a feat stip shouldn't have existed in the first place...");	
+	}
+	
 	
 	/**
 	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
@@ -1148,13 +1166,70 @@ public class UTILS {
 	}	
 	
 	/**
-	 * TODO will need to adjust this once negative alphas implemented.
-	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) is assigned an alpha value. 
+	 * @precondition ordFeatNames is initialized.
+	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
+	 * 	and is assigned a POSITIVE alpha value. 
 	 * @param spec is the string form of the feature specification. */ 
-	public static boolean spec_is_alpha_marked(String spec)
+	public static boolean spec_is_alpha_marked(String fspec)
 	{
+		String spec = fspec.replace(" ", ""); 
+		abortMidgetFeatSpec(spec); 
 		String non_alpha_initials = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
-		return !non_alpha_initials.contains(spec.replace(" ","").substring(0,1)); 
+		if ((""+MARK_NEG+MARK_UNSPEC).contains(spec.substring(0,1)))
+			return false; 
+		if (spec.charAt(0) == MARK_POS)
+		{
+			if (ordFeatNames.contains(spec.substring(1)))	return false; // just a normal positive feature stipulation. 
+			else spec = spec.substring(1);  // could be + | alph var | feat  format  
+		}
+		abortIllegalAlphaSpec(spec);  // throws error if alpha var'd feature (substring(1)) is not a valid feature, or first char is illegal as an alpha variable
+		return true; 
+	}
+	
+	/**
+	 * @precondition ordFeatNames is filled (e.g. extractSymbDefs() has been called, and feat list we're operating is functionally what it extracted.
+	 * @param spec feature stipulation : e.g. -βvoi etc. 
+	 * @return @true iff it is an alpha feature preposed in a certain way (+, -, 0)- - 
+	 * 	e.g. '-' + alpha character + feature -- meaning the character at 1 is the alpha value.
+	 */
+	public static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
+	{
+		if (!(""+MARK_NEG+MARK_POS+MARK_UNSPEC).contains(prep+""))	
+			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 
+		String spec = fspec.replace(" ", ""); 
+		abortMidgetFeatSpec(spec); 
+		if (spec.charAt(0) != prep)	return false;
+		
+		if (ordFeatNames.contains(spec.substring(1))) //if rest after '-' is a feature name, assume it's just a negative feature stip, no alpha.
+			return false;  // note that this means, if one has a feature "lng" and another feature "slng", using 's' as an alpha variable will not work. One assumes the user isn't this stupid though.
+		if (spec.length() < 3)
+			throw new Error("Error: tried to check for "
+					+ (prep==MARK_NEG ? "negative" : prep==MARK_POS ? "positive" : "demarked")
+					+ " alpha stipulation on '"+spec+"'...\n\t"
+					+ "...but the symbol '"+spec.charAt(1)+"' is not a feature, and with only 2 characters it cannot be anything valid.\n"
+							+ "Please check your cascade for something wrong, and if there is nothing, flag this error for investigation..."); 
+		abortIllegalAlphaSpec(spec); 
+		return true; 
+	}
+	
+	public static boolean spec_is_neg_alpha_marked (String spec)
+	{	return spec_is_preposed_alpha_marked(spec, MARK_NEG);	}
+	public static boolean spec_is_unspec_alpha_marked (String spec)
+	{	return spec_is_preposed_alpha_marked(spec, MARK_UNSPEC);	}
+	
+	/**
+	 * @precondition ordFeatNames is filled (e.g. extractSymbDefs() has been called, and feat list we're operating is functionally what it extracted.
+	 * @param fspec -- feature stipulation / specification -- must consist of '-' + alph variable + feature
+	 * @return the alpha variable begin negated
+	 */
+	public static char getNegatedAlpha (String fspec)
+	{
+		if (fspec.length() < 3 ? true : 
+			fspec.charAt(0) != MARK_NEG || !ordFeatNames.contains(fspec.substring(2)) || ILLEGAL_ALPHAS.contains(fspec.charAt(1)+""))
+			throw new Error("Tried to detect negated alpha variable for a string that cannot be a stipulation with a negated alpha: '"+fspec+"'."
+					+ "\n(Should be : '"+MARK_NEG+"' + alph var + a valid feature'...)"); 
+		
+		return fspec.charAt(1); 
 	}
 	
 	/**
