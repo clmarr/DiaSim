@@ -2280,6 +2280,7 @@ public class DiachronicSimulator {
 			}
 			
 			//lexicon location
+			// should cover lexicon -- will activate for anything staring in 'lex'...
 			else if (arg.contains("-lex"))
 			{
 				if (i < args.length)	lexFileLoc = args[i++];

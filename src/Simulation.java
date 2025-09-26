@@ -451,24 +451,14 @@ public class Simulation {
 			// can ( and should ) skip if there is no stages at all.  
 		if (stagesOrdered.length > 0) 
 		{
-			//TODO debugging
-			System.out.println("\nstage "+soi+", stages ordered [soi] = "+stagesOrdered[soi]); 
-			
-			boolean nextStageBlack = stagesOrdered[soi].charAt(0) == 'b'; 
-			int next_stage_ri = (nextStageBlack ? blackStageInstants : goldStageInstants)
+			int next_stage_ri = (nextStageBlack(soi) ? blackStageInstants : goldStageInstants)
 					[Integer.parseInt(stagesOrdered[soi].substring(1))]; 
 	
 			while ( rule_i < CASCADE.size() && (soi >= stagesOrdered.length ? false : !stagesOrdered[soi].equals("out")))
 			{
 				if (rule_i == next_stage_ri) 
 				{
-					boolean stageIsBlack = stagesOrdered[soi].charAt(0) == 'b'; 
-					
-					//TODO debugging
-					System.out.println("stage loc detected; " +
-							(stageIsBlack ? UTILS.BLACK_STAGENAME_FLAG + blackStageNames[bsi]
-									: UTILS.GOLD_STAGENAME_FLAG + goldStageNames[gsi]) 
-							+"... (n stages : "+(NUM_GOLD_STAGES + NUM_BLACK_STAGES)+")"); 
+					boolean stageIsBlack = "Bb".contains(stagesOrdered[soi].substring(0,1));
 				
 					output[outrow_i][0] = stageIsBlack ? UTILS.BLACK_STAGENAME_FLAG + blackStageNames[bsi]
 							: UTILS.GOLD_STAGENAME_FLAG + goldStageNames[gsi]; 
@@ -487,11 +477,8 @@ public class Simulation {
 					else	gsi++; 
 					
 					if (soi >= stagesOrdered.length ? false : !stagesOrdered[soi].equals("out"))
-					{
-						nextStageBlack = stagesOrdered[soi].charAt(0) == 'b'; 
-						next_stage_ri = (nextStageBlack ? blackStageInstants : goldStageInstants)
+						next_stage_ri = (nextStageBlack(soi) ? blackStageInstants : goldStageInstants)
 								[Integer.parseInt(stagesOrdered[soi].substring(1))]; 	
-					}
 					else	break; 
 				}
 				
@@ -527,9 +514,6 @@ public class Simulation {
 			}
 			outrow_i++; rule_i++ ; 
 		}
-		
-		//TODO debugging
-		System.out.println ("\nrulewise outgraph built successfully.");
 		
 		return output; 
 	}
@@ -598,8 +582,19 @@ public class Simulation {
 			char typeIndic = stagesOrdered[si].charAt(0); 
 			if (typeIndic == 'G')  out[cbsi + gsi] = goldStageGoldLexica[gsi++].getWordList(); 
 			else if (typeIndic == 'B')	out[cbsi + gsi] = columnedBlackStageLexica[cbsi++].getWordList(); 
+			// if UNCOLUMNED black stage -- typeIndic being 'b' -- do NOTHING! 
 		}
 		return out; 
 	}
+	
+	// 
+	/**
+	 * @precondition stagesOrdered is initialized!
+	 * @param stage_ind -- current stage number
+	 * 	@precondition @param stage_ind is a valid stage number and not the last one. 
+	 * @return @true if next stage is columned OR uncolumned black stage. 
+	 */
+	public boolean nextStageBlack(int stage_ind) 
+	{	return "Bb".contains(stagesOrdered[stage_ind].substring(0, 1)); 	}
 	
 }
