@@ -1166,6 +1166,31 @@ public class UTILS {
 	}	
 	
 	/**
+	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
+	 * @return true if there is a feat matrix with a NEGATIVE alpha-valued feature specification present in this string 
+	 * 		intended for use for inputs, destinations, and contexts... 
+	 */
+	public static boolean stringHasFMWithNegAlpha (String str)
+	{
+		String[] protophones = str.split(""+PH_DELIM); 
+		
+		for(int ppi = 0 ; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.charAt(0) == '[')
+			{
+				// as of July 2024, spaces in feature matrices as written are ignored: 
+				curpp = curpp.replace(" ", "");
+				
+				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
+				for (String spec : specs) 
+					if (spec_is_neg_alpha_marked(spec))	return true; 
+			}
+		}
+		return false;
+	}	
+	
+	/**
 	 * @precondition ordFeatNames is initialized.
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
 	 * 	and is assigned a POSITIVE alpha value. 
