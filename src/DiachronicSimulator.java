@@ -413,9 +413,9 @@ public class DiachronicSimulator {
 	 * changes one gold stage to a UNCOLUMNED black stage (then recolumend if @param to_columned = true)
 		*modifying @global variables and data structures as appropriate. 
 	 * @param int gsi -- the index in GOLD data structures of the stage we are blackening (and decolumning, perhaps recolumning)
-	 * @param boolean to_columned -- if it is to be (re)coluned. As it is done currently, for ease of coding if not computation. 
+	 * @param boolean to_columned -- if it is to be (re)columned. As it is done currently, for ease of coding if not computation. 
 	 * @destructive modification to all @global organizing arrays for black, gold, and columned (But not specifically columned black) stages
-	 * reworking from mid March 2025... TODO may need to be checked for possible sgtray errors introduced. 
+	 * reworking from mid March 2025... TODO may need to be checked for possible stray errors introduced. 
 	 */
 	private static void blackenGoldStage(int gsi, boolean to_columned)
 	{
