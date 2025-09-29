@@ -1168,7 +1168,8 @@ public class UTILS {
 	/**
 	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
 	 * @return true if there is a feat matrix with a NEGATIVE alpha-valued feature specification present in this string 
-	 * 		intended for use for inputs, destinations, and contexts... 
+	 * 		intended for use for strings to become rules, or to become debugging suite filters 
+	 * 			(for filters as contexts of rules, should be handled when rule is comprehended from strings. 
 	 */
 	public static boolean stringHasFMWithNegAlpha (String str)
 	{
