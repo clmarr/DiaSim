@@ -43,7 +43,7 @@ public class SequentialFilter {
 	private HashMap<String,List<Integer>> localAlphLocs; // key-- alpha symbol, value -- locations in paren(Alpha)Map where it occurs
 	private List<String> parenthesizedAlphas; // list of alphas that occur in parens
 	
-	//because alphas msut all be one character, proxies are used for negated alphas -- either externally determined in a rule def (SChangeFactory), or locally here
+	//because alphas must all be one character, proxies are used for negated alphas -- either externally determined in a rule def (SChangeFactory), or locally here
 		// key -- proxy character, value -- alpha value it's negating
 		// note that in the EXTERNAL case (coming from SChangeFactory, most likely), the negated alpha value WILL NOT BE PRESENT in this SequentialFilter. 
 	private HashMap<String,String> negProxyAlphas; 
@@ -946,6 +946,7 @@ public class SequentialFilter {
 	public void setNegProxyAlpha (char negproxy, char poschar)
 	{
 		negProxyAlphas.put(""+negproxy, ""+poschar); 
+		//TODO possibly abrogate in favor of UTILS method createProxyAlphabet
 		
 		//TODO working here... 
 		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)

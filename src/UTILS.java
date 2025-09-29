@@ -1282,6 +1282,35 @@ public class UTILS {
 		return outp; 
 	}
 	
+	
+	/** 
+	 * for @param str, given proxy mapping @param proxies, apply so that if Z is the neg proxy for an alpha feature A, -A is replaced with Z 
+	 * 		proxies -- key is the proxy, value is the negated alpha
+	 * done to enable computation of negative alphas as single characters primarily for purposes within FeatMatrix. 
+	 */
+	public static String applyNegalphaProxies (String str, HashMap<String, String> proxies) 
+	{
+		if (str.charAt(0) == '-')
+			throw new Error ("Tried to apply negative alpha proxy to a rule or filter that starts with '-'."
+					+ "This should never have existed in the first place. Input was:\n\t"
+					+ str); 
+		
+		String output = str+""; 
+		for (String pxi : proxies.keySet())
+		{
+			int iter = 0 ; 
+			while (output.substring(iter).contains(proxies.get("-"+pxi)))
+			{
+				iter = output.indexOf("-"+pxi); 
+				output = output.substring(0,iter) + pxi + output.substring(iter+2);
+			}
+		}
+		
+		return output; 
+	}
+	
+	
+	
 	/**
 	 * @precondition ordFeatNames is initialized.
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
