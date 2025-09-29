@@ -46,6 +46,7 @@ public class SequentialFilter {
 	//because alphas must all be one character, proxies are used for negated alphas -- either externally determined in a rule def (SChangeFactory), or locally here
 		// key -- proxy character, value -- alpha value it's negating
 		// note that in the EXTERNAL case (coming from SChangeFactory, most likely), the negated alpha value WILL NOT BE PRESENT in this SequentialFilter. 
+		// TODO NOTE currently these are set in the declaration!  
 	private HashMap<String,String> negProxyAlphas; 
 	
 	private String[] parenAlphaMap; 
@@ -65,6 +66,7 @@ public class SequentialFilter {
 	// abbreviations in use in comments: 
 	// bm = whether bounds matter. 
 	// pm = paren map. 
+	// npalphs = neg proxy alph map 
 	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
 	{
 		parenMap = pm ; 
@@ -81,15 +83,17 @@ public class SequentialFilter {
 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm)
-	{
-		initialize(prs, pm, false); 
-	}
+	{	initialize(prs, pm, false); }
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm, boolean bm)
-	{
-		initialize(prs, pm, bm); 
-	}
+	{	initialize(prs, pm, bm); 	}
 	
+	public SequentialFilter (List<RestrictPhone> prs, String[] pm, HashMap<String, String> proxies)
+	{		negProxyAlphas = new HashMap<String, String> (proxies); initialize(prs, pm, false);  }
+	
+	public SequentialFilter (List<RestrictPhone> prs, String[] pm, boolean bm,  HashMap<String, String> proxies)
+	{		negProxyAlphas = new HashMap<String, String> (proxies); initialize(prs, pm, bm); 	}
+
 	
 	/**isPriorMatch
 	 * checks if a legal prior context can be found in @param phonSeq
@@ -942,24 +946,10 @@ public class SequentialFilter {
 		for (String alphi : alphSymbs)	out.put(alphi, UNSET_ALPHVAL); 
 		return out; 
 	}
-
-	public void setNegProxyAlpha (char negproxy, char poschar)
-	{
-		negProxyAlphas.put(""+negproxy, ""+poschar); 
-		//TODO possibly abrogate in favor of UTILS method createProxyAlphabet
-		
-		//TODO working here... 
-		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)
-		{
-			
-		}
-		
-	}
-	
 	
 	/** 
 	 * fill parenAlphaMap, given @prerequisite that @parenMap and @placeRestrs are already filled. 
-	 * also sets @param @hasParenthesizedALpha and @param @hasAlphSpecs to true if appropriate
+	 * also sets @param @hasParenthesizedAlpha and @param @hasAlphSpecs to true if appropriate
 	 */
 	public void initAlpha()
 	{

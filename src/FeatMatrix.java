@@ -20,7 +20,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// initSpecs, once set, must not under any circumstance be changed.
 		// featSpecs, meanwhile, changes when an alpha value is set... 
 			//TODO need to ascertain this actually works... (9/25/25 : unsure when that was written. Before implementation of neg alphas [as is the state at time of writing], seemed to be fine. 
-		// TODO note -- these will use the negative proxy alpha symbols too, for convenience/ codign continuity. 
+		// TODO note -- these will use the negative proxy alpha symbols too, for convenience/ coding continuity. 
 	private List<String> ordFeats; // for retrieving feature indices 
 	
 	//private HashMap<String, String[]> featImpls; 
@@ -73,6 +73,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 */
 	// 
 	public FeatMatrix(String specs, List<String> orderedFeats)
+	{	this (specs, orderedFeats, new HashMap<String, String> ());	}
+	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String,String> negAlphProxMap)
 	{
 		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
 		localAlphabet = "";
@@ -80,6 +82,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		type = "feat matrix";
 		featSpecs=specs+""; 
 		initSpecs=specs+""; 
+		negProxyAlphs = new HashMap<String, String> (negAlphProxMap); 
 
 		ordFeats = orderedFeats; 
 		
@@ -283,6 +286,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
+	//TODO need to adjust for neg alpha coverage? 
 	public void resetAlphaValues()
 	{	featVect = new String(init_chArr);
 		featSpecs = ""+initSpecs;
@@ -292,6 +296,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	/** 
 	 * reset only one alpha value, @param alph,
 	 * using @init_chArr to locate it within @featVect
+	 * TODO need to adjust for neg alphas (9/29)
 	 */
 	public void resetAlphVal (char alph) {
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
@@ -329,6 +334,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * 		i.e. if so, featSpecs won't be modified, though the feat vect will be
 	 * 		and downstream implications will still be triggered either way
 	 * 		in practice, as of December 2022, via_impl is always true.
+	 * TODO need to adjust for neg alpha coverage? (9/29/25)
 	 */
 	private void apply_value(String value, String feature, boolean via_impl)
 	{
@@ -583,9 +589,21 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public List<String> getAlphaVars()	{	return localAlphabet.equals("") ? new ArrayList<String> ()  
 			: Arrays.asList(localAlphabet.split(""));  	}
 	
+	//for printing feature specs
+	private String subOutProxies(String specString)
+	{
+		if (!hasNegProxyAlphs())	return specString; 
+		String output = negProxyAlphs.containsKey(specString.substring(0,1)) ?
+				"-" + negProxyAlphs.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
+		for (String pxi : negProxyAlphs.keySet())
+			while (output.contains("," + pxi))
+				output = output.substring(0, 1+output.indexOf(","+pxi)) + "-" + negProxyAlphs.get(pxi); 
+		return output; 
+	}
+	
 	@Override
 	public String toString() 
-	{	return "["+featSpecs+"]";		}
+	{	return "["+subOutProxies(featSpecs)+"]";		}
 	
 	//TODO currently used for testing only
 	public String getFeatVect() 
@@ -597,5 +615,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		//TODO however it is changed, it will be necessary to modify various classes that rely on the stability of this symbol, 
 			// such as SChangeFeat
 	}
+	
+	public boolean hasNegProxyAlphs()	{	return negProxyAlphs.size() > 0 ;	}
 
 }

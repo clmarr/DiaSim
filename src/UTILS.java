@@ -1309,8 +1309,6 @@ public class UTILS {
 		return output; 
 	}
 	
-	
-	
 	/**
 	 * @precondition ordFeatNames is initialized.
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
@@ -1927,12 +1925,14 @@ public class UTILS {
 			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
 		return true; 
 	}	
-
-	public FeatMatrix getFeatMatrix(String featSpecs)
-	{	return getFeatMatrix(featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
+	public FeatMatrix getFeatMatrix(String featSpecs)
+	{	return getFeatMatrix(featSpecs, false, new HashMap<String, String>());	}
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls)
+	{	return getFeatMatrix(featSpecs, apply_ft_impls, new HashMap<String, String>());	}
+	// if negProxyAlphs is empty, functionally there are none.
+	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls, HashMap<String, String> negProxyAlphs)
 	{
 		if(! isValidFeatSpecList(featSpecs) )
 			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
@@ -1944,7 +1944,9 @@ public class UTILS {
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
 		
-		return new FeatMatrix(theFeatSpecs, ordFeatNames);
+		theFeatSpecs = applyNegalphaProxies(theFeatSpecs, negProxyAlphs); 
+		
+		return negProxyAlphs.size() == 0 ? new FeatMatrix(theFeatSpecs, ordFeatNames) : new FeatMatrix(theFeatSpecs, ordFeatNames, negProxyAlphs);
 	}
 	
 	/**	applyImplications
