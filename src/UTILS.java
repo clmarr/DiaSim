@@ -622,7 +622,10 @@ public class UTILS {
 				if (fi == fj)	continue; 
 				
 				if(prefixed_fni.equals(ordFeatNames.get(fj))) 
+				{
+					possibleAlphaProxies.replace(pref+"","");  // cannot be proxy either. 
 					return prefixed_fni.substring(1)+","+ordFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
+				}
 			}
 		}
 		return ""; 
@@ -1197,14 +1200,20 @@ public class UTILS {
 		return false;
 	}	
 	
+	
 	/**
-	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
-	 * @return true if there is a feat matrix with a NEGATIVE alpha-valued feature specification present in this string 
+	 * @param str -- a string (a rule or  debugging suite filter) 
+	 * 		to check for the presence of a feat matrix with alpha-specified features.. 
+	 * will detect and list ANY alpha-valued feature specification present in this string 
 	 * 		intended for use for strings to become rules, or to become debugging suite filters 
 	 * 			(for filters as contexts of rules, should be handled when rule is comprehended from strings. 
+	 *  @return List of all alphas in it. 
+	 *  @param only_if_negated -- do the above ONLY for negated alphas. 
+	 * return empty if there are none.  (no error)
 	 */
-	public static boolean stringHasFMWithNegAlpha (String str)
+	public static List<String> listAlphasInString (String str, boolean only_if_negated)
 	{
+		List<String> foundAlphas = new ArrayList<String>(); 
 		String[] protophones = str.split(""+PH_DELIM); 
 		
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
@@ -1215,29 +1224,63 @@ public class UTILS {
 				// as of July 2024, spaces in feature matrices as written are ignored: 
 				curpp = curpp.replace(" ", "");
 				
-				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
+				String[] specs = curpp.substring(1, curpp.indexOf(']')).replace(" ","").split(""+FEAT_DELIM); 
 				for (String spec : specs) 
-					if (spec_is_neg_alpha_marked(spec))	return true; 
+					if (spec_is_neg_alpha_marked(spec) ? true :
+						(only_if_negated ? false : ( spec_is_alpha_marked(spec) || spec_is_unspec_alpha_marked(spec)))
+							)
+					{
+						String alphHere = getAlphaFromFeatSpec(spec)+""; // FEATSPEC_MARKS.contains(""+spec.charAt(0)) ? spec.substring(1,2) : spec.substring(0,1); 
+						if (foundAlphas.size() == 0 ? true : !foundAlphas.contains(alphHere))
+							foundAlphas.add(alphHere); 
+					}
 			}
 		}
-		return false;
-	}	
-	
+		return foundAlphas;
+	}
+	public static List<String> listAlphasInString (String str)	{	return listAlphasInString(str, false);	}
 	
 	/**
-	 * 
+	 * @param str -- a string (a rule or  debugging suite filter) 
+	 * 		to check for the presence of a feat matrix with alpha-specified features.. 
+	 * will detect and list NEGATIVE alpha-valued feature specifications present in this string 
+	 * 		intended for use for strings to become rules, or to become debugging suite filters 
+	 * 			(for filters as contexts of rules, should be handled when rule is comprehended from strings. 
+	 *  @return List of all alphas negated in it. 
+	 * return empty if there are none.  (no error)
+	 */
+	public static List<String> listNegatedAlphasInString (String str)
+	{	return listAlphasInString(str, true); 	}	
+	
+	private static String possibleAlphaProxies = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmʏʠɰɥɶʁɭʟɱŋɲɳɾɽʀɹɻʑʒʃʝθðɸαɑæʊσβɣçɛøœχɩʎ"; 
+	
+	/**createNegProxyAlphabet
+	 * 9/29/25 @author Clayton Marr
 	 * @param ruleOrDebugFilt -- a string that will become a rule or a debugging filter (not a context within a rule) 
 	 * @precondition ruleOrDebugFilt should have a negative alpha value in the first place!
 	 * @return neg proxy alphabet to handle negative alpha values
-	 *
+	 * unless an error is built in to block this, if there are no negative alphas present, it will return an empty HashMap 
+	 * 		but an error currently blocks it -- can remove this if necessary.
+	 */
 	public static HashMap<String, String> createNegProxyAlphabet (String ruleOrDebugFilt)
 	{
-		if (! stringHasFMWithNegAlpha(ruleOrDebugFilt))
-			throw new Error("Error: attempted to create a negative proxy alphabet for a string with no negative specified alpha values\n\t('"
-					+ ruleOrDebugFilt+ "')\n\tSomething must be wrong. Inspect"); 
+		List<String> alphsToNegate = listNegatedAlphasInString(ruleOrDebugFilt); 
+		if (alphsToNegate.size() == 0)
+			throw new Error("Error: tried to detect negated alphas in a string with no alphas: "+ruleOrDebugFilt+"\n\tInspect this."); 
+				
+		String possProxiesLeft = ""+possibleAlphaProxies;
+		// preempt danger of using a locally existing alpha symbol as a proxy. 
+		for (String ahi : listAlphasInString(ruleOrDebugFilt)) 
+			possProxiesLeft.replace(ahi, ""); 
 		
+		HashMap<String,String> outp = new HashMap<String, String> (); 
+		for (String ani : alphsToNegate) {
+			outp.put(possProxiesLeft.substring(possProxiesLeft.length()-1), ani); 
+			possProxiesLeft = possProxiesLeft.substring(0, possProxiesLeft.length() -1 );
+		}
 		
-	}*/
+		return outp; 
+	}
 	
 	/**
 	 * @precondition ordFeatNames is initialized.
@@ -1293,7 +1336,7 @@ public class UTILS {
 	/**
 	 * @precondition ordFeatNames is filled (e.g. extractSymbDefs() has been called, and feat list we're operating is functionally what it extracted.
 	 * @param fspec -- feature stipulation / specification -- must consist of '-' + alph variable + feature
-	 * @return the alpha variable begin negated
+	 * @return the alpha variable being negated
 	 */
 	public static char getNegatedAlpha (String fspec)
 	{
@@ -1303,6 +1346,24 @@ public class UTILS {
 					+ "\n(Should be : '"+MARK_NEG+"' + alph var + a valid feature'...)"); 
 		
 		return fspec.charAt(1); 
+	}
+
+	/**
+	 * like the above, but for getting any alpha, not just a negated one. 
+	 * @precondition ordFeatNames is filled (e.g. extractSymbDefs() has been called, and feat list we're operating is functionally what it extracted.
+	 * @param fspec -- feature stipulation / specification -- must consist of '-/0/(+ || '')' + alph variable + feature
+	 * @return the alpha variable being used
+	 */
+	public static char getAlphaFromFeatSpec(String fspec)
+	{
+		String spec = fspec.replace(" ", ""); 
+		int alphInd = FEATSPEC_MARKS.contains(spec.substring(0, 1)) ? 1 : 0; 
+		if (fspec.length() < alphInd+1 ? true : 
+			ILLEGAL_ALPHAS.contains(spec.charAt(alphInd)+"") ? true : 
+			!ordFeatNames.contains(fspec.substring(alphInd+1)))
+			throw new Error("Tried to detect negated alpha variable for a string that cannot be an alpha-featured stipulation: '"+fspec+"'."); 
+		
+		return spec.charAt(alphInd);
 	}
 	
 	/**
