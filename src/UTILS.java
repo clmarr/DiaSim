@@ -605,6 +605,29 @@ public class UTILS {
 		symbsExtracted = true;
 	}
 	
+	/**
+	 * @precondition ordFeatNames must be filled -- i.e. extractSymbDefs() has been run, and for currently operational features. 
+	 * @param pref -- a char value
+	 * @return "" if there is no feature in @global ordFeatNames that would becoem another feature name if this character was preposed
+	 * @else return "A,B" where A is the non-prefixed feature and B is the feature that A becomes identical once prefixed with @param pref.f 
+	 * @usage -- for possible alpha and negative proxy alpha characters
+	 */
+	public static String charLegalPrefixForFeat (char pref)
+	{
+		for (int fi = 0; fi < ordFeatNames.size(); fi++)
+		{
+			String prefixed_fni = ""+ pref+ ordFeatNames.get(fi); 
+			for (int fj = 0 ; fj < ordFeatNames.size(); fj++)
+			{
+				if (fi == fj)	continue; 
+				
+				if(prefixed_fni.equals(ordFeatNames.get(fj))) 
+					return prefixed_fni.substring(1)+","+ordFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
+			}
+		}
+		return ""; 
+	}
+	
 	
 	/** extract order of intermediate stages so that we don't end up with ``flips'' in the relative ordering between stages
 		// in the case that they end up in the same
@@ -1127,9 +1150,18 @@ public class UTILS {
 		inp = inp.replace(" ",""); 
 		if (FEATSPEC_MARKS.contains(inp.substring(0,1)))
 			inp = inp.substring(1); 
+		
+		char candalph = inp.charAt(0); 
+		
 		if (!ordFeatNames.contains(inp.substring(1))
-				|| ILLEGAL_ALPHAS.contains(inp.charAt(0)+""))
+				|| ILLEGAL_ALPHAS.contains(candalph+""))
 			throw new Error("Illegal attempted alpha feature specification : '"+inp+"'"); 	
+		
+		String char_legality_indic = charLegalPrefixForFeat(candalph);
+		
+		if (!char_legality_indic .equals(""))
+			throw new Error("Cannot use '"+candalph+"' as an alpha feature, because it would cause confusion between the following features: "+char_legality_indic); 
+				
 	}
 	
 	public static void abortMidgetFeatSpec(String fsp)
@@ -1190,6 +1222,22 @@ public class UTILS {
 		}
 		return false;
 	}	
+	
+	
+	/**
+	 * 
+	 * @param ruleOrDebugFilt -- a string that will become a rule or a debugging filter (not a context within a rule) 
+	 * @precondition ruleOrDebugFilt should have a negative alpha value in the first place!
+	 * @return neg proxy alphabet to handle negative alpha values
+	 *
+	public static HashMap<String, String> createNegProxyAlphabet (String ruleOrDebugFilt)
+	{
+		if (! stringHasFMWithNegAlpha(ruleOrDebugFilt))
+			throw new Error("Error: attempted to create a negative proxy alphabet for a string with no negative specified alpha values\n\t('"
+					+ ruleOrDebugFilt+ "')\n\tSomething must be wrong. Inspect"); 
+		
+		
+	}*/
 	
 	/**
 	 * @precondition ordFeatNames is initialized.
