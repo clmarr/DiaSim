@@ -319,7 +319,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
-	//TODO need to adjust for neg alpha coverage? 
+	//(9/30/25) currently not adjusting for neg alpha coverage -- internal handling of initSpecs, featSpecs unchanged
 	public void resetAlphaValues()
 	{	featVect = new String(init_chArr);
 		featSpecs = ""+initSpecs;
@@ -622,23 +622,15 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public List<String> getAlphaVars()	{	return localAlphabet.equals("") ? new ArrayList<String> ()  
 			: Arrays.asList(localAlphabet.split(""));  	}
 	
-	//for printing feature specs
-	private String subOutProxies(String specString)
-	{
-		if (!hasNegProxyAlphs())	return specString; 
-		String output = negProxyAlphs.containsKey(specString.substring(0,1)) ?
-				"-" + negProxyAlphs.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
-		for (String pxi : negProxyAlphs.keySet())
-			while (output.contains("," + pxi))
-				output = output.substring(0, 1+output.indexOf(","+pxi)) + "-" + negProxyAlphs.get(pxi); 
-		return output; 
-	}
-	
 	@Override
 	public String toString() 
-	{	return "["+subOutProxies(featSpecs)+"]";		}
+	{	return "["+
+			(hasNegProxyAlphs() ? UTILS.decodeNegAlphProxies(featSpecs,negProxyAlphs) : featSpecs )+"]";		}
 	
-	//TODO currently used for testing only
+	/**
+	 *  currently used for testing only
+	 *  does NOT sub out proxies. 
+	 */
 	public String getFeatVect() 
 	{	return ""+featVect; 	}
 	

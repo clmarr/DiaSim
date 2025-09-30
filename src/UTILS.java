@@ -1343,6 +1343,22 @@ public class UTILS {
 	}
 	
 	/**
+	 * 
+	 * @param specString -- string of specs (not in []), delimited by FEAT_DELIM> 
+	 * @param negProxies  -- key : proxy, value: negated alpha
+	 * @return
+	 */
+	public static String decodeNegAlphProxies(String specString, HashMap<String, String> negProxies)
+	{
+		String output = negProxies.containsKey(specString.substring(0,1)) ?
+				MARK_NEG + negProxies.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
+		for (String pxi : negProxies.keySet())
+			while (output.contains(FEAT_DELIM + pxi))
+				output = output.substring(0, 1+output.indexOf(","+pxi)) + MARK_NEG + negProxies.get(pxi); 
+		return output; 
+	}
+	
+	/**
 	 * @precondition ordFeatNames is initialized.
 	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
 	 * 	and is assigned a POSITIVE alpha value. 
