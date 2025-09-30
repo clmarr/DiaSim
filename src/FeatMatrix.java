@@ -49,7 +49,6 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// this case is the only time we will ever make use of the List<String> despecifications
 			// which is what is stored in the featVect for this case. 
 			// 
-	
 	private boolean DESPEC_VIA_ALPHA = false; // set to true to allow spreading of despecification via alpha features
 	// without this, one cannot despecify alpha features directly, explicitly,
 		// though the specification of an alpha feature could downstream lead to the despecification of other features
@@ -361,7 +360,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	/**
 	 * apply a value to the feature vector
-	 * in practice, used as auxiliary to applyAlphaValues
+	 * in practice, used as auxiliary to applyAlphaValues and resetAlphVals
+	 * 		because -- note -- these are the only values that would be changed anyways. 
+	 * 		i.e. a feat vector that is declared as [-voi] will never become '+voi' or unset. 
 	 * @param value to apply, should be surface value i.e. ( + positive , - negative , 0 despecify... 
 	 * 		// ... in practice 0/despecify should never really happen except via a feature implication 
 	 * @param feature to apply it to, should be standard feature name as seen in symbolDefs (or replacement file) and featImplications (likewise)
@@ -370,13 +371,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * 		i.e. if so, featSpecs won't be modified, though the feat vect will be
 	 * 		and downstream implications will still be triggered either way
 	 * 		in practice, as of December 2022, via_impl is always true.
-	 * TODO need to adjust for neg alpha coverage? (9/29/25)
+	 * (9/30/25) -- neg alpha value coverage not handled within here ,but within applyAlphaValues 
 	 */
 	private void apply_value(String value, String feature, boolean via_impl)
 	{
 		int aff_ind = ordFeats.indexOf(feature);
 		
-		boolean alphaResetOverride = UTILS.spec_is_alpha_marked(featVect.charAt(aff_ind)+feature) && featSpecs.contains(value+feature); 
+		String prevMark = ""+featVect.charAt(aff_ind); 
+		boolean applyingToAlpha = UTILS.spec_is_alpha_marked(prevMark+feature); 
+		
+		boolean alphaResetOverride = applyingToAlpha && featSpecs.contains(value+feature); 
 			// to overrule the below in cases of partial alpha reset. 
 		
 		if (featVect.charAt(aff_ind) != '1' && !alphaResetOverride)	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
@@ -411,6 +415,24 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		applyAlphaValues(hm); 
 	}
 	
+	/** 
+	 * 
+	 * @param alph -- an alpha variable
+	 * @return '0' if it is neither a negative proxy, nor proxied
+	 * 			@else @return the proxy/proxied alpha variable 
+	 */
+	public String getProxyPair (String alph)
+	{
+		if (!hasNegProxyAlphs())	return "0"; 
+		if (negProxyAlphs.containsKey(alph))
+			return negProxyAlphs.get(alph); 
+		if (negProxyAlphs.containsValue(alph))	
+			for (String pxi : negProxyAlphs.keySet()) 
+				if (negProxyAlphs.get(pxi).equals(alph))
+					return pxi; 
+		return "0";
+	}
+	
 	@Override
 	/** 
 	 * @param alphVals -- [key] alpha, [value] the value (+/-/..) it is being set to. 
@@ -424,14 +446,42 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if (alphVals.keySet().size() == 0)	return; 
 		if (! hasAlphSpecs )	return; 	// don't apply alpha value filling if there's no values to fill! 
 		
+		
+		// extend to coverage to negative alpha proxies from proxied alphas, or vice versa
+		if (hasNegProxyAlphs()) {
+			HashMap<String, String> proxSpecs = new HashMap<String, String> (); 
+			for (String avi : alphVals.keySet())
+			{
+				if (!"+-".contains(alphVals.get(avi)))	continue; 
+				String proxPair = getProxyPair(avi); // '0' if there is none. 
+				if (proxPair.equals("0"))	continue; 
+				String oppVal = "+-".charAt(1 - "+-".indexOf(alphVals.get(avi))) + "" ; // opposite value
+				
+				//if it's already in here and NOT specified as the opposite value, htere must be an error! Throw it. 
+				if (alphVals.containsKey(proxPair)) 
+				{	
+					if (!alphVals.get(proxPair).equals(oppVal))
+						throw new Error("Error: tried to set non opposite values for proxy pair:"
+								+ "\n\t'"+avi+"'("+alphVals.get(avi)+"); '"+proxPair+"'("+oppVal+")"); 
+				
+					//must be there already to be marked for opposite value as proxy/proxied
+						// in this case, do nothing, don't put it in as a duplicate. 
+					else continue; 
+				}
+				proxSpecs.put(proxPair,oppVal);
+			}
+		}
+		
+		
 		List<String> alphFeatsWImpls = new ArrayList<String>(); 
-			// to store which features were modified 
-			// so that feature implications can be triggered AFTER they each are modified
-				// preempting a possible error in the case where an alpha symbol specified for multiple features 
-					// is specified for both a feature and one it has an implication for
-				// (in practice that would never cause a serious error unless there was something weird in a custom feature implications file, 
-				//  ... but in that case it would create a very subtle error!) 
-			// entries in this list will be of form "+son,-cont,0delrel" etc -- i.e. value symbol followed by the feature's abbreviated name	
+		// to store which features were modified 
+		// so that feature implications can be triggered AFTER they each are modified
+			// preempting a possible error in the case where an alpha symbol specified for multiple features 
+				// is specified for both a feature and one it has an implication for
+			// (in practice that would never cause a serious error unless there was something weird in a custom feature implications file, 
+			//  ... but in that case it would create a very subtle error!) 
+		// entries in this list will be of form "+son,-cont,0delrel" etc -- i.e. value symbol followed by the feature's abbreviated name	
+	
 		
 		for (String s : alphVals.keySet())
 		{
