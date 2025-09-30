@@ -10,7 +10,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		//TODO NOTE that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
-		//TODO note that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
+		// note that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
 		// despecification -- i.e. arising only because of feature implications,
 			// the change of a feature from +/- to . in unspecified in a phone operated upon. 
 		// DESPECIFICATION of phones as part of the FeatMatrix is represented as a 9 in FeatSpecs	
@@ -20,16 +20,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// initSpecs, once set, must not under any circumstance be changed.
 		// featSpecs, meanwhile, changes when an alpha value is set... 
 			//TODO need to ascertain this actually works... (9/25/25 : unsure when that was written. Before implementation of neg alphas [as is the state at time of writing], seemed to be fine. 
-		// TODO note -- these will use the negative proxy alpha symbols too, for convenience/ coding continuity. 
+		// note -- these will use the negative proxy alpha symbols too, for convenience/ coding continuity. 
+			// however, external access will see "-α" rather than β (if β is the proxy for {-}α) 
 	private List<String> ordFeats; // for retrieving feature indices 
 	
 	//private HashMap<String, String[]> featImpls; 
 	//	abrogated -- as of Jan 24, 2024, now using a global feature implications hashmap stored in UTILS.
 	
 	private String localAlphabet; // for handling all symbols functioning as alpha values within the feature specifications... 
+		// will include neg proxy alphas 
 	public static final String FEAT_MATRIX_PRINT_STMT = " @%@ "; 
 	private boolean hasAlphSpecs; 
 	private boolean hasMultifeatAlpha; 	
+		//note: a FeatMatrix with both an alpha value and its negated value,
+			// represented as a proxy in internal structures, 
+			// is counted as a FM bearing a multifeatured alpha 
+	
 	
 	private HashMap<String, String> negProxyAlphs; 
 	
@@ -77,14 +83,25 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	public FeatMatrix(String specs, List<String> orderedFeats, HashMap<String,String> negAlphProxMap)
 	{
 		if (specs.length() <= 1)	throw new RuntimeException("Invalid string entered for specs"); 
+		
 		localAlphabet = "";
 		hasMultifeatAlpha = false;
 		type = "feat matrix";
-		featSpecs=specs+""; 
-		initSpecs=specs+""; 
 		negProxyAlphs = new HashMap<String, String> (negAlphProxMap); 
-
 		ordFeats = orderedFeats; 
+		
+		// if specs does not already have proxies applied and there are proxies, then apply them now.
+		// do it to featSpecs as we fill it. InitSpecs will be identical at this time. 
+		// Current (9/25/25) policy is that they internally have the neg proxy alphas but print with the negated actual alphas that are proxied. 
+		featSpecs=specs+""; 
+		if (UTILS.listNegatedAlphasInString(specs).size() > 0) 
+		{
+			featSpecs = UTILS.applyNegalphaProxies(featSpecs, negProxyAlphs); 
+			if (UTILS.listNegatedAlphasInString(featSpecs).size() > 0)  // if there are still neg alphs -- must be error! 
+				throw new Error("Error: failed to proxy all negated alphas. Inspect.\n\tOriginal specs: "+specs+";\n\tProxied specs: "+featSpecs); 
+		}
+				
+		initSpecs=featSpecs+""; 
 		
 		init_chArr = new char[ordFeats.size()];
 		Arrays.fill(init_chArr, '1');
@@ -105,6 +122,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			{	UTILS.abortIllegalAlpha(indic);
 				if (!localAlphabet.contains(indic))	localAlphabet += indic; 
 				else	hasMultifeatAlpha = true;
+
+				// implement having both an alpha and its neg proxy counting as having a multifeat alpha 
+				if (hasNegProxyAlphs() )
+				{
+					if (negProxyAlphs.containsKey(indic))
+						if (localAlphabet.contains(negProxyAlphs.get(indic)))
+							hasMultifeatAlpha = true; 
+					if (negProxyAlphs.containsValue(indic))
+						for (String pxi : negProxyAlphs.keySet()) 
+							if (negProxyAlphs.get(pxi).equals(indic) ? localAlphabet.contains(pxi) : false)
+							{
+								hasMultifeatAlpha = true; 
+								break; 
+							}
+				}
+					
 			}
 			String feat = sp.substring(1); 
 			if (!ordFeats.contains(feat))	throw new RuntimeException("ERROR: tried to add invalid feature : '"+feat+"'");
@@ -617,5 +650,5 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	public boolean hasNegProxyAlphs()	{	return negProxyAlphs.size() > 0 ;	}
-
+	public HashMap<String,String>	getNegProxyAlphs()	{	return negProxyAlphs;	}
 }
