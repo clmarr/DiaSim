@@ -331,19 +331,23 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	/** 
 	 * reset only one alpha value, @param alph,
 	 * using @init_chArr to locate it within @featVect
-	 * TODO need to adjust for neg alphas (9/29)
+	 * as of 9/30/25 -- also resets the proxy or proxied pair. 
 	 */
 	public void resetAlphVal (char alph) {
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
 			if (initSpecs.charAt(ispi) == alph)
 				featSpecs = featSpecs.substring(0,ispi) + alph + featSpecs.substring(ispi+1);
 
-		// doing it this way in order to preserve implications... 
+		// doing it this way in order to not cascade onto implications that are alpha marked... 
 		featVect = new String(init_chArr);
 	
 		for (String featspec : featSpecs.split(","))
 			if (!UTILS.spec_is_alpha_marked(featspec))
 				apply_value(featspec.substring(0,1), featspec.substring(1),false); 
+		
+		if (hasNegProxyAlphs())
+			if (hasProxyPair(""+alph))
+				resetAlphVal(getProxyPair(""+alph).charAt(0)); 
 	}
 	
 	private char toSurfVal(char i)
@@ -563,7 +567,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 *		checking for alpha impossibility in multiphone items 
 	 * 		should skip over juncture phones (i.e. word bounds etc) 
 	 * @return @true if @alphaconflict -- conflicting values assigned to an @alpha feature. 
-	 * as of 9/30/25 -- will treat non-opposite values between an alpha value and its assigned neg proxy as a feature conflict. */ 
+	 * as of 9/30/25 -- will treat non-opposite values between an alpha value and its assigned neg proxy as a feature conflict.
+	 *  (if one is a polar value) */ 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
