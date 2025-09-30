@@ -1199,7 +1199,49 @@ public class UTILS {
 		}
 		return false;
 	}	
+	public static boolean stringHasFMWithNegAlpha (String str)
+	{
+		String[] protophones = str.split(""+PH_DELIM); 
+		
+		for(int ppi = 0 ; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.charAt(0) == '[')
+			{
+				// as of July 2024, spaces in feature matrices as written are ignored: 
+				curpp = curpp.replace(" ", "");
+				
+				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
+				for (String spec : specs) 
+					if (spec_is_neg_alpha_marked(spec))	return true; 
+			}
+		}
+		return false;
+	}		
 	
+	
+	/**
+	 * 
+	 * @param fstr -- a list of feat specs, delimited by FEAT_DELIM, after '[' and ']' are stripped 
+	 * @returnList of all alphas in it. 	
+	 *   @param only_if_negated -- do the above ONLY for negated alphas. 
+	 * return empty if there are none.  (no error)
+	 */
+	public static List<String> listAlphasInFeatString (String fstr, boolean only_if_negated)
+	{
+		List<String> output = new ArrayList<String> (); 
+		String[] specs = fstr.split(""+FEAT_DELIM); 
+		for (String spec : specs) 
+			if (spec_is_neg_alpha_marked(spec) ? true :
+				(only_if_negated ? false : ( spec_is_alpha_marked(spec) || spec_is_unspec_alpha_marked(spec)))
+					)
+			{
+				String alphHere = getAlphaFromFeatSpec(spec)+""; // FEATSPEC_MARKS.contains(""+spec.charAt(0)) ? spec.substring(1,2) : spec.substring(0,1); 
+				if (output.size() == 0 ? true : !output.contains(alphHere))
+					output.add(alphHere); 
+			}
+		return output; 
+	}
 	
 	/**
 	 * @param str -- a string (a rule or  debugging suite filter) 
@@ -1224,16 +1266,7 @@ public class UTILS {
 				// as of July 2024, spaces in feature matrices as written are ignored: 
 				curpp = curpp.replace(" ", "");
 				
-				String[] specs = curpp.substring(1, curpp.indexOf(']')).replace(" ","").split(""+FEAT_DELIM); 
-				for (String spec : specs) 
-					if (spec_is_neg_alpha_marked(spec) ? true :
-						(only_if_negated ? false : ( spec_is_alpha_marked(spec) || spec_is_unspec_alpha_marked(spec)))
-							)
-					{
-						String alphHere = getAlphaFromFeatSpec(spec)+""; // FEATSPEC_MARKS.contains(""+spec.charAt(0)) ? spec.substring(1,2) : spec.substring(0,1); 
-						if (foundAlphas.size() == 0 ? true : !foundAlphas.contains(alphHere))
-							foundAlphas.add(alphHere); 
-					}
+				foundAlphas.addAll(listAlphasInFeatString(curpp.substring(1, curpp.indexOf(']')).replace(" ",""), only_if_negated)); 
 			}
 		}
 		return foundAlphas;
@@ -1299,9 +1332,9 @@ public class UTILS {
 		for (String pxi : proxies.keySet())
 		{
 			int iter = 0 ; 
-			while (output.substring(iter).contains(proxies.get("-"+pxi)))
+			while (output.substring(iter).contains(proxies.get(MARK_NEG+pxi)))
 			{
-				iter = output.indexOf("-"+pxi); 
+				iter = output.indexOf(MARK_NEG+pxi); 
 				output = output.substring(0,iter) + pxi + output.substring(iter+2);
 			}
 		}
@@ -1468,6 +1501,7 @@ public class UTILS {
 	 * @param listOfFeatSpecs -- list of sets of featSpecs -- e.g. { [+hi,+back]; {+cont,+son]}
 	 * @return list of feats for which there are conflicting specifications, delimited by RESTR_DELIM + a space 
 	 * @else return "".  
+	 * TODO modify to account for negative alphas? (9/29/2025)
 	 */
 	public static String detectFeatConflicts(List<String> listOfFeatSpecs) 
 	{
@@ -1702,13 +1736,13 @@ public class UTILS {
 		for (int fi = 0; fi < featVect.length(); fi++) {
 			switch (featVect.charAt(fi)) {
 				case '0':
-					out += "-";
+					out += MARK_NEG;
 					break;
 				case '1':
-					out += "0";
+					out += MARK_UNSPEC;
 					break;
 				case '2':
-					out += "+";
+					out += MARK_POS;
 					break;
 				case '9':
 					out += ".";
