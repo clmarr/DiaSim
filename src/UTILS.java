@@ -562,7 +562,7 @@ public class UTILS {
 		for(int fi = 0; fi < featsByIndex.length; fi++) featIndices.put(featsByIndex[fi], fi);
 
 		//ordFeatNames = new ArrayList<String>(featIndices.keySet());
-			//TODO abrogated above -- because this apparently disorders the features!
+			// ^abrogated above -- because this apparently disorders the features!
 		ordFeatNames = Arrays.asList(featsByIndex); 
 		
 		//Now we check if the features have weights
@@ -1563,7 +1563,7 @@ public class UTILS {
 	 *  @prerequisite phoneSymbToFeatsMap has already been built (extractSymbDefs()) 
 	 *  @prerequisite DIACRIT_TO_FT_MAP has also already been built (extractDiacriticMap()) 
 	 * this method will attempt to parse what phonetic feature string this likely indicates
-	 * 	beware,(TODO) @error (currently as @warning instead) if there are multiple diacritics present AND they indicate contradictory features! 
+	 * 	beware, @error (currently as @warning instead) if there are multiple diacritics present AND they indicate contradictory features! 
 	 * 			(maybe this isn't necessary to do?) 
 	 * @return @false if there is no predefined base phone detected  [ likely triggering error in outer-nested method ]
 	 * 		(in practice, a 'base phone' is one already present as a key in phoneSymbToFeatsMap 
@@ -1652,12 +1652,12 @@ public class UTILS {
 	 * given String @param toLexem
 	 * @return its representation as a Etymon containing a sequence of Phone instances
 	 * NOTE we assume the phones are separated by ()PH_DELIM (presumably ' ') 
-	 * TODO still need to debug the use of diacritics here. 
+	 * TODO still need to debug the use of diacritics here.  (still relevant @ 9/30/25? Unclear.)
 	 * TODO when do that, make sure to update the counterpart in SimulationTester.
 	 * this still bears the name LexPhon in its name even though the class LexPhon was renamed Etymon on 2 July 2023  
 	 * 		... because it does not yet handle parsing of morphological, semantic, or token frequency info... yetR. 
-	 * 		TODO decide where that will be parsed, make changes as necessary. 
-	 * moved from DiachronicSimulator to UTILS on January 24, 2024. 
+	 * 		TODO decide where that will be parsed, make changes as necessary. (still relevant @ 9/30/25? Unclear.)
+	 * moved from DiachronicSimulator to UTILS on January 24, 2024.  
 	 */
 	public static Etymon parseLexPhon(String toLexem, boolean no_symb_diacritics)
 	{
