@@ -397,7 +397,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		List<String> impls = new ArrayList<String>(); 
 		
 		// first any implications contingent to both + and - specification 
-		if("+-".contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
+		if(UTILS.POLAR_FT_MARKS.contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
 			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(feature))); 
 		// then any implications contingent to the specific case observed, with + or with - 
 		if(UTILS.FT_IMPLICATIONS.keySet().contains(value+feature))
@@ -432,6 +432,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					return pxi; 
 		return "0";
 	}
+	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals("0");	}
 	
 	@Override
 	/** 
@@ -455,7 +456,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				if (!"+-".contains(alphVals.get(avi)))	continue; 
 				String proxPair = getProxyPair(avi); // '0' if there is none. 
 				if (proxPair.equals("0"))	continue; 
-				String oppVal = "+-".charAt(1 - "+-".indexOf(alphVals.get(avi))) + "" ; // opposite value
+				String oppVal = UTILS.POLAR_FT_MARKS.charAt(1 - UTILS.POLAR_FT_MARKS.indexOf(alphVals.get(avi))) + "" ; // opposite value
 				
 				//if it's already in here and NOT specified as the opposite value, htere must be an error! Throw it. 
 				if (alphVals.containsKey(proxPair)) 
@@ -557,10 +558,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	
 	/** 
-	// should always be called before extractAndApplyAlphaValues
-	// bounds do not matter for our purposes here 
-	//		checking for alpha impossibility in multiphone items should skip over juncture phones (i.e. word bounds etc) 
-	// @return @true if @alphaconflict -- conflicting values assigned to an @alpha feature. */ 
+	 * should always be called before extractAndApplyAlphaValues
+	 * bounds do not matter for our purposes here 
+	 *		checking for alpha impossibility in multiphone items 
+	 * 		should skip over juncture phones (i.e. word bounds etc) 
+	 * @return @true if @alphaconflict -- conflicting values assigned to an @alpha feature. 
+	 * as of 9/30/25 -- will treat non-opposite values between an alpha value and its assigned neg proxy as a feature conflict. */ 
 	@Override
 	public boolean check_for_alpha_conflict(SequentialPhonic inp) 
 	{
@@ -578,25 +581,33 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			String deepSpec = init_chArr[c] + "";
-			if (!"0192".contains(deepSpec)) // alpha symbol detected. 
+			if (!UTILS.ALL_FT_INTS.contains(deepSpec)) // deepSpec is an alpha symbol
 			{
-				if (currReqs.containsKey(deepSpec))
+				String valHere = cand_feat_vect[c] + ""; 
+				
+				if (currReqs.containsKey(deepSpec)) // and it's already been assigned a value...! 
 				{
-					if ("02".contains(currReqs.get(deepSpec)))
+					if (UTILS.POLAR_FT_INTS.contains(currReqs.get(deepSpec)))
 					{	if (!currReqs.get(deepSpec).equals(""+cand_feat_vect[c]))	return true;	}
-					else if ("9".equals(currReqs.get(deepSpec)))
+					else if ((""+UTILS.DESPEC_INT).equals(currReqs.get(deepSpec)))
 					{
-						if (cand_feat_vect[c] != '1')	return true;
+						if (valHere != ""+UTILS.UNSPEC_INT)	return true; 
 					}
-					else if ("1".equals(cand_feat_vect[c]+""))
-					{	currReqs.put(deepSpec, "9"); }
+					else if ((""+UTILS.UNSPEC_INT).equals(valHere))
+					{	currReqs.put(deepSpec, ""+UTILS.DESPEC_INT); }
 					else
-					{	currReqs.put(deepSpec, cand_feat_vect[c]+""); }
+					{	currReqs.put(deepSpec, valHere); }
 				}
-				else if ("1".equals(cand_feat_vect[c]+""))
-				{	currReqs.put(deepSpec, "9"); }
-				else
-				{	currReqs.put(deepSpec, cand_feat_vect[c]+""); }
+				else if ((""+UTILS.UNSPEC_INT).equals(valHere))
+				{	currReqs.put(deepSpec, ""+ UTILS.DESPEC_INT); }
+				else 
+				{	currReqs.put(deepSpec, valHere);
+				
+					// if it's a polar value and this is a proxy/proxied alpha, put the opposite for the prox pair ... 
+					if (hasNegProxyAlphs()? UTILS.POLAR_FT_INTS.contains(valHere) : false) 
+						if (hasProxyPair(deepSpec)) 
+							currReqs.put(getProxyPair(deepSpec), ""+UTILS.getOppPolarInt(valHere)); 
+				}
 			}
 		}
 		return false; 	

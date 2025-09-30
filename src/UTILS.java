@@ -20,7 +20,10 @@ public class UTILS {
 
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
+	public final static String POLAR_FT_MARKS = "" + MARK_POS + MARK_NEG; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
+	public final static String POLAR_FT_INTS = ("" + POS_INT) + NEG_INT; 
+	public final static String ALL_FT_INTS = (POLAR_FT_INTS + UNSPEC_INT) + DESPEC_INT; 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
@@ -77,6 +80,14 @@ public class UTILS {
 	public static final int MAX_DIACRIT = 4; 
 	
 	public static int NUM_UNDEFINED_PHONES_USED = 0; 
+	
+	// this will work IFF the POS_INT is still 2 and NEG_INT is still 0. 
+	public static int getOppPolarInt(String ftInt) {
+		if ( ftInt.length() != 1 ? true : !UTILS.POLAR_FT_INTS.contains(ftInt))	
+			throw new Error("Error: tried to get opposite polar int of a non-polar int!"); 
+		
+		return UTILS.POS_INT - Integer.parseInt(ftInt) ;
+	}
 	
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
