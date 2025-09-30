@@ -1516,8 +1516,9 @@ public class UTILS {
 	/**
 	 * @param listOfFeatSpecs -- list of sets of featSpecs -- e.g. { [+hi,+back]; {+cont,+son]}
 	 * @return list of feats for which there are conflicting specifications, delimited by RESTR_DELIM + a space 
+	 * 		a conflict is any non-equivalence in specification of a feature -- including alpha spec once and a +/-/0 otherwise. 
 	 * @else return "".  
-	 * TODO modify to account for negative alphas? (9/29/2025)
+	 * (9/30/25) no specific handling for alphas or neg alphas here. It is assumed that if they aren't set they won't matter.
 	 */
 	public static String detectFeatConflicts(List<String> listOfFeatSpecs) 
 	{
@@ -1537,7 +1538,6 @@ public class UTILS {
 		
 		if (conflictedFeats.size() == 0)	return ""; 
 		else return String.join(RESTR_DELIM+" ", conflictedFeats);
-		
 	}
 	
 	public static String detectDiacritFeatConflicts(List<String> diacrits, boolean applyFeatImpls)
@@ -1996,7 +1996,8 @@ public class UTILS {
 		
 		theFeatSpecs = applyNegalphaProxies(theFeatSpecs, negProxyAlphs); 
 		
-		return negProxyAlphs.size() == 0 ? new FeatMatrix(theFeatSpecs, ordFeatNames) : new FeatMatrix(theFeatSpecs, ordFeatNames, negProxyAlphs);
+		return negProxyAlphs.size() == 0 ? new FeatMatrix(theFeatSpecs, ordFeatNames) : 
+			new FeatMatrix(theFeatSpecs, ordFeatNames, negProxyAlphs);
 	}
 	
 	/**	applyImplications
