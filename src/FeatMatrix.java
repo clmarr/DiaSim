@@ -7,7 +7,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	private char[] init_chArr; /**@retains mark of @alpha values given to constructor class
 		// whereas they assume their functional numerical values in @featVect as they become specified*/ 
-		//TODO NOTE that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
+		// NOTE that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
 	private String featVect; // by default a string of 1s, one for each feature
 		// as they become specified they become either 0(neg) or 2(pos)
 		// note that this will have negative proxy alphas in it because '-' + the alpha val would be two characters
@@ -38,6 +38,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	
 	private HashMap<String, String> negProxyAlphs; 
+		// symbols for negated alphas, since '-' + alpha character would be two characters
+			// proxies are internally stored as one charater, function in opposition to whatever the lapha value is, bidirectionally
+			// so if A and B are an alph value and its neg proxy (either way) making one - makes the other +, and vice versa
+	
 	
 	// DESPECIFICATION -- 
 			// where due to FEATURE IMPLICATIONS, a feature must be despecified -- i.e. set back to unspecified 
@@ -50,7 +54,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	// without this, one cannot despecify alpha features directly, explicitly,
 		// though the specification of an alpha feature could downstream lead to the despecification of other features
 			// via feature implications. 
-	// currently, making this true will cause errors. 
+	// currently, making this true may cause errors.  (9/30/25 -- check this ? TODO) 
+		// despecification via alpha doesn't apply between an alpha and its negative proxy (what would be the opposite of despecification anyways?) 
 	
 	// TODO note on despecification
 		// alphVals should be HashMap with keys of the original alpha symbol set, and values of the surface form of the specification being imposed (+,-)
@@ -70,9 +75,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					// (i.e. you wouldn't want to catch the shared non-specification of dorsals and glottals for [ant] when you meant to indicate either "both alveolars" or "both postalveolars" etc.
 		// to handle this, the method setAsOutput is added, which changes DESPEC_VIA_ALPHA for that instance to true. 
 	public void setAsOutput()	{ DESPEC_VIA_ALPHA = true; 	}
-	
-	// TODO may need to add variables or methods to handle situation where has different alpha symbols for different features. 
-	
+		
 	/**
 	 * version of constructor with featSpecs passed directly
 	 * should be passed with ',' as  delimiters, and '+/-' as indicators (or '0', for despecification if the result of upstream application of feature implications)
@@ -409,7 +412,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
-	/** @precondition both the keys [alpha features] and the values [String numerical featvect values] 
+	/** 
+	 * @param alphVals -- [key] alpha, [value] the value (+/-/..) it is being set to. 
+	 * @precondition both the keys [alpha features] and the values [String numerical featvect values] 
 	 * 		in alphVals should be one character strings
 	 * this class should be called using the outputs of extractAndApplyAlphaValues
 	  */ 
@@ -430,7 +435,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		for (String s : alphVals.keySet())
 		{
-			//s is the current alpha symbol, every instance of it in the featVect is being changed to the extracted value, val.  
+			//s [key] is the current alpha symbol, 
+				// every instance of it in the featVect is being changed to the extracted value, val.  
 			
 			if(alphVals.get(s).length() > 1)
 				throw new RuntimeException("Error: value for alpha-specified feature (alpha symbol: "+s+") "
@@ -602,6 +608,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	// returns '0' if not set
 	// otherwise the first alpha value detected that has not become a number, in featVect
+	// doesn't directly engage negative alpha proxies, bc when either a proxy or the proxied alpha is set, the other is set to the opposite. 
 	@Override
 	public char first_unset_alpha()
 	{
