@@ -62,12 +62,16 @@ public class SequentialFilter {
 	 * @param pm  paren map. 
 	
 	 * @param bm whether bounds matter
+	 * @param negProxMap -- neg proxies for - alpha values -- key proxy, value proxied alpha val
+	 * 		if empty -- no neg proxies. 
+	 * 		should already be passed in at this point
+	 * 			will not be extracted in this class.
 	 */
 	// abbreviations in use in comments: 
 	// bm = whether bounds matter. 
 	// pm = paren map. 
 	// npalphs = neg proxy alph map 
-	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm)
+	private void initialize(List<RestrictPhone> prs, String[] pm, boolean bm, HashMap<String, String> negProxMap)
 	{
 		parenMap = pm ; 
 		placeRestrs = new ArrayList<RestrictPhone>(prs); 
@@ -79,20 +83,20 @@ public class SequentialFilter {
 		
 		minSize = generateMinSize(); 
 		
-		initAlpha(); 	
+		initAlpha(negProxMap); 	
 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm)
-	{	initialize(prs, pm, false); }
+	{	initialize(prs, pm, false, new HashMap<String, String>() ); }
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm, boolean bm)
-	{	initialize(prs, pm, bm); 	}
+	{	initialize(prs, pm, bm, new HashMap<String, String>() ); 	}
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm, HashMap<String, String> proxies)
-	{		negProxyAlphas = new HashMap<String, String> (proxies); initialize(prs, pm, false);  }
+	{	initialize(prs, pm, false, proxies);  }
 	
 	public SequentialFilter (List<RestrictPhone> prs, String[] pm, boolean bm,  HashMap<String, String> proxies)
-	{		negProxyAlphas = new HashMap<String, String> (proxies); initialize(prs, pm, bm); 	}
+	{	initialize(prs, pm, bm, proxies); 	}
 
 	
 	/**isPriorMatch
@@ -792,10 +796,12 @@ public class SequentialFilter {
 	
 	// -- ALPHA ACCESSORS -- 
 	public HashMap<String,String> getLocalAlphSpecs()	{	return localAlphSpecs;	}
+				// above seems to only be used in AlphaTester
 	public HashMap<String,List<Integer>> getLocalAlphLocs()	{	return localAlphLocs;	}
 	public List<String> getParenthesizedAlphas()	{	return parenthesizedAlphas;	}
 	public String[] getParenAlphaMap()	{	return parenAlphaMap;	}
 	public boolean hasAlphaSpecs()	{	return localAlphSpecs.size() > 0 ;	}
+	public boolean hasNegAlphProxies() 	{	return negProxyAlphas.size() > 0;	}
 	public boolean hasParenthesizedAlpha() // true if there is at least one alpha value in a parenthesis -- these need to be set outside the paren first. 
 	{	return parenthesizedAlphas.size() > 0;	}
 	
@@ -949,18 +955,18 @@ public class SequentialFilter {
 	
 	/** 
 	 * fill parenAlphaMap, given @prerequisite that @parenMap and @placeRestrs are already filled. 
-	 * also sets @param @hasParenthesizedAlpha and @param @hasAlphSpecs to true if appropriate
+	 * also sets @global @param @hasParenthesizedAlpha and @param @hasAlphSpecs to true if appropriate
+	 * @param negProxies -- 
 	 */
-	public void initAlpha()
+	public void initAlpha(HashMap<String,String> negProxies)
 	{
 		parenAlphaMap = new String[parenMap.length]; 
 		
 		int parenDepth = 0; 
-		
+		negProxyAlphas = new HashMap<String, String> (negProxies); 
 		localAlphSpecs = new HashMap<String,String>(); 
 		localAlphLocs = new HashMap<String,List<Integer>>(); 
 		parenthesizedAlphas = new ArrayList<String>(); 
-		negProxyAlphas = new HashMap<String,String>(); 
 		
 		for (int pmi = 0 ; pmi < parenMap.length; pmi++)
 		{
