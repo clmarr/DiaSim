@@ -182,6 +182,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	/**
 	 * checks if candidate phone adheres to the restrictions
+	 * (9/30/25) should behave the same regardless of presence of neg alpha proxies, but currently (9/30/25) untested. 
 	 * @precondition: they have the same length feature vectors
 	 * @throws UnsetAlphaError */
 	public boolean compare(SequentialPhonic cand)
@@ -199,8 +200,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * checks if @param cand adheres to restrictions @except those that are @alpha values
 	 * presently (early Aug 2023) used to skip preemptively to "false" conclusion in SChange objects when extracting alphas,
 	 *  currently in terms of alpha values embedded in contexts (not source phones). 
-	 *  as of @2025 -- no longer opearting through init_chArr but now via featspecs,
-	 *  	becuase sometimes some alphas are filled and others are not. 
+	 *  as of @2025 -- no longer operating through init_chArr but now via featspecs,
+	 *  	because sometimes some alphas are filled and others are not. 
+	 *  (9/30/2025) -- should behave the same if neg alpha proxies are present because of their handling in localAlphabet, featVect
 	 */
 	public boolean comparePreUnsetAlpha(SequentialPhonic cand)
 	{
@@ -216,11 +218,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// abrogated 2025 -- String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
 			String restr = featVect.substring(i,i+1); 
 			String cand_feat = candFeats.substring(i, i+1); 
-			if ("02".contains(restr) && !restr.equals(cand_feat))
+			if ( UTILS.POLAR_FT_INTS.contains(restr) && !restr.equals(cand_feat))
 					return false;
-			if ("9".contains(restr) && !"1".equals(cand_feat))	
+			if ((""+UTILS.DESPEC_INT).contains(restr) && !(""+UTILS.UNSPEC_INT).equals(cand_feat))	
 				return false; 
-			if (!DESPEC_VIA_ALPHA && localAlphabet.contains(restr) && "91".contains(cand_feat))
+			if (!DESPEC_VIA_ALPHA && localAlphabet.contains(restr) 
+					&& (""+UTILS.DESPEC_INT+UTILS.UNSPEC_INT).contains(cand_feat))
 				return false;  //(2025 interpretation) this would require alpha to be set at this time. Though blocking that via this class is a bit categorically off, it's not really comparing *pre* alpha...
 			// if DESPEC_VIA_ALPHA is true, no need to handled alpha valued features at all; 
 					// this will already doing nothing for alpha valued items -- which is exactly as should happen, they are being ignored. 
@@ -300,6 +303,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 
 	@Override
+	// if alpha features are not yet specified MUST call extractAndApplyAlphaValues first. 
+			// or else this will not return true 
+				// in such a scenario where it is being matched pre-setting agianst a candidate segment
 	public boolean equals(Object other) {
 		if(other instanceof FeatMatrix)	
 		{	String othersString = other.toString(); 
