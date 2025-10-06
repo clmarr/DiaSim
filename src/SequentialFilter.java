@@ -999,7 +999,7 @@ public class SequentialFilter {
 			{
 				if (!localAlphSpecs.containsKey(lai))
 				{
-					localAlphSpecs.put(lai, UNSET_ALPHVAL);
+					setAlphaValue(lai, UNSET_ALPHVAL, false); 
 					localAlphLocs.put(lai, Arrays.asList(pmi)); // TODO there might be a data type issue here? 
 				}
 				else
@@ -1025,22 +1025,19 @@ public class SequentialFilter {
 		//for (int pri = 0 ; pri < placeRestrs.size(); pri++)	placeRestrs.get(pri).applyAlphaValues(alphVals);
 	}
 	
+	// not (yet at least?) making this dependent on setAlphaValue() bc it is faster to reset all alpha values at each placeRestr as done in here. 
 	public void resetAllAlphaValues()
 	{
 		for (String alph_i : localAlphSpecs.keySet())
-			localAlphSpecs.put(alph_i, UNSET_ALPHVAL); 
+			setAlphaValue(alph_i, UNSET_ALPHVAL, false);  
 		
-		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	placeRestrs.get(pri).resetAlphaValues(); 
+		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	
+			placeRestrs.get(pri).resetAlphaValues(); 
 	}
 	
 	public void resetTheseAlphaValues(List<String> toReset) {		
 		for (String reseti: toReset)
-		{	
-			localAlphSpecs.put(reseti, UNSET_ALPHVAL);
-			for (int pri : getPlaceRestrLocsWithAlpha(reseti))
-				placeRestrs.get(pri).resetAlphVal(reseti.charAt(0));
-			
-		}
+			setAlphaValue(reseti, UNSET_ALPHVAL, true); 
 	}
 	
 	/**
@@ -1051,13 +1048,16 @@ public class SequentialFilter {
 	 * handles local neg alpha proxy policy within {TODO implement!}
 	 * neg alpha proxy coverage in placeRestrs as applicable is handled in FeatMatrix methods. 
 	 */
-	public void setAlphaValue(String alph, String newVal)
+	public void setAlphaValue(String alph, String newVal)	{	setAlphaValue(alph, newVal, true); 	}
+	public void setAlphaValue(String alph, String newVal, boolean resetPlaceRestrs)
 	{
 		boolean resetting = newVal.equals(UNSET_ALPHVAL); 
 		
 		if (!localAlphSpecs.containsKey(alph))	
 			throw new Error("tried to set an absent alpha variable: "+alph); 
 		localAlphSpecs.put(alph, newVal); 
+		
+		if (!resetPlaceRestrs)	return; 
 		
 		for (int pri:  getPlaceRestrLocsWithAlpha(alph))
 		{
