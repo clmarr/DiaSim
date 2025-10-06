@@ -464,16 +464,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			HashMap<String, String> proxSpecs = new HashMap<String, String> (); 
 			for (String avi : alphVals.keySet())
 			{
-				if (!"02".contains(alphVals.get(avi)))	continue; 
 				String proxPair = getProxyPair(avi); // '!' if there is none. 
 				if (proxPair.equals(NULL_PROXY_PAIR))	continue; 
-				String oppVal = UTILS.POLAR_FT_MARKS.charAt(1 - UTILS.POLAR_FT_MARKS.indexOf(alphVals.get(avi))) + "" ; // opposite value
 				
+				String vali = alphVals.get(avi); 
+				String oppVal = "" +  UTILS.getOppFtInt(vali);  // opposite value if polar (0 ~ -/ 2 ~ +), otherwise same
+					// will throw error if vali is not a valid feature int (0 1 2 9) 
+				
+				if (!UTILS.POLAR_FT_INTS.contains(vali)
+						&& ! (vali.equals(UTILS.DESPEC_INT_CHAR+"") && DESPEC_VIA_ALPHA))	
+						continue; 
+
 				//if it's already in here and NOT specified as the opposite value, htere must be an error! Throw it. 
 				if (alphVals.containsKey(proxPair)) 
 				{	
 					if (!alphVals.get(proxPair).equals(oppVal))
-						throw new Error("Error: tried to set non opposite values for proxy pair:"
+						throw new Error("Error: discovered unexpected polarized value for proxy pair:"
 								+ "\n\t'"+avi+"'("+alphVals.get(avi)+"); '"+proxPair+"'("+oppVal+")"); 
 				
 					//must be there already to be marked for opposite value as proxy/proxied
@@ -511,10 +517,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			char val = alphVals.get(s).charAt(0); 
 				
 			// disallow despecification via alpha unless DESPEC_VIA_ALPHA is true.
-			if (val == '9' && !DESPEC_VIA_ALPHA)	continue;
-			else if (!"02".contains(""+val))	{ 
-				if (val != '1' && !(val == '9' && DESPEC_VIA_ALPHA))
-				{	System.out.println("Alert -- tried to apply a value other than 0,1,2, or 9 to an alpha-specified feature "
+			if (val == UTILS.DESPEC_INT_CHAR && !DESPEC_VIA_ALPHA)	continue;
+			else if (!UTILS.POLAR_FT_INTS.contains(""+val))	{ // shouldn't have anything other than 0,2, or 9 if this is being fed what was produced by extractAndApplyAlpha ... if there is, something is amiss.
+				if (/*val != '1' &&*/ !(val == UTILS.DESPEC_INT_CHAR && DESPEC_VIA_ALPHA))
+				{	System.out.println("Alert -- tried to apply a value other than 0,2, or 9 to an alpha-specified feature "
 							+ "\n   ... likely error around here. Ignoring for now...");
 					//as for other values outside the accepted four, they really shouldn't be allowed, but we're doing this above for now.
 					continue;		
@@ -537,7 +543,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				String currSpec = ordFeats.get(nxind); 
 				
 				//handling first the any-specification case to store for implications downstream
-				if("02".contains(""+val) && UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
+				if(UTILS.POLAR_FT_INTS.contains(""+val) 
+						&& UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
 				{	alphFeatsWImpls.add(currSpec); } 
 					//will actually be handled downstream in this method.
 				
@@ -618,7 +625,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					// if it's a polar value and this is a proxy/proxied alpha, put the opposite for the prox pair ... 
 					if (hasNegProxyAlphs()? UTILS.POLAR_FT_INTS.contains(valHere) : false) 
 						if (hasProxyPair(deepSpec)) 
-							currReqs.put(getProxyPair(deepSpec), ""+UTILS.getOppPolarInt(valHere)); 
+							currReqs.put(getProxyPair(deepSpec), ""+UTILS.getOppFtInt(valHere)); 
 				}
 			}
 		}
@@ -664,7 +671,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
 				}
 				else if (cand_feat_vect[c] == UTILS.UNSPEC_INT_CHAR)	// i.e. alpha-symbol, 9 (despecification)
-					currReqs.put(""+fvspec, ""+UTILS.DESPEC_INT); // TODO NOTE this is extracted but at present it will NOT be applied. 
+					currReqs.put(""+fvspec, ""+UTILS.DESPEC_INT); // TODO NOTE this is extracted but at present it will NOT be applied unless DESPEC_VIA_ALPHA is true. 
 				else	
 					currReqs.put(""+fvspec, cand_feat_vect[c]+""); // i.e. alpha symbol, and 0 or 2 (negative, positive)
 			
