@@ -22,7 +22,7 @@ public class UTILS {
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 	public final static String POLAR_FT_MARKS = "" + MARK_POS + MARK_NEG; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
-	public final static char UNSPEC_INT_CHAR = (""+UNSPEC_INT).charAt(0); 
+	public final static char UNSPEC_INT_CHAR = (""+UNSPEC_INT).charAt(0), DESPEC_INT_CHAR = (""+DESPEC_INT).charAt(0); 
 	public final static String POLAR_FT_INTS = ("" + POS_INT) + NEG_INT; 
 	public final static String ALL_FT_INTS = (POLAR_FT_INTS + UNSPEC_INT) + DESPEC_INT; 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
@@ -83,11 +83,15 @@ public class UTILS {
 	public static int NUM_UNDEFINED_PHONES_USED = 0; 
 	
 	// this will work IFF the POS_INT is still 2 and NEG_INT is still 0. 
-	public static int getOppPolarInt(String ftInt) {
-		if ( ftInt.length() != 1 ? true : !UTILS.POLAR_FT_INTS.contains(ftInt))	
-			throw new Error("Error: tried to get opposite polar int of a non-polar int!"); 
-		
-		return UTILS.POS_INT - Integer.parseInt(ftInt) ;
+	// gives opposite integer if it's a polar int (2,0 -> 0,2) 
+	// if 9 or 1, gives just that. Else throws error. 
+	public static int getOppFtInt(String ftInt) {
+		if ( ftInt.length() != 1 ? true : !ALL_FT_INTS.contains(ftInt))	
+			throw new Error("Error: tried to get opposite feature int of an illegitimate feature int!"); 
+
+		int ftInp = Integer.parseInt(ftInt);
+		return POLAR_FT_INTS.contains(""+ftInt) ? 
+				POS_INT - ftInp : ftInp;
 	}
 	
 	public static boolean etymonIsPresent (Etymon etym)	
