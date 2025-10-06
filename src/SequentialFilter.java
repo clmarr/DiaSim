@@ -305,7 +305,9 @@ public class SequentialFilter {
 		for (int matchStart = 0; matchStart <= prCand.size() - minSize ; matchStart ++ ) // cpic is starting index
 		{
 			boolean success =  filtCheckHelper ( 
-					new ArrayList<SequentialPhonic>( backwards ? prCand.subList(0, prCand.size() - matchStart) : prCand.subList(matchStart, prCand.size())), 
+					new ArrayList<SequentialPhonic>( backwards ?
+							prCand.subList(0, prCand.size() - matchStart) 
+							: prCand.subList(matchStart, prCand.size())), 
 					backwards ? placeRestrs.size() - 1 : 0 , 
 					backwards ? parenMap.length - 1 : 0 , 
 					backwards, AlphaTester.getLineNumber()) ; 
@@ -335,7 +337,7 @@ public class SequentialFilter {
 	 * @param lineCall -- debugging purposes. 
 	 * @return
 	 */
-	// TODO is alphsToSetWithin even necessary? 	
+	// TODO is alphsToSetWithin even necessary? {currently (last notated 10/6/25 -- not being used.)
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward)
 	{	return filtCheckHelper(prCandLeft,placeRestrLoc,parenMapLoc,backward,-1); 	}
 	public boolean filtCheckHelper ( List<SequentialPhonic> prCandLeft, /*List<String> alphsToSetWithin, */ int placeRestrLoc, int parenMapLoc, boolean backward, int lineCall)
@@ -1014,12 +1016,9 @@ public class SequentialFilter {
 	{
 		if (!hasAlphaSpecs())	return; 
 		for (String alph: alphVals.keySet()) {
-			if (!localAlphSpecs.containsKey(alph))	
-				throw new Error("tried to set an absent alpha variable: "+alph); 
-			String val = alphVals.get(alph); 
-			localAlphSpecs.put(alph, val); 
-			for (int pri: getPlaceRestrLocsWithAlpha(alph))
-				placeRestrs.get(pri).setAlphaValue(alph, val);
+			
+			setAlphaValue(alph, alphVals.get(alph)); 
+			
 		}
 		
 		//the below should be trivial, but uncomment as bandaid if errors of lack of coverage arise if need quick fix
@@ -1031,15 +1030,10 @@ public class SequentialFilter {
 		for (String alph_i : localAlphSpecs.keySet())
 			localAlphSpecs.put(alph_i, UNSET_ALPHVAL); 
 		
-		//TODO note -- below is NOT trivial. Due to how FeatMatrix operates, unfortunately, it would be very inefficient otherwise,
-		// but have to reset all alph vals in each FeatMatrix at a time 
-			// rather than each alph val being reset across all FMs at a time...
-		// TODO but as of July 3, 2025, this became no longer the case ... 
 		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	placeRestrs.get(pri).resetAlphaValues(); 
 	}
 	
-	public void resetTheseAlphaValues(List<String> toReset) {
-		
+	public void resetTheseAlphaValues(List<String> toReset) {		
 		for (String reseti: toReset)
 		{	
 			localAlphSpecs.put(reseti, UNSET_ALPHVAL);
@@ -1047,10 +1041,29 @@ public class SequentialFilter {
 				placeRestrs.get(pri).resetAlphVal(reseti.charAt(0));
 			
 		}
-	
 	}
 	
+	/**
+	 * centralize handling (for efficiency of debugging, etc.) of setting an alpha value in localAlphSpecs 
+	 * @param alph -- alpha value that will be reset
+	 * @param newVal -- new setting 
+	 * @modifies @global @localAlphSpecs
+	 * handles local neg alpha proxy policy within {TODO implement!}
+	 * neg alpha proxy coverage in placeRestrs as applicable is handled in FeatMatrix methods. 
+	 */
+	public void setAlphaValue(String alph, String newVal)
+	{
+		boolean resetting = newVal.equals(UNSET_ALPHVAL); 
+		
+		if (!localAlphSpecs.containsKey(alph))	
+			throw new Error("tried to set an absent alpha variable: "+alph); 
+		localAlphSpecs.put(alph, newVal); 
+		
+		for (int pri:  getPlaceRestrLocsWithAlpha(alph))
+		{
+			if (resetting) placeRestrs.get(pri).resetAlphVal(alph.charAt(0));
+			else placeRestrs.get(pri).setAlphaValue(alph, newVal); 
+		}
+	}
 
-	
-	
 }
