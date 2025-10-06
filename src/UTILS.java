@@ -82,13 +82,23 @@ public class UTILS {
 	
 	public static int NUM_UNDEFINED_PHONES_USED = 0; 
 	
+	public static void abortInvalidFtIntStr(String ftInt)
+	{	abortInvalidFtIntStr(ftInt,""); 	}
+	public static void abortInvalidFtIntStr(String ftInt, String qualifier) 
+	{	if (detectInvalidFtIntStr(ftInt))	
+			throw new Error("Error: tried to get "+qualifier+"feature int of an illegitimate feature int!"); 
+	}
+	
+	public static boolean detectInvalidFtIntStr (String candFI) {
+		return candFI.length() != 1 ? true : !ALL_FT_INTS.contains(candFI); 
+	}
+	
 	// this will work IFF the POS_INT is still 2 and NEG_INT is still 0. 
 	// gives opposite integer if it's a polar int (2,0 -> 0,2) 
 	// if 9 or 1, gives just that. Else throws error. 
 	public static int getOppFtInt(String ftInt) {
-		if ( ftInt.length() != 1 ? true : !ALL_FT_INTS.contains(ftInt))	
-			throw new Error("Error: tried to get opposite feature int of an illegitimate feature int!"); 
-
+		abortInvalidFtIntStr(ftInt, "opposite "); 	
+		
 		int ftInp = Integer.parseInt(ftInt);
 		return POLAR_FT_INTS.contains(""+ftInt) ? 
 				POS_INT - ftInp : ftInp;
@@ -1162,7 +1172,7 @@ public class UTILS {
 	public static final String ILLEGAL_ALPHAS = "[|]/()*+ 0129-,;";
 	public static void abortIllegalAlpha(char inp) {	abortIllegalAlpha(""+inp);	}
 	public static void abortIllegalAlpha(String inp)	{
-		if (ILLEGAL_ALPHAS.contains(inp))			throw new Error("Illegal character attempted to be used as alpha symbol: ' "+inp+" '");	}
+		if (inp.length() > 1 || ILLEGAL_ALPHAS.contains(inp))			throw new Error("Illegal string attempted to be used as alpha symbol: ' "+inp+" '");	}
 	// @precondition: ordFeatNames initialized in terms of feature names operationally in use...
 	public static void abortIllegalAlphaSpec(String inp) 
 	{	

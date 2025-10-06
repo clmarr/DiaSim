@@ -827,13 +827,40 @@ public class SequentialFilter {
 		return false;
 	}
 		
+
+	/** 
+	 * 
+	 * @param alph -- an alpha variable
+	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
+	 * 			@else @return the proxy/proxied alpha variable 
+	 */
+	public String NULL_PROXY_PAIR = "!";
+	public String getProxyPair (String alph)
+	{
+		if (!hasNegAlphProxies())	return NULL_PROXY_PAIR; 
+		if (negProxyAlphas.containsKey(alph))
+			return negProxyAlphas.get(alph); 
+		if (negProxyAlphas.containsValue(alph))	
+			for (String pxi : negProxyAlphas.keySet()) 
+				if (negProxyAlphas.get(pxi).equals(alph))
+					return pxi; 
+		return NULL_PROXY_PAIR;
+	}
+	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(NULL_PROXY_PAIR);	}
+	
+	
 	/**
 	 * @return @true iff @param alph is only marked within parentheses
 	 * @prerequisite: @parenthesizedAlphas, @localAlphSpecs, @parenMap, and @parenAlphaMap have been initialized. 
 	 */
-	public boolean alphaOnlyInParentheses(String alph)
+	public boolean alphaOnlyInParentheses(String alpha)
 	{
-		if (!localAlphSpecs.containsKey(alph))	throw new Error("Error: tried to check if an inexistent alpha ("+alph+")is only parenthetical"); 
+		String candProxy = hasNegAlphProxies() ? getProxyPair (alpha) : NULL_PROXY_PAIR; 
+		String alph = localAlphSpecs.containsKey(alpha) ? alpha : candProxy; 
+		
+		if (alph.equals(NULL_PROXY_PAIR)) // if it's this, then alpha is neither a valid alpha spec nor a proxy for one. 
+				throw new Error("Error: tried to check if an inexistent alpha ("+alpha+")is only parenthetical"); 
+		
 		if (!parenthesizedAlphas.contains(alph))	return false; 
 		
 		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
@@ -999,7 +1026,7 @@ public class SequentialFilter {
 			{
 				if (!localAlphSpecs.containsKey(lai))
 				{
-					specifyLocalAlph(lai, UNSET_ALPHVAL, false); 
+					specifyLocalAlph(lai, UNSET_ALPHVAL, false);  // fills localAlphSpecs
 					localAlphLocs.put(lai, Arrays.asList(pmi)); // TODO there might be a data type issue here? 
 				}
 				else
@@ -1017,7 +1044,7 @@ public class SequentialFilter {
 		if (!hasAlphaSpecs())	return; 
 		for (String alph: alphVals.keySet()) {
 			
-			setAlphaValue(alph, alphVals.get(alph)); 
+			specifyLocalAlph(alph, alphVals.get(alph)); 
 			
 		}
 		
@@ -1045,19 +1072,30 @@ public class SequentialFilter {
 	 * @param alph -- alpha value that will be reset
 	 * @param newVal -- new setting 
 	 * @modifies @global @localAlphSpecs
-	 * handles local neg alpha proxy policy within {TODO implement!}
+	 * handles local neg alpha proxy policy within 
+	 * 		- automatically adds any alpha proxies! 
+	 * 			@precondition -- negProxyAlphas has been filled already (!!)
+				automatically polarizes values as necessary
+					manually within here
+					and via FeatMatrix methods within placeRestrs. 
+				but does not force them upon other structures in getting or setting, functionally or internally. 
+	 	TODO NOTE -- WILL despecify via alpha(!!) 
 	 * neg alpha proxy coverage in placeRestrs as applicable is handled in FeatMatrix methods. 
+	 	
 	 */
 	public void specifyLocalAlph(String alph, String newVal)	{	specifyLocalAlph(alph, newVal, true); 	}
-	public void specifyLocalAlph(String alph, String newVal, boolean resetPlaceRestrs)
+	public void specifyLocalAlph(String alph, String newVal, boolean modifyPlaceRestrs)
 	{
+		UTILS.abortIllegalAlpha(alph);
 		boolean resetting = newVal.equals(UNSET_ALPHVAL); 
+		if (!resetting) UTILS.abortInvalidFtIntStr(newVal); 
 		
-		if (!localAlphSpecs.containsKey(alph))	
-			throw new Error("tried to set an absent alpha variable: "+alph); 
 		localAlphSpecs.put(alph, newVal); 
 		
-		if (!resetPlaceRestrs)	return; 
+		
+		//TODO alpha proxy policy -- implmement 
+		
+		if (!modifyPlaceRestrs)	return; 
 		
 		for (int pri:  getPlaceRestrLocsWithAlpha(alph))
 		{
