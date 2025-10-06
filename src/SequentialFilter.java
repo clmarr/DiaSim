@@ -1074,7 +1074,7 @@ public class SequentialFilter {
 	 * @modifies @global @localAlphSpecs
 	 * handles local neg alpha proxy policy within 
 	 * 		- automatically adds any alpha proxies! 
-	 * 			@precondition -- negProxyAlphas has been filled already (!!)
+	 * 			@precondition -- @global @negProxyAlphas has been filled already (!!)
 				automatically polarizes values as necessary
 					manually within here
 					and via FeatMatrix methods within placeRestrs. 
@@ -1087,21 +1087,46 @@ public class SequentialFilter {
 	public void specifyLocalAlph(String alph, String newVal, boolean modifyPlaceRestrs)
 	{
 		UTILS.abortIllegalAlpha(alph);
-		boolean resetting = newVal.equals(UNSET_ALPHVAL); 
-		if (!resetting) UTILS.abortInvalidFtIntStr(newVal); 
 		
-		localAlphSpecs.put(alph, newVal); 
+		putLocalAlph(alph, newVal, modifyPlaceRestrs); 
 		
+		// alpha proxy policy implementation: 
+		specifyAlphViaNegProxy(alph, newVal, modifyPlaceRestrs); 
+	}
+	
+	// auxiliiary for specifyLocalAlph, specifyAlphViaNegProxy
+	private void putLocalAlph(String a, String nv, boolean modifyPRs)
+	{
+		boolean resetting = nv.equals(UNSET_ALPHVAL); 
+		if (!resetting) UTILS.abortInvalidFtIntStr(nv); 
 		
-		//TODO alpha proxy policy -- implmement 
+		localAlphSpecs.put(a, nv); 
+	
+		// if not modifying placeRestrs structure, end here. 
+		if (!modifyPRs)	return; 
 		
-		if (!modifyPlaceRestrs)	return; 
-		
-		for (int pri:  getPlaceRestrLocsWithAlpha(alph))
+		for (int pri:  getPlaceRestrLocsWithAlpha(a))
 		{
-			if (resetting) placeRestrs.get(pri).resetAlphVal(alph.charAt(0));
-			else placeRestrs.get(pri).setAlphaValue(alph, newVal); 
+			if (resetting) placeRestrs.get(pri).resetAlphVal(a.charAt(0));
+			else placeRestrs.get(pri).setAlphaValue(a, nv); 
 		}
+	}
+	
+	/**
+	 * @modify @global @localAlphSpecs appropriately via a neg proxy/proxied alpha symbol 
+	 * @param prAlph -- possibly proxy or proxied [pair] alpha 
+	 * 			if it has no proxy pair, then @donothing (no error)
+	 * @param prVal -- value -- which will be polarized if it is polar
+	 * @param modifyPlaceRestrs -- if placeRestrs will be modified
+	 * @precondition @global @negProxyAlphas @initialized
+	 */
+	public void specifyAlphViaNegProxy(String prAlph, String prVal, boolean modifyPlaceRestrs)
+	{
+		String targAlph = getProxyPair(prAlph); 
+		if (targAlph.equals(NULL_PROXY_PAIR))	return; 
+		/*else*/ 
+		String targVal = ""+UTILS.getOppFtInt(prVal);
+		putLocalAlph(targAlph, targVal, modifyPlaceRestrs); 
 	}
 
 }
