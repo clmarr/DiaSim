@@ -999,7 +999,7 @@ public class SequentialFilter {
 			{
 				if (!localAlphSpecs.containsKey(lai))
 				{
-					setAlphaValue(lai, UNSET_ALPHVAL, false); 
+					specifyLocalAlph(lai, UNSET_ALPHVAL, false); 
 					localAlphLocs.put(lai, Arrays.asList(pmi)); // TODO there might be a data type issue here? 
 				}
 				else
@@ -1029,7 +1029,7 @@ public class SequentialFilter {
 	public void resetAllAlphaValues()
 	{
 		for (String alph_i : localAlphSpecs.keySet())
-			setAlphaValue(alph_i, UNSET_ALPHVAL, false);  
+			specifyLocalAlph(alph_i, UNSET_ALPHVAL, false);  
 		
 		for (int pri = 0 ; pri < placeRestrs.size() ; pri++)	
 			placeRestrs.get(pri).resetAlphaValues(); 
@@ -1037,7 +1037,7 @@ public class SequentialFilter {
 	
 	public void resetTheseAlphaValues(List<String> toReset) {		
 		for (String reseti: toReset)
-			setAlphaValue(reseti, UNSET_ALPHVAL, true); 
+			specifyLocalAlph(reseti, UNSET_ALPHVAL, true); 
 	}
 	
 	/**
@@ -1048,8 +1048,8 @@ public class SequentialFilter {
 	 * handles local neg alpha proxy policy within {TODO implement!}
 	 * neg alpha proxy coverage in placeRestrs as applicable is handled in FeatMatrix methods. 
 	 */
-	public void setAlphaValue(String alph, String newVal)	{	setAlphaValue(alph, newVal, true); 	}
-	public void setAlphaValue(String alph, String newVal, boolean resetPlaceRestrs)
+	public void specifyLocalAlph(String alph, String newVal)	{	specifyLocalAlph(alph, newVal, true); 	}
+	public void specifyLocalAlph(String alph, String newVal, boolean resetPlaceRestrs)
 	{
 		boolean resetting = newVal.equals(UNSET_ALPHVAL); 
 		
