@@ -22,6 +22,7 @@ public class UTILS {
 	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
 	public final static String POLAR_FT_MARKS = "" + MARK_POS + MARK_NEG; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
+	public final static char UNSPEC_INT_CHAR = (""+UNSPEC_INT).charAt(0); 
 	public final static String POLAR_FT_INTS = ("" + POS_INT) + NEG_INT; 
 	public final static String ALL_FT_INTS = (POLAR_FT_INTS + UNSPEC_INT) + DESPEC_INT; 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 

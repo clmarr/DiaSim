@@ -447,12 +447,12 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	
 	@Override
 	/** 
-	 * @param alphVals -- [key] alpha, [value] the value (+/-/..) it is being set to. 
+	 * @param alphVals -- [key] alpha, [value] the value (2 for + , 0 for -  ...) it is being set to. 
 	 * @precondition both the keys [alpha features] and the values [String numerical featvect values] 
 	 * 		in alphVals should be one character strings
 	 * this class should be called using the outputs of extractAndApplyAlphaValues
+	 * on despecification, see notes near the variable DESPEC_VIA_ALPHA.
 	  */ 
-	// on despecification, see notes near the variable DESPEC_VIA_ALPHA.
 	public void applyAlphaValues(HashMap<String,String> alphVals)
 	{
 		if (alphVals.keySet().size() == 0)	return; 
@@ -635,13 +635,16 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * 	* as it won't be a valid situation for the operation of the sound change in question 
 	* otherwise @apply the value specifications that alpha-valued features have in the SequentialPhonic @param inp
 	* 	and then @return those exact value specifications that were applied
-	* 		in HashMap with key = alpha symbol, value = feat vect spec (a [String] number ~ 0,1,2, or 9) 
+	* 		in HashMap with key = alpha symbol, 
+	* 			value = feat vect spec (a [String] number ~ 0,1,2, or 9) 
 	*/
 	public HashMap<String,String> extractAndApplyAlphaValues(SequentialPhonic inp)
 	{
 		if (first_unset_alpha() == '0')	return new HashMap<String,String>(); 
 		
+		//output, to be filled.
 		HashMap<String, String> currReqs = new HashMap<String,String> ();
+		
 		char[] cand_feat_vect = inp.toString().split(":")[1].toCharArray(); 
 			// "candidate feature vector"
 		if (cand_feat_vect.length != featVect.length()) 	throw new RuntimeException("cannot extract alpha values for feat vectors of inconsistent length"); 
@@ -650,23 +653,23 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		{
 			char fvspec = featVect.charAt(c); 
 
-			if (!"0192".contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
+			if (!UTILS.ALL_FT_INTS.contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
 				if (currReqs.containsKey(""+fvspec))
 				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
-					if (currspec.equals("9")  && '1'!=cand_feat_vect[c])
+					if (currspec.equals(UTILS.DESPEC_INT+"")  && UTILS.UNSPEC_INT_CHAR!=cand_feat_vect[c])
 							throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
 					else	if (!currspec.equals(cand_feat_vect[c]+""))
 						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
 				}
-				else if (cand_feat_vect[c] == '1')	// i.e. alpha-symbol, 9 (despecification)
-					currReqs.put(""+fvspec, "9"); // TODO NOTE this is extracted but at present it will NOT be applied. 
+				else if (cand_feat_vect[c] == UTILS.UNSPEC_INT_CHAR)	// i.e. alpha-symbol, 9 (despecification)
+					currReqs.put(""+fvspec, ""+UTILS.DESPEC_INT); // TODO NOTE this is extracted but at present it will NOT be applied. 
 				else	
 					currReqs.put(""+fvspec, cand_feat_vect[c]+""); // i.e. alpha symbol, and 0 or 2 (negative, positive)
 			
 			}
-			else if ("02".contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
+			else if (UTILS.POLAR_FT_INTS.contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
 				return new HashMap<String,String>(); //i.e. this is not a valid input in the first place, nothing to extract -- return empty HashMap
 		}
 		
