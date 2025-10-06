@@ -428,21 +428,22 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	/** 
 	 * 
 	 * @param alph -- an alpha variable
-	 * @return '0' if it is neither a negative proxy, nor proxied
+	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
+	public String NULL_PROXY_PAIR = "!";
 	public String getProxyPair (String alph)
 	{
-		if (!hasNegProxyAlphs())	return "0"; 
+		if (!hasNegProxyAlphs())	return NULL_PROXY_PAIR; 
 		if (negProxyAlphs.containsKey(alph))
 			return negProxyAlphs.get(alph); 
 		if (negProxyAlphs.containsValue(alph))	
 			for (String pxi : negProxyAlphs.keySet()) 
 				if (negProxyAlphs.get(pxi).equals(alph))
 					return pxi; 
-		return "0";
+		return NULL_PROXY_PAIR;
 	}
-	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals("0");	}
+	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(NULL_PROXY_PAIR);	}
 	
 	@Override
 	/** 
@@ -463,9 +464,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			HashMap<String, String> proxSpecs = new HashMap<String, String> (); 
 			for (String avi : alphVals.keySet())
 			{
-				if (!"+-".contains(alphVals.get(avi)))	continue; 
-				String proxPair = getProxyPair(avi); // '0' if there is none. 
-				if (proxPair.equals("0"))	continue; 
+				if (!"02".contains(alphVals.get(avi)))	continue; 
+				String proxPair = getProxyPair(avi); // '!' if there is none. 
+				if (proxPair.equals(NULL_PROXY_PAIR))	continue; 
 				String oppVal = UTILS.POLAR_FT_MARKS.charAt(1 - UTILS.POLAR_FT_MARKS.indexOf(alphVals.get(avi))) + "" ; // opposite value
 				
 				//if it's already in here and NOT specified as the opposite value, htere must be an error! Throw it. 
