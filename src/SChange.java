@@ -36,6 +36,7 @@ public abstract class SChange {
 		// it is however used for the other 3 SChange*Alpha subclasses, sometimes via auxiliaries in SChangeSeqToSeqAlpha
 				// e.g. SChangeSeqToSeqAlpha has mapAlphaValues() to map an input alph value to all structures
 				// SChangeSeqToSeqAlpha.applyAlph applies whatever ALPH_VALS has to an input RestrictPhone
+	
 	protected HashMap<String,String> NEG_ALPH_PROXIES; //key proxy, value alph it is the neg val for. 
 		// unimplemented for all non-alpha subclasses.... just like ALPH_VARS
 	
@@ -101,6 +102,9 @@ public abstract class SChange {
 	{	return orig;	}
 	
 
+	public void setNegAlphProxies (HashMap<String, String> nAPs)
+	{	NEG_ALPH_PROXIES = new HashMap<String, String> (nAPs);	}
+	
 	public void reset_alphvals_everywhere() 
 	{
 		if (!alphaSubclass())	return; 
