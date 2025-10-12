@@ -23,7 +23,17 @@ public abstract class SChange {
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minInputSize; 
 	protected String orig;
+	
 	protected HashMap<String,String> ALPH_VARS; 
+		// stores current alpha variable settings. 
+		// if there are none, it's empty (unlike in some other structures, does not keep them constant with some unset value.
+		// not used in subclasses that arent **Alpha subclasses
+		// in practice not really used in SChangeFeatToPhone either 
+			// -- instead any alpha computation within realize is handled within method, 
+				// passing from input mathcing to contexts, and then prior context to posterior, as necessary.
+		// it is however used for the other 3 SChange*Alpha subclasses, sometimes via auxiliaries in SChangeSeqToSeqAlpha
+				// e.g. SChangeSeqToSeqAlpha has mapAlphaValues() to map an input alph value to all structures
+				// SChangeSeqToSeqAlpha.applyAlph applies whatever ALPH_VALS has to an input RestrictPhone
 	protected HashMap<String,String> NEG_ALPH_PROXIES; //key proxy, value alph it is the neg val for. 
 		// unimplemented for all non-alpha subclasses.... just like ALPH_VARS
 	
