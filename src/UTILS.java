@@ -1309,7 +1309,9 @@ public class UTILS {
 	 * return empty if there are none.  (no error)
 	 */
 	public static List<String> listNegatedAlphasInString (String str)
-	{	return listAlphasInString(str, true); 	}	
+	{	return listAlphasInString(str, true); 	}
+	public static boolean stringHasNegProxies (String stri)
+	{	return listNegatedAlphasInString(stri).size() > 0; 	} //if there's any, it'll be in the size.
 	
 	private static String possibleAlphaProxies = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmʏʠɰɥɶʁɭʟɱŋɲɳɾɽʀɹɻʑʒʃʝθðɸαɑæʊσβɣçɛøœχɩʎ"; 
 	
@@ -1994,6 +1996,7 @@ public class UTILS {
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
+	 * unlike the one in SChangeFactory, this does not take into account possible negative alpha proxies. 
 	 */
 	public static boolean isValidFeatSpecList(String input)
 	{

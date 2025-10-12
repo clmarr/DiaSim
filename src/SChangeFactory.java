@@ -45,8 +45,17 @@ public class SChangeFactory {
 		//TODO featVectDelim is currently abrogated
 	
 	
-	
 	private boolean boundsMatter; 
+	
+	private HashMap<String, String> currentNegProxies; 		// key -- neg proxy; value -- what it proxies for. 
+	boolean usingNegProxies, negProxiesInInpSrc, negProxiesInDest , 
+			negProxiesInPrior, negProxiesInPostr; 
+	private void initForNegProxies()
+	{
+		currentNegProxies = new HashMap<String, String>(); 
+		 usingNegProxies = false; negProxiesInInpSrc= false; negProxiesInDest = false; 
+			negProxiesInPrior= false; negProxiesInPostr= false;
+	}
 	
 	//Constructor
 	
@@ -158,6 +167,8 @@ public class SChangeFactory {
 	 */
 	public List<SChange> generateSoundChangesFromRule(String inp)
 	{
+		initForNegProxies();
+		
 		int cmtStart = inp.indexOf(""+cmtFlag); 
 		String input = (cmtStart == -1) ? inp.trim() : inp.substring(0, cmtStart).trim();
 		
@@ -274,32 +285,8 @@ public class SChangeFactory {
 			}
 		}
 		
-		boolean usingAlphFeats = 
-				UTILS.stringHasFMWithAlpha(inputSource); 
-		if (!usingAlphFeats) 
-			usingAlphFeats = UTILS.stringHasFMWithAlpha(inputDest); 
-		if (!usingAlphFeats && priorSpecified)
-			usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
-		if (!usingAlphFeats && postrSpecified)
-			usingAlphFeats = parseNewSeqFilter(inputPostr,boundsMatter).hasAlphaSpecs();
-			// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
-			// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
-				
-		// throw error if an alpha value is used only once: 
-		if (usingAlphFeats ? ruleStringHasUnmatchedAlpha(input) : false)
-			throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"
-					+ "\nThe rule: "+input); 		
-		//... or if there is a negative alpha without any positive usage: 
-		if (usingAlphFeats)	UTILS.abortOrphanedNegAlphStip(input); 
-		
-		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
-		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
-				+ " features for defining source -- this is forbidden. \nIt will be added in future releases.\nFor now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
-		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
-				+ "features for defining destination -- this is forbidden.\nAttempted rule is: "+inp);
-		
 		//TODO note [ and ] can ONLY be used to surround feature specifications for FeatMatrix
-				// otherwise there will be very problematic errors
+		// otherwise there will be very problematic errors
 		boolean srcHasFeatMatrices = inputSource.contains("["); 
 		if (srcHasFeatMatrices != inputSource.contains("]")) 
 			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
@@ -311,6 +298,58 @@ public class SChangeFactory {
 						+ "\nIn the mean time, please use multiple rules to accomplish your intended transformation."
 						+ "\nAttempted rule: "+inp);
 		}
+		
+		boolean usingAlphFeats = 
+				UTILS.stringHasFMWithAlpha(inputSource); 
+		if (!usingAlphFeats) 
+			usingAlphFeats = UTILS.stringHasFMWithAlpha(inputDest); 
+		if (!usingAlphFeats && priorSpecified)
+			usingAlphFeats = parseNewSeqFilter(inputPrior,boundsMatter).hasAlphaSpecs();
+		if (!usingAlphFeats && postrSpecified)
+			usingAlphFeats = parseNewSeqFilter(inputPostr,boundsMatter).hasAlphaSpecs();
+			// this covers only the edge case where the posterior consists of multiple elements and the rule requires they have something in common. 
+			// this is rare of course. In most cases, alpha specification for a posterior context without alpha values also in play in source, destination, or prior context is probably an error... 
+				
+		
+		if (usingAlphFeats)
+		{
+
+			// throw error if an alpha value is used only once: 
+			if (ruleStringHasUnmatchedAlpha(input))
+				throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"
+						+ "\nThe rule: "+input); 	
+
+			//neg proxy handling as necessary. 
+			//... or if there is a negative alpha without any positive usage: 
+			if (usingAlphFeats)	UTILS.abortOrphanedNegAlphStip(input); 
+			
+			// detect if there's negated alphas. 
+			usingNegProxies = UTILS.stringHasNegProxies(inp); 
+			if (usingNegProxies)
+			{
+				currentNegProxies = UTILS.createNegProxyAlphabet(inp); 
+				// draw from the input before it was modified in any way. 
+				// this way only have to make one. 
+				
+				// then apply to each, before they are processed.
+				negProxiesInInpSrc = UTILS.stringHasNegProxies(inputSource); 
+				if (negProxiesInInpSrc)	inputSource = UTILS.applyNegalphaProxies(inputSource, currentNegProxies);
+				negProxiesInDest = UTILS.stringHasNegProxies(inputDest); 
+				if (negProxiesInDest)	inputDest = UTILS.applyNegalphaProxies(inputDest, currentNegProxies);
+				negProxiesInPrior = UTILS.stringHasNegProxies(inputPrior); 
+				if (negProxiesInPrior)	inputPrior = UTILS.applyNegalphaProxies(inputPrior, currentNegProxies);
+				negProxiesInPostr = UTILS.stringHasNegProxies(inputPostr); 
+				if (negProxiesInPostr)	inputDest = UTILS.applyNegalphaProxies(inputPostr, currentNegProxies);
+			}
+			
+		}	
+		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
+		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
+				+ " features for defining source -- this is forbidden. \nIt will be added in future releases.\nFor now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
+		if (inputDest.contains("(") || inputDest.contains(")") ) throw new RuntimeException("Error: tried to use optionality "
+				+ "features for defining destination -- this is forbidden.\nAttempted rule is: "+inp);
+		
+		// now parsing into appropriate data structures begins. 
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
@@ -327,8 +366,9 @@ public class SChangeFactory {
 				// this does mean that in practice a FeatMatrix to single phone may be treated as an SChangeFeat... (TODO are we sure about this still? Does it matter)
 			if(theDest.print().equals("#") == false)
 			{
-				SChangeFeat thisShift = usingAlphFeats ? new SChangeFeatAlpha(getFeatMatrix(inputSource), theDest, boundsMatter, inp) :
-						new SChangeFeat(getFeatMatrix(inputSource), theDest, boundsMatter, inp); 
+				SChangeFeat thisShift = 
+						usingAlphFeats ? new SChangeFeatAlpha(getFeatMatrix(negProxiesInInpSrc, inputSource), theDest, boundsMatter, inp) :
+						new SChangeFeat(getFeatMatrix(negProxiesInInpSrc, inputSource), theDest, boundsMatter, inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				outputToCasc.add(thisShift); 
@@ -336,7 +376,7 @@ public class SChangeFactory {
 			}
 			//if we reach here, we know it is a SChangeFeatToPhone
 			List<RestrictPhone> targSource = new ArrayList<RestrictPhone>(); 
-			targSource.add(getFeatMatrix(inputSource)); 
+			targSource.add(getFeatMatrix(negProxiesInInpSrc, inputSource)); 
 			SChangeFeatToPhone thisShift = usingAlphFeats ? new SChangeFeatToPhoneAlpha(UTILS.featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp) : new SChangeFeatToPhone(UTILS.featIndices, targSource, 
 					parsePhoneSequenceForDest(inputDest), inp); 
@@ -356,7 +396,8 @@ public class SChangeFactory {
 				if (! inputDest.contains("]")) throw new RuntimeException("Error: mismatch in presence "
 						+ "of [ and ], which are correctly used to mark a FeatMatrix specification"
 						+ "\nAttempted rule is: "+inp); 
-				SChangeSeqToSeq thisShift = usingAlphFeats ?  new SChangeSeqToSeqAlpha(
+				SChangeSeqToSeq thisShift = usingAlphFeats ?
+						new SChangeSeqToSeqAlpha(
 						parseRestrictPhoneSequence(inputSource), parseRestrictPhoneSequence(inputDest,true), inp) : 
 							new SChangeSeqToSeq(parseRestrictPhoneSequence(inputSource),
 									parseRestrictPhoneSequence(inputDest,true), inp); 
@@ -411,7 +452,7 @@ public class SChangeFactory {
 			{
 				
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
-				destMutations.add(getFeatMatrix(inputDest, true)) ; 
+				destMutations.add(getFeatMatrix(negProxiesInDest, inputDest, true)) ; 
 				
 				SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
@@ -468,7 +509,10 @@ public class SChangeFactory {
 		
 		if(isValidFeatSpecList(inputLeft))
 		{
-			output.add(getFeatMatrix(inputLeft, forDestination));
+			output.add(getFeatMatrix(
+					forDestination ? negProxiesInDest : 
+						( usingNegProxies ? UTILS.listAlphasInFeatString(inputLeft, false).size() > 0 : false ) /*somewhat of a bandaid here -- neg alphas only if htere's an alpha at all */,
+						inputLeft, forDestination));
 			return output;
 		}
 		
@@ -477,7 +521,9 @@ public class SChangeFactory {
 			if(inputLeft.charAt(0) == '[')
 			{
 				int brackEnd = inputLeft.indexOf(']'); 
-				output.add(getFeatMatrix(inputLeft.substring(1, brackEnd), forDestination));
+				output.add(getFeatMatrix(forDestination ? negProxiesInDest : 
+					( usingNegProxies ? UTILS.listAlphasInFeatString(inputLeft, false).size() > 0 : false ) /* slight bandaid for false condition, hopefully won't slow things down tooo much*/,
+									inputLeft.substring(1, brackEnd), forDestination));
 				inputLeft = inputLeft.substring(brackEnd + 1).trim(); 
 			}
 			else if ("#+".contains(inputLeft.charAt(0)+"" ))
@@ -533,7 +579,9 @@ public class SChangeFactory {
 		if(input.charAt(0) == '[' && input.indexOf("]") == input.length() - 1)
 			input = input.substring(input.indexOf("[")+1, input.indexOf("]")); 
 		if(isValidFeatSpecList(input))
-			return getFeatMatrix(input, true); 
+			return getFeatMatrix(
+					negProxiesInDest ? UTILS.listAlphasInFeatString(inp, false).size() > 0 : false /*bandaid for security, hopefully not too computationally expensive in storing negProxies for phones where htere are none...*/
+					, input, true); 
 		return new Boundary("word bound");
 	}
 	
@@ -707,7 +755,9 @@ public class SChangeFactory {
 					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
 						+ " with an invalid entrance for the list of feature specifications.\nAttempted input was: "+input);
-					thePlaceRestrs.add(getFeatMatrix(curtp));  
+					thePlaceRestrs.add(getFeatMatrix(
+							usingNegProxies ? UTILS.listAlphasInFeatString(curtp, false).size() > 0 : false , /*slight bandaid here as guard rail, hopeful won't slow things down too much*/
+													curtp));  
 				}
 			}
 		}
@@ -716,7 +766,10 @@ public class SChangeFactory {
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
-		return new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
+		// currently, if there's neg proxies anywhere, pass to this -- shouldn't be too costly since we have max 3 SequentialFilters being constructed. 
+		return ( usingNegProxies ? UTILS.stringHasFMWithAlpha(input) : false) 
+				? new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter, currentNegProxies)
+				: new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 	
 	/** isValidFeatSpecList
@@ -728,7 +781,11 @@ public class SChangeFactory {
 		String[] specs = input.split(""+restrDelim); 
 		
 		for(int si = 0; si < specs.length; si++)	
-			if (!UTILS.ordFeatNames.contains(specs[si].substring(1)))	return false;
+			if (!UTILS.ordFeatNames.contains(specs[si].substring(1))
+					&& (currentNegProxies.containsValue(""+UTILS.MARK_NEG+specs[si].charAt(1)) 
+							? !UTILS.ordFeatNames.contains(specs[si].substring(2))
+							: false ))
+				return false;
 		return true; 
 	}
 	
@@ -751,16 +808,18 @@ public class SChangeFactory {
 	}
 	
 
-	public FeatMatrix getFeatMatrix(String featSpecs)
-	{	return getFeatMatrix(featSpecs, false);	}
+	public FeatMatrix getFeatMatrix(boolean useNegProxies, String featSpecs)
+	{	return getFeatMatrix(useNegProxies, featSpecs, false);	}
 	
 	//derives FeatMatrix object instance from String of featSpec instances
 	// as of January 27, 2024, dependent on the method (copied from this) in UTILS.
 	// if is rule output, will apply feature implications, and, 
 		// as of July 2024, also allow despecification via alpha features, uniquely for rule outputs. 
-	public FeatMatrix getFeatMatrix(String featSpecs, boolean isRuleOutput)
+	public FeatMatrix getFeatMatrix(boolean useNegProxies, String featSpecs, boolean isRuleOutput) 
 	{
-		FeatMatrix outputFM = UTILS.getFeatMatrix(featSpecs, isRuleOutput);
+		FeatMatrix outputFM = useNegProxies ?
+				UTILS.getFeatMatrix(featSpecs, isRuleOutput, currentNegProxies) 
+				: UTILS.getFeatMatrix(featSpecs, isRuleOutput);
 		outputFM.setAsOutput();  // allows despecification via alpha. 
 		return outputFM;
 	}
