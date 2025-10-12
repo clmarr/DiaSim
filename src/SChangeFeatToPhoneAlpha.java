@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 	
-	private boolean need_to_reset;
+	protected boolean alphaSubclass()	{return true; }
 	
 	public SChangeFeatToPhoneAlpha(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest, String origForm)
 	{
@@ -186,6 +186,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 		return res;
 	}
 	
+	// doesn't super since that would redundantly reset ALPH_VALS (not a huge diff either way though at time of writing.) 
 	public void reset_alphvals_everywhere()
 	{
 		for(int i = 0; i < targSource.size(); i++)

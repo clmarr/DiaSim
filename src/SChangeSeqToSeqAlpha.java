@@ -6,8 +6,7 @@ import java.util.function.Function;
 
 public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	
-	private boolean need_to_reset;
-	
+	protected boolean alphaSubclass()	{return true; }
 	/**
 	 * In master class: 
 	 * protected List<RestrictPhone> targSource, destSpecs;
@@ -275,15 +274,12 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	
 	public void reset_alphvals_everywhere()
 	{
+		super.reset_alphvals_everywhere(); 
+		
 		for(int i = 0; i < targSource.size(); i++)
 			targSource.get(i).resetAlphaValues();
 		for(int j = 0; j < destSpecs.size(); j++)
 			destSpecs.get(j).resetAlphaValues();
-		
-		if (priorSpecd)	priorContext.resetAllAlphaValues();
-		if (postSpecd) postContext.resetAllAlphaValues();
-		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false;
 	}
 	
 	

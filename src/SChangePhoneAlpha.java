@@ -4,8 +4,8 @@ import java.util.List;
 
 public class SChangePhoneAlpha extends SChangePhone {
 
-	private boolean need_to_reset; 
-	
+	protected boolean alphaSubclass()	{return true; }
+
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, String origForm)
 	{
 		super(targs, dests, origForm);
@@ -185,13 +185,13 @@ public class SChangePhoneAlpha extends SChangePhone {
 		}
 		return postContext.isPosteriorMatch(input, indAfter); 
 	}
-	
+	/** currently identical to SChange.reset_alphvals_everywhere.
 	public void reset_alphvals_everywhere()
 	{
 		ALPH_VARS = new HashMap<String, String>();
 		if (priorSpecd)	priorContext.resetAllAlphaValues();
 		if (postSpecd)	postContext.resetAllAlphaValues();
 		need_to_reset = false;
-	}
+	} */ 
 }
 

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class SChangeFeatAlpha extends SChangeFeat {
 	
-	private boolean need_to_reset;
+	protected boolean alphaSubclass()	{return true; }
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, origForm);	
@@ -261,15 +261,12 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		return true;
 		
 	}
-	
+
 	public void reset_alphvals_everywhere()
 	{
-		ALPH_VARS = new HashMap<String, String>();
+		super.reset_alphvals_everywhere(); 
 		targSource.resetAlphaValues();
 		destination.resetAlphaValues();
-		if (priorSpecd)	priorContext.resetAllAlphaValues();
-		if (postSpecd)	postContext.resetAllAlphaValues();
-		need_to_reset = false;
 	}
-
+	
 }

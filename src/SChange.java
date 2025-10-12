@@ -23,6 +23,8 @@ public abstract class SChange {
 	protected boolean boundsMatter, priorSpecd, postSpecd; 
 	protected int minPriorSize, minPostSize, minInputSize; 
 	protected String orig;
+	protected boolean need_to_reset; // if alphas will need to be reset upon match failure (or after resolved, success. 
+	protected boolean alphaSubclass()	{return false; } //if it's an alpha subclass. Overridden in alpha subclasses.
 	
 	protected HashMap<String,String> ALPH_VARS; 
 		// stores current alpha variable settings. 
@@ -97,5 +99,15 @@ public abstract class SChange {
 	
 	public String getOrig()
 	{	return orig;	}
+	
+
+	public void reset_alphvals_everywhere() 
+	{
+		if (!alphaSubclass())	return; 
+		ALPH_VARS = new HashMap<String, String>();
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd)	postContext.resetAllAlphaValues();
+		need_to_reset = false;
+	}
 	
 }
