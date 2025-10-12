@@ -1357,14 +1357,17 @@ public class UTILS {
 		String output = str+""; 
 		for (String pxi : proxies.keySet())
 		{
-			int iter = 0 ; 
-			while (output.substring(iter).contains(proxies.get(MARK_NEG+pxi)))
+			for (String ftj : ordFeatNames)
 			{
-				iter = output.indexOf(MARK_NEG+pxi); 
-				output = output.substring(0,iter) + pxi + output.substring(iter+2);
+				String toReplace = MARK_NEG+proxies.get(pxi)+ftj; 
+				while (output.contains(toReplace))
+				{
+					int loc = output.indexOf(toReplace); 
+					output = output.substring(0, loc) + pxi
+							+ output.substring(loc + (MARK_NEG+proxies.get(pxi)).length());  
+				}			// ^ latter addend SHOULD alwyas be 2 , but just in case...	
 			}
 		}
-		
 		return output; 
 	}
 	
