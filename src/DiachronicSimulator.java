@@ -936,9 +936,10 @@ public class DiachronicSimulator {
 			if (numCols <= 2)	// just-input run. 
 			{
 				hasGoldOutput = numCols == 2; //0 is impossible by how the file is processed. 
-				System.out.println(hasGoldOutput ? 
+				String output = hasGoldOutput ? 
 						"Two columns detected: first assumed to be input and last assumed to be final observed output forms!"
-						: "Only one column detected in lexicon file -- input only run!");
+						: "Only one column detected in lexicon file -- input only run!";
+				System.out.println(output);
 				
 				if(NUM_GOLD_STAGES > 0)	System.out.println("Therefore, blackening and decolumning all gold stages!"); 
 				while(NUM_GOLD_STAGES > 0)	blackenGoldStage(0, false); 
