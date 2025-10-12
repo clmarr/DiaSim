@@ -31,6 +31,8 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	
 	@Override
 	// note that this should always operate on an input headed by # and closed also by # 
+	// neg proxy alpha handling all done within FeatMatrix and SequentialFilter, 
+			// but requires that htey are constructed correctly with the same neg proxy alpha mapping.
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
 		int inpSize = input.size(); 
@@ -66,6 +68,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						// the only case where the return of extractAndApplyAlphaValues() is empty
 							// is when there is a failure to meet a NON-alpha specified value. 
 							// so this is a targ match fail. 
+						// handling of neg alpha proxies here depends on handling within FeatMatrix.extract-- if it's a FeatMatrix (otherwise irrelevant) 
 						
 						if (alphHere.size() == 0 )	targMatchFail = true; 
 						else

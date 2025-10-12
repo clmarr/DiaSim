@@ -37,9 +37,11 @@ public abstract class SChange {
 				// e.g. SChangeSeqToSeqAlpha has mapAlphaValues() to map an input alph value to all structures
 				// SChangeSeqToSeqAlpha.applyAlph applies whatever ALPH_VALS has to an input RestrictPhone
 	
-	protected HashMap<String,String> NEG_ALPH_PROXIES; //key proxy, value alph it is the neg val for. 
+	//protected HashMap<String,String> NEG_ALPH_PROXIES; //key proxy, value alph it is the neg val for. 
 		// unimplemented for all non-alpha subclasses.... just like ALPH_VARS
-	
+		// currently deprecated: no current use. 
+			// all neg alph proxy handling is in FeatMatrix and SequentialFilter
+		// and these should be constructed with the relevant mappings BEFORE this is constructed (i.e. passed to it with them already.)
 	public SChange(String origForm)
 	{
 		orig = ""+origForm; 
@@ -100,10 +102,6 @@ public abstract class SChange {
 	
 	public String getOrig()
 	{	return orig;	}
-	
-
-	public void setNegAlphProxies (HashMap<String, String> nAPs)
-	{	NEG_ALPH_PROXIES = new HashMap<String, String> (nAPs);	}
 	
 	public void reset_alphvals_everywhere() 
 	{
