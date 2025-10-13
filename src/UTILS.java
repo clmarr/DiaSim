@@ -1282,7 +1282,10 @@ public class UTILS {
 	public static List<String> listAlphasInString (String str, boolean only_if_negated)
 	{
 		List<String> foundAlphas = new ArrayList<String>(); 
-		String[] protophones = str.split(""+PH_DELIM); 
+		String[] protophones = str.strip().split(""+PH_DELIM); 
+		
+		//TODO debugging
+		System.out.println("str : "+str);
 		
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
@@ -1292,7 +1295,8 @@ public class UTILS {
 				// as of July 2024, spaces in feature matrices as written are ignored: 
 				curpp = curpp.replace(" ", "");
 				
-				foundAlphas.addAll(listAlphasInFeatString(curpp.substring(1, curpp.indexOf(']')).replace(" ",""), only_if_negated)); 
+				if (curpp.indexOf("]") > 1)
+					foundAlphas.addAll(listAlphasInFeatString(curpp.substring(1, curpp.indexOf("]")).replace(" ",""), only_if_negated)); 
 			}
 		}
 		return foundAlphas;

@@ -213,7 +213,7 @@ public class SChangeFactory {
 			if(postrSpecified)	inputPostr = inputSplit[1].trim(); 
 			if(inputPostr.equals(""))	postrSpecified = false; 
 			
-			inputPrior = inputSplit[0].trim(); 
+			inputPrior = inputSplit[0].strip(); 
 			priorSpecified = inputPrior.equals("") == false; 
 			
 			if( !priorSpecified && !postrSpecified)
@@ -341,9 +341,10 @@ public class SChangeFactory {
 				if (negProxiesInInpSrc)	inputSource = UTILS.applyNegalphaProxies(inputSource, currentNegProxies);
 				negProxiesInDest = UTILS.stringHasNegProxies(inputDest); 
 				if (negProxiesInDest)	inputDest = UTILS.applyNegalphaProxies(inputDest, currentNegProxies);
-				negProxiesInPrior = UTILS.stringHasNegProxies(inputPrior); 
+				
+				negProxiesInPrior = priorSpecified ? UTILS.stringHasNegProxies(inputPrior) : false ; 
 				if (negProxiesInPrior)	inputPrior = UTILS.applyNegalphaProxies(inputPrior, currentNegProxies);
-				negProxiesInPostr = UTILS.stringHasNegProxies(inputPostr); 
+				negProxiesInPostr = postrSpecified ? UTILS.stringHasNegProxies(inputPostr) : false; 
 				if (negProxiesInPostr)	inputDest = UTILS.applyNegalphaProxies(inputPostr, currentNegProxies);
 			}
 			
