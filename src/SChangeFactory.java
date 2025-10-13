@@ -144,12 +144,18 @@ public class SChangeFactory {
 				String currSpec = currFM.substring(0, endOfSpec); 
 				currFM = endOfSpec >= currFM.length() ? "" : currFM.substring(endOfSpec+1); 
 				
-				if (UTILS.spec_is_alpha_marked(currSpec)) // enter alpha usage calculation
-				{
-					String alphChar = currSpec.substring(0,1); 
-					alphaUsages.put(alphChar, 
-							1 + (alphaUsages.containsKey(alphChar) ? 
-									alphaUsages.get(alphChar) : 0));  
+				char prefix = currSpec.charAt(0) ; 
+				if(UTILS.FEATSPEC_MARKS.contains(""+prefix) ? UTILS.spec_is_preposed_alpha_marked(currSpec, prefix)
+						: UTILS.spec_is_alpha_marked(currSpec))
+				{	
+					String alphHere = "" + UTILS.getAlphaFromFeatSpec(currSpec); 
+					
+					if (usingNegProxies ? currentNegProxies.containsKey(alphHere) : false )
+							alphHere = currentNegProxies.get(alphHere); 
+					
+					alphaUsages.put(alphHere, 
+							1 + (alphaUsages.containsKey(alphHere) ? 
+									alphaUsages.get(alphHere) : 0));  
 				}
 			}
 		}
