@@ -105,6 +105,19 @@ public class SChangeTester {
 		
 		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		
+		// TODO temp
+		System.out.println("testing DiaSim.todo issue 1.F.II.a... "); 
+		String testRulString = "n > [βfront] / __ [βfront]"; 
+		SChange testRul = testFactory.generateSoundChangesFromRule(testRulString).get(0); 
+		int numCorr= 0; 
+		numCorr += UTILS.checkBoolean(true, testRul.alphaSubclass(),
+				"alpha subclass should be true for this rule ('"+testRulString+"'), but it is not ...") 
+				? 1 : 0 ; 		
+		//TODO test that it's processed right.
+		numCorr = 0; 
+		
+		
+		
 		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-voi", "+voi","DEBUG"); 
 		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
@@ -467,6 +480,11 @@ public class SChangeTester {
 					// [+cont] itself has a downstream implication: [0delrel]
 		dummyFM = newFM("βtense"); 
 		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		
+		//TODO debugging
+		System.out.println("vect : "+dfm_og_vect);
+		System.out.println("feats extr'd : "+alph_feats_extrd);
+		
 		dummyFM.applyAlphaValues(alph_feats_extrd);
 
 		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == '0', 

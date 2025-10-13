@@ -388,7 +388,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		int aff_ind = ordFeats.indexOf(feature);
 		
 		String prevMark = ""+featVect.charAt(aff_ind); 
-		boolean applyingToAlpha = UTILS.spec_is_alpha_marked(prevMark+feature); 
+		boolean applyingToAlpha = UTILS.ALL_FT_INTS.contains(prevMark) ? false 
+				: UTILS.spec_is_alpha_marked(prevMark+feature); 
 		
 		boolean alphaResetOverride = applyingToAlpha && featSpecs.contains(value+feature); 
 			// to overrule the below in cases of partial alpha reset. 

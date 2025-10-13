@@ -140,9 +140,9 @@ public class SChangeFactory {
 			{
 				currFM = currFM.trim(); 
 				int endOfSpec = currFM.contains(""+UTILS.FEAT_DELIM) ? 
-						currFM.indexOf(UTILS.FEAT_DELIM) : currFM.length() - 1;
+						currFM.indexOf(UTILS.FEAT_DELIM) : currFM.length();
 				String currSpec = currFM.substring(0, endOfSpec); 
-				currFM = currFM.substring(endOfSpec+1); 
+				currFM = endOfSpec >= currFM.length() ? "" : currFM.substring(endOfSpec+1); 
 				
 				if (UTILS.spec_is_alpha_marked(currSpec)) // enter alpha usage calculation
 				{
@@ -313,7 +313,6 @@ public class SChangeFactory {
 		
 		if (usingAlphFeats)
 		{
-
 			// throw error if an alpha value is used only once: 
 			if (ruleStringHasUnmatchedAlpha(input))
 				throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"

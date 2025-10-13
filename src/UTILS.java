@@ -2025,7 +2025,7 @@ public class UTILS {
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
 		
-		theFeatSpecs = applyNegalphaProxies(theFeatSpecs, negProxyAlphs); 
+		theFeatSpecs = applyNegalphaProxies("["+theFeatSpecs+"]", negProxyAlphs).substring(1, theFeatSpecs.length()+1); 
 		
 		return negProxyAlphs.size() == 0 ? new FeatMatrix(theFeatSpecs, ordFeatNames) : 
 			new FeatMatrix(theFeatSpecs, ordFeatNames, negProxyAlphs);
