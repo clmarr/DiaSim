@@ -105,19 +105,6 @@ public class SChangeTester {
 		
 		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 		
-		// TODO temp
-		System.out.println("testing DiaSim.todo issue 1.F.II.a... "); 
-		String testRulString = "n > [βfront] / __ [βfront]"; 
-		SChange testRul = testFactory.generateSoundChangesFromRule(testRulString).get(0); 
-		int numCorr= 0; 
-		numCorr += UTILS.checkBoolean(true, testRul.alphaSubclass(),
-				"alpha subclass should be true for this rule ('"+testRulString+"'), but it is not ...") 
-				? 1 : 0 ; 		
-		//TODO test that it's processed right.
-		numCorr = 0; 
-		
-		
-		
 		SChangeFeat scfTest = new SChangeFeat(Arrays.asList(UTILS.featsByIndex), "-voi", "+voi","DEBUG"); 
 		scfTest.setPostContext(testFactory.parseNewSeqFilter("[+voi]", false));
 		
@@ -809,16 +796,36 @@ public class SChangeTester {
 		System.out.println("TODO implement this.");
 	
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 6"); 
+		numCorrect = 0; 
 		
 		// TODO might duplicate something elsewhere but doing this fast for now (10/13/25) 
 		System.out.println("testing DiaSim.todo issue 1.F.II.a... "); 
-		testRuleString = "n > [βfront] / __ [βfront]"; 
+		testRuleString = "[+nas] > [βfront] / __ [βfront]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		numCorrect += UTILS.checkBoolean(true, testRule.alphaSubclass(),
 				"alpha subclass should be true for this rule ('"+testRuleString+"'), but it is not ...") 
 				? 1 : 0 ; 		
-		//TODO test that it's processed right.
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("n u"), testFactory.parseSeqPhSeg("n u")) ? 1 : 0; 
+		numCorrect += runTest(testRule, testFactory.parseSeqPhSeg("n #"), testFactory.parseSeqPhSeg("n #")) ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.getFeatMatrix("+front", false).compare(testRule.realize(testFactory.parseSeqPhSeg("n i")),0), 
+				"frontness assimilation should have happened to n before i but it didn't") ? 1 : 0 ; 
+		Phone iphone = new Phone(UTILS.phoneSymbToFeatsMap.get("i"), UTILS.featIndices, UTILS.phoneSymbToFeatsMap);
+		
+		SequentialPhonic i_result = testRule.realize(testFactory.parseSeqPhSeg("n i")).get(1); 
+		numCorrect += UTILS.checkBoolean(true,
+				iphone.compare(i_result),
+				"i should have been unchanged by nasal frontness assimilation but instead it became "+i_result.print()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.getFeatMatrix("-front", false).compare(testRule.realize(testFactory.parseSeqPhSeg("nʲ t")),0), 
+				"frontness assimilation should have happened to nʲ before t but it didn't") ? 1 : 0 ; 
+		Phone tphone = new Phone(UTILS.phoneSymbToFeatsMap.get("t"), UTILS.featIndices, UTILS.phoneSymbToFeatsMap);
+		numCorrect += UTILS.checkBoolean(true,
+				tphone.compare(testRule.realize(testFactory.parseSeqPhSeg("nʲ t")),1), 
+				"frontness assimilation not have changed t but it became "+tphone.print()) ? 1 : 0 ; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 7"); 
 		numCorrect = 0; 
+		
 		
 		System.out.println("Testing a format like the above made into a case wiht alpha polarity (dissimilation)"); 
 		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas]"; 
