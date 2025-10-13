@@ -53,7 +53,7 @@ public class SChangeFactory {
 	private void initForNegProxies()
 	{
 		currentNegProxies = new HashMap<String, String>(); 
-		 usingNegProxies = false; negProxiesInInpSrc= false; negProxiesInDest = false; 
+		usingNegProxies = false; negProxiesInInpSrc= false; negProxiesInDest = false; 
 			negProxiesInPrior= false; negProxiesInPostr= false;
 	}
 	
@@ -772,6 +772,25 @@ public class SChangeFactory {
 				: new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 	
+	
+	/**
+	 * 
+	 * @param input -- a single spec : (+)/-/0 (alpha) feat. 
+	 * @return @true @iff it's valid. 
+	 */
+	public boolean isValidFeatSpec(String inpspec)
+	{
+		if (inpspec.length() < 2)	return false; 
+
+		// true if it's a basic spec, no alpha, or if it's simple alpha (or neg alpha!)  + feat. 
+		if (UTILS.ordFeatNames.contains(inpspec.substring(1)))	return true; 
+		
+		if (inpspec.length() < 3  || !UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0))) return false ; 
+				
+		// at this point, possibility is that it could be preposed alpha... -- proxy or not doens't really matter. 
+		return UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0)) && UTILS.ordFeatNames.contains(inpspec.substring(2)); 
+	}
+	
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
@@ -781,10 +800,7 @@ public class SChangeFactory {
 		String[] specs = input.split(""+restrDelim); 
 		
 		for(int si = 0; si < specs.length; si++)	
-			if (!UTILS.ordFeatNames.contains(specs[si].substring(1))
-					&& (currentNegProxies.containsValue(""+UTILS.MARK_NEG+specs[si].charAt(1)) 
-							? !UTILS.ordFeatNames.contains(specs[si].substring(2))
-							: false ))
+			if (!isValidFeatSpec(specs[si]))
 				return false;
 		return true; 
 	}

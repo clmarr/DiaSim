@@ -1414,7 +1414,7 @@ public class UTILS {
 	 * @return @true iff it is an alpha feature preposed in a certain way (+, -, 0)- - 
 	 * 	e.g. '-' + alpha character + feature -- meaning the character at 1 is the alpha value.
 	 */
-	private static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
+	public static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
 	{
 		if (!FEATSPEC_MARKS.contains(prep+""))	
 			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 

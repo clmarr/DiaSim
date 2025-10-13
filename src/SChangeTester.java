@@ -791,6 +791,22 @@ public class SChangeTester {
 		System.out.println("TODO implement this.");
 	
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 6"); 
+		
+		// TODO might duplicate something elsewhere but doing this fast for now (10/13/25) 
+		System.out.println("testing DiaSim.todo issue 1.F.II.a... "); 
+		testRuleString = "n > [βfront] / __ [βfront]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		numCorrect += UTILS.checkBoolean(true, testRule.alphaSubclass(),
+				"alpha subclass should be true for this rule ('"+testRuleString+"'), but it is not ...") 
+				? 1 : 0 ; 		
+		//TODO test that it's processed right.
+		numCorrect = 0; 
+		
+		System.out.println("Testing a format like the above made into a case wiht alpha polarity (dissimilation)"); 
+		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+
+		///TODO test things... but first debug the bullshit that will definitely ensue. 
 
 	}
 
