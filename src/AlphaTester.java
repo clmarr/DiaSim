@@ -263,6 +263,8 @@ public class AlphaTester {
 		
 		// ------ neg alpha testing begins here -------
 		System.out.println("Beginning testing of neg and other alpha coverage in UTILS..."); 
+		
+		System.out.println("Testing spec alpha detection...");
 		initTestBatch(); 
 		
 		String spuriousAlphMsg = "Spurious detection of alpha marking on feature" , undetectedAlphMsg="Failed to detect alpha marking on feature"; 
@@ -279,7 +281,7 @@ public class AlphaTester {
 		pointTest(false,UTILS.spec_is_preposed_alpha_marked("+ɣhi",'-'), spuriousAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("-ðcons", '-'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("0ðdistr", '0'), undetectedAlphMsg); 
-		
+		pointTest(true,UTILS.spec_is_neg_alpha_marked("-ðcons"), undetectedAlphMsg); 
 		
 		
 		concludeTestBatch(); 
