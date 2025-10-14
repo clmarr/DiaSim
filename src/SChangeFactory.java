@@ -761,6 +761,7 @@ public class SChangeFactory {
 					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
 						+ " with an invalid entrance for the list of feature specifications.\nAttempted input was: "+input);
+					
 					thePlaceRestrs.add(getFeatMatrix(
 							usingNegProxies ? UTILS.listAlphasInFeatString(curtp, false).size() > 0 : false , /*slight bandaid here as guard rail, hopeful won't slow things down too much*/
 													curtp));  
@@ -837,8 +838,15 @@ public class SChangeFactory {
 	// as of January 27, 2024, dependent on the method (copied from this) in UTILS.
 	// if is rule output, will apply feature implications, and, 
 		// as of July 2024, also allow despecification via alpha features, uniquely for rule outputs. 
-	public FeatMatrix getFeatMatrix(boolean useNegProxies, String featSpecs, boolean isRuleOutput) 
+	public FeatMatrix getFeatMatrix(boolean useNegProxies, String ftSpecs, boolean isRuleOutput) 
 	{
+		// because we are using UTILS.getFeatMatrix downstream, need to apply negative proxy alphas first before proceeding if using them 
+			// otherwise error will ensue. 
+		String featSpecs = useNegProxies ? UTILS.applyNegalphaProxies(UTILS.bracketFM(ftSpecs), currentNegProxies): ""+ftSpecs; 	
+		
+		//TODO debugging
+		System.out.println("featSpecs: "+featSpecs); 
+		
 		FeatMatrix outputFM = useNegProxies ?
 				UTILS.getFeatMatrix(featSpecs, isRuleOutput, currentNegProxies) 
 				: UTILS.getFeatMatrix(featSpecs, isRuleOutput);

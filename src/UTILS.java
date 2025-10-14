@@ -1266,6 +1266,11 @@ public class UTILS {
 				if (output.size() == 0 ? true : !output.contains(alphHere))
 					output.add(alphHere); 
 			}
+		
+		//TODO debugging
+		System.out.println("Alphas detected in feat string"); 
+		for (String otpi : output)	System.out.println(otpi); 
+		
 		return output; 
 	}
 	
@@ -2011,6 +2016,17 @@ public class UTILS {
 		return true; 
 	}	
 	
+	/**
+	 * if @param featSpecs is not already bracketed, @return it [bracketed]
+	 */
+	public static String bracketFM (String featSpecs)
+	{	
+		if (featSpecs.strip().charAt(0) == '[')	return featSpecs; 
+		if (featSpecs.contains("]") ? false: !featSpecs.substring(featSpecs.lastIndexOf("]")).strip().equals(""))
+			return "[" + featSpecs + "]"; 
+		else return featSpecs;
+	}
+	
 	//derives FeatMatrix object instance from String of featSpec instances
 	public FeatMatrix getFeatMatrix(String featSpecs)
 	{	return getFeatMatrix(featSpecs, false, new HashMap<String, String>());	}
@@ -2019,7 +2035,7 @@ public class UTILS {
 	// if negProxyAlphs is empty, functionally there are none.
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls, HashMap<String, String> negProxyAlphs)
 	{
-		if(! isValidFeatSpecList(featSpecs) )
+		if(! isValidFeatSpecList(featSpecs) ) // however this will throw a negative due to neg prox usage so need to handle that pre this method call 
 			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
 					+ "\nAttempted feat specs: "+featSpecs); 
 		
