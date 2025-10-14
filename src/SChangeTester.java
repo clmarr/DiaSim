@@ -831,6 +831,7 @@ public class SChangeTester {
 		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 
+		
 		///TODO test things... but first debug the bullshit that will definitely ensue. 
 
 	}

@@ -632,25 +632,24 @@ public class UTILS {
 	}
 	
 	/**
-	 * @precondition ordFeatNames must be filled -- i.e. extractSymbDefs() has been run, and for currently operational features. 
 	 * @param pref -- a char value
-	 * @return "" if there is no feature in @global ordFeatNames that would becoem another feature name if this character was preposed
-	 * @else return "A,B" where A is the non-prefixed feature and B is the feature that A becomes identical once prefixed with @param pref.f 
+	 * @return "" if there is no feature in @param establishedFeatNames that would become another feature name if this character was preposed
+	 * @else @return "A,B" where A is the non-prefixed feature and B is the feature that A becomes identical once prefixed with @param pref.f 
 	 * @usage -- for possible alpha and negative proxy alpha characters
 	 */
-	public static String charLegalPrefixForFeat (char pref)
+	public static String preemptFeatAlphambiguation (char pref, List<String> establishedFeatNames)
 	{
-		for (int fi = 0; fi < ordFeatNames.size(); fi++)
+		for (int fi = 0; fi < establishedFeatNames.size(); fi++)
 		{
-			String prefixed_fni = ""+ pref+ ordFeatNames.get(fi); 
-			for (int fj = 0 ; fj < ordFeatNames.size(); fj++)
+			String prefixed_fni = ""+ pref+ establishedFeatNames.get(fi); 
+			for (int fj = 0 ; fj < establishedFeatNames.size(); fj++)
 			{
 				if (fi == fj)	continue; 
 				
-				if(prefixed_fni.equals(ordFeatNames.get(fj))) 
+				if(prefixed_fni.equals(establishedFeatNames.get(fj))) 
 				{
 					possibleAlphaProxies.replace(pref+"","");  // cannot be proxy either. 
-					return prefixed_fni.substring(1)+","+ordFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
+					return prefixed_fni.substring(1)+","+establishedFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
 				}
 			}
 		}
@@ -1186,7 +1185,7 @@ public class UTILS {
 				|| ILLEGAL_ALPHAS.contains(candalph+""))
 			throw new Error("Illegal attempted alpha feature specification : '"+inp+"'"); 	
 		
-		String char_legality_indic = charLegalPrefixForFeat(candalph);
+		String char_legality_indic = preemptFeatAlphambiguation(candalph, ordFeatNames);
 		
 		if (!char_legality_indic .equals(""))
 			throw new Error("Cannot use '"+candalph+"' as an alpha feature, because it would cause confusion between the following features: "+char_legality_indic); 
@@ -1392,9 +1391,9 @@ public class UTILS {
 	
 	/**
 	 * @precondition ordFeatNames is initialized.
-	 * @return true if a feature specification (e.g. '+voi', 'βround', etc...) 
-	 * 	and is assigned a POSITIVE alpha value. 
-	 * @param spec is the string form of the feature specification. */ 
+	 * @return @true if a feature specification (e.g. '+voi', 'βround', etc...) 
+	 * 	and is assigned a @POSITIVE alpha value. 
+	 * @param @fspec is the string form of the feature specification. */ 
 	public static boolean spec_is_alpha_marked(String fspec)
 	{
 		String spec = fspec.replace(" ", ""); 

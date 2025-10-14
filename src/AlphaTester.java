@@ -258,10 +258,32 @@ public class AlphaTester {
 		filtCheckCheck(filtTester, shouldFail6, false, getLineNumber());
 		filtCheckCheck(filtTester, testFactory.parseSeqPhSeg("ˈa kʷ w a p k a a a a a m # "), false, getLineNumber());
 		
-
-
+		concludeTestBatch(); 
+		
+		
+		// ------ neg alpha testing begins here -------
+		System.out.println("Beginning testing of neg and other alpha coverage in UTILS..."); 
+		initTestBatch(); 
+		
+		String spuriousAlphMsg = "Spurious detection of alpha marking on feature" , undetectedAlphMsg="Failed to detect alpha marking on feature"; 
+		pointTest(false,UTILS.spec_is_alpha_marked("+voi"), "Spurious detection of alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_alpha_marked("-son"), "Spurious detection of alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_alpha_marked("0sg"), "Spurious detection of alpha marking on feature"); 
+		pointTest(true,UTILS.spec_is_alpha_marked("βvoi"), "Failed to detect alpha marking on feature"); 
+		pointTest(true,UTILS.spec_is_alpha_marked("+ɣhi"), "Failed to detect alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_preposed_alpha_marked("+voi", '+'), "Spurious detection of alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_preposed_alpha_marked("-son",'-'), "Spurious detection of alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_preposed_alpha_marked("0sg",'0'), "Spurious detection of alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_preposed_alpha_marked("βnas",'+'), "Spurious detection of alpha marking on feature"); 
+		pointTest(true,UTILS.spec_is_preposed_alpha_marked("+ɣhi",'+'), "Failed to detect alpha marking on feature"); 
+		pointTest(false,UTILS.spec_is_preposed_alpha_marked("+ɣhi",'-'), spuriousAlphMsg); 
+		pointTest(true,UTILS.spec_is_preposed_alpha_marked("-ðcons", '-'), undetectedAlphMsg); 
+		pointTest(true,UTILS.spec_is_preposed_alpha_marked("0ðdistr", '0'), undetectedAlphMsg); 
+		
+		
 		
 		concludeTestBatch(); 
+		
 
 	}
 	
