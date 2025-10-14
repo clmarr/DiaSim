@@ -1267,10 +1267,6 @@ public class UTILS {
 					output.add(alphHere); 
 			}
 		
-		//TODO debugging
-		System.out.println("Alphas detected in feat string"); 
-		for (String otpi : output)	System.out.println(otpi); 
-		
 		return output; 
 	}
 	
@@ -1288,9 +1284,6 @@ public class UTILS {
 	{
 		List<String> foundAlphas = new ArrayList<String>(); 
 		String[] protophones = str.strip().split(""+PH_DELIM); 
-		
-		//TODO debugging
-		System.out.println("str : "+str);
 		
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
@@ -1359,12 +1352,12 @@ public class UTILS {
 	 */
 	public static String applyNegalphaProxies (String str, HashMap<String, String> proxies) 
 	{
-		if (str.charAt(0) == '-')
+		String output = str+""; 
+		if (str.charAt(0) == '-' && !isValidFeatSpecList(str, true)) // unless 
 			throw new Error ("Tried to apply negative alpha proxy to a rule or filter that starts with '-'."
 					+ "This should never have existed in the first place. Input was:\n\t"
 					+ str); 
 		
-		String output = str+""; 
 		for (String pxi : proxies.keySet())
 		{
 			for (String ftj : ordFeatNames)
@@ -2002,6 +1995,20 @@ public class UTILS {
 						: new FED(featsByIndex.length, ID_WT,contextualize_FED));
 	}
 	
+	public static boolean hasValidFeatSpecList(String inp)
+	{
+		if(isValidFeatSpecList(inp.trim()))		return true; 
+		String[] protophones = inp.split(""+PH_DELIM);
+		for(int ppi = 0; ppi < protophones.length; ppi++)
+		{
+			String curpp = ""+protophones[ppi].trim();
+			if(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
+			if(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
+			if(isValidFeatSpecList(curpp))	return true; 
+		}
+		return false; 
+	}
+	
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
@@ -2014,18 +2021,61 @@ public class UTILS {
 		for(int si = 0; si < specs.length; si++)	
 			if (!ordFeatNames.contains(specs[si].substring(1)))	return false;
 		return true; 
-	}	
+	}
+	
+	/**
+	 * @param input -- a single spec : (+)/-/0 (alpha) feat. 
+	 * @return @true @iff it's valid. 
+	 */
+	public static boolean isValidFeatSpecInclAlphPrep(String inpspec)
+	{
+		if (inpspec.length() < 2)	return false; 
+
+		// true if it's a basic spec, no alpha, or if it's simple alpha (or neg alpha!)  + feat. 
+		if (UTILS.ordFeatNames.contains(inpspec.substring(1)))	return true; 
+		
+		if (inpspec.length() < 3  || !UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0))) return false ; 
+				
+		// at this point, possibility is that it could be preposed alpha... -- proxy or not doens't really matter. 
+		return UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0)) && UTILS.ordFeatNames.contains(inpspec.substring(2)); 
+	}
+	
+	/** isValidFeatSpecList
+	 * @return @true iff @param input consists of a list of valid feature specifications 
+	 * 	each delimited by restrDelim
+	 */
+	public static boolean isValidFeatSpecList(String input, boolean allowPreposedAlpha)
+	{
+		if (!allowPreposedAlpha)	return isValidFeatSpecList(input); 
+		
+		String[] specs = input.split(""+UTILS.RESTR_DELIM); 
+		
+		for(int si = 0; si < specs.length; si++)	
+			if (!isValidFeatSpecInclAlphPrep(specs[si]))
+				return false;
+		return true; 
+	}
 	
 	/**
 	 * if @param featSpecs is not already bracketed, @return it [bracketed]
 	 */
-	public static String bracketFM (String featSpecs)
-	{	
-		if (featSpecs.strip().charAt(0) == '[')	return featSpecs; 
-		if (featSpecs.contains("]") ? false: !featSpecs.substring(featSpecs.lastIndexOf("]")).strip().equals(""))
-			return "[" + featSpecs + "]"; 
-		else return featSpecs;
+	public static String bracketFSpecs (String featSpecs)
+	{	return fSpecsAreBracketed(featSpecs) ? featSpecs: "[" + featSpecs +"]" ; 	}
+	public static String debracketFSpecs (String featSpecs)
+	{	return fSpecsAreBracketed(featSpecs) ? featSpecs.substring(featSpecs.indexOf("[")+1, featSpecs.indexOf("]")) :  featSpecs; }
+	public static boolean fSpecsAreBracketed (String specs)
+	{
+		if (specs.strip().charAt(0) != '[')	return false; 
+		if (!specs.contains("]"))	return false;
+		if (specs.indexOf("]") == specs.length() -1 )	return false;
+		if (!specs.substring(specs.indexOf("]")+1).strip().equals(""))	return false; 
+		
+		//TODO debugging
+		System.out.println("already bracketd? : "+specs);
+		
+		return true; 
 	}
+	
 	
 	//derives FeatMatrix object instance from String of featSpec instances
 	public FeatMatrix getFeatMatrix(String featSpecs)

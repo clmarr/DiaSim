@@ -827,7 +827,7 @@ public class SChangeTester {
 		numCorrect = 0; 
 		
 		
-		System.out.println("Testing a format like the above made into a case wiht alpha polarity (dissimilation)"); 
+		System.out.println("Testing a format like the above made into a case with alpha polarity (dissimilation)"); 
 		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 

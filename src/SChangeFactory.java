@@ -298,7 +298,7 @@ public class SChangeFactory {
 			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
 		if(srcHasFeatMatrices)
 		{
-			if(! hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
+			if(! UTILS.hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
 			if( inputSource.contains("{") || inputSource.contains("}")) 
 				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
 						+ "\nIn the mean time, please use multiple rules to accomplish your intended transformation."
@@ -359,7 +359,7 @@ public class SChangeFactory {
 		
 		if(inputSource.indexOf("]") == inputSource.length() - 1 && inputSource.lastIndexOf("[") == 0)  // if first index of ] is the last, we know we only have a single feat matrix to deal with. 
 			inputSource = inputSource.substring(inputSource.indexOf("[") + 1 , inputSource.indexOf("]")).trim(); 
-		if(isValidFeatSpecList(inputSource)) //input consists of naught but a feat spec list -- we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
+		if(UTILS.isValidFeatSpecList(inputSource, usingNegProxies)) //input consists of naught but a feat spec list -- we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
 			
@@ -431,7 +431,7 @@ public class SChangeFactory {
 		List<List<SequentialPhonic>> sourceDisjuncts = parseSeqPhDisjunctSegs(inputSource);		
 		
 		//check if making an SChangePhone using FeatMatrices for the dest
-		if(hasValidFeatSpecList(inputDest))
+		if(UTILS.hasValidFeatSpecList(inputDest))
 		{
 			//change this into a SeqToSeqAlpha if using alpha features
 			// this is necessary because of how SChangePhone generates destinations during construction 
@@ -454,9 +454,8 @@ public class SChangeFactory {
 
 			if(inputDest.charAt(0) == '[' && inputDest.indexOf(']') == inputDest.length() - 1)
 				inputDest = inputDest.substring(1, inputDest.indexOf(']')); 
-			if(isValidFeatSpecList(inputDest))
+			if(UTILS.isValidFeatSpecList(inputDest))	// under asusmption no alpha feats; if so change to two param version of htat method. 
 			{
-				
 				ArrayList<RestrictPhone> destMutations = new ArrayList<RestrictPhone>();
 				destMutations.add(getFeatMatrix(negProxiesInDest, inputDest, true)) ; 
 				
@@ -513,7 +512,7 @@ public class SChangeFactory {
 		List<RestrictPhone> output = new ArrayList<RestrictPhone>(); 
 		String inputLeft = ""+input.trim(); 
 		
-		if(isValidFeatSpecList(inputLeft))
+		if(UTILS.isValidFeatSpecList(inputLeft, forDestination ? negProxiesInDest : usingNegProxies))
 		{
 			output.add(getFeatMatrix(
 					forDestination ? negProxiesInDest : 
@@ -528,7 +527,7 @@ public class SChangeFactory {
 			{
 				int brackEnd = inputLeft.indexOf(']'); 
 				output.add(getFeatMatrix(forDestination ? negProxiesInDest : 
-					( usingNegProxies ? UTILS.listAlphasInFeatString(inputLeft, false).size() > 0 : false ) /* slight bandaid for false condition, hopefully won't slow things down tooo much*/,
+					( usingNegProxies ? UTILS.listAlphasInFeatString(inputLeft, false).size() > 0 : false ) /* maybe excessive scope for false condition, hopefully won't slow things down tooo much*/,
 									inputLeft.substring(1, brackEnd), forDestination));
 				inputLeft = inputLeft.substring(brackEnd + 1).trim(); 
 			}
@@ -584,7 +583,7 @@ public class SChangeFactory {
 		String input = inp; 
 		if(input.charAt(0) == '[' && input.indexOf("]") == input.length() - 1)
 			input = input.substring(input.indexOf("[")+1, input.indexOf("]")); 
-		if(isValidFeatSpecList(input))
+		if(UTILS.isValidFeatSpecList(input, negProxiesInDest))
 			return getFeatMatrix(
 					negProxiesInDest ? UTILS.listAlphasInFeatString(inp, false).size() > 0 : false /*bandaid for security, hopefully not too computationally expensive in storing negProxies for phones where htere are none...*/
 					, input, true); 
@@ -758,12 +757,13 @@ public class SChangeFactory {
 						+ "of closing bracket --- curtp is "+curtp); 
 					if(curtp.charAt(0) == '[')
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
-					if(! isValidFeatSpecList(curtp))	throw new RuntimeException( 
+					if(! UTILS.isValidFeatSpecList(curtp, usingNegProxies))	 // current slight over-scope in invoking usingNegPRoxies 
+						throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"
 						+ " with an invalid entrance for the list of feature specifications.\nAttempted input was: "+input);
 					
 					thePlaceRestrs.add(getFeatMatrix(
-							usingNegProxies ? UTILS.listAlphasInFeatString(curtp, false).size() > 0 : false , /*slight bandaid here as guard rail, hopeful won't slow things down too much*/
+							usingNegProxies ? UTILS.listAlphasInFeatString(curtp, false).size() > 0 : false , /*potentially excessive scope here as guard rail, hopeful won't slow things down too much*/
 													curtp));  
 				}
 			}
@@ -778,58 +778,12 @@ public class SChangeFactory {
 				? new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter, currentNegProxies)
 				: new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
-	
-	
-	/**
-	 * 
-	 * @param input -- a single spec : (+)/-/0 (alpha) feat. 
-	 * @return @true @iff it's valid. 
-	 */
-	public boolean isValidFeatSpec(String inpspec)
-	{
-		if (inpspec.length() < 2)	return false; 
 
-		// true if it's a basic spec, no alpha, or if it's simple alpha (or neg alpha!)  + feat. 
-		if (UTILS.ordFeatNames.contains(inpspec.substring(1)))	return true; 
-		
-		if (inpspec.length() < 3  || !UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0))) return false ; 
-				
-		// at this point, possibility is that it could be preposed alpha... -- proxy or not doens't really matter. 
-		return UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0)) && UTILS.ordFeatNames.contains(inpspec.substring(2)); 
-	}
-	
-	/** isValidFeatSpecList
-	 * @return @true iff @param input consists of a list of valid feature specifications 
-	 * 	each delimited by restrDelim
-	 */
-	public boolean isValidFeatSpecList(String input)
-	{
-		String[] specs = input.split(""+restrDelim); 
-		
-		for(int si = 0; si < specs.length; si++)	
-			if (!isValidFeatSpec(specs[si]))
-				return false;
-		return true; 
-	}
 	
 	//hasValidFeatSpecList
 	// breaks string up according to delimiter phDelim 
 	// and @return true if any of the components describe a feat vector
-	
-	private boolean hasValidFeatSpecList(String inp)
-	{
-		if(isValidFeatSpecList(inp.trim()))		return true; 
-		String[] protophones = inp.split(""+phDelim);
-		for(int ppi = 0; ppi < protophones.length; ppi++)
-		{
-			String curpp = ""+protophones[ppi].trim();
-			if(curpp.contains("["))	curpp = curpp.substring(curpp.indexOf('[')+1);
-			if(curpp.contains("]"))	curpp = curpp.substring(0, curpp.indexOf(']'));
-			if(isValidFeatSpecList(curpp))	return true; 
-		}
-		return false; 
-	}
-	
+		
 
 	public FeatMatrix getFeatMatrix(boolean useNegProxies, String featSpecs)
 	{	return getFeatMatrix(useNegProxies, featSpecs, false);	}
@@ -842,10 +796,7 @@ public class SChangeFactory {
 	{
 		// because we are using UTILS.getFeatMatrix downstream, need to apply negative proxy alphas first before proceeding if using them 
 			// otherwise error will ensue. 
-		String featSpecs = useNegProxies ? UTILS.applyNegalphaProxies(UTILS.bracketFM(ftSpecs), currentNegProxies): ""+ftSpecs; 	
-		
-		//TODO debugging
-		System.out.println("featSpecs: "+featSpecs); 
+		String featSpecs = useNegProxies ? UTILS.applyNegalphaProxies(ftSpecs, currentNegProxies): ""+ftSpecs; 	
 		
 		FeatMatrix outputFM = useNegProxies ?
 				UTILS.getFeatMatrix(featSpecs, isRuleOutput, currentNegProxies) 
