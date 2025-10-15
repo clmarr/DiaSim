@@ -91,7 +91,7 @@ public class UTILS {
 	public static char ftIntToMark(char i)
 	{
 		if (!ALL_FTVECT_INTS.contains(""+i))	throw new Error("Error: invalid specification value.");
-		return i == DESPEC_INT ? MARK_UNSPEC : ALL_FTSPEC_MARKS.charAt(ALL_FTVECT_INTS.indexOf(i));
+		return Integer.parseInt(""+i) == DESPEC_INT ? MARK_UNSPEC : ALL_FTSPEC_MARKS.charAt(ALL_FTVECT_INTS.indexOf(i));
 	}
 	
 	public static void abortInvalidFtIntStr(String ftInt)

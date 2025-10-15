@@ -135,13 +135,13 @@ public class AlphaTester {
 				dfm_og_vect.equals(dummyFM.getFeatVect()), 
 				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
 
-		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0tense,0cons,0lat,2cont,9delrel"); 
+		String corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0tense,0cons,0lat,2cont,9delrel"); 
 		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
 				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
 				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
 				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
-		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(newFM("-tense"))), 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(UTILS.getFeatMatrix("-tense", true))), 
 				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
 
 					// has_alpha_specs
