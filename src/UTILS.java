@@ -1282,7 +1282,7 @@ public class UTILS {
 	}
 	
 	/**
-	 * @param str -- a string (a rule or  debugging suite filter) 
+	 * @param str -- a string (a rule or debugging suite filter)
 	 * 		to check for the presence of a feat matrix with alpha-specified features.. 
 	 * will detect and list ANY alpha-valued feature specification present in this string 
 	 * 		intended for use for strings to become rules, or to become debugging suite filters 
@@ -1295,6 +1295,13 @@ public class UTILS {
 	{
 		List<String> foundAlphas = new ArrayList<String>(); 
 		String[] protophones = str.strip().split(""+PH_DELIM); 
+		
+		//if htere's only one 'protophone' and '[' never occurs, this is likely a featSpecs list...
+		if (protophones.length < 2 && !str.contains("[")) 
+		{
+			System.out.println("Warning:  larger scale method listAlphasInString called on a feat matrix' feat specs. Consider using listAlphasInFeatString instead.");
+			return listAlphasInFeatString(str.strip(), only_if_negated); 
+		}
 		
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
@@ -1404,7 +1411,7 @@ public class UTILS {
 	/**
 	 * @precondition ordFeatNames is initialized.
 	 * @return @true if a feature specification (e.g. '+voi', 'βround', etc...) 
-	 * 	and is assigned a @POSITIVE alpha value. 
+	 * 	 as of 10/14, no longer only if it is assigned a @POSITIVE alpha value. 
 	 * @param @fspec is the string form of the feature specification. */ 
 	public static boolean spec_is_alpha_marked(String fspec)
 	{
