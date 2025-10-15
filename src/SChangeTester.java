@@ -715,15 +715,40 @@ public class SChangeTester {
 				testFactory.parseSeqPhSeg("# ˌɛ #")) ? 1 : 0; 
 		numCorrect += UTILS.runTest(testRule, testFactory.parseSeqPhSeg("# k ˌɒː e̯ r æ ɛ̯ l ˈɶ e̯ m a e #"),
 				testFactory.parseSeqPhSeg("# k ˌɛ r æ ɛ̯ l ˈɛ m a e #")) ? 1 : 0; 
-		
-		
-		testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
-		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
-		System.out.println("testRule type "+testRule.getClass()+"\nthe rule : "+testRule.getOrig()); 
-		System.out.println("TODO implement this.");
-	
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 6"); 
 		numCorrect = 0; 
+		
+		int totalTests = 0; 
+		System.out.println("now testing multi-alpha stress movement/syllabification rule"); 
+		testRuleString = "[+hi,+syl,βstres,ɣprim] [-round,-syl,-cons] > [-stres] [+syl,βstres,ɣprim]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		List<SequentialPhonic> tei = testFactory.parseSeqPhSeg("t ˈe i"); 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, 
+				testRule.isMatch(tei, 0), "Error: invalid detection of match @ index 0 in t ˈe i") ? 1 : 0 ;
+		testRule.reset_alphvals_everywhere(); 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, 
+				testRule.isMatch(tei, 1), "Error: invalid detection of match @ index 1 in t ˈe i") ? 1 : 0 ;
+		testRule.reset_alphvals_everywhere(); 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, 
+				testRule.isMatch(tei, 2), "Error: invalid detection of match @ index 2 in t ˈe i") ? 1 : 0 ;
+		testRule.reset_alphvals_everywhere(); 
+
+		Etymon testEtym = new Etymon(testFactory.parseSeqPhSeg("h ˌu j t ˈi e̯"), true),
+				ogTest = new Etymon(testFactory.parseSeqPhSeg("h ˌu j t ˈi e̯"), true),
+				corrResEtym = new Etymon(testFactory.parseSeqPhSeg("h u ˌi t i ˈe"), true); 
+		boolean ruleApplied = testEtym.applyRule(testRule); 
+		totalTests++; numCorrect += UTILS.checkBoolean(true, ruleApplied, "error: testRule failed to apply to "+testEtym.print()+" despite being a valid input") ? 1 : 0 ; 
+		if (ruleApplied) 
+		{
+			totalTests++; numCorrect += UTILS.checkBoolean(false, testEtym.print().equals(ogTest.print()),
+					"Error: the rule "+testRuleString+" supposedly applied to "+ogTest.print()+" yet it is unchanged!!") ? 1 : 0; 
+			totalTests++; numCorrect += UTILS.checkBoolean(true, testEtym.print().equals(corrResEtym.print()), 
+					"Error: the rule "+testRuleString+" should have made "+ogTest.print()+" into "+corrResEtym.print()
+					+"\n...but instead it is "+testEtym) ? 1 : 0; 
+		}
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		numCorrect = 0; totalTests = 0; 
+		
 		
 		// TODO might duplicate something elsewhere but doing this fast for now (10/13/25) 
 		System.out.println("testing DiaSim.todo issue 1.F.II.a for generation of SChangeFeatAlpha... "); 
@@ -754,22 +779,50 @@ public class SChangeTester {
 				"frontness assimilation not have changed t but it became "+tphone.print()) ? 1 : 0 ; 
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 8"); 
 		numCorrect = 0; 
-		
+		totalTests = 0; 
 		
 		System.out.println("Testing a format like the above made into a case, to be SChangeFeatAlpha, with alpha polarity (dissimilation)"); 
 		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas,+cons]"; 
 		List<SChange> factoryOutput = testFactory.generateSoundChangesFromRule(testRuleString); 
-		numCorrect += UTILS.checkBoolean(true, factoryOutput.size()==1, "output from "+testRuleString+" should be a single rule but there are "+factoryOutput.size()) ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(true, factoryOutput.size()==1, "output from "+testRuleString+" should be a single rule but there are "+factoryOutput.size()) ? 1 : 0 ; 
 		testRule = factoryOutput.get(0); 
-		numCorrect += UTILS.checkBoolean(true, (""+testRule.getClass()).contains("SChangeFeatAlpha"), 
+		totalTests++; numCorrect += UTILS.checkBoolean(true, (""+testRule.getClass()).contains("SChangeFeatAlpha"), 
 				"Class for rule "+testRuleString+" should be SChangeFeatAlpha but it is "+(""+testRule.getClass()).split(" ")[1]) ? 1 : 0; 
 		
 		//testing .isMatch is currently complicated because it's not instantiated 
-		numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("j m"), 0), "Error: mistook 'j m' as valid input via isMatch()") ? 1 : 0 ; 
-		numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("i j"), 0), "Error: mistook 'i j' as valid input via isMatch()") ? 1 : 0 ; 
-		numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("i m"), 0), "Error: mistook 'i m' as invalid input via isMatch()") ? 1 : 0 ; 
-		numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("i k"), 0), "Error: mistook 'i k' as invalid input via isMatch()") ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("j m"), 0), "Error: mistook 'j m' as valid input via isMatch()") ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("e i m"), 0), "Error: mistook 'e i m' at first index as valid input via isMatch()") ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("i j"), 0), "Error: mistook 'i j' as valid input via isMatch()") ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("e m i"), 2), "Error: mistook 'e m i ' at third index as valid input via isMatch()") ? 1 : 0 ; 
+		totalTests++; numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("e i m"), 1), "Error: mistook 'e i m' at second index as invalid input via isMatch()") ? 1 : 0 ; 
+		testRule.reset_alphvals_everywhere();
+		totalTests++; numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("i k"), 0), "Error: mistook 'i k' as invalid input via isMatch()") ? 1 : 0 ; 
+		testRule.reset_alphvals_everywhere(); 
+		
+		//testing realize.
+		Etymon nalphTest = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
+				nalphOg = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
+				nalphCorr = new Etymon(testFactory.parseSeqPhSeg("ã w ẽ t i n"), true); 
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" to become "+nalphCorr.print()+", but instead it is "+ nalphTest.print()) ? 1 : 0;
+			
+			System.out.println("testRule .. "+testRule.toString()); 
+			System.out.println("testRule as input... "+testRule.orig); 
+			System.out.println("ph2 input  : "+(new Phone(nalphOg.getPhOnlySeq()[2])).getFeatString()); 
 
+			System.out.println("ph2 result : "+(new Phone(nalphTest.getPhOnlySeq()[2])).getFeatString()); 
+			System.out.println("ph2 correct: "+(new Phone(nalphCorr.getPhOnlySeq()[2])).getFeatString()); 
+
+			System.out.println("ph4 result : "+(new Phone(nalphTest.getPhOnlySeq()[4])).getFeatString()); 
+			System.out.println("ph4 correct: "+(new Phone(nalphCorr.getPhOnlySeq()[4])).getFeatString()); 
+
+		}
+		testRule.reset_alphvals_everywhere(); 
+		
+		//testing .realize
 		
 		///TODO test things... but first debug the bullshit that will definitely ensue. 
 
@@ -777,11 +830,6 @@ public class SChangeTester {
 
 	
 	public static FeatMatrix newFM(String specs)
-	{
-		return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));
-	}
+	{	return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));	}
 	
-	
-	
-
 }

@@ -119,6 +119,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		return res; 
 	}
 	
+	// note: sets alpha values and only resets them in case of non-match.
 	@Override
 	public boolean isMatch(List<SequentialPhonic> input, int ind)
 	{		
@@ -259,7 +260,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		
 		if (destination.has_alpha_specs() && need_to_reset)	destination.applyAlphaValues(ALPH_VARS); 
 		return true;
-		
 	}
 
 	public void reset_alphvals_everywhere()
