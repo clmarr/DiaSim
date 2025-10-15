@@ -282,9 +282,18 @@ public class AlphaTester {
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("-ðcons", '-'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("0ðdistr", '0'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_neg_alpha_marked("-ðcons"), undetectedAlphMsg); 
-		
-		
+		pointTest(false,UTILS.stringHasFMWithAlpha("h > ∅ / __ #"), "spurious detection of alpha in string"); 
+		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > ∅ / __ #"), "spurious detection of neg alpha in string @"+getLineNumber()); 
+		pointTest(false,UTILS.stringHasFMWithAlpha("h > ∅ / __ [-cons] "), "spurious detection of alpha in string @"+getLineNumber());  
+		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > ∅ / __ [-cons] "), "spurious detection of neg alpha in string @"+getLineNumber());  
+		pointTest(true,UTILS.stringHasFMWithAlpha("h > [avoi] / [-cons] __ [acons] "), "missed detection of alpha in string @"+getLineNumber());  
+		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > [avoi] / [-cons] __ [acons] "), "spurious detection of neg alpha in string @"+getLineNumber());  
+		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [acons] "), "missed detection of neg alpha in string @"+getLineNumber());  
+		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [+cons] "), "missed detection of neg alpha in string @"+getLineNumber());  
+
 		concludeTestBatch(); 
+		
+		
 		
 
 	}

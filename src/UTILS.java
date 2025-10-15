@@ -426,7 +426,7 @@ public class UTILS {
 	// @param ec -- error count
 	public static void errorSummary(int ec)
 	{
-		if (ec == 0)	System.out.println("No errors yet at this point."); 
+		if (ec == 0)	System.out.println("No errors through to this point."); 
 		else	System.out.println("In all "+ec+" errors.");
 	}
 	
