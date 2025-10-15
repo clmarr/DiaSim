@@ -1125,7 +1125,7 @@ public class SequentialFilter {
 		String targAlph = getProxyPair(prAlph); 
 		if (targAlph.equals(NULL_PROXY_PAIR))	return; 
 		/*else*/ 
-		String targVal = ""+UTILS.getOppFtInt(prVal);
+		String targVal = prVal.equals(UNSET_ALPHVAL) ? "" : ""+UTILS.getOppFtInt(prVal);
 		putLocalAlph(targAlph, targVal, modifyPlaceRestrs); 
 	}
 
