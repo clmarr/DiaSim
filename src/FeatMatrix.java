@@ -96,10 +96,10 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// do it to featSpecs as we fill it. InitSpecs will be identical at this time. 
 		// Current (9/25/25) policy is that they internally have the neg proxy alphas but print with the negated actual alphas that are proxied. 
 		featSpecs=specs+""; 
-		if (UTILS.listNegatedAlphasInString(specs).size() > 0) 
+		if (UTILS.listNegAlphasInFeatString(specs).size() > 0) 
 		{
 			featSpecs = UTILS.applyNegalphaProxies(featSpecs, negProxyAlphs); 
-			if (UTILS.listNegatedAlphasInString(featSpecs).size() > 0)  // if there are still neg alphs -- must be error! 
+			if (UTILS.listNegAlphasInFeatString(featSpecs).size() > 0)  // if there are still neg alphs -- must be error! 
 				throw new Error("Error: failed to proxy all negated alphas. Inspect.\n\tOriginal specs: "+specs+";\n\tProxied specs: "+featSpecs); 
 		}
 				

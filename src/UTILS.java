@@ -1278,6 +1278,7 @@ public class UTILS {
 		
 		return output; 
 	}
+	public static List<String> listNegAlphasInFeatString(String fs)	{	return listAlphasInFeatString(fs,true);	}
 	
 	/**
 	 * @param str -- a string (a rule or debugging suite filter)
@@ -1349,8 +1350,7 @@ public class UTILS {
 				
 		String possProxiesLeft = ""+possibleAlphaProxies;
 		// preempt danger of using a locally existing alpha symbol as a proxy. 
-		for (String ahi : listAlphasInString(ruleOrDebugFilt)) 
-			possProxiesLeft.replace(ahi, ""); 
+		for (String ahi : listAlphasInString(ruleOrDebugFilt))	possProxiesLeft.replace(ahi, ""); 
 		
 		HashMap<String,String> outp = new HashMap<String, String> (); 
 		for (String ani : alphsToNegate) {
