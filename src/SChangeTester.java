@@ -29,74 +29,9 @@ public class SChangeTester {
 		
 		boolean boundsMatter = false; 
 		
-
-		/** below is now handled within UTILS, for now. 
-		 * 		
-		 * 
-		featIndices = new HashMap<String, Integer>(); 
-		phoneSymbToFeatsMap = new HashMap<String, String>(); 
-		phoneFeatsToSymbMap = new HashMap<String, String>(); 	
-		
-		List<String> symbDefsLines = new ArrayList<String>();
-
-		String nextLine; 
-		
-		try 
-		{	File inFile = new File("symbolDefs.csv"); 
-			BufferedReader in = new BufferedReader ( new InputStreamReader (
-				new FileInputStream(inFile), "UTF8")); 
-			while((nextLine = in.readLine()) != null)	
-				symbDefsLines.add(nextLine); 		
-			in.close(); 
-		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
-		*/ 
 		List<String> symbDefsLines = UTILS.readFileLines(symbDefsLoc);
 		UTILS.extractSymbDefs(symbDefsLines); 
-		
-		//TODO debugging
 		System.out.println("Symbol definitions extracted! ("+symbDefsLines.size()+" lines)"); 
-		
-		// following is now handed within UTILS.
-		/** 
-		//from the first line, extract the feature list and then the features for each symbol.
-		featsByIndex = symbDefsLines.get(0).replace("SYMB,", "").split(""+FEAT_DELIM); 
-		
-		for(int fi = 0; fi < featsByIndex.length; fi++) 
-			featIndices.put(featsByIndex[fi], fi);
-
-		//from the rest-- extract the symbol def each represents
-		int li = 1; 
-		while (li < symbDefsLines.size()) 
-		{
-			nextLine = symbDefsLines.get(li).replaceAll("\\s+", ""); //strip white space and invisible characters 
-			int ind1stComma = nextLine.indexOf(FEAT_DELIM); 
-			String symb = nextLine.substring(0, ind1stComma); 
-			String[] featVals = nextLine.substring(ind1stComma+1).split(""+FEAT_DELIM); 		
-			
-			String intFeatVals = ""; 
-			for(int fvi = 0; fvi < featVals.length; fvi++)
-			{
-				if(featVals[fvi].equals(""+MARK_POS))	intFeatVals+= POS_INT; 
-				else if (featVals[fvi].equals(""+MARK_UNSPEC))	intFeatVals += UNSPEC_INT; 
-				else if (featVals[fvi].equals(""+MARK_NEG))	intFeatVals += NEG_INT; 
-				else	throw new Error("Error: unrecognized feature value, "+featVals[fvi]+" in line "+li);
-			}
-			
-			phoneSymbToFeatsMap.put(symb, intFeatVals);
-			phoneFeatsToSymbMap.put(intFeatVals, symb);
-			li++; 
-		}
-		*/ 
 		
 		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
