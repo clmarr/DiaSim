@@ -145,7 +145,7 @@ public class SChangeFactory {
 				currFM = endOfSpec >= currFM.length() ? "" : currFM.substring(endOfSpec+1); 
 				
 				char prefix = currSpec.charAt(0) ; 
-				if(UTILS.FEATSPEC_MARKS.contains(""+prefix) ? UTILS.spec_is_preposed_alpha_marked(currSpec, prefix)
+				if(UTILS.ALL_FTSPEC_MARKS.contains(""+prefix) ? UTILS.spec_is_preposed_alpha_marked(currSpec, prefix)
 						: UTILS.spec_is_alpha_marked(currSpec))
 				{	
 					String alphHere = "" + UTILS.getAlphaFromFeatSpec(currSpec); 

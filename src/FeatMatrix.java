@@ -218,7 +218,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			// abrogated 2025 -- String restr = ""+init_chArr[i]; // working with init_chArr -- which retains alpha values. 
 			String restr = featVect.substring(i,i+1); 
 			String cand_feat = candFeats.substring(i, i+1); 
-			if ( UTILS.POLAR_FT_INTS.contains(restr) && !restr.equals(cand_feat))
+			if ( UTILS.POLAR_FTVECT_INTS.contains(restr) && !restr.equals(cand_feat))
 					return false;
 			if ((""+UTILS.DESPEC_INT).contains(restr) && !(""+UTILS.UNSPEC_INT).equals(cand_feat))	
 				return false; 
@@ -356,13 +356,21 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				resetAlphVal(getProxyPair(""+alph).charAt(0)); 
 	}
 	
-	private char toSurfVal(char i)
-	{
-		if (!"0129".contains(""+i))	throw new Error("Error: invalid specification value.");
-		return "-0+0".charAt("0129".indexOf(i)); 
-	}
+	/**
+	 * given @param i, a feature int from a feat vector 
+	 * @return the surface marking in the feat spec list that corresponds 
+	 * @beware, @surjective for 1 and 9 which both go to '0' (UTILS.MARK_UNSPEC)
+	 * moved to UTILS for broader access, now the local class here just references that.  
+	 */
+	private char ftIntToMark(char i)
+	{	return UTILS.ftIntToMark(i); 	}
 	
-	private char fromSurfVal(char i)
+	/**
+	 * given @param i, a feature marking
+	 * @return the ft int form to be stored in feature vectors of the FeatMatrix. (9 not 1 -- despecifying) 
+	 * surjective for 0 and '.' which both go to 9, not 1 ('.' being used is no longer a thing) 
+	 */
+	private char ftMarkToInt(char i)
 	{
 		if (!"-+.0".contains(""+i))	throw new Error("Error: invalid specification value.");
 		return "0299".charAt("-+.0".indexOf(i)); 
@@ -388,14 +396,14 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		int aff_ind = ordFeats.indexOf(feature);
 		
 		String prevMark = ""+featVect.charAt(aff_ind); 
-		boolean applyingToAlpha = UTILS.ALL_FT_INTS.contains(prevMark) ? false 
+		boolean applyingToAlpha = UTILS.ALL_FTVECT_INTS.contains(prevMark) ? false 
 				: UTILS.spec_is_alpha_marked(prevMark+feature); 
 		
 		boolean alphaResetOverride = applyingToAlpha && featSpecs.contains(value+feature); 
 			// to overrule the below in cases of partial alpha reset. 
 		
 		if (featVect.charAt(aff_ind) != '1' && !alphaResetOverride)	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
-		featVect = featVect.substring(0, aff_ind) + fromSurfVal(value.charAt(0)) + featVect.substring(aff_ind+1); 
+		featVect = featVect.substring(0, aff_ind) + ftMarkToInt(value.charAt(0)) + featVect.substring(aff_ind+1); 
 		
 		if (!via_impl && !alphaResetOverride) // if it's not via implication 
 		{	
@@ -408,7 +416,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		List<String> impls = new ArrayList<String>(); 
 		
 		// first any implications contingent to both + and - specification 
-		if(UTILS.POLAR_FT_MARKS.contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
+		if(UTILS.POLAR_FTSPEC_MARKS.contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
 			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(feature))); 
 		// then any implications contingent to the specific case observed, with + or with - 
 		if(UTILS.FT_IMPLICATIONS.keySet().contains(value+feature))
@@ -472,7 +480,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				String oppVal = "" +  UTILS.getOppFtInt(vali);  // opposite value if polar (0 ~ -/ 2 ~ +), otherwise same
 					// will throw error if vali is not a valid feature int (0 1 2 9) 
 				
-				if (!UTILS.POLAR_FT_INTS.contains(vali)
+				if (!UTILS.POLAR_FTVECT_INTS.contains(vali)
 						&& ! (vali.equals(UTILS.DESPEC_INT_CHAR+"") && DESPEC_VIA_ALPHA))	
 						continue; 
 
@@ -519,7 +527,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				
 			// disallow despecification via alpha unless DESPEC_VIA_ALPHA is true.
 			if (val == UTILS.DESPEC_INT_CHAR && !DESPEC_VIA_ALPHA)	continue;
-			else if (!UTILS.POLAR_FT_INTS.contains(""+val))	{ // shouldn't have anything other than 0,2, or 9 if this is being fed what was produced by extractAndApplyAlpha ... if there is, something is amiss.
+			else if (!UTILS.POLAR_FTVECT_INTS.contains(""+val))	{ // shouldn't have anything other than 0,2, or 9 if this is being fed what was produced by extractAndApplyAlpha ... if there is, something is amiss.
 				if (/*val != '1' &&*/ !(val == UTILS.DESPEC_INT_CHAR && DESPEC_VIA_ALPHA))
 				{	System.out.println("Alert -- tried to apply a value other than 0,2, or 9 to an alpha-specified feature "
 							+ "\n   ... likely error around here. Ignoring for now...");
@@ -544,17 +552,17 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				String currSpec = ordFeats.get(nxind); 
 				
 				//handling first the any-specification case to store for implications downstream
-				if(UTILS.POLAR_FT_INTS.contains(""+val) 
+				if(UTILS.POLAR_FTVECT_INTS.contains(""+val) 
 						&& UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
 				{	alphFeatsWImpls.add(currSpec); } 
 					//will actually be handled downstream in this method.
 				
 				// feat specs modification
 				int fsloc = featSpecs.indexOf(s+currSpec);	//index of where in featSpecs to modify. 
-				featSpecs = featSpecs.substring(0,fsloc) + toSurfVal(val) + featSpecs.substring(fsloc+1); 
+				featSpecs = featSpecs.substring(0,fsloc) + ftIntToMark(val) + featSpecs.substring(fsloc+1); 
 				
 				//now the specific specification for implications downstream. 
-				currSpec = toSurfVal(val)+currSpec; 
+				currSpec = ftIntToMark(val)+currSpec; 
 				if (UTILS.FT_IMPLICATIONS.keySet().contains(currSpec))
 					alphFeatsWImpls.add(currSpec); 
 			}
@@ -601,13 +609,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		for (int c = 0 ; c < cand_feat_vect.length; c++)
 		{
 			String deepSpec = init_chArr[c] + "";
-			if (!UTILS.ALL_FT_INTS.contains(deepSpec)) // deepSpec is an alpha symbol
+			if (!UTILS.ALL_FTVECT_INTS.contains(deepSpec)) // deepSpec is an alpha symbol
 			{
 				String valHere = cand_feat_vect[c] + ""; 
 				
 				if (currReqs.containsKey(deepSpec)) // and it's already been assigned a value...! 
 				{
-					if (UTILS.POLAR_FT_INTS.contains(currReqs.get(deepSpec)))
+					if (UTILS.POLAR_FTVECT_INTS.contains(currReqs.get(deepSpec)))
 					{	if (!currReqs.get(deepSpec).equals(""+cand_feat_vect[c]))	return true;	}
 					else if ((""+UTILS.DESPEC_INT).equals(currReqs.get(deepSpec)))
 					{
@@ -624,7 +632,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 				{	currReqs.put(deepSpec, valHere);
 				
 					// if it's a polar value and this is a proxy/proxied alpha, put the opposite for the prox pair ... 
-					if (hasNegProxyAlphs()? UTILS.POLAR_FT_INTS.contains(valHere) : false) 
+					if (hasNegProxyAlphs()? UTILS.POLAR_FTVECT_INTS.contains(valHere) : false) 
 						if (hasProxyPair(deepSpec)) 
 							currReqs.put(getProxyPair(deepSpec), ""+UTILS.getOppFtInt(valHere)); 
 				}
@@ -661,7 +669,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		{
 			char fvspec = featVect.charAt(c); 
 
-			if (!UTILS.ALL_FT_INTS.contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
+			if (!UTILS.ALL_FTVECT_INTS.contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
 				if (currReqs.containsKey(""+fvspec))
 				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
@@ -677,7 +685,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					currReqs.put(""+fvspec, cand_feat_vect[c]+""); // i.e. alpha symbol, and 0 or 2 (negative, positive)
 			
 			}
-			else if (UTILS.POLAR_FT_INTS.contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
+			else if (UTILS.POLAR_FTVECT_INTS.contains(""+fvspec) && fvspec != cand_feat_vect[c] ) //i.e. clash in specified values for the same feature between FeatMatrix and candidate input for a sound change
 				return new HashMap<String,String>(); //i.e. this is not a valid input in the first place, nothing to extract -- return empty HashMap
 		}
 		

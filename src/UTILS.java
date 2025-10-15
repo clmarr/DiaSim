@@ -19,12 +19,13 @@ import java.util.HashMap;
 public class UTILS {
 
 	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
-	public final static String FEATSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
-	public final static String POLAR_FT_MARKS = "" + MARK_POS + MARK_NEG; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
 	public final static char UNSPEC_INT_CHAR = (""+UNSPEC_INT).charAt(0), DESPEC_INT_CHAR = (""+DESPEC_INT).charAt(0); 
-	public final static String POLAR_FT_INTS = ("" + POS_INT) + NEG_INT; 
-	public final static String ALL_FT_INTS = (POLAR_FT_INTS + UNSPEC_INT) + DESPEC_INT; 
+	public final static String POLAR_FTVECT_INTS = ("" + POS_INT) + NEG_INT,
+								POLAR_FTSPEC_MARKS = "" + MARK_POS + MARK_NEG; 
+	public final static String ALL_FTVECT_INTS = (POLAR_FTVECT_INTS + UNSPEC_INT) + DESPEC_INT,
+							ALL_FTSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
+
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
@@ -82,6 +83,17 @@ public class UTILS {
 	
 	public static int NUM_UNDEFINED_PHONES_USED = 0; 
 	
+	/**
+	 * given @param i, a feature int from a feat vector 
+	 * @return the surface marking in the feat spec list that corresponds 
+	 * @beware, @surjective for 1 and 9 which both go to '0' (UTILS.MARK_UNSPEC)
+	 */
+	public static char ftIntToMark(char i)
+	{
+		if (!ALL_FTVECT_INTS.contains(""+i))	throw new Error("Error: invalid specification value.");
+		return i == DESPEC_INT ? MARK_UNSPEC : ALL_FTSPEC_MARKS.charAt(ALL_FTVECT_INTS.indexOf(i));
+	}
+	
 	public static void abortInvalidFtIntStr(String ftInt)
 	{	abortInvalidFtIntStr(ftInt,""); 	}
 	public static void abortInvalidFtIntStr(String ftInt, String qualifier) 
@@ -90,7 +102,7 @@ public class UTILS {
 	}
 	
 	public static boolean detectInvalidFtIntStr (String candFI) {
-		return candFI.length() != 1 ? true : !ALL_FT_INTS.contains(candFI); 
+		return candFI.length() != 1 ? true : !ALL_FTVECT_INTS.contains(candFI); 
 	}
 	
 	// this will work IFF the POS_INT is still 2 and NEG_INT is still 0. 
@@ -100,7 +112,7 @@ public class UTILS {
 		abortInvalidFtIntStr(ftInt, "opposite "); 	
 		
 		int ftInp = Integer.parseInt(ftInt);
-		return POLAR_FT_INTS.contains(""+ftInt) ? 
+		return POLAR_FTVECT_INTS.contains(""+ftInt) ? 
 				POS_INT - ftInp : ftInp;
 	}
 	
@@ -120,8 +132,8 @@ public class UTILS {
 	
 	public static int getFeatspecIntFromMark (char mark) 
 	{
-		if (!FEATSPEC_MARKS.contains(""+mark))
-			throw new RuntimeException("Invalid feature specification mark :"+mark+"; allowed marks are :"+FEATSPEC_MARKS); 
+		if (!ALL_FTSPEC_MARKS.contains(""+mark))
+			throw new RuntimeException("Invalid feature specification mark :"+mark+"; allowed marks are :"+ALL_FTSPEC_MARKS); 
 		if (mark == MARK_POS)	return POS_INT; 
 		if (mark == MARK_NEG)	return NEG_INT; 
 		return UNSPEC_INT; // this last line shouldn't ever really happen. Diacritics should not be used to unspecify features. 
@@ -755,7 +767,7 @@ public class UTILS {
 				String[] diacritFeats = sdsides[1].split(","); 
 				for (String df : diacritFeats)
 				{
-					if (!FEATSPEC_MARKS.contains(""+df.charAt(0)))
+					if (!ALL_FTSPEC_MARKS.contains(""+df.charAt(0)))
 						throw new RuntimeException("ERROR: symbol diacritics defs file should only have feature specifications indicated for diacritics in '+' or '-', "
 								+ "but instead this one has :"+df.charAt(0)); 
 					if (!featIndices.containsKey(df.substring(1)))
@@ -1176,7 +1188,7 @@ public class UTILS {
 	public static void abortIllegalAlphaSpec(String inp) 
 	{	
 		inp = inp.replace(" ",""); 
-		if (FEATSPEC_MARKS.contains(inp.substring(0,1)))
+		if (ALL_FTSPEC_MARKS.contains(inp.substring(0,1)))
 			inp = inp.substring(1); 
 		
 		char candalph = inp.charAt(0); 
@@ -1417,7 +1429,7 @@ public class UTILS {
 	 */
 	public static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
 	{
-		if (!FEATSPEC_MARKS.contains(prep+""))	
+		if (!ALL_FTSPEC_MARKS.contains(prep+""))	
 			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 
 		String spec = fspec.replace(" ", ""); 
 		abortMidgetFeatSpec(spec); 
@@ -1464,7 +1476,7 @@ public class UTILS {
 	public static char getAlphaFromFeatSpec(String fspec)
 	{
 		String spec = fspec.replace(" ", ""); 
-		int alphInd = FEATSPEC_MARKS.contains(spec.substring(0, 1)) ? 1 : 0; 
+		int alphInd = ALL_FTSPEC_MARKS.contains(spec.substring(0, 1)) ? 1 : 0; 
 		if (fspec.length() < alphInd+1 ? true : 
 			ILLEGAL_ALPHAS.contains(spec.charAt(alphInd)+"") ? true : 
 			!ordFeatNames.contains(fspec.substring(alphInd+1)))
@@ -2033,10 +2045,10 @@ public class UTILS {
 		// true if it's a basic spec, no alpha, or if it's simple alpha (or neg alpha!)  + feat. 
 		if (UTILS.ordFeatNames.contains(inpspec.substring(1)))	return true; 
 		
-		if (inpspec.length() < 3  || !UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0))) return false ; 
+		if (inpspec.length() < 3  || !UTILS.ALL_FTSPEC_MARKS.contains(""+inpspec.charAt(0))) return false ; 
 				
 		// at this point, possibility is that it could be preposed alpha... -- proxy or not doens't really matter. 
-		return UTILS.FEATSPEC_MARKS.contains(""+inpspec.charAt(0)) && UTILS.ordFeatNames.contains(inpspec.substring(2)); 
+		return UTILS.ALL_FTSPEC_MARKS.contains(""+inpspec.charAt(0)) && UTILS.ordFeatNames.contains(inpspec.substring(2)); 
 	}
 	
 	/** isValidFeatSpecList
