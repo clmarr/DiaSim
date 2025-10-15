@@ -98,7 +98,7 @@ public class UTILS {
 	{	abortInvalidFtIntStr(ftInt,""); 	}
 	public static void abortInvalidFtIntStr(String ftInt, String qualifier) 
 	{	if (detectInvalidFtIntStr(ftInt))	
-			throw new Error("Error: tried to get "+qualifier+"feature int of an illegitimate feature int!"); 
+			throw new Error("Error: tried to get "+qualifier+"feature int of an illegitimate feature int: "+ftInt); 
 	}
 	
 	public static boolean detectInvalidFtIntStr (String candFI) {

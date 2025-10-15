@@ -6,15 +6,7 @@ import java.util.List;
 public class SChangeTester {
 
 	private final static char PH_DELIM = UTILS.PH_DELIM;
-	private final static char restrDelim = UTILS.RESTR_DELIM;
 	
-	
-	// the following structures are now stored within UTILS...
-	
-	/** private static String[] featsByIndex;
-	private static HashMap<String, Integer> featIndices;
-	private static HashMap<String, String> phoneSymbToFeatsMap;
-	private static HashMap<String, String> phoneFeatsToSymbMap; */ 
 	private static String featImplsLoc = "FeatImplications",
 			symbDefsLoc = "symbolDefs.csv"; 
 
@@ -403,10 +395,6 @@ public class SChangeTester {
 					// [+cont] itself has a downstream implication: [0delrel]
 		dummyFM = newFM("βtense"); 
 		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
-		
-		//TODO debugging
-		System.out.println("vect : "+dfm_og_vect);
-		System.out.println("feats extr'd : "+alph_feats_extrd);
 		
 		dummyFM.applyAlphaValues(alph_feats_extrd);
 
