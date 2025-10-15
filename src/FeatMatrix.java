@@ -377,11 +377,11 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	/**
-	 * apply a value to the feature vector
-	 * in practice, used as auxiliary to applyAlphaValues and resetAlphVals
+	 * apply a value to the integer marked feature vector @featVect
+	 * in practice, used as @auxiliary to @applyAlphaValues and @resetAlphVals
 	 * 		because -- note -- these are the only values that would be changed anyways. 
 	 * 		i.e. a feat vector that is declared as [-voi] will never become '+voi' or unset. 
-	 * @param value to apply, should be surface value i.e. ( + positive , - negative , 0 despecify... 
+	 * @param @newVal new value to apply (mark it as), should be surface value i.e. ( + positive , - negative , 0 despecify... 
 	 * 		// ... in practice 0/despecify should never really happen except via a feature implication 
 	 * @param feature to apply it to, should be standard feature name as seen in symbolDefs (or replacement file) and featImplications (likewise)
 	 * 		as this class does not use feature translations; i.e. "stres", "cor", etc. 
@@ -391,36 +391,35 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * 		in practice, as of December 2022, via_impl is always true.
 	 * (9/30/25) -- neg alpha value coverage not handled within here ,but within applyAlphaValues 
 	 */
-	private void apply_value(String value, String feature, boolean via_impl)
+	private void apply_value(String newVal, String feature, boolean via_impl)
 	{
 		int aff_ind = ordFeats.indexOf(feature);
 		
-		String prevMark = ""+featVect.charAt(aff_ind); 
-		boolean applyingToAlpha = UTILS.ALL_FTVECT_INTS.contains(prevMark) ? false 
-				: UTILS.spec_is_alpha_marked(prevMark+feature); 
+		String prevState = ""+featVect.charAt(aff_ind); 
+		boolean applyingToAlpha = !UTILS.ALL_FTVECT_INTS.contains(prevState); // UTILS.ALL_FTVECT_INTS.contains(prevState) ? false : UTILS.spec_is_alpha_marked(prevState+feature); <-- this was probably an error. 
 		
-		boolean alphaResetOverride = applyingToAlpha && featSpecs.contains(value+feature); 
+		boolean alphaResetOverride = applyingToAlpha && featSpecs.contains(newVal+feature); 
 			// to overrule the below in cases of partial alpha reset. 
 		
 		if (featVect.charAt(aff_ind) != '1' && !alphaResetOverride)	return; 	// really this shouldn't ever happen unless it was going to be the same value that was already stored (due to being constructed that way, or due to a prior modification due to filling of alpha values earlier)... may need to put more guard rails here if issues with the feature vector arise		
-		featVect = featVect.substring(0, aff_ind) + ftMarkToInt(value.charAt(0)) + featVect.substring(aff_ind+1); 
+		featVect = featVect.substring(0, aff_ind) + ftMarkToInt(newVal.charAt(0)) + featVect.substring(aff_ind+1); 
 		
 		if (!via_impl && !alphaResetOverride) // if it's not via implication 
 		{	
 			if (featSpecs.contains(feature) )
 				System.out.println("Likely error: tried to modify featSpecs for specification of feature "+feature+", but it was already there. Continuing, but you may wish to examine this..."); 
-			else	featSpecs += FEAT_DELIM + value + feature;  
+			else	featSpecs += FEAT_DELIM + newVal + feature;  
 		}
 		
 		//for handling any downstream specifications, 
 		List<String> impls = new ArrayList<String>(); 
 		
 		// first any implications contingent to both + and - specification 
-		if(UTILS.POLAR_FTSPEC_MARKS.contains(""+value) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
+		if(UTILS.POLAR_FTSPEC_MARKS.contains(""+newVal) && UTILS.FT_IMPLICATIONS.keySet().contains(feature))
 			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(feature))); 
 		// then any implications contingent to the specific case observed, with + or with - 
-		if(UTILS.FT_IMPLICATIONS.keySet().contains(value+feature))
-			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(value+feature))); 
+		if(UTILS.FT_IMPLICATIONS.keySet().contains(newVal+feature))
+			impls.addAll(Arrays.asList(UTILS.FT_IMPLICATIONS.get(newVal+feature))); 
 		
 		for (String ii: impls)	apply_value(ii.substring(0,1), ii.substring(1), true); 
 	}
