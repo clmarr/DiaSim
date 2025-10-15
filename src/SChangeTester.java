@@ -726,9 +726,11 @@ public class SChangeTester {
 		numCorrect = 0; 
 		
 		// TODO might duplicate something elsewhere but doing this fast for now (10/13/25) 
-		System.out.println("testing DiaSim.todo issue 1.F.II.a... "); 
+		System.out.println("testing DiaSim.todo issue 1.F.II.a for generation of SChangeFeatAlpha... "); 
 		testRuleString = "[+nas] > [βfront] / __ [βfront]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		numCorrect += UTILS.checkBoolean(true, (""+testRule.getClass()).contains("SChangeFeatAlpha"), 
+				"Class for rule "+testRuleString+" should be SChangeFeatAlpha but it is "+(""+testRule.getClass()).split(" ")[1]) ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(true, testRule.alphaSubclass(),
 				"alpha subclass should be true for this rule ('"+testRuleString+"'), but it is not ...") 
 				? 1 : 0 ; 		
@@ -750,13 +752,23 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true,
 				tphone.compare(testRule.realize(testFactory.parseSeqPhSeg("nʲ t")),1), 
 				"frontness assimilation not have changed t but it became "+tphone.print()) ? 1 : 0 ; 
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 7"); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 8"); 
 		numCorrect = 0; 
 		
 		
-		System.out.println("Testing a format like the above made into a case with alpha polarity (dissimilation)"); 
-		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas]"; 
-		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		System.out.println("Testing a format like the above made into a case, to be SChangeFeatAlpha, with alpha polarity (dissimilation)"); 
+		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas,+cons]"; 
+		List<SChange> factoryOutput = testFactory.generateSoundChangesFromRule(testRuleString); 
+		numCorrect += UTILS.checkBoolean(true, factoryOutput.size()==1, "output from "+testRuleString+" should be a single rule but there are "+factoryOutput.size()) ? 1 : 0 ; 
+		testRule = factoryOutput.get(0); 
+		numCorrect += UTILS.checkBoolean(true, (""+testRule.getClass()).contains("SChangeFeatAlpha"), 
+				"Class for rule "+testRuleString+" should be SChangeFeatAlpha but it is "+(""+testRule.getClass()).split(" ")[1]) ? 1 : 0; 
+		
+		//testing .isMatch is currently complicated because it's not instantiated 
+		numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("j m"), 0), "Error: mistook 'j m' as valid input via isMatch()") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, testRule.isMatch(testFactory.parseSeqPhSeg("i j"), 0), "Error: mistook 'i j' as valid input via isMatch()") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("i m"), 0), "Error: mistook 'i m' as invalid input via isMatch()") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, testRule.isMatch(testFactory.parseSeqPhSeg("i k"), 0), "Error: mistook 'i k' as invalid input via isMatch()") ? 1 : 0 ; 
 
 		
 		///TODO test things... but first debug the bullshit that will definitely ensue. 

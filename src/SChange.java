@@ -29,10 +29,10 @@ public abstract class SChange {
 	protected HashMap<String,String> ALPH_VARS; 
 		// stores current alpha variable settings. 
 		// if there are none, it's empty (unlike in some other structures, does not keep them constant with some unset value.
-		// not used in subclasses that arent **Alpha subclasses
+		// not used in subclasses that aren't **Alpha subclasses
 		// in practice not really used in SChangeFeatToPhone either 
 			// -- instead any alpha computation within realize is handled within method, 
-				// passing from input mathcing to contexts, and then prior context to posterior, as necessary.
+				// passing from input matching to contexts, and then prior context to posterior, as necessary.
 		// it is however used for the other 3 SChange*Alpha subclasses, sometimes via auxiliaries in SChangeSeqToSeqAlpha
 				// e.g. SChangeSeqToSeqAlpha has mapAlphaValues() to map an input alph value to all structures
 				// SChangeSeqToSeqAlpha.applyAlph applies whatever ALPH_VALS has to an input RestrictPhone
@@ -110,6 +110,16 @@ public abstract class SChange {
 		if (priorSpecd)	priorContext.resetAllAlphaValues();
 		if (postSpecd)	postContext.resetAllAlphaValues();
 		need_to_reset = false;
+	}
+	
+	// currently here mainly for testing purposes for SChangeFeatAlpha.isMatch,
+		// possibly later for other alpha subclasses
+	public boolean isMatch(List<SequentialPhonic> input, int ind)
+	{
+		if (!alphaSubclass())
+			throw new Error("isMatch called for class that is not SChangeFeat ");
+		//otherwise should be overriddent anways. 
+		return false; 
 	}
 	
 }

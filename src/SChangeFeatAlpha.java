@@ -61,7 +61,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		ALPH_VARS = new HashMap<String, String>();
 		need_to_reset = false; 
 	}
-	
+		
 	//Realization
 	@Override
 	public List<SequentialPhonic> realize(List<SequentialPhonic> input)
