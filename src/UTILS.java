@@ -430,6 +430,26 @@ public class UTILS {
 		return correct == observed; 
 	}
 	
+	public static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
+			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
+		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + printWord(input) 
+		+ "\n\tExpected result: " + printWord(expected) + "\n\tObserved result:\t\t" + printWord(observed)+ "\n";
+	}
+
+	/**
+	 * @param sc: sound change being tested
+	 * @param inp: input
+	 * @param exp: expected output
+	 * @return whether expected output was produced (true, false)
+	 */
+	public static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp) {
+		List<SequentialPhonic> obs = sc.realize(inp);
+		if (phonSeqsEqual(exp, obs))
+			return true;
+		System.out.print(generateErrorMessage(sc, inp, exp, obs));
+		return false;
+	}
+	
 	public static String errorMessage(String cor, String obs, String msg)
 	{
 		return msg.replace("%c", cor).replace("%o",obs); 
@@ -1767,6 +1787,26 @@ public class UTILS {
 		}
 		
 		return out; 
+	}
+	
+	/** for simulating the change of one feature in a feature vector as used in FeatMatrix
+	 * 
+	 * @param fv_inp -- input feature vector
+	 * @param deep_feat_ch_specs -- specifications of what to change
+	 * 			use the UNDERLYING ("deep"), format 2 = positive, 0 = negative, 9 = despecified
+	 * 				sorry if this is confusing! 
+	 * 			separate specifications with ',', or whatever restrDelim is set as 
+	 * @return result of the change 
+	 */
+	public static String featVectChange(String fv_inp, String deep_feat_ch_specs)
+	{
+		String output = ""+fv_inp;
+		for (String ch : deep_feat_ch_specs.split(""+RESTR_DELIM))
+		{
+			int floc = UTILS.featIndices.get(ch.substring(1)); 
+			output = output.substring(0,floc) + ch.substring(0,1) + output.substring(floc+1); 
+		}
+		return output;		
 	}
 	
 	/** 
