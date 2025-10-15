@@ -396,7 +396,7 @@ public class SChangeTester {
 				"Error: feature vector should be unchanged after attempt to fill value for the wrong alpha symbol, yet it has changed from\n"
 				+ dfm_og_vect +"\nto: "+dummyFM.getFeatVect()) ? 1 : 0 ;
 		
-		System.out.println("Now testing an FM wit implicaitons...");		
+		System.out.println("Now testing an FM with implicaitons...");		
 		// now testing application of alpha feature filling to a FeatMatrix with [βtense], which will show handling of downstream feature implications 
 			// namely: tense:-cons (an any-specification scenario)
 				// [-cons] has downstream implications: -lat,+cont
@@ -674,6 +674,9 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
 				"Error: now that all alpha symbol features should have been extracted, there should be no unset alpha, "
 				+ "but the first unset alpha symbol is detected to be "+fmtest.first_unset_alpha()) ? 1 : 0 ; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 20"); 
+		numCorrect = 0 ; 
+
 		System.out.println("TODO finish testing here : see comments in file..."); 
 		//TODO finish testing [ɪ̃] -- should pass β=- and ɣ=+
 		
@@ -681,7 +684,7 @@ public class SChangeTester {
 		
 		//TODO finish debugging here... applications to test -- w ; ũ
 		
-		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 20"); 
+		//System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 20"); 
 		numCorrect = 0 ; 
 		
 		//TODO final debugging mode for featmatrix, with two alpha symbols, the latter for a feature that is often unspecified 
@@ -773,7 +776,7 @@ public class SChangeTester {
 	}
 
 	
-	private static FeatMatrix newFM(String specs)
+	public static FeatMatrix newFM(String specs)
 	{
 		return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));
 	}

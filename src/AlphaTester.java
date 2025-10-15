@@ -45,7 +45,6 @@ public class AlphaTester {
 		
 		concludeTestBatch(); 
 		
-		initTestBatch(); 
 		System.out.println("Testing a feature matrix with one alpha value, without any feature implications (-tense,βhi)..."); 
 		FeatMatrix fmtest = new FeatMatrix("-tense,βhi", Arrays.asList(UTILS.featsByIndex)); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("β"), 
@@ -71,10 +70,10 @@ public class AlphaTester {
 				"Error: the feature vector should be\n"+corrFeatVect+"\nbut it is\n"+fmtest.getFeatVect()) ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(false,
 				fmtest.comparePreUnsetAlpha(testFactory.parseSeqPh("e")), 
-						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [e] should be false for "+fmtest.print()+" but it is mishandled as true.") ? 1 : 0; 
+						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [e] should be false for "+fmtest+" but it is mishandled as true.") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(true,
 				fmtest.comparePreUnsetAlpha(testFactory.parseSeqPh("ɛ")), 
-						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [ɛ] should be true for "+fmtest.print()+" but it is mishandled as false.") ? 1 : 0; 
+						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [ɛ] should be true for "+fmtest+" but it is mishandled as false.") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("w")),
 				"Error: [w] should have no alpha conflict, no alph values are set yet, but a conflict is detected") ? 1 : 0; 
 		SequentialPhonic dummyPhone = testFactory.parseSeqPh("m"); // which is -hi, 0tense.
@@ -92,30 +91,30 @@ public class AlphaTester {
 		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(""+fmtest), 
 				"Error: feat specs should have been unchanged but it was changed from\n"+initSpecs+"\nto\n"+fmtest) ? 1 : 0; 
 		HashMap<String,String> dummyHM = new HashMap<String, String>(); 
-		dummyHM.put("β",  UTILS.MARK_NEG+"");  
+		dummyHM.put("β", UTILS.NEG_INT+"");  
 		fmtest.applyAlphaValues(dummyHM); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(corrFeatVect.substring(0, hi_loc) + UTILS.NEG_INT + corrFeatVect.substring(hi_loc+1)), 
 				"Error @"+getLineNumber()+" FM.applyAlphaValues() did not produce right change in feature vector") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false,
-				fmtest.comparePreUnsetAlpha(testFactory.parseSeqPh("ɛ")), 
-						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [ɛ should now (tangentially) be false for "+fmtest.print()+" given that β was set to [-] but it is mishandled as true.") ? 1 : 0; 
-		numCorrect += UTILS.checkBoolean(true,
-				fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ɛ")), 
-						"Error @"+getLineNumber()+": FM.check_for_alpha_conflict for [ɛ] should now be true for "+fmtest.print()+" given that β was set to [-] but it is mishandled as false.") ? 1 : 0; 
+				fmtest.comparePreUnsetAlpha(testFactory.parseSeqPh("i")), 
+						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [i] should now (tangentially) be false for "+fmtest+" given that β was set to [-] but it is mishandled as true.") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false,
+				fmtest.comparePreUnsetAlpha(testFactory.parseSeqPh("ɪ")), 
+						"Error @"+getLineNumber()+": FM.comparePreUnsetAlpha for [ɪ] should now (tangentially) be false for "+fmtest+" given that β was set to [-] but it is mishandled as true.") ? 1 : 0; 
 		
 		fmtest.resetAlphVal('β'); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(corrFeatVect), 
 				"Error @"+getLineNumber()+" FM.resetAlphVal did not produce right change in feature vector") ? 1 : 0; 
-		fmtest.setAlphaValue("β", ""+UTILS.MARK_POS); 
+		fmtest.setAlphaValue("β", ""+UTILS.POS_INT); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(corrFeatVect.substring(0, hi_loc) + UTILS.POS_INT + corrFeatVect.substring(hi_loc+1)), 
 				"Error @"+getLineNumber()+" FM.setAlphaValue() did not produce right change in feature vector") ? 1 : 0; 
 		fmtest.resetAlphaValues(); 
 		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(corrFeatVect), 
 				"Error @"+getLineNumber()+" FM.resetAlphVal did not produce right feature vector") ? 1 : 0; 
-		concludeTestBatch(); 
 
+		
+		System.out.println("Now testing an FM with implications...");		
 		System.out.println("Test FM w single alph feat w implications (check that code-commented below is covered: "); 
-		System.out.println("Now testing an FM wit implicaitons...");		
 		// now testing application of alpha feature filling to a FeatMatrix with [βtense], which will show handling of downstream feature implications 
 			// namely: tense:-cons (an any-specification scenario)
 				// [-cons] has downstream implications: -lat,+cont
@@ -123,12 +122,11 @@ public class AlphaTester {
 		FeatMatrix dummyFM = new FeatMatrix("βtense", Arrays.asList(UTILS.featsByIndex)); 
 		String dfm_og_vect = ""+dummyFM.getFeatVect(), dfm_og_specs = ""+dummyFM; 
 		
-		//TODO debugging
-		System.out.println("vect : "+dfm_og_vect);
-		System.out.println("feats extr'd : "+alph_feats_extrd);
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("ʌ")); //-hi, -tense 
 		
 		dummyFM.applyAlphaValues(alph_feats_extrd);
-
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
+				"Error: system detects an alpha variable specified for multiple features, but there is none") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == '0', 
 				"Error: after application of alpha values to only alpha value, it erroneously does not count as unset") ? 1 : 0; 
 		numCorrect += UTILS.checkBoolean(false, 
@@ -143,11 +141,37 @@ public class AlphaTester {
 				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
 		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(UTILS.getFeatMatrix("-tense", true))), 
 				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
+					// resetAlphaValues
+					// resetAlphVal
+					// setAlphaValue
+		
+		// now testing effect on feature matrix with two different alpha symbols, each specifying one feature: 
+		//  β for hi, and ɸ for tense... 
+		System.out.println("Now testing feature matrix with two diff alpha symbols, each specifying one feature, one of which with implications. ");
+		dummyFM = SChangeTester.newFM("βhi,ɸtense"); 
+		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
+		
 
-					// has_alpha_specs
-					// has_multifeat_alpha
-					// first_unset_alpha
-					// getAlphaVars
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
+				"Error: system detects an alpha variable specified for multiple features, but there is none") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == 'ɸ', 
+				"Error: after application of filling alpha value β to feat matrix with β and ɸ in its alphabet, "
+				+ "the first (and only) unset alpha should be 'ɸ' but it is "+dummyFM.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, dummyFM.first_unset_alpha() == '0', 
+				"Error: after application of filling alpha value β to feat matrix with β and ɸ in its alphabet, "
+				+ "the system erroneously believes all alpha symbols are now set!") ? 1 : 0 ;
+		corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0hi"); 
+		numCorrect += UTILS.checkBoolean(false, 
+				dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
+				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
+				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(SChangeTester.newFM("-hi,ɸtense"))), 
+				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
 					// comparePreAlpha
 					// resetAlphaValues
 					// resetAlphVal
@@ -155,35 +179,243 @@ public class AlphaTester {
 					// applyAlphaValues
 					// check_for_alpha_conflict
 					// extractAndApplyAlphaVlaues
-		System.out.println("Test FM w multiple separate variable alph feats (w implications) for the code-commented below: "); 
-					// has_alpha_specs
-					// has_multifeat_alpha
-					// first_unset_alpha
-					// getAlphaVars
-					// comparePreAlpha
-					// resetAlphaValues
-					// resetAlphVal
-					// setAlphaValue
-					// applyAlphaValues
-					// check_for_alpha_conflict
-					// extractAndApplyAlphaVlaues
-		System.out.println("Test FM w multiple-specified single alpha feat (w implications) for the code-commented below: "); 
-
-			// has_alpha_specs
-			// has_multifeat_alpha
-			// first_unset_alpha
+		
+		System.out.println("Now testing FM w multiple-specified single alpha feat (w implications)"); 
+		// now testing effect for one with β for hi AND for nas (multifeature alpha symbol!), and ɸ for tense
+					// note that -stres has downstream implications: -prim,+syl
+						// in turn implying +son,0delrel
+		dummyFM = SChangeTester.newFM("βhi,βstres,ɸtense"); 
+		
+		numCorrect += UTILS.checkBoolean(true, dummyFM.has_multifeat_alpha(), 
+				"Error: failure to detect situation multiple features assigned same alpha symbol as value") ? 1 : 0; 
+		dfm_og_vect = ""+dummyFM.getFeatVect(); dfm_og_specs = ""+dummyFM; 
+		dummyFM.applyAlphaValues(alph_feats_extrd);
+		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == 'ɸ', 
+				"Error: after application of filling alpha value β to feat matrix with β (x2) and ɸ in its alphabet, "
+				+ "the first (and only) unset alpha should be 'ɸ' but it is "+dummyFM.first_unset_alpha()) ? 1 : 0 ;
+		corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0hi,0stres,0prim,2syl,2son,9delrel"); 
+		numCorrect += UTILS.checkBoolean(false, 
+				dfm_og_vect.equals(dummyFM.getFeatVect()), 
+				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
+				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
+				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dfm_og_specs.equals(""+dummyFM), 
+				"Error: feature specs remained unchanged after application of alpha values.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, dummyFM.toString().equals(""+(SChangeTester.newFM("-hi,-stres,ɸtense"))), 
+				"Error: feature specs should be [-tense], but it is "+dummyFM) ? 1 : 0 ; 
 			// getAlphaVars
 			// comparePreAlpha
-			// resetAlphaValues
 			// resetAlphVal
 			// setAlphaValue
 			// applyAlphaValues
-			// check_for_alpha_conflict
-			// extractAndApplyAlphaVlaues
 		
+		/*
+		 * now checking force truth methods 
+		 *for now, not dealing with implications not already stored -- for example, that fmtest forcing a value on something should 
+		* make it non-consonantal, given that it is specified for tense
+		* those should really be given to the FeatMatrix constructor
+		* and in practice, it is done when the FeatMatrix constructor is made via SChangeFactory
+		* ... though (TODO) it might be a good idea to check this. 
+		* 
+		* anyhow, recall that fmtest should now be [-tense, [β=-]hi]
+		*/ 
+		SequentialPhonic dummyPhone2 = testFactory.parseSeqPh("y"); //initially +tense, +hi
+		Phone modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		String correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "œ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
 
-		System.out.println("TODO testing SequentialFitler"); 
-		// TODO SequentialFilter testing...  method: 
+		dummyPhone2 = testFactory.parseSeqPh("ə"); //initially 0tense, -hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "ɜ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+
+		dummyPhone2 = testFactory.parseSeqPh("ʊ"); //initially -tense, +hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = dummyPhone2.getFeatString();
+		correct_modified_dp2_str = correct_modified_dp2_str.substring(0,hi_loc) + "0" + correct_modified_dp2_str.substring(hi_loc+1); 
+		correct_modified_dp2_str = "ɔ:"+correct_modified_dp2_str.substring(0,tense_loc) + "0" + correct_modified_dp2_str.substring(tense_loc+1); 
+		
+		numCorrect += UTILS.checkBoolean(false, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() does not effect any change upon a valid phone to operate on!") ? 1 :0; 
+		
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDP2), 
+				"Error: ["+dummyPhone2.print()+"], after modification by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+
+		dummyPhone2 = testFactory.parseSeqPh("ˈʌ"); //initially -tense, -hi
+		modDP2 = fmtest.forceTruth(new Phone(dummyPhone2)); 
+		correct_modified_dp2_str = ""+dummyPhone2;
+		numCorrect += UTILS.checkBoolean(true, (""+modDP2).equals(""+dummyPhone2), 
+				"Error: FeatMatrix.forceTruth() should not effect any change upon a phone that already adheres to its stipulations, yet it does!") ? 1 :0; 
+
+		//testing with the List<SequentialPhonic> version of forceTruth()
+		List<SequentialPhonic> dummyList = testFactory.parseSeqPhSeg("ø ˈɯ"); 
+		// correct_modified_dp2_str will not change, as it should become [ˈʌ] 
+		
+		List<SequentialPhonic> modDummyList = fmtest.forceTruth(dummyList, 1); 
+		
+		numCorrect += UTILS.checkBoolean(true, dummyList.get(0).equals(modDummyList.get(0)), 
+				"Error: FeatMatrix.forceTruth(List<SequentialPhonic>) seems to have changed a phone at the wrong index!") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(false, dummyList.get(1).equals(modDummyList.get(1)), 
+				"Error: FeatMatrix.forceTruth(List<SequentialPhonic>) does not effect any change upon a valid phone to operate on, "
+				+ "or failed to access the index of the list!") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, correct_modified_dp2_str.equals(""+modDummyList.get(1)), 
+				"Error: ["+dummyList.get(1).print()+"], after forceTruth() by FeatMatrix "+fmtest+", should become\n"
+						+ correct_modified_dp2_str+"\n but instead it is\n"+modDP2) ? 1 : 0 ;
+		
+		System.out.println("Done testing alpha comprehension in this mode. Got "+numCorrect+" correct "
+				+ "out of 65"); 
+		numCorrect = 0; 
+		
+		System.out.println("\nNow for a feat matrix with one alpha value, with a redundant feature implication; also testing UnsetAlphaError and the reset function here...");
+		fmtest = new FeatMatrix("ɑstres,-prim,+syl",Arrays.asList(UTILS.featsByIndex)); 
+
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
+		fua = fmtest.first_unset_alpha(); 
+		numCorrect += UTILS.checkBoolean(true, fua == 'ɑ',
+				"Error: first unset alpha should be 'ɑ', but it is '"+fua+"'") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
+				"Error: system detects an alpha variable specified for multiple features, but there is none") ? 1 : 0; 
+		
+		List<SequentialPhonic> actOn = testFactory.parseSeqPhSeg("ˈo");
+		
+		boolean caught = false; 
+		try {	fmtest.forceTruth(actOn,0); 		}
+		catch(UnsetAlphaError e)	{	caught = true;		}
+		numCorrect += UTILS.checkBoolean(true, caught, "Error: Trying to forceTruth"
+				+ " without initializing the alpha value should cause an UnsetAlphaError,"
+				+ " but none was detected!") ? 1 : 0;
+		
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("e")); // i.e. -stres
+		
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.keySet().size() == 1, 
+				"Error: one alpha variable was extracted, but "+alph_feats_extrd.keySet().size()+" were detected.") ? 1 :0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha specs, but there is one.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: first_unset_alpha() should return '0' (we just set the last unset one),"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(false, fmtest.has_multifeat_alpha(), 
+				"Error: system detects a multispecified alpha variable where there is none") ? 1 : 0; 
+		//System.out.println("Action on "+actOn.get(0)+" ...\n\t"+fmtest.forceTruth(actOn,0).get(0));
+		List<SequentialPhonic> result = fmtest.forceTruth(actOn,0); 
+		
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.phonSeqsEqual(result, testFactory.parseSeqPhSeg("o")),
+				"Error: result of fm.forceTruth using "+fmtest+" with ɑ set to (-) should be 'o' (unstressed) but it is "
+						+ UTILS.printWord(result)) ? 1 : 0; 
+		
+		// after resetting, does it behave like a new feat matrix? 
+		fmtest.resetAlphaValues(); 
+		caught = false; 
+		try {	fmtest.forceTruth(actOn,0); 		}
+		catch(UnsetAlphaError e)	{	caught = true;		}
+		numCorrect += UTILS.checkBoolean(true, caught, "Error: Trying to forceTruth"
+				+ " without initializing the alpha value should cause an UnsetAlphaError,"
+				+ " but none was detected!") ? 1 : 0;
+		
+		actOn.add(testFactory.parseSeqPh("j")); 
+		
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("ˌʌ")); // i.e. +stres, primary in fact. 
+		result = fmtest.forceTruth(actOn, 1); 
+		numCorrect += UTILS.checkBoolean(true,
+				UTILS.phonSeqsEqual(result.subList(1, 2), testFactory.parseSeqPhSeg("ˌi")),
+				"Error: result of fm.forceTruth  on [j] using "+fmtest+" with stress (but not primary stress) feature extracted from [ˌʌ] "
+						+ "should be\n"+testFactory.parseSeqPh("ˌi")+"\nbut it is\n"
+						+ result.get(1)) ? 1 : 0; 
+		
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 11."); 
+		numCorrect = 0 ; 
+		
+		
+		System.out.println("\nNow testing a scenario where two alpha symbols specify five features, and the two specified by the latter have potential mutual feature implications"); 
+		//now testing a condition where the FeatMatrix has two alpha variable symbols, each with multiple features, and one non-alpha symbol
+			// the non alpha symbol is +hi 
+			// one pair with no implications -- lab, back, round
+			// and the other with a potential shared implication -- nas and syl 
+				// i.e. in this theoretical scenario, all +hi syllabic things are nasalized -- i.e. like some dialects of American English? though not the whole language, just this feature matrix 
+					// (though also, all +back things are round, and all -back things aren't) 
+		fmtest = SChangeTester.newFM("+hi,βlab,βback,βround,ɣnas,ɣsyl");
+		
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_alpha_specs(),
+				"Error: system believes there are no alpha symbol specifications used, but there are two, specifying five features.") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
+				"Error: first_unset_alpha() should return 'β',"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_multifeat_alpha(), 
+				"Error: system fails to detects a multispecified alpha variable but there are twoǃ") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.getLocalAlphabet().equals("βɣ"), 
+				"Error: local alphabet should be 'βɣ', but it is "+fmtest.getLocalAlphabet()) ? 1 : 0 ; 
+		
+		//now testing functionality of FeatMatrix.check_for_alpha_conflict()... 
+		//should have no conflict -- w ; c ; ã; õ
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("w")),
+				"Error: [w] should have no alpha conflict but one is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("c")),
+				"Error: [c] should have no alpha conflict but one is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ã")), 
+				"Error: [ã] should have no alpha conflict but one is detected") ? 1 : 0; 
+		SequentialPhonic o_tense_nas = testFactory.parseSeqPh("õ"); 
+		numCorrect += UTILS.checkBoolean(false, fmtest.check_for_alpha_conflict(o_tense_nas), 
+				"Error: [õ] should have no alpha conflict but one is detected") ? 1 : 0; 
+		
+		// should have alpha conflicts -- b ; ɥ ; u ; n ; m
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("b")), 
+				"Error: [b] should have an alpha conflict between βlab vs. (βround & βback), but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("ɥ")), 
+				"Error: [ɥ] should have an alpha conflict between (βlab & βround) vs. (βback), but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("u")), 
+				"Error: [u] should have an alpha conflict between ɣnas and ɣsyl, but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("n")), 
+				"Error: [n] should have an alpha conflict between ɣnas and ɣsyl, but none is detected") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.check_for_alpha_conflict(testFactory.parseSeqPh("m")), 
+				"Error: [m] should have an alpha conflicts for both β and ɣ, but none are detected") ? 1 : 0; 
+		
+		prevFeatVect = fmtest.getFeatVect(); initSpecs = fmtest.toString();
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(o_tense_nas); 
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.isEmpty(), 
+				"Error: nothing should be extracted for [õ] since it violates [+hi], but something was...") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.getFeatVect().equals(prevFeatVect), 
+				"Error: nothing should be extracted for [õ] since it violates [+hi], but the feature vector has somehow changed!") ? 1 : 0 ; 
+		numCorrect += UTILS.checkBoolean(true, initSpecs.equals(fmtest.toString()), 
+				"Error: nothing should be extracted for [õ] as it violates [+hi], but the feature specifications have somehow changed!") ? 1 : 0; 
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == 'β', 
+				"Error: first_unset_alpha() should still return 'β' as no extraction should happen from [õ],"
+				+ " but instead we get "+fmtest.first_unset_alpha()) ? 1 : 0 ;		
+		numCorrect += UTILS.checkBoolean(true, fmtest.has_multifeat_alpha(), 
+				"Error: after (non-)extraction, system fails to detects a multispecified alpha variable but there are twoǃ") ? 1 : 0; 
+		fmtest.resetAlphaValues(); 
+		
+		alph_feats_extrd = fmtest.extractAndApplyAlphaValues(testFactory.parseSeqPh("ɪ̃")); 
+		
+		numCorrect += UTILS.checkBoolean(true, alph_feats_extrd.size() == 2, "Error: two alpha symbol values should be extracted for [ɪ̃], "
+				+ "but "+alph_feats_extrd.size()+" were.") ? 1 : 0 ;
+		numCorrect += UTILS.checkBoolean(true, fmtest.first_unset_alpha() == '0', 
+				"Error: now that all alpha symbol features should have been extracted, there should be no unset alpha, "
+				+ "but the first unset alpha symbol is detected to be "+fmtest.first_unset_alpha()) ? 1 : 0 ; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of 20"); 
+		numCorrect = 0 ; 
+
+		System.out.println("Now testing SequentialFilter..."); 
+		// TODO make sure covered these SequentialFilter testing...  method: 
 			// hasAlphaSpecs
 			// hasParenthesizedAlpha
 			// parenthesizedAlphas
