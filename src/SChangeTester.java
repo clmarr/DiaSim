@@ -396,6 +396,7 @@ public class SChangeTester {
 				"Error: feature vector should be unchanged after attempt to fill value for the wrong alpha symbol, yet it has changed from\n"
 				+ dfm_og_vect +"\nto: "+dummyFM.getFeatVect()) ? 1 : 0 ;
 		
+		System.out.println("Now testing an FM wit implicaitons...");		
 		// now testing application of alpha feature filling to a FeatMatrix with [βtense], which will show handling of downstream feature implications 
 			// namely: tense:-cons (an any-specification scenario)
 				// [-cons] has downstream implications: -lat,+cont
@@ -415,7 +416,7 @@ public class SChangeTester {
 				dfm_og_vect.equals(dummyFM.getFeatVect()), 
 				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
 
-		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0tense,0cons,0lat,2cont,9delrel"); 
+		corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0tense,0cons,0lat,2cont,9delrel"); 
 		numCorrect += UTILS.checkBoolean(true, corr_dfm_vect.equals(dummyFM.getFeatVect()), 
 				"Error: the feature vector after alpha feature filling should be\n"+corr_dfm_vect+
 				"\nbut it is\n"+dummyFM.getFeatVect()) ? 1 : 0 ; 
@@ -436,7 +437,7 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(false, dummyFM.first_unset_alpha() == '0', 
 				"Error: after application of filling alpha value β to feat matrix with β and ɸ in its alphabet, "
 				+ "the system erroneously believes all alpha symbols are now set!") ? 1 : 0 ;
-		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0hi"); 
+		corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0hi"); 
 		numCorrect += UTILS.checkBoolean(false, 
 				dfm_og_vect.equals(dummyFM.getFeatVect()), 
 				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
@@ -460,7 +461,7 @@ public class SChangeTester {
 		numCorrect += UTILS.checkBoolean(true, dummyFM.first_unset_alpha() == 'ɸ', 
 				"Error: after application of filling alpha value β to feat matrix with β (x2) and ɸ in its alphabet, "
 				+ "the first (and only) unset alpha should be 'ɸ' but it is "+dummyFM.first_unset_alpha()) ? 1 : 0 ;
-		corr_dfm_vect = featVectChange(""+dfm_og_vect, "0hi,0stres,0prim,2syl,2son,9delrel"); 
+		corr_dfm_vect = UTILS.featVectChange(""+dfm_og_vect, "0hi,0stres,0prim,2syl,2son,9delrel"); 
 		numCorrect += UTILS.checkBoolean(false, 
 				dfm_og_vect.equals(dummyFM.getFeatVect()), 
 				"Error: feature vector remained unchanged after application of alpha values.") ?  1 : 0; 
@@ -771,51 +772,13 @@ public class SChangeTester {
 
 	}
 
-	private static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
-			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
-		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + UTILS.printWord(input)
-				+ "\n\tExpected result: " + UTILS.printWord(expected) + "\n\tObserved result:\t\t" + UTILS.printWord(observed)
-				+ "\n";
-	}
-
-	/**
-	 * @param sc: sound change being tested
-	 * @param inp: input
-	 * @param exp: expected output
-	 * @return whether expected output was produced (true, false)
-	 */
-	private static boolean runTest(SChange sc, List<SequentialPhonic> inp, List<SequentialPhonic> exp) {
-		List<SequentialPhonic> obs = sc.realize(inp);
-		if (UTILS.phonSeqsEqual(exp, obs))
-			return true;
-		System.out.print(generateErrorMessage(sc, inp, exp, obs));
-		return false;
-	}
 	
 	private static FeatMatrix newFM(String specs)
 	{
 		return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));
 	}
 	
-	/** for simulating the change of one feature in a feature vector as used in FeatMatrix
-	 * 
-	 * @param fv_inp -- input feature vector
-	 * @param deep_feat_ch_specs -- specifications of what to change
-	 * 			use the UNDERLYING ("deep"), format 2 = positive, 0 = negative, 9 = despecified
-	 * 				sorry if this is confusing! 
-	 * 			separate specifications with ',', or whatever restrDelim is set as 
-	 * @return
-	 */
 	
-	private static String featVectChange(String fv_inp, String deep_feat_ch_specs)
-	{
-		String output = ""+fv_inp;
-		for (String ch : deep_feat_ch_specs.split(""+restrDelim))
-		{
-			int floc = UTILS.featIndices.get(ch.substring(1)); 
-			output = output.substring(0,floc) + ch.substring(0,1) + output.substring(floc+1); 
-		}
-		return output;		
-	}
+	
 
 }
