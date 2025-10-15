@@ -146,7 +146,7 @@ public class SChangeFactory {
 				
 				char prefix = currSpec.charAt(0) ; 
 				if(UTILS.ALL_FTSPEC_MARKS.contains(""+prefix) ? UTILS.spec_is_preposed_alpha_marked(currSpec, prefix)
-						: UTILS.spec_is_alpha_marked(currSpec))
+						: UTILS.spec_is_alpha_marked(currSpec))	// now that spec_is_alpha_marked is no longer limited to positive marking, could just have this as the if(), but this may be more secure. 
 				{	
 					String alphHere = "" + UTILS.getAlphaFromFeatSpec(currSpec); 
 					
