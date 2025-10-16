@@ -618,7 +618,7 @@ public class AlphaTester {
 			pointTest(true, alphsDetected.contains(""+ai), "Error @"+getLineNumber()+": "+ai+" not detected as alpha in feat str "+currFeatStrTest); 
 		
 		pointTest(true, UTILS.listAlphasInString("h > ∅ / # ([+cons])* __ [-cons]").size() == 0, "Spurious detection of alphas by UTILS.listAlphasInString()"); 
-		String currAlphDetectStr = "a > æ / [æcont] __ [-acons,æcont] ([ahi,+nas])* #"; 
+		String currAlphDetectStr = "c a n > h æ t / [æcont] __ [-acons,æcont] ([ahi,+nas])* #"; 
 		alphsDetected = UTILS.listAlphasInString(currAlphDetectStr); 
 		pointTest(true, alphsDetected.size() == 2 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" alphs ("+ "".join("", alphsDetected) +"), but there should be two alphas detected in "+currAlphDetectStr); 
 		pointTest(true, alphsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as an alpha in "+currAlphDetectStr);  

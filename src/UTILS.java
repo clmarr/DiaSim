@@ -1274,6 +1274,23 @@ public class UTILS {
 	public static List<String> listNegAlphasInFeatString(String fs)	{	return listAlphasInFeatString(fs,true);	}
 	
 	/**
+	 * @param seg a part of a rule or sequentialfilter originally delimited by ' ' from others
+	 * @return the text content in it but with any recursive parenthesizing ("(), ()*, ()+") or the presence of disjunction marking -- ; ,{} -- from it
+	 * @warning could cause errors if the content above constitutes all that was passed.
+	 */
+	public static String stripRecursionAndDisjunctionFromSegmental(String seg)
+	{
+		String output = seg.replace("}", ""); 
+		for (int i = 0 ; i < 3 ; i++) // onset could have up to all three of { (  ; , but each no more than once (actually ; could only be first, but anyhow)
+		if (";{(".contains(output.charAt(0)+"")) output = output.substring(1); 
+		if (output.charAt(output.length()-1) == ';')	output=output.substring(0, output.length()-1); 
+		if (output.length() < 2 ) return output;
+		if (output.substring(output.length() - 2).contains(")")) // either final ), or final )* or )+
+			return output.substring(0, output.lastIndexOf(")")); 
+		return output; 
+	}
+	
+	/**
 	 * @param str -- a string (a rule or debugging suite filter)
 	 * 		to check for the presence of a feat matrix with alpha-specified features.. 
 	 * will detect and list ANY alpha-valued feature specification present in this string 
@@ -1297,7 +1314,7 @@ public class UTILS {
 		
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
-			String curpp = ""+protophones[ppi].trim();
+			String curpp = stripRecursionAndDisjunctionFromSegmental(protophones[ppi]);
 			if(curpp.charAt(0) == '[')
 			{
 				// as of July 2024, spaces in feature matrices as written are ignored: 
