@@ -619,18 +619,22 @@ public class AlphaTester {
 		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > [avoi] / [-cons] __ [acons] "), "spurious detection of neg alpha in string @"+getLineNumber());  
 		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [acons] "), "missed detection of neg alpha in string @"+getLineNumber());  
 		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [+cons] "), "missed detection of neg alpha in string @"+getLineNumber());  
+		pointTest(true,UTILS.catchFirstOrphanedNegAlph(UTILS.detectAllFeatSpecs("h > b ɹ ʌː / [-acons] __ [acons] ")).equals(""),"spurious detection of orphaned alpha @"+getLineNumber()); 
 		String currFeatStrTest = "[-acons,+cont] ([ahi,+nas])* #"; 
 		pointTest(true,UTILS.stringHasFMWithNegAlpha(currFeatStrTest), "missed detection of neg alpha in string @"+getLineNumber()); 
 		List<String> itemsDetected = UTILS.detectAllFeatSpecs(currFeatStrTest); 
 		pointTest(true, itemsDetected.size() == 4, "Error @"+getLineNumber()+": wrong number of feat specs detected in "+currFeatStrTest); 
 		for (String fti : "-acons,+cont,ahi,+nas".split(","))
 			pointTest(true, itemsDetected.contains(fti), "Error @"+getLineNumber()+": failed to detect feat spec "+fti+" in "+currFeatStrTest); 
-		
+		pointTest(true, UTILS.catchFirstOrphanedNegAlph(itemsDetected).equals(""), "Spurious detection of orph alph stip @ "+getLineNumber()); 
 		currFeatStrTest = "[-acons,æcont,bhi,+βfront,Bback]"; 
 		itemsDetected = UTILS.detectAllFeatSpecs(currFeatStrTest); 
 		pointTest(true, itemsDetected.size() == 5, "Error @"+getLineNumber()+": wrong number of feat specs detected in "+currFeatStrTest); 
 		for (String fti : "-acons,æcont,bhi,+βfront,Bback".split(","))
 			pointTest(true, itemsDetected.contains(fti), "Error @"+getLineNumber()+": failed to detect feat spec "+fti+" in "+currFeatStrTest); 
+		
+		String orphan = UTILS.catchFirstOrphanedNegAlph(itemsDetected); 
+		pointTest(true, orphan.equals("a"), "Error @"+getLineNumber()+": failed to detect orphaned alpha 'a'"); 
 		
 		itemsDetected = UTILS.listAlphasInFeatString(currFeatStrTest, true); // only negative ones first.  
 

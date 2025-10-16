@@ -1525,14 +1525,12 @@ public class UTILS {
 	
 	/**
 	 * @precondition ordFeatNames has been filled 
-	 * @param inp -- a rule, or a filter
-	 * 		if a filter, should be one used in isolation, e.g. in the debugging suite -- not as part of a rule
-	 * @throws @error if there is a negative alpha stipulation with no positive alpha feat stip anywhere else in this rule or filter.
+	 * @param specsHere -- list of specs
+	 * @return string of orphaned negative alphs
+	 *	@empty if there are none. 
 	 */
-	public static void abortOrphanedNegAlphStip (String inp)
+	public static String catchFirstOrphanedNegAlph(List<String> specsHere)
 	{
-		List<String> specsHere = detectAllFeatSpecs (inp); 
-		
 		String neggedAlphsLeft = ""; // all negated alpha characters present. 
 		
 		for (int i = 0 ; i < specsHere.size(); i++) 
@@ -1563,8 +1561,22 @@ public class UTILS {
 			}
 			
 			//if didn't match -- orphaned negative alpha spec was present! 
-			if (!safe)	throw new Error("ERROR: negated alpha variable '"+nali+"' is orphaned, without a counterpart anywhere in this formulation ('"+inp+"')"); 
+			if (!safe)	return nali+""; 
 		}
+		return "";
+	}
+	
+	/**
+	 * @precondition ordFeatNames has been filled 
+	 * @param inp -- a rule, or a filter
+	 * 		if a filter, should be one used in isolation, e.g. in the debugging suite -- not as part of a rule
+	 * @throws @error if there is a negative alpha stipulation with no positive alpha feat stip anywhere else in this rule or filter.
+	 */
+	public static void abortOrphanedNegAlphStip (String inp)
+	{
+		String orph = catchFirstOrphanedNegAlph(detectAllFeatSpecs (inp));
+		if (!orph.equals(""))
+			throw new Error("ERROR: negated alpha variable '"+orph+"' is orphaned, without a counterpart anywhere in this formulation ('"+inp+"')"); 
 	}
 	
 
