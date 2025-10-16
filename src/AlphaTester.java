@@ -595,40 +595,66 @@ public class AlphaTester {
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("-ðcons", '-'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("0ðdistr", '0'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_neg_alpha_marked("-ðcons"), undetectedAlphMsg); 
+		pointTest(true,UTILS.getNegatedAlpha("-ðcons") == 'ð', "Failed to detect right negated alpha ð via UTILS.getNegatedAlpha");
+		
+		for (String aphi : "b,+B,-ʋ".split(",")) 
+			pointTest(true,UTILS.getAlphaFromFeatSpec(aphi.charAt(aphi.length()-1)+"back" )==aphi.charAt(aphi.length()-1), "Failed to detect alpha in "+aphi+"back"); 
+
+		//detectAllFeatSpecs
+		//isValidFeatSpecList? 
+		//hasVlaidFeatSpecList? 
+		//preemptFeatAlphambiguation? 
+		System.out.println("Done with spec handling"); 
+		concludeTestBatch();
+		
+		initTestBatch(); 
+		System.out.println("Looking at alpha feature matrix detection..."); 
 		pointTest(false,UTILS.stringHasFMWithAlpha("h > ∅ / __ #"), "spurious detection of alpha in string"); 
 		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > ∅ / __ #"), "spurious detection of neg alpha in string @"+getLineNumber()); 
+		pointTest(true, UTILS.detectAllFeatSpecs("h > ∅ / __ [-cons] ").size() == 1, "wrong number of feat specs detected in h > ∅ / __ [-cons] ");
+		pointTest(true, UTILS.detectAllFeatSpecs("h > ∅ / __ [-cons] ").get(0).equals("-cons"), "wrong feat spec detected in h > ∅ / __ [-cons] : "+UTILS.detectAllFeatSpecs("h > ∅ / __ [-cons] ").get(0));
 		pointTest(false,UTILS.stringHasFMWithAlpha("h > ∅ / __ [-cons] "), "spurious detection of alpha in string @"+getLineNumber());  
 		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > ∅ / __ [-cons] "), "spurious detection of neg alpha in string @"+getLineNumber());  
 		pointTest(true,UTILS.stringHasFMWithAlpha("h > [avoi] / [-cons] __ [acons] "), "missed detection of alpha in string @"+getLineNumber());  
 		pointTest(false,UTILS.stringHasFMWithNegAlpha("h > [avoi] / [-cons] __ [acons] "), "spurious detection of neg alpha in string @"+getLineNumber());  
 		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [acons] "), "missed detection of neg alpha in string @"+getLineNumber());  
 		pointTest(true,UTILS.stringHasFMWithNegAlpha("h > b ɹ ʌː / [-acons] __ [+cons] "), "missed detection of neg alpha in string @"+getLineNumber());  
-		pointTest(true,UTILS.stringHasFMWithNegAlpha("[-acons,+cont] ([ahi,+nas])* #"), "missed detection of neg alpha in string @"+getLineNumber());  
+		String currFeatStrTest = "[-acons,+cont] ([ahi,+nas])* #"; 
+		pointTest(true,UTILS.stringHasFMWithNegAlpha(currFeatStrTest), "missed detection of neg alpha in string @"+getLineNumber()); 
+		List<String> itemsDetected = UTILS.detectAllFeatSpecs(currFeatStrTest); 
+		pointTest(true, itemsDetected.size() == 4, "Error @"+getLineNumber()+": wrong number of feat specs detected in "+currFeatStrTest); 
+		for (String fti : "-acons,+cont,ahi,+nas".split(","))
+			pointTest(true, itemsDetected.contains(fti), "Error @"+getLineNumber()+": failed to detect feat spec "+fti+" in "+currFeatStrTest); 
+		
+		currFeatStrTest = "[-acons,æcont,bhi,+βfront,Bback]"; 
+		itemsDetected = UTILS.detectAllFeatSpecs(currFeatStrTest); 
+		pointTest(true, itemsDetected.size() == 5, "Error @"+getLineNumber()+": wrong number of feat specs detected in "+currFeatStrTest); 
+		for (String fti : "-acons,æcont,bhi,+βfront,Bback".split(","))
+			pointTest(true, itemsDetected.contains(fti), "Error @"+getLineNumber()+": failed to detect feat spec "+fti+" in "+currFeatStrTest); 
+		
+		itemsDetected = UTILS.listAlphasInFeatString(currFeatStrTest, true); // only negative ones first.  
 
-		String currFeatStrTest = "[-acons,æcont,bhi,+βfront,Bback]"; 
-		List<String> alphsDetected = UTILS.listAlphasInFeatString(currFeatStrTest, true); // only negative ones first.  
-
-		pointTest(true, alphsDetected.size()==1, "Error @"+getLineNumber()+": detected "+alphsDetected.size()
-			+" alphs ("+ "".join("", alphsDetected) +"), but there should be just one neg alpha here"); 
-		pointTest(true, alphsDetected.get(0).equals("a"), "Error @"+getLineNumber()+": 'a' not detected as an neg alpha in "+currFeatStrTest);  
-		alphsDetected =  UTILS.listAlphasInFeatString(currFeatStrTest, false); 
-		pointTest(true, alphsDetected.size() == 5 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" alphs ("+ "".join("", alphsDetected) +"), "
+		pointTest(true, itemsDetected.size()==1, "Error @"+getLineNumber()+": detected "+itemsDetected.size()
+			+" alphs ("+ "".join("", itemsDetected) +"), but there should be just one neg alpha here"); 
+		pointTest(true, itemsDetected.get(0).equals("a"), "Error @"+getLineNumber()+": 'a' not detected as an neg alpha in "+currFeatStrTest);  
+		itemsDetected =  UTILS.listAlphasInFeatString(currFeatStrTest, false); 
+		pointTest(true, itemsDetected.size() == 5 , "Error @"+getLineNumber()+": detected "+itemsDetected.size()+" alphs ("+ "".join("", itemsDetected) +"), "
 				+ "but there should be 5 alphas detected in "+currFeatStrTest); 
 		for (char ai : "aæbβB".toCharArray())
-			pointTest(true, alphsDetected.contains(""+ai), "Error @"+getLineNumber()+": "+ai+" not detected as alpha in feat str "+currFeatStrTest); 
+			pointTest(true, itemsDetected.contains(""+ai), "Error @"+getLineNumber()+": "+ai+" not detected as alpha in feat str "+currFeatStrTest); 
 		
 		pointTest(true, UTILS.listAlphasInString("h > ∅ / # ([+cons])* __ [-cons]").size() == 0, "Spurious detection of alphas by UTILS.listAlphasInString()"); 
 		
 		String currAlphDetectStr = "c a n > h æ t / [æcont] __ [-acons,æcont] ([ahi,+nas])* #"; 
-		alphsDetected = UTILS.listAlphasInString(currAlphDetectStr); 
-		pointTest(true, alphsDetected.size() == 2 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" alphs ("+ "".join("", alphsDetected) +"), but there should be two alphas detected in "+currAlphDetectStr); 
-		pointTest(true, alphsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as an alpha in "+currAlphDetectStr);  
-		pointTest(true, alphsDetected.contains("æ"), "Error @"+getLineNumber()+": 'æ' not detected as an alpha in "+currAlphDetectStr); 
-		alphsDetected = UTILS.listNegatedAlphasInString(currAlphDetectStr); 
-		pointTest(true, alphsDetected.size() == 1 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" neg alphs ("+ "".join("", alphsDetected) +"), but there should be one detected in "+currAlphDetectStr); 
-		pointTest(true, alphsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as neg alpha in "+currAlphDetectStr);  
+		itemsDetected = UTILS.listAlphasInString(currAlphDetectStr); 
+		pointTest(true, itemsDetected.size() == 2 , "Error @"+getLineNumber()+": detected "+itemsDetected.size()+" alphs ("+ "".join("", itemsDetected) +"), but there should be two alphas detected in "+currAlphDetectStr); 
+		pointTest(true, itemsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as an alpha in "+currAlphDetectStr);  
+		pointTest(true, itemsDetected.contains("æ"), "Error @"+getLineNumber()+": 'æ' not detected as an alpha in "+currAlphDetectStr); 
+		itemsDetected = UTILS.listNegatedAlphasInString(currAlphDetectStr); 
+		pointTest(true, itemsDetected.size() == 1 , "Error @"+getLineNumber()+": detected "+itemsDetected.size()+" neg alphs ("+ "".join("", itemsDetected) +"), but there should be one detected in "+currAlphDetectStr); 
+		pointTest(true, itemsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as neg alpha in "+currAlphDetectStr);  
 
-		
+		System.out.println("done wiht alpha feature matrix detection");
 		concludeTestBatch(); 
 		
 		

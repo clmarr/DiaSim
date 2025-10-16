@@ -1508,7 +1508,7 @@ public class UTILS {
 		
 		while (inp_left.contains("["))
 		{
-			inp_left = inp_left.substring(inp_left.indexOf("[")); 
+			inp_left = inp_left.substring(inp_left.indexOf("[")+1); 
 			if(!inp_left.contains("]"))
 				throw new Error("Error: unclosed feature matrix in '"+inp+"'");
 			int closingLoc = inp_left.indexOf("]"); 
