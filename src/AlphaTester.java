@@ -618,12 +618,16 @@ public class AlphaTester {
 			pointTest(true, alphsDetected.contains(""+ai), "Error @"+getLineNumber()+": "+ai+" not detected as alpha in feat str "+currFeatStrTest); 
 		
 		pointTest(true, UTILS.listAlphasInString("h > ∅ / # ([+cons])* __ [-cons]").size() == 0, "Spurious detection of alphas by UTILS.listAlphasInString()"); 
+		
 		String currAlphDetectStr = "c a n > h æ t / [æcont] __ [-acons,æcont] ([ahi,+nas])* #"; 
 		alphsDetected = UTILS.listAlphasInString(currAlphDetectStr); 
 		pointTest(true, alphsDetected.size() == 2 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" alphs ("+ "".join("", alphsDetected) +"), but there should be two alphas detected in "+currAlphDetectStr); 
 		pointTest(true, alphsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as an alpha in "+currAlphDetectStr);  
 		pointTest(true, alphsDetected.contains("æ"), "Error @"+getLineNumber()+": 'æ' not detected as an alpha in "+currAlphDetectStr); 
-		
+		alphsDetected = UTILS.listNegatedAlphasInString(currAlphDetectStr); 
+		pointTest(true, alphsDetected.size() == 1 , "Error @"+getLineNumber()+": detected "+alphsDetected.size()+" neg alphs ("+ "".join("", alphsDetected) +"), but there should be one detected in "+currAlphDetectStr); 
+		pointTest(true, alphsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as neg alpha in "+currAlphDetectStr);  
+
 		
 		concludeTestBatch(); 
 		
