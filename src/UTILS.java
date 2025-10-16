@@ -239,10 +239,7 @@ public class UTILS {
 
 	//auxiliary method -- check if the line consists of only spaces. 
 	public static boolean isJustSpace(String line)
-	{
-		return line.replace(" ","").length() == 0;
-	}
-	
+	{	return line.replace(" ","").length() == 0;	}
 
 	//auxiliary method -- get number of columns in lexicon file. 
 	public static int countColumns(String row)
@@ -459,7 +456,7 @@ public class UTILS {
 	public static void errorSummary(int ec)
 	{
 		if (ec == 0)	System.out.println("No errors through to this point."); 
-		else	System.out.println("In all "+ec+" errors.");
+		else	System.out.println("In all "+ec+" error"+(ec != 1 ? "s" : "")+".");
 	}
 	
 	public static boolean checkMetric(double correct, double observed, String errMessage)
@@ -661,31 +658,6 @@ public class UTILS {
 		checkForIllegalPhoneSymbols(); 
 		
 		symbsExtracted = true;
-	}
-	
-	/**
-	 * @param pref -- a char value
-	 * @return "" if there is no feature in @param establishedFeatNames that would become another feature name if this character was preposed
-	 * @else @return "A,B" where A is the non-prefixed feature and B is the feature that A becomes identical once prefixed with @param pref.f 
-	 * @usage -- for possible alpha and negative proxy alpha characters
-	 */
-	public static String preemptFeatAlphambiguation (char pref, List<String> establishedFeatNames)
-	{
-		for (int fi = 0; fi < establishedFeatNames.size(); fi++)
-		{
-			String prefixed_fni = ""+ pref+ establishedFeatNames.get(fi); 
-			for (int fj = 0 ; fj < establishedFeatNames.size(); fj++)
-			{
-				if (fi == fj)	continue; 
-				
-				if(prefixed_fni.equals(establishedFeatNames.get(fj))) 
-				{
-					possibleAlphaProxies.replace(pref+"","");  // cannot be proxy either. 
-					return prefixed_fni.substring(1)+","+establishedFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
-				}
-			}
-		}
-		return ""; 
 	}
 	
 	
@@ -1284,17 +1256,19 @@ public class UTILS {
 	 *   @param only_if_negated -- do the above ONLY for negated alphas. 
 	 * return empty if there are none.  (no error)
 	 */
-	public static List<String> listAlphasInFeatString (String fstr, boolean only_if_negated)
+	public static List<String> listAlphasInFeatString (String ftstr, boolean only_if_negated)
 	{
+		String fstr = fSpecsAreBracketed(ftstr) ? debracketFSpecs(ftstr) : ""+ftstr; 
 		List<String> output = new ArrayList<String> (); 
 		String[] specs = fstr.split(""+FEAT_DELIM); 
-		for (String spec : specs) 
+		for (String spec : specs) {
 			if (only_if_negated ? spec_is_neg_alpha_marked(spec) : spec_is_alpha_marked(spec))
 			{
 				String alphHere = getAlphaFromFeatSpec(spec)+""; // FEATSPEC_MARKS.contains(""+spec.charAt(0)) ? spec.substring(1,2) : spec.substring(0,1); 
 				if (output.size() == 0 ? true : !output.contains(alphHere))
 					output.add(alphHere); 
 			}
+		}
 		
 		return output; 
 	}
@@ -1574,6 +1548,32 @@ public class UTILS {
 			//if didn't match -- orphaned negative alpha spec was present! 
 			if (!safe)	throw new Error("ERROR: negated alpha variable '"+nali+"' is orphaned, without a counterpart anywhere in this formulation ('"+inp+"')"); 
 		}
+	}
+	
+
+	/**
+	 * @param pref -- a char value
+	 * @return "" if there is no feature in @param establishedFeatNames that would become another feature name if this character was preposed
+	 * @else @return "A,B" where A is the non-prefixed feature and B is the feature that A becomes identical once prefixed with @param pref.f 
+	 * @usage -- for possible alpha and negative proxy alpha characters
+	 */
+	public static String preemptFeatAlphambiguation (char pref, List<String> establishedFeatNames)
+	{
+		for (int fi = 0; fi < establishedFeatNames.size(); fi++)
+		{
+			String prefixed_fni = ""+ pref+ establishedFeatNames.get(fi); 
+			for (int fj = 0 ; fj < establishedFeatNames.size(); fj++)
+			{
+				if (fi == fj)	continue; 
+				
+				if(prefixed_fni.equals(establishedFeatNames.get(fj))) 
+				{
+					possibleAlphaProxies.replace(pref+"","");  // cannot be proxy either. 
+					return prefixed_fni.substring(1)+","+establishedFeatNames.get(fj); // i.e. prefix could make one feature become another -- ILLEGAL! 
+				}
+			}
+		}
+		return ""; 
 	}
 	
 	/**
@@ -2063,7 +2063,7 @@ public class UTILS {
 	/** isValidFeatSpecList
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
-	 * unlike the one in SChangeFactory, this does not take into account possible negative alpha proxies. 
+	 * @note unlike the one in SChangeFactory, this does not take into account possible negative alpha proxies. 
 	 */
 	public static boolean isValidFeatSpecList(String input)
 	{
@@ -2076,6 +2076,7 @@ public class UTILS {
 	
 	/**
 	 * @param input -- a single spec : (+)/-/0 (alpha) feat. 
+	 * @note does handle neg alpha specs
 	 * @return @true @iff it's valid. 
 	 */
 	public static boolean isValidFeatSpecInclAlphPrep(String inpspec)
@@ -2118,15 +2119,9 @@ public class UTILS {
 	{
 		if (specs.strip().charAt(0) != '[')	return false; 
 		if (!specs.contains("]"))	return false;
-		if (specs.indexOf("]") == specs.length() -1 )	return false;
-		if (!specs.substring(specs.indexOf("]")+1).strip().equals(""))	return false; 
-		
-		//TODO debugging
-		System.out.println("already bracketd? : "+specs);
-		
-		return true; 
+		if (specs.indexOf("]") == specs.length() -1 )	return true;
+		return specs.substring(specs.indexOf("]")+1).strip().equals("");
 	}
-	
 	
 	//derives FeatMatrix object instance from String of featSpec instances
 	public FeatMatrix getFeatMatrix(String featSpecs)
