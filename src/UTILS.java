@@ -1262,8 +1262,7 @@ public class UTILS {
 		List<String> output = new ArrayList<String> (); 
 		String[] specs = fstr.split(""+FEAT_DELIM); 
 		for (String spec : specs) {
-			if (only_if_negated ? spec_is_neg_alpha_marked(spec) : spec_is_alpha_marked(spec))
-			{
+			if (only_if_negated ? spec_is_neg_alpha_marked(spec) : spec_is_alpha_marked(spec)) {
 				String alphHere = getAlphaFromFeatSpec(spec)+""; // FEATSPEC_MARKS.contains(""+spec.charAt(0)) ? spec.substring(1,2) : spec.substring(0,1); 
 				if (output.size() == 0 ? true : !output.contains(alphHere))
 					output.add(alphHere); 
