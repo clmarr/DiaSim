@@ -1321,8 +1321,9 @@ public class UTILS {
 				curpp = curpp.replace(" ", "");
 				
 				if (curpp.indexOf("]") > 1)
-					foundAlphas.addAll(listAlphasInFeatString(curpp.substring(1, curpp.indexOf("]")).replace(" ",""), only_if_negated)); 
-			}
+					for (String afi : listAlphasInFeatString(curpp.substring(1, curpp.indexOf("]")).replace(" ",""), only_if_negated))
+						if (!foundAlphas.contains(afi)) foundAlphas.add(afi); 
+			}	
 		}
 		return foundAlphas;
 	}
