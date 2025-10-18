@@ -1621,7 +1621,8 @@ public class UTILS {
 		{
 			for (String featSpec : specSet.split(""+RESTR_DELIM)) 
 			{
-				String spec = ""+featSpec.charAt(0), ft = featSpec.substring(1); 
+				String[] ftAndSpec = idFtAndSpec(featSpec); 
+				String ft = ftAndSpec[1], spec = ftAndSpec[0]; 
 				if (specsMade.containsKey(ft) && !conflictedFeats.contains(ft))
 				{	if (!specsMade.get(ft).equals(spec))	conflictedFeats.add(ft); }
 				else specsMade.put(ft, spec);		
@@ -2135,6 +2136,19 @@ public class UTILS {
 			if (!isValidFeatSpecInclAlphPrep(specs[si]))
 				return false;
 		return true; 
+	}
+	
+	/**
+	 * given @param ftSpec, a single feat spec of format (+/-/0) (alpha) spec
+	 * @return an array with first cell with spec, and second with feat. 
+	 */
+	public static String[] idFtAndSpec (String ftSpec)
+	{
+		if (ftSpec.length() < 2)	throw new Error("Error: tried to detect spec for something too small to be a feature: "+ftSpec); 
+		if(!spec_is_alpha_marked(ftSpec))	
+			return new String[] {ftSpec.substring(0,1), ftSpec.substring(1)}; 
+		boolean preposed = ALL_FTSPEC_MARKS.contains(ftSpec.substring(0,1));
+		return new String[] {ftSpec.substring(0, preposed ? 2 : 1), ftSpec.substring(preposed ? 2 : 1)}; 
 	}
 	
 	/**
