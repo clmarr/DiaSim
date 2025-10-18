@@ -658,10 +658,19 @@ public class AlphaTester {
 		pointTest(true, itemsDetected.size() == 1 , "Error @"+getLineNumber()+": detected "+itemsDetected.size()+" neg alphs ("+ "".join("", itemsDetected) +"), but there should be one detected in "+currAlphDetectStr); 
 		pointTest(true, itemsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as neg alpha in "+currAlphDetectStr);  
 
-		System.out.println("done wiht alpha feature matrix detection");
+		System.out.println("done with alpha feature matrix detection");
 		concludeTestBatch(); 
 		
-		
+		System.out.println("testing UTILS.detectFeatConflicts()"); 
+		initTestBatch(); 
+		String[] dummyFeatStrs = new String[]{"+cons,-cont", "+cons,-cons", "acons,+cont", "acons,-acons"}; 
+		boolean[] dummyFeatStrConflictedness = new boolean[] {false, true, false, true}; 
+		for (int i = 0; i < dummyFeatStrs.length; i++)
+			pointTest(!dummyFeatStrConflictedness[i], UTILS.detectFeatConflicts(Arrays.asList(dummyFeatStrs[i].split(","))).equals(""), 
+					"Error @"+getLineNumber()+": " + 
+							(dummyFeatStrConflictedness[i] ? "feature conflict missed": "spurious feature conflict detected")
+							+ " for "+ dummyFeatStrs[i]); 
+		concludeTestBatch(); 
 		
 
 	}
