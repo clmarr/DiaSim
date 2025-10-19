@@ -600,10 +600,21 @@ public class AlphaTester {
 		for (String aphi : "b,+B,-ʋ".split(",")) 
 			pointTest(true,UTILS.getAlphaFromFeatSpec(aphi.charAt(aphi.length()-1)+"back" )==aphi.charAt(aphi.length()-1), "Failed to detect alpha in "+aphi+"back"); 
 
-		//detectAllFeatSpecs
+		String[] dummyFeatStrs = new String[]{"+cons,-cont", "+cons,-cons", "acons,+cont", "acons,-acons"}; 
+		boolean[] dummyFeatStrConflictedness = new boolean[] {false, true, false, true}; 
+		for (int i = 0; i < dummyFeatStrs.length; i++)
+			pointTest(!dummyFeatStrConflictedness[i], UTILS.detectFeatConflicts(Arrays.asList(dummyFeatStrs[i].split(","))).equals(""), 
+					"Error @"+getLineNumber()+": " + 
+							(dummyFeatStrConflictedness[i] ? "feature conflict missed by UTILS.detectFeatConflicts": "spurious feature conflict detected")
+							+ " for "+ dummyFeatStrs[i]); 
+		
+		pointTest("", UTILS.preemptFeatAlphambiguation('b', Arrays.asList("la,lab,lba".split(","))), 
+				"Error @"+getLineNumber()+": spurious feature ambiguation detected!"); 
+		String pfaOutput = UTILS.preemptFeatAlphambiguation('s', Arrays.asList("top,stop,lng,lngs".split(","))); 
+		pointTest("top,stop", pfaOutput , "Error @"+getLineNumber()+": failed to detect feature ambiguation (should be s+top --> stop; got: "+pfaOutput); 
+		
 		//isValidFeatSpecList? 
-		//hasVlaidFeatSpecList? 
-		//preemptFeatAlphambiguation? 
+		//hasValidFeatSpecList? 
 		System.out.println("Done with spec handling"); 
 		concludeTestBatch();
 		
@@ -659,18 +670,11 @@ public class AlphaTester {
 		pointTest(true, itemsDetected.contains("a"), "Error @"+getLineNumber()+": 'a' not detected as neg alpha in "+currAlphDetectStr);  
 
 		System.out.println("done with alpha feature matrix detection");
+		
 		concludeTestBatch(); 
 		
-		System.out.println("testing UTILS.detectFeatConflicts()"); 
-		initTestBatch(); 
-		String[] dummyFeatStrs = new String[]{"+cons,-cont", "+cons,-cons", "acons,+cont", "acons,-acons"}; 
-		boolean[] dummyFeatStrConflictedness = new boolean[] {false, true, false, true}; 
-		for (int i = 0; i < dummyFeatStrs.length; i++)
-			pointTest(!dummyFeatStrConflictedness[i], UTILS.detectFeatConflicts(Arrays.asList(dummyFeatStrs[i].split(","))).equals(""), 
-					"Error @"+getLineNumber()+": " + 
-							(dummyFeatStrConflictedness[i] ? "feature conflict missed": "spurious feature conflict detected")
-							+ " for "+ dummyFeatStrs[i]); 
-		concludeTestBatch(); 
+		System.out.println("Testing valid feature spec list detection"); 
+		
 		
 
 	}
