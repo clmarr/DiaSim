@@ -1451,7 +1451,8 @@ public class UTILS {
 				MARK_NEG + negProxies.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
 		for (String pxi : negProxies.keySet())
 			while (output.contains(FEAT_DELIM + pxi))
-				output = output.substring(0, 1+output.indexOf(FEAT_DELIM+pxi)) + MARK_NEG + negProxies.get(pxi); 
+				output = output.substring(0, 1+output.indexOf(FEAT_DELIM+pxi)) 
+					+ MARK_NEG + negProxies.get(pxi) + output.substring(output.indexOf(FEAT_DELIM+pxi)+2); 
 		return output; 
 	}
 	

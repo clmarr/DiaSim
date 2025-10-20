@@ -714,11 +714,12 @@ public class AlphaTester {
 		System.out.println("Testing with feat matrix: [s voiced , -s aspirated]");
 		currAlphDetectStr = "svoi,-ssg"; 
 		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet("["+currAlphDetectStr+"]"); 
-		fmtest = UTILS.getFeatMatrix("svoi,-ssg",true, nAlphMapTester);
+		fmtest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
 		pointTest(true, fmtest.has_alpha_specs(), 
 				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
 		pointTest(true, fmtest.has_multifeat_alpha(), 
 				"Error @"+getLineNumber()+": multi feature alpha not detected for "+currAlphDetectStr); 
+		pointTest(true, fmtest.hasNegProxyAlphs(), "Error @"+getLineNumber()+": presence of neg proxy alphas missed!"); 
 		pointTest(true, nAlphMapTester.keySet().size() == 1, 
 				"Error @"+getLineNumber()+": size for neg alph proxy map should be 1 but it is "+nAlphMapTester.keySet().size()); 
 		String negProxyHere = (new ArrayList<String> (nAlphMapTester.keySet())).get(0); // UTILS.possibleAlphaProxies.substring(UTILS.possibleAlphaProxies.length()-1); 
@@ -729,8 +730,48 @@ public class AlphaTester {
 				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getStrInitChArr());
 		pointTest(correctOgFVect, fmtest.getFeatVect(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
 				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getFeatVect());
-		concludeTestBatch(); 
+		String localAlphabet = fmtest.getLocalAlphabet();
+		pointTest(true, localAlphabet.length()==2, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 2 but isn't..."); 
+		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
+				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
+		
 		//TODO work here! 
+		
+
+		
+		//TODO test handling of phones wiht this feat matrix! 
+		
+		//TODO test handling of another feat matrix wiht only the negated alph value to be proxied, not the og! 
+		// carry over nAlphMapTester, negProxyHere
+		System.out.println("Testing with feat matrix: [-s long , - sonorant]");
+		
+		currAlphDetectStr = "-slong,-son";
+		fmtest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
+		pointTest(true, fmtest.has_alpha_specs(), 
+				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
+		pointTest(false, fmtest.has_multifeat_alpha(), 
+				"Error @"+getLineNumber()+": multi feature alpha erroneously detected for "+currAlphDetectStr); 
+		pointTest(true, nAlphMapTester.keySet().size() == 1, 
+				"Error @"+getLineNumber()+": size for neg alph proxy map should be 1 but it is "+nAlphMapTester.keySet().size()); 
+		pointTest(true, fmtest.hasNegProxyAlphs(), "Error @"+getLineNumber()+": presence of neg proxy alphas missed!"); 
+		correctOgFVect = ""; 
+		for (String fti: featNames)
+			correctOgFVect += fti.equals("long") ? negProxyHere : (fti.equals("son") ? ""+UTILS.NEG_INT : ""+UTILS.UNSPEC_INT); 
+		pointTest(correctOgFVect, fmtest.getStrInitChArr(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getStrInitChArr());
+		pointTest(correctOgFVect, fmtest.getFeatVect(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getFeatVect());
+		localAlphabet = fmtest.getLocalAlphabet();
+		pointTest(true, localAlphabet.length()==1, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 1 but isn't..."); 
+		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
+				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
+		// TODO compare preUnsetAlpha!
+		// TODO check modification 
+		//TODO test handling of phones wiht this feat matrix! 
+
+
+		
+		concludeTestBatch(); 
 		
 		initTestBatch();
 		System.out.println("Testing neg proxy alphabet creation..."); 
