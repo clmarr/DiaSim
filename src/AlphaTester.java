@@ -692,19 +692,22 @@ public class AlphaTester {
 		
 		initTestBatch();
 		System.out.println("Testing neg proxy alphabet creation..."); 
-		currAlphDetectStr = "c a n > h [Along] t / [æcont] __ [-acons,æcont,Ason] ([ahi,+nas])* #"; 
+		currAlphDetectStr = "c a n > h [-Along,-Bnas] t / [-æcont,Bnas] __ [-acons,æcont,0Ason] ([+ahi,+nas])* #"; 
 		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
-		pointTest(true, nAlphMapTester.keySet().size() == 3, "Error @"+getLineNumber()+": wrong number ("+ nAlphMapTester.keySet().size()
+		pointTest(true, nAlphMapTester.keySet().size() == 4, "Error @"+getLineNumber()+": wrong number ("+ nAlphMapTester.keySet().size()
 				+ ") of neg alpha proxies made for "+currAlphDetectStr); 
 		
-		for (String sai : "A,a,æ".split(","))
+		for (String sai : "A,a,æ,B".split(","))
 			pointTest(true, nAlphMapTester.containsValue(sai), "Error @"+getLineNumber()+": "+sai+" missed as proxied value for "+currAlphDetectStr); 
+		for (char pri : UTILS.possibleAlphaProxies.substring(UTILS.possibleAlphaProxies.length() - 4).toCharArray())
+			pointTest(true, nAlphMapTester.containsKey(pri+""), "Error @"+getLineNumber()+": "+pri+" missed as proxy"); 
 		
 		if (numCorrect < totalChecks) {
 			System.out.println("neg alph mapping ~ keys, vals : "); 
 			for (String ki : nAlphMapTester.keySet())
 				System.out.println(ki +", "+nAlphMapTester.get(ki)); 
 		}
+		concludeTestBatch();
 		
 	}
 	
