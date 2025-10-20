@@ -713,16 +713,23 @@ public class AlphaTester {
 		initTestBatch(); 
 		System.out.println("Testing with feat matrix: [s voiced , -s aspirated]");
 		currAlphDetectStr = "svoi,-ssg"; 
-		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
-
+		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet("["+currAlphDetectStr+"]"); 
 		fmtest = UTILS.getFeatMatrix("svoi,-ssg",true, nAlphMapTester);
 		pointTest(true, fmtest.has_alpha_specs(), 
 				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
-		pointTest(true, fmtest.has_alpha_specs(), 
-				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
-		String negProxyHere = UTILS.possibleAlphaProxies.substring(UTILS.possibleAlphaProxies.length()-1); 
-
-		
+		pointTest(true, fmtest.has_multifeat_alpha(), 
+				"Error @"+getLineNumber()+": multi feature alpha not detected for "+currAlphDetectStr); 
+		pointTest(true, nAlphMapTester.keySet().size() == 1, 
+				"Error @"+getLineNumber()+": size for neg alph proxy map should be 1 but it is "+nAlphMapTester.keySet().size()); 
+		String negProxyHere = (new ArrayList<String> (nAlphMapTester.keySet())).get(0); // UTILS.possibleAlphaProxies.substring(UTILS.possibleAlphaProxies.length()-1); 
+		String correctOgFVect = ""; 
+		for (String fti: featNames)
+			correctOgFVect += fti.equals("voi") ? "s" : (fti.equals("sg") ? negProxyHere : ""+UTILS.UNSPEC_INT); 
+		pointTest(correctOgFVect, fmtest.getStrInitChArr(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getStrInitChArr());
+		pointTest(correctOgFVect, fmtest.getFeatVect(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getFeatVect());
+		concludeTestBatch(); 
 		//TODO work here! 
 		
 		initTestBatch();

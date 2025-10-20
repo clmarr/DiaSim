@@ -1272,7 +1272,7 @@ public class UTILS {
 		return output; 
 	}
 	public static List<String> listNegAlphasInFeatString(String fs)	{	return listAlphasInFeatString(fs,true);	}
-	
+	public static boolean featStringHasNegAlphas(String fs)	{	return listNegAlphasInFeatString(fs).size() > 0 ;	}
 	/**
 	 * @param seg a part of a rule or sequentialfilter originally delimited by ' ' from others
 	 * @return the text content in it but with any recursive parenthesizing ("(), ()*, ()+") or the presence of disjunction marking -- ; ,{} -- from it
@@ -2210,23 +2210,29 @@ public class UTILS {
 	{	return getFeatMatrix(featSpecs, false, new HashMap<String, String>());	}
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls)
 	{	return getFeatMatrix(featSpecs, apply_ft_impls, new HashMap<String, String>());	}
+	
 	// if negProxyAlphs is empty, functionally there are none.
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls, HashMap<String, String> negProxyAlphs)
 	{
-		//TODO work here.
+		String theFeatSpecs = featSpecs+""; 
 		
-		if(! isValidFeatSpecList(featSpecs) ) // however this will throw a negative due to neg prox usage so need to handle that pre this method call 
+		// preempt error in case that there are -alpha features in featSpecs that negProxyAlphs can alreayd handle. 
+		if (featStringHasNegAlphas(theFeatSpecs) && !negProxyAlphs.isEmpty()) 
+		{
+			theFeatSpecs = applyNegalphaProxies("["+theFeatSpecs+"]", negProxyAlphs);
+			theFeatSpecs = theFeatSpecs.substring(1, theFeatSpecs.length()-1); //strip off the [ ] that were added
+		}
+		
+		if(! isValidFeatSpecList(theFeatSpecs) ) // however this will throw a negative due to neg prox usage so need to handle that pre this method call 
 			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
-					+ "\nAttempted feat specs: "+featSpecs); 
+					+ "\nAttempted feat specs: "+theFeatSpecs); 
 		
-		String theFeatSpecs = apply_ft_impls ? applyImplications(featSpecs) : featSpecs+"";
+		theFeatSpecs = apply_ft_impls ? applyImplications(theFeatSpecs) : theFeatSpecs+"";
 		
 		if(theFeatSpecs.contains("0") && !apply_ft_impls)
 			throw new RuntimeException(
 			"Error : despecification used for a FeatMatrix that is not in the destination -- this is inappropriate."); 
-		
-		theFeatSpecs = applyNegalphaProxies("["+theFeatSpecs+"]", negProxyAlphs).substring(1, theFeatSpecs.length()+1); 
-		
+				
 		return negProxyAlphs.size() == 0 ? new FeatMatrix(theFeatSpecs, ordFeatNames) : 
 			new FeatMatrix(theFeatSpecs, ordFeatNames, negProxyAlphs);
 	}

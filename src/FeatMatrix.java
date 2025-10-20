@@ -14,7 +14,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		// despecification -- i.e. arising only because of feature implications,
 			// the change of a feature from +/- to . in unspecified in a phone operated upon. 
 		// DESPECIFICATION of phones as part of the FeatMatrix is represented as a 9 in FeatSpecs	
-	private final char FEAT_DELIM = ','; 
+	private final char FEAT_DELIM = UTILS.FEAT_DELIM; 
 	private String featSpecs, initSpecs; //"+cor,-dist" etc... separated by FEAT_DELIM 
 		// will always return to initSpecs after alphas are reset. 
 		// initSpecs, once set, must not under any circumstance be changed.
