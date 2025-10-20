@@ -721,9 +721,11 @@ public class AlphaTester {
 		pointTest(correctProxiedString, outputProxiedString, 
 				"Error @"+getLineNumber()+": mismatch between correct proxied string and what we actually got from the method.\n"
 						+ "Correct : " + correctProxiedString
-						+ "\nObseved : "+outputProxiedString); 
-				
-				
+						+ "\nObserved : "+outputProxiedString); 
+		pointTest(currAlphDetectStr, UTILS.decodeNegAlphProxies(correctProxiedString, nAlphMapTester),
+				"Error @"+getLineNumber()+": mismatch between correct negalph-proxy-decoded string and what we actually got from the method.\n"
+						+ "Correct : " + currAlphDetectStr
+						+ "\nObserved : "+UTILS.decodeNegAlphProxies(correctProxiedString, nAlphMapTester)); 
 		concludeTestBatch();
 		
 	}
