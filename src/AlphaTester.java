@@ -735,11 +735,24 @@ public class AlphaTester {
 		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
 				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
 		
-		//TODO work here! 
-		
+		SequentialPhonic unaspP = testFactory.parseSeqPh("p"); 
+		//this will produce an alpha conflict error internally -- but it should be fine via comparePreUnsetAlpha!
+		pointTest(true, fmtest.comparePreUnsetAlpha(unaspP), 
+				"Error @"+getLineNumber()+": comparePreUnset alpha false for feat matrix with only alphas...?!"); 
+		pointTest(true, fmtest.comparePreUnsetAlpha(o_tense_nas), 
+				"Error @"+getLineNumber()+": comparePreUnset alpha false for feat matrix with only alphas...?!"); 
+		pointTest(false, fmtest.check_for_alpha_conflict(o_tense_nas), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+o_tense_nas.print()
+			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
+		pointTest(true, fmtest.check_for_alpha_conflict(unaspP), "Error @"+getLineNumber()+": missed detection of alpha conflict for "+unaspP.print()
+			+" (-voi, -sg) per "+currAlphDetectStr+"(no multifeat alpha here)"); 
+
+
 
 		
+		
 		//TODO test handling of phones wiht this feat matrix! 
+
+		// TODO test alpha feature setting 
 		
 		//TODO test handling of another feat matrix wiht only the negated alph value to be proxied, not the og! 
 		// carry over nAlphMapTester, negProxyHere
@@ -765,6 +778,15 @@ public class AlphaTester {
 		pointTest(true, localAlphabet.length()==1, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 1 but isn't..."); 
 		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
 				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
+		pointTest(true, fmtest.comparePreUnsetAlpha(unaspP), "Error @"+getLineNumber()+": compare pre unset alpha for "+unaspP.print()+" should be true for "
+				+currAlphDetectStr+" but somehow it's false.");
+		pointTest(false, fmtest.comparePreUnsetAlpha(o_tense_nas), "Error @"+getLineNumber()+": compare pre unset alpha for "+o_tense_nas.print()+" should be false for "
+				+currAlphDetectStr+" but somehow it's true.");
+		pointTest(false, fmtest.check_for_alpha_conflict(unaspP), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+unaspP.print()
+			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
+		pointTest(false, fmtest.check_for_alpha_conflict(o_tense_nas), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+o_tense_nas.print()
+			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
+	
 		// TODO compare preUnsetAlpha!
 		// TODO check modification 
 		//TODO test handling of phones wiht this feat matrix! 
@@ -796,7 +818,7 @@ public class AlphaTester {
 			correctProxiedString = correctProxiedString.replace("-"+nAlphMapTester.get(ki), ki); 
 		String outputProxiedString = UTILS.applyNegalphaProxies(currAlphDetectStr, nAlphMapTester); 
 
-		//the following is to block csaes like replacing "-h" in "-hi" for an alpha h tho. 
+		//the following is to block cases like replacing "-h" in "-hi" for an alpha h tho. 
 		for (String ki : nAlphMapTester.keySet())
 			if (nAlphMapTester.get(ki).equals("a"))
 				correctProxiedString = correctProxiedString.replace(ki+"nt]", "-ant]"); 
