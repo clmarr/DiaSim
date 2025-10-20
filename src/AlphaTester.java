@@ -692,7 +692,7 @@ public class AlphaTester {
 		
 		initTestBatch();
 		System.out.println("Testing neg proxy alphabet creation..."); 
-		currAlphDetectStr = "c a n > h [-Along,-Bnas] t / [-æcont,Bnas] __ [-acons,æcont,0Ason] ([+ahi,+nas])* #"; 
+		currAlphDetectStr = "c a n > h [-Along,-Bnas] t / [-æant,Bnas] __ [-acons,æcont,0Ason,-ant] ([+ahi,+nas])* #"; 
 		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
 		pointTest(true, nAlphMapTester.keySet().size() == 4, "Error @"+getLineNumber()+": wrong number ("+ nAlphMapTester.keySet().size()
 				+ ") of neg alpha proxies made for "+currAlphDetectStr); 
@@ -707,6 +707,23 @@ public class AlphaTester {
 			for (String ki : nAlphMapTester.keySet())
 				System.out.println(ki +", "+nAlphMapTester.get(ki)); 
 		}
+		
+		String correctProxiedString = currAlphDetectStr + ""; 
+		for (String ki : nAlphMapTester.keySet())
+			correctProxiedString = correctProxiedString.replace("-"+nAlphMapTester.get(ki), ki); 
+		String outputProxiedString = UTILS.applyNegalphaProxies(currAlphDetectStr, nAlphMapTester); 
+
+		//the following is to block csaes like replacing "-h" in "-hi" for an alpha h tho. 
+		for (String ki : nAlphMapTester.keySet())
+			if (nAlphMapTester.get(ki).equals("a"))
+				correctProxiedString = correctProxiedString.replace(ki+"nt]", "-ant]"); 
+		
+		pointTest(correctProxiedString, outputProxiedString, 
+				"Error @"+getLineNumber()+": mismatch between correct proxied string and what we actually got from the method.\n"
+						+ "Correct : " + correctProxiedString
+						+ "\nObseved : "+outputProxiedString); 
+				
+				
 		concludeTestBatch();
 		
 	}
