@@ -42,6 +42,12 @@ public class AlphaTester {
 				"FeatMatrix.first_unset_alpha should give '0' w/o alpha setting, but it gives '%o'");
 		pointTest("0", ""+nasalStop.getAlphaVars().size(),  
 				"FeatMatrix.getAlphaVars() should have size %c w/o alpha setting, but we see %o (local alphabet : "+nasalStop.getLocalAlphabet()+")"); 
+		pointTest("", ""+nasalStop.getLocalAlphabet(), 
+				"FeatMatrix.getLocalAlphabet() should be empty as there are no alphas, but it is "+nasalStop.getLocalAlphabet()); 
+		pointTest(false, nasalStop.hasNegProxyAlphs(), 
+				"FeatMatrix.hasNegProxyAlphs errantly detected as true when there are no alphas at all!"); 
+		pointTest(true, nasalStop.getNegProxyAlphs().size()==0, 
+				"FeatMatrix.getNegProxyAlphs accidentally filled but it should be empty as there aren't even any alphas !"); 
 		
 		concludeTestBatch(); 
 		
@@ -57,6 +63,10 @@ public class AlphaTester {
 				"Error: first unset alpha should be 'β', but it is '"+fua+"'"); 
 		pointTest(false, fmtest.has_multifeat_alpha(), 
 				"Error: system detects an alpha variable specified for multiple features, but there is none"); 
+		pointTest(false, fmtest.hasNegProxyAlphs(), 
+				"FeatMatrix.hasNegProxyAlphs errantly detected as true when there are no neg alphas!"); 
+		pointTest(true, fmtest.getNegProxyAlphs().size()==0, 
+				"FeatMatrix.getNegProxyAlphs accidentally filled but it should be empty as there aren't any neg alphas !"); 
 		
 		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
 
@@ -171,7 +181,12 @@ public class AlphaTester {
 				"Error: feature specs remained unchanged after application of alpha values.")  ; 
 		pointTest(true, dummyFM.toString().equals(""+(SChangeTester.newFM("-hi,ɸtense"))), 
 				"Error @"+getLineNumber()+": feature specs should be [-tense], but it is "+dummyFM)  ; 
-					// comparePreAlpha
+		pointTest(false, fmtest.hasNegProxyAlphs(), 
+				"FeatMatrix.hasNegProxyAlphs errantly detected as true when there are no neg alphas!"); 
+		pointTest(true, fmtest.getNegProxyAlphs().size()==0, 
+				"FeatMatrix.getNegProxyAlphs accidentally filled but it should be empty as there aren't any neg alphas !"); 
+		
+				// comparePreAlpha
 					// resetAlphaValues
 					// resetAlphVal
 					// setAlphaValue
@@ -203,6 +218,10 @@ public class AlphaTester {
 				"Error: feature specs remained unchanged after application of alpha values.")  ; 
 		pointTest(true, dummyFM.toString().equals(""+(SChangeTester.newFM("-hi,-stres,ɸtense"))), 
 				"Error @"+getLineNumber()+": feature specs should be [-tense], but it is "+dummyFM)  ; 
+		pointTest(false, fmtest.hasNegProxyAlphs(), 
+				"FeatMatrix.hasNegProxyAlphs errantly detected as true when there are no neg alphas!"); 
+		pointTest(true, fmtest.getNegProxyAlphs().size()==0, 
+				"FeatMatrix.getNegProxyAlphs accidentally filled but it should be empty as there aren't any neg alphas !"); 
 			// getAlphaVars
 			// comparePreAlpha
 			// resetAlphVal
@@ -690,10 +709,26 @@ public class AlphaTester {
 		
 		concludeTestBatch(); 
 		
+		System.out.println("Testing simple feat matrix construction with neg and pos alpha characters in the feat specs..."); 
+		initTestBatch(); 
+		System.out.println("Testing with feat matrix: [s voiced , -s aspirated]");
+		currAlphDetectStr = "svoi,-ssg"; 
+		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
+
+		fmtest = UTILS.getFeatMatrix("svoi,-ssg",true, nAlphMapTester);
+		pointTest(true, fmtest.has_alpha_specs(), 
+				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
+		pointTest(true, fmtest.has_alpha_specs(), 
+				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
+		String negProxyHere = UTILS.possibleAlphaProxies.substring(UTILS.possibleAlphaProxies.length()-1); 
+
+		
+		//TODO work here! 
+		
 		initTestBatch();
 		System.out.println("Testing neg proxy alphabet creation..."); 
 		currAlphDetectStr = "c a n > h [-Along,-Bnas] t / [-æant,Bnas] __ [-acons,æcont,0Ason,-ant] ([+ahi,+nas])* #"; 
-		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
+		nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
 		pointTest(true, nAlphMapTester.keySet().size() == 4, "Error @"+getLineNumber()+": wrong number ("+ nAlphMapTester.keySet().size()
 				+ ") of neg alpha proxies made for "+currAlphDetectStr); 
 		

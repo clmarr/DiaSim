@@ -329,7 +329,7 @@ public class SChangeFactory {
 			if (usingAlphFeats)	UTILS.abortOrphanedNegAlphStip(input); 
 			
 			// detect if there's negated alphas. 
-			usingNegProxies = UTILS.stringHasNegProxies(inp); 
+			usingNegProxies = UTILS.stringHasNegAlphas(inp); 
 			if (usingNegProxies)
 			{
 				currentNegProxies = UTILS.createNegProxyAlphabet(inp); 
@@ -337,14 +337,14 @@ public class SChangeFactory {
 				// this way only have to make one. 
 				
 				// then apply to each, before they are processed.
-				negProxiesInInpSrc = UTILS.stringHasNegProxies(inputSource); 
+				negProxiesInInpSrc = UTILS.stringHasNegAlphas(inputSource); 
 				if (negProxiesInInpSrc)	inputSource = UTILS.applyNegalphaProxies(inputSource, currentNegProxies);
-				negProxiesInDest = UTILS.stringHasNegProxies(inputDest); 
+				negProxiesInDest = UTILS.stringHasNegAlphas(inputDest); 
 				if (negProxiesInDest)	inputDest = UTILS.applyNegalphaProxies(inputDest, currentNegProxies);
 				
-				negProxiesInPrior = priorSpecified ? UTILS.stringHasNegProxies(inputPrior) : false ; 
+				negProxiesInPrior = priorSpecified ? UTILS.stringHasNegAlphas(inputPrior) : false ; 
 				if (negProxiesInPrior)	inputPrior = UTILS.applyNegalphaProxies(inputPrior, currentNegProxies);
-				negProxiesInPostr = postrSpecified ? UTILS.stringHasNegProxies(inputPostr) : false; 
+				negProxiesInPostr = postrSpecified ? UTILS.stringHasNegAlphas(inputPostr) : false; 
 				if (negProxiesInPostr)	inputDest = UTILS.applyNegalphaProxies(inputPostr, currentNegProxies);
 			}
 			

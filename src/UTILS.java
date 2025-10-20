@@ -1340,8 +1340,28 @@ public class UTILS {
 	 */
 	public static List<String> listNegatedAlphasInString (String str)
 	{	return listAlphasInString(str, true); 	}
-	public static boolean stringHasNegProxies (String stri)
+	public static boolean stringHasNegAlphas (String stri)
 	{	return listNegatedAlphasInString(stri).size() > 0; 	} //if there's any, it'll be in the size.
+	
+	/**
+	 * @precondition ordFeatNames filled. 
+	 * @param stri that we're checking for presence of neg proxies in.
+	 * @param negProxAlphs -- neg proxy mapping to proxied alph chars
+	 * @return whether there are any neg proxies present. 
+	 */
+	public static boolean stringHasNegProxies (String stri, HashMap<String, String> negProxAlphs)
+	{	
+		if (stri.length() < 2)	return false; 
+		String str = "["+ stri+"]";  // just in case, doesn't change anything if already there. 
+
+		for (String fti : ordFeatNames)
+			for (String npxi : negProxAlphs.keySet())
+				for (String chBefore : new String[] {FEAT_DELIM+"","["} )
+					for (String chAfter : new String[] {FEAT_DELIM+"","]"} )
+						if (str.contains(chBefore + npxi + fti + chAfter))
+							return true; 
+		return false;
+	} 
 	
 	public final static String possibleAlphaProxies = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmʏʠɰɥɶʁɭʟɱŋɲɳɾɽʀɹɻʑʒʃʝθðɸαɑæʊσβɣçɛøœχɩʎ"; 
 	
@@ -2193,6 +2213,8 @@ public class UTILS {
 	// if negProxyAlphs is empty, functionally there are none.
 	public static FeatMatrix getFeatMatrix(String featSpecs, boolean apply_ft_impls, HashMap<String, String> negProxyAlphs)
 	{
+		//TODO work here.
+		
 		if(! isValidFeatSpecList(featSpecs) ) // however this will throw a negative due to neg prox usage so need to handle that pre this method call 
 			throw new RuntimeException("Error : preempted attempt to get FeatMatrix from an invalid list of feature specifications."
 					+ "\nAttempted feat specs: "+featSpecs); 
