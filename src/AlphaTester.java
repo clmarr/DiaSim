@@ -689,6 +689,23 @@ public class AlphaTester {
 				"Error @"+getLineNumber()+": missed detection of invalid feat str"); 
 		
 		concludeTestBatch(); 
+		
+		initTestBatch();
+		System.out.println("Testing neg proxy alphabet creation..."); 
+		currAlphDetectStr = "c a n > h [Along] t / [æcont] __ [-acons,æcont,Ason] ([ahi,+nas])* #"; 
+		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet(currAlphDetectStr); 
+		pointTest(true, nAlphMapTester.keySet().size() == 3, "Error @"+getLineNumber()+": wrong number ("+ nAlphMapTester.keySet().size()
+				+ ") of neg alpha proxies made for "+currAlphDetectStr); 
+		
+		for (String sai : "A,a,æ".split(","))
+			pointTest(true, nAlphMapTester.containsValue(sai), "Error @"+getLineNumber()+": "+sai+" missed as proxied value for "+currAlphDetectStr); 
+		
+		if (numCorrect < totalChecks) {
+			System.out.println("neg alph mapping ~ keys, vals : "); 
+			for (String ki : nAlphMapTester.keySet())
+				System.out.println(ki +", "+nAlphMapTester.get(ki)); 
+		}
+		
 	}
 	
 	private static void initTestBatch()
