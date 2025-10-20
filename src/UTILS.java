@@ -1343,7 +1343,7 @@ public class UTILS {
 	public static boolean stringHasNegProxies (String stri)
 	{	return listNegatedAlphasInString(stri).size() > 0; 	} //if there's any, it'll be in the size.
 	
-	private static String possibleAlphaProxies = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmʏʠɰɥɶʁɭʟɱŋɲɳɾɽʀɹɻʑʒʃʝθðɸαɑæʊσβɣçɛøœχɩʎ"; 
+	public final static String possibleAlphaProxies = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnmʏʠɰɥɶʁɭʟɱŋɲɳɾɽʀɹɻʑʒʃʝθðɸαɑæʊσβɣçɛøœχɩʎ"; 
 	
 	/**createNegProxyAlphabet
 	 * 9/29/25 @author Clayton Marr
@@ -2094,6 +2094,7 @@ public class UTILS {
 	 * @return @true iff @param input consists of a list of valid feature specifications 
 	 * 	each delimited by restrDelim
 	 * @note unlike the one in SChangeFactory, this does not take into account possible negative alpha proxies. 
+	 * @note @method @isValidFeatSpecInclAlphPrep has been made for these purposes -- use that.
 	 */
 	public static boolean isValidFeatSpecList(String input)
 	{

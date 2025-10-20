@@ -674,9 +674,21 @@ public class AlphaTester {
 		concludeTestBatch(); 
 		
 		System.out.println("Testing valid feature spec list detection"); 
+		currAlphDetectStr = "-sg,+cons,0tense,ason,-avoi,+acont"; 
+		for (int i = 0 ; i < 4 ; i++)
+			pointTest(i < 3, 
+				UTILS.isValidFeatSpecList(
+						(i < 2 ? currAlphDetectStr.split(",0")[0] : currAlphDetectStr), 
+								i % 2 == 0), 
+				"Error @"+getLineNumber()+" (allowing preposed alphas: "+ (i % 2 == 0 )+"; having preposed alphas: "+(i > 1)+"): " 
+				+ (i < 3 ? "spurious flagging of " : "missed ") + "invalidity for "
+				+ (i < 2 ? currAlphDetectStr.split(",0")[0] : currAlphDetectStr)); 
+		pointTest(false, UTILS.isValidFeatSpecList(currAlphDetectStr.split(",+a")[0].substring(1), true),
+				"Error @"+getLineNumber()+": missed detection of invalid feat str"); 
+		pointTest(false, UTILS.isValidFeatSpecList(currAlphDetectStr.split(",+a")[0].substring(1), false),
+				"Error @"+getLineNumber()+": missed detection of invalid feat str"); 
 		
-		
-
+		concludeTestBatch(); 
 	}
 	
 	private static void initTestBatch()
