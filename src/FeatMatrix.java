@@ -723,7 +723,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	@Override
 	public String toString() 
 	{	return "["+
-			(hasNegProxyAlphs() ? UTILS.decodeNegAlphProxies(featSpecs,negProxyAlphs) : featSpecs )+"]";		}
+			(hasNegProxyAlphs() ? UTILS.decodeNegAlphProxiesInFeatString(featSpecs,negProxyAlphs) : featSpecs )+"]";		}
 	
 	/**
 	 *  currently used for testing only

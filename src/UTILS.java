@@ -1401,19 +1401,37 @@ public class UTILS {
 		return output; 
 	}
 	
+	public static String decodeNegalphaProxies (String str, HashMap<String, String> proxies) 
+	{
+		String output = str+"";  
+		if (str.charAt(0) == MARK_NEG) {
+			if (isValidFeatSpecList(str, true)) // unless 
+				return decodeNegAlphProxiesInFeatString(str, proxies); 
+			else throw new Error ("Tried to de-apply negative alpha proxy to a rule or filter that starts with '-'."
+					+ "This should never have existed in the first place. Input was:\n\t"
+					+ str); }
+		
+		for (String pxi : proxies.keySet())
+			for (String ftj : ordFeatNames)
+				for (String chBefore : new String[]{"[",""+FEAT_DELIM})
+					output = output.replace(chBefore+pxi+ftj, chBefore+MARK_NEG+proxies.get(pxi)+ftj); 
+		return output; 
+	}
+	
 	/**
 	 * 
 	 * @param specString -- string of specs (not in []), delimited by FEAT_DELIM> 
 	 * @param negProxies  -- key : proxy, value: negated alpha
-	 * @return
+	 * @return version of the input string with neg alph proxies replaced with '-' + their negative proxied alpha value 
+	 * 		(e.g. in all likelihood, the original form of the string..) 
 	 */
-	public static String decodeNegAlphProxies(String specString, HashMap<String, String> negProxies)
+	public static String decodeNegAlphProxiesInFeatString(String specString, HashMap<String, String> negProxies)
 	{
 		String output = negProxies.containsKey(specString.substring(0,1)) ?
 				MARK_NEG + negProxies.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
 		for (String pxi : negProxies.keySet())
 			while (output.contains(FEAT_DELIM + pxi))
-				output = output.substring(0, 1+output.indexOf(","+pxi)) + MARK_NEG + negProxies.get(pxi); 
+				output = output.substring(0, 1+output.indexOf(FEAT_DELIM+pxi)) + MARK_NEG + negProxies.get(pxi); 
 		return output; 
 	}
 	

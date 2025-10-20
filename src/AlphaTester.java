@@ -722,10 +722,23 @@ public class AlphaTester {
 				"Error @"+getLineNumber()+": mismatch between correct proxied string and what we actually got from the method.\n"
 						+ "Correct : " + correctProxiedString
 						+ "\nObserved : "+outputProxiedString); 
-		pointTest(currAlphDetectStr, UTILS.decodeNegAlphProxies(correctProxiedString, nAlphMapTester),
+		pointTest(currAlphDetectStr, UTILS.decodeNegalphaProxies(correctProxiedString, nAlphMapTester),
 				"Error @"+getLineNumber()+": mismatch between correct negalph-proxy-decoded string and what we actually got from the method.\n"
-						+ "Correct : " + currAlphDetectStr
-						+ "\nObserved : "+UTILS.decodeNegAlphProxies(correctProxiedString, nAlphMapTester)); 
+						+ "Correct  : " + currAlphDetectStr
+						+ "\nObserved : "+UTILS.decodeNegalphaProxies(correctProxiedString, nAlphMapTester)); 
+		
+		String ogFeatSpecTest = "-Bcons,-æcont,-Ason,-ant"; 
+		
+		String proxiedFSRes = ""+ogFeatSpecTest; 
+		for(String prxi : nAlphMapTester.keySet())
+			if (!nAlphMapTester.get(prxi).equals("a"))
+				proxiedFSRes.replace(""+UTILS.MARK_NEG+nAlphMapTester.get(prxi), prxi); 
+		
+		proxiedFSRes = UTILS.decodeNegAlphProxiesInFeatString(proxiedFSRes, nAlphMapTester); 
+		pointTest(ogFeatSpecTest, proxiedFSRes, 
+				"Error @"+getLineNumber()+": mismatch between og and proxied-then-deproxied feat string!\n"
+					+"Correct :"+ogFeatSpecTest+"\n"
+					+"Observed:"+proxiedFSRes); 
 		concludeTestBatch();
 		
 	}
