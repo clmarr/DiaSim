@@ -24,6 +24,8 @@ public class AlphaTester {
 		System.out.println("----------------------");
 		String[] feats = UTILS.featsByIndex; 
 
+		UTILS.extractDiacriticMap("currentSymbolDiacriticDefs.txt");
+
 		FeatMatrix nasalStop = new FeatMatrix("+nas,+cont,+son,0delrel", Arrays.asList(feats)); 
 
 
@@ -749,52 +751,89 @@ public class AlphaTester {
 			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
 		pointTest(true, fmtest.check_for_alpha_conflict(unaspP), "Error @"+getLineNumber()+": missed detection of alpha conflict for "+unaspP.print()
 			+" (-voi, -sg) per "+currAlphDetectStr+"(no multifeat alpha here)"); 
-
-
-
 		
+		System.out.println("Testing with feat matrix: [-s long , - back]");
 		
-		//TODO test handling of phones wiht this feat matrix! 
-
-		// TODO test alpha feature setting 
-		
-		//TODO test handling of another feat matrix wiht only the negated alph value to be proxied, not the og! 
-		// carry over nAlphMapTester, negProxyHere
-		System.out.println("Testing with feat matrix: [-s long , - sonorant]");
-		
-		currAlphDetectStr = "-slong,-son";
-		fmtest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
-		pointTest(true, fmtest.has_alpha_specs(), 
+		currAlphDetectStr = "-slong,-back";
+		FeatMatrix singAlphFmTest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
+		pointTest(true, singAlphFmTest.has_alpha_specs(), 
 				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
-		pointTest(false, fmtest.has_multifeat_alpha(), 
+		pointTest(false, singAlphFmTest.has_multifeat_alpha(), 
 				"Error @"+getLineNumber()+": multi feature alpha erroneously detected for "+currAlphDetectStr); 
 		pointTest(true, nAlphMapTester.keySet().size() == 1, 
 				"Error @"+getLineNumber()+": size for neg alph proxy map should be 1 but it is "+nAlphMapTester.keySet().size()); 
-		pointTest(true, fmtest.hasNegProxyAlphs(), "Error @"+getLineNumber()+": presence of neg proxy alphas missed!"); 
+		pointTest(true, singAlphFmTest.hasNegProxyAlphs(), "Error @"+getLineNumber()+": presence of neg proxy alphas missed!"); 
 		correctOgFVect = ""; 
 		for (String fti: featNames)
-			correctOgFVect += fti.equals("long") ? negProxyHere : (fti.equals("son") ? ""+UTILS.NEG_INT : ""+UTILS.UNSPEC_INT); 
-		pointTest(correctOgFVect, fmtest.getStrInitChArr(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
-				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getStrInitChArr());
-		pointTest(correctOgFVect, fmtest.getFeatVect(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
-				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getFeatVect());
-		localAlphabet = fmtest.getLocalAlphabet();
+			correctOgFVect += fti.equals("long") ? negProxyHere : (fti.equals("back") ? ""+UTILS.NEG_INT : ""+UTILS.UNSPEC_INT); 
+		pointTest(correctOgFVect, singAlphFmTest.getStrInitChArr(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+singAlphFmTest.getStrInitChArr());
+		pointTest(correctOgFVect, singAlphFmTest.getFeatVect(), "Error @"+getLineNumber()+": initial feat vect incorrect.\n"+
+				"Correct :"+correctOgFVect+"\nObserved:"+singAlphFmTest.getFeatVect());
+		String singAlphOgFVect = ""+correctOgFVect; 
+		localAlphabet = singAlphFmTest.getLocalAlphabet();
 		pointTest(true, localAlphabet.length()==1, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 1 but isn't..."); 
-		pointTest(fmtest.NULL_PROXY_PAIR, fmtest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+fmtest.getProxyPair("g")); 
-		pointTest("s", fmtest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+fmtest.getProxyPair(negProxyHere)); 
-		pointTest(negProxyHere, fmtest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+fmtest.getProxyPair(negProxyHere)); 
-		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
-				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
-		pointTest(true, fmtest.comparePreUnsetAlpha(unaspP), "Error @"+getLineNumber()+": compare pre unset alpha for "+unaspP.print()+" should be true for "
+		pointTest(singAlphFmTest.NULL_PROXY_PAIR, singAlphFmTest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+singAlphFmTest.getProxyPair("g")); 
+		pointTest("s", singAlphFmTest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+singAlphFmTest.getProxyPair(negProxyHere)); 
+		pointTest(negProxyHere, singAlphFmTest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+singAlphFmTest.getProxyPair(negProxyHere)); 
+		pointTest("["+currAlphDetectStr+"]", ""+singAlphFmTest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
+				+" should print as such with neg alph proxies removed, but instead we see "+singAlphFmTest); 
+		pointTest(true, singAlphFmTest.comparePreUnsetAlpha(unaspP), "Error @"+getLineNumber()+": compare pre unset alpha for "+unaspP.print()+" should be true for "
 				+currAlphDetectStr+" but somehow it's false.");
-		pointTest(false, fmtest.comparePreUnsetAlpha(o_tense_nas), "Error @"+getLineNumber()+": compare pre unset alpha for "+o_tense_nas.print()+" should be false for "
+		pointTest(false, singAlphFmTest.comparePreUnsetAlpha(o_tense_nas), "Error @"+getLineNumber()+": compare pre unset alpha for "+o_tense_nas.print()+" should be false for "
 				+currAlphDetectStr+" but somehow it's true.");
-		pointTest(false, fmtest.check_for_alpha_conflict(unaspP), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+unaspP.print()
+		pointTest(false, singAlphFmTest.check_for_alpha_conflict(unaspP), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+unaspP.print()
 			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
-		pointTest(false, fmtest.check_for_alpha_conflict(o_tense_nas), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+o_tense_nas.print()
+		pointTest(false, singAlphFmTest.check_for_alpha_conflict(o_tense_nas), "Error @"+getLineNumber()+": spurious detection of alpha conflict for "+o_tense_nas.print()
 			+" per "+currAlphDetectStr+"(no multifeat alpha here)"); 
 	
-		// TODO compare preUnsetAlpha!
+		concludeTestBatch(); 
+		
+		initTestBatch();
+	
+		//UTILS.tryParseAndDefineMarkedSymbol("pː"); 
+		System.out.println("testing alpha extraction from "+singAlphFmTest+" followed by application to "+fmtest); 
+		alph_feats_extrd = singAlphFmTest.extractAndApplyAlphaValues(testFactory.parseSeqPh("pː")); // long --> (not - long) --> should extract s = -/0 -> ʎ = +/2, because it's -long, and -son so it passes comparePreUnsetAlpha
+		pointTest(singAlphOgFVect, singAlphFmTest.getStrInitChArr(), "Error @"+getLineNumber()+": errant change to initChArr during extraction!"); 
+		pointTest(false, singAlphOgFVect.equals(singAlphFmTest.getFeatVect()), 
+				"Error @"+getLineNumber()+": feat vect of [-slong,-back] unchanged after extraction!");
+		pointTest(singAlphOgFVect.replace(negProxyHere,""+UTILS.POS_INT), singAlphFmTest.getFeatVect(), // neg proxy = +, s = -
+				"Error @"+getLineNumber()+": feat vect of [-slong,-back] after extraction errant!\n"
+						+ "Should be: "+singAlphOgFVect.replace(negProxyHere,""+UTILS.NEG_INT)+"\n"
+						+ "Observed : "+singAlphFmTest.getFeatVect());
+		pointTest("[+long,-back]", ""+singAlphFmTest, "Error @"+getLineNumber()+": [-slong,-back] should have become [+long,-back] after extraction from /pː/ but it is "+singAlphFmTest); 
+		
+		String[] currTestPhStrs = new String[] {"sː","s","uː","u"};
+		
+		for(int i = 0 ; i < 4 ; i++) {
+			List<SequentialPhonic> currPhEmb = testFactory.parseSeqPhSeg(currTestPhStrs[i]); 
+			pointTest(i < 1, singAlphFmTest.compare(currPhEmb.get(0)), 
+					"Error @"+getLineNumber()+": conditioning for [-slong,-back] with s=- (-> +long) should be "
+					+ (i < 1 ? "true" : "false") +" for "+currPhEmb.get(0).print()+" but it is "+(i < 1 ? "true" : "false")); 
+			SequentialPhonic correctFTOutput = testFactory.parseSeqPh( i < 2 ? "sː" : "ʉː"), 
+					observedFTOutput = singAlphFmTest.forceTruth(currPhEmb, 0).get(0); 
+			
+			pointTest(""+correctFTOutput, ""+observedFTOutput, 
+					"Error @"+getLineNumber()+": result of application should be "+correctFTOutput+" but is "+observedFTOutput); 
+		}
+		
+		// now applying to the other one...
+		String multiAlphOgFeatVect = ""+ fmtest.getStrInitChArr(), 
+				multiAlphOgPrint = ""+fmtest; 
+		String corrMultiAlphFeatVectResult = multiAlphOgFeatVect.replace("s",""+UTILS.NEG_INT).replace(negProxyHere,""+ UTILS.POS_INT) ;
+		fmtest.applyAlphaValues(alph_feats_extrd); 
+		pointTest(multiAlphOgFeatVect, fmtest.getStrInitChArr(), "Error @"+getLineNumber()+": errant change to initChArr during extraction!"); 
+		pointTest(false, multiAlphOgFeatVect.equals(""+fmtest.getFeatVect()), "Error @"+getLineNumber()+": lack of change to feat vect after applying alph values!"); 
+		pointTest(false, multiAlphOgPrint.equals(""+fmtest), "Error @"+getLineNumber()+": lack of change to feat specs after applying alph values!"); 
+		pointTest(corrMultiAlphFeatVectResult, ""+fmtest.getFeatVect(), "Error @"+getLineNumber()+": outcome of application (s = -) to "+multiAlphOgPrint+" is wrong.\n"
+				+ "\tShould be:"+corrMultiAlphFeatVectResult+"\n"
+				+ "\tObserved :"+fmtest.getFeatVect()); 
+		pointTest("[-voi,+sg]", fmtest+"","Error @"+getLineNumber()+": "+multiAlphOgPrint+" should have become [+voi,-sg] after s = - but it is "+fmtest); 
+		
+		//TODO test alph extr -> appl from singAlphFmTest to fmtest 
+
+		//TODO test alph extr -> appl from fmtest to singAlphFmtest
+		
 		// TODO check modification 
 		//TODO test handling of phones wiht this feat matrix! 
 

@@ -184,6 +184,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * checks if candidate phone adheres to the restrictions
 	 * (9/30/25) should behave the same regardless of presence of neg alpha proxies, but currently (9/30/25) untested. 
 	 * @precondition: they have the same length feature vectors
+	 * @precondition: alphas are set. 
 	 * @throws UnsetAlphaError */
 	public boolean compare(SequentialPhonic cand)
 	{
@@ -262,6 +263,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 *  patient -- patient as in object of modification necessary to impose the truth of the values encoded in this FeatMatrix
 	 * by changing any necessary feature values in patient 
 	 * @precondition: they have the same length feature vectors
+	 * @precondition: alphas are set.
 	 * @throws UnsetAlphaError */
 	public Phone forceTruth(Phone patient)
 	{
