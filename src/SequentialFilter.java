@@ -1094,9 +1094,6 @@ public class SequentialFilter {
 	// auxiliary for specifyLocalAlph, specifyAlphViaNegProxy
 	private void putLocalAlph(String a, String nv, boolean modifyPRs)
 	{
-		//TODO debugging
-		System.out.println("putting for local alph "+a+", val "+nv+", modify place rstrs?" +modifyPRs);
-		
 		boolean resetting = nv.equals(UNSET_ALPHVAL); 
 		if (!resetting) UTILS.abortInvalidFtIntStr(nv); 
 		

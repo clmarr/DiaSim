@@ -104,12 +104,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				}
 				else
 				{
-					//TODO debugging
-					if (destination.has_alpha_specs()) {
-						System.out.println("dest alphas... "+destination.getAlphaVars().size());
-						System.out.println("... "+destination.getAlphaVars().get(0)); 
-					}
-					
 					res.add(destination.forceTruth(input, p).get(p));
 					p++; 
 				}
@@ -243,10 +237,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								return false; 
 							}
 
-							//TODO debugging
-							System.out.println("Extracting/applying posterior alphas..."); 
-							System.out.println("Dest ... "+destination+"; vect : "+destination.getFeatVect()); 
-							
 							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(cpi));
 							set_alphvals_everywhere(); 
 							/** need_to_reset = true;
@@ -254,12 +244,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							* destination.applyAlphaValues(ALPH_VARS);*/
 							
 							popr = postContext.getPlaceRestrs();
-							
-							//TODO debugging
-							System.out.println("Size of alph vars was : "+ALPH_VARS.size()); 
-							System.out.println("Extracted/applied posterior alphas..."); 
-							System.out.println("Dest ... "+destination+"; vect : "+destination.getFeatVect()); 
-							
 						}
 					}
 					cpic++; crp++; cpim++; 
@@ -314,9 +298,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				NEG_PROX_ADDENDA.put(proxPair, ""+UTILS.getOppFtInt(ALPH_VARS.get(avki))); 
 		}
 
-		//TODO debugging
-		System.out.println("Neg prox addenda ... size "+NEG_PROX_ADDENDA.size());
-		
 		if(NEG_PROX_ADDENDA.size() == 0)	return; 
 		
 		targSource.applyAlphaValues(NEG_PROX_ADDENDA);

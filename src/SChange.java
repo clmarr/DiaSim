@@ -79,7 +79,8 @@ public abstract class SChange {
 	
 	public void setNegAlphProxies(HashMap<String,String> newProxyMap)
 	{
-		if (!isAlphaSubclass)	System.out.println("Warning: setting neg alpha proxies in non-alpha subclass of SChange"); 
+		if (!isAlphaSubclass)
+			System.out.println("Warning: setting neg alpha proxies in non-alpha subclass of SChange"); 
 		if (hasNegAlphProxies())
 			throw new Error("Error: Tried to reset NEG_ALPH_PROXIES once already set!"); 
 		NEG_ALPH_PROXIES = new HashMap<String, String> (newProxyMap); 
@@ -139,6 +140,10 @@ public abstract class SChange {
 		//otherwise should be overriddent anways. 
 		
 		System.out.println("Warning: in SChange superclass isMatch() method. This exists only for testing compilation purposes -- you should not be here..."); 
+		
+		//TODO debuggin
+		if (1==1) throw new Error("pooop");
+		
 		return false; 
 	}
 	
