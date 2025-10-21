@@ -734,7 +734,11 @@ public class AlphaTester {
 		pointTest(true, localAlphabet.length()==2, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 2 but isn't..."); 
 		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
 				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
+		pointTest(fmtest.NULL_PROXY_PAIR, fmtest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+fmtest.getProxyPair("g")); 
+		pointTest("s", fmtest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+fmtest.getProxyPair(negProxyHere)); 
+		pointTest(negProxyHere, fmtest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+fmtest.getProxyPair(negProxyHere)); 
 		
+
 		SequentialPhonic unaspP = testFactory.parseSeqPh("p"); 
 		//this will produce an alpha conflict error internally -- but it should be fine via comparePreUnsetAlpha!
 		pointTest(true, fmtest.comparePreUnsetAlpha(unaspP), 
@@ -776,6 +780,9 @@ public class AlphaTester {
 				"Correct :"+correctOgFVect+"\nObserved:"+fmtest.getFeatVect());
 		localAlphabet = fmtest.getLocalAlphabet();
 		pointTest(true, localAlphabet.length()==1, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 1 but isn't..."); 
+		pointTest(fmtest.NULL_PROXY_PAIR, fmtest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+fmtest.getProxyPair("g")); 
+		pointTest("s", fmtest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+fmtest.getProxyPair(negProxyHere)); 
+		pointTest(negProxyHere, fmtest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+fmtest.getProxyPair(negProxyHere)); 
 		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
 				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
 		pointTest(true, fmtest.comparePreUnsetAlpha(unaspP), "Error @"+getLineNumber()+": compare pre unset alpha for "+unaspP.print()+" should be true for "
