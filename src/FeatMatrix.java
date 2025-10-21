@@ -463,19 +463,20 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * this class should be called using the outputs of extractAndApplyAlphaValues
 	 * on despecification, see notes near the variable DESPEC_VIA_ALPHA.
 	  */ 
-	public void applyAlphaValues(HashMap<String,String> alphVals)
+	public void applyAlphaValues(HashMap<String,String> theAlphVals)
 	{
+		HashMap<String, String> alphVals = new HashMap<String, String>(theAlphVals); 
 		if (alphVals.keySet().size() == 0)	return; 
 		if (! hasAlphSpecs )	return; 	// don't apply alpha value filling if there's no values to fill! 
 		
 		
 		// extend to coverage to negative alpha proxies from proxied alphas, or vice versa
 		if (hasNegProxyAlphs()) {
-			HashMap<String, String> proxSpecs = new HashMap<String, String> (); 
 			for (String avi : alphVals.keySet())
 			{
 				String proxPair = getProxyPair(avi); // '!' if there is none. 
 				if (proxPair.equals(NULL_PROXY_PAIR))	continue; 
+				
 				
 				String vali = alphVals.get(avi); 
 				String oppVal = "" +  UTILS.getOppFtInt(vali);  // opposite value if polar (0 ~ -/ 2 ~ +), otherwise same
@@ -496,7 +497,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 						// in this case, do nothing, don't put it in as a duplicate. 
 					else continue; 
 				}
-				proxSpecs.put(proxPair,oppVal);
+				alphVals.put(proxPair,oppVal);
 			}
 		}
 		

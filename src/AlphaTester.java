@@ -826,6 +826,7 @@ public class AlphaTester {
 		pointTest(false, multiAlphOgFeatVect.equals(""+fmtest.getFeatVect()), "Error @"+getLineNumber()+": lack of change to feat vect after applying alph values!"); 
 		pointTest(false, multiAlphOgPrint.equals(""+fmtest), "Error @"+getLineNumber()+": lack of change to feat specs after applying alph values!"); 
 		pointTest(corrMultiAlphFeatVectResult, ""+fmtest.getFeatVect(), "Error @"+getLineNumber()+": outcome of application (s = -) to "+multiAlphOgPrint+" is wrong.\n"
+				+ "\ta priori :"+multiAlphOgFeatVect+"\n"
 				+ "\tShould be:"+corrMultiAlphFeatVectResult+"\n"
 				+ "\tObserved :"+fmtest.getFeatVect()); 
 		pointTest("[-voi,+sg]", fmtest+"","Error @"+getLineNumber()+": "+multiAlphOgPrint+" should have become [+voi,-sg] after s = - but it is "+fmtest); 
