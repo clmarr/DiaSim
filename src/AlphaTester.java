@@ -850,15 +850,8 @@ public class AlphaTester {
 		pointTest("["+currAlphDetectStr+"]", ""+singAlphFmTest, "Error @"+getLineNumber()+": ["+currAlphDetectStr+"] should have been reset but it is "+singAlphFmTest); 
 		pointTest(singAlphOgFVect, singAlphFmTest.getFeatVect(), "Error @"+getLineNumber()+": ["+currAlphDetectStr+"] feat vect should be reset but it is not. "
 				+ "\n\tShould be: "+singAlphOgFVect+"\n\tObserved : "+singAlphFmTest.getFeatVect()); 
-		//TODO test alph extr -> appl from singAlphFmTest to fmtest 
-
-		//TODO test alph extr -> appl from fmtest to singAlphFmtest
 		
-		// TODO check modification 
-		//TODO test handling of phones wiht this feat matrix! 
 
-
-		
 		concludeTestBatch(); 
 		
 		initTestBatch();
@@ -910,8 +903,7 @@ public class AlphaTester {
 				"Error @"+getLineNumber()+": mismatch between og and proxied-then-deproxied feat string!\n"
 					+"Correct :"+ogFeatSpecTest+"\n"
 					+"Observed:"+proxiedFSRes); 
-		concludeTestBatch();
-		
+		concludeTestBatch();	
 	}
 	
 	private static void initTestBatch()
