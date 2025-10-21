@@ -329,10 +329,13 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	}
 	
 	@Override
-	//(9/30/25) currently not adjusting for neg alpha coverage -- internal handling of initSpecs, featSpecs unchanged
+	//(10/20/25 , overriding 9/30/25) resetting all alphas including neg proxies, for xecurity.
 	public void resetAlphaValues()
 	{	featVect = new String(init_chArr);
 		featSpecs = ""+initSpecs;
+		for (char afi : localAlphabet.toCharArray())	resetAlphVal(afi); 
+			// will cascade onto neg proxies. 
+			// probably unnecessary. 
 	}
 	
 	@Override
@@ -342,20 +345,21 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * as of 9/30/25 -- also resets the proxy or proxied pair. 
 	 */
 	public void resetAlphVal (char alph) {
+		char proxPair = (hasNegProxyAlphs() ? getProxyPair(""+alph) : NULL_PROXY_PAIR).charAt(0); 
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
+		{
 			if (initSpecs.charAt(ispi) == alph)
 				featSpecs = featSpecs.substring(0,ispi) + alph + featSpecs.substring(ispi+1);
-
+			else if ( hasNegProxyAlphs() ? initSpecs.charAt(ispi) == proxPair: false)
+				featSpecs = featSpecs.substring(0,ispi) + proxPair + featSpecs.substring(ispi+1);
+		}
+		
 		// doing it this way in order to not cascade onto implications that are alpha marked... 
 		featVect = new String(init_chArr);
 	
 		for (String featspec : featSpecs.split(","))
 			if (!UTILS.spec_is_alpha_marked(featspec))
 				apply_value(featspec.substring(0,1), featspec.substring(1),false); 
-		
-		if (hasNegProxyAlphs())
-			if (hasProxyPair(""+alph))
-				resetAlphVal(getProxyPair(""+alph).charAt(0)); 
 	}
 	
 	/**

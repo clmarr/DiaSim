@@ -808,8 +808,8 @@ public class AlphaTester {
 		for(int i = 0 ; i < 4 ; i++) {
 			List<SequentialPhonic> currPhEmb = testFactory.parseSeqPhSeg(currTestPhStrs[i]); 
 			pointTest(i < 1, singAlphFmTest.compare(currPhEmb.get(0)), 
-					"Error @"+getLineNumber()+": conditioning for [-slong,-back] with s=- (-> +long) should be "
-					+ (i < 1 ? "true" : "false") +" for "+currPhEmb.get(0).print()+" but it is "+(i < 1 ? "true" : "false")); 
+					"Error @"+getLineNumber()+": conditioning on [-slong,-back] with s=- (-> +long) should be "
+					+ (i < 1 ? "true" : "false") +" for "+currPhEmb.get(0).print()+" but it is "+(i < 1 ? "false" : "true")); 
 			SequentialPhonic correctFTOutput = testFactory.parseSeqPh( i < 2 ? "sː" : "ʉː"), 
 					observedFTOutput = singAlphFmTest.forceTruth(currPhEmb, 0).get(0); 
 			
@@ -830,7 +830,26 @@ public class AlphaTester {
 				+ "\tShould be:"+corrMultiAlphFeatVectResult+"\n"
 				+ "\tObserved :"+fmtest.getFeatVect()); 
 		pointTest("[-voi,+sg]", fmtest+"","Error @"+getLineNumber()+": "+multiAlphOgPrint+" should have become [+voi,-sg] after s = - but it is "+fmtest); 
-		
+		currTestPhStrs = new String[] {"tʰ","t","dʰ","d"};
+		for(int i = 0 ; i < 4 ; i++) {
+			List<SequentialPhonic> currPhEmb = testFactory.parseSeqPhSeg(currTestPhStrs[i]); 
+			pointTest(i < 1, fmtest.compare(currPhEmb.get(0)), 
+					"Error @"+getLineNumber()+": conditioning on "+multiAlphOgPrint+" with s=- should be "
+					+ (i < 1 ? "true" : "false") +" for "+currPhEmb.get(0).print()+" but it is "+(i < 1 ? "false" : "true")); 
+			SequentialPhonic correctFTOutput = testFactory.parseSeqPh("tʰ"), 
+					observedFTOutput = fmtest.forceTruth(currPhEmb, 0).get(0); 
+			
+			pointTest(""+correctFTOutput, ""+observedFTOutput, 
+					"Error @"+getLineNumber()+": result of application should be "+correctFTOutput+" but is "+observedFTOutput); 
+		}
+		fmtest.resetAlphaValues(); 
+		pointTest(multiAlphOgPrint, ""+fmtest, "Error @"+getLineNumber()+": "+multiAlphOgPrint+" should have been reset but it is "+fmtest); 
+		pointTest(multiAlphOgFeatVect, fmtest.getFeatVect(), "Error @"+getLineNumber()+": "+multiAlphOgPrint+"'s feat vector should have been reset but it is not."
+				+ "\n\tShould be: "+multiAlphOgFeatVect+"\n\tObserved : "+fmtest.getFeatVect()); 
+		singAlphFmTest.resetAlphaValues(); 
+		pointTest("["+currAlphDetectStr+"]", ""+singAlphFmTest, "Error @"+getLineNumber()+": ["+currAlphDetectStr+"] should have been reset but it is "+singAlphFmTest); 
+		pointTest(singAlphOgFVect, singAlphFmTest.getFeatVect(), "Error @"+getLineNumber()+": ["+currAlphDetectStr+"] feat vect should be reset but it is not. "
+				+ "\n\tShould be: "+singAlphOgFVect+"\n\tObserved : "+singAlphFmTest.getFeatVect()); 
 		//TODO test alph extr -> appl from singAlphFmTest to fmtest 
 
 		//TODO test alph extr -> appl from fmtest to singAlphFmtest
