@@ -736,7 +736,7 @@ public class AlphaTester {
 		pointTest(true, localAlphabet.length()==2, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 2 but isn't..."); 
 		pointTest("["+currAlphDetectStr+"]", ""+fmtest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr
 				+" should print as such with neg alph proxies removed, but instead we see "+fmtest); 
-		pointTest(fmtest.NULL_PROXY_PAIR, fmtest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+fmtest.getProxyPair("g")); 
+		pointTest(UTILS.NULL_PROXY_PAIR, fmtest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+fmtest.getProxyPair("g")); 
 		pointTest("s", fmtest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+fmtest.getProxyPair(negProxyHere)); 
 		pointTest(negProxyHere, fmtest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+fmtest.getProxyPair(negProxyHere)); 
 		
@@ -773,7 +773,7 @@ public class AlphaTester {
 		String singAlphOgFVect = ""+correctOgFVect; 
 		localAlphabet = singAlphFmTest.getLocalAlphabet();
 		pointTest(true, localAlphabet.length()==1, "Error @"+getLineNumber()+": local alphabet ("+localAlphabet+") should be length 1 but isn't..."); 
-		pointTest(singAlphFmTest.NULL_PROXY_PAIR, singAlphFmTest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+singAlphFmTest.getProxyPair("g")); 
+		pointTest(UTILS.NULL_PROXY_PAIR, singAlphFmTest.getProxyPair("g"), "Error @"+getLineNumber()+" expected niull proxy pair for 'g', got "+singAlphFmTest.getProxyPair("g")); 
 		pointTest("s", singAlphFmTest.getProxyPair(negProxyHere), "Error @"+getLineNumber()+" proxy pair for "+negProxyHere+" should be s but we got "+singAlphFmTest.getProxyPair(negProxyHere)); 
 		pointTest(negProxyHere, singAlphFmTest.getProxyPair("s"), "Error @"+getLineNumber()+" proxy pair for 's' should be '"+negProxyHere+"' but we got "+singAlphFmTest.getProxyPair(negProxyHere)); 
 		pointTest("["+currAlphDetectStr+"]", ""+singAlphFmTest, "Error @"+getLineNumber()+": the fm for "+currAlphDetectStr

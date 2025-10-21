@@ -790,24 +790,30 @@ public class SChangeTester {
 		totalTests = 0; 
 		
 		System.out.println("Testing a format like the above made into a case, to be SChangeFeatAlpha, with alpha polarity (dissimilation)"); 
-		testRuleString = "[-cons,+syl] > [βnas] / __ [-βnas,+cons]"; 
+		testRuleString = "[-cons,csyl] > [βnas] / __ [-βnas,ccons]"; 
 		List<SChange> factoryOutput = testFactory.generateSoundChangesFromRule(testRuleString); 
 		totalTests++; numCorrect += UTILS.checkBoolean(true, factoryOutput.size()==1, "output from "+testRuleString+" should be a single rule but there are "+factoryOutput.size()) ? 1 : 0 ; 
 		testRule = factoryOutput.get(0); 
 		totalTests++; numCorrect += UTILS.checkBoolean(true, (""+testRule.getClass()).contains("SChangeFeatAlpha"), 
 				"Class for rule "+testRuleString+" should be SChangeFeatAlpha but it is "+(""+testRule.getClass()).split(" ")[1]) ? 1 : 0; 
 		
-		String[] inputs = new String[] {"j m","e i m","i j","e m i","i k"};
-		boolean[] inputsInDomain = new boolean[] {true, true, true, true, false}; 
+		String[] inputs = new String[] {"j m","e i m","i j","e m i","i k","j̃ k","j̃ o","j o","j̃ õ"};
+		boolean[] inputsOutsideDomain = new boolean[] {true, true, true, true, false, true, true /*bc won't change*/, false, false}; 
+		String[] corrOutputs = new String[] {"j m","e i m","i j","e m i","ĩ k","j̃ k","j̃ o","j̃ o","j õ"};
 		for (int inpi = 0 ; inpi < inputs.length; inpi++)
 		{
 			totalTests++; 
 			List<SequentialPhonic> inputi = testFactory.parseSeqPhSeg(inputs[inpi]); 
 			List<SequentialPhonic> resulti = testRule.realize(inputi); 
-			numCorrect += UTILS.checkBoolean(inputsInDomain[inpi], 
+			numCorrect += UTILS.checkBoolean(inputsOutsideDomain[inpi], 
 					UTILS.phonSeqsEqual( inputi, resulti), 
-					"Error: mistook '"+inputs[inpi]+"' as "+ (inputsInDomain[inpi] ? "in" : "")+"valid input for rule "+testRule+".\n"+
+					"Error: mistook '"+inputs[inpi]+"' as "+ (inputsOutsideDomain[inpi] ? "in" : "")+"valid input for rule "+testRule+".\n"+
 					"\tInput : "+UTILS.printWord(inputi)+"\n\tOutput: "+UTILS.printWord(resulti)) ? 1 : 0; 
+			if (!inputsOutsideDomain[inpi])
+				numCorrect += UTILS.checkBoolean(true, 
+					UTILS.phonSeqsEqual( testFactory.parseSeqPhSeg(corrOutputs[inpi]) , resulti), 
+					"Errant output!\nInput "+ UTILS.printWord(inputi) +" > "+UTILS.printWord(resulti)+
+					"\n\tShould be : "+UTILS.printWord(testFactory.parseSeqPhSeg(corrOutputs[inpi]))) ? 1 : 0;
 		}
 		
 		/** testing .isMatch is currently complicated because it's not instantiated 
@@ -822,9 +828,9 @@ public class SChangeTester {
 		*/ 
 		
 		//testing realize.
-		Etymon nalphTest = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
-				nalphOg = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
-				nalphCorr = new Etymon(testFactory.parseSeqPhSeg("ã w ẽ t i n"), true); 
+		Etymon nalphTest = new Etymon(testFactory.parseSeqPhSeg("ã ɣʷ w̃ j̃ e t ĩ n"), true),
+				nalphOg = new Etymon(testFactory.parseSeqPhSeg("ã ɣʷ w̃ j̃ e t ĩ n"), true),
+				nalphCorr = new Etymon(testFactory.parseSeqPhSeg("ã ɣʷ w j̃ ẽ t i n"), true); 
 
 		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
 		numCorrect += ruleApplied ? 1 : 0; 
@@ -833,6 +839,13 @@ public class SChangeTester {
 			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" to become "+nalphCorr.print()+", but instead it is "+ nalphTest.print()) ? 1 : 0;
 		}
 		testRule.reset_alphvals_everywhere(); 
+		
+		
+		System.out.println("Done testing in this mode; got "+numCorrect+" out of "+totalTests+" right."); 
+		totalTests = 0; numCorrect =0; 
+		
+		System.out.println("Now testing neg alpha feat handling in SChangePhoneAlpha and SChangeFeatToPhoneAlpha!"); 
+		
 		
 		//testing .realize
 		
