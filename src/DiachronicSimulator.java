@@ -1306,9 +1306,6 @@ public class DiachronicSimulator {
 	{
 		String[][] ruleByEtymGraph = theSimulation.derivationGraph();
 		
-		//TODO debugging
-		System.out.println("made local graph..."); 
-		
 		String filename = new File(runPrefix, 
 				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
 				+ "_rulewise_output_graph.csv").toString(); 
@@ -1467,9 +1464,6 @@ public class DiachronicSimulator {
 		//TODO from protodelta need to fix here with regard to inserted etyma.
 			//TODO figure out what this was referring to...
 		boolean atOutput = curSt == -1; 
-		
-		//TODO debugging
-		System.out.println("hasGoldOutput : "+hasGoldOutput); 
 		
 		if (atOutput && !hasGoldOutput)
 			throw new RuntimeException("Error: attempted to do analysis and diagnostics on final output (as curSt=-1), "

@@ -140,10 +140,6 @@ public abstract class SChange {
 		//otherwise should be overriddent anways. 
 		
 		System.out.println("Warning: in SChange superclass isMatch() method. This exists only for testing compilation purposes -- you should not be here..."); 
-		
-		//TODO debuggin
-		if (1==1) throw new Error("pooop");
-		
 		return false; 
 	}
 	

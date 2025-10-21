@@ -402,9 +402,6 @@ public class DifferentialHypothesisSimulator {
 					} 
 					else if (ilhi == -1 && ilbi > hi && isForwardRelocd(hi,ilbi)) // specific bandaid for error case of current forward relocdation at same index as assertion -- curr forward relocdation to be handled first. 
 					{
-						//TODO debugging
-						System.out.println("Bandaid at bi "+bi+" hi "+hi+" ilbi "+ilbi); 
-						
 						// we know this cannot be a backward relocdation, as ilhi = -1. 
 						unresolved_past_sources.add(ilbi); 
 						locHasPrCh[gi] = true; 

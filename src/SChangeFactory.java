@@ -328,9 +328,6 @@ public class SChangeFactory {
 			//... or if there is a negative alpha without any positive usage: 
 			if (usingAlphFeats)	UTILS.abortOrphanedNegAlphStip(input); 
 			
-			//TODO debugging
-			System.out.println("input : "+inp);
-			
 			// detect if there's negated alphas. 
 			usingNegProxies = UTILS.stringHasNegAlphas(inp); 
 			if (usingNegProxies)
