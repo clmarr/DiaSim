@@ -3,19 +3,17 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
-	
-	protected boolean alphaSubclass()	{return true; }
-	
+		
 	public SChangeFeatToPhoneAlpha(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest, String origForm)
 	{
 		super(ftInds, targSpecs, dest, origForm);
-		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false; 
+		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatToPhoneAlpha(HashMap<String, Integer> ftInds, List<RestrictPhone> targSpecs, List<Phone> dest,
 			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super (ftInds, targSpecs, dest,prior, postr, origForm);	
-		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false;
+		ALPH_VARS = new HashMap<String,String>(); need_to_reset = false;isAlphaSubclass = true;
 	}
 	
 	@Override

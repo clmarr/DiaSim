@@ -345,7 +345,7 @@ public class SChangeFactory {
 				negProxiesInPrior = priorSpecified ? UTILS.stringHasNegAlphas(inputPrior) : false ; 
 				if (negProxiesInPrior)	inputPrior = UTILS.applyNegalphaProxies(inputPrior, currentNegProxies);
 				negProxiesInPostr = postrSpecified ? UTILS.stringHasNegAlphas(inputPostr) : false; 
-				if (negProxiesInPostr)	inputDest = UTILS.applyNegalphaProxies(inputPostr, currentNegProxies);
+				if (negProxiesInPostr)	inputPostr = UTILS.applyNegalphaProxies(inputPostr, currentNegProxies);
 			}
 			
 		}	
@@ -362,7 +362,7 @@ public class SChangeFactory {
 		if(UTILS.isValidFeatSpecList(inputSource, usingNegProxies)) //input consists of naught but a feat spec list -- we are likely dealing with a SChangeFeat then but it could be an SChangeFeatToPhone
 		{
 			RestrictPhone theDest = parseSinglePhonicDest(inputDest); 
-			
+
 			theDest.setAsOutput();	// allow despecification only for outputs of rules
 			
 			// note that parseSinglePhonicDest returns a word bound "#" 
@@ -377,6 +377,7 @@ public class SChangeFactory {
 						new SChangeFeat(getFeatMatrix(negProxiesInInpSrc, inputSource), theDest, boundsMatter, inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+				if (usingNegProxies)	thisShift.setNegAlphProxies(currentNegProxies);
 				outputToCasc.add(thisShift); 
 				return outputToCasc;  
 			}
@@ -389,6 +390,7 @@ public class SChangeFactory {
 				//errors will be caught by exceptions in parsePhoneSequenceForDest
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+			if (usingNegProxies)	thisShift.setNegAlphProxies(currentNegProxies);
 			outputToCasc.add(thisShift); 
 			return outputToCasc;  
 		}
@@ -409,6 +411,7 @@ public class SChangeFactory {
 									parseRestrictPhoneSequence(inputDest,true), inp); 
 				if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+				if (usingNegProxies)	thisShift.setNegAlphProxies(currentNegProxies);
 				outputToCasc.add(thisShift); 
 				return outputToCasc;  
 			}
@@ -420,6 +423,7 @@ public class SChangeFactory {
 							parsePhoneSequenceForDest(inputDest), inp); 
 			if(priorSpecified) thisShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) thisShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+			if (usingNegProxies)	thisShift.setNegAlphProxies(currentNegProxies);
 			outputToCasc.add(thisShift); 
 			return outputToCasc;  
 		}
@@ -446,6 +450,7 @@ public class SChangeFactory {
 									parseRestrictPhoneSequence(inputDest, true), inp);
 					if (priorSpecified) nextShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 					if (postrSpecified) nextShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter)); 
+					if (usingNegProxies)	nextShift.setNegAlphProxies(currentNegProxies);
 					outputToCasc.add(nextShift); 
 				}
 				return outputToCasc; 
@@ -463,6 +468,7 @@ public class SChangeFactory {
 				if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 				if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
 				outputToCasc.add(newShift); 
+				if (usingNegProxies)	newShift.setNegAlphProxies(currentNegProxies); //TODO probably superfluous, may need to reexamine. 
 				return outputToCasc;
 			}
 			
@@ -474,6 +480,7 @@ public class SChangeFactory {
 			SChangePhone newShift = new SChangePhone(sourceDisjuncts, destMutations, inp);
 			if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 			if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+			if (usingNegProxies)	newShift.setNegAlphProxies(currentNegProxies); //TODO probably superfluous, may need to reexamine. 
 			outputToCasc.add(newShift); 
 			return outputToCasc;
 		}
@@ -490,6 +497,7 @@ public class SChangeFactory {
 				: new SChangePhone(sourceDisjuncts, destDisjuncts, inp); 
 		if(priorSpecified) newShift.setPriorContext(parseNewSeqFilter(inputPrior, boundsMatter)); 
 		if(postrSpecified) newShift.setPostContext(parseNewSeqFilter(inputPostr, boundsMatter));
+		if (usingNegProxies)	newShift.setNegAlphProxies(currentNegProxies);
 		outputToCasc.add(newShift); 
 		return outputToCasc;
 	}

@@ -829,24 +829,23 @@ public class SequentialFilter {
 		
 
 	/** 
-	 * 
 	 * @param alph -- an alpha variable
 	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
-	public String NULL_PROXY_PAIR = "!";
 	public String getProxyPair (String alph)
 	{
-		if (!hasNegAlphProxies())	return NULL_PROXY_PAIR; 
-		if (negProxyAlphas.containsKey(alph))
+		return !hasNegAlphProxies() ? UTILS.NULL_PROXY_PAIR :
+			UTILS.getProxyPair(alph, negProxyAlphas) ;
+		/**if (negProxyAlphas.containsKey(alph))
 			return negProxyAlphas.get(alph); 
 		if (negProxyAlphas.containsValue(alph))	
 			for (String pxi : negProxyAlphas.keySet()) 
 				if (negProxyAlphas.get(pxi).equals(alph))
 					return pxi; 
-		return NULL_PROXY_PAIR;
+		return NULL_PROXY_PAIR;*/
 	}
-	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(NULL_PROXY_PAIR);	}
+	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(UTILS.NULL_PROXY_PAIR);	}
 	
 	
 	/**
@@ -855,10 +854,10 @@ public class SequentialFilter {
 	 */
 	public boolean alphaOnlyInParentheses(String alpha)
 	{
-		String candProxy = hasNegAlphProxies() ? getProxyPair (alpha) : NULL_PROXY_PAIR; 
+		String candProxy = hasNegAlphProxies() ? getProxyPair (alpha) : UTILS.NULL_PROXY_PAIR; 
 		String alph = localAlphSpecs.containsKey(alpha) ? alpha : candProxy; 
 		
-		if (alph.equals(NULL_PROXY_PAIR)) // if it's this, then alpha is neither a valid alpha spec nor a proxy for one. 
+		if (alph.equals(UTILS.NULL_PROXY_PAIR)) // if it's this, then alpha is neither a valid alpha spec nor a proxy for one. 
 				throw new Error("Error: tried to check if an inexistent alpha ("+alpha+")is only parenthetical"); 
 		
 		if (!parenthesizedAlphas.contains(alph))	return false; 
@@ -1043,9 +1042,7 @@ public class SequentialFilter {
 	{
 		if (!hasAlphaSpecs())	return; 
 		for (String alph: alphVals.keySet()) {
-			
 			specifyLocalAlph(alph, alphVals.get(alph)); 
-			
 		}
 		
 		//the below should be trivial, but uncomment as bandaid if errors of lack of coverage arise if need quick fix
@@ -1070,7 +1067,7 @@ public class SequentialFilter {
 	/**
 	 * centralize handling (for efficiency of debugging, etc.) of setting an alpha value in localAlphSpecs 
 	 * @param alph -- alpha value that will be reset
-	 * @param newVal -- new setting 
+	 * @param newVal -- new setting  (0/1/2/9) 
 	 * @modifies @global @localAlphSpecs
 	 * handles local neg alpha proxy policy within 
 	 * 		- automatically adds any alpha proxies! 
@@ -1094,9 +1091,12 @@ public class SequentialFilter {
 		specifyAlphViaNegProxy(alph, newVal, modifyPlaceRestrs); 
 	}
 	
-	// auxiliiary for specifyLocalAlph, specifyAlphViaNegProxy
+	// auxiliary for specifyLocalAlph, specifyAlphViaNegProxy
 	private void putLocalAlph(String a, String nv, boolean modifyPRs)
 	{
+		//TODO debugging
+		System.out.println("putting for local alph "+a+", val "+nv+", modify place rstrs?" +modifyPRs);
+		
 		boolean resetting = nv.equals(UNSET_ALPHVAL); 
 		if (!resetting) UTILS.abortInvalidFtIntStr(nv); 
 		
@@ -1123,9 +1123,9 @@ public class SequentialFilter {
 	public void specifyAlphViaNegProxy(String prAlph, String prVal, boolean modifyPlaceRestrs)
 	{
 		String targAlph = getProxyPair(prAlph); 
-		if (targAlph.equals(NULL_PROXY_PAIR))	return; 
+		if (targAlph.equals(UTILS.NULL_PROXY_PAIR))	return; 
 		/*else*/ 
-		String targVal = prVal.equals(UNSET_ALPHVAL) ? "" : ""+UTILS.getOppFtInt(prVal);
+		String targVal = prVal.equals(UNSET_ALPHVAL) ? UNSET_ALPHVAL : ""+UTILS.getOppFtInt(prVal);
 		putLocalAlph(targAlph, targVal, modifyPlaceRestrs); 
 	}
 

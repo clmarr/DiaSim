@@ -3,40 +3,38 @@ import java.util.HashMap;
 import java.util.List;
 
 public class SChangeFeatAlpha extends SChangeFeat {
-	
-	protected boolean alphaSubclass()	{return true; }
-	
+		
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, origForm);	
 		ALPH_VARS = new HashMap<String, String>(); 
-		need_to_reset = false;
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			boolean bm, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, bm, origForm);
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false;
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, priors, postrs,  origForm); 
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false;
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(List<String> ordFts, String targSpecs, String destSpecs, 
 			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(ordFts, targSpecs, destSpecs, bm, priorContxt, postContxt, origForm);
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false; 
+		need_to_reset = false;  isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, String origForm)
 	{	super(source, dest, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest,
@@ -44,7 +42,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	{
 		super(source, dest, bm, origForm);
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, 
@@ -52,14 +50,14 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	{	
 		super(source, dest, priorContxt, postContxt, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeFeatAlpha(RestrictPhone source, RestrictPhone dest, 
 			boolean bm, SequentialFilter priorContxt, SequentialFilter postContxt, String origForm)
 	{	super(source, dest, priorContxt, postContxt, bm, origForm); 
 		ALPH_VARS = new HashMap<String, String>();
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 		
 	//Realization
@@ -106,6 +104,12 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				}
 				else
 				{
+					//TODO debugging
+					if (destination.has_alpha_specs()) {
+						System.out.println("dest alphas... "+destination.getAlphaVars().size());
+						System.out.println("... "+destination.getAlphaVars().get(0)); 
+					}
+					
 					res.add(destination.forceTruth(input, p).get(p));
 					p++; 
 				}
@@ -141,8 +145,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			else 
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
-				targSource.applyAlphaValues(ALPH_VARS);
-				destination.applyAlphaValues(ALPH_VARS);
+				set_alphvals_everywhere(); 
 				need_to_reset = true;
 			}
 		}
@@ -157,7 +160,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			// process alpha specs for prior if necessary...
 			if (priorContext.hasAlphaSpecs())
 			{
-				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS);
+				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS); // probably redundant with earlier application from input but alas. 
 				List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 				String[] pripm = priorContext.getParenMap(); 
 				int cpic = ind - 1, // candidate at prior index counter
@@ -186,7 +189,10 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							
 							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(cpi));
 							need_to_reset = true;
-							priorContext.applyAlphaValues(ALPH_VARS);
+							set_alphvals_everywhere(); 
+							/**priorContext.applyAlphaValues(ALPH_VARS);
+							if (postSpecd ? postContext.hasAlphaSpecs() : false) postContext.applyAlphaValues(ALPH_VARS);
+							destination.applyAlphaValues(ALPH_VARS);*/
 							pripr = priorContext.getPlaceRestrs();
 						}
 					}					
@@ -209,7 +215,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			if (postContext.hasAlphaSpecs())
 			{
 				if (need_to_reset)	// alpha values already set from input/source, or from prior context... 
-					postContext.applyAlphaValues(ALPH_VARS); 	
+					postContext.applyAlphaValues(ALPH_VARS); 	 // probalby redundant, keeping it for now... 
 				List<RestrictPhone> popr = postContext.getPlaceRestrs();
 				String[] popm = postContext.getParenMap();
 				int cpic = ind + minInputSize, // before July 25 2024 was ind + inpSize but that was probably an error. 
@@ -236,11 +242,24 @@ public class SChangeFeatAlpha extends SChangeFeat {
 								if (need_to_reset)	reset_alphvals_everywhere(); 
 								return false; 
 							}
-						
+
+							//TODO debugging
+							System.out.println("Extracting/applying posterior alphas..."); 
+							System.out.println("Dest ... "+destination+"; vect : "+destination.getFeatVect()); 
+							
 							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(cpi));
-							need_to_reset = true;
-							postContext.applyAlphaValues(ALPH_VARS); 
+							set_alphvals_everywhere(); 
+							/** need_to_reset = true;
+							* postContext.applyAlphaValues(ALPH_VARS); 
+							* destination.applyAlphaValues(ALPH_VARS);*/
+							
 							popr = postContext.getPlaceRestrs();
+							
+							//TODO debugging
+							System.out.println("Size of alph vars was : "+ALPH_VARS.size()); 
+							System.out.println("Extracted/applied posterior alphas..."); 
+							System.out.println("Dest ... "+destination+"; vect : "+destination.getFeatVect()); 
+							
 						}
 					}
 					cpic++; crp++; cpim++; 
@@ -259,6 +278,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		}
 		
 		if (destination.has_alpha_specs() && need_to_reset)	destination.applyAlphaValues(ALPH_VARS); 
+			//TODO may need to make this apply via negAlphProxies too. 
 		return true;
 	}
 
@@ -267,6 +287,42 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		super.reset_alphvals_everywhere(); 
 		targSource.resetAlphaValues();
 		destination.resetAlphaValues();
+	}
+	
+	//sets everything based one what's currently in ALPH_VARS
+	// accounts for neg proxy pairs 
+	public void set_alphvals_everywhere()
+	{
+		if (ALPH_VARS.size() == 0)	return; 
+		
+		targSource.applyAlphaValues(ALPH_VARS);
+		destination.applyAlphaValues(ALPH_VARS);
+		if (priorSpecd ? priorContext.hasAlphaSpecs() : false) priorContext.applyAlphaValues(ALPH_VARS);
+		if (postSpecd ? postContext.hasAlphaSpecs() : false) postContext.applyAlphaValues(ALPH_VARS);
+		need_to_reset = true; 
+		
+		// handling any proxy pairs for extra security -- especially applies to FeatMatrix instances. 
+		if (!hasNegAlphProxies())	return; 
+		
+		HashMap<String, String> NEG_PROX_ADDENDA = new HashMap<String, String>(); 
+				
+		for (String avki : ALPH_VARS.keySet())
+		{
+			String proxPair = UTILS.getProxyPair(avki, NEG_ALPH_PROXIES); 
+			if (proxPair.equals(UTILS.NULL_PROXY_PAIR) ? false 
+					: !ALPH_VARS.containsKey(proxPair) && UTILS.POLAR_FTVECT_INTS.contains(ALPH_VARS.get(avki)))
+				NEG_PROX_ADDENDA.put(proxPair, ""+UTILS.getOppFtInt(ALPH_VARS.get(avki))); 
+		}
+
+		//TODO debugging
+		System.out.println("Neg prox addenda ... size "+NEG_PROX_ADDENDA.size());
+		
+		if(NEG_PROX_ADDENDA.size() == 0)	return; 
+		
+		targSource.applyAlphaValues(NEG_PROX_ADDENDA);
+		destination.applyAlphaValues(NEG_PROX_ADDENDA);
+		if (priorSpecd ? priorContext.hasAlphaSpecs() : false) priorContext.applyAlphaValues(NEG_PROX_ADDENDA);
+		if (postSpecd ? postContext.hasAlphaSpecs() : false) postContext.applyAlphaValues(NEG_PROX_ADDENDA);
 	}
 	
 }

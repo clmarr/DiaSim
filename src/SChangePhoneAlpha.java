@@ -4,34 +4,32 @@ import java.util.List;
 
 public class SChangePhoneAlpha extends SChangePhone {
 
-	protected boolean alphaSubclass()	{return true; }
-
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, String origForm)
 	{
 		super(targs, dests, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false;
+		need_to_reset = false;isAlphaSubclass = true;
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, List<List<SequentialPhonic>> dests, SequentialFilter priors, SequentialFilter postrs, String origForm)
 	{
 		super(targs, dests, priors, postrs, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, String origForm)
 	{
 		super(targs, mutations, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangePhoneAlpha(List<List<SequentialPhonic>> targs, ArrayList<RestrictPhone> mutations, SequentialFilter prior, SequentialFilter postr, String origForm)
 	{
 		super(targs, mutations, prior, postr, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	@Override

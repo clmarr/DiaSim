@@ -345,7 +345,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * as of 9/30/25 -- also resets the proxy or proxied pair. 
 	 */
 	public void resetAlphVal (char alph) {
-		char proxPair = (hasNegProxyAlphs() ? getProxyPair(""+alph) : NULL_PROXY_PAIR).charAt(0); 
+		char proxPair = (hasNegProxyAlphs() ? getProxyPair(""+alph) : UTILS.NULL_PROXY_PAIR).charAt(0); 
 		for (int ispi = 0 ; ispi < initSpecs.length() ; ispi++)
 		{
 			if (initSpecs.charAt(ispi) == alph)
@@ -445,19 +445,20 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
-	public String NULL_PROXY_PAIR = "!";
 	public String getProxyPair (String alph)
-	{
+	{	
+		if (!hasNegProxyAlphs())	return  UTILS.NULL_PROXY_PAIR; 
+		return UTILS.getProxyPair(alph, negProxyAlphs); 
+		
+		/**
 		if (!hasNegProxyAlphs())	return NULL_PROXY_PAIR; 
-		if (negProxyAlphs.containsKey(alph))
-			return negProxyAlphs.get(alph); 
+		if (negProxyAlphs.containsKey(alph))	return negProxyAlphs.get(alph); 
 		if (negProxyAlphs.containsValue(alph))	
 			for (String pxi : negProxyAlphs.keySet()) 
-				if (negProxyAlphs.get(pxi).equals(alph))
-					return pxi; 
-		return NULL_PROXY_PAIR;
+				if (negProxyAlphs.get(pxi).equals(alph)) return pxi; 
+		return NULL_PROXY_PAIR;*/
 	}
-	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(NULL_PROXY_PAIR);	}
+	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(UTILS.NULL_PROXY_PAIR);	}
 	
 	@Override
 	/** 
@@ -479,8 +480,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			for (String avi : alphVals.keySet())
 			{
 				String proxPair = getProxyPair(avi); // '!' if there is none. 
-				if (proxPair.equals(NULL_PROXY_PAIR))	continue; 
-				
+				if (proxPair.equals(UTILS.NULL_PROXY_PAIR))	continue; 
 				
 				String vali = alphVals.get(avi); 
 				String oppVal = "" +  UTILS.getOppFtInt(vali);  // opposite value if polar (0 ~ -/ 2 ~ +), otherwise same

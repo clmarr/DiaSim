@@ -6,7 +6,6 @@ import java.util.function.Function;
 
 public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	
-	protected boolean alphaSubclass()	{return true; }
 	/**
 	 * In master class: 
 	 * protected List<RestrictPhone> targSource, destSpecs;
@@ -19,20 +18,20 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	{
 		super(trgsrc, dstSpcs, origForm); 
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false; 
+		need_to_reset = false; isAlphaSubclass = true;
 	}
 	
 	public SChangeSeqToSeqAlpha( List<RestrictPhone> trgsrc, List<RestrictPhone> dstSpcs,
 			SequentialFilter prior, SequentialFilter postr, String origForm)
 	{	super(trgsrc, dstSpcs, prior, postr, origForm);
 		ALPH_VARS = new HashMap<String,String>(); 
-		need_to_reset = false;
+		need_to_reset = false;isAlphaSubclass = true;
 	}
 	
 	@Override
 	// note that this should always operate on an input headed by # and closed also by # 
 	// neg proxy alpha handling all done within FeatMatrix and SequentialFilter, 
-			// but requires that htey are constructed correctly with the same neg proxy alpha mapping.
+			// but requires that they are constructed correctly with the same neg proxy alpha mapping.
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
 		int inpSize = input.size(); 
@@ -248,13 +247,13 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 	}
 	
 
-	private RestrictPhone applyAlph(RestrictPhone inp)
+	private RestrictPhone applyAlphToInput(RestrictPhone inp)
 	{
 		inp.applyAlphaValues(ALPH_VARS);
 		return inp; 
 	}
 	
-	private final Function<RestrictPhone,RestrictPhone> APPLY_ALPHAS = a -> applyAlph(a); 
+	private final Function<RestrictPhone,RestrictPhone> APPLY_ALPHAS = a -> applyAlphToInput(a); 
 	
 	//uses global ALPH_VARS
 	public void mapAlphVals()

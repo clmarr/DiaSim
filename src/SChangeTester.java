@@ -803,6 +803,10 @@ public class SChangeTester {
 		Etymon nalphTest = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
 				nalphOg = new Etymon(testFactory.parseSeqPhSeg("ã w e t ĩ n"), true),
 				nalphCorr = new Etymon(testFactory.parseSeqPhSeg("ã w ẽ t i n"), true); 
+
+		System.out.println("testRule .. "+testRule.toString()); 
+		System.out.println("testRule as input... "+testRule.orig); 
+		
 		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
 		numCorrect += ruleApplied ? 1 : 0; 
 		if(ruleApplied) {
@@ -827,7 +831,6 @@ public class SChangeTester {
 		///TODO test things... but first debug the bullshit that will definitely ensue. 
 
 	}
-
 	
 	public static FeatMatrix newFM(String specs)
 	{	return new FeatMatrix(specs, Arrays.asList(UTILS.featsByIndex));	}

@@ -1438,6 +1438,27 @@ public class UTILS {
 		return output; 
 	}
 	
+	/** 
+	 * @param alph -- an alpha variable
+	 * @param negProxyAlphas -- key is proxy character, value is proxied character. 
+	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
+	 * 			@else @return the proxy/proxied alpha variable 
+	 */
+	public static final String NULL_PROXY_PAIR = "!";
+	public static String getProxyPair (String alph, HashMap<String, String> negProxyAlphas)
+	{
+		if (negProxyAlphas.size() == 0)	return NULL_PROXY_PAIR; 
+		if (negProxyAlphas.containsKey(alph))
+			return negProxyAlphas.get(alph); 
+		if (negProxyAlphas.containsValue(alph))	
+			for (String pxi : negProxyAlphas.keySet()) 
+				if (negProxyAlphas.get(pxi).equals(alph))
+					return pxi; 
+		return NULL_PROXY_PAIR;
+	}
+	public boolean hasProxyPair (String alph, HashMap<String, String> negProxyAlphas)
+	{ return !getProxyPair(alph, negProxyAlphas).equals(NULL_PROXY_PAIR);	}
+	
 	/**
 	 * 
 	 * @param specString -- string of specs (not in []), delimited by FEAT_DELIM> 
