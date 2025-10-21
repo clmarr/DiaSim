@@ -1317,9 +1317,6 @@ public class UTILS {
 			String pphere = protophones[ppi].strip(); 
 			if (pphere.equals(""))	continue;
 			
-			//TODO debugging
-			System.out.println("pph here : "+protophones[ppi]);
-			
 			String curpp = stripRecursionAndDisjunctionFromSegmental(protophones[ppi]);
 			if(curpp.charAt(0) == '[')
 			{
