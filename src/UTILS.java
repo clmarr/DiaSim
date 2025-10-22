@@ -18,13 +18,13 @@ import java.util.HashMap;
 
 public class UTILS {
 
-	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ','; 
+	public final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',', MARK_ALPHNEG = '!'; 
 	public final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1, DESPEC_INT = 9; 
 	public final static char UNSPEC_INT_CHAR = (""+UNSPEC_INT).charAt(0), DESPEC_INT_CHAR = (""+DESPEC_INT).charAt(0); 
 	public final static String POLAR_FTVECT_INTS = ("" + POS_INT) + NEG_INT,
-								POLAR_FTSPEC_MARKS = "" + MARK_POS + MARK_NEG; 
+								POLAR_FTSPEC_MARKS = "" + MARK_POS + MARK_NEG + MARK_ALPHNEG; 
 	public final static String ALL_FTVECT_INTS = (POLAR_FTVECT_INTS + UNSPEC_INT) + DESPEC_INT,
-							ALL_FTSPEC_MARKS = ""+MARK_POS+MARK_NEG+MARK_UNSPEC;
+							ALL_FTSPEC_MARKS = ""+POLAR_FTSPEC_MARKS + MARK_UNSPEC;
 
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
@@ -1403,8 +1403,8 @@ public class UTILS {
 	public static String applyNegalphaProxies (String str, HashMap<String, String> proxies) 
 	{
 		String output = str+""; 
-		if (str.charAt(0) == '-' && !isValidFeatSpecList(str, true)) // unless 
-			throw new Error ("Tried to apply negative alpha proxy to a rule or filter that starts with '-'."
+		if ((str.charAt(0) == MARK_NEG || str.charAt(0) == MARK_ALPHNEG) && !isValidFeatSpecList(str, true)) // unless 
+			throw new Error ("Tried to apply negative alpha proxy to a rule or filter that starts with "+MARK_NEG+" or "+MARK_ALPHNEG+"."
 					+ "This should never have existed in the first place. Input was:\n\t"
 					+ str); 
 		
@@ -1412,13 +1412,17 @@ public class UTILS {
 		{
 			for (String ftj : ordFeatNames)
 			{
-				String toReplace = MARK_NEG+proxies.get(pxi)+ftj; 
-				while (output.contains(toReplace))
+				for (String negmark : new String[] {""+MARK_NEG, ""+MARK_ALPHNEG}) 
 				{
-					int loc = output.indexOf(toReplace); 
-					output = output.substring(0, loc) + pxi
-							+ output.substring(loc + (MARK_NEG+proxies.get(pxi)).length());  
-				}			// ^ latter addend SHOULD alwyas be 2 , but just in case...	
+					String toReplace = negmark +proxies.get(pxi)+ftj; 
+					while (output.contains(toReplace))
+					{
+						int loc = output.indexOf(toReplace); 
+						output = output.substring(0, loc) + pxi
+								+ output.substring(loc + (negmark+proxies.get(pxi)).length());
+						// ^ latter addend SHOULD alwyas be 2 , but just in case...	
+					}
+				}			
 			}
 		}
 		return output; 
@@ -1427,27 +1431,27 @@ public class UTILS {
 	public static String decodeNegalphaProxies (String str, HashMap<String, String> proxies) 
 	{
 		String output = str+"";  
-		if (str.charAt(0) == MARK_NEG) {
+		if (str.charAt(0) == MARK_NEG || str.charAt(0) == MARK_ALPHNEG) {
 			if (isValidFeatSpecList(str, true)) // unless 
 				return decodeNegAlphProxiesInFeatString(str, proxies); 
-			else throw new Error ("Tried to de-apply negative alpha proxy to a rule or filter that starts with '-'."
+			else throw new Error ("Tried to de-apply negative alpha proxy to a rule or filter that starts with '"+MARK_NEG+"'."
 					+ "This should never have existed in the first place. Input was:\n\t"
 					+ str); }
 		
 		for (String pxi : proxies.keySet())
 			for (String ftj : ordFeatNames)
 				for (String chBefore : new String[]{"[",""+FEAT_DELIM})
-					output = output.replace(chBefore+pxi+ftj, chBefore+MARK_NEG+proxies.get(pxi)+ftj); 
+					output = output.replace(chBefore+pxi+ftj, chBefore+MARK_ALPHNEG+proxies.get(pxi)+ftj); 
 		return output; 
 	}
 	
 	/** 
 	 * @param alph -- an alpha variable
 	 * @param negProxyAlphas -- key is proxy character, value is proxied character. 
-	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
+	 * @return ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
-	public static final String NULL_PROXY_PAIR = "!";
+	public static final String NULL_PROXY_PAIR = "∅";
 	public static String getProxyPair (String alph, HashMap<String, String> negProxyAlphas)
 	{
 		if (negProxyAlphas.size() == 0)	return NULL_PROXY_PAIR; 
@@ -1472,11 +1476,11 @@ public class UTILS {
 	public static String decodeNegAlphProxiesInFeatString(String specString, HashMap<String, String> negProxies)
 	{
 		String output = negProxies.containsKey(specString.substring(0,1)) ?
-				MARK_NEG + negProxies.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
+				MARK_ALPHNEG + negProxies.get(specString.substring(0,1)) + specString.substring(1) : ""+specString; 
 		for (String pxi : negProxies.keySet())
 			while (output.contains(FEAT_DELIM + pxi))
 				output = output.substring(0, 1+output.indexOf(FEAT_DELIM+pxi)) 
-					+ MARK_NEG + negProxies.get(pxi) + output.substring(output.indexOf(FEAT_DELIM+pxi)+2); 
+					+ MARK_ALPHNEG + negProxies.get(pxi) + output.substring(output.indexOf(FEAT_DELIM+pxi)+2); 
 		return output; 
 	}
 	
@@ -1499,7 +1503,7 @@ public class UTILS {
 	 * @precondition ordFeatNames is filled (e.g. extractSymbDefs() has been called, and feat list we're operating is functionally what it extracted.
 	 * @param spec feature stipulation : e.g. -βvoi etc. 
 	 * @return @true iff it is an alpha feature preposed in a certain way (+, -, 0)- - 
-	 * 	e.g. '-' + alpha character + feature -- meaning the character at 1 is the alpha value.
+	 * 	e.g. '-'/! + alpha character + feature -- meaning the character at 1 is the alpha value.
 	 */
 	public static boolean spec_is_preposed_alpha_marked (String fspec, char prep)
 	{
@@ -1513,7 +1517,7 @@ public class UTILS {
 			return false;  // note that this means, if one has a feature "lng" and another feature "slng", using 's' as an alpha variable will not work. One assumes the user isn't this stupid though.
 		if (spec.length() < 3)
 			throw new Error("Error: tried to check for "
-					+ (prep==MARK_NEG ? "negative" : prep==MARK_POS ? "positive" : "demarked")
+					+ (prep==MARK_NEG || prep == MARK_ALPHNEG ? "negative" : prep==MARK_POS ? "positive" : "demarked")
 					+ " alpha stipulation on '"+spec+"'...\n\t"
 					+ "...but the symbol '"+spec.charAt(1)+"' is not a feature, and with only 2 characters it cannot be anything valid.\n"
 							+ "Please check your cascade for something wrong, and if there is nothing, flag this error for investigation..."); 
@@ -1522,7 +1526,7 @@ public class UTILS {
 	}
 	
 	public static boolean spec_is_neg_alpha_marked (String spec)
-	{	return spec_is_preposed_alpha_marked(spec, MARK_NEG);	}
+	{	return spec_is_preposed_alpha_marked(spec, MARK_NEG) || spec_is_preposed_alpha_marked(spec, MARK_ALPHNEG);	}
 	public static boolean spec_is_unspec_alpha_marked (String spec)
 	{	return spec_is_preposed_alpha_marked(spec, MARK_UNSPEC);	}
 	
@@ -1534,9 +1538,10 @@ public class UTILS {
 	public static char getNegatedAlpha (String fspec)
 	{
 		if (fspec.length() < 3 ? true : 
-			fspec.charAt(0) != MARK_NEG || !ordFeatNames.contains(fspec.substring(2)) || ILLEGAL_ALPHAS.contains(fspec.charAt(1)+""))
+			(fspec.charAt(0) != MARK_NEG && fspec.charAt(0) != MARK_ALPHNEG) 
+			|| !ordFeatNames.contains(fspec.substring(2)) || ILLEGAL_ALPHAS.contains(fspec.charAt(1)+""))
 			throw new Error("Tried to detect negated alpha variable for a string that cannot be a stipulation with a negated alpha: '"+fspec+"'."
-					+ "\n(Should be : '"+MARK_NEG+"' + alph var + a valid feature'...)"); 
+					+ "\n(Should be : '"+MARK_NEG+"'/'"+MARK_ALPHNEG+"' + alph var + a valid feature'...)"); 
 		
 		return fspec.charAt(1); 
 	}
@@ -2288,7 +2293,7 @@ public class UTILS {
 						theFeatSpecs = output.trim().split(""+RESTR_DELIM); 		
 			}}}
 			
-			if("+-".contains(currSpec.substring(0,1)))
+			if(UTILS.POLAR_FTSPEC_MARKS.contains(currSpec.substring(0,1)))
 			{
 				if(featsWithImplications.contains(currSpec.substring(1)))
 				{

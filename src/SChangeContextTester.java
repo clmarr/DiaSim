@@ -13,9 +13,7 @@ public class SChangeContextTester {
 
 	//excludes all material dealing with feature implications 
 
-	//private final static char MARK_POS = '+', MARK_NEG = '-', MARK_UNSPEC = '0', FEAT_DELIM = ',';
 	private final static char PH_DELIM = ' '; 
-	//private final static int POS_INT = 2, NEG_INT = 0, UNSPEC_INT = 1;
 	private static List<String> featNames; 
 	//local symb-to-feats and vice versa maps abrogated, now in UTILS: 	private static HashMap<String, String> phoneSymbToFeatsMap,  phoneFeatsToSymbMap;
 			// likewise: private static HashMap<String, Integer> featIndices;private static String[] featsByIndex; 

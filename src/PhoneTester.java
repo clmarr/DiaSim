@@ -207,7 +207,7 @@ public class PhoneTester {
 			char stip_val = curr_stip.charAt(0); 
 			int featLoc = featureIndices.get(curr_feat);
 			agreements = agreements.substring(0, featLoc) + 
-					(stip_val == '+' ? 2 : (stip_val == '-' ? 0 : 9)) 
+					(stip_val == UTILS.MARK_POS ? 2 : (stip_val == UTILS.MARK_NEG ? 0 : 9)) 
 					+ agreements.substring(featLoc+1); 
 		}
 		

@@ -607,6 +607,7 @@ public class AlphaTester {
 		pointTest(false,UTILS.spec_is_alpha_marked("0sg"), "Spurious detection of alpha marking on feature"); 
 		pointTest(true,UTILS.spec_is_alpha_marked("βvoi"), "Failed to detect alpha marking on feature"); 
 		pointTest(true,UTILS.spec_is_alpha_marked("+ɣhi"), "Failed to detect alpha marking on feature"); 
+		pointTest(true,UTILS.spec_is_alpha_marked("!ɣhi"), "Failed to detect alpha marking on feature"); 
 		pointTest(false,UTILS.spec_is_preposed_alpha_marked("+voi", '+'), "Spurious detection of alpha marking on feature"); 
 		pointTest(false,UTILS.spec_is_preposed_alpha_marked("-son",'-'), "Spurious detection of alpha marking on feature"); 
 		pointTest(false,UTILS.spec_is_preposed_alpha_marked("0sg",'0'), "Spurious detection of alpha marking on feature"); 
@@ -614,6 +615,7 @@ public class AlphaTester {
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("+ɣhi",'+'), "Failed to detect alpha marking on feature"); 
 		pointTest(false,UTILS.spec_is_preposed_alpha_marked("+ɣhi",'-'), spuriousAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("-ðcons", '-'), undetectedAlphMsg); 
+		pointTest(true,UTILS.spec_is_preposed_alpha_marked("!ðcons", '!'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_preposed_alpha_marked("0ðdistr", '0'), undetectedAlphMsg); 
 		pointTest(true,UTILS.spec_is_neg_alpha_marked("-ðcons"), undetectedAlphMsg); 
 		pointTest(true,UTILS.getNegatedAlpha("-ðcons") == 'ð', "Failed to detect right negated alpha ð via UTILS.getNegatedAlpha");
@@ -714,7 +716,7 @@ public class AlphaTester {
 		System.out.println("Testing simple feat matrix construction with neg and pos alpha characters in the feat specs..."); 
 		initTestBatch(); 
 		System.out.println("Testing with feat matrix: [s voiced , -s aspirated]");
-		currAlphDetectStr = "svoi,-ssg"; 
+		currAlphDetectStr = "svoi,!ssg"; 
 		HashMap<String, String> nAlphMapTester = UTILS.createNegProxyAlphabet("["+currAlphDetectStr+"]"); 
 		fmtest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
 		pointTest(true, fmtest.has_alpha_specs(), 
@@ -754,7 +756,7 @@ public class AlphaTester {
 		
 		System.out.println("Testing with feat matrix: [-s long , - back]");
 		
-		currAlphDetectStr = "-slong,-back";
+		currAlphDetectStr = "!slong,-back";
 		FeatMatrix singAlphFmTest = UTILS.getFeatMatrix(currAlphDetectStr,true, nAlphMapTester);
 		pointTest(true, singAlphFmTest.has_alpha_specs(), 
 				"Error @"+getLineNumber()+": alpha specs not detected for neg alpha proxied feat matrix!"); 
@@ -886,7 +888,7 @@ public class AlphaTester {
 				"Error @"+getLineNumber()+": mismatch between correct proxied string and what we actually got from the method.\n"
 						+ "Correct : " + correctProxiedString
 						+ "\nObserved : "+outputProxiedString); 
-		pointTest(currAlphDetectStr, UTILS.decodeNegalphaProxies(correctProxiedString, nAlphMapTester),
+		pointTest(currAlphDetectStr, UTILS.decodeNegalphaProxies(correctProxiedString, nAlphMapTester).replace(UTILS.MARK_ALPHNEG+"", UTILS.MARK_NEG+""),
 				"Error @"+getLineNumber()+": mismatch between correct negalph-proxy-decoded string and what we actually got from the method.\n"
 						+ "Correct  : " + currAlphDetectStr
 						+ "\nObserved : "+UTILS.decodeNegalphaProxies(correctProxiedString, nAlphMapTester)); 

@@ -321,7 +321,7 @@ public class SChangeFactory {
 		{
 			// throw error if an alpha value is used only once: 
 			if (ruleStringHasUnmatchedAlpha(input))
-				throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '.' and '0' will be treated as alpha!"
+				throw new Error("Error: there is an alpha feature used only once in this rule. Note that characters before features other than '+', '-', '!', '.' and '0' will be treated as alpha!"
 						+ "\nThe rule: "+input); 	
 
 			//neg proxy handling as necessary. 

@@ -830,7 +830,7 @@ public class SequentialFilter {
 
 	/** 
 	 * @param alph -- an alpha variable
-	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
+	 * @return ( @global UTILS.NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
 	public String getProxyPair (String alph)
@@ -843,7 +843,7 @@ public class SequentialFilter {
 			for (String pxi : negProxyAlphas.keySet()) 
 				if (negProxyAlphas.get(pxi).equals(alph))
 					return pxi; 
-		return NULL_PROXY_PAIR;*/
+		return UTILS.NULL_PROXY_PAIR;*/
 	}
 	public boolean hasProxyPair (String alph)	{ return !getProxyPair(alph).equals(UTILS.NULL_PROXY_PAIR);	}
 	

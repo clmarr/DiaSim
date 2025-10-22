@@ -118,7 +118,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			sp = sp.replace(" ",""); 
 			
 			String indic = sp.substring(0, 1); 
-			boolean is_alph = !"-+0".contains(indic); 
+			boolean is_alph = !UTILS.ALL_FTSPEC_MARKS.contains(indic); 
 		
 			if (is_alph)
 			{	UTILS.abortIllegalAlpha(indic);
@@ -442,7 +442,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 	/** 
 	 * 
 	 * @param alph -- an alpha variable
-	 * @return '!' ( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
+	 * @return( @global NULL_PROXY_PAIR) if it is neither a negative proxy, nor proxied
 	 * 			@else @return the proxy/proxied alpha variable 
 	 */
 	public String getProxyPair (String alph)
@@ -451,6 +451,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		return UTILS.getProxyPair(alph, negProxyAlphs); 
 		
 		/**
+		 * NULL_PROXY_PAIR = UTILS.NULL_PROXY_PAIR;
 		if (!hasNegProxyAlphs())	return NULL_PROXY_PAIR; 
 		if (negProxyAlphs.containsKey(alph))	return negProxyAlphs.get(alph); 
 		if (negProxyAlphs.containsValue(alph))	
@@ -479,7 +480,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		if (hasNegProxyAlphs()) {
 			for (String avi : alphVals.keySet())
 			{
-				String proxPair = getProxyPair(avi); // '!' if there is none. 
+				String proxPair = getProxyPair(avi); // '∅' if there is none. 
 				if (proxPair.equals(UTILS.NULL_PROXY_PAIR))	continue; 
 				
 				String vali = alphVals.get(avi); 
