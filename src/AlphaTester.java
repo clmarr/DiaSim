@@ -596,6 +596,12 @@ public class AlphaTester {
 		
 		
 		// ------ neg alpha testing begins here -------
+		System.out.println("Beginning testing of neg alpha handling in SequentialFilter.") ; 
+		
+		filtTester =  testFactory.parseNewSeqFilter("# [astres,+syl,dhi] ([!acons,bround] [!bround,chi] ([chi,flab,fround])) @ ([dcor,enas,econt])* m #", true); 
+
+		//TODO working here. 
+		
 		System.out.println("------\nBeginning testing of NEG ALPHA  and other alpha coverage in UTILS..."); 
 		
 		System.out.println("Testing spec alpha detection...");

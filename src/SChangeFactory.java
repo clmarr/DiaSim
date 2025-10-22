@@ -712,6 +712,17 @@ public class SChangeFactory {
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
 		inp = expandOutAllPlusses(inp);
 		
+		boolean usingNegProxiesAnew = false; 
+			// if have  to make local version of current neg alphas for usage for purposes of SequentailFilter building .
+				// store that fact in here, so can reset at the end. 
+		if (usingNegProxies ? false : UTILS.stringHasFMWithNegAlpha(inp))
+		{
+			usingNegProxiesAnew = true; 
+			usingNegProxies = false; 
+			currentNegProxies = UTILS.createNegProxyAlphabet(inp); 
+			inp = UTILS.applyNegalphaProxies(inp, currentNegProxies);
+		}
+		
 		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
 			// this should force parenthesis statements to be separate "phones" from the actual phones
 		
@@ -781,9 +792,14 @@ public class SChangeFactory {
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
+		HashMap<String, String> proxiesToPass = !usingNegProxies ? new HashMap<String,String> () : new HashMap<String,String> (currentNegProxies); 
+		
+		// if temp made neg proxies (e.g. for SequentialFilter construction... reverse that here. 
+		if (usingNegProxiesAnew)	initForNegProxies();
+		
 		// currently, if there's neg proxies anywhere, pass to this -- shouldn't be too costly since we have max 3 SequentialFilters being constructed. 
 		return ( usingNegProxies ? UTILS.stringHasFMWithAlpha(input) : false) 
-				? new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter, currentNegProxies)
+				? new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter, proxiesToPass)
 				: new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}
 

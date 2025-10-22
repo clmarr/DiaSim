@@ -810,10 +810,12 @@ public class SChangeTester {
 					"Error: mistook '"+inputs[inpi]+"' as "+ (inputsOutsideDomain[inpi] ? "in" : "")+"valid input for rule "+testRule+".\n"+
 					"\tInput : "+UTILS.printWord(inputi)+"\n\tOutput: "+UTILS.printWord(resulti)) ? 1 : 0; 
 			if (!inputsOutsideDomain[inpi])
+			{	totalTests++; 
 				numCorrect += UTILS.checkBoolean(true, 
 					UTILS.phonSeqsEqual( testFactory.parseSeqPhSeg(corrOutputs[inpi]) , resulti), 
 					"Errant output!\nInput "+ UTILS.printWord(inputi) +" > "+UTILS.printWord(resulti)+
 					"\n\tShould be : "+UTILS.printWord(testFactory.parseSeqPhSeg(corrOutputs[inpi]))) ? 1 : 0;
+			}
 		}
 		
 		/** testing .isMatch is currently complicated because it's not instantiated 
@@ -846,6 +848,9 @@ public class SChangeTester {
 		
 		System.out.println("Now testing neg alpha feat handling in SChangePhoneAlpha and SChangeFeatToPhoneAlpha!"); 
 		
+		// SChangePhoneAlpha -- it's just the contexts. Test excrescence rule. 
+		testRuleString = "∅ > ə / [+nas,ðcor,βlab] [-son,ǃðcor,ǃβlab,hvoi] __ [+cons,-hvoi]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		
 		//testing .realize
 		

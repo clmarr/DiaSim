@@ -1282,7 +1282,11 @@ public class UTILS {
 	{
 		String output = seg.replace("}", ""); 
 		for (int i = 0 ; i < 3 ; i++) // onset could have up to all three of { (  ; , but each no more than once (actually ; could only be first, but anyhow)
-		if (";{(".contains(output.charAt(0)+"")) output = output.substring(1); 
+		{
+			if (output.equals(""))	return output; 
+			if (";{(".contains(output.charAt(0)+"")) output = output.substring(1); 
+		}
+		if (output.equals(""))	return output; 
 		if (output.charAt(output.length()-1) == ';')	output=output.substring(0, output.length()-1); 
 		if (output.length() < 2 ) return output;
 		if (output.substring(output.length() - 2).contains(")")) // either final ), or final )* or )+
@@ -1318,6 +1322,7 @@ public class UTILS {
 			if (pphere.equals(""))	continue;
 			
 			String curpp = stripRecursionAndDisjunctionFromSegmental(protophones[ppi]);
+			if (curpp.strip().equals(""))	continue;
 			if(curpp.charAt(0) == '[')
 			{
 				// as of July 2024, spaces in feature matrices as written are ignored: 
