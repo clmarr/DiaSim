@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -603,11 +604,80 @@ public class AlphaTester {
 		filtTester =  testFactory.parseNewSeqFilter(filtTesterStr, true); 
 		pointTest(true, filtTester.hasNegAlphProxies(), "Error @"+getLineNumber()+": somehow failed to detect neg proxies in "+filtTesterStr); 
 		String negatedAlphsHere = "ab"; 
+		String negAlphProxies = ""; 
+
 		for (int nahi = 0; nahi < negatedAlphsHere.length(); nahi++)
-			pointTest(false, filtTester.getProxyPair(negatedAlphsHere.substring(nahi,nahi+1)).equals(UTILS.NULL_PROXY_PAIR),
-					"Error @"+getLineNumber()+": failed to detect alpha for "+negatedAlphsHere.charAt(nahi)); 	
-			
-			
+		{	
+			String proxpi = filtTester.getProxyPair(negatedAlphsHere.substring(nahi,nahi+1)); 
+			pointTest(false, proxpi.equals(UTILS.NULL_PROXY_PAIR),
+					"Error @"+getLineNumber()+": failed to detect alpha for "+negatedAlphsHere.charAt(nahi)); 				
+			negAlphProxies += proxpi; 
+		}
+		
+		// localAlphSpecs should have everything including proxies with unset values
+		// localAlphLocs should have everything in the right places
+		// parenthesized alphas should have which ones are parenthesized... 
+		// assuemd that placement is based on FMs internally hvaing the NEG PROXIES instead of negated alphas (??) 
+		String alphsHere = "abcdef"; 
+		
+		//correct locations 
+		HashMap<String, List<Integer>> correctLocalLocs = new HashMap<String, List<Integer>> (); 
+		
+		List<Integer> locs = new ArrayList<Integer>(); locs.add(1); 
+		correctLocalLocs.put("a",new ArrayList<Integer> ( locs)); 
+		
+		locs = new ArrayList<Integer>(); locs.add(2); 
+		correctLocalLocs.put("b",new ArrayList<Integer> ( locs)); 
+		correctLocalLocs.put(filtTester.getProxyPair("a"),new ArrayList<Integer> ( locs)); 
+		
+		locs = new ArrayList<Integer>(); locs.add(3); 
+		correctLocalLocs.put(filtTester.getProxyPair("b"),new ArrayList<Integer> ( locs)); 
+		locs.add(4); 
+		correctLocalLocs.put("c",new ArrayList<Integer> ( locs)); 
+		correctLocalLocs.put(filtTester.getProxyPair("b"), new ArrayList<Integer> ( locs)); 
+		
+		locs = new ArrayList<Integer>(); locs.add(1); locs.add(6); 
+		correctLocalLocs.put("d",new ArrayList<Integer> ( locs)); 
+		
+		locs = new ArrayList<Integer>(); locs.add(6);  
+		correctLocalLocs.put("e",new ArrayList<Integer> ( locs)); 
+		
+		locs = new ArrayList<Integer>(); locs.add(4);  
+		correctLocalLocs.put("f",new ArrayList<Integer> ( locs)); 
+		
+		String parenOnlyAlphs = "bcef" + filtTester.getProxyPair("a") + negAlphProxies; 
+		String parenAlphs = "d"+parenOnlyAlphs; 
+		
+		String alphsHerePlusProxies = alphsHere + negAlphProxies; 
+		
+		for (int alphi = 0 ; alphi < alphsHerePlusProxies.length() ; alphi++)
+		{
+			String thisAlph = alphsHerePlusProxies.charAt(alphi)+""; 
+			pointTest(filtTester.UNSET_ALPHVAL, filtTester.getLocalAlphSpecs().get(thisAlph), "Error @"+getLineNumber()+": value for alpha variable '"+thisAlph+"' already set somehow."); 
+			pointTest(filtTester.getParenthesizedAlphas().contains(thisAlph), parenAlphs.contains(thisAlph),
+					"Error @"+getLineNumber()+": '"+thisAlph+"' errantly detected as "
+					+ (parenAlphs.contains(thisAlph) ? "not " : "") + "a parenthesized alpha!"); 
+			pointTest(filtTester.alphaOnlyInParentheses(thisAlph), parenOnlyAlphs.contains(thisAlph),
+					"Error @"+getLineNumber()+": '"+thisAlph+"' errantly detected as "
+					+ (parenOnlyAlphs.contains(thisAlph) ? "not " : "") + "a parenthesis-only alpha!"); 
+			boolean locAlphLocsInitdForAlph = filtTester.getLocalAlphLocs().containsKey(thisAlph); 
+			pointTest(true, locAlphLocsInitdForAlph, "Error @"+getLineNumber()+": local alph locs not init'd for '"+thisAlph+"'");
+		}
+		
+		//specifyLocalAlph --> putLocalAlph, + specifyAlphViaNegProxy
+		filtTester.specifyLocalAlph("a", "0"); 
+		filtTester.specifyLocalAlph("b", "2"); 
+		
+		// others should be unchanged... 
+		for (String thisAlph : new String[] {"c","d","e","f"})
+			pointTest(filtTester.UNSET_ALPHVAL, filtTester.getLocalAlphSpecs().get(thisAlph), "Error @"+getLineNumber()+": value for alpha variable '"+thisAlph+"' set by setting another!"); 
+		
+		pointTest("0", filtTester.getLocalAlphSpecs().get("a"), "Error @"+getLineNumber()+": value for 'a' not set correctly!"); 
+		pointTest("2", filtTester.getLocalAlphSpecs().get(filtTester.getProxyPair("a")), "Error @"+getLineNumber()+": value for proxy pair of 'a' not set correctly!"); 
+
+		pointTest("2", filtTester.getLocalAlphSpecs().get("b"), "Error @"+getLineNumber()+": value for 'b' not set correctly!"); 
+		pointTest("0", filtTester.getLocalAlphSpecs().get(filtTester.getProxyPair("b")), "Error @"+getLineNumber()+": value for proxy pair of 'b' not set correctly!"); 
+		
 		concludeTestBatch();
 		
 		//TODO working here. 

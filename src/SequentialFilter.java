@@ -864,7 +864,7 @@ public class SequentialFilter {
 		
 		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
 		{
-			if (parenMap[pami].contains(")"))	{	pami = pairedParenLoc(pami)+1; continue;	}
+			if (parenMap[pami].contains("("))	{	pami = pairedParenLoc(pami)+1; continue;	}
 			if (parenAlphaMap[pami].contains(alph))	return false; 
 		}
 		return true; 
