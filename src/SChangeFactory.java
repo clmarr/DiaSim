@@ -711,22 +711,17 @@ public class SChangeFactory {
 		String inp = forceParenSpaceConsistency(input); //force single spaces on spaces surrounding
 			//parenthetical symbols, in order to standardize and make errors more controllable as code expands
 		inp = expandOutAllPlusses(inp);
+		inp = inp.replace("!", UTILS.MARK_ALPHNEG+"").replace("ǃ",UTILS.MARK_ALPHNEG+"");
 		
 		boolean usingNegProxiesAnew = false; 
 			// if have  to make local version of current neg alphas for usage for purposes of SequentailFilter building .
 				// store that fact in here, so can reset at the end. 
 		if (usingNegProxies ? false : UTILS.stringHasFMWithNegAlpha(inp))
 		{
-			//TODO debugging
-			System.out.println("neg alphs anew!");
-			
 			usingNegProxiesAnew = true; 
 			usingNegProxies = true; 
 			currentNegProxies = UTILS.createNegProxyAlphabet(inp); 
 			inp = UTILS.applyNegalphaProxies(inp, currentNegProxies);
-			
-			//TODO debugging
-			System.out.println("neg proxies detected : "+currentNegProxies.size());
 		}
 		
 		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
@@ -782,6 +777,7 @@ public class SChangeFactory {
 						+ "of closing bracket --- curtp is "+curtp); 
 					if(curtp.charAt(0) == '[')
 						curtp = curtp.substring(1, curtp.length() - 1).trim(); 
+
 					if(! UTILS.isValidFeatSpecList(curtp, usingNegProxies))	 // current slight over-scope in invoking usingNegPRoxies 
 						throw new RuntimeException( 
 						"Error: had to preempt attempted construction of a FeatMatrix instance"

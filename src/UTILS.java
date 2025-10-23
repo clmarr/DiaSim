@@ -1235,12 +1235,14 @@ public class UTILS {
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
 			String curpp = ""+protophones[ppi].trim();
+			
 			if(curpp.charAt(0) == '[')
 			{
 				// as of July 2024, spaces in feature matrices as written are ignored: 
 				curpp = curpp.replace(" ", "");
 				
 				String[] specs = curpp.substring(1, curpp.indexOf(']')).split(""+FEAT_DELIM); 
+				
 				for (String spec : specs) 
 					if (spec_is_neg_alpha_marked(spec))	return true; 
 			}
@@ -1349,7 +1351,8 @@ public class UTILS {
 	public static List<String> listNegatedAlphasInString (String str)
 	{	return listAlphasInString(str, true); 	}
 	public static boolean stringHasNegAlphas (String stri)
-	{	return listNegatedAlphasInString(stri).size() > 0; 	} //if there's any, it'll be in the size.
+	{	
+		return stri.length() < 2 ? false : listNegatedAlphasInString(stri).size() > 0; 	} //if there's any, it'll be in the size.
 	
 	/**
 	 * @precondition ordFeatNames filled. 
@@ -1383,6 +1386,7 @@ public class UTILS {
 	 */
 	public static HashMap<String, String> createNegProxyAlphabet (String ruleOrDebugFilt)
 	{
+		ruleOrDebugFilt = ruleOrDebugFilt.replace("ǃ", MARK_ALPHNEG+"");
 		List<String> alphsToNegate = listNegatedAlphasInString(ruleOrDebugFilt); 
 		if (alphsToNegate.size() == 0)
 			throw new Error("Error: tried to detect negated alphas in a string with no alphas: "+ruleOrDebugFilt+"\n\tInspect this."); 
@@ -1496,7 +1500,7 @@ public class UTILS {
 	 * @param @fspec is the string form of the feature specification. */ 
 	public static boolean spec_is_alpha_marked(String fspec)
 	{
-		String spec = fspec.replace(" ", ""); 
+		String spec = fspec.replace(" ", "").replace("!",MARK_ALPHNEG+"").replace("ǃ",MARK_ALPHNEG+"");
 		abortMidgetFeatSpec(spec); 
 		char onset = spec.charAt(0); 
 		if (ALL_FTSPEC_MARKS.contains(""+onset))	return spec_is_preposed_alpha_marked(spec, onset);
@@ -1514,7 +1518,7 @@ public class UTILS {
 	{
 		if (!ALL_FTSPEC_MARKS.contains(prep+""))	
 			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 
-		String spec = fspec.replace(" ", ""); 
+		String spec = fspec.replace(" ", "").replace("!",MARK_ALPHNEG+"").replace("ǃ",MARK_ALPHNEG+"");
 		abortMidgetFeatSpec(spec); 
 		if (spec.charAt(0) != prep)	return false;
 		
@@ -1531,7 +1535,9 @@ public class UTILS {
 	}
 	
 	public static boolean spec_is_neg_alpha_marked (String spec)
-	{	return spec_is_preposed_alpha_marked(spec, MARK_NEG) || spec_is_preposed_alpha_marked(spec, MARK_ALPHNEG);	}
+	{	
+		spec = spec.replace("!",""+ MARK_ALPHNEG).replace("ǃ",""+MARK_ALPHNEG);// accounting for some different characters that both look like "ǃ"; 
+		return spec_is_preposed_alpha_marked(spec, MARK_NEG) || spec_is_preposed_alpha_marked(spec, MARK_ALPHNEG);	}
 	public static boolean spec_is_unspec_alpha_marked (String spec)
 	{	return spec_is_preposed_alpha_marked(spec, MARK_UNSPEC);	}
 	
@@ -1542,6 +1548,7 @@ public class UTILS {
 	 */
 	public static char getNegatedAlpha (String fspec)
 	{
+		fspec = fspec.replace("!",MARK_ALPHNEG+"").replace("ǃ",MARK_ALPHNEG+"");
 		if (fspec.length() < 3 ? true : 
 			(fspec.charAt(0) != MARK_NEG && fspec.charAt(0) != MARK_ALPHNEG) 
 			|| !ordFeatNames.contains(fspec.substring(2)) || ILLEGAL_ALPHAS.contains(fspec.charAt(1)+""))
@@ -1559,7 +1566,7 @@ public class UTILS {
 	 */
 	public static char getAlphaFromFeatSpec(String fspec)
 	{
-		String spec = fspec.replace(" ", ""); 
+		String spec = fspec.replace(" ", "").replace("!",MARK_ALPHNEG+"").replace("ǃ",MARK_ALPHNEG+"");
 		int alphInd = ALL_FTSPEC_MARKS.contains(spec.substring(0, 1)) ? 1 : 0; 
 		if (fspec.length() < alphInd+1 ? true : 
 			ILLEGAL_ALPHAS.contains(spec.charAt(alphInd)+"") ? true : 

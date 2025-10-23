@@ -848,9 +848,14 @@ public class SChangeTester {
 		
 		System.out.println("Now testing neg alpha feat handling in SChangePhoneAlpha and SChangeFeatToPhoneAlpha!"); 
 		
+		totalTests++; numCorrect += UTILS.checkBoolean(true, UTILS.spec_is_neg_alpha_marked("!βlab"), "Error: didn't catch '!' as alph negation") ? 1 : 0; 
+		
 		// SChangePhoneAlpha -- it's just the contexts. Test excrescence rule. 
-		testRuleString = "∅ > ə / [+nas,ðcor,βlab] [-son,ǃðcor,ǃβlab,hvoi] __ [+cons,-hvoi]"; 
+		testRuleString = "∅ > ə / [+nas,ðcor,βlab] [-son,!ðcor,ǃβlab,hvoi] __ [+cons,-hvoi]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+		
+		
+		//System.out.println("ǃ".equals("!")); -- evil exclamation point issues...
 		
 		//testing .realize
 		

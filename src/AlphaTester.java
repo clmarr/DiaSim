@@ -713,7 +713,6 @@ public class AlphaTester {
 		pointTest(false , filtTester.filtCheck(filtTestSeqPh, true), 
 				"Error @"+getLineNumber()+": "+filtTestSeqPhStr+" should not pass but it does"); 
 		
-		
 		concludeTestBatch();
 		
 		//TODO working here. 
