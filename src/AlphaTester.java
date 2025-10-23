@@ -596,13 +596,22 @@ public class AlphaTester {
 		
 		
 		// ------ neg alpha testing begins here -------
+		System.out.println("------\nBeginning testing of NEG ALPHA  and other alpha coverage in UTILS..."); 
 		System.out.println("Beginning testing of neg alpha handling in SequentialFilter.") ; 
+		initTestBatch(); 
+		String filtTesterStr ="# [astres,+syl,dhi] ([!acons,bround] [!bround,chi] ([chi,flab,fround])) @ ([dcor,enas,econt])* m #";
+		filtTester =  testFactory.parseNewSeqFilter(filtTesterStr, true); 
+		pointTest(true, filtTester.hasNegAlphProxies(), "Error @"+getLineNumber()+": somehow failed to detect neg proxies in "+filtTesterStr); 
+		String negatedAlphsHere = "ab"; 
+		for (int nahi = 0; nahi < negatedAlphsHere.length(); nahi++)
+			pointTest(false, filtTester.getProxyPair(negatedAlphsHere.substring(nahi,nahi+1)).equals(UTILS.NULL_PROXY_PAIR),
+					"Error @"+getLineNumber()+": failed to detect alpha for "+negatedAlphsHere.charAt(nahi)); 	
+			
+			
+		concludeTestBatch();
 		
-		filtTester =  testFactory.parseNewSeqFilter("# [astres,+syl,dhi] ([!acons,bround] [!bround,chi] ([chi,flab,fround])) @ ([dcor,enas,econt])* m #", true); 
-
 		//TODO working here. 
 		
-		System.out.println("------\nBeginning testing of NEG ALPHA  and other alpha coverage in UTILS..."); 
 		
 		System.out.println("Testing spec alpha detection...");
 		initTestBatch(); 

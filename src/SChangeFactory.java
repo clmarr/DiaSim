@@ -717,10 +717,16 @@ public class SChangeFactory {
 				// store that fact in here, so can reset at the end. 
 		if (usingNegProxies ? false : UTILS.stringHasFMWithNegAlpha(inp))
 		{
+			//TODO debugging
+			System.out.println("neg alphs anew!");
+			
 			usingNegProxiesAnew = true; 
-			usingNegProxies = false; 
+			usingNegProxies = true; 
 			currentNegProxies = UTILS.createNegProxyAlphabet(inp); 
 			inp = UTILS.applyNegalphaProxies(inp, currentNegProxies);
+			
+			//TODO debugging
+			System.out.println("neg proxies detected : "+currentNegProxies.size());
 		}
 		
 		String[] toPhones = inp.trim().split(""+phDelim); // given the method above
@@ -792,13 +798,16 @@ public class SChangeFactory {
 		String[] theParenMap = new String[parenMapInProgress.size()];
 		theParenMap = parenMapInProgress.toArray(theParenMap); 
 		
-		HashMap<String, String> proxiesToPass = !usingNegProxies ? new HashMap<String,String> () : new HashMap<String,String> (currentNegProxies); 
+		HashMap<String, String> proxiesToPass =new HashMap<String,String> (); 
+		if (usingNegProxies)	proxiesToPass.putAll(currentNegProxies);
+		// !usingNegProxies ? new HashMap<String,String> () : new HashMap<String,String> (currentNegProxies); 
 		
 		// if temp made neg proxies (e.g. for SequentialFilter construction... reverse that here. 
+		boolean usedNegProxies = usingNegProxies; 
 		if (usingNegProxiesAnew)	initForNegProxies();
 		
 		// currently, if there's neg proxies anywhere, pass to this -- shouldn't be too costly since we have max 3 SequentialFilters being constructed. 
-		return ( usingNegProxies ? UTILS.stringHasFMWithAlpha(input) : false) 
+		return ( usedNegProxies ? UTILS.stringHasFMWithAlpha(input) : false) 
 				? new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter, proxiesToPass)
 				: new SequentialFilter(thePlaceRestrs, theParenMap, boundsMatter) ;
 	}

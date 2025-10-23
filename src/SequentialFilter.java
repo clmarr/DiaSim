@@ -1124,6 +1124,10 @@ public class SequentialFilter {
 		/*else*/ 
 		String targVal = prVal.equals(UNSET_ALPHVAL) ? UNSET_ALPHVAL : ""+UTILS.getOppFtInt(prVal);
 		putLocalAlph(targAlph, targVal, modifyPlaceRestrs); 
+		
+		//doing the following to avoid null reference errors in localAlphLocs...
+		if (!localAlphLocs.containsKey(targAlph))
+			localAlphLocs.put(targAlph, new ArrayList<Integer>());
 	}
 
 }
