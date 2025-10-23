@@ -678,6 +678,42 @@ public class AlphaTester {
 		pointTest("2", filtTester.getLocalAlphSpecs().get("b"), "Error @"+getLineNumber()+": value for 'b' not set correctly!"); 
 		pointTest("0", filtTester.getLocalAlphSpecs().get(filtTester.getProxyPair("b")), "Error @"+getLineNumber()+": value for proxy pair of 'b' not set correctly!"); 
 		
+		filtTester.resetAllAlphaValues(); 
+		
+		for (int alphi = 0 ; alphi < alphsHerePlusProxies.length() ; alphi++)
+		{
+			String thisAlph = alphsHerePlusProxies.charAt(alphi)+""; 
+			pointTest(filtTester.UNSET_ALPHVAL, filtTester.getLocalAlphSpecs().get(thisAlph), "Error @"+getLineNumber()+": value for alpha variable '"+thisAlph+"' set after resetting."); 
+			pointTest(filtTester.getParenthesizedAlphas().contains(thisAlph), parenAlphs.contains(thisAlph),
+					"Error @"+getLineNumber()+": '"+thisAlph+"' errantly detected as "
+					+ (parenAlphs.contains(thisAlph) ? "not " : "") + "a parenthesized alpha!"); 
+			pointTest(filtTester.alphaOnlyInParentheses(thisAlph), parenOnlyAlphs.contains(thisAlph),
+					"Error @"+getLineNumber()+": '"+thisAlph+"' errantly detected as "
+					+ (parenOnlyAlphs.contains(thisAlph) ? "not " : "") + "a parenthesis-only alpha!"); 
+			boolean locAlphLocsInitdForAlph = filtTester.getLocalAlphLocs().containsKey(thisAlph); 
+			pointTest(true, locAlphLocsInitdForAlph, "Error @"+getLineNumber()+": local alph locs not init'd for '"+thisAlph+"'");
+		}
+		
+		String filtTestSeqPhStr = "# ˌe j o a q p ã ŋ ẽ m #"; 
+		List<SequentialPhonic> filtTestSeqPh = testFactory.parseSeqPhSeg(filtTestSeqPhStr); 
+		
+		pointTest(true , filtTester.filtCheck(filtTestSeqPh, true), 
+				"Error @"+getLineNumber()+": "+filtTestSeqPhStr+" should pass but it does not"); 
+		
+		filtTestSeqPhStr = "# ˌe j o a q p ã n ẽ m #"; 
+		filtTestSeqPh = testFactory.parseSeqPhSeg(filtTestSeqPhStr); 
+		pointTest(false , filtTester.filtCheck(filtTestSeqPh, true), 
+				"Error @"+getLineNumber()+": "+filtTestSeqPhStr+" should not pass but it does"); 
+		filtTestSeqPhStr = "# ˌe j e a q p ã ŋ ẽ m #"; 
+		filtTestSeqPh = testFactory.parseSeqPhSeg(filtTestSeqPhStr); 
+		pointTest(false , filtTester.filtCheck(filtTestSeqPh, true), 
+				"Error @"+getLineNumber()+": "+filtTestSeqPhStr+" should not pass but it does"); 
+		filtTestSeqPhStr = "# e j o a q p ã ŋ ẽ m #"; 
+		filtTestSeqPh = testFactory.parseSeqPhSeg(filtTestSeqPhStr); 
+		pointTest(false , filtTester.filtCheck(filtTestSeqPh, true), 
+				"Error @"+getLineNumber()+": "+filtTestSeqPhStr+" should not pass but it does"); 
+		
+		
 		concludeTestBatch();
 		
 		//TODO working here. 
