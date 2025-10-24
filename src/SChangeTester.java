@@ -842,7 +842,6 @@ public class SChangeTester {
 		}
 		testRule.reset_alphvals_everywhere(); 
 		
-		
 		System.out.println("Done testing in this mode; got "+numCorrect+" out of "+totalTests+" right."); 
 		totalTests = 0; numCorrect =0; 
 		
@@ -854,8 +853,21 @@ public class SChangeTester {
 		testRuleString = "∅ > ə / [+nas,ðcor,βlab] [-son,!ðcor,ǃβlab,hvoi] __ [+cons,-hvoi]"; 
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
 		
+		nalphTest = new Etymon(testFactory.parseSeqPhSeg("ũ ʍ m z x ỹ s ɾ̃ ɸ n b õ d p"), true) ; 
+		nalphOg = new Etymon(testFactory.parseSeqPhSeg("ũ ʍ m z x ỹ s ɾ̃ ɸ n b õ d p"), true) ; 
+		nalphCorr =  new Etymon(testFactory.parseSeqPhSeg("ũ ʍ m z ə x ỹ s ə ɾ̃ ɸ ə n b õ d ə p"), true ); 
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
+					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
+		}
+		testRule.reset_alphvals_everywhere(); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		numCorrect = 0; totalTests = 0; 
 		
-		//System.out.println("ǃ".equals("!")); -- evil exclamation point issues...
+		
 		
 		//testing .realize
 		

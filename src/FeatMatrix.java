@@ -478,7 +478,7 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 		
 		// extend to coverage to negative alpha proxies from proxied alphas, or vice versa
 		if (hasNegProxyAlphs()) {
-			for (String avi : alphVals.keySet())
+			for (String avi : new ArrayList<String>(alphVals.keySet()))
 			{
 				String proxPair = getProxyPair(avi); // '∅' if there is none. 
 				if (proxPair.equals(UTILS.NULL_PROXY_PAIR))	continue; 

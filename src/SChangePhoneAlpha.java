@@ -36,7 +36,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
 		int inpSize = input.size(), maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
-		
+	
 		//abort if too small
 		if (inpSize < minPriorSize + minTargSize + minPostSize)	return input; 
 		int p = minPriorSize; 
@@ -88,6 +88,9 @@ public class SChangePhoneAlpha extends SChangePhone {
 										priorContext.applyAlphaValues(ALPH_VARS);
 										pripr = priorContext.getPlaceRestrs();
 										pripm = priorContext.getParenMap(); 
+										
+										// for security, though it should be set elsewhere... 
+										if (postSpecd)	postContext.applyAlphaValues(ALPH_VARS);
 									}}
 							}
 							cpic--; crp--; cpim--;
