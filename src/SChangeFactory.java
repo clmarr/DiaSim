@@ -534,9 +534,10 @@ public class SChangeFactory {
 			if(inputLeft.charAt(0) == '[')
 			{
 				int brackEnd = inputLeft.indexOf(']'); 
+				String featStr = inputLeft.substring(1,brackEnd); 
 				output.add(getFeatMatrix(forDestination ? negProxiesInDest : 
-					( usingNegProxies ? UTILS.listAlphasInFeatString(inputLeft, false).size() > 0 : false ) /* maybe excessive scope for false condition, hopefully won't slow things down tooo much*/,
-									inputLeft.substring(1, brackEnd), forDestination));
+					( usingNegProxies ? UTILS.listAlphasInFeatString(featStr, false).size() > 0 : false ) /* maybe excessive scope for false condition, hopefully won't slow things down tooo much*/,
+									featStr , forDestination));
 				inputLeft = inputLeft.substring(brackEnd + 1).trim(); 
 			}
 			else if ("#+".contains(inputLeft.charAt(0)+"" ))

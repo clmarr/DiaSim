@@ -27,7 +27,9 @@ public class SChangeTester {
 		
 		UTILS.extractFeatImpls(featImplsLoc);
 		System.out.println("Done extracting feature implications!");
-		
+
+		UTILS.extractDiacriticMap("currentSymbolDiacriticDefs.txt");
+
 		System.out.println("Beginning test of SChangeFeat");
 		
 		SChangeFactory testFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
@@ -882,11 +884,27 @@ public class SChangeTester {
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
 		numCorrect = 0; totalTests = 0; 
 		
+		//TODO debugging
+		System.out.println("Testing SChangeSeqToSeqAlpha with neg alpha proxies.");
+		testRuleString = "[+lo,aback,-afront,etense] [+hi,bround] [-aback] > ∅ ∅ [+long,-ŋnas,etense,+stres,-bfront,-back,-sprim] / [-bround] __ [ŋnas] [sprim]";
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0);
 		
-		//testing .realize
 		
-		///TODO test things... but first debug the bullshit that will definitely ensue. 
-
+		nalphTest = new Etymon(testFactory.parseSeqPhSeg("w ɑ w i kʷ ɑ j ʏ ɣ ˈæ w ʌ n ʌ" ), true);
+		nalphOg =  new Etymon(nalphTest); 
+		nalphCorr = new Etymon(testFactory.parseSeqPhSeg("w ɑ w i kʷ ˌỹː ɣ ˈɜː n ʌ"),true); 
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
+					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
+		}
+		testRule.reset_alphvals_everywhere(); 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		numCorrect = 0; totalTests = 0; 
+		
+		//TODO may need more thorough testing but seems to work for nowǃ 
 	}
 	
 	public static FeatMatrix newFM(String specs)

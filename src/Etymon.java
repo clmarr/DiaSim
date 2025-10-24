@@ -45,6 +45,11 @@ public class Etymon {
 		reconstructed = reconstr; 
 	}
 	
+	public Etymon(Etymon copyOf)
+	{
+		this(copyOf.getPhonologicalRepresentation(), true); 
+	}
+	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
 	{	return phonRep;	}
 	
