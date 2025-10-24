@@ -864,9 +864,23 @@ public class SChangeTester {
 					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
 		}
 		testRule.reset_alphvals_everywhere(); 
+		
+		testRuleString = "ə > [htense,βlab,βround,ðhi,ɣfront,-ɣback] / [-son,!ðcor,ǃβlab,hvoi] __ [-hvoi,ɣson]"; 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0); 
+
+		nalphTest = new Etymon(testFactory.parseSeqPhSeg("ə ɸ ə m x ə t z ə x ə ʒ ə n̥ ə ɸ ə ɣ b õ t ə w"), true ); 
+		nalphOg =  new Etymon(nalphTest.getPhonologicalRepresentation(), true); 
+		nalphCorr = new Etymon(testFactory.parseSeqPhSeg("ə ɸ ɪ m x ə t z o x ʊ ʒ ø n̥ ə ɸ ω ɣ b õ t œ w"), true); 
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
+					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
+		}
+		testRule.reset_alphvals_everywhere(); 
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
 		numCorrect = 0; totalTests = 0; 
-		
 		
 		
 		//testing .realize
