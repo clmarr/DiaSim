@@ -2076,11 +2076,12 @@ public class UTILS {
 						continue; 
 					
 					//bypass if the features being added are already included. 
-					List<String> feats_to_add = Arrays.asList(addend.split(""+RESTR_DELIM)); 
+					List<String> feats_to_add = new ArrayList<String>(Arrays.asList(addend.split(""+RESTR_DELIM))); 
 					int fai= 0; 
 					while (fai < feats_to_add.size()) {
-						if ( existingStackFeats.contains( feats_to_add.get(fai) ) )
-							feats_to_add.remove(fai); 
+						if ( existingStackFeats.contains( feats_to_add.get(fai) ) ) {
+							feats_to_add.remove(fai);
+						}
 						else	fai++; 
 					}
 					if (feats_to_add.size() == 0) // bypass
