@@ -1937,7 +1937,7 @@ public class UTILS {
 			System.out.println("Warning: The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
 		featsToSymbMap.put(vect,symb); 
 		
-		System.out.println("Defined new symbol '"+symb+"', for features : "+spellOutFeatVect(vect,true)); 
+		System.out.println("Defined new symbol '"+symb+"', for features : "+spellOutFeatVect(vect,true)   ); 
 	}
 	
 	public static String spellOutFeatVect (String ftVect)	{	return spellOutFeatVect(ftVect, false);	}
@@ -2025,7 +2025,7 @@ public class UTILS {
 					if (candDiacritResult.equals(unseenVect)
 							&& detectDiacritFeatConflicts(diacritsInvolved,true).equals(""))	// then we found it!!
 					{
-						String newSymb = baseSymb + suffix;
+						String newSymb = "ˈˌ".contains(suffix) ? suffix + baseSymb : baseSymb + suffix;
 		
 						defineFeatVect(unseenVect,newSymb); 
 						// preference for first diacritic defined for this feature set. 
@@ -2115,6 +2115,14 @@ public class UTILS {
 							if (candDiacritResult.equals(unseenVect)
 									&& !detectDiacritFeatConflicts(diacritsInvolved,true).equals(""))	// then we found it!!
 							{						
+								if (comboSuffix.contains("ˈ"))
+								{
+									baseSymb = "ˈ" +baseSymb.replace("ˌ", "");
+									comboSuffix = comboSuffix.replace("ˈ", "").replace("ˌ", ""); 
+								}
+								if (comboSuffix.contains("ˌ"))
+								{	baseSymb = "ˌ"+baseSymb; comboSuffix = comboSuffix.replace("ˌ", ""); 	}
+								
 								String newSymb = baseSymb + comboSuffix;
 								defineFeatVect(unseenVect,newSymb); 
 								// preference for first diacritic defined for this feature set. 
