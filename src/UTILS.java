@@ -1937,7 +1937,7 @@ public class UTILS {
 			System.out.println("Warning: The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
 		featsToSymbMap.put(vect,symb); 
 		
-		System.out.println("Defined new symbol '"+symb+"', with feat vect: "+vect+" ."); 
+		System.out.println("Defined new symbol '"+symb+"', for features : "+spellOutFeatVect(vect,true)); 
 	}
 	
 	public static String spellOutFeatVect (String ftVect)	{	return spellOutFeatVect(ftVect, false);	}
@@ -2141,8 +2141,10 @@ public class UTILS {
 					+ "but failed to find an appropriate base symbol + diacritics combination.\n"
 					+ "Now using the following symbol: "+newSymb); 
 			defineFeatVect(unseenVect,newSymb); 
+			return true; 
 		}
 		
+		System.out.println("Warning: failed to define unseen feat vector at all...\n\t(feats: "+spellOutFeatVect(unseenVect,true)+")"); 
 		return false;		
 	}
 	

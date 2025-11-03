@@ -23,7 +23,7 @@ public class Phone extends SequentialPhonic implements RestrictPhone {
 	 * Constructor
 	 * @precondition : featvals.size() = featInds.size()
 	 * @precondition : each value, the string of feat values, for symbMap is unique
-	 * @note that symbMap is INVERTED before it is stored -- i.e. keys are ipa symbols while values are feature strings
+	 * @note that symbMap -- i.e. keys are ipa symbols while values are feature strings
 	 */
 	public Phone(String featVals, HashMap<String, Integer> featInds, HashMap<String, String> symbMap)
 	{

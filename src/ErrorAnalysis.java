@@ -354,9 +354,13 @@ public class ErrorAnalysis {
 				if(!isHit[ei] && !UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ei))) // will be true for, and thus exclude, cases outside the eval samp (pseudo in GOLD , noninherited or psuedo in res) 
 				{	for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
 					{	
-						//TODO debugging
-						System.out.println("pivPh: "+pivPh.print());
-
+						if(!UTILS.phoneSymbToFeatsMap.containsKey(pivPh.print()))
+						{
+							System.out.println("WARNING: unmapped pivot phone "+pivPh.print()+"; features: "+UTILS.spellOutFeatVect(pivPh.getFeatString(), true));
+							if (UTILS.featsToSymbMap.containsKey(pivPh.getFeatString()))
+								System.out.println("but its feat vect is with symbol : "+UTILS.featsToSymbMap.get(pivPh.getFeatString())); 
+						}
+							
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
 					}
 				}
