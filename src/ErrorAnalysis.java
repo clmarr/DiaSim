@@ -352,8 +352,14 @@ public class ErrorAnalysis {
 			for (int ei = 0 ; ei < TOTAL_ETYMA ; ei++)	
 			{
 				if(!isHit[ei] && !UTILS.isPseudoEtymon(PIV_PT_LEX.getByID(ei))) // will be true for, and thus exclude, cases outside the eval samp (pseudo in GOLD , noninherited or psuedo in res) 
-					for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
+				{	for (SequentialPhonic pivPh : PIV_PT_LEX.getByID(ei).getPhOnlySeq())
+					{	
+						//TODO debugging
+						System.out.println("pivPh: "+pivPh.print());
+
 						errorsByPivotPhone[pivPhInds.get(pivPh.print())] += 1; 
+					}
+				}
 			}
 			for (int i = 0 ; i < pivotPhInventory.length; i++)
 				errorRateByPivotPhone[i] = (double)errorsByPivotPhone[i] / (double)pivPhCts[i]; 

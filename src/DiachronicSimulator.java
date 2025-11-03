@@ -1721,9 +1721,6 @@ public class DiachronicSimulator {
 					else if (UTILS.stripEnds(resp).equalsIgnoreCase("keep"))
 						fail = false; 
 					else {
-						//TODO debugging
-						fac.parseNewSeqFilter(resp, true);
-						
 						try {  
 							filterSeq = fac.parseNewSeqFilter(resp, true);
 							fail = false;

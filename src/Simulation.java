@@ -261,12 +261,19 @@ public class Simulation {
 		//while not if for scenario that two stages are at same moment-- but ordered within that.
 		while(currStageInd >= stagesOrdered.length ? false : instant == getNextStageInd())     
 		{
+			
 			char type = stagesOrdered[currStageInd].charAt(0); 
 			if (!"GbB".contains(""+type)) throw new RuntimeException( "Error: illegal typing of stage number "+currStageInd+
 	        		" in stagesOrdered : '"+type+"'");
+			
+			int stNumber = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
+			System.out.println("Reached stage : "+
+					(type == 'G' ? goldStageNames : blackStageNames)[stNumber]); 
+
+			
 			if ( type == 'G') //it's a gold stage.
         	{
-				//TODO need to fix here 
+				//TODO need to fix here  (@10/31 -- do I wstill need to ?)
         		goldStageResultLexica[goldStageInd] = new Lexicon(currLexicon.getWordList());
         		for (int ei = 0 ; ei < NUM_ETYMA ; ei++)
         			etDerivations[ei] += "\n"+goldStageNames[goldStageInd]+" stage form : "+currLexicon.getByID(ei);

@@ -1933,14 +1933,15 @@ public class UTILS {
 		
 		// add feats to symb to the reverse map, potentially usurping the default symbol mapped to in doing so 
 		// (most recently seen symbol is one being used in current gold set, so this makes sense). 
-		if (VERBOSE && featsToSymbMap.containsKey(vect)) 
-			System.out.println("The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
+		if (/*VERBOSE && */ featsToSymbMap.containsKey(vect)) 
+			System.out.println("Warning: The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
 		featsToSymbMap.put(vect,symb); 
 		
 		System.out.println("Defined new symbol '"+symb+"', with feat vect: "+vect+" ."); 
 	}
 	
-	public static String spellOutFeatVect (String featVect) {
+	public static String spellOutFeatVect (String ftVect)	{	return spellOutFeatVect(ftVect, false);	}
+	public static String spellOutFeatVect (String featVect, boolean omitOnes) {
 		String out = "";
 		for (int fi = 0; fi < featVect.length(); fi++) {
 			switch (featVect.charAt(fi)) {
@@ -1948,6 +1949,7 @@ public class UTILS {
 					out += MARK_NEG;
 					break;
 				case '1':
+					if (omitOnes)	continue;
 					out += MARK_UNSPEC;
 					break;
 				case '2':
@@ -2028,7 +2030,8 @@ public class UTILS {
 						defineFeatVect(unseenVect,newSymb); 
 						// preference for first diacritic defined for this feature set. 
 						if (VERBOSE)
-							System.out.println("New symbol '"+newSymb+"' defined to represent feat vect "+unseenVect+"."); 
+							System.out.println("New symbol '"+newSymb+"' defined to represent feat vect "+unseenVect
+									+"\n\t(features: "+spellOutFeatVect(unseenVect,true)+")"); 
 						return true; 
 					}	
 				}
