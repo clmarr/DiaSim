@@ -1216,6 +1216,7 @@ public class UTILS {
 		for(int ppi = 0 ; ppi < protophones.length; ppi++)
 		{
 			String curpp = ""+protophones[ppi].trim();
+			if (curpp.length() == 0)	continue; 
 			if(curpp.charAt(0) == '[')
 			{
 				// as of July 2024, spaces in feature matrices as written are ignored: 
@@ -1519,7 +1520,7 @@ public class UTILS {
 		if (!ALL_FTSPEC_MARKS.contains(prep+""))	
 			throw new Error("ERROR: tried to detect a proposed alpha feature, with an invalid preposition ('"+prep+"')"); 
 		String spec = fspec.replace(" ", "").replace("!",MARK_ALPHNEG+"").replace("ǃ",MARK_ALPHNEG+"");
-		abortMidgetFeatSpec(spec); 
+		
 		if (spec.charAt(0) != prep)	return false;
 		
 		if (ordFeatNames.contains(spec.substring(1))) //if rest after '-' is a feature name, assume it's just a negative feature stip, no alpha.
