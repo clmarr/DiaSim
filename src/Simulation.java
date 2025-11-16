@@ -31,10 +31,10 @@ public class Simulation {
 	
 	private int goldStageInd, blackStageInd; // default 0 -- current next stage's index.
 	
-	private String[] stagesOrdered; 
-	private int currStageInd;
+	private String[] stagesOrdered;
 		// use stagesOrdered to get current stage in a way that prevents flipping of the order between the two if
 			// ever two stages at the same moment (point between rule steps)
+	private int currStageInd;
 
 	private String[][] ruleEffects; 
 		// first index is rule number
@@ -326,20 +326,41 @@ public class Simulation {
 	public Lexicon getInput()	{	return inputLexicon;	}
 	public Lexicon getCurrentResult()	{	return currLexicon;	}
 	public Etymon getCurrentForm(int id)	{	return currLexicon.getByID(id);	}
-	public Etymon getInputForm(int id)	{	return inputLexicon.getByID(id);	}
+	
+	/**
+	 * @return form of the etymon at index @param id when it is input 
+	 * @note if there are coluned stages and this is absent in input, will return what the input actually is, when secondarily input. 
+	 */
+	public Etymon getInputForm(int id)	{
+		
+		Etymon ogInput = inputLexicon.getByID(id); 
+		if (!hasColumnedStages() || UTILS.etymonIsPresent(ogInput))	return ogInput; 
+	
+		if (stagesOrdered[0].equals("in") && stagesOrdered.length == 1)
+			throw new Error("Error: simulation with only input stored as stage treated as having columned stages!"); 
+		
+		for (int soi = stagesOrdered[0].equals("in") ? 1 : 0; soi < stagesOrdered.length ; soi++)
+		{
+			if (!"GB".contains(stagesOrdered[soi].substring(0,1)))	continue;
+			ogInput = (stagesOrdered[soi].charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)
+					[Integer.parseInt(stagesOrdered[soi].substring(1))].getByID(id); 
+			if (UTILS.etymonIsPresent(ogInput))	return ogInput; 
+		}
+		
+		throw new Error ("Error: failed to find input for id "+id+" anywhere!");
+	}
+	
 	public Etymon getGoldOutputForm(int id)	{	return goldOutputLexicon.getByID(id);	}
 	public Lexicon getGoldOutput()		{	
 		if (!goldOutput) throw new RuntimeException( "called for gold outputs but none are set"); 
 		return goldOutputLexicon;	}
+	
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
-	{
-		return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];
-	}
+	{	return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];	}
+	
 	
 	public int getStageInstant(boolean goldnotblack, int stagenum)
-	{
-		return (goldnotblack ? goldStageInstants : blackStageInstants)[stagenum]; 
-	}
+	{	return (goldnotblack ? goldStageInstants : blackStageInstants)[stagenum]; 	}
 	
 	public Lexicon getGoldStageGold(int stagenum)	{	return goldStageGoldLexica[stagenum]; 	}	
 	
@@ -359,6 +380,7 @@ public class Simulation {
 	}
 	
 	// sometimes used for outgraph production. 
+	// even if currently out of use DO NOT DELETE.
 	private void calcStagesOrdered()
 	{
 		stagesOrdered = new String[ 1 + goldStageInd + blackStageInd + (goldOutput && isComplete() ? 1 : 0)]; 

@@ -210,7 +210,7 @@ public class Lexicon {
 	}
 	
 	/**
-	 * update which phones are absent (not yet in language or fell out of use) 
+	 * update which etyma are absent (not yet in language or fell out of use) 
 	 * based on whether they are absent or not in the latest column in lexicon file. 
 	 * this is to be implemented on the lexicon that is undergoing forward reconstruction
 	 * NOT upon a gold lexicon! 
