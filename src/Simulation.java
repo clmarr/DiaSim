@@ -333,8 +333,20 @@ public class Simulation {
 	 */
 	public Etymon getInputForm(int id)	{
 		
+		String insertionStage = getStageOfInsertion(id); 
+		
+		return (insertionStage.charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)[Integer.parseInt(insertionStage.substring(1))].getByID(id); 
+	}
+	
+	/**
+	 * @return stageOrdeered String for the stage + stage number at which @param id is inserted
+	 * e.g. B2 = columned black stage two, which is columned; in = input 
+	 * 	should never return something prefixed in b
+	 */
+	public String getStageOfInsertion(int id)
+	{
 		Etymon ogInput = inputLexicon.getByID(id); 
-		if (!hasColumnedStages() || UTILS.etymonIsPresent(ogInput))	return ogInput; 
+		if (!hasColumnedStages() || UTILS.etymonIsPresent(ogInput))	return "in"; 
 	
 		if (stagesOrdered[0].equals("in") && stagesOrdered.length == 1)
 			throw new Error("Error: simulation with only input stored as stage treated as having columned stages!"); 
@@ -344,7 +356,7 @@ public class Simulation {
 			if (!"GB".contains(stagesOrdered[soi].substring(0,1)))	continue;
 			ogInput = (stagesOrdered[soi].charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)
 					[Integer.parseInt(stagesOrdered[soi].substring(1))].getByID(id); 
-			if (UTILS.etymonIsPresent(ogInput))	return ogInput; 
+			if (UTILS.etymonIsPresent(ogInput))	return stagesOrdered[soi]; 
 		}
 		
 		throw new Error ("Error: failed to find input for id "+id+" anywhere!");
