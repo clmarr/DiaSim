@@ -27,6 +27,11 @@ public class Simulation {
 	public boolean hasColumnedStages()	{	return NUM_GOLD_STAGES + NUM_COLUMNED_BLACK_STAGES > 0;	}
 	public boolean hasColumnedBlackStages()	{	return NUM_COLUMNED_BLACK_STAGES > 0; 	}
 	
+	/**
+	 * @return if black stage number @param bsi is a columned black stage
+	 */
+	public boolean blackStageIsColumned(int bsi)	{	return columnedBlackStageBlackIndices.contains(bsi); 	}
+	
 	private int instant, stepPrinterval, TOTAL_STEPS; 
 	
 	private int goldStageInd, blackStageInd; // default 0 -- current next stage's index.
@@ -370,6 +375,8 @@ public class Simulation {
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
 	{	return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];	}
 	
+	public Lexicon getStageInput(boolean goldnotblack, int stagenum)
+	{	return (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[stagenum];	}
 	
 	public int getStageInstant(boolean goldnotblack, int stagenum)
 	{	return (goldnotblack ? goldStageInstants : blackStageInstants)[stagenum]; 	}

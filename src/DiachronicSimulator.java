@@ -1425,12 +1425,16 @@ public class DiachronicSimulator {
 	}**/
 	
 	// @param (cutoff) -- rule number that the black stage must be BEFORE.
+	// @prerequisite theSimulation must be set and have hte same black stages! 
 	private static void printIncludedBlackStages(int first, int last)
 	{
 		if(blackStagesSet)
-			for(int bsi = first; bsi < last + 1; bsi++)
-				System.out.println("b"+bsi+": "+
-					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")");
+		{	for(int bsi = first; bsi < last + 1; bsi++)
+			{	System.out.println("b"+bsi+": "+
+					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")"
+					+ (theSimulation.blackStageIsColumned(bsi) ? "     {for forms inserted here: in@B"+bsi+")" : ""));
+			}
+		}
 	}
 
 	private static void printIncludedGoldStages(int firstToPrint, int lastToPrint)
@@ -1446,6 +1450,11 @@ public class DiachronicSimulator {
 		List<String> out = new ArrayList<String>();
 		if (blackStagesSet)
 			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "b":"")+oi);
+		
+		if (columnedBlackStagesSet)
+			for (int oi = first ; oi < last+1; oi++)
+				if (theSimulation.blackStageIsColumned(oi))	out.add((prepend ? "in@B":"")+oi); 
+		
 		return out;
 	}
 	
@@ -1610,7 +1619,7 @@ public class DiachronicSimulator {
 							resp = "R"+resp.substring(1); 
 						if (validOptions.contains(resp.substring(0,1).toUpperCase()+resp.substring(1).toLowerCase()))
 							resp = resp.substring(0,1).toUpperCase() + resp.substring(1).toLowerCase();
-						if (resp.equalsIgnoreCase("input") || resp.equalsIgnoreCase("in"))	resp = "In"; 
+						if (resp.equalsIgnoreCase("input") || (resp.equalsIgnoreCase("in") && !resp.contains("@")))	resp = "In"; 
 					}
 										
 					chosen = validOptions.contains(resp); 
@@ -1657,6 +1666,14 @@ public class DiachronicSimulator {
 							pivPtLoc = blackStageInstants[si];
 							pivPtName = blackStageNames[si]+" [r"+pivPtLoc+"]";
 							//pivPtIsGoldOrInput = false; 
+							ea.setPivot(pivPtLex, pivPtName); 
+						}
+						else if (resp.length() > 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@b"))
+						{
+							int cbsi = blackToColumnedIndex[Integer.parseInt(resp.substring(4))]; 
+							pivPtLex = theSimulation.getStageInput(false, cbsi); 
+							pivPtLoc = columnedBlackStageInstants[cbsi]; 
+							pivPtName = columnedBlackStageNames[cbsi]+" [r"+pivPtLoc+"]";
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'R')
