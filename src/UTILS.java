@@ -1203,6 +1203,8 @@ public class UTILS {
 					+ " Such a feat stip shouldn't have existed in the first place...");	
 	}
 	
+	public static char FM_NULL_UNSET_ALPHA = '0';
+	public static boolean hasUnsetAlpha(RestrictPhone fm)	{	return fm.first_unset_alpha() != FM_NULL_UNSET_ALPHA;	}
 	
 	/**
 	 * @param str -- a string to check for the present of a feat matrix with alpha-specified features.. 
@@ -2359,4 +2361,5 @@ public class UTILS {
             return false;
         }
 	}
+	
 }
