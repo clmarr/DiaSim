@@ -237,7 +237,7 @@ public class Simulation {
 			{
 				etDerivations[ei] += "\n"+currLexicon.getByID(ei)+" | "+instant+" : "+thisShift; 
 				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print()
-						+ ";             (et."+ei+"; "+inputLexicon.getByID(ei)
+						+ ";             (et."+ei+"; "+ getInputForm(ei) 
 						+ (goldOutput ? " > ... > " + goldOutputLexicon.getByID(ei) : "") 
 						+ ")"; 
 			}

@@ -568,7 +568,7 @@ public class DHSWrapper {
 							System.out.println("There is no rule "+entry+"; valid rule numbers are in the interval (inclusive) [0,"+hypCASC.size()+"]");
 							continue; 
 						}
-						else if (cutPoint == 12)
+						else if (cutPoint == 12) // 'get rule at' mode
 							printBaselineRuleAt(theInd);
 						else /* curPoint == 16 */ if (theInd > -1)
 						{
