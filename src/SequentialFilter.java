@@ -576,9 +576,10 @@ public class SequentialFilter {
 					int formerPlace = currPlaceInMap;
 					currPlaceInMap = pairedParenLoc(currPlaceInMap); //go back to beginning of repeated optional segment
 					int proxyPlace = currPlaceInMap + 1; 
+					
 					while(parenMap[proxyPlace].charAt(0) != 'i') 
 					{
-						proxyPlace--; 
+						proxyPlace++; 
 						if(proxyPlace >= formerPlace)	throw new Error("Error: no actual place restriction inside paren structure");
 					}
 					currRestrPlace = Integer.parseInt(parenMap[proxyPlace].substring(1));
