@@ -1668,7 +1668,7 @@ public class DiachronicSimulator {
 							//pivPtIsGoldOrInput = false; 
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
-						else if (resp.length() > 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@b"))
+						else if (resp.length() < 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@b"))
 						{
 							int cbsi = blackToColumnedIndex[Integer.parseInt(resp.substring(4))]; 
 							pivPtLex = theSimulation.getStageInput(false, cbsi); 
