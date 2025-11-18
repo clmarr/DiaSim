@@ -244,7 +244,7 @@ public class SequentialFilter {
 
 					return false; 
 				}
-				currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
+				currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	
 			}
 		} 
 		if(currRestrPlace < 0)		return true;
