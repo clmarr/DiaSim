@@ -1186,5 +1186,20 @@ public class SequentialFilter {
 		if (!localAlphLocs.containsKey(targAlph))
 			localAlphLocs.put(targAlph, new ArrayList<Integer>());
 	}
+	
+	/**
+	 * @return which alph specs are currently unset. 
+	 */
+	public List<String> getUnsetAlphSpecs() {
+		List<String> output = new ArrayList<String> () ; 
+		
+		if (!has_unset_alphas())	return output; 
+		
+		for (String key : localAlphSpecs.keySet())
+			if (localAlphSpecs.get(key).equals(UNSET_ALPHVAL))
+				output.add(key); 
+		
+		return output;
+	}
 
 }
