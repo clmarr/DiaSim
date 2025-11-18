@@ -1453,7 +1453,7 @@ public class DiachronicSimulator {
 		
 		if (columnedBlackStagesSet)
 			for (int oi = first ; oi < last+1; oi++)
-				if (theSimulation.blackStageIsColumned(oi))	out.add((prepend ? "in@B":"")+oi); 
+				if (theSimulation.blackStageIsColumned(oi))	{ out.add((prepend ? "in@B":"")+oi); out.add((prepend ? "in@b":"")+oi); }
 		
 		return out;
 	}

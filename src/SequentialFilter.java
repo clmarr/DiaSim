@@ -216,9 +216,36 @@ public class SequentialFilter {
 					&& !placeRestrs.get(currRestrPlace).toString().equals(phonSeq.get(currPlaceInCand)+"")
 					&& !placeRestrs.get(currRestrPlace).print().equals("@"))
 			{	currPlaceInCand--;	}
-			else if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand)))
-				return false; 
-			else	{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
+			else {
+				SequentialPhonic cpi = phonSeq.get(currPlaceInCand); 
+				HashMap<String,String> alphExtract = new HashMap<String,String>(); 
+				
+				if(UTILS.hasUnsetAlpha(placeRestrs.get(currRestrPlace))) // there's an unset alpha. 
+				{
+
+					String typeHere = cpi.getType();
+					if (typeHere.equals("morph bound"))	
+					{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; continue; }
+					if (!typeHere.equals("phone")) // i.e. we have a word bound, most probably. 
+					{	if (!typeHere.equals("word bound"))	System.out.println("unexpected comparison of alpha feature matrix to object of type "+typeHere); 
+						return false; }
+					RestrictPhone rpi = placeRestrs.get(currRestrPlace); 
+					if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreUnsetAlpha(cpi))	
+						return false; 
+					// if reached here, going to have to extract and apply alpha values 
+					alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
+						//^ keyset of which will be reset in case of failure. 
+					
+					applyAlphaValues(alphExtract); 	
+				}
+				
+				if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand))) {
+					resetTheseAlphaValues( new ArrayList<String>(alphExtract.keySet())); 
+
+					return false; 
+				}
+				currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	}
+			}
 		} 
 		if(currRestrPlace < 0)		return true;
 		if(currPlaceInCand < 0)	
