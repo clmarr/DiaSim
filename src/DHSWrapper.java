@@ -634,7 +634,12 @@ public class DHSWrapper {
 							validLexPhon = false;
 						}
 						if (validLexPhon) {
-							String inds = UTILS.etymInds(baseSimulation.getInput().getWordList(), query);
+							String inds = ""; 
+							if (baseSimulation.hasColumnedStages() )
+								inds = UTILS.multiStageEtymInds(baseSimulation, query);
+								
+							else	inds = UTILS.etymInds(baseSimulation.getInput().getWordList(), query);
+							 
 							System.out.println("Ind(s) with this word as input : " + inds);
 						}
 					}

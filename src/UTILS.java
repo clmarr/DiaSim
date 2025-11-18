@@ -171,6 +171,11 @@ public class UTILS {
 		return output <= max ? output : -1; 
 	}
 
+	/**
+	 * @return list of inds for lexical index numbers in @param etTarg, an insertion stage
+	 * 		 at which an etymon with the form of @param etTarg is listed as inserted
+	 * @warning, if this is only used on an input stage and there are later insertions, these could be missed. 
+	 */
 	public static String etymInds(Etymon[] etList, Etymon etTarg)
 	{
 		String output = ""; 
@@ -178,6 +183,16 @@ public class UTILS {
 			if(etList[wli].toString().equals(etTarg.toString()))
 				output += output.equals("") ? ""+wli : ", "+wli;
 		return output;
+	}
+	
+	
+	public static String multiStageEtymInds(Simulation theSim, Etymon etTarg)
+	{
+		String output = ""; 
+		for (int etid = 0 ; etid < theSim.NUM_ETYMA(); etid++)
+			if( theSim.getInputForm(etid).toString().equals(""+etTarg))
+				output += output.equals("") ? ""+etid : ", "+etid;
+		return output; 
 	}
 	
 	public static Simulation toyDerivation(Simulation ogs, List<SChange> jur)

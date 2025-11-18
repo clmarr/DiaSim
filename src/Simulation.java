@@ -342,9 +342,10 @@ public class Simulation {
 		
 		return (insertionStage.charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)[Integer.parseInt(insertionStage.substring(1))].getByID(id); 
 	}
-	
+		
 	/**
-	 * @return stageOrdeered String for the stage + stage number at which @param id is inserted
+	 * @return stageOrdeered String for the stage + stage number 
+	 * 		at which the word with int index @param id is inserted
 	 * e.g. B2 = columned black stage two, which is columned; in = input 
 	 * 	should never return something prefixed in b
 	 */
