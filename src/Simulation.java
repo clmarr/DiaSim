@@ -340,7 +340,8 @@ public class Simulation {
 		
 		String insertionStage = getStageOfInsertion(id); 
 		
-		return (insertionStage.charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)[Integer.parseInt(insertionStage.substring(1))].getByID(id); 
+		return (insertionStage.equalsIgnoreCase("in") ? inputLexicon
+				: (insertionStage.charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)[Integer.parseInt(insertionStage.substring(1))]).getByID(id); 
 	}
 		
 	/**
