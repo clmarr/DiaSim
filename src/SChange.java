@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List; 
 
@@ -113,7 +114,17 @@ public abstract class SChange {
 	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{
 		if(minPostSize == 0)	return true;
-		return postContext.isPosteriorMatch(input, indAfter); 
+		
+		//if posterior has unset alphas still, these need to be handled within here
+		// so they don't remain set in case there's a possibility the same rule could apply twice in the same word.
+		// list alph specs to be set and reset within this method 
+		List<String> tempAlphSpecs  = postContext.has_unset_alphas() ? 
+				postContext.getUnsetAlphSpecs() : new ArrayList<String>(); 
+		
+		boolean result = postContext.isPosteriorMatch(input, indAfter);
+		if (tempAlphSpecs.size() > 0)	postContext.resetTheseAlphaValues(tempAlphSpecs);
+		
+		return result;
 	}
 	
 	public String getOrig()

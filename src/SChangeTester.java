@@ -886,9 +886,8 @@ public class SChangeTester {
 		
 		//TODO debugging
 		System.out.println("Testing SChangeSeqToSeqAlpha with neg alpha proxies.");
-		testRuleString = "[+lo,aback,-afront,etense] [+hi,bround] [-aback] > ∅ ∅ [+long,-ŋnas,etense,+stres,-bfront,-back,-sprim] / [-bround] __ [ŋnas] [sprim]";
+		testRuleString = "[+lo,aback,!afront,etense] [+hi,bround] [!aback] > ∅ ∅ [+long,!ŋnas,etense,+stres,!bfront,-back,!sprim,+syl,+son,0delrel] / [!bround] __ [ŋnas] [sprim]";
 		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0);
-		
 		
 		nalphTest = new Etymon(testFactory.parseSeqPhSeg("w ɑ w i kʷ ɑ j ʏ ɣ ˈæ w ʌ n ʌ" ), true);
 		nalphOg =  new Etymon(nalphTest); 
@@ -902,6 +901,30 @@ public class SChangeTester {
 		}
 		testRule.reset_alphvals_everywhere(); 
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		numCorrect = 0; totalTests = 0; 
+		
+		testRuleString = "d > ð / [+son,-nas] __ [alat,acons]"; 
+		System.out.println("Testing Nov 18 odd case with single matrix local alpha being negated: "+testRuleString); 
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0);
+		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule should be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+
+		System.out.println("rule parsed as ... "+testRule+" \n\t(class : "+testRule.getClass()+"; og form stored: "+testRule.getOrig()+")"); 
+		nalphTest = new Etymon(testFactory.parseSeqPhSeg("d l a n d i d l a r d e d j o" ), true);
+		nalphOg =  new Etymon(nalphTest); 
+		nalphCorr = new Etymon(testFactory.parseSeqPhSeg("d l a n d i ð l a r ð e ð j o" ), true);
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
+					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
+		}
+		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after application should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+
+		testRule.reset_alphvals_everywhere(); 
+		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after resetting should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		
 		numCorrect = 0; totalTests = 0; 
 		
 		//TODO may need more thorough testing but seems to work for nowǃ 

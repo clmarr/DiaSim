@@ -104,6 +104,9 @@ public class SChangePhoneAlpha extends SChangePhone {
 				if (isPriorMatch)
 				{
 					if (need_to_reset && postSpecd)	postContext.applyAlphaValues(ALPH_VARS);
+					
+					//if the posterior context still has unset alphas these will need to be handled within here and reset. 
+					
 					int matchInd = whichMatch(input, p);
 					if (matchInd != -1)
 					{
@@ -123,7 +126,6 @@ public class SChangePhoneAlpha extends SChangePhone {
 						{	res.add(currInpPh); p++; 	}
 					}
 					else	{	res.add(currInpPh); p++;	}
-				
 				}
 				else
 				{	res.add(currInpPh);	p++;	}
@@ -131,7 +133,6 @@ public class SChangePhoneAlpha extends SChangePhone {
 				if(need_to_reset) reset_alphvals_everywhere();
 			}
 		}
-		
 
 		if (p < inpSize)
 			res.addAll(input.subList(p, inpSize));
@@ -183,8 +184,14 @@ public class SChangePhoneAlpha extends SChangePhone {
 				else	halt = popm[cpim].contains("("); 
 					//TODO might need to make sure this doens't create problems wrt alphas in parens...  
 			}
+
+			boolean result =  postContext.isPosteriorMatch(input, indAfter); 
+			postContext.resetTheseAlphaValues(new ArrayList<String>( temp_alph_vals.keySet()));
+			return result; 
 		}
-		return postContext.isPosteriorMatch(input, indAfter); 
+		
+		return postContext.isPosteriorMatch(input, indAfter);
+		
 	}
 	/** currently identical to SChange.reset_alphvals_everywhere.
 	public void reset_alphvals_everywhere()
