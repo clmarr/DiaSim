@@ -1662,7 +1662,7 @@ public class DiachronicSimulator {
 						else if ("b".equalsIgnoreCase(""+resp.charAt(0)))
 						{
 							int si = Integer.parseInt(resp.substring(1));
-							pivPtLex = theSimulation.getStageResult(false, si);
+							pivPtLex = theSimulation.getStageResultPlusInsertions(false, si);
 							pivPtLoc = blackStageInstants[si];
 							pivPtName = blackStageNames[si]+" [r"+pivPtLoc+"]";
 							//pivPtIsGoldOrInput = false; 
@@ -1955,7 +1955,7 @@ public class DiachronicSimulator {
 						+ "| 0 : Print stats (at evaluation point) (for subset lexicon if specified)~~~~~~~~~~~~~|\n"
 						+ "| 1 : Print all corresponding forms (init(,pivot),res,gold) (for subset if specified) |\n"
 						+ "| 2 : Print all corresponding forms as above for all errant etyma                     |\n"
-						+ "| 3 : Print all mismatched forms only at eval point (for subset if specified)         |\n"
+						+ "| 3 : Print all mismatched forms, only at eval point (for subset if specified)         |\n"
 					    + "| 4 : Print all corresponding forms at each stage up to now (for subset if specified) |\n"
 						+ "| 5 : Print all corresponding forms for errant etyma as above (for subset if spec'd)  |\n"
 						+ "| 9 : Exit this menu._________________________________________________________________|\n");  
@@ -2012,7 +2012,7 @@ public class DiachronicSimulator {
 							int stageNum = Integer.parseInt(currSt.substring(1)); 
 							headerRow += UTILS.append_space_to_x(
 									(goldHere ? goldStageNames : blackStageNames)[stageNum], 19) + "|"; 
-							lexCols.add(theSimulation.getStageResult(goldHere, stageNum)); 
+							lexCols.add(theSimulation.getStageResultPlusInsertions(goldHere, stageNum)); 
 						}
 						
 						if (ea.isPivotSet() && !pivot_inserted) {

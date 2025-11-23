@@ -380,6 +380,16 @@ public class Simulation {
 	public Lexicon getStageInput(boolean goldnotblack, int stagenum)
 	{	return (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[stagenum];	}
 	
+	public Lexicon getStageResultPlusInsertions(boolean goldnotblack, int stagenum)
+	{
+		Etymon[] etymList = getStageResult(goldnotblack,stagenum).getWordList();
+		for (int etli = 0 ; etli < NUM_ETYMA ; etli++)
+			if ( !UTILS.etymonIsPresent(etymList[etli])) 
+				etymList[etli] = (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[stagenum].getByID(etli); 
+		return new Lexicon(etymList); 
+	}
+	
+	
 	public int getStageInstant(boolean goldnotblack, int stagenum)
 	{	return (goldnotblack ? goldStageInstants : blackStageInstants)[stagenum]; 	}
 	
