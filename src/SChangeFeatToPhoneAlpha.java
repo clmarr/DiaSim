@@ -32,37 +32,45 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 		{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; 
+
 			for (int i = 0 ; i < minInputSize && !targMatchFail ; i++)
 			{
 				SequentialPhonic cand = input.get(p+i);
 				RestrictPhone test = targSource.get(i);
+				HashMap<String,String> srcAlphs = new HashMap<String, String>() ;
+
 				if (test.first_unset_alpha() != '0')
 				{
 					if(cand.getType().equals("phone")) {
+						
 						if(test.check_for_alpha_conflict(cand))
 							targMatchFail = true;
 						else if (!test.comparePreUnsetAlpha(cand))	targMatchFail = true; 
 						else
 						{
-							HashMap<String,String> alphHere = test.extractAndApplyAlphaValues(cand); 
+							srcAlphs = test.extractAndApplyAlphaValues(cand); 
 							need_to_reset = true;
-							test.applyAlphaValues(alphHere);
+							test.applyAlphaValues(srcAlphs);
 							if (priorSpecd)
-								if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(alphHere);
+								if (priorContext.hasAlphaSpecs())	priorContext.applyAlphaValues(srcAlphs);
 							if (postSpecd)
-								if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(alphHere);
-							for (int j = i; j < minInputSize; j++)	targSource.get(j).applyAlphaValues(alphHere);
+								if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(srcAlphs);
+							for (int j = i; j < minInputSize; j++)	targSource.get(j).applyAlphaValues(srcAlphs);
 						}
 						targMatchFail = targMatchFail ? true : test.compare(cand); 
 					}
 					else	targMatchFail = true; 
 				}
+				//if(targMatchFail && srcAlphs.keySet().size() > 0) reset_alphvals_everywhere();
+				// unnecessary as this bypasses the next block to trigger the reset there. 
 			}
 			if (!targMatchFail) //target matched
 			{
 				boolean isPriorMatch = !priorSpecd; 
 				if(!isPriorMatch) {
 					boolean priorPossible = true; 
+					HashMap<String,String> alphHere = new HashMap<String, String>() ;
+
 					if (priorContext.has_unset_alphas())
 					{
 						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
@@ -89,7 +97,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 									}
 									else
 									{
-										HashMap<String,String> alphHere = pri.extractAndApplyAlphaValues(input.get(cpic));
+										alphHere = pri.extractAndApplyAlphaValues(input.get(cpic));
 										need_to_reset = true;
 										priorContext.applyAlphaValues(alphHere);
 										postContext.applyAlphaValues(alphHere);
@@ -102,6 +110,12 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 						}
 					}
 					isPriorMatch = priorPossible ? priorMatch(input,p) : false;
+					
+					if (!isPriorMatch && alphHere.keySet().size() > 0)
+					{
+						priorContext.resetTheseAlphaValues(new ArrayList<String>(alphHere.keySet()));
+						postContext.resetTheseAlphaValues(new ArrayList<String>(alphHere.keySet()));
+					}
 				}
 					
 				if(isPriorMatch)

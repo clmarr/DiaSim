@@ -919,13 +919,39 @@ public class SChangeTester {
 			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
 					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
 		}
-		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after application should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+		totalTests++; 
+		numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after application should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
 
 		testRule.reset_alphvals_everywhere(); 
 		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after resetting should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
 		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
 		
 		numCorrect = 0; totalTests = 0; 
+		
+		testRuleString = "[+lat] > r / [+syl,uhi,uback] ( [-syl] )* [+back,-cont] __"; 
+		System.out.println("Testing analogous Nov 24 odd case with single matrix local alpha being negated: "+testRuleString); 
+
+		testRule = testFactory.generateSoundChangesFromRule(testRuleString).get(0);
+		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule should be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+
+		System.out.println("rule parsed as ... "+testRule+" \n\t(class : "+testRule.getClass()+"; og form stored: "+testRule.getOrig()+")"); 
+		nalphTest = new Etymon(testFactory.parseSeqPhSeg("# c e k l # c o k l # p u k l #" ), true);
+		nalphOg =  new Etymon(nalphTest); 
+		nalphCorr = new Etymon(testFactory.parseSeqPhSeg("# c e k r # c o k l # p u k r #" ), true);
+		totalTests++; ruleApplied = UTILS.checkBoolean(true, nalphTest.applyRule(testRule), "Error: this rule "+testRuleString+" should have applied to "+nalphOg.print()+" but it did not"); 
+		numCorrect += ruleApplied ? 1 : 0; 
+		if(ruleApplied) {
+			totalTests++; numCorrect += UTILS.checkBoolean(false, nalphTest.print().equals(nalphOg.print()), "Error: this rule "+testRuleString+" should have actually changed "+nalphOg.print()+" but it did not") ? 1 : 0;
+			totalTests++; numCorrect += UTILS.checkBoolean(true, nalphTest.print().equals(nalphCorr.print()), "Error: this rule "+testRuleString+"\n\tshould have actually changed "+nalphOg.print()+
+					" to become "+nalphCorr.print()+",\n\t\t\tbut instead it is\t\t"+ nalphTest.print()) ? 1 : 0;
+		}
+		totalTests++; 
+		numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after application should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+
+		testRule.reset_alphvals_everywhere(); 
+		totalTests++; numCorrect += UTILS.checkBoolean(testRule.toString().equals(testRule.getOrig()), true, "Error: the rule after resetting should still be stored as "+testRule.getOrig()+" but is "+testRule) ? 1 : 0; 
+		System.out.println("Done testing in this mode; got "+numCorrect+" correct out of "+totalTests); 
+		
 		
 		//TODO may need more thorough testing but seems to work for nowǃ 
 	}

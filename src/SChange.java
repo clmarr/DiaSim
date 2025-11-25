@@ -103,13 +103,23 @@ public abstract class SChange {
 		if(priorSpecd)	output += priorContext.toString() + " "; 
 		output = output.trim() + " __ "; 
 		if(postSpecd)	output += postContext.toString(); 
-		return output; 
+		return output.trim(); 
 	}
 
 	protected boolean priorMatch(List<SequentialPhonic> input, int frstTargInd)
 	{
 		if(minPriorSize == 0)	return true; 
-		else 	return priorContext.isPriorMatch(input, frstTargInd); 
+		
+		//if prior has unset alphas still, these need to be handled within here
+				// so they don't remain set in case there's a possibility the same rule could apply twice in the same word.
+				// list alph specs to be set and reset within this method 
+		List<String> tempAlphSpecs  = priorContext.has_unset_alphas() ? 
+				priorContext.getUnsetAlphSpecs() : new ArrayList<String>(); 
+				
+		boolean result = priorContext.isPriorMatch(input, frstTargInd);
+		if (tempAlphSpecs.size() > 0)	priorContext.resetTheseAlphaValues(tempAlphSpecs);
+				
+		return result; 
 	}
 	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{
@@ -128,7 +138,7 @@ public abstract class SChange {
 	}
 	
 	public String getOrig()
-	{	return orig;	}
+	{	return orig.trim();	}
 	
 	public void reset_alphvals_everywhere() 
 	{

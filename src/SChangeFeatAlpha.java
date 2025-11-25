@@ -195,7 +195,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					if(crp < 0)	halt = true;
 					else	halt = pripm[cpim].contains(")"); 
 				}
-			}}
+			}
+		}
 		
 		if (!priorMatch(input, ind))
 		{
@@ -271,6 +272,10 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		super.reset_alphvals_everywhere(); 
 		targSource.resetAlphaValues();
 		destination.resetAlphaValues();
+
+		// just to be sure. 
+		if (priorSpecd)	priorContext.resetAllAlphaValues();
+		if (postSpecd)	postContext.resetAllAlphaValues();
 	}
 	
 	//sets everything based one what's currently in ALPH_VARS

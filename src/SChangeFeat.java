@@ -163,6 +163,6 @@ public class SChangeFeat extends SChange {
 			//TODO above line will need to be changed if the standard print of the FeatMatrix class is ever changed
 				//TODO check version control on Git to determine if it was ever changed... 
 		
-		return output + " " + super.toString(); 
+		return output + " " + super.toString().trim(); 
 	}
 }

@@ -573,7 +573,7 @@ public class DHSWrapper {
 						else /* curPoint == 16 */ if (theInd > -1)
 						{
 							System.out.println("etyma effected by rule "+theInd+", "+baseSimulation.getRuleAt(theInd)+
-									"\n     (original form : "+baseSimulation.getOrigRuleAt(theInd)+"    )");
+									"\n     (original form : "+baseSimulation.getOrigRuleAt(theInd)+"    ,  "+baseSimulation.CASCADE().get(theInd).getClass()+")");
 							String[] rule_effects_at_ind = baseSimulation.getRuleEffect(theInd);
 							
 							boolean no_effect = true; 
