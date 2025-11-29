@@ -88,7 +88,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 					else	stopIncrement = true; 
 				}
 			}
-			
+
 			if(isMatch(input,p))
 			{
 				// when destination is null, we add nothing,
@@ -151,7 +151,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		}
 		
 		if(priorSpecd) {
-			// process alpha specs for prior if necessary...
+			// process alpha specs for prior if necessary... this isn't prior match checking --will skip parens, for now. 
 			if (priorContext.hasAlphaSpecs())
 			{
 				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS); // probably redundant with earlier application from input but alas. 
@@ -159,9 +159,30 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				String[] pripm = priorContext.getParenMap(); 
 				int cpic = ind - 1, // candidate at prior index counter
 						crp = pripr.size() - 1, cpim = pripm.length - 1; 
-				boolean halt = pripm[cpim].contains(")"); 
+				boolean halt = false; // pripm[cpim].contains(")"); 
 				while(!halt)
 				{
+					if (pripm[cpim].contains(")")) // parenthesis hopping behavior triggers
+					{
+						boolean haltParenthesisHopping = false; 
+						
+						while (!haltParenthesisHopping)
+						{
+							cpim = Integer.parseInt (pripm[cpim].split(":")[1].split(",")[0]) - 1; 
+							if (cpim < 2) // no more parenthesis possible then; 
+							{	
+								if (cpim < 0)	// then need to break this entire process.
+								{	halt = true; break; }
+								if (pripm[cpim].contains(")") || pripm[cpim].contains("("))
+									throw new Error("Unexpected parenthesis in parenMap cell "+cpim+": "+pripm[cpim]); 
+								haltParenthesisHopping = true; 
+							}
+							else haltParenthesisHopping = !pripm[cpim].contains(")"); 
+						}
+						if (halt)	break; 
+						crp = Integer.parseInt(pripm[cpim].substring(1)); 
+					}
+					
 					RestrictPhone pri = pripr.get(crp); 
 					
 					if(pri.first_unset_alpha() != '0')
@@ -193,7 +214,6 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	
 					cpic--; crp--; cpim--;
 					if(crp < 0)	halt = true;
-					else	halt = pripm[cpim].contains(")"); 
 				}
 			}
 		}
@@ -263,7 +283,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		}
 		
 		if (destination.has_alpha_specs() && need_to_reset)	destination.applyAlphaValues(ALPH_VARS); 
-			//TODO may need to make this apply via negAlphProxies too. 
+
 		return true;
 	}
 
