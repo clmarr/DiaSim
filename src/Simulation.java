@@ -17,6 +17,18 @@ public class Simulation {
 	private String[] goldStageNames, blackStageNames, columnedStageNames;
 	private String inputStageName;
 	
+	//black to columend index: get the columend black index from the black index. 
+		// probably unnecessary tho bc columnedBlackStageBlackIndices.getIndexOf can do its job. 
+	private int[] blackToColumnedIndex; 
+	// for each black stage index, among the black stage arrays, 
+		// gives the columned stage index if it is columned.
+	// if uncolumned (default), contains -1. 
+	private void initBlackToColumnedIndex() {	
+		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
+		for (int bci = 0; bci < NUM_BLACK_STAGES; bci++)	blackToColumnedIndex[bci] = -1; 
+	}
+	
+	
 	private int NUM_ETYMA; 
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_BLACK_STAGES;
 	public int NUM_COLUMNED_STAGES() 	{	return	NUM_GOLD_STAGES + NUM_COLUMNED_BLACK_STAGES;	}
@@ -204,6 +216,7 @@ public class Simulation {
 			}
 		}
 		
+		initBlackToColumnedIndex();	
 	}
 	
 	public void setBlackStages(String[] names, int[] times)
@@ -339,9 +352,13 @@ public class Simulation {
 	public Etymon getInputForm(int id)	{
 		
 		String insertionStage = getStageOfInsertion(id); 
+		if (insertionStage.equalsIgnoreCase("in"))	return inputLexicon.getByID(id); 
 		
-		return (insertionStage.equalsIgnoreCase("in") ? inputLexicon
-				: (insertionStage.charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)[Integer.parseInt(insertionStage.substring(1))]).getByID(id); 
+		boolean isCB = insertionStage.charAt(0)  == 'B' ; 
+		int sNum = Integer.parseInt(insertionStage.substring(1)); 
+		if (isCB)	sNum = columnedBlackStageBlackIndices.indexOf(sNum);// because index in columnedBlackStages != in blackStages
+		
+		return (isCB ? columnedBlackStageLexica : goldStageGoldLexica)[sNum].getByID(id); 
 	}
 		
 	/**
@@ -361,8 +378,11 @@ public class Simulation {
 		for (int soi = stagesOrdered[0].equals("in") ? 1 : 0; soi < stagesOrdered.length ; soi++)
 		{
 			if (!"GB".contains(stagesOrdered[soi].substring(0,1)))	continue;
-			ogInput = (stagesOrdered[soi].charAt(0) == 'B' ? columnedBlackStageLexica : goldStageGoldLexica)
-					[Integer.parseInt(stagesOrdered[soi].substring(1))].getByID(id); 
+			boolean isCB = stagesOrdered[soi].charAt(0) == 'B'; 
+			int sNum = Integer.parseInt(stagesOrdered[soi].substring(1));
+			if (isCB)	sNum = columnedBlackStageBlackIndices.indexOf(sNum);
+			ogInput = (isCB ? columnedBlackStageLexica : goldStageGoldLexica)
+					[sNum].getByID(id); 
 			if (UTILS.etymonIsPresent(ogInput))	return stagesOrdered[soi]; 
 		}
 		
