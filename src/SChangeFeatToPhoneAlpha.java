@@ -57,13 +57,15 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 								if (postContext.hasAlphaSpecs())	postContext.applyAlphaValues(srcAlphs);
 							for (int j = i; j < minInputSize; j++)	targSource.get(j).applyAlphaValues(srcAlphs);
 						}
-						targMatchFail = targMatchFail ? true : test.compare(cand); 
 					}
 					else	targMatchFail = true; 
 				}
+				targMatchFail = targMatchFail ? true : !test.compare(cand);
+				
 				//if(targMatchFail && srcAlphs.keySet().size() > 0) reset_alphvals_everywhere();
 				// unnecessary as this bypasses the next block to trigger the reset there. 
 			}
+			
 			if (!targMatchFail) //target matched
 			{
 				boolean isPriorMatch = !priorSpecd; 
@@ -190,7 +192,8 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					}	
 				}
 			}
-			if ( p == p_if_match_fail)	res.add(input.get(p));
+			if ( p == p_if_match_fail)
+			{	res.add(input.get(p)); p++;	}
 			if (need_to_reset)	reset_alphvals_everywhere(); 
 		}
 		if (p < inpSize)	res.addAll(input.subList(p, inpSize)); 

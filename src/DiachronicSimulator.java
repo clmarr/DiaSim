@@ -1723,6 +1723,7 @@ public class DiachronicSimulator {
 				{	
 					System.out.println("To delete the filter and not restore with a new one, type 'DELETE'.\n"
 							+ "To retain it, type 'KEEP'.\n"
+							+ "{it may help to use stuff like (@)*, @ -- any segment, * any repeats, ( ... ) optional segment or sequence, {; } disjunct... "
 							+ "Otherwise, enter the phoneme sequence filter, delimiting phones with '"+UTILS.PH_DELIM+"':");
 					
 					resp = UTILS.stripEnds(inpu.nextLine().replace("\n",""));

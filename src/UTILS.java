@@ -26,6 +26,8 @@ public class UTILS {
 	public final static String ALL_FTVECT_INTS = (POLAR_FTVECT_INTS + UNSPEC_INT) + DESPEC_INT,
 							ALL_FTSPEC_MARKS = ""+POLAR_FTSPEC_MARKS + MARK_UNSPEC;
 
+	public final static char NULL_PH_SYMB = '∅';
+	
 	public final static char IMPLICATION_DELIM=':', PH_DELIM = ' ', DIACRITICS_DELIM='='; 
 	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation

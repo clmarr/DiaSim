@@ -545,7 +545,7 @@ public class SChangeFactory {
 				output.add(new Boundary(("#".equals(inputLeft.substring(0,1)) ? "word ":"morph ")+"bound"));
 				inputLeft = inputLeft.substring(1).trim();
 			}
-			else if(inputLeft.charAt(0) == '∅')
+			else if(inputLeft.charAt(0) == UTILS.NULL_PH_SYMB)
 			{
 				output.add(new NullPhone()); 
 				inputLeft = inputLeft.substring(1).trim(); 
@@ -586,7 +586,7 @@ public class SChangeFactory {
 	 */
 	public RestrictPhone parseSinglePhonicDest(String inp)
 	{
-		if(inp.equals("∅"))	return new NullPhone(); 
+		if(inp.equals(""+UTILS.NULL_PH_SYMB))	return new NullPhone(); 
 		if(UTILS.phoneSymbToFeatsMap.containsKey(inp))	
 			return new Phone(UTILS.phoneSymbToFeatsMap.get(inp),UTILS.featIndices,UTILS.phoneSymbToFeatsMap);
 		String input = inp; 
@@ -607,6 +607,7 @@ public class SChangeFactory {
 		List<Phone> output = new ArrayList<Phone>(); 
 		for(String toPhone : toPhones)
 		{			
+			if(inp.equals(""+UTILS.NULL_PH_SYMB))	continue; // add nothing, it's a null phone! 
 			if(! UTILS.phoneSymbToFeatsMap.containsKey(toPhone) )	throw new RuntimeException(
 					"Tried to parse illegitimate phone symbol : "+toPhone); 
 			output.add(new Phone(UTILS.phoneSymbToFeatsMap.get(toPhone), UTILS.featIndices, UTILS.phoneSymbToFeatsMap));
