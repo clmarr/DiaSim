@@ -1375,6 +1375,10 @@ public class ErrorAnalysis {
 	{
 		System.out.println("Autopsy -- contexts most correlated with error (metric: "+metric_name+"): ");
 		
+		// below was useful useful in past debugging
+		//System.out.println("Inactive features: "+pivotInactiveFeats.size());
+		for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
+				
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
 		int[] scope = get_autopsy_scope(); 
@@ -1460,12 +1464,18 @@ public class ErrorAnalysis {
 		return false; 
 	}
 	
-	// @param rel_ind -- index relative to start of the sequence in question we are checking for 
+	
+	/**
+	 * 
+	 * @param rel_ind -- index relative to start of the sequence in question we are checking for 
 		//-- so if it is 8 and rel_ind is -2, we look at index 6
-	// ind 0 -- hit, ind 1 -- miss
-	// TODO currently this does not incorporate info on the *frequencies* of hit and miss phones
-	//  this is instead accessed after this is called, via get_ph_freqs_at_rel_loc 
-	// if we want to make this return frequencies, would need to make it return a HashMap instead... 
+		 * 	// ind 0 -- hit, ind 1 -- miss
+	* TODO currently this does not incorporate info on the *frequencies* of hit and miss phones
+	* this is instead accessed after this is called, via get_ph_freqs_at_rel_loc 
+	* if we want to make this return frequencies, would need to make it return a HashMap instead...
+	 * @return pair of List<SequentialPhonic> of hit and miss phones
+	 * @prerequisite SS_HIT_BOUNDS, SS_MISS_BOUNDS, SS_HIT_IDS, and SS_MISS_IDS are initialized already in @method articulateSubsample
+	 */
 	private List<List<SequentialPhonic>> hit_and_miss_phones_at_rel_loc (int rel_ind)
 	{
 		boolean posterior = rel_ind > 0; 
@@ -1481,13 +1491,13 @@ public class ErrorAnalysis {
 				continue;
 			
 			List<SequentialPhonic> curPR = PIV_PT_LEX.getByID(SS_HIT_IDS[hi]).getPhonologicalRepresentation();
-
+			
 			for(int ihi = 0; ihi < SS_HIT_BOUNDS.get(hi).size(); ihi++)
 			{
 				int curr_ind = posterior ? 
 						SS_HIT_BOUNDS.get(hi).get(ihi)[1]+ curPR.size() + rel_ind 
 						: SS_HIT_BOUNDS.get(hi).get(ihi)[0] + rel_ind;
-				
+
 				if (curr_ind >= 0 && curr_ind < curPR.size())
 				{
 					SequentialPhonic curr = curPR.get(curr_ind);
@@ -1554,10 +1564,8 @@ public class ErrorAnalysis {
 	}
 	
 	//TODO redo score calculation so that it is the Pearson coefficient! 
-	//TODO write up function description here ! 
 	//TODO incorporate overall frequency of the miss phones and the hit phones in some way? 
 	/**
-	 * 
 	 * @param n_rows
 	 * @param rel_ind
 	 * @param mode -- determines scoring algorithm 
@@ -1587,10 +1595,6 @@ public class ErrorAnalysis {
 	 */
 	public String[] topNScoredPredictorsAtRelInd(int n_rows, int rel_ind, String mode)
 	{
-		// below was useful useful in past debugging
-		//System.out.println("Inactive features: "+pivotInactiveFeats.size());
-		//for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
-		
 		mode = mode.toLowerCase(); 
 		if (!mode.equals("phi") && !mode.equals("f") && !UTILS.valid_fB(mode))	
 			throw new RuntimeException("Error: tried to run a context autopsy with an illegal scoring algorithm stipulation\n"
@@ -1611,18 +1615,18 @@ public class ErrorAnalysis {
 		int[] miss_ph_frqs = get_ph_freqs_at_rel_loc(rel_ind, SS_MISS_IDS, miss_phs_here, SS_MISS_BOUNDS); 
 		
 		if (hit_ph_frqs.length != hit_phs_here.size() )
-			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs");
+			throw new RuntimeException("Error : mismatch in size for hit_ph_frqs and hit_phs_here");
 		if (miss_ph_frqs.length != miss_phs_here.size() )
-			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs");
+			throw new RuntimeException("Error : mismatch in size for miss_ph_frqs and miss_phs_here");
 	
 		//debugging -- checking accuracy of frequency counts. -- was useful in past, commented out currently. 
-		/** System.out.println("Frequency counts -- misses:"); 
+		/**System.out.println("Frequency counts -- misses:"); 
 		for (int mpi = 0 ; mpi < miss_phs_here.size(); mpi++)
 			System.out.println(miss_phs_here.get(mpi)+": "+miss_ph_frqs[mpi]);
 		System.out.println("and for hits:"); 
 		for (int hpi = 0 ; hpi < hit_phs_here.size(); hpi++)
 			System.out.println(hit_phs_here.get(hpi)+": "+hit_ph_frqs[hpi]); 
-		System.out.println("----\n"); */ 
+		System.out.println("----\n");*/ 
 		
 		
 		HashMap<String,Integer> predPhIndexer = new HashMap<String,Integer>(); 

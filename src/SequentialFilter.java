@@ -290,14 +290,15 @@ public class SequentialFilter {
 	}
 
 	
-	
+	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
 	/** 
 	 * @return @true if stipulations of placeRestrs match for (somewhere in) pr
-	 * @note isPosteriorMatchHelper called as means of checking matching for a sequence; `asymmetry' of not calling isPriorMatch(Helper) no cause for alarm. 
+	 * @note isPosteriorMatchHelper called as means of checking matching for a sequence; 
+	 * 		`asymmetry' of not calling isPriorMatch(Helper) no cause for alarm. 
 	 *  all necessary issues should be caught on the forward iteration through the phonetic segments
 	 * 	*  since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
 		*  and it's not like a segment would just be missed, since it starts at the beginning and goes to the end.
-	*  concerning @alpha features, this computes compatibility recursive, effectively based @locally based on those NOT set already
+	*  @note concerning @alpha features, this computes compatibility recursive, effectively based @locally based on those NOT set already
 	*  		those that are set outside this method could have been set for adherence to already @determined for adherence to input, output, or another context SequentialFilter
 	 * @param prCand -- sequence to compare for potential match
 	 * @param backward -- true if going backward, like if this is being used for a prior context. 
@@ -305,7 +306,6 @@ public class SequentialFilter {
 	 * 		may need to turn off the resetting with @param resetAfterMatch 
 	 * 			but this will not be relevant for the recursvie calls to filtCheckHelper, which are only resetting in the case of a match failure. 
 	 */
-	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch)	{	return filtCheck(prCand,resetAfterMatch,false);	}
 	public boolean filtCheck(List<SequentialPhonic> prCand, boolean resetAfterMatch, boolean backwards ) {	
 		
 		//alphs that will be set and reset within this method's recursion. 
@@ -497,6 +497,9 @@ public class SequentialFilter {
 	 *  	@empty if there are none, i.e. no match. 
 		* @note that of the boundary pairs, while the first element is the (positive) index of the onset of the filter match
 			* the second is the *negative* index of the offset *counting back from the end of the word* (as in python indexing, etc.) 
+		* @note if working with a filter with parentheses, there could be multiple possible matches with the same starting index, or the same end index
+		* 		to avoid massive overcounting in such cases, priority is given to the match that uses parens the least -- that is to say, the shortest matching window.
+		* 		alternative policy would be to include all POSSIBLE windows -- but that would produce overocunting.
 	 */  
 	public List<int[]> filtMatchBounds(List<SequentialPhonic> pr)
 	{
@@ -505,28 +508,35 @@ public class SequentialFilter {
 
 		List<int[]> out = new ArrayList<int[]>(); 
 		
- 		int trueOnset = 0, currMatchStart = -1;
+ 		int trueOnset = 0;
 		List<SequentialPhonic> dummy = new ArrayList<SequentialPhonic>(pr); 
 
 		while (dummy.size() >= minSize) {
-			for (int cpic = 0 ; cpic < dummy.size() && currMatchStart == -1; cpic++)
-				if(filtCheck(cpic == 0 ? dummy : dummy.subList(cpic, dummy.size()), true, false))
-				//formerly: if(isPosteriorMatchHelper(dummy,cpic,0,0))	currMatchStart = cpic; //this will effectively halt the for-loop
+			//if there is no match anywhere {left} in here, return empty list -- there are no matches
+			if(!filtCheck(dummy, true, false))	return out; 
 			
-			if (currMatchStart == -1)	return out;	// this is an empty list at this point -- returning empty, as there is no match. 
-			else	{
-				int matchEnd = currMatchStart + minSize - 1; 
-				while(matchEnd < dummy.size() ? 
-						!isPriorMatchHelper(dummy,matchEnd,placeRestrs.size()-1,parenMap.length-1) : false)
-					matchEnd++;
-				
-				out.add(new int[] {trueOnset + currMatchStart, 
-						trueOnset + matchEnd - pr.size()}
-						); 
-				trueOnset = trueOnset + matchEnd + 1;
-				currMatchStart = -1;
-				dummy = dummy.subList(matchEnd+1,dummy.size());
-		}}
+			// there must be match somewhere in here then -- detect next match start
+			int currMatchStart = 0;
+			while (currMatchStart >= dummy.size() ? false 
+					: !isPosteriorMatchHelper(dummy, currMatchStart,0,0))
+				currMatchStart++; 
+			if (currMatchStart == dummy.size())
+				System.out.println("Warning: filtCheck() detected a match here, but posterior helper did not!"); 
+			
+			// detect smallest possible window's ending index. 
+			
+			// for match start, choose end that uses the least parens. 
+			int matchEnd = currMatchStart + minSize - 1; 
+			while(matchEnd < dummy.size() ? 
+					!isPriorMatchHelper(dummy,matchEnd,placeRestrs.size()-1,parenMap.length-1) : false)
+				matchEnd++;
+			
+			out.add(new int[] {trueOnset + currMatchStart, 
+					trueOnset + matchEnd - pr.size()}
+					); 
+			trueOnset = trueOnset + matchEnd + 1;
+			dummy = dummy.subList(matchEnd+1,dummy.size());
+		}
 		
 		return out; 
 	}
@@ -546,7 +556,9 @@ public class SequentialFilter {
 	 * @param cpic	location in phonSeq		- current place in (candidate) phonic sequence
 	 * @param crp	location in placeRestrs	- current restriction place (restrictions upon candidate phones)
 	 * @param cpim	location in parenMap	
-	 * @return
+	 * @return @true if from @cpic onward there is a match for what is left of the restrictions from @crp onward and @parenMap from @cpim onward
+	 * @note handles parenthesis structure by @branching via recursive calls here as well as checking @method @isPosteriorMatchHelperExcludeParens,
+	 * 		hinges this behavior on output of @method @getMinParenSegments
 	 * */
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
 	{	
