@@ -1377,7 +1377,7 @@ public class ErrorAnalysis {
 		
 		// below was useful useful in past debugging
 		//System.out.println("Inactive features: "+pivotInactiveFeats.size());
-		for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
+		//for (String pifi : pivotInactiveFeats)	System.out.println(pifi); 
 				
 		List<String[]> prior = new ArrayList<String[]>(); 
 		
