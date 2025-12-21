@@ -23,6 +23,8 @@ public class Lexicon {
 		theWords.toArray(theWordList);
 	}
 	
+	public Lexicon(Lexicon toClone) {	this(toClone.getWordList()); }
+	
 	public Lexicon(Etymon[] theWords)
 	{
 		theWordList = new Etymon[theWords.length];

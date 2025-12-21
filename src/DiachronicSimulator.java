@@ -1989,14 +1989,31 @@ public class DiachronicSimulator {
 					else if("45".contains(resp))
 					{	
 						boolean errsOnly = "5".equals(resp); 
-						String headerRow = "     |"+UTILS.append_space_to_x(inputName, 19)+"|";
 						List<Lexicon> lexCols = new ArrayList<Lexicon>();
-						lexCols.add(theSimulation.getInput()); 
+						
+						String firstPrintStageName = inputName; 
+						int fpsi = -1; 
+						Lexicon firstPrintStage = new Lexicon(theSimulation.getInput()); 
+						while (firstPrintStage.numPresentEtyma() == 0)
+						{
+							fpsi++; 
+							String currSt = stageOrdering[fpsi]; 
+							if (currSt.charAt(0) == 'b')	continue;  
+							boolean goldHere = currSt.charAt(0) == 'G'; /// else B 
+							int stageNum = Integer.parseInt(currSt.substring(1)); 
+							firstPrintStage = new Lexicon ( theSimulation.getStageInput(goldHere, stageNum)); 
+							firstPrintStageName = 
+									(goldHere ? theSimulation.getGoldStageNames()
+											: theSimulation.getBlackStageNames() )[stageNum]; 
+						}
+						lexCols.add(firstPrintStage); 
+						
+						String headerRow = "     |"+UTILS.append_space_to_x(firstPrintStageName, 19)+"|";
 						
 						boolean pivot_inserted = false; 
-						if ("InGoldOut".contains(pivPtName)) pivot_inserted = true; 
+						if ("ingoldout".contains(pivPtName.toLowerCase())) pivot_inserted = true; 
 						
-						for (int cosi = 0 ; cosi < (atOutput ? NUM_STAGES() : Arrays.asList(stageOrdering).indexOf("G"+curSt))
+						for (int cosi = fpsi+1 ; cosi < (atOutput ? NUM_STAGES() : Arrays.asList(stageOrdering).indexOf("G"+curSt))
 							; cosi++) { 
 							if (ea.isPivotSet() && !pivot_inserted)
 							{
