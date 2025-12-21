@@ -291,20 +291,7 @@ public class SChangeFactory {
 			}
 		}
 		
-		//TODO note [ and ] can ONLY be used to surround feature specifications for FeatMatrix
-		// otherwise there will be very problematic errors
-		boolean srcHasFeatMatrices = inputSource.contains("["); 
-		if (srcHasFeatMatrices != inputSource.contains("]")) 
-			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
-		if(srcHasFeatMatrices)
-		{
-			if(! UTILS.hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
-			if( inputSource.contains("{") || inputSource.contains("}")) 
-				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
-						+ "\nIn the mean time, please use multiple rules to accomplish your intended transformation."
-						+ "\nAttempted rule: "+inp);
-		}
-		
+
 		boolean usingAlphFeats = 
 				UTILS.stringHasFMWithAlpha(inputSource); 
 		if (!usingAlphFeats) 
@@ -349,6 +336,22 @@ public class SChangeFactory {
 			}
 			
 		}	
+		
+		
+		//TODO note [ and ] can ONLY be used to surround feature specifications for FeatMatrix
+		// otherwise there will be very problematic errors
+		boolean srcHasFeatMatrices = inputSource.contains("["); 
+		if (srcHasFeatMatrices != inputSource.contains("]")) 
+			throw new RuntimeException("Error: mismatch in presence of [ and ], which are correctly used to mark a FeatMatrix specification\nAttempted rule is: "+inp); 
+		if(srcHasFeatMatrices)
+		{
+			if(! UTILS.hasValidFeatSpecList(inputSource)) throw new RuntimeException( "Error: usage of brackets without valid feature spec list : "+inputSource+"\nAttemped rule is: "+inp); 
+			if( inputSource.contains("{") || inputSource.contains("}")) 
+				throw new RuntimeException("As of August 2023, use of disjunctions along with feature matrices in the input is not currently supported. Hopefully this will be fixed soon. "
+						+ "\nIn the mean time, please use multiple rules to accomplish your intended transformation."
+						+ "\nAttempted rule: "+inp);
+		}
+		
 		//TODO need to fix here -- optionality needs to be available for the source (not the output) -- for now users can just use disjunctions. 
 		if (inputSource.contains("(") || inputSource.contains(")")) throw new RuntimeException( "Error: tried to use optionality"
 				+ " features for defining source -- this is forbidden. \nIt will be added in future releases.\nFor now please use a disjunction (i.e. \"{A B;B}\" rather than \"(A) B\"\nAttempted rule is: "+inp); 
