@@ -517,9 +517,14 @@ public class SequentialFilter {
 			
 			// there must be match somewhere in here then -- detect next match start
 			int currMatchStart = 0;
-			while (currMatchStart >= dummy.size() ? false 
-					: !isPosteriorMatchHelper(dummy, currMatchStart,0,0))
-				currMatchStart++; 
+			while (currMatchStart <  dummy.size()) {
+				boolean matchStartsHere = isPosteriorMatchHelper(dummy, currMatchStart,0,0); 
+				
+				//need to reset alphas etiher way from isPosteriorMatchHelper, bc in some conditions it won't do that on its own. 
+				resetAllAlphaValues();
+				if(matchStartsHere) break; 
+				else currMatchStart++; 
+			}
 			if (currMatchStart == dummy.size())
 				System.out.println("Warning: filtCheck() detected a match here, but posterior helper did not!"); 
 			
@@ -527,9 +532,15 @@ public class SequentialFilter {
 			
 			// for match start, choose end that uses the least parens. 
 			int matchEnd = currMatchStart + minSize - 1; 
-			while(matchEnd < dummy.size() ? 
-					!isPriorMatchHelper(dummy,matchEnd,placeRestrs.size()-1,parenMap.length-1) : false)
-				matchEnd++;
+			while(matchEnd < dummy.size())
+			{
+				boolean matchEndsHere = isPriorMatchHelper(dummy,matchEnd,placeRestrs.size()-1,parenMap.length-1);
+
+				// need to reset, just like with isPriorMatchHelper. 
+				resetAllAlphaValues();
+				if (matchEndsHere) break;
+				else matchEnd++; 
+			}
 			
 			out.add(new int[] {trueOnset + currMatchStart, 
 					trueOnset + matchEnd - pr.size()}

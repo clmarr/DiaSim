@@ -2107,7 +2107,7 @@ public class ErrorAnalysis {
 	{
 		boolean below_threshhold = score < AUTOPSY_DISPLAY_THRESHOLD; 
 		String numeric_element = 
-				below_threshhold ? " < "+ AUTOPSY_DISPLAY_THRESHOLD : " : "+ score; 
+				below_threshhold ? " < "+ AUTOPSY_DISPLAY_THRESHOLD : ": "+ score; 
 		numeric_element.replace("0.","."); 
 		int nePdLoc = numeric_element.lastIndexOf("."); 
 		if (nePdLoc != -1 && nePdLoc < numeric_element.length()-4)
