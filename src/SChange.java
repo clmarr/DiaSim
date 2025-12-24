@@ -110,31 +110,36 @@ public abstract class SChange {
 	{
 		if(minPriorSize == 0)	return true; 
 		
-		//if prior has unset alphas still, these need to be handled within here
-				// so they don't remain set in case there's a possibility the same rule could apply twice in the same word.
-				// list alph specs to be set and reset within this method 
-		List<String> tempAlphSpecs  = priorContext.has_unset_alphas() ? 
-				priorContext.getUnsetAlphSpecs() : new ArrayList<String>(); 
-				
-		boolean result = priorContext.isPriorMatch(input, frstTargInd);
-		if (tempAlphSpecs.size() > 0)	priorContext.resetTheseAlphaValues(tempAlphSpecs);
-				
-		return result; 
+		boolean hadUnsetAlphVals = priorContext.has_unset_alphas(); 
+		
+		boolean priorMatchResult = priorContext.isPriorMatch(input, frstTargInd);
+		
+		if (priorContext.hasAlphaSpecs())
+		{
+			HashMap<String,String> priorAlphSpecs = priorContext.getLocalAlphSpecs(); 
+			if (hadUnsetAlphVals)					//extract prior's resulting alpha values, 
+			{	apply_alphvals(priorAlphSpecs); 	}
+			// ...  and reset prior's alphas internally after they are made use of, so they don't bleed into next usage. 
+			priorContext.resetAllAlphaValues();
+		}
+		return priorMatchResult; 
 	}
 	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{
 		if(minPostSize == 0)	return true;
 		
-		//if posterior has unset alphas still, these need to be handled within here
-		// so they don't remain set in case there's a possibility the same rule could apply twice in the same word.
-		// list alph specs to be set and reset within this method 
-		List<String> tempAlphSpecs  = postContext.has_unset_alphas() ? 
-				postContext.getUnsetAlphSpecs() : new ArrayList<String>(); 
+		boolean postrMatchResult = postContext.isPosteriorMatch(input, indAfter);
+		boolean hadUnsetAlphVals = postContext.has_unset_alphas(); 
 		
-		boolean result = postContext.isPosteriorMatch(input, indAfter);
-		if (tempAlphSpecs.size() > 0)	postContext.resetTheseAlphaValues(tempAlphSpecs);
-		
-		return result;
+		if (postContext.hasAlphaSpecs())
+		{
+			HashMap<String,String> postrAlphSpecs = postContext.getLocalAlphSpecs(); 
+			if (hadUnsetAlphVals)					//extract prior's resulting alpha values, 
+			{	apply_alphvals(postrAlphSpecs); 	}
+			// ...  and reset prior's alphas internally after they are made use of, so they don't bleed into next usage. 
+			postContext.resetAllAlphaValues();
+		}
+		return postrMatchResult; 
 	}
 	
 	public String getOrig()
