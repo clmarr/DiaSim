@@ -124,7 +124,12 @@ public class SequentialFilter {
 	 * @param crp -- current place in place restrictions array
 	 * @param cpim -- current place in parenMap 
 	 * 
-	 * CASES: 
+	 * @variable localAlphExtract -- alphs extracted in this prior context checking up to this function call
+	 * 	 -- as alphas are set, added to this; 
+	 * 		global reset of the ones LOALLY upon LOCAL match failure. 
+	 * 		but alphas set before this method call are left intact to allow for alt hypothesis branching behavior. 
+	 * 
+	 * @note CASES: 
 	 * 1) We have matched all places in placeRestrs from end to the beginning -- then @return true
 	 * 2) We have run out of places in phonSeq to match but have not matched all the requirements -- @return false 
 	 * 3) We have a disjunctive parenthetical statement ending here -- see subcases
@@ -172,30 +177,44 @@ public class SequentialFilter {
 		}
 		
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim; 
-
+		HashMap<String, String> localAlphExtract = new HashMap<String, String>();
+		
 		while(currRestrPlace >= 0 && currPlaceInCand >= 0 && currPlaceInMap >= 0)
 		{			
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
-				int minContents = getMinParenSegments(currPlaceInMap);  
 				//if we could not possibly include the contents of this paren structure because there are too many 
 					// for the space we have left in the input... 
-				if(minContents > currPlaceInCand || minContents > currRestrPlace)
-					return isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap);
 				
-								
-				if(isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap))	return true; 
-								
-				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
-				
+				boolean trueExcludingParen = isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+				if(trueExcludingParen)	return true; 
+
+				//to circumvent cases where the end would be reached before a match
+				int minContents = getMinParenSegments(currPlaceInMap); 
+				if((minContents > currPlaceInCand || minContents > currRestrPlace)
+						&& !trueExcludingParen )
+				{
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
+				}
+							
+				boolean downstreamMatchSuccess = isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
+				if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+				{
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
+				}
+				else return downstreamMatchSuccess; 
 			}
 			if (parenMap[currPlaceInMap].contains("("))
 			{
 				if('*' == parenMap[currPlaceInMap].charAt(0))
 				{
-					if(isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap -1 ))	return true; 
+					if(isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap -1 ))
+						return true; 
 					
-					//find correct currRestrPlace to return to if we are going back to beginning of paren. 
+					//make sure we find correct currRestrPlace to return to if we are going back to beginning of paren. 
+						// may no longer be necessary if this is secure. 
 					int formerPlace = currPlaceInMap; 
 					currPlaceInMap = pairedParenLoc(currPlaceInMap); 
 					
@@ -207,9 +226,23 @@ public class SequentialFilter {
 							throw new Error("Something wrong: parenthesis structure seems to have no actual phone restrictions inside: "+UTILS.printParenMap(this));
 					}
 					currRestrPlace = Integer.parseInt(parenMap[proxyPlace].substring(1)); 
-					return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+					
+					boolean downstreamMatchSuccess = isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+					if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+					{
+						resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+						return false;
+					}
+					else return downstreamMatchSuccess; 
 				}
-				return isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
+				
+				boolean downstreamMatchSuccess = isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap - 1); 
+				if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+				{
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
+				}
+				else return downstreamMatchSuccess; 
 			}
 			
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound")
@@ -218,7 +251,6 @@ public class SequentialFilter {
 			{	currPlaceInCand--;	}
 			else {
 				SequentialPhonic cpi = phonSeq.get(currPlaceInCand); 
-				HashMap<String,String> alphExtract = new HashMap<String,String>(); 
 				
 				if(UTILS.hasUnsetAlpha(placeRestrs.get(currRestrPlace))) // there's an unset alpha. 
 				{
@@ -228,26 +260,29 @@ public class SequentialFilter {
 					if (!typeHere.equals("phone")) // i.e. we have a word bound, most probably. 
 					{	if (!typeHere.equals("word bound"))	System.out.println("unexpected comparison of alpha feature matrix to object of type "+typeHere); 
 						return false; }
+					
 					RestrictPhone rpi = placeRestrs.get(currRestrPlace); 
 					if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreUnsetAlpha(cpi))	
+					{
+						resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 						return false; 
+					}
 					// if reached here, going to have to extract and apply alpha values 
-					alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
+					localAlphExtract.putAll(rpi.extractAndApplyAlphaValues(cpi)); 
 						//^ keyset of which will be reset in case of failure. 
 					
-					applyAlphaValues(alphExtract); 	
+					applyAlphaValues(localAlphExtract); 	
 				}
 				
 				if(!placeRestrs.get(currRestrPlace).compare(phonSeq.get(currPlaceInCand))) {
-					resetTheseAlphaValues( new ArrayList<String>(alphExtract.keySet())); 
-
+					resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 					return false; 
 				}
 				currPlaceInCand--; currRestrPlace--; currPlaceInMap--; 	
 			}
 		} 
 		if(currRestrPlace < 0)		return true;
-		if(currPlaceInCand < 0)	
+		if(currPlaceInCand < 0)	// if anything non-optional is left, this will be a match failure. 
 		{
 			//check if all that's left in parenMap is optional 
 			if( currPlaceInMap < 0)
@@ -262,12 +297,15 @@ public class SequentialFilter {
 					proxypim = pairedParenLoc(proxypim) - 1; 
 					if(proxypim == -1)	return true; 
 				}
+				resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 				return false; 
 			}
+			resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 			return false; 
 		}
 		
-		else	return false; 
+		resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
+		return false; 
 	}
 
 	//auxiliary method for recursive calls that exclude the parenthesis ending at the current spot in parenMap
@@ -293,7 +331,7 @@ public class SequentialFilter {
 	/** 
 	 * @return @true if stipulations of placeRestrs match for (somewhere in) pr
 	 * @note isPosteriorMatchHelper called as means of checking matching for a sequence; 
-	 * 		`asymmetry' of not calling isPriorMatch(Helper) no cause for alarm. 
+	 * 		`asymmetry' of not calling isPriorMatch(Helper) no cause for alarm. -- tho as of late 2o25, it is being called anyways. 
 	 *  all necessary issues should be caught on the forward iteration through the phonetic segments
 	 * 	*  since this is how iteration works where this is called in ErrorAnalysis.articulateSubsample (its only call it seems)
 		*  and it's not like a segment would just be missed, since it starts at the beginning and goes to the end.
@@ -519,7 +557,7 @@ public class SequentialFilter {
 			while (currMatchStart <  dummy.size()) {
 				boolean matchStartsHere = isPosteriorMatchHelper(dummy, currMatchStart,0,0); 
 				
-				//need to reset alphas etiher way from isPosteriorMatchHelper, bc in some conditions it won't do that on its own. 
+				//need to reset alphas either way from isPosteriorMatchHelper, bc in some conditions it won't do that on its own. 
 				resetAllAlphaValues();
 				if(matchStartsHere) break; 
 				else currMatchStart++; 
@@ -569,6 +607,12 @@ public class SequentialFilter {
 	 * @return @true if from @cpic onward there is a match for what is left of the restrictions from @crp onward and @parenMap from @cpim onward
 	 * @note handles parenthesis structure by @branching via recursive calls here as well as checking @method @isPosteriorMatchHelperExcludeParens,
 	 * 		hinges this behavior on output of @method @getMinParenSegments
+	 * @note see @commentblock before @method isPriorMatchHelper for more verbiage. 
+	 * @variable localAlphExtract -- alphs extracted in this prior context checking up to this function call
+	 * 	 -- as alphas are set, added to this; 
+	 * 		global reset of the ones LOALLY upon LOCAL match failure. 
+	 * 		but alphas set before this method call are left intact to allow for alt hypothesis branching behavior. 
+
 	 * */
 	private boolean isPosteriorMatchHelper(List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim)
 	{	
@@ -595,6 +639,7 @@ public class SequentialFilter {
 			return false; 
 		}
 		
+		HashMap<String,String> localAlphExtract = new HashMap<String,String>(); 
 		int currPlaceInCand = cpic, currRestrPlace = crp, currPlaceInMap = cpim,
 				lenPhonSeq = phonSeq.size(), numRestrPlaces = placeRestrs.size(), mapSize = parenMap.length; 
 		while( currPlaceInCand < lenPhonSeq && currRestrPlace < numRestrPlaces && currPlaceInMap < mapSize)
@@ -603,19 +648,31 @@ public class SequentialFilter {
 				// forking based on any number of recurrences scenario (i.e. "( ... )*") handled in next conditional, since '*' is placed upon closing parenthesis
 			if(parenMap[currPlaceInMap].contains("("))
 			{
+				
+				boolean trueExcludingParen = isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+				if(trueExcludingParen)	return true; 
+				
+				//to circumvent cases where the end would be reached before a match
 				int minPhonesInParen = getMinParenSegments(currPlaceInMap); 
 							//Integer.parseInt(parseInt(parenMap[currPlaceInMap].split(":")[1].split(",")[1]); 
 
 				//if we could not possibly include the contents of this paren structure because there are too many 
-				// for the space we have left in the input... 
-				if(minPhonesInParen > lenPhonSeq - currPlaceInCand)
+				// for the space we have left in the input... false 
+				
+				if(!trueExcludingParen && minPhonesInParen > lenPhonSeq - currPlaceInCand)
 				{	
-					return isPosteriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
 				}
 				
-				if(isPosteriorMatchHelperExcludeParen(phonSeq,currPlaceInCand, currRestrPlace, currPlaceInMap))
-					return true; 
-				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
+				boolean downstreamMatchSuccess =  
+						isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
+				if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+				{
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
+				}
+				else return downstreamMatchSuccess; 
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
@@ -632,9 +689,25 @@ public class SequentialFilter {
 						if(proxyPlace >= formerPlace)	throw new Error("Error: no actual place restriction inside paren structure");
 					}
 					currRestrPlace = Integer.parseInt(parenMap[proxyPlace].substring(1));
-					return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+					
+					boolean downstreamMatchSuccess =  
+							isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
+					if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+					{
+						resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+						return false;
+					}
+					else return downstreamMatchSuccess; 
 				}
-				return isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
+				
+				boolean downstreamMatchSuccess =  
+						isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1); 
+				if(!downstreamMatchSuccess && localAlphExtract.size() > 0)
+				{
+					resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
+					return false;
+				}
+				else return downstreamMatchSuccess; 
 			}
 
 			if(!boundsMatter && phonSeq.get(currPlaceInCand).getType().contains("bound") 
@@ -691,10 +764,13 @@ public class SequentialFilter {
 					proxypim = pairedParenLoc(proxypim) + 1; 
 					if(proxypim == parenMap.length)	return true; 
 				}
+				resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
 				return false; 
 			}
+			resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
 			return false; 
 		}  
+		resetTheseAlphaValues(new ArrayList<String>(localAlphExtract.keySet())); 
 		return false; 
 	}
 	
