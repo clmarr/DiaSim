@@ -158,12 +158,18 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 				String[] pripm = priorContext.getParenMap(); 
 				int cpic = ind - 1, // candidate at prior index counter
-						crp = pripr.size() - 1, cpim = pripm.length - 1; 
-				boolean halt = false; // pripm[cpim].contains(")"); 
-				while(!halt)
+						//crp = pripr.size() - 1, 
+						cpim = pripm.length - 1; 
+				//boolean halt = false; // pripm[cpim].contains(")"); 
+				while(cpim >= 0 )
 				{
 					if (pripm[cpim].contains(")")) // parenthesis hopping behavior triggers
 					{
+						cpim = priorContext.pairedParenLoc(cpim) - 1;
+						continue; 
+						
+						//TODO abrogated below 
+						/**
 						boolean haltParenthesisHopping = false; 
 						
 						while (!haltParenthesisHopping)
@@ -181,9 +187,11 @@ public class SChangeFeatAlpha extends SChangeFeat {
 						}
 						if (halt)	break; 
 						crp = Integer.parseInt(pripm[cpim].substring(1)); 
+						*/
 					}
 					
-					RestrictPhone pri = pripr.get(crp); 
+					RestrictPhone pri = pripr.get(
+							Integer.parseInt(pripm[cpim].substring(1))); 
 					
 					if(pri.first_unset_alpha() != '0')
 					{
@@ -212,8 +220,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 						}
 					}					
 	
-					cpic--; crp--; cpim--;
-					if(crp < 0)	halt = true;
+					cpic--; cpim--;
 				}
 			}
 		}
@@ -234,12 +241,19 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				List<RestrictPhone> popr = postContext.getPlaceRestrs();
 				String[] popm = postContext.getParenMap();
 				int cpic = ind + minInputSize, // before July 25 2024 was ind + inpSize but that was probably an error. 
-						crp = 0, cpim = 0; 
-				boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
+						cpim = 0; 
+				//boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
 				
-				while(!halt)
+				while(cpic < input.size() && cpim < popm.length)
 				{
-					RestrictPhone poi = popr.get(crp); 
+					if (popm[cpim].contains("("))
+					{
+						cpim = postContext.pairedParenLoc(cpim) + 1; 
+						continue; 
+					}
+					if (popm[cpim].contains(")"))	throw new Error("Unexpected ')'");
+					
+					RestrictPhone poi = popr.get(Integer.parseInt(popm[cpim].substring(1)) ); 
 					
 					if(poi.first_unset_alpha() != '0')
 					{	
@@ -267,15 +281,11 @@ public class SChangeFeatAlpha extends SChangeFeat {
 							popr = postContext.getPlaceRestrs();
 						}
 					}
-					cpic++; crp++; cpim++; 
-					if (crp >= popr.size())	halt = true;
-					else	halt = popm[cpim].contains("("); 
+					cpic++; cpim++; 
 				}
 			}
 		}
 		
-		//TODO something here is bugged! UnsetAlphaError gets thrown SequentialFilter.isPosteriorMatch (336) via .isPosteriorMatchHelper(:406) via FeatMatrix.compare(:107).
-		// TODO as of July 25, 2024, this may be fixed, but further investigation may be necessary. 
 		if (!posteriorMatch(input, ind+minInputSize)) // prior to Aug 22, was ind+inpSize, but that was likely a bug. 
 		{
 			if (need_to_reset)	reset_alphvals_everywhere(); 

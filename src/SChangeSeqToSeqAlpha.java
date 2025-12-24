@@ -92,11 +92,16 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 					{
 						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 						String[] pripm = priorContext.getParenMap(); 
-						int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-						boolean halt = pripm[cpim].contains(")"); 
-						while (!halt)
+						int cpic = p - 1, cpim = pripm.length - 1; 
+						while (cpim >= 0 )
 						{
-							RestrictPhone pri = pripr.get(crp);
+							if (pripm[cpim].contains(")"))
+							{
+								cpim = priorContext.pairedParenLoc(cpim) - 1; 
+								continue;
+							}
+							if (pripm[cpim].contains("("))	throw new Error("Unexpected '('!");
+							RestrictPhone pri = pripr.get(Integer.parseInt( pripm[cpim].substring(1)));
 							if (pri.first_unset_alpha() != '0')
 							{
 								SequentialPhonic cpi = input.get(cpic);
@@ -104,14 +109,14 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 								{	
 									if(pri.check_for_alpha_conflict(cpi))
 									{
-										halt = true; 
 										priorPossible = false; 
+										break;
 									}
 									else if (!pri.comparePreUnsetAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
-										halt = true; 
 										priorPossible = false;
+										break;
 									}
 									else
 									{
@@ -125,9 +130,7 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 									}
 								}
 							}
-							cpic--; crp--; cpim--;
-							if(crp < 0)	halt = true;
-							else	halt = pripm[cpim].contains(")"); 		
+							cpic--; cpim--;
 						}
 					}
 					isPriorMatch = priorPossible ? priorMatch(input,p) : false;
@@ -144,13 +147,20 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 						{
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
 							String[] popm = postContext.getParenMap();
-							int cpic = indAfter, crp = 0, cpim = 0; 
-							boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
+							int cpic = indAfter, cpim = 0; 
 								// note that code here seems to assume that no alpha values will be specified after a parenthesis in a posterior context.
 									// ... which may not be safe?  
 									// TODO revise this? 
-							while (!halt)
+							while(cpic < input.size() && cpim < popm.length)
 							{
+								if (popm[cpim].contains("("))
+								{
+									cpim = postContext.pairedParenLoc(cpim) + 1; 
+									continue; 
+								}
+								if (popm[cpim].contains(")"))	throw new Error("Unexpected ')'");
+								
+								int crp = Integer.parseInt(popm[cpim].substring(1));
 								RestrictPhone poi = popr.get(crp); 
 								if(poi.first_unset_alpha() != '0')
 								{
@@ -158,14 +168,14 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 									if(cpi.getType().equals("phone"))	{
 										if(poi.check_for_alpha_conflict(cpi))
 										{
-											halt = true; 
 											postrPossible = false; 
+											break;
 										}
 										else if (!poi.comparePreUnsetAlpha(cpi))	
 										{	//check also for conflict OUTSIDE the alpha values and return false if so
 												// as that will cause a downstream UnsetAlphaException otherwise
-											halt = true; 
 											postrPossible = false;
+											break;
 										}
 										else
 										{
@@ -183,21 +193,13 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 											else
 											{
 												postrPossible = false;
-												halt = true; 
+												break;
 											}
 										}
 									}
 								}
-								if(!halt)
-								{
-									cpic++; crp++; cpim++;
-									if (crp >= popr.size())
-									{
-										halt = true;
-										reachedEnd = true;
-									}
-									else	halt = popm[cpim].contains("(");
-								}
+								cpic++; crp++; cpim++;
+								if (crp >= popr.size())	reachedEnd = true;
 							}
 						}
 

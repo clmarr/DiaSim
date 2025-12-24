@@ -35,7 +35,6 @@ public class SequentialFilter {
 	 *		i0 | *(:4,2 | i1 | i2 | )*:1,2 | (:7,1 | i3 |	 ):5,1		contents
 	*/
 	
-	private boolean DEBUGGING_ON = true; 
 	
 	public static String UNSET_ALPHVAL =""; 
 	public static char ALPH_DELIM = '|';
@@ -49,6 +48,7 @@ public class SequentialFilter {
 		// TODO NOTE currently these are set in the declaration!  
 	private HashMap<String,String> negProxyAlphas; 
 	
+	private boolean hasParens; 
 	private String[] parenAlphaMap; 
 	/** parenAlphaMap -- for calculating where alphas are in hte parenMap
 	 * indices correspond to those of parenMap, NOT placeRestrs
@@ -79,7 +79,7 @@ public class SequentialFilter {
 		boundsMatter = bm;
 		minSize = generateMinSize(); 
 		
-		markParenMapForMinPlacesInEachWindow();		
+		markParenMapForMinPlacesInEachWindow();		//also initializes hasParens
 		
 		minSize = generateMinSize(); 
 		
@@ -222,7 +222,6 @@ public class SequentialFilter {
 				
 				if(UTILS.hasUnsetAlpha(placeRestrs.get(currRestrPlace))) // there's an unset alpha. 
 				{
-
 					String typeHere = cpi.getType();
 					if (typeHere.equals("morph bound"))	
 					{	currPlaceInCand--; currRestrPlace--; currPlaceInMap--; continue; }
@@ -732,11 +731,13 @@ public class SequentialFilter {
 	 	*/ 
 	private void markParenMapForMinPlacesInEachWindow()
 	{
+		hasParens = false; 
 		int currIndex = parenMap.length - 1;
 		while(currIndex > 1) // no parenthesis could ever close before index 2 else it would be containing nothing. 
 		{
 			if(parenMap[currIndex].contains(")"))
 			{
+				hasParens = true; 
 				int openerIndex = pairedParenLoc(currIndex);  
 				int minPlaces = minPlacesInParenWindow(openerIndex, currIndex); 
 				parenMap[currIndex] = parenMap[currIndex] + "," + minPlaces;
@@ -1223,6 +1224,34 @@ public class SequentialFilter {
 				output.add(key); 
 		
 		return output;
+	}
+	
+	/** getOppositeMatchWindowBoundsPreAlpha
+	 * @return all possible other bound of a window of match for this filter -- i.e. index of the last phone to match 
+	 * 	does this before the application of any alpha values. 
+	 * for application of filter to phones in @param input, starting at @param firstPosition
+	 * iterating forward if @param isPosterior is @true else backward
+	 * @note will extract alphas based on minimum parenthesis use necessary.
+	 * returns nothing if htere are no possible match bounds, multiple if there are multiple. 
+	 */
+	public List<Integer> getOppositeMatchWindowBoundsPreAlpha(List<SequentialPhonic> input, int firstPosition, boolean isPosterior)
+	{
+		List<Integer> windowBoundsFound = new ArrayList<Integer>(); 
+		if (!hasParens)
+		{
+			windowBoundsFound.add(null)
+		}
+		
+	}
+	
+	/** extractAndApplyAlphaValues
+	 * like same-named method in FeatMatrix, applies alpha values and extracts them to @return a Hashmap of the alpha features. Empty Hashmap if htere's nothing to extract.
+	 * for application of filter to phones in @param input, starting at @param firstPosition
+	 * iterating forward if @param isPosterior is @true else backward
+	 * @note will extract alphas based on minimum parenthesis use necessary.
+	 */
+	public HashMap<String,String> extractAndApplyAlphaValues(List<SequentialPhonic> input, int firstPosition, boolean isPosterior){
+		
 	}
 
 }

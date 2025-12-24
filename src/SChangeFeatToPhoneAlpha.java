@@ -77,25 +77,33 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					{
 						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 						String[] pripm = priorContext.getParenMap(); 
-						int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-						boolean halt = pripm[cpim].contains(")"); 
-						while (!halt)
+						int cpic = p - 1, cpim = pripm.length - 1; // crp = pripr.size() - 1,
+						while (cpic >= 0 && cpim >= 0)
 						{
-							RestrictPhone pri = pripr.get(crp);
+							if (pripm[cpim].contains(")"))
+							{
+								cpim = priorContext.pairedParenLoc(cpim) - 1; 
+								continue;
+							}
+							
+							if (pripm[cpim].contains("("))	throw new Error("Unexpected '('!");
+							
+									
+							RestrictPhone pri = pripr.get(Integer.parseInt( pripm[cpim].substring(1)));
 							if (pri.first_unset_alpha() != '0')
 							{
 								SequentialPhonic cpi = input.get(cpic);
 								if(cpi.getType().equals("phone")) {
 									if(pri.check_for_alpha_conflict(cpi))
 									{
-										halt = true; 
 										priorPossible = false; 
+										break;
 									}
 									else if (!pri.comparePreUnsetAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
-										halt = true; 
 										priorPossible = false; 
+										break;
 									}
 									else
 									{
@@ -106,11 +114,9 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 										pripr = priorContext.getPlaceRestrs();
 									}}
 							}
-							cpic--; crp--; cpim--;
-							if(crp < 0)	halt = true;
-							else	halt = pripm[cpim].contains(")"); 		
+							cpic--;  cpim--;// crp--;
 						}
-					}
+					}					
 					isPriorMatch = priorPossible ? priorMatch(input,p) : false;
 					
 					if (!isPriorMatch && alphHere.keySet().size() > 0)
@@ -127,15 +133,24 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					if(!isPostrMatch) {
 						int indAfter = p + minInputSize;
 						boolean postrPossible = true; 
-						boolean reachedEnd = false; 
+						boolean reachedEnd = false;
+
 						if(postContext.has_unset_alphas())
 						{
 							List<RestrictPhone> popr = postContext.getPlaceRestrs();
 							String[] popm = postContext.getParenMap();
-							int cpic = indAfter, crp = 0, cpim = 0; 
-							boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
-							while (!halt)
+							int cpic = indAfter, cpim = 0; //crp = 0, 
+							//boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
+							while (cpic < input.size() && cpim < popm.length)
 							{
+								if(popm[cpim].contains("("))
+								{
+									cpim = postContext.pairedParenLoc(cpim) + 1 ; 
+									continue;
+								}
+								if(popm[cpim].contains(")"))	throw new Error("Unexpected ')'!");
+								
+								int crp = Integer.parseInt(popm[cpim].substring(1)); 
 								RestrictPhone poi = popr.get(crp); 
 								if(poi.first_unset_alpha() != '0')
 								{
@@ -143,14 +158,14 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 										if (cpi.getType().equals("phone")) {
 										if(poi.check_for_alpha_conflict(cpi))
 										{
-											halt = true; 
 											postrPossible = false; 
+											break;
 										}
 										else if (!poi.comparePreUnsetAlpha(cpi))	
 										{	//check also for conflict OUTSIDE the alpha values and return false if so
 												// as that will cause a downstream UnsetAlphaException otherwise
-											halt = true; 
 											postrPossible = false; 
+											break;
 										}
 										else
 										{
@@ -166,22 +181,19 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 											else
 											{
 												postrPossible = false;
-												halt = true; 
+												break;
 											}
 										}}
 								}
-								if(!halt)
-								{
-									cpic++; crp++; cpim++;
-									if (crp >= popr.size())
-									{
-										halt = true;
-										reachedEnd = true;
-									}
-									else	halt = popm[cpim].contains("(");
-								}
+								cpic++; crp++; cpim++;
+								if (crp == popr.size())
+									reachedEnd = true;
+								
 							}
+							reachedEnd = cpim == popm.length; 
 						}
+
+
 						isPostrMatch = !postrPossible ? false : 
 							reachedEnd ? true : postContext.isPosteriorMatch(input, indAfter); 
 					}

@@ -1,5 +1,6 @@
 import java.util.List;
 import java.util.ArrayList; 
+import java.util.HashMap;
 
 //note that currently this class treats boundaries as if they always "matter" 
 //i.e. if a boundary is detected at a place where it isn't specified for the source
@@ -246,6 +247,13 @@ public class SChangePhone extends SChange {
 		for (SequentialPhonic curPh : seg)	output += curPh.print()+" "; 
 		return output.trim();
 	}
+	
+	// no actual alpha setting since this subclass, including the alpha subclass thereof..
+		// ... since all that's in source and in dest is just phones. 
+	public void applyAlphasInSource(HashMap<String,String> alphVals)	{	return;	}
+	public void applyAlphasInDest(HashMap<String,String> alphVals)	{	return;	}
+	public void resetAlphasInSource()	{	return;	}
+	public void resetAlphasInDest()	{	return;	}
 
 	
 }

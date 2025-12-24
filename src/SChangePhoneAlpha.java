@@ -58,11 +58,17 @@ public class SChangePhoneAlpha extends SChangePhone {
 					{
 						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
 						String[] pripm = priorContext.getParenMap(); 
-						int cpic = p - 1, crp = pripr.size() - 1, cpim = pripm.length - 1; 
-						boolean halt = pripm[cpim].contains(")"); 
-						while (!halt)
+						int cpic = p - 1, cpim = pripm.length - 1; 
+						while (cpic >= 0 && cpim >= 0)
 						{
-							RestrictPhone pri = pripr.get(crp);
+							if(pripm[cpim].contains(")"))
+							{
+								cpim = priorContext.pairedParenLoc(cpim) - 1 ;
+								continue;
+							}
+							if(pripm[cpim].contains("("))	throw new Error("Unexpected '('"); 
+							
+							RestrictPhone pri = pripr.get(Integer.parseInt(pripm[cpim].substring(1)));
 							if (pri.first_unset_alpha() != '0')
 							{
 								SequentialPhonic cpi = input.get(cpic);
@@ -71,15 +77,15 @@ public class SChangePhoneAlpha extends SChangePhone {
 									if(pri.check_for_alpha_conflict(cpi))
 									{
 										if(need_to_reset)	reset_alphvals_everywhere();
-										halt = true; 
 										priorPossible = false; 
+										break;
 									}
 									else if (!pri.comparePreUnsetAlpha(cpi))	
 									{	//check also for conflict OUTSIDE the alpha values and return false if so
 											// as that will cause a downstream UnsetAlphaException otherwise
 										if(need_to_reset)	reset_alphvals_everywhere();
-										halt = true; 
 										priorPossible = false; 
+										break;
 									}
 									else
 									{
@@ -93,10 +99,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 										if (postSpecd)	postContext.applyAlphaValues(ALPH_VARS);
 									}}
 							}
-							cpic--; crp--; cpim--;
-							if(crp < 0)	halt = true;
-							else	halt = pripm[cpim].contains(")"); 
-								
+							cpic--; cpim--;
 						}	
 					}}
 				
@@ -151,11 +154,17 @@ public class SChangePhoneAlpha extends SChangePhone {
 			
 			List<RestrictPhone> popr = postContext.getPlaceRestrs();
 			String[] popm = postContext.getParenMap();
-			int cpic = indAfter, crp = 0, cpim = 0; 
-			boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
-			while(!halt)
+			int cpic = indAfter, cpim = 0; 
+			while(cpim < popm.length && cpic < input.size())
 			{
-				RestrictPhone poi = popr.get(crp);
+				if(popm[cpim].contains("("))
+				{
+					cpim = postContext.pairedParenLoc(cpim) + 1; 
+					continue; 
+				}
+				if(popm[cpim].contains(")"))	throw new Error("Unexpected ')'");
+				
+				RestrictPhone poi = popr.get(Integer.parseInt( popm[cpim].substring(1)));
 				if(poi.first_unset_alpha() != '0')
 				{
 					SequentialPhonic cpi = input.get(cpic); 
@@ -179,9 +188,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 							popm = postContext.getParenMap(); 
 							}}
 				}
-				cpic++; crp++; cpim++;
-				if (crp >= popr.size())	halt = true;
-				else	halt = popm[cpim].contains("("); 
+				cpic++; cpim++;
 					//TODO might need to make sure this doens't create problems wrt alphas in parens...  
 			}
 

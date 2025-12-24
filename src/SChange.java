@@ -140,14 +140,34 @@ public abstract class SChange {
 	public String getOrig()
 	{	return orig.trim();	}
 	
+	public void apply_alphvals(HashMap<String,String> alphVals)
+	{
+		if (!isAlphaSubclass)	return; 
+		for (String avi: alphVals.keySet())
+			ALPH_VARS.put(avi, alphVals.get(avi)); 
+		if (priorSpecd)	priorContext.applyAlphaValues(alphVals);
+		if (postSpecd)	postContext.applyAlphaValues(alphVals);
+		need_to_reset = true; 
+		applyAlphasInSource(alphVals) ;
+		applyAlphasInDest(alphVals) ; 
+	}
+	
+	public abstract void applyAlphasInSource(HashMap<String,String> alphVals) ;
+	public abstract void applyAlphasInDest(HashMap<String,String> alphVals) ;
+
 	public void reset_alphvals_everywhere() 
 	{
 		if (!isAlphaSubclass)	return; 
 		ALPH_VARS = new HashMap<String, String>();
 		if (priorSpecd)	priorContext.resetAllAlphaValues();
 		if (postSpecd)	postContext.resetAllAlphaValues();
+		resetAlphasInSource() ;
+		resetAlphasInDest() ; 
 		need_to_reset = false;
 	}
+	
+	public abstract void resetAlphasInSource() ;
+	public abstract void resetAlphasInDest() ;
 	
 	public HashMap<String,String> getNegAlphProxies()
 	{	return NEG_ALPH_PROXIES; 	}

@@ -118,4 +118,13 @@ public class SChangeFeatToPhone extends SChange{
 		return output.trim() + super.toString();
 	}
 	
+	public void applyAlphasInSource(HashMap<String,String> alphVals)	
+	{	for (int si = 0; si < targSource.size(); si++ )	targSource.get(si).applyAlphaValues(alphVals); }
+	public void resetAlphasInSource()	
+	{	for (int si = 0; si < targSource.size(); si++ )	targSource.get(si).resetAlphaValues();	}
+	
+	// no actual alpha setting for dest since this subclass, including the alpha subclass thereof..
+			// ... since all that's in dest is just phones. 
+	public void applyAlphasInDest(HashMap<String,String> alphVals)	{	return ;	}
+	public void resetAlphasInDest()	{	return;	}
 }
