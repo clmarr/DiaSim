@@ -159,7 +159,7 @@ public class DHSWrapper {
 				if (!"012389".contains(resp))
 					System.out.println("Invalid entry. Please enter the valid number for what you want to do.");
 				else if (resp.equals("9"))
-					stillQuerying = false;
+					return; ///stillQuerying = false;
 				else if (resp.equals("8"))
 					System.out.println("Returning to prior menu.");
 				else {
