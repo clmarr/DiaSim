@@ -52,68 +52,16 @@ public class SChangePhoneAlpha extends SChangePhone {
 			{	res.add(currInpPh);	p++;	}
 			else
 			{
-				boolean priorPossible = true; 
-				if (priorSpecd) {
-					if (priorContext.has_unset_alphas())
-					{
-						List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
-						String[] pripm = priorContext.getParenMap(); 
-						int cpic = p - 1, cpim = pripm.length - 1; 
-						while (cpic >= 0 && cpim >= 0)
-						{
-							if(pripm[cpim].contains(")"))
-							{
-								cpim = priorContext.pairedParenLoc(cpim) - 1 ;
-								continue;
-							}
-							if(pripm[cpim].contains("("))	throw new Error("Unexpected '('"); 
-							
-							RestrictPhone pri = pripr.get(Integer.parseInt(pripm[cpim].substring(1)));
-							if (pri.first_unset_alpha() != '0')
-							{
-								SequentialPhonic cpi = input.get(cpic);
-								if (cpi.getType().equals("phone")) {
-									
-									if(pri.check_for_alpha_conflict(cpi))
-									{
-										if(need_to_reset)	reset_alphvals_everywhere();
-										priorPossible = false; 
-										break;
-									}
-									else if (!pri.comparePreUnsetAlpha(cpi))	
-									{	//check also for conflict OUTSIDE the alpha values and return false if so
-											// as that will cause a downstream UnsetAlphaException otherwise
-										if(need_to_reset)	reset_alphvals_everywhere();
-										priorPossible = false; 
-										break;
-									}
-									else
-									{
-										ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(input.get(cpic)));
-										need_to_reset = true;
-										priorContext.applyAlphaValues(ALPH_VARS);
-										pripr = priorContext.getPlaceRestrs();
-										pripm = priorContext.getParenMap(); 
-										
-										// for security, though it should be set elsewhere... 
-										if (postSpecd)	postContext.applyAlphaValues(ALPH_VARS);
-									}}
-							}
-							cpic--; cpim--;
-						}	
-					}}
-				
-				boolean isPriorMatch = priorPossible ? priorMatch(input,p) : false;
+				boolean isPriorMatch = priorSpecd ? priorMatch(input,p) :  true ; 
+					// priorMatch, calling SChange.priorMatch if there were unset alphas in prior, will apply them elsewhere
+						// and will then reset them in the prior context SequentialFilter itself, tho. 
 				if (isPriorMatch)
 				{
-					if (need_to_reset && postSpecd)	postContext.applyAlphaValues(ALPH_VARS);
-					
-					//if the posterior context still has unset alphas these will need to be handled within here and reset. 
-					
 					int matchInd = whichMatch(input, p);
 					if (matchInd != -1)
 					{
 						int indAfter = foundTargetIndAfter(input, targSources.get(matchInd), p); 
+							// this will call posteriorMatch 
 						
 						if (indAfter > 0)
 						{	//begin mutation
@@ -144,6 +92,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 		
 	}
 	
+	/** removed Dec 24 '25
 	@Override
 	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{

@@ -145,12 +145,12 @@ public class SChangeSeqToSeq  extends SChange
 		return output.trim() + super.toString();
 	}
 	
-	public void applyAlphasInSource(HashMap<String,String> alphVals)	
+	public void applyAlphasToSource(HashMap<String,String> alphVals)	
 	{	for (int si = 0; si < targSource.size(); si++ )	targSource.get(si).applyAlphaValues(alphVals); }
 	public void resetAlphasInSource()	
-	{	for (int si = 0; si < destSpecs.size(); si++ )	destSpecs.get(si).resetAlphaValues();	}
-	public void applyAlphasInDest(HashMap<String,String> alphVals)	
-	{	for (int si = 0; si < targSource.size(); si++ )	targSource.get(si).applyAlphaValues(alphVals); }
+	{	for (int si = 0; si < targSource.size(); si++ )	targSource.get(si).resetAlphaValues();	}
+	public void applyAlphasToDest(HashMap<String,String> alphVals)	
+	{	for (int si = 0; si < destSpecs.size(); si++ )	destSpecs.get(si).applyAlphaValues(alphVals); }
 	public void resetAlphasInDest()	
 	{	for (int si = 0; si < destSpecs.size(); si++ )	destSpecs.get(si).resetAlphaValues();	}
 	

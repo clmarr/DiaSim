@@ -1302,6 +1302,9 @@ public class SequentialFilter {
 		return output;
 	}
 	
+	
+	/** methods decided not to be implemented Dec 24 '25
+	
 	/** getOppositeMatchWindowBoundsPreAlpha
 	 * @return all possible other bound of a window of match for this filter -- i.e. index of the last phone to match 
 	 * 	does this before the application of any alpha values. 
@@ -1309,7 +1312,7 @@ public class SequentialFilter {
 	 * iterating forward if @param isPosterior is @true else backward
 	 * @note will extract alphas based on minimum parenthesis use necessary.
 	 * returns nothing if htere are no possible match bounds, multiple if there are multiple. 
-	 */
+	 *
 	public List<Integer> getOppositeMatchWindowBoundsPreAlpha(List<SequentialPhonic> input, int firstPosition, boolean isPosterior)
 	{
 		List<Integer> windowBoundsFound = new ArrayList<Integer>(); 
@@ -1325,9 +1328,9 @@ public class SequentialFilter {
 	 * for application of filter to phones in @param input, starting at @param firstPosition
 	 * iterating forward if @param isPosterior is @true else backward
 	 * @note will extract alphas based on minimum parenthesis use necessary.
-	 */
+	 
 	public HashMap<String,String> extractAndApplyAlphaValues(List<SequentialPhonic> input, int firstPosition, boolean isPosterior){
 		
-	}
+	}*/
 
 }

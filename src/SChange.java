@@ -112,53 +112,91 @@ public abstract class SChange {
 		
 		boolean hadUnsetAlphVals = priorContext.has_unset_alphas(); 
 		
-		boolean priorMatchResult = priorContext.isPriorMatch(input, frstTargInd);
+		boolean priorMatch = priorContext.isPriorMatch(input, frstTargInd);
 		
 		if (priorContext.hasAlphaSpecs())
 		{
 			HashMap<String,String> priorAlphSpecs = priorContext.getLocalAlphSpecs(); 
-			if (hadUnsetAlphVals)					//extract prior's resulting alpha values, 
-			{	apply_alphvals(priorAlphSpecs); 	}
+			if (hadUnsetAlphVals && priorMatch)					//extract prior's resulting alpha values, 
+			{	applyAlphasTo(priorAlphSpecs, true, true, true, true); 	}
 			// ...  and reset prior's alphas internally after they are made use of, so they don't bleed into next usage. 
 			priorContext.resetAllAlphaValues();
 		}
-		return priorMatchResult; 
+		return priorMatch; 
 	}
 	protected boolean posteriorMatch(List<SequentialPhonic> input, int indAfter)
 	{
 		if(minPostSize == 0)	return true;
-		
-		boolean postrMatchResult = postContext.isPosteriorMatch(input, indAfter);
 		boolean hadUnsetAlphVals = postContext.has_unset_alphas(); 
+		boolean postrMatch = postContext.isPosteriorMatch(input, indAfter);
 		
 		if (postContext.hasAlphaSpecs())
 		{
 			HashMap<String,String> postrAlphSpecs = postContext.getLocalAlphSpecs(); 
-			if (hadUnsetAlphVals)					//extract prior's resulting alpha values, 
-			{	apply_alphvals(postrAlphSpecs); 	}
+			
+			if (hadUnsetAlphVals && postrMatch)					//extract prior's resulting alpha values, to destination since that's the only thing that comes next
+			{	applyAlphasTo(postrAlphSpecs,true,true,false,false); 	}
 			// ...  and reset prior's alphas internally after they are made use of, so they don't bleed into next usage. 
 			postContext.resetAllAlphaValues();
 		}
-		return postrMatchResult; 
+
+		return postrMatch; 
 	}
 	
 	public String getOrig()
 	{	return orig.trim();	}
 	
-	public void apply_alphvals(HashMap<String,String> alphVals)
+	// given what's in @paramater alphSpecs currently, 
+	// generate hte negative proxy setting addenda to add to any alpha setting, when necessary
+	public HashMap<String,String> negProxAddendaForAlphaComplement(HashMap<String, String> alphSpecs)
 	{
+		HashMap<String, String> NEG_PROX_ADDENDA = new HashMap<String, String>(); 
+		if(!hasNegAlphProxies())	return NEG_PROX_ADDENDA; 
+				
+		for (String avki : alphSpecs.keySet())
+		{
+			String proxPair = UTILS.getProxyPair(avki, NEG_ALPH_PROXIES); 
+			if (proxPair.equals(UTILS.NULL_PROXY_PAIR) ? false 
+					: !alphSpecs.containsKey(proxPair) && UTILS.POLAR_FTVECT_INTS.contains(alphSpecs.get(avki)))
+				NEG_PROX_ADDENDA.put(proxPair, ""+UTILS.getOppFtInt(alphSpecs.get(avki))); 
+		}
+		return NEG_PROX_ADDENDA; 
+	}
+	
+	// cascading of alphval setting:  {except in classes where there are never alphs in one palce -- e.g. no alphs in source or dest for SChangePhoneAlpha, none in dest for SChangeFeatToPhoneAlpha
+	//		prior --> rest of prior, source, posterior, dest 
+	//		source --> rest of source, posterior, dest
+	//		posterior --> rest of posterior, dest. 
+	//		dest -- only set from elsewhere, naturally -- it is emergent. 
+	
+	// built ot allow flexibility via booleans of where to apply alphas
+	public void applyAlphasTo(HashMap<String,String> alphVals, boolean toSource, boolean toDest, boolean toPrior, boolean toPostr)
+	{
+		need_to_reset = true; 
+
 		if (!isAlphaSubclass)	return; 
 		for (String avi: alphVals.keySet())
 			ALPH_VARS.put(avi, alphVals.get(avi)); 
-		if (priorSpecd)	priorContext.applyAlphaValues(alphVals);
-		if (postSpecd)	postContext.applyAlphaValues(alphVals);
-		need_to_reset = true; 
-		applyAlphasInSource(alphVals) ;
-		applyAlphasInDest(alphVals) ; 
+		
+		HashMap<String,String> alphsToApply = new HashMap<String,String> ( alphVals); 
+		
+		if (hasNegAlphProxies())
+			alphsToApply.putAll( negProxAddendaForAlphaComplement(alphVals));
+
+		if (toSource)
+			applyAlphasToSource(alphVals) ;
+		if (toPrior)
+			if (priorSpecd)	
+				priorContext.applyAlphaValues(alphVals);
+		if (toPostr)
+			if (postSpecd)	postContext.applyAlphaValues(alphVals);
+		if (toDest)
+			applyAlphasToDest(alphVals) ; 
 	}
+
 	
-	public abstract void applyAlphasInSource(HashMap<String,String> alphVals) ;
-	public abstract void applyAlphasInDest(HashMap<String,String> alphVals) ;
+	public abstract void applyAlphasToSource(HashMap<String,String> alphVals) ;
+	public abstract void applyAlphasToDest(HashMap<String,String> alphVals) ;
 
 	public void reset_alphvals_everywhere() 
 	{

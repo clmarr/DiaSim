@@ -89,7 +89,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 				}
 			}
 
-			if(isMatch(input,p))
+			if(isMatch(input,p) ) // local override method {as of Dec 24 '25 at least }, will call priorMatch and posteriorMatch
 			{
 				// when destination is null, we add nothing,
 				// and increment p TWICE
@@ -117,6 +117,8 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		return res; 
 	}
 	
+	// abrogated Dec 24 '25
+	
 	// note: sets alpha values and only resets them in case of non-match.
 	@Override
 	public boolean isMatch(List<SequentialPhonic> input, int ind)
@@ -139,7 +141,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			else 
 			{
 				ALPH_VARS.putAll(targSource.extractAndApplyAlphaValues(phHere));
-				set_alphvals_everywhere(); 
+				applyAlphasTo(ALPH_VARS, true, true, true, true); 
 				need_to_reset = true;
 			}
 		}
@@ -150,152 +152,25 @@ public class SChangeFeatAlpha extends SChangeFeat {
 			return false;
 		}
 		
-		if(priorSpecd) {
-			// process alpha specs for prior if necessary... this isn't prior match checking --will skip parens, for now. 
-			if (priorContext.hasAlphaSpecs())
-			{
-				if (need_to_reset)	priorContext.applyAlphaValues(ALPH_VARS); // probably redundant with earlier application from input but alas. 
-				List<RestrictPhone> pripr = priorContext.getPlaceRestrs();
-				String[] pripm = priorContext.getParenMap(); 
-				int cpic = ind - 1, // candidate at prior index counter
-						//crp = pripr.size() - 1, 
-						cpim = pripm.length - 1; 
-				//boolean halt = false; // pripm[cpim].contains(")"); 
-				while(cpim >= 0 )
-				{
-					if (pripm[cpim].contains(")")) // parenthesis hopping behavior triggers
-					{
-						cpim = priorContext.pairedParenLoc(cpim) - 1;
-						continue; 
-						
-						//TODO abrogated below 
-						/**
-						boolean haltParenthesisHopping = false; 
-						
-						while (!haltParenthesisHopping)
-						{
-							cpim = Integer.parseInt (pripm[cpim].split(":")[1].split(",")[0]) - 1; 
-							if (cpim < 2) // no more parenthesis possible then; 
-							{	
-								if (cpim < 0)	// then need to break this entire process.
-								{	halt = true; break; }
-								if (pripm[cpim].contains(")") || pripm[cpim].contains("("))
-									throw new Error("Unexpected parenthesis in parenMap cell "+cpim+": "+pripm[cpim]); 
-								haltParenthesisHopping = true; 
-							}
-							else haltParenthesisHopping = !pripm[cpim].contains(")"); 
-						}
-						if (halt)	break; 
-						crp = Integer.parseInt(pripm[cpim].substring(1)); 
-						*/
-					}
-					
-					RestrictPhone pri = pripr.get(
-							Integer.parseInt(pripm[cpim].substring(1))); 
-					
-					if(pri.first_unset_alpha() != '0')
-					{
-						SequentialPhonic cpi = input.get(cpic); // candidate at prior index
-						if (cpi.getType().equals("phone")) {
-							if (pri.check_for_alpha_conflict(cpi)) //but note: currently Phone.check_for_alpha_conflict always returns false. 
-							{	
-								if (need_to_reset)	reset_alphvals_everywhere(); 
-								return false;
-							}
-							//check also for conflict between the restriction on this prior place and the phone there,
-								// in matters OUTSIDE the alpha values and return false if so
-								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!pri.comparePreUnsetAlpha(cpi))	{
-								if (need_to_reset)	reset_alphvals_everywhere(); 
-								return false; 
-							}
-							
-							ALPH_VARS.putAll(pri.extractAndApplyAlphaValues(cpi));
-							need_to_reset = true;
-							set_alphvals_everywhere(); 
-							/**priorContext.applyAlphaValues(ALPH_VARS);
-							if (postSpecd ? postContext.hasAlphaSpecs() : false) postContext.applyAlphaValues(ALPH_VARS);
-							destination.applyAlphaValues(ALPH_VARS);*/
-							pripr = priorContext.getPlaceRestrs();
-						}
-					}					
-	
-					cpic--; cpim--;
-				}
-			}
-		}
-		
-		if (!priorMatch(input, ind))
-		{
+		if (!priorMatch(input, ind)) // alpha extraction from prior should be handled via methods in SChange via this method. 
+		{	// this method also resets alphas in the prior locally for security
 			if (need_to_reset)	reset_alphvals_everywhere(); 
 			return false;
 		}
-		
-		if (postSpecd) {
-			
-			//process alpha specs for posterior if necessary...
-			if (postContext.hasAlphaSpecs())
-			{
-				if (need_to_reset)	// alpha values already set from input/source, or from prior context... 
-					postContext.applyAlphaValues(ALPH_VARS); 	 // probalby redundant, keeping it for now... 
-				List<RestrictPhone> popr = postContext.getPlaceRestrs();
-				String[] popm = postContext.getParenMap();
-				int cpic = ind + minInputSize, // before July 25 2024 was ind + inpSize but that was probably an error. 
-						cpim = 0; 
-				//boolean halt = popm[cpim].contains("(") || cpic >= input.size(); 
-				
-				while(cpic < input.size() && cpim < popm.length)
-				{
-					if (popm[cpim].contains("("))
-					{
-						cpim = postContext.pairedParenLoc(cpim) + 1; 
-						continue; 
-					}
-					if (popm[cpim].contains(")"))	throw new Error("Unexpected ')'");
-					
-					RestrictPhone poi = popr.get(Integer.parseInt(popm[cpim].substring(1)) ); 
-					
-					if(poi.first_unset_alpha() != '0')
-					{	
-						SequentialPhonic cpi = input.get(cpic); 
-						if (cpi.getType().equals("phone")) {
-							if(poi.check_for_alpha_conflict(cpi)) // but note that for Phone instances this is currently always false. 
-							{
-								if (need_to_reset)	reset_alphvals_everywhere(); 
-								return false;
-							}
-							//check also for conflict between restriction and observed context phone 
-							// wrt features OUTSIDE the alpha values and return false if so
-								// as that will cause a downstream UnsetAlphaException otherwise
-							if (!poi.comparePreUnsetAlpha(cpi))	{
-								if (need_to_reset)	reset_alphvals_everywhere(); 
-								return false; 
-							}
 
-							ALPH_VARS.putAll(poi.extractAndApplyAlphaValues(cpi));
-							set_alphvals_everywhere(); 
-							/** need_to_reset = true;
-							* postContext.applyAlphaValues(ALPH_VARS); 
-							* destination.applyAlphaValues(ALPH_VARS);*/
-							
-							popr = postContext.getPlaceRestrs();
-						}
-					}
-					cpic++; cpim++; 
-				}
-			}
-		}
-		
+		//posteriorMatch method will also handle relevant alpha extraction -- to dest only -- and afterwards resets local posterior alphs.
 		if (!posteriorMatch(input, ind+minInputSize)) // prior to Aug 22, was ind+inpSize, but that was likely a bug. 
-		{
+		{	
 			if (need_to_reset)	reset_alphvals_everywhere(); 
 			return false;
 		}
 		
-		if (destination.has_alpha_specs() && need_to_reset)	destination.applyAlphaValues(ALPH_VARS); 
-
+		if (destination.has_alpha_specs() && need_to_reset)	applyAlphasTo(ALPH_VARS,false,true,false,false); 
+			// probably unnecessary 
+		
 		return true;
 	}
+	 
 
 	public void reset_alphvals_everywhere()
 	{
@@ -310,6 +185,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 	
 	//sets everything based one what's currently in ALPH_VARS
 	// accounts for neg proxy pairs 
+	// as of Dec 24, '25, unnecessary, functions are handled in SChange. 
 	public void set_alphvals_everywhere()
 	{
 		if (ALPH_VARS.size() == 0)	return; 
@@ -340,5 +216,4 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		if (priorSpecd ? priorContext.hasAlphaSpecs() : false) priorContext.applyAlphaValues(NEG_PROX_ADDENDA);
 		if (postSpecd ? postContext.hasAlphaSpecs() : false) postContext.applyAlphaValues(NEG_PROX_ADDENDA);
 	}
-	
 }

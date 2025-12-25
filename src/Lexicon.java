@@ -53,10 +53,6 @@ public class Lexicon {
 		// for purposes of differentiation from etyma recently inserted at gold stages for calculation of accuracy and diagnostics. 
 	public boolean[] applyRuleAndGetChangedWords(SChange rule)
 	{
-		//TODO debugging
-		if(rule.getClass().toString().contains("Alpha"))
-			System.out.println(rule.getClass().toString()+" called : "+rule.toString());
-			
 		int wlLen = theWordList.length ;
 		boolean[] wordsChanged = new boolean[wlLen]; 
 		

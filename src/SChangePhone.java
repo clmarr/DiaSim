@@ -250,8 +250,8 @@ public class SChangePhone extends SChange {
 	
 	// no actual alpha setting since this subclass, including the alpha subclass thereof..
 		// ... since all that's in source and in dest is just phones. 
-	public void applyAlphasInSource(HashMap<String,String> alphVals)	{	return;	}
-	public void applyAlphasInDest(HashMap<String,String> alphVals)	{	return;	}
+	public void applyAlphasToSource(HashMap<String,String> alphVals)	{	return;	}
+	public void applyAlphasToDest(HashMap<String,String> alphVals)	{	return;	}
 	public void resetAlphasInSource()	{	return;	}
 	public void resetAlphasInDest()	{	return;	}
 

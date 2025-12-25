@@ -167,8 +167,8 @@ public class SChangeFeat extends SChange {
 		return output + " " + super.toString().trim(); 
 	}
 	
-	public void applyAlphasInSource(HashMap<String,String> alphVals)	{	targSource.applyAlphaValues(alphVals); }
+	public void applyAlphasToSource(HashMap<String,String> alphVals)	{	targSource.applyAlphaValues(alphVals); }
 	public void resetAlphasInSource()	{	targSource.resetAlphaValues();	}
-	public void applyAlphasInDest(HashMap<String,String> alphVals)	{	destination.applyAlphaValues(alphVals);	}
+	public void applyAlphasToDest(HashMap<String,String> alphVals)	{	destination.applyAlphaValues(alphVals);	}
 	public void resetAlphasInDest()	{	destination.resetAlphaValues();; }
 }
