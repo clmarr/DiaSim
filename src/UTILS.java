@@ -52,6 +52,11 @@ public class UTILS {
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
+	public static final String BLUETEXT = "\u001B[34m"; 
+	public static final String GREENTEXT = "\u001B[32m";
+	public static final String RESETTEXT = "\u001B[0m"; 
+	public static final String REDTEXT = "\u001B[31m"; 
+	
 	//IPA symbol and feature related variables. 
 	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP; 
 	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
@@ -440,14 +445,14 @@ public class UTILS {
 	// same as above, but for booleans, not words -- used as auxiliary method for various debugging purposes. 
 	public static boolean checkBoolean(boolean correct, boolean observed, String errMessage)
 	{
-		if (correct != observed)	System.out.println(errorMessage(""+correct,""+observed,errMessage)); 
+		if (correct != observed)	System.out.println(REDTEXT + errorMessage(GREENTEXT+""+correct+RESETTEXT,BLUETEXT+""+observed+RESETTEXT,errMessage) + RESETTEXT); 
 		return correct == observed; 
 	}
 	
 	public static String generateErrorMessage(SChange sc, List<SequentialPhonic> input,
 			List<SequentialPhonic> expected, List<SequentialPhonic> observed) {
-		return "Error in realization of this rule:\t\t" + sc + "\n\tInput was:\t" + printWord(input) 
-		+ "\n\tExpected result: " + printWord(expected) + "\n\tObserved result:\t\t" + printWord(observed)+ "\n";
+		return REDTEXT + "Error in realization of this rule:\t\t" +RESETTEXT + sc + "\n\tInput was:\t" + printWord(input) 
+		+ "\n\tExpected result: " + BLUETEXT + printWord(expected) + RESETTEXT + "\n\tObserved result:\t\t" + GREENTEXT + printWord(observed)+ RESETTEXT + "\n";
 	}
 
 	/**
@@ -466,14 +471,14 @@ public class UTILS {
 	
 	public static String errorMessage(String cor, String obs, String msg)
 	{
-		return msg.replace("%c", cor).replace("%o",obs); 
+		return msg.replace("%c", BLUETEXT+ cor+RESETTEXT).replace("%o",REDTEXT+obs+RESETTEXT); 
 	}
 	
 	// @param ec -- error count
 	public static void errorSummary(int ec)
 	{
-		if (ec == 0)	System.out.println("No errors through to this point."); 
-		else	System.out.println("In all "+ec+" error"+(ec != 1 ? "s" : "")+".");
+		if (ec == 0)	System.out.println(GREENTEXT+"No errors through to this point."+RESETTEXT); 
+		else	System.out.println(GREENTEXT+"In all "+ec+" error"+(ec != 1 ? "s" : "")+"."+RESETTEXT);
 	}
 	
 	public static boolean checkMetric(double correct, double observed, String errMessage)
