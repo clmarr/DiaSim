@@ -50,7 +50,7 @@ public class SequentialFilter {
 	
 	private boolean hasParens; 
 	private String[] parenAlphaMap; 
-	/** parenAlphaMap -- for calculating where alphas are in hte parenMap
+	/** parenAlphaMap -- for calculating where alphas are in the parenMap
 	 * indices correspond to those of parenMap, NOT placeRestrs
 	 * default (no alphas present) = "" -- also applies for paren cells
 	 * if alphas present, not parenthesized: list of alpha symbols present at this location, delimited by '|'. 
@@ -180,14 +180,15 @@ public class SequentialFilter {
 		HashMap<String, String> localAlphExtract = new HashMap<String, String>();
 		
 		while(currRestrPlace >= 0 && currPlaceInCand >= 0 && currPlaceInMap >= 0)
-		{			
+		{	
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
 				//if we could not possibly include the contents of this paren structure because there are too many 
 					// for the space we have left in the input... 
 				
 				boolean trueExcludingParen = isPriorMatchHelperExcludeParen(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap); 
-				if(trueExcludingParen)	return true; 
+				if(trueExcludingParen)	
+					return true; 
 
 				//to circumvent cases where the end would be reached before a match
 				int minContents = getMinParenSegments(currPlaceInMap); 
@@ -208,6 +209,20 @@ public class SequentialFilter {
 			}
 			if (parenMap[currPlaceInMap].contains("("))
 			{
+				if (hasParenthesizedAlpha()) 	// reset any parenthesis local alphas
+				{
+					List<String> alphsToReset = new ArrayList<String>();
+					
+					for(int pmi=currPlaceInMap+1; pmi < pairedParenLoc(currPlaceInMap); pmi++)
+						if (parenMap[pmi].contains("i"))
+							for (String locAlph: this.alphasAtParenMapLoc(pmi))
+								if (this.alphaOnlyInParentheses(locAlph) && !alphsToReset.contains(locAlph))
+									alphsToReset.add(locAlph);
+					
+					this.resetTheseAlphaValues(alphsToReset); 
+				}
+				
+				
 				if('*' == parenMap[currPlaceInMap].charAt(0))
 				{
 					if(isPriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap -1 ))
@@ -676,6 +691,21 @@ public class SequentialFilter {
 			}
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
+				if (hasParenthesizedAlpha()) 	// iterate back to reset any parenthesis local alphas
+				{
+					List<String> alphsToReset = new ArrayList<String>();
+					
+					for(int pmi=currPlaceInMap-1; pmi < pairedParenLoc(currPlaceInMap); pmi--)
+						if (parenMap[pmi].contains("i"))
+							for (String locAlph: this.alphasAtParenMapLoc(pmi))
+								if (this.alphaOnlyInParentheses(locAlph))
+									alphsToReset.add(locAlph);
+					
+					this.resetTheseAlphaValues(alphsToReset); 
+				}
+				
+				
+				
 				if('*' == parenMap[currPlaceInMap].charAt(1))
 				{
 					if(isPosteriorMatchHelper(phonSeq, currPlaceInCand, currRestrPlace, currPlaceInMap + 1 ))		return true; 
@@ -1015,13 +1045,13 @@ public class SequentialFilter {
 		String alph = localAlphSpecs.containsKey(alpha) ? alpha : candProxy; 
 		
 		if (alph.equals(UTILS.NULL_PROXY_PAIR)) // if it's this, then alpha is neither a valid alpha spec nor a proxy for one. 
-				throw new Error("Error: tried to check if an inexistent alpha ("+alpha+")is only parenthetical"); 
+				throw new Error("Error: tried to check if an inexistent alpha ("+alpha+") is only parenthetical"); 
 		
 		if (!parenthesizedAlphas.contains(alph))	return false; 
 		
 		for (int pami = 0 ; pami < parenAlphaMap.length ; pami ++)
 		{
-			if (parenMap[pami].contains("("))	{	pami = pairedParenLoc(pami)+1; continue;	}
+			if (parenMap[pami].contains("("))	{	pami = pairedParenLoc(pami); continue;	}
 			if (parenAlphaMap[pami].contains(alph))	return false; 
 		}
 		return true; 
@@ -1115,15 +1145,17 @@ public class SequentialFilter {
 			return new String[0]; 
 		}
 		
-		if (parenAlphaMap[loc].equals(UNSET_ALPHVAL))	return new String[0]; 
+		String pAlphaMapContent = parenAlphaMap[loc];
+
+		if (pAlphaMapContent.equals(UNSET_ALPHVAL))	return new String[0]; 
 		
-		if (pmContent.charAt(0) == '(')	pmContent = pmContent.substring(1); 
 		
-		if (pmContent.contains(""+ALPH_DELIM))
-			return pmContent.split(""+ALPH_DELIM);
-		else return new String[] {pmContent};	
+		if (pAlphaMapContent.charAt(0) == '(')	pAlphaMapContent = pAlphaMapContent.substring(1); 
+		
+		if (pAlphaMapContent.contains(""+ALPH_DELIM))
+			return pAlphaMapContent.split(""+ALPH_DELIM);
+		else return new String[] {pAlphaMapContent};	
 	}
-	
 	
 	
 	// -- ALPHA MUTATORS --
