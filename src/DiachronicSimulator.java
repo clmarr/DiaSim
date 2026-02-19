@@ -1533,6 +1533,27 @@ public class DiachronicSimulator {
 				if (resp.length() > 0)	resp = resp.substring(0,1);
 			}
 			
+			if (resp.equals("8")) //get all rules by effect size
+			{
+				int iter = 0; 
+				
+				for (int sti = 0; sti < allStageInstants.length; sti++)
+				{
+					if (sti > 0)
+						System.out.println("-- "+allStageNames[sti-1]+" --");
+					
+					// counting words in a rule's domain 					
+					while ( iter < allStageInstants[sti])
+					{
+						String[] rule_effects_at_ind = theSimulation.getRuleEffect(iter++);
+					
+						int ruleDomain = 0; 
+						for(String effect: rule_effects_at_ind)	
+							if (!(""+effect).equals("null") && !(""+effect).equals(""))	
+								ruleDomain += 1; 
+						
+						System.out.println("r"+(iter-1)+"~ domain: "+ruleDomain);
+			}}}
 			if (resp.equals("0")) //set evaluation point
 			{
 				if (!goldStagesSet)	System.out.println("Cannot change evaluation stage: no intermediate gold stages are set."); 

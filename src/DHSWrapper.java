@@ -572,19 +572,23 @@ public class DHSWrapper {
 							printBaselineRuleAt(theInd);
 						else /* curPoint == 16 */ if (theInd > -1)
 						{
-							System.out.println("etyma effected by rule "+theInd+", "+baseSimulation.getRuleAt(theInd)+
-									"\n     (original form : "+baseSimulation.getOrigRuleAt(theInd)+"    ,  "+baseSimulation.CASCADE().get(theInd).getClass()+")");
 							String[] rule_effects_at_ind = baseSimulation.getRuleEffect(theInd);
+
+							String effectPrint = ""; 
 							
-							boolean no_effect = true; 
+							int ruleDomain = 0; 
 							for(String effect: rule_effects_at_ind)	{
 								if (!(""+effect).equals("null") && !(""+effect).equals(""))	
-								{	System.out.println(effect); 
-									no_effect = false; 
+								{	
+									effectPrint += effect+"\n"; 
+									ruleDomain += 1; 
 								}
 							}
-							if (no_effect)	System.out.println("no etyma effected."); 
+							if (ruleDomain == 0)	effectPrint = "no etyma effected."; 
 							
+							System.out.println(ruleDomain+" etyma effected by rule "+theInd+", "+baseSimulation.getRuleAt(theInd)+
+									"\n     (original form : "+baseSimulation.getOrigRuleAt(theInd)+"    ,  "+baseSimulation.CASCADE().get(theInd).getClass()+")"
+									+"\n"+ effectPrint.trim());
 						}		
 					} else {
 						boolean noMatches = true;
