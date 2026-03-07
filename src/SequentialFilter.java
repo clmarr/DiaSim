@@ -1080,9 +1080,13 @@ public class SequentialFilter {
 		{
 			if (!parenMap[currLoc].contains("(") && !parenMap[currLoc].contains(")"))
 			{
-				String[] alphsHere = parenAlphaMap[currLoc].replace("(", "").split(ALPH_DELIM+""); 
+				
+				String[] alphsHere = secureSplitAlphaMapContent(parenAlphaMap[currLoc]); 
+				
 				for (String ahi: alphsHere)
-					if (!out.contains(ahi))	out.add(ahi); 
+					if (!out.contains(ahi) && 
+							!ahi.equals(""+ALPH_DELIM))  
+						out.add(ahi); 
 				currLoc += increment; 
 			}
 			else /* paren loc*/	currLoc = pairedParenLoc(currLoc) + increment; 
@@ -1149,14 +1153,38 @@ public class SequentialFilter {
 
 		if (pAlphaMapContent.equals(UNSET_ALPHVAL))	return new String[0]; 
 		
-		
 		if (pAlphaMapContent.charAt(0) == '(')	pAlphaMapContent = pAlphaMapContent.substring(1); 
 		
 		if (pAlphaMapContent.contains(""+ALPH_DELIM))
-			return pAlphaMapContent.split(""+ALPH_DELIM);
+			return secureSplitAlphaMapContent(pAlphaMapContent); 
 		else return new String[] {pAlphaMapContent};	
 	}
 	
+	// for some reason need to remove alph delim even though split is based on that. 
+		//Unclear why. 
+		// but this was necessary for filters with the same alpha feature negated and positively used in the same feature matrix. 
+	private String[] secureSplitAlphaMapContent(String parenMapContent)
+	{
+		String[] alphsHereOutput = parenMapContent.replace("(", "").split(ALPH_DELIM+""); 
+		
+		// for some reason need to remove alph delim even though split is based on that. Unclear why.
+			// but this was necessary for filters wherin a single feat matrix ahd the same feature positively and negatively used in stipulations 
+		List<String> secureAlphsHere = new ArrayList<String>(); 
+		boolean alphDelimErrorDetected = false; 
+		for (int alphi = 0 ; alphi < alphsHereOutput.length; alphi++)
+		{	if (alphsHereOutput[alphi].equals(""+ALPH_DELIM))
+				alphDelimErrorDetected = true; 
+			else secureAlphsHere.add(alphsHereOutput[alphi]); 
+		}
+		if (alphDelimErrorDetected)
+		{
+			alphsHereOutput = new String[secureAlphsHere.size()];
+			for (int sahi = 0 ; sahi < secureAlphsHere.size(); sahi++)
+				alphsHereOutput[sahi] = secureAlphsHere.get(sahi); 
+		}	
+		
+		return alphsHereOutput; 
+	}
 	
 	// -- ALPHA MUTATORS --
 	/**
