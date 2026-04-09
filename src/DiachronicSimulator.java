@@ -1555,6 +1555,9 @@ public class DiachronicSimulator {
 							if (!(""+effect).equals("null") && !(""+effect).equals(""))	
 								ruleDomain += 1; 
 						
+						String domainStr = ruleDomain + " "; 
+						while (domainStr.length() < 5)	domainStr = domainStr + " "; 
+						
 						System.out.println("r"+(iter-1)+"~ domain: "+ruleDomain+"\trule: "+ruleOGform);
 					}}
 			}
