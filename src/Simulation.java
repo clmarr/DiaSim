@@ -255,7 +255,7 @@ public class Simulation {
 			{
 				etDerivations[ei] += "\n"+currLexicon.getByID(ei)+" | "+instant+" : "+thisShift; 
 				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print()
-						+ ";             (et."+ei+"; "+ getInputForm(ei) 
+						+ ";             (et."+ei+"; "+stageIndicToStageName( getStageOfInsertion(ei))+" "+ getInputForm(ei) 
 						+ (goldOutput ? " > ... > " + goldOutputLexicon.getByID(ei) : "") 
 						+ ")"; 
 			}
@@ -359,6 +359,20 @@ public class Simulation {
 		if (isCB)	sNum = columnedBlackStageBlackIndices.indexOf(sNum);// because index in columnedBlackStages != in blackStages
 		
 		return (isCB ? columnedBlackStageLexica : goldStageGoldLexica)[sNum].getByID(id); 
+	}
+	
+	/**
+	 * given @param indic, "in", "G#", "b#", or "B#, 
+	 * @return spelled out stage name
+	 */
+	public String stageIndicToStageName(String indic)
+	{
+		if (indic.equalsIgnoreCase("In") || indic.equalsIgnoreCase("Input"))	return inputStageName; 
+		if (indic.equalsIgnoreCase("Out") || indic.equalsIgnoreCase("Output"))	return columnedStageNames[columnedStageNames.length-1];
+		if (indic.charAt(0) == 'G')	return goldStageNames[Integer.parseInt(indic.substring(1))]; 
+		
+		// should be black stage, then 
+		return blackStageNames[Integer.parseInt(indic.substring(1))]; 
 	}
 		
 	/**
