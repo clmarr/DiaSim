@@ -1558,7 +1558,7 @@ public class DiachronicSimulator {
 						String domainStr = ruleDomain + " "; 
 						while (domainStr.length() < 5)	domainStr = domainStr + " "; 
 						
-						System.out.println("r"+(iter-1)+"~ domain: "+ruleDomain+"\trule: "+ruleOGform);
+						System.out.println("r"+(iter-1)+"~ domain: "+domainStr+"\t|\trule: "+ruleOGform);
 					}}
 			}
 			if (resp.equals("0")) //set evaluation point
