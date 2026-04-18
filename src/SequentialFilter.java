@@ -154,7 +154,7 @@ public class SequentialFilter {
 	 * 6) after the loop terminates, test for cases (1) and (2) in that order and behave accordingly as described above for those two cases
 	 */			
 	private boolean isPriorMatchHelper (List<SequentialPhonic> phonSeq, int cpic, int crp, int cpim) 
-	{
+	{	
 		if(crp < 0)	return true;
 		if(cpic < 0)	
 		{
@@ -180,7 +180,7 @@ public class SequentialFilter {
 		HashMap<String, String> localAlphExtract = new HashMap<String, String>();
 		
 		while(currRestrPlace >= 0 && currPlaceInCand >= 0 && currPlaceInMap >= 0)
-		{	
+		{
 			if(parenMap[currPlaceInMap].contains(")"))
 			{
 				//if we could not possibly include the contents of this paren structure because there are too many 
@@ -277,11 +277,13 @@ public class SequentialFilter {
 						return false; }
 					
 					RestrictPhone rpi = placeRestrs.get(currRestrPlace); 
+					
 					if (rpi.check_for_alpha_conflict(cpi) ? true : !rpi.comparePreUnsetAlpha(cpi))	
-					{
+					{	
 						resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 						return false; 
 					}
+					
 					// if reached here, going to have to extract and apply alpha values 
 					localAlphExtract.putAll(rpi.extractAndApplyAlphaValues(cpi)); 
 						//^ keyset of which will be reset in case of failure. 
@@ -746,7 +748,7 @@ public class SequentialFilter {
 			{	currPlaceInCand++;	}
 			else {
 				SequentialPhonic cpi = phonSeq.get(currPlaceInCand); 
-				HashMap<String,String> alphExtract = new HashMap<String,String>(); 
+				//HashMap<String,String> alphExtract = new HashMap<String,String>(); 
 				
 				if(UTILS.hasUnsetAlpha(placeRestrs.get(currRestrPlace))) // there's an unset alpha. 
 				{
@@ -762,15 +764,16 @@ public class SequentialFilter {
 						return false; 
 					
 					// if reached here, going to have to extract and apply alpha values 
-					alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
+					//alphExtract = rpi.extractAndApplyAlphaValues(cpi); 
 						//^ keyset of which will be reset in case of failure. 
+					localAlphExtract.putAll(rpi.extractAndApplyAlphaValues(cpi));
 					
-					applyAlphaValues(alphExtract); 	
+					applyAlphaValues(localAlphExtract); 	
 				}
 
 				if(!placeRestrs.get(currRestrPlace).compare(cpi))	
 				{
-					resetTheseAlphaValues( new ArrayList<String>(alphExtract.keySet())); 
+					resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 					return false; 
 				}
 					

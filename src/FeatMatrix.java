@@ -679,7 +679,8 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 			if (!UTILS.ALL_FTVECT_INTS.contains(""+fvspec)) // if true, this is a feature with a not-yet-extracted alpha value. 
 			{
 				if (currReqs.containsKey(""+fvspec))
-				{ // value conflict between already-set alpha value, and the (different or redundant) one encountered. 
+				{ 
+					// value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
 					if (currspec.equals(UTILS.DESPEC_INT+"")  && UTILS.UNSPEC_INT_CHAR!=cand_feat_vect[c])
 							throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
