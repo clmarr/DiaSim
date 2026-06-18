@@ -242,7 +242,7 @@ $ CORRECTION (2024): restriction against acting before laterals and nasals.
 	$ There are no original -bn- or -bl- clusters in Latin so the rule may have been hyperspecified to begin with.
 	$ However, secondary -βl- clusters due to syncope become -bl- in much of oil (incl. Francien) anyways so these would too if this became β
 		$ and the case of sublongus > selon suggests weakening of the /b/ in -bl- anyways
-	$ -bm- may have been assimlated to -mm- but otherwise perhaps should be affected here.
+	$ -bm- may have been assimlated to -mm- but otherwise perhaps should be affected here.	$ CORRECTION 2026: applies also to palatalized edh.
 	$ form before correction: b > β / [+syl] __ [+son,-lat,-nas]
 b > β / [+syl] __ [+son]
 
@@ -569,7 +569,8 @@ $ "when it was derived from classic Latin intervocalic b and stood before the vo
 	$ s163:7 says "before labial vowels", as does 343 (though 343 says u or o too) 
 $ (PSEUDO-)CORRECTION : Pope neglects to note that this only happens AFTER other vowels -- i.e. not word-initially. 
 	$ ( w (>βʷ) now not merged into β yet when this rule applies, so it counterfeeds)
-β > ∅ / __ [+lab,+syl]
+	$ CORRECTION 2026 -- the prelabial deletion does not occur in most of these cases (abhoc > avec, aboculō > aβɔːxlo > aveugle, abortare > avorter, beːβunt > boivent). Only cases it does (taβˈoːnɛ > tɑ̃ ,parˈaːβɔla > parole) are after non-initial low vowels.  PRIOR form: β > ∅ / __ [+lab,+syl]
+β > ∅ / @ [+lo] __ [+lab,+syl]
 β > ∅ / [+prim,+hi,+round,+back] __ $i.e. after tonic u 
 
 $ CORRECTION: ɸ, ɸʷ deleted if in between consonants.
@@ -851,7 +852,7 @@ $ as per s481 this seems to come BEFORE low vowel fronting
 $ s342i : before tonic u or o 
 ɣ > ∅ / __ [+tense,+round,+prim]
 
-$ s342iii : between o, u, aw and a 
+$ s342iii : between o, u, aw and a
 ɣ > ∅ / [+round,-cons] __ [+lo] $ o|u|au __ a
 
 $ s342ii : between a velar vowel and atonic u (short u > o , so atonic u or o)
@@ -1043,19 +1044,26 @@ $ CORRECTION : Formation ˈeː o > j ˈoː of certain diphthongs for unstressed 
 $ SUPPRESSED: overfit
 $ ˈeː o > j ˈoː
 
+$s437: n̪ is absorbed by ə̃ in ə̃nt ending actually goes back to the 13th century. 
+	$CORRECTION 2026: moved all the way back into Middle Gallo-Romance, with emergence of nasal schwa at this time -- necessary to bleed gliding in -unt endings. 
+	$ OG form: n̪ > ∅ / ə̃ __ t̪ #
+[-stres] n̪ > ə̃  / __ t̪ #
+
 $ s254 recurrence -- final unstressed i , o , u in hiatus with tonic vowel (in Late Latin or)
 	$ brought into hiatus in Early Gallo Roman become semi-vocalic. 
 	$ bleeds effacement
 $ CORRECTION: effects all ɛei in hiatus with prior stressed vowels (aerem, lui, jeudi, lai, etc...) 
-$ CORRECTION : same for unstressed o and ɔ in hiatus wiht stressed vowel
-[-lo,-stres] > [+hi,-syl,+tense] / [+prim] ([-cons,-hi]) __
+$ CORRECTION : same for unstressed o and ɔ in hiatus with stressed vowel
+[-lo,oback,-ofront,-stres] > [+hi,-syl,+tense] / [+prim] ([-cons,-hi]) __
 
 $ CORRECTION: any vowel before w shortens 
-[+syl] > [-long] / __ w
+	$ CORRECTION 2026: happens also before nasal w̃
+[+syl] > [-long] / __ [-syl,+back,+hi,+round]
 
 $ Pope p183 s481 : Gallo Roman a-mutation under influence of following w or u>o 
 $ must bleed s413 but not second palatalization
-{a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ w
+	$ CORRECTION 2026: happens also before nasal w̃
+{a;ˌa;ˈa} > {ɔ;ˌɔ;ˈɔ} / __ [-syl,+back,+hi,+round]
 
 $ s417 Raising of free countertonic ˌa to ˌɛ if preceded by a palatal consonant
 $ unless it is followed by tonic in next syllable or if l/r come next
@@ -1185,7 +1193,8 @@ $ but diachronically it is convenient to place it here.
 $ ultimate effacement is "before the ninth century".
 $ CORRECTION: requires posterior context of non-vowel (or word final) 
 	$unless it is lax (advocatum >avoue but deunde > dunt in GR (>dont), manuopera > manœuvre etc 
-[-stres,-lo,+syl] > ə / __ {[-syl];#} 
+		$CORRECTION 2026: but not nasal ə̃
+[-stres,-lo,+syl,-nas] > ə / __ {[-syl];#} 
 [-stres,-lo,+syl,+tense] > ə
 
 $ CORRECTION : specification of added rule -- s365iii bleeds some n flapping
@@ -1318,15 +1327,18 @@ d̪ t͡sʲ > d͡z / __ ə
 
 $ CORRECTION : ð that comes into contact with a prior lateral sonorant cons becomes a stop again
 $ exemplified but not explained in forms in s669
-ð > d̪ / [+lat] __
+	$ CORRECTION 2026: applies also to palatalized edh.
+{ð;ðʲ} > {d̪;d̪ʲ} / [+lat] __
 
 $ CORRECTION : ð is also stopped after labials (sade, tiede, rade) but only labial oral stops, not nasals (comme < quomodo)
-ð > d̪ / [-cont,+lab] __
+	$ CORRECTION 2026: applies also to palatalized edh.
+{ð;ðʲ} > {d̪;d̪ʲ} / [-cont,+lab] __
 
 $ CORRECTION : ð that has come into contact with any other prior consonant effaces 
 	$ Autun may have retained the  ð longer -- see cited "Ostedun" form in s257
 	$ forms cited by Pope show this shift but she never explains it anywhere
-ð > ∅ / [+cons] __
+		$ CORRECTION 2026: applies also to palatalized edh.
+{ð;ðʲ} > {∅;∅} / [+cons] __
 
 $ CORRECTION : β that has come into contact with l becomes b
 β > b / __ l
@@ -1770,7 +1782,8 @@ $ CORRECTION: moved to after closing of countertonic ɔ  (s164-15~s234)
 $ CORRECTION: doesn't happen before DENTAL CONSONANTS
 	$ this is far too early by anyone's account for the interdentals to have been lost,
 		$ and cases like gauta > joue, aut > ou, nauda > noue, alauda > aloue etc show a clear pattern
-w > ∅ / [+round,-tense] __ {[-syl,-cor];[+strid];[-syl,+son]}
+	$ CORRECTION 2026: now also for the nasal variant. 
+[-syl,+hi,+back,+round] > ∅ / [+round,-tense] __ {[-syl,-cor];[+strid];[-syl,+son]}
 
 $ feed nasalized u formation if necessary
 [+syl,+back,+round] > [+nas,+hi,+tense] / __ [+nas,+cons]
@@ -1959,7 +1972,9 @@ j > ∅ / [+hi,+front,+tense] __
 
 $ s165.5 leveling of au to o (s505)
 $ note that the "original" a w have now become ɔ w -- this rule is handling when it was once β 
-{a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
+	$ CORRECTION 2026: also for nasal aw
+[+lo,+syl] [-syl,+hi,+back,+round] > [+back,-front,+round,+lab,-tense,-lo,+long] ∅
+$OG: {a w;ˌa w;ˈa w} > {ɔː;ˌɔː;ˈɔː} 
 
 $ s165.7 : another round of cluster modifications follows
 $ CLUSTER REDUCTIONS pp 145-150 ish... 
@@ -2030,8 +2045,9 @@ $ CORRECTION: dental fricative edh is also deleted before non sonorants
 	$ CORRECTION: does so before all non-continuants
 	$ CORRECTION: if it does so after onset, single consonant, then countertonic e or eh,
 		$ then the latter is replaced with 'ie 
-[+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ ð [-cont]
-ð > ∅ / __ [-cont]
+			$ CORRECTION 2026: applies also to palatalized edh.
+[+stres,+front,-hi,-lo] > ˈi e̯ / # [+cons] __ [+cor,-son,+cont,+voi,-strid] [-cont]
+[+cor,-son,+cont,+voi,-strid] > ∅ / __ [-cont]
 
 $ s366 degemination 
 $ CORRECTION: extended to also hit rr when word final 
@@ -2159,14 +2175,16 @@ e̯ > ∅ / [+hi,+front,+tense,+prim] __ [-syl,-cons,+hi,-round]
 [-syl,-cons,+hi,-round] > ∅ / ˈi __ 
 
 $ s330 : early leveling of aj before w -- case of aqua -- 11th century. 
-ˈa j > ˈɛː / __ w 
+	$ CORRECTION 2026: now also for nasal variant, just incase.
+ˈa j > ˈɛː / __ [-syl,+back,+hi,+round]
 
 $s489 : ou >eu bled in Early Old French by ou >u before labials. 
 $Date not exactly known. 
 $ CORRECTION: this doesn't happen when ow is also preceded by a voiced labial consonant though (meuble)
 	$ CORRECTION: but DOES separately happen after p. 
-[+tense,+syl,+round,-hi,-lo] w > [+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
-[+tense,+syl,+round,-hi,-lo] w > [+hi] ∅ / p __
+	$ CORRECTION 2026: happens also where the w is nasal. 
+[+tense,+syl,+round,-hi,-lo] [+hi,+back,+round,-syl] > [+hi] ∅ / [-lab,+cons] __ [+lab,-syl]
+[+tense,+syl,+round,-hi,-lo] [+hi,+back,+round,-syl] > [+hi] ∅ / p __
 
 $s490: countertonic o > ə under influence of (following?) tonic u>y or o>u  
 $ note, called a "tendency" by Pope.
@@ -2199,7 +2217,8 @@ $ CORRECTION: later shifts on countertonic ˌo and tonic ˈo going to u
 	$ except when the next vowel is tonic and tense, ˌo and ˈo go to ˌɔ before ð 
 		$ i.e. affected: borne, boyau, boyaux, prone, Rhone; 
 			$ unaffected: nouer, noueux, nourrice, nourrisson, vouer
-{ˌo;ˈo} > {ˌɔ;ˈɔ} / __ ð ([-syl])* {#;[-stres];[+syl,-tense]} 
+		$ CORRECTION 2026: applies also for palatalized edh. 
+{ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [+cor,-son,+cont,+voi,-strid] ([-syl])* {#;[-stres];[+syl,-tense]} 
 
 $ CORRECTION: final l WILL be labialized if it is preceded by a mid vowel that is short: 
 	$ ɛl# > ɛa̯w# : agneau, anneau, arceau, oiseau, beau, boyau, faisceau, fleau, jouvenceau, chameau, chapeau, chateau, cerveau, niveau, manteau, marteau, nouveau, panneau, pinceau, poteau, rameau,
@@ -2261,8 +2280,9 @@ $ s166.4 ~ s226-7 :  ei > oi, ou > eu. As per s226, occurred "before the middle 
 $ She places it in EOF-- so we place it there too, though clearly at the end. 
 $ Any e before yod effected.
 $ per s226 : effects ei whether tonic, intertonic or countertonic, but only tonic ou 
-ˈo > ˈe / __ w 
-[+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j 
+		$CORRECTION 2026: now ow > ew also before nasal w. But this does not apply to j (pinctor > peintre, sein not soin etc.)
+ˈo > ˈe / __ [-syl,+back,+hi,+round]
+[+front,+tense,-hi,-lo,+syl,-long] > [+back,-front,+round,+lab] / __ j
 
 $ CORRECTION : s291-s292, tsj depalatalization, is DELETED. 
 	$Already had to be moved after s226-7 ou > eu, because there is different behavior for palatal t͡sʲ , as opposed to simple t͡s
@@ -2358,7 +2378,8 @@ $f > v / [-cons] __ [-cons]
 
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ BASECLEF* CORRECTION: doesn't happen before j̃
-[+nas,-hi,+syl] > [+lo,+tense] / __ {#;[+cons]}
+	$CORRECTION 2026: only front vowels. 
+[+nas,-hi,+syl,+front] > [+lo,+tense] / __ {#;[+cons]}
 
 $ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (regardless of stress)
 	$ Pope does notice this but she (likely incorrectly) attributes this to a "tendency" in Gallo-Roman 
@@ -2383,7 +2404,8 @@ $ per Pope s390: attested in rhymes by middle of 12th century:
 [+lat,+back] > w
 
 $CORRECTION 2024 : ə > o / __ w 
-ə > o / __ w
+	$ CORRECTION 2026: now also before nasal variant
+ə > o / __ [-syl,+back,+hi,+round]
 
 $ Pope s550 - 551 : ˈue̯ is monophthongized to ø
 $ Attested in 1137 -- "over the course of the 12th century"
@@ -2394,7 +2416,8 @@ $ She also explicitly limits it to hte stressed diphthong
 [+hi,+round,+tense,+prim] e̯ > ˈø
 
 $ BASECLEF CORRECTION: w after u or y is immediately deleted
-w > ∅ / [+syl,+hi,+round] __
+	$ CORRECTION 2026: now also for the nasal variant
+[-syl,+hi,+back,+round] > ∅ / [+syl,+hi,+round] __
 
 $ s382iv ~ s384 meanwhile lʲ which has been limited to praeconsonantal position after i-variants is effaced. 
 $ CORRECTION 2024: but if it does somehow survive before vowels, send it to lj
@@ -2535,7 +2558,8 @@ $ s172a ~s346-7~s372 : th-effacement  – finalized in middle of twelth century.
 $ CORRECTION: moved to late twelth century because of data Pope missed. There are attestations of the beginning of a oj > aj 
 	$ that seems clearly conditioned on a following ð (cle:tam,cre:tam,tonitrum,vitrum,mone:tam; exceptions are lampre:dam and se:tam) 
 	$ the first attestations of this appear in 1200 -- not in Middle French as Pope argues. See shift inserted above.
-{θ;ð} > {∅;∅}		
+	$ CORRECTION 2026: applies also to palatalized variants. 
+{θ;ð;θʲ;ðʲ} > {∅;∅;∅;∅}		
 
 $Pope s541-545 :  12th century -- ew >øw . Is fed by ie̯>je (12th cent); feeds øw>ø (late 12th cent)
 [-hi,-lo,+tense,+syl] > [+round,+lab] / __ w
@@ -2583,7 +2607,8 @@ $Pope s528-529 : aj > ɛj word finally
 [+lo] > [-lo,-tense] / __ j #
 
 $Pope s541~545: øw >ø in later 12th century.
-w > ∅ / [+round,+front,-hi,+syl] __
+	$ CORRECTION 2026: now also for the nasal variant.
+[-syl,+hi,+back,+round] > ∅ / [+round,+front,-hi,+syl] __
 
 $ (Pope s541-5 cont'd) yj >ɥi early when it will be deleted after a velar (s503 ~ s514 ~ s516) 
 $ CORRECTION : this only occurs word finally. 
@@ -2601,7 +2626,8 @@ $ CORRECTION: moved from between third nasalization and s670
 
 $ s547-548 : ɔw > u in the thirteenth century. 
 $ s548: late 12th and 13th centuries. 
-[-hi,-lo,+back,+round] w > [+hi,+tense] ∅ 
+	$ CORRECTION 2026: happens also for nasal w̃
+[-hi,-lo,+back,+round] [+hi,+back,+round,-syl] > [+hi,+tense] ∅ 
 
 $THIRD NASALIZATION : late 12th and early 13th 
 $ must be after the original ɛ̃ > ã
@@ -2692,9 +2718,6 @@ $ ɛ may have become long ɛː compensatorily as per s560 ("some writers say..")
 j >  ∅ / [-round,-tense,+stres] __ [+cons]
 
 $ CORRECTION : s378ii moved earlier. 
-
-$s437: n̪ is absorbed by ə̃ in ə̃nt ending actually goes back to the 13th century. 
-n̪ > ∅ / ə̃ __ t̪ #
 
 $ s570ii : lengthening in a:sə,ɛ:sə,i:sə endings
 $ CORRECTION: moved this centuries earlier, to before merger of ts and s (<ss) 
@@ -2960,9 +2983,12 @@ $ as per s272: begins twelfth and thirteenth centuries but only becomes regular 
 $ s242a ~ s561 merging of adjacent and similar vowels into long vowels.
 $ Accepted in the sixteenth century (but started in the thirteenth) 
 $ accepted by Regnier -- very late 16th, early 17th -- s242
-[+lo] [+lo] > ∅ [+long]
-[-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
-[+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
+	$ formerly four rules: [+lo] [+lo] > ∅ [+long]
+		$[-lo,-hi,+front,-round,+syl] [-lo,-hi,+front,-round,+syl] > ∅ [+long]
+		$[+hi,+back,+round,+syl] [+hi,+back,+round,+syl] > ∅ [+long]
+		$[-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ˈuː
+	$ CORRECTION 2026: first three, plus i.i, unified. 
+[alo,ihi,efront,uround,+syl] [alo,ihi,efront,uround,+syl] > ∅ [+long]
 [-hi,+back,+round,+syl] [-hi,+back,+round,+syl] > ˈuː
 
 $ s242b specifications on coalescence of countertonic a
@@ -3095,10 +3121,21 @@ $ CORRECTION : goes to i j not just i.e
 $ CORRECTION j also is inserted between i and a following vowel if the ˌi is after [+back] ɥ
 ∅ > j / [+back] ɥ [+hi,+front] __ [+syl]
 
+$ s395 : r becomes a glide in certain positions... 
+$ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
+r > ɹ / [-cons] __ {#;[+cons]}
+
+$ s400-401 : final r deletion 
+$ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) 
+	$ for all except for er and jer terminations in polysyllabic words.
+$ CORRECTION: ɹ does also efface in monosyllables of pattern we(ː)ɹ# $CORRECTION 2026: this is rather that this happens before the gliding prior countertonic u, y. RELOCDATED to before that. 
+ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
+ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
+
 $s241 : consonantalization of countertonic high vowels before lower vowels
 $ 16th century, "Later Middle French" 
 $ accepted by early 17th -- attested in Vaugelas
-$ CORRECTION: does not occur before low vowels either (truant) 
+$ CORRECTION: does not occur with low vowels as second element (truant) 
 [+hi,+stres,-prim] [-hi,-lo,+syl] > [-syl] [+stres]
 
 $s569: Pope citing Beze, intervocalic z engenders lengthening of prior consonants
@@ -3123,11 +3160,7 @@ $ CORRECTION: pre-coda t will be preserved in pre-coda cons loss series, if it i
 	$  monosyllables with no onset consonantals (ɥ, w, j -- not consonantal)
 ∅ > ə̯ / # ([-cons,-nas])* t̪ __ #
 
-$ CORRECTION denasalization shifts 474-477 moved back into prefvious time period. 
-
-$ s395 : r becomes a glide in certain positions... 
-$ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
-r > ɹ / [-cons] __ {#;[+cons]}
+$ CORRECTION denasalization shifts 474-477 moved back into previous time period. 
 
 $ s580 open o lengthens and raises before s or z that is about to be deleted
 [+prim,-tense,+back,+round,-hi] > ˈoː / __ [+strid,-cont] #
@@ -3202,13 +3235,7 @@ $ CORRECTION: mid vowels to lax before i,j
 $ CORRECTION: countertonic ə, ɛ after [+lab] l become ˌe
 [-round,-hi,-back,-lo,+stres,-prim] > ˌe / [+lab] l __
 
-$ s400-401 : final r deletion 
-$ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) 
-	$ for all except for er and jer terminations in polysyllabic words.
-$ CORRECTION: ɹ does also efface in monosyllables of pattern we(ː)ɹ#
-ɹ > ∅ / [+syl] ([-syl])* [-hi,+front,+tense,-lo] __ #
-ɹ > ∅ / w [-hi,-lo,+syl,+tense] __ #
-ɹ > r $reassertion of trill elsewhere. 
+ɹ > r $reassertion of trill elsewhere r isn't deleted per s400-401. 
 
 $s196 Second h-deletion. Starts much earlier but accepted in late 17th century
 	$ has no effect unless Frankish and other Germanic words are in dataset
@@ -3227,7 +3254,8 @@ ũː > o / __ [+nas]
 $ CORRECTION : (Pope didn't mention this oddly) loss of distinctive vowel length entirely by 1700
 $ Though it may have started in the 16th century -- see Gess 2001 for more info
 $ Length is in fact preserved in conservative French dialects including those of Belgium and Quebec -- but not the Paris dialect. 
-[+syl,+long] > [-long]
+$CORRECTION 2026: *any* length deleted at this point. 
+[+long] > [-long]
 
 $ s460 : ũ > ɔ̃ in 17th century, but still not complete (s462) in 1696 (!)  
 ũ > ɔ̃
