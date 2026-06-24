@@ -40,11 +40,12 @@ In the command line, navigate to the DiaSim directory and run derive.sh by using
  ./derive.sh
 ```
 
-Command line arguments can be included here; see the "Command line arguments" section below.
+By default, without any further arguments, this will operate DiaCLEF, the French cascade used for Marr & Mortensen 2020 and 2023, upon the Latin to French lexicon FLLex, as it existed before 2024. 
+This can be changed by using command line arguments; see the "Command line arguments" section below.
 
 ## Command line arguments
 
-You may include these command line arguments by adding them to your run command. If you run the script without any arguments, DiaSim will default to using FLLAPS for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `unnamed_run_<datetime>`.
+You may include these command line arguments by adding them to your run command. If you run the script without any arguments, DiaSim will default to using FLLex for its lexicon and DiaCLEF for its cascade, and the output will go to a folder with the name `unnamed_run_<datetime>`.
 
 Specifying a lexicon, cascade, and run name:
 
@@ -54,13 +55,21 @@ Specifying a lexicon, cascade, and run name:
 
 - `-out <run_name>`, where <run_name> is the name you want the folder with all resulting forward-reconstructions and analysis files to be placed
 
+The correct file path, with DiaSim as the working directory, is necessary to avoid errors. 
+For example, if you are operating on a cascade called "OldNorseToIcelandic.txt" in a folder "norse-cfr" in the same directory as DiaSim, you would have: 
+
+```-rules ../norse-cfr/OldNorseToIcelandic.txt```
+
+for the part of the function call indicating the cascade file (".." means "go to parent directory" on most systems). 
+It is recommended that you store files that DiaSim will operate on in a folder that has the same parent directory as DiaSim, to make file path referencing easier. 
+
 Additional options:
 
+- `-diacrit <filename>` -- allows you to use a custom diacritics file (cf. [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) on the wiki). If you use just `-diacrit`, the standard diacritics file will be used. It is recommended to use diacritics if you are using features in rule outputs, as otherwise if your rules end up producing a feature combination without a symbol explicitly dedicated to it in the symbol definitions file (see below), it will appear as a question mark followed by a number. 
+ 
 - `-symbols <symbol_file>`  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult the [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) page of the wiki)
   
 - `-impl <filename>` -- allows you to use a feature implications file other than the default FeatureImplications (cf. [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) on the wiki)
-  
-- `-diacrit <filename>` -- allows you to use a custom diacritics file (cf. [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) on the wiki). If you use just `-diacrit`, the standard diacritics file will be used. 
   
 - `-idcost <a number>` -- sets the cost of insertion and deletion for computing edit distances (cf. [**Metrics**](https://github.com/clmarr/DiaSim/wiki/Metrics) on the wiki)
 
@@ -76,6 +85,7 @@ There are also the following command line flags, which are put together after a 
 
 - `-s` -- skip file creation -- runs without creating a run output folder
 
+
 ### Example configuration
 
 Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_cascade`. You have put these files in the DiaSim directory. You want to run DiaSim and have it make an output folder called `my_run`. Additionally, you want DiaSim to print to the console every sound change and affected etymon as it runs. Once you have navigated to the DiaSim directory, you will run a shell command that looks like this:
@@ -83,13 +93,27 @@ Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_ca
 Windows command line:
 
 ```text
-./derive.bat -lex my_lexicon -rules my_cascade -out my_run -p
+./derive.bat -lex my_lexicon -rules my_cascade -out my_run -diacrit
 ```
 
 Bash:
 
 ```text
-./derive.sh -lex my_lexicon -rules my_cascade -out my_run -p
+./derive.sh -lex my_lexicon -rules my_cascade -out my_run -diacrit
+```
+
+To operate a run named "lastIrishRun" that will produce output report files for an Irish cascade "irish-casc.txt" operated upon a lexicon "OldToModernIrish.txt" in a sibling directory to DiaSim named "irish-cfr", your command could look like this: 
+
+Windows command line:
+
+```text
+./derive.bat -out ../irish-cfr/lastIrishRun -lex ../irish-cfr/OldToModernIrish.txt -rules ../irish-cfr/irish-casc.txt -diacrit
+```
+
+Bash:
+
+```text
+./derive.sh -out ../irish-cfr/lastIrishRun -lex ../irish-cfr/OldToModernIrish.txt -rules ../irish-cfr/irish-casc.txt -diacrit
 ```
 
 ## Lexicon file
