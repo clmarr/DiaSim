@@ -11,8 +11,9 @@ public class Simulation {
 	private Lexicon[] goldStageResultLexica, blackStageResultLexica;
 	private Lexicon[] goldStageGoldLexica, columnedBlackStageLexica; 
 	
-	public List<Integer> columnedBlackStageBlackIndices; //list of all black stage indices (indices of arrays like blackStageInstants, blackStageNames) that are columned. 
+	public List<Integer> columnedBlackStageBlackIndices; //list of all black stage indices (storing index numbers for spots in arrays like blackStageInstants, blackStageNames) that are columned. 
 		// should be in order 
+		// finding something in this will get its index in columnedBlackStageLexica
 	private int[] goldStageInstants, blackStageInstants, columnedStageInstants; 
 	private String[] goldStageNames, blackStageNames, columnedStageNames;
 	private String inputStageName;
@@ -376,7 +377,7 @@ public class Simulation {
 	}
 		
 	/**
-	 * @return stageOrdeered String for the stage + stage number 
+	 * @return stageOrdered String for the stage + stage number -- returns what is in stagesOrdered, that is. 
 	 * 		at which the word with int index @param id is inserted
 	 * e.g. B2 = columned black stage two, which is columned; in = input 
 	 * 	should never return something prefixed in b
@@ -484,9 +485,14 @@ public class Simulation {
 					+ (goldOutput ? " {GOLD: "+goldOutputLexicon.getByID(ID)+"}":""); 
 			else
 			{
+				boolean insertHere = st == getStageOfInsertion(ID);
 				boolean isg = st.charAt(0) == 'G'; 
 				int stn = Integer.parseInt(st.substring(1)); 
-				to_return += (isg ? goldStageResultLexica : blackStageResultLexica)[stn].getByID(ID);
+				to_return += 
+						(insertHere ? (isg ? goldStageGoldLexica[stn]
+											: columnedBlackStageLexica[columnedBlackStageBlackIndices.indexOf(stn)])
+								: (isg ? goldStageResultLexica 
+											: blackStageResultLexica)[stn]).getByID(ID);
 				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn].getByID(ID)+"}"; 
 			}
 			to_return += " | "; 

@@ -1255,41 +1255,36 @@ public class DiachronicSimulator {
 			System.out.print(" ... done.\n");
 		}
 				
-		if(hasGoldOutput && halt_at_gold)
-		{
-			haltMenu(-1, inp,theFactory);
+		if(hasGoldOutput && halt_at_gold)	haltMenu(-1, inp,theFactory);
 			
-			if (!skip_file_creation) {
-				System.out.println("Writing analysis files...");
-				//TODO -- enable analysis on "influence" of black stages and init stage... 
-				
-				//TODO figure out what we want to do here...
-						// TODO what did this mean?^ Figure out or delete it. 
-				ErrorAnalysis ea = UTILS.setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
-						
-				ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
-						false/*, theSimulation.getCurrentResult()*/);
-				ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true/*,goldOutputLexicon*/);
-				
-				if (UTILS.USE_FORM_ID)
-					ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString()), formIDs); 
-				
-				else	ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
-				
-				
-				if(goldStagesSet)
+		if (!skip_file_creation && hasGoldOutput) {
+			System.out.println("Writing analysis files...");
+			
+			ErrorAnalysis ea = UTILS.setupErrorAnalysis(theSimulation.getCurrentResult(), goldOutputLexicon); 
+					
+			ea.makeAnalysisFile((new File(runPrefix,"testResultAnalysis.txt")).toString(), 
+					false/*, theSimulation.getCurrentResult()*/);
+			ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true/*,goldOutputLexicon*/);
+			
+			if (UTILS.USE_FORM_ID)
+				ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString()), formIDs); 
+			
+			else	ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
+			
+			
+			if(goldStagesSet)
+			{	
+				for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
 				{	
-					for(int gsi = 0; gsi < NUM_GOLD_STAGES - 1 ; gsi++)
-					{	
-						ErrorAnalysis eap = UTILS.setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
-						String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
-								).toString();
-						eap.makeAnalysisFile(currfile,false/*, theSimulation.getStageResult(true, gsi)*/);
-						ea.makeEtymwiseEDfile((new File(runPrefix,goldStageNames[gsi].replaceAll(" ","")+"EditDistances").toString())); 
-					}
+					ErrorAnalysis eap = UTILS.setupErrorAnalysis(theSimulation.getStageResult(true, gsi), goldStageGoldLexica[gsi]); 
+					String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
+							).toString();
+					eap.makeAnalysisFile(currfile,false/*, theSimulation.getStageResult(true, gsi)*/);
+					ea.makeEtymwiseEDfile((new File(runPrefix,goldStageNames[gsi].replaceAll(" ","")+"EditDistances").toString())); 
 				}
 			}
 		}
+	
 		System.out.println("Thank you for using DiaSim"); 
 		inp.close();
 	}
