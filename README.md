@@ -73,6 +73,8 @@ Additional options:
   
 - `-idcost <a number>` -- sets the cost of insertion and deletion for computing edit distances (cf. [**Metrics**](https://github.com/clmarr/DiaSim/wiki/Metrics) on the wiki)
 
+- `-files_only' -- run to create derivation and accuracy report files only. Will not stop. Intended for use in command line or as part of external workflows. 
+
 - `-verbose` -- verbose mode -- prints out more information about file locations and other variables set at the command line call.
 
 There are also the following command line flags, which are put together after a single hyphen (eg. "`-ph`")
