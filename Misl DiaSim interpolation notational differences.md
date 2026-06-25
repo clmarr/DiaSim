@@ -90,9 +90,13 @@ zero or any repeats
 
 
 
-? = needs to be filled in 
+? = needs to be filled in
 
 
+
+"either side context"		?				needs two rules				
+
+&#x09;NOTES: handled by "//" in Pardess. E.g. "k > c // j" to palatalize /k/ next to /j/ on either side.
 
 
 
