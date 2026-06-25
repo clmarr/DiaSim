@@ -18,7 +18,7 @@ Disjunct list of sounds		a b > \[c d]		{a;b} > {c;d}
 
 
 
-Breaking				n > n.d			n > n d , or n ∅ > n d
+Breaking				y > u.j		y > u j ; or: y ∅ > u j
 
 
 
@@ -36,13 +36,15 @@ tone				not represented?		not represented
 
 ### what particular symbols indicate
 
+{both:		A > B / X \_\_ Y} 
+
+brackets \[]			bound disjuncts		bound feature matrices
+
+braces {}							bound disjuncts
 
 
-brackets	... 			bound disjuncts	bound feature matrices
 
-
-
- '@'					marks tiers		means anything other than #/+
+ '@'				marks tiers			means anything other than #/+
 
  					e.g. @tone\[¹]^
 
@@ -56,7 +58,9 @@ brackets	... 			bound disjuncts	bound feature matrices
 
 
 
-Sound classes			defined explicitly	feature, use of feat matrices or defined in-rule; e.g. {ʃ;m;p} disjuncts
+Sound classes		defined explicitly	feature, use of feat matrices 
+
+&#x09;								or defined in-rule; e.g. {ʃ;m;p} disjuncts
 
 
 
@@ -66,9 +70,11 @@ feature matrices		don't exist?		written \[-syl,-cons] etc.
 
 alpha variable feats.	don't exist? 		mark intrasegment (\[avoi,ason]) or intersegment (\[+syl,afront] (\[-syl])\* \[+syl,afront] etc.) feature concordinance regardless of specific feature value
 
+&#x09;								feature polarity present
+
  
 
-tiers					marked with #s	does not explicitly exist; can be functionally reproduces with conditioning using alphas
+tiers				marked with #s		does not explicitly exist; can be functionally reproduces with conditioning using alphas
 
 
 
@@ -94,13 +100,23 @@ zero or any repeats
 
 
 
+"either side context"		?				needs two rules
+
+&#x09;NOTES: handled by "//" in Pardess. E.g. "k > c // j" to palatalize /k/ next to /j/ on either side.
+
+
+
+
+
+next syllable
+
+&#x09;NOTES: some others use $ {used to mark comments in DiaSim}
+
+
+
 ? = needs to be filled in
 
 
-
-"either side context"		?				needs two rules				
-
-&#x09;NOTES: handled by "//" in Pardess. E.g. "k > c // j" to palatalize /k/ next to /j/ on either side.
 
 
 
