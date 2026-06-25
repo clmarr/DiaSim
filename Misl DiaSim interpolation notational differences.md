@@ -14,7 +14,7 @@ Gap symbol			-				∅
 
 
 
-Disjunct list of sounds	a b > \[c d]		{a;b} > {c;d}
+Disjunct list of sounds		a b > \[c d]		{a;b} > {c;d}
 
 
 
@@ -26,7 +26,11 @@ locus					\_			\_\_  (two \_ symbols)
 
 
 
-stress				@stress\[ˌ] 		marked on vowel : ˌa
+stress				@stress\[ˌ] 		marked on vowel : ˌa, ˈa -- can be feature +prim,+stres = tonic; -prim,+stress = countertonic
+
+
+
+tone				not represented?		not represented
 
 
 
