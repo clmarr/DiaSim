@@ -69,7 +69,7 @@ public class DiachronicSimulator {
 	private static String lexFileLoc;
 	
 	private static boolean DEBUG_RULE_PROCESSING, DEBUG_STAGES, print_changes_each_rule, stage_pause, ignore_stages, 
-		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE; 
+		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, halt_at_gold; 
 	
 	private static int goldStageInd, blackStageInd; 
 	
@@ -1255,7 +1255,7 @@ public class DiachronicSimulator {
 			System.out.print(" ... done.\n");
 		}
 				
-		if(hasGoldOutput)
+		if(hasGoldOutput && halt_at_gold)
 		{
 			haltMenu(-1, inp,theFactory);
 			
@@ -2239,12 +2239,17 @@ public class DiachronicSimulator {
 	//		  -h : halt at stage checkpoints
 	//		  -i : ignore stages
 	//		  -s : skip file creation
-	// variable setting otherwise: -verbose, -out (for run prefix), 
-	//        -symbols, -impl (feature implications file location), 
-	//        -rules (cascade location), -diacrit (diacritics file location), 
+	// variable setting otherwise: -verbose, 
+	//		  -out (for run prefix), 
+	//		  -impl (feature implications file location), 
+	//        -symbol (symbol defs file)
+	//        -rules (cascade location), 
+	//        -diacrit (diacritics file location), 
 	//        -idcost (insertion/deletion cost)
 	//		  -simple_FED (use constant value rather than contextual similarity calculation for insertion/deletion cost in FED) 
+	//        -use_form_ID: save form ID as what comes after ɸ rather than an iteratively assigend number
 	//		  -debug_stages: debug stage processing 
+	//        -files_only: just go straight to file creation; do not stop at debugging suite / halt menu at all 
 	//
 	private static void parseArgs(String[] args)
 	{
@@ -2269,6 +2274,7 @@ public class DiachronicSimulator {
 		no_feat_impls = false;
 		no_symb_diacritics = true; 
 		skip_file_creation = false;
+		halt_at_gold = true; 
 		UTILS.contextualize_FED = true; 
 		
 		while (i < args.length && args[i].startsWith("-"))	
@@ -2364,6 +2370,11 @@ public class DiachronicSimulator {
 				DEBUG_STAGES = true; 
 				if (VERBOSE)	System.out.println("debugging stage processing"); 
 			}
+			
+			else if (arg.equalsIgnoreCase("-files_only")) {
+				halt_at_gold = false; 
+				if (VERBOSE)	System.out.println("file creation only, skipping any debugging regardless of presence of gold observed forms"); 
+			}
 		
 			//flag args
 			else
@@ -2418,7 +2429,7 @@ public class DiachronicSimulator {
 		}
 		
 		if (i != args.length) //|| no_prefix)
-            throw new Error("Usage: DerivationSimulation [-verbose] [-resphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacrit afile] [-out prefix]"); 	
+            throw new Error("Usage: DerivationSimulation [-verbose] [-use_form_ID] [-simpleFED] [-debug_stages] [-resphi] [-idcost cost] [-rules afile] [-lex afile] [-symbols afile] [-impl afile] [-diacrit afile] [-out prefix]"); 	
 	}
 	
 	private static void printRuleAt(int theInd)
@@ -2427,7 +2438,7 @@ public class DiachronicSimulator {
 			System.out.println("Ind "+theInd+" is right after the realization of the last rule.");
 		else System.out.println(CASCADE.get(theInd)); 
 	}
-	
+
 	/**
 	 * for @param index, an instant in the cascade... 
 	 *  @return a String the name of any stages that is hit right before this rule operates (the "time instant" 
