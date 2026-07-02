@@ -58,9 +58,8 @@ public class UTILS {
 	public static final String REDTEXT = "\u001B[31m"; 
 	
 	//IPA symbol and feature related variables. 
-	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP; 
-	public static HashMap<String,String[]> FT_IMPLICATIONS; 	
-	
+	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP, FT_IMPLICATIONS; 	
+
 	public static Set<String> featsWithImplications; 
 	public static List<String> ordFeatNames; 
 	
@@ -68,7 +67,7 @@ public class UTILS {
 	public static HashMap<String, Integer> featIndices;
 	public static boolean feats_weighted;
 	public static double[] FT_WTS; 
-	public static HashMap<String, String> phoneSymbToFeatsMap;
+	public static HashMap<String, String> phoneSymbToFeatsMap, PHON_CLASS_ABBRS; 
 	public static HashMap<String, String> featsToSymbMap; 
 	public static HashMap<String, List<String>> featsToPossibleDiacritics; 
 	
@@ -799,6 +798,30 @@ public class UTILS {
 		if (VERBOSE)
 			System.out.println("Done extracting symbol diacritics!");	
 		diacriticsExtracted = true; 
+	}
+	
+	/**
+	 * @author Clayton Marr
+	 * @date July 2 2026
+	 * @param fileLoc -- location of file to extract from. 
+	 * 		@precondition This must be .tsv file with two columns: the shorthands in the first (left) column, and the features they correspond to in the second (right) column. 
+	 * 		@precondition The features must also exist in your symbol definitions file (see above).
+	 * these shorthands will be replaced with feature matrices during run extraction.
+	 */
+	public static void extractPhonClassShortHands(String fileLoc)
+	{
+		PHON_CLASS_ABBRS = new HashMap<String, String>();
+		List<String> shortHandLines = readFileLines(fileLoc); 
+		for (String shLine : shortHandLines)
+		{
+			if (shLine.strip().length() > 0)
+			{
+				String[] shLineCols = shLine.strip().split("\t"); 
+				if (shLineCols.length != 2)
+					throw new Error("ERROR: wrong number of tab-delimited columns in phonological class shorthand line:\n\t"+shLine);
+				PHON_CLASS_ABBRS.put(shLineCols[0], shLineCols[1]); 
+			}
+		}
 	}
 	
 	// printer methods follow: 

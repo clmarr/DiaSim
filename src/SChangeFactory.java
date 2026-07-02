@@ -163,6 +163,52 @@ public class SChangeFactory {
 		return alphaUsages.containsValue(1); 
 	}
 	
+	/**
+	 * 
+	 * @param rawRule -- String of rule of SPE X > Y / A __ B form. Should already be stripped of comments.
+	 * @return version where phonological class short hands have been replaced with their respective feature matrices.
+	 * 		e.g. C -> [+cons]; W -> [-cons,-syl] etc. 
+	 * TODO at some point -- apply diacrits here too. 
+	 */
+	public String replaceShortHands(String rawRule)
+	{
+		String output = ""+rawRule.strip(); 
+		
+		// from beginning
+		for (String phCSHi : UTILS.PHON_CLASS_ABBRS.keySet())
+		{
+			if (output.startsWith(phCSHi+" "))
+			{
+				output = "[" + UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "]" + output.substring(phCSHi.length());
+				break;
+			}
+		}
+		
+		// at end 
+		for (String phCSHi : UTILS.PHON_CLASS_ABBRS.keySet())
+		{
+			if (output.endsWith(" "+phCSHi))
+			{
+				output = output.substring(0, output.length()-phCSHi.length()) + "[" + UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "]"; 
+				break;
+			}
+		}
+		
+		//middle
+		for (String phCSHi : UTILS.PHON_CLASS_ABBRS.keySet())
+		{
+			output.replace(" " + phCSHi + " ", " ["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "] ");
+			output.replace("(" + phCSHi + " ", "(["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "] ");
+			output.replace(" " + phCSHi + ")", " ["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "])");
+			output.replace("{" + phCSHi + " ", "{["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "] ");
+			output.replace(" " + phCSHi + "}", " ["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "]}");
+			output.replace("{" + phCSHi + ";", "{["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "];");
+			output.replace(";" + phCSHi + "}", ";["+UTILS.PHON_CLASS_ABBRS.get(phCSHi) + "]}");
+		}
+		
+		return output;
+	}
+	
 	/** generateSChanges
 	 * returns a list of Shift instances of the appropriate subclass based on input String,
 	 * 		which should be a single change written in phonological rule notation
@@ -180,7 +226,10 @@ public class SChangeFactory {
 		
 
 		// as of July 2024, eliminating spaces next to feature delimitation and immediately on the inside of feature matrix braces
-		input = removeSpacesInFM(input); 
+		// this "input" is to this function -- NOT the rule input
+		// as of July 2026 -- decoding shorthands here. 
+		input = removeSpacesInFM(replaceShortHands(input)); 
+		
 		
 		List<SChange> outputToCasc = new ArrayList<SChange>(); 
 		

@@ -65,6 +65,7 @@ public class DiachronicSimulator {
 	private static String symbDefsLoc; 
 	private static String featImplsLoc; 
 	private static String symbDiacriticsLoc; 
+	private static String phonClassShortHandsLoc; 
 	private static String cascFileLoc; 	
 	private static String lexFileLoc;
 	
@@ -1003,6 +1004,8 @@ public class DiachronicSimulator {
 		
 		if (!no_symb_diacritics)	
 			UTILS.extractDiacriticMap(symbDiacriticsLoc);		
+		
+		UTILS.extractPhonClassShortHands(phonClassShortHandsLoc); 
 		
 		if (VERBOSE) 	System.out.println("Creating SChangeFactory...");
 		SChangeFactory theFactory = new SChangeFactory(UTILS.phoneSymbToFeatsMap, UTILS.featIndices); 
@@ -2261,6 +2264,7 @@ public class DiachronicSimulator {
 		cascFileLoc = "DiaCLEF"; 
 		featImplsLoc = "FeatImplications"; 
 		symbDiacriticsLoc = "currentSymbolDiacriticDefs.txt";
+		phonClassShortHandsLoc = "phonClassShortHands.tsv"; 
 		UTILS.ID_WT = 0.5; 
 		
 		
@@ -2333,7 +2337,16 @@ public class DiachronicSimulator {
 				}
 				
 				if (VERBOSE)	System.out.println("diacritics file location: "+symbDiacriticsLoc);
-
+			}
+			
+			else if (arg.contains("-shorthands"))
+			{
+				phonClassShortHandsLoc = args[i++]; 
+				
+				if (phonClassShortHandsLoc.length() < 4 ? true : !phonClassShortHandsLoc.substring(phonClassShortHandsLoc.length()-4).equals(".tsv"))
+					throw new Error("ERROR: phonological class short hands file must be a .tsv with shorthands (C,W...) as the left column,"
+							+ " and intended class-defining features (+cons; -cons,-syl...) on the right! Instead it is : "+phonClassShortHandsLoc); 
+				if (VERBOSE)	System.out.println("phonological class shorthands file location: "+phonClassShortHandsLoc); 
 			}
 			
 			//lexicon location

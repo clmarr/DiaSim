@@ -68,7 +68,9 @@ Additional options:
 - `-diacrit <filename>` -- allows you to use a custom diacritics file (cf. [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) on the wiki). If you use just `-diacrit`, the standard diacritics file will be used. It is recommended to use diacritics if you are using features in rule outputs, as otherwise if your rules end up producing a feature combination without a symbol explicitly dedicated to it in the symbol definitions file (see below), it will appear as a question mark followed by a number. 
  
 - `-symbols <symbol_file>`  -- allows you to use a symbol definitions file other than symbolDefs.csv (on how to make these, you can follow the rubric of that file and/or consult the [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) page of the wiki)
-  
+
+- `-shorthands <filename.tsv>` -- allows you to use a shorthands file,  to use shorthands for phonological classes other than the default set stored in `phonClassShortHands.tsv` (e.g. C = [+cons], W (glide) = [-cons,-syl], etc.). This must be .tsv file with two columns: the shorthands in the first (left) column, and the features they correspond to in the second (right) column. The features must also exist in your symbol definitions file (see above). 
+
 - `-impl <filename>` -- allows you to use a feature implications file other than the default FeatureImplications (cf. [**Representations**](https://github.com/clmarr/DiaSim/wiki/Representations) on the wiki)
   
 - `-idcost <a number>` -- sets the cost of insertion and deletion for computing edit distances (cf. [**Metrics**](https://github.com/clmarr/DiaSim/wiki/Metrics) on the wiki)
