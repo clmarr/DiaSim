@@ -29,6 +29,7 @@ public class DiachronicSimulator {
 	
 	private static Etymon[] inputForms;
 	private static String inputName; 
+	private final static String TEMP_COMPOSITE_CASC_LOC = UTILS.TEMP_COMPOSITE_CASC_LOC; 
 	private static Lexicon goldOutputLexicon;
 	private static int NUM_ETYMA; 
 	private static int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_BLACK_STAGES; 
@@ -103,12 +104,25 @@ public class DiachronicSimulator {
 		rulesByTimeInstant = new ArrayList<String>(); 
 		inputName = "Input";
 
-		String nextRuleLine;
+		String nextRuleLine; BufferedReader in = null;
 		
-		try 
-		{	BufferedReader in = new BufferedReader ( new InputStreamReader ( 
-				new FileInputStream(cascFileLoc), "UTF-8")); 
+		try { in = new BufferedReader ( new InputStreamReader ( new FileInputStream(cascFileLoc), "UTF-8")); 
+		} catch (FileNotFoundException e) {
 			
+			String newLoc = 
+					(cascFileLoc.length() < 4 || !cascFileLoc.substring(cascFileLoc.length() - 4).equals(".txt"))
+						? cascFileLoc + ".txt"
+								: cascFileLoc.substring(0,cascFileLoc.length()-4); 
+			try { in = new BufferedReader ( new InputStreamReader ( new FileInputStream(newLoc), "UTF-8")); 
+			} catch (FileNotFoundException ei) {
+				System.out.println("File '"+cascFileLoc+"' not found!");
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException ei) { System.out.println("Encoding unsupported!"); ei.printStackTrace(); }
+			
+		} catch (IOException e) { System.out.println("IO Exception!"); e.printStackTrace(); }
+		
+		
+		try {	
 			while((nextRuleLine = in.readLine()) != null)
 			{
 				String lineWithoutComments = ""+nextRuleLine; 
@@ -119,16 +133,8 @@ public class DiachronicSimulator {
 			}
 			in.close();
 		}
-		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
-		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
-		}
+		catch (UnsupportedEncodingException e) { System.out.println("Encoding unsupported!"); e.printStackTrace();
+		} catch (IOException e) { System.out.println("IO Exception!"); e.printStackTrace(); }
 		
 		//now filter out the stage name declaration lines.
 		
@@ -2249,6 +2255,12 @@ public class DiachronicSimulator {
 	//		  -debug_stages: debug stage processing 
 	//        -files_only: just go straight to file creation; do not stop at debugging suite / halt menu at all 
 	//
+	/**
+	 * Instead of ``-rules`` or ``-cascade``, you may use ``-cascades`` (plural!) or ``-composite``, DiaSim will understand this to mean you want to operate on a *sequence* of cascades, each starting where the last one ends (e.g. a Latin to Old French cascade, then an Old French to modern French cascade). 
+			The file after it *MUST* contain the following: lines alternating between filepath locations for each cascade, and names of stages where each cascade transitions into the next (starting with `~` if it's a gold stage, `=` if it's a black stage). Do NOT list the final input and output stages. 
+			These should all be listed in the historical order they occur, as that is how DiaSim will assemble them into a composite cascade. The composite cascade file will be deleted after the run, but you can see the rules in order in the rules log file, which will be your run name (flagged by `-out`, see above) with the suffix `_rules_log.txt`. 
+	 * @param args -- array of all the args necessary -- see above
+	 */
 	private static void parseArgs(String[] args)
 	{
 		int i = 0, j; 
@@ -2315,11 +2327,23 @@ public class DiachronicSimulator {
 			}
 			
 			//ruleset file location
-			else if (arg.contains("-rules"))
+			else if (arg.equalsIgnoreCase("-rules") || arg.equalsIgnoreCase("-ruleset") 
+					|| arg.equalsIgnoreCase("-cascade"))
 			{
 				if (i < args.length)	cascFileLoc = args[i++];
 				else	System.err.println("-rules requires a location for ruleset file.");
 				if (VERBOSE)	System.out.println("ruleset file location: "+cascFileLoc);
+			}
+			
+			//file to make composite cascade: 
+			else if (arg.equalsIgnoreCase("-cascades") || arg.equalsIgnoreCase("-composite"))
+			{
+				String cascListFileLoc = args[i];
+				args[i--] = TEMP_COMPOSITE_CASC_LOC;
+				args[i] =  "-rules"; 
+				
+				System.out.println("Making composite of cascades as ordered in file: "+ cascListFileLoc);
+				UTILS.composeCascadeFromCascList(cascListFileLoc); 
 			}
 			
 			//flag to use diacritics, and the location of the diacritics file. 
@@ -2351,7 +2375,7 @@ public class DiachronicSimulator {
 			
 			//lexicon location
 			// should cover lexicon -- will activate for anything staring in 'lex'...
-			else if (arg.contains("-lex"))
+			else if (arg.contains("-lex") || arg.contains("-words"))
 			{
 				if (i < args.length)	lexFileLoc = args[i++];
 				else	System.err.println("-lex requires a location for lexicon file location.");
@@ -2421,10 +2445,7 @@ public class DiachronicSimulator {
 						default:
 							System.err.println("Illegal flag : "+flag);
 							break;
-					}	
-				}
-			}
-		}
+		}}}}
 		
 		// If user hasn't specified a run output location, make a unique run prefix
 		if (no_prefix)

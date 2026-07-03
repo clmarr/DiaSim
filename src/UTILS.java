@@ -57,6 +57,8 @@ public class UTILS {
 	public static final String RESETTEXT = "\u001B[0m"; 
 	public static final String REDTEXT = "\u001B[31m"; 
 	
+	public final static String TEMP_COMPOSITE_CASC_LOC = "tempCompositeCascade.txt"; 
+	
 	//IPA symbol and feature related variables. 
 	public static HashMap<String,String[]> DIACRIT_TO_FT_MAP, FT_IMPLICATIONS; 	
 
@@ -547,21 +549,17 @@ public class UTILS {
 		String nextLine; 
 		
 		try 
-		{
-			File inFile = new File(loc); 
+		{	File inFile = new File(loc); 
 			BufferedReader in = new BufferedReader ( new InputStreamReader ( new FileInputStream(inFile), "UTF8")); 
 			while((nextLine = in.readLine()) != null)		lns.add(nextLine);
 			in.close();
 		}
 		catch (UnsupportedEncodingException e) {
-			System.out.println("Encoding unsupported!");
-			e.printStackTrace();
+			System.out.println("Encoding unsupported!"); e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			System.out.println("File not found!");
-			e.printStackTrace();
+			System.out.println("File not found!"); e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println("IO Exception!");
-			e.printStackTrace();
+			System.out.println("IO Exception!"); e.printStackTrace();
 		}
 		
 		return lns;
@@ -2368,26 +2366,19 @@ public class UTILS {
 			}}}
 			
 			if(UTILS.POLAR_FTSPEC_MARKS.contains(currSpec.substring(0,1)))
-			{
-				if(featsWithImplications.contains(currSpec.substring(1)))
-				{
-					String[] implications = FT_IMPLICATIONS.get(currSpec.substring(1)); 
+			{	if(featsWithImplications.contains(currSpec.substring(1)))
+				{	String[] implications = FT_IMPLICATIONS.get(currSpec.substring(1)); 
 					for (int ii=0; ii < implications.length; ii++)
-					{	if(output.contains(implications[ii]) == false)
-						{
+					{	if(output.contains(implications[ii]) == false)	{
 							output += RESTR_DELIM + implications[ii]; 
 							theFeatSpecs = output.trim().split(""+RESTR_DELIM); 
 						}
-			}}}
-		}
-		
+		}}}}
 		return output; 
 	}
 	
 	public static String stripEnds(String inp)
-	{
-		return inp.replaceAll("^[ \t]+|[ \t]+$","");
-	}
+	{	return inp.replaceAll("^[ \t]+|[ \t]+$","");}
 	
 	public static String append_space_to_x (String in, int x)
 	{
@@ -2399,12 +2390,71 @@ public class UTILS {
 		
 	public static boolean isNumeric (String s)
 	{
-		try {
-            Integer.parseInt(s);
+		try {Integer.parseInt(s);
             return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
+        } catch (NumberFormatException e) {return false;}
 	}
 	
+	/**
+	 * 
+	 * @param lines -- of a cascade
+	 * @return "-1" if last line with content is not a stage name, otherwise return the stage name, stripped. 
+	 */
+	public static String stageNameInFirstContentLine(List<String> lines)
+	{
+		for (String lini : lines)
+		{
+			int cmtStart = lini.indexOf(CMT_FLAG);
+			String content = (cmtStart == -1 ? lini : lini.substring(0,cmtStart)).strip(); 
+			if (content.length() == 0)	continue;
+			if ((""+GOLD_STAGENAME_FLAG+BLACK_STAGENAME_FLAG).contains(content.charAt(cmtStart)+""))	
+				return content;
+			else	break; 
+		}
+		return "-1"; 
+	}
+	public static String stageNameInLastContentLine(List<String> lines)	{	return stageNameInFirstContentLine(lines.reversed()); 	}
+	
+	
+	/**
+	 * 
+	 * @param orderedCascadeFileLocs file paths for cascades to concatenate, in their historical order
+	 * @param junctionStages names of stages, flagged with ~ if gold or = if black, that come after the cascade with the same index, and before the cascade with the next index
+	 */
+	public static void makeCompositeCascade(List<String> orderedCascadeFileLocs, List<String> junctionStages  )
+	{
+		if (orderedCascadeFileLocs.size() != junctionStages.size() + 1) throw new Error("Error: tried to make composite cascade"
+					+ " but number of intermediary stages is not exactly one less than number of cascades to concatenate!"); 
+		if (orderedCascadeFileLocs.size() < 2)	throw new Error("Error : tried to concatenate less than two cascades!"); 
+		
+		
+		List<String> compositeCascContents  = readFileLines(orderedCascadeFileLocs.get(0)); 
+		
+		for (int ci = 1 ; ci < orderedCascadeFileLocs.size(); ci++ )
+		{
+			if (!(GOLD_STAGENAME_FLAG + BLACK_STAGENAME_FLAG +"").contains(junctionStages.get(ci-1).strip().charAt(0)+""))
+				throw new Error("illegitimate stage stipulation in cascade composition: "+junctionStages.get(ci-1)); 
+				
+			if (!stageNameInLastContentLine(compositeCascContents).replace(" ","").equalsIgnoreCase(
+					junctionStages.get(ci-1).strip().replace(" ", "")))
+				compositeCascContents.add(""); compositeCascContents.add(junctionStages.get(ci-1)); compositeCascContents.add("");
+			
+			compositeCascContents.addAll( readFileLines(orderedCascadeFileLocs.get(ci))); 
+		}
+		
+		writeToFile(TEMP_COMPOSITE_CASC_LOC, String.join("\n", compositeCascContents), false); 
+	}
+	public static void composeCascadeFromCascList(String orderedCascLoc)
+	{
+		List<String> cascCompositionLines = readFileLines(orderedCascLoc); 
+		for (int ccli = cascCompositionLines.size(); ccli >= 0 ; ccli--)
+			if (cascCompositionLines.get(ccli).strip().equals(""))
+				cascCompositionLines.remove(ccli); 
+		
+		List<String> cascFileLines = new ArrayList<String>(), stageLines = new ArrayList<String>(); 
+		for (int cli = 0; cli < cascCompositionLines.size(); cli++)
+			(cli % 2 == 1 ? stageLines : cascFileLines).add(cascCompositionLines.get(cli)); 
+		
+		makeCompositeCascade(cascFileLines, stageLines); 
+	}
 }

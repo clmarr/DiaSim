@@ -49,16 +49,17 @@ You may include these command line arguments by adding them to your run command.
 
 Specifying a lexicon, cascade, and run name:
 
-- `-lex <filename>` -- sets the file with the etyma to implement sound changes on (see the [**Lexicon**](https://github.com/clmarr/DiaSim/wiki/Lexicon) page of the wiki)
-  
-- `-rules <cascade_file>` -- sets the file with the ordered sound changes to realize upon the lexicon
-
 - `-out <run_name>`, where <run_name> is the name you want the folder with all resulting forward-reconstructions and analysis files to be placed
+
+- `-lex <filename>` -- sets the file with the etyma to implement sound changes on (see the [**Lexicon**](https://github.com/clmarr/DiaSim/wiki/Lexicon) page of the wiki). You may also use ``-words`` (and actually, any flag starting in `-lex` will be treated as this). 
+  
+- `-rules <cascade_file>` -- sets the file with the ordered sound changes to realize upon the lexicon. Instead of ``-rules`` you may instead use ``-cascade``. 
+
 
 The correct file path, with DiaSim as the working directory, is necessary to avoid errors. 
 For example, if you are operating on a cascade called "OldNorseToIcelandic.txt" in a folder "norse-cfr" in the same directory as DiaSim, you would have: 
 
-```-rules ../norse-cfr/OldNorseToIcelandic.txt```
+``-rules ../norse-cfr/OldNorseToIcelandic.txt``
 
 for the part of the function call indicating the cascade file (".." means "go to parent directory" on most systems). 
 It is recommended that you store files that DiaSim will operate on in a folder that has the same parent directory as DiaSim, to make file path referencing easier. 
@@ -89,6 +90,21 @@ There are also the following command line flags, which are put together after a 
 
 - `-s` -- skip file creation -- runs without creating a run output folder
 
+### Composite cascade call
+
+Instead of ``-rules`` or ``-cascade``, you may use ``-cascades`` (plural!) or ``-composite``, DiaSim will understand this to mean you want to operate on a *sequence* of cascades, each starting where the last one ends (e.g. a Latin to Old French cascade, then an Old French to modern French cascade). 
+
+The file after it *MUST* contain the following: filepath locations for each cascade in their historical order, each on their own line, with a line between each consecutive cascades stating the stage at which the one above transitions to the one below (starting with `~` if it's a gold stage, `=` if it's a black stage. Input stage should be a black stage but it is not necessary to list.). Do NOT list the final input and output stages. 
+These should all be listed in the historical order they occur, as that is how DiaSim will assemble them into a composite cascade. The composite cascade file will be deleted after the run, but you can see the rules in order in the rules log file, which will be your run name (flagged by `-out`, see above) with the suffix `_rules_log.txt`. 
+
+Example contents of the composite cascade listing file (Proto-Gallo-Romance, which doesn't have attested forms to compare to, is a black stage and thus flagged with `=`. Old French, an attested stage of French, has forms that can be compared to, and is thus flagged as a gold stage with `~`):
+
+```LatinToProtoGalloRomanceCascade.txt
+	=Proto-Gallo-Romance
+	ProtoGalloRomanceToOldFrenchCascade.txt
+	~Old French
+	OldFrenchToModernFrenchCascade.txt
+```
 
 ### Example configuration
 
