@@ -10,11 +10,11 @@
 
  					Mis\*l			DiaSim
 
-Gap symbol			-				∅
+Gap symbol			-			∅
 
 
 
-Disjunct list of sounds		a b > \[c d]		{a;b} > {c;d}
+Disjunct list of sounds		a b > \[c d]	{a;b} > {c;d}
 
 
 
@@ -36,7 +36,7 @@ tone				not represented?		not represented
 
 ### what particular symbols indicate
 
-{both:		A > B / X \_\_ Y} 
+{both:		A > B / X \_\_ Y}
 
 brackets \[]			bound disjuncts		bound feature matrices
 
@@ -52,13 +52,17 @@ braces {}							bound disjuncts
 
 
 
+$				end of sequence		flags beginning of comment clause
+
+
+
 
 
 ### capacities and operationality
 
 
 
-Sound classes		defined explicitly	feature, use of feat matrices 
+Sound classes		defined explicitly	feature, use of feat matrices
 
 &#x09;								or defined in-rule; e.g. {ʃ;m;p} disjuncts
 
@@ -106,21 +110,23 @@ zero or any repeats
 
 
 
+features, feat classes		not present			subset phones in \[feat matrices]
 
-
-next syllable
-
-&#x09;NOTES: some others use $ {used to mark comments in DiaSim}
-
-
-
-? = needs to be filled in
+&#x09;								symbolDefs.csv maps phones to feat vects
 
 
 
+alpha features			no features			defined online/autonomously in feat vects: e.g. \[αvoi,-αcont] = includes voiceless fricatives and voiced stops.
 
 
 
+beginning of sequence		^				# = word onset {and offset}
 
-TODO note-- are features handled in Mis\*l beyond sound classes?
+&#x09;{what does sequence mean?}			+ = morpheme onset {and offset}
+
+
+
+"end of sequence"		$				# = word offset {and onset}
+
+&#x09;								+ = morpheme offset {and onset}
 
