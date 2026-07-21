@@ -1530,7 +1530,7 @@ public class DiachronicSimulator {
 					"|                               ----- Diagnostics -----                               |\n" +
 					"| 5 : Run autopsy for (at evaluation point) (for subset lexicon if specified)         |\n" +
 					"| 6 : Confusion diagnosis at evaluation point                                         |\n" +
-					"| 7 : Test full effects of a proposed change to the cascade                           |\n" +
+					"| 7 : Look at effects of rules and proposed changes to them                           |\n" +
 					"| 8 : Get all rules by how many etyma they effect                                     |\n" +
 					"|-------------------------------------------------------------------------------------|\n" +
 					"|_9 : End this analysis.______________________________________________________________|");
