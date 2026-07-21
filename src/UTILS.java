@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class UTILS {
@@ -2413,7 +2414,9 @@ public class UTILS {
 		}
 		return "-1"; 
 	}
-	public static String stageNameInLastContentLine(List<String> lines)	{	return stageNameInFirstContentLine(lines.reversed()); 	}
+	public static String stageNameInLastContentLine(List<String> lines)
+	{	Collections.reverse(lines);
+		return stageNameInFirstContentLine(lines); 	}
 	
 	
 	/**
