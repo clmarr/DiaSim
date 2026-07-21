@@ -1778,7 +1778,8 @@ public class DiachronicSimulator {
 						}
 						catch (Exception e)
 						{
-							System.out.println("That is not a valid filter.\nTry again and double check spelling of any feature names, and that the proper delimitation is used...");
+							System.out.println("That is not a valid filter.\nTry again and double check spelling of any feature names, and that the proper delimitation is used..."
+									+ "\nError: "+e.toString());
 						}
 						
 						if(!fail)
