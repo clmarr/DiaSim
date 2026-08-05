@@ -870,8 +870,8 @@ public class SequentialFilter {
 	{
 		int pmSize = parenMap.length, count = 0;
 			//optParenDepth is the number of optional { ()*, ()} paren structures we are currently in
-		
-		int i = 0; 
+	
+		int i = 0;
 		while (i < pmSize) 
 		{
 			String currMapCell = parenMap[i];

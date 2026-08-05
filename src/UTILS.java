@@ -33,6 +33,7 @@ public class UTILS {
 	public static final char RESTR_DELIM =  ','; // delimits restrictions between features inside the specification
 			// ... for a FeatMatrix : i.e. if "," then the FeatMatrix will be in phonological representation
 			// ... as [+A,-B,+C]
+	public final static char CH_WORD_BOUND = '#'; 
 	public final static char CMT_FLAG = '$'; //marks that the text after is a comment in the sound rules file, thus doesn't read the rest of the line
 	public final static char GOLD_STAGENAME_FLAG = '~', BLACK_STAGENAME_FLAG ='=';
 	public final static String NULL_STAGE_INDIC = "NULLSTAGE"; 

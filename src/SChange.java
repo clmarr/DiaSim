@@ -63,7 +63,9 @@ public abstract class SChange {
 	{
 		orig = ""+origForm;
 		priorContext = prior; postContext = post; boundsMatter = false; 
-		minPriorSize = priorContext.getMinSize(); minPostSize = postContext.getMinSize(); 
+		minPriorSize = priorContext.getMinSize() ;
+				// nah ; + ( (UTILS.CH_WORD_BOUND+"").equals(priorContext.getParenMap()[0]) ? 1 : 0);  // don't count word bound 
+		minPostSize = postContext.getMinSize(); 
 		priorSpecd = true; postSpecd = true; isAlphaSubclass = false;
 		NEG_ALPH_PROXIES = new HashMap<String, String>(); 
 	}

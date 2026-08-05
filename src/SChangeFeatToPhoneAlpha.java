@@ -28,7 +28,7 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
-		while (p < maxPlace)
+		while (p <= maxPlace)
 		{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; 
@@ -41,8 +41,8 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 
 				if (test.first_unset_alpha() != '0')
 				{
-					if(cand.getType().equals("phone")) {
-						
+					if(cand.getType().equals("phone")) 
+					{
 						if(test.check_for_alpha_conflict(cand))
 							targMatchFail = true;
 						else if (!test.comparePreUnsetAlpha(cand))	targMatchFail = true; 
@@ -60,10 +60,11 @@ public class SChangeFeatToPhoneAlpha extends SChangeFeatToPhone {
 					}
 					else	targMatchFail = true; 
 				}
+
 				targMatchFail = targMatchFail ? true : !test.compare(cand);
 				
 				//if(targMatchFail && srcAlphs.keySet().size() > 0) reset_alphvals_everywhere();
-				// unnecessary as this bypasses the next block to trigger the reset there. 
+				// above seems unnecessary as this bypasses the next block to trigger the reset there
 			}
 			
 			if (!targMatchFail) //target matched
