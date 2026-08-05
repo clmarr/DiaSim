@@ -35,7 +35,7 @@ public class SChangePhoneAlpha extends SChangePhone {
 	@Override
 	public List<SequentialPhonic> realize (List<SequentialPhonic> input)
 	{
-		int inpSize = input.size(), maxPlace = inpSize - Math.max(minPostSize + minTargSize, 1); 
+		int inpSize = input.size(), maxPlace = inpSize - Math.max(minPostSize + minTargSize - 1, 1); 
 	
 		//abort if too small
 		if (inpSize < minPriorSize + minTargSize + minPostSize)	return input; 

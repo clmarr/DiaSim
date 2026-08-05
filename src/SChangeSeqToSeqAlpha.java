@@ -40,11 +40,11 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 		
 		// p -- place in input being operated on.
 		int p = minPriorSize , 
-				maxPlace = inpSize - Math.max(minPostSize + minInputSize, 1); 
+				maxPlace = inpSize - Math.max(minPostSize + minInputSize , 1); 
 		List<SequentialPhonic> res = (p == 0) ? 
 				new ArrayList<SequentialPhonic>() : new ArrayList<SequentialPhonic>(input.subList(0, p));
 		
-		while (p < maxPlace)
+		while (p <= maxPlace)
 		{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; // for halting the for-loop.

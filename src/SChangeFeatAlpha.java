@@ -69,7 +69,7 @@ public class SChangeFeatAlpha extends SChangeFeat {
 		
 		List<SequentialPhonic> res = new ArrayList<SequentialPhonic>(input.subList(0, minPriorSize)); 
 		int p = minPriorSize; 
-		int maxPlace = input.size() - minPostSize - minInputSize; 
+		int maxPlace = input.size() - minPostSize - minInputSize ; 
 		
 		while(p <= maxPlace)
 		{
