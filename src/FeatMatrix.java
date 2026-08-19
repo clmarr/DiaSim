@@ -683,9 +683,9 @@ public class FeatMatrix extends Phonic implements RestrictPhone {
 					// value conflict between already-set alpha value, and the (different or redundant) one encountered. 
 					String currspec = currReqs.get(""+fvspec); 
 					if (currspec.equals(UTILS.DESPEC_INT+"")  && UTILS.UNSPEC_INT_CHAR!=cand_feat_vect[c])
-							throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
+							throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first! Variable: "+fvspec); 
 					else	if (!currspec.equals(cand_feat_vect[c]+""))
-						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first!"); 
+						throw new RuntimeException("Error : Alpha value conflict encountered -- should have called check_for_alpha_conflict() first! Variable: "+fvspec+"; currspec "+currspec+"; cfv[c] = "+cand_feat_vect[c]); 
 				}
 				else if (cand_feat_vect[c] == UTILS.UNSPEC_INT_CHAR)	// i.e. alpha-symbol, 9 (despecification)
 					currReqs.put(""+fvspec, ""+UTILS.DESPEC_INT); // TODO NOTE this is extracted but at present it will NOT be applied unless DESPEC_VIA_ALPHA is true. 

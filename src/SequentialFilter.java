@@ -283,7 +283,7 @@ public class SequentialFilter {
 						resetTheseAlphaValues( new ArrayList<String>(localAlphExtract.keySet())); 
 						return false; 
 					}
-					
+
 					// if reached here, going to have to extract and apply alpha values 
 					localAlphExtract.putAll(rpi.extractAndApplyAlphaValues(cpi)); 
 						//^ keyset of which will be reset in case of failure. 
