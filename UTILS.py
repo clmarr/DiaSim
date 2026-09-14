@@ -2,6 +2,8 @@ import os
 import shutil
 import lingpy
 
+#TODO BEWARE-- this requires your system to have bash.
+
 DUMMY_RUN_DIR = "TEMP"
 STAGE_OUTGRAPH_SUFFIX = "_stagewise_output_graph.csv"
 FIRST_RUN_SUBDIR = "run1"
@@ -97,16 +99,24 @@ def outGraphToComparisonLex(outGraphLoc, lexDest):
     g.write("\n".join(lines))
     g.close()
 
+# DiaSim run wrapper, with error handling. Prerequisite: directories in any file path names must exist.
+def diaSimRun(saveTo, lex, casc, errorIntro = ""):
+    if errorIntro == "":
+        errorIntro = "Couldn't run DiaSim on cascade file "+casc+" for lexicon "+lex+"; run produced an error."
+    try:
+        os.system("bash derive.sh -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
+    except Exception as e:
+        print(errorIntro+". "+e)
 
 #to make "gold" of first compared cascade's output, primarily
 # makes lex where first line is inputs, second is CFR predictions of this cascade
-#       -- for the purposes of comparsion to another upon same data
+#       -- for the purposes of comparison to another upon same data
 # returns location of resulting lexicon
 def makeReferencePredictionLex(saveTo, lex, casc):
 
     os.makedirs(os.path.join(saveTo,FIRST_RUN_SUBDIR),exist_ok=True)
 
-    os.system("bash derive.sh -out "+os.path.join(saveTo,FIRST_RUN_SUBDIR)+" -lexicon "+lex+" -rules "+casc+RUNCALL_SUFFIX)
+    diaSimRun(os.path.join(saveTo,FIRST_RUN_SUBDIR), lex, casc, "Error making reference prediction lexicon...")
 
     outlex_loc = os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_CASC_PREDICTION_LEX)
     outGraphToComparisonLex(os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_RUN_SUBDIR)+STAGE_OUTGRAPH_SUFFIX,
@@ -128,7 +138,7 @@ def compareCascades(lex , #lex to compare on
 
     casc1_pred_lex = makeReferencePredictionLex(out,lex,casc1)
 
-    os.system("bash derive.sh -out "+saveTo+" -lexicon "+ casc1_pred_lex + " -rules "+casc2 +RUNCALL_SUFFIX)
+    diaSimRun(saveTo, casc1_pred_lex, casc2, "Error making comparison lexicon.")
 
     comparisonFile = os.path.join(saveTo, ACC_REPORT_FILE)
     with open(comparisonFile,"r") as f:
@@ -145,7 +155,7 @@ def compareCascades(lex , #lex to compare on
 def compareCascadesTester():
     text_lex_loc = os.path.join(DUMMY_RUN_DIR, "testLex.txt")
     os.makedirs(DUMMY_RUN_DIR, exist_ok=True)
-    f = open(text_lex_loc,"w")
+    f = open(text_lex_loc,"w",encoding="utf-8")
     f.write("=In,Stage1,Out\n"
             "o w i,>*,o ʍ\n"
             "i w o,>*,w o\n"
@@ -155,14 +165,14 @@ def compareCascadesTester():
     casc1_loc = os.path.join(DUMMY_RUN_DIR, "casc1.txt")
     casc2_loc = os.path.join(DUMMY_RUN_DIR, "casc2.txt")
 
-    f = open(casc1_loc,"w")
+    f = open(casc1_loc,"w",encoding="utf-8")
     f.write("i > ∅ / __ #\n"
             "w > ʍ / __ #\n"
             "=Stage1\n"
             "a > o")
     f.close()
 
-    f = open(casc2_loc,"w")
+    f = open(casc2_loc,"w",encoding="utf-8")
     f.write("w i > w̥ / __ #\n=Stage1\na > o")
     f.close()
 
@@ -173,4 +183,4 @@ def compareCascadesTester():
     else:
         print("there is a bug with compareCascades -- check results in "+os.path.join(DUMMY_RUN_DIR,"cascadeComparisonTest"))
 
-
+compareCascadesTester()
