@@ -100,12 +100,15 @@ def outGraphToComparisonLex(outGraphLoc, lexDest):
     g.close()
 
 # DiaSim run wrapper, with error handling. Prerequisite: directories in any file path names must exist.
-def diaSimRun(saveTo, lex, casc, errorIntro = ""):
+def diaSimRun(saveTo, lex, casc, otherSettings = "", errorIntro = ""):
     if errorIntro == "":
         errorIntro = "Couldn't run DiaSim on cascade file "+casc+" for lexicon "+lex+"; run produced an error."
+
+    if otherSettings != "" and otherSettings[0] != " ":
+        otherSettings = " "+otherSettings
     try:
         #os.system("bash derive.sh -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
-        os.system("java -cp bin DiachronicSimulator -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
+        os.system("java -cp bin DiachronicSimulator -out " + saveTo + " -lexicon " + lex + " -rules " + casc + otherSettings + RUNCALL_SUFFIX)
     except Exception as e:
         print(errorIntro+". "+str(e))
 
@@ -113,11 +116,11 @@ def diaSimRun(saveTo, lex, casc, errorIntro = ""):
 # makes lex where first line is inputs, second is CFR predictions of this cascade
 #       -- for the purposes of comparison to another upon same data
 # returns location of resulting lexicon
-def makeReferencePredictionLex(saveTo, lex, casc):
+def makeReferencePredictionLex(saveTo, lex, casc, etc=""):
 
     os.makedirs(os.path.join(saveTo,FIRST_RUN_SUBDIR),exist_ok=True)
 
-    diaSimRun(os.path.join(saveTo,FIRST_RUN_SUBDIR), lex, casc, "Error making reference prediction lexicon...")
+    diaSimRun(os.path.join(saveTo,FIRST_RUN_SUBDIR), lex, casc, otherSettings=etc, errorIntro="Error making reference prediction lexicon...")
 
     outlex_loc = os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_CASC_PREDICTION_LEX)
     outGraphToComparisonLex(os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_RUN_SUBDIR+STAGE_OUTGRAPH_SUFFIX),
@@ -131,23 +134,29 @@ def compareCascades(lex , #lex to compare on
                     casc1 , #location of text file for first cascade to compare
                     casc2 , #location of text file for second cascade to compare
                     saveTo= False, #true if we want to actually keep these files
+                    symbDefsLoc = False, #location if we want to usurp the normal file
+                    impls = False #location of feature implications file if we want to usurp the normal one.
                     ):
-    out = saveTo if saveTo else DUMMY_RUN_DIR
+    out = str(saveTo) if saveTo else DUMMY_RUN_DIR
 
     if out not in os.listdir():
         os.makedirs(out, exist_ok=True)
 
-    casc1_pred_lex = makeReferencePredictionLex(out,lex,casc1)
+    etj = "" + [""," -impl " + str(impls)][impls] + [""," -symbols "+str(symbDefsLoc)][symbDefsLoc]
 
-    diaSimRun(saveTo, casc1_pred_lex, casc2, "Error making comparison lexicon.")
+    casc1_pred_lex = makeReferencePredictionLex(out,lex,casc1,etj)
 
-    comparisonFile = os.path.join(saveTo, ACC_REPORT_FILE)
+    diaSimRun(saveTo, casc1_pred_lex, casc2,
+              otherSettings= etj,
+              errorIntro="Error making comparison lexicon.")
+
+    comparisonFile = os.path.join(out, ACC_REPORT_FILE)
     with open(comparisonFile,"r") as f:
         match = cascMatch(f.readlines()[OVERALL_ACC_LINE])
 
     #if saved to temp, delete comparison data
-    if saveTo == DUMMY_RUN_DIR:
-        shutil.rmtree(os.path.join(saveTo))
+    if out == DUMMY_RUN_DIR:
+        shutil.rmtree(os.path.join(out))
 
     return match
 
@@ -183,5 +192,3 @@ def compareCascadesTester():
         shutil.rmtree(DUMMY_RUN_DIR)
     else:
         print("there is a bug with compareCascades -- check results in "+os.path.join(DUMMY_RUN_DIR,"cascadeComparisonTest"))
-
-compareCascadesTester()
