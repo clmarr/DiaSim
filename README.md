@@ -18,6 +18,23 @@ This README file covers basic technical information, such as how to get DiaSim u
 
 ## Running DiaSim
 
+There are two ways DiaSim is run. 
+
+The first operates via a command shell (Terminal, or Command Prompt on Windows). 
+The second is to operate within the programming console Eclipse (you can download it [here (click)](https://eclipseide.org/)). 
+It is expected DiaSim will be more commonly used on a shell, and what follows concerns that usage case. 
+Some pointers for operating DiaSim within Eclipse are given in its respective section. 
+
+After opening your shell, you should navigate to where DiaSim is located. 
+
+If it is a folder on your Desktop, after opening your shell, your command to get there on Windows might look like this: 
+
+```text
+ chdir "Desktop\DiaSim"
+```
+
+For a Linux shell (including one on a Mac), one would use `cd` instead of `chdir`. You may need to replace `Desktop\DiaSim` with whatever the path to DiaSim is on your system. 
+
 ### Windows Command Line
 
 On Windows, DiaSim can be run with the batch script `derive.bat`.
@@ -108,7 +125,9 @@ Example contents of the composite cascade listing file (Proto-Gallo-Romance, whi
 
 ### Example configuration
 
-Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_cascade`. You have put these files in the DiaSim directory. You want to run DiaSim and have it make an output folder called `my_run`. Additionally, you want DiaSim to print to the console every sound change and affected etymon as it runs. Once you have navigated to the DiaSim directory, you will run a shell command that looks like this:
+Suppose you have created a lexicon named `my_lexicon` and a cascade named `my_cascade`. You have put these files in the DiaSim directory. Suppose you also want to run DiaSim and have it make an output folder called `my_run`. Additionally, you want DiaSim to print to the console every sound change and affected etymon as it runs. 
+
+Once you have navigated to the DiaSim directory, you will run a shell command that looks like this:
 
 Windows command line:
 
@@ -154,10 +173,49 @@ More information on cascades can be found on the [**Cascade**](https://github.co
 
 DiaSim will populate your chosen output folder with files containing information on your results. These files include a log of the rules applied, a table of etyma in the state they appear at each stage, statistical analyses pertaining to phones, and a folder containing step-by-step forward-reconstructions for each etymon.
 
-## Miscellaneous
+## Operating DiaSim from within Eclipse 
 
-It is common to have issues printing symbols if you are using DiaSim within Eclipse on certain operating systems. Adding the following VM argument within Run Configurations (under the Arguments tab) often helps:
+The Eclipse method has become somewhat of a tradition among the users of DiaSim, because it gives a `programmer` experience of `debugging` a language's phonological history, and because some users may be more comfortable within a console than using a shell.
+For general issues installing Eclipse, please consult [Eclipse's own guide](https://eclipseide.org/getting-started/). 
+
+Once Eclipse for Java development is successfully installed and runs on your computer, to operate DiaSim within it, you need to open it as a project. 
+You can do this by going up to the command bar near the top of the window and clicking `File > Open Projects from File System...`.  
+A window will open. 
+Near the top, there is a bar with a file path. 
+To its left lies the text `Import source:`. 
+To its right, there is a button that says `Directory...`. 
+Click it, navigate to the location of the project folder `DiaSim`, highlight the folder `DiaSim`, and click `Select Folder`. 
+
+DiaSim should then appear on the `Package Explorer` panel on the left. 
+If it is not already open it, go to the command bar near the top of Eclipse, click `Window > Show View > Package Explorer`, and it should appear, with DiaSim.
+You may need to click on the package icon for `DiaSim [DiaSim gamma]` to open irs contents (`gamma` may be replaced with a later version name). 
+Within DiaSim, click `src > (default package) > DiachronicSimulator.java`. 
+
+With `DiachronicSimulator` open, go up to the top command bar, and click `Run > Run Configurations...`. 
+Near the top of the winter that pops up, there should be a bar that says `DiachronicSimulator`, with the text `Name:` to its left. 
+If it is not already there, there is a bar to the left that says `type filter text`. Type `Diachronic` in it and it should appear, under `Java Application`; click it, and you should be on track. 
+Whether or not you had to fix that, there are a number of taps under the `Name:` bar. 
+You want to click the one that says `Arguments`. 
+
+Underneath the tabs, now, there should be a window titled `Program arguments:`. 
+Here, you should put in everything after the batch/bash file, as discussed above (see the section `Command line arguments` above): 
+
+```text
+ -lex my_lexicon -rules my_cascade -out my_run -diacrit
+```
+
+## IPA character display 
+
+On older systems especially, some IPA characters (phonetic symbols) may be replaced with "?" or a box. 
+This is because the font of whatever console is displaying DiaSim's output does not support these characters. 
+
+In the mid 2020s, using system fonts such as Consolas within Eclipse largely evades this problem. 
+Nevertheless, it is common to have issues printing symbols if you are using DiaSim within Eclipse on certain operating systems. Adding the following VM argument within Run Configurations (under the Arguments tab) often helps:
 
 ```
 -Dsun.stdout.encoding=UTF-8
 ```
+
+It may help to download fonts that are designed to support IPA characters. 
+I personally prefer [Gentium, which may be downloaded here (click).](https://software.sil.org/gentium/download/). 
+
