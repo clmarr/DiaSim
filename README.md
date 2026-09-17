@@ -223,3 +223,34 @@ Nevertheless, it is common to have issues printing symbols if you are using DiaS
 It may help to download fonts that are designed to support IPA characters. 
 I personally prefer [Gentium, which may be downloaded here (click).](https://software.sil.org/gentium/download/). 
 
+
+## DiaSim and GitHub : best practices
+
+It is best practice to do your cascade debugging work in a regularly updated, version-retrievable repository. 
+This allows both you and your peers to see how you reached your solution, and go back to previous states in the debugging process. 
+It also makes mass comparison between the file outputs of different runs possible. 
+GitHub is a great option, and you already are using it to use DiaSim. 
+Every major cascade calibration project should have its own repository, as his been the longstanding practice among DiaSim users. 
+With every major change, there should be a new commit, and a new printout of files. 
+
+### DiaSim and GitHub Desktop 
+
+GitHub Desktop presents, with pleasing aesthetics, version comparison between your most recent changes and the previous version (green is the new version, red is the old). 
+There are many great ways this can be used to inform the debugging process. 
+You can look at lexical derivation files for what changed in them. 
+In particular, as well, the file ending in `resultEditDistances` in your run folder (flagged with `-out`) will show which words' outputs have been changed. 
+
+## Cascade comparison Python script
+
+If you want to see if two cascades produce identical outputs for a given a lexicon of words, you may use the python script `areCascadesEquivalent.py` (this requires Python to be installed on your computer to run). 
+Call it as follows: 
+
+```text
+ python3 areCascadesEquivalent.py --lex <your-lexicon-file> --casc1 <your-first-cascade> --casc2 <your-second-cascade>
+```
+
+By default, the folder with run directories for each of these will be deleted. If you would like to preserve it somewhere, add the following to the run command: `--saveTo <location-to-save-it-to>`.
+
+If you want to use custom feature-symbol mappings rather than symbolDefs.csv: `--features <location-of-mapping-file>`.
+
+If you want to use a custom feature implications file, add: `--impls <custom-impls-file-loc>`.
