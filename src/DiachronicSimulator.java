@@ -10,6 +10,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.HashMap; 
 import java.util.Scanner; 
@@ -1107,12 +1108,13 @@ public class DiachronicSimulator {
 				commentContents = commentContents.substring(0,custIDstart);
 			
 			if (UTILS.isNumeric(custID.replace(" ","")))
-				throw new Error("Error: cannot have a custom ID with no content except for spaces and numbers! Attempted line was: "
+				throw new Error("cannot have a custom ID with no content except for spaces and numbers! Attempted line was: "
 						+theLine + UTILS.CMT_FLAG + commentContents+UTILS.FORM_ID_FLAG+custID); 
 			if (customIDs.containsKey(custID))
-				throw new Error("Error: tried to use the same custom ID twice! Attempted custom ID: "+custID); 
+				throw new Error("tried to use the same custom ID twice! Attempted custom ID: '"+custID+"'. Attempted line was: "
+						+theLine + UTILS.CMT_FLAG + commentContents); 
 			
-			customIDs.put(custID, lfli); 
+			if (custID != "")	customIDs.put(custID, lfli); 
 			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
 			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics, commentContents, custID); 
@@ -1302,8 +1304,7 @@ public class DiachronicSimulator {
 	private static void makeStagewiseOutGraphFile()
 	{	
 		String filename = new File(runPrefix, 
-				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
-				+ "_stagewise_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
+				UTILS.getNestedPrefix(runPrefix) + "_stagewise_output_graph"+ UTILS.OUT_GRAPH_FILE_TYPE).toString(); 
 		UTILS.writeToFile(filename, theSimulation.outgraph(),true); 
 	}
 	
@@ -1312,8 +1313,7 @@ public class DiachronicSimulator {
 		String[][] ruleByEtymGraph = theSimulation.derivationGraph();
 		
 		String filename = new File(runPrefix, 
-				runPrefix.substring(runPrefix.lastIndexOf("/") + 1) 
-				+ "_rulewise_output_graph.csv").toString(); 
+				UTILS.getNestedPrefix(runPrefix) + "_rulewise_output_graph.csv").toString(); 
 		try 
 		{	
 			int dirBreak = filename.indexOf("/");
@@ -1353,7 +1353,7 @@ public class DiachronicSimulator {
 	
 	private static void makeRulesLog(List<SChange> theShiftsInOrder) {
 		String filename = new File(runPrefix, 
-				runPrefix.substring(runPrefix.lastIndexOf("/") + 1)+ "_rules_log.txt").toString(); 
+				UTILS.getNestedPrefix(runPrefix)+ "_rules_log.txt").toString(); 
 		String output = "";
 		for (SChange thisShift : theShiftsInOrder)
 			output += ""+thisShift + (DEBUG_RULE_PROCESSING ? "| ORIG : "+thisShift.getOrig(): "") + "\n"; 

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Set;
 import java.util.ArrayList;
@@ -264,6 +265,7 @@ public class UTILS {
 	public static void writeToFile(String filename, String output, boolean print)
 	{	try 
 		{	
+			//TODO consider using getNestedPrefix instead.
 			int dirBreak = filename.indexOf("/");
 
 			while (dirBreak != -1)
@@ -2503,6 +2505,10 @@ public class UTILS {
 		
 		makeCompositeCascade(cascFileLines, stageLines); 
 	}
+	
+	// get prefix without any surrounding directories
+	public static String getNestedPrefix(String dirPath)
+	{	return Paths.get(dirPath).getFileName()+"";}
 	
 	
 }

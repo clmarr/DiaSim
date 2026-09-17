@@ -12,7 +12,7 @@ LEX_STAGE_DELIM = " , "
 FIRST_CASC_PREDICTION_LEX = "casc1predictions.txt"
 GOLD_ONSET_FLAG = "{" # to filter out gold forms from result column of outgraph
 ACC_REPORT_FILE = "goldAnalysis.txt" #file that will be used to see if match is 100% between two cascades
-OVERALL_ACC_LINE = 3 #line wihtin that that reports overall accuracy.
+OVERALL_ACC_LINE = 3 #line within that that reports overall accuracy.
 TOTAL_ACC_INDIC = "1" #100% match
 ID_FLAG = "ɸ"
 RECONSTR_FLAG = "*"
@@ -49,7 +49,7 @@ def rmv_gold(str):
 
 # TRUE if the form of the stage out cell (from stageOutGraph, for purposes of converting to new comparandum lexicon)
 #   indicates it was inserted at this stage.
-# BEwARE this will be true of the INPUT stage cell
+# BEWARE this will be true of the INPUT stage cell
     # CURRENTLY NOT USED.
 def stageOutCellIsInsertion(soCell):
     return False if len(soCell) == 0 else soCell[0] == RECONSTR_FLAG
@@ -88,14 +88,14 @@ def stageOutToLexRow(soRow):
     return LEX_STAGE_DELIM.join([stageOutToLexRowCell(stageOut) for stageOut in stageOuts]) + suffix
 
 def outGraphToComparisonLex(outGraphLoc, lexDest):
-    f = open(outGraphLoc,"r")
+    f = open(outGraphLoc,"r",encoding="utf-8")
     lines = f.readlines()
     f.close()
 
     header = LEX_STAGE_DELIM.join(rmv_gold(lines[0]).split(STAGE_OUT_DELIM)[1:])
     lines = [stageOutToLexRow(li) for li in lines[1:]]
 
-    g = open(lexDest,"w")
+    g = open(lexDest,"w",encoding="utf-8")
     g.write("\n".join(lines))
     g.close()
 
@@ -104,9 +104,10 @@ def diaSimRun(saveTo, lex, casc, errorIntro = ""):
     if errorIntro == "":
         errorIntro = "Couldn't run DiaSim on cascade file "+casc+" for lexicon "+lex+"; run produced an error."
     try:
-        os.system("bash derive.sh -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
+        #os.system("bash derive.sh -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
+        os.system("java -cp bin DiachronicSimulator -out " + saveTo + " -lexicon " + lex + " -rules " + casc + RUNCALL_SUFFIX)
     except Exception as e:
-        print(errorIntro+". "+e)
+        print(errorIntro+". "+str(e))
 
 #to make "gold" of first compared cascade's output, primarily
 # makes lex where first line is inputs, second is CFR predictions of this cascade
@@ -119,7 +120,7 @@ def makeReferencePredictionLex(saveTo, lex, casc):
     diaSimRun(os.path.join(saveTo,FIRST_RUN_SUBDIR), lex, casc, "Error making reference prediction lexicon...")
 
     outlex_loc = os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_CASC_PREDICTION_LEX)
-    outGraphToComparisonLex(os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_RUN_SUBDIR)+STAGE_OUTGRAPH_SUFFIX,
+    outGraphToComparisonLex(os.path.join(saveTo,FIRST_RUN_SUBDIR,FIRST_RUN_SUBDIR+STAGE_OUTGRAPH_SUFFIX),
                              outlex_loc)
 
     return outlex_loc
