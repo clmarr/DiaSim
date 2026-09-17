@@ -16,6 +16,10 @@ This README file covers basic technical information, such as how to get DiaSim u
 
 - [Suite](https://github.com/clmarr/DiaSim/wiki/Suite): covers the diagnostics offered by DiaSim whenever it reaches a halting point, and how to use the suite menu to "debug" your cascade!
 
+## System requirements
+
+In order to run DiaSim, you need Java installed on your computer. DiaSim has been successfully run with extensive usage with Java SE 8, 11, 17, 21, and 25; it is written to avoid differences between these. However, it is probably best to use SE 21, which has been used the most. At time of writing, Java SE 27 had just been released the previous day, so any possible issues are likely stil undetected.
+
 ## Running DiaSim
 
 There are two ways DiaSim is run. 
