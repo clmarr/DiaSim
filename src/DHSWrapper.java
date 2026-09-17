@@ -454,7 +454,7 @@ public class DHSWrapper {
 					+ "\t\t\t'get cascade', to print all rules with their original/new indices.\n"
 					+ (proposedChanges.size() >= 1 ? currRuleOptions : "")
 					+ "\t\t\t'get etym X', to print the index of the INPUT form etyma entered <X>.\n"
-					+ "\t\t\t'get etym at X', to get the etymon at index <X>.\n"
+					+ "\t\t\t'get etym at X', to get the etymon with number index <x> (not form ID).\n"
 					+ "\t\t\t'get etym derivation X', to get the full derivation of etymon with index <X>.\n"
 					+ "\t\t\t'get lexicon', print entire lexicon with etyma mapped to inds.\n");
 			resp = inpu.nextLine().replace("\n", "").trim();
@@ -561,6 +561,7 @@ public class DHSWrapper {
 							cutPoint = 16;
 					}
 					String entry = resp.substring(cutPoint);
+					
 					if (cutPoint > 9) {
 						int theInd = UTILS.getValidInd(entry, baseCASC.size());
 						if(theInd >= hypCASC.size() || theInd < 0)

@@ -129,6 +129,39 @@ public class UTILS {
 	public static boolean etymonIsPresent (Etymon etym)	
 	{	return !PSEUDO_ETYM_REPRS.contains(etym.print()); 	}
 	
+	/**
+	 * given @param etymLex a list of Etymon objects, 
+	 * @return a HashMap that maps their string ID to their index in the list, for any etyma with formID specified. 
+	 */
+	public static HashMap<String,Integer> formIDtoNumIDmap (List<Etymon> etymLex)
+	{
+		HashMap<String,Integer> outp = new HashMap<String,Integer>(); 
+		if (!USE_FORM_ID)	return outp; 
+		
+		for (int ei = 0; ei < etymLex.size(); ei++)
+			if (etymLex.get(ei).hasCustomID())
+				outp.put(etymLex.get(ei).getFormID(), ei);
+		return outp; 
+	}
+	
+	/** 
+	 * @param custIDtoNumMap - map of (ɸ-flagged) custom IDs to their index number
+	 * @param numEtyma -- total number of etyma
+	 * @return list of form IDs to use in printouts, whereby any etymon with a custom ID uses that, and otherwise it uses its numerical index.
+	 */
+	public static List<String> getEtymIDlistFromMap (HashMap<String,Integer> custIDtoNumMap, int numEtyma)
+	{
+		List<String> outputIDs = new ArrayList<String>();
+		
+		for (int eti = 0; eti < numEtyma; eti++)
+			outputIDs.add(eti+""); 
+		
+		for (String custidi : custIDtoNumMap.keySet())
+			outputIDs.set(custIDtoNumMap.get(custidi), custidi);
+		
+		return outputIDs;
+	}
+	
 	public static char getFeatspecMarkFromInt (int ftInt)
 	{
 		if (ftInt == POS_INT)	return MARK_POS;
@@ -191,7 +224,9 @@ public class UTILS {
 		String output = ""; 
 		for (int wli = 0; wli < etList.length; wli++)
 			if(etList[wli].toString().equals(etTarg.toString()))
-				output += output.equals("") ? ""+wli : ", "+wli;
+				output += ", " + wli + ((USE_FORM_ID && etList[wli].hasCustomID() ) ? "("+etList[wli].getFormID()+")" : ""); 
+		
+		if (output.substring(0, 2).equals(", "))	output = output.substring(2); 
 		return output;
 	}
 	
@@ -1931,6 +1966,13 @@ public class UTILS {
 		}
 		return new Etymon(phones, toLexIsReconstructed);
 	}
+	public static Etymon parseLexPhon(String toLexem, boolean no_symb_diacritics, String comment, String custID)
+	{
+		Etymon output = parseLexPhon(toLexem, no_symb_diacritics); 
+		if (!comment.equals("")) output.setComments(comment);
+		if (!custID.equals(""))	output.setFormID(custID);
+		return output; 
+	}
 	
 	// returns list of all diacritics found in symbol. Empty string if none found. 
 	public static List<String> diacritsFoundInPhoneSymb (String symb)
@@ -2461,4 +2503,6 @@ public class UTILS {
 		
 		makeCompositeCascade(cascFileLines, stageLines); 
 	}
+	
+	
 }

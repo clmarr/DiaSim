@@ -86,9 +86,8 @@ public class DiachronicSimulator {
 		// e.g. -- b0,G0,G1,B1,G2,b2... 
 	private static String[] initStrForms; 
 
-	private static List<String> formIDs;
-		// may need debugging at some point, but for now is being used in an as-necessary (for work with Borja) manner. 
-		//TODO note that as it stands currently, if you use formIDs, they MUST be on every word or else there will be concurrence errors (!) 
+	private static HashMap<String,Integer> customIDs;
+		// customIDs, that map to the number of each etymon. Unmapped numbers have no custom ID -- but it's not recommended to have custom IDs for some but not all etyma. 
 	
 	/** extractCascade
 	 * given @param theFactory, extracts ordered cascade from cascade file. 
@@ -1030,26 +1029,22 @@ public class DiachronicSimulator {
 		String nextLine; 
 		
 		List<String> lexFileLines = new ArrayList<String>(); 
-		formIDs = new ArrayList<String>(); 
 		
 		try 
-		{	File inFile = new File(lexFileLoc); 
+		{	
+			File inFile = new File(lexFileLoc); 
 			BufferedReader in = new BufferedReader ( new InputStreamReader (
 				new FileInputStream(inFile), "UTF8"));
 			while((nextLine = in.readLine()) != null)	
 			{	
-				if (nextLine.contains(UTILS.FORM_ID_FLAG+"") && UTILS.USE_FORM_ID)
-					formIDs.add(nextLine.substring(nextLine.lastIndexOf(UTILS.FORM_ID_FLAG)+1));
+				// old version, just this: nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
+				//comments and form IDs in them now being added to Etymon class, later. 
+
+				String lineSansComments = nextLine.contains(UTILS.CMT_FLAG+"") ? 
+						nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim() : nextLine.trim();
+				if (lineSansComments.equals(""))	continue;
 				
-				
-				//comments now being added to Etymon class.
-				if (nextLine.contains(UTILS.CMT_FLAG+""))
-				{
-					// old version, just this: nextLine = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
-					String lineSansComments = nextLine.substring(0,nextLine.indexOf(UTILS.CMT_FLAG)).trim(); 
-					if (lineSansComments.equals(""))	continue;
-				}
-				if (!nextLine.equals("")) 	lexFileLines.add(nextLine); 		
+				lexFileLines.add(nextLine); 
 			}
 			in.close(); 
 		}
@@ -1091,37 +1086,46 @@ public class DiachronicSimulator {
 		int lfli =  0 ; //"lex file line index"
 		if (lexiconHasHeader)	lexFileLines.remove(0); 
 		
+		customIDs = new HashMap<String, Integer>(); 
 		//fill (the code variable) columnForms and store column forms 
 		while(lfli < NUM_ETYMA)
 		{
 			String theLine = lexFileLines.get(lfli);
 			
-			String commentContents = "";
+			
 			boolean commented = theLine.contains(UTILS.CMT_FLAG+""); 
-			if (commented) {
-				commentContents = theLine.substring(theLine.indexOf(UTILS.CMT_FLAG+"")); 
-				theLine = theLine.substring(0,theLine.indexOf(UTILS.CMT_FLAG)).trim(); 
-			}
+			String commentContents = commented ? theLine.substring(theLine.indexOf(UTILS.CMT_FLAG+"")) : ""; 
+			theLine = commented ? theLine.substring(0,theLine.indexOf(UTILS.CMT_FLAG)).trim() : theLine; 
 			
 			if(/**lfli <NUM_ETYMA && */numCols != UTILS.countColumns(theLine))
 				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli+".\nThe line: "+theLine);
 			
+			int custIDstart = (commented && UTILS.USE_FORM_ID) ? commentContents.indexOf(UTILS.FORM_ID_FLAG+"") : -1; 
+			
+			String custID = custIDstart != -1 ? commentContents.substring(custIDstart+1) : ""; 
+			if (custIDstart != -1)
+				commentContents = commentContents.substring(0,custIDstart);
+			
+			if (UTILS.isNumeric(custID.replace(" ","")))
+				throw new Error("Error: cannot have a custom ID with no content except for spaces and numbers! Attempted line was: "
+						+theLine + UTILS.CMT_FLAG + commentContents+UTILS.FORM_ID_FLAG+custID); 
+			if (customIDs.containsKey(custID))
+				throw new Error("Error: tried to use the same custom ID twice! Attempted custom ID: "+custID); 
+			
+			customIDs.put(custID, lfli); 
+			
 			initStrForms[lfli] = justInput ? theLine : theLine.split(""+UTILS.LEX_DELIM)[0]; 
-			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics);
-			if (commented)	inputForms[lfli].setComments(commentContents);
+			inputForms[lfli] = UTILS.parseLexPhon(initStrForms[lfli],no_symb_diacritics, commentContents, custID); 
 			
 			if (!justInput)
 			{
 				String[] forms = theLine.split(""+UTILS.LEX_DELIM); 
 				if(NUM_COLUMNED_STAGES() > 0)
-				{	for (int csi = 0 ; csi < NUM_COLUMNED_STAGES() ; csi++) {
-						columnForms[csi][lfli] = UTILS.parseLexPhon(forms[csi+1],no_symb_diacritics);
-						if(commented)	columnForms[csi][lfli].setComments(commentContents);
-					}
-				}
-				
+					for (int csi = 0 ; csi < NUM_COLUMNED_STAGES() ; csi++) 
+						columnForms[csi][lfli] = UTILS.parseLexPhon(forms[csi+1],no_symb_diacritics, commentContents, custID); 
+						
 				if (hasGoldOutput)
-					goldResults[lfli] = UTILS.parseLexPhon(forms[forms.length-1], no_symb_diacritics); 
+					goldResults[lfli] = UTILS.parseLexPhon(forms[forms.length-1], no_symb_diacritics, commentContents, custID); 
 			}
 			lfli++;
 		}		
@@ -1275,11 +1279,8 @@ public class DiachronicSimulator {
 					false/*, theSimulation.getCurrentResult()*/);
 			ea.makeAnalysisFile((new File(runPrefix,"goldAnalysis.txt").toString()),true/*,goldOutputLexicon*/);
 			
-			if (UTILS.USE_FORM_ID)
-				ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString()), formIDs); 
-			
-			else	ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString())); 
-			
+			List<String> idList = UTILS.getEtymIDlistFromMap(UTILS.USE_FORM_ID ? customIDs : new HashMap<String,Integer>(), NUM_ETYMA); 
+			ea.makeEtymwiseEDfile((new File(runPrefix,"resultEditDistances").toString()), idList); 			
 			
 			if(goldStagesSet)
 			{	
@@ -1289,7 +1290,7 @@ public class DiachronicSimulator {
 					String currfile = (new File (runPrefix, goldStageNames[gsi].replaceAll(" ", "")+"ResultAnalysis.txt")
 							).toString();
 					eap.makeAnalysisFile(currfile,false/*, theSimulation.getStageResult(true, gsi)*/);
-					ea.makeEtymwiseEDfile((new File(runPrefix,goldStageNames[gsi].replaceAll(" ","")+"EditDistances").toString())); 
+					ea.makeEtymwiseEDfile((new File(runPrefix,goldStageNames[gsi].replaceAll(" ","")+"EditDistances").toString()),idList); 
 				}
 			}
 		}
@@ -1366,8 +1367,10 @@ public class DiachronicSimulator {
 	
 		for( int wi =0; wi < NUM_ETYMA; wi ++) 
 		{
-			String filename = new File(runPrefix, new File("derivation","etym"+wi+".txt").toString()).toString(); 
-			String output = "Derivation file for run '"+runPrefix+"'; etymon number :"+wi+":\n"
+			String formID = inputForms[wi].hasCustomID() ? inputForms[wi].getFormID() : wi+""; 
+			String filename = new File(runPrefix, new File("derivation",
+					"form-"+formID+".txt").toString()).toString(); 
+			String output = "Derivation file for run '"+runPrefix+"'; form ID "+formID+":\n"
 				+	inputForms[wi]+" >>> "+theSimulation.getCurrentForm(wi)
 				+ (hasGoldOutput ? " ( GOLD : "+goldOutputLexicon.getByID(wi)+") :\n"  : ":\n")
 					+theSimulation.getDerivation(wi)+"\n";
@@ -1801,9 +1804,9 @@ public class DiachronicSimulator {
 							+ "0 : get ID of an etymon by form at input"
 								+ (inputName.equalsIgnoreCase("input") ? "" : " ("+inputName+")")
 								+"\n"
-							+ "1 : get etymon's input form by ID number\n"
-							+ "2 : print all etyma by ID\n"
-							+ "3 : get derivation up to this point for etymon by its ID\n"
+							+ "1 : get etymon's input form by ID number or custom form ID\n"
+							+ "2 : print all etyma by ID (number, than ɸ-flagged custom ID)\n"
+							+ "3 : get derivation up to this point for etymon by ID (number or custom ID)\n"
 							+ "4 : get rule by time step\n"
 							+ "5 : get time step(s) of any rule whose string form contains the submitted string\n"
 							+ "6 : print all rules by time step.\n"
@@ -1845,14 +1848,27 @@ public class DiachronicSimulator {
 							String inds = UTILS.etymInds(wl, query);
 							if (inds.trim().equals(""))
 								System.out.println("No input forms found for '"+query+", check the form and try again."); 
-							else	System.out.println("Ind(s) with the form /"+query+"/ as input : "+inds);  
+							else	
+								System.out.println("Indexes (form IDs) with the form /"+query+"/ as input : "+inds);  
 						}
 					}
 					else if(resp.equals("1")||resp.equals("3") || resp.equals("4") || resp.equals("8"))
 					{
 						System.out.println("Enter the " + (resp.equals("4") ? "rule number" : "ID" ) +" to query:");
 						String idstr = inpu.nextLine();  
+						
 						boolean queryingRule = resp.equals("4"); //otherwise we're querying an etymon.
+						
+						if (!queryingRule && UTILS.USE_FORM_ID && !UTILS.isNumeric(idstr))
+						{
+							if (customIDs.containsKey(idstr.trim()))	idstr = customIDs.get(idstr) + ""; 
+							else {
+								System.out.println("Oops, there is no etymon with that ID. Please try again!"); 
+								promptQueryMenu = true; 
+								continue; 
+							}
+						}
+						
 						int theID = UTILS.getValidInd(idstr, queryingRule ? CASCADE.size() : NUM_ETYMA - 1) ; 
 						if (theID == -1){
 							System.out.println("Oops, '"+idstr+"' is not a valid ID for a" 
@@ -1882,9 +1898,14 @@ public class DiachronicSimulator {
 					}
 					else if(resp.equals("2"))
 					{
-						System.out.println("etymID"+UTILS.STAGE_PRINT_DELIM+inputName+UTILS.STAGE_PRINT_DELIM+"Gold");
+						boolean useCustIDs = UTILS.USE_FORM_ID && customIDs.size() > 0;
+						System.out.println(
+								(useCustIDs ? "ind(id)" : "etymID")
+								+UTILS.STAGE_PRINT_DELIM+inputName+UTILS.STAGE_PRINT_DELIM+"Gold");
 						for (int i = 0 ; i < r.getWordList().length ; i++)
-							System.out.println(""+i+UTILS.STAGE_PRINT_DELIM+inputForms[i]+UTILS.STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
+							System.out.println(i
+									+(inputForms[i].hasCustomID() ? "("+inputForms[i].getFormID()+")" : "")
+									+UTILS.STAGE_PRINT_DELIM+inputForms[i]+UTILS.STAGE_PRINT_DELIM+goldOutputLexicon.getByID(i));
 					}
 					else if(resp.equals("5"))
 					{
@@ -2252,7 +2273,7 @@ public class DiachronicSimulator {
 	//        -diacrit (diacritics file location), 
 	//        -idcost (insertion/deletion cost)
 	//		  -simple_FED (use constant value rather than contextual similarity calculation for insertion/deletion cost in FED) 
-	//        -use_form_ID: save form ID as what comes after ɸ rather than an iteratively assigend number
+	//        -use_form_ID: save form ID as what comes after ɸ rather than an iteratively assigned number
 	//		  -debug_stages: debug stage processing 
 	//        -files_only: just go straight to file creation; do not stop at debugging suite / halt menu at all 
 	//

@@ -19,6 +19,7 @@ public class DifferentialHypothesisSimulator {
 	// target variables needing tracked for any thorough debugging procedure
 	public Simulation baseCascSim, hypCascSim;
 	// "baseline cascade" and "hypothesized cascade"
+	private int formIDtoInt (String fi)	{	return baseCascSim.getInput().formIDtoNumIndex(fi);	}
 
 	private List<String[]> proposedChs;
 	// TODO important variable here, explanation follows
@@ -550,6 +551,7 @@ public class DifferentialHypothesisSimulator {
 		dd = dd.substring(dd.indexOf(":") + 2, dd.indexOf("\n"));
 		return Integer.parseInt(dd);
 	}
+	private int findEtDivergenceMoment(String formId)	{	return findEtDivergenceMoment(formIDtoInt(formId));	}
 
 	/**
 	 * getDifferentialDerivation
@@ -662,9 +664,9 @@ public class DifferentialHypothesisSimulator {
 				lastHform = nextHform;
 			}
 		}
-
 		return out;
 	}
+	public String getDifferentialDerivation(String id)	{	return getDifferentialDerivation(formIDtoInt(id));	}
 
 	// TODO plans to report any change in phonemic inventory.
 	// isHyp -- hypothesis not baseline
@@ -850,6 +852,7 @@ public class DifferentialHypothesisSimulator {
 
 		return globalDivergenceLine(bd, hd);
 	}
+	private int findEtDivergenceLine(String id)	{	return findEtDivergenceLine(formIDtoInt(id));	}
 
 	/**
 	 * find the line of divergence between two line-split derivations of the same
@@ -1054,4 +1057,5 @@ public class DifferentialHypothesisSimulator {
 		}
 		return true; 
 	}
+	private boolean equivDerivsForEt(String et_id)	{	return equivDerivsForEt(formIDtoInt(et_id));	}
 }

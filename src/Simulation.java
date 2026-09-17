@@ -18,7 +18,7 @@ public class Simulation {
 	private String[] goldStageNames, blackStageNames, columnedStageNames;
 	private String inputStageName;
 	
-	//black to columend index: get the columend black index from the black index. 
+	//black to columned index: get the columned black index from the black index. 
 		// probably unnecessary tho bc columnedBlackStageBlackIndices.getIndexOf can do its job. 
 	private int[] blackToColumnedIndex; 
 	// for each black stage index, among the black stage arrays, 
@@ -64,8 +64,9 @@ public class Simulation {
 	
 	private boolean opaque; 
 	private boolean goldOutput; 
+	private String[] etIDs; // custom form if available, otherwise just its index. 
 	
-	
+	// note: uses IDs as already established in inputForms -- BEWARE that this could cause errors if custom IDs are not consistent across different stages/reconstructions of the same etymon!
 	public void initialize(Etymon[] inputForms, List<SChange> casc)
 	{
 		inputLexicon = new Lexicon(inputForms); 
@@ -86,6 +87,11 @@ public class Simulation {
 		blackStageInd = 0; 
 		currStageInd = 0; 
 		inputStageName = "Input"; 
+		
+		etIDs = new String[NUM_ETYMA]; 
+		for (int ifi = 0; ifi < NUM_ETYMA; ifi++) 
+			etIDs[ifi] = (UTILS.USE_FORM_ID && inputForms[ifi].hasCustomID()) ? 
+					inputForms[ifi].getFormID() : ifi+"";  
 	}
 	
 	// no intermediate columned stages, only uncolumned black. 
@@ -256,7 +262,9 @@ public class Simulation {
 			{
 				etDerivations[ei] += "\n"+currLexicon.getByID(ei)+" | "+instant+" : "+thisShift; 
 				ruleEffects[instant][ei] = prevForms[ei].print()+ " > "+currLexicon.getByID(ei).print()
-						+ ";             (et."+ei+"; "+stageIndicToStageName( getStageOfInsertion(ei))+" "+ getInputForm(ei) 
+						+ ";             (et."
+							+ (UTILS.USE_FORM_ID ? etIDs[ei] : ei)
+							+"; "+stageIndicToStageName( getStageOfInsertion(ei))+" "+ getInputForm(ei) 
 						+ (goldOutput ? " > ... > " + goldOutputLexicon.getByID(ei) : "") 
 						+ ")"; 
 			}
@@ -267,7 +275,7 @@ public class Simulation {
 			System.out.println("Words changed for rule "+instant+" "+thisShift+" : "); 
 			for (int wi = 0 ; wi < NUM_ETYMA ;  wi++)
 				if (etChanged[wi])
-					System.out.println("etym "+wi+" is now : "+currLexicon.getByID(wi)
+					System.out.println("et. "+etIDs[wi]+" is now : "+currLexicon.getByID(wi)
 						+"\t\t[ "+inputLexicon.getByID(wi)
 						+ (goldOutput ? " >>> "+goldOutputLexicon.getByID(wi) : "") +" ]");
 		}
@@ -348,7 +356,7 @@ public class Simulation {
 	
 	/**
 	 * @return form of the etymon at index @param id when it is input 
-	 * @note if there are coluned stages and this is absent in input, will return what the input actually is, when secondarily input. 
+	 * @note if there are columned stages and this is absent in input, will return what the input actually is, when secondarily input. 
 	 */
 	public Etymon getInputForm(int id)	{
 		
@@ -361,6 +369,7 @@ public class Simulation {
 		
 		return (isCB ? columnedBlackStageLexica : goldStageGoldLexica)[sNum].getByID(id); 
 	}
+	public Etymon getInputForm(String id)	{	return getInputForm(inputLexicon.formIDtoNumIndex(id));	}
 	
 	/**
 	 * given @param indic, "in", "G#", "b#", or "B#, 
@@ -472,28 +481,28 @@ public class Simulation {
 	// get the forms a certain etymon, accessed by its ID, has at each stage
 	// in practice, this is currently an auxiliary for making the run's output_graph. 
 	
-	public String stageOutsForEt(int ID, String[] ordered_stages)
+	public String stageOutsForEt(int index, String[] ordered_stages)
 	{
-		String to_return = ""+ID; 
+		String to_return = ""+ etIDs[index]; 
 		while (to_return.length() < 6)	to_return+=" "; //add spaces to make sure etyma in output graph have same indentation
 			//  6 spaces to be safe in case we (hopefully?) end up with lexica > 10k in size... :)  
 		to_return += " | "; 
 		for (String st : ordered_stages)
 		{
-			if (st.equals("in"))	to_return += inputLexicon.getByID(ID); 
-			else if (st.equals("out"))	to_return += currLexicon.getByID(ID) 
-					+ (goldOutput ? " {GOLD: "+goldOutputLexicon.getByID(ID)+"}":""); 
+			if (st.equals("in"))	to_return += inputLexicon.getByID(index); 
+			else if (st.equals("out"))	to_return += currLexicon.getByID(index) 
+					+ (goldOutput ? " {GOLD: "+goldOutputLexicon.getByID(index)+"}":""); 
 			else
 			{
-				boolean insertHere = st == getStageOfInsertion(ID);
+				boolean insertHere = st == getStageOfInsertion(index);
 				boolean isg = st.charAt(0) == 'G'; 
 				int stn = Integer.parseInt(st.substring(1)); 
 				to_return += 
 						(insertHere ? (isg ? goldStageGoldLexica[stn]
 											: columnedBlackStageLexica[columnedBlackStageBlackIndices.indexOf(stn)])
 								: (isg ? goldStageResultLexica 
-											: blackStageResultLexica)[stn]).getByID(ID);
-				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn].getByID(ID)+"}"; 
+											: blackStageResultLexica)[stn]).getByID(index);
+				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn].getByID(index)+"}"; 
 			}
 			to_return += " | "; 
 		}

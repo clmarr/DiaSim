@@ -17,7 +17,8 @@ public class Etymon {
 	private List<SequentialPhonic> phonRep; //phonological representation
 	protected String lemma; //name of its paradigm
 	protected String lexClass; //(morpho-)lexical class. Morphosyntactic class, if handled, is to be a key-value pair within morphSynFeatSpecs; 
-	protected String formID; //form ID for use in project with Borja. 
+	protected String formID; //custom form ID for use in project with Borja. Flagged with ɸ (UTILS.FORM_ID_FLAG) in Lexicon. Each must be unique. If absent, numeric ID is used for same purposes.
+	private boolean hasCustomID; // false if not specified in lexicon, or not using them. 
 	protected String comments; //flagged comments in lexicon file. 
 	protected HashMap<String,String> morphSynSpecs; 
 	protected double frequency; // token frequency, if present; else -1 (which is default).
@@ -26,7 +27,7 @@ public class Etymon {
 		// i.e. forward reconstructed states OR INCLUDED but unattested backward reconstructed states (e.g. proto-Indo-European forms)
 		// Not to be confused with absent etyma, including absent unattested etyma not to be considered in diagnostics.  
 	
-	public Etymon(List<SequentialPhonic> pR, boolean reconstr)
+	public Etymon(List<SequentialPhonic> pR)
 	{
 		if (pR.size() != 0) //not an absent or unattested etymon (PseudoEtymon)
 		{	
@@ -42,12 +43,22 @@ public class Etymon {
 		this.morphSynSpecs = new HashMap<String,String>(); 
 		this.frequency = -1.0; 
 		this.domains = new ArrayList<String>(); 
-		reconstructed = reconstr; 
+		this.hasCustomID = false; this.reconstructed = false; 
 	}
+	
+	public Etymon(List<SequentialPhonic> pR, boolean reconstr)
+	{this(pR); reconstructed = reconstr; }
+	
+	public Etymon(List<SequentialPhonic> pR, boolean reconstr, String customID)
+	{	this(pR,reconstr); setFormID(customID); }
+	
+	public Etymon(List<SequentialPhonic> pR, String customID)
+	{	this(pR); setFormID(customID); }
 	
 	public Etymon(Etymon copyOf)
 	{
-		this(copyOf.getPhonologicalRepresentation(), true); 
+		this(new ArrayList<SequentialPhonic>(copyOf.getPhonologicalRepresentation()), copyOf.reconstructed); 
+		if (copyOf.hasCustomID())	setFormID(copyOf.getFormID()); 
 	}
 	
 	public List<SequentialPhonic> getPhonologicalRepresentation()
@@ -70,9 +81,7 @@ public class Etymon {
 	}
 	
 	public int phRepLen()
-	{
-		return phonRep.size();
-	}
+	{	return phonRep.size();	}
 	
 	//index of first location of the phone if it is present, else returns -1 
 	public int findPhone(Phone ph)
@@ -132,7 +141,7 @@ public class Etymon {
 	public boolean hasDomains()	{	return domains.size() > 0 ; 	}
 	public boolean isReconstructed()	{	return reconstructed;	}
 
-	public String getFormID() {	return formID;	} 
+	public String getFormID() {	return hasCustomID ? formID : "";	} 
 	
 	public String getLemma() {	return lemma;	}
 	public String getLexClass() {		return lexClass;	}
@@ -215,8 +224,8 @@ public class Etymon {
 		return 0;
 	}
 	
-	
-	public void setFormID(String id)	{	this.formID = id; }
+	public boolean hasCustomID()	{	return hasCustomID; 	}
+	public void setFormID(String id)	{	this.formID = id;	hasCustomID = true;  }
 	public void setLemma(String lemma) {	this.lemma = lemma;	}
 
 	public void setLexClass(String lex_class) {	this.lexClass = lex_class;	}

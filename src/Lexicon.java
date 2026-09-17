@@ -17,33 +17,48 @@ public class Lexicon {
 	// the etymon indices (functioning as the IDs) should be consistent across Lexicon instances
 		// throughout a Simulation ! 
 	
+	private HashMap<String,Integer> formIDtoNumID; 
+	
 	public Lexicon(List<Etymon> theWords)
 	{
 		theWordList = new Etymon[theWords.size()]; 
 		theWords.toArray(theWordList);
 	}
 	
-	public Lexicon(Lexicon toClone) {	this(toClone.getWordList()); }
+	public Lexicon(Lexicon toClone) {	this(toClone.getWordList());  }
 	
+	// runs with any form IDs as already established. 
 	public Lexicon(Etymon[] theWords)
 	{
 		theWordList = new Etymon[theWords.length];
+		formIDtoNumID = new HashMap<String, Integer> (); 
+
 		for (int wi = 0; wi < theWords.length; wi++)
 		{
 			if (!UTILS.etymonIsPresent(theWords[wi]))
 				theWordList[wi] = new PseudoEtymon(theWords[wi].print()) ;
 			else
-				theWordList[wi] = new Etymon(theWords[wi].getPhonologicalRepresentation(), 
-						theWords[wi].isReconstructed());
+			{
+				theWordList[wi] = new Etymon(theWords[wi]);
+				if (theWords[wi].hasCustomID())
+					formIDtoNumID.put(theWords[wi].getFormID(),wi);
+			}
 		}
+		
 	}
 	
-	//retrieve a particular lexical phonology by its "ID" -- i.e. its index in theWordList
+	//retrieve a particular lexical phonology by its number "ID" -- i.e. its index in theWordList
 	// DerivationSimulation should construct instances of this class for the word set being simulated 
 	// such that words with the same index represent different stages of the same word
 	public Etymon getByID(int ind)
 	{	return theWordList[ind]; 	}
 	
+	//retrieve via string ID -- either number string or the non-numeric form ID flagged with ɸ in the lexicon file
+	public Etymon getByID(String id)
+	{	return getByID(formIDtoNumIndex(id)); }
+	
+	public int formIDtoNumIndex (String id)	{	return UTILS.isNumeric(id) ? Integer.parseInt(id) : formIDtoNumID.get(id);	}
+
 	public Etymon[] getWordList()
 	{	return theWordList;	}
 	
@@ -106,6 +121,28 @@ public class Lexicon {
 		return output; 
 	}
 	
+	/**
+	 * given a feature matrix, converts it into a phone class (containing all phones that the feature matrix designates), for usage in interpolation with Mis*l 
+	 * 		beware that while this can work in terms of converting feature matrices into phonological class memberships, the reverse is not so easy; 
+	 * 			not least because not all phonological classes are bounded in a way that can be described by one feature matrix in a given feature system.  
+	 * @param fm -- FeatMatrix that will define the phone class
+	 * @return list of all phones in a class defined by fulfillin the feature matrix
+	 * 
+	 * @warning feature matrices with alpha variables cannot yet be used for this
+	 */
+	public List<Phone> featMatrixToPhoneArray (FeatMatrix fm)
+	{
+		if (fm.has_alpha_specs())
+			throw new Error("Error: tried to use featMatrixToPhoneArray() on a feature matrix with alpha features!"); 
+		
+		List<Phone> output = new ArrayList<Phone>();
+		
+		for (Phone ph :  getPhonemicInventory(false))
+			if (fm.compare(ph))
+				output.add(ph);
+		
+		return output; 
+	}
 
 	// maps each unique phone feat vect onto the number of times a phone with that feat vect 
 		//occurs at least once in a word in the  lexicon
@@ -267,8 +304,7 @@ public class Lexicon {
 	{
 		if (!UTILS.etymonIsPresent(origin))	return new PseudoEtymon(origin.print()); 
 		
-		Etymon dolly = new Etymon (
-				new ArrayList<SequentialPhonic> (origin.getPhonologicalRepresentation()), origin.isReconstructed()); 
+		Etymon dolly = new Etymon (origin); 
 		
 		dolly.setLemma(origin.getLemma());
 		dolly.setLexClass(origin.getLexClass());

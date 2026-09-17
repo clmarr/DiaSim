@@ -2135,7 +2135,9 @@ public class ErrorAnalysis {
 		{
 			if ( (errorsOnly ? !isHit[i] : true) && (filterOnly ? IN_PRINT_SUBSAMP[i] : true ))
 			{
-				System.out.print(append_space_to_x(i+",",6)+"| ");
+				System.out.print((UTILS.USE_FORM_ID && GOLD.getByID(i).hasCustomID() ? 
+									i+"("+GOLD.getByID(i).getFormID()+")" :  append_space_to_x(i+",",6)) 
+						+"| ");
 				for (int j = 0 ; j < lexicolumns.size() - 1 ; j++) {
 					System.out.print(append_space_to_x(lexicolumns.get(j).getByID(i).toString(), 19) + "| ");  }
 				System.out.println(lexicolumns.get(lexicolumns.size()-1).getByID(i));
@@ -2154,8 +2156,6 @@ public class ErrorAnalysis {
 		stagesToPrint.add(GOLD); 
 		printStagedGraph(stagesToPrint, errorsOnly, filterOnly);
 	}
-	
-	
 	
 	/** inactiveFeatList  
 	 * 
