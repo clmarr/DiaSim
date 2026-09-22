@@ -4,22 +4,69 @@ import lingpy
 
 #TODO BEWARE-- this requires your system to have bash.
 
-DUMMY_RUN_DIR = "TEMP"
-STAGE_OUTGRAPH_SUFFIX = "_stagewise_output_graph.csv"
-FIRST_RUN_SUBDIR = "run1"
 STAGE_OUT_DELIM = " | "
 LEX_STAGE_DELIM = " , "
-FIRST_CASC_PREDICTION_LEX = "casc1predictions.txt"
 GOLD_ONSET_FLAG = "{" # to filter out gold forms from result column of outgraph
 ACC_REPORT_FILE = "goldAnalysis.txt" #file that will be used to see if match is 100% between two cascades
 OVERALL_ACC_LINE = 3 #line within that that reports overall accuracy.
 TOTAL_ACC_INDIC = "1" #100% match
 ID_FLAG = "ɸ"
+CMT_FLAG = "$"
 RECONSTR_FLAG = "*"
 ABSENT_INDIC = "..." # means word is not (yet) in lexicon at this stage
 ONSET_INDIC = CODA_INDIC = "#"
 PHONE_DELIM = " "
-CMT_FLAG = "$"
+STAGE_HEADER_FLAG = "="
+STAGE_HEADER_DELIM = ","
+
+
+
+# ---------------- lexicon management methods
+
+# true if there is a non empty form ID assigned to the lexeme line lxln
+def lexemeHasID(lxln):
+    if CMT_FLAG not in lxln:
+        return False
+    cmt = lxln[lxln.find(CMT_FLAG)+1:]
+    return ID_FLAG in cmt
+
+# get any tagged form ID in lexicon line. Return '' if there is none.
+def getID (lex_line):
+    if not lexemeHasID():
+        return ''
+    return lex_line[lex_line.rfind(ID_FLAG)+1:]
+
+# make an alphabetized version of the lexicon file input
+    # output_loc is where the output file will be
+        # by default, output will be the input file name with "_alphasorted" added before the file extension
+    # if "verbose" is true, it will report where two lines with identical content are
+def alphabetize(input_loc,output_loc = False,verbose=False):
+    if not output_loc:
+        output_loc = os.path.splitext(input_loc)[0] + "_alphasorted" + str(os.path.splitext(input_loc)[1])
+
+        lines_with_comments = [ln.strip() for ln in o.readlines()]
+        lines = [ln.split(CMT_FLAG)[0].strip() for ln in lines_with_comments]
+        lines = sorted(lines)
+
+        lines_with_comments = sorted([ln for ln in lines_with_comments if ln != '' and ln[0] != CMT_FLAG])
+
+        with open(output_loc, mode="w", encoding="utf-8") as o:
+            for i in range(len(lines)-1):
+                o.write(lines_with_comments[i] + "\n")
+                if lines[i] == lines[i+1]:
+                    # duplicate unless they BOTH already have designated IDs
+                    if not (lexemeHasID(lines[i]) and lexemeHasID(lines[i+1]) and getID(lines[i]) != getID(lines[i+1])):
+                        print("duplicate line at alphabetically sorted line number " + str(i) + ": " + lines[i])
+            o.write(lines_with_comments[-1] + "\n")
+
+
+# ------------------------ CASCADE COMPARISON METHODS
+
+DUMMY_RUN_DIR = "TEMP"
+FIRST_CASC_PREDICTION_LEX = "casc1predictions.txt"
+STAGE_OUTGRAPH_SUFFIX = "_stagewise_output_graph.csv"
+FIRST_RUN_SUBDIR = "run1"
+
 
 # if true based on goldAnalysis.txt of casc2's output applied to lexicon with gold as casc1's output,
     # then the cascades are equivalent.
@@ -192,3 +239,4 @@ def compareCascadesTester():
         shutil.rmtree(DUMMY_RUN_DIR)
     else:
         print("there is a bug with compareCascades -- check results in "+os.path.join(DUMMY_RUN_DIR,"cascadeComparisonTest"))
+
