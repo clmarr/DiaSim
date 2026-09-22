@@ -358,6 +358,58 @@ def merge_lexica(output, output_stages, inputs):
     outf.write("\n".join(UTILS.linesort(outplines)))
     outf.close()
 
+# makes new version of a lexicon file (original version @param lex)
+# inserts stage where all lexica are initialized as absent (ABSENT_INDIC) if absent in stage before,
+    # or unattested otherwise
+# name = name of stage
+# position = 0 if its a first stage, 1 if after first, 2 if after second...
+# stagefile = location of a file where each of the stages to use is its own line, in order
+    # otherwise it will try to extract it from the header of the lex file
+# output -- location for output file
+def insert_empty_stage(position, name, lex, out, stagefile=False):
+    global STAGES
+
+    if stagefile != False:
+        setGlobalStages(stagefile)
+        if name not in STAGES:
+            STAGES = STAGES[:position] + [name] + STAGES[position:]
+        elif STAGES[position] != name:
+            raise Exception("The stage '"+name+"' is not at the specified position in STAGES!")
+
+    lexlines = []
+    with open(lex, encoding="utf-8", mode="r") as f:
+        lexlines = [ln for ln in f.readlines()]
+
+    li = 0
+    while stripCmt(lexlines[0]) == "":
+        li+=1
+
+    if stripCmt(lexlines[li]).find(HEADER_FLAG) == 0:  # header
+        ogHeader, cmt = lexlines[li].strip().split(CMT_FLAG)
+        ogHeader = ogHeader.split(HEADER_DELIM)
+        lexlines[li] = (HEADER_DELIM.join(ogHeader[:position] + [name] + ogHeader[position:] )
+                        + ( "" if cmt.strip() == "" else " "+ CMT_FLAG + cmt))
+        li+=1
+    else: #there was no header
+        if stagefile != False: #...and one will be added
+            lexlines = lexlines[:li] + [HEADER_DELIM.join(STAGES)+"\n"] +lexlines[li:]
+            li+=1
+        elif len(lexlines[li].split(LEX_DELIM)) > 2:
+            print("Warning: more than two stages, no header, and no stage file -- inserting stage at position "+str(position)+" may cause errors...")
+            # no increment bc this is not the header.
+
+    while li < len(lexlines):
+        if stripCmt(lexlines[li]) != "":
+            stageForms , cmt = lexlines[li].split(CMT_FLAG)
+            stageForms = stageForms.split(LEX_DELIM)
+            insertion = ABSENT_INDIC if (True if position == 0 else stageForms[position-1].strip() == ABSENT_INDIC) else UNATTD_INDIC
+            stageForms = stageForms[:position] + [insertion] + stageForms[position:]
+            lexlines[li] = LEX_DELIM.join(stageForms) + ("" if cmt.strip() == "" else CMT_FLAG + cmt)
+        li += 1
+
+    with open(out, encoding="utf-8", mode="w") as f:
+        f.writelines(lexlines)
+
 # SECTION ------------------------ CASCADE COMPARISON METHODS
 
 DUMMY_RUN_DIR = "TEMP"
