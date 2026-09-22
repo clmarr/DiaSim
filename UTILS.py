@@ -1,5 +1,6 @@
 import os
 import shutil
+import pdb
 import lingpy
 
 STAGE_OUT_DELIM = " | "
@@ -147,6 +148,11 @@ def col_check_report(file, ncols=False, verbose=False):
     return len(error_rows) > 0
 
 
+def get_sorting_loc(char, sort_order_list):
+    if char not in sort_order_list:
+        print("Warning: "+char+" is not in the list!")
+    return sort_order_list.index(char)
+
 # without any specification other than lines, sorts them in alphabetic order based on the last column
 # change pivot column to sort on something other than the last stage with content
 # sort_order -- if List -- if this is supplied, custom sort order will be used, base on place in list
@@ -159,10 +165,13 @@ def linesort(lines, pivot_column = -1, sort_order = False):
     if type(sort_order) == type("abc"):
         sort_order = getSymbDefsOrder(loc = str(sort_order))
 
+    # TODO debugging
+    pdb.set_trace()
+
     return sorted(
         lines,
-        key = lambda ln : [sort_order.index(str) for str in
-            (last_content_col_in_line(ln) if pivot_column == -1 else ln.split(LEX_DELIM)[pivot_column]).split(PHONE_DELIM)])
+        key = lambda ln : [ get_sorting_loc(str,sort_order) for str in
+            stripCmt(last_content_col_in_line(ln) if pivot_column == -1 else ln.split(LEX_DELIM)[pivot_column]).split(PHONE_DELIM)])
 
 # make an alphabetized version of the lexicon file input
 # output_loc is where the output file will be
@@ -400,7 +409,8 @@ def insert_empty_stage(position, name, lex, out, stagefile=False):
 
     while li < len(lexlines):
         if stripCmt(lexlines[li]) != "":
-            stageForms , cmt = lexlines[li].split(CMT_FLAG)
+            stageForms = lexlines[li].split(CMT_FLAG)[0]
+            cmt = lexlines[li][len(stageForms)+len(CMT_FLAG):]
             stageForms = stageForms.split(LEX_DELIM)
             insertion = ABSENT_INDIC if (True if position == 0 else stageForms[position-1].strip() == ABSENT_INDIC) else UNATTD_INDIC
             stageForms = stageForms[:position] + [insertion] + stageForms[position:]
