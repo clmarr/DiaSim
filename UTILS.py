@@ -410,6 +410,7 @@ def insert_empty_stage(position, name, lex, out, stagefile=False):
     with open(out, encoding="utf-8", mode="w") as f:
         f.writelines(lexlines)
 
+
 # SECTION ------------------------ CASCADE COMPARISON METHODS
 
 DUMMY_RUN_DIR = "TEMP"
@@ -432,6 +433,7 @@ FED_COLUMN_HEADER = "featureED"  #the header of the column in resultEditDistance
 NO_DIFF_INDIC = "0.0"  # entry in feature edi distance column that indicates identicality.
 # identical forms should have 0
 RESULT_ED_FILE = "resultEditDistances.csv"  #location of file with resulting edit distances for comparison between runs
+
 # -- use to check etymon-wise equivalence.
 
 RUNCALL_SUFFIX = " -diacrit -files_only"
@@ -599,3 +601,94 @@ def compareCascadesTester():
     else:
         print("there is a bug with compareCascades -- check results in " + os.path.join(DUMMY_RUN_DIR,
                                                                                         "cascadeComparisonTest"))
+
+STAGEWISE_OUTGRAPH_SUFFIX = "_stagewise_output_graph.csv"
+
+# partitioned run -- for very large lexical sets (tens of thousands of lexemes) on computers with working memory that cannot handle it.
+    #set incr to change the number of lexemes in each run
+    # input: file path of input lexicon
+    # dest: file path to output
+    # casc: location of cascade file
+    # etc : other run specifications
+# generates overall result edit distances and  stagewise out graph  -- not other files.
+def partitionRun (input, dest, casc, incr = 20000, etc = " -diacrit" ):
+    if etc[0] != " ":
+        etc = " "+etc
+
+    nest = os.path.dirname(dest)
+
+    inpLines = []
+    with open(input, encoding="utf-8", mode="r") as f:
+        inpLines = [ln.strip() for ln in f.readlines() if ln.strip() != ""]
+
+    n_et, n_part = 0, 0
+    while stripCmt(inpLines[n_et]) == "":
+        n_et += 1
+
+    header = False if inpLines[n_et] == "" else False if inpLines[n_et].find(HEADER_FLAG) == 0 else inpLines[n_et]
+    n_et += int(bool(header))
+
+    lex_part_paths = []
+    while n_et + n_part * incr < len(inpLines):
+        cur_dir = os.path.join(str(nest), "part_" + str(n_part))
+        os.mkdir(cur_dir)
+        lex_part_paths += [os.path.join(cur_dir, os.path.splitext(input)[0] + "_" + str(n_part) + os.path.splitext(input)[1])]
+        with open(lex_part_paths[-1], encoding="utf-8", mode="w") as g:
+            if header != False:
+                g.write(str(header)+"\n")
+
+            while n_part * incr + n_et < len(inpLines) and n_et < incr:
+                incoming = inpLines[n_part*incr+n_et]
+                if not lexemeHasID(incoming):
+                    incoming = incoming + str(n_part * incr + n_et) # ensure all have a unique form ID.
+                g.write(incoming + "\n")
+                n_et += 1
+        n_et = 0
+        n_part += 1
+
+    total_parts = n_part
+    n_part = 0
+
+    del inpLines
+
+    # now run DiaSim for each of them
+    while n_part < total_parts:
+        part_out = os.path.join(str(nest), "part_" + str(n_part))
+        diaSimRun(part_out, lex_part_paths[n_part], casc, otherSettings = etc)
+        n_part += 1
+
+    # now merge the results
+
+    print("merging result edit distances...")
+
+    # for result edit distances...
+    with open(os.path.splitext(dest)[0] + "_" + RESULT_ED_FILE, encoding="utf-8", mode="w") as p:
+        with open(os.path.join(str(nest), "part_0", RESULT_ED_FILE), encoding="utf-8", mode="r") as k:
+            p.write(k.read())
+
+        n_part = 1
+
+        while n_part < total_parts:
+            print("on partition "+str(n_part))
+            with open(os.path.join(str(nest), "part_" + str(n_part), RESULT_ED_FILE), encoding="utf-8", mode="r") as k:
+                p.write("\n".join(k.read().split("\n")[1:]))
+            n_part += 1
+
+    # and for stage outputs...
+    print("merging stagewise outputs...")
+
+    with open(os.path.splitext(dest)[0] + STAGEWISE_OUTGRAPH_SUFFIX, encoding="utf-8", mode="w") as q:
+        with open(
+                [d for d in os.listdir(os.path.join(str(nest), "part_0")) if STAGE_OUTGRAPH_SUFFIX in d][0],
+                encoding="utf-8", mode="r") as m:
+            q.write(m.read())
+
+        n_part = 1
+
+        while n_part < total_parts:
+            print("on partition "+str(n_part))
+            with open(
+                [d for d in os.listdir(os.path.join(str(nest), "part_"+str(n_part))) if STAGE_OUTGRAPH_SUFFIX in d][0],
+                    encoding="utf-8", mode="r") as m:
+                q.write("\n".join(m.read().split("\n")[1:]))
+            n_part += 1
