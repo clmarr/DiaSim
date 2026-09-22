@@ -15,57 +15,88 @@ ABSENT_INDIC = "..."  # means word is not (yet) in lexicon at this stage
 UNATTD_INDIC = ">*"
 ONSET_INDIC = CODA_INDIC = "#"
 PHONE_DELIM = " "
-HEADER_FLAG = "="
+BLACK_STAGENAME_FLAG = HEADER_FLAG = "="
 HEADER_DELIM = ","
+GOLD_STAGENAME_FLAG = "~"
 
+# SECTION ---------------- lexeme line management
 
-# TODO ---------------- lexicon management methods
+# return line with any commented material removed
+def stripCmt(ln):
+    return ln.split(CMT_FLAG)[0].strip()
 
 # true if there is a non empty form ID assigned to the lexeme line lxln
 def lexemeHasID(lxln):
     if CMT_FLAG not in lxln:
         return False
-    cmt = lxln[lxln.find(CMT_FLAG) + 1:]
-    return ID_FLAG in cmt
-
+    return ID_FLAG in lxln[lxln.find(CMT_FLAG) + 1:]
 
 # get any tagged form ID in lexicon line. Return '' if there is none.
 def getID(lex_line):
-    if not lexemeHasID(lex_line):
-        return ''
-    return lex_line[lex_line.rfind(ID_FLAG) + 1:]
+    return lex_line[lex_line.rfind(ID_FLAG) + 1:] if lexemeHasID(lex_line) else ''
 
+# SECTION ---------------------- INTERNAL STAGE MANAGEMENT
 
-# make an alphabetized version of the lexicon file input
-# output_loc is where the output file will be
-# by default, output will be the input file name with "_alphasorted" added before the file extension
-# if "verbose" is true, it will report where two lines with identical content are
-def alphabetize(input_loc, output_loc=False, verbose=False):
-    if not output_loc:
-        output_loc = os.path.splitext(input_loc)[0] + "_alphasorted" + str(os.path.splitext(input_loc)[1])
+STAGES = []
 
-    inp = open(input_loc, encoding="utf-8")
+# set stages based on each stage being a line of a file
+def setGlobalStages (stagefile):
+    with open(stagefile, "r", encoding="utf-8") as f:
+        STAGES = [ln.strip() for ln in f.readlines() if ln.strip() != '']
 
-    lines_with_comments = [ln.strip() for ln in inp.readlines()]
-    lines = [ln.split(CMT_FLAG)[0].strip() for ln in lines_with_comments]
-    lines = sorted(lines)
+# set stages based on the header of a lexicon file
+def extractGlobalStagesFromHeader (lexFile):
+    first_line = ""
+    with open(lexFile, "r", encoding="utf-8") as f:
+        while first_line == "":
+            first_line = f.readline().strip()
+        f.close()
+    if first_line[0] == HEADER_FLAG:
+        raise RuntimeError("Error -- first line is not header:"+first_line)
+    STAGES = first_line[1:].split(HEADER_DELIM)
 
-    lines_with_comments = sorted([ln for ln in lines_with_comments if ln != '' and ln[0] != CMT_FLAG])
+def getStageFromCascadeFlag(line):
+    out = line.strip()
+    if out.find(GOLD_STAGENAME_FLAG) == 0:
+        return out[len(GOLD_STAGENAME_FLAG):].strip()
+    elif out.find(BLACK_STAGENAME_FLAG) == 0:
+        return out[len(BLACK_STAGENAME_FLAG):].strip()
+    return False
 
-    with open(output_loc, mode="w", encoding="utf-8") as o:
-        for i in range(len(lines) - 1):
-            o.write(lines_with_comments[i] + "\n")
-            if lines[i] == lines[i + 1]:
-                # duplicate unless they BOTH already have designated IDs
-                if not (lexemeHasID(lines[i]) and lexemeHasID(lines[i + 1]) and getID(lines[i]) != getID(lines[i + 1])):
-                    print("duplicate line at alphabetically sorted line number " + str(i) + ": " + lines[i])
-        o.write(lines_with_comments[-1] + "\n")
+# set STAGES to all stages used in a cascade, plus "Input" and "Output" stages;
+    # to change their names, change the relevant parameters input_name and output_name
+def extractStagesFromCascade(cascFile, input_name = "Input", output_name="Output"):
+    with open(cascFile, "r", encoding="utf-8") as f:
+        stages = [getStageFromCascadeFlag(stripCmt(ln)) for ln in f.readlines() if stripCmt(ln) == ""]
+    stages = [si for si in stages if si != False]
+    return stages
 
+def writeStageFile(out_loc):
+    with open(out_loc, "w", encoding="utf-8") as f:
+        for si in STAGES:
+            f.write(si + "\n")
+
+# SECTION ---------------- lexicon management methods
+
+def getSymbDefsOrder (loc = "symbolDefs.csv", delim = ","):
+    with open(loc, "r", encoding="utf-8") as f:
+        lines = [ln for ln in f.readlines() if delim in ln] # because the first is the header
+        return [ln.strip().split(delim)[0] for ln in lines if ln.find(delim) != 0]
+
+def last_content_col_in_line(line):
+    content = stripCmt(line).strip()
+    if LEX_DELIM not in content:
+        return content.strip()
+    content = content.split(LEX_DELIM)
+
+    for ci in range(1, len(content)):
+        if content[-ci] not in [ABSENT_INDIC,UNATTD_INDIC]:
+           return content[-ci].strip()
+
+    return content[0].strip()
 
 def get_lex_line_content(ln):
-    if CMT_FLAG in ln:
-        ln = ln[:ln.index(CMT_FLAG)]
-    return ln
+    return stripCmt(ln)
 
 
 def col_check(file_loc, numcols=False):
@@ -115,6 +146,50 @@ def col_check_report(file, ncols=False, verbose=False):
 
     return len(error_rows) > 0
 
+
+# without any specification other than lines, sorts them in alphabetic order based on the last column
+# change pivot column to sort on something other than the last stage with content
+# sort_order -- if List -- if this is supplied, custom sort order will be used, base on place in list
+    # if String --  set to a file name if you want to use your own symb defs file
+    # -- this False or "alphabetic" -- alphabetic order.
+def linesort(lines, pivot_column = -1, sort_order = False):
+    if sort_order == "alphabetic" or not sort_order:
+        return sorted(lines)
+
+    if type(sort_order) == type("abc"):
+        sort_order = getSymbDefsOrder(loc = str(sort_order))
+
+    return sorted(
+        lines,
+        key = lambda ln : [sort_order.index(str) for str in
+            (last_content_col_in_line(ln) if pivot_column == -1 else ln.split(LEX_DELIM)[pivot_column]).split(PHONE_DELIM)])
+
+# make an alphabetized version of the lexicon file input
+# output_loc is where the output file will be
+# by default, output will be the input file name with "_alphasorted" added before the file extension
+# if "verbose" is true, it will report where two lines with identical content are#
+# change @param pivot column to sort on something other than the last stage with content
+# # sort_order -- if List -- if this is supplied, custom sort order will be used, base on plae in list
+#     # if String --  set to a file name if you want to use your own symb defs file
+#     # -- this False or "alphabetic" -- alphabetic order.
+def alphabetize(input_loc, output_loc=False, verbose=False, pivot_column = -1, sort_order = False):
+    if not output_loc:
+        output_loc = os.path.splitext(input_loc)[0] + "_alphasorted" + str(os.path.splitext(input_loc)[1])
+
+    inp = open(input_loc, encoding="utf-8")
+
+    lines = [] + linesort([ln.strip() for ln in inp.readlines() if stripCmt(ln) != ""],
+                            pivot_column=pivot_column, sort_order=sort_order)
+    lines_no_comments = [stripCmt(ln) for ln in lines]
+
+    with open(output_loc, mode="w", encoding="utf-8") as o:
+        for i in range(len(lines_no_comments) - 1):
+            o.write(lines[i] + "\n")
+            if lines_no_comments[i] == lines_no_comments[i + 1]:
+                # duplicate unless they BOTH already have designated IDs
+                if not (lexemeHasID(lines[i]) and lexemeHasID(lines[i + 1]) and getID(lines[i]) != getID(lines[i + 1])):
+                    print("duplicate line at alphabetically sorted line number " + str(i) + ": " + lines_no_comments[i])
+        o.write(lines[-1] + "\n")
 
 # given a line, change inp sequence to outp sequence in the given column "col"
 def linewise_transcription_change(line, col, inp, outp):
@@ -243,9 +318,10 @@ def digest_line(OUTPUT_HEADER, ln, inp_stage_names, src):
 
     return cmt_stage_marking(LEX_DELIM.join(output)+" "+cmt,OUTPUT_HEADER,src)
 
+# path -- file path
 # input sources -- HashMap, for each lexicon file, the language it comes from
 # stages -- global stages in use, if any
-def digest_file_lines(path,input_sources,STAGES = []):
+def digest_file_lines(path, input_sources, active_stages = STAGES):
     f = open(path, encoding="utf-8")
     lines = f.readlines()
     f.close()
@@ -259,7 +335,7 @@ def digest_file_lines(path,input_sources,STAGES = []):
     init_by_header = lines[0][0] == HEADER_FLAG
     working_header = get_lex_line_content(lines[0][1:]).split(HEADER_DELIM)
     if not init_by_header:
-        if len(working_header) != len(STAGES) if len(STAGES) > 0 else False:
+        if len(working_header) != len(active_stages) if len(active_stages) > 0 else False:
             raise Exception("Error: no header, but column count doesn't match global stages. Fix this.")
         working_header = UTILS.STAGES
 
@@ -282,7 +358,7 @@ def merge_lexica(output, output_stages, inputs):
     outf.write("\n".join(UTILS.linesort(outplines)))
     outf.close()
 
-# TODO ------------------------ CASCADE COMPARISON METHODS
+# SECTION ------------------------ CASCADE COMPARISON METHODS
 
 DUMMY_RUN_DIR = "TEMP"
 FIRST_CASC_PREDICTION_LEX = "casc1predictions.txt"
