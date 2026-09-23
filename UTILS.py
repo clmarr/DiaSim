@@ -165,9 +165,7 @@ def linesort(lines, pivot_column = -1, sort_order = False):
     if type(sort_order) == type("abc"):
         sort_order = getSymbDefsOrder(loc = str(sort_order))
 
-    # TODO debugging
-    pdb.set_trace()
-
+   #pdb.set_trace() -- was debugging
     return sorted(
         lines,
         key = lambda ln : [ get_sorting_loc(str,sort_order) for str in
