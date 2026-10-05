@@ -1468,8 +1468,10 @@ public class DiachronicSimulator {
 	private static List<String> validGoldStageOptions(int first, int last, boolean prepend)
 	{
 		List<String> out = new ArrayList<String>();
+		
 		if (goldStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "G":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
+		
 		return out;
 	}
 	
@@ -1585,7 +1587,7 @@ public class DiachronicSimulator {
 					}
 					else	System.out.println("intermediate stage "+evalStage+": "+goldStageNames[evalStage]); 
 				
-					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt,true); 
+					List<String> validOptions = validGoldStageOptions(0,lastGoldOpt+1,true); 
 					validOptions.add("f"); 
 					boolean chosen = false;
 					
@@ -1658,7 +1660,8 @@ public class DiachronicSimulator {
 						if (resp.equalsIgnoreCase("output") || (resp.equalsIgnoreCase("out"))) resp = "Out"; 
 					}
 										
-					chosen = validOptions.contains(resp); 
+					chosen = validOptions.contains(resp);
+					if(!chosen) chosen = validOptions.contains(resp.toLowerCase());
 					if(!chosen)
 					{
 						if(resp.equals("R0"))	System.out.println("Invalid input: 'R0' is not a valid option -- instead choose 'In' "

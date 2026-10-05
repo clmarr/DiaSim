@@ -388,7 +388,7 @@ def insert_empty_stage(position, name, lex, out, stagefile=False):
         lexlines = [ln for ln in f.readlines()]
 
     li = 0
-    while stripCmt(lexlines[0]) == "":
+    while stripCmt(lexlines[li]) == "":
         li+=1
 
     if stripCmt(lexlines[li]).find(HEADER_FLAG) == 0:  # header
@@ -397,10 +397,10 @@ def insert_empty_stage(position, name, lex, out, stagefile=False):
 
         ogHeader = ogHeader.split(HEADER_DELIM)
         lexlines[li] = (HEADER_DELIM.join(ogHeader[:position] + [name] + ogHeader[position:] )
-                        + ( "" if cmt.strip() == "" else " "+ CMT_FLAG + cmt))
+                        + ( "" if cmt.strip() == "" else " "+ CMT_FLAG + cmt)) + "\n"
         li+=1
     else: #there was no header
-        if stagefile != False: #...and one will be added
+        if stagefile: #i.e. stageFile ǃ= False --> ...and one will be added
             lexlines = lexlines[:li] + [HEADER_DELIM.join(STAGES)+"\n"] +lexlines[li:]
             li+=1
         elif len(lexlines[li].split(LEX_DELIM)) > 2:
