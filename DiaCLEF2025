@@ -860,9 +860,8 @@ $CORRECTION: This one does not occur after sequences of [+syl] [+son] [+back,-co
 	$-- i.e. cases of Sabigniacum > Savigny, Albiniacum > Aubigny, veracum > v(e)rai etc
 $CORRECTION also includes after uo̯ -- case of locum > lieu 
 ɣ > ∅ / [+round,-cons,-syl] __ [+tense,-stres,+round,+syl]
-ɣ > ∅ / # [+back,-cons] __ [+tense,-stres,+round,+syl]
-ɣ > ∅ / [-son] [+back,-cons] __ [+tense,-stres,+round,+syl]
-ɣ > ∅ / {[-syl];#} [-syl] [+back,-cons] __ [+tense,-stres,+round,+syl]
+ɣ > ∅ / # ((@)* [-son]) [+back,-cons] __ [+tense,-stres,+round,+syl]
+ɣ > ∅ / # ((@)* [-syl]) [-syl] [+back,-cons] __ [+tense,-stres,+round,+syl]
 
 $ CORRECTION : ɣ disappears also between ie̯ and o (a: has not yet been raised -- ie, so Savigny, Aubigny etc won't be effected)
 ɣ > ∅ / ˈi e̯ __ o
@@ -1148,7 +1147,7 @@ $ CORRECTION: tense ˈeː becomes lax ˈɛː if before a d/ð e ɣ sequence $ in
 $ CORRECTION: β deleted after countertonic ˌɔ or ˌo and before a tense front vowel, when not after a front element
 	$ not a lax one : novɛllum > nouveau etc -- ouaille, ou, rouille etc.
 	$ (essentially a generalization of the existing β effacement after round back vowels) 
-β > ∅ / {#;[-front]} [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
+β > ∅ / # ((@)* [-front]) [+stres,-prim,+round,+back] __ [+syl,+front,+tense]
 
 $s164-10 ~s250 complete effacement of unstressed penultimate
 $as per s260: occurs in 7th century; but either does not occur or is reversed where voyelle d'appui is required as per s257-258
@@ -1194,7 +1193,7 @@ $ ultimate effacement is "before the ninth century".
 $ CORRECTION: requires posterior context of non-vowel (or word final) 
 	$unless it is lax (advocatum >avoue but deunde > dunt in GR (>dont), manuopera > manœuvre etc 
 		$CORRECTION 2026: but not nasal ə̃
-[-stres,-lo,+syl,-nas] > ə / __ {[-syl];#} 
+[-stres,-lo,+syl,-nas] > ə / __ ([-syl] (@)*) #
 [-stres,-lo,+syl,+tense] > ə
 
 $ CORRECTION : specification of added rule -- s365iii bleeds some n flapping
@@ -1435,7 +1434,7 @@ $ CORRECTION: will shorten also for a single consonant that is not r,l
 $ would appear overfit, but this is just a generalization of the phonological rules Pope already agrees with. 
 $ CORRECTION 2024: since this now has the exact same behavior as degemination for other obstruents and laterals generally just abit below, this is combined into that rule, reducing the number of rules. 
 ${b b;p p}>{b;p} / [+cons] __
-${b b;p p}>{b;p} / __ [+cons] {[+cons];#}
+${b b;p p}>{b;p} / __ [+cons] ([+cons] (@)*) #
 ${b b;p p}>{b;p} / __ {[+cons,-son];[+cons,+nas]}
 
 $ s373 assimilation of labials b,p,β (and v) to following dental positions 
@@ -1461,9 +1460,9 @@ $ CORRECTION : s,m,l also shortened when double after another consonant or word 
 $ CORRECTION 2024: this is combined with the same phenomenon for bb and pp
 $ CORRECTION 2024: r r now included for the main group (not the ss/mm specific stuff) 
 $ CORRECTION 2024: w w now included in last group with s and m 
-{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;t̪ t͡s;t̪ t͡sʲ;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;s sʲ;m m;m mʲ;l l;ɫ l;l lʲ;ɫ lʲ;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;t͡s;t͡sʲ;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;sʲ;m;mʲ;l;l;lʲ;lʲ;r;rʲ;b;bʲ;p;pʲ} / {[+cons];#} __
-{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ [+cons] {[+cons];#}
-{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;d̪ʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ {[+cons,-son];[+cons,+nas]}
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;t̪ t͡s;t̪ t͡sʲ;d̪ d͡ʒ;t̪ t͡ʃ;ɟ ɟ;c c;ɡ ɡ;k k;s s;s sʲ;m m;m mʲ;l l;ɫ l;l lʲ;ɫ lʲ;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;t͡s;t͡sʲ;d͡ʒ;t͡ʃ;ɟ;c;ɡ;k;s;sʲ;m;mʲ;l;l;lʲ;lʲ;r;rʲ;b;bʲ;p;pʲ} / # ((@)* [+cons]) __
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;dʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ [+cons] ([+cons] (@)*) #
+{d̪ d̪;d̪ d̪ʲ;t̪ t̪;t̪ t̪ʲ;ɡ ɡ;k k;r r;r rʲ;b b;b bʲ;p p;p pʲ} > {d̪;d̪ʲ;t̪;t̪ʲ;ɡ;k;r;rʲ;b;bʲ;p;pʲ} / __ [+cons,nnas,nson]
 {s s;s sʲ;m m;m mʲ;w w}>{s;sʲ;m;mʲ;w} / __ [+cons] 
 
 $ CORRECTION : t̪ t͡sʲ in word initial position also eliminated. 
@@ -1906,7 +1905,7 @@ $ CORRECTION: this is moved later to come after the -xw- handling phenomena
 
 $ CORRECTION: ɣ devoices next to voiceless segments (technically overfitting to amicus > amis, but consistent with syllable structure laws) 
 $ CORRECTION 2024: moved to before resolution of x, broadened to send of ɣ > x also word finally. Added rule later will send it to ʝ elsewhere (i.e. before voiced segments.) so we don't have an errant Old French ɣ
-ɣ > x / __ {[-voi];#}
+ɣ > x / __ ([-voi] (@)*) #
 
 $ s357 -- loss of final x after unstressed sylls 
 x > ∅ / [-prim] __ # 
@@ -2291,7 +2290,7 @@ $ CORRECTION : s291-s292, tsj depalatalization, is DELETED.
  $ as for the two cases of aciarium and sortiarium -- this are much more likely cases for analogy than the verbs, as it is a very restricted but recognizable noun class
  	$ that is much more "learned" and knonw to correspond to Latin -iarium in both cases. 
 $ NOTE: needs to be reinstated if doing demonstration with traiter
-$ t͡sʲ > t͡s / {[-nas];#} __
+$ t͡sʲ > t͡s / # ((@)* [-nas]) __
 
 $ CORRECTION: ˌo and ˈo open before pre-coda t or k 
 {ˌo;ˈo} > {ˌɔ;ˈɔ} / __ [-cont,-lab,-delrel] #
@@ -2379,7 +2378,7 @@ $f > v / [-cons] __ [-cons]
 $Pope s441.2~s447-8 : ɛ̃>ã in the 11th to 12th centuries.
 $ BASECLEF* CORRECTION: doesn't happen before j̃
 	$CORRECTION 2026: only front vowels. 
-[+nas,-hi,+syl,+front] > [+lo,+tense] / __ {#;[+cons]}
+[+nas,-hi,+syl,+front] > [+lo,+tense] / __ ([+cons] (@)*) #
 
 $ CORRECTION: word-initial /k/ voices when before r,l and then followed by a (regardless of stress)
 	$ Pope does notice this but she (likely incorrectly) attributes this to a "tendency" in Gallo-Roman 
@@ -2933,8 +2932,8 @@ $ s437 : before middle of 16th century
 	$ absorption of consonant in unstressed ə̃n̪t̪ ending goes back to 13th century per Hebrew glosses 
 $ s563 effacement of praeconsonantal nasals causes lengthening of prev nasal vowels... 
 $ s436, 438 : at the same time n̪ word final disappears except when the next word starts with a vowel -- in keeping with our dataset we delete these now as well.
-[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ {[+cons];#}
-[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ {[+cons];#}
+[+nas,+syl] [+nas,+cons] > [+long] ∅ / __ ([+cons] (@)*) #
+[+nas,+syl] j̃ [+nas,+cons] > [+long] j̃ ∅ / __ ([+cons] (@)*) #
 
 $Pope s247 : ə effaced if after fricative or plosive and before r/l.
 $Accepted in 16th century. 
@@ -2966,7 +2965,7 @@ $ Peletier (1549) accepts it.
 $  -- Lanoue (1596) accepts only in some cases
 $ "hesitation in Early Modern French" 
 $ CORRECTION 2024: this also happens before consonants, not just word finally (so we don't end up with errant [aj]!)
-[+lo,+front] j > [-lo,-tense,+long] ∅ / __ (ə̯) {#;[+cons]}
+[+lo,+front] j > [-lo,-tense,+long] ∅ / __ (ə̯) ([+cons] (@)*) #
 
 $ s562 -- per consistency on FLLAPS Pope tables, ə̯ after another vowel effaced with prior lengthening at this point.
 $ but only before a stressed syllabic
@@ -3017,9 +3016,7 @@ $ However this does not occur in the clusters of jẽ and wẽ until the early 1
 $ Accepted by Tabourot (1587) and Lyttelton (1566) 
 $ and attributed early to Parisians by Bovelles (1533) --
 	$ -- though ĩ retained late in Northwest (while Burgundy has lowering early)
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / # __ 
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+cons] __ 
-[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / [+syl] __ 
+[+front,-lo,+nas,+syl,-round] > [-hi,-tense] / # ((@)* [usyl,-ucons]) __ 
 
 $ s467-468 : denasalization of ɛ̃ (from ɛ̃j̃, ĩ, ãj̃, and ẽj̃) in mid to late 16th century
 $ attested in Lyttelton 1566 (s468)
@@ -3123,7 +3120,7 @@ $ CORRECTION j also is inserted between i and a following vowel if the ˌi is af
 
 $ s395 : r becomes a glide in certain positions... 
 $ r "losing its trill" (in the index, Pope explicitly attributes the destination as ɹ)
-r > ɹ / [-cons] __ {#;[+cons]}
+r > ɹ / [-cons] __ ([+cons] (@)*) #
 
 $ s400-401 : final r deletion 
 $ began in sixteenth century but successfully reversed by sociolinguistic interference (prestigious restoration) 
@@ -3298,4 +3295,4 @@ $ CORRECTION: final schwa deletion does not occur for lexical citation forms in 
 ə > ∅ / [+syl] ([-syl])* __ #
 ə > ∅ / __ [+syl]
 ə > ∅ / [+syl] __
-$ ə > ∅ / {#;[+syl]} [-syl] __ [-syl] {#;[+syl]}
+$ ə > ∅ / # ((@)* [+syl]) [-syl] __ [-syl] ([+syl] (@)*) #
