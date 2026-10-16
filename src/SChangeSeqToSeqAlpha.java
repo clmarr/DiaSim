@@ -49,10 +49,17 @@ public class SChangeSeqToSeqAlpha extends SChangeSeqToSeq{
 			int p_if_match_fail = p; 
 			boolean targMatchFail = false; // for halting the for-loop.
 			// i -- place in targ source abstraction. 
-			for (int i = 0 ; i < minInputSize && !targMatchFail ; i++)
+			int nullInputsPassed = 0; // need to count past null spots in the input so mapping is done correctly.
+			
+			for (int i = 0 ; i < minInputSize + nullInputsPassed && !targMatchFail ; i++)
 			{
-				SequentialPhonic cand = input.get(p+i);
+				SequentialPhonic cand = input.get(p+i-nullInputsPassed);
 				RestrictPhone test = targSource.get(i);
+				
+				if (test.print().equals(UTILS.NULL_PH_SYMB+""))
+				{
+					nullInputsPassed++; continue;
+				}
 				
 				if(!cand.getType().equals("phone"))
 					targMatchFail = !cand.print().equals(test.print()) ;
