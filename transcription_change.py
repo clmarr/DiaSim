@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(
 parser.add_argument("-f","--file", help="Lexicon file in which to carry out the change", default=False)
 parser.add_argument("-s","--stage", help="Name of at which to carry out the transcription change", default=False)
 parser.add_argument("--stage_file", help="File with stage names on each line in order", default=False)
-parser.add_argument("-c","--column", help="(stage) Column (number) in which to carry out the transcription change", default=False, type=int)
+parser.add_argument("-c","--column", help="(stage) Column (number) in which to carry out the transcription change", default=-1, type=int)
 parser.add_argument("-m","--mutandum", help="The phoneme for which transcription is being changed", default=False)
 parser.add_argument("-r","--result", help="The new transcription for this phoneme", default=False)
 parser.add_argument("-n","--numcols", default=False)
@@ -28,7 +28,7 @@ if UTILS.LEX_DELIM in args.result or UTILS.CMT_FLAG in args.result:
 f = open(args.file, encoding="utf-8")
 header = ""
 while len(header.strip()) == 0 :
-    header = f.readline()
+    header = f.readline().split(UTILS.CMT_FLAG)[0]
 
 headed_by_header = header[0] == UTILS.HEADER_FLAG
 if headed_by_header:
@@ -47,7 +47,7 @@ if args.stage_file:
 
 if single_column_lex:  # then have to be using only one column and that's the stage
     # can't be output
-    if args.stage == UTILS.STAGES[-1]:
+    if False if len(UTILS.STAGES) < 1 else args.stage == UTILS.STAGES[-1]:
         raise Exception("Error: can't use output stage for file with only one column...")
     args.numcols = 1
     args.column = 0
@@ -56,10 +56,10 @@ if single_column_lex:  # then have to be using only one column and that's the st
         if header != args.stage:
             raise Exception("Error: set stage as '" + args.stage + "' but only stage in header is " + header)
 
-if not args.column and not args.stage and not single_column_lex:
+elif args.column == -1 and not args.stage and not single_column_lex:
     raise Exception("Error: need to specify stage (-s) or column (-c)!")
 
-if not args.column and not single_column_lex:
+elif args.column == -1 and not single_column_lex:
 
     args.stage = args.stage.strip()
     if args.stage not in UTILS.STAGES:
@@ -83,5 +83,11 @@ if not args.column and not single_column_lex:
         if args.stage not in UTILS.STAGES:
             raise Exception("Error: set stage but there's no header and the stage set ('"+args.stage+"') is not a globally specified stage!")
         args.column = UTILS.STAGES.index(args.stage)
+
+else: # need to set numcols
+    first_col_line = header
+    while UTILS.LEX_DELIM not in first_col_line:
+        first_col_line = f.readline().split(UTILS.CMT_FLAG)[0]
+    args.numcols = len(first_col_line.split(UTILS.LEX_DELIM))
 
 UTILS.change_transcription(args.file, args.column, args.mutandum, args.result, n_cols = args.numcols)

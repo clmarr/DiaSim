@@ -143,7 +143,7 @@ def col_check_report(file, ncols=False, verbose=False):
         lines = [line for line in f.readlines() if len(line.strip()) > 0]
         f.close()
         for eri in error_rows:
-            print(str(eri) + ": " + lines[eri][:lines[eri].index(CMT_FLAG)])
+            print(str(eri) + ": " + lines[eri].split(CMT_FLAG)[0])
 
     return len(error_rows) > 0
 
@@ -230,7 +230,7 @@ def change_transcription(f, c, m, r, n_cols=False):
         raise Exception("Tried to change a transcription in a file with inconsistent columns. Should have " + str(
             n_cols) + " columns. Aborting for security purposes.")
 
-    vars = [f, c, m, r]
+    vars = [f, c != -1, m, r]
     if False in vars:
         raise Exception("Error: "
                         + ["file", "column", "mutandum", "result"][vars.index(False)] + " left unspecified!")
