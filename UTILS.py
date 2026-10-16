@@ -392,11 +392,10 @@ def insert_empty_stage(position, name, lex, out, stagefile=False):
         li+=1
 
     if stripCmt(lexlines[li]).find(HEADER_FLAG) == 0:  # header
-        ogHeader = lexlines[li].strip().split(CMT_FLAG)[0]
+        ogHeader = lexlines[li].split(CMT_FLAG)[0].split(HEADER_FLAG)[1].strip().split(HEADER_DELIM)
         cmt = "" if CMT_FLAG not in lexlines[li] else lexlines[li][lexlines[li].find(CMT_FLAG)+len(CMT_FLAG):].strip()
 
-        ogHeader = ogHeader.split(HEADER_DELIM)
-        lexlines[li] = (HEADER_DELIM.join(ogHeader[:position] + [name] + ogHeader[position:] )
+        lexlines[li] = HEADER_FLAG + (HEADER_DELIM.join(ogHeader[:position] + [name] + ogHeader[position:] )
                         + ( "" if cmt.strip() == "" else " "+ CMT_FLAG + cmt)) + "\n"
         li+=1
     else: #there was no header
