@@ -18,17 +18,6 @@ public class Simulation {
 	private String[] goldStageNames, blackStageNames, columnedStageNames;
 	private String inputStageName;
 	
-	//black to columned index: get the columned black index from the black index. 
-		// probably unnecessary tho bc columnedBlackStageBlackIndices.getIndexOf can do its job. 
-	private int[] blackToColumnedIndex; 
-	// for each black stage index, among the black stage arrays, 
-		// gives the columned stage index if it is columned.
-	// if uncolumned (default), contains -1. 
-	private void initBlackToColumnedIndex() {	
-		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
-		for (int bci = 0; bci < NUM_BLACK_STAGES; bci++)	blackToColumnedIndex[bci] = -1; 
-	}
-	
 	
 	private int NUM_ETYMA; 
 	private int NUM_GOLD_STAGES, NUM_BLACK_STAGES, NUM_COLUMNED_BLACK_STAGES;
@@ -222,8 +211,6 @@ public class Simulation {
 				cbsfi++; 
 			}
 		}
-		
-		initBlackToColumnedIndex();	
 	}
 	
 	public void setBlackStages(String[] names, int[] times)
@@ -242,6 +229,20 @@ public class Simulation {
 	public void setBlackInstants(int[] times)	{	blackStageInstants = times;	}	
 	
 	public void setStepPrinterval(int newsp)	{	stepPrinterval = newsp;	}
+	
+
+	/**
+	 * given a black stage index,
+	 * @return -1 if @uncolumned
+	 * otherwise @return index in columned black stage structures
+	 * @prerequisite columnedBlackStageBlackIndices is initialized, NUM_BLACK_STAGES is initialized
+	 */
+	public int blackToColumnedIndex(int blackInd) {
+		if (blackInd < 0 || blackInd >= NUM_BLACK_STAGES)
+			throw new Error("Error: tried to get columned index for a black stage number that does not exist: "+blackInd+". There are "+NUM_BLACK_STAGES+" black stages.");
+		
+		return columnedBlackStageBlackIndices.indexOf(blackInd);
+	}
 	
 	public void iterate()
 	{
@@ -321,7 +322,7 @@ public class Simulation {
         		
         		if (type == 'B') 	// columned black stage!
         			currLexicon.updateAbsence(
-        				columnedBlackStageLexica[columnedBlackStageBlackIndices.indexOf(blackStageInd)].getWordList() );
+        				columnedBlackStageLexica[blackToColumnedIndex(blackStageInd)].getWordList() );
         		
         		blackStageInd++;
         	}
@@ -365,7 +366,7 @@ public class Simulation {
 		
 		boolean isCB = insertionStage.charAt(0)  == 'B' ; 
 		int sNum = Integer.parseInt(insertionStage.substring(1)); 
-		if (isCB)	sNum = columnedBlackStageBlackIndices.indexOf(sNum);// because index in columnedBlackStages != in blackStages
+		if (isCB)	sNum = blackToColumnedIndex(sNum);// because index in columnedBlackStages != in blackStages
 		
 		return (isCB ? columnedBlackStageLexica : goldStageGoldLexica)[sNum].getByID(id); 
 	}
@@ -404,7 +405,7 @@ public class Simulation {
 			if (!"GB".contains(stagesOrdered[soi].substring(0,1)))	continue;
 			boolean isCB = stagesOrdered[soi].charAt(0) == 'B'; 
 			int sNum = Integer.parseInt(stagesOrdered[soi].substring(1));
-			if (isCB)	sNum = columnedBlackStageBlackIndices.indexOf(sNum);
+			if (isCB)	sNum = blackToColumnedIndex(sNum);
 			ogInput = (isCB ? columnedBlackStageLexica : goldStageGoldLexica)
 					[sNum].getByID(id); 
 			if (UTILS.etymonIsPresent(ogInput))	return stagesOrdered[soi]; 
@@ -421,15 +422,40 @@ public class Simulation {
 	public Lexicon getStageResult(boolean goldnotblack, int stagenum)
 	{	return (goldnotblack ? goldStageResultLexica : blackStageResultLexica)[stagenum];	}
 	
-	public Lexicon getStageInput(boolean goldnotblack, int stagenum)
-	{	return (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[stagenum];	}
-	
-	public Lexicon getStageResultPlusInsertions(boolean goldnotblack, int stagenum)
+	// if not gold, must be columned black 
+		// TODO make sure to control for the stage number of columned black stages : black index is not index in columned black stage structures
+	/**
+	 * getStageInput	 
+	 * @param stageIndic = G/B/b + number out of all gold or out of all black stages. Capitals if columns. Special treatment for columned black stage applies
+	 * @return input for this columned stage
+	 */
+	public Lexicon getStageInput(String stageIndic) 
+	{	
+		boolean goldnotblack = stageIndic.charAt(0) == 'G'; 
+		int stagenum = Integer.parseInt(stageIndic.substring(1)); 
+		return goldnotblack ? goldStageGoldLexica[stagenum] : columnedBlackStageLexica[blackToColumnedIndex(stagenum)];	
+	}
+
+	/**
+	 * getStageResultPlusInsertions
+	 * @param stageIndic = G/B/b + number out of all gold or out of all black stages. Capitals if columns. Special treatment for columned black stage applies
+	 * @return lexicon with results of CFR to the point of the stage indicated, plus any words inserted at that point.
+	 */
+	public Lexicon getStageResultPlusInsertions(String stageIndic)
 	{
+		boolean goldnotblack = stageIndic.charAt(0) == 'G'; 
+		int stagenum = Integer.parseInt(stageIndic.substring(1)); 
 		Etymon[] etymList = getStageResult(goldnotblack,stagenum).getWordList();
-		for (int etli = 0 ; etli < NUM_ETYMA ; etli++)
-			if ( !UTILS.etymonIsPresent(etymList[etli])) 
-				etymList[etli] = (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[stagenum].getByID(etli); 
+		
+		if (stageIndic.charAt(0) != 'b') // if stage is columned, there may be insertions. If uncolumned black, there will not. 
+		{	
+			// index within columned structures. Same if gold, specific to columnedBlack if col black
+			int colStageNum = goldnotblack ? stagenum : blackToColumnedIndex(stagenum); 
+				
+			for (int etli = 0 ; etli < NUM_ETYMA ; etli++)
+				if ( !UTILS.etymonIsPresent(etymList[etli])) 
+					etymList[etli] = (goldnotblack ? goldStageGoldLexica : columnedBlackStageLexica)[colStageNum].getByID(etli); 
+		}
 		return new Lexicon(etymList); 
 	}
 	
@@ -499,7 +525,7 @@ public class Simulation {
 				int stn = Integer.parseInt(st.substring(1)); 
 				to_return += 
 						(insertHere ? (isg ? goldStageGoldLexica[stn]
-											: columnedBlackStageLexica[columnedBlackStageBlackIndices.indexOf(stn)])
+											: columnedBlackStageLexica[blackToColumnedIndex(stn)])
 								: (isg ? goldStageResultLexica 
 											: blackStageResultLexica)[stn]).getByID(index);
 				if (isg)	to_return += " {GOLD: "+goldStageGoldLexica[stn].getByID(index)+"}"; 

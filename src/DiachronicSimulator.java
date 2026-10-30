@@ -1700,8 +1700,8 @@ public class DiachronicSimulator {
 						}
 						else if ("b".equalsIgnoreCase(""+resp.charAt(0)))
 						{
+							pivPtLex = theSimulation.getStageResultPlusInsertions(resp);
 							int si = Integer.parseInt(resp.substring(1));
-							pivPtLex = theSimulation.getStageResultPlusInsertions(false, si);
 							pivPtLoc = blackStageInstants[si];
 							pivPtName = blackStageNames[si]+" [r"+pivPtLoc+"]";
 							//pivPtIsGoldOrInput = false; 
@@ -1709,8 +1709,8 @@ public class DiachronicSimulator {
 						}
 						else if (resp.length() < 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@b"))
 						{
+							pivPtLex = theSimulation.getStageInput(resp.substring(3)); 
 							int cbsi = blackToColumnedIndex[Integer.parseInt(resp.substring(4))]; 
-							pivPtLex = theSimulation.getStageInput(false, cbsi); 
 							pivPtLoc = columnedBlackStageInstants[cbsi]; 
 							pivPtName = columnedBlackStageNames[cbsi]+" [r"+pivPtLoc+"]";
 							ea.setPivot(pivPtLex, pivPtName); 
@@ -2057,12 +2057,11 @@ public class DiachronicSimulator {
 							fpsi++; 
 							String currSt = stageOrdering[fpsi]; 
 							if (currSt.charAt(0) == 'b')	continue;  
-							boolean goldHere = currSt.charAt(0) == 'G'; /// else B 
-							int stageNum = Integer.parseInt(currSt.substring(1)); 
-							firstPrintStage = new Lexicon ( theSimulation.getStageInput(goldHere, stageNum)); 
+							boolean goldHere = currSt.charAt(0) == 'G'; /// else B
+							firstPrintStage = new Lexicon ( theSimulation.getStageInput(currSt));  
 							firstPrintStageName = 
 									(goldHere ? theSimulation.getGoldStageNames()
-											: theSimulation.getBlackStageNames() )[stageNum]; 
+											: theSimulation.getBlackStageNames() )[Integer.parseInt(currSt.substring(1))]; 
 						}
 						lexCols.add(firstPrintStage); 
 						
@@ -2088,7 +2087,7 @@ public class DiachronicSimulator {
 							int stageNum = Integer.parseInt(currSt.substring(1)); 
 							headerRow += UTILS.append_space_to_x(
 									(goldHere ? goldStageNames : blackStageNames)[stageNum], 19) + "|"; 
-							lexCols.add(theSimulation.getStageResultPlusInsertions(goldHere, stageNum)); 
+							lexCols.add(theSimulation.getStageResultPlusInsertions(currSt)); 
 						}
 						
 						if (ea.isPivotSet() && !pivot_inserted) {
