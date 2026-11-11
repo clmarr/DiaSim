@@ -1,6 +1,7 @@
 # README.CLEF :
 
 This file details the construction of the cascade files BaseCLEF, BaseCLEF*/BaseCLEFstar, DiaCLEF, and DiaCLEF2024. 
+As of 2026, the "-2024" files such as DiaCLEF2024 have been removed from the repository DiaSim, but are retained on the repository clmarr/french-cfr.
 While BaseCLEF, BaseCLEF*, and DiaCLEF have been covered in existing published work (Marr & Mortensen 2020, 2023), this file is at the time of writing the only dedicated treatment pertaining to how DiaCLEF2024 was built. 
 Inasmuch as each item in the list above from BaseCLEF to DiaCLEF2024 was constructed using the previous item as its starting point, this file will also proceed in that order, with the implied understanding that unchanged aspects are `inherited' by descendent files. 
 For example, since the periodization scheme present in BaseCLEF (based on that of Pope 1934) was not changed, it applies to all cascades directly or indirectly built from BaseCLEF as the original starting point, all the way `down' to DiaCLEF2024. 
