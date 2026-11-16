@@ -1099,7 +1099,7 @@ public class DiachronicSimulator {
 			theLine = commented ? theLine.substring(0,theLine.indexOf(UTILS.CMT_FLAG)).trim() : theLine; 
 			
 			if(/**lfli <NUM_ETYMA && */numCols != UTILS.countColumns(theLine))
-				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli+".\nThe line: "+theLine);
+				throw new RuntimeException("ERROR: incorrect number of columns in line "+lfli+".\nThe line: "+theLine+ " $"+commentContents);
 			
 			int custIDstart = (commented && UTILS.USE_FORM_ID) ? commentContents.indexOf(UTILS.FORM_ID_FLAG+"") : -1; 
 			
