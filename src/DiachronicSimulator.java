@@ -2417,7 +2417,7 @@ public class DiachronicSimulator {
 			else if (arg.equals("-simple_FED"))
 				UTILS.contextualize_FED = false; 
 			
-			else if (arg.equalsIgnoreCase("-use_form_ID"))
+			else if (arg.equalsIgnoreCase("-use_form_ID") || arg.equalsIgnoreCase("-form_ID"))
 				UTILS.USE_FORM_ID = true; 
 			
 			// nothing placed afterward -- triggers stage debugging printouts. 

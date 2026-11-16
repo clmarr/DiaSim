@@ -55,7 +55,7 @@ public class UTILS {
 	public final static int maxAutoCommentWidth = 150;
 	public static final int PRINTERVAL = 100; 
 	
-	public static final String BLUETEXT = "\u001B[34m"; 
+	public static final String BLUETEXT = "\u001B[36m"; //"\u001B[34m"; -- too dark though. 
 	public static final String GREENTEXT = "\u001B[32m";
 	public static final String RESETTEXT = "\u001B[0m"; 
 	public static final String REDTEXT = "\u001B[31m"; 
@@ -1854,7 +1854,7 @@ public class UTILS {
 					// catching that here. 
 				
 				if (restOfPhone.contains(candDiacrit) && !candDiacrit.equals("ː")) 
-					System.out.println("Warning: redundant diacritic (' "+candDiacrit+" ') detected in hitherto unseen diacriticized symbol <"+unseenSymb+">."); 
+					System.out.println(REDTEXT + "Warning: redundant diacritic (' "+candDiacrit+" ') detected in hitherto unseen diacriticized symbol <"+unseenSymb+">." + RESETTEXT); 
 				
 				diacritsFound.add(candDiacrit);
 				
@@ -1885,10 +1885,10 @@ public class UTILS {
 					// deal with any induced feature conflicts... 
 					String conflictedFeats = detectDiacritFeatConflicts(totalDiacrits,true); 
 					
-					if( conflictedFeats.length() != 0)  System.out.println("Warning: diacritics used in the hitherto unseen symbol "
+					if( conflictedFeats.length() != 0)  System.out.println(REDTEXT + "Warning: diacritics used in the hitherto unseen symbol "
 							+ "' "+unseenSymb+" ' "
 								+ "appear to involve a conflict for the specification of the following features:\n\t"
-								+conflictedFeats);
+								+conflictedFeats + RESETTEXT);
 							
 					// apply the features. Note they are applied in the order the diacritics were detected...
 					for (String fsi : featSpecSetsPerDiacrit)	
@@ -2026,7 +2026,7 @@ public class UTILS {
 		// add feats to symb to the reverse map, potentially usurping the default symbol mapped to in doing so 
 		// (most recently seen symbol is one being used in current gold set, so this makes sense). 
 		if (/*VERBOSE && */ featsToSymbMap.containsKey(vect)) 
-			System.out.println("Warning: The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'"); 
+			System.out.println(BLUETEXT + "Warning: The symbol ' "+featsToSymbMap.get(vect)+" ' is usurped as the default print of its feature vector by ' "+symb+"'" + RESETTEXT ); 
 		featsToSymbMap.put(vect,symb); 
 		
 		System.out.println("Defined new symbol '"+symb+"', for features : "+spellOutFeatVect(vect,true)   ); 

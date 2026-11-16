@@ -11,11 +11,7 @@ import java.util.Collections;
 
 public class ErrorAnalysis {
 	
-	//TODO summer 2023 run through this class and update for insertion/removal of etyma, but also make sure everything is clear
-	// TODO investigate: is the "Infinite" rate report noted in early summer still occurring (I think not, but best to check.)  
-	
-	//TODO decide on what morphosyntactic analyses to perform
-	// TODO implement them... -- probably fall 2023 or winter	
+	// TODO investigate: is the "Infinite" rate report noted in early summer 2023 still occurring (I think not, but best to check.)  
 	
 	private double PHI_SMOOTHING() 	//1/19 ,which will make max phi into 0.9, or the 1/subsamp size -- whichever is lower. 
 		{	return 1.0 / Math.max(19, FILTER_SUBSAMP.length); 	}
