@@ -496,10 +496,6 @@ public class DiachronicSimulator {
 		}
 		
 		//the stage being decolumned+blackened was reached. 
-		
-		//TODO debugging
-		System.out.println("reached stage to blacken, gsi "+gsi); 
-		
 		blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
 		blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
 		blackToColumnedIndex[bsloc] = -1; /**  the former gold stages is now a noncolumned black stage -- it became "Decolumned" 
@@ -725,7 +721,6 @@ public class DiachronicSimulator {
 			if ("b".equalsIgnoreCase(prefix)) NUM_BLACK_STAGES++; 
 			if ("B".equals(prefix)) NUM_COLUMNED_BLACK_STAGES++; 
 			if ("G".equalsIgnoreCase(prefix)) NUM_GOLD_STAGES++; 	
-			 
 		}
 		allStageInstants = newAllStageInstants; 
 		
@@ -749,6 +744,7 @@ public class DiachronicSimulator {
 		for (String nStage_i : newStageOrdering) 
 		{
 			int asi = new_bsi+new_gsi; //all stage index
+			
 			String prefix = nStage_i.substring(0,1);
 			int subtyped_stage_index = Integer.parseInt(nStage_i.substring(1)); 
 			boolean isBlack = "b".equalsIgnoreCase(prefix), isGold = "G".equals(prefix), isColumned = "BG".contains(prefix); 
@@ -756,7 +752,7 @@ public class DiachronicSimulator {
 			
 			stageOrdering[asi] = prefix + (isBlack ? new_bsi : new_gsi); 
 			allStageNames[asi] = stageName_here;
-				
+			
 			if(isColumned) //columned
 			{
 				assert "BG".contains(prefix): "Alert -- irregular prefix in stageOrdering["+(asi+newInputStageIndex+1)+"] : "+nStage_i;;
@@ -785,7 +781,7 @@ public class DiachronicSimulator {
 			}
 		}
 		
-		blackStageNames = newBlackStageNames; goldStageNames = newGoldStageNames; 
+		blackStageNames = newBlackStageNames; goldStageNames = newGoldStageNames;
 	}
 	
 	/** coordinateColumns
@@ -869,8 +865,8 @@ public class DiachronicSimulator {
 				retrieveStageOrderingIndexByName(inputName); 
 			
 			if ( startStageIndex != -1 )  {
-				System.out.println("Intermediate stage "+allStageNames[startStageIndex]+" (at instant "+allStageInstants[startStageIndex]+") "
-						+ "is now the start stage! Beware: everything before it will be ignored."); 
+				System.out.println(UTILS.BLUETEXT + "Intermediate stage "+allStageNames[startStageIndex]+" (at instant "+allStageInstants[startStageIndex]+") "
+						+ "is now the start stage! Beware: everything before it will be ignored." + UTILS.RESETTEXT); 
 				subsetCascade(startStageIndex,-1);
 			}
 			
@@ -1437,9 +1433,11 @@ public class DiachronicSimulator {
 	{
 		if(blackStagesSet)
 		{	for(int bsi = first; bsi < last + 1; bsi++)
-			{	System.out.println("b"+bsi+": "+
+			{	
+				String indic = (theSimulation.blackStageIsColumned(bsi) ? "B" : "b") + bsi;
+				System.out.println(indic+": "+
 					blackStageNames[bsi]+" (@rule #: "+blackStageInstants[bsi]+")"
-					+ (theSimulation.blackStageIsColumned(bsi) ? "     {for forms inserted here: in@B"+bsi+")" : ""));
+					+ (theSimulation.blackStageIsColumned(bsi) ? "   {"+indic+" for results; in@"+indic+" for insertions}" : ""));
 			}
 		}
 	}
@@ -1449,7 +1447,8 @@ public class DiachronicSimulator {
 		if(goldStagesSet)
 			for(int gsi = firstToPrint; gsi < lastToPrint + 1; gsi++)
 				System.out.println("G"+gsi+": "+
-					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageInstants[gsi]+")");
+					goldStageNames[gsi]+" gold forms (@rule #: "+goldStageInstants[gsi]+")"
+					+ "     {for forms inserted here: in@G"+gsi+"}");
 	}
 	
 	private static List<String> validBlackStageOptions(int first, int last, boolean prepend)
@@ -1470,7 +1469,11 @@ public class DiachronicSimulator {
 		List<String> out = new ArrayList<String>();
 		
 		if (goldStagesSet)
-			for (int oi = first; oi < last+1; oi++)	out.add((prepend ? "g":"")+oi);
+			for (int oi = first; oi < last+1; oi++)	{
+				out.add((prepend ? "g":"")+oi);
+				if (prepend)
+				{	out.add("G"+oi); out.add("in@g"+oi); out.add("in@G"+oi);}
+			}
 		
 		return out;
 	}
@@ -1709,10 +1712,18 @@ public class DiachronicSimulator {
 						}
 						else if (resp.length() < 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@b"))
 						{
-							pivPtLex = theSimulation.getStageInput(resp.substring(3)); 
+							pivPtLex = theSimulation.getStageInput(resp.substring(3), true); 
 							int cbsi = blackToColumnedIndex[Integer.parseInt(resp.substring(4))]; 
 							pivPtLoc = columnedBlackStageInstants[cbsi]; 
 							pivPtName = columnedBlackStageNames[cbsi]+" [r"+pivPtLoc+"]";
+							ea.setPivot(pivPtLex, pivPtName); 
+						}
+						else if (resp.length() < 5 ? false : resp.substring(0,4).equalsIgnoreCase("in@g"))
+						{
+							pivPtLex = theSimulation.getStageInput(resp.substring(3), true); 
+							int si = Integer.parseInt(resp.substring((4))); 
+							pivPtLoc = goldStageInstants[si]; 
+							pivPtName = goldStageNames[si]+" [r"+pivPtLoc+"]";
 							ea.setPivot(pivPtLex, pivPtName); 
 						}
 						else if (resp.charAt(0) == 'R')

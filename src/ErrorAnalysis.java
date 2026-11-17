@@ -313,10 +313,12 @@ public class ErrorAnalysis {
 	/**
 	 * @param newPiv -- pivot lexicon
 	 * @param piv_name -- name of it
+	 * @param insertionsOnly -- if true, will only consider etyma inserted at this stage -- must be a columned stage. 
 	 * note pivot aspects calculated also for etyma that are present in pivot but not in the eval samp (which is only if inherited in RES, not pseudo in GOLD). 
 	 * 		must be filtered later. 
 	 */
-	public void setPivot(Lexicon newPiv, String piv_name)
+	public void setPivot(Lexicon np, String pn)	{	setPivot(np,pn,false); 	}
+	public void setPivot(Lexicon newPiv, String piv_name, boolean insertionsOnly)
 	{
 		PIV_PT_LEX = newPiv; 
 		pivotPhInventory = newPiv.getPhonemicInventory(false);

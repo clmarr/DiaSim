@@ -430,14 +430,25 @@ public class Simulation {
 	/**
 	 * getStageInput	 
 	 * @param stageIndic = G/B/b + number out of all gold or out of all black stages. Capitals if columns. Special treatment for columned black stage applies
+	 * @param insertsOnly = filter out any words that are not INSERTED at this stage, strictly. 
 	 * @return input for this columned stage
 	 */
-	public Lexicon getStageInput(String stageIndic) 
+	public Lexicon getStageInput(String stageIndic, boolean insertsOnly) 
 	{	
 		boolean goldnotblack = stageIndic.charAt(0) == 'G'; 
 		int stagenum = Integer.parseInt(stageIndic.substring(1)); 
-		return goldnotblack ? goldStageGoldLexica[stagenum] : columnedBlackStageLexica[blackToColumnedIndex(stagenum)];	
+		Etymon[] wordsOut = ( goldnotblack ? goldStageGoldLexica[stagenum] : columnedBlackStageLexica[blackToColumnedIndex(stagenum)]).getWordList();
+		if (insertsOnly)
+		{
+			// remove all items present before this stage
+			for (int presentEtIndex : (goldnotblack ? goldStageResultLexica[stagenum] : blackStageResultLexica[stagenum]).IDsWithPresentEtyma())
+			{
+				wordsOut[presentEtIndex] = new PseudoEtymon(UTILS.UNATTD_GOLD_INDIC);
+			}
+		}
+		return new Lexicon(wordsOut);
 	}
+	public Lexicon getStageInput(String stageIndic)	{	return getStageInput(stageIndic, false);	}
 
 	/**
 	 * getStageResultPlusInsertions
