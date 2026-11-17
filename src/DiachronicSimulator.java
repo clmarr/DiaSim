@@ -75,6 +75,7 @@ public class DiachronicSimulator {
 		no_feat_impls, no_symb_diacritics, skip_file_creation, VERBOSE, halt_at_gold; 
 	
 	private static int goldStageInd, blackStageInd; 
+	//index IN THE ARRAYS that the next stage to look for will be at. These iterate as we pass a gold or black stage respectively.
 	
 	private static List<SChange> CASCADE;
 	private static Simulation theSimulation; 
@@ -419,10 +420,10 @@ public class DiachronicSimulator {
 	/** 
 	 * changes one gold stage to a UNCOLUMNED black stage (then recolumend if @param to_columned = true)
 		*modifying @global variables and data structures as appropriate. 
-	 * @param int gsi -- the index in GOLD data structures of the stage we are blackening (and decolumning, perhaps recolumning)
+	 * @param int gsi -- the index in GOLD data structures of the stage we are blackening (and decolumning -- or recolumning i.e. treating as still columned)
 	 * @param boolean to_columned -- if it is to be (re)columned. As it is done currently, for ease of coding if not computation. 
 	 * @destructive modification to all @global organizing arrays for black, gold, and columned (But not specifically columned black) stages
-	 * reworking from mid March 2025... TODO may need to be checked for possible stray errors introduced. 
+	 * reworked in mid March 2025 and November 2026... TODO may need to be checked for possible stray errors introduced. 
 	 */
 	private static void blackenGoldStage(int gsi, boolean to_columned)
 	{
@@ -439,37 +440,29 @@ public class DiachronicSimulator {
 		oldColumnedStageInstants = new int[NUM_COLUMNED_STAGES()]; oldColumnedStageNames = new String[NUM_COLUMNED_STAGES()];
 		
 		if (columnedStagesSet()) {
-			for (int ci = 0 ; ci < NUM_COLUMNED_STAGES(); ci++)
-			{
-				oldColumnedStageInstants[ci] = columnedStageInstants[ci];
-				oldColumnedStageNames[ci] = columnedStageNames[ci]; 
-			}
+			for (int ci = 0 ; ci < NUM_COLUMNED_STAGES(); ci++) {
+				oldColumnedStageInstants[ci] = 0 + columnedStageInstants[ci]; oldColumnedStageNames[ci] = "" + columnedStageNames[ci]; }
 			if (goldStagesSet)
 			{	for (int gi = 0; gi < NUM_GOLD_STAGES; gi++)
-				{	oldGoldStageInstants[gi] = goldStageInstants[gi]; oldGoldStageNames[gi] = goldStageNames[gi]; 	
+				{	oldGoldStageInstants[gi] = 0 + goldStageInstants[gi]; oldGoldStageNames[gi] = "" + goldStageNames[gi]; 	
 			}}
 		}
-		if (blackStagesSet)
-		{ 	
-			for (int bi = 0; bi < NUM_BLACK_STAGES; bi++)
-			{
-				oldBlackStageInstants[bi] = blackStageInstants[bi];
-				oldBlackStageNames[bi] = blackStageNames[bi];
+		if (blackStagesSet) { 	
+			for (int bi = 0; bi < NUM_BLACK_STAGES; bi++) {
+				oldBlackStageInstants[bi] = blackStageInstants[bi]; oldBlackStageNames[bi] = blackStageNames[bi];
 				oldBlackToColumnedIndex[bi] = blackToColumnedIndex[bi]; 
-			}
-		}
+			}}
 		
 		NUM_GOLD_STAGES--;	NUM_BLACK_STAGES++;
 		if (NUM_BLACK_STAGES == 1)	blackStagesSet = true;
 		if (NUM_GOLD_STAGES == 0)	goldStagesSet = false; 
 		
-		goldStageNames = new String[NUM_GOLD_STAGES]; // recall NUM_GOLD_STAGES is one less
-		goldStageInstants = new int[NUM_GOLD_STAGES]; 
-		blackStageNames = new String[NUM_BLACK_STAGES];// recall NUM_GOLD_STAGES is one more
-		blackStageInstants = new int[NUM_BLACK_STAGES]; 
+		goldStageNames = new String[NUM_GOLD_STAGES]; goldStageInstants = new int[NUM_GOLD_STAGES];  // recall NUM_GOLD_STAGES is one less
+		
+		blackStageNames = new String[NUM_BLACK_STAGES]; blackStageInstants = new int[NUM_BLACK_STAGES]; // recall NUM_BLACK_STAGES is one more 
 		blackToColumnedIndex = new int[NUM_BLACK_STAGES]; 
-		columnedStageNames = new String[NUM_COLUMNED_STAGES()];
-		columnedStageInstants = new int[NUM_COLUMNED_STAGES()];
+		columnedStageNames = new String[NUM_COLUMNED_STAGES()]; columnedStageInstants = new int[NUM_COLUMNED_STAGES()];
+			// NUM_COLUMNED_STAGES() will now return a value one less than before. 
 		
 		int soi = 0, bsloc = 0, csi = 0; //stage ordering, black stage, and columned stage indices. 
 		while ( !stageOrdering[soi].equals("G"+gsi) ) //while looping, stage being blackened+decolumned not yet reached. 
@@ -501,22 +494,29 @@ public class DiachronicSimulator {
 			if (soi >= stageOrdering.length)	
 				throw new RuntimeException("ERROR: the stage we are decolumning and blackening was never found in stageOrdering!") ;
 		}
+		
 		//the stage being decolumned+blackened was reached. 
+		
+		//TODO debugging
+		System.out.println("reached stage to blacken, gsi "+gsi); 
+		
 		blackStageNames[bsloc] = oldGoldStageNames[gsi] ; 
 		blackStageInstants[bsloc] = oldGoldStageInstants[gsi] ;
-		blackToColumnedIndex[bsloc] = -1; // the former gold stages is now a noncolumned black stage -- it became "Decolumned" 
-			// -- so it is -1 in this array as per its construction. 
+		blackToColumnedIndex[bsloc] = -1; /**  the former gold stages is now a noncolumned black stage -- it became "Decolumned" 
+				* so it is -1 in this array as per its construction. 
+				* if @argument to_columned is @true, it will later be "RECOLUMNED" */
 		stageOrdering[soi] = "b"+bsloc;
 		int newBlackLoc = bsloc; 
 	
-		int isg = gsi;  //csi also remains same value. 
+		int isg = gsi; // from now on, index in new gold structures is one less than index in old gold structures. It will now be counting up 
+		//csi also remains same value, but the same will apply, since the black stage was decolumned!
 		soi++; bsloc++; // bsloc now corresponds to the place after the next stage in the old black stage organizing arrays.
 		while (soi < stageOrdering.length) {
 			String prefix = stageOrdering[soi].substring(0,1); 
 			if ("GB".contains(prefix))
 			{
-				columnedStageNames[csi] = oldColumnedStageNames[csi]; 
-				columnedStageInstants[csi] = oldColumnedStageInstants[csi]; 				
+				columnedStageNames[csi] = oldColumnedStageNames[csi+1]; 
+				columnedStageInstants[csi] = oldColumnedStageInstants[csi+1]; 				
 				csi++; 
 			}
 			if(prefix.equals("G")) {  //gold stage number is now one less: -1 + it
@@ -814,7 +814,7 @@ public class DiachronicSimulator {
 	// TODO for protodelta -- need to make sure variables for columned stages include those that are given the black stage flag
 			// in the cascade file, but which have columns here...
 	// and TODO reformulate column stage and gold stage blackening aspects present here into a sorting of stages based on appropriate factors
-		// March 2025: implementation underway... extensive debugging in March nad April 2025, TODO is this satisfactory now? 
+		// extensive debugging in March and April 2025, and November 2025
 	// currently assuming first column is input and last is output
 		// as of July 1, 2025 -- if first column is the name of an intermediate stage flagged in the lexicon,
 		 * 	then that stage becomes the input stage
@@ -912,7 +912,7 @@ public class DiachronicSimulator {
 					if(stageOrdering[prevStageOrderIndex].substring(0,1).equals("G")) 
 					{	//decolumn and blacken the skipped gold stage
 						int goldStageInd = Integer.parseInt(stageOrdering[prevStageOrderIndex].substring(1)); 
-						System.out.println("Blackening (and decolumning) gold stage skipped over in header: "+
+						System.out.println("Blackening (and decolumning) gold stage skipped over in middle of header: "+
 								goldStageNames[goldStageInd]); 
 						blackenGoldStage(goldStageInd,false); 
 					}	
@@ -928,7 +928,7 @@ public class DiachronicSimulator {
 				if(stageOrdering[prevStageOrderIndex].substring(0,1).equals("G")) 
 				{	//decolumn and blacken the skipped gold stage
 					int goldStageInd = Integer.parseInt(stageOrdering[prevStageOrderIndex].substring(1)); 
-					System.out.println("Blackening (and decolumning) gold stage skipped over in header: "+
+					System.out.println("Blackening (and decolumning) gold stage skipped over near end of header: "+
 							goldStageNames[goldStageInd]); 
 					blackenGoldStage(goldStageInd,false); 
 				}	
@@ -1070,7 +1070,7 @@ public class DiachronicSimulator {
 		NUM_ETYMA = lexFileLines.size() - (firstlineproxy.charAt(0) == UTILS.BLACK_STAGENAME_FLAG ? 1 : 0); 
 		initStrForms = new String[NUM_ETYMA]; 
 		
-		//TODO handling of column stages should begin here, possibly within coordinateColumns.
+		// TODO NOTE handling of column stages should begin here, possibly within coordinateColumns.
 		coordinateColumns(firstlineproxy); 
 		
 		if (VERBOSE)
@@ -1186,7 +1186,7 @@ public class DiachronicSimulator {
 
 		goldStageInd = 0; blackStageInd=0;
 			//index IN THE ARRAYS that the next stage to look for will be at .
-		
+				// these iterate as we pass a gold or black stage respectively.
 		File dir = new File(""+runPrefix); 
 		if (!skip_file_creation) {
 			dir.mkdir(); 

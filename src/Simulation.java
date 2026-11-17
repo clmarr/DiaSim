@@ -295,8 +295,11 @@ public class Simulation {
 	        		" in stagesOrdered : '"+type+"'");
 			
 			int stNumber = Integer.parseInt(stagesOrdered[currStageInd].substring(1));
-			System.out.println("Reached stage : "+
-					(type == 'G' ? goldStageNames : blackStageNames)[stNumber]); 
+			System.out.println("Reached "
+					+ (type == 'G' ? "gold" : (type == 'B' ? "columned " : "") + "black")
+					+ " stage : "+
+					(type == 'G' ? goldStageNames : blackStageNames)[stNumber]
+					+ " (r"+instant+")"); 
 
 			
 			if ( type == 'G') //it's a gold stage.
